@@ -21,6 +21,7 @@ long MouseID=-1,MouseGridX=-1,MouseGridY=-1;
 long MouseMapX=-1,MouseMapY=-1;
 
 static void DrawMouseRect(IREBITMAP *dest, int x1,int y1, int x2, int y2, IRECOLOUR *col);
+static void CheckMouseRange(int mx, int my, int mousebuttonflag);
 
 
 // Funcs
@@ -157,7 +158,7 @@ for(ctr=0;ctr<MouseRanges;ctr++)
 
 void CheckMouseRanges()
 {
-int MX,MY,MB,a,ctr;
+int mx,my,mb,ctr;
 static IRECURSOR *mptr=NULL,*optr=NULL;
 
 MouseID=-1;
@@ -165,7 +166,7 @@ MouseID=-1;
 //ilog_printf("Check Mouse Range\n");
 
 // Grab the mouse coordinates (they are volatile may change)
-if(!IRE_GetMouse(&MX,&MY,NULL,&MB))
+if(!IRE_GetMouse(&mx,&my,NULL,&mb))
 	return; // No mouse
 
 // Nothing selected
@@ -179,83 +180,63 @@ mptr=NULL; // Assume default pointer
 
 // Do we need to check all the ranges for a mouse-over event?
 
-if(MouseOver && MouseOverPtr)
-	{
-	for(ctr=0;ctr<MouseRanges;ctr++)
-		if(MouseRange[ctr].pointer)
-			if(MX > MouseRange[ctr].left && MX < MouseRange[ctr].right)
-				if(MY > MouseRange[ctr].top && MY < MouseRange[ctr].bottom)
+if(MouseOver && MouseOverPtr) {
+	for(ctr=0;ctr<MouseRanges;ctr++) {
+		if(MouseRange[ctr].pointer) {
+			if(mx > MouseRange[ctr].left && mx < MouseRange[ctr].right) {
+				if(my > MouseRange[ctr].top && my < MouseRange[ctr].bottom) {
 					mptr=MouseOverPtr;
-	}
-
-// Check left button click
-if(MB & IREMOUSE_LEFT)
-	{
-	// There was a mouse click, scan the ranges
-	for(ctr=0;ctr<MouseRanges;ctr++)
-		{
-		if(MouseRange[ctr].flags & RANGE_LBUTTON)
-			{
-			if(MX > MouseRange[ctr].left && MX < MouseRange[ctr].right)
-				if(MY > MouseRange[ctr].top && MY < MouseRange[ctr].bottom)
-					{
-					// If it is a grid, calculate selected cell
-					if(MouseRange[ctr].flags & RANGE_GRID)
-						{
-						a=MX-MouseRange[ctr].left; // Get grid offset
-						MouseGridX=a/MouseRange[ctr].gw;
-						a=MY-MouseRange[ctr].top; // Get grid offset
-						MouseGridY=a/MouseRange[ctr].gh;
-						MouseMapX=MouseGridX+mapx;
-						a=MY-MouseRange[ctr].top; // Get grid offset
-						MouseMapY=MouseGridY+mapy;
-						}
-					// return the corresponding ID
-					MouseID=MouseRange[ctr].id;
-					return;
-					}
+				}
 			}
 		}
 	}
+}
 
+// Check left button click
+if(mb & IREMOUSE_LEFT) {
+	CheckMouseRange(mx, my, RANGE_LBUTTON);
+}
 
-// Check rightbutton click
-if(MB & IREMOUSE_RIGHT)
-	{
-	// There was a mouse click, scan the ranges
-	for(ctr=0;ctr<MouseRanges;ctr++)
-		{
-		if(MouseRange[ctr].flags & RANGE_RBUTTON)
-			if(MX > MouseRange[ctr].left && MX < MouseRange[ctr].right)
-				if(MY > MouseRange[ctr].top && MY < MouseRange[ctr].bottom)
-					{
-					// If it is a grid, calculate selected cell
-					if(MouseRange[ctr].flags & RANGE_GRID)
-						{
-						a=MX-MouseRange[ctr].left; // Get grid offset
-						MouseGridX=a/MouseRange[ctr].gw;
-						a=MY-MouseRange[ctr].top; // Get grid offset
-						MouseGridY=a/MouseRange[ctr].gh;
-						MouseMapX=MouseGridX+mapx;
-						a=MY-MouseRange[ctr].top; // Get grid offset
-						MouseMapY=MouseGridY+mapy;
-						}
-					// return the corresponding ID
-					MouseID=MouseRange[ctr].id;
-					return;
-					}
-		}
-	}
-
+if(mb & IREMOUSE_RIGHT) {
+	CheckMouseRange(mx, my, RANGE_RBUTTON);
+}
 
 // Choose new pointer if it has changed
-if(mptr != optr)
-	{
-	if(mptr)
+if(mptr != optr) {
+	if(mptr) {
 		mptr->Set();
-	else
+	} else {
 		DefaultCursor->Set();
-	optr=mptr;
+	}
+optr=mptr;
+}
+
+}
+
+void CheckMouseRange(int mx, int my, int mousebuttonflag) {
+	int a;
+	for(int ctr=0;ctr<MouseRanges;ctr++) {
+		if(MouseRange[ctr].flags & mousebuttonflag) {
+			// printf("Check mouse range %d,%d vs %d,%d-%d,%d\n", mx, my, MouseRange[ctr].left, MouseRange[ctr].top, MouseRange[ctr].right, MouseRange[ctr].bottom);
+			if(mx > MouseRange[ctr].left && mx < MouseRange[ctr].right) {
+				if(my > MouseRange[ctr].top && my < MouseRange[ctr].bottom) {
+					// If it is a grid, calculate selected cell
+					if(MouseRange[ctr].flags & RANGE_GRID) {
+						a=mx-MouseRange[ctr].left; // Get grid offset
+						MouseGridX=a/MouseRange[ctr].gw;
+						a=my-MouseRange[ctr].top; // Get grid offset
+						MouseGridY=a/MouseRange[ctr].gh;
+						MouseMapX=MouseGridX+mapx;
+						a=my-MouseRange[ctr].top; // Get grid offset
+						MouseMapY=MouseGridY+mapy;
+					}
+					// return the corresponding ID
+					MouseID=MouseRange[ctr].id;
+					// printf("Return mouseId %d\n", MouseID);
+					return;
+				}
+			}
+		}
 	}
 
 }

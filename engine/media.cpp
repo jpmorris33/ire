@@ -332,26 +332,26 @@ return IRE_GetBufferedKeycode();
  *      Wait for a key
  */
 
-unsigned char WaitForKey()
+int WaitForKey()
 {
 int k,z;
-do
-	{
+do {
 	k = IRE_GetBufferedKeycode();
 	// look for a mouse click?
 
 	IRE_GetMouse(NULL,NULL,&z,NULL);
-	if(z<0)
+	if(z<0) {
 		return IREKEY_UP;
-	if(z>0)
+	}
+	if(z>0) {
 		return IREKEY_DOWN;
+	}
 	CheckMouseRanges();
-	if(MouseID != -1)
-		{
+	if(MouseID != -1) {
 		return IREKEY_MOUSE;
-		}
+	}
 
-	} while(!k);
+} while(!k);
 
 return k;
 }

@@ -14,7 +14,7 @@ extern unsigned int GetIREClock();
 extern unsigned int GetAnimClock();
 extern void ResetIREClock();
 extern int GetKey();
-extern unsigned char WaitForKey();
+extern int WaitForKey();
 extern unsigned char WaitForAscii();
 extern void FlushKeys();
 extern void Plot(int max);
