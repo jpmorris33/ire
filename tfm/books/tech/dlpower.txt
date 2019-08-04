@@ -1,0 +1,30 @@
+[page="login"]
+[backing="dlpower.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="ampex"]
+[if dlpower_fixed][goto="ampex2"]
+[colour="#2aa903"]
+
+Deadlands Power
+===============
+
+WARNING: Cross-phase short detected on lines 5-6
+
+Clear short and reset breakers
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="ampex2"]
+[colour="#2aa903"]
+
+Deadlands Power
+===============
+
+System status OK
+
+[nextpage="exit"]
+[endpage]

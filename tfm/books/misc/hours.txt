@@ -1,0 +1,91 @@
+[page="start"]
+[iftime="0000-0059"][goto="00"]
+[iftime="0100-0159"][goto="01"]
+[iftime="0200-0259"][goto="02"]
+[iftime="0300-0359"][goto="03"]
+[iftime="0400-0459"][goto="04"]
+[iftime="0500-0559"][goto="05"]
+[iftime="0600-0659"][goto="06"]
+[iftime="0700-0759"][goto="07"]
+[iftime="0800-0859"][goto="08"]
+[iftime="0900-0959"][goto="09"]
+[iftime="1000-1059"][goto="10"]
+[iftime="1100-1159"][goto="11"]
+[iftime="1200-1259"][goto="12"]
+[iftime="1300-1359"][goto="13"]
+[iftime="1400-1459"][goto="14"]
+[iftime="1500-1559"][goto="15"]
+[iftime="1600-1659"][goto="16"]
+[iftime="1700-1759"][goto="17"]
+[iftime="1800-1859"][goto="18"]
+[iftime="1900-1959"][goto="19"]
+[iftime="2000-2059"][goto="20"]
+[iftime="2100-2159"][goto="21"]
+[iftime="2200-2259"][goto="22"]
+[iftime="2300-2358"][goto="23"]
+[goto="error"]
+[endpage]
+
+[page="00"]
+[backing="paper.pcx"]
+[font 3]
+                  The Book of Hours
+
+  'Tis now the very witching hour of night, when churchyards
+  yawn and Hell itself breathes out contagion to this world.
+  Now could I drink hot blood, and do such bitter business
+  as the day would quake to look on.
+
+[nextpage="exit"]
+[endpage]
+
+[page="01"]
+[backing="paper.pcx"]
+[font 3]
+                  The Book of Hours
+
+  Mmmm
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="03"]
+[backing="paper.pcx"]
+[font 3]
+                  The Book of Hours
+
+  Why are you not asleep?
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="08"]
+[backing="paper.pcx"]
+[font 3]
+                  The Book of Hours
+
+  And the voice of the LORD speaks unto you, for you
+  are reading this book instead of attending the sacred 
+  Mass of the Father, Son and Holy Spirit.
+
+  Go now and do not tarry, lest the Trinity slay you for
+  this impudent disobedience of Their will.
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="error"]
+[font 4]
+                  The Book of Hours
+
+  An error has occurred in the Book of Hours.
+  Please check your system clock.
+
+  If problems persist, please contact SzyLurbG
+  labs for technical support.  Have a nice day.
+
+[nextpage="exit"]
+[endpage]

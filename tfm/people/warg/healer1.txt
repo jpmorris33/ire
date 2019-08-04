@@ -1,0 +1,240 @@
+
+Healer
+
+[page="start"]
+[call="am_warg"]
+[if true][goto="W:start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[goto="H:start"]
+[endpage]
+
+
+
+
+=======Human-oriented pages============
+
+[page="H:start"]
+[if_know_name][colour="#808080"]
+[if_know_name]You see KindTongue the healer.
+[if_know_name][colour="#ffffff"]
+[if_know_name]
+
+"Welcome, O traveller.  I do not get many humans
+ enquiring after my services.
+
+ Do you seek healing?"
+
+[link="Yes."]
+[linkto="H:yes_heal"]
+[link="No."]
+[linkto="H:no_heal"]
+[link="Who are you?"]
+[linkto="H:name"]
+[link="What services do you provide?"]
+[linkto="H:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="H:name"]
+[learn_name]
+
+"I am KindTongue.  It is a traditional name for one who
+ shows aptitude for healing at an early age.
+
+ Traditionally we licked our wounds and waited for them
+ to heal, but The Betrayer taught us of hearbs and
+ potions that cause our wounds to heal more swiftly, and
+ cure poisons that we could not heal otherwise. 
+
+ He also taught us spells that are even more effective."
+
+[link="What kind of healing can you do?"]
+[linkto="H:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="H:job"]
+
+"I have an ensorcelled potion that heals most injuries,
+ or I can cure poisons as well.
+
+ But if you have the need, when the night is at its
+ darkest, and with the aid of skilled mages, I can 
+ sometimes raise the dead.."
+[endpage]
+
+[page="H:yes_heal"]
+[colour="#808080"]
+The creature looks at you thoughtfully.
+[colour="#ffffff"]
+
+"I was afraid of that.  I do not have many dealings with
+ humans..  The ointments and potions I use upon my own
+ kind may not work well on men.
+ 
+ In fact, they might worsen your wounds, not cure them.
+ 
+ My cost will be 10 gold monies, and as this is to pay
+ for the potions, I fear I cannot refund you if the
+ healing is not successful.
+
+ Do you still wish me to try and heal you?"
+
+[link="Yes."]
+[linkto="H:yes_heal2"]
+[link="No."]
+[linkto="H:no_heal"]
+[link="Who are you?"]
+[linkto="H:name"]
+[link="What services do you provide?"]
+[linkto="H:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="H:yes_heal2"]
+[take 10 gold_coin]
+[if false][goto="H:nomoney"]
+[call warg_heal_human]
+[if true][goto="H:yes_heal3"]
+
+"I have healed your wounds, but there may be some
+ side-effects.  There is much I do not know about the
+ healing of men."
+
+[link="Who are you?"]
+[linkto="H:name"]
+[link="What services do you provide?"]
+[linkto="H:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="H:yes_heal3"]
+
+"I believe I have healed your wounds completely."
+ 
+[link="Who are you?"]
+[linkto="H:name"]
+[link="What services do you provide?"]
+[linkto="H:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="H:no_heal"]
+
+"That is good to know.
+
+ So many wounded.. So many that I could not save.."
+
+
+[link="Who are you?"]
+[linkto="H:name"]
+[link="What services do you provide?"]
+[linkto="H:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+=======Waarg-oriented pages============
+
+[page="W:start"]
+
+"Welcome, O traveller.
+
+ Have you need of my services?"
+
+[link="Yes."]
+[linkto="W:yes_heal"]
+[link="No."]
+[linkto="W:no_heal"]
+[link="What are your services?"]
+[linkto="W:job"]
+[link="Who are you?"]
+[linkto="W:name"]
+[link="What do you do?"]
+[linkto="W:job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="W:yes_heal"]
+
+"I am sorry to hear that.
+
+ "
+
+
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="W:name"]
+[learn_name]
+
+"I am KindTongue.  As you know, it is a traditional
+ name for one who shows early promise in healing arts.
+
+ I am skilled in the preparation of herbs and potions
+ that cause wounds to heal swiftly, and cure poisons.
+ I also know some healing spells."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="W:no_heal"]
+
+"That is good to know.
+
+ I am glad that fewer people need my help now than they
+ did in the War against Men.
+  
+ So many wounded.. So many that I could not save.."
+
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+========= Endings ============
+
+
+[page="nocollar"]
+[colour="#808080"]
+The creature backs away.
+[colour="#ffffff"]
+
+"Let me be, Servant of Aa'Ruuff..
+ I am but a healer!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Farewell, traveller."
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,658 @@
+##
+##	Move towards an object, then do something when you reach it
+##
+
+
+function follow
+activity
+
+if_not_exist me
+	bug START
+	print "Null ME in Follow"
+	printcr
+	bug END
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+# Driver, follow that thing!
+move_towards me me.target
+
+# Reset the pathfinder timeout (System hack!)
+let me.user.timeout = 0
+
+end
+
+
+##
+##	Move towards the object until you reach it, then goal is achieved
+##
+
+function seek_target
+activity
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+if err = PATH_FINISHED
+	force_direction me facing me.target.curdir
+	stop_action me
+endif
+
+# It's impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+		endif
+	endif
+endif
+end
+
+
+
+##
+##	Move towards the object until you reach it, sit on it for 30 turns
+##	then goal is achieved
+##
+
+
+function seek_target_sit
+activity
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_sit"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+# Finished, Wait 30 turns
+if err = PATH_FINISHED
+	add me.user.user1 + 1
+	if me.user.user1 >= 30
+		let me.user.user1 = 0
+#		stop_action me
+		resume_action me
+	endif
+endif
+
+# It's impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+		endif
+	endif
+endif
+
+end
+
+
+##
+##	Move towards the object until you reach it, then sit in nearby chair
+##	then goal is achieved
+##
+
+
+function seek_target_sit_near
+activity
+int dx
+int dy
+object chair
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_sit_near"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+move_towards me me.target
+
+call close_to
+if close_to
+	resume_action me
+
+	# Look for the nearest chair
+
+	let dx = me.x - 1
+	let dy = me.y - 1
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x
+	let dy = me.y - 1
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x + 1
+	let dy = me.y - 1
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x - 1
+	let dy = me.y
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x + 1
+	let dy = me.y
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x - 1
+	let dy = me.y + 1
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x
+	let dy = me.y + 1
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+
+	let dx = me.x + 1
+	let dy = me.y + 1
+	get_object chair = dx dy
+	if chair is called "chair*"
+		move_object me to chair.x chair.y
+		return
+	endif
+#	print "no chair|"
+endif
+
+end
+
+
+
+##
+##	Move towards the object until you reach it, use it and goal is reached
+##
+
+function seek_target_use
+activity
+integer do_it
+object o
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_use"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	print "STU no target"
+	printcr
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+# Decide if we can use it
+let do_it = 0
+
+if err = PATH_FINISHED
+	# Yes, we're on top if it.
+	let do_it = 1
+endif
+
+# It's impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+			return
+		endif
+	endif
+endif
+
+
+call close_to
+if close_to
+	let do_it = 22202	# Yes, we can reach it
+endif
+
+
+
+# If we're going to use it, do so
+if do_it
+
+	# Wait 1 turn first before doing anything
+	add me.user.user1 + 1
+	if me.user.user1 < 2
+		return
+	endif
+
+	let me.user.user1 = 0
+
+	# Swap current out
+	let o = current
+	let current = me.target
+	
+	# Use it
+
+	if current.funcs.ucache > 0
+		call current.funcs.ucache
+	endif
+	# Swap current back
+	let current = o
+	
+	stop_action me
+endif
+
+end
+
+
+##
+##	Move towards the object until you reach it, use it and goal is reached
+##
+
+function seek_target_use_resume
+activity
+integer do_it
+object o
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_use_resume"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	print "STUR: no target"
+	printcr
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+# Decide if we can use it
+let do_it = 0
+
+if err = PATH_FINISHED
+	let do_it = 1	# Yes, we're on top of it
+endif
+
+# It's impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+			return
+		endif
+	endif
+endif
+
+call close_to
+if close_to
+	let do_it = 1	# Yes, we can reach it
+endif
+
+# If we're going to use it, do so
+
+if do_it
+#	print me.name
+#	print "uses "
+#	print me.target.name
+#	printcr
+	
+	# Swap current out
+	let o = current
+	let current = me.target
+	
+	# Use it
+	
+	if current.funcs.ucache > 0
+		call current.funcs.ucache
+	endif
+	# Swap current back
+	let current = o
+	
+	stop_action me
+	resume_action me
+endif
+
+end
+
+
+##
+##	Move towards the object until you reach it, take it and goal is reached
+##
+
+function seek_target_get
+activity
+integer do_it
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_get"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	print "STG no target"
+	printcr
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+# Decide if we can use it
+let do_it = 0
+
+if err = PATH_FINISHED
+	let do_it = 1	# Yes, we're on top if it
+endif
+
+call close_to
+if close_to
+	let do_it = 1	# Yes, we can reach it
+endif
+
+# If we're going to use it, do so
+
+if do_it
+	let current = me.target
+	# Get it
+	transfer_to_pocket current into me
+	# Work out if it was stolen
+	let suspect = me
+	let victim = current
+	if current.funcs.gcache > 0
+		call current.funcs.get
+	endif
+	call justice_theft
+	# Wait for next
+	resume_action me
+endif
+
+end
+
+
+##
+##	Move towards the object until you reach it, wield it and goal is reached
+##
+
+function seek_target_wield
+activity
+integer do_it
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_get"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	print "STG no target"
+	printcr
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+# Decide if we can use it
+let do_it = 0
+
+if err = PATH_FINISHED
+	let do_it = 1	# Yes, we're on top if it
+endif
+
+call close_to
+if close_to
+	let do_it = 1	# Yes, we can reach it
+endif
+
+# If we're going to use it, do so
+
+if do_it
+	# Get it
+	move_to_pocket current into me
+	# Work out if it was stolen
+	let suspect = me
+	let victim = current
+	if current.funcs.gcache > 0
+		call current.funcs.get
+	endif
+	call justice_theft
+	call me.target.wield
+	resume_action me
+endif
+
+end
+
+
+##
+##	Move towards the target (player) and then talk to them
+##	then goal is achieved
+##
+
+
+function seek_target_talk
+activity
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_talk"
+	printcr
+	bug END
+	
+	return
+endif
+
+# Do the movement
+move_towards me player
+
+# Are we in range?
+let me.target = player
+call close_to
+if close_to
+	# Wait a turn
+	if me.user.user1 = 0
+		let me.user.user1 = 1
+		return
+	endif
+
+	# Talk
+	let current = me
+	talk_to me.funcs.talk
+	stop_action me
+	resume_action me
+else
+	let me.user.user1 = 0
+endif
+
+end
+
+
+##
+##  Helper
+##
+
+function stopaction
+	stop_action me
+	resume_action me
+end
+
+
+
+##
+##	Support functions
+##
+
+
+integer close_to
+
+function close_to
+integer a
+integer b
+
+# Sanity check
+if_not_exist me.target
+	let close_to = 0
+	return
+endif
+
+# Get distances
+
+let a = me.x - me.target.x
+let b = me.y - me.target.y
+
+# Get absolute value
+
+if a < 0
+	let a = 0 - a
+endif
+if b < 0
+	let b = 0 - b
+endif
+
+# Decide
+
+let close_to = 11101
+
+if a > 1
+or b > 1
+	let close_to = 0
+endif
+end
+
+
+
+##
+##  Generic wait action
+##
+
+function wait_for_user1
+activity
+
+# Count down until user1 = 0
+if me.user.user1 > 0
+	add me.user.user1 - 1
+	return
+endif
+
+# Then do the next item
+resume_action me
+end
+
+##
+##  ForceSeekTarget - not for NPCs!
+##
+
+function seek_target_force
+activity
+int x
+int y
+
+if_not_exist me
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+let x = me.x
+let y = me.y
+
+if x < me.target.x
+	add x + 1
+	force_direction me facing RIGHT
+endif
+if x > me.target.x
+	add x - 1
+	force_direction me facing LEFT
+endif
+if y < me.target.y
+	add y + 1
+	force_direction me facing DOWN
+endif
+if y > me.target.y
+	add y - 1
+	force_direction me facing UP
+endif
+
+transfer_object me to x y
+
+# Check for completion
+if x = me.target.x
+and y = me.target.y
+	stop_action me
+endif
+end

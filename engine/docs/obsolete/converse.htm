@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="jpm">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (Win16; I) [Netscape]">
+   <TITLE>IRE Developer's Information</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER><H2>Part 5 - Editing Conversations</H2></CENTER>
+
+<H3>
+5.1&nbsp;&nbsp;&nbsp; Overview</H3>
+Conversations in IRE 0.05 and above are made using a simple language a
+bit like HTML.
+<BR>A conversation can be started in one of two ways:
+<P>1.&nbsp; The player Talks to an object or a person
+<BR>2.&nbsp; A script routine calls the function talk_to(name,start)
+<P>When a conversation takes place, the game will load in the file containing
+the conversation and process it interactively like a web browser.
+<P>Conversations are based on pages.&nbsp; At the top of the page is an
+image, normally a portrait of the person you're talking to.
+<BR>Below this is the text of the conversation, and at the bottom are the
+choices you get of what to say.
+<BR>Each choice is a link to another page, or a link to "exit" which ends
+the conversation.
+<P>Commands can also be embedded into the page, which can create objects,
+remove objects, change flags, and call script functions.
+<BR>You can also use commands to make different things happen depending
+on whether a flag is true or false.
+<P>More commands will be added in the future as necessary.
+<BR>&nbsp;
+<H3>
+5.2&nbsp;&nbsp;&nbsp; Page structure and simple commands</H3>
+Like HTML, pages are defined as text files with commands.
+<BR>All commands are enclosed in [brackets] and they may affect all text
+until the end of the line.
+<P>Each page has it's own title.&nbsp; When the conversation starts it
+will look for the page called 'Start', although it may also look for other
+pages too in future.
+<P>The page starts with the command:
+<BR>[page="start"]
+<P>..and continues until the command:
+<BR>[endpage]
+<P>Everything between these two commands will be displayed on the screen,
+unless it is another command.
+<P>The commands you will need to know to make simple conversations are:
+<P>[nextpage=""]
+<BR>[link=""]
+<BR>[linkto=""]
+<BR>[image=""]
+<BR>[colour="#xxxxxx"]
+<P><B>Important tips!</B>
+<UL>
+<LI>
+Anything outside the [page=""] line and the [endpage] line, is ignored.&nbsp;
+You can put comments there.</LI>
+
+<LI>
+There is no fixed limit to the size of the conversation file, as long as
+it will fit in memory.</LI>
+
+<LI>
+If you put the word $PLAYER anywhere in the text, it will be replaced by
+the player's individual name.</LI>
+
+<LI>
+Similarly $CHARNAME will be replaced by the individual name of the character
+you're talking to.</LI>
+</UL>
+
+<P><BR><B>5.2.1&nbsp;&nbsp;&nbsp; Simple page linking</B>
+<P>There are two ways to link pages.&nbsp; [nextpage=""] is the most simple,
+so I'll explain it first.
+<P>Here's an example:
+<P>[page="start"]
+<P>This is the first page.
+<BR>Press a key for the second page...
+<BR>[nextpage="page2"]
+<BR>[endpage]
+<P>[page="page2"]
+<P>This is the second page!
+<BR>Press a key to finish.
+<BR>[nextpage="exit"]
+<BR>[endpage]
+<P>This will display two lines:
+<P><TT>This is the first page.</TT>
+<BR><TT>Press a key for the second page...</TT>
+<P>When you press a key, the page will change and read two more lines:
+<P><TT>This is the second page!</TT>
+<BR><TT>Press a key to finish.</TT>
+<P>..and when you press a key the conversation will end.
+<P>The command [nextpage="page2"] makes the program wait for a key to be
+pressed, and then it looks for a page titled 'page2' and displays that.
+<P>The command [nextpage="exit"] makes the conversation finish when a key
+is pressed.
+<P><B>5.2.2&nbsp;&nbsp;&nbsp; Interactive page linking</B>
+<P>Now let's look at [link=""] and [linkto=""]
+<P>These two commands are used together to provide the choices at the bottom
+of the page.
+<BR>[link=""] displays the message at the bottom, and [linkto=""] is the
+page that the link will take you to.
+<BR>LINK must come first, and LINKTO just afterwards, otherwise it may
+fail.
+<P>Here's an example:
+<P>[page="start"]
+<BR>You see a shifty-looking man in a trenchcoat.
+<P>"Pssst!&nbsp; Wanna buy some stuff?"
+<P>[link="What 'stuff' have you got?"]
+<BR>[linkto="whatstuff"]
+<BR>[link="No!&nbsp; Get lost!"]
+<BR>[linkto="getlost"]
+<BR>[endpage]
+<BR>&nbsp;
+<P>[page="whatstuff"]
+<BR>"The usual contrabands..Mars bars.. M&amp;Ms... Terry's chocolate oranges.."
+<P>[link="Not today man, the feds are everywhere"]
+<BR>[linkto="nottoday"]
+<BR>[link="You're off your rocker!"]
+<BR>[linkto="getlost"]
+<BR>[endpage]
+<BR>&nbsp;
+<P>[page="getlost"]
+<BR>"Suit yerself.."
+<P>He walks away in a huff.
+<BR>[nextpage="exit"]
+<BR>[endpage]
+<BR>&nbsp;
+<P>[page="nottoday"]
+<BR>"Wo!&nbsp; Thanks for the tip, man."
+<P>He looks both ways and slips off into the night.
+<BR>[nextpage="exit"]
+<BR>[endpage]
+<BR>&nbsp;
+<P>You should be able to work out what that does.&nbsp; If not, put it
+into a file and try it out.
+<P>You can have a maximum of 10 links per page (this will take a lot of
+screen room!).
+<P><B>5.2.3&nbsp;&nbsp;&nbsp; Images</B>
+<P>The portrait at the top of the screen is set using the [image=""] command.
+<BR>You must put this as the first command after the [page=""] line.
+<BR>The word in quotes is the title of a Sprite found in the "Section:
+sprites" part of the scriptfile, main.txt.
+<BR>See chapter 3.2.1 of this document.
+<P>Here's an example:
+<P>[page="start"]
+<BR>[image="greengrocer"]
+<P>You see a small greengrocer.
+<P>"Good day sir, how can I help you?"
+<P>&nbsp;&nbsp;&nbsp;&nbsp; :
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; :
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; :
+<P>[endpage]
+<P>You must specify a portait for <I>each</I> page.&nbsp; This allows you
+to change the character's expression from page to page.
+<P>You can also specify a background image if you don't like the blackness.
+<BR>This is done with the following command:
+<P>[backing="filename.pcx"]
+<P>The game will not look in the Scriptfile for this image, it will be
+loaded directly from disk.
+<P>This is actually what happens if you press F1 for help in The Flat.&nbsp;
+It loads a conversation called "help.txt" which is in the FLAT/ directory,
+and this is what it does:
+<P>[page="start"]
+<BR>[backing="backings/help1.pcx"]
+<BR>[nextpage="exit"]
+<BR>[endpage]
+<P>
+<P><B>5.2.4&nbsp;&nbsp;&nbsp; Setting the text colour</B>
+<P>You may wish to change the colour of text in the body of the conversation.
+<BR>This is done using the [colour=""] command.&nbsp; (You may also use
+[color=""] if you prefer)
+<BR>As of Release 0.65 it works in exactly the same way as HTML, so the
+colour you choose will last for the entire document or until you change
+it.
+<BR>You can also set the colour of the links by using [link_colour=""] or
+[links=""]
+<P>The colour is in quotes, and it is specified with a # followed by six
+hex values, just like HTML.
+<BR>The first two set the amount of red in the colour (00-ff), the second
+two set the amount of green (00-ff) and the last two the amount of blue
+in the colour (00-ff).
+<P>You can get little java applets and things to work out the colours,
+just look for a good page about web design.
+<BR>Here are some of the most commonly-used colours:
+<P>red:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #ff0000
+<BR>green:&nbsp;&nbsp; #00ff00
+<BR>blue:&nbsp;&nbsp;&nbsp;&nbsp; #0000ff
+<BR>pink:&nbsp;&nbsp;&nbsp;&nbsp; #ff00ff
+<BR>yellow:&nbsp; #ffff00
+<BR>cyan:&nbsp;&nbsp;&nbsp; #00ffff
+<BR>orange:&nbsp; #ff8000
+<BR>grey:&nbsp;&nbsp;&nbsp;&nbsp; #808080
+<P>Black would be #000000, but you can't change the background colour yet,
+so this would be invisible.
+<BR>White is #ffffff, but this is the default anyway.
+<P>Generally I use medium grey [colour="#808080"] for narration, and leave
+the rest of the text white.
+<P>Returning to the sweet-pusher as an example:
+<P>[page="start"]
+<BR>[colour="#808080"]You see a shifty-looking man in a trenchcoat.
+<P>"Pssst!&nbsp; Wanna buy some stuff?"
+<P>[link="What 'stuff' have you got?"]
+<BR>[linkto="whatstuff"]
+<BR>[link="No!&nbsp; Get lost!"]
+<BR>[linkto="getlost"]
+<BR>[endpage]
+<BR>&nbsp;
+<H3>
+5.3&nbsp;&nbsp;&nbsp; Advanced Conversations: conditional branching</H3>
+Sometimes you want to have the same person behave differently when things
+happen in the game.
+<BR>For example, you've just come across an important object in the game.&nbsp;
+You should now be able to ask people about it, by making new choices appear.
+<P>This is done with flags.&nbsp; A flag is a message that can either be
+true or false, depending on what has happened previously.
+<P><B>5.3.1&nbsp;&nbsp;&nbsp; Checking for an object</B>
+<P>The simplest case is 'Am I carrying such-and-such an object?'&nbsp;
+The result will either be true(yes) or false (no).
+<P>Here's an example.&nbsp; It's not really a conversation, but anyhow.
+If you're carrying 'The Death', it says so, otherwise it says you're not
+carrying it.
+<P>[page="start"]
+<BR>System test: are you carrying that nasty weapon, THE DEATH?
+<P>[am_carrying the_death]
+<BR>[if true]Yes, you are carrying it.
+<BR>[if_not true]No, you are not carrying it.
+<BR>[endpage]
+<P>Now, how does it work?
+<P>[am_carrying the_death]
+<P>This looks in the player's pocket for an object named 'the_death'.
+<BR>If it is in your pocket, it will set the flag 'True' to be true.
+<P>The next part is clever.
+<BR>[if true]Yes, you are carrying it.
+<P>[if true] Examines the flag called 'true', and then decides what to
+do.&nbsp; If 'true' is set true, it prints the text.&nbsp; Otherwise it
+does nothing at all.
+<P>[if_not true]No, you are not carrying it.
+<P>This again looks at the flag called 'true'.&nbsp; But it does the opposite
+thing!&nbsp; If 'true' is NOT true, it prints the text, else it does nothing.
+<P>Because both of these are looking for one of the two possible states,
+ONE of them will be displayed and the other won't.
+<P>You can also use [if false] instead of [if_not true].
+<P>(For the advanced reader: TRUE and FALSE are separate flags, but they
+are always set to be opposite.)
+<P><B>5.3.2&nbsp;&nbsp;&nbsp; Important tips!</B>
+<UL>
+<LI>
+You can check the same flag as many times as you like without it changing,
+so you can have multiple lines.</LI>
+</UL>
+E.g.
+<P>[am_carrying mobile_phone]
+<BR>[if true]"You have played this game for far too long, mortal!"
+<BR>[if true]"It's time to go to bed..."
+<BR>&nbsp;
+<UL>
+<LI>
+What comes after the [if] command does not have to be text, it can be another
+command, too.</LI>
+</UL>
+E.g.
+<P>[am_carrying large_stereo]
+<BR>[if true]"This is a library, sir.&nbsp; I'm afraid I must ask you to
+leave."
+<BR>[if true][nextpage="exit"]
+<BR>[if false]"Welcome to the library.&nbsp; How can I help you?"
+<BR>[if false][nextpage="howcanihelp"]
+<P>In this case, the librarian will ask you to leave and stop talking if
+you have the ghetto-blaster.&nbsp; If you don't, they will go onto a different
+page and continue the conversation.
+<P>If you want to do more complex actions conditionally, you can either
+use everal IF lines, or use the GOTO command to switch to another page.&nbsp;
+[goto=] is the same as [nextpage=], but it switches instantly, without
+waiting for a keypress.
+<P>Here's and example:
+<P>[page="something"]
+<BR>[if murdered_king][goto="murderedking"]
+<BR>[if murdered_queen][goto="murderedqueen"]
+<P>"Hello!"
+<BR>&nbsp;&nbsp; :
+<BR>&nbsp;&nbsp; :
+<BR>&nbsp;&nbsp; :
+<BR>[endpage]
+<P>[page="murderedking"]
+<BR>"My God! You've murdered His Royal Highness!&nbsp; GUARDS!!!"
+<P>[nextpage="exit"]
+<BR>[callvrm="callguards"]
+<BR>[endpage]
+<P>[page="murderedqueen"]
+<BR>"My God! You've murdered Her Majesty!&nbsp; GUARDS!!!"
+<P>[nextpage="exit"]
+<BR>[callvrm="callguards"]
+<BR>[endpage]
+<BR>&nbsp;
+<P><B>5.3.3&nbsp;&nbsp;&nbsp; Checking for a party member</B>
+<P>Similarly to looking for an object, you will also want to see if a particular
+person is in your party.
+<P>[is_in_party gordon_harris]
+<BR>[if true]"Ah, any friend of Gordon's is a friend of mine."
+<BR>[if true][nextpage="page2"]
+<BR>[if false]"I don't know you, stranger!"
+<BR>[if false][nextpage="exit"]
+<P><B>5.3.4&nbsp;&nbsp;&nbsp; Using your own flags</B>
+<P>You are not just lumbered with True and False, you can create any number
+of flags you like, up to 8192.
+<P>The commands you use to create flags are SET and CLEAR, which make the
+flag be true or false, depending on which one you used.&nbsp; (Set makes
+a flag true, clear makes it false).
+<P>The flags are automatically created as you try to use them.&nbsp; If
+you try to set or clear a flag which doesn't exist yet, it is created there
+and then.&nbsp; If you try to test a flag which doesn't exist , it is assumed
+to be false.
+<P>For example:
+<P>[if_not already_met]"Hello, I'm Gordon Harris."
+<BR>"How can I help you?"
+<BR>[set already_met]
+<P>The first time you have this conversation, he says "Hello, I'm Gordon
+Harris", because the flag already_met is false.
+<BR>Then it prints "How can I help you?" which always appears.
+<BR>Finally it sets the flag 'already_met' to be True, so the introduction
+will not be shown again, unless you do [clear already_met].
+<P><B>5.3.5&nbsp;&nbsp;&nbsp; Personal Flags</B>
+<P>The flags described above are fine for many circumstances, but they
+are 'global', that is, all the characters see the flag the same.
+<BR>Clearly this is not good for the above example, since by meeting Gordon
+Harris, you would also have 'met' all the other characters in the game.
+<P>Once solution would be to have lots and lots of flags, for example 'met_gordon_harris'
+and 'met_kevin_parrot' etc, but this would be untidy.
+<P>Instead, there are 32 numbered flags, which are specific to the current
+person you're talking to.
+<BR>These are called 'Personal Flags', or p-flags for short.
+<P>As I mentioned, the p-flags do not have names, they are numbered from
+0 to 31.
+<BR>If you need to keep track of each p-flag number, you can write a memo
+at the top of the file, before the first [page=""] line.
+<P>They have their own special [if] commands:
+<P>[if_pflag n]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (or [if_personal_flag
+n])
+<BR>[if_not_pflag n]&nbsp;&nbsp; (or [if_not_personal_flag n])
+<P>[set_pflag n]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (or [set_personal_flag
+n])
+<BR>[clear_pflag n]&nbsp;&nbsp;&nbsp; (or [clear_personal_flag n])
+<P>Here's an example:
+<P>[if_not_pflag 0]"Hello, I'm Gordon Harris."
+<BR>"How can I help you?"
+<BR>[set_pflag 0]
+<P>This time, it uses the personal flag specific to Gordon Harris.&nbsp;
+In fact, if you had more than one copy of Gordon Harris in the game, you
+would still be able to meet both of them individually.
+<BR>&nbsp;
+<H3>
+5.4&nbsp;&nbsp;&nbsp; Manipulating the game world</H3>
+
+<P><BR>This is the most neat part of the conversation system.
+<P>By manipulating the environment , you will be able to do really neat
+stuff, like buying and selling, creating and destroying objects, and by
+calling a VRM function, absolutely anything else.
+<P><B>5.4.1&nbsp;&nbsp;&nbsp; Calling VRM functions</B>
+<P>There are now three ways to call VRM functions from a conversation.
+<P>1. [callvrm="function"]
+<BR>2. [on_exit_callvrm="function"]
+<BR>3. [set_behaviour="function"]
+<P>[callvrm=]
+<P>This calls the VRM function immediately.&nbsp; You should not call redraw()
+in the VRM function you are using, or the display will become corrupted.
+<P>VRM functions can interact with the conversation too, by setting flags
+(such as True and False) and p-flags.
+<BR>This is a way to get information about the game state if there isn't
+a command to do that in the conversation.
+<BR>You can also use it to move objects around, or open doors by talking
+to an intercom.
+<P>[on_exit_callvrm=]
+<P>This calls the VRM as soon as the conversation ends.
+<BR>This should be used when the VRM will redraw the screen, or you are
+doing something drastic such as killing the player.
+<P>When the VRM is called, current_object will be set to the character
+you're talking to.
+<P>For example:
+<P>[page="start"]
+<BR>"Hello."
+<P>[link="You're a b*st*rd!"]
+<BR>[linkto="bstard"]
+<BR>[endpage]
+<P>[page="bstard"]
+<BR>[if_not_pflag 0]"Never say that to me again!"
+<BR>[if_not_pflag 0][nextpage="exit"]
+<BR>[if_pflag 0]"Now you die!"
+<BR>[if_pflag 0][on_exit_callvrm="killplayer"]
+<BR>[if_pflag 0][nextpage="exit"]
+<BR>[set_pflag 0]
+<BR>[endpage]
+<P>If you insult this guy twice, he kills you, by calling the VRM function
+'killplayer'.
+<P>[set_behaviour=]
+<P>This changes the behaviour of the current object so that it calls this
+VRM every turn.
+<P>For example:
+<P>[set_behaviour="enemy_flee"]
+<P>or:
+<P>"In the beginning there was Darkness, and the Darkness was without form
+and void."
+<BR>"And in addition to the Darkness there was also Me."
+<BR>"And I moved upon the face of the Darkness and I saw that I was alone."
+<P>"Let there be light."
+<BR>[set_behaviour="thermostellar_device_explode"]
+<BR>[nextpage="exit"]
+<P><B>5.4.2&nbsp;&nbsp;&nbsp; Creating and destroying objects</B>
+<P>You can create objects directly in the player's pockets.
+<BR>This has several uses, besides the obvious one in Ultima 6, where the
+King gives you a key when you talk to him.
+<BR>It can also be used for trading, by creating the money in the player's
+backpack and destroying the object you sold, or vice-versa.
+<P>At present [create] does not check to see whether there is room in your
+backpack to carry the object.
+<BR>However [destroy] (or [remove]) does check to see whether the object
+<I>is</I>
+in your backpack, so that the angry trader can poke you in the eye if you
+try to sell something you don't have.
+<P>This check is performed of course, by setting the global flags TRUE
+and FALSE to the appropriate value afterwards.
+<P>You also specify the amount of objects you want to create or destroy.&nbsp;
+In some cases this will be ignored, if the object is indivisible, but for
+other cases such as money, it will add or remove various quantities of
+that object from your backpack.
+<P>If you want to take away an amount of something, it will return FALSE
+if you don't have that much, to prevent you from being able to short-change
+the trader.
+<P>Here's an example, selling a TV set:
+<P>[destroy 1 tv]
+<BR>[if false]"What are you trying to pull?"
+<BR>[if true][create 1000 gold_coins]
+<BR>[if true]"Done!"
+<BR>[nextpage="start"]
+<P>Here's another, buying a TV set:
+<P>[destroy 2000 gold_coins]
+<BR>[if false]"You can't afford it!"
+<BR>[if true]"Thankyou, sir!"
+<BR>[if true][create 1 tv]
+<BR>[nextpage="start"]
+<BR>&nbsp;
+<P><B>5.4.3&nbsp;&nbsp;&nbsp; The theory of the Conservation of Money</B>
+<P>Now that example was very crude.&nbsp; The money was actually destroyed
+and the object was created on-demand.
+<P>This is what Ultima 6 and Ultima 7 do, but you might prefer it if the
+money and goods actually change hands.
+<P>This would mean that you could actually kill the trader after taking
+the money and get the TV back afterwards, but you would also have to make
+sure the trader is stuffed with cash, or <I>he</I> won't be able to afford
+the TV when you try to sell it!
+<P>If you prefer to work this way, instead of using CREATE and DESTROY,
+use GIVE and TAKE.
+<BR>But don't blame me if the King gives the player the only copy of the
+key to the castle and the player loses it..
+<P>[take n objects]
+<P>This takes the specified object (or an amount of them)from the player's
+backpack and transfers it into the backpack of the character you're talking
+to.&nbsp; No loss!
+<P>Similarly,
+<BR>[give n objects]
+<BR>..will take the specified object(s) from the backpack of the character
+you're talking to, and transfer them to the player's backpack.
+<P>As an example, here's the buying and selling the TV again, but with
+the money and the TV being moved around instead of created and destroyed.
+<P>[take 1 tv]
+<BR>[if false]"What are you trying to pull?"
+<BR>[if true][give 1000 gold_coins]
+<BR>[if true]"Done!"
+<BR>[nextpage="start"]
+<P>Here's another, buying a TV set:
+<P>[take 2000 gold_coins]
+<BR>[if false]"You can't afford it!"
+<BR>[if true]"Thankyou, sir!"
+<BR>[if true][give 1 tv]
+<BR>[nextpage="start"]
+<P>Neither of these examples take into account whether the trader has the
+money or the TV.
+<BR>This is more complex, since GIVE will change the state of TRUE and
+FALSE, so we'll need to use a temporary flag.
+<P>Here's the finished version..
+<P>[clear temp]
+<BR>[take 1 tv]
+<BR>[if false]"What are you trying to pull?"
+<BR>[if false][nextpage="exit"]
+<BR>[if true][set temp]
+<BR>[if temp][give 1000 gold_coins]
+<BR>[if temp][if true]"Done!"
+<BR>[if temp][if false]"I'm sorry sir, I seem to have exceeded my budget
+for acquisitions."
+<BR>[if temp][if false][give 1 tv]
+<BR>[nextpage="start"]
+<BR>&nbsp;
+<P>[clear temp]
+<BR>[take 2000 gold_coins]
+<BR>[if false]"You can't afford it!"
+<BR>[if true][set temp]
+<BR>[if temp][give 1 tv]
+<BR>[if temp][if true]"Thankyou, sir!"
+<BR>[if temp][if false]"I'm sorry sir, we're out of stock."
+<BR>[if temp][if false][give 2000 gold_coins]
+<BR>[nextpage="start"]
+<BR>&nbsp;
+<P>
+<HR WIDTH="100%">
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>
+
+</BODY>
+</HTML>

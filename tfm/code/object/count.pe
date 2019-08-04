@@ -1,0 +1,123 @@
+##
+##  Objects that change frame when they are stacked
+##
+
+function gold_bar_count
+
+object bar
+integer count
+string frame
+
+let cancel = 0
+let count = 0
+
+# Default gold bar to normal
+set_sequence current "gold0"
+
+get_first_object bar from new_x new_y
+
+do
+	if_exists bar
+
+		# If it is a gold bar, count the position and set the frame
+		if bar is called "gold_bar"
+			let count = count + 1
+			get_data frame where "goldbar_frame" = count
+			if err = 0
+				set_sequence bar frame
+			endif
+		endif
+
+		# Next object
+		let bar = bar.next
+	endif
+while bar
+
+# Too much gold, prevent any more being laid down
+if count > 6
+	let cancel = 1
+endif
+
+end
+
+
+##
+##  Handle coin quantities
+##
+
+function count_money
+
+integer count
+string frame
+
+# Default coins to generic 10
+set_sequence current "coins_10a"
+#let current.stats.weight = current.stats.quantity * current.maxstats.weight
+
+# Set the coin frame to match the quantity
+let count = current.stats.quantity
+if count < 10
+	get_data frame where "coin_frame" = count
+	if err = 0
+		set_sequence current frame
+	endif
+	return
+endif
+
+# More than 9
+
+random count between 1 4
+if count = 1
+	set_sequence current "coins_10a"
+	return
+endif
+
+if count = 2
+	set_sequence current "coins_10b"
+	return
+endif
+
+if count = 3
+	set_sequence current "coins_10c"
+	return
+endif
+
+if count = 4
+	set_sequence current "coins_10d"
+	return
+endif
+
+end
+
+
+##
+##  Handle rifle shell quantities (actually strength, not quantity)
+##
+
+function count_shells
+
+#let current.stats.weight = current.stats.quantity * current.maxstats.weight
+
+# Check for silliness
+if current.stats.strength < 1
+	destroy current
+	return
+endif
+
+if current.stats.strength = 1
+	set_sequence current "shells07"
+	return
+endif
+
+if current.stats.strength = 2
+	set_sequence current "shells06"
+	return
+endif
+
+if current.stats.strength = 3
+	set_sequence current "shells05"
+	return
+endif
+
+set_sequence current "shells04"
+end

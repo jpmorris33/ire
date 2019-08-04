@@ -1,0 +1,249 @@
+SwiftRunner
+
+[page="start"]
+[if_know_name goto="main"]
+[goto="dont_know_name"]
+[endpage]
+
+
+[page="dont_know_name"]
+
+[colour="#808080"]
+You see a dark wolf-creature, who watches you with
+intelligent eyes.
+
+Finally he speaks in a snarling voice.
+
+"Who are you and what do you want with me?"
+[colour="#ffffff"]
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="What are you doing out here?"]
+[linkto="banished"]
+
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am SwiftRunner, son of Lightfoot Olias and heir to the
+ throne of ????.  I was usurped by the treacherous
+ General RedTooth.
+
+ Now I have been banished into the desert."
+
+[link="Tell me about RedTooth."]
+[linkto="redtooth"]
+[link="Tell me about the revolt."]
+[linkto="revolt"]
+[link="Why were you expelled?"]
+[linkto="revolt"]
+
+[endpage]
+
+
+[page="revolt"]
+
+"It is a long story.. one that brings back sad
+ memories.
+
+ I can tell it if you wish."
+
+[link="Tell me about the revolt."]
+[linkto="revolt2"]
+[link="Why is it sad?"]
+[linkto="revolt_sad"]
+[link="Tell me some other time."]
+[linkto="revolt_notnow"]
+
+[endpage]
+
+
+[page="revolt_sad"]
+
+"My dear brother, Grey.  If he was here today, life would
+ be so much easier.
+ 
+ Cursed be the false god, Aa'Ruuff the Betrayer!"
+
+
+[link="Tell me about your brother."]
+[linkto="grey"]
+[link="Tell me about your God."]
+[linkto="aaruuf"]
+[link="Tell me about the revolt."]
+[linkto="revolt2"]
+
+[endpage]
+
+
+[page="revolt2"]
+
+"My brother, Grey, was the leader of the City.
+ He made a fine ruler, with charisma, a strong,
+ decisive leadership and an excellent sense of
+ justice.
+
+ We worshipped a God called Aa'Ruuff, who created us
+ centuries ago, according to the litany.
+ 
+ He protected us and taught us many things.
+
+ My brother, as leader of the pack, was close to
+ Aa'Ruuff, and relayed His teachings to the people.
+
+ One day, Aa'Ruuff announced that we were no further
+ use to Him and we would all be destroyed by His new
+ worshippers.. Men."
+
+[nextpage="revolt3"]
+
+[endpage]
+
+
+[page="revolt3"]
+
+"Grey prepared us for the war against Men and
+ several vast battles were fought.  The field
+ of bones is testimony to this.
+
+ But tragedy struck.  Grey and I were on a hunt together,
+ because he always preferred to catch his own prey.  We
+ took reasonable precautions, a dozen guards always
+ accompanied the hunts.
+
+ But human sniper, sent by Aa'Ruuff, slew Grey before we
+ even knew what was happening.
+
+ I took his place with some success, but once the human
+ attacks were over, the people became discontented."
+
+[nextpage="revolt4"]
+
+[endpage]
+
+[page="revolt4"]
+
+"An ambitious general called RedTooth kept stirring
+ things up and alleged that I and my advisors still
+ worshipped Aa'Ruuff.  Nonsense, of course.
+
+ He gained enough support for a coup to take place
+ and we were banished from the City."
+
+[nextpage="revolt5"]
+
+[endpage]
+
+
+
+[page="aaruuf"]
+
+"He is no God of mine!
+
+ But for centuries our people worshipped Him.  The litany
+ says He created us.  But ten years ago, He announced
+ that we would be destroyed by His new worshippers!
+
+ He betrayed our people and there was a war against
+ the Men that He sent to kill us.
+ 
+ My poor brother Grey had planned all our defences,
+ so Aa'Ruuf had him assassinated."
+
+[link="Tell me about the revolt."]
+[linkto="revolt3"]
+
+[endpage]
+
+
+
+[page="grey"]
+
+"My elder brother was the leader of the Waarg before the
+ Betrayal.  He was a very handsome waarg, with an argent
+ grey coat that shone with vitality.  Most of us have
+ dark fur, so he was named 'Grey'.
+
+ We grew up together.  We were given a lot of freedom,
+ and we spent many happy years playing together in the
+ forest, a few miles from the city.
+
+ When the King grew old he started to become blind, and
+ so he turned the throne over to Grey as his successor.
+
+ Grey made a fine leader.. courageous, wise, handsome and
+ with tremendous charisma.  He was privy to many of
+ Aa'Ruuff's secrets."
+
+[link="What happened to him?"]
+[linkto="grey_dead"]
+
+[endpage]
+
+
+
+[page="grey_dead"]
+
+Swiftrunner becomes distressed.
+
+"My brother was killed when Men attacked our city.  We
+ were outside the city at the time, engaged in a hunt,
+ with our usual complement of guards, for Grey always
+ insisted on catching his own food.
+
+ There were twelve of us, but Aa'Ruuff had singled Grey
+ out to His human worshippers..  probably to throw the
+ Waarg into leaderless chaos.
+
+ They had firearms.  He didn't stand a chance."
+
+[link="Are you sure he's dead?"]
+[linkto="grey_dead_sure"]
+[link="How did he die?"]
+[linkto="grey_dead_how"]
+
+[endpage]
+
+
+
+
+[page="grey_dead_sure"]
+
+"Human, your civilisation may be in advance of ours, but
+ even I know that when the brains are out, the waarg will
+ die, and there an end.  So it was with Grey."
+
+[nextpage="grey_dead_how"]
+[endpage]
+
+
+
+
+[page="grey_dead_how"]
+[colour="#808080"]
+Swiftrunner speaks in the calmly detached manner of one
+in a state of shock.
+[colour="#ffffff"]
+
+"My brother was shot in the head by human assassins
+ wearing Aa'Ruuff's standard.  They had 'guns', the
+ weapons used by your kind in defence, before Aa'Ruuff
+ twisted their minds.
+
+ They dragged his body away with them.  I don't know why.
+ Perhaps they wanted his fur or something.
+
+ I erected a tombstone at the spot where he fell, and a
+ statue was built in the square for his honour."
+
+[endpage]
+
+
+
+Grey probably would have lead the resistance against Aa'Ruuff and become an
+even greater hero if he hadn't been struck down

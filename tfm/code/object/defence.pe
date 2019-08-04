@@ -1,0 +1,160 @@
+#############################
+#                           #
+#  Drakaan defence systems  #
+#                           #
+#############################
+
+function defpost_rise
+
+if current is called "DEFENCE_POST_DOWN"
+
+	# Is it broken
+	if current.stats.hp < 1
+		return
+	endif
+
+	# This sequence will call 'defpost_start_hv' when the animation ends
+	set_sequence current = "defencepost_raise"
+
+	# Make sure it happens, even if the defpost is offscreen
+	let current.user.user1 = 1
+	queue_action current does wait_for_user1
+	queue_action current does defpost_start_hv
+	run_queue current
+endif
+end
+
+
+
+##
+##	Start a defence post beam
+##
+
+function defpost_start_hv
+activity
+if_not_exists me.stats.owner
+	stop_action me
+	return
+endif
+change me = "DEFENCE_POST_UP"
+overfx me does defpost_fx
+start_action me does spark_source_dangerous to me.stats.owner
+end
+
+##
+##	Stop a defence post beam from operating
+##
+
+
+function defpost_wirecut
+object_array obj[32]
+int tag
+int ctr
+
+let tag = 0 - current.tag
+find_tags obj[1] = "" tag
+
+for ctr = 1 to 32
+	if_exists obj[ctr]
+		stop_action obj[ctr]
+		stopfx obj[ctr]
+		let obj[ctr].stats.hp = -1
+	endif
+next ctr
+end
+
+
+
+##
+##  Draw the energy beam
+##
+
+function defpost_fx
+
+if_not_exist current.stats.owner
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.stats.owner
+
+# Adust beam
+add fx_srcx + 7
+add fx_srcy + 9
+add fx_destx + 7
+add fx_desty + 9
+
+
+# Draw the core (twice)
+let fx_brush = 1
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+fx_colour 0xe0e0e0
+fx_line
+
+# Now draw another one next to it
+add fx_srcx + 1
+add fx_destx + 1
+add fx_srcy - 1
+add fx_desty - 1
+fx_line
+
+# Shuffle the coordinates back again
+add fx_srcx - 1
+add fx_destx - 1
+
+# draw little bright sparklies
+let fx_brush = 1
+fx_alpha 24
+fx_alphamode ALPHA_DISSOLVE
+fx_colour 0xffffff
+fx_line
+
+end
+
+##
+##  Turn lasers on and off.  Laser's tag is a 16-bit number, which is L-rotated
+##  and the least significant bit after rotation determines the laser state
+##
+
+function toggle_lasers
+activity
+object target
+int x
+int y
+
+# Perform a 16-bit left rotation on the tag no.
+let x = me.tag << 1
+let y = x AND 0x10000
+let x = x AND 0xffff
+
+# If bit 17 is true, set bit 1 and turn on the laser
+if y <> 0
+	add x + 1
+	set_flag me IS_INVISIBLE = 0	# Now it's visible, and deadly
+else
+	set_flag me IS_INVISIBLE = 1	# Turned off
+endif
+let me.tag = x
+
+# We may have to kill someone
+if_not_flag me IS_INVISIBLE
+	# Laser is on, scan at x,y+1 or x+1,y depending if Horz or Vert
+	let x = me.x
+	let y = me.y
+	if me.curdir < LEFT
+		# V
+		add y + 1
+	else
+		# H
+		add x + 1
+	endif
+
+	# If someone's there, they will suffer
+	get_object target at x y
+	if_exists target
+		add target.stats.hp - 100
+		check_hurt target
+	endif
+endif
+end

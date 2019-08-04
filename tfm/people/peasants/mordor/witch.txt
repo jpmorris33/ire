@@ -1,0 +1,169 @@
+
+[page="start"]
+
+[colour="#808080"]
+You see a sinister-looking old hag.
+[colour="#ffffff"]
+
+"Welcome to the witch cave, stranger.
+ What do you seek here?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Can you tell me the future?"]
+[linkto="future"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Myrtle the witch.
+[colour="#ffffff"]
+
+"Hey there, dearie.
+ Pull up a boulder, an' have a joint."
+
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Can you tell me the future?"]
+[linkto="future"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am Myrtle.. of the famous Three Witches of the North!"
+
+[link="Where are the other two?"]
+[linkto="othertwo"]
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Can you tell me the future?"]
+[linkto="future"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="othertwo"]
+
+"They're on holiday."
+
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Can you tell me the future?"]
+[linkto="future"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="magic"]
+[if_not_pflag "saidmagic"][goto="magic1"]
+
+"Very well.  I can sell you potions or todestones.
+
+ I suppose that for a fee of 500 gold coins, I could
+ also train you in the art of spellcasting, and prepare
+ you for higher teachings."
+
+[link=""]
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="magic1"]
+[set_pflag "saidmagic"]
+
+"What?  And have you competing with us?  Fat chance!
+
+ That said, I can supply you with some accessories, if
+ you are already a student of the hidden arts."
+
+[link="I'd like to buy some accessories."]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+Potions:
+  (which potions are valid?  Humans don't have all potions)
+
+Toadstones
+
+Training
+
+"I fear that you are already as capable as I."
+
+
+[page="future"]
+
+"No.  But sometimes we like to pretend that we can."
+
+[if spoketoObeth][link="What about O'Beth, then?"]
+[if spoketoObeth][linkto="future2"]
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="future2"]
+
+"Ah, but that's different.  He thinks that what we told
+ him is a prophecy.  It's actually what we WANT the
+ future to be like, and we're using him to make it come
+ true.
+
+ With all our powers directed on O'Beth, he'll easily
+ usurp that fat-headed moron of a King, and then he'll
+ pay.  Oh yes, we'll teach him to try and outlaw
+ witchcraft!"
+
+[colour="#808080"]
+The hag grins evilly.
+[colour="#ffffff"]
+
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare thee well."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+Myrtle poisoned Snow White (a waarg) because SW ate her cat
+(SW: "I didn't know it was HERS!")
+You can broker a deal between them, whereby SW sends the witch money to pay reparations
+for eating the cat.
+This will require a lot of travel so Myrtle should sell you spells and scrolls to run
+the orb mark and recall spells.  She should have a spare orb or two in the cave, but
+the only source for buying them is the Glassmaker.
+She should tell you about the glassmaker, who used to live in Mordor but went south to
+seek his fortune.
+
+SW maybe doesn't have money?  Maybe she is only able to pay you in corpses, which
+Myrtle is eager for for some reason?
+Either way, Myrtle should reward you hansomely when you finish the quest.

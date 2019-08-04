@@ -1,0 +1,14 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+  ..my wife wrapped up the said matter in wax, and I cut half
+  an ounce of old lead and put it into a crucible in the fire,
+  which being melted, my wife put in the said Medicine made
+  up in a small pill or button, which presently made such a
+  hissing and bubbling in its perfect operation, that within
+  a quarter of an hour all the mass of lead was transmuted into
+  the finest gold..
+
+[nextpage="exit"]
+[endpage]

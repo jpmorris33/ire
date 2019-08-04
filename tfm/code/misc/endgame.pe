@@ -1,0 +1,31 @@
+##############
+#            #
+#  Endgames  #
+#            #
+##############
+
+
+##
+## 'Win' the game
+##
+
+function endgame_usurper
+object o
+
+stop_music
+play_music "Usurpation"
+fade_out
+wait 1000 NONBLOCKING
+
+find_tag o = "target" 100
+transfer_object player to o.x o.y
+set_flag player IS_INVISIBLE = 1
+let show_roof = -1
+fade_in
+let show_roof = -1
+wait 42000 NONBLOCKING
+fade_out
+
+status 7	# Quit the game
+
+end

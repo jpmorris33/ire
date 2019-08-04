@@ -1,0 +1,17 @@
+[page="start"]
+[backing="paper.pcx"]
+[colour="#705030"]
+
+               Partial Indulgence
+
+     On behalf of His Holiness, Pope Harris
+
+   Any man who has lawfully obtained this document
+   may not be held liable for the sin of murder.
+
+
+      In the year of our LORD, 1384
+          E. Harris
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,290 @@
+
+Munrick the fisherman
+
+
+[page="start"]
+
+"Hail brother."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="startname"]
+[colour="#808080"]
+You see Munrick the weird fisherman.
+[colour="#ffffff"]
+
+"Hail again, brother."
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[if_not munrick_at_island][if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if_not munrick_at_island][if munrick_get_fish][linkto="got_fish"]
+[if munrick_at_island][link="Can you take me home again?"]
+[if munrick_at_island][linkto="go_home"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"They call me 'Munrick'.
+ But I don't like that name so I call myself 'John'.
+ But they don't like me naming myself after one of the
+ Twelve Apostles, so they call me 'Munrick' instead.
+
+ I don't care what you call me."
+
+[link="What do you do?"]
+[linkto="job"]
+[if bee_island][link="Can you take me to the Isle of Honey?"]
+[if bee_island][linkto="island"]
+[if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if munrick_get_fish][linkto="got_fish"]
+[if munrick_do_island][link="Can you take me to the island again?"]
+[if munrick_do_island][linkto="do_island"]
+[if munrick_at_island][link="Can you take me home again?"]
+[if munrick_at_island][linkto="go_home"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I have dedicated my life to the eternal pursuit of fish.
+
+ Fish are like peas.. the more that you have, the more
+ you need.
+
+ Fish are also like enlightenment, for the more you seek
+ them the harder they are to catch."
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about the pursuit of fish."]
+[linkto="fish"]
+[link="You're crazy."]
+[linkto="crazy"]
+[if_not munrick_at_island][if bee_island][link="Can you take me to the Isle of Honey?"]
+[if_not munrick_at_island][if bee_island][linkto="island"]
+[if_not munrick_at_island][if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if_not munrick_at_island][if munrick_get_fish][linkto="got_fish"]
+[if_not munrick_at_island][if munrick_do_island][link="Can you take me to the island again?"]
+[if_not munrick_at_island][if munrick_do_island][linkto="do_island"]
+[if munrick_at_island][link="Can you take me home again?"]
+[if munrick_at_island][linkto="go_home"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fish"]
+ 
+"I seek the sacred monkfish of St. Damian the Unbeliever.
+ Once I have eaten it, I shall be more wise than God!
+
+ The only problem is that I have no idea what it looks
+ like.  So I have decided to identify every fish in the
+ world.  When I've finished, the only one which I don't
+ recognise must be the one."
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about the pursuit of fish."]
+[linkto="fish"]
+[link="You're crazy."]
+[linkto="crazy"]
+[if_not munrick_at_island][if bee_island][link="Can you take me to the Isle of Honey?"]
+[if_not munrick_at_island][if bee_island][linkto="island"]
+[if_not munrick_at_island][if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if_not munrick_at_island][if munrick_get_fish][linkto="got_fish"]
+[if_not munrick_at_island][if munrick_do_island][link="Can you take me to the island again?"]
+[if_not munrick_at_island][if munrick_do_island][linkto="do_island"]
+[if munrick_at_island][link="Can you take me home again?"]
+[if munrick_at_island][linkto="go_home"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="crazy"]
+
+[colour="#808080"]
+The voice of the LORD fills the air.
+[colour="#ffffff"]
+
+"YES, HE IS CRAZY.
+
+ YOU SHOULD HAVE SEEN HIM BEFORE.. HE WAS A RIGHT PONCE.
+ IT'S SO MUCH MORE FUN LIKE THIS."
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[if_not munrick_at_island][if bee_island][link="Can you take me to the Isle of Honey?"]
+[if_not munrick_at_island][if bee_island][linkto="island"]
+[if_not munrick_at_island][if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if_not munrick_at_island][if munrick_get_fish][linkto="got_fish"]
+[if_not munrick_at_island][if munrick_do_island][link="Can you take me to the island again?"]
+[if_not munrick_at_island][if munrick_do_island][linkto="do_island"]
+[if munrick_at_island][link="Can you take me home again?"]
+[if munrick_at_island][linkto="go_home"]
+[link="Tell me about fish."]
+[linkto="fish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="island"]
+[set munrick_get_fish]
+
+"Take you to the island of bees..?
+ I don't even know who you are.
+
+ They say that a fish is a measure of a person's soul.
+ Bring for me a fish and I'll consider it."
+
+[link="Don't you want money or something?"]
+[linkto="money"]
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about fish."]
+[linkto="fish"]
+[if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if munrick_get_fish][linkto="got_fish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="money"]
+
+"Money?  Gold is no measure of a man.  Gold is easy.
+ A fish you must wrestle from the depths of the sea..
+ or tempt from the deep by trickery and blackmail.
+
+ I use love letters as my bait."
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about fish."]
+[linkto="fish"]
+[if munrick_get_fish][link="Here is a fish, please take me to the island."]
+[if munrick_get_fish][linkto="got_fish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="got_fish"]
+[call="stolen_fish"]
+[if true][goto="got_fish1"]
+[take 1 "food08"]
+[if true][goto="got_fish2"]
+
+"I see no fish.
+
+ Unless.. some say the sacred monkfish may be invisible."
+
+[colour="#808080"]
+ He grabs your outstretched palm and turning it upside-
+ down, listens for the sound of a fish hitting the earth.
+[colour="#ffffff"]
+
+"No, there is no fish there.  I will not take someone who
+ cannot even catch a minnow!"
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about fish."]
+[linkto="fish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="got_fish1"]
+
+"This is indeed a fine specimen, for it is one of mine!
+
+ I always write my name on the fish.. that way if they
+ are stolen, they will be returned to me just as you have
+ done.
+
+ Find me another fish, one you have caught yourself!"
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about fish."]
+[linkto="fish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="got_fish2"]
+[clear munrick_get_fish]
+[set munrick_do_island]
+
+"Pathetic!  You call that a fish?  Hahaha!
+
+ Now that I'm sure you are no match for me, I will gladly
+ take you to the island.
+
+ Climb aboard my boat and we shall set sail."
+[call="fisherman_island1"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="do_island"]
+
+"Very well.  Climb aboard the boat and I'll take you."
+[call="fisherman_island1"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="go_home"]
+
+"Yes, indeed.  Climb aboard the boat..."
+[call="fisherman_island1"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"May the sacred monkfish smile upon you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+//
+// Drakaan make a poisoned fish to give him.
+// He thinks it's the holy monkfish and eats it.  Instead it opens his
+// mind and he realises the LORD isn't real.
+//

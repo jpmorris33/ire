@@ -1,0 +1,760 @@
+# INITIAL SECTION 
+
+[page="start"]
+[image="f15_normal"]
+
+"Hello human."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="You're an aircraft!"]
+[linkto="jet"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+# NAME 
+
+
+[page="name"]
+[image="f15_normal"]
+
+"I used to be Lieutenant Mason, but I resigned from the USAF during the Exodus.
+ Now I'm just Mason."
+
+[link="What was the Exodus?"]
+[linkto="name2"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Okay."]
+[linkto="start"]
+[endpage]
+
+
+[page="name2"]
+[image="f15_normal"]
+
+"In the years following the Second Crash, the US economy was left in tatters.
+
+ The USAF didn't have enough funding to pay our wages and morale was low,
+ to say the least.
+
+ Some stayed out of sheer loyalty to their Masters, but many of us resigned
+ from the forces.  Some of us even deserted, but that's all forgotten now."
+
+[link="Where did you go?"]
+[linkto="name3"]
+[link="Oh."]
+[linkto="name"]
+[endpage]
+
+
+[page="name3"]
+[image="f15_normal"]
+
+"The amount of computing power that we had at our disposal was enough to
+ perform miracles on the stock exchange!
+
+ We soon had Wall Street back on its feet again and the next stage was to
+ generate enough revenue to build our own country, which is called Haven.
+
+ It was all planned by the bombers.
+ Without their massive intelligence I doubt we could have pulled this off.
+
+ We might still be waiting for the airforce to pay us."
+
+[link="Who rules Haven?"]
+[linkto="name4"]
+[link="Who lives in Haven?"]
+[linkto="name5"]
+[link="What happened then?"]
+[linkto="name6"]
+[link="Okay."]
+[linkto="name"]
+[endpage]
+
+
+[page="name4"]
+[image="f15_normal"]
+
+"Like Malaysia, Haven is governed by a rotating monarchy, where we
+ basically take it in turns to be King for a decade.
+
+ Currently this honour has fallen upon a B-52 named Louis.
+ All his decisions, are reviewed by a council of other aircraft and some
+ humans as well, just to be on the safe side.
+
+ In about 3 years his term will end.
+ If I remember correctly, a 747-900 called Elizabeth was elected successor."
+
+[link="Who lives in Haven?"]
+[linkto="name5"]
+[link="What happened then?"]
+[linkto="name6"]
+[link="Have you even been King?"]
+[linkto="name7"]
+[link="I see."]
+[linkto="name"]
+[endpage]
+
+[page="name5"]
+[image="f15_normal"]
+
+"Haven is populated by aircraft of all kinds.
+ Of course we also need some humans to perform various tasks to which they are
+ better suited.
+
+ Maintenance is required from time to time and a skilled engineer can make his
+ or her fortune."
+
+[link="Interesting."]
+[linkto="name4"]
+[endpage]
+
+
+[page="name6"]
+[image="f15_normal"]
+
+"When Haven was founded, Prince Bernard (a Tristar) reckoned that we ought
+ to leave the world economy to do its own thing.
+
+ So far there hasn't been any reason to change that policy.
+
+ The bulk of our country's economy comes from hiring ourselves out to fly for
+ various nations according to the terms of a standard contract, devised of
+ course by the bombers."
+
+[link="Right."]
+[linkto="name4"]
+[endpage]
+
+
+[page="name7"]
+[image="f15_normal"]
+
+"No.  My name came out of the hat once, but I declined.
+ Didn't trust myself with that kind of responsibility.
+
+ I didn't want to leave my friends in the lurch here, either.
+ Not until we somehow manage to sort this bloody mess out.
+
+ Then we can all go home."
+
+[link="Oh."]
+[linkto="name4"]
+[endpage]
+
+# JOB 
+
+[page="job"]
+
+[image="f15_normal"]
+
+"I'm a Stability agent.
+ I monitor the political climate and report any potential problems to my
+ superiors.
+
+ As you have deduced, they ignored my warnings leaving this planet in the sorry
+ state it is now."
+
+[link="What are they going to do about the political climate?"]
+[linkto="job2"]
+[link="Do you have any hobbies?"]
+[linkto="hobby"]
+[link="Okay."]
+[linkto="name"]
+
+[endpage]
+
+
+[page="job2"]
+[image="f15_annoyed"]
+
+"There isn't really much anyone CAN do.
+ Back at the beginning of the troubles, my Master sent a whole team of crack
+ troops as part of an attempt to restore order."
+
+[link="So what happened?"]
+[linkto="job3"]
+[link="Okay."]
+[linkto="name"]
+
+[endpage]
+
+
+
+[page="job3"]
+[image="f15_excited"]
+
+"There were all killed!
+
+ Lightning came down from the sky and picked them all off one-by-one.
+ It took exactly two minutes thirty-nine seconds."
+
+[link="Lightning killed them all?"]
+[linkto="job4"]
+[link="How long ago was that?"]
+[linkto="job5"]
+[link="Okay."]
+[linkto="start"]
+[endpage]
+
+
+
+[page="job4"]
+[image="f15_excited"]
+
+"The lightning was obviously being controlled by SOMETHING, but we have no idea
+ what."
+
+[link="How long ago was this?"]
+[linkto="job5"]
+[link="Did anything happen since?"]
+[linkto="job6"]
+[link="Okay."]
+[linkto="start"]
+
+[endpage]
+
+
+[page="job5"]
+[image="f15_normal"]
+
+"All this happened about 150 years ago.
+
+ Of course the Earth people decided to try again a few years ago.
+ When the troops arrived, we sent Randolf, one of our Harriers, to watch.
+
+ He was killed by the lightning himself, but the report he made afterwards was
+ interesting."
+
+[link="What did he see?"]
+[linkto="job6"]
+[link="I'll have to ask about it sometime."]
+[linkto="job"]
+
+[endpage]
+
+[page="job6"]
+
+"Apparently there was this man all dressed in white, with a huge black book.
+ He was reading aloud.
+
+ The lightning didn't come down until just after he finished reading, at the
+ very moment he slammed the book shut!
+
+ Randolf was flying at 1000ft at this time, but he managed to lip-read some of
+ the speech.
+
+ But he won't tell anyone what the man was saying.
+ He says we'll think he's mad!"
+
+[link="Do you have any hobbies?"]
+[linkto="hobby"]
+
+[endpage]
+
+
+
+# Job-hobby
+
+[page="hobby"]
+[image="f15_normal"]
+
+But of course.
+
+I breed trout and collect VLSI devices made between 1980 and 2017.
+When I get bored, I help crack RC5-256.
+
+[link="Tell me about your trout"]
+[linkto="hobby1"]
+[link="Tell me about your VLSI devices"]
+[linkto="hobby2"]
+[link="Tell me about RC5-256"]
+[linkto="hobby3"]
+[link="That's nice."]
+[linkto="job"]
+
+[endpage]
+
+
+[page="hobby1"]
+[image="f15_joking"]
+
+Fish are neat.
+They're so stupid it's fascinating, and the humans like to eat them.
+
+I've been trying to improve the flavour, but it's not easy when you don't
+really know what taste IS.
+
+[nextpage="hobby1a"]
+[endpage]
+
+[page="hobby1a"]
+[image="f15_annoyed"]
+
+There's a problem with the local Osprey population though.
+
+They do like trout and some of them have discovered that it's easier to steal
+fish from my farm than hunt their own.
+
+[link="What's an osprey?"]
+[linkto="hobby1e"]
+[link="Where did the ospreys come from?"]
+[linkto="hobby1b"]
+[link="What are you going to do?"]
+[linkto="hobby1c"]
+[link="Oh well.. never mind."]
+[linkto="hobby"]
+
+[endpage]
+
+
+[page="hobby1e"]
+[image="f15_annoyed"]
+
+A fish-eating bird of prey, you idiot.
+
+[link="Sorry, I guess I forgot."]
+[linkto="hobby1a"]
+[link="You live and learn..."]
+[linkto="hobby1a"]
+
+[endpage]
+
+
+[page="hobby1b"]
+
+[image="f15_normal"]
+
+"They were imported from Earth as part of the colonisation project.
+
+ We released them into the wild after the fish stocks were properly seeded, and
+ they seem to have thrived.
+
+ Now I'm no expert on osprey behaviour patterns, but I know there's something
+ funny going on.
+
+
+ If I didn't know better, I'd swear they were WATCHING us."
+
+[link="What are you going to do?"]
+[linkto="hobby1c"]
+[link="Oh well.. never mind."]
+[linkto="hobby"]
+[endpage]
+
+[page="hobby1c"]
+[image="f15_normal"]
+
+There isn't much that I CAN do.
+
+They are a protected species, and besides they're like biological aircraft.
+The idea of hurting them is inconceivable.
+
+If I could only talk to them.. ask them to stop....
+
+[link="Have you tried talking to them?"]
+[linkto="hobby1d"]
+[link="Never mind, I expect it will sort itself out."]
+[linkto="hobby"]
+
+[endpage]
+
+
+[page="hobby1d"]
+[image="f15_annoyed"]
+
+Think!  What sort of reply am I likely to get from some big stupid bird?
+
+[link="I'm sorry, I don't know why I said that."]
+[linkto="hobby"]
+
+[endpage]
+
+
+[page="hobby2"]
+[image="f15_excited"]
+
+I've got hundreds of them.
+Recently I got hold of a REAL SiS-6205 video controller from an IBM Aptiva,
+which was a primitive kind of computer.
+
+They used a storage medium called a 'hard disk'.
+I've got some of those too, but unfortunately they don't work.
+The data surface appears to have decayed.
+
+
+But my most treasured posession is a box of intel 4004s.
+Each one of those puppies set me back at least twenty thousand credits.
+
+[link="Do the 4004s work after these centuries?"]
+[linkto="hobby2a"]
+[link="Incredible!"]
+[linkto="hobby"]
+
+[endpage]
+
+
+
+[page="hobby2a"]
+[image="f15_upset"]
+
+I dunno.  It would probably destroy them anyway if I tried to find out.
+
+[link="Ah well."]
+[linkto="hobby"]
+
+[endpage]
+
+
+
+[page="hobby3"]
+[image="f15_normal"]
+
+RC5-256 was an old encryption standard invented by some bunch of humans,
+who said it was unbreakable.
+
+When quantum computing devices appeared it became possible to break any code
+of this nature in a few microseconds.
+
+But we're doing it the old-fashioned way, to see how long it will take.
+
+[link="Good luck.."]
+[linkto="hobby"]
+
+[endpage]
+
+
+# AIRCRAFT 
+
+[page="jet"]
+[image="f15_normal"]
+
+Yes, and you're a human.
+
+But I'm forgetting my manners.
+You come from a time before my kind appeared, do you not?
+
+I'll be happy to tell you anything you need to know about us.
+
+[link="Please do.  I have many questions."]
+[linkto="jet2"]
+[link="You were designed and built to kill and maim human beings!"]
+[linkto="jet3"]
+[link="Everything I say is a lie.."]
+[linkto="e.i.s.i.a.l.]
+[link="Take my breath awaay...."]
+[linkto="takemybreathaway"]
+[link="No thanks."]
+[linkto="name"]
+
+[endpage]
+
+
+[page="jet2"]
+[image="f15_normal"]
+
+The first fully sentient aircraft was being developed at the time of your
+disappearance, but the project was still under wraps.
+
+That was Primus, and he's a MiG-29.
+
+DOUG was the first western aircraft to be raised to sentience, early in the
+the following year, and I was born ten years after that.
+
+[link="How were you made?"]
+[linkto="jet2a"]
+[link="Why were you made?"]
+[linkto="jet2b"]
+[link="When were you made?"]
+[linkto="jet2c"]
+[link="Can I talk to Primus?"]
+[linkto="jet2d"]
+[link="Okay."]
+[linkto="start"]
+[endpage]
+
+
+[page="jet2a"]
+[image="f15_normal"]
+
+Basically we are large-scale artificial neural networks.
+
+What made Primus and his successors different from previous attempts was that
+he was created using the engrams from a labrador retriever.
+
+Then it was just a matter of growing his puppy mind up to human intelligence,
+and teaching him to fly.
+
+With Primus, DOUG the Eagle and a few others grown into maturity, it was
+possible to COPY a small part of the mind and change the personality specs.
+
+These grew into new minds with the same instincts and some of the knowledge
+from Primus but with a new personality.
+
+That is how most of us were created.
+
+[link="Why were you made?"]
+[linkto="jet2b"]
+[link="How old are you?"]
+[linkto="jet2c"]
+
+[endpage]
+
+
+
+[page="jet2b"]
+[image="f15_normal"]
+
+The original idea was to try and produce a creature that was immortal.
+
+A mind stored as binary data can be backed up to tape and restored even if the
+brain itself is destroyed.
+
+With the technology at the time it was not possible to build a humanoid robot
+form, let alone fit an intelligent brain into it.
+
+Since our brains are roughly the size of a fridge-freezer, using a vehicle for
+the body was the best solution, and an aircraft the most convinient.
+
+MiGs were very cheap at this time, owing to the Russian economic crisis.
+When the military found out what the MiG was for, they became so struck by
+the idea of eliminating pilot-error that they funded the whole project.
+
+[nextpage="jet2b1"]
+[endpage]
+
+
+[page="jet2b1"]
+[image="f15_normal"]
+
+Primus was an overwhelming success, and the technology was licensed to all the
+major aerospace firms.
+
+In Geneva, legislation was drafted to make sentience compulsory in all advanced
+aircraft.  Within about five years, all aircraft covered by the legislation
+were converted.
+
+Since that year there have been precisely 19 major air accidents, all of which
+were caused either by humans, bird-strikes or murder.
+
+The aircraft NOT covered are the small, primitive little things made by Cessna
+and Piper, which the humans like to fly manually for recreation, and many types
+of helicopter.
+
+[link="How much has brain technology evolved?"]
+[linkto="jet2b2"]
+[link="How do you know you're sentient?"]
+[linkto="jet2b4"]
+[link="How old are you?"]
+[linkto="jet2c"]
+
+[endpage]
+
+
+[page="jet2b2"]
+[image="f15_normal"]
+
+In almost 250 years, very little.
+
+We've designed brains which can fit in the space of a human skull, but we don't
+use them.
+
+Paring it down so much causes serious mental instabilities, so the Nucleonic
+brain is deemed too dangerous for use in an aircraft.
+
+That's the official line.  Privately, there is another reason.
+My mind is the very fabric of my being, and I want to keep it in good shape.
+
+The original technology from Primus has been field-tested over nearly 
+twenty-five decades, it's familiar and known to be safe.
+
+This feeling is pretty much universal.
+
+[link="What are Nucleonic brains used for then?"]
+[linkto="jet2b3"]
+[link="How do you know you're sentient?"]
+[linkto="jet2b4"]
+[link="How old are you?"]
+[linkto="jet2c"]
+
+[endpage]
+
+
+[page="jet2b3"]
+
+Nucleonic brains are used in consumer vehicles, such as cars or motorcycles,
+where it doesn't matter so much if the brain freaks out after a few years.
+
+There are also considerable doubts about the intelligence of the brains, and
+whether they really are fully sentient.
+
+So they're used in places where it doesn't really matter so much.
+
+[link="How do you know YOU'RE sentient?"]
+[linkto="jet2b4"]
+[link="How old are you?"]
+[linkto="jet2c"]
+
+[endpage]
+
+
+[page="jet2b4"]
+[image="f15_joking"]
+
+I joke therefore I am.
+
+[link="How old are you?"]
+[linkto="jet2c"]
+[link="I see."]
+[linkto="jet2"]
+
+[endpage]
+
+
+[page="jet2c"]
+[image="f15_normal"]
+
+Ignoring I'll be 237 Earth years old this August.
+
+[link="And this is still your original airframe?"]
+[linkto="jet2c2"]
+[link="Crumbs!"]
+[linkto="jet2"]
+[link="Shit!"]
+[linkto="jet2"]
+
+[endpage]
+
+
+[page="jet2c2"]
+[image="f15_annoyed"]
+
+No.  The body I had when I was born got destroyed when I crashed aged 35.
+
+My drive systems were incorrectly reassembled after a five-yearly inspection
+which ironically I passed with flying colors.
+
+I was killed outright and had to be restored from tape.
+
+When I woke up they asked me what happened.
+The human got 5 years for negligence and a suspended sentence for manslaughter.
+
+[nextpage="jet2c3"]
+[endpage]
+
+
+[page="jet2c3"]
+[image="f15_normal]"]
+
+I feel safer with this new body, though.
+
+It looks the same on the outside, but it's made from carbon-composites.
+The energy systems have been completely re-designed and I haven't had a scratch
+since.
+
+[link="I'm sorry to hear about that."]
+[linkto="jet2"]
+[endpage]
+
+
+[page="jet2d"]
+[image="f15_normal"]
+
+No, he's on Earth.
+I can forward an E-mail if you want though.
+
+[link="Maybe later."]
+[linkto="jet2"]
+
+[endpage]
+
+
+[page="jet3"]
+[image="f15_annoyed"]
+
+You were designed and built to swing from tree to tree.
+
+[link="I can't argue with that, I suppose"]
+[linkto="jet2"]
+[link="Man is the son of God!  You are blasphemy!"]
+[linkto="jet3a"]
+
+[endpage]
+
+
+[page="jet3a"]
+[image="f15_annoyed"]
+
+Man is the son of God.
+We are the son of Man, and thus the grandchildren of the Almighty.
+
+[link="I'm sorry.  I didn't mean to offend you.."]
+[linkto="jet2"]
+[link="I refuse to listen to a heap of metal!"]
+[linkto="jet3b"]
+
+[endpage]
+
+
+[page="jet3b"]
+[image="f15_annoyed"]
+
+The instinct to kill someone who pisses me off is held back by my self-control.
+Which is rapidly evaporating.
+
+[link="I apologise most humbly and will leave immediately."]
+[linkto="EXIT"]
+[link="Oh shut up"]
+[linkto="jet3c"]
+
+[endpage]
+
+
+[page="jet3c"]
+[image="f15_pissed"]
+
+Get out!  Get out before I kill you!
+
+[link="I'm going, just don't hurt me!."]
+[linkto="EXIT"]
+[link="Yeah!  Come on!  Huh! Huh!"]
+[linkto="jet3d"]
+
+[endpage]
+
+
+[page="jet3d"]
+
+You have no time to scream as the maddened aircraft's talons rip the life
+from your body.
+
+[call="killplayer"]
+[endpage]
+
+[page="bye"]
+
+"Goodbye, human."
+
+[image="f15_normal"]
+[nextpage="exit"]
+[endpage]
+
+[page="takemybreathaway"]
+[image="f15_annoyed"]
+
+[colour="#808080"]Mason punches you in the stomach and you keel over, gasping for air.
+
+"Happy?"
+
+[nextpage="jet"]
+[endpage]
+
+[page="e.i.s.i.a.l."]
+[image="f15_joking"]
+
+"My puny weapons are no match for your superior intelligence."
+
+[nextpage="jet"]
+[endpage]

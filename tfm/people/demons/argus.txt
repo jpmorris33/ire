@@ -1,0 +1,282 @@
+
+[page="start"]
+[image="f18-0.pcx"]
+
+"I HAVE NO GREETING!"
+
+[link="Test"]
+[linkto="other"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="other"]
+[image="f18-0.pcx"]
+[am_carrying "comms_unit"]
+[if true][if_not base_panavius1][goto="comms_unit"]
+
+ERROR: You do not have the comms unit and the rest of
+Commander Argus hasn't been written yet
+
+TODO: Argus at the very least should mention the interstellar
+transmitter and why they have a security base anyway
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+
+[page="fa18"]
+
+"F-18 is much easier to pronounce."
+
+
+
+
+"It varies amongst us.  A delicate balance has to be kept.
+
+ Too aggressive and you'll get an aircraft that is a
+ borderline psychotic.  Israel had a lot of those and
+ they would often kill people at the slightest provocation.
+
+ It's very difficult to treat as well.  Sometimes the only
+ cure is to replace the brain circuitry and re-download.
+ That will get you a nervous wreck of an aircraft, but a
+ harmless one."
+
+"At the other end of the scale, you'll get pacifism and a
+ total refusal to fight.  They are often paranoid and are
+ constantly worrying about conflict or injury.  Of course,
+ there's no problem employing most of these cases in
+ non-combative roles.  They are often very good at
+ intelligence work, if you can persuade them that the
+ danger to their own lives is minimal."
+
+"Besides, even the most extreme pacifist can be made to
+ fight in an emergency.  Every aircraft has some cause
+ they would risk their lives for, it's just a matter of
+ finding it.  It's not hard to persuade aircraft to
+ fight a direct threat to their country.  But launching
+ an attack, now that's hard.  You need to promote
+ aggression, with all the problems that brings.
+ Indoctrination and neural circuit modification are the
+ two most common techniques to get attack aircraft.
+ The modifications are highly illegal."
+
+"The difficulty involved getting aircraft to invade
+ other countries has helped keep Earth relatively free of
+ war for a long time.
+
+ Sometimes an aircraft will change from aggressive to
+ pacifistic as the result of a massive psychic shock,
+ usually when an aircraft realises that they have
+ been committing atrocities for their Master.
+ Austin on the intelligence team, he's like that.
+ Poor guy."
+
+"I and my team are most carefully balanced.  We recognise
+ of the necessity to defend our country whatever the risk
+ and we are willing to sacrifice our lives for such a
+ cause.  We are prepared to engage our enemies, but only
+ as a last resort.  We will not kill an enemy aircraft
+ without a parley unless they pose an intolerable threat.
+
+ The Horsemen, they're special.  Death in particular, he's
+ borderline psychotic."
+
+
+[page="comms_unit"]
+[take 1 "comms_unit"]
+[set base_panavius1]
+[if base_leuchars1][if base_fairford1][goto="comms_active"]
+[image="f18-0.pcx"]
+
+[colour="#808080"]
+Argus takes the Drakaan communications unit and looks at
+it dubiously.
+[colour="#ffffff"]
+
+"Are those valves?"
+
+[nextpage="comms_unit2"]
+[endpage]
+
+[page="comms_unit2"]
+[image="comms.pcx"]
+
+[colour="#808080"]
+The comms unit flickers into life and the Commander
+almost drops it.
+Commander Gurd appears, looking rather displeased.
+[colour="#ffffff"]
+
+"So?  So what if we still use valves?  What's it to you?
+ Could YOU design a transistor circuit capable of
+ amplifying 130 amps at 15'000 volts?"
+
+[nextpage="comms_unit3"]
+[endpage]
+
+[page="comms_unit3"]
+[image="comms.pcx"]
+
+"Anyway.  I am commander Gurd of the Drakaan research
+ team, and I wish to propose an alliance against Xy'lan,
+ who the humans worship as a god.
+
+ As a token of our good faith, I have sent you this
+ communications device of our own design, which will not
+ be affected by Xy'lan's jamming signals.
+
+ Once these devices have been given to all three of your
+ bases, you will again be able to talk to your comrades.
+ And, once all are in contact, we can then discuss my
+ proposals in more detail."
+
+[nextpage="comms_unit4"]
+[endpage]
+
+[page="comms_unit3"]
+[image="f18-3.pcx"]
+
+"That seems fair, but we can't deliver them ourselves
+ while that barrier is still up.  Any thoughts on that?"
+
+[nextpage="comms_unit4"]
+[endpage]
+
+[page="comms_unit4"]
+[image="comms.pcx"]
+
+"They will have to be hand-delivered, unfortunately.
+ We will probably not be able to remove the barrier 
+ until we have set up communications links."
+
+[nextpage="comms_unit5"]
+[endpage]
+
+
+[page="comms_unit5"]
+[image="f18-0.pcx"]
+
+[colour="#808080"]
+The comms unit shuts off, and Argus looks down at you.
+[colour="#ffffff"]
+
+"Well, I guess'd better deliver the other units.
+ Not a task I envy, I have to say.  The other bases
+ are New Fairford to the west, and the wildlife research
+ facility at New Leuchars, northwest of here.
+
+ Feel free to refresh yourself in the base facility if
+ before you head out, though.  Best of luck."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+[page="comms_active"]
+[image="f18-0.pcx"]
+[set drakaan_task_gavecomms]
+
+[colour="#808080"]
+Argus takes the Drakaan communications unit and looks at
+it dubiously.
+[colour="#ffffff"]
+
+"Are those valves?"
+
+[nextpage="comms_active2"]
+[endpage]
+
+
+[page="comms_active2"]
+[image="comms.pcx"]
+
+[colour="#808080"]
+The comms unit flickers into life and the Commander
+almost drops it.
+Commander Gurd appears, looking rather displeased.
+[colour="#ffffff"]
+
+"So?  So what if we still use valves?  What's it to you?
+ Could YOU design a transistor circuit capable of
+ amplifying 130 amps at 15'000 volts?"
+
+[nextpage="comms_active2a"]
+[endpage]
+
+
+[page="comms_active2a"]
+[image="comms.pcx"]
+
+"Anyway.  I am Commander Gurd of the Drakaan research
+ team, and I wish to propose an alliance against Xy'lan,
+ whom the humans worship as a god.
+
+ As a token of our good faith, I have sent you this
+ communications device of our own design, which will not
+ be affected by Xy'lan's jamming signals.
+
+ Now that these devices have been given to all three of
+ your bases, you will again be able to talk to your
+ comrades.
+
+ Now that everyone is in contact, we can now discuss my
+ proposals in more detail."
+
+[nextpage="comms_active3"]
+[endpage]
+
+
+[page="comms_active3"]
+[image="comms.pcx"]
+
+[colour="#808080"]
+As all the comms units are linked together, there is a
+tremendous babel of voices as the three base commanders
+attempt to catch up on decades worth of news.
+
+Eventually, Gurd butts in and calls the meeting to order.
+[colour="#ffffff"]
+
+"Gentlemen, gentlemen.. Xy'lan waits for no-one.  
+ We must first discuss the plan, then you may talk as
+ you will.
+
+ As I suppose you are aware, it was our race that created
+ the mad god, so it is therefore our responsibility to
+ un-create Him.  But we lack the resources to manage this
+ on our own.
+
+ I have therefore decided to place our knowledge and
+ skill at your disposal, that we may be able do together
+ what cannot be done alone."
+
+[nextpage="comms_active4"]
+[endpage]
+
+
+[page="comms_active4"]
+
+Here endeth the script
+
+[endpage]
+
+
+
+[page="attacked"]
+[image="f18.pcx"]
+
+"GUARDS!  ARREST THE HUMAN!"
+
+[nextpage="exit"]
+[endpage]

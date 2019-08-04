@@ -1,0 +1,16 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+          The Cathedral And The Bazaar
+
+               By Eric S Raymond
+
+
+ [ This tome appraises the co-operative
+  development of large, complex projects and
+  compares that approach to the development of
+  such projects by a small, closed group.]
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,66 @@
+#
+#	Mirror reflection management
+#
+
+#	Mirror in wooden stand
+
+function mirror1
+object reflection
+int t
+
+if me.curdir = UP
+or me.curdir = DOWN
+	let t = me.y + 1
+	get_object reflection = me.x t
+	if_flag reflection IS_PERSON
+		set_sequence me "mirror_v_full"
+	else
+		set_sequence me "mirror_v_empty"
+	endif
+endif
+
+if me.curdir = LEFT
+or me.curdir = RIGHT
+	let t = me.x + 1
+	get_object reflection = t me.y
+	if_flag reflection IS_PERSON
+		set_sequence me "mirror_h_full"
+	else
+		set_sequence me "mirror_h_empty"
+	endif
+endif
+
+end
+
+
+#	Mirror on wall
+
+function mirror2
+object reflection
+int temp
+
+if me.curdir = UP
+or me.curdir = DOWN
+	let temp = me.y + 1
+	get_object reflection = me.x temp
+	if_flag reflection IS_PERSON
+		set_sequence me "mirror2_v_full"
+	else
+		set_sequence me "mirror2_v_empty"
+	endif
+endif
+
+if me.curdir = LEFT
+or me.curdir = RIGHT
+	let temp = me.x + 1
+	get_object reflection = temp me.y
+	if_flag reflection IS_PERSON
+		set_sequence me "mirror2_h_full"
+	else
+		set_sequence me "mirror2_h_empty"
+	endif
+endif
+
+end
+
+

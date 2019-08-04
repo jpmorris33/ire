@@ -1,0 +1,4 @@
+[page="start"]
+[backing="bsod.png"]
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,75 @@
+[page="start"]
+
+[colour="#808080"]
+You see a burly fishmonger.
+[colour="#ffffff"]
+
+"Can I help you, $Sir?"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="I'd like to buy some fish."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+
+"I am $Name.  I am the fishmonger in this village,
+ but I also sell outside.  Folk come from several
+ villages nearby to purchase my wares."
+
+[link="I'd like to buy some fish."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"As you are not from these parts, I feel you would likely
+ prefer my smoked fish.  It is cured, and will last long
+ on the road.
+
+ I will accept 2 gold coins for each fish."
+
+[link="I'd like to buy a fish."]
+[linkto="buyfish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="buyfish"]
+[take 2 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "food08"]
+
+"Thank you, $Sir."
+
+[link="I would like to buy another fish."]
+[linkto="buyfish"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_money"]
+
+"I'm afraid you have not the money to but that, $Milord."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

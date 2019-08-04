@@ -1,0 +1,223 @@
+[page="start"]
+
+[goto="who"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+
+"I am ????, the blacksmith.
+ If you have need of my services, you have only to ask."
+
+[link="What services do you offer?"]
+[linkto="services"]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+[page="metalwork"]
+
+"Metalworking is not an easy thing.  It requires you to
+ know some spells.  Mostly they are protective spells,
+ to shield you from the heat of the forge, or to carry
+ a white-hot ingot in your mouth.
+
+ It also requires much strength in the forepaws to
+ lift the hammer-glove and bring it down on the hot
+ iron."
+
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+[page="services"]
+
+"Well, unless you have a Waarg companion who needs
+ arms or armour, I doubt I have much in the way of goods
+ to offer you.
+
+ I will however melt down gold into ingots if that would
+ be useful to you.  In exchange, I will keep the surplus."
+
+[link="I have some gold to be melted."]
+[linkto="gold"]
+[always]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+[page="gold"]
+[clear gotgold]
+[am_carrying "crucifix-table"]
+[if true][set gotgold]
+[am_carrying "candlestk"]
+[if true][set gotgold]
+[am_carrying "candlestkunlit"]
+[if true][set gotgold]
+[am_carrying "gold_nugget"]
+[if true][set gotgold]
+[am_carrying "ring_inv"]
+[if true][set gotgold]
+[if gotgold][goto="gold2"]
+
+"I do not see anything.  Perhaps you have left it at
+ home."
+
+[link="I want something else."]
+[linkto="services"]
+[always]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+[page="gold2"]
+
+"Very good.  Which item had you in mind for me to smelt?"
+
+[am_carrying "crucifix-table"]
+[if true][link="I have this gold crucifix."]
+[if true][linkto="gold-crucifix"]
+[if true][always]
+[clear gotgold]
+[am_carrying "candlestk"]
+[if true][set gotgold]
+[am_carrying "candlestkunlit"]
+[if true][set gotgold]
+[if gotgold][link="I have this gold candlestick."]
+[if gotgold][linkto="gold-candlestk"]
+[if gotgold][always]
+[am_carrying "gold_nugget"]
+[if true][link="I have some gold nuggets."]
+[if true][linkto="gold-nuggets"]
+[if true][always]
+[am_carrying "ring_inv"]
+[if true][link="I have a solid gold ring."]
+[if true][linkto="gold-ring"]
+[link="I've changed my mind."]
+[linkto="services"]
+[always]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+[page="gold-crucifix"]
+[destroy 1 crucifix-table]
+[goto="meltdown"]
+[endpage]
+
+[page="gold-candlestk"]
+[destroy 1 candlestk]
+[if false][destroy 1 candlestkunlit]
+[if true][goto="meltdown"]
+[endpage]
+
+
+[page="gold-nuggets"]
+[destroy 5 gold_nugget]
+[if true][goto="meltdown"]
+
+"I'm sorry, you don't have enough nuggets.  I need five
+ pieces of gold to cast a single ingot.
+
+ Have you need for any other services?"
+
+[am_carrying "crucifix-table"]
+[if true][link="I have this gold crucifix."]
+[if true][linkto="gold-crucifix"]
+[if true][always]
+[clear gotgold]
+[am_carrying "candlestk"]
+[if true][set gotgold]
+[am_carrying "candlestkunlit"]
+[if true][set gotgold]
+[if gotgold][link="I have this gold candlestick."]
+[if gotgold][linkto="gold-candlestk"]
+[if gotgold][always]
+[am_carrying "ring_inv"]
+[if true][link="I have a solid gold ring."]
+[if true][linkto="gold-ring"]
+[link="I've changed my mind."]
+[linkto="services"]
+[always]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+
+[page="gold-ring"]
+
+"I fear I cannot melt this ring.  However, if you wish to
+ be rid of it, I suggest you cast it into the fires of
+ Orodruin.
+
+ Have you any other gold items you wish melted down?"
+
+[am_carrying "crucifix-table"]
+[if true][link="I have this gold crucifix."]
+[if true][linkto="gold-crucifix"]
+[if true][always]
+[clear gotgold]
+[am_carrying "candlestk"]
+[if true][set gotgold]
+[am_carrying "candlestkunlit"]
+[if true][set gotgold]
+[if gotgold][link="I have this gold candlestick."]
+[if gotgold][linkto="gold-candlestk"]
+[if gotgold][always]
+[am_carrying "gold_nugget"]
+[if true][link="I have some gold nuggets."]
+[if true][linkto="gold-nuggets"]
+[if true][always]
+[link="I've changed my mind."]
+[linkto="services"]
+[always]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+[page="meltdown"]
+[create 1 gold_bar]
+
+[colour="#808080"]
+The blacksmith and his assistant quickly melt down the
+gold, and pour it into a mould.  As the gold begins to
+cool, they smooth off the top of the ingot, taking the
+swarf as payment.
+
+The blacksmith places the fresh gold bar at your feet.
+[colour="#ffffff"]
+
+"Here you go.  Is there anything else I can do for you?"
+
+[am_carrying "crucifix-table"]
+[if true][link="I have this gold crucifix."]
+[if true][linkto="gold-crucifix"]
+[if true][always]
+[clear gotgold]
+[am_carrying "candlestk"]
+[if true][set gotgold]
+[am_carrying "candlestkunlit"]
+[if true][set gotgold]
+[if gotgold][link="I have this gold candlestick."]
+[if gotgold][linkto="gold-candlestk"]
+[if gotgold][always]
+[am_carrying "gold_nugget"]
+[if true][link="I have some gold nuggets."]
+[if true][linkto="gold-nuggets"]
+[if true][always]
+[am_carrying "ring_inv"]
+[if true][link="I have a solid gold ring."]
+[if true][linkto="gold-ring"]
+[link="Not today, thankyou."]
+[linkto="services"]
+[always]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]

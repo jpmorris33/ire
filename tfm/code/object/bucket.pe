@@ -1,0 +1,379 @@
+function bucket
+object bucket
+
+let bucket = current
+
+# Find the target
+
+if me = player
+	let curtile = null
+	let current = me
+	print "Use bucket on "
+	redraw_text
+	call get_near
+	if_exists current
+		print current.shortdesc
+	else
+		if_exists curtile
+			if_flag curtile IS_WATER
+				print "water"
+			else
+				print "nothing."
+				let curtile = null
+			endif
+		else
+			print "nothing."
+		endif
+	endif
+	printcr
+	redraw_text
+else
+	let current = me.target
+endif
+
+# If cancelled, exit
+
+if_not_exists current
+	if_not_exists curtile
+		return
+	endif
+endif
+
+# Bucket of water
+
+if bucket is called "bucket_water"
+	replace bucket = "bucket"
+	
+	# Pour it on something/someone
+	
+	if_exist current
+		if_flag current IS_PARTY
+			if me = player
+				print "(slurp)"
+			endif
+		else
+
+			# Fill another bucket
+			if current is called "bucket"
+				object_sound "pouring" current
+				replace current = "bucket_water"
+				return
+			endif
+
+			# Douse fire
+			if current is called "firestones_lit"
+				change current = "firestones"
+				return
+			endif
+
+			# Use on bed, wake people up
+			if current is called "bed*"
+				call awaken_current
+				return
+			endif
+
+			if current is called "churn"
+				if me = player
+					print "That's not gonna work, and you know it."
+					printcr
+				endif
+				return
+			endif
+
+			# Wash away a puddle of something
+			if current is called "puddle_*"
+				destroy current
+				if me = player
+					print "You wash away the puddle."
+					printcr
+				endif
+				return
+			endif
+
+
+			if current is called "blood*"
+				destroy current
+				if me = player
+					print "You wash away the blood."
+					printcr
+				endif
+				return
+			endif
+
+
+			# Use on someone
+			if current.stats.hp > 0
+			and current.stats.intelligence > 40
+				if current.label.rank = "king"
+					let victim = current
+					let suspect = me
+					call justice_HTreason
+				else
+					if me = player
+						print "~Aagh!~"
+					endif
+				endif
+			else
+				if me = player
+					print "You pour it away."
+				endif
+			endif
+		endif
+		if me = player
+			printcr
+		endif
+		return
+	endif
+
+	if me = player
+		print "You pour it away."
+		printcr
+	endif
+	return
+endif	
+
+# Bucket of Milk
+
+if bucket is called "bucket_milk"
+	replace bucket = "bucket"
+	
+	# Pour it on something/someone
+	
+	if_exist current
+		if_flag current IS_PARTY
+			if me = player
+				print "(slurp) ~Luvvly!~"
+			endif
+		else
+			# Fill another bucket
+			if current is called "bucket"
+				object_sound "pouring" current
+				replace current = "bucket_milk"
+				return
+			endif
+
+			# Douse fire
+			if current is called "firestones_lit"
+				change current = "firestones"
+				return
+			endif
+
+			# Use on bed, wake people up
+			if current is called "bed*"
+				call awaken_current
+				return
+			endif
+
+			# Make butter
+			if current is called "churn"
+				create current = "FOOD04"
+				transfer_to_pocket current to me
+				if me = player
+					print "You make some butter."
+					printcr
+				endif
+				return
+			endif
+
+			# Use on someone
+			if current.stats.hp > 0
+			and current.stats.intelligence > 40
+				if current.label.rank = "king"
+					let victim = current
+					let suspect = me
+					call justice_HTreason
+				else
+					if me = player
+						print "~Aagh!~"
+					endif
+				endif
+			else
+				if me = player
+					print "You pour it away."
+				endif
+			endif
+		endif
+		if me = player
+			printcr
+		endif
+		return
+	endif
+
+	if me = player
+		print "You pour it away."
+		printcr
+	endif
+	return
+endif	
+
+
+# Bucket of blood
+
+if bucket is called "bucket_blood"
+	replace bucket = "bucket"
+	
+	# Pour it on something/someone
+	
+	if_exist current
+		if_flag current IS_PARTY
+			if me = player
+				# get vampirical
+				print "(slurp) ~Muahahahaha!~"
+			endif
+		else
+
+			# Fill another bucket
+			if current is called "bucket"
+				object_sound "pouring" current
+				replace current = "bucket_blood"
+				return
+			endif
+
+			# Douse fire
+			if current is called "firestones_lit"
+				change current = "firestones"
+				return
+			endif
+
+			# Use on bed, wake people up
+			if current is called "bed*"
+				call awaken_current
+				return
+			endif
+
+			# Make 'butter'
+			if current is called "churn"
+				create current = "food13"
+				transfer_to_pocket current to me
+				if me = player
+					print "You make some 'butter'."
+					printcr
+				endif
+				return
+			endif
+
+			# Use on someone
+			if current.stats.hp > 0
+			and current.stats.intelligence > 40
+				let victim = current
+				let suspect = me
+				if current.label.rank = "king"
+					call justice_HTreason
+				else
+					if me = player
+						print "~Aiieee!~"
+					endif
+					call justice_assault
+				endif
+			else
+				if me = player
+					print "You pour it away."
+				endif
+			endif
+		endif
+		if me = player
+			printcr
+		endif
+		return
+	endif
+
+	if me = player
+		print "You pour it away."
+		printcr
+	endif
+	return
+endif	
+
+
+# Empty bucket
+
+if bucket is called "bucket"
+	# Fill it from a water tile (river, sea etc)
+	if_flag curtile IS_WATER
+		replace bucket = "bucket_water"
+		if me = player
+			print "You fill the bucket."
+			printcr
+		endif
+		return
+	endif
+
+	# Fill it from an object marked as a water source
+	if_exists current
+		if current.label.race = "water"
+			replace bucket = "bucket_water"
+			if me = player
+				print "You fill the bucket."
+				printcr
+			endif
+			return
+		endif
+
+		# Blood
+		if current is called "blood*"
+			replace bucket = "bucket_blood"
+			if me = player
+				print "You mop up the blood."
+				printcr
+			endif
+			destroy current
+			return
+		endif
+
+		# Milking cows
+		if current is called "cow"
+			replace bucket = "bucket_milk"
+			if me = player
+				print "You milk the cow."
+				printcr
+			endif
+			return
+		endif
+
+		# Sarcastic comments
+		if me = player
+			if current is called "meat01"
+				print "No, you cannot milk the cow's head."
+				printcr
+				return	# Stop it falling through
+			endif
+			if current is called "meat02"
+				print "You aren't playing Ultima Six."
+				printcr
+				return	# Stop it falling through
+			endif
+			if current is called "meat*"
+				print "Sick!"
+				printcr
+				replace bucket = "bucket_blood"
+			endif
+			if current is called "cow_dead"
+				print "It's a bit late for that."
+				printcr
+			endif
+
+			if current is called "churn"
+				print "Unleavened bread is bread made without any ingredients."
+				printcr
+			endif
+		endif
+
+	endif
+	return
+
+endif
+
+end
+
+##
+## Churn
+##
+
+function churn
+
+if me = player
+	print "Pour a bucket of milk into the churn."
+	printcr
+endif
+
+end

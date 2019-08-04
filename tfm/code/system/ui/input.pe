@@ -1,0 +1,677 @@
+#
+#	Input - general controls that can be used in the player's loop
+#		but also in the object selector
+#		Sets quit_browser = 1 if we've done anything interesting
+#		and want to break out of the selector.
+#
+
+int safe_for_party = 0
+object lookobj
+
+function input
+integer member
+integer x
+integer y
+
+if key = KEY_ESC
+	centre on player
+	if_confirm "Quit Game "
+		status 7
+	endif
+endif
+
+#	Press F1 for help
+
+if key = KEY_F1
+	talk_to "books/help.txt"
+endif
+
+#	F2 to save
+
+if key = KEY_F2
+	centre on player
+	call use_mobile_savegame
+
+endif
+
+#	F3 to load
+
+if key = KEY_F3
+	centre on player
+	call use_mobile_loadgame
+endif
+
+#	F4 - sound settings
+
+if key = KEY_F4
+	centre on player
+	call volumeslider
+#	status 10
+endif
+
+#	Press F5 to restart game
+if key = KEY_F5
+	if_confirm "Restart Game"
+		print "Please wait..."
+		printcr
+
+		redraw_text
+		restart
+
+		let quit_browser = 1
+	endif
+	let key = 0
+endif
+
+call check_cheats
+
+
+#
+# Deal with party control
+#
+
+if key = KEY_0
+	call is_safe_for_party
+	if safe_for_party
+		set_flag player IS_TRANSLUCENT = 0
+		set_leader party[1] player_action follower_action
+		let current_bag = player
+		if player.user.user0 = 0
+			call unfreak
+		else
+			call take_drugs
+			let player.user.user0 = -50 # Hack to trigger FX
+		endif
+
+		print "Party Mode"
+		printcr
+		let quit_browser = 1
+		let party_mode = 1
+	endif
+endif
+
+if key >= KEY_1
+	if key <= KEY_9
+		set_flag player IS_TRANSLUCENT = 0
+		let member = key - KEY_0
+		set_member party[member] player_action
+		let current_bag = player
+		call reset_objects		# Reset the object display
+		call vehicle_check
+		if player.user.user0 = 0
+			call unfreak
+		else
+			call take_drugs
+			let player.user.user0 = -50 # Hack to trigger FX
+		endif
+
+		print_bestname player
+		printcr
+		let quit_browser = 1
+		let party_mode = 1
+	endif
+endif
+
+#
+# Now deal with Looking
+#
+
+if key = KEY_L
+	printcr
+	print "Look at "
+	redraw_text
+	let lookobj = player			# Player is looking
+
+	let current = player			# Orient around player
+	call get_far
+
+	if_visible new_x new_y
+		if_exists current
+			print current.shortdesc
+			printcr
+			if current = player
+				print "You see yourself"
+				printcr
+			else
+				if_flag current KNOW_NAME #IS_PARTY
+					print "You see "
+					print_bestname current
+					printcr
+				else
+					print current.desc
+					printcr
+				endif
+	
+				if_flag current IS_QUANTITY
+					if current.stats.quantity = 1
+					        print "There is just one."
+					else
+					        print "You see "
+						print current.stats.quantity
+						print " of them."
+						printcr
+					endif
+				endif
+
+				if current.funcs.lcache != -1
+					call current.funcs.lcache
+				endif
+
+			endif
+		else
+			if_exists curtile
+#				print curtile.shortdesc
+				printcr
+				print curtile.desc
+				printcr
+			else
+			        print "nothing"
+				printcr
+			endif
+		let quit_browser = 1
+		endif
+	else
+	        print "darkness"
+		printcr
+		print "Nothing to see."
+		printcr
+	endif
+	button_push KEY_L = 0 # Clear button
+	flush_mouse NONBLOCKING
+	let mouseclick = -1 # Prevent double-use
+endif
+
+#
+# Talk
+#
+
+if key = KEY_T
+
+	if_not_flag player IS_HERO
+		print "Only the hero can talk to people."
+		printcr
+
+		button_push KEY_T = 0 # Clear button
+		flush_mouse NONBLOCKING
+		let mouseclick = -1 # Prevent double-use
+		return
+	endif
+
+	printcr
+	print "Talk to "
+	redraw_text
+
+	let current = player
+	let victim = player
+	call get_far
+
+	if_visible new_x new_y
+		call TalkTo
+	else
+		print "darkness"
+		printcr
+	endif
+	button_push KEY_T = 0 # Clear button
+	flush_mouse NONBLOCKING
+	let mouseclick = -1 # Prevent double-use
+endif
+
+#
+# Use an object
+#
+
+if key = KEY_U
+	printcr
+	print "Use "
+	redraw_text
+
+	let current = player
+	call get_near
+
+        if_exists current
+		print current.shortdesc
+		printcr
+		redraw_text
+
+		if_flag current IS_PERSON
+			print "Not usable."
+			printcr
+		else
+			if current.funcs.ucache != -1
+				call current.funcs.ucache
+				flush_mouse NONBLOCKING
+				let mouseclick = -1 # Prevent double-use
+			else
+				print "Not usable."
+				printcr
+			endif
+		endif
+	else
+		print "nothing."
+		printcr
+		redraw_text
+	endif
+	let quit_browser = 1
+	button_push KEY_U = 0 # Clear button
+endif
+
+# User left-clicked on the map?  Try to use or talk to an object
+
+if key = KEY_MOUSE
+	# If clicked on game window, see if we can use something
+	if mouseclick = GAMEWINDOW
+		let curtile = null
+		let current = null
+
+		let x = mousemap_x - player.x
+		let y = mousemap_y - player.y
+
+		# See if anything's there
+		get_object current = mousemap_x mousemap_y
+
+		# Check distance
+		let key = 1
+		if x < -1
+			let key = 0
+		endif
+		if x > 1
+			let key = 0
+		endif
+		if y < -1
+			let key = 0
+		endif
+		if y > 1
+			let key = 0
+		endif
+
+		flush_mouse NONBLOCKING
+
+		if_exists current
+			if current.funcs.ucache <> -1
+				if key = 1
+					call current.funcs.ucache
+				else
+					print "Too far away."
+					printcr
+				endif	
+			else
+				if current.funcs.tcache <> -1
+					if current.stats.hp > 0
+						talk_to current.funcs.talk
+					endif
+				else
+
+					if current.funcs.lcache != -1
+						if key = 1
+							call current.funcs.lcache
+						else
+							print "Too far away."
+							printcr
+						endif	
+
+#						print "Not usable."
+#						printcr
+
+					endif
+				
+				endif
+			endif
+		else
+		endif
+
+		flush_mouse NONBLOCKING
+		let key = 0
+		return
+	endif
+endif
+
+end
+
+#
+# Am I inside a vehicle?
+#
+
+function vehicle_check
+object temp
+
+if_in_pocket player
+	let temp = player.parent
+#	print("Switching control to %s\n",best_name(temp));
+	let player = temp
+endif
+
+end
+
+#
+# Is it safe to switch to party-mode?
+#
+
+function is_safe_for_party
+int ctr
+
+for ctr = 1 to MAX_MEMBERS
+	if_exist party[ctr]
+		if_in_pocket party[ctr]
+			print "Not while a party member is still aboard a vehicle."
+			printcr
+			let safe_for_party = 0
+			return
+		endif
+	endif
+next
+
+let safe_for_party = 1
+end
+
+
+
+
+#	Callback functions.  Called by list_after, which sets current to be each
+#	object in the list in turn, for all the objects in the list.
+
+function print_pocket
+
+print current.shortdesc
+print "   "
+
+end
+
+function print_list
+
+print current.shortdesc
+printcr
+
+end
+
+
+#
+#  Work out if we can or cannot talk to someone
+#
+
+function TalkTo
+private
+
+if current = player
+	print "yourself."
+	printcr
+	print "That's a sign of madness."
+	printcr
+else
+	if_exists current
+	    	print current.shortdesc
+		printcr
+	    	redraw_text
+
+		if current.user.vigilante <> 0
+			print "No reply!"
+			printcr
+			goto endtalk
+		endif
+	
+		if current.funcs.tcache <> -1 # Invisible?
+			if current.stats.hp > 0
+				if player.user.potion0 = 0
+					let defaultenemy = player
+					talk_to current.funcs.talk
+				else
+					print "'Thought I heard someone..'"
+					printcr
+				endif
+			else
+#				print "The dead usually stay quiet."
+				print "Funny, no response"
+				printcr
+			endif
+		else
+			print "Funny, no response"
+			printcr
+		endif
+	else
+		print "nothing."
+		printcr
+	endif
+
+label endtalk
+	
+	redraw_text
+	let quit_browser = 1
+endif
+end
+
+
+
+function print_weight
+private
+integer w
+
+get_flag w = current IS_PERSON
+if w = 1
+	# Don't weigh people
+	return
+endif
+
+get_weight w = current
+if w < 0
+	# Fixed, infinite weight
+	return
+endif
+
+# Convert to kilograms from grams
+add w / 1000
+
+print "At a guess, it weighs "
+
+if w > 1
+	print "about "
+	print w
+	print " kilos."
+	printcr
+	return
+endif
+
+if w = 1
+	print "about a kilo."
+	printcr
+	return
+endif
+
+print "under a kilo."
+printcr
+
+return
+end
+
+
+
+
+##
+##  Cheats
+##
+
+local
+
+function check_cheats
+integer ok
+object temp
+integer x
+
+#	Press F1 for Killing
+
+if key = SHIFT_F1
+	let current = player
+	print "Pick the attacker: "
+	printcr
+	redraw_text
+	call get_far
+	if_exists current
+		let temp = current
+		let current = player
+		print "Pick the victim: "
+		printcr
+		redraw_text
+		call get_far
+		if_exists current
+			let temp.enemy = current
+			start_action temp does "enemy_attack" to current
+			print "Done."
+			printcr
+		endif
+	endif
+endif
+
+if key = SHIFT_F6
+	status 14	# Dump activelist
+endif
+
+if key = SHIFT_F8
+	print "Enter the new hour: "
+	input x
+	let game_hour = x
+	let game_minute = 0
+	resync_everything
+endif
+
+
+if key = SHIFT_F9
+	clear
+	print "Appraise "
+	redraw_text
+
+	let current = player			# Orient around player
+	call get_far
+
+	if_exists current
+		print current.name
+		printcr
+		talk_to "books/help.txt" "fbi_file"
+		print "ptr = "
+		printx current
+		printcr
+	else
+
+		get_first_object current from new_x new_y
+		if_exists current
+			print "Secret: "
+			print current.name
+			printcr
+			talk_to "books/help.txt" "fbi_file"
+		else
+		        print "nothing."
+			printcr
+		endif
+	endif
+
+	let quit_browser = 1
+endif
+
+# View Square
+
+if key = SHIFT_F11
+	printcr
+	print "Visualise map at "
+	redraw_text
+	let current = player		# Orient around player
+	call get_far
+	print new_x
+	print ","
+	print new_y
+	printcr
+
+	let ok = 1
+	if new_x < 0
+		let ok = 0
+	endif
+	if new_y < 0
+		let ok = 0
+	endif
+
+	if ok = 0
+        	print "Aborted"
+		printcr
+	else
+		get_first_object current from new_x new_y
+		if_exist current
+			list_after current calling print_list
+		endif
+	endif
+
+	get_object current from new_x new_y
+	if_exist current
+		status 5	# Is it active?
+#		status 6	# Show tasks
+	endif
+
+	let quit_browser = 1
+endif
+
+# Create object
+if key = SHIFT_F3
+	status 17
+endif
+
+# Set flag
+if key = SHIFT_F4
+	status 18
+endif
+
+# Show VRM calls
+if key = CTRL_F12
+	status 15
+endif
+
+# Enable VRM debugging
+if key = CTRL_F2
+	status 16
+endif
+
+
+# System Analyser
+
+if key = SHIFT_F12
+	clear
+	print "System Analyser:"
+	printcr
+
+	print "Player = "
+	printx player
+	print " ("
+	print player.name
+	print ") at "
+	print player.x
+	print ","
+	print player.y
+	printcr
+
+#	print("New_X = %d, New_Y = %d, key = %c, show_roof = %d\n",new_x,new_y,key,show_roof);
+#       if(player)
+#           print("player = %s, at %d,%d\n",player->name,player->x,player->y);
+#       else
+#           print("player is NULL - system failure imminent\n");
+#       if(current_object)
+#           print("current_object = %s, at %d,%d\n",current_object->name,current_object->x,current_object->y);
+#       else
+#           print("current_object is NULL\n");
+#       if(victim)
+#           print("victim = %s, at %d,%d\n",victim->name,victim->x,victim->y);
+#       else
+#           print("victim is NULL\n");
+#
+#	printf("%d active objects\n",count_active_objects());
+
+	status 2	# Count number of existing objects
+	status 0	# Count number of active objects
+
+	# Toggle eggs and the like
+	if showinvisibleobjects = 0
+		let showinvisibleobjects = 1
+	else
+		let showinvisibleobjects = 0
+	endif	
+
+	let quit_browser = 1
+endif
+
+
+end
+
+endlocal

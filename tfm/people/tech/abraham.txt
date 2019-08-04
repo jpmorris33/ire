@@ -1,0 +1,228 @@
+#Father Abraham
+#A monk given sanctuary by the wildlife team from a destroyed village.
+
+[page="start"]
+
+[colour="#808080"]
+You see a frightened-looking monk.  He starts as you
+enter the room, and slowly edges away from you.
+[colour="#ffffff"]
+
+"Who are you?!?  What do you want with me?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What are you doing here?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Father Abraham.  He starts as you enter the room,
+but recognising you, calms down again.
+[colour="#ffffff"]
+
+"Well met, $PLAYERNAME."
+
+[link="What are you doing here?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"My name is Father Abraham.  I was the vicar of the
+ church at New Leuchars before it was destroyed!"
+
+[colour="#808080"]
+He buries his face in his hands at the memory.
+[colour="#ffffff"]
+
+[link="What are you doing here?"]
+[linkto="job"]
+[link="Tell me about New Leuchars."]
+[linkto="leuchars"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I have no job nor home anymore.  My entire flock was
+ slain at the massacre!  I fear that I am the sole
+ survivor of the village, after the LORD rained down
+ His anger upon it!"
+
+[colour="#808080"]
+He trails off.
+[colour="#ffffff"]
+
+[link="What is your name?"]
+[linkto="name"]
+[link="Tell me about New Leuchars."]
+[linkto="leuchars"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="leuchars"]
+
+"It was a prosperous village.  We had a thriving trade in
+ cloth, wool and thread.  But it seems that many of my
+ flock did also secretly trade with the Demons, providing
+ them with food and clothings.
+
+ It may also have been that the Demons did turn their
+ minds away from the LORD, for my tithings fell, and
+ fewer did come to Mass than before.  I knew that this
+ would anger the LORD, but never did I expect to see what
+ then happened!"
+
+[link="What did happen?"]
+[linkto="what"]
+[link="What is your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="what"]
+[colour="#808080"]
+He looks at you with an expression of terror, and his
+words come out in a babble.
+[colour="#ffffff"]
+
+"The Lord Jesus Christ appeared in the midst of our
+ village.  With a smile and a wave he destroyed the
+ entire village!  I alone survived!
+
+ These Demons that I thought the children of Satan have
+ given me food and a bed.  They have tended my wounds
+ and shown great compassion, not at all like the fell
+ monsters that the Church warned us of!
+
+ It seems to me now as if the LORD is filled with cruelty
+ and malice, and His enemies kind and merciful!
+
+ I know not what to believe!"
+
+[link="Did Jesus say anything to you?"]
+[linkto="what2"]
+[link="What did Jesus look like?"]
+[linkto="what4"]
+[link="What is your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="what2"]
+
+"Yes, He did.. but, No!  I cannot say it!
+ It is blasphemous!"
+
+[link="Tell me anyway."]
+[linkto="what3"]
+[link="If Jesus said it, it must be okay."]
+[linkto="what3"]
+[link="What did Jesus look like?"]
+[linkto="what4"]
+[link="What is your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="what3"]
+
+"It was a rhyme!  A horrible rhyme!  He stood amid the
+ burning houses and the bodies of the dead, and He was
+ laughing at the carnage!  But then He said:
+
+ "Jesus is the Dark One, Jesus is the LORD,
+  Jesus puts the heretics to fire and the Sword!"
+
+ And then He saw me, and I feared greatly for my life,
+ but He faced me, and said:
+
+  "See to it that no man hears of this."
+
+ And then, with more laughter, He faded away!"
+
+[link="What did Jesus look like?"]
+[linkto="what4"]
+[link="What is your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="what4"]
+"He looked exactly like He does on our crucifixes, but He
+ was glowing!  His body was luminous and slightly
+ transparent as if He was a ghost.. But He was solid,
+ for He handed me a small piece of parchment, which 
+ bore the words 'MATTHEW 10:34'.
+
+ I know the litanies of the Bible by heart, and I know
+ this verse.  It is something that Jesus Himself said to
+ His disciples:
+
+ "Do not think that I have come to bring peace to Earth.
+  I have come not to bring peace, but war.
+
+  I shall set man against father, daughter against
+  mother, and the in-laws too shall fight each other."
+
+ I have seen this with my own eyes!"
+
+[link="What did Jesus say?"]
+[linkto="what3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you better than the citizens of New Leuchars!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+"It was a rhyme!  A horrible rhyme!  He stood amid the
+ burning houses and the bodies of the dead children, and
+ He laughed at the carnage!
+
+ And then He said:
+
+ "Jesus' hands are kind hands, Jesus' hands are cruel,
+  Jesus is ingenious, Jesus is a fool,
+
+  Jesus is the Dark One, Jesus is the LORD,
+  Jesus puts the heretics to fire and the Sword!"
+
+ And then He saw me, and I feared greatly for my life,
+ but He faced me, saying:
+
+  "See to it that no man hears of this."
+
+ And then He faded away!"

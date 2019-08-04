@@ -1,0 +1,99 @@
+
+
+##
+##  Give to the poor
+##
+
+function poorbox_donate
+integer amount
+integer available
+
+# Ask the question
+
+print "Give how many coins?"
+printcr
+
+# Default to 10
+
+let amount = 10
+input amount
+
+# Abort?
+
+if amount < 1
+	return
+endif
+
+# Is it possible?
+count available = "gold_coins" in player
+if amount > available
+	print "You don't have that much."
+	printcr
+	return
+endif
+
+# You feel good about it
+if amount > 200
+	add player.stats.karma + 5
+endif
+
+# Path the money (?)
+move amount "gold_coins" from player to current
+
+# Set ownership of stuff inside to match box's owner (e.g. Cardinal, Jesus)
+if_exists current.pocket
+	let current.pocket.stats.owner = current.stats.owner
+endif
+
+# If any Tithes due, pay them off
+/*
+if Tithes > 0
+	add Tithes - amount
+
+	# Don't overdo it
+	if Tithes < 0
+		let Tithes = 0
+	endif
+endif
+*/
+
+# Last-minute hack for release
+if player.user.potion9 > 0
+	add player.user.potion9 - amount
+
+	# Don't overdo it
+	if player.user.potion9 < 0
+		let player.user.potion9 = 0
+	endif
+endif
+
+end
+
+##
+##  Take from the poor
+##
+
+function poorbox_smashed
+
+# Break the box
+replace current = "poorbox_broken"
+object_sound "wood_brk" current
+
+# Spill the money money money money
+spill current
+
+# Summon the forces of religious purity
+let victim = current
+let suspect = current.enemy
+
+# It was him!  The stranger!
+if_not_exists suspect
+	let suspect = player
+endif
+
+call justice_desecration
+
+# Don't bother deducting karma at this point because they player
+# will lose it when they grab the cash anyway
+
+end

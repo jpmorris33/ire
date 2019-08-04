@@ -1,0 +1,194 @@
+[page="start"]
+[image="f15_00.pcx"]
+
+[colour="#808080"]
+You see an unarmed F-15 looking down at you.
+[colour="#ffffff"]
+
+"Hello, human.  Welcome to the New Leuchars base."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you doing here?"]
+[linkto="whathere"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="f15_00.pcx"]
+
+[colour="#808080"]
+You see Mason, the F-15.
+[colour="#ffffff"]
+
+"Hello $PLAYERNAME, glad to see you're still well.
+ Welcome back to the New Leuchars base."
+
+[link="Tell me about the destroyed village."]
+[linkto="leuchars"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="f15_00.pcx"]
+[learn_name]
+
+"I'm Mason.  Pleased to meet you.
+ We don't get many human visitors around here, not since
+ the Church set fire to the nearest village as
+ punishment.  A very bad business, that."
+
+[link="Tell me about the village."]
+[linkto="leuchars"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="whathere"]
+[image="f15_02.pcx"]
+
+"I live here.  Where else would you expect to find a
+ strike eagle?
+
+ Or did you mean, 'What is my job'?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="f15_01.pcx"]
+
+"I originally came here to start a fish farm.. domestic
+ and imported species.  It's quite a lucrative business,
+ even given the tremendous costs of shipping fish
+ interstellar.
+
+ The war with the Church put paid to that idea, though,
+ and I couldn't get the funding.  I ended up joining the
+ wildlife survey team as the resident expert in marine
+ biology."
+
+[colour="#808080"]
+He gives a very convincing sigh.
+[colour="#ffffff"]
+
+[if_know_name][link="Tell me about the village."]
+[if_know_name][linkto="leuchars"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="leuchars"]
+[image="f15_04.pcx"]
+
+"I was the one who did the flyover after we lost contact
+ with our people there.  It was not a pretty sight.
+
+ Most of the houses were still smoking.  There was a lot
+ of blood, mostly darkened by the heat.  In the centre of
+ the village was a message made out of bones and skulls
+ from the murdered villagers.  It said "Jesus was 'ere".
+
+ There was one survivor, a man called Father Abraham.
+ He lives in our main office building now, if you want
+ to talk to him."
+
+[link="How did you rescue him?"]
+[linkto="rescue"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="rescue"]
+[image="f15_00.pcx"]
+
+"I'm fitted with an experimental repulsor system that
+ allows me to hover for short periods of time, or do a
+ vertical take-off/landing in some situations.
+
+ I was able to land there, and the man threw himself
+ before me, shouting 'Claim me, demon!   For I have
+ failed the LORD!' or something of that nature.
+
+ I had a passenger pod as well, since I was also sent
+ there to locate any survivors.  So I picked him up and
+ brought him home with me."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master"]
+[image="f15_00.pcx"]
+
+"My master is Dr. Robertson.. but we usually call him
+ Dr. Seuss.
+
+ Unfortunately he recently disappeared in research
+ mission.  I knew I should have gone with him."
+
+[link="What happened to him?"]
+[linkto="master2"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master2"]
+[image="f15_00.pcx"]
+
+"He went to visit Lake Milton, but never returned.
+ We do have a theory about what happened, but you 
+ wouldn't believe me if I told you."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="f15_00.pcx"]
+
+"Goodbye."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="f15_01.pcx"]
+[set true]
+
+"Go away."
+
+[nextpage="exit"]
+[endpage]

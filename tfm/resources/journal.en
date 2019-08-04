@@ -1,0 +1,112 @@
+##
+##  Add english journal here
+##
+
+name jrn_Arrival
+start:
+I've found myself in what appears to be a medieval church in a town called 'New Highworth'.
+end
+
+name jrn_Umbring
+start:
+I've been greeted by someone calling themselves Cardinal Umbring.
+He has given me a key and a letter, and suggested that I make my way to an abbey at a place called 'New Cricklade', to the west of the church where I arrived.  Apparently they knew I was coming.
+end
+
+name jrn_Crucifix
+start:
+I knelt before the crucifix and it came alive and spoke to me.  There must be some kind of rational explanation for this.
+end
+
+name jrn_Umbring13c
+start:
+Cardinal Umbring told me that it is the year 1325 and that the end of the world is near.  I'm not sure if I've gone back in time, or sideways.
+end
+
+name jrn_UmbringKing
+start:
+Cardinal Umbring suggested I visit King Edwyg who rules this land.  Apparently he is keen to meet with me.
+end
+
+name jrn_GodWarnedMe
+start:
+God appeared before me in the form of a a glowing ball of plasma.  He told me to watch my step.
+end
+
+name jrn_EdwygTithes
+start:
+Apparently the Church believes that the King owes them a large sum of money in tithings.  Maybe I should ask the King about it if he will see me.
+end
+
+name jrn_Sceptre
+start:
+Someone has stolen the King's Sceptre, the symbol of his reign.  He is offering a reward for its return.
+end
+
+name jrn_SceptreTithes
+start:
+The Church wants me to pay a tithe on the reward for returning the sceptre.
+end
+
+name jrn_SceptreToPope
+start:
+Cardinal Umbring wants me to deliver the Sceptre to the Pope.
+end
+
+name jrn_Phone1
+start:
+Despite the fact that I seem to be in the middle ages, someone called 'Ransome' phoned me up and asked me to go to a village called 'New Fairford'.  Apparently this is south of the town where I arrived.
+Whoever it was, they sounded kind of desperate.
+end
+
+name jrn_FindYaDo
+start:
+I have been advised to seek an old hermit who lives west of the entrance to the
+Holy Land.  He is supposed to be a powerful master who can teach me magic.
+end
+
+name jrn_FoundYaDo
+start:
+I have found Master Ya'Do.  He appears to be a bit of a fraud, though.
+end
+
+name jrn_YaDo-packages
+start:
+Master Ya'Do has offered to teach me magic, if I will find and bring him a valuable package.  It is on an island many miles off the West coast.  Getting there might be a problem.
+end
+
+name jrn_YaDo-beequest
+start:
+I brought Ya'Do his package of drugs.  I hope he doesn't eat them all at once.
+Anyway, he has agreed to train me as an apprentice.
+
+My first mission is to visit a cave on the nearby Isle of Honey.  There I must kill at least 25 bees and bring back their remains as proof.
+end
+
+name jrn_YaDo-rockquest
+start:
+I brought Ya'Do 25 dead bees, what he wants them for I dread to think.
+Now he has instructed me to find three small rocks and eat them.  He seems to be serious about it.
+end
+
+name jrn_YaDo-rocks
+start:
+I disguised three buns as rocks and ate them.  Ya'Do was impressed enough to teach me the inner secrets.
+end
+
+name jrn_YaDo-spellbook
+start:
+Ya'Do has given me a spell book.  To cast spells, I must buy or otherwise get hold of spells, which usually come on little stickers.  By sticking them in the book, I will be able to cast that spell.  Some teachers can teach me the spell directly.
+Additionally, I will need to obtain a supply of small gemstones, taken from the head of a toad.  These are somehow required to cast a spell, but are destroyed in the process.
+Ya'Do can sell me some extra spells, but likely at outrageous prices.
+end
+
+name jrn_Randolph000
+start:
+I have heard that Holm the Fletcher came across a demon while gathering wood in the forests.
+end
+
+name jrn_Randolph001
+start:
+I have been told of an evil metal demon that lives in a cave south and to the east of New Highworth.  Maybe I should investigate.
+end

@@ -1,0 +1,145 @@
+
+
+[page="start"]
+"I am BrownFoot, castle chef to King Redtooth.
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"The evil god Aa'Ruuf the Betrayer taught our people
+ how to preserve food by heating it until it browns
+ or infusing it with smoke from a wood fire.
+ 
+ This is my job.. preserving food, and then
+ preparing it for my liege to eat."
+
+[link="What do you do to the food?"]
+[linkto="food"]
+[link="How do you prepare food?"]
+[linkto="food2"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="food"]
+ 
+"We have long known that meat and hearbs together are
+ more pleasant to eat than the meat or hearbs alone.
+
+ The Betrayer showed us many hearbs that were good to
+ eat, and taught us that the milk of sheep and cows
+ could be turned into a delicious substance that He
+ called 'cream', or a hard, tasty stuff called 'cheese'
+ that does not become sour.
+
+ Our people mostly eat cooked or prepared food now.
+ Although in the past we ate fresh meat daily, it is
+ now considered a delicacy for it does not keep long."
+
+[link="But how do you actually prepare the food?"]
+[linkto="food2"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="food2"]
+ 
+"Ah.  It is not an easy matter and takes skill to be done
+ properly.  The Betrayer considered it a sin for food to
+ have been touched by another's mouth before it is eaten.
+
+ Although we no longer do the Betrayer worship, this
+ matter has become a social custom.
+
+ I have many tools that allow food to be prepared using
+ only paws, or mouth-gloves.  I also know some spells to
+ aid with the process of cooking.
+
+ But I can tell you little else, for most of our
+ techniques are secrets of the guild."
+
+[link="Tell me about the King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+
+"King Redtooth is my liege.  I serve him as best I am
+ able.  Others have said that his rule may be less fair
+ than rulers past, but it is not my place to judge him.
+
+ This I will say.. our new king has a hearty appetite,
+ much more so than his predecessor, Grey.
+
+ Grey preferred fresh meat which he caught with his own
+ mouth, so I did not often prepare meals for him
+ personally.  He did enjoy my sweetmeats, though.
+
+ Of course, it was Grey's love for hunting which brought
+ about his downfall."
+
+[link="Tell me about Grey's downfall."]
+[linkto="grey"]
+[link="What do you do to the food?"]
+[linkto="food"]
+[link="How do you prepare food?"]
+[linkto="food2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey"]
+
+"Of course, you might not know of that.  Every Waarg
+ knows the tragedy of King Grey.
+
+ It came the year that our God, Aa'Ruuff turned against
+ us.  He sent creatures like yourself to assail our land
+ and attack our people.  King Grey organised our defence,
+ for he was a master strategist as well as a wise and
+ fair ruler.
+
+ But Aa'Ruuff The Betrayer sent assassins into the wild
+ woods where Grey loved to hunt.  They hid until he came
+ and then they attacked before his guards could respond."
+
+[colour="#808080"]
+ He looks at you nervously.
+[colour="#ffffff"]
+
+"Grey was murdered by two Men."
+
+[link="What do you do to the food?"]
+[linkto="food"]
+[link="How do you prepare food?"]
+[linkto="food2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare well."
+
+[nextpage="exit"]
+[endpage]

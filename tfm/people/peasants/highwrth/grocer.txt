@@ -1,0 +1,220 @@
+
+The greengrocer, from the unfinished text adventure, "JugVenture" (1993)
+
+
+[page="start"]
+[reset_links]
+[colour="#808080"]
+You see a small, somewhat other-worldly greengrocer in
+immaculate dress staring into space.
+[colour="#ffffff"]
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+
+"I'm the greengrocer," he says in a distracted voice.
+
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I'm the greengrocer.." he says in a distracted voice.
+
+[link="What's your name?"]
+[linkto="name"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buy"]
+[colour="#808080"]
+The greengrocer snaps to attention, but just stands there
+waiting for you to buy something.
+[colour="#ffffff"]
+
+[link="I want to buy some onions."]
+[linkto="dont"]
+[always]
+[link="I want to buy some carrots."]
+[linkto="carrots"]
+[always]
+[link="I want to buy a cabbage."]
+[linkto="dont"]
+[always]
+[link="I want to buy an apple."]
+[linkto="apple"]
+[always]
+[link="I want to buy a lettuce."]
+[linkto="lettuce"]
+[always]
+[link="I want to buy a peach."]
+[linkto="dont"]
+[always]
+[link="I want to buy some peas."]
+[linkto="dont"]
+[always]
+[link="I want to buy a potato."]
+[linkto="potato"]
+[always]
+[link="I want some berries."]
+[linkto="berries"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="dont"]
+
+"I don't like those..."
+[colour="#808080"]..says the greengrocer vacantly.
+[colour="#ffffff"]
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="carrots"]
+[take 3 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+"Thankyou, $sir."
+[colour="#808080"]..says the greengrocer, and before you
+can do anything, he leans over and takes the money from
+your pocket.
+[colour="#ffffff"]
+
+[create 1 food00]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="berries"]
+[take 4 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+"Thankyou, $sir."
+[colour="#808080"]..says the greengrocer, and before you
+can do anything, he leans over and takes the money from
+your pocket.
+[colour="#ffffff"]
+
+[create 1 food09]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="potato"]
+[take 2 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+"Thankyou, $sir."
+[colour="#808080"]..says the greengrocer, and before you
+can do anything, he leans over and takes the money from
+your pocket.
+[colour="#ffffff"]
+
+[create 1 food03]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="lettuce"]
+[take 3 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+"Thankyou, $sir."
+[colour="#808080"]..says the greengrocer, and before you
+can do anything, he leans over and takes the money from
+your pocket.
+[colour="#ffffff"]
+
+[create 1 food11]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="apple"]
+[take 1 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+"Thankyou, $sir."
+[colour="#808080"]..says the greengrocer, and before you
+can do anything, he leans over and takes the money from
+your pocket.
+[colour="#ffffff"]
+
+[create 1 foodp08]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+[colour="#808080"]
+You don't have the money.
+[colour="#ffffff"]
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[colour="#808080"]
+The greengrocer gives a barely-perceptible nod and stares
+at the ceiling.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

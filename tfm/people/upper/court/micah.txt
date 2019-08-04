@@ -1,0 +1,103 @@
+[page="start"]
+[learn_name]
+[colour="#808080"]
+You see a stern-looking fellow.
+[colour="#ffffff"]
+
+"Well met, friend.
+
+ I am Captain Micah of the King's Guard."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see Captain Micah.
+[colour="#ffffff"]
+
+"Hello again, friend.
+
+ Did you want something?"
+
+[link="Tell me again about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am the King's military planner.
+ It is fortunate that we have peace with most other kings
+ in the land these days, for the LORD runs a tight ship
+ and earthly quarrels displease Him.
+
+ But there are other concerns, for the beasts and the
+ devils of the forest become ever bolder.  Much of my
+ time is spent planning defences for our town to keep the
+ beasts at bay.
+
+ I fear also that another assault may be needed against
+ the evil things in the east."
+
+[link="What is in the East?"]
+[linkto="east"]
+[link="Tell me about the beasts of the forest."]
+[linkto="forest"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="forest"]
+
+"There are fell creatures in the woods.  Where there is
+ water you may be prey to fell todes that spit poison
+ and fire at the unwary.
+
+ It is worst at night, for that is when the imps come..
+ during the day we have much less to fear.
+
+ To the south is a place where Demons live.  It is not
+ a good place and you should avoid it.  My grandfather
+ led a crushing victory against them and they have been
+ quiet for a long time since."
+
+[link="What is in the East?"]
+[linkto="east"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="east"]
+
+"As you head eastwards, the forces of the Enemy grow more
+ numerous. There are devils that take the form of woolves
+ but are clever as a man and can work metal.
+
+ Some years ago the LORD led us to war against them and
+ a good victory was won for the Trinity.
+
+ We would have slain any other foe completely but these
+ creatures are hardy and most difficult to kill.
+ The LORD told us not to bother."
+
+[link="Tell me about the beasts of the forest."]
+[linkto="forest"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="bye"]
+
+"May the Trinity be with you."
+
+[nextpage="exit"]
+[endpage]

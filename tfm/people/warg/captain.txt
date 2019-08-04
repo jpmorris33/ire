@@ -1,0 +1,851 @@
+SteelJaw, Captain of the guards
+
+[page="start"]
+[if warg_regicide][goto="regicide"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[goto="first"]
+[endpage]
+
+[page="startname"]
+[if warg_regicide][goto="regicide2"]
+[call="check_collar"]
+[if false][goto="nocollar2"]
+[if captain_redtooth][iftime "2000-2300"][goto="quest"]
+[goto="back_again"]
+[endpage]
+
+
+[page="nocollar"]
+[image="steelj1.png"]
+[colour="#808080"]
+You see a large wolf-like creature dressed in light armour.
+There are clawed metal gauntlets on his front paws.
+
+He snarls at you and his hackles rise.
+[colour="#ffffff"]
+
+"Human, you do not bear the Favour of our King, and yet
+ you have somehow fought your way into his palace,
+ presumably in hopes of felling our noble liege!
+
+ For this impudence you will now die!"
+
+[at_exit_call="justice_treason"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="nocollar2"]
+[image="steelj1.png"]
+[colour="#808080"]
+You see SteelJaw.  He looks at you nervously.
+[colour="#ffffff"]
+
+"Human, you are not wearing the Favour!
+ Put it back on, quickly!  Before the guards see you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="regicide"]
+[image="steelj1.png"]
+[colour="#808080"]
+You see a large wolf-like creature dressed in light armour.
+There are clawed metal gauntlets on his front paws.
+
+He snarls at you and his hackles rise.
+[colour="#ffffff"]
+
+"YOU KILLED THE KING!  NOW YOU MUST DIE!"
+
+[at_exit_call="justice_regicide"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="regicide2"]
+[if redtooth_traitor][goto="regicide4"]
+[if captain_treason][goto="regicide3"]
+[image="steelj1.png"]
+[colour="#808080"]
+Steeljaw looks at you, hackles risen in fury.
+[colour="#ffffff"]
+
+"YOU KILLED THE KING!  NOW YOU MUST DIE!"
+
+[at_exit_call="justice_regicide"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="regicide3"]
+[image="steelj1.png"]
+[colour="#808080"]
+Steeljaw looks at you sadly.
+[colour="#ffffff"]
+
+"I am sorry that it came to this.  I may not have
+ seen nose-to-nose with the King, but this was never
+ the plan.
+
+ Guards, sieze $him."
+
+[at_exit_call="justice_murder"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="regicide4"]
+[image="steelj1.png"]
+[colour="#808080"]
+Steeljaw looks at you sadly.
+[colour="#ffffff"]
+
+"I'm not sure this was the answer.  Now we are
+ entirely without a King, unless Swiftrunner should
+ return from exile."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="first"]
+[image="steelj1.png"]
+[colour="#808080"]
+You see a large wolf-like creature dressed in light armour.
+There are clawed metal gauntlets on his front paws.
+
+He speaks in a strange, snarling voice.
+[colour="#ffffff"]
+
+"You will kneel before our King, human."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="back_again"]
+[image="steelj1.png"]
+[colour="#808080"]
+You see SteelJaw, the leader of the guards.
+[if captain_treason]He pretends not to know you well.
+[if not_captain_treason]He gives you a suspicious glance.
+[colour="#ffffff"]
+
+"What business would you have with me, human?"
+
+[link="Tell me again of your name."]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="name"]
+[image="steelj1.png"]
+[learn_name]
+
+"I am SteelJaw, chief captain of the guards of my liege,
+ King Redtooth the Great.
+
+ I care not what your name is, man-creature."
+
+[link="How did you get your name?"]
+[linkto="name2"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name2"]
+[image="steelj1.png"]
+
+"As you may know, a waarg is named by the Elders on the
+ night of his or her first full moon.
+
+ The most striking thing about the cub becomes their
+ name.  They tell me that when I was named, I impressed
+ the Elders by my ability to snap large branches with
+ but a single bite."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="steelj1.png"]
+
+"I command the guards, both in the palace and those who
+ keep the laws within our state.
+ Among other things, I am also charged with protecting
+ the King's person, and overseeing the defence of the
+ realm.
+
+ Keep such thoughts from your head, human.
+ I am more than a match for you."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="Tell me about your King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+[image="steelj1.png"]
+
+"Why, he is a strong and just ruler.
+ He is just the leader we need to keep the realm safe
+ from those who would invade our land again."
+
+[link="What invasion?"]
+[linkto="invasion"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="invasion"]
+[image="steelj1.png"]
+
+"Do not play silly games with me, human.
+ You know full well that it was your kind who invaded our
+ prosperous kingdom in days not long past, sacking our
+ city and slaying our noble ruler, King Grey."
+
+[link="Tell me about King Grey."]
+[linkto="grey_start"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey_start"]
+[is_onscreen redtooth]
+[if true][goto="grey_rt"]
+[if_know_name][iftime "2000-2300"][goto="grey"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+Seeing that the King is not around, the guard becomes
+more relaxed and less formal.
+[colour="#ffffff"]
+
+"King Grey was killed in mysterious circumstances during
+ the war with the humans.  Many believe that he was the
+ best king we have ever had, and still mourn his loss.
+
+ King Redtooth dethroned Grey's brother Swiftrunner, who
+ was next in the line of succession.  Swiftrunner did not
+ have Grey's golden touch, and although he was a
+ charismatic leader, General RedTooth (as he was then)
+ felt that Swiftrunner was too weak to defend the realm
+ adequately."
+
+[nextpage="grey_dontknowyou"]
+[endpage]
+
+
+[page="grey_dontknowyou"]
+[image="steelj1.png"]
+
+"The General organised a coup, and took the crown for his
+ own.  SwiftRunner was banished into the wilderness.
+
+ However, King Redtooth is of the opinion that the throne
+ should have been his in the first place.  He would like
+ people to forget that his ascension was achieved through
+ force.  I would not speak of it in his presence, as it
+ can anger him.
+
+ Be that as it may, King Redtooth is now my liege, and I
+ am sworn to defend and obey him in all things."
+
+[if_know_name][link="Can you tell me more of the old King?"]
+[if_know_name][linkto="grey_dontknowyou2"]
+[if_not_know_name][link="Can you tell me more of the old King?"]
+[if_not_know_name][linkto="grey_dontknowyou3"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey_dontknowyou2"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+Steeljaw looks around furtively and whispers.
+[colour="#ffffff"]
+
+"Not now.
+ Speak with me this evening if you would know more."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey_dontknowyou3"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+He looks you in the eye.
+[colour="#ffffff"]
+
+"Why should I discuss politics with a total stranger?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey"]
+[image="steelj1.png"]
+[set captain_treason]
+
+[colour="#808080"]
+SteelJaw looks around furtively, to ensure that the King
+is not around.
+Confident he will not be overheard, he drops his brash
+manner and becomes unexpectedly frank with you.
+[colour="#ffffff"]
+
+"King Grey was mysteriously slain during the war with the
+ humans.  Most of our people believe that he was the best
+ king we have ever had, and mourn his loss even now.
+
+ After his death, Grey's brother Swiftrunner ascended to
+ the throne, and although he was popular, he was also
+ inexperienced, and lacked the intuitive brilliance of
+ his elder brother.
+
+ At the time, RedTooth was an ambitious general who felt
+ that Swiftrunner was too weak to hold the realm in the
+ face of the human foe."
+
+[nextpage="grey2"]
+[endpage]
+
+[page="grey2"]
+[image="steelj1.png"]
+
+"RedTooth's ambition led him to usurp Swiftrunner's
+ throne in a coup, banishing him to the wilderness.
+ But although he convinced the royal guard that
+ Swiftrunner was weak and should be dethroned,
+ he has never been able to convince the people and has
+ lived in the shadow of Grey's brilliance and Swift's
+ charisma.
+
+ Because of this, King RedTooth feels insecure and his
+ rule has been distinctly more harsh than that of his
+ predecessors.  The King has been known to lash out at
+ groups that he feels are too powerful and may threaten
+ his claim to the throne."
+
+[nextpage="grey3"]
+[endpage]
+
+
+[page="grey3"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+SteelJaw looks at his feet and sighs.
+[colour="#ffffff"]
+
+"Although I am the captain of the guard, and personally
+ responsible for the King's safety, I too miss the days
+ of kings past.
+
+ Lately I have been growing unsure of King Redtooth's
+ motives.  Our kings are sworn to uphold the law and
+ protect the citizens, but my liege has not seen fit to
+ rebuild their homes.  His subjects live in huts made
+ from sticks and thatch, while he lives in a sumptious
+ palace.  Although this saddens me, it is something I
+ could ignore.. after all, the King may have good reason
+ for this state of affairs.
+
+ But I have discovered something recently that has made
+ me question my King's motives once more."
+
+[link="What groups has the King suppressed?"]
+[linkto="grey4"]
+[link="What have you discovered?"]
+[linkto="grey7"]
+[link="Tell me again about your name"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey4"]
+[image="steelj1.png"]
+
+"Well, it began with the Temple of Aa'Ruuff.
+ This is easy enough to understand, since it was the evil
+ God Aa'Ruuff who sent His human followers to attack us.
+
+ Indeed, many wondered why it was that Grey never moved
+ against the brethren in the first place, although I once
+ heard SwiftRunner say that it was left be in the hopes
+ that our rift with Aa'Ruuff the Betrayer would in time
+ be healed.
+
+ When RedTooth came to power, the temple was desecrated
+ and all it's finery plundered.  He outlawed all worship
+ of the Betrayer.  This opened a few eyes, but did not
+ cause much of a problem with the people, since most of
+ them understandably despised the Betrayer."
+
+[nextpage="grey5"]
+[endpage]
+
+[page="grey5"]
+[image="steelj1.png"]
+
+"The Weaver's Guild was the next target of my liege.
+ That too made a certain amount of sense, for they had
+ become powerful and owned a great deal of land in the
+ Realm.  Cloth is greatly important, and a threat from
+ the Guild to cease production was a powerful threat
+ indeed.
+
+ Saying that they were planning treason, King RedTooth
+ broke the Guild, and most of the weavers were jailed.
+ Only the apprentices were left, to ensure a continued
+ supply of cloth and thread.  They were forbidden from
+ forming any kind of guild or union on penalty of jail.
+
+ Some began to wonder if the King had broken the Guild
+ only so that he could sieze their land and wealth, and
+ some of these waarg found themselves in jail also.
+ But most were happy for the King charged less rent for
+ the use of their land than the Guild had done."
+
+[nextpage="grey6"]
+[endpage]
+
+[page="grey6"]
+[image="steelj1.png"]
+
+"Finally, King RedTooth struck out at the Seers.
+ There are those who can See glimpses of other places and
+ other times, both past and yet to come.
+ In days gone by these prophets would hold great
+ ceremonies, or Seeings, where they would try to See the
+ future.
+
+ At one of these Seeings, a prophet saw a vision of King
+ RedTooth's dethronement.  The King was most greatly
+ angered and it took all the persuasion of myself and
+ SpellThrower combined to prevent him from executing the
+ prophet on the spot.  Instead the prophet was banished,
+ and the gift of Seeing was denounced as a tool of the
+ Betrayer.  Seeings were outlawed and none now dare admit
+ to possessing the Gift."
+
+[link="What was it you discovered that has upset you?"]
+[linkto="grey7"]
+[link="Tell me again about your name"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grey7"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+SteelJaw looks at you nervously.
+[colour="#ffffff"]
+
+"I am the King's councillor on military affairs, and so I
+ know a good deal of what happens in the realm. 
+ Incursion by human raiders is something I am ever
+ vigilant against, and all citizens are to report
+ sightings of unauthorised human activity to me.
+
+ You are excepted, of course, since you have chosen to
+ wear the Favour as a token of peace, but you must know
+ that we fear humans and have little to do with your kind
+ when we can avoid it.
+
+ However, I have heard from my spies that someone seems
+ to be conducting secret trade with the humans, in the
+ vicinity of the Temple of Aa'Ruuff."
+
+[nextpage="grey8"]
+[endpage]
+
+
+[page="grey8"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+SteelJaw seems to have almost forgotten that you are a
+human yourself.
+[colour="#ffffff"]
+
+"We have, in recent years began trading again with the
+ humans, but only through a few merchants whom we trust,
+ for Aa'Ruuff is still against us at this time.
+
+ There are also restrictions on what can be traded,
+ chiefly metals and ore from our mines.. this is all done
+ openly.
+
+ What worries me is that someone appears to be trading in
+ secret.. why would they do that unless they have
+ something to hide?  I would suspect contrabands."
+
+[nextpage="grey9"]
+[endpage]
+
+[page="grey9"]
+[image="steelj1.png"]
+
+"When I told my King of what I had learned, he brushed it
+ aside quickly.  Too quickly.
+ I fear that he may himself be involved.
+
+ How can I put this?  I am in need of an agent.. to prove
+ or deny that someone is conducting forbidden trade with
+ the human pawns of our ancient enemy, The Betrayer.
+
+ I need to know if the King is in any way involved."
+
+[link="This sounds like treason."]
+[linkto="treason"]
+[link="Have you confronted the King about this?"]
+[linkto="treason2"]
+[link="I will look into it for you."]
+[linkto="quest_start"]
+[link="Leave your crooked King and join my quest."]
+[linkto="join"]
+[link="I can't be bothered with this.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="treason"]
+[image="steelj1.png"]
+
+"Indeed it does.  But what IS treason?
+
+ If a King conspired to sell his country to an enemy
+ nation for gold, would not that also be treason?
+
+ More to the point, would that not be a worse treason
+ than the overthrow of such a King?"
+
+[nextpage="treason1b"]
+[nextpage]
+
+
+[page="treason1b"]
+[image="steelj1.png"]
+
+"Redtooth's usurpation was treason, yet he now sits upon
+ the throne.  I fear that he may be poised to deliver us
+ to the human servants of Aa'Ruuff the Betrayer.
+
+ I feel I cannot serve him with all my heart until I have
+ learned the truth of this matter."
+
+[link="Have you confronted the King about this?"]
+[linkto="treason2"]
+[link="I will look into it for you."]
+[linkto="quest_start"]
+[link="Leave your crooked King and join my quest."]
+[linkto="join"]
+[link="I can't be bothered with this.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="treason2"]
+[image="steelj1.png"]
+
+"Accuse our ill-tempered King of treason?
+ He would personally disembowel me on the spot!"
+
+[link="It sounds like you're proposing treason."]
+[linkto="treason"]
+[link="I will look into it for you."]
+[linkto="quest_start"]
+[link="Leave your crooked King and join my quest."]
+[linkto="join"]
+[link="I can't be bothered with this.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="quest_start"]
+[image="steelj1.png"]
+[set captain_redtooth]
+
+"I would be extremely grateful to you if you could do
+ this for me.
+
+ But be very careful.  If my worst fears are true, he
+ could panic, and that would make him very dangerous.
+
+ Obviously I can not discuss this during the day."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[image="steelj1.png"]
+
+"I would never be able to return.
+
+ And it is not just my life on the line.. I have a mate
+ and cub.  King Redtooth would surely have them executed
+ were I to abandon his service in such a manner."
+
+[link="It sounds like you're proposing treason."]
+[linkto="treason"]
+[link="Have you confronted the King about this?"]
+[linkto="treason2"]
+[link="I will look into it for you."]
+[linkto="quest_start"]
+[link="I can't be bothered with this.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="quest"]
+[image="steelj1.png"]
+
+"So, my friend?  Have you any news?"
+
+[am_carrying "paper_gunpowder1"]
+[if true][link="I found this human scroll beneath the temple."]
+[if true][linkto="quest_gunpowder1"]
+[am_carrying "paper_gunpowder2"]
+[if true][link="I found this Waarg scroll in the Holy Land."]
+[if true][linkto="quest_gunpowder2"]
+[if grey_alive][link="King Grey is alive and a prisoner of the Church."]
+[if grey_alive][linkto="quest_greyalive"]
+[link="No, not yet."]
+[linkto="quest_no"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="quest_gunpowder1"]
+[image="steelj1.png"]
+
+"Really?  What does it say?"
+
+[link="Can't you read?"]
+[linkto="quest_gunpowder1a"]
+[if gunpowder_1_read][link="Redtooth is selling gunpowder to the Church."]
+[if gunpowder_1_read][linkto="quest_gunpowder1b"]
+[link="I haven't read it yet."]
+[linkto="quest_gunpowder1c"]
+[if grey_alive][link="I think King Grey is alive and a prisoner of the Church."]
+[if grey_alive][linkto="quest_greyalive"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="quest_gunpowder1a"]
+[image="steelj1.png"]
+
+"No, I cannot read human writings.   By tradition, that
+ is a secret known only to our Kings."
+
+[if gunpowder_1_read][link="Redtooth is selling gunpowder to the Church."]
+[if gunpowder_1_read][linkto="quest_gunpowder1b"]
+[link="I haven't read it yet."]
+[linkto="quest_gunpowder1c"]
+[if grey_alive][link="I think King Grey is alive and a prisoner of the Church."]
+[if grey_alive][linkto="quest_greyalive"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="quest_gunpowder1b"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+SteelJaw looks appalled.
+[colour="#ffffff"]
+
+"I don't understand!  Sell secret weapons to our enemies?
+ Why would he do such a thing?
+
+ I fear that it may now be my duty to impeach my King.
+ But I cannot do that with this evidence alone, because
+ only you and the King can read human writings.
+
+ Redtooth would deny it, and I don't know if enough
+ people would believe it based only on your testimony.
+
+ I will need evidence in Waarg language.  Since they have
+ a human letter here, might there not be a letter from
+ King Redtooth in the hands of the Church?"
+
+[link="I'll see what I can find."]
+[linkto="quest_"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="quest_greyalive"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+SteelJaw looks astonished.
+[colour="#ffffff"]
+
+"Are you saying that the old prophet's vision might be
+ true?  Frankly I find that hard to believe, much as I
+ would like to.
+
+ But if our dead King were to return, it make moot the
+ issue of King Redtooth's loyalty to his country, as he
+ would no longer have the throne."
+
+[link="I'll see what I can find."]
+[linkto="quest_"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+(a parchment in English detailing a sale of n barrels of military
+ gunpowder to the Church in exchange for 18 ingots of pure gold.
+
+ SteelJaw can't read English.. by custom only Kings are permitted
+ to know the human writings.
+
+ You can't present this as proof to the court because only the
+ King can read it and he'll simply deny it.
+ The only other living Waarg who can read English is Swiftrunner
+ and he's been exiled and cannot enter the city by law.
+
+ SteelJaw reasons that if the Church is involved they should
+ have some Waargish documents incriminating them.  Since you
+ can't read Waarg yourself, you'll need a Waarg to help you locate
+ the documents.
+
+ Swiftrunner won't join you, but one of SteelJaw's men will.
+ When you meet King Grey, he will join.. you must have him
+ to log in to the systems anyway.
+
+When you find the documents they reveal that RedTooth sold out
+to Xy'Lan.. betraying King Grey in exchange for the Throne.
+This will be enough to oust Redtooth.. or you can lead King
+Grey back to the Waarg city and overthrow the King directly)
+
+[page="quest_gunpowder1c"]
+[image="steelj1.png"]
+
+"Would you read it, please?  I cannot read human writing.
+ By tradition, that is a secret known only to our Kings."
+
+[if gunpowder_1_read][link="Redtooth is selling gunpowder to the Church."]
+[if gunpowder_1_read][linkto="quest_gunpowder1b"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="grey_rt"]
+[image="steelj1.png"]
+
+[colour="#808080"]
+In the background, the King stiffens momentarily.
+[colour="#ffffff"]
+
+"He was, some say, the best king we have ever had, and
+ many do still mourn for his loss.
+
+ But we cannot remain in mourning forever, and King
+ Redtooth is a strong leader, a good and able replacement
+ for the King struck down before his time."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="bye"]
+[image="steelj1.png"]
+
+"Tread carefully, human."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[if grey_alive][link="I think King Grey is alive and a prisoner of the Church."]
+[if grey_alive][linkto="quest_greyalive"]

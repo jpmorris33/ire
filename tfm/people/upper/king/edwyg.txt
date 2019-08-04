@@ -1,0 +1,758 @@
+
+King Edwyg the Generous
+
+[page="start"]
+[if_not open_castle_edwyg][goto="bug"]
+[iftime="0000-0600"][goto="night"]
+[iftime="2230-2359"][goto="night"]
+[if_not_know_name][goto="start2"]
+[goto="start3"]
+[endpage]
+
+[page="start2"]
+[image="edwyg1.png"]
+[set SpokeToKing]
+
+"Welcome, $PLAYER.  I am King Edwyg the Generous.
+
+ I have waited long for this day, when the Promised One
+ should come to my land."
+[learn_name]
+
+[link="The Generous?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Join my party"]
+[linkto="join"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="start3"]
+[if returned_sceptre][goto="start4"]
+[colour="#808080"]
+King Edwyg greets you like a visiting prince.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYER.  I trust you are well.
+
+ Have you news of the Sceptre, perchance?"
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[clear GotSceptre]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[if sceptre][am_carrying "sceptre"]
+[if sceptre][if true][set GotSceptre]
+[if GotSceptre][am_carrying "deadfollower"]
+[if GotSceptre][if true][clear GotSceptre]
+[if GotSceptre][link="I have the Sceptre but no body."]
+[if GotSceptre][linkto="sceptre_found"]
+[if_not GotSceptre][if sceptre][am_carrying "deadfollower"]
+[if_not GotSceptre][if sceptre][if true][link="I have the man who stole the Sceptre."]
+[if_not GotSceptre][if sceptre][if true][linkto="check_body"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="start4"]
+[colour="#808080"]
+King Edwyg greets you like a visiting prince.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYER.  I trust you are well.
+
+ Was there something you wished to ask me?"
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[if sceptre_jorge][link="I have more information on the Sceptre's theft."]
+[if sceptre_jorge][linkto="sceptre2"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bug"]
+[colour="#808080"]
+The King stares at you in fury and astonishment.
+[colour="#ffffff"]
+
+"This was not in the prophecy..!
+
+ GUARDS!  Remove the impostor!"
+
+[at_exit_call="king_chuckout"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="name"]
+"I am soverign lord of New Highworth and its surrounding
+ lands.  The people named me 'King Edwyg the Generous'
+ in support of my rule.
+
+ I do not care to think what the Pope calls me!"
+
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="What do you do as King?"]
+[linkto="job"]
+[link="Join my party."]
+[linkto="join"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="join"]
+
+"No.  I rule this kingdom, and would need a very good
+ reason to leave my subjects.
+
+ It is true, I have an appointed Regent should I become
+ sick, but that does not mean I can go for no reason,
+ even for the Promised One."
+
+[call="cheat_joinking"]
+[if join_king][link="Accept priority override Alpha."]
+[if join_king][linkto="join_cheat"]
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="What do you do as King?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="join_cheat"]
+
+"Thankyou, Dave. It is good to be working with you again."
+
+[call="join_party"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="pope"]
+
+"The Pope sits upon his throne in New Avignon, dispensing
+ religious edicts to govern all our lives, even mine.
+
+ But he is a cruel and greedy man, and a favoured servant
+ of the Lord.  If the Pope desires anything, the Lord is
+ often happy to oblige his will.
+
+ Right now, our wills are conflicting.. for the Lord
+ torments me with terrible dreams and visions.
+
+ And now the Royal Sceptre has been stolen!"
+
+[link="What kind of visions?"]
+[linkto="whathappen"]
+[link="Why doesn't God like you?"]
+[linkto="whynotlike"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Join my party"]
+[linkto="join"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+
+"I am King of New Albion.  I rule this land and its
+ people.  In exchange for their fealty, I protect them
+ and care for their interests.
+
+ But though I rule with a fair hand, and the loyalty of my
+ subjects, the Lord God has found disfavour with me.
+ He torments my sleep with dark visions and threats.
+ 
+ And the Royal Sceptre has been stolen!"
+
+[link="What do you see when you sleep?"]
+[linkto="whathappen"]
+[link="Why doesn't God like you?"]
+[linkto="whynotlike"]
+[link="Tell me about the Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+ The Pope rules on matters of Heaven, but in this
+ realm here on Earth, My word is the law.
+
+[page="whathappen"]
+
+"It began some months ago.  I had a dream in which an
+ angel came to see me.  He demanded money, but I had none
+ to give.  The angel carried a bolt of lightning, and as
+ I could not pay, he slew my councillors and left in fury.
+
+ I have had many terrible dreams since, and it has been
+ getting ever worse.
+ 
+ Most recently, the Lord God Himself appeared to me,
+ saying 'YOUR ASS IS MINE, BUSTER!' and He showed to me
+ visions of my dethronement!"
+
+[link="Why doesn't God like you?"]
+[linkto="whynotlike"]
+[link="What are you going to do?"]
+[linkto="whatdo"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="whatdo"]
+
+"I do not know what to do.  I cannot fight the Church
+ outright or I shall be excommunicated.  My throne would
+ be usurped by some puppet of New Avignon and all the
+ achievements of my reign would be cast aside.
+
+ If I continue to pay the Church less than the sums they
+ demand, the Lord God has promised me exile and disgrace
+ as He did unto King Nebuchadnezzar in the book of Daniel.
+
+ But if I recant and pay the Church, my people shall
+ suffer even as the monks of the Lord grow fat!"
+
+[link="Why doesn't God like you?"]
+[linkto="whynotlike"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="whynotlike"]
+
+"I have offended the Church.  They have increased the
+ tithes yet again; already, nearly a third of the wealth
+ of my court pours into the coffers of New Avignon, and
+ beyond this I will not go.
+
+ Our God has the power to create wealth as it is written
+ He did at the end of the book of Job.
+
+ The Lord needs no more money, least of all mine."
+ 
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Why not?  What do you need it for?"]
+[linkto="why_you"]
+[link="What does the Church want it for?"]
+[linkto="why_they"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="tithes"]
+[set tithes_kingfirst]
+[journal jrn_EdwygTithes]
+"The word 'tithe' means 'tenth'.  It is an ancient tax,
+ originally imposed upon harvest.  The Church has long
+ been entitled to a tenth of the produce of each man in
+ their parish.
+
+ But now the tax is imposed upon all wealth and the
+ amount taken by the Church is ever-increasing.
+
+ It has already reached a third, and the Church still
+ wants more.  They are bleeding the land dry."
+
+[link="Why keep it?  What do you need the money for?"]
+[linkto="why_you"]
+[link="What does the Church want it all for?"]
+[linkto="why_they"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="why_they"]
+
+"The Church claims the money is necessary to combat evil,
+ but I believe it is simply lining the pockets of the
+ Cardinals.
+
+ I was willing to pay their tithes when they were just
+ that, a tenth of my wealth.  But the amount they demand
+ has risen year upon year.. and the Church still refuses
+ to explain how it is being spent."
+
+[link="Why keep it?  What do you need the money for?"]
+[linkto="why_you"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="why_you"]
+
+"It is earmarked for the poor.
+ I have set up charities to care for the homeless.
+ My money helps to feed the starving, and I pay the
+ healers to treat the impoverished.
+ All this and more comes from my own purse.
+ 
+ Yet the Lord is angry with me for not helping to make
+ His monks even fatter and wealthier than they are now!"
+
+[link="Spiritual wealth is greater than worldly wealth."]
+[linkto="spirit"]
+[link="What does the Church want it all for?"]
+[linkto="why_they"]
+[link="But they give the money to the poor, don't they?"]
+[linkto="church_pays"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="spirit"]
+
+"Spiritual wealth is indeed a great thing, and if my
+ donations are sent instead to the bottomless coffers of
+ Avignon, the poor are going to need it!"
+
+[link="But the Church gives to the poor, doesn't it?"]
+[linkto="church_pays"]
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="church_pays"]
+
+"Hah!  The Church makes great show of the pittance they
+ give to the needy.. all the rest they keep.
+ 
+ Did you not see their golden candlesticks?
+ The fine garments of the clergy?
+ 
+ If the Church cared for the poor at all, why are the
+ destitute not exempt from the tithes?
+ When the hungry receive their alms from the Church, a
+ tithe of THIS must be paid back!
+
+ Why do those who can pay the Church nothing disappear
+ mysteriously?"
+
+[link="Tell me about the Royal Sceptre."]
+[linkto="aboutsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="night"]
+[if_know_name][goto="night_know"]
+[goto="night_notknow"]
+[endpage]
+
+[page="night_know"]
+"I did not summon you!  Begone, and let me sleep!"
+[nextpage="exit"]
+[endpage]
+
+[page="night_notknow"]
+"GUARDS!  Remove the stranger from my rooms!"
+
+[at_exit_call="king_chuckout"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="prison"]
+
+"The prison was built by one of my forebears.
+ It has seen little use during my reign, for most of my
+ Subjects are of noble heart and mind.
+
+ But the Pope has issued a decree that grants the Church
+ power to use for itself any public prison.  They have
+ replaced my staff with their own, and added, of all
+ things, a torture chamber!"
+
+[endpage]
+
+
+[page="flour"]
+
+"Very well.
+
+ Take this warrant.. it will entitle you to five sacks
+ of grain from my storehouse.
+
+ Show it to the guards on patrol and they will aid you."
+
+[colour="#808080"]
+The King writes upon a scroll and sealing it, hands the
+paper to you.
+[colour="#ffffff"]
+[create 1 warrant_flour]
+
+[link="Tell me about your job, Sire."]
+[linkto="job"]
+[link="Join my party"]
+[linkto="join"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="aboutsceptre"]
+[if returned_sceptre][goto="aboutsceptre2"]
+[set sceptre]
+[journal jrn_Sceptre]
+
+"The Sceptre is the seal of my office.  It has been held
+ by all the kings of New Highworth, and its theft is an
+ act of most vile treason.
+ 
+ If you have seen my posters you will know that I have
+ offered a great reward for any man who brings me the
+ sceptre and the thief, whether he be alive or dead.
+
+ A prophecy was made that the sceptre would be returned
+ by the actions of the one whom God foretold.
+ I did not believe it at first, but in spite of the prize
+ I am offering, none have tried to claim the reward."
+
+[link="How was the sceptre stolen?"]
+[linkto="stolen"]
+[link="I will look for the sceptre."]
+[linkto="findsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="aboutsceptre2"]
+
+"The Sceptre is the seal of my office.  It has been held
+ by all the kings of New Highworth, and its theft was an
+ act of most vile treason.
+ 
+ I thank you again for returning the sceptre and bringing
+ the traitorous rogue who stole it to justice!"
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="stolen"]
+[set sceptre]
+"It happened while I was asleep.  The sceptre was taken
+ from the case where it lay in a most violent and bloody
+ act of robbery.
+
+ Many men were slain in the Sceptre's theft, yet nothing
+ else was taken."
+
+[link="I will look for the sceptre."]
+[linkto="findsceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="findsceptre"]
+[set sceptre]
+
+"If you would do this, I should be most grateful!
+
+ It may be a good start to explore the town and talk
+ to the populace about the Sceptre, for they may be
+ willing to tell the Promised One what they are afraid
+ to tell their King and his men."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="check_body"]
+[am_carrying "sceptre"]
+[if true][goto="right_body"]
+[goto="wrong_body"]
+[endpage]
+
+
+[page="wrong_body"]
+[esc="disabled"]
+
+"So, this is the thief who took the Royal Sceptre!
+ I shall have their body burned.
+
+ Now show me the Sceptre."
+
+[link="I couldn't find it."]
+[linkto="wrong_body2"]
+[link="I must have left it behind!"]
+[linkto="wrong_body3"]
+[link="I didn't find the thief.  This is just some tramp."]
+[linkto="wrong_body4"]
+[endpage]
+
+
+[page="wrong_body2"]
+
+"Then by the Trinity, WHAT DID YOU KILL THEM FOR??
+
+ If they did not HAVE the Sceptre, there is no grounds
+ whatever to believe that they stole it!
+ Promised One or no, you can NOT go round killing
+ my subjects at random!
+
+ Now bring me the true thief!"
+
+[king resurrects body and dismisses the player]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="wrong_body3"]
+
+"Indeed.  Go back and fetch it here."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="wrong_body4"]
+[at_exit_call="justice_assault"]
+[colour="#808080"]
+The King's face turns a very interesting colour.
+[colour="#ffffff"]
+
+"Guards.. kill that man."
+
+[nextpage="fakeexit"]
+[endpage]
+
+
+
+[page="right_body"]
+
+"So, this is the thief who took the Royal Sceptre!
+ I shall have their body burned.
+
+ As a token of thanks for returning my Sceptre, I give to
+ you the 4000 gold coins from my treasury, to spend as
+ you deem fit.
+
+ Yet I do not feel that the theft was the result of one
+ man alone.. surely it was stolen for someone else.
+ If you should find out who wished the Sceptre taken I
+ would be eternally grateful."
+
+[set returned_sceptre]
+[clear sceptre_strangeman]
+[clear strangeman_scar]
+[create 4000 gold_coins]
+[add_karma 25]
+[call="money_sound"]
+[call="tithes_add1320"]
+[take 1 sceptre]
+[remove 1 deadfollower]
+[nextpage="exit-sceptre"]
+[endpage]
+
+
+[page="sceptre_found"]
+
+"It is wonderful that you have found my Sceptre, yet I
+ confess I feel somehow disappointed that the felon who
+ stole it remains alive and free.
+
+ As a token of my esteem, I give to you the sum of 4000
+ gold coins from my treasury, to spend as you deem fit.
+
+ If however you can discover who was behind the theft,
+ I would be eternally grateful."
+
+[set returned_sceptre]
+[clear sceptre_strangeman]
+[clear strangeman_scar]
+[create 4000 gold_coins]
+[add_karma 25]
+[call="money_sound"]
+[call="tithes_add1320"]
+[take 1 sceptre]
+[nextpage="exit-sceptre"]
+[endpage]
+
+
+
+[page="exit-sceptre"]
+[goto="exit"]
+[endpage]
+
+
+[page="sceptre2"]
+[colour="#808080"]
+The King looks at you intently.
+[colour="#ffffff"]
+
+"Indeed!  What can you tell me?"
+
+[if_not sceptre_dead][link="It was stolen for someone called 'Jorge'."]
+[if_not sceptre_dead][linkto="sceptre2-jorge"]
+[if sceptre_dead][link="It was stolen for 'Jorge', but he's dead."]
+[if sceptre_dead][linkto="sceptre2-jorgedead"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre2-jorge"]
+
+"Hmm.  As best I know, there is no 'Jorge' among my
+ subjects.  But there may be some among them who does
+ know of this man.
+
+ I would advise you ask among the people."
+
+[set find_jorge]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre2-jorgedead"]
+[colour="#808080"]
+You tell the King about Jorge's body and the letter he
+was bearing from 'N'.
+[colour="#ffffff"]
+
+"So, this 'Jorge' hired the rogue to steal my sceptre
+ for another party.. someone who called themselves 'N'.
+
+ It is likely impossible to find this man, for the pen
+ name is assuredly nothing like his true name.
+
+ Jorge is dead, so he cannot help us, nor face justice.
+ But mayhap some of my people have heard of him.
+
+ You should speak to the citizens.  Find out if anyone
+ knew Jorge, and question them.  We may be able to track
+ down his client, the one who requested the Sceptre.
+
+ We must try find out who 'N' is and who they are working
+ for!"
+
+[set find_jorge]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+"The Pope took it from me."
+
+[page="sceptre_pope"]
+
+[colour="#808080"]
+The King turns pale.
+[colour="#ffffff"]
+
+"What?
+ Mean you that the Church has stolen my Sceptre?!?
+
+ It.. it all makes sense.. for the Church has long been
+ at odds with my reforms, and over the Tithes..
+
+ And if I am not wrong, the Sceptre itself is worth about
+ a third of my Kingdom!  They have taken it in payment
+ for the Tithes!
+
+ Though this be blasphemy even to consider, it may be
+ that it shall become necessary to retrieve the Sceptre
+ from the Pope's treasury by stealth."
+
+[endpage]
+
+
+[page="sceptre_pope2"]
+
+[colour="#808080"]
+King Edwyg lowers his voice.
+[colour="#ffffff"]
+
+"$PLAYER, there is something that I ask of you.
+ I have allies in a small camp to the south of this town.
+ It is called 'New Fairford', after the village it is
+ nearby.
+
+ Among those there is an old ally of mine, who goes by
+ the name of Ransome.  I warn you, he is not like you or
+ I.. he is in fact, a daemon.  But a daemon in whom I can
+ put the utmost trust and who always answers truthfully.
+
+ Find him, I beseech you.. find him and tell him what has
+ happened.  For it seems to me that the Church is
+ preparing for a strike against those whom it considers
+ its enemies, and that would include him too."
+
+[endpage]
+
+
+
+
+
+
+[page="bye"]
+
+"Fare well, $PLAYER."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fakeexit"]
+[goto="exit"]
+[endpage]

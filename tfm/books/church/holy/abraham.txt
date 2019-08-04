@@ -1,0 +1,13 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                    The Book of Abraham the Jew
+
+  This is the definitive work on alchemy by an obscure
+  cabalistic writer.  It forms a step-by-step illuminated
+  guide to the processes necessary to project mercury into
+  silver and lead into gold.
+
+[nextpage="exit"]
+[endpage]

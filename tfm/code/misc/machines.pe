@@ -1,0 +1,154 @@
+##
+##	Burger machine creates burgers
+##
+
+function burgermachine
+
+integer x
+integer y
+integer ctr
+integer dest
+integer destdir
+object obj
+
+# Put in a delay
+if me.user.user1 > 0
+	add me.user.user1 - 1 
+	return
+endif
+let me.user.user1 = 15
+
+
+let x = me.x
+let y = me.y
+
+if me.curdir = LEFT
+	add y - 1
+	add x - 1
+	let dest = y + 2
+	let destdir = RIGHT
+endif
+
+if me.curdir = RIGHT
+	add y - 1
+	add x + 1
+	let dest = y + 2
+	let destdir = RIGHT
+endif
+
+if me.curdir = UP
+	add y - 1
+	add x - 1
+	let dest = x + 2
+	let destdir = DOWN
+endif
+
+if me.curdir = DOWN
+	add y + 1
+	add x - 1
+	let dest = x + 2
+	let destdir = UP
+endif
+
+
+if me.curdir = LEFT
+or me.curdir = RIGHT
+	for ctr = y to dest
+		get_object obj at x ctr
+		if obj is called "burgershelf"
+			create obj = me.funcs.user2
+			transfer_object obj to x ctr
+			set_direction obj to destdir
+		endif
+	next ctr
+else
+	for ctr = x to dest
+		get_object obj at ctr y
+		if obj is called "burgershelf"
+			create obj = me.funcs.user2
+			transfer_object obj to ctr y
+			set_direction obj to destdir
+		endif
+	next ctr
+endif
+
+end
+
+
+
+function stdonalds_counter_check
+private
+
+# Put in a delay
+if me.user.user1 < 20
+	add me.user.user1 + 1 
+	return
+endif
+
+if_exists me.next
+	# This shouldn't happen unless the player decides to help serve
+	if me.next is called "stdonalds_burger_*"
+		replace me.next = "stdonalds_burger"
+	endif
+
+	# Make sure I'm full
+	replace me = "stdonaldscounter_full"
+	let me.user.user1 = 0	# Reset
+	return
+else
+	# If I think I'm full but I'm not, reset self
+	if me is called "stdonaldscounter_full"
+		replace me = "stdonaldscounter"
+		let me.user.user1 = 0	# Reset
+	endif
+endif
+
+# At 100 with nothing on self and not full, force a reset
+if me.user.user1 < 100
+	return
+endif
+
+let me.user.user1 = 0
+stop_action me
+
+replace me = "stdonaldscounter"	# This will also deactivate the script
+end
+
+
+
+function stdonalds_usetableplate
+object plate
+object burger
+
+# Move burger from client to plate
+let plate = current
+move 1 "stdonalds_burger*" from me to plate
+
+if_exists plate.pocket
+	let burger = plate.pocket
+	replace burger = "stdonalds_burger_cold" # Cleaner collects these
+	force_from_pocket burger from plate to plate.x plate.y
+	return
+endif
+
+# print "PLATE: empty|"
+end
+
+##
+##	Unlock the plates after use
+##
+
+function stdonalds_plate_check
+private
+
+# Put in a delay
+if me.user.user1 < 40
+	add me.user.user1 + 1 
+	return
+endif
+
+let me.user.user1 = 0		# Reset
+replace me = "tableplate"	# This should also deactivate the script
+end
+
+

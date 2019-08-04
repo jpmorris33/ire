@@ -1,0 +1,808 @@
+
+Saxiis, a Drakaan who has gone native.
+
+
+[page="start"]
+[image="saxiis1.pcx"]
+
+"Hello there.  Did you want something?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="What are you?"]
+[linkto="what"]
+[if find_ross][link="I'm looking for Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="saxiis1.pcx"]
+
+"Hello again."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="name"]
+[image="saxiis1.pcx"]
+[learn_name]
+
+"I am Saxiis.  Most people call me 'dragon', though."
+[learn_name]
+[link="What are you?"]
+[linkto="what"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="saxiis1.pcx"]
+
+"Job?  I'm financially independent, man!  Haven't you
+ seen that hoard?
+
+ I'm open to contract work, though.  If you want your
+ fair maidens guarded, give me a call.
+ Another speciality is valuations, particularly gold."
+
+[link="Tell me about the hoard."]
+[linkto="gold"]
+[link="Tell me about the fair maiden."]
+[linkto="maid2a"]
+[link="What are you?"]
+[linkto="what"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="what"]
+[image="saxiis1.pcx"]
+
+"I'm a dragon.  You know, a big fire-breathing monster
+ that hoards gold and guards fair maidens?
+
+ Well, the fair maiden thing didn't really pan out, in
+ fact she's dead.  But the gold has done well."
+
+[link="Tell me about the gold."]
+[linkto="gold"]
+[link="Tell me about the fair maiden."]
+[linkto="maid3a"]
+[link="Do you breathe fire?"]
+[linkto="fire"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="doorbell"]
+[if Saxiis_allowed_in][goto="doorbell2"]
+[image="saxiis1.pcx"]
+
+"No milk today, please..
+
+ Oh!  Have you come to slay me?"
+
+[link="Yes."]
+[linkto="slay"]
+[link="I'm here to rescue the fair maiden."]
+[linkto="maid"]
+[if find_ross][link="I'm looking for Ross."]
+[if find_ross][linkto="ross"]
+[link="Who are you?"]
+[linkto="name"]
+[link="Sorry, wrong house."]
+[linkto="bye"]
+[endpage]
+
+
+[page="doorbell2"]
+[image="saxiis1.pcx"]
+
+"Oh, hello, it's you again!"
+
+[link="May I come in?"]
+[linkto="doorbell3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="doorbell3"]
+[image="saxiis2.pcx"]
+
+"Sure.  But wipe your feet first, okay?"
+
+[set Saxiis_allowed_in]
+[nextpage="fakeexit"]
+[endpage]
+
+
+
+[page="slay"]
+[image="saxiis2.pcx"]
+
+"Not today thank you."
+
+[colour="#808080"]
+The door slams shut.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="fire"]
+[image="saxiis2.pcx"]
+
+"Kind of."
+
+[colour="#808080"]
+Taking out a silver box, the creature lights a cigarette.
+[colour="#ffffff"]
+
+[link="Tell me about the gold."]
+[linkto="gold"]
+[link="Tell me about the fair maiden."]
+[linkto="maid3a"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="maid"]
+[image="saxiis2.pcx"]
+
+"I'm sorry, we don't have one of those anymore.
+ Was there anything else?"
+
+[link="What do you mean?"]
+[linkto="maid2"]
+[if find_ross][link="I'm looking for Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="maid2"]
+[image="saxiis1.pcx"]
+
+"Well, there used to be a fair maiden here, but she kinda
+ died.  Bit of a shame, but it broke the enchantment.
+ Now I am free of the curse.  I don't have to listen to
+ her snoring either."
+
+[link="Tell me about the enchantment."]
+[linkto="maid3a"]
+[link="The enchantment was broken?"]
+[linkto="maid3b"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="maid2a"]
+[image="saxiis1.pcx"]
+
+"I'm not very good with maidens, really.  I was given one
+ to guard, but she broke."
+ 
+[link="Tell me about the maiden."]
+[linkto="maid3a"]
+[link="Tell me about the hoard of gold."]
+[linkto="gold"]
+[link="What are you?"]
+[linkto="what"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="maid3a"]
+[image="saxiis2.pcx"]
+
+"A geas was laid upon me to guard that fat bitch until
+ a warrior valiant enough to slay me could claim her for
+ his bride.
+
+ Fortunately this wandering loony came by and found the
+ girl while I was asleep.  I was woken by a terrific yell
+ from her room followed by 'Auugh!' and then I was free!
+
+ We had to dispose of the body, and he'll get lynched if
+ her father ever finds out, but I offered to let him stay
+ here.  Sometimes he goes shopping for me."
+
+[link="The spell was broken?"]
+[linkto="maid3b"]
+[link="Why do you need him to go shopping?"]
+[linkto="shopping"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="maid3b"]
+[image="saxiis1.pcx"]
+
+"Yes, it was very broken.
+
+ The witch designed it so that it would last until I was
+ slain.  She never took into account that the girl might
+ get the chop instead, and it went wrong.
+
+ Have a look in the mystical pool outside if you want to
+ see what a broken spell looks like."
+
+[link="Who was it that broke the spell?"]
+[linkto="maid4"]
+[link="Do you know any magic?"]
+[linkto="magic"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="maid4"]
+[image="saxiis1.pcx"]
+
+"I owe it all to Ross the Bewildered.  He came by one
+ night and found the girl before I woke up.  Then
+ there was this awful yell up in the tower and a sort of
+ 'Auugh!'.  Then I was free of the spell!
+
+ We had to dispose of the body, and he'll get lynched if
+ her father ever finds out, but I offered to let him stay
+ here.
+
+ Sometimes he goes shopping for me."
+
+[link="Why do you need him to go shopping?"]
+[linkto="shopping"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="shopping"]
+[image="saxiis3.pcx"]
+
+"Do you have any idea how difficult it is to get
+ served when you're a fifteen-foot lizard?
+
+ Everybody runs away screaming.  Sometimes they throw
+ pointy sticks at me as well!  Each time I go to get some
+ groceries it's a complete disaster!
+
+ There's lots of beef on the island of course, but it's
+ always good to have some variety in your diet."
+
+[link="Don't you eat people?"]
+[linkto="shopping3"]
+[link="Couldn't you have sent the maid shopping?"]
+[linkto="shopping2"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="shopping2"]
+[image="saxiis2.pcx"]
+
+"No.  She'd try to run away.
+ In any case there was a forcefield around the island to
+ prevent her from leaving until I was dead.
+
+ A clever piece of work, that; it was keyed to her.
+ Anyone else could come and go as they pleased, except me.
+
+ That damned spell would give me a powerful urge to return
+ home as soon as possible."
+
+[link="Does this fair maiden actually have a name?"]
+[linkto="maidname"]
+[link="Don't you eat people?"]
+[linkto="shopping3"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="shopping3"]
+[image="saxiis2.pcx"]
+
+"There are ethical questions about eating people.
+ As a rule, I only eat knights because they have this
+ fixation with slaying me.  It's self-defence, right?
+
+ The other thing is, it takes more energy to peel them
+ than you get out of the meat.  It's a quite a fiddle to
+ break them open but they really are a snack you can eat
+ between meals."
+
+[link="Have you considered vegetarianism?"]
+[linkto="vege"]
+[link="Couldn't you have sent the maid shopping?"]
+[linkto="shopping2"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="vege"]
+[image="saxiis2.pcx"]
+
+"Not really.  I've evolved as a carnivore, so eating
+ just vegetables is not a good idea.  You're an omnivore,
+ you have a choice.
+
+ Also, meat has a higher energy density than plants,
+ which gives carnivores time to laze around.  Laziness
+ promotes tool-use, you know?  Only meat-eaters become
+ fully intelligent, because they invent shortcuts.."
+
+[link="You know too much."]
+[linkto="knowtoomuch"]
+[link="Couldn't you have sent the maid shopping?"]
+[linkto="shopping2"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="knowtoomuch"]
+[image="saxiis1.pcx"]
+
+"Tell me about it!  Xy'lan isn't pleased with me at all.
+ He really doesn't like people knowing stuff."
+
+[link="Who is Xy'lan?"]
+[linkto="xylan3"]
+[link="Couldn't you have sent the maid shopping?"]
+[linkto="shopping2"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="maidname"]
+[image="saxiis1.pcx"]
+
+"I guess so, but I was never told what it was.
+
+ She was a fat lump, though.  Carrying her stiff out the
+ front door was a real problem."
+
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gold"]
+[image="saxiis2.pcx"]
+
+"Ah, the gold.  There's such a huge amount of it,
+ everyone else is jealous.  Probably be why people keep
+ coming to try and slay me.
+
+ I don't know what they'd do if they ever did manage it.
+ There's far too much for ME to carry, let alone a man."
+
+[link="Who gets jealous?"]
+[linkto="gold2"]
+[link="Can I have some?"]
+[linkto="gold3"]
+[link="Where does the gold come from?"]
+[linkto="gold4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gold2"]
+[image="saxiis3.pcx"]
+
+"Oh, the usual assortment.. Kings, Bishops, the Pope..
+
+ One of the huge advantages of being a dragon is that you
+ don't normally have to pay any tithes."
+
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="Can I have some gold?"]
+[linkto="gold3"]
+[link="Where does the gold come from?"]
+[linkto="gold4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gold3"]
+[image="saxiis3.pcx"]
+
+"No.  And if you steal any, I'll nail you to a stick."
+
+[link="Who gets jealous of your gold?"]
+[linkto="gold2"]
+[link="Where does the gold come from?"]
+[linkto="gold4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gold4"]
+[image="saxiis1.pcx"]
+
+"It comes from a variety of sources.  Ultimately most of
+ it came from the ground, the rest of it was extracted
+ from the sea by Xy'lan as a reward for his Faithful.
+
+ The humans think most of the gold is mined by dog-sized
+ ants, hehehe.
+
+ But anyway.  I suspect you're really asking how I got
+ my hands on it all."
+
+[link="Tell me how Xy'lan extracts gold from the sea."]
+[linkto="gold5"]
+[link="Tell me how gold is mined."]
+[linkto="gold6"]
+[link="Okay, so how did you get the gold?"]
+[linkto="gold7"]
+[link="Can I have some gold?"]
+[linkto="gold3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="gold5"]
+[image="saxiis1.pcx"]
+
+"Well, I haven't seen it, but my sources tell me that
+ on the morning of the new moon, Xy'lan gathers his high
+ priests together for this gold ritual.
+ Apparently they place some sacred pot on the high altar
+ of the great cathedral, and it glows and when they take
+ the pot off the altar again it is full of gold.
+
+ All very showy, but dead simple to do with selective
+ teleportation.  A byproduct of the ocean mineral
+ extraction system that he uses to get raw materials to
+ maintain the Maxima."
+
+[link="Who is Xy'lan and what ARE you on about?"]
+[linkto="gold8"]
+[link="Okay, so how did you get the gold?"]
+[linkto="gold7"]
+[link="Can I have some gold?"]
+[linkto="gold3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="gold6"]
+[image="saxiis1.pcx"]
+
+"There's a group of smart wolves in the southeast.
+ I think they're the remains of some experiment by
+ Xy'lan to try and create some worshippers.
+ They live in the mountains on the edge of the desert,
+ and they mine the ore-rich mountains.  Much of the
+ iron and gold that humans use comes from their mines.
+ Politics aside, there has been a lot of trade with the
+ humans, for the wolves are not great craftsmen, and
+ they have need of human-made goods.  I think they also
+ import some foods which don't grow in the mountains."
+
+[link="Okay, so how did you get this gold?"]
+[linkto="gold7"]
+[link="Can I have some gold?"]
+[linkto="gold3"]
+[link="Where does the gold come from?"]
+[linkto="gold4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="gold7"]
+[image="saxiis1.pcx"]
+
+"Best you don't know!"
+
+[link="Can I have some gold?"]
+[linkto="gold3"]
+[link="Where does the gold come from?"]
+[linkto="gold4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="gold8"]
+[image="saxiis3.pcx"]
+
+"Ignorance is bliss, kid."
+
+[link="Okay, so how did you get the gold?"]
+[linkto="gold7"]
+[link="Can I have some gold?"]
+[linkto="gold3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pope"]
+[image="saxiis2.pcx"]
+
+"He's a knob.  He sits around all day decreeing things
+ and interfering with everyone else's lives.
+
+ The trouble is, Xy'lan likes him.  And that means he CAN
+ interfere with everyone.  Everyone except me.
+
+ Anyway.  He's pretty sprightly for a 300-year old.
+ I understand that is a very long lifespan for a human.."
+
+[link="Who is Xy'lan?"]
+[linkto="xylan"]
+[link="Three hundred years?"]
+[linkto="pope300"]
+[link="How long do you live for?"]
+[linkto="age"]
+[link="Why can't the Pope interfere with you?"]
+[linkto="xylan2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan"]
+[image="saxiis1.pcx"]
+
+[colour="#808080"]
+The creature looks at you knowingly.
+[colour="#ffffff"]
+
+"Xy'lan is God.  Only a few know His true name.
+
+ I would rather not talk about Xy'lan anymore.  If you
+ really want to find out how far the rabbit-hole goes,
+ seek out my brothers."
+
+[link="Where can I find them?"]
+[linkto="brothers"]
+[if_seen pope][link="The Pope is 300 years old?"]
+[if_seen pope][linkto="pope300"]
+[if_seen pope][link="How long do YOU live for?"]
+[if_seen pope][linkto="age"]
+[if_seen pope][link="Why can't the Pope interfere with you?"]
+[if_seen pope][linkto="xylan2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan2"]
+[image="saxiis1.pcx"]
+
+"I have some influence over Xy'lan, and He can't harm me
+ directly, although he tried.. that's what the whole
+ Fair Maiden deal was about, after all.
+
+ That's all I can tell you right now.  If you really want
+ to know about Xy'lan, there are others of my kind more
+ willing to talk about such matters.
+
+ But Xy'lan won't like that at all, and He CAN kill you!"
+
+[link="Where can I find the others?"]
+[linkto="brothers"]
+[link="Who is this "Xy'lan" guy anyway?"]
+[linkto="xylan"]
+[if_seen pope][link="Did you say the Pope is 300 years old?"]
+[if_seen pope][linkto="pope300"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan3"]
+[image="saxiis1.pcx"]
+
+"Xy'lan considers me and my brothers a threat, with some
+ justification.  They want to try and stop the chaos he's
+ causing.
+
+ Personally, I'm not sure we can.  So I decided to try
+ and fit myself into Xy'lan's world.  He wasn't satisfied
+ and set up the Fair Maiden thing to try and kill me..
+ he's not supposed to be able to DO stuff like that!
+
+ That's all I can tell you right now.  If you really want
+ to know about Xy'lan, there are others of my kind more
+ willing to talk about such matters.  But beware if you
+ do, because there is nothing to stop Xy'lan killing YOU!"
+
+[link="Where can I find the others?"]
+[linkto="brothers"]
+[link="Who is this "Xy'lan" guy anyway?"]
+[linkto="xylan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="age"]
+[image="saxiis1.pcx"]
+
+"We usually reach around two thousand of your years..
+ my race is a very old one. 
+
+ But I will say no more.. I came here to try and forget
+ my past, not to wallow in it."
+
+[!link="Where can I find the others?"]
+[!linkto="brothers"]
+[link="Who is this "Xy'lan" guy anyway?"]
+[linkto="xylan"]
+[link="Tell me about the gold."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pope300"]
+[image="saxiis1.pcx"]
+
+"Yep.  Him and the LORD are great friends, and there are
+ some pretty amazing rewards for the faithful."
+
+[link="Who is Xy'lan?"]
+[linkto="xylan"]
+[link="How long do you live for?"]
+[linkto="age"]
+[link="Why can't the Pope interfere with you?"]
+[linkto="xylan2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic"]
+[image="saxiis1.pcx"]
+
+"Whoohoohoo!  You really know how to ask 'em, don't you?
+
+ As it happens I know quite a bit of magic, but it won't
+ be enough to save you from the boundless wrath of an
+ angry God.
+
+ Which is what we'll get if I teach you any."
+
+[link="Who was it that broke the spell?"]
+[linkto="maid4"]
+[link="Tell me about the gold instead."]
+[linkto="gold"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="ross"]
+[set Saxiis_allowed_in]
+[image="saxiis2.pcx"]
+
+"I suppose you'd better come in then."
+
+[nextpage="fakeexit"]
+[endpage]
+
+
+[page="brothers"]
+[image="saxiis2.pcx"]
+
+"I'm not sure I can tell you that.  The conditioning that
+ prevents Xy'lan from harming us is being stretched very
+ thin and he may be able to bend it.
+
+ I cannot risk my brothers' lives.  But I can tell you
+ that my race, old as it is, still has a strong fondness
+ for caves.
+
+ Also, should you discover their home, you will need a
+ code for the front door.  Try using '631824'."
+
+[if_notseen pope][link="What was that about Xy'lan harming you?"]
+[if_notseen pope][linkto="xylan3"]
+[if_seen pope][link="Did you say the Pope is 300 years old?"]
+[if_seen pope][linkto="pope300"]
+[if_seen pope][link="How long do YOU live for?"]
+[if_seen pope][linkto="age"]
+[if_seen pope][link="Why can't the Pope interfere with you?"]
+[if_seen pope][linkto="xylan2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="attacked"]
+[image="saxiis3.pcx"]
+[at_exit_call="player_killme"]
+
+[colour="#808080"]
+Quick as lightning, the dragon lashes out with her claws,
+eviscerating you.
+
+As you lie bleeding, powerful jaws close around your
+throat, bringing a quick, if painful, end.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+[image="saxiis2.pcx"]
+
+"Bye-bye."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fakeexit"]
+[goto="exit"]
+[endpage]

@@ -1,0 +1,26 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+               Lord of the Rings
+            Lost Manuscript Series
+                     Book 2
+
+
+ This tome is reprinted from some of Tolkien's
+ original notes before he had finalised the plot
+ of his famous trilogy.
+
+ This version departs from the original plot
+ when the Council persuades Gwaihir Windlord to
+ fly the One Ring to Mount Doom instead of
+ sending two hobbits to do the job.
+
+ The story ends apocalyptically as the One Ring
+ approaches the place of its forging.  Gwaihir
+ falls under its' spell and claims the Ring for
+ his own, dethroning Sauron to replace him with
+ a feathered Dark Lord.
+
+[nextpage="exit"]
+[endpage]

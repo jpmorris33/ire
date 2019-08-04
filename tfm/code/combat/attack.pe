@@ -1,0 +1,988 @@
+#######################################
+#                                     #
+#  attack - Generalised attack logic  #
+#                                     #
+#######################################
+
+/*
+
+NOTES
+
+Each weapon (or combatant) will have it's ATTACK function set to either
+'close_attack' or 'range_attack'.
+
+Whichever is chosen, it will be called from the main 'attack' function,
+which will be called by the 'A' key (in the case of the player)
+or as a behaviour task for NPCs and monsters.  This is the main entry point
+to the attack engine.
+
+Weapons can also have an additional function for special effects and such
+(e.g. chairs and bottles break when used as weapons).
+The function name is put in the USER2 function for the weapon.
+These special effect functions are in combat/weapons.pe
+
+*/
+
+
+
+integer hit_damage
+integer hit_range
+integer arrest_only = 0
+integer attack_user2 = 0
+
+##
+##	Attack:  Top-level attack function
+##
+##	Allocate a weapon for each hand and call appropriate attack driver
+##
+
+function attack
+
+# Set the attacker to the current character
+let attacker = me
+let hit_damage = 0
+
+# Not born yet!
+if_exists me.parent
+	return
+endif
+
+# Computer-controlled attackers need decisions made for them
+if attacker <> player
+
+	# Do we really have an enemy?
+	if_not_flag attacker.enemy IS_ON
+		resume_activity attacker
+		print "atk: noenemy"
+		printcr
+		return			# Don't waste my time
+	endif
+
+
+	# Are they alive?
+
+	if attacker.enemy.stats.hp < 1
+		stop_action attacker
+		resume_activity attacker
+		return			# Don't waste time pounding the corpse
+	endif
+
+	# Are we totally and utterly unable to reach the enemy?
+	if attacker.user.counter > 40
+		# We've lost them.  Forget about it
+		stop_action attacker
+		resume_activity attacker
+		# Reset the counter (in case attack is the only activity)
+		let attacker.user.counter = 0
+		return
+	endif
+
+	# If we don't have a weapon, find one
+	if_not_exists attacker.wield.l_hand
+		if_not_exists attacker.wield.r_hand
+			let current = attacker
+			call find_best_weapon
+		endif
+	endif
+
+endif
+
+# Can't attack if you're dead
+if attacker.stats.hp < 1
+	return
+endif
+
+# Are we critical?
+/*
+if attacker.stats.hp < 15
+
+	set_flag attacker IS_CRITICAL = 1
+	set_flag attacker NOT_CLOSE_DOORS = 1
+
+	if attacker <> player
+		if attacker.enemy <> player
+			stop_action attacker.enemy	# Stop killing
+			reset_flag attacker.enemy NOT_CLOSE_DOORS
+			if attacker.enemy.activity < 1
+				resume_activity attacker.enemy
+			endif
+		endif
+		stop_activity attacker
+		start_activity attacker does enemy_flee
+		return
+	endif
+
+endif
+*/
+
+# If the attacker has no weapon, we must sort something out for them.
+if_not_exists attacker.wield.l_hand
+or attacker.wield.l_hand.funcs.acache <= 0 # Not a real weapon
+	# Use the right-hand weapon
+	let attackweapon = attacker.wield.r_hand
+
+	# There was a weapon, yes?
+	if_not_exists attackweapon
+		# No.  Bare hands.
+		let attackweapon = attacker
+	else
+		# Is it really a weapon?
+		if attackweapon.funcs.acache <= 0
+			# No.. use bare hands
+			let attackweapon = attacker
+		endif
+	endif
+
+	# Skip the left-hand attack
+	goto attack_righthand
+endif
+
+
+
+# Do the Left Hand Attack
+let attackweapon = attacker.wield.l_hand
+
+# It's possible the weapon was 'confiscated' if we're out of range
+# Check first, and attack if possible
+
+if_exists attackweapon
+	# Do we have an attack method?
+	if attackweapon.funcs.acache > 0
+		let current = attackweapon	# Some weapon code may need this
+		call attackweapon.funcs.acache
+
+		# Status report
+		if_onscreen attacker.enemy
+			call attack_status
+			redraw_text
+		endif
+
+	endif
+endif
+
+
+# Do the Right-Hand Attack
+
+let attackweapon = attacker.wield.r_hand
+
+# If we had no weapon, this is the entrypoint.
+label attack_righthand
+
+# Has the attacker been killed since his first blow?
+if attacker.stats.hp < 1
+	let attackweapon = null		# No second try for you
+endif
+
+# Try and attack
+if_exists attackweapon
+
+	# Do we have an attack method?
+	if attackweapon.funcs.acache > 0
+
+		let current = attackweapon	# Some weapon code may need this
+		call attackweapon.funcs.acache
+
+		# Status report
+		if_onscreen attacker.enemy
+			call attack_status
+			redraw_text
+		endif
+	endif
+endif
+
+# Done
+let attacker = null
+
+
+end
+
+
+##
+## Attack core : Calculate damage, do the actual violence
+##
+##		 Called from the attack drivers, e.g. close_attack
+##
+
+function attack_core
+
+if attacker <> player
+	# They're already dead.  Why bother?
+	if attacker.enemy.stats.hp < 1
+		return
+	endif
+endif
+
+# do the damage
+if hit_damage >= 0
+
+	# If weapon has special method, call it
+	if attackweapon.funcs.user2 <> ""
+		let attackweapon.enemy = attacker.enemy
+		let current = attackweapon
+
+		call attackweapon.funcs.user2
+
+		# Quit if weapon malfunctioned (out of ammo etc)
+		if hit_damage < 0
+			return
+		endif
+	endif
+
+	# Hurt the enemy
+	add attacker.enemy.stats.hp - hit_damage
+	# Clip damage to sensible levels to prevent ash
+	if attacker.enemy.stats.hp < -200
+		let attacker.enemy.stats.hp = -200
+	endif
+
+	# If the victim is technically dead but we are supposed to arrest
+	# them and not kill them, bring them back
+	if arrest_only
+		if attacker.enemy.stats.hp < 1
+			let attacker.enemy.stats.hp = 1
+		endif
+	endif
+
+####### Justice #######
+
+	# Mark who attacked
+	let attacker.enemy.enemy = attacker
+
+	# play sounds, react to damage etc
+/*
+	print "attacker "
+	print attacker.name
+	print " enemy = "
+	print attacker.enemy.name
+	printcr
+*/
+	check_hurt attacker.enemy
+
+	# Was the attack permitted?
+	if attacker.user.vigilante = 1
+		# Yes, don't involve any Justice
+		return
+	endif
+
+	# This justice system is for humans, others have their own..
+	if attacker.enemy.label.race = "human"
+	or attacker.enemy.label.race = "waarg"
+
+		# Mark that you assaulted them and Justify it
+		if_flag attacker.enemy IS_PERSON	# is a creature
+			if_not_flag attacker.enemy IS_PARTY	# not one of us
+				let suspect = attacker
+				let victim = attacker.enemy
+				call justice_assault
+			endif
+		endif
+	endif
+
+else
+	if attacker = player
+		print "Missed!"
+		printcr
+	endif
+endif
+
+end
+
+
+
+##
+##	For thrown objects, mess up the attacker's aim depending on dexterity
+##
+
+function fudge_thrown
+
+int minor
+int points
+int r
+
+# Can they miss?
+
+if attacker.stats.dex > 100
+	# No
+	return
+endif
+
+
+# We don't have floating point, so multiply the lower figure by 100
+# and then divide by the maximum to get a percentage chance
+
+
+# First, do we have any dexterity (i.e. hope of hitting the target) at all?
+if attacker.maxstats.dex > 0
+
+	let minor = attacker.stats.dex * 100
+	let points = minor / attacker.maxstats.dex
+	random r between 1 100
+	if r <= points
+		return
+	endif
+endif
+
+# Okay, we're still here, so the user probably missed
+# Jiggle the X coordinate
+
+random r between 0 2
+add r - 1
+add new_x + r
+
+# Jiggle the Y coordinate
+
+random r between 0 2
+add r - 1
+add new_y + r
+
+end
+
+
+##
+##	For close combat, mess up the attacker's aim depending on dexterity
+##
+
+function fudge_closecombat
+
+int minor
+int points
+int r
+
+# We don't have floating point, so multiply the lower figure by 100
+# and then divide by the maximum to get a percentage chance
+
+# First, do we have any dexterity (i.e. hope of hitting the target) at all?
+if attacker.maxstats.dex > 0
+
+	let minor = attacker.stats.dex * 100
+	let points = minor / attacker.maxstats.dex
+	random r between 1 100
+	if r <= points
+		return
+	endif
+endif
+
+
+# Okay, we're still here, so the user probably missed.
+# Fiddle the damage around to reduce or eliminate it
+if hit_damage > 10
+	random hit_damage between 10 hit_damage
+	add hit_damage - 10
+	if hit_damage < 0
+		let hit_damage = -1
+	endif
+endif
+end
+
+##
+##	Calculate distance between attacker and their victim
+##
+
+function get_hitrange
+integer tx
+integer ty
+
+if_not_exist attacker
+	return
+endif
+
+if_not_exist attacker.enemy
+	return
+endif
+
+let tx = attacker.x - attacker.enemy.x
+let ty = attacker.y - attacker.enemy.y
+
+if tx < 0
+	let tx = 0 - tx
+endif
+if ty < 0
+	let ty = 0 - ty
+endif
+
+if ty > tx
+	let tx = ty
+endif
+
+let hit_range = tx
+end
+
+
+##
+##  Calculate damage to cause in the attack
+##  handles armour and suchlike
+##
+
+function calculate_attackdamage
+integer ac
+
+# Get basic damage amount
+let hit_damage = attackweapon.stats.damage
+
+# The splat of blood will apppear here
+let splatvictim = attacker.enemy
+
+# Check for a DECOR object, since any decor slain shall be avenged with
+# much ravaging and spilling of core (it will crash the game)
+
+if_flag attacker.enemy IS_DECOR
+	let hit_damage = -1
+	return
+endif
+
+# Work out the armour class
+let ac = 0
+
+if_exists attacker.enemy.wield.body
+	add ac + attacker.enemy.wield.body.stats.armour
+endif
+
+if_exists attacker.enemy.wield.l_hand
+	add ac + attacker.enemy.wield.l_hand.stats.armour
+endif
+
+if_exists attacker.enemy.wield.r_hand
+	add ac + attacker.enemy.wield.r_hand.stats.armour
+endif
+
+# Martyn's armour calculation: 100/((ac/25)+1)
+# This gives the percentage of the damage remaining.
+
+const TWEAK = 25	# Use a tweak factor of 25
+
+# The tweak factor equals the AC needed for 50% damage absorption
+# e.g.	AC 3 lets 89% of the damage past
+# 	AC 25 lets 50% past (or absorbs 50%, depending on your POV)
+#	AC 60 lets 29% past.
+#
+#	We have diminishing returns, so AC 100 lets 20% past.
+#	Choosing a different Tweak will affect the curve.
+
+let ac = ac * 100	# Need to *100 because we're using integer math
+let ac = ac / TWEAK	# Divide it by tweak factor
+add ac + 100		# add one (*100)
+let ac = 10000 / ac	# Divide 100 (*100) by the number
+
+# What we have left is the % of the damage left, convert to actual value
+add hit_damage * ac
+add hit_damage / 100
+
+# Now the really kick-ass part is what happens when the damage is negative,
+# e.g. for cursed armour.  The graph plotted from -100 to +100 resembles
+# a tanwave, i.e. it rushes to the vertical and flips in the middle.
+#
+# Fun negative numbers are: 	-26 (does -2500% damage)
+#				-25 divides by zero, thus absorbing all damage
+#				-24 (does 2500% damage, incinerating you)
+#				-36 (does something like 150% damage)
+
+end
+
+
+##
+##  close_attack - Prepare for close combat attack.
+##
+
+
+function close_attack
+
+# Safety check
+
+if_not_exists attacker
+	return
+endif
+
+# If the attacker is the player, we need to find the target of their ire
+
+if attacker = player
+
+	if attackweapon = player
+		if player.label.race = "human"
+			print "Attack with bare hands "
+		else
+			print "Attack with claws "
+		endif
+	else
+		print "Attack with "
+		print attackweapon.shortdesc
+		print " "
+	endif
+	redraw_text
+
+	# Orient around player for Get Near
+	let current = player
+	call get_near
+
+	# If we have a victim, do the attack
+	if_exists current
+		print_bestname current
+		printcr
+
+		let attacker.enemy = current
+		# Calculate initial damage
+		call calculate_attackdamage
+		# Introduce that element of chance
+		call fudge_closecombat
+		# Do it
+		call attack_core
+	else
+		print "nothing."
+		printcr
+	endif
+
+else	# If not the player, check range and attack if possible
+	call get_hitrange
+	if hit_range <= 1
+
+/*
+		if attacker.enemy.stats.intel > 0
+			print_bestname attacker
+			print " attacks "
+			print_bestname attacker.enemy
+			printcr
+			redraw_text
+		endif
+*/
+		# In range
+		call calculate_attackdamage
+		# Introduce that element of chance
+		call fudge_closecombat
+		# Do it
+		call attack_core
+
+	else
+		# Out of range, correct this
+		move_towards attacker attacker.enemy
+
+		# If we're just in range, try attacking again
+		# (It sounds unfair, but actually stops the player 'cheating')
+		call get_hitrange
+		if hit_range <= 1
+
+			if attacker.enemy.stats.intel > 0
+				print_bestname attacker
+				print " attacks "
+				print_bestname attacker.enemy
+				printcr
+				redraw_text
+			endif
+
+			call calculate_attackdamage
+			call fudge_closecombat
+			call attack_core
+		endif
+
+	endif
+
+endif
+
+end
+
+
+##
+##  range_attack - distant attack with infinite ammo
+##
+
+
+function range_attack
+integer r
+
+# Safety check
+
+if_not_exists attacker
+	return
+endif
+
+if attackweapon.stats.range < 2
+	BUG START
+	print "Attacker "
+	print_bestname attacker
+	print " ("
+	print attacker.name
+	print ") has Range_Attack but no range!"
+	printcr
+	BUG END
+
+	let attackweapon.stats.range = 8
+endif
+
+# If the attacker is the player, we need to find the target of their ire
+
+if attacker = player
+
+	if attackweapon <> attacker
+		# Describe the weapon so the player knows what they're doing
+		print "Attack with "
+		print attackweapon.shortdesc
+		print " "
+	else
+		# Using some internal weapon.. be vague about it
+		print "Attack "
+	endif
+	redraw_text
+
+	# Orient around player for Get Far
+	let current = player
+	call get_far
+
+	# If we have a victim, do the attack
+	if_exists current
+		print_bestname current
+		printcr
+		# Set up enemy
+		let attacker.enemy = current
+	else
+		print "nothing."
+		printcr
+		return
+	endif
+
+endif
+
+# check range and attack if possible
+
+get_line_of_sight r = attacker attacker.enemy
+
+if r > attackweapon.stats.range
+or r = 0
+	# Out of range
+	if attacker = player
+		print "Out of range."
+		printcr
+	else
+		move_towards attacker attacker.enemy
+	endif
+	# Abandon
+	return
+endif
+
+# We are in range, so do the attack
+
+# Look at them
+call face_enemy
+# Calculate initial damage
+call calculate_attackdamage
+# Fudging will be done by the ammo driver.  Just to the attack
+call attack_core
+
+end
+
+##
+##  trample_attack - Try to stand on the victim and crush them
+##
+
+function trample_attack
+
+# Safety check
+
+if_not_exists attacker
+	return
+endif
+
+# If the attacker is the player, there's a problem.
+
+if attacker = player
+
+	print "No. Trample_attack is not supported for the player."
+	printcr
+
+else	# If not the player, check range and attack if possible
+ 	let current = attacker
+
+	let blockage = null
+	call track_enemy
+	if_exists blockage
+		if blockage = attacker.enemy
+			# Kill the enemy
+			print "Trample on "
+			print blockage.name
+			printcr
+			add blockage.stats.hp - attacker.stats.damage
+			check_hurt blockage
+		else
+			move_towards attacker attacker.enemy
+		endif
+	endif
+
+	# Do it again!
+	redraw_map
+
+	let blockage = null
+	call track_enemy
+	if_exists blockage
+		if blockage = attacker.enemy
+			# Kill the enemy
+			print "Trample on "
+			print blockage.name
+			printcr
+			add blockage.stats.hp - attacker.stats.damage
+			check_hurt blockage
+		else
+			move_towards attacker attacker.enemy
+		endif
+	endif
+
+endif
+
+end
+
+
+
+##
+##  ammo_attack - distant attack using ammo
+##
+
+function ammo_attack
+integer r
+integer ammo_qty
+object ammo
+
+# Safety check
+
+if_not_exists attacker
+	return
+endif
+
+# If the attacker is the player, we need to find the target of their ire
+
+if attacker = player
+
+	if attackweapon <> attacker
+		# Describe the weapon so the player knows what they're doing
+		print "Attack with "
+		print attackweapon.shortdesc
+		print " "
+	else
+		# Using some internal weapon.. be vague about it
+		print "Attack "
+	endif
+	redraw_text
+
+	# Orient around player for Get Far
+	let current = player
+	call get_far
+
+	# If we have a victim, do the attack
+	if_exists current
+		print_bestname current
+		printcr
+		# Set up enemy
+		let attacker.enemy = current
+	else
+		print "nothing."
+		printcr
+		return
+	endif
+
+endif
+
+# check range and attack if possible
+
+get_line_of_sight r = attacker attacker.enemy
+
+if r > attackweapon.stats.range
+or r = 0
+	# Out of range
+	if attacker = player
+		print "Out of range."
+		printcr
+	else
+		move_towards attacker attacker.enemy
+	endif
+	# Abandon
+	return
+endif
+
+# Make sure there is ammo for the weapon
+
+find ammo = attackweapon.funcs.user1 in attacker
+if_not_exists ammo
+	let ammo_qty = 0
+/*
+	print "Didn't find "
+	print attackweapon.funcs.user1
+	print " inside "
+	print attacker.name
+	printcr
+*/
+else
+	let ammo_qty = ammo.stats.str
+/*
+	print "Found "
+	print ammo_qty
+	printcr
+*/
+endif
+
+if ammo_qty < 1
+	if attacker == player
+		print "Out of ammo!"
+		printcr
+	else
+#		print "NPC OUT OF AMMO!|"
+		let current = attacker
+		call find_best_weapon
+	endif
+	return
+endif
+
+# Set damage level for the weapon, based on ammo
+let attackweapon.stats.damage = ammo.stats.damage
+
+# Take away a round
+add ammo.stats.str - 1
+
+if ammo.stats.str < 1
+	destroy ammo	# Used up
+else
+	# Change ammo frame etc
+	if ammo.funcs.user1 <> ""
+		let current = ammo
+		call ammo.funcs.user1
+	endif
+endif
+
+# Look at them
+call face_enemy
+# Calculate initial damage
+call calculate_attackdamage
+# Fudging will be done by the ammo driver.  Just to the attack
+call attack_core
+
+end
+
+
+##
+##  magic_attack - distant attack using the Harm spell
+##
+
+function magic_attack
+integer r
+
+# Safety check
+
+if_not_exists attacker
+	return
+endif
+
+# This is only for NPCs not the player
+
+if attacker = player
+	return
+endif
+
+# We do have an enemy, don't we
+
+if_not_exists attacker.enemy
+	return
+endif
+
+
+# check range and attack if possible
+
+get_line_of_sight r = attacker attacker.enemy
+
+if r > attackweapon.stats.range
+or r = 0
+	# Out of range
+	if attacker = player
+		print "Out of range."
+		printcr
+	else
+		move_towards attacker attacker.enemy
+	endif
+	# Abandon
+	return
+endif
+
+# Blast them (add other kinds of spell later)
+
+let spelltarget = attacker.enemy
+let current = attacker
+call spell_harm
+
+end
+
+
+
+##
+##  Show the damage report, and make them go critical if necessary
+##
+
+function attack_status
+object v
+integer percent
+
+let v = attacker.enemy
+
+# Bail out if it isn't good
+get_flag percent = v IS_PERSON
+if percent = 0
+	# Not a person, don't want "plate is critical" etc.
+	return
+endif
+
+if v.maxstats.hp < 1
+	# Not proper
+	return
+endif
+
+if hit_damage < 1
+	# Forget it
+	return
+endif
+
+print_bestname v
+
+# Calculate damage percentage
+let percent = v.stats.hp * 100
+add percent / v.maxstats.hp
+
+if v.stats.hp < 1
+	print " is dead!"
+	printcr
+	return
+endif
+
+if percent <= 10
+	print " is critical!"
+	printcr
+
+	if v = player
+		# Just warn the player.  Don't take over their body
+		return
+	endif
+
+	# Send them running
+	set_flag v IS_CRITICAL = 1
+	set_flag v NOT_CLOSE_DOORS = 1
+
+	stop_activity v
+	start_activity v does enemy_flee
+
+	return
+endif
+
+if percent <= 20
+	print " is heavily wounded."
+	printcr
+	return
+endif
+
+if percent <= 50
+	print " is wounded."
+	printcr
+	return
+endif
+
+if percent <= 80
+	print " is lightly wounded."
+	printcr
+	return
+endif
+
+print " is barely wounded."
+printcr
+return
+
+end

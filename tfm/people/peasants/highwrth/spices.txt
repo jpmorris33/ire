@@ -1,0 +1,254 @@
+[page="start"]
+"Welcome to my humble shop, $MILORD.
+
+ I can sell you honey, salt from the Holy Land, black
+ pepper, and also fresh peppers, created this morning by
+ the Lord God Himself."
+
+[link="I beg your pardon?"]
+[linkto="peppers"]
+[link="What was that about the peppers again?"]
+[linkto="peppers"]
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="peppers"]
+"Why, yes.  Peppers do not grow naturally, but appear 
+ spontaneously though the will of God.
+
+ It is common knowledge.. or so I thought."
+
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="salt"]
+"The salt comes from the sea, extracted by the power of
+ our Lord as water from the sea is made fit to drink."
+
+[link="God makes the salt?"]
+[linkto="salt2"]
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="salt2"]
+"Certainly.  All spices are of divine origin."
+
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="pepper"]
+"When I harvest the peppers that the Lord has vouchsafed
+ upon me, I set some aside and leave them to dry out.
+
+ When these dried peppers are ready, I grind them into
+ powder, which can be sprinkled upon food."
+
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="The peppers are made by God?"]
+[linkto="peppers"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="honey"]
+"The honey is made by the giant bees on the Isle of
+ Honey.  I purchase it from Munrick the fisherman, who
+ sometimes goes there."
+
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+"Which would you buy, $MILORD?
+
+ Salt and pepper are 30 gold per bowl, the peppers are
+ 15 gold coins each.  Honey is 10 gold each jar."
+
+[link="I want to buy some salt."]
+[linkto="buysalt"]
+[always]
+[link="I want to buy some ground pepper."]
+[linkto="buypepper"]
+[always]
+[link="I want to buy some fresh peppers."]
+[linkto="buypeppers"]
+[always]
+[link="I want to buy some honey."]
+[linkto="buyhoney"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buysalt"]
+[take 30 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 bowl_salt]
+"Thankyou, $Sir."
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buypepper"]
+[take 30 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 bowl_pepper]
+"Thankyou, $Sir."
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buypeppers"]
+[take 15 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 foodp09]
+"Thankyou, $Sir."
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buyhoney"]
+[take 10 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 jar_honey]
+"Thankyou, $Sir."
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="Tell me about the honey."]
+[linkto="honey"]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+"I'm afraid you can't afford that, $SIR."
+
+[link="Did you say the peppers were made by God?"]
+[linkto="peppers"]
+[link="Tell me about the salt."]
+[linkto="salt"]
+[link="Tell me about the black pepper."]
+[linkto="pepper"]
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+"Fare you well."
+[nextpage="exit"]
+[endpage]

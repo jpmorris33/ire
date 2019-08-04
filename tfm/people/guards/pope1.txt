@@ -1,0 +1,46 @@
+Papal guard - audience chamber
+
+[page="start"]
+[goto="halt"]
+[endpage]
+
+
+[page="halt"]
+
+"Halt.  You may not enter the presence of His Holiness
+ without a permit or summons."
+
+[link="I have a permit."]
+[linkto="permit"]
+[link="Okay then, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="permit"]
+[am_carrying "pass_pope"]
+[if false][goto="nopermit"]
+
+"This seems to be in order, $Sir.  You may enter."
+
+[call="guard_pass"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="nopermit"]
+
+"No, you don't.  Now get lost!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Yes, leave, citizen."
+
+[nextpage="exit"]
+[endpage]
+

@@ -1,0 +1,62 @@
+##
+##	Turn the light source on or off
+##
+
+function usetorch
+
+integer wield
+
+# Objects being wielded have their WIELD flag set.  When we do replace
+# it will reset this flag to default, so we need to store it
+
+get_flag wield = current IS_WIELDED
+
+# Do the changeover
+
+if current is called "torch"
+		replace current = "torchunlit"
+else
+	if current is called "torchunlit"
+		replace current = "torch"
+	endif
+endif
+
+
+if current is called "candle"
+		replace current = "candleunlit"
+else
+	if current is called "candleunlit"
+		replace current = "candle"
+	endif
+endif
+
+if current is called "candle1"
+		replace current = "candle1unlit"
+else
+	if current is called "candle1unlit"
+		replace current = "candle1"
+	endif
+endif
+
+if current is called "candlestk"
+		replace current = "candlestkunlit"
+else
+	if current is called "candlestkunlit"
+		replace current = "candlestk"
+	endif
+endif
+
+if current is called "stove"
+		replace current = "stove_unlit"
+else
+	if current is called "stove_unlit"
+		replace current = "stove"
+	endif
+endif
+
+# Set the WIELD flag back as necessary
+
+set_flag current IS_WIELDED = wield
+
+end
+

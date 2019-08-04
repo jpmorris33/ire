@@ -1,0 +1,77 @@
+
+Religious freak
+
+[page="start"]
+[random_page="man 00 05"]
+[endpage]
+
+
+
+[page="man00"]
+[colour="#808080"]
+You see a lean man with vacant eyes.
+[colour="#ffffff"]
+
+"I believe!  Praise Jesus!  The LORD is the key to all!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="man01"]
+[colour="#808080"]
+You see a lean man with vacant eyes.
+[colour="#ffffff"]
+
+"Hear me, LORD!  I have given all my posessions unto You
+ and Your servants here below!  Bless me, take me!
+
+ I await the Paradise of the devout!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="man02"]
+[colour="#808080"]
+You see a lean man with vacant eyes.
+[colour="#ffffff"]
+
+"The LORD is Merciful!  Kill all sinners for Jesus!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="man03"]
+[colour="#808080"]
+You see a lean man with vacant eyes.
+[colour="#ffffff"]
+
+"Soldiers of Christ!  I do the bidding of the LORD!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="man04"]
+[colour="#808080"]
+You see a lean man with vacant eyes.
+[colour="#ffffff"]
+
+"Let all be filled with Holiness!  Worship Jesus!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="man05"]
+[colour="#808080"]
+You see a lean man with vacant eyes.
+[colour="#ffffff"]
+
+"Praise God!  Praise Christ and the Holy Ghost!"
+
+[nextpage="exit"]
+[endpage]
+

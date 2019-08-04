@@ -1,0 +1,122 @@
+The lost prince of Agnar
+
+[page="start"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+[esc="disabled"]
+[learn_name]
+[at_exit_call="agnar_mainprince"]
+
+"Hail, fellow wanderer.
+
+ I am the lost Prince of the realm of Agnar.
+
+ I was to rule the land when my father died, but the
+ throne was usurped by a treacherous cur and I was sent
+ into exile.
+
+ I seek a bold warrior to help avenge my father and
+ regain my kingdom.  Will you aid me?"
+
+[link="Yes, gladly."]
+[linkto="yes"]
+[link="No, not today."]
+[linkto="no"]
+[if Agnar][link="Haven't I met you before?"]
+[if Agnar][linkto="before"]
+[set Agnar]
+[endpage]
+
+
+[page="startname"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+
+"If you wish to aid my quest, meet up with me by the
+ mountains to the East.
+ There you should find a cave that leads through to my
+ realm.
+
+ I shall march on the usurper alone if need be, but any
+ who help me regain the throne shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="yes"]
+
+"How I thank you!
+
+ Meet up with me by the mountains to the East.
+ There you should find a cave that leads through to my
+ realm.  Together we shall march on the usurper.
+
+ If I regain the throne you shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="no"]
+
+"Hmm.  That is ill news.
+
+ Nevertheless, if you should change your mind, meet up
+ with me by the mountains to the East.
+ There you should find a cave that leads through to my
+ realm.
+
+ I shall march on the usurper alone if need be, but any
+ who help me regain the throne shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="before"]
+
+"A curse upon the usurper!  The man you have seen is but a
+ vile impostor.
+
+ I alone am the true Prince.
+
+ Anyway, will you aid my quest?"
+
+[link="Yes, gladly."]
+[linkto="yes"]
+[link="No, not today."]
+[linkto="no"]
+[endpage]
+
+
+[page="running"]
+[if agnar_barrier][goto="running2"]
+[set agnar_barrier]
+[call="talk_callwield"]
+[call="agnar_runprince"]
+
+"At last.. now, we shall march upon the usurper king of
+ Agnar and restore the realm to it's one true ruler!
+
+ I alone can dispel the mystical barrier.  Onwards!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="running2"]
+
+"Onwards.. to victory!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="done"]
+[at_exit_call="king_dies"]
+
+"Program violation!"
+[nextpage="exit"]
+[endpage]

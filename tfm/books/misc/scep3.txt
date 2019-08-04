@@ -1,0 +1,30 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+
+  Ludwig,
+
+  It has been has told to me that we shall give the King until
+  January to deliver the outstanding tributes to Our LORD.
+  If by that time he still has not given to us His due, we
+  shall have to proceed with the plan we have discussed.
+  
+  Personally I feel that he is unlikely to comply, so I would
+  suggest you make advance preparations for this project and
+  find suitable agents to carry out the acquisition.
+
+  Do not forget - the tribute is for the LORD's greater glory
+  and He greatly desires it.  If it becomes necessary for
+  blood to be spilled, then that is a price He is willing to
+  pay.  Success is imperative - or you shall explain why the
+  tribute is not made to the LORD Himself, in person.
+  
+  Harris
+
+[set sceptre_church]
+[nextpage="exit"]
+[endpage]
+
+Ludwig has been incinerated by the LORD's wrath since his
+agent lost the sceptre

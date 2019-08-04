@@ -1,0 +1,91 @@
+Surly
+
+[page="start"]
+[colour="#808080"]
+You see an evil-looking dwarf, making drum-like sounds.
+[colour="#ffffff"]
+
+"What the 'ell do ya want, bitch?"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[set dwarves]
+[colour="#808080"]
+You see 'Surly', one of the seven dwarves.
+[colour="#ffffff"]
+
+[if_player_male]"Aw 'ell.  Whadda ya want now, poofta-boy?"
+[if_player_female]"Aw 'ell.  Whadda ya want now, ya slut?"
+
+[link="What's your name?"]
+[linkto="name2"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+"They call me 'Surly', and don't ya ever forget it, or
+ I'll break both yer ankles."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name2"]
+
+"I told ya already.  Now get bent, ya poofta!"
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[set dwarves]
+
+"I'm one o' the Seven Dwarves, ya pansy.  Ya know what we
+ are, we're miners."
+
+[link="What do you mine for?"]
+[linkto="job2"]
+[link="What's your name?"]
+[linkto="name"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+"That's none o' your bloody business, ya ponce!"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Good riddance to ya, ya fairy."
+
+[nextpage="exit"]
+[endpage]

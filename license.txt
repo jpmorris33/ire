@@ -1,0 +1,108 @@
+IRE license
+===========
+
+The IT-HE Role-Playing-Game Engine (IRE) is issued under the terms of the
+BSD license, described in the following section.
+
+There are, unfortunately, one or two complications, mostly in regard
+to the FMOD audio library that IRE uses.  This is optional, though I find
+it gives the best results.
+
+If you're going to use a version of IRE that is built with FMOD (one that
+contains the fmod.dll or fmod.so libraries), make sure you read and obey the
+section about FMOD.
+
+
+License Provisios
+=================
+
+* The BSD license applies only to the game runtime engine, the editors
+  and accompanying utilities that form the IRE distribution.  It does not
+  apply to any third-party components (such as libraries or toolkits)
+  which are licensed separately and may have additional legal requirements.
+
+  (For example, the MSVC runtime libraries, the GCC runtimes,  Allegro,
+   SDL, FMOD and BGUI2)
+
+* Furthermore, datafiles which make up an IRE game do not necessarily fall
+  under the BSD license.  The demo game that comes with the original IRE
+  package (titled 'The Flat') is placed in the public domain and may be used
+  as a base for further games.
+
+* BGUI2 is licensed as Giftware, like the Allegro library which it is an
+  add-on for.  I have made a few modifications to it to keep it working
+  since it's kind of long in the tooth nowadays.
+  It is (or should be) possible to compile IRE and the editor without
+  using BGUI at all, but it won't look as pretty.
+
+* Any game data created for or using IRE may be licensed as the author of
+  that work sees fit (FMOD licensing notwithstanding) although they are
+  encouraged to make their work available in a liberal manner.
+
+
+FMOD Licensing
+==============
+
+FMOD is an optional sound library for Windows and Linux.  It provides
+high-quality audio playback, and is used by default in the Windows
+version.  The Linux version uses SDL by default, though it can also be
+built with FMOD or the lower-quality Allegro library if you prefer.
+
+If you're going to use or distribute a version of IRE that includes FMOD,
+read this section.  Otherwise skip it and go straight on to the BSD license.
+
+* When distributing a game made with IRE, you will have to seek a separate
+  license agreement to redistribute the proprietary FMOD sound library that
+  the IRE runtime often uses by default.  The files in question are either
+  fmod*.so or fmod*.dll, depending on whether it's Linux or Windows.  The
+  '*' denotes a version number and is subject to change.
+
+* For non-commercial games this license will be free of charge.  For
+  shareware and commercial games, you will have to purchase a license
+  from Firelight Technologies.
+
+  See http://www.fmod.org for details.
+
+* According to Firelight, the act of a commercial organisation distributing
+  a free game at profit (e.g. on a magazine coverdisk) does not constitute
+  a commercial work, i.e. this is allowed without payment.
+
+* Alternatively, if you don't like this, you can produce a fully Free
+  version of the IRE runtime by disabling the game's use of FMOD, and using
+  the less fully-featured Allegro sound driver instead, or the SDL driver,
+  (note that the SDL driver does not yet work under Windows, however.)
+
+  Details for doing this are in 'readme.src'.
+
+
+The BSD License
+===============
+
+Copyright (c) 2011, IT-HE Software
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+Neither the name of IT-HE Software nor the names of its contributors may
+be used to endorse or promote products derived from this software without
+specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS IS''
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.
+IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+

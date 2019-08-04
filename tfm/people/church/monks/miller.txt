@@ -1,0 +1,149 @@
+
+Lay brother, the miller
+
+[page="start"]
+
+"Yes, my $son?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Lay-Brother Gerard, the miller.
+[colour="#ffffff"]
+
+"Yes, my $son?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am lay-Brother Gerard.  I tend the Abbey's mill."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I grind our grain into flour so it can be baked with.
+ The grain comes from our own fields, and we have a store
+ so there is always grain to be had when we need it."
+
+[link="Do you sell grain?"]
+[linkto="sell"]
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="abbey"]
+
+"The Abbey is quite ancient and wields much influence.
+ We have a number of pilgrims who come to use the amazing
+ library, which is said to be one of the finest in the
+ world."
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books"]
+
+"It houses a fabulous collection of scrolls, parchments
+ and codices.  There are many rare treasures which must
+ be protected, so only a few are allowed to enter the
+ bookrooms.
+
+ If you wish to read something, you must ask the Librarian
+ to assist you."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"The Trinity bless you, my $Son."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="sell"]
+
+"Indeed, I have flour to sell.  But I must ask 50 gold
+ coins for the glory of the LORD.  Are you still
+ interested?"
+
+[link="I would like some flour."]
+[linkto="flour"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="flour"]
+[take 50 gold_coins]
+[if false][goto="nomoney"]
+[create 1 flour_sack]
+[call="money_sound"]
+
+"Take it, with the blessings of the LORD, my $Son."
+
+[link="I would like some more flour."]
+[linkto="flour"]
+[always]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you have not the gold, my $Son.""
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]

@@ -1,0 +1,242 @@
+
+[page="start"]
+[image="saxiis2.pcx"]
+"Greetings, human.  I am Librarian Rulyz."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="saxiis2.pcx"]
+"My speciality is information storage, and the
+ technologies involved.
+
+ I know a few things about Xy'lan and the hardware of the
+ ship that is at his disposal.  If you want to know about
+ the hardware that Xy'lan actually runs on, I would ask
+ Engineer Navriis."
+
+[link="Tell me about your technology."]
+[linkto="magic"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+"Xylan was experimental because he was developed from scratch
+ and without a physical body.  I don't know if you've noticed,
+ but he has no self-image.  That's why he appears as a glowing
+ ball instead of a person.
+
+ It's been tried before, but usually they never form a
+ discrete personality."
+
+
+
+[page="magic"]
+[image="saxiis2.pcx"]
+"Much of our society is based upon a technology you would
+ call 'Magic'.  It is as widespread as the transistors
+ used by your own culture.
+
+ Spells are cast by invoking a device referred to
+ colloquially as 'The CoDec of Ultimate Power'.
+ It is actually a data-to-reality converter.. a
+ coder-decoder able to program the fabric of the cosmos."
+
+[nextpage="magic2"]
+[endpage]
+
+
+[page="magic2"]
+[image="saxiis2.pcx"]
+"Obviously there are safeguards against such tremendous
+ power being wielded for evil purposes.  For a start, our
+ race is very old, and the genetic elements that lead
+ towards criminal behaviour have been largely bred out."
+
+ Secondly, for various technical reasons, the power of
+ the CoDec can only travel within an atmosphere, so a
+ suitably powerful array of CoDecs can service a planet,
+ but not beyond the confines of its atmosphere.
+ This is also the reason why our starship's drives are
+ not magical."
+
+[nextpage="magic3"]
+[endpage]
+
+[page="magic3"]
+[image="saxiis2.pcx"]
+"Finally, the CoDecs can only be accessed through data
+ systems, and the software is rigorously designed to
+ ensure that no harmful spells can be cast without
+ proper authorisation.
+
+ The Maxima carried a CoDec of its own to run various
+ ship-board services.  Xy'lan has near-total authority
+ over the CoDec, since it was not even imagined that he
+ might go weird and demand that we worship him."
+
+[link="Can I cast spells?"]
+[linkto="spells"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan"]
+[image="saxiis2.pcx"]
+"Xylan is an experimental computer sentience.  We know
+ that your race has succeeded in creating similar 
+ creatures, most likely using a human or higher animal
+ mind as a template.
+
+ We have been making computer sentiences for many
+ centuries, but always based on an existing mind
+ structure, like your air craft are."
+
+[nextpage="xylan2"]
+[endpage]
+
+[page="xylan2"]
+[image="saxiis2.pcx"]
+"Xy'lan was an experiment in that he was created from
+ scratch, with no template.  This has been tried before
+ of course, but usually they do not coalesce into a
+ coherent mind.  Xy'lan is one of the few that have.
+
+ I don't know if you have noticed, but Xy'lan has no
+ self-image.  He appears to the faithful as a glowing
+ ball, and not as a person, or a vehicle, as your
+ air craft do when using videophones."
+
+[if_not met_aircraft][link="Uh?  What was that about aircraft?"]
+[if_not met_aircraft][linkto="aircraft"]
+[link="Tell me about your technology."]
+[linkto="magic"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="spells"]
+[image="saxiis2.pcx"]
+"Only the Dra'kaan are supposed to be able to cast
+ spells.  This is another safety precaution, of course.
+
+ Xylan has somehow worked around this, using a system of
+ resonance crystals, which act as a psionic amplifier.
+ The most common instance of this is the toads, which are
+ able to spit fire and talk."
+
+[nextpage="spells2"]
+[endpage]
+
+[page="spells2"]
+[image="saxiis2.pcx"]
+"I'm not sure how he managed to get the crystals into the
+ toads, but I suspect they are assembled in-place using
+ nanomechanics.
+
+ They are intended for a toad-level mind and would be
+ overloaded if used with a more sentient mind, such as
+ yours.  But each crystal should work long enough for you
+ to cast a single spell."
+
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ship"]
+[image="saxiis2.pcx"]
+"The Maxima is a twin-engined scout ship, about a
+ kilometer long, and now lies buried under the topsoil of
+ this world.
+
+ It gets a little hazy now, but according to the signals
+ we have picked up from your aircraft-creatures, an
+ influential human known as 'Pope' has constructed a
+ large temple in the centre of what was the crash site,
+ dedicated to the worship of Xy'lan.
+
+ If you wish to see the ship, you will have to enter this
+ temple first, and access to the ship will no doubt be
+ very tightly guarded."
+
+[if_not met_aircraft][link="Uh?  What was that about aircraft?"]
+[if_not met_aircraft][linkto="aircraft"]
+[link="Tell me about your technology."]
+[linkto="magic"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="aircraft"]
+[image="saxiis2.pcx"]
+[colour="#808080"]
+Rulyz looks at you in astonishment.
+[colour="#ffffff"]
+
+"You mean to say that you don't know?  You haven't yet
+ established contact with the robot aircraft?
+
+ By the seven Zrxen..!  You must find them!
+ Speak to them at once and seek their counsel!
+
+ You will need to find one who calls himself 'Ransome'.
+ We picked up the transmissions he made when he was
+ trying to contact your communicator.  Apparently he
+ did not succeed, or else you foolishly ignored him.
+
+ If we are to solve the problem of Xy'lan, a number of
+ alliances will need to be forged.
+
+ Go now and do not return until you have met Ransome!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+[image="saxiis2.pcx"]
+"Farewell."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="saxiis3.pcx"]
+[at_exit_call="player_killme"]
+
+[colour="#808080"]
+Before you have time to strike, the creature has whipped
+out a small energy pistol and burned through a number
+of vital organs.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

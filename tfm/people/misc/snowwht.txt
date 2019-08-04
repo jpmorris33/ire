@@ -1,0 +1,224 @@
+Snow white is actually a Waarg.  At night (when alive) she runs a schedule to tidy the
+house or do similar things
+She was poisoned by Myrtle
+
+
+Snow White should only speak if the dwarves are offscreen
+
+[page="start"]
+[if_onscreen girly][goto="start_null"]
+[if_onscreen fatso][goto="start_null"]
+[if_onscreen sleazy][goto="start_null"]
+[if_onscreen ugly][goto="start_null"]
+[if_onscreen surly][goto="start_null"]
+[goto="start2"]
+[endpage]
+
+[page="startname"]
+[if_onscreen girly][goto="start_null"]
+[if_onscreen fatso][goto="start_null"]
+[if_onscreen sleazy][goto="start_null"]
+[if_onscreen ugly][goto="start_null"]
+[if_onscreen surly][goto="start_null"]
+[goto="startname2"]
+[endpage]
+
+[page="start_null"]
+[colour=#808080]  You see a white wolf.
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="start2"]
+[colour=#808080]  You see a white wolf.
+
+"Nice evening, isn't it?" she says in a conversational
+ tone.
+"Thanks for resurrecting me, by the way."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname2"]
+[colour=#808080]  You see Snow White.
+
+"Evening," she says.  "Thanks again for resurrecting me."
+
+[link="Who are you again?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="What are you doing here?"]
+[linkto="job"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="name"]
+[learn_name]
+
+"The elders of my tribe named me 'WhiteFur'.  These
+ little guys call me 'Snow White'.  I'm easy either way."
+
+[link="What are you?"]
+[linkto="what"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="what"]
+
+"We call ourselves the Waarg.  We are what you might call
+ 'wolf folk'.  We were created by the great god Aa'Ruuff
+ to act as worshippers for it before it turned against
+ us."
+
+[link="Are there more of you?"]
+[linkto="city"]
+[link="What are you doing here?"]
+[linkto="job"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"There was a civil war shortly after our king was killed
+ and the new king tried to purge anyone he saw as a
+ threat to his rule.
+
+ I had ties with the outlawed weavers guild and was
+ forced to flee for my life."
+
+[link="Are there more of you?"]
+[linkto="city"]
+[link="What happened to your family?"]
+[linkto="family"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="dwarves"]
+
+"They're mad.  They seem to be miners, but they don't
+ smell of gold or jewels when they come back from the
+ mines.  It smells more like rotten meat.
+
+ I don't want them to know I can talk."
+
+[link="Are there more of you?"]
+[linkto="city"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="witch"]
+[set snowwhite_witch]
+
+"Oh, her.  She lives in a cave somewhere in the far
+ northeast.  She hunted me down and poisoned my food.
+ I'm not quite sure why, actually.  She had some kind of
+ problem with me.
+
+ If you do run into her, could you possibly find out why
+ she cursed me?  I'm sure we can sort this out like
+ adults."
+
+[link="What are you doing here?"]
+[linkto="job"]
+[link="Are there more of you?"]
+[linkto="city"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="city"]
+
+"We have a capital city named called 'Yapp' which is
+ southeast of here, bordering the eastern desert.  You
+ might be able to visit it, you might not.  Depends
+ what the king's policies are these days.
+
+ The new king doesn't like humans much, but we have
+ traded with members of your species ever since they came
+ to our world and there are lots of things we cannot
+ easily make ourselves.  Without human traders, the
+ kingdom would collapse into another civil war." 
+
+[link="What happened to your family?"]
+[linkto="family"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="family"]
+[set snowwhite_family]
+
+"They were imprisoned by the king when I fled.
+ I don't know if they're okay and I dare not return to
+ the city.
+
+ If you do go there yourself, would you look out for them
+ and let them know I'm okay...?"
+
+[link="Tell me about this city."]
+[linkto="city"]
+[link="What do you know about a wicked witch?"]
+[linkto="witch"]
+[link="Tell me about the dwarves"]
+[linkto="dwarves"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+
+[page="bye"]
+
+"Take care."
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,409 @@
+###########################
+#                         #
+#  Use a key or passcard  #
+#                         #
+###########################
+
+object keyptr
+
+
+##
+##	Use a key on some object
+##
+
+function use_key
+let keyptr = current
+
+# Find out what to use the key on
+
+if me = player
+	print "Use key on "
+	redraw_text
+
+	let current = player
+	call get_near
+else
+	let current = me.target
+endif
+
+call keycore
+
+end
+
+
+
+##
+##	Use a key on some object, core functionality
+##
+
+function keycore
+private
+object door
+object thekey
+
+let thekey = keyptr
+let door = current
+
+# Find out what to use the key on
+
+# Now do the stuff
+
+if_exists door
+	# Say what we're using the key on
+	if me = player
+		print door.shortdesc
+		printcr
+	endif
+
+	# Test for keyring first
+	if door is called "keyring"
+		if me = player
+			print "You put the key on the keyring."
+			printcr
+		endif
+		# Assimilate the key
+		move_to_pocket thekey into door
+		set_direction door facing LEFT
+		object_sound "key_fits" door
+		return
+	endif
+
+	if door.tag = thekey.tag	# It fits, yes?
+
+		object_sound "key_fits" door
+
+		# Now, what do we have to do?
+
+# Door
+
+		if door is called "stonedoor1_shut"
+			change door = "Stonedoor1_lock"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "stonedoor1_lock"
+			change door = "Stonedoor1_shut"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+# Door with sign
+
+		if door is called "stonedoor2_shut"
+			change door = "Stonedoor2_lock"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "stonedoor2_lock"
+			change door = "Stonedoor2_shut"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+# Windowed door
+
+		if door is called "stonedoor3_shut"
+			change door = "Stonedoor3_lock"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "stonedoor3_lock"
+			change door = "Stonedoor3_shut"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+# Steel door
+
+		if door is called "stonedoor5_shut"
+			change door = "Stonedoor5_lock"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "stonedoor5_lock"
+			change door = "Stonedoor5_shut"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+# Concrete door
+
+		if door is called "concretedoor1_shut"
+			change door = "concretedoor1_lock"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "concretedoor1_lock"
+			change door = "concretedoor1_shut"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+# Chest
+
+		if door is called "chest"
+			change door = "chestlocked"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "chestlocked"
+			change door = "chest"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+# Locker
+
+		if door is called "locker_v"
+			change door = "locker_v_locked"
+			if me = player
+				print "Locked!"
+				printcr
+			endif
+			return
+		endif
+		if door is called "locker_v_locked"
+			change door = "locker_v"
+			if me = player
+				print "Unlocked!"
+				printcr
+			endif
+			return
+		endif
+
+
+# Oh dear, it didn't fit
+	else
+		if door.tag <> 0
+			object_sound "key_doesn't_fit" door
+			if me = player
+				print "The key doesn't fit!"
+				printcr
+			endif
+		else
+			if me = player
+				print "It doesn't have a lock."
+				printcr
+			endif
+		endif
+	endif
+
+else
+	# Using the key on Nothing
+	if me = player
+		print "nothing"
+		printcr
+	endif
+endif
+
+end
+
+
+
+##
+##  Pass-card
+##
+
+function use_pcard
+object door
+object thekey
+
+let thekey = current
+
+# Find out what to use the key on
+
+if me = player
+	print "Use passcard on "
+	redraw_text
+
+	let current = player
+	call get_near
+	let door = current
+else
+	let door = me.target
+endif
+
+# Now do the stuff
+
+if_exists door
+	# Say what we're using the key on
+	if me = player
+		print door.shortdesc
+		printcr
+	endif
+
+	# If it matches, run the wield function
+	if door is called "cardreader"
+		if thekey.name = door.funcs.user1
+			let current = door
+			# Run wield function
+			call current.funcs.wield
+			return
+		else
+			# Not valid
+			if me = player
+				print "That card doesn't work on this door."
+				printcr
+			endif
+		endif
+	endif
+
+	if me = player
+		print "The card won't fit!"
+		printcr
+		return
+	endif
+
+else
+	# Using the key on Nothing
+	if me = player
+		print "nothing"
+		printcr
+	endif
+endif
+
+end
+
+
+integer doortag = 0
+
+##
+##	Use a keyring on some object
+##
+
+function use_keyring
+object door
+object thekey
+
+let thekey = current
+
+# Find out what to use the key on
+
+if me = player
+	print "Use keyring on "
+	redraw_text
+
+	let current = player
+	call get_near
+	let door = current
+else
+	let door = me.target
+endif
+
+# Now do the stuff
+
+if_exists door
+	# Say what we're using the key on
+	if me = player
+		print door.shortdesc
+		printcr
+	endif
+	
+	# Is it a key?
+	if door is called "key"
+	or door is called "key_*"
+		if me = player
+			print "You put the key on the keyring."
+			printcr
+		endif
+		# Assimilate the key
+		move_to_pocket door into thekey
+		set_direction thekey facing LEFT
+		object_sound "key_fits" door
+		return
+	endif
+	
+	# Is the keyring empty?	
+	if_not_exists thekey.pocket
+		if me = player
+			print "No keys on it."
+			printcr
+		endif
+		return
+	endif
+	
+	# Try to find the key inside the keyring
+	let keyptr = null
+	let doortag = door.tag
+	search_inside thekey calling findkeyonring
+	
+	if_exists keyptr
+		let current = door
+		call keycore
+	else
+		print "No matching key on the ring."
+		printcr
+		object_sound "key_doesn't_fit" door
+	endif
+endif
+
+end
+
+##
+##	RemoveKey
+##
+
+function search_keyring
+object keyring
+
+let keyring = current
+call SearchContainer
+
+# If it's now empty, change it to empty sprite
+if_not_exist keyring.pocket
+	set_direction keyring faces UP
+endif
+
+end
+
+##
+##	Callback to look for the specified key 
+##
+
+function findkeyonring
+private
+
+if_exists keyptr
+	return
+endif
+
+if current.tag = doortag
+	let keyptr = current
+endif
+end

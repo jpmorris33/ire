@@ -1,0 +1,232 @@
+#################################################
+#                                               #
+#  Plot events concerning Randolph the Harrier  #
+#                                               #
+#################################################
+
+
+##
+##  Transfer Randolph to the base
+##
+
+function plot_RandolphToBase
+object harrier
+object dest
+object conversation_area
+object_array fence[16]
+integer ctr
+
+find_tag harrier = "hjj-blue" 65
+if_not_exist harrier
+	# Oh shit
+	print "RTB: Randolph missing|"
+	return
+endif
+
+find_tag dest = "target" 4
+if_not_exist dest
+	# Oh shit
+	print "RTB: Target missing|"
+	return
+endif
+
+find_tag conversation_area = "trap_radius" 101
+
+play_sound "flyover"
+fade_out
+
+transfer_object harrier to dest.x dest.y
+force_direction harrier facing dest.curdir
+
+# Remove barrier to Randolph
+find_tags fence[1] = "fence" 71
+for ctr = 1 to 16
+	let dest = fence[ctr]
+	if_exists dest
+		destroy dest
+	endif
+next ctr
+
+# Remove the conversation point in the cave (as Randolph isn't there now)
+if_exists conversation_area
+	destroy conversation_area
+endif
+
+# Move the player out of the cave
+# This is kinda a hack, it'll only move the player if s/he's in the cave,
+# or more accurately, 30 units north or south of the outside of the cave
+find_tag dest = "target" 70
+integer topRange
+integer bottomRange
+let topRange = dest.y
+let bottomRange = dest.y
+add topRange - 30
+add bottomRange + 30
+if_exists dest
+  if player.y < bottomRange
+    if player.y > topRange
+	transfer_object player to dest.x dest.y
+	set_direction player facing dest.curdir
+    endif
+  endif
+endif
+
+
+fade_in
+
+end
+
+
+##
+##  Randolph makes his way to the runway
+##
+
+function plot_RandolphToRunway
+object harrier
+object dest
+
+find_tag harrier = "hjj-blue" 65
+if_not_exist harrier
+	# Oh shit
+	return
+endif
+
+find_tag dest = "pathmarker" 72
+if_not_exist dest
+	# Oh shit
+	return
+endif
+
+# Randolph, do this and let nothing distract you
+set_flag harrier NO_SCHEDULE = 1
+set_user_flag "RandolphBusy" = 1
+
+stop_action harrier
+queue_action harrier does sit_at_location to dest
+queue_action harrier does RandolphAtRunway
+run_queue harrier
+
+end
+
+
+##
+##  Randolph is now ready for takeoff
+##
+
+function RandolphAtRunway
+private
+
+# Okay Randolph, sit here and wait for the player.
+set_flag me NO_SCHEDULE = 1
+stop_action me
+
+set_user_flag "RandolphAtRunway" = 1
+set_user_flag "RandolphBusy" = 0
+
+end
+
+
+##
+##  Transfer Randolph to the island
+##
+
+function plot_RandolphToIsland
+object harrier
+object dest
+
+find_tag harrier = "hjj-blue" 65
+if_not_exist harrier
+	# Oh shit
+	return
+endif
+
+find_tag dest = "target" 55
+if_not_exist dest
+	# Oh shit
+	return
+endif
+
+transfer_to_pocket player to harrier
+
+play_sound "flyover"
+fade_out
+
+transfer_object harrier to dest.x dest.y
+force_direction harrier facing dest.curdir
+
+add game_hour + 1
+
+# Get player out of the jet
+force_from_pocket player in harrier to dest.x dest.y
+
+# Move player to other tag so it looks good
+find_tag dest = "target" 74
+if_exist dest
+	transfer_object player to dest.x dest.y
+	force_direction player facing dest.curdir
+endif
+
+fade_in
+
+set_user_flag "RandolphAtIsland" = 1
+set_user_flag "RandolphAtRunway" = 0
+
+end
+
+
+##
+##  Transfer Randolph back from the island
+##
+
+function plot_RandolphFromIsland
+object harrier
+object dest
+
+find_tag harrier = "hjj-blue" 65
+if_not_exist harrier
+	# Oh shit
+	return
+endif
+
+find_tag dest = "target" 54
+if_not_exist dest
+	# Oh shit
+	return
+endif
+
+transfer_to_pocket player to harrier
+
+play_sound "flyover"
+fade_out
+
+transfer_object harrier to dest.x dest.y
+force_direction harrier facing dest.curdir
+
+add game_hour + 1
+
+# Get player out of the jet
+force_from_pocket player in harrier to dest.x dest.y
+
+# Move player to other tag so it looks good
+find_tag dest = "target" 73
+if_exist dest
+	transfer_object player to dest.x dest.y
+	force_direction player facing dest.curdir
+endif
+
+
+fade_in
+
+# Randolph, go back to your hangar
+# set_flag harrier NO_SCHEDULE = 0
+
+set_user_flag "RandolphAtIsland" = 0
+set_user_flag "RandolphBeenToIsland" = 1
+
+/*
+stop_action harrier
+queue_action harrier does "sit_at_location" to dest
+queue_action harrier does "RandolphAtRunway"
+run_queue harrier
+*/
+end

@@ -1,0 +1,52 @@
+##
+##	Guards opening and closing doors
+##
+
+function guard_open_door
+object target
+
+find_tag target = "lever" current.tag
+
+if_not_exist target
+	return
+endif
+
+start_action current does seek_target_use_resume to target
+
+end
+
+
+
+function guard_shut_window
+object target
+
+find_tag target = "stonewindow2a" current.tag
+
+if_not_exist target
+	print "Can't find stonewindow2a"
+	printcr
+	return
+endif
+
+start_action current does seek_target_use_resume to target
+
+end
+
+
+
+function guard_open_window
+object target
+
+find_tag target = "stonewindow2b" current.tag
+
+if_not_exist target
+	print "Can't find stonewindow2b"
+	printcr
+	return
+endif
+
+start_action current does seek_target_use_resume to target
+
+end
+
+

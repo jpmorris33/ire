@@ -1,0 +1,238 @@
+################
+#              #
+#  Black Mass  #
+#              #
+################
+
+
+##
+##  Light Candles
+##
+
+function bmass_lightcandles
+activity
+
+object candle
+
+# Store original target
+#if_exists me.target
+#	if me.target is called "target"
+#		let me.enemy = me.target
+#	endif
+#endif
+
+do
+	find_nearest candle = "candlestkunlit" near me
+	if_exists candle
+
+		# Go to the candle and use it.
+		queue_action me does seek_target_use_resume to candle
+		# When that's done, call this function (lightcandles) again.
+		queue_action me does bmass_lightcandles to me.target
+		# Do it.
+		run_queue me
+		return
+	endif
+
+while candle
+
+# No Unlit candlesticks?
+# Look for candles then
+
+do
+	find_nearest candle = "candle1unlit" near me
+	if_exists candle
+		# Go to the candle and use it.
+		queue_action me does seek_target_use_resume to candle
+		# When that's done, call this function (lightcandles) again.
+		queue_action me does bmass_lightcandles to me.target
+		# Do it.
+		run_queue me
+		return
+	endif
+
+while candle
+
+# Stand at the action point
+
+#queue_action me does seek_target_sit to me.target
+#run_queue me
+
+end
+
+
+##
+## Douse Candles
+##
+
+function bmass_dousecandles
+activity
+
+object candle
+
+do
+	find_nearest candle = "candlestk" near me
+	if_exists candle
+		# Go to the candle and use it.
+		queue_action me does seek_target_use_resume to candle
+		# When that's done, call this function (lightcandles) again.
+		queue_action me does bmass_lightcandles to me.target
+		# Do it.
+		run_queue me
+		return
+	endif
+
+while candle
+
+# No lit candlesticks?
+# Look for candles then
+
+do
+	find_nearest candle = "candle1" near me
+	if_exists candle
+		# Go to the candle and use it.
+		queue_action me does seek_target_use_resume to candle
+		# When that's done, call this function (dousecandles) again.
+		queue_action me does bmass_dousecandles to me.target
+		# Do it.
+		run_queue me
+		return
+	endif
+
+while candle
+
+# Do nothing
+
+end
+
+
+##
+##	Dance
+##
+
+function bmass_startdance
+activity
+
+if_not_exist me
+	bug START
+	print "Null ME in bmass_startdance"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+move_towards me me.target
+
+if err = PATH_FINISHED
+	set_direction me facing me.target.curdir
+	do_action me does bmass_dance
+	return
+endif
+
+# impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+			do_action me does bmass_dance
+			return
+		endif
+	endif
+endif
+
+end
+
+
+##
+##	Dance
+##
+
+function bmass_dance
+private
+integer rnd
+string danceanim
+
+# Look for a matching animation.  Otherwise, manually turn them
+
+get_data danceanim where "dance_animation" = me.name
+if err <> 0
+	# No dance animation.  Turn them about.
+	random rnd between 0 3
+	set_direction me = rnd
+else
+	# Got a suitable animation sequence.  Use it and go idle.
+	set_sequence me danceanim
+	stop_action me		# Stand there dancing indefinitely
+endif
+
+end
+
+
+##
+##	Stop the mass and go away
+##
+
+function bmass_stop
+activity
+
+queue_action me does seek_target_use_resume to me.target
+queue_action me does bird_wander
+run_queue me
+
+end
+
+
+##
+##	Pretty things for the pentagram
+##
+
+function bmass_pentagram
+activity
+object pg
+
+if_not_exists current
+	let current = me
+endif
+
+let pg = current.stats.owner
+
+if_not_exists pg
+	return
+endif
+
+# Toggle pentagram state and do the animation
+
+if pg.user.user0 = 0
+	let pg.user.user0 = 1
+	set_sequence pg "Pentagram_FadeIn0"
+else
+	let pg.user.user0 = 0
+	set_sequence pg "Pentagram_FadeOut0"
+endif
+
+end
+
+
+##
+##	Force pentagram state
+##
+
+function bmass_pent_on
+activity
+let me.user.user0 = 1
+set_sequence me "PENTAGRAM_FADEINF"
+stop_action me
+end
+
+function bmass_pent_off
+activity
+let me.user.user0 = 0
+set_sequence me "PENTAGRAM_FADED"
+stop_action me
+end

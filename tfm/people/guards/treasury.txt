@@ -1,0 +1,15 @@
+Generic guards, guarding rooms
+
+[page="start"]
+[goto="halt"]
+[endpage]
+
+
+[page="halt"]
+
+"This part of the treasury is off-limits.
+ If you have gold to exchange, speak to the clerk in the
+ room next door."
+
+[nextpage="exit"]
+[endpage]

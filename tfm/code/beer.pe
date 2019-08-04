@@ -1,0 +1,45 @@
+;
+;	Test script for the PissEasy compiler
+;
+
+constant BEERS 99
+
+int beer BEERS
+
+function beer
+int f
+
+for f = BEERS to 1
+	call beerify
+	print "of beer on the wall,"
+	printcr
+
+	call beerify
+	print "of beer.."
+	printcr
+
+	let beer = beer - 1
+
+	print "Take one down, pass it around,"
+	printcr
+	print "There'll be "
+	call beerify
+	print "of beer on the wall."
+	printcr
+
+next
+end
+
+function beerify
+if beer = 1
+	print beer
+	print " bottle "
+else
+	if beer = 0
+		print "no more bottles "
+	else
+		print beer
+		print " bottles "
+	endif
+endif
+end

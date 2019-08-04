@@ -1,0 +1,1470 @@
+#####################
+#                   #
+#  Special effects  #
+#                   #
+#####################
+
+/*
+   DO NOT USE user.user19 FOR ANY PURPOSE!  THE JUSTICE ENGINE NEEDS IT!
+ */
+
+
+local
+int rx
+int ry
+int rctr
+int rtmp
+int lctr
+int lstep
+int lx
+int ly
+int col_r
+int col_g
+int col_b
+endlocal
+
+
+function fx_pinkflame
+
+fx_getxy fx_srcx fx_srcy = current
+fx_alpha 48
+fx_alphamode ALPHA_ADD
+fx_colour 0x8010e0
+let fx_brush = 3
+
+# Move flame to centre
+add fx_srcx + 14
+add fx_srcy + 14
+
+for rctr = 1 to 7
+	fx_random rx = 3
+	fx_random ry = 4
+	add fx_srcx - rx
+	add fx_srcy - ry
+	fx_point
+next rctr
+end
+
+##
+##  Start the pink flame running
+##
+
+function start_pinkflame
+startfx current does fx_pinkflame
+end
+
+##
+##  Start the magic lights running
+##
+
+function start_magiclights
+overfx current does fx_orbitmagiclights
+end
+
+
+function start_radiation
+overfx current does fx_radiation
+end
+
+
+
+##
+##  Generic lightning
+##
+
+function fx_lightning
+
+fx_colour 0x0020d0
+fx_alpha 192
+fx_alphamode ALPHA_ADD
+let fx_brush = 1
+
+# Start from destination and work backwards
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 4
+add fx_srcy + 4
+
+# Get random between -31 - 32
+fx_random rx = 32
+add rx - 16
+
+let fx_destx = fx_srcx - rx
+let fx_desty = fx_srcy - 24
+fx_line
+
+# Initial line done, now do it several more times
+for rctr = 1 to 13
+	let fx_srcx = fx_destx - 1
+	let fx_srcy = fx_desty - 1
+
+	fx_random rx = 32
+	add rx - 16
+	add fx_destx - rx
+
+	fx_random rx = 8
+	add rx - 4
+	add fx_desty - 23
+	add fx_desty + rx
+	fx_line
+next rctr
+end
+
+
+function fx_bluebeam
+
+fx_getxy fx_destx fx_desty = current
+fx_colour 0x0020d0
+fx_alpha 64
+fx_alphamode ALPHA_ADD
+let fx_brush = 2
+
+# Move destination to centre
+add fx_destx + 14
+add fx_desty + 14
+
+for rctr = 1 to 7
+	fx_random rx = 3
+	fx_random ry = 4
+	add fx_srcx - rx
+	add fx_srcy - ry
+	fx_line
+next rctr
+
+end
+
+##
+##
+##
+
+function fx_laserbeam1
+
+if_not_exist current.target
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.target
+
+# hue lum screen etc
+fx_colour 0x5050e0
+fx_alpha 64
+fx_alphamode ALPHA_ADD
+let fx_brush = 2
+
+# Adust beam
+add fx_srcx + 7
+add fx_srcy + 7
+add fx_destx + 7
+add fx_desty + 7
+
+for rctr = 1 to 4
+	fx_random rx = 2
+	fx_random ry = 2
+	add fx_srcx + rx
+	add fx_srcy + ry
+	fx_random rx = 2
+	fx_random ry = 2
+	add fx_destx + rx
+	add fx_desty + ry
+	fx_line
+next rctr
+end
+
+##
+##
+##
+
+function fx_laserbeam2
+
+if_not_exist current.target
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.target
+
+fx_alpha 64
+fx_alphamode ALPHA_ADD
+
+let fx_brush = 2
+
+add fx_srcx + 7
+add fx_srcy + 7
+add fx_destx + 7
+add fx_desty + 7
+fx_random rx = 2
+fx_random ry = 2
+add fx_destx - rx
+add fx_desty + ry
+
+fx_colour 0x5050e0
+add fx_destx + 1
+add fx_desty + 1
+fx_line
+add fx_srcx + 1
+add fx_srcy + 1
+add fx_destx + 2
+add fx_desty + 2
+fx_line
+fx_colour 0x808080
+add fx_destx - 1
+add fx_desty + 1
+add fx_srcx + rx
+add fx_srcy - ry
+fx_line
+
+end
+
+##
+##
+##
+
+function fx_laserbeam
+
+if_not_exist current.target
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.target
+add fx_srcx + 7
+add fx_srcy + 7
+add fx_destx + 7
+add fx_desty + 7
+
+fx_alpha 16
+let fx_brush = 3
+fx_alphamode ALPHA_DISSOLVE
+#fx_alphamode ALPHA_ADD
+fx_colour 0x5050e0
+add fx_destx + 1
+add fx_desty + 1
+add fx_srcx + 1
+add fx_srcy + 1
+fx_line
+
+fx_alpha 64
+let fx_brush = 2
+fx_alphamode ALPHA_ADD
+fx_colour 0x303050
+#add fx_destx + 1
+#add fx_desty + 1
+#add fx_srcx + 1
+#add fx_srcy + 1
+fx_line
+
+let fx_brush = 1
+fx_alphamode ALPHA_ADD
+fx_colour 0x707070
+#add fx_destx + 1
+#add fx_desty + 1
+#add fx_srcx + 1
+#add fx_srcy + 1
+fx_line
+
+end
+
+
+##
+##
+##
+
+function fx_laserbeam_red
+
+if_not_exist current.target
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.target
+
+# Adust beam
+add fx_srcx + 7
+add fx_srcy + 7
+add fx_destx + 7
+add fx_desty + 7
+
+
+# Draw the red core (twice)
+let fx_brush = 1
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+fx_colour 0xff5040
+fx_line
+
+# Now draw another one next to it
+add fx_srcx + 1
+add fx_destx + 1
+add fx_srcy - 1
+add fx_desty - 1
+fx_line
+
+# Shuffle the coordinates back again
+add fx_srcx - 1
+add fx_destx - 1
+add fx_srcy + 1
+add fx_desty + 1
+
+# draw little bright sparklies
+let fx_brush = 1
+fx_alpha 24
+fx_alphamode ALPHA_DISSOLVE
+fx_colour 0xff0000
+fx_line
+
+end
+
+
+##
+##
+##
+
+function fx_laserbeam_tripwire
+
+if_not_exist current.target
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.target
+
+# Adust beam
+add fx_srcx + 7
+add fx_srcy + 7
+add fx_destx + 7
+add fx_desty + 7
+
+
+# Draw the red core
+let fx_brush = 1
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+fx_colour 0xff5040
+fx_line
+
+# draw little bright sparklies
+fx_alpha 24
+fx_alphamode ALPHA_DISSOLVE
+fx_colour 0xff0000
+fx_line
+
+end
+
+
+##
+##  Dra'kaan holographic display
+##
+
+function fx_holodisplay
+
+integer_array holo[8]
+
+fx_getxy fx_destx fx_desty = current
+
+# Set up the polygon
+let holo[1] = 24
+let holo[2] = 16
+let holo[3] = 104
+let holo[4] = 16
+let holo[5] = 128
+let holo[6] = 32
+let holo[7] = 0
+let holo[8] = 32
+
+# Draw the blue core
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+fx_colour 0x5040b0
+fx_poly holo[1]
+
+# draw little bright sparklies
+fx_alpha 12
+fx_alphamode ALPHA_DISSOLVE
+fx_colour 0x001080
+fx_poly holo[1]
+
+/*
+# Draw screen
+let holo[1] = 0
+let holo[2] = 48
+let holo[3] = 113
+let holo[4] = 48
+let holo[5] = 145
+let holo[6] = 80
+let holo[7] = 32
+let holo[8] = 80
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+fx_colour 0x00b0b0
+fx_poly holo[1]
+*/
+end
+
+
+##
+##  Dra'kaan forcefield
+##
+
+function fx_forcefield
+
+fx_getxy fx_srcx fx_srcy = current
+let fx_destx = fx_srcx + 31
+let fx_desty = fx_srcy + 31
+
+# Draw the blue overlay
+let fx_brush = 1
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+fx_colour 0x5040b0
+fx_rect
+
+# overdraw the little bright sparklies
+fx_alpha 12
+fx_alphamode ALPHA_DISSOLVE
+fx_colour 0x0010f0
+fx_rect
+
+end
+
+
+##
+##  Magical Barrier
+##
+
+function fx_magicbarrier
+
+# Get the coordinates
+fx_getxy fx_srcx fx_srcy = current
+let fx_destx = fx_srcx + 31
+let fx_desty = fx_srcy + 31
+
+# Draw the varicoloured overlay
+let fx_brush = 1
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+
+# Make the colour
+let col_r = current.user.user16
+let col_g = current.user.user17
+let col_b = current.user.user18
+# Perform the colour ramp and reverse direction when we clip
+add col_r + current.user.user13
+add col_g + current.user.user14
+add col_b + current.user.user15
+if col_r >= 252
+or col_r <= 4
+	let current.user.user13 = 0 - current.user.user13
+endif
+
+if col_g >= 252
+or col_g <= 4
+	let current.user.user14 = 0 - current.user.user14
+endif
+
+if col_b >= 252
+or col_b <= 4
+	let current.user.user15 = 0 - current.user.user15
+endif
+let current.user.user16 = col_r
+let current.user.user17 = col_g
+let current.user.user18 = col_b
+
+add col_r << 16
+add col_g << 8
+# Add them together
+let rctr = col_r + col_g
+add rctr + col_b
+fx_colour rctr
+
+# Draw it
+fx_rect
+
+end
+
+/*
+function fx_magicbarrier
+integer_array barr[12]
+
+# Set up the polygon
+let barr[1] = 0
+let barr[2] = 0
+let barr[3] = 31
+let barr[4] = 0
+let barr[5] = 63
+let barr[6] = 31
+let barr[7] = 63
+let barr[8] = 63
+let barr[9] = 31
+let barr[10] = 63
+let barr[11] = 0
+let barr[12] = 31
+
+fx_getxy fx_destx fx_desty = current
+
+# Draw the varicoloured overlay
+let fx_brush = 1
+fx_alpha 96
+fx_alphamode ALPHA_TRANS
+
+# Make the colour
+let col_r = current.user.user16
+let col_g = current.user.user17
+let col_b = current.user.user18
+# Perform the colour ramp and reverse direction when we clip
+add col_r + current.user.user13
+add col_g + current.user.user14
+add col_b + current.user.user15
+if col_r >= 252
+or col_r <= 4
+	let current.user.user13 = 0 - current.user.user13
+endif
+
+if col_g >= 252
+or col_g <= 4
+	let current.user.user14 = 0 - current.user.user14
+endif
+
+if col_b >= 252
+or col_b <= 4
+	let current.user.user15 = 0 - current.user.user15
+endif
+let current.user.user16 = col_r
+let current.user.user17 = col_g
+let current.user.user18 = col_b
+
+add col_r << 16
+add col_g << 8
+# Add them together
+let rctr = col_r + col_g
+add rctr + col_b
+fx_colour rctr
+# Draw it
+fx_poly barr[1]
+
+end
+*/
+
+##
+##  Drakaan power generators
+##
+
+function fx_generator
+
+fx_getxy fx_srcx fx_srcy = current
+
+# Draw the patches
+let fx_brush = 0
+fx_alpha 96
+fx_alphamode ALPHA_ADD
+fx_colour 0x505090
+
+let lx = fx_srcx
+let ly = fx_srcy
+let lctr = fx_srcx + 1
+let lstep = fx_srcy + 12
+
+for rctr = 1 to 48
+	let fx_srcx = lx
+	let fx_srcy = ly
+	let fx_destx = lctr
+	let fx_desty = lstep
+
+	fx_random rx = 31
+	fx_random ry = 30
+	
+	add fx_srcx + rx
+	add fx_srcy + ry
+	add fx_destx + rx
+	add fx_desty + ry
+	# Draw the white overlay
+	fx_rect
+next rctr
+
+
+end
+
+
+
+
+##
+##  Drug side-effects
+##
+
+function fx_orbitdrugs
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 7
+add fx_srcy + 7
+
+fx_alpha 128
+let fx_brush = 3
+fx_alphamode ALPHA_ADD
+fx_colour 0x5050e0
+add fx_srcx + 1
+add fx_srcy + 1
+
+# Store the point of origin in DX,DY (which is where Orbit wants it)
+let fx_destx = fx_srcx
+let fx_desty = fx_srcy
+
+let fx_drift = 1
+let fx_radius = 20
+let fx_speed = 80
+
+fx_orbit current.user.user10
+fx_point
+
+let fx_speed = 82
+let fx_radius = 22
+fx_colour 0x50e0e0
+let fx_brush = 4
+fx_orbit current.user.user18
+fx_point
+
+let fx_speed = 88
+let fx_radius = 25
+fx_colour 0xe050e0
+let fx_brush = 3
+fx_orbit current.user.user17
+fx_point
+
+let fx_speed = 90
+let fx_radius = 15
+fx_colour 0xe0e050
+let fx_brush = 5
+fx_orbit current.user.user16
+fx_point
+
+let fx_speed = 83
+let fx_radius = 20
+fx_colour 0x30e0e0
+let fx_brush = 3
+fx_orbit current.user.user15
+fx_point
+
+let fx_speed = 40
+let fx_radius = 20
+fx_colour 0x50e000
+let fx_brush = 6
+fx_orbit current.user.user14
+fx_point
+
+let fx_speed = 50
+let fx_radius = 20
+fx_colour 0xe00050
+let fx_brush = 7
+fx_orbit current.user.user13
+fx_point
+
+let fx_speed = 100
+let fx_radius = 20
+fx_colour 0x00e050
+let fx_brush = 3
+fx_orbit current.user.user12
+fx_point
+
+let fx_speed = 74
+let fx_radius = 20
+fx_colour 0xe05030
+let fx_brush = 5
+fx_orbit current.user.user11
+fx_point
+
+end
+
+
+##
+##  Magical lights
+##
+
+function fx_orbitmagiclights
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 7
+add fx_srcy + 7
+
+fx_alpha 128
+let fx_brush = 3
+fx_alphamode ALPHA_ADD
+fx_colour 0x5050e0
+add fx_srcx + 1
+add fx_srcy + 1
+
+# Store the point of origin in DX,DY (which is where Orbit wants it)
+let fx_destx = fx_srcx
+let fx_desty = fx_srcy
+
+let fx_drift = 0
+let fx_radius = 50
+let fx_speed = 80
+
+fx_orbit current.user.user10
+fx_point
+
+let fx_speed = 82
+let fx_radius = 52
+fx_colour 0x50e0e0
+let fx_brush = 4
+fx_orbit current.user.user18
+fx_point
+
+let fx_speed = 88
+let fx_radius = 55
+fx_colour 0xe050e0
+let fx_brush = 3
+fx_orbit current.user.user17
+fx_point
+
+let fx_speed = 90
+let fx_radius = 45
+fx_colour 0xe0e050
+let fx_brush = 4
+fx_orbit current.user.user16
+fx_point
+
+let fx_speed = 83
+let fx_radius = 50
+fx_colour 0x30e0e0
+let fx_brush = 3
+fx_orbit current.user.user15
+fx_point
+
+let fx_speed = 40
+let fx_radius = 50
+fx_colour 0x50e000
+let fx_brush = 4
+fx_orbit current.user.user14
+fx_point
+
+let fx_speed = 50
+let fx_radius = 50
+fx_colour 0xe00050
+let fx_brush = 3
+fx_orbit current.user.user13
+fx_point
+
+let fx_speed = 100
+let fx_radius = 50
+fx_colour 0x00e050
+let fx_brush = 3
+fx_orbit current.user.user12
+fx_point
+
+let fx_speed = 74
+let fx_radius = 50
+fx_colour 0xe05030
+let fx_brush = 2
+fx_orbit current.user.user11
+fx_point
+
+end
+
+/*
+function fx_orbitmagiclights2
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 7
+add fx_srcy + 7
+
+# Store the point of origin in DX,DY (which is where Orbit wants it)
+let fx_destx = fx_srcx
+let fx_desty = fx_srcy
+
+let fx_intensity = 400
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+let fx_speed = 70
+let fx_radius = 33
+fx_orbit current.user.user10
+let fx_falloff = 13000 # 3.0 falloff
+let fx_radius = 8
+fx_corona TINT_RED
+
+let fx_speed = 88
+let fx_radius = 42
+fx_orbit current.user.user18
+let fx_falloff = 12000
+let fx_radius = 8
+fx_corona TINT_YELLOW
+
+let fx_speed = 72
+let fx_radius = 25
+fx_orbit current.user.user17
+let fx_falloff = 12800
+let fx_radius = 8
+fx_corona TINT_BLUE
+
+let fx_speed = 90
+let fx_radius = 15
+fx_orbit current.user.user16
+let fx_falloff = 12500
+let fx_radius = 8
+fx_corona TINT_MAGENTA
+
+
+#let fx_speed = 83
+#let fx_radius = 50
+#fx_orbit current.user.user15
+#let fx_falloff = 1280
+#let fx_radius = 16
+#fx_corona TINT_CYAN
+
+#let fx_speed = 60
+#let fx_radius = 21
+#fx_orbit current.user.user14
+#let fx_falloff = 1400
+#let fx_radius = 16
+#fx_corona TINT_WHITE
+
+#let fx_speed = 53
+#let fx_radius = 40
+#fx_orbit current.user.user13
+#let fx_falloff = 1350
+#let fx_radius = 16
+#fx_corona TINT_BLUE
+
+#let fx_speed = 76
+#let fx_radius = 30
+#fx_orbit current.user.user12
+#let fx_falloff = 1300
+#let fx_radius = 16
+#fx_corona TINT_GREEN
+
+#let fx_speed = 79
+#let fx_radius = 50
+#fx_orbit current.user.user11
+#let fx_falloff = 1250
+#let fx_radius = 16
+#fx_corona TINT_WHITE
+
+end
+*/
+
+##
+##  Destroy prettily
+##
+
+function fx_deathorbit
+int angle
+
+add current.user.user18 - 1
+if current.user.user18 <= 0
+	play_sound "pop"
+	stopfx current
+	let current.stats.hp = -1
+	check_hurt current
+	overfx current does fx_blast
+	let current.user.user18 = 32
+	let current.user.user17 = 4
+	return
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 7
+add fx_srcy + 7
+
+fx_alpha 128
+let fx_brush = 5
+fx_alphamode ALPHA_ADD
+fx_colour 0x5050e0
+add fx_srcx + 1
+add fx_srcy + 1
+# Store origin point in DX for Orbit to use
+let fx_destx = fx_srcx
+let fx_desty = fx_srcy
+
+let fx_drift = 1
+let fx_radius = current.user.user18
+let fx_speed = 80
+
+fx_orbit current.user.user10
+fx_point
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 50
+	fx_orbit angle
+	fx_point
+endif
+
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 500
+	fx_orbit angle
+	fx_point
+endif
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 1487
+	fx_orbit angle
+	fx_point
+endif
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 702
+	fx_orbit angle
+	fx_point
+endif
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 2340
+	fx_orbit angle
+	fx_point
+endif
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 3078
+	fx_orbit angle
+	fx_point
+endif
+
+add fx_radius - 5
+if fx_radius > 0
+	let angle = current.user.user10 + 2590
+	fx_orbit angle
+	fx_point
+endif
+
+end
+
+
+/*
+function fx_orbit
+int rang
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 7
+add fx_srcy + 7
+
+fx_alpha 128
+let fx_brush = 3
+fx_alphamode ALPHA_ADD
+fx_colour 0x5050e0
+add fx_srcx + 1
+add fx_srcy + 1
+let fx_destx = fx_srcx
+let fx_desty = fx_srcy
+
+let fx_drift = 1
+let fx_radius = 20
+let fx_speed = 80
+
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit current.user.user10 around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 20
+let rang = current.user.user10 + 45
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 25
+let rang = current.user.user10 + 180
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 15
+let rang = current.user.user10 + 80
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 20
+let rang = current.user.user10 + 256
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+#
+
+let fx_radius = 20
+let rang = current.user.user10 + 450
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 20
+let rang = current.user.user10 + 1800
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 20
+let rang = current.user.user10 + 800
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+let fx_radius = 20
+let rang = current.user.user10 + 2560
+let fx_srcx = fx_destx
+let fx_srcy = fx_desty
+fx_orbit rang around fx_srcx fx_srcy
+fx_point
+
+end
+*/
+
+function fx_blast
+int diam
+add current.user.user18 + current.user.user17
+
+if current.user.user18 < 0
+	stopfx current
+	return
+endif
+
+let diam = current.user.user18
+
+# Have we reached maximum radius?  If so, change direction
+if current.user.user18 > 128
+	let current.user.user17 = 0 - current.user.user17
+	let current.stats.hp = -900
+	check_hurt current
+endif
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 7
+add fx_srcy + 7
+
+fx_alpha 128
+fx_alphamode ALPHA_ADD
+fx_colour 0x404040
+
+do
+	let fx_brush = diam
+	fx_point
+	add diam - 6
+while diam > 10
+
+end
+
+##
+##  Simple demonstration of orbiting
+##
+
+function SimpleOrbit
+
+# Get pixel coordinates of object into DX,DY (where Orbit wants it)
+fx_getxy fx_destx fx_desty = current
+add fx_destx + 7
+add fx_desty + 7
+
+# Set up colour stuff
+fx_alpha 128
+let fx_brush = 3
+fx_alphamode ALPHA_ADD
+fx_colour 0x5050e0
+
+# Set up a simple orbit
+let fx_drift = 0
+let fx_radius = 20
+let fx_speed = 60
+
+fx_orbit current.user.user18
+fx_point
+
+end
+
+
+##
+##  Use sprites to fade the sprite gently away and then destroy it utterly
+##
+
+function Fade_And_Destroy
+
+# Stop it from doing anything
+stop_action current
+
+# Set alpha to full, assuming the creature is not already translucent
+let current.user.user18 = 255
+
+# If the creature IS translucent (spooks), assume default of 50% translucency
+if_flag current IS_TRANSLUCENT
+	let current.user.user18 = 128
+endif
+
+# Make the sprite invisible (the FX will draw it now)
+set_flag current IS_INVISIBLE = 1
+
+# Begin the fading
+overfx current does fx_fadeout
+end
+
+# Fadeout engine
+
+function fx_fadeout
+
+fx_getxy fx_srcx fx_srcy = current
+let rtmp = current.user.user18
+fx_alpha rtmp
+fx_alphamode ALPHA_TRANS
+
+add rtmp - 6
+if rtmp <= 0
+	stopfx current
+	destroy current
+	return
+endif
+
+let current.user.user18 = rtmp
+
+# Draw it
+fx_sprite
+
+end
+
+
+##
+##  Use sprites to fade the sprite gently in and then make it fully visible
+##
+
+function Fade_In
+
+# Stop it from doing anything
+stop_action current
+
+# Set alpha to none
+let current.user.user18 = 0
+# Store weight to user17, then make it impossible to pick up
+let current.user.user17 = current.stats.weight
+let current.stats.weight = -1
+
+# If it is translucent (spooks), assume default of 50% translucency
+if_flag current IS_TRANSLUCENT
+	let current.user.user18 = 128
+endif
+
+# Make the sprite invisible (the FX will draw it now)
+set_flag current IS_INVISIBLE = 1
+
+# Begin the fading
+overfx current does fx_fadein
+end
+
+
+# Fadein engine
+
+function fx_fadein
+
+fx_getxy fx_srcx fx_srcy = current
+let rtmp = current.user.user18
+# Set the alpha level
+fx_alpha rtmp
+fx_alphamode ALPHA_TRANS
+
+add rtmp + 6
+
+# Are we there yet?
+if rtmp >= 255
+	# Draw it now to avoid missing a frame
+	fx_alpha 255
+	fx_alphamode ALPHA_TRANS
+	fx_sprite
+
+	# Stop the effects
+	stopfx current
+	set_flag current IS_INVISIBLE = 0
+	# Restore proper weight now it is fully corporeal
+	let current.stats.weight = current.user.user17
+	return
+endif
+
+let current.user.user18 = rtmp
+
+# Draw it
+fx_sprite
+
+end
+
+##
+##  Fade and disintegrate
+##
+
+# Fadeout engine
+
+function fx_fadedgrate
+
+fx_getxy fx_srcx fx_srcy = current
+
+let rtmp = current.user.user18
+fx_alpha rtmp
+fx_alphamode ALPHA_DISSOLVE
+add rtmp + 6
+if rtmp >= 255
+	stopfx current
+	destroy current
+	return
+endif
+
+let current.user.user18 = rtmp
+
+# Draw it
+fx_sprite
+# Draw a corona too
+
+add fx_srcx + 8
+add fx_srcy + 8
+let rctr = 175 - rtmp
+fx_alpha rctr
+fx_alphamode ALPHA_DISSOLVE
+let fx_radius = 64
+let fx_falloff = 300 # 3.0 falloff
+fx_corona TINT_YELLOW
+
+end
+
+
+##
+##  Fade the Father Malcolm to white and then destroy him utterly
+##
+
+function FadeMalcolm
+
+# Stop it from doing anything
+stop_action current
+
+# Set alpha to zero
+let current.user.user18 = 0
+
+# Make him invisible
+#set_flag current IS_INVISIBLE = 1
+
+# Begin the fading
+overfx current does fx_fademalcolm
+end
+
+# Fadeout engine
+
+function fx_fademalcolm
+
+fx_getxy fx_srcx fx_srcy = current
+
+let rtmp = current.user.user18
+fx_alpha rtmp
+fx_alphamode ALPHA_ADD
+add rtmp + 6
+if rtmp >= 255
+	stopfx current
+	destroy current
+	return
+endif
+
+let current.user.user18 = rtmp
+
+fx_sprite # draw it
+fx_sprite
+
+# Draw a corona too
+
+add fx_srcx + 8
+add fx_srcy + 8
+let fx_intensity = rtmp
+let fx_radius = 64
+let fx_falloff = 400 # 4.0 falloff
+fx_corona TINT_YELLOW
+
+end
+
+
+##
+##  Generic fading corona
+##
+##  Set user18 to 0, and user17 to the corona tint colour
+##
+
+
+# Fadeout engine
+
+function fx_fadecorona
+
+fx_getxy fx_srcx fx_srcy = current
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+let rtmp = current.user.user18
+add rtmp - 6
+if rtmp < 1
+	stopfx current
+	return
+endif
+
+let current.user.user18 = rtmp
+
+# Draw the corona
+
+add fx_srcx + 8
+add fx_srcy + 8
+let fx_intensity = rtmp
+let fx_radius = 64
+let fx_falloff = 200 # 2.0 falloff
+#fx_corona TINT_YELLOW
+fx_corona current.user.user17
+
+end
+
+
+##
+##  Generic corona bounce
+##
+##  Set user18 to 0, user17 to +1 (or higher)
+##  and user16 to the corona tint colour
+##
+
+function fx_bouncecorona
+
+fx_getxy fx_srcx fx_srcy = current
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+# Increment the control count
+let rtmp = current.user.user18
+add rtmp + current.user.user17
+
+# Bounce if we reach maximum
+if rtmp > 128
+	let rtmp = 128
+	let current.user.user17 = 0 - current.user.user17
+endif
+
+# Stop if we've contracted to nothing
+if rtmp < 0
+	stopfx current
+	return
+endif
+
+# Store the result
+let current.user.user18 = rtmp
+
+# Draw the corona
+add fx_srcx + 8
+add fx_srcy + 8
+let fx_intensity = rtmp
+let fx_radius = 64
+let fx_falloff = 200 # 2.0 falloff
+fx_corona current.user.user16
+
+end
+
+
+
+# Radiation
+
+function fx_radiation
+
+fx_getxy fx_srcx fx_srcy = current
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+# Draw the corona
+
+add fx_srcx + 8
+add fx_srcy + 8
+let fx_falloff = 450 # 4.0 falloff
+let fx_radius = 48
+
+# On zero, calculate a new intensity
+if current.user.user18 = 0
+	# Set a random delay
+	fx_random current.user.user18 = 10
+	# And a random intensity
+	fx_random current.user.user17 = 15
+	add current.user.user17 + current.stats.str
+else
+	# Otherwise, count down
+	add current.user.user18 - 1
+endif
+
+let fx_intensity = current.user.user17
+
+fx_corona TINT_BLUE
+end
+
+
+
+function fx_FadeSatanIn
+
+fx_getxy fx_srcx fx_srcy = current
+let rtmp = current.user.user18
+fx_alpha rtmp
+fx_alphamode ALPHA_TRANS
+
+add rtmp + 6
+if rtmp >= 255
+	stopfx current
+	set_flag current IS_INVISIBLE = 0
+	return
+endif
+
+let current.user.user18 = rtmp
+fx_sprite
+
+end
+
+
+function fx_FadeSatanOut
+
+fx_getxy fx_srcx fx_srcy = current
+let rtmp = current.user.user18
+fx_alpha rtmp
+fx_alphamode ALPHA_TRANS
+
+add rtmp - 6
+if rtmp <= 0
+	stopfx current
+	transfer_object current to current.target.x current.target.y
+	set_flag current IS_INVISIBLE = 0
+	return
+endif
+
+let current.user.user18 = rtmp
+fx_sprite
+
+end
+
+##
+##  Make object spin around
+##
+
+function fx_rotate_r
+add current.user.user18 + 1
+if current.user.user18 < 8
+	return
+endif
+let current.user.user18 = 0
+call rotate_r
+end
+
+function start_rotate
+startfx current does fx_rotate_r
+end
+
+
+function money_sound
+play_sound "money"
+end
+
+
+function fx_overdrawsprite
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx - 32
+fx_alpha 128
+fx_alphamode ALPHA_TRANS
+fx_sprite
+end

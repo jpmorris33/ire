@@ -1,0 +1,612 @@
+
+[page="start"]
+[colour="#808080"]
+You see a man with a pointed beard, dressed in an
+immaculate black suit.  He is holding a cane.
+[colour="#ffffff"]
+
+"Hello, $PLAYER.
+
+ How are you today?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="How do you know my name?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see a the devil in an immaculate black suit.
+[colour="#ffffff"]
+
+"Hello again, $PLAYER.  How goes it?"
+
+[if_not_pflag sold_soul][link="I'm interested in selling my soul."]
+[if_not_pflag sold_soul][linkto="sell2"]
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+
+"Does 'Prince of Darkness' mean anything to you?"
+
+[link="You're the Devil!"]
+[linkto="who2a"]
+[link="You're Peter Cook!"]
+[linkto="who3a"]
+[link="Begone, Satan!"]
+[linkto="bye2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who2a"]
+[learn_name]
+
+"Incarnate.  Have you ever thought of selling your soul?"
+
+[link="Would it hurt?"]
+[linkto="sell1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who3a"]
+[learn_name]
+
+"No!!!  I am Satan.. The Dark One!
+ The Lord Of All That Is Evil.
+
+ Are you interested in selling your soul?"
+
+[link="Peter Cook was the Lord of All Evil too."]
+[linkto="who3b"]
+[link="Would it hurt?"]
+[linkto="sell1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who3b"]
+
+"I am NOT Peter Cook!  I am the Devil!
+
+ Now do you want to sell you soul or not??"
+
+[link="Would it hurt?"]
+[linkto="sell1"]
+[link="I'm interested."]
+[linkto="sell2"]
+[link="No thankyou."]
+[linkto="sell2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell1"]
+
+"No, we don't physically TAKE souls anymore, it's much 
+ simpler to license them.
+
+ What I want is the intellectual property rights to the
+ core of your being, to be put to my exclusive use when
+ you die, or by a carefully-selected affilliate company.
+
+ So what do you say?  Are you interested?"
+
+[link="I'm interested."]
+[linkto="sell2"]
+[link="No thankyou."]
+[linkto="sell2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell2"]
+
+"If you sell your soul to me NOW, you can have all this:
+
+ * The power to be in two places at once!
+
+ * A free toaster!
+
+ * The chance to win ten thousand gold coins!
+
+ * ..And a SPECIAL MYSTERY GIFT!
+
+ But don't delay!  Pledge your soul today and join
+ millions of satisfied customers!"
+
+[link="Okay."]
+[linkto="sell_soul"]
+[link="No."]
+[linkto="no"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no"]
+
+"A time-share then!  I get to borrow your soul every
+ other day of the week.
+ 
+ I'll even throw Sundays in for free!  You get to use it
+ four days a week, I get it Monday, Wednesday and Friday.
+
+ You can't say fairer that that!"
+
+[link="No."]
+[linkto="no2"]
+[link="How about this: I keep my soul, and you go away?"]
+[linkto="bye2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no2"]
+
+"Oh, alright.  Was there anything else you wanted?"
+
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="magic"]
+
+"Certainly.  I know some really cool spells.
+
+ Evil One or not, I guess it's only fair to tell you that
+ the Church'll be pissed if you're found to be engaging
+ in commerce with the Devil.
+
+ So I'll give you the chance to walk away now, and the
+ LORD will still kind-of like you."
+
+[link="Tell me anyway."]
+[linkto="magic2"]
+[link="You're right, I'd better go."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic2"]
+
+"Fine.  Now, gold is such a hassle for me to spend, so
+ I'm afraid I have to insist on payment in dead pigs.
+
+ This is a slack time for business, too, so I'll do you
+ a special offer.. any spell you like for just one dead
+ pig each."
+
+[link="What spells are you offering?"]
+[linkto="magic4"]
+[link="What do you want the dead pigs for?"]
+[linkto="magic3"]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic3"]
+
+"Oh, just a little pet project of mine.
+ So many pigs die every year, you see, I thought there
+ MUST be a way to capitalise on that.
+
+ So I figured I'd try and raise an undead army of swine."
+
+[link="What spells are you offering?"]
+[linkto="magic4"]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic4"]
+
+"What ring of magic are you into?"
+
+[link="I want some ring 7 spells."]
+[linkto="r7"]
+[always]
+[link="I want some ring 6 spells."]
+[linkto="r6"]
+[always]
+[link="I want some ring 5 spells."]
+[linkto="r5"]
+[always]
+[link="I want some ring 4 spells."]
+[linkto="r4"]
+[always]
+[link="I want some ring 3 spells."]
+[linkto="r3"]
+[always]
+[link="I want some ring 2 spells."]
+[linkto="r2"]
+[always]
+[link="I want some ring 1 spells."]
+[linkto="r1"]
+[always]
+[link="I want some ring 0 spells."]
+[linkto="r0"]
+[always]
+
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="r7"]
+
+"I don't have any of those.  They're poof spells."
+
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="r6"]
+
+"I've only got one Novice spell, and that's 'Poison'.
+ It can be used to poison people.  Obviously."
+
+[link="I'd like to buy 'Poison'."]
+[linkto="buy_r66"]
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="r5"]
+
+"I've only got one Acolyte spell, 'Harm'.
+ It causes a moderate amount of damage."
+
+[link="I'd like to buy 'Harm'."]
+[linkto="buy_r53"]
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="r4"]
+
+"I can teach you 'Explosion', that's pretty neat.
+ Are you interested?"
+
+[link="I'd like to buy 'Explosion'."]
+[linkto="buy_r44"]
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="r3"]
+
+"I can teach you the following groovy spells;
+ 'Kill', which can top most people, 'Destruction', which
+ is fun to cast during Mass, 'Ensorcellment', which
+ allows you to enchant weapons and make them kill people,
+ and 'Confusion Blast', which makes people forget what
+ they were just doing.  Handy to avoid being arrested!"
+
+[link="I'd like to buy 'Kill'."]
+[linkto="buy_r31"]
+[link="I'd like to buy 'Destruction'."]
+[linkto="buy_r32"]
+[link="I'd like to buy 'Ensorcellment'."]
+[linkto="buy_r34"]
+[link="I'd like to buy 'Confusion Blast'."]
+[linkto="buy_r35"]
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="r2"]
+
+"I don't have many Heirophant spells at the moment, but
+ I can sell you 'Fear', which I use a lot when I'm taking
+ a stroll in the woods.  You know.."
+
+[link="I'd like to buy 'Fear'."]
+[linkto="buy_r22"]
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="r1"]
+
+"Yep, I can teach you 'Great Kill', which kills all known
+ humans dead, or 'Summon Devil'.  That doesn't summon ME,
+ you understand, 'cause I'm far too busy.  But if you
+ cast it I'll find an intern or someone to help you."
+
+[link="I'd like to buy 'Great Kill'."]
+[linkto="buy_r11"]
+[link="I'd like to buy 'Summon Devil'."]
+[linkto="buy_r12"]
+[link="I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="r0"]
+
+"Oho.  You can have some real fun with those!
+
+ I've only got one I can share with you, though, and that
+ is a little gem I call 'Hacked Peer Spell'.  It's based
+ on your regular peer spell, but it exploits a few little
+ bugs I found in the magic server and it can increase
+ its own privilege level.  You can see inside people's
+ houses with this beauty, but since it's a hack I can't
+ make any guarantees it will work completely.
+
+ Are you interested anyway?"
+
+[link="Teach me the hacked peer spell."]
+[linkto="buy_r03"]
+[link="No, I'm interested in another ring."]
+[linkto="magic4"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_r66"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_poison]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r53"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_poison]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r44"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_explosion]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r31"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_kill]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r32"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_destruction]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r34"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_ensorcellment]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r35"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_confusion]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r22"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_fear]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r11"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_greatkill]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r12"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_summon]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r03"]
+[destroy 1 pig_dead]
+[if false][goto="nomoney"]
+[create 1 spell_hackedpeer]
+[append="bought_spell"]
+[endpage]
+
+
+[page="bought_spell"]
+
+"Great, have fun with your spell.
+ Is there anything else you'd like?"
+
+[link="I want some ring 7 spells."]
+[linkto="r7"]
+[always]
+[link="I want some ring 6 spells."]
+[linkto="r6"]
+[always]
+[link="I want some ring 5 spells."]
+[linkto="r5"]
+[always]
+[link="I want some ring 4 spells."]
+[linkto="r4"]
+[always]
+[link="I want some ring 3 spells."]
+[linkto="r3"]
+[always]
+[link="I want some ring 2 spells."]
+[linkto="r2"]
+[always]
+[link="I want some ring 1 spells."]
+[linkto="r1"]
+[always]
+[link="I want some ring 0 spells."]
+[linkto="r0"]
+[always]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+
+"You can't afford that.  I guess you'd better go out
+ there and fell some more piggies.
+
+ Catch you later."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Goodbye!  No doubt I'll see you again.. eventually.."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye2"]
+
+"Stuff you then."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="sell_soul"]
+[esc="disabled"]
+[colour="#808080"]
+The devil produces a sheaf of papers, which is a legal
+document authorising the transfer of ownership for your
+soul.
+
+It's not nearly as onerous as you first thought; the
+license agreement for Windows 2003 was far worse.
+
+As you sign the document, the Devil takes a coin from his
+immaculate trousers and tosses it in the air.
+[colour="#ffffff"]
+
+[nextpage="gambling"]
+[endpage]
+
+
+[page="gambling"]
+[set_pflag sold_soul]
+[random_page="sell_soul 00 02"]
+[endpage]
+
+
+[page="sell_soul00"]
+[colour="#808080"]
+The devil looks at you with a sad smile.
+[colour="#ffffff"]
+[create 1 toaster]
+[create 1 stuff]
+
+"I'm sorry, you've lost your chance to win 10,000 gold
+ coins.
+
+ But don't worry; you still get your free toaster, the
+ power to be in two places at once, and the SPECIAL
+ MYSTERY GIFT!
+
+ Thankyou for playing, and goodnight!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="sell_soul01"]
+[call="music_prize"]
+[colour="#808080"]
+The devil grins at you.
+[colour="#ffffff"]
+[create 10000 gold_coins]
+[create 1 toaster]
+[create 1 stuff]
+
+"Congratulations!  You have just won 10,000 gold pieces!
+
+ And, in addition to this fabulous prize, you get to take
+ home your free toaster, the power to be in two places at
+ once, and our SPECIAL MYSTERY GIFT!
+
+ Thankyou for playing, and goodnight!"
+
+[nextpage="exit"]
+[endpage]
+
+[page="sell_soul02"]
+[append="sell_soul00"]
+[endpage]
+
+
+[page="die"]
+
+"Oh yeah!  Come and get it, you little bitch!"
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+

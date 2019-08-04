@@ -1,0 +1,1062 @@
+###################################
+#                                 #
+#  power plant and drive systems  #
+#                                 #
+###################################
+
+
+
+##
+##  Trigger function for valve socket
+##
+
+function check_valve
+object_array valve[3]
+integer ctr
+integer num
+object thing
+object breaker
+
+#  If the breaker is off, shut down
+
+find_tag breaker = "wall_metal_breaker" current.tag
+if_exists breaker
+	if breaker.curdir = DOWN
+
+		# Turn off the valves
+		if victim is called "valve_working"
+			replace victim = "valve"
+			let victim.tag = current.tag
+		endif
+
+		call current.funcs.user1
+		let current.user.user18 = 2
+
+		# Shut down power links
+		find_tag thing = "spark_start" current.tag
+		if_exists thing
+			stopfx thing
+		endif
+		find_tag thing = "spark_end" current.tag
+		if_exists thing
+			stopfx thing
+		endif
+		return
+	endif
+endif
+
+
+# Valve has died
+if victim is called "valve_broken"
+	if current.user.user18 = 0
+		call current.funcs.user1
+		let current.user.user18 = 2
+
+		# Shut down power links
+		find_tag thing = "spark_start" current.tag
+		if_exists thing
+			stopfx thing
+		endif
+		find_tag thing = "spark_end" current.tag
+		if_exists thing
+			stopfx thing
+		endif
+	endif
+	return
+endif
+
+/*
+if victim is called "valve_blown"
+	if current.user.user18 = 0
+		call current.funcs.user1
+		let current.user.user18 = 0
+	endif
+	return
+endif
+*/
+
+# If all OK, bail out
+if current.user.user18 = 1
+	return
+endif
+
+# Replacing dead valve
+if victim is called "valve"
+	replace victim = "valve_working"
+	let victim.tag = current.tag
+
+	# Make sure there are three working valves
+	find_tags valve[1] = "valve_working" current.tag
+	let num = 0
+	for ctr = 1 to 3
+		if_exists valve[ctr]
+			add num + 1
+		endif
+	next ctr
+
+	if num >= 3
+		call current.funcs.user2
+
+		# Bring up the power links
+		find_tag thing = "spark_start" victim.tag
+		if_exists thing
+			let current = thing
+			call spark_start_safe
+		endif
+
+	endif
+	let current.user.user18 = 1
+	return
+endif
+
+#let current.user.user18 = 1
+end
+
+
+
+##
+##  Power plant activation LL
+##
+
+function pplant_startLL
+object_array stuff[32]
+object thing
+integer ctr
+
+# Bring the generator up
+find_tags stuff[1] = "forcefield_off" 2
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_generator
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_off" 3
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_forcefield
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator_off" 14
+if_exists thing
+	change thing = "generator"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 30
+if_exists thing
+	set_direction thing faces UP
+endif
+
+# Plasma is haywire?
+
+if thing is called "powerplant_hatch_brk"
+or thing is called "powerplant_hatch_brk_open"
+	call pplant_breakplasma
+	call check_drives
+	return
+endif
+
+# Set up the plasma
+call pplant_fixplasma
+call check_drives
+
+end
+
+
+##
+##  Deactivate LL power plant
+##
+
+function pplant_stopLL
+
+object_array stuff[32]
+object thing
+integer ctr
+
+# Take the generator down
+find_tags stuff[1] = "forcefield_on" 2
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_on" 3
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator" 14
+if_exists thing
+	change thing = "generator_off"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 30
+if_exists thing
+	set_direction thing faces LEFT
+endif
+
+# Shut the plasma containers down
+for ctr = 4 to 7
+
+	find_tag thing = "plasmatube" ctr
+	if_exists thing
+		stopfx thing
+		stop_action thing
+		change thing = "plasmatube_off"
+	endif
+
+	find_tag thing = "trap_plasma" ctr
+	if_exists thing
+		stopfx thing
+	endif
+
+next ctr
+
+call check_drives
+
+end
+
+
+
+##
+##  Power plant activation LR
+##
+
+function pplant_startLR
+object_array stuff[32]
+object thing
+integer ctr
+
+# Bring the generator up
+find_tags stuff[1] = "forcefield_off" 13
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_generator
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_off" 12
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_forcefield
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator_off" 15
+if_exists thing
+	change thing = "generator"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 31
+if_exists thing
+	set_direction thing faces UP
+endif
+
+# And the plasma containers
+for ctr = 8 to 11
+	find_tag thing = "plasmatube_off" ctr
+	if_exists thing
+		change thing = "plasmatube"
+		let current = thing
+		call spark_start_safe
+	endif
+next ctr
+
+
+call check_drives
+
+end
+
+
+##
+##  Deactivate LR power plant
+##
+
+function pplant_stopLR
+
+object_array stuff[32]
+object thing
+integer ctr
+
+# Take the generator down
+find_tags stuff[1] = "forcefield_on" 13
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_on" 12
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator" 15
+if_exists thing
+	change thing = "generator_off"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 31
+if_exists thing
+	set_direction thing faces LEFT
+endif
+
+# Shut the plasma containers down
+for ctr = 8 to 11
+
+	find_tag thing = "plasmatube" ctr
+	if_exists thing
+		stopfx thing
+		stop_action thing
+		change thing = "plasmatube_off"
+	endif
+
+	find_tag thing = "trap_plasma" ctr
+	if_exists thing
+		stopfx thing
+	endif
+
+next ctr
+
+call check_drives
+
+end
+
+
+
+
+##
+##  Power plant activation RL
+##
+
+function pplant_startRL
+object_array stuff[32]
+object thing
+integer ctr
+
+# Bring the generator up
+find_tags stuff[1] = "forcefield_off" 17
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_generator
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_off" 16
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_forcefield
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator_off" 18
+if_exists thing
+	change thing = "generator"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 32
+if_exists thing
+	set_direction thing faces UP
+endif
+
+# And the plasma containers
+for ctr = 22 to 25
+	find_tag thing = "plasmatube_off" ctr
+	if_exists thing
+		change thing = "plasmatube"
+		let current = thing
+		call spark_start_safe
+	endif
+next ctr
+
+call check_drives
+
+end
+
+
+##
+##  Deactivate RL power plant
+##
+
+function pplant_stopRL
+
+object_array stuff[32]
+object thing
+integer ctr
+
+# Take the generator down
+find_tags stuff[1] = "forcefield_on" 17
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_on" 16
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator" 18
+if_exists thing
+	change thing = "generator_off"
+endif
+
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 32
+if_exists thing
+	set_direction thing faces LEFT
+endif
+
+
+# Shut the plasma containers down
+for ctr = 22 to 25
+
+	find_tag thing = "plasmatube" ctr
+	if_exists thing
+		stopfx thing
+		stop_action thing
+		change thing = "plasmatube_off"
+	endif
+
+	find_tag thing = "trap_plasma" ctr
+	if_exists thing
+		stopfx thing
+	endif
+
+next ctr
+
+call check_drives
+
+end
+
+
+
+##
+##  Power plant activation RR
+##
+
+function pplant_startRR
+object_array stuff[32]
+object thing
+integer ctr
+
+# Bring the generator up
+find_tags stuff[1] = "forcefield_off" 20
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_generator
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_off" 21
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_forcefield
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator_off" 19
+if_exists thing
+	change thing = "generator"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 33
+if_exists thing
+	set_direction thing faces UP
+endif
+
+# And the plasma containers
+for ctr = 26 to 29
+	find_tag thing = "plasmatube_off" ctr
+	if_exists thing
+		change thing = "plasmatube"
+		let current = thing
+		call spark_start_safe
+	endif
+next ctr
+
+call check_drives
+
+end
+
+
+##
+##  Deactivate RR power plant
+##
+
+function pplant_stopRR
+
+object_array stuff[32]
+object thing
+integer ctr
+
+# Take the generator down
+find_tags stuff[1] = "forcefield_on" 20
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# And the force tank
+find_tags stuff[1] = "forcefield_on" 21
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# Change the generator itself
+find_tag thing = "generator" 19
+if_exists thing
+	change thing = "generator_off"
+endif
+
+# Set the maintenance hatch as appropriate
+find_tag thing = "powerplant_hatch*" 33
+if_exists thing
+	set_direction thing faces LEFT
+endif
+
+# Shut the plasma containers down
+for ctr = 26 to 29
+
+	find_tag thing = "plasmatube" ctr
+	if_exists thing
+		stopfx thing
+		stop_action thing
+		change thing = "plasmatube_off"
+	endif
+
+	find_tag thing = "trap_plasma" ctr
+	if_exists thing
+		stopfx thing
+	endif
+
+next ctr
+
+call check_drives
+
+end
+
+
+
+##
+##  LL plant is incorrect
+##
+
+function pplant_breakplasma
+object thing
+object dest
+
+# Make the plasma containers go haywire
+
+find_tag thing = "plasmatube_off" 5
+if_exists thing
+	change thing = "plasmatube"
+	find_tag dest = "trap_plasma" 11
+	let thing.stats.owner = dest
+	let dest.stats.owner = thing
+	let current = thing
+	let current.stats.damage = 150
+	call spark_start_dangerous
+endif
+
+find_tag thing = "plasmatube_off" 6
+if_exists thing
+	change thing = "plasmatube"
+	find_tag dest = "trap_plasma" 10
+	let thing.stats.owner = dest
+	let dest.stats.owner = thing
+	let current = thing
+	let current.stats.damage = 150
+	call spark_start_dangerous
+endif
+
+end
+
+##
+##  Fix the LL plant plasma containers
+##
+
+function pplant_fixplasma
+object thing
+object dest
+int ctr
+
+# Reset them to their proper state
+
+for ctr = 4 to 7
+	find_tag thing = "plasmatube_off" ctr
+	if_exists thing
+		change thing = "plasmatube"
+		find_tag dest = "trap_plasma" ctr
+		if_exists dest
+			let thing.stats.owner = dest
+			let dest.stats.owner = thing
+			let current = thing
+			call spark_start_safe
+		endif
+	endif
+next
+
+# 10 and 11 may also be OTL
+
+find_tag thing = "plasmatube*" 10
+find_tag dest = "trap_plasma" 10
+if_exists thing
+	let thing.stats.owner = dest
+endif
+
+find_tag thing = "plasmatube*" 11
+find_tag dest = "trap_plasma" 11
+if_exists thing
+	let thing.stats.owner = dest
+endif
+
+# If they're off, make sure the FX are off too
+find_tag thing = "plasmatube_off" 10
+if_exists thing
+	stopfx thing
+	stop_action thing
+endif
+find_tag thing = "plasmatube_off" 11
+if_exists thing
+	stopfx thing
+	stop_action thing
+endif
+
+
+
+end
+
+
+##
+##  Find out which drives should be working
+##
+
+function check_drives
+
+integer Lgen
+integer Rgen
+object generator
+
+# Check both L generators are functioning
+let Lgen = 0
+find_tag generator = "generator" 14
+if_exists generator
+	find_tag generator = "generator" 15
+	if_exists generator
+		let Lgen = 1
+	endif
+endif
+
+# Check both R generators are functioning
+let Rgen = 0
+find_tag generator = "generator" 18
+if_exists generator
+	find_tag generator = "generator" 19
+	if_exists generator
+		let Rgen = 1
+	endif
+endif
+
+# If the plasma containment is still on the fritz, keep the generator off
+find_tag generator = "powerplant_hatch*" 30
+if generator is called "powerplant_hatch_brk"
+	let Lgen = 0
+endif
+if generator is called "powerplant_hatch_brk_open"
+	let Lgen = 0
+endif
+
+
+# Now decide what to do about the drive units
+
+# The start/stop functions are called several times because they only
+# change up to 32 tiles of forcefield each time.  This isn't enough,
+# but it's more memory-efficient to just call it thrice, rather than
+# increase the stuff arrays and add a greater load onto the VM system
+
+if Lgen = 1
+	call start_driveL
+	call start_driveL
+	call start_driveL
+else
+	call stop_driveL
+	call stop_driveL
+	call stop_driveL
+endif
+
+if Rgen = 1
+	call start_driveR
+	call start_driveR
+	call start_driveR
+else
+	call stop_driveR
+	call stop_driveR
+	call stop_driveR
+endif
+
+# If both drives are shut down, the magic goes away
+set_user_flag "magic_disabled" = 0
+if Rgen = 0
+	if Lgen = 0
+		set_user_flag "magic_disabled" = 1
+	endif
+endif
+
+end
+
+
+function start_driveL
+object_array stuff[32]
+integer ctr
+private
+
+# Bring the drive fields up
+find_tags stuff[1] = "forcefield_off" 36
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_generator
+	endif
+next ctr
+
+# Bring the drive units up
+find_tags stuff[1] = "driveshell_off" 36
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "driveshell"
+	endif
+next ctr
+end
+
+function start_driveR
+object_array stuff[32]
+integer ctr
+private
+
+# Bring the drive fields up
+find_tags stuff[1] = "forcefield_off" 37
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "forcefield_on"
+		overfx stuff[ctr] does fx_generator
+	endif
+next ctr
+
+# Bring the drive units up
+find_tags stuff[1] = "driveshell_off" 37
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "driveshell"
+	endif
+next ctr
+end
+
+function stop_driveL
+object_array stuff[32]
+integer ctr
+private
+
+# Bring the drive fields up
+find_tags stuff[1] = "forcefield_on" 36
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# Bring the drive units up
+find_tags stuff[1] = "driveshell" 36
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "driveshell_off"
+	endif
+next ctr
+end
+
+
+function stop_driveR
+object_array stuff[32]
+integer ctr
+private
+
+# Bring the drive fields up
+find_tags stuff[1] = "forcefield_on" 37
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+# Bring the drive units up
+find_tags stuff[1] = "driveshell" 37
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		change stuff[ctr] = "driveshell_off"
+	endif
+next ctr
+end
+
+
+##
+##  Deadlands Hydroelectric Powerplant
+##
+
+function dlpower_reset
+object sw1
+object sw2
+object sw3
+object sw4
+object sw5
+object sw6
+object short
+
+set_user_flag "dlpower_fixed" = 0
+set_user_flag "true" = 0
+
+# Get the switches
+find_tag sw1 = "WALL_METAL_BREAKER" 1001
+find_tag sw2 = "WALL_METAL_BREAKER" 1002
+find_tag sw3 = "WALL_METAL_BREAKER" 1003
+find_tag sw4 = "WALL_METAL_BREAKER" 1004
+find_tag sw5 = "WALL_METAL_BREAKER" 1005
+find_tag sw6 = "WALL_METAL_BREAKER" 1006
+
+# Check all switches are present
+if_not_exists sw1
+	return
+endif
+if_not_exists sw2
+	return
+endif
+if_not_exists sw3
+	return
+endif
+if_not_exists sw4
+	return
+endif
+if_not_exists sw5
+	return
+endif
+if_not_exists sw6
+	return
+endif
+
+# Is there still a phase short across lines 5+6?
+if sw5.curdir = UP
+and sw6.curdir = UP
+	find_tag short = "power_mast" 1007
+	if_exists short
+		if short.x = 646
+			if short.y = 1000
+				# BANG!
+				lightning 2
+				set_direction sw5 facing DOWN
+				set_direction sw6 facing DOWN
+			endif
+		endif
+	endif
+endif
+
+
+
+# All switches, fly to me!
+if sw1.curdir = UP
+	if sw2.curdir = UP
+		if sw3.curdir = UP
+			if sw4.curdir = UP
+				if sw5.curdir = UP
+					if sw6.curdir = UP
+						set_user_flag "dlpower_fixed" = 1
+						set_user_flag "true" = 1
+					endif
+				endif
+			endif
+		endif
+	endif
+endif
+
+end
+
+##
+##  Move the mast out of the way
+##
+
+function dlpower_fixmast
+int x
+object mast
+let mast = current	# This was 'me', which instantly destroyed the player
+let x = mast.x + 2
+transfer_object mast to x mast.y
+replace mast = "power_mast_fallen"	# Now it's lying on the ground
+end
+
+
+
+##
+##  Display generator status
+##
+
+function dlp_display_gen
+save_screen
+
+if_exists dlp_display
+	destroy dlp_display
+endif
+
+if current.stats.hp <= 0
+	create dlp_display = "PPLANT_SCREEN0"
+else
+	if current.curdir = LEFT
+		create dlp_display = "PPLANT_SCREEN1"
+	endif
+	if current.curdir = RIGHT
+		create dlp_display = "PPLANT_SCREEN2"
+	endif
+	if current.curdir = UP
+		create dlp_display = "PPLANT_SCREEN3"
+	endif
+endif
+
+draw_object dlp_display at 160 120
+
+get_key_quiet
+load_screen
+end
+
+##
+##  Player tried to dick around with the 110kv lines
+##
+
+function hit_110kv
+
+let suspect = current.enemy
+if_not_exists suspect
+	return
+endif
+
+lightning 3
+if_exists suspect
+	let suspect.stats.hp = -10000 # Very high current
+	check_hurt suspect
+endif
+
+# Reset the HP back
+let current.stats.hp = current.user.oldhp
+
+end
+
+
+##
+##  Breakers for the power room
+##
+
+function pplant_breaker
+object breaker
+object_array valve[3]
+integer ctr
+
+let breaker = current
+
+# The main breaker code will do this too, but the valve system
+# checks the breaker position to see if it's live.  We'll set it back later
+set_direction breaker facing UP
+
+# Rewrite this later so valves can only be replaced while the power
+# is off for that drive segment.  The code for checking the valves
+# and activating the relevant drive systems would be moved here
+
+find_tags valve[1] = "valve_socket" breaker.tag
+for ctr = 1 to 3
+	if_exists valve[ctr]
+		let current = valve[ctr]
+		let victim = current.next
+		call current.funcs.scache
+	endif
+next ctr
+
+call check_drives
+
+# Set it back so the breaker's own code will work properly
+set_direction breaker facing DOWN
+
+end
+
+##
+##  Cutoff switch
+##
+
+
+function pplant_cutoff
+object_array valve[3]
+integer ctr
+object breaker
+
+find_tag breaker = "wall_metal_breaker" current.tag
+
+if_exists breaker
+	set_direction breaker facing DOWN
+
+	# Shut it down
+	find_tags valve[1] = "valve_socket" breaker.tag
+	for ctr = 1 to 3
+		if_exists valve[ctr]
+			let current = valve[ctr]
+			let victim = current.next
+			call current.funcs.scache
+		endif
+	next ctr
+endif
+
+end

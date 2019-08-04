@@ -1,0 +1,255 @@
+DESCRIPTION
+Watson, a type 'A' reconnaisance variant of the GR-4 bomber and Sherlock's
+assistant.
+Watson is of the intelligence team on Weytus and is 'very close' to Sherlock.
+
+LFLAGS
+'wats_gay' to question Watson about his private life.
+'wats_irr' to make Watson irritable.  This can be transient or not.
+'wats_mad' to make Watson so angry he won't talk to you.
+
+[esc="bye"]
+
+[page="start"]
+[if_local wats_mad][goto="out"]
+[if_local wats_irr][image="wats-2.pcx"]
+[if_not_local wats_irr][image="wats-0.pcx"]
+
+[set_local wats_gay]
+
+[colour="#ffffff"]
+[if_local wats_irr]"What do you want?"
+[if_not_local wats_irr]"Hello."
+
+[clear_local wats_irr]
+
+[link="What is your name?"]
+[linkto="name"]
+[altlink="What was your name again?"]
+[altlinkto="name.again"]
+[link="What do you do?"]
+[linkto="job"]
+[altlink="Tell me about your job again."]
+[altlinkto="job.again"]
+[link="Die, plane!"]
+[linkto="angry"]
+[link="Nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="main"]
+[if_local wats_irr][image="wats-2.pcx"]
+[if_not_local wats_irr][image="wats-0.pcx"]
+
+"Where was I?"
+
+[link="What is your name?"]
+[linkto="name"]
+[altlink="What was your name again?"]
+[altlinkto="name.again"]
+[link="What do you do?"]
+[linkto="job"]
+[altlink="Tell me about your job again."]
+[altlinkto="job.again"]
+[link="Die, plane!"]
+[linkto="angry"]
+[link="Nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="wats-0.pcx"]
+[learn_name]
+
+"Watson, sir.  Pleased to meet you."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Why are you called Watson?"]
+[linkto="name.why"]
+[once]
+[endpage]
+
+[page="name.why"]
+[image="wats-0.pcx"]
+[learn_name]
+
+"Our Master named us after famous detectives."
+
+[link="Where is your master?"]
+[linkto="name.why.master"]
+[link="What do you do?"]
+[linkto="job"]
+[endpage]
+
+[page="name.why.master"]
+[image="wats-0.pcx"]
+
+"He died long ago.  Now we run his surveillance company ourselves.
+ If you wish to know more about our past, I suggest you ask Sherlock."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Maybe later."]
+[linkto="main"]
+[link="Good idea.  I'll see you later."]
+[linkto="bye"]
+[endpage]
+
+[page="job"]
+[image="wats-0.pcx"]
+
+"Me, Sir?
+ I work with my dear friend Sherlock: we run a surveillance firm together.
+ He runs the show, mostly..  I do the more practical work."
+
+[link="What kind of work do you do?"]
+[linkto="job.what"]
+[link="Who do you spy on?"]
+[linkto="job.who"]
+[link="Okay."]
+[linkto="main"]
+[endpage]
+
+
+[page="job.what"]
+[image="wats-0.pcx"]
+
+"I look after and repair the equipment we use for jobs.  I also design
+ advanced sensor equipment for specialist tasks such as water leaks."
+
+[link="Who repairs you?"]
+[linkto="job.what.rep"]
+[link="Who do you spy on?"]
+[linkto="job.who"]
+[link="Why are you called Watson?"]
+[linkto="name.why"]
+[once]
+[link="You're a bomber.  Have you ever attacked anything?"]
+[linkto="job.what.gr4"]
+[once]
+[link="I see."]
+[linkto="main"]
+[endpage]
+
+
+[page="job.what.rep"]
+[image="wats-0.pcx"]
+
+"There are suitable facilities at all major airstrips on Weytus.
+ However, minor repairs we can perform on ourselves using remote units."
+
+[link="Who do you spy on?"]
+[linkto="job.who"]
+[link="Why are you called Watson?"]
+[linkto="name.why"]
+[once]
+[link="Okay."]
+[linkto="main"]
+[endpage]
+
+[page="job.what.gr4"]
+[image="wats-2.pcx"]
+
+"Certainly not!  And I'm NOT a bomber.. I'm a reconnaisance variant."
+
+[link="I saw you in action in the Gulf"]
+[linkto="job.what.gr4.gulf"]
+[link="Oh.  Sorry."]
+[linkto="job.what.gr4.sorry"]
+[endpage]
+
+
+[page="job.what.gr4.gulf"]
+[image="wats-2.pcx"]
+
+"You're beginning to annoy me, human."
+
+[colour="#808080"]Watson emphasises the last word in a disconcerting manner.
+[colour="#ffffff"]
+
+[link="I'm sorry.  I got carried away."]
+[linkto="job.what.gr4.sorry"]
+[link="I haven't begun to annoy you!"]
+[linkto="angry.very"]
+[endpage]
+
+
+[page="job.what.gr4.sorry"]
+[image="wats-2.pcx"]
+
+"Very well, Sir.  What did you want to know?"
+
+[link="Who do you investigate?"]
+[linkto="job.who"]
+[link="Why are you called Watson?"]
+[linkto="name.why"]
+[once]
+[link="Never mind, I must be off now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job.who"]
+[image="wats-0.pcx"]
+
+"It depends.  Sherlock gets us the contracts.
+ I prefer civil engineering work, but we also do military contracts too.
+ Also we can hunt missing people or track escaped convicts."
+
+[link="I see."]
+[linkto="main"]
+[link="Why are you called Watson?"]
+[linkto="name.why"]
+[once]
+[endpage]
+
+
+[page="gay"]
+[image="wats-3.pcx"]
+
+"That's not true!  It's not true!  It's not even slightly true!"
+
+[set_local wats_mad]
+[nextpage="exit"]
+[endpage]
+
+
+[page="angry"]
+[image="wats-2.pcx"]
+
+"Go away."
+
+[set_local wats_irr]
+[nextpage="exit"]
+[endpage]
+
+
+[page="angry.very"]
+[image="wats-4.pcx"]
+
+"That's quite enough, meat.
+ Now get the hell out before I hurt you."
+
+[set_local wats_mad]
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="wats-0.pcx"]
+
+"Goodbye, sir."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="out"]
+[image="wats-2.pcx"]
+
+"GO AWAY!"
+
+[nextpage="exit"]
+[endpage]

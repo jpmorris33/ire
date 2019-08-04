@@ -1,0 +1,571 @@
+##
+##	Game Initialisation functions
+##
+
+const MAX_PLAYERNAME = 26
+
+int darkness
+integer CardinalSpoke2U = 0
+userstring playername 31
+string splayername
+integer NeedPlayerName = 0
+integer PlayerMF = 0
+integer InMenu = 0
+
+# Set base area of button panel
+const WST_X = 384
+const WST_Y = 234
+
+# int menupos = 1
+
+##
+##  Menu etc.  The map does exist yet and you can't create objects.
+##  Tread carefully, gentlemen, or I'll turn you all into toads.
+##
+
+function initproc
+
+## This is a stub to debug DOFUS
+/*
+int a = 1
+int b = 2
+int c = 3
+
+let a = 3
+let b = 4
+let c = b
+
+status 5
+*/
+### Proper code starts here
+
+# We need this for the volume slider
+if_not_exists spellbook_img
+	create spellbook_img = "paper_book"
+endif
+
+# We need this for Load Game
+if_not_exists phone_img
+	create phone_img = "phone_panel"
+endif
+
+int menupos = 1
+int mx
+int my
+
+set_panel "backings/menu.png"
+
+save_screen
+
+let my = 117
+
+let mx = 27 + 8
+button 1 = mx my "intro_n" "intro_h"
+let mx = 27
+
+add my + 64
+button 2 = mx my "start_n" "start_h"
+add my + 64
+button 3 = mx my "saveg_n" "saveg_h"
+add my + 64
+button 4 = mx my "quit_n" "quit_h"
+
+play_music "menu"
+
+let key = 0
+let InMenu = 1
+
+do
+	# Highlight selected button
+	button_push menupos = 1
+
+	get_key_quiet
+
+
+	# un-highlight it, because it may have changed
+	button_push menupos = 0
+
+	if key = KEY_F4
+		# Bring up the sound settings dialog
+		call volumeslider
+	endif
+
+	# Move selection if need be
+	if key = KEY_UP
+	and menupos > 1
+		add menupos - 1
+	endif
+
+	if key = KEY_DOWN
+	and menupos < 4
+		add menupos + 1
+	endif
+
+	# Hit a key directly
+
+	if key >= KEY_1
+		if key <= KEY_4
+			let menupos = key - KEY_0
+			let key = KEY_ENTER
+		endif
+	endif
+
+	# F3 shortcut for Load Game
+	if key == KEY_F3
+		let menupos = 3
+		let key = KEY_ENTER
+	endif
+
+
+	# Do stuff
+	if key = KEY_ENTER
+		if menupos = 1
+			# Run intro and cancel quit
+			stop_music
+			call intro
+			let key = 0
+		endif
+
+		if menupos = 3
+			stop_music
+			# Load a game
+#			status 8
+			let key = 0
+			call use_mobile_loadgame
+
+			let key = KEY_ENTER
+			if err = -1
+				# Failed, carry on
+				let key = 0
+			endif
+			if err = -666
+				# Start a new game
+				let menupos = 2
+			endif
+		endif
+
+#		print menupos
+#		printcr
+
+		if menupos = 4
+			let key = KEY_ESC
+		endif
+
+	endif
+
+	if key = KEY_ESC
+		# Halt the game engine (status requests are VERY dangerous!)
+		status 7
+
+		# Get rid of the mouse stuff
+		restore_screen
+		let key = KEY_ESC
+		return
+	endif
+
+while key <> KEY_ENTER
+
+let InMenu = 0
+
+# This will remove all the buttons etc
+restore_screen
+
+# If we're starting a new game, get the player's name
+if menupos = 2
+	let NeedPlayerName = 1
+endif
+
+stop_music
+
+set_panel "backings/panel.png"
+
+end
+
+
+##
+##  Game start
+##
+
+function mainproc
+int bx
+object o
+
+if CardinalSpoke2U = 0
+	# Set default journal entry as necessary
+	journal jrn_Arrival
+
+	# Find the player and talk to them
+	find_tag o = "man_cardinal" 36
+	if_exists o
+		queue_action o does seek_target_talk
+		run_queue o
+		let CardinalSpoke2U = 1
+	endif
+endif
+
+# Set various pointers to default to the player
+
+let defaultenemy = player
+let current_bag = player
+let splatvictim = player
+
+call loadproc
+
+# Set up lights etc. if the game is beginning
+# This is a hack and will be dealt with in a proper way eventually
+
+get_user_flag bx = "first_time"
+if bx = 0
+
+	let darkness = 0 			# Day is 0 darkness
+	set_darkness darkness
+
+	if NeedPlayerName <> 0
+		call get_playername
+	endif
+
+	# Did the player enter a valid name?
+	strgetpos bx = playername 1
+	if bx = 0
+		# No, they didn't
+		setstr playername = "Carlos Villani"
+		let PlayerMF = 1
+	endif
+
+	let splayername = playername
+
+	# Oester Ei
+	if splayername = "Pidge the Kitten"
+		replace player = "playerp"
+		let splayername = "Pidge"
+		let PlayerMF = 1
+		set_flag player IS_PARTY = 1
+		set_leader player player_action follower_action
+	endif
+
+	# Set the player's name
+	set_personalname player = splayername
+
+	# And sex
+	if PlayerMF < 0
+		set_flag player IS_FEMALE = 1
+	endif
+	if PlayerMF > 0
+		set_flag player IS_FEMALE = 0
+	endif
+	set_user_flag "first_time" = 1
+endif
+
+end
+
+
+##
+##  Function called when reload or restart happens
+##
+
+function loadproc
+int bx
+int by
+
+# Create all the user interface widgets if necessary
+
+if_not_exists objectpanel
+	create objectpanel = "objectpanel"
+endif
+
+if_not_exists cursor
+	create cursor = "objectcursor"
+endif
+
+if_not_exists statuspanel
+	create statuspanel = "statspanel"
+endif
+
+if_not_exists splat
+	create splat = "splat"
+endif
+
+if_not_exists directioncursor
+	create directioncursor = "directioncursor"
+endif
+
+if_not_exists karmometer
+	create karmometer = "karmometer"
+endif
+
+if_not_exists back_icon
+	create back_icon = "back_icon"
+endif
+
+if_not_exists phone_img
+	create phone_img = "phone_panel"
+endif
+
+if_not_exists spellbook_img
+	create spellbook_img = "paper_book"
+endif
+
+# Set up user interface buttons
+
+let bx = WST_X + 9
+let by = WST_Y + 9
+button KEY_U = bx by "usebutton_dark" "usebutton_light"
+
+let bx = WST_X + 75
+let by = WST_Y + 9
+button KEY_G = bx by "getbutton_dark" "getbutton_light"
+
+let bx = WST_X + 138
+let by = WST_Y + 9
+button KEY_D = bx by "dropbutton_dark" "dropbutton_light"
+
+let bx = WST_X + 38
+let by = WST_Y + 49
+button KEY_A = bx by "attackbutton_dark" "attackbutton_light"
+
+let bx = WST_X + 137
+let by = WST_Y + 49
+button KEY_T = bx by "talkbutton_dark" "talkbutton_light"
+
+let bx = WST_X + 9
+let by = WST_Y + 89
+button KEY_L = bx by "lookbutton_dark" "lookbutton_light"
+
+let bx = WST_X + 87
+let by = WST_Y + 89
+button KEY_M = bx by "movebutton_dark" "movebutton_light"
+
+let bx = WST_X + 170
+let by = WST_Y + 89
+button KEY_C = bx by "castbutton_dark" "castbutton_light"
+
+# Set up movement areas
+
+mouse_range KEY_HOME = 16 16 117 117
+right_click KEY_HOME
+
+mouse_range KEY_UP = 133 16 117 117
+right_click KEY_UP
+
+mouse_range KEY_PGUP = 250 16 117 117
+right_click KEY_PGUP
+
+mouse_range KEY_LEFT = 16 133 117 117
+right_click KEY_LEFT
+
+mouse_range KEY_RIGHT = 250 133 117 117
+right_click KEY_RIGHT
+
+mouse_range KEY_END = 16 250 117 117
+right_click KEY_END
+
+mouse_range KEY_DOWN = 133 250 117 117
+right_click KEY_DOWN
+
+mouse_range KEY_PGDN = 250 250 117 117
+right_click KEY_PGDN
+
+# Inventory
+
+mouse_range INVENTORY = 495 17 128 128
+mouse_grid INVENTORY = 32 32
+
+button INV_ARROW_U = 624 18  "bag_Arrow_u1" "bag_Arrow_u2"
+button INV_ARROW_D = 624 128 "bag_Arrow_d1" "bag_Arrow_d2"
+
+end
+
+##
+##  Introduction (scroller)
+##
+
+function intro
+
+play_music "ProgTro"
+let start_delay = 0
+let end_delay = 0
+let scroll_delay = 1
+
+scroll_picture "backings/intro.pcx" 0 1
+
+if key == KEY_ESC
+	stop_music
+endif
+
+let key = 0
+end
+
+
+
+
+function get_playername
+
+integer pnp = 1
+object book
+
+save_screen
+textfont 3
+
+create book = "paper_book"
+
+# Make sure that it is pointing to the user-modifiable string
+let splayername = playername
+
+##
+##  First, get the name
+##
+
+let key = 0
+
+do
+	draw_object book at 160 120
+
+	gotoxy 200 160
+	printxy "Give your name:"
+	printxycr
+	printxycr
+
+	printxy splayername
+#	printxy " "
+
+	get_key_quiet
+
+	if key = KEY_ENTER
+		break
+	endif
+
+	if key = KEY_BACKSPACE
+		if pnp > 1
+			add pnp - 1
+			strsetpos playername pnp = 0	# Terminate
+		endif
+		continue
+	endif
+
+	# If too many characters, ignore it
+	if pnp > MAX_PLAYERNAME
+		continue
+	endif
+
+	# Translate into ASCII
+	call find_ascii
+
+	# If not valid, go round again
+	if key = 0
+		continue
+	endif
+
+	strsetpos playername pnp = key
+	add pnp + 1
+	strsetpos playername pnp = 0	# Terminate
+
+while key <> KEY_ENTER
+
+	printxycr
+	printxycr
+	printxy "Are you Male or Female?"
+	printxycr
+	printxycr
+
+do
+	get_key_quiet
+
+	if key = KEY_M
+		let PlayerMF = 1
+		break
+	endif
+
+	if key = KEY_F
+		let PlayerMF = -1
+		break
+	endif
+
+while 1
+
+
+	if key = KEY_F
+		printxy "Female"
+	else
+		printxy "Male"
+	endif
+
+wait 250 BLOCKING
+
+textfont 0
+load_screen
+
+#destroy book
+
+end
+
+##
+##  Transform a keypress into ASCII
+##
+
+function find_ascii
+
+int sa
+int sz
+
+let sa = KEY_A or 128
+let sz = KEY_Z or 128
+
+	# Lower-case A-Z
+	if key >= KEY_A
+	and key <= KEY_Z
+		let key = key - KEY_A
+		let key = 'a' + key
+		return
+	endif
+
+	# Upper-case A-Z
+	if key >= sa
+	and key <= sz
+		let key = key - sa
+		let key = 'A' + key
+		return
+	endif
+
+	if key >= KEY_0
+	and key <= KEY_9
+		let key = key - KEY_0
+		let key = '0' + key
+		return
+	endif
+
+	if key = KEY_COMMA
+		let key = ','
+		return
+	endif
+
+#	if key = KEY_DOT
+	if key = 73
+		let key = '.'
+		return
+	endif
+
+	if key = KEY_QUOTE
+		let key = 39
+		return
+	endif
+
+	if key = KEY_MINUS
+		let key = '-'
+		return
+	endif
+
+	if key = KEY_SPACE
+		let key = 32
+		return
+	endif
+
+	if key = KEY_COMMA
+		let key = ':'
+		return
+	endif
+
+	# No
+
+	let key = 0
+
+end

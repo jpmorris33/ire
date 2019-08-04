@@ -1,0 +1,210 @@
+
+Girly
+
+[page="start"]
+
+[colour="#808080"]
+You see very effeminate-looking dwarf, with long hair, a
+high-pitched voice, and a beard.
+
+He is chanting something in a nearly incoherent voice.
+[colour="#ffffff"]
+
+"'YadaYadaYadaYadaYadaDontWannaDie!!'
+
+ Hey!  You're interrupting the song!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Girly, one of the Seven Dwarves.  The others
+quieten down as he says his piece.
+[colour="#ffffff"]
+
+"'There's a lot of innocent people.. being crucified.'"
+
+[colour="#808080"]
+Then the other dwarves all go into a frenzy.
+[colour="#ffffff"]
+
+"Take over, please, Sleazy.
+
+ You're interrupting the song!"
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+[set dwarves]
+
+"They call me 'Girly'.  I'm one of the Seven Dwarves."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[set dwarves]
+
+"We're miners.  We mine jam sandwiches."
+
+[link="You can't mine jam sandwiches."]
+[linkto="job2"]
+[link="What were you singing just now?"]
+[linkto="singing"]
+[link="Tell me about Snow White."]
+[linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job2"]
+[colour="#808080"]
+He coughs.
+[colour="#ffffff"]
+
+"Did I say jam sandwiches?  I meant potatoes.
+ We're not really miners, we're gardeners."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Can I have a potato?"]
+[linkto="job3"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job3"]
+[colour="#808080"]
+He looks at his feet.
+[colour="#ffffff"]
+
+"We don't have any yet.  Come back in about ten years."
+
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="singing"]
+
+"It's part of 'After The Flesh' by the Thrill-Kill Cult.
+ It's a happy little song we sing while we're working.
+
+ Ugly sings the vocals, and Dopey sings the guitar parts.
+ Fatso does the bassline, Sleazy and I chant the samples
+ and Surly sings the drums.  Stupid can't sing."
+
+[link="Don't you have any instruments?"]
+[linkto="singing2"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="singing2"]
+
+"Oh no.  If we spent all our time playing instruments
+ we'd never get any work done.
+
+ We used to have a boom-box, but the LORD confiscated it.
+ HE said it was 'an unlawful technological artifact'."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite"]
+
+"Oh, she was a cute little thing who came here seeking
+ refuge from someone who had it in for her.
+
+ Anyway, we let her stay, and in exchange she helped us
+ by washing our clothes and cooking our food.
+ She did my hair as well.
+
+ But all good things come to an end, and this evil witch
+ came along and slew her with a poisoned pear.
+
+ But some say that she is not dead, only sleeping, and
+ the kiss of a handsome traveller will break the spell."
+
+[link="But she's a dog, though."]
+[linkto="snowwhite2"]
+[link="Oh, right.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite2"]
+
+"Well, that's a nice thing to call her!"
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you doing just now?"]
+[if dwarves][linkto="singing"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Goodbye, gorgeous."
+
+[nextpage="exit"]
+[endpage]

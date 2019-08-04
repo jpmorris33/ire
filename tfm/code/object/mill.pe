@@ -1,0 +1,129 @@
+###############################
+#                             #
+#  Milling, flour, grain etc  #
+#                             #
+###############################
+
+
+##
+##  Tip a handful of flour out of a sack
+##
+
+function spill_flour
+activity
+
+if current.stats.karma <= 0
+	if me = player
+		print "It's empty."
+		printcr
+	endif
+	return
+endif
+
+add current.stats.karma - 1
+let current.stats.weight = current.stats.karma * 625
+
+let new_x = me.x
+let new_y = me.y
+call create_flour
+
+move_to_pocket current into me
+end
+
+##
+##  Tip a handful of grain out of a sack
+##
+
+function spill_grain
+activity
+int vc
+
+if current.stats.karma <= 0
+	if me = player
+		print "It's empty."
+		printcr
+	endif
+	return
+endif
+
+add current.stats.karma - 2 # Take two portions of grain
+if current.stats.karma < 0
+	let current.stats.karma = 0
+endif
+# Calculate weight of the sack
+let vc = current.stats.karma / 2
+let current.stats.weight = vc * 625
+
+let new_x = me.x
+let new_y = me.y
+call create_grain
+
+move_to_pocket current into me
+end
+
+##
+##  Turn grain into flour.  Assumes it is north of the wheel,
+##  creates the flour two tiles south
+##
+
+function mill_grain
+activity
+
+if_exists victim
+	if victim is called "grain"
+		# Turn the grain into flour
+		destroy victim
+		# Create the flour the other side of the wheel
+		let new_x = current.x
+		let new_y = current.y + 2
+		call create_flour
+		return
+	endif
+endif
+
+end
+
+
+##
+##  Create a pile of flour at new_x new_y (with a random shape)
+##
+
+function create_flour
+private
+object flour
+integer frame
+
+# Choose a random direction for the flour to face
+random frame between 0 3
+
+# Make it and put it in the given position
+create flour = "flour"
+transfer_object flour to new_x new_y
+
+# Set it to the random direction
+set_direction flour = frame
+
+let current = flour
+end
+
+
+##
+##  Create a pile of grain at new_x new_y (with a random shape)
+##
+
+function create_grain
+private
+object grain
+integer frame
+
+# Choose a random direction for the flour to face
+random frame between 0 3
+
+# Make it and put it in the given position
+create grain = "grain"
+transfer_object grain to new_x new_y
+
+# Set it to the random direction
+set_direction grain = frame
+let current = grain
+end

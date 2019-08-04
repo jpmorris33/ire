@@ -1,0 +1,156 @@
+
+'Ron the Criminal'
+
+
+[page="start"]
+[color="#808080"]
+You see a lean, man dressed in rags.
+[color="#ffffff"]
+
+"Hail, friend."
+
+[link="What have you done?"]
+[linkto="job"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[if_pflag toadstones][link="Can I have some more stones?"]
+[if_pflag toadstones][linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[color="#808080"]
+You see $NAME.
+[color="#ffffff"]
+
+"Hail, friend."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[if_pflag toadstones][link="Tell me about these 'todestones'."]
+[if_pflag toadstones][linkto="toadstones"]
+[if_pflag toadstones][link="Can I have some more stones?"]
+[if_pflag toadstones][linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+
+"They call me 'Ron'."
+
+[link="What is your job?"]
+[linkto="job"]
+[if_pflag sold_rocks][link="Did you say you sold rocks?"]
+[if_pflag sold_rocks][linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="job"]
+[set_pflag sold_rocks]
+
+"I used to sell rocks.  But I was caught for selling
+ without a permit.  I could not pay the fine and now I
+ am a professional jail inmate."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="You sold rocks?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+[set_pflag toadstones]
+
+"Yes, but not many people bought them.  Even after I
+ painted faces upon them.
+
+ What people really wanted were the todestones.
+ I still have some that I would gladly trade for bread."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="Tell me about these 'todestones'."]
+[linkto="toadstones"]
+[always]
+[link="Okay, here's some bread, give me the stones."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="toadstones"]
+
+"You get them by killing todes.  If the tode be old and
+ big, the todestone shall be powerful, or so I hear.
+
+ Wizards and mages use them in sorcery, and the Church
+ use them too, for it is said that they glow when poison
+ is near.  That is what most people want them for.
+
+ I do not really know how to use them myself.
+
+ If you bring me bread, I shall give you a handful of the
+ stones."
+
+[link="Okay, here's some bread, give me the stones."]
+[linkto="buy"]
+[always]
+[link="What is your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+[take 1 "food01"]
+[if false][take 1 "food02"]
+[if false][goto="nofood"]
+[create 3 "toadstone"]
+
+"Thank you!  I shall eat well tonight.
+ Here are your stones."
+
+[link="I want some more stones."]
+[linkto="buy"]
+[always]
+[link="What is your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nofood"]
+
+"Oh!  You don't have any bread!"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="Tell me about these 'todestones'."]
+[linkto="toadstones"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Goodbye."
+
+[nextpage="exit"]
+[endpage]
+

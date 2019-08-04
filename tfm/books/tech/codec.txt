@@ -1,0 +1,89 @@
+[page="start"]
+[if grey_login][goto="login"]
+[is_in_party "king grey"]
+[if true][goto="kinggrey"]
+[am_carrying "dragoncom"]
+[if true][goto="drakaan_nologin"]
+[goto="dontknowwhattodo"]
+[endpage]
+
+
+
+[page="kinggrey"]
+[set grey_login]
+[font 1]
+
+[colour="#808080"]
+ King Grey hunkers down in front of the terminal, and all
+ of Xy'Lan's training comes back to him.
+ As his paws race, incomprehensible symbols and diagrams
+ flash across the screen.
+ Mere moments later, he has logged you into the system.
+[colour="#ffffff"]
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="login"]
+[am_carrying "dragoncom"]
+[if true][goto="drakaan_login"]
+[font 1]
+
+[colour="#808080"]
+ You're logged into the most powerful computer system in
+ the world.  But you can't understand the display.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="drakaan_nologin"]
+[image="comms05a.pcx"]
+
+"Excellent!  You've made it to the CODEC data terminal.
+
+ Unfortunately, that is the easy bit.  Now we have to
+ find some way to get into the system.
+
+ Xy'Lan has changed the login, so you will need to find
+ someone who knows the CODEC decryption key.  This will
+ not be easy, but it would take us millenia to break it
+ using brute-force.
+
+ I would suggest you look through the Pope's papers and
+ see if he has any record of the pass-codes."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="drakaan_login"]
+[image="comms05a.pcx"]
+
+"Fantastic.. now we're getting somewhere!
+
+ Now, we need to install some new software on the
+ machine.  I believe we have already given you the
+ data cube containing the new program."
+
+[nextpage="exit"]
+[endpage]
+
+The program doesn't work.  You have to return to the
+dragons to obtain an update.
+
+[page="dontknowwhattodo"]
+[font 1]
+
+[colour="#808080"]
+ You stand before the most powerful computer system on
+ the entire planet.
+
+ But you have no idea how to use it.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

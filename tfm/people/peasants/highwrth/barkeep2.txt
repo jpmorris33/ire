@@ -1,0 +1,95 @@
+[page="start"]
+[iftime 0800-0914][goto="inchurch"]
+[colour="#808080"]
+You see a cook.
+[colour="#ffffff"]
+
+"Hello.  If you wish to place an order, please talk to
+ my wife."
+
+[link="Why is your pub called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+"Quiet!  I would hear the Mass!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="greenlion"]
+
+"Green lions are to be found in the wondrous lands of
+ Etheopia, where the saintly king, Prester John, reigns
+ with a just but firm hand.
+
+ Ask my wife if you would know more."
+
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="inn"]
+
+"I am a busy man.. pray ask my wife instead."
+ 
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre"]
+[if returned_sceptre][goto="sceptre2"]
+
+"I have not been keeping up with events.  I know only
+ that the King offers a fine reward for its return."
+
+ Perhaps you might ask some of my patrons."
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre2"]
+
+"Hmm.. I thought that you would know more of it than I!"
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,19 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                  The Witchfinder's Handbook
+
+                         By F. Finlay
+
+
+ [ This tome describes various techniques for finding witches,
+  including ordeal by axe, and the dagger/crucifix technique.
+
+  It also contains various case histories, including a cat that
+  drinks blood, a horse that can talk and the infamous case of
+  the Duck of Taunton.]
+
+[nextpage="exit"]
+[endpage]
+

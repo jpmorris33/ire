@@ -1,0 +1,65 @@
+##
+##	Container stuff
+##
+
+
+##
+##	Open a chest
+##
+
+function opencontainer
+
+string str
+
+# Get the name of the object it turns into from the OpenBag table
+get_data str where openbag = current.name
+
+# If we got something, make the change
+if err = 0
+	change current = str
+	reset_flag current IS_CONTAINER
+	object_sound "open_door" current
+endif
+end
+
+##
+##	Close a chest
+##
+
+function closecontainer
+
+string str
+
+# Get the name of the object it turns into from the CloseBag table
+get_data str where closebag = current.name
+
+# If we got something, make the change
+if err = 0
+	change current = str
+	reset_flag current IS_CONTAINER
+	object_sound "open_door" current
+endif
+end
+
+##
+##	Smash a chest
+##
+
+function smashchest
+
+# Spill the goodies
+spill current
+object_sound "CHAIRBREAKING" current
+change current = "chestbroken"
+
+end
+
+
+##
+##	Spill
+##
+
+
+function spill
+spill current
+end

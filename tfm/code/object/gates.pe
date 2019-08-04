@@ -1,0 +1,325 @@
+############################
+#                          #
+#  Open airbase gates etc  #
+#                          #
+############################
+
+
+#
+#  Gates
+#
+
+
+##
+##	Open the left half
+##
+
+function open_lgate
+activity
+
+replace current = "fence_gate_l_open"
+if_onscreen current
+	set_sequence current = "fencegate_l_openanim"
+endif
+
+start_action current does gate_selfclose
+end
+
+##
+##	Close the left half
+##
+
+function close_lgate
+activity
+
+replace current = "fence_gate_l_closed"
+if_onscreen current
+	set_sequence current = "fencegate_l_closeanim"
+endif
+
+end
+
+
+##
+##	Open the right half
+##
+
+function open_rgate
+activity
+
+replace current = "fence_gate_r_open"
+if_onscreen current
+	set_sequence current = "fencegate_r_openanim"
+endif
+
+start_action current does gate_selfclose
+end
+
+##
+##	Close the left half
+##
+
+function close_rgate
+activity
+
+replace current = "fence_gate_r_closed"
+set_sequence current = "fencegate_r_closeanim"
+
+end
+
+
+##
+##	Open the top half
+##
+
+function open_ugate
+activity
+
+replace current = "fence_gate_u_open"
+if_onscreen current
+	set_sequence current = "fencegate_u_openanim"
+endif
+
+start_action current does gate_selfclose
+end
+
+##
+##	Close the top half
+##
+
+function close_ugate
+activity
+
+replace current = "fence_gate_u_closed"
+if_onscreen current
+	set_sequence current = "fencegate_u_closeanim"
+endif
+
+end
+
+
+##
+##	Open the bottom half
+##
+
+function open_dgate
+activity
+
+replace current = "fence_gate_d_open"
+if_onscreen current
+	set_sequence current = "fencegate_d_openanim"
+endif
+
+start_action current does gate_selfclose
+end
+
+##
+##	Close the bottom
+##
+
+function close_dgate
+activity
+
+replace current = "fence_gate_d_closed"
+if_onscreen current
+	set_sequence current = "fencegate_d_closeanim"
+endif
+
+end
+
+
+
+
+#
+#  Hangar doors
+#
+
+##
+##	Open the left half
+##
+
+function open_ldoor
+activity
+
+replace current = "hangar_door_l_open"
+if_onscreen current
+	set_sequence current = "hangardoor_l_openanim"
+endif
+
+end
+
+##
+##	Close the left half
+##
+
+function close_ldoor
+activity
+
+replace current = "hangar_door_l_closed"
+if_onscreen current
+	set_sequence current = "hangardoor_l_closeanim"
+endif
+
+end
+
+
+##
+##	Open the right half
+##
+
+function open_rdoor
+activity
+
+replace current = "hangar_door_r_open"
+if_onscreen current
+	set_sequence current = "hangardoor_r_openanim"
+endif
+
+end
+
+##
+##	Close the left half
+##
+
+function close_rdoor
+activity
+
+replace current = "hangar_door_r_closed"
+if_onscreen current
+	set_sequence current = "hangardoor_r_closeanim"
+endif
+
+end
+
+
+##
+##	Open the upper half
+##
+
+function open_udoor
+activity
+
+replace current = "hangar_door_u_open"
+if_onscreen current
+	set_sequence current = "hangardoor_u_openanim"
+endif
+
+end
+
+##
+##	Close the upper half
+##
+
+function close_udoor
+activity
+
+replace current = "hangar_door_u_closed"
+if_onscreen current
+	set_sequence current = "hangardoor_u_closeanim"
+endif
+
+end
+
+
+##
+##	Open the lower (down) half
+##
+
+function open_ddoor
+activity
+
+replace current = "hangar_door_d_open"
+if_onscreen current
+	set_sequence current = "hangardoor_d_openanim"
+endif
+
+end
+
+##
+##	Close the left half
+##
+
+function close_ddoor
+activity
+
+replace current = "hangar_door_d_closed"
+
+if_onscreen current
+	set_sequence current = "hangardoor_d_closeanim"
+endif
+
+end
+
+
+##
+##	Timing delay for self-close
+##
+
+function gate_selfclose
+activity
+
+# If the counter has timed out, close the door
+if me.user.user1 > 20
+	let me.user.user1 = 0
+	stop_action me
+	let current = me
+	call me.funcs.wield
+endif
+
+# Increment counter
+add me.user.user1 + 1
+
+end
+
+
+function airlock_selfclose
+activity
+
+# If the counter has timed out, close the door
+if me.user.user1 > 5
+	let me.user.user1 = 0
+	stop_action me
+	let current = me
+	call me.funcs.wield
+
+	# Only one should have a sound
+	if_exists me.stats.owner
+		object_sound "hitechdoor2" me.stats.owner
+	endif
+endif
+
+# Increment counter
+add me.user.user1 + 1
+
+end
+
+
+
+##
+##	Open the airlock door
+##
+
+function open_airlock
+activity
+
+replace current = "airlock_door_open"
+if_onscreen current
+	set_sequence current = "airlock_door_opening"
+endif
+
+start_action current does airlock_selfclose
+end
+
+##
+##	Airlock closes
+##
+
+
+function close_airlock
+activity
+
+replace current = "airlock_door"
+if_onscreen current
+	set_sequence current = "airlock_door_closing"
+endif
+end

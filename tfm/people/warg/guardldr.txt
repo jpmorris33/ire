@@ -1,0 +1,206 @@
+Leader of the Guard
+
+[page="start"]
+
+[colour="#808080"]
+You see a wolf-like creature in armour with some kind of crossbow attached to a
+harness around his back.  He speaks in a strange, snarling voice.
+[colour="#ffffff"]
+
+"Stop!  What humans are you that wish to enter the town of the Waarg?
+
+ Who are you, and what do you want?"
+
+[link="I am lost."]
+[linkto="lost"]
+[link="What do YOU want?"]
+[linkto="wdyw"]
+[link="Life, Liberty and the pursuit of Happiness!"]
+[linkto="llph"]
+
+[endpage]
+
+
+
+[page="lost"]
+
+"You certainly are..  but as worshippers of Aa'Ruuff the Betrayer, you must
+ leave at once, or face detention as enemies of our people!"
+
+[link="Who is Aa'Ruuff?"]
+[linkto="who_aaruuf"]
+[link="I'm not your enemy"]
+[linkto="not_enemy"]
+[link=""]
+
+[endpage]
+
+
+[page="who_aaruuf"]
+
+[colour="#808080"]
+The creature steps backwards in surprise.
+[colour="#ffffff"]
+
+"What?  Do you not worship the Betrayer?
+
+ Aa'Ruuff taught us to build and keep livestock.  We worshipped Him for
+ centuries, but He turned against us and sent His human worshippers to kill us!"
+
+[link="I don't worship Aa'Ruuff."]
+[linkto="no_aaruuff"]
+[link="I don't worship anyone."]
+[linkto="no_worship"]
+[link="I worship the Trinity"]
+[linkto="worship_trinity"]
+[link="Look at the time.  I must be going."]
+[linkto="bye"]
+
+[endpage]
+
+
+
+[page="wdyw"]
+
+"What does it look like?
+ I'm guarding the city entrance against humans!
+
+ Humans worship the evil God Aa'Ruuff who tried to annihilate US, his own
+ faithful worshippers!
+
+ Humans are not welcome here after the war brought about by His evil, and
+ YOUR complicity!"
+
+[link="Tell me about the war"]
+[linkto="aboutwar"]
+[link="I don't worship Aa'Ruuff"]
+[linkto="no_aaruuff"]
+[link="I don't worship anyone"]
+[linkto="no_god"]
+[link="I worship the Trinity"]
+[linkto="worship_trinity"]
+
+[endpage]
+
+
+[page="worship_trinity"]
+
+[colour="#808080"]
+The creature snarls angrily and snaps at the air.
+[colour="#ffffff"]
+
+"The Trinity does not exist!  It is a fabrication of Aa'Ruuff that He uses
+ to obtain your worship.
+
+ You still worship Him, whatever name He goes by!
+ If you are devotees of the Betrayer, then leave now!"
+
+[link="I don't REALLY worship the trinity."]
+[linkto="trinity_notreally"]
+[link="Aagh!  I'm not going to worship the Trinity anymore!"]
+[linkto=""]
+[link="I will not give up my God.  Farewell."]
+[linkto="bye_nocom"]
+[link="This is blasphemy and you must die."]
+[linkto=""]
+[link="Oh, right then.  Goodbye."]
+[linkto="bye_nocom"]
+
+[endpage]
+
+
+
+[page="trinity_notreally"]
+
+[colour="#808080"]
+The creature stiffens.
+[colour="#ffffff"]
+
+"You just say that so you can get into our city and KILL US ALL!"
+
+[link="No, I pretend to worship the Trinity so they don't kill me."]
+[linkto="trinity_pretend"]
+[link="Oops, you saw through me.  Got to go!"]
+[linkto="bye"]
+
+[endpage]
+
+
+[page="trinity_pretend"]
+
+[colour="#808080"]
+The creature's ears prick up.
+[colour="#ffffff"]
+
+"Really?  You mean you are a fugitive from Aa'Ruuff as well?
+ Perhaps you are not our enemy.
+
+ I will take you to our leader.  He will decide the truth."
+
+[link="I would like to meet your leader."]
+[linkto="leader_go"]
+[link="I don't want to see your leader."]
+[linkto="leader_not"]
+[link="I don't want to meet your leader yet."]
+[linkto="leader_notyet"]
+[endpage]
+
+
+[page="llph"]
+
+"What?  What are you talking about?"
+
+[link="Never mind."]
+[linkto="whyhere"]
+
+[endpage]
+
+[page="whyhere"]
+
+"I ask you again.. why have you come here?"
+
+[endpage]
+
+
+
+[page="aboutwar"]
+
+"What?!?  You do not know of the war?
+
+ Perhaps you are not hostiles.. I'm not sure whether to trust you.
+
+ I will take you to our leader.
+ He will decide what to do."
+
+[nextpage=""]
+
+[endpage]
+
+
+
+[page="no_aaruuf"]
+
+"You don't worship the Betrayer?
+
+ If that is so, then you are not necessarily our enemies..
+ ..but you are not necessarily our friends, either.
+
+ I don't trust you.  Trusting a people who tried to wipe us out comes hard.
+
+ But I will take you to our leader.
+ He will decide what to do with you."
+
+[endpage]
+
+
+
+[page="bye"]
+[colour="#808080"]
+The creature sniffs and returns to duty.
+[colour="#ffffff"]
+
+"Hmmph!"
+
+[nextpage="exit"]
+[endpage]
+

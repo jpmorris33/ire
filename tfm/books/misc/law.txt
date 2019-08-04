@@ -1,0 +1,12 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+               The Book of the Law
+                By Cardinal Trom
+
+  [ This is a book of the laws of the land.
+   It makes very grim reading.]
+
+[nextpage="exit"]
+[endpage]

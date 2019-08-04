@@ -1,0 +1,48 @@
+	name MaleWords
+	key=string
+	data=string
+	list:
+		SIR Sir
+		Sir Sir
+		sir sir
+		He He
+		he he
+		HE HE
+		him him
+		Him Him
+		HIM HIM
+		LORD Lord
+		MILORD Milord
+		Lord Lord
+		Milord Milord
+		MR Mr.
+		master master
+		Master Master
+		son son
+		Son Son
+	end
+
+	name FemaleWords
+	key=string
+	data=string
+	list:
+		SIR Madam
+		Sir Madam
+		sir madam
+		He She
+		he she
+		HE SHE
+		him her
+		Him Her
+		HIM HER
+		LORD Lady
+		Lord Lady
+		MILORD Milady
+		Milord Milady
+		MR Miss
+		master mistress
+		Master Mistress
+		son child
+		Son Child
+	end
+

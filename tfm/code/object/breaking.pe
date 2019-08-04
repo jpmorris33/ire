@@ -1,0 +1,416 @@
+#
+#
+#	Things Breaking
+#
+#
+
+
+##
+## Plant Pot
+##
+
+function plant1_break
+
+object_sound "smash_plant" current
+
+if current is called "plant1"
+	replace current = "plant1_damaged"
+else
+	if current is called "plant1_damaged"
+		replace current = "plant1_smashed"
+	endif
+endif
+end
+
+
+##
+## Grave
+##
+
+function grave_broken
+
+object_sound "atm_breaking" current
+replace current = "gravestone_broken"
+
+end
+
+
+##
+## Stained Glass
+##
+
+function stained_glass_break
+
+object_sound "smash_big1" current
+
+let suspect = current.enemy
+
+if current is called "stainedglass00"
+	replace current = "stainedglass00B"
+endif
+
+if current is called "stainedglass01"
+	replace current = "stainedglass01B"
+endif
+
+let victim = current
+call justice_desecration
+
+end
+
+
+##
+## Shop window
+##
+
+function kfswindow_break
+
+object_sound "smash_big1" current
+
+let suspect = current.enemy
+
+if current is called "kfs_window"
+	replace current = "kfs_window_broken"
+endif
+
+let victim = current
+call justice_desecration
+
+end
+
+
+##
+## Loom
+##
+
+function loom_break
+
+object_sound "doorbreaking" current
+change current = "loom_broken"
+
+end
+
+
+##
+## Smash China
+##
+
+function smash_china
+int rnd
+string china
+
+if_not_exist current
+	return
+endif
+
+# Choose a sound:
+
+random rnd between 0 3
+
+if rnd = 0
+	object_sound "smash_little2" current
+endif
+
+if rnd = 1
+	object_sound "smash_little3" current
+endif
+
+if rnd = 2
+	object_sound "smash_little4" current
+endif
+
+if rnd = 3
+	object_sound "smash_little5" current
+endif
+
+#
+
+get_data china where smashed_china = current.name
+if err = 0
+	replace current = china
+endif
+
+end
+
+
+
+##
+## Smash
+##
+
+function smash
+int rnd
+
+if_not_exist current
+	return
+endif
+
+# Choose a sound:
+
+random rnd between 0 1
+
+if rnd = 0
+	object_sound "smash_little1" current
+endif
+
+if rnd = 1
+	object_sound "smash_little2" current
+endif
+
+
+destroy current
+
+end
+
+
+##
+## Stamp On China - does it break under the weight?
+##
+
+function stamp_on_china
+
+if victim.stats.weight > 5000
+	let current.stats.hp = -1	# Die!
+	check_hurt current
+endif
+
+end
+
+
+function stamp_on_waargbowl
+object bowlowner
+
+if victim.stats.weight > 5000
+	let current.stats.hp = -1	# Die!
+	let bowlowner = current.stats.owner
+	check_hurt current
+
+	print "victim = "
+	print victim.name
+	print ", bowlowner = "
+	printx bowlowner
+	printcr
+
+	if victim = player
+		redraw_map
+
+		if_exists bowlowner
+			if bowlowner.stats.hp > 0
+				let current = bowlowner
+				if_onscreen bowlowner
+					talk_to bowlowner.funcs.talk "vandal"
+				endif
+			endif
+		endif
+	endif
+endif
+
+end
+
+
+##
+## Jar
+##
+
+function smashjar
+int rnd
+
+if_not_exist current
+	return
+endif
+
+# Choose a sound:
+
+random rnd between 0 1
+
+if rnd = 0
+	object_sound "smash_little1" current
+endif
+
+if rnd = 1
+	object_sound "smash_little2" current
+endif
+
+
+replace current = "jar_broken"
+
+end
+
+
+
+##
+## Mirrors
+##
+
+function smash_mirror
+integer rnd
+
+# Choose a sound:
+
+random rnd between 0 1
+
+if rnd = 0
+	object_sound "smash_big1" current
+endif
+
+if rnd = 1
+	object_sound "smash_big2" current
+endif
+
+if current is called "mirror"
+	replace current = "mirror_broken"
+endif
+
+if current is called "mirror2"
+	replace current = "mirror2_broken"
+endif
+
+
+end
+
+
+##
+## Chair
+##
+
+function break_chair
+
+object_sound "chairbreaking" current
+replace current = "broken_chair"
+
+end
+
+##
+##	Destroy the inflatable dinghy and spill its contents
+##
+
+function burst_boat
+
+object_sound "pop_dinghy" me
+replace current = "boat1_dead"
+
+if_exists current.pocket
+	set_member current.pocket player_action
+endif
+
+spill current
+
+end
+
+##
+## Wooden fence
+##
+
+function break_fence
+
+object_sound "chairbreaking" current
+replace current = "fence2_broken"
+
+end
+
+
+##
+## Delete misc object
+##
+
+function erase_it
+
+destroy current
+
+end
+
+
+##
+##	Phone breaking
+##
+
+function break_phone
+
+object_sound "plastic_breaking" current
+change current = "phone_broken"
+
+end
+
+
+##
+##  Valve is broken ('tube' to you American people)
+##
+
+function valve_broken
+#object base
+object valve
+integer x
+
+let valve = current
+let suspect = valve.enemy
+
+if valve is called "valve_working"
+	# Player smashed one of the valves in the starship drive generator
+	# Teach them the error of their ways
+	lightning 3
+	if_exists suspect
+		let suspect.stats.hp = -1000 # Very high current (was -10000)
+		check_hurt current.enemy
+	endif
+
+	# Trip the breaker
+	call pplant_cutoff
+
+#	# Shut down power systems
+#	get_first_object base at valve.x valve.y
+#	if_exists base
+#		call base.funcs.user1
+#	endif
+#	let base.user.user18 = 0
+endif
+
+object_sound "smash_big1" valve
+replace valve = "valve_broken"
+
+call got_medallion
+get_user_flag x = "true"
+if x = 1
+        talk_to "people/dragons/comms.txt" "engine-br"
+        return
+endif
+
+end
+
+
+##
+## Glass countertop
+##
+
+function smash_countertop
+object_array glass[16]
+object tmp
+int ctr
+
+# Call the cops
+
+let suspect = current.enemy
+let victim = current
+call justice_theft
+
+# Now smash the entire countertop
+
+object_sound "smash_big1" current
+
+find_tags glass[1] = "glass*" current.tag
+for ctr = 1 to 16
+	let tmp = glass[ctr]
+	if_exists tmp
+		destroy tmp
+	endif
+next ctr
+
+end
+
+# Break the pie
+
+function break_pie
+
+spill current
+replace current = "food15_dead"
+
+end

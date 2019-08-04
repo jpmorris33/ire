@@ -1,0 +1,241 @@
+##
+##	do_drop - Perform a throwing action and return success or failure
+##
+
+integer drop_quiet # If this is set to 1, DO_DROP doesn't print anything
+integer drop_nodamage # If this is set to 1, thrown objects don't hurt people
+
+function do_drop
+
+integer t
+integer distance
+integer broken
+integer xerr
+integer yerr
+integer delta_x
+integer delta_y
+integer incx
+integer incy
+integer xa
+integer ya
+integer xo
+integer yo
+integer xb
+integer yb
+integer moves
+integer weightdamage = 0
+object temp
+object obj
+object container
+
+let xb = new_x
+let yb = new_y
+let obj = victim
+let xerr = 0
+let yerr = 0
+let moves = 0
+
+let thrown = obj		# This is the object that is being thrown
+let container = obj.parent
+
+if drop_nodamage = 0
+	let weightdamage = obj.stats.weight / 100
+
+	if weightdamage > 90
+		let weightdamage = 90
+	endif
+
+	if weightdamage = 0
+		if obj.stats.damage > 0
+			let weightdamage = obj.stats.damage	# Knives etc
+		endif
+	endif
+endif
+
+# Disable the object's ability to trigger things until it's landed
+set_flag obj IS_SPIKEPROOF = 1
+
+# Don't count the origin as a solid object
+let xa = obj.x
+let ya = obj.y
+let xo = xa
+let yo = ya
+
+# Find the distance to go in each plane.
+let delta_x = xb - xa
+let delta_y = yb - ya
+
+# Find out the direction
+
+# first X
+
+if delta_x > 0
+	let incx = 1
+else
+	if delta_x = 0
+		let incx = 0
+	else
+		let incx = -1
+	endif
+endif
+
+# then Y
+
+if delta_y > 0
+	let incy = 1
+else
+	if delta_y = 0
+		let incy = 0
+	else
+		let incy = -1
+	endif
+endif
+
+
+# Find which way it is we're mostly going
+
+if delta_x < 0
+	let delta_x = 0 - delta_x
+endif
+
+if delta_y < 0
+	let delta_y = 0 - delta_y
+endif
+
+if delta_x > delta_y
+	let distance = delta_x
+else
+	let distance = delta_y
+endif
+
+# Keep moving until we hit something.
+
+for t = -1 to distance
+
+	push_object obj to xa ya
+	if err <> 0
+		# We hit something, decide what to do
+
+		# Is the wall right in front of us?
+		# Abort instead of having the player just smash it
+
+		if moves = 0
+			move_to_pocket obj to container
+			reset_flag obj IS_SPIKEPROOF
+			let drop_ok = 0
+			if drop_quiet = 0
+				print "blocked."
+				printcr
+			endif
+			let thrown = null
+			let drop_quiet = 0 # Reset Quiet flag in case left
+			let drop_nodamage = 0
+			return
+		endif
+
+		# If there's an object there, hurt it
+
+		get_object temp at xa ya
+		if_exists temp
+			add temp.stats.hp - weightdamage
+			let temp.enemy = obj.stats.owner
+			check_hurt temp
+		endif
+
+		# Destroy the object if applicable.
+
+		if_flag obj IS_FRAGILE
+#			let obj.stats.hp = -1
+			add moves * 5 # Calculate damage by distance
+			add obj.stats.hp - moves
+			if drop_quiet = 0
+				print "It broke!"
+				printcr
+				check_hurt obj
+			endif
+		else
+			if drop_quiet = 0
+				print "Done."
+				printcr
+			endif
+		endif
+
+		# And return.
+		reset_flag obj IS_SPIKEPROOF
+		let drop_ok = 1
+		let thrown = null
+		let drop_quiet = 0 # Reset Quiet flag in case left on
+		let drop_nodamage = 0
+		return
+	endif
+
+	# If we've actually moved away from the original square,
+	# update the number-of-moves counter.
+
+	if xa <> xo
+	or ya <> yo
+		add moves + 1
+		redraw_map
+		wait 4 NONBLOCKING
+	endif
+
+	# Continue with the line algorithm
+
+	add xerr + delta_x
+	add yerr + delta_y
+	
+        if xerr > distance
+                add xerr - distance
+                add xa + incx
+	endif
+	
+        if yerr > distance
+		add yerr - distance
+		add ya + incy
+	endif
+
+next t
+
+# We've reached the end of the trajectory successfully.
+# But if the object was fragile and moved too far, it must die anyway.
+
+if_flag obj IS_FRAGILE
+	if moves > 1
+#		let obj.stats.hp = -1
+		add moves * 5 # Calculate damage by distance
+		add obj.stats.hp - moves
+		if drop_quiet = 0
+			print "It broke!"
+		endif
+		let broken = 1
+	endif
+endif
+
+# Make it respond to triggers again.
+
+reset_flag obj IS_SPIKEPROOF
+
+# Make it be affected by the trigger it landed on
+# (hack)
+
+transfer_object obj to 0 0
+push_object obj to xb yb
+
+let drop_ok = 1
+if broken = 0
+	if drop_quiet = 0
+		print "Done."
+	endif
+else
+	check_hurt obj
+endif
+if drop_quiet = 0
+	printcr
+endif
+
+let thrown = null
+
+let drop_quiet = 0 # Reset Quiet flag in case left
+let drop_nodamage = 0
+end
+

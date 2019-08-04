@@ -1,0 +1,991 @@
+
+FarEyes, master wizard
+
+[page="start"]
+[colour="#808080"]
+You see a large wolf-creature, with patches of white
+about his muzzle, and a red pentagram dyed into the fur
+of his back.
+[colour="#ffffff"]
+
+"What do you seek, Human?"
+
+[link="I'm just exploring."]
+[linkto="exploring"]
+[link="I seek treasure."]
+[linkto="treasure"]
+[link="I seek a way back to my own world."]
+[linkto="world"]
+[link="I seek carnage!"]
+[linkto="carnage"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+You see a large wolf-creature, with patches of white
+about his muzzle, and a red pentagram dyed into the fur
+of his back.
+
+"What do you seek, Human?"
+
+[link="I'm just exploring."]
+[linkto="exploring"]
+[link="I seek treasure."]
+[linkto="treasure"]
+[link="I seek a way back to my own world."]
+[linkto="world"]
+[link="I seek carnage!"]
+[linkto="carnage"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="exploring"]
+
+"Hmm.. and why not?  Some say that life itself is an
+ exploration.
+
+ I explore the arcane, in the service of my Liege,
+ RedTooth the Great, or anyone else who can pay my fees."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="world"]
+
+"Truly?  The Betrayer said that Men were creatures new
+ to this world, but I did not believe it then.
+
+ I am skilled in the hidden arts, but what you ask is
+ beyond my ability.  Only the Betrayer Himself, or one
+ with a very great share of His power can aid you in
+ this wish.
+ 
+ However, if you require magical assistance of a more
+ commonplace nature, perhaps I can help you.
+
+ For a price, of course."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="carnage"]
+
+"Take care what you wish for.. you may find it.
+ Our King has often wondered about the taste of men.
+
+ It would be a better thing for everyone if you were
+ to stay your thirst for blood."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+Lead: 82
+Gold: 79 = 3 (Lithium)
+
+[page="treasure"]
+
+"I cannot help you with that.  Transmutation is
+ exceptionally difficult, even for The Betrayer.
+ Lead can be turned into gold by one skilled in the arts
+ of al-chemystrie, but this is rarely attempted, because
+ the resulting gold is deadly poisonous.
+
+ If you would seek your fortune, there is much gold to
+ be found in the mines of the northeast."
+
+
+[link="Why is the gold poisonous?"]
+[linkto="treasure2"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="treasure2"]
+
+"In years past, I asked this of Aa'Ruuff.  I do not
+ understand all of what He told me, but He did say that
+ lead has 82 protons, and gold only 79.
+
+ To make gold, lead must therefore be split into gold.
+ When a thing is split a dangerous energy is released
+ that harms living things.  And worse, when the lead has
+ been split, there are three protons left over.  These
+ may in turn collide with other pieces of gold or lead,
+ which may cause them to split in turn, releasing yet
+ more dangerous energies.
+
+ I saw a transmutation, many, many years ago.
+ The gold was extremely poisonous, and glowed blue in the
+ night.  Aa'Ruuff Himself had to intervene.  He removed
+ the deadly glow from the gold, and He healed all those
+ who had seen the glow.  If He had not done so, we would
+ surely have died."
+ 
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am called 'FarEyes', for it was said by my parents
+ that I was gifted with deep insights and visions of
+ the future!
+
+ And this was at least partly true, for I became one
+ of the finest mages in this land."
+
+[link="Can you see the future?"]
+[linkto="future"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Do you offer any magical services?"]
+[linkto="buy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am a mage.  I collect and study the spells which
+ our God Aa'Ruuff has bestowed upon us.
+
+ After He betrayed us, we have had no new magic.
+ I am hoping to combine parts of the spells we do know
+ to make new ones.
+
+ Through my experiments I have found that it is possible,
+ but alas, I have not yet made a new spell that 
+ actually does anything useful."
+
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Do you know anything about alchemy?"]
+[linkto="alchemy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic"]
+
+"Well you surely know what magic is, it allows a waarg to
+ make things happen which do not happen in nature.
+
+ We were taught all the magic we know by our God,
+ Aa'Ruuff the Betrayer.
+
+ Though I am a mage, I confess I know little about how
+ the magic actually works, and Aa'Ruuff did not tell us
+ all that He knows for fear of losing our worship.
+
+ From what I do know, I believe that all magic is made
+ possible by an artifact belonging to Aa'Ruuff, that
+ gives the ability to change the world itself."
+
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Do you know anything about alchemy?"]
+[linkto="alchemy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="alchemy"]
+
+"You ask of the arts of Al-Chemei?  I know of it, but I
+ cannot show you.  Transmutation is most difficult, even
+ for The Betrayer Himself.
+
+ Lead can be turned into gold by one skilled in such arts
+ but this is rarely attempted, for the resulting gold is
+ deadly poisonous."
+
+[link="Why is the gold poisonous?"]
+[linkto="alchemy2"]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="alchemy2"]
+
+"In years past, I asked this of Aa'Ruuff.  I do not
+ understand all of what He told me, but He did say that
+ lead has 82 protons, and gold only 79.
+
+ To make gold, lead must therefore be split into gold.
+ When a thing is split a dangerous energy is released
+ that harms living things.  And worse, when the lead has
+ been split, there are three protons left over.  These
+ may in turn collide with other pieces of gold or lead,
+ which may cause them to split in turn, releasing yet
+ more dangerous energies.
+
+ I saw a transmutation, many, many years ago.
+ The gold was extremely poisonous, and glowed blue in the
+ night.  Aa'Ruuff Himself had to intervene.  He removed
+ the deadly glow from the gold, and He healed all those
+ who had seen the glow.  If He had not done so, we would
+ surely have died."
+ 
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"If you are already a mage, I may be able to teach you
+ some spells you do not already know, for a price.
+
+ Some of my colleagues are more fusty, and will not teach
+ you spells because of the wars between our races.
+ Personally, I am inclined to give everyone the benefit
+ of the doubt.  Even so, I shall only teach you spells of
+ healing and fruitfulness.  If your desire is for death
+ and violence, you must look elsewhere.
+
+ Or, I can train you to a higher degree of magical
+ ability if I deem you are ready for it."
+
+[link="I would like to learn a spell."]
+[linkto="spells"]
+[always]
+[link="I would like to be trained."]
+[linkto="trained"]
+[link="Do you sell potions?"]
+[linkto="potions"]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="potions"]
+
+"No, I do not brew many potions myself.
+ We have a fine Apothecar named 'BlackTail', who is adept
+ at the art.  I obtain all the potions I need from him.
+
+ However, as I say, I can offer you spells or training."
+
+[link="I would like to learn a spell."]
+[linkto="spells"]
+[link="I would like to be trained."]
+[linkto="trained"]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="aaruuff"]
+
+"He is our God.  The myths say that He took our ancestors
+ who were naught but animals, and gave us the power of
+ reasoning and many gifts of magic.
+
+ In exchange we worshipped Him and obeyed Him in all
+ things.
+
+ But all good things do come to an end, and Aa'Ruuff sent
+ men to attack us and destroy our fine city.  Since that
+ year we have been left living in crude huts, and we now
+ call Aa'Ruuff 'The Betrayer'."
+
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Do you know anything about alchemy?"]
+[linkto="alchemy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="betrayer"]
+
+"Aa'Ruuff our God turned against us, after centuries of
+ devoted worship from our people.
+
+ He sent men to destroy our fine city and pillage our
+ temples.  Worse, our noble ruler, Grey, was slain in the
+ battle, and we have been left with a king of dubious
+ aims.
+
+ But I will no more of that."
+
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Do you know anything about alchemy?"]
+[linkto="alchemy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="spells"]
+[am_carrying "spellbook"]
+[if false][goto="nobook"]
+
+"Which ring of magic interests you?
+
+ As you may know, the easiest is ring seven, and the
+ hardest, most dangerous, is ring zero.
+
+ I myself only offer spells up to ring one.. few are the
+ mortals who know the guarded secrets of ring zero."
+
+[link="Ring Seven."]
+[linkto="R7"]
+[always]
+[link="Ring Six."]
+[linkto="R6"]
+[always]
+[link="Ring Five."]
+[linkto="R5"]
+[always]
+[link="Ring Four."]
+[linkto="R4"]
+[always]
+[link="Ring Three."]
+[linkto="R3"]
+[always]
+[link="Ring Two."]
+[linkto="R2"]
+[always]
+[link="Ring One."]
+[linkto="R1"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nobook"]
+
+"You do not seem to have a spellbook.  You will need to
+ have one that you can use to write down what you are
+ about to learn.
+
+ One of my spellbooks will not suit a human.. I fear you
+ must find a spellbook elsewhere before I can teach you
+ anything useful.
+
+ Is there anything else I can do for you?"
+
+[link="I would like to be trained in magic."]
+[linkto="trained"]
+[always]
+[link="Do you sell potions?"]
+[linkto="potions"]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R7"]
+[call="check_spellR7"]
+
+"I can teach you the following Apprentice-level spells;
+[if false] although I sense you have not yet strength to use them:
+
+ Light, which provides illumination for a short while,
+
+ Awaken, which rouses a person from the deepest slumber,
+
+ Light Heal, which is a simple spell to heal wounds, 
+
+ and Identify, which allows you to know things about an
+ object or a person.
+
+ All spells in this ring cost 75 gold coins."
+
+[link="I want to learn 'Light'."]
+[linkto="learn_light"]
+[link="I want to learn 'Awaken'."]
+[linkto="learn_awaken"]
+[link="I want to learn 'Light Heal'."]
+[linkto="learn_lightheal"]
+[link="I want to learn 'Identify'."]
+[linkto="learn_identify"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R6"]
+[call="check_spellR6"]
+
+"I can teach you the following spells for the Novice;
+[if false] although I sense you have not yet strength to use them:
+
+ Douse, which can extinguish fire or candles,
+
+ Peer, which allows you to see yourself as if from far
+ above, and is handy for navigating if you are lost,
+
+ and All-Seeing-Eye, which can grant you brief visions
+ of other parts of the land.
+
+ All spells in this ring cost 150 gold coins."
+
+[link="I want to learn 'Douse'."]
+[linkto="learn_douse"]
+[link="I want to learn 'Peer'."]
+[linkto="learn_peer"]
+[link="I want to learn 'All-Seeing-Eye'."]
+[linkto="learn_allseeingeye"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R5"]
+[call="check_spellR5"]
+
+"I can teach you the following Acolyte-level spells;
+[if false] although I sense you have not yet strength to use them:
+
+ Heal, which can cure more serious wounds,
+
+ Cure, which cures all known kinds of poisoning,
+
+ and Great Light, which lasts longer than the more simple
+ light spells.
+
+ All spells in this ring cost 225 gold coins."
+
+[link="I want to learn 'Heal'."]
+[linkto="learn_heal"]
+[link="I want to learn 'Cure'."]
+[linkto="learn_cure"]
+[link="I want to learn 'Great Light'."]
+[linkto="learn_greatlight"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R4"]
+[call="check_spellR4"]
+
+"I can teach you the following Priest-level spells;
+[if false] although I sense you have not yet strength to use them:
+
+ Mark, which supposedly allows you to store the location
+ of a place in a glass orb so you may travel there later,
+
+ Recall, which supposedly allows you to return to a
+ previously marked location.  I do not have any of the
+ special orbs, so I have not been able to test these two.
+
+ I can teach Telekinesis, which allows you to use objects
+ through the power of mind.  This spell is invaluable for
+ our race, and is one of the first spells Aa'Ruuff taught
+ us.
+
+ Finally, I can teach you 'Push', which allows objects to
+ be moved around without touching them.  It is used
+ extensively by our blacksmiths for forging hot metals.
+
+ All spells in this ring cost 300 gold coins."
+
+[link="I want to learn 'Mark'."]
+[linkto="learn_mark"]
+[link="I want to learn 'Recall'."]
+[linkto="learn_recall"]
+[link="I want to learn 'Telekinesis'."]
+[linkto="learn_tk"]
+[link="I want to learn 'Push'."]
+[linkto="learn_push"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R3"]
+[call="check_spellR3"]
+
+"I can teach you the following Master-level spells;
+[if false] although I sense you have not yet strength to use them:
+
+ Great Heal, which can restore one to full health,
+ and also 'Confusion Blast', a defensive spell that will
+ cause your assailants to lose track of you.
+
+
+ All spells in this ring cost 375 gold coins."
+
+[link="I want to learn 'Great Heal'."]
+[linkto="learn_greatheal"]
+[link="I want to learn 'Confusion Blast'."]
+[linkto="learn_confusion"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R2"]
+[call="check_spellR2"]
+
+"I only have one spell of that level;
+[if false] and I sense you have not yet strength to use it:
+
+ This spell is 'Fear', which can be used to drive off
+ bandits or wild animals.  It was also useful to us in
+ the war against the humans, and while I am hesitant to
+ sell it to you, I would sooner that this less violent
+ spell fall into other hands than, say, a death spell.
+
+ I must ask cost 450 gold coins."
+
+[link="I want to learn 'Fear'."]
+[linkto="learn_fear"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="R1"]
+[call="check_spellR1"]
+
+"Yes, I can teach you some supervisor-level spells.
+ But I must warn you, they can be dangerous..
+[if false] ..and you have not yet skill enough to use them.
+
+ I can teach you a spell called 'Pied Piper', which will
+ cause people to follow you for a short time.  They come
+ back to their senses eventually.
+
+[if_pflag sell_alchemy] I can also each you Alchemy, which will allow you to
+[if_pflag sell_alchemy] project lead into gold, but remember that the gold will
+[if_pflag sell_alchemy] be most dangerous.  I sell it for your researches only,
+[if_pflag sell_alchemy] and you must not cast it lest you will probably die.
+
+ Spells of this ring cost 525 gold coins."
+
+[link="I want to learn 'Pied Piper'."]
+[linkto="learn_piedpiper"]
+[if_pflag sell_alchemy][link="I want to learn 'Alchemy'."]
+[if_pflag sell_alchemy][linkto="learn_alchemy"]
+[link="I'm interested in another ring."]
+[linkto="spells"]
+[always]
+[link="I've changed my mind."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="learned_spell"]
+
+"Well done, I believe you understand what must be done to
+ cast that spell.
+
+ Do you wish to learn another?"
+
+[link="I would like to learn another spell."]
+[linkto="spells"]
+[always]
+[link="I would like to be trained."]
+[linkto="trained"]
+[always]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+###########################
+
+# Learning R7 spells
+
+[page="learn_light"]
+[take 75 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_light"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_awaken"]
+[take 75 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_awaken"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_lightheal"]
+[take 75 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_lightheal"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_identify"]
+[take 75 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_identify"]
+[append="learned_spell"]
+[endpage]
+
+# Learning R6 spells
+
+[page="learn_douse"]
+[take 150 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_douse"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_peer"]
+[take 150 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_peer"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_allseeingeye"]
+[take 150 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_allseeingeye"]
+[append="learned_spell"]
+[endpage]
+
+# Learning R5 spells
+
+[page="learn_heal"]
+[take 225 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_heal"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_cure"]
+[take 225 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_cure"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_greatlight"]
+[take 225 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_greatlight"]
+[append="learned_spell"]
+[endpage]
+
+# Learning R4 spells
+
+[page="learn_mark"]
+[take 300 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_mark"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_recall"]
+[take 300 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_recall"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_tk"]
+[take 300 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_tk"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_push"]
+[take 300 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_push"]
+[append="learned_spell"]
+[endpage]
+
+# Learning R3 spells
+
+[page="learn_greatheal"]
+[take 375 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_greatheal"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_confusion"]
+[take 375 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_confusion"]
+[append="learned_spell"]
+[endpage]
+
+# R2
+
+[page="learn_fear"]
+[take 450 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_fear"]
+[append="learned_spell"]
+[endpage]
+
+# R1 spells
+
+[page="learn_piedpiper"]
+[take 525 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_piedpiper"]
+[append="learned_spell"]
+[endpage]
+
+[page="learn_alchemy"]
+[take 525 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_alchemy"]
+[append="learned_spell"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you have not the monies to pay for that.
+ Can I help you in some other way?"
+
+[link="I would like to learn another spell."]
+[linkto="spells"]
+[always]
+[link="I would like to be trained."]
+[linkto="trained"]
+[always]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+##################################
+
+
+[page="trained"]
+
+"I fear you already know as much as I can teach you."
+
+[link="I would like to learn spells."]
+[linkto="spells"]
+[always]
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Tell me about Aa'Ruuff"]
+[linkto="aaruuff"]
+[link="Tell me about the betrayal."]
+[linkto="betrayer"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="future"]
+
+"Alas, no.  There are some who have the gift, that
+ enables them to see glimmers of things yet to come.
+ However I do not use this power, and I do not know of
+ many who do, for such gifts did fall out of favour with
+ our new King.
+
+ In the days before Aa'Ruuff betrayed us, there were many
+ more who had the gift, and great Seeings were held at
+ the temple on the night of the full moon, where groups
+ would enter the trance and open their minds to that
+ which was yet to come."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Do you offer any magical services?"]
+[linkto="buy"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+ But time is complicated, for the future is not fixed.  And
+ because of this, not all the prophecies agree.  But by 
+ counting how many see each possibility, it is possible to
+ determine how likely such events are.
+
+
+ Ah, you wish to know of the prophecy of the King and the
+ Promised One?
+
+ There were twenty prophets gathered for the Seeing.  Of
+ these, all foresaw that a Promised one would appear to
+ challenge Aa'Ruuff.  Most saw that he would gather one
+ companion to champion each race of those upon the world,
+ and many foresaw that he would fail and die, and that
+ Aa'Ruuff would reign without contest.
+
+ One single prophet saw clearly the champion of the Waarg
+ race.. and it was our dead King Grey, back from the grave!
+ I am sure you agree how likely THAT prophecy is."
+
+[where can I find this prophet, if he still lives?
+ In a cave in the ????]
+
+
+"The Seeings take place when the moon is full.  I do not
+ know why, but it affects the clarity of the visions.
+ They can only truly take place at the hour when the moon
+ is at its peak.  As the moon wanes the power dwindles
+ very rapidly, and until the night when the moon is full
+ the visions are vague and lack clarity.
+
+ But it works both ways also, for the visions that are
+ seen are only ever visions of events that will take
+ place on a day of the full moon.
+ Thus it happened that the Betrayal took place 'neath
+ the new moon, and since it was over and done before the
+ next moon, we saw could only the war, not the events
+ that triggered it. 
+
+
+[page="bye"]
+
+"May your life be long and your travels be fruitful."
+
+[nextpage="exit"]
+[endpage]

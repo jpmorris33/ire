@@ -1,0 +1,9 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+  The yellow jester does not play but gently pulls the string
+  He smiles as the puppets dance in the court of the crimson king
+
+[nextpage="exit"]
+[endpage]

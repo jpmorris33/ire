@@ -1,0 +1,256 @@
+##############
+#            #
+#  'Demons'  #
+#            #
+##############
+
+##
+##  Reset the invulnerable demon back to full health
+##
+
+function f16v_regen
+
+let me.stats.hp = me.maxstats.hp
+check_hurt me
+end
+
+
+function f16v_hurt
+
+# Regenerate
+let me.stats.hp = me.maxstats.hp
+check_hurt me
+
+# And blast the enemy to atoms
+if_exists me.enemy
+	call single_attackenemy
+endif
+
+end
+
+
+
+##
+##  Destroy the servitor
+##
+
+function servitor_dies
+object bits
+replace current = "servitor_dead"
+create bits = "servitor_dead2"
+transfer_object bits to current.x current.y
+object_sound "metal_breaking" current
+end
+
+##
+##  Servitor sees the player
+##
+
+function servitor_horror
+
+# Prevent reentry
+if me.user.vigilante <> 0
+	return
+endif
+
+# Seen a dead body
+if_flag current IS_PARTY
+	start_action me does attack_party to current
+	# attacking, ignore any further 'horrors'
+	let me.user.vigilante = 1
+	return
+endif
+
+end
+
+
+
+function jet_hurt
+integer fl
+
+# Safety check
+if_not_exists current
+	print "No Jet"	
+	printcr
+	return
+endif
+
+# Heal them up, because we don't have any aircraft death frames
+let current.stats.hp = current.maxstats.hp
+check_hurt current
+
+# No enemy?
+if_not_exists current.enemy
+	# Must be an error.
+	return
+endif
+
+# Was it the player?
+if current.enemy == player
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+	# Yes.  Ask them why, beg, plead etc
+	if_onscreen current
+		talk_to current.funcs.talk "attacked"
+	endif
+
+	get_user_flag fl = "true"
+	if fl <> 0
+		# We apologised and the aircraft won't kill us
+		return
+	endif
+
+endif
+
+#object_sound "uh!" current
+
+# Bring on the Guards
+if_not_flag current IS_PARTY		# This shouldn't happen anyway
+	if_exist current.enemy
+		if_flag current.enemy IS_PERSON
+			let victim = current
+			let suspect = victim.enemy
+			call justice_assault
+		endif
+	endif
+endif
+
+end
+
+
+function jet_dies
+# Oh wait.. they can't!
+let current.stats.hp = current.maxstats.hp
+check_hurt current
+end
+
+
+#
+# When a panther dies, the head comes off
+# You must have the head to resurrect a panther (the body is less important)
+#
+
+function panther_dies
+object body
+
+create body = "deadpanther"
+transfer_object body to current.x current.y
+change current = "deadpanther_head"
+let current.stats.weight = 1000		# The head is 1kg, not 25
+move_to_top current
+
+# Move the contents out of the head and into the body, but only if the panther
+# is a party member and not the hero themselves (cheat mode)
+if_not_flag current IS_HERO
+	do
+		if_exists current.pocket
+			transfer_to_pocket current.pocket to body
+		endif
+	while current.pocket <> null
+endif
+
+#object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 5
+endif
+
+# Need black blood for the panther
+#call make_blood
+call egg_killed
+
+end
+
+
+#
+# Hurt
+#
+
+function panther_hurt
+
+# Safety check
+if_not_exists current
+	return
+endif
+
+# Show the blood
+let splatvictim = current
+call splat_spark
+
+if_flag current IS_PARTY
+	return
+endif
+
+# Was it the player?
+let suspect = current.enemy
+let victim = current
+call hit_panther
+end
+
+
+function panther_repair
+int ctr
+set_user_flag "false" = 1
+set_user_flag "true" = 0
+
+for ctr = 1 to MAX_MEMBERS
+#	if party[ctr] is called "guard_panther"
+#	or party[ctr] is called "playerp"		# crashes parser
+	if_exists party[ctr]
+		if party[ctr].label.race = "panther"
+			let party[ctr].stats.hp = party[ctr].maxstats.hp
+			check_hurt party[ctr]
+			set_user_flag "false" = 0
+			set_user_flag "true" = 1
+		endif
+	endif
+next ctr
+end
+
+function panther_resurrect
+object head
+find head = "deadpanther_head" inside me
+
+set_user_flag "false" = 1
+set_user_flag "true" = 0
+
+if_exists head
+	set_user_flag "false" = 0
+	set_user_flag "true" = 1
+
+	transfer_object head to me.x me.y
+
+	change head = head.funcs.resurrect
+	let head.stats.hp = head.maxstats.hp
+	check_hurt head
+
+	let head.stats.weight = 25000	# head was 1kg, now 25 with body
+
+	# If they were of the party, make sure they still are
+	if_flag head IS_PARTY
+		add_member head
+		call check_playerisfirst
+		start_action head does "follower_action"
+	endif
+
+endif
+end
+
+
+
+##
+##	The panther will, if possible, find the nearest base and
+##	return there ( probably by teleporting :-/ )
+##
+
+function panther_leaves
+object o
+
+find_tag o = "TARGET_BASE" 0
+if_exists o
+	let me.target = o
+	queue_action me does seek_target
+else
+	stop_action me
+endif
+
+end

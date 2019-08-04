@@ -1,0 +1,35 @@
+#########################
+#                       #
+#    Party management   #
+#                       #
+#########################
+
+##
+##	Join
+##
+
+function join_party
+add_member current
+set_leader party[1] player_action follower_action
+let party_mode = 1
+end
+
+##
+##	Leave
+##
+
+function leave_party
+del_member current
+end
+
+##
+##	Join (while player in boat)
+##
+
+function join_on_boat
+add_member current
+transfer_to_pocket current to player	# Player is the vehicle, move NPC aboard
+#let party_mode = 1
+end
+
+

@@ -1,0 +1,19 @@
+Another memo from God
+
+[page="start"]
+[font 3]
+[backing="deadtown.pcx"]
+
+
+
+
+     Whosoever should defeat the fiends within shall
+     be granted the Grace of God and life eternal.
+
+        The Holy Trinity
+
+
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+

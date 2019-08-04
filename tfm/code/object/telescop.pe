@@ -1,0 +1,26 @@
+##
+##	Use the telescope
+##
+
+function use_telescope
+
+# Set start and end delays for the picture scrolling
+let start_delay = 20
+let end_delay = 20
+let scroll_delay = 0
+
+if darkness > 40
+	play_music "clouds"
+	scroll_picture "backings/stars.pcx" 0 -1
+	printcr
+	print "~I don't recognise any of these stars.~"
+	printcr
+else
+	play_music "clouds"
+	scroll_picture "backings/clouds.pcx" 0 -1
+	printcr
+	print "~Vapour trails??~"
+	printcr
+endif
+
+end

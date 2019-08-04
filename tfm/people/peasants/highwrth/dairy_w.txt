@@ -1,0 +1,339 @@
+
+[page="start"]
+[iftime "0800-0900"][goto="church"]
+[ifntime "0800-1800"][goto="outofhours"]
+[colour="#808080"]
+You see a burly woman selling milk and cheeses.
+[colour="#ffffff"]
+
+"Hello, are you come to buy some of my wares?
+
+ All of it is fresh.."
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy stuff?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime "0800-0900"][goto="church"]
+[ifntime "0800-1800"][goto="outofhours"]
+[colour="#808080"]
+You see $NAME, the dairy maid.
+[colour="#ffffff"]
+
+"Hello, $Sir.
+ Have you come for milk?  Cheese?"
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy stuff?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="church"]
+
+"Please.. I must hear the Mass.."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="buy"]
+
+"I have fresh butter, milk and cheese.  
+ Butter costs 2 gold pieces, milk is 3 gold per pail.
+
+ A whole cheese is 5 gold pieces, but I can cut you
+ slices for a single coin each."
+
+[link="I would like some butter."]
+[linkto="butter"]
+[always]
+[link="I would like some milk."]
+[linkto="milk"]
+[always]
+[link="I would like a slice of cheese."]
+[linkto="cheese_slice"]
+[always]
+[link="I would like a whole cheese."]
+[linkto="cheese"]
+[always]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="butter"]
+[take 2 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "food04"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="milk"]
+[take 3 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "bucket_milk"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cheese_slice"]
+[take 1 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "foodp03"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cheese"]
+[take 5 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "food07"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell"]
+
+[colour="#808080"]
+She looks perplexed.
+[colour="#ffffff"]
+
+"No, $Milord.  All our produce is fresh from the farm."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="no_money"]
+
+"I'm afraid you do not have the money, $Milord.
+
+ Would you buy anything else instead?"
+
+[link="Yes, I would."]
+[linkto="buy"]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="outofhours"]
+[colour="#808080"]
+You see a burly woman.
+[colour="#ffffff"]
+
+"Hello there."
+
+[link="Who are you?"]
+[linkto="who"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="talk"]
+
+"Certainly, $Milord.  What would you speak of?"
+
+[link="What is your name?"]
+[linkto="who"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+
+"My name is $NAME, $Milord.  I am but a farmer's wife.
+ We keep beeves, for their milk and the meat.
+
+ My husband tends the farm, and our cousin runs the
+ slaughterhouse nearby."
+
+[if flour_crisis][link="Tell me about the flour."]
+[if flour_crisis][linkto="flour"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="flour"]
+
+"There is a shortage of flour in the Land.
+ Many are hungry and we see less trade, for butter
+ without bread or flour is scant use, and cheese cannot
+ take the place of bread."
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes"]
+
+"The money goes to the Church, and in exchange they
+ protect us from Evil.
+
+ We need the Church to help us, for the End of the World
+ is coming!"
+
+[link="Tell me about the End of the World."]
+[linkto="eotw"]
+[if flour_crisis][link="Tell me about the flour."]
+[if flour_crisis][linkto="flour"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cow"]
+
+"The Cow is come to do the Lord's bidding, so they say.
+ It does us no harm, but kills any who approach the mill.
+
+ I am glad OUR cows are not as big as the Lord's!"
+
+
+[link="Tell me about the mill."]
+[linkto="flour"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="eotw"]
+
+"They say the Reign of the Just is over, and the Evil One
+ is loose upon the earth!
+
+ There will be a final battle against Evil, and the Lord
+ Jesus shall return to lead us to victory!"
+
+[if flour_crisis][link="Tell me about the flour."]
+[if flour_crisis][linkto="flour"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+"Fare you well, $Milord."
+
+[nextpage="exit"]
+[endpage]

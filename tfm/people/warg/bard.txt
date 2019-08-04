@@ -1,0 +1,275 @@
+
+the bard
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="first"]
+
+"Greetings, stranger, I am ?? the bard.
+
+ I do not often entertain humans.  Tell me, would you be
+ more interested in a song, or in a tale?"
+
+[link="Sing me a song."]
+[linkto="song"]
+[link="Tell me a tale."]
+[linkto="story"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="song"]
+[colour="#808080"]
+ The waarg removes a small instrument like a xylophone
+ from his backpack, and assumes a crouching position.
+ With one paw free, he strikes the bars of the instrument
+ and plays a melody.  Several other waarg join in,
+ howling in a surprisingly tuneful manner.
+
+ The bard sings in his curious, growling voice.
+[colour="#ffffff"]
+
+"There once was a human who lived on a farm.
+ They say he ate carrots and ham without harm.
+ He tended his crops and he gathered the hay,
+ And he fought with the wolves when they came
+ out to play.
+
+ No fun for anyone, because of the mad human..
+ No fun for anyone, because of the mad human.."
+
+[nextpage="song1a"]
+[endpage]
+
+
+[page="song1a"]
+
+"The wolves tried to temper his violence with bribes.
+ They offered him wulfgeld but he threatened their
+ lives.
+ So the wolves met to gather a council of war,
+ To teach the young man-thing what wolfies are for.
+
+ More fun for anyone, in spite of the mad human..
+ More fun for anyone, in spite of the mad human..
+
+ The battle was long and the battle was rough.
+ And the wolves bit the man 'till he shouted "ENOUGH!"
+ So all you young creatures come listen to me;
+ Live life as you feel it and not as you see.
+
+ Live life as you feel it and not as you see!
+ Live life as you feel it and not as you see!"
+
+[nextpage="song1b"]
+[endpage]
+
+[page="song1b"]
+[colour="#808080"]
+The song ends, and the other waarg bark appreciatively.
+[colour="#ffffff"]
+
+[link="Tell me a tale."]
+[linkto="story"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+"I once knew a maid, tee-dee, tee-dee,
+ She was dark as the night and with eyes like the moon.
+ She knew how to sew, tee-dee, tee-dee,
+ With the yrmwat so fine and a needle of bone.
+
+ Tee-dee, tee-dee, we ran through the forest,
+ And we caught many hares and we drank 'neath the moon.
+ Tee-dee, tee-dee, we were happy as puppies,
+ But she told me that night she was pledged to the duke.
+
+ Oh how I loved her, tee-dee, tee-dee,
+ With her fur like the night and her eyes like the moon.
+ We knew we must part, tee-dee, tee-dee,
+ I was sure that I never would see her again.
+
+ Tee-dee, tee-dee, but the duke had a sister,
+ Oh a sister who longed for a mate of her own,
+ Tee-dee, tee-dee, and my old love suggested,
+ That his sister should seek for a waarg just like me.
+
+ (and he married the duke's sister and they lived
+ happily ever after as a pack)"
+
+
+[page="story"]
+
+"Once upon a time, there were three little wolves and a
+ big, bad pig.
+
+ The three little wolves were sent out by their parents
+ one day to seek their fortune, and they began by 
+ building little houses to live in.
+
+ The first little wolf built his house out of mud.
+ He took the mud from the river, and baked it in the
+ sun.  The bricks were nice and hard, and he used them
+ to build a good little house that wouldn't blow away
+ when the wind was strong."
+
+[nextpage="story2"]
+[endpage]
+
+
+[page="story2"]
+
+"One day, the pig came along, and decided he wanted to
+ make a stew.  He gathered some vegetables and put them
+ in a pot.  But he needed some meat.  Now the pig heard
+ of the three little wolves, and because they were only
+ young, he knew he could easily kill them all and make
+ a big stew that would last for weeks.
+
+ So the pig came to the first little wolf's house,
+ and he knocked on the door, and he said:
+
+ "I'm gonna eat you little wolf!  Now open the door!"
+
+ And the wolf replied:
+
+ "Get lost, pig!"
+
+[nextpage="story3"]
+[endpage]
+
+
+[page="story3"]
+
+"And the pig got angry and tried to break down the door,
+ but that didn't work, so he poured lots of water on the
+ house and it turned back into mud.  The wolf only just
+ managed to escape and ran all the way to the second
+ little wolf's house.
+
+ But the pig saw where he went and followed him.
+
+ Now, the second little wolf made his house out of
+ yrmwat, because there were many yrmwat bushes nearby
+ and the wood is light and strong."
+
+[nextpage="story4"]
+[endpage]
+
+
+[page="story4"]
+
+"So the pig came to the second little wolf's house,
+ and he knocked on the door, and he said:
+
+ "I'm gonna eat you little wolf!  Now open the door!"
+
+ And the wolf replied:
+
+ "Get stuffed, pig!"
+
+ And the pig got angry and tried to break down the door,
+ but he wasn't able to, so he set light to the yrmwat
+ and the house began to burn down."
+
+
+[nextpage="story5"]
+[endpage]
+
+
+[page="story5"]
+
+"And the two little wolves barely manage to escape, and
+ they collapsed from the smoke.  But instead of eating
+ them, the pig hid and waited for them to recover.
+ And when they did, they fled to the third little
+ wolf's house, and the big bad pig followed them.
+
+ Now, the third little wolf was going to build his house
+ out of stone, but stonework is hard, so he lived in a
+ cave while the house was being built.  In the mean time,
+ he had built a wall and a door inside the cave to keep
+ away intruders."
+
+[nextpage="story6"]
+[endpage]
+
+
+[page="story6"]
+
+"So the pig came to the third little wolf's home, and he
+ knocked on the door, and he said:
+
+ "I'm gonna eat you all, little wolves!  Open the door!"
+
+ And the wolf replied:
+
+ "Get bent, pig!"
+
+ And the pig flew into a rage and tried to break down
+ the door, but the door was too strong, so he got some
+ explosives and blew it up.
+ When they realised what the pig was about to do, the
+ three little wolves fled into the caves.  And when the
+ pig came in, he could not find them."
+
+[nextpage="story7"]
+[endpage]
+
+
+[page="story7"]
+
+"But the big bad pig knew they must be inside the caves,
+ and he knew they were trapped, so he began to explore
+ the caves.
+
+ Now, pigs cannot see in the dark as well as wolves can
+ and the three little wolves were very good at moving
+ silently.  So they hid in the darkness, and when the
+ pig came by, they threw a rock at his head and killed
+ him.
+
+ And they made so much stew from the pig that they had
+ to invite all their neighbours to help them eat it."
+
+[link="Sing me a song."]
+[linkto="song"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nocollar"]
+[colour="#808080"]
+The wolf-creature stares at you nervously.
+[colour="#ffffff"]
+
+"Man-creature, I am no warrior.  I pray you leave us
+ peacefully."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Farewell."
+
+[nextpage="exit"]
+[endpage]

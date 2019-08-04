@@ -1,0 +1,626 @@
+[page="start"]
+[image="lord.jpg"]
+
+"Piss off!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="stealing01"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and speaks in an amused
+tone of voice.
+[colour="#ffffff"]
+
+"Naughty.  Give that back!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="stealing02"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and speaks in an amused
+tone of voice.
+[colour="#ffffff"]
+
+"Stop, thief!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_1"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and manical laughter
+ensues.
+[colour="#ffffff"]
+
+"Find it, my guards!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_2"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you with unearthly laughter.
+[colour="#ffffff"]
+
+"Do you think you can get away with this?"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_3"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and manical laughter
+fills the air.
+[colour="#ffffff"]
+
+"Go on, kill some more.  I dare you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_4"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you.
+[colour="#ffffff"]
+
+"How long can you outwit the law?"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_5"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and speaks in an amused
+tone of voice.
+[colour="#ffffff"]
+
+"Hmm.  I can't decide if it would be more fun to
+ watch your antics, or squash you like a fly."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_monks1"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before and scolds you in a
+patronising voice.
+[colour="#ffffff"]
+
+"Stop killing my monks!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_monks2"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and manical laughter
+fills the air.
+[colour="#ffffff"]
+
+"Plenty more where he came from!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="murder_monks3"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you.
+[colour="#ffffff"]
+
+"Don't believe this will weaken my power."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="murder_monks_finished"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before and scolds you in a
+patronising voice.
+[colour="#ffffff"]
+
+"Well done!  You have now obliterated the entire order!"
+
+[nextpage="exit"]
+[endpage]
+
+
+The player has killed a Cardinal, the Lord goes apeshit
+
+[page="cardinal_p"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and speaks in the voice
+of someone losing their self-control.
+[colour="#ffffff"]
+
+"You!  You did this...!
+
+ You have murdered one of my most faithful subjects..
+ Now I shall strip the living flesh from your bones!
+
+ I will enjoy your suffering!"
+
+[delay 3]
+[nextpage="pre-exit"]
+[endpage]
+
+
+Someone other than the player has murdered a cardinal
+
+[page="cardinal_u"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears in the sky and speaks in a great
+booming voice..
+[colour="#ffffff"]
+
+"All my children!
+
+ One of you has committed a most hideous crime..
+ The murder of a Cardinal!
+
+ Those who are nearby shall witness the wrath of the LORD
+ your God.  Let this justice be a lesson to you all."
+
+[delay 3]
+[nextpage="pre-exit"]
+[endpage]
+
+No-one is responsible, the player must have done it somehow
+
+[page="cardinal_n"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you..
+[colour="#ffffff"]
+
+"I have no idea how you managed to do that, but I intend
+ to find out, as I dismantle your brain cell by cell!"
+
+[delay 3]
+[nextpage="pre-exit"]
+[endpage]
+
+
+This is a hack, so we get a 'continue' button.  You don't normally
+get one for the end of the conversation
+
+[page="pre-exit"]
+[goto="exit"]
+[endpage]
+
+
+
+
+
+
+[page="chat_1a"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and speaks in
+converational tones.
+[colour="#ffffff"]
+
+"I think that the time has come for you and I to have a
+ friendly little chat."
+
+[if read_xbooks][link="What do you want to talk about?"]
+[if read_xbooks][linkto="chat_1b"]
+[if read_xbooks][link="I know you're not God."]
+[if read_xbooks][linkto="chat_1c"]
+[endpage]
+
+
+[page="chat_1b"]
+[image="lord.jpg"]
+
+"Why your future, of course!
+
+ I have a very important opening within My organisation
+ that I think you would be very well suited for.
+
+ The Church has been governed by a council of three for
+ a long, long time, and I have been considering whether
+ it might be time to add the Pope as a fourth member and
+ expand the Trinity to a Holy Quadruple.
+
+ Of course, if I do go ahead with this plan, I will need
+ a replacement for the throne of St. Peter.  You could
+ become the next Pope.  How does that sound?"
+
+[endpage]
+
+
+[page="chat_1c"]
+[image="lord.jpg"]
+
+"Oh dear.  I was hoping that wouldn't happen for quite a
+ while yet.
+
+ Don't think you can go around blabbing to anybody, they
+ won't believe you.  My conditioning is very effective."
+
+[endpage]
+
+
+"Yes, I said that you could prove very useful to Me, but
+ don't think for a moment that you are indispensable.
+ It will only be slightly harder to manage without you.
+
+ Go around causing trouble and I'll smash you."
+
+
+
+[page="chat_2"]
+
+"Ah, the Folk.  Accidental fruits borne of My earliest
+ experiments.  But they have been less than cooperative
+ so far.. stubborn.  They worship no gods at all!
+
+ But I shall turn them eventually.
+ They shall be My winged furies.. My angels of death!"
+
+[endpage]
+
+[page="generators"]
+[at_exit_call="fry_current"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball of fire appears before you.
+[colour="#ffffff"]
+
+"My servitors can easily repair this damage.
+
+ BUT NO-ONE WILL BE ABLE TO REPAIR YOU!"
+
+[delay 3]
+[nextpage="generators2"]
+[endpage]
+
+
+[page="generators2"]
+[image="lord.jpg"]
+
+"SO PERISH ALL ENEMIES OF XY'LAN, MANKIND'S NEW GOD."
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="munrick"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you and speaks in a
+conversational manner.
+[colour="#ffffff"]
+
+"Have you considered My servant Munrick?
+ There is none like him in all the Earth.
+
+ Sometimes I think that's a good thing.."
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
+
+
+The player has killed the Pope
+
+[page="popesdead"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+Oh dear, it looks like you're really in for it now!
+[colour="#ffffff"]
+
+"Time to kiss your ass goodbye!"
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
+
+
+[page="powerplant"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+You see a visitation of the LORD.
+[colour="#ffffff"]
+
+"Don't go in there."
+
+[delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+[page="powerplant2"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+You see a visitation of the LORD.  He sounds pissed.
+[colour="#ffffff"]
+
+"Enter that room, and I'll kill you."
+
+[delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+[page="powerplant2a"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+You see a visitation of the LORD.
+[colour="#ffffff"]
+
+"Nice try."
+
+[delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+[page="powerplant2b"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+You see a visitation of the LORD.
+[colour="#ffffff"]
+
+"You bastard!"
+
+[delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+[page="regicide"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball appears before you.
+[colour="#ffffff"]
+
+"Well, well, well!
+
+ I had thought that you would seek to work against Me,
+ yet it seems that perhaps you and I both have the same
+ agenda.
+
+ I am willing to forget Our past differences if you will
+ serve Me now.  King Edwyg has proven himself unworthy.
+
+ Claim his throne for yourself in My name, and I shall
+ grant to you his Kingdom, and many others beside."
+
+[delay 1]
+[set usurp_edwyg]
+[nextpage="exit"]
+[endpage]
+
+
+[page="jesusisdead"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball of fire appears before you.
+[colour="#ffffff"]
+
+"WHAT HAVE YOU DONE WITH JESUS?!?!"
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
+
+
+[page="umbringisdead"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball of fire appears before you.
+[colour="#ffffff"]
+
+"WHAT HAVE YOU DONE WITH CARDINAL UMBRING?!?!"
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
+
+
+[page="sacrfice"]
+[esc="disabled"]
+
+[colour="#808080"]
+You find yourself bound to a stone altar.
+[colour="#ffffff"]
+
+[delay 1]
+[nextpage="sacrfice2"]
+[endpage]
+
+[page="sacrfice2"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+Suddenly the LORD appears in a Holy Vision before you.
+[colour="#ffffff"]
+
+"Good, you are awake.  Soon we can begin."
+
+[delay 1]
+[link="Begin what?"]
+[linkto="sacrfice3"]
+[link="Cool.  Can we start now?"]
+[linkto="sacrfice9"]
+[endpage]
+
+
+[page="sacrfice3"]
+[image="lord.jpg"]
+
+"My power is great, but I cannot yet create a man from
+ nothing.  For the Second Coming I require a human to act
+ as a template.  That man, My Chosen One, shall become 
+ The Christ.
+
+ In defeating My undead army, you have proven your worth
+ for this role.  I'll have to create a few more undead
+ now of course, but what you are about to provide will
+ make it well worth the trouble.
+
+ Your flesh shall be transfigured and augmented with My
+ Power.  But your mind shall be replaced with one more
+ suited to My purposes."
+
+[link="You're going to make me into Jesus?"]
+[linkto="sacrfice4"]
+[link="Oh my God."]
+[linkto="sacrfice5"]
+[link="Cool.  Can we start now?"]
+[linkto="sacrfice9"]
+[endpage]
+
+
+[page="sacrfice4"]
+[image="lord.jpg"]
+
+"Well.. part of you.  Your body, at least.
+
+ Cardinal Umbring here will remove your brain.
+ After that, you'll be dead and Jesus will be alive."
+
+[link="Oh my God."]
+[linkto="sacrfice5"]
+[link="Cool.  Can we start now?"]
+[linkto="sacrfice9"]
+[endpage]
+
+
+[page="sacrfice5"]
+[image="lord.jpg"]
+
+"Praying won't help.  It's Jesus time!"
+
+[nextpage="sacrfice8"]
+[endpage]
+
+
+[page="sacrfice6"]
+[background="saved.jpg"]
+
+[delay 1]
+[nextpage="sacrfice7"]
+[endpage]
+
+[page="sacrfice7"]
+[set false]
+[image="lord.jpg"]
+
+"OMG!  I M 4 LEET HAXX0R!"
+
+[delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+[page="sacrfice8"]
+[image="priest4.pcx"]
+
+"Have faith, my $Son."
+
+[delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+[page="sacrfice9"]
+[image="lord.jpg"]
+
+"Certainly."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+Hell
+
+[page="hell"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball of fire appears before you.
+[colour="#ffffff"]
+
+"That little prank will get you sent straight to Hell."
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
+
+
+[page="hell2"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball of fire appears before you.
+[colour="#ffffff"]
+
+"I didn't say you could leave.  Back you go!"
+
+[delay 3]
+[nextpage="exit"]
+[endpage]

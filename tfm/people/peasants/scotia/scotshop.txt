@@ -1,0 +1,10 @@
+[page="start"]
+
+"Welcome to the Scottish Rob-Ye-Blind Shop!
+
+ I have many items of fine craftsmanship, all made in
+ Scotia, of course.  I can offer you anything, at
+ knock-down prices!"
+
+[link="Who are you?"]
+[endpage]

@@ -1,0 +1,165 @@
+
+Illuminator
+
+[page="start"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+
+"Yes, my son?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+[colour="#808080"]
+You see $NAME, the Illuminator.
+[colour="#ffffff"]
+"Yes, my son?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Either join the Mass or leave.  But do so quietly!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am $NAME, the Illuminator.. one of the
+ copyists of the library."
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[endpage]
+
+
+[page="job"]
+
+"I am an Illuminator.  I illustrate scrolls with
+ decorative letters and drawings in the margins.
+
+ When we make copies of existing works for the pilgrims,
+ or of texts which are not already in our library, it is
+ my job to faithfully copy the illuminations of the
+ original onto the new text."
+
+[link="Why do texts need to be copied?"]
+[linkto="copied"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="copied"]
+
+"There are many reasons why the texts should be copied.
+ Vellum does not last forever, and so we must make
+ duplicates of aging scrolls to prevent their wisdom
+ from being lost to the ages.
+
+ Pilgrims also visit the Abbey for the sake of our 
+ library, and they often wish to purchase copies of the
+ scrolls and codices that we hold.
+ And there are ever new works being written.. copies of 
+ these are to be added to the library as well."
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="Can I see the library?"]
+[linkto="library_books2"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books"]
+
+"The library is our Abbey's collection of tomes and
+ scrolls.  It contains many thousands of works, making
+ it one of the wonders of the world!
+
+ Pilgrims come from all around to see the texts from our
+ library, and buy copies which can be made for them
+ during their stay.
+
+ If you desire a text, ask the librarian or his 
+ assistant.  They should be able to help you."
+
+[link="Can I see the library?"]
+[linkto="library_books2"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books2"]
+
+"I fear that no-one is allowed to enter the library
+ itself but a few high acolytes.
+
+ If you wish to read a text, ask the librarian and he
+ will assist you.
+
+ The library contains many texts and secrets, not all
+ of which are wholesome.  Some would anger the LORD
+ Himself if they were widely read.  The librarian, and 
+ his assistant can decide which texts are evil and may 
+ not be read."
+
+[link="What happens to these 'evil' texts?"]
+[linkto="evil"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="evil"]
+
+"Nothing 'happens' to them.  The library holds both truth
+ and error.  But the librarian and his superiors must,
+ from time to time, prevent a work from being read by any
+ but the most enlightened.
+
+ Sometimes, where a work contains both good and evil the
+ good parts may be copied from it so they may be read by
+ all without fear of evil or corruption.
+
+ But even the most vile works must be preserved for
+ future eyes to study.  The librarian and his assistant 
+ often work upon such copies when there is naught else to
+ do, and they are always chosen from the most skillful 
+ copyists."
+
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"May the Holy Trinity smile on you, my Son."
+
+[nextpage="exit"]
+[endpage]

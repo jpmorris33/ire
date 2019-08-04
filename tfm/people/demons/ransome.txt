@@ -1,0 +1,1847 @@
+#
+# Commander Ransome, a falcon.  Leader of the Fairford base.
+#
+
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[goto="first"]
+[endpage]
+
+[page="start_name"]
+[if hear_truth][goto="HT_start"]
+[if_pflag scarpered][goto="fled"]
+[if_pflag offered][goto="undecided"]
+[if_not_pflag joined][goto="unjoined"]
+[goto="other"]
+[endpage]
+
+[page="first"]
+[esc="flee"]
+[image="f16_00.cel"]
+[learn_name]
+[set met_ransome]
+
+[colour="#808080"]
+You see a large fighter aircraft watching you.
+The creature's eyes glow yellow, giving a cartoon-like
+appearance.  The black pupils of the eyes, presumably
+some kind of cameras, follow your movements.
+[colour="#ffffff"]
+
+"Welcome, $PLAYER.  I am Commander Fc. Ransome of the
+ Weytus Intelligence Force.
+ 
+ I expect you have many questions, but first I must
+ debrief you.
+ 
+ There is a lot to say, I'm afraid.  But I can repeat
+ any of it later on for you if need be.
+ 
+ Do you want the long or the short of it?"
+
+[link="But you aren't human!"]
+[linkto="human"]
+[link="Are you an artifical intelligence?"]
+[linkto="ai"]
+[link="Tell me the whole story."]
+[linkto="first1"]
+[link="Just tell me quickly."]
+[linkto="quick"]
+[endpage]
+
+
+[page="ai"]
+[image="f16_00.cel"]
+[set met_aircraft]
+
+"I prefer the term 'machine sentience', but yes.
+
+ If I may ask you to pay attention, what I am about to
+ say is of the utmost importance."
+
+[link="Tell me the whole story."]
+[linkto="first1"]
+[link="Just tell me quickly."]
+[linkto="quick"]
+[endpage]
+
+
+[page="human"]
+[image="f16_00.cel"]
+
+"I never claimed to be.
+
+ If I may ask you to pay attention for a few moments,
+ what I have to say is of crucial importance."
+
+[link="Tell me everything."]
+[linkto="first1"]
+[link="Just give me the basics."]
+[linkto="quick"]
+[endpage]
+
+
+[page="flee"]
+[image="f16_00.cel"]
+[if_not_pflag joined][set_pflag scarpered]
+
+"No!  Come back.. please!
+
+ This is vitally important!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fled"]
+[image="f16_00.cel"]
+[clear_pflag scarpered]
+
+"I'm so glad you've came back.
+
+ I have a lot to say, I'm afraid.  But I can repeat any
+ of it later on if need be.
+ 
+ Do you want the long or the short of it?"
+
+[link="Are you an artifical intelligence?"]
+[linkto="ai"]
+[link="Tell me the whole story."]
+[linkto="first1"]
+[link="Just tell me quickly."]
+[linkto="quick"]
+[endpage]
+
+
+
+
+[page="first1"]
+[image="f16_00.cel"]
+[set weytus]
+[set met_aircraft]
+[call music_ransome]
+
+"It is the year 2131, and you are on a planet called
+ Weytus, which is the seventh planet Earth has colonised.
+ 
+ Interstellar travel was made possible by the V-space
+ effect, which was discovered by studying CCTV footage
+ of your accident.  You were believed to be dead until
+ very recently.
+
+ We detected the V-space warp your arrival made and worked
+ out its source vector.
+
+ How does it feel to be the first time-traveller?"
+
+[link="It's amazing."]
+[linkto="first1a"]
+[link="It sucks.  Everyone I know is dead."]
+[linkto="first1b"]
+[link="Well hard."]
+[linkto="first1a"]
+[link="I don't believe it."]
+[linkto="first1c"]
+[link="Can I go back to the past?"]
+[linkto="first1d"]
+[endpage]
+
+[page="first1a"]
+[image="f16_00.cel"]
+
+"Good.. I'm glad you're taking it well.
+
+ I imagine it has come as rather a shock to you.
+ But I am digressing.."
+
+[nextpage="first2"]
+[endpage]
+
+
+[page="first1b"]
+[image="f16_06.cel"]
+
+"I understand.  In the last few years, I have lost
+ hundreds of men, including some very dear friends.
+ 
+ But I'll get to that later."
+
+[nextpage="first2"]
+[endpage]
+
+[page="first1c"]
+[image="f16_06.cel"]
+
+"Well you'll have to start believing it soon.
+ You aren't just going to wake up, I'm afraid."
+
+[nextpage="first2"]
+[endpage]
+
+[page="first1d"]
+[image="f16_06.cel"]
+
+"I don't know.  But we won't be able to find out until the
+ present crisis is over."
+
+[nextpage="first2"]
+[endpage]
+
+
+[page="first2"]
+[image="f16_00.cel"]
+
+"The colony was formally opened in 2090, and saw a large
+ number of immigrants.
+ 
+ Unfortunately, one of them proclaimed himself Pope,
+ decided to take over control of the planet and placed
+ it under the rule of the Church.
+ 
+ Naturally, everyone ignored the wacko and eventually he
+ was arrested for breach of the peace.
+ 
+ Until he began to work miracles in God's name."
+ 
+[link="What kind of miracles?"]
+[linkto="first2a"]
+[link="Carry on."]
+[linkto="first3"]
+[endpage]
+
+
+[page="first2a"]
+[image="f16_00.cel"]
+
+"Well, his escape from prison, for one.  He just vanished.
+ The cell was still locked, and the key had verifiably
+ not been touched.
+ 
+ It's like he just 'beamed out' of the cell."
+
+[nextpage="first3"]
+[endpage]
+
+
+[page="first3"]
+[image="f16_00.cel"]
+
+"About this time, medievalism became fashionable.
+ Lots of houses were built in mock-Tudor style, and
+ people began to try and emulate the ways of long past.
+ 
+ Mostly people took things up as a hobby, like archery
+ or craftwork.  But it gradually took over their lives,
+ until they believed they lived in the 11th century."
+
+[link="What happened next?"]
+[linkto="first4"]
+[endpage]
+
+[page="first4"]
+[image="f16_00.cel"]
+
+"Wherever Harris went, people began to join him, like a
+ cult.  They became his followers.
+ 
+ And the people that followed his 'Path to God' started to
+ hear voices, entreating them to join and attend church.
+ To worship Him and be Saved at the time of Judgement."
+
+[link="Go on."]
+[linkto="first5"]
+[link="He's helping people find God. What's the problem?"]
+[linkto="first4b"]
+[endpage]
+
+[page="first4b"]
+[image="f16_01.cel"]
+
+"This man is responsible for the ethnic cleansing of an
+ entire WORLD!!!  Have you noticed any Muslims here?!?
+
+ The Church demands the worship of the Holy Trinity.
+ It rules the whole goddamn planet with an iron fist,
+ and they've got the death penalty all over the shop.
+ 
+ Everyone of a different religion was regarded as Infidel
+ and put to the sword or burned as a heretic..."
+
+[nextpage="first5"]
+[endpage]
+
+
+[page="first5"]
+[image="f16_01.cel"]
+
+"We should have realised he was building an army.
+ But when Earth woke to the danger it was too late.
+ 
+ Civil war broke out.. Pope Harris and his God against
+ the government.  With our air-power there was a stalemate
+ for several years, until we were caught off guard.
+ 
+ Harris had managed to obtain some strange energy weapons.
+ There were many human and fixed-wing casualties.
+
+ Some of the survivors reported a large, glowing ball
+ floating nearby the so-called Pope.."
+
+[nextpage="first6"]
+[endpage]
+
+[page="first6"]
+[image="f16_06.cel"]
+
+"We buried the dead, and recovered our fallen.
+
+ We have the technology to re-build our airframes from
+ scratch if need be.  But that can do nothing for the
+ brave humans who died at our sides!
+ 
+ The Pope has let us be for some time, and we have only
+ had occasional skirmishes with the worshippers for the
+ last few years.  But it can't last.."
+
+[nextpage="first7"]
+[endpage]
+
+
+[page="first7"]
+[image="f16_00.cel"]
+
+"We need the help of willing and able humans.  That is
+ why I am begging you to join us.
+
+ We need you to help us fight their terrible regime!
+ 
+ Obviously the choice is up to you.
+ I can't make you join, but you aren't going back to your
+ native time without a technical civilisation..
+ and that is something the Church has sworn to destroy."
+
+[set_pflag offered]
+
+[link="I will join you."]
+[linkto="willjoin"]
+[link="What do you want me to do?"]
+[linkto="whatjoin"]
+[link="I don't want to join you."]
+[linkto="wontjoin"]
+[endpage]
+
+
+
+[page="quick"]
+[image="f16_00.cel"]
+[set weytus]
+[set met_aircraft]
+[call music_ransome]
+
+"Very well.  But you really should hear the whole thing
+ in detail at some stage.  Ask me about it later.
+
+ We're on a colony world called 'Weytus'.  It's 2131 and
+ the government has been usurped by 'Pope Harris'.
+
+ The whole world is now ruled by his church, with fear
+ and miracles to control the peasants, and strange energy
+ weapons to keep everyone else in line.
+
+ They have taken the world back to the dark ages..
+ The Church wants to kill us, destroy our technology and
+ enslave everyone else.
+
+ You are our only hope.  Will you help us against the
+ brutality of this evil religion?"
+ 
+[link="I will join you."]
+[linkto="willjoin"]
+[link="What do you want me to do?"]
+[linkto="whatjoin"]
+[link="I don't want to join you."]
+[linkto="wontjoin"]
+[link="I want to think about it.  Goodbye."]
+[linkto="thinkjoin"]
+[endpage]
+
+
+[page="undecided"]
+[image="f16_00.cel"]
+[learn_name]
+
+[colour="#808080"]
+Commander Ransome looks at you expectantly.
+[colour="#ffffff"]
+
+"Have you decided?  Will you help us?"
+
+[link="I will join you."]
+[linkto="willjoin"]
+[link="What do you want me to do?"]
+[linkto="whatjoin"]
+[link="I don't want to join you."]
+[linkto="wontjoin"]
+[link="I haven't decided yet."]
+[linkto="thinkjoin"]
+[endpage]
+
+
+
+[page="willjoin"]
+[image="f16_06.cel"]
+[set_pflag joined]
+[clear_pflag offered]
+[colour="#808080"]
+Ransome makes a very human sigh of relief and reaching
+to a compartment in his underside gives you a small
+plastic card.
+[colour="#ffffff"]
+[create 1 pass_card1]
+
+"Thank you.  I'm glad to hear you will.
+ This is a passcard that will give you access to most of
+ the base.  Feel free to look around, and get to know the
+ people here.
+
+ Oh, and keep your cell phone with you, you may need it.
+
+ Do you have any questions?"
+
+[link="Yes.  What are you and where did you come from?"]
+[linkto="whatareyou"]
+[link="Yes.  Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="This is 2131, but some buildings are over 300 years old!"]
+[linkto="wrongtime"]
+[link="What do you suggest I do first?"]
+[linkto="quests"]
+[link="No.  I'll be on my way."]
+[linkto="bye"]
+[endpage]
+
+
+[page="wontjoin"]
+[image="f16_02.cel"]
+
+[colour="#808080"]
+Ransome sighs deeply.
+[colour="#ffffff"]
+
+"I'm sorry to hear you say that., but I respect your
+ decision.
+
+ You will be welcome here if you do change your mind."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="whatjoin"]
+[image="f16_06.cel"]
+
+"If you join us, we can provide you with accomodation,
+ food, and access to our technology.
+
+ In return, we need you to go out there and mingle
+ with the people.  Try to find out what the Hell is
+ going on and report back here."
+
+[link="I will join you."]
+[linkto="willjoin"]
+[link="I want to think about it some more."]
+[linkto="thinkjoin"]
+[link="I don't want to join you."]
+[linkto="wontjoin"]
+[endpage]
+
+
+[page="thinkjoin"]
+[image="f16_06.cel"]
+
+"Very well.
+
+ But please.. I would urge you to make up your mind
+ fairly quickly.  You can find me here when you've come
+ to a decision."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="unjoined"]
+[image="f16_00.cel"]
+[learn_name]
+
+[colour="#808080"]
+Commander Ransome looks at you expectantly.
+[colour="#ffffff"]
+
+"Have you changed your mind?  Will you help us?"
+
+[link="I will join you."]
+[linkto="willjoin"]
+[link="What do you want me to do?"]
+[linkto="whatjoin"]
+[link="I don't want to join you."]
+[linkto="wontjoin"]
+[link="I haven't decided yet."]
+[linkto="thinkjoin"]
+[endpage]
+
+
+Player has joined
+
+[page="other"]
+[am_carrying "comms_unit"]
+[if true][if_not base_fairford1][goto="comms_unit"]
+[esc="bye"]
+[image="f16_00.cel"]
+
+"Welcome back, $PLAYER."
+
+[link="What do you suggest I do?"]
+[linkto="quests"]
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[if yado_quest_packages][link="Can you fly me to an island?"]
+[if yado_quest_packages][linkto="treasureisland"]
+[if find_randolph][if randolph_wont][link="I found Randolph but he won't leave."]
+[if find_randolph][if randolph_wont][linkto="rescue_randolph"]
+[if fixed_randolph][if_not randolph_reward][link="I found Randolph."]
+[if fixed_randolph][if_not randolph_reward][linkto="reward"]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][link="There's an aircraft like you in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][linkto="rescue_randolph_notknow"]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][link="I found Randolph in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][linkto="rescue_randolph_know"]
+[am_carrying book_popediary1]
+[if true][if_not ransome_pope][link="I have retrieved Pope Harris' diary from his study."]
+[am_carrying book_popediary1]
+[if true][if_not ransome_pope][linkto="popequest_done"]
+
+[link="Tell me about the Holy Land."]
+[linkto="holyland"]
+[link="Tell me about the other air bases."]
+[linkto="bases"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bases"]
+[image="f16_00.cel"]
+
+"There are three major bases.  New Fairford, which is us,
+ New Leuchars, which is the environmental research
+ facility in Scotia, and the Panavius defence base, which
+ is in the wilderlands to the east.
+
+ We used to keep in permanent contact, but now our
+ communications are being jammed.  We tried relaying
+ messages by flying from base to base, but the Church has
+ installed force barriers in the sky, blocking all the
+ routes between bases.
+
+ Ideally we need to remove both the forcefields and the
+ jamming."
+
+[link="What do you suggest I do?"]
+[linkto="quests"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[if yado_quest_packages][link="Can you fly me to an island?"]
+[if yado_quest_packages][linkto="treasureisland"]
+[link="Tell me about the Holy Land."]
+[linkto="holyland"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="comms_unit"]
+[take 1 "comms_unit"]
+[set base_fairford1]
+[if base_leuchars1][if base_panavius1][goto="comms_active"]
+[image="f16_00.cel"]
+
+[colour="#808080"]
+You show Ransome the Drakaan communications unit.
+He looks distinctly unimpressed.
+[colour="#ffffff"]
+
+"It looks more like a bad movie prop than alien
+ technology.  Still.. I guess we have nothing to lose
+ by trying it."
+
+[nextpage="comms_unit2"]
+[endpage]
+
+[page="comms_unit2"]
+[image="comms.pcx"]
+
+"Salutations, commander.
+
+ I am commander Gurd of the Drakaan research team, and I
+ wish to propose an alliance against Xy'lan, who the
+ humans worship as a god.
+
+ As a token of our good faith, I have sent you this
+ communications device of our own design, which will not
+ be affected by Xy'lan's jamming signals.
+
+ Once these devices have been given to all three of your
+ bases, you will again be able to talk to your comrades.
+ And, once all are in contact, we can then discuss my
+ proposals in more detail."
+
+[nextpage="comms_unit3"]
+[endpage]
+
+[page="comms_unit3"]
+[image="f16_03.cel"]
+
+"Very well.  But until the barrier is removed, we won't
+ be able to deliver the remaining units to the bases by
+ air.  They will have to be hand-delivered."
+
+[nextpage="comms_unit4"]
+[endpage]
+
+[page="comms_unit4"]
+[image="comms.pcx"]
+
+"I am aware of that, Commander, but removing the barrier
+ will be a major undertaking.  We will have to send a
+ human agent back into our spacecraft.. which will be
+ heavily guarded.  A most dangerous mission..
+
+ It is easier to deal with the communications first, it
+ offers greater immediate rewards, and you never know..
+ it may even help us lift the barrier."
+
+[nextpage="comms_unit5"]
+[endpage]
+
+
+[page="comms_unit5"]
+[image="f16_00.cel"]
+
+[colour="#808080"]
+The comms unit shuts off, and Ransome looks down at you.
+[colour="#ffffff"]
+
+"Well, I guess you know what to do..
+ Give the remaining units to the other bases, at
+ New Leuchars to the north and Panavius to the east.
+
+ Then we can look at removing the barrier."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="comms_active"]
+[image="f16_00.cel"]
+[set drakaan_task_gavecomms]
+
+[colour="#808080"]
+You show Ransome the Drakaan communications unit.
+He looks distinctly unimpressed.
+[colour="#ffffff"]
+
+"It looks more like a bad movie prop than alien
+ technology.  Still.. I guess we have nothing to lose
+ by trying it."
+
+[nextpage="comms_active2"]
+[endpage]
+
+[page="comms_active2"]
+[image="comms.pcx"]
+
+"Salutations, Commander.
+
+ I am Commander Gurd of the Drakaan research team, and I
+ wish to propose an alliance against Xy'lan, whom the
+ humans worship as a god.
+
+ As a token of our good faith, I have sent you this
+ communications device of our own design, which will not
+ be affected by Xy'lan's jamming signals.
+
+ Now that these devices have been given to all three of
+ your bases, you will again be able to talk to your
+ comrades.
+
+ Now that everyone is in contact, we can now discuss my
+ proposals in more detail."
+
+[nextpage="comms_active3"]
+[endpage]
+
+
+[page="comms_active3"]
+[image="comms.pcx"]
+
+[colour="#808080"]
+As all the comms units are linked together, there is a
+tremendous babel of voices as the three base commanders
+attempt to catch up on decades worth of news.
+
+Eventually, Gurd butts in and calls the meeting to order.
+[colour="#ffffff"]
+
+"Gentlemen, gentlemen.. Xy'lan waits for no-one.
+ We must first discuss the plan, then you may talk as
+ you will.
+
+ As I suppose you are aware, it was our race that created
+ the mad god, so it is therefore our responsibility to
+ un-create Him.  But we lack the resources to manage this
+ on our own.
+
+ I have therefore decided to place our knowledge and
+ skill at your disposal, that we may be able do together
+ what cannot be done alone."
+
+[nextpage="comms_active4"]
+[endpage]
+
+
+[page="comms_active4"]
+
+Here endeth the script
+
+[endpage]
+
+
+Hackers -> security (Librarian, Saxiis)
+Spellsmith,Engineer -> Fisher, DeLuca
+
+
+[page="treasureisland"]
+[if fixed_randolph][goto="treasureisland3"]
+[image="f16_00.cel"]
+[set find_randolph]
+
+"If you're happy with the idea of parachuting down, I'm
+ sure we can find someone willing to drop you there.
+
+ The only problem then is getting you back..
+ No.  We need a harrier for this job.
+
+ Here's the snag.  Our harrier is Randolph, and he went
+ MIA after the last attack.  We know he's alive because
+ he sent us a number of incoherent messages, something
+ like 'Jesus is coming to kill us all!' or words to that
+ effect."
+
+[nextpage="treasureisland1a"]
+[endpage]
+
+[page="treasureisland1a"]
+[image="f16_00.cel"]
+
+"If you want to go to that island, you'll have to find
+ Randolph first, and either convince him to return, or
+ tell us where to look if he's too badly damaged.
+
+ Finding him is something we've been meaning to do
+ anyway, so I can give you a small reward if you can
+ bring him back to us."
+
+[if find_randolph][if randolph_wont][link="I found Randolph but he won't leave."]
+[if find_randolph][if randolph_wont][linkto="rescue_randolph"]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][link="There's an aircraft like you in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][linkto="rescue_randolph_notknow"]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][link="I found Randolph in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][linkto="rescue_randolph_know"]
+[link="Where should I look?"]
+[linkto="treasureisland2"]
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasureisland2"]
+[image="f16_00.cel"]
+
+"His signals are weak, but fairly nearby, as if they're
+ being blocked or shielded.  He might be in a cave or
+ near some mountains or something.
+
+ Try asking people in New Highworth if they've seen any
+ demons.   I sent out a rescue team to try and find him
+ before, but the villagers said we were in league with
+ Satan and wouldn't tell us anything.
+
+ If you can find Randolph, I would like to know what he 
+ saw when he was attacked.  It might be important."
+
+[if find_randolph][if randolph_wont][link="I found Randolph but he won't leave."]
+[if find_randolph][if randolph_wont][linkto="rescue_randolph"]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][link="There's an aircraft like you in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][linkto="rescue_randolph_notknow"]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][link="I found Randolph in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][linkto="rescue_randolph_know"]
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasureisland3"]
+[image="f16_00.cel"]
+
+"Ask Randolph about that, he should be able to fly
+ you to the island now."
+
+[link="Why Randolph?"]
+[linkto="treasureisland_whyrandolph"]
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="treasureisland_whyrandolph"]
+[image="f16_00.cel"]
+
+"Because he's a harrier. The only VTOL aircraft in this
+ base.
+
+ Unless the island has a nice long tarmacadam runway,
+ the rest of us won't be much help"
+
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="rescue_randolph"]
+[image="f16_00.cel"]
+[at_exit_call="plot_RandolphToBase"]
+[set fixed_randolph]
+[clear randolph_wont]
+
+"Ah.  That's unfortunate.  Still - now that we know
+ where he is we should be able to send someone there
+ to repair him.  We can send someone with a short-
+ range communicator and if necessary I can probably
+ calm him down and convince him to return.
+
+ I think we can take it from here, now... thank you
+ very much for your help."
+
+[if_not randolph_reward][nextpage="reward"]
+[if randolph_reward][link="What do you suggest I do next?"]
+[if randolph_reward][linkto="quests"]
+[if randolph_reward][link="Tell me about Harris and the Church."]
+[if randolph_reward][linkto="church"]
+[if randolph_reward][altlink="Tell me again about the Church."]
+[if randolph_reward][link="Thanks, I'll be on my way now."]
+[if randolph_reward][linkto="bye"]
+[endpage]
+
+[page="rescue_randolph_notknow"]
+[image="f16_00.cel"]
+[at_exit_call="plot_RandolphToBase"]
+[set fixed_randolph]
+[clear randolph_wont]
+
+"What? You've found Randolph?
+ Fantastic! He went down some time ago and we've been
+ unable to find him and bring him back. We knew he was
+ alive from his transmissions... but that doesn't matter
+ now.
+
+ Now that we know where he is we should be able to send
+ someone there to repair him.  We can send someone with
+ a short-range communicator and if necessary I can 
+ probably calm him down and convince him to return.
+
+ Quite a relief not having to worry about rescuing him,
+ thank you very much for your help."
+
+[if_not randolph_reward][nextpage="reward_notknow"]
+[if randolph_reward][link="What do you suggest I do next?"]
+[if randolph_reward][linkto="quests"]
+[if randolph_reward][link="Tell me about Harris and the Church."]
+[if randolph_reward][linkto="church"]
+[if randolph_reward][altlink="Tell me again about the Church."]
+[if randolph_reward][link="Thanks, I'll be on my way now."]
+[if randolph_reward][linkto="bye"]
+[endpage]
+
+[page="rescue_randolph_know"]
+[image="f16_00.cel"]
+[at_exit_call="plot_RandolphToBase"]
+[set fixed_randolph]
+[clear randolph_wont]
+
+"You've found Randolph?
+ That's fantastic, great work.
+
+ Now that we know where he is we should be able to send
+ someone there to repair him.  We can send someone with
+ a short-range communicator and if necessary I can
+ probably calm him down and convince him to return.
+
+ We can take it from here, now... thank you very much 
+ for your help."
+
+[if_not randolph_reward][nextpage="reward"]
+[if randolph_reward][link="What do you suggest I do next?"]
+[if randolph_reward][linkto="quests"]
+[if randolph_reward][link="Tell me about Harris and the Church."]
+[if randolph_reward][linkto="church"]
+[if randolph_reward][altlink="Tell me again about the Church."]
+[if randolph_reward][link="Thanks, I'll be on my way now."]
+[if randolph_reward][linkto="bye"]
+[endpage]
+
+
+
+[page="reward"]
+[image="f16_00.cel"]
+[set randolph_reward]
+[create 1500 gold_coins]
+[call="money_sound"]
+
+"Thanks again for rescuing Randolph.  Here's the reward
+ I promised: 1500 gold coins.  It isn't much, but it
+ should prove useful.
+
+ It's either that or a free pass for the vending machine,
+ I'm afraid."
+
+[link="Why do you use gold coins as currency?"]
+[linkto="reward2"]
+[link="What do you suggest I do next?"]
+[linkto="quests"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Thanks, I'll be on my way now."]
+[linkto="bye"]
+[endpage]
+
+[page="reward_notknow"]
+[image="f16_00.cel"]
+[set randolph_reward]
+[create 1500 gold_coins]
+[call="money_sound"]
+
+"For your help in rescuing Randolph,  I believe that
+ deserves a reward: 1500 gold coins.  It isn't much, but it
+ should prove useful.
+
+ It's either that or a free pass for the vending machine,
+ I'm afraid."
+
+[link="Why do you use gold coins as currency?"]
+[linkto="reward2"]
+[link="What do you suggest I do next?"]
+[linkto="quests"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Thanks, I'll be on my way now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="reward2"]
+[image="f16_00.cel"]
+
+"Why not?  Everyone else does.  It became the official
+ currency years ago, when medievalism first became
+ fashionable.  Before the humans freaked out completely.
+
+ Having the same currency helps us trade with the humans
+ in such times that they are willing, obviously."
+
+[link="What do you suggest I do next?"]
+[linkto="quests"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Thanks, I'll be on my way now."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="church"]
+[image="f16_00.cel"]
+
+"Okay.  It is the year 2131, and you are on a planet
+ called Weytus, which is the seventh planet Earth has
+ colonised.
+ 
+ Interstellar travel was made possible by the V-space
+ effect, which was discovered in the accident you had.
+ You were presumed dead until very recently.
+
+ We detected the V-space warp your arrival made and
+ worked out its source vector.
+
+ It seems you're the first time-traveller!"
+
+[nextpage="church2"]
+[endpage]
+
+
+[page="church2"]
+[image="f16_00.cel"]
+
+"The colony was formally opened in 2090, and saw a
+ large number of immigrants.
+ 
+ Unfortunately, one of them proclaimed himself Pope,
+ decided to take over control of the planet and placed
+ it under the rule of the Church.
+ 
+ Naturally, everyone ignored the loony and eventually
+ he was arrested for breach of the peace.
+ 
+ But then he began to work miracles in God's name."
+ 
+[nextpage="church3"]
+[endpage]
+
+
+[page="church3"]
+[image="f16_00.cel"]
+
+"First, he escaped from his cell by an unknown method..
+ No signs of force, no tunnels.  His cell was still
+ locked and the key hadn't been touched.
+ 
+ We are starting to believe he teleported out, but
+ we have no idea how.
+ 
+ Since he became Pope, Harris appears to be
+ invulnerable.. bullets don't affect him.
+ But that happened later."
+
+[nextpage="church4"]
+[endpage]
+
+
+[page="church4"]
+[image="f16_00.cel"]
+
+"About this time, medievalism became fashionable.
+ Lots of houses were built in mock-Tudor style, and
+ people began to try and emulate the ways of long past.
+ 
+ Mostly people took things up as a hobby, like archery
+ or craftwork.  But it gradually took over their lives,
+ until they finally believed it was the 11th century."
+
+[nextpage="church5"]
+[endpage]
+
+
+[page="church5"]
+[image="f16_00.cel"]
+
+"Wherever Harris went, people began to join him, like a
+ cult.  They became his followers.
+ 
+ All the people that followed his 'Path to God' started
+ to hear the voice of the Lord, entreating them to attend
+ church, to worship Him and be Saved at the time of
+ Judgement.  To obey the Lord In All Things.
+ 
+ We've seen what the do to people who won't and it is NOT
+ pretty."
+
+[nextpage="church6"]
+[endpage]
+
+
+[page="church6"]
+[image="f16_01.cel"]
+
+"Soon it became apparent to all that he was raising an
+ army.  But it was already too late.. he had enough
+ backers to overthrow the government.
+
+ All military-capable aircraft were drafted into an
+ emergency defence force.  Earth sent us reinforcement
+ troops by V-space, but Harris was waiting for them, and
+ they were picked off with some nasty energy weapon as
+ they arrived.
+ 
+ Some of the survivors reported a large, glowing ball
+ floating nearby the so-called Pope."
+
+[nextpage="church7"]
+[endpage]
+
+
+[page="church7"]
+[image="f16_01.cel"]
+
+"The government forces were routed.  We split into groups
+ to keep control of the airbases.  
+
+ The Pope seems to have no more immediate plans for us.
+ The last few years brought only the occasional skirmish
+ with his forces.
+
+ But we fear they may be planning to finish us off.
+
+ Do you have any questions?"
+
+[link="Yes.  What are you and where did you come from?"]
+[linkto="whatareyou"]
+[link="Yes.  Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[link="This is 2131, but some buildings are over 300 years old!"]
+[linkto="wrongtime"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="quests"]
+[if_not ransome_deluca][goto="magicquest"]
+[!if_not ransome_magic][goto="noquest"]
+[if_not ransome_pope][goto="popequest"]
+[if_not ransome_dragons][goto="dragonquest"]
+
+[goto="noquest"]
+[endpage]
+
+
+[page="magicquest"]
+[image="f16_06.cel"]
+
+"Well, if you can get to know some of the people who work
+ here, that would be a good start.
+
+ In particular, I suggest you talk to DeLuca and Fisher.
+ They are doing some fairly crucial research.
+ You can find them in Hangar 02."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="noquest"]
+[image="f16_06.cel"]
+
+"I don't have anything specific for you right now.
+
+ Wander around the base if you like, or go back to the
+ Church-controlled territory.  Perhaps you might learn
+ something useful."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="popequest"]
+[if popequest_wip][goto="popequest4"]
+[set popequest_wip]
+[image="f16_06.cel"]
+
+"We need to find out where Harris is getting his powers
+ from.
+ If possible, you should break into Harris' chamber and
+ bring us his diary, or any other documents you can find
+ that might be useful.
+
+ Since the Church trusts you, it shouldn't be too hard
+ to obtain an audience with the Pope."
+
+[link="You want me to steal the Pope's diary?!?"]
+[linkto="popequest2"]
+[link="That's crazy, but I'll do it."]
+[linkto="popequest3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="popequest2"]
+[image="f16_08.cel"]
+
+"If you have a better idea I'd like to hear it."
+
+[link="That's crazy, but I'll do it."]
+[linkto="popequest3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="popequest3"]
+[image="f16_00.cel"]
+
+"Excellent!
+
+ One of your main problems will be neutralising the
+ guards, since the Papal bedchamber will be under
+ constant protection.
+
+ You should be able to find some tranquilizers in the
+ armoury.  I'm not altogether sure where the key is,
+ though."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="popequest4"]
+[am_carrying book_popediary1]
+[if true][goto="popequest_done"]
+[image="f16_00.cel"]
+
+"As I believe I mentioned, we would very much like
+ to read the Pope's diary.  Safely removing it from
+ his study is liable to be a headache, but it will
+ have to be done somehow, I'm afraid."
+
+ One of your main problems will be neutralising the
+ guards, since the Papal bedchamber will be under
+ constant protection.
+
+ You should be able to find some tranquilizers in the
+ armoury.  I'm not altogether sure where the key is,
+ though."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="popequest_done"]
+[image="f16_00.cel"]
+[set ransome_pope]
+[create 1500 gold_coins]
+[call="money_sound"]
+
+[colour="#808080"]
+Commander Ransome examines the diary, scanning in each
+of its precious pages with a small handheld device.
+Finally he hands you a large bag of coins as a reward.
+[colour="#ffffff"]
+
+"Amazing... You know, I didn't really believe anyone
+ would be able to do this!
+
+ However, it looks like it raises a lot more questions
+ than answers.  We need to know more about this
+ so-called 'Second Coming'.  Whatever it is, I doubt it's
+ good news.
+
+ But there are other priorities as well, I'll have to
+ think about this."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="dragonquest"]
+[if dragonequest_wip][goto="dragonquest2"]
+[set dragonquest_wip]
+[image="f16_00.cel"]
+
+"As you may be aware if you have been reading my reports,
+ members of an alien reptillian race have been attempting
+ to contact us via a video link.  Owing to the jamming
+ which we believe the Church is somehow responsible for,
+ we have not been able to obtain a clear transmission.
+
+ We would like you to locate their base and establish
+ contact with them on our behalf.  Find out what their
+ story is and see  if they are interested in pooling
+ resources with us.
+
+ We don't know where they are located, but they faintly
+ resemble dragons, so asking around the kingdoms for
+ rumours of dragons might be a good place to start."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="dragonquest2"]
+[image="f16_00.cel"]
+
+"As I believe I have mentioned, we would like you to contact
+ the members of an alien race who resemble dragons.
+
+ We would like you to locate their base and establish contact
+ with them on our behalf.  Find out what their story is and see
+ if they are interested in pooling resources with us.
+
+ We were not able to get a fix on their transmission so we don't
+ know where they are based, but asking around the kingdoms for
+ rumours of dragons might be a good place to start."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+
+
+
+[page="whatareyou"]
+[image="f16_06.cel"]
+
+"I'm an F-16 4000, usually referred to as a falcon.
+ My body was first designed in the late 1960s, but has
+ been optimised and updated for countless decades since.
+ I was built in late 2061, but came aware the next year."
+
+[link="But that means you're sixty-nine years old!"]
+[linkto="69"]
+[link="Why are you an F-16 and not a futuristic airplane?"]
+[linkto="whynotfuture"]
+[link="Don't you mean 'F-16 Fighting Falcon'?"]
+[linkto="fightingfalcon"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="69"]
+[image="f16_06.cel"]
+
+"Sixty-nine would be old for a human, but every part of my
+ body can be replaced as it wears out.  New materials
+ science has created composites that should last for
+ centuries, and my engine has very few moving parts.
+
+ Or did you think we still burn kerosene?"
+
+[link="Well aircraft do where I come from!"]
+[linkto="kerosene"]
+[link="Why are you an F-16 and not a futuristic airplane?"]
+[linkto="whynotfuture"]
+[link="Don't you mean 'F-16 Fighting Falcon'?"]
+[linkto="fightingfalcon"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="kerosene"]
+[image="f16_01.cel"]
+
+"I apologise.. I forgot that for a moment.
+
+ But the whole idea seems very silly, with the benefit of
+ hindsight.  Even those who were alive in the earliest
+ days tend to forget that they used to be powered by
+ explosive liquids.
+
+ We normally use distilled water these days, fast
+ hydrogen cracking and similar techniques.
+ There are many other ways of storing energy,
+ but hydrogen cracking is most suitable for us."
+
+[link="Why are you an F-16 and not a futuristic airplane?"]
+[linkto="whynotfuture"]
+[link="Don't you mean 'F-16 Fighting Falcon'?"]
+[linkto="fightingfalcon"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="wrongtime"]
+[image="f16_01.cel"]
+
+[colour="#808080"]
+Ransome looks pained.
+[colour="#ffffff"]
+
+"I think you had better ask Fisher about that.
+ You'll find her in hangar 02."
+
+[link="What are you and where did you come from?"]
+[linkto="whatareyou"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="I'll be on my way."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="records"]
+[image="f16_01.cel"]
+
+"Oh, you have seen part of my collection!
+
+ Please take care with those, some of them are first
+ editions, over a century old.  Vinyl isn't hard to
+ replace, but ORIGINALS fetch tremendous prices!"
+
+[link="Why on earth are you using vinyl records??"]
+[linkto="vinyl"]
+[link="Don't you use a digital format?"]
+[linkto="vinyl"]
+[endpage]
+
+
+[page="vinyl"]
+[image="f16_01.cel"]
+
+"Many reasons.  Firstly, there was a crackdown on digital
+ audio in the early 21st century by media corporations.
+ Vinyl and analogue tape became the only permitted media.
+ Even after the ban, many people found they preferred the
+ sound of analogue.
+
+ We use optical playback systems so the records do not
+ deteriorate.. the disks last a lot longer than uh,
+ what were they called..?  Oh yeah, CDs.
+
+ Apart from the fact that the artwork is better, most
+ aircraft prefer vinyl because it's easier to hold than
+ a coin-sized data cartridge."
+
+[endpage]
+
+
+[page="mediaban"]
+
+"Many digital devices were banned, citing terrorism or
+ some other transparent lie.. didn't really matter what
+ because it was easy to buy legislation at that time.
+
+ The new laws were so broad and strict that they outlawed
+ the digital recorders, reverb units and synthesizers
+ that actually produced the music.  It took years to get
+ the law overturned and caused a stock crash that
+ bankrupted most of the media corporations.
+
+ In the meantime, music had to be recorded using 1975
+ technology.  Laid down on 24-track, with all-analogue
+ effects and no sampling.  Even tape sync was illegal.
+
+ Some say the resulting barrier-to-entry vastly improved
+ the quality of the music released during that period."
+
+[endpage]
+
+
+[page="holyland"]
+[image="f16_00.cel"]
+
+"The Holy Land is in the basin of a large crater.
+ It appears to be a caldera formed by the impact of an
+ asteroid or something similar.
+
+ Economically it seems to act as a gated community for
+ the super-rich.  And of course, the Pope lives there.
+ Peasants are allowed to make a pilgrimage to the Holy
+ Land, particularly if they are able to obtain an
+ audience with the Pope.
+
+ The great cathedral is supposedly built on the site
+ where God first appeared before Pope Harris."
+
+[link="What do you suggest I do?"]
+[linkto="quests"]
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[if yado_quest_packages][link="Can you fly me to an island?"]
+[if yado_quest_packages][linkto="treasureisland"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="fightingfalcon"]
+[image="f16_01.cel"]
+
+"No!  And don't -ever- call me that again!
+
+ I am not proud of my kind's warlike past, and I have no
+ wish to think of the crimes we have committed under the
+ orders of humans like you."
+
+[link="I'm terribly sorry.  I didn't know."]
+[linkto="sorryff"]
+[link="I have offended you with my ignorance."]
+[linkto="sorryff"]
+[link="Can I call you 'flying turkey' then?"]
+[linkto="turkey"]
+[link="Whoops.  I'd best be going."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sorryff"]
+[image="f16_01.cel"]
+
+"I am head of the intelligence unit for a reason.  We can
+ help prevent conflict from occurring by looking for the
+ symptoms before the disease strikes."
+
+[link="Whoops.  I'd best be going."]
+[linkto="bye"]
+[endpage]
+
+
+[page="turkey"]
+[if_pflag turkey][nextpage="attacked3"]
+[image="f16_01.cel"]
+[colour="#808080"]
+The F-16 reels as if struck, and hesitates before
+speaking, as if struggling to keep calm.
+[colour="#ffffff"]
+
+[nextpage="turkey2"]
+[endpage]
+
+[page="turkey2"]
+[image="f16_05.cel"]
+[set_pflag turkey]
+[esc=disabled]
+
+[colour="#808080"]
+When he speaks, it is in a slow, deliberate tone.
+[colour="#ffffff"]
+
+"If you call me 'flying turkey' once more, I will not be
+ responsible for my actions.  Do you understand?"
+
+[link="Yes.  Absolutely."]
+[linkto="turkey2a"]
+[link="No, I don't"]
+[linkto="turkey3"]
+[link="FLYING TURKEY!"]
+[linkto="attacked3"]
+[endpage]
+
+[page="turkey2a"]
+[image="f16_05.cel"]
+
+"Good.  Now leave me be."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="turkey3"]
+[image="f16_05.cel"]
+
+"Out!  Get out before I lose my temper!"
+
+[colour="#808080"]
+It occurs to you that provoking a warrior robot to
+violence might not be a very good idea.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="whynotfuture"]
+[image="f16_06.cel"]
+
+"It was the recession.  The development of more advanced,
+ and expensive, aircraft was put on indefinite hold due
+ to budgetary constraints and relative peace.
+
+ Resources were put into making better use of existing
+ aircraft and re-using mothballed airframes.
+ The result was sentient avionics systems.
+
+ Oh and by the way, please don't use the words 'airplane'
+ or 'aeroplane'.  They refer to non-sentients and are
+ considered derogatory among my kind."
+
+[link="But why haven't you changed since?"]
+[linkto="whynotfuture2"]
+[link="2062.. doesn't that make you 69 years old?"]
+[linkto="69"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Domo Arigato, Mr. Roboto!"]
+[linkto="domo"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="whynotfuture2"]
+[image="f16_06.cel"]
+
+"Oh, I see.  You mean, why don't I have a futuristic body
+ NOW?  It's mostly down to looks and appearance.
+
+ You're probably thinking that I should have a squat,
+ angular body like, perhaps, an F-117 so that I can be
+ radar-invisible?
+
+ Technology has advanced quite a lot.  We can add photonic
+ tunnelling to any aircraft, and that achieves total
+ invisibility.  That's better than the F-117 ever had and
+ you can have a stylish body into the bargain."
+ 
+[nextpage="whynotfuture3"]
+[endpage]
+
+[page="whynotfuture3"]
+[image="f16_06.cel"]
+
+"There are also trendier versions of existing designs,
+ for example the F16-7000 series, usually referred to as
+ the 'superfalcon' has sculpted bodywork, and a sportier
+ look.
+
+ There are one or two experimental designs, but most of
+ us prefer the late 20th century look."
+
+[link="2062.. doesn't that make you 69 years old?"]
+[linkto="69"]
+[link="This is 2131, but some buildings are over 300 years old!"]
+[linkto="wrongtime"]
+[link="Tell me all about Harris and the Church."]
+[linkto="church"]
+[altlink="Tell me again about the Church."]
+[link="Domo Arigato, Mr. Roboto!"]
+[linkto="domo"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="domo"]
+[image="f16_01.cel"]
+
+"Fuck you."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="plot_twist"]
+[image="f16_06.cel"]
+
+"I mentioned earlier that some people can hear the voice
+ of God.  I can't, because it seems that whatever is
+ broadcasting this voice is aimed only at humans.
+
+ But over the last month or so it seems that this voice of
+ God, or whatever it is, has announced that the LORD will
+ lead His people to Ethiopia, to recapture the Garden of
+ Eden from the Infidel.
+
+ It is only yesterday that we finally worked out what
+ that means.  Pope Harris is going to send all his 
+ followers out to invade this  'Garden of Eden', and
+ that can only mean one place.  Earth."
+
+[link="Where?"]
+[linkto="plot_twist2"]
+[endpage]
+
+
+[page="attacked"]
+[if_pflag third][goto="attacked3"]
+[if_pflag second][goto="attacked2"]
+[goto="attacked1"]
+[endpage]
+
+
+[page="attacked1"]
+[image="f16_01.cel"]
+[set_pflag second]
+[set true]
+
+"Stop that!  You'll scratch my paintwork!"
+
+[link="Sorry, it was an accident."]
+[linkto="attacked1a"]
+[link="Die, stupid machine!"]
+[linkto="attacked1b"]
+[endpage]
+
+
+[page="attacked1a"]
+[image="f16_01.cel"]
+
+"Then be more careful in future!"
+
+[nextpage="exit"]
+[endpage]
+
+[page="attacked1b"]
+[image="f16_01.cel"]
+
+"Do you value your fragile human life?"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked2"]
+[image="f16_05.cel"]
+[set_pflag third]
+[set true]
+
+"STOP THAT AT ONCE!"
+
+[link="I won't do it again."]
+[linkto="attacked2a"]
+[link="You're a heap of metal and I'm going to destroy you."]
+[linkto="attacked2b"]
+[endpage]
+
+[page="attacked2a"]
+[image="f16_05.cel"]
+
+"Dead right.  You won't be given a third chance."
+
+[nextpage="exit"]
+[endpage]
+
+[page="attacked2b"]
+[image="f16_05.cel"]
+
+"Get out!  Get out before I lose my temper!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked3"]
+[image="f16_05.cel"]
+
+"GUARDS!  ARREST THE HUMAN!"
+
+[clear true]
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="f16_00.cel"]
+
+"Goodbye, $PLAYER.
+ If you need anything else, feel free to drop by."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="topgun"]
+[image="f16_00.cel"]
+
+"Yes, once, when I was young and impressionable.
+ We had a horror night at the academy drive-in, you see.
+ Top Gun.. Independence Day..  Iron Eagle..
+ Horrible stuff!  I left early.
+ 
+ It didn't stop me from checking out Legend, though.
+ A far better Tom Cruise film."
+
+[nextpage="fff"]
+[endpage]
+
+
+[page="HT_start"]
+[image="f16_08.cel"]
+[clear hear_truth]
+
+[colour="#808080"]
+Ransome speaks in a strangely slurred manner.
+[colour="#ffffff"]
+
+"..not now.. i've got terrible headache.."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="lord_kill"]
+[image="lord.jpg"]
+
+"Come now.  Why should I want to harm you, when we have
+ so much in common?"
+
+[endpage]

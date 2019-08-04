@@ -1,0 +1,16 @@
+##
+##  Add english strings here
+##
+
+quickname str_Day			Day
+
+quickname msg_DoesntWork		That doesn't work.
+quickname msg_DontKnowWhatToDo		Don't know what to do!
+quickname msg_DontNeedToEat		They don't need to eat.
+quickname msg_CannotDrinkThings		They cannot drink things.
+quickname msg_NoPhone			You don't have your phone.
+quickname msg_NoSpellbook 		No spellbook is wielded.
+quickname msg_CarryingTooMuch		You're carrying too much already.
+quickname msg_CannotMoveThat		You cannot move that.
+quickname msg_CannotPickThat		You cannot pick that up.
+quickname msg_Cancelled			cancelled

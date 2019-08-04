@@ -1,0 +1,35 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: bgui2 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\tapewolf\LOCALS~1\Temp\RSP4.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I "\allegro\include" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Fp"Release/bgui2.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\ire\engine\bgui2\src\bgfx.c"
+"C:\ire\engine\bgui2\src\bgui.c"
+"C:\ire\engine\bgui2\src\billfs.c"
+"C:\ire\engine\bgui2\src\bmenu.c"
+"C:\ire\engine\bgui2\src\bprocs.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\tapewolf\LOCALS~1\Temp\RSP4.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Release\bgui2.lib"  .\Release\bgfx.obj .\Release\bgui.obj .\Release\billfs.obj .\Release\bmenu.obj .\Release\bprocs.obj "
+<h3>Output Window</h3>
+Compiling...
+bgfx.c
+bgui.c
+billfs.c
+bmenu.c
+bprocs.c
+Creating library...
+
+
+
+<h3>Results</h3>
+bgui2.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

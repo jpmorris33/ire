@@ -1,0 +1,225 @@
+####################################################
+#                                                  #
+#  Makefile for IRE, Win32 cross-compiled version  #
+#                                                  #
+####################################################
+
+# Define all the targets first
+all: library_bgui2 library_ithe ire-engine ire-ed chknpc resize png2cel cel2png finished # mover
+
+##
+##  Configurables:
+##
+
+# Where to put binary on 'make install'?
+INSTALL_BIN = $./win32out
+     
+# Where to put data on 'make install'?
+INSTALL_DATA = $./win32out/data
+
+# Where to put data on 'make install'?
+INI_FILES = $./win32out/
+
+# Debugging and profiling
+#PROF += -pg
+#DBG += -g -O0
+
+# Optimisation
+ifeq ($(DBG),)
+OPT = -O2
+endif
+
+# Graphics backends
+# GRAPHICS = allegro4
+GRAPHICS = allegro4
+
+# Pick one of the following sound libraries:
+# SOUND = fmod3		# Higher quality, but non-Free
+# SOUND = fmod4		# Higher quality, but non-Free (experimental)
+# SOUND = allegro	# Lower quality, but fully-Free
+# SOUND = sdl		# Higher quality, fully-Free, needs SDL_mixer
+# SOUND = none		# Nothing
+
+SOUND = none
+
+# Choose whether to use the X86 assembly optimisations
+# ASM = i386		# Use optional assembly code
+# ASM = amd64		# Use optional assembly code
+# ASM = arm		# Use optional assembly code
+# ASM = no_asm		# no assembly code
+
+ifeq ($(ASM),)
+ASM = i386
+endif
+
+##
+##  Okay, do the stuff
+##
+
+# FMOD3 sound library.  May need tweaking
+ifeq ($(SOUND),fmod3)
+	SOUNDLIB_C       = -DUSE_FMOD3
+			  # Force IRE to load the FMOD library from current dir
+	SOUNDLIB_L       = -lfmod-3.70 -L. -Xlinker -rpath .
+endif
+
+# FMOD4 sound library.  May need tweaking
+ifeq ($(SOUND),fmod4)
+	SOUNDLIB_C       = -DUSE_FMOD4
+			  # Force IRE to load the FMOD library from current dir
+#	SOUNDLIB_L       = -lfmod-3.6 -L. -Xlinker -rpath .
+	SOUNDLIB_L       = -lfmodex
+endif
+
+# ALLEGRO sound library with ALOGG.
+ifeq ($(SOUND),allegro)
+	SOUNDLIB_C	 = -DUSE_ALOGG -DUSE_ALSOUND `alogg-config --cflags`
+	SOUNDLIB_L	 = `alogg-config --libs`
+endif
+
+# SDL sound library
+ifeq ($(SOUND),sdl)
+	SOUNDLIB_C	 = -DUSE_SDLSOUND `sdl-config --cflags`
+	SOUNDLIB_L	 = `sdl-config --libs` -lSDL_mixer
+endif
+
+# No sound library
+ifeq ($(SOUND),none)
+	SOUNDLIB_C	 = -DUSE_NOSOUND
+	SOUNDLIB_L	 = 
+endif
+
+
+# Graphics
+
+# Allegro 4.x
+ifeq ($(GRAPHICS),allegro4)
+	GRAPHICSLIB_C       = -DUSE_ALLEGRO4 `allegro-config --cflags`
+	GRAPHICSLIB_L       = -lalleg
+#	GRAPHICSLIB_L       = `allegro-config --libs`
+	gfx_obj		    = $(gfx_alleg4_obj)
+endif
+
+
+
+# Use the C or C++ compiler
+CC                = i586-mingw32msvc-g++ -v -DHAVE_W32API_H -D__WXMSW__ -D__WINDOWS__
+LD		  = i586-mingw32msvc-gcc -L/usr/i586-mingw32msvc/lib
+CFLAGS 		  =  -Wl,--subsystem,windows $(OPT) -Wno-write-strings  $(PROF) $(DBG) $(SOUNDLIB_C) $(GRAPHICSLIB_C)
+CFLAGS           += -DPATH_FILES_DAT=\"/$(INSTALL_DATA)/\" -DPATH_FILES_CONF=\"/$(INI_FILES)/\" -DALLEGRO -DBGUI
+LDFLAGS		  =  $(GRAPHICSLIB_L) $(PROF) $(DBG)
+
+Xopts		  = -Llibs/mingw32
+
+Lib_files         = -lithe -ljpeg -lpng -lbgui -lstdc++ -lX11 -lXext
+
+ifeq ($(ASM),no_asm)
+	CFLAGS	 += -DNO_ASM
+endif	
+
+# include the BGUI2 library
+include deb/makefile.bgui2
+
+# include the IT-HE support library
+include deb/makefile.ithe
+
+# Include the makefile core
+include makefile.all
+
+# Linux-dependent components
+lin_obj += audio/fmod3.o audio/fmod4.o audio/allegro.o audio/sdl.o audio/nosound.o
+
+# Assembler cores
+ifeq ($(ASM),i386)
+	lin_obj += graphics/common/dark_32.o 
+endif
+ifeq ($(ASM),amd64)
+	lin_obj += graphics/common/dark_64.o 
+endif
+ifeq ($(ASM),arm)
+	lin_obj += graphics/common/dark_arm.o 
+endif
+
+
+# Makefile rules
+
+ire-engine: $(ire_obj) $(gfx_obj) $(lin_obj)
+	$(LD) $(Xopts) $(ire_obj) $(gfx_obj) $(lin_obj) $(Lib_files) -o ../ire-engine $(LDFLAGS) $(SOUNDLIB_L)
+	-rm -f ire.o
+
+ire-ed: $(ed_obj) $(lin_obj)
+	$(LD) $(Xopts) $(ed_obj) $(gfx_obj) $(lin_obj) $(Lib_files) -o ../ire-ed $(LDFLAGS) $(SOUNDLIB_L)
+	-rm -f editor.o
+
+resize: $(resize_obj)
+	$(LD) $(Xopts) $(resize_obj) -lithe -ljpeg -o tools/resize_map $(LDFLAGS) -lstdc++
+
+mover: $(move_obj)
+	$(LD) $(Xopts) $(move_obj) -lithe -ljpeg -o tools/mover $(LDFLAGS)
+
+chknpc: $(chknpc_obj)
+	$(LD) $(chknpc_obj) -o tools/chknpc
+
+png2cel: $(png2cel_obj)
+	$(LD) $(png2cel_obj) -lpng -o tools/png2cel
+
+cel2png: $(cel2png_obj)
+	$(LD) $(cel2png_obj) -lpng -o tools/cel2png
+
+finished:
+	@echo "All done"
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cc
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.S
+	$(CC) -c $(CFLAGS) $< -o $@
+
+# Assembler formats
+ifeq ($(ASM),i386)
+%.o: %.asm
+	nasm -f win32 $< -o $@
+endif
+
+ifeq ($(ASM),amd64)
+%.o: %.asm
+	nasm -f win64 $< -o $@
+endif
+
+ifeq ($(ASM),arm)
+%.o: %.asm
+	# fasmarm $< $@
+endif
+
+clean:
+	-rm -f $(ire_obj) $(ed_obj) $(resize_obj) $(chknpc_obj)
+	-rm -f $(gfx_alleg_obj)
+	-rm -f $(lin_obj) $(move_obj) $(png2cel_obj) $(cel2png_obj)
+	-rm -f $(Object_ithe) $(Object_bgui2)
+	-rm -f ../ire-engine
+	-rm -f ../ire-ed
+	-rm -f tools/chknpc
+	-rm -f tools/resize_map
+
+distclean:
+	-rm -f $(ire_obj) $(ed_obj) $(resize_obj) $(chknpc_obj)
+	-rm -f $(lin_obj) $(move_obj) $(png2cel_obj) $(cel2png_obj)
+	-rm -f $(Object_ithe) $(Object_bgui2)
+	-rm -f ../ire-engine
+	-rm -f ../ire-ed
+	-rm -f bootlog.* game.cfg
+	-rm -f tools/*
+	-rm -f $(library_ithe)
+	-rm -f $(library_bgui2)
+
+install:
+		install -d $(INSTALL_BIN) $(INSTALL_DATA) $(INI_FILES)
+		install ../ire-engine $(INSTALL_BIN)
+		install ../ire-ed $(INSTALL_BIN)
+		install -m644 ../game.ini $(INI_FILES)/game.ini

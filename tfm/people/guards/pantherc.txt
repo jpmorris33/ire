@@ -1,0 +1,325 @@
+
+[page="start"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a large robot panther.  The creature speaks in a
+smooth, effortless manner.
+[colour="#ffffff"]
+
+"Good day, human.  How can I assist you?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Join my party?"]
+[linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"Farewell."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="what"]
+[image="panth5d.pcx"]
+
+"I'm a Mark 8 panther.  We're robot cats manufactured to
+ defend military installations.
+
+ I distinguished myself some years ago in our war against
+ the human rebels, and was upgraded to full human-level
+ intelligence.
+
+ Most of my guards fall rather short of this mark, but
+ they are loyal soldiers, and the ones who show great
+ initiative or compassion will be rewarded.  A few will
+ even join me as subordinates."
+
+[link="Why aren't they all as clever as you?"]
+[linkto="what2"]
+[link="Who are you?"]
+[linkto="who"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="what2"]
+[image="panth5d.pcx"]
+
+"They're immature.  We reproduce asexually, as I am sure
+ you are aware.  Our bodies are manufactured, and our
+ brains are all programmed from a master template.
+
+ This results in a squadron of identical panthers.  But
+ over the course of the years, they gradually diverge
+ into separate entities."
+
+[nextpage="what3"]
+[endpage]
+
+
+[page="what3"]
+[image="panth5d.pcx"]
+
+"Some will be content to remain as grunts, others will
+ develop the cunning they need to rise through the ranks.
+ The compassionate ones may suddenly realise that when
+ they attack they are hurting another creature like
+ themselves.  They usually want to leave the military and
+ go freelance, or try a totally different career.
+
+ The finest, such as I, will form a balance between all
+ three extremes.  This is the stuff of which captains
+ are made."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="panth5d.pcx"]
+[learn_name]
+
+"I am $NAME, chief of the panther guard.
+ I oversee the security patrols for the base and report
+ to commander Ransome."
+
+[link="Who guards the base?"]
+[linkto="guards"]
+[link="What are you?"]
+[linkto="what"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="guards"]
+[image="panth5d.pcx"]
+
+"Most of my guards are panthers, similar to myself.
+ There are also a few human guards as well, since some
+ duties are better carried out on two legs than four.
+
+ The reception at the base gates is one of these.
+ Even in this day and age there are still some humans who
+ dislike talking to a cyber.  Since most of the humans
+ went medieval, this has become even more of a problem."
+
+[link="What are you?"]
+[linkto="what"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="time"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+He sounds offended.
+[colour="#ffffff"]
+
+"No.  Kindly refer such trivia to my underlings."
+
+[link="Who guards the base?"]
+[linkto="guards"]
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[image="panth5d.pcx"]
+
+"I'm head of security.  I can't just leave the base on
+ some strange quest, I'm afraid.
+
+ However, I can probably lend you one of my underlings,
+ if that would help."
+
+[link="Yes, please."]
+[linkto="join2"]
+[link="Who guards the base?"]
+[linkto="guards"]
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="join2"]
+[image="panth5d.pcx"]
+[is_onscreen "Panther JMAC"]
+[if true][goto="join2p"]
+
+"Somewhere nearby you should find Panther JMAC.
+
+ He is smart and loyal, but has not yet earned himself a
+ name of his own.
+
+ I would greatly appreciate it if you could take him as
+ a companion.  The sort of training it would provide him
+ with is a rare opportunity.
+
+ But there are a few minor issues you should be aware of."
+
+[nextpage="join3"]
+[endpage]
+
+
+[page="join2p"]
+[image="panth5d.pcx"]
+
+"Panther JMAC?  Come over here, please."
+
+"This is Panther JMAC.  He is smart and loyal, but has
+ not yet earned himself a name of his own.
+
+ I would greatly appreciate it if you could take him as
+ a companion.  The sort of training it would provide him
+ with is a rare opportunity.
+
+ But there are a few minor issues you should be aware of."
+
+[nextpage="join3"]
+[endpage]
+
+[page="join3"]
+[image="panth5d.pcx"]
+
+"Firstly, JMAC is a stock design like me, which means
+ that he has glowing red eyes and a shiny black metal
+ hide.  The Churchies won't like that at all, so I
+ suggest you get him a fur suit.
+
+ There should be one in a spare locker.. I forget exactly
+ where.   If JMAC keeps quiet, they'll think he's a pet."
+
+[is_onscreen "Panther JMAC"]
+[if true][nextpage="join3p"]
+[if false][nextpage="join4"]
+[endpage]
+
+[page="join3p"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+Panther JMAC utters a cry of dismay.
+[colour="#ffffff"]
+
+"Oh no.. not again.."
+
+[nextpage="join4"]
+[endpage]
+
+[page="join4"]
+[image="panth5d.pcx"]
+[set heal_panthers]
+[set join_jmac]
+
+"And secondly: maintenance and repair.
+
+ JMAC is heavily armoured and has some self-repair
+ capabilities, but you can't heal him by yourself.
+
+ If you bring him back to us, Austin can fix him up, and
+ any of the other bases should be able to repair him too.
+
+ If the worst happens and he dies, you MUST bring back
+ his head, otherwise we can't resurrect him."
+
+[nextpage="join5"]
+[endpage]
+
+[page="join5"]
+[image="panth5d.pcx"]
+
+final parting words 
+
+[link="Who guards the base?"]
+[linkto="guards"]
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+The panther looks at Darien.
+
+"I see you've brought one of the Churchies with you.
+ I hope you know what you're doing.. we've had nothing
+ but trouble from them."
+
+"Watch your tongue, hell-cat!"
+
+"See what I mean?   Well, if you get sick of him, I'm
+ sure I could lend you one of my underlings."
+
+
+"In the ???? you should find a certain Panther JMAC.
+ He's pretty intelligent, but has not yet earned himself
+ a name of his own.
+
+ If you feel he would be useful, I'll let him join your
+ party.
+
+ Are you interested in this?"
+
+
+
+"Good!  That sort of training is a rare opportunity.
+ Now, a few words before you actually take him.
+
+ Firstly, JMAC is a stock design like me, which means
+ that he has glowing red eyes and a shiny black metal
+ hide.  The Churchies won't like that at all, so I
+ suggest you get him a fur suit.
+
+ There should be one in a spare locker.. I forget exactly
+ where.   If JMAC keeps quiet, they'll think he's a pet."
+
+JMAC: "Oh no.. not again.."
+
+"One more important note: maintenance and repair.
+
+ JMAC is heavily armoured, but won't heal by himself.
+ If you bring him back to us, Austin can fix him up.
+ I suspect the other bases can repair him too.
+ If the worst happens and he dies, you MUST bring back
+ his head."
+
+[set heal_panthers]

@@ -1,0 +1,284 @@
+##
+##	Board a vehicle by substituting it for the player
+##	and chucking all the party members into the vehicle's boot or hold
+##
+
+
+#######################
+#                     #
+#  Car - Board a car  #
+#                     #
+#######################
+
+function board_car
+
+integer result = 0
+object car
+
+# If we're already in the vehicle, disembark
+
+if current = player
+	let car = player
+	call current.funcs.wcache	# Disembark if poss.
+	get_user_flag result = "true"
+	if result = 0
+		print "You can't get out!"
+		printcr
+		return
+	endif
+
+	del_member car
+	set_leader party[1] player_action follower_action
+	return
+endif
+
+# Check for silliness
+
+if_in_pocket current
+	print "What big pockets you have, Grandma!"
+	printcr
+	return
+endif
+
+# If you're stealing someone else's car and they see you...
+# BUG START
+# print "stop_thief|"
+# BUG END
+
+move_party_to current
+
+# Now make the car into the party leader
+
+set_member current car_action
+
+let party_mode = 0
+
+# If the car is stolen, make the owner follow it, not you
+# Also make sure the owner removes you from the car and beats -you- up,
+# not the car.
+/*
+if_exists victim
+	let victim.enemy = player
+	print "ATTACK CARTHIEF (broken)|"
+#	do_action victim does attack_carthief to player
+endif
+*/
+
+end
+
+#########################
+#                       #
+#  Boat - Board a boat  #
+#                       #
+#########################
+
+function board_boat
+
+integer result = 0
+object vehicle
+tile mytile
+
+# If we're already in the vehicle, disembark
+
+if current = player
+	let vehicle = player
+	call current.funcs.wcache	# Disembark if poss.
+	get_user_flag result = "true"
+	if result = 0
+		# Rotate 180 degrees and try again
+		call rotate_l
+		call rotate_l
+		
+		call current.funcs.wcache	# Disembark if poss.
+		get_user_flag result = "true"
+
+		if result = 0
+			# Rotate it another 180 degrees
+			call rotate_l
+			call rotate_l
+
+			print "The boat must be alongside land first."
+			printcr
+			return
+		endif
+	endif
+
+	del_member vehicle
+	set_leader party[1] player_action follower_action
+	return
+endif
+
+# Check for silliness
+
+if_in_pocket current
+	print "Take the boat out of your backpack first."
+	printcr
+	return
+endif
+
+# Make sure the boat is in water
+
+get_tile mytile from current.x current.y
+
+if_not_flag mytile IS_WATER
+	print "The boat must be placed in water first"
+	printcr
+	return
+endif
+
+# If you're stealing someone else's car and they see you...
+BUG START
+print "stop_thief|"
+BUG END
+
+move_party_to current
+
+# Now make the vehicle into the party leader
+
+set_member current boat_action
+
+let party_mode = 0
+
+# If the vehicle is stolen, make the owner follow it, not you
+# Also make sure the owner removes you from it and beats -you- up, not the veh.
+
+if_exists victim
+	let victim.enemy = player
+	print "ATTACK BOATTHIEF (broken)|"
+#	do_action victim does attack_carthief to player
+endif
+
+end
+
+
+#############################################
+#                                           #
+#  Leave_Car - Move the party from the car  #
+#                                           #
+#############################################
+
+
+#
+#	But only if the player can get out of the driver door
+#
+#	You should be able to make a left-hand drive by swapping LEFT and RIGHT
+#	and UP and DOWN...
+#
+
+function leave_car
+
+int dir
+int x = 0
+int y = 0
+tile mytile
+
+set_user_flag "true" = 0
+
+let dir = current.curdir
+
+
+# Find out where the player emerges
+
+if dir = LEFT
+	let x = current.x + 2
+	let y = current.y - 1
+endif
+
+if dir = RIGHT
+	let x = current.x + 2
+	let y = current.y + 2
+endif
+
+if dir = DOWN
+	let x = current.x - 1
+	let y = current.y + 2
+endif
+
+if dir = UP
+	let x = current.x + 2
+	let y = current.y + 2
+endif
+
+
+# Get the tile we're looking at for tests
+get_tile mytile from x y
+
+# If blocked, abort
+if_flag mytile IS_SOLID
+	return
+endif
+
+
+# Otherwise, do the deed and return success
+move_party_from current to x y
+set_user_flag "true" = 1
+
+end
+
+
+###############################################
+#                                             #
+#  Leave_Boat - Move the party from the boat  #
+#                                             #
+###############################################
+
+
+function leave_boat
+
+int dir
+int x = 0
+int y = 0
+tile mytile
+
+set_user_flag "true" = 0
+
+let dir = current.curdir
+
+# Find out where the player emerges
+
+if dir = LEFT
+	let x = current.x
+	let y = current.y - 1
+endif
+
+if dir = RIGHT
+	let x = current.x
+	let y = current.y + 1
+endif
+
+if dir = DOWN
+	let x = current.x - 1
+	let y = current.y
+endif
+
+if dir = UP
+	let x = current.x + 1
+	let y = current.y
+endif
+
+
+# Get the tile we're looking at for tests
+get_tile mytile from x y
+
+# If blocked, abort
+if_flag mytile IS_SOLID
+	return
+endif
+
+# If we're trying to get out into the water
+if_flag mytile IS_WATER
+	return
+endif
+
+# Can't get out onto the boat (as you can't get back in!)
+if x = current.x
+	if y = current.y
+		return
+	endif
+endif
+
+set_user_flag "true" = 1
+
+move_party_from current to current.x current.y
+
+end

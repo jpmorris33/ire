@@ -1,0 +1,7 @@
+[page="start"]
+[image="hawk.pcx"]
+[nextpage="exit"]
+[colour="#808080"]
+The hawk ignores you.
+[colour="#ffffff"]
+[endpage]

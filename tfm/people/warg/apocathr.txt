@@ -1,0 +1,289 @@
+
+
+Green	- Poison
+Red	- Cure
+Yellow	- Heal
+Black	- Invis 	WARG DON'T HAVE THSE
+
+Blue	- Sleep?
+Magenta
+Purple
+White   - Light, or X-ray vision, or something else
+
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="backagain"]
+[endpage]
+
+
+
+[page="first"]
+
+[colour="#808080"]
+You see a lean wolf-creature.
+[colour="#ffffff"]
+
+"Hello there, human.  I am BlackTail the apothecar.
+ Are you interested in buying potions?"
+[learn_name]
+
+[link="Tell me about your potions."]
+[linkto="potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="backagain"]
+
+[colour="#808080"]
+You see BlackTail the apothecar.
+[colour="#ffffff"]
+
+"Welcome back.
+ Are you interested in buying potions?"
+
+[link="Tell me about your potions."]
+[linkto="potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="potions"]
+
+"I stock several kinds of magical brew.  We dye them so
+ that they are easy to tell apart.
+
+ The green potions are poisonous and should not be drunk,
+ but they are useful for killing rats and removing fleas.
+
+ Red potions are a fast-acting antidote to most toxins,
+ including snake venom and the rat poison.
+
+ Yellow potions are restorative and allow wounds to heal
+ very rapidly.  Blue potions induce a refreshing sleep.
+
+ White potions are made from a particular kind of magical
+ mushroom, and allow the drinker to see things normally
+ hidden.  Drinking too much can be dangerous."
+
+[link="How much are they?"]
+[linkto="prices"]
+[always]
+[link="I'd like some rat poison."]
+[linkto="green"]
+[always]
+[link="I'd like the cure potion."]
+[linkto="red"]
+[always]
+[link="I'd like the healing potion."]
+[linkto="yellow"]
+[always]
+[link="I'd like the sleep potion."]
+[linkto="blue"]
+[always]
+[link="I'd like the white potion."]
+[linkto="white"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="prices"]
+
+"I sell rat poison for 12 gold coins, cure potions and
+ healing potions for 15 gold coins, a sleeping draught
+ for 16 gold coins, and the white potion is 20 gold
+ coins."
+
+[link="Tell me more about the potions."]
+[linkto="potions"]
+[always]
+[link="I'd like some rat poison."]
+[linkto="green"]
+[always]
+[link="I'd like the cure potion."]
+[linkto="red"]
+[always]
+[link="I'd like the healing potion."]
+[linkto="yellow"]
+[always]
+[link="I'd like the sleep potion."]
+[linkto="blue"]
+[always]
+[link="I'd like the white potion."]
+[linkto="white"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="green"]
+
+"That will be 12 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="green2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="green2"]
+[take 12 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_green]
+[append="buy_core"]
+[endpage]
+
+
+[page="red"]
+
+"That will be 15 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="red2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="red2"]
+[take 15 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_red]
+[append="buy_core"]
+[endpage]
+
+
+[page="yellow"]
+
+"That will be 15 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="yellow2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="yellow2"]
+[take 15 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_yellow]
+[append="buy_core"]
+[endpage]
+
+
+[page="blue"]
+
+"That will be 16 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="blue2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="blue2"]
+[take 16 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_blue]
+[append="buy_core"]
+[endpage]
+
+
+[page="white"]
+
+"That will be 20 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="white2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="white2"]
+[take 20 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_white]
+[append="buy_core"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you cannot afford that.  Would you like to buy
+ something else?"
+
+[link="Yes, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buy_core"]
+"Here you go."
+
+[colour="#808080"]
+The apothecar drops the potion on the table before you
+and you take it. 
+[colour="#ffffff"]
+
+[link="I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"May you prosper and be safe from the Betrayer!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="nocollar"]
+[image="weaver.pcx"]
+[colour="#808080"]
+The creature drops to the ground.
+[colour="#ffffff"]
+
+"Please, no!  My meagre life is not worth taking!"
+
+[nextpage="exit"]
+[endpage]

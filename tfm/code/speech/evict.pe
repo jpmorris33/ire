@@ -1,0 +1,34 @@
+#############################################
+#                                           #
+#  Take the player out of the King's sight  #
+#                                           #
+#############################################
+
+##
+##  Out of my sight!
+##
+
+function king_chuckout
+object temp
+
+fade_out
+find_tag temp = "target" 24
+transfer_object player to temp.x temp.y
+if party_mode
+	move_party_to temp
+	move_party_from temp to temp.x temp.y
+endif
+fade_in
+
+end
+
+##
+##  Jail the player immediately
+##
+
+function jail_player
+
+let victim = player
+call arrest_victim
+
+end

@@ -1,0 +1,194 @@
+[page="start"]
+"Hello, $MILORD.  Have you come to buy flour?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="I would like to buy some flour."]
+[linkto="buy"]
+[always]
+[if sceptre][link="Do you know anything about the sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+"I am $NAME, the miller.  I have been turning grain to
+ flour for my whole life, but I have never been so busy
+ as since the flour crisis began."
+
+[link="Tell me about the flour crisis."]
+[linkto="crisis"]
+[link="I would like to buy some flour."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"My stocks are low, and prices are high.  For a sack of
+ flour, I must ask 25 gold coins.
+
+ I realise this is a lot, but there is a shortage on.
+
+ If you bring your own grain, I can mill it for you at a
+ cost of only 3 gold coins, $MILORD."
+
+
+[link="Tell me about the flour shortage."]
+[linkto="crisis"]
+[link="I would like to buy a sack of flour."]
+[linkto="flour"]
+[always]
+[link="I have some grain for you to mill."]
+[linkto="grain"]
+[always]
+[link="Where could I get some grain?"]
+[linkto="wheregrain"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="flour"]
+[take 25 gold_coins]
+[if false][goto="nomoney"]
+[create 1 flour_sack]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="grain"]
+[am_carrying grain_sack]
+[if false][goto="nograin"]
+[take 3 gold_coins]
+[if false][goto="nomoney"]
+[take 1 grain_sack]
+[create 1 flour_sack]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I would like to buy a sack of flour."]
+[linkto="flour"]
+[always]
+[link="I have some more grain for you to mill."]
+[linkto="grain"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I'm afraid you can't afford that, $MILORD."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nograin"]
+
+"I don't see any grain, $MILORD."
+
+[link="I would like to buy some flour."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="crisis"]
+
+"The other mill, in the southern town of New Fairford is
+ abandoned.  There is a terrible beast stalking the town
+ and the miller is dead along with the rest of the town.
+
+ It is said that they angered the Lord and the Beast was
+ sent to punish them.
+
+ In the mean time, there is but one mill to make flour,
+ and that is mine."
+
+[link="I would like to buy a sack of flour."]
+[linkto="flour"]
+[always]
+[link="I have some grain for you to mill."]
+[linkto="grain"]
+[always]
+[link="Where could I get some grain?"]
+[linkto="wheregrain"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="wheregrain"]
+
+"The King has a large store of grain for the winter.
+ It may be possible to request some grain from the royal
+ stores.
+
+ But how this be done, I know not."
+
+[link="I would like to buy some flour."]
+[linkto="buy"]
+[always]
+[link="Tell me about the flour crisis."]
+[linkto="crisis"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre"]
+[if returned_sceptre][goto="sceptre2"]
+
+"I know only that it has been stolen, and that the King
+ would pay dear for its return."
+
+[link="I would like to buy some flour."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre2"]
+
+"I know only that it was stolen, then found and the King
+ paid a handsome reward to the one who recovered it."
+
+[link="I would like to buy some flour."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Farewell, $MILORD."
+
+[nextpage="exit"]
+[endpage]

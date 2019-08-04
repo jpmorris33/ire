@@ -1,0 +1,367 @@
+##
+##
+##	Bombs and explosives
+##
+##
+
+
+
+object_array whuptable[16]
+object bomb
+object root
+integer whupctr
+integer wx
+integer wy
+integer damage
+
+
+##############################################
+#                                            #
+# light_powder - Light a barrel of gunpowder #
+#                                            #
+##############################################
+
+function light_powder
+
+#	This can be called either as an action (e.g. use bomb)
+#	or as a behaviour.  In the latter case, current is NULL so we use Me
+
+if_not_exist current
+	let current = me
+endif
+
+# If we haven't already started the countdown, do so
+
+if me.user.user0 = 0
+	do_action current does bomb_countdown
+	set_sequence current "gunpowder1"
+	let current.user.user0 = 2 # two ticks until tubby bye-byes
+	return
+endif
+
+end
+
+
+#########################################
+#                                       #
+# Short Fuse - explode almost instantly #
+#                                       #
+#########################################
+
+function short_fuse
+
+if_not_exist current
+	let current = me
+endif
+
+do_action current does explode
+
+end
+
+
+####################################################
+#                                                  #
+# Bomb Countdown - tick, tick, bang.  You're dead. #
+#                                  (Hayes advert)  #
+####################################################
+
+function bomb_countdown
+
+# The countdown to extinction
+# will now transform reality
+
+add me.user.user0 - 1
+
+if me.user.user0 <= 0
+	do_action me does "explode"
+	return
+endif
+
+end
+
+
+##
+##
+##
+
+function explode
+
+integer x
+integer y
+
+let bomb = me
+
+play_sound "boom"
+
+call find_root
+
+let x = root.x
+let y = root.y
+let damage = bomb.stats.damage
+
+# He who cast the first bomb is guilty
+let suspect = bomb.stats.owner
+let attacker = bomb.stats.owner
+
+let bomb.stats.hp = -10000		# Destroy and be Free
+check_hurt bomb
+
+lightning 2
+
+let whupctr = 1
+
+#
+#	Detonate, with an explosion affecting the following area:
+#
+#	    *
+#	   ***
+#	  *****
+#	   ***
+#	    *
+#
+
+let wx = x
+let wy = y
+call whup
+
+let wx = x
+let wy = y - 2
+call whup
+
+let wx = x - 1
+let wy = y - 1
+call whup
+
+let wx = x
+let wy = y - 1
+call whup
+
+let wx = x + 1
+let wy = y - 1
+call whup
+
+let wx = x - 2
+let wy = y
+call whup
+
+let wx = x - 1
+let wy = y
+call whup
+
+let wx = x + 1
+let wy = y
+call whup
+
+let wx = x + 2
+let wy = y
+call whup
+
+let wx = x - 1
+let wy = y + 1
+call whup
+
+let wx = x
+let wy = y + 1
+call whup
+
+let wx = x + 1
+let wy = y + 1
+call whup
+
+let wx = x
+let wy = y + 2
+call whup
+
+if bomb <> player
+	destroy bomb
+endif
+
+call whup_objects
+
+redraw_map
+
+end
+
+
+function whup_objects
+private
+integer ctr
+object o
+
+for ctr = 1 to whupctr
+	let o = whuptable[ctr]
+	let whuptable[ctr] = null
+
+	if_exists o
+		do
+			add o.stats.hp - damage
+			let me = o
+			let current = o
+			check_hurt o
+			let o = o.next
+		while o
+	endif
+next ctr
+
+end
+
+
+
+# Add the object to the list of ones to be whupped
+
+function whup
+private
+object o
+integer ctr
+
+get_first_object o from wx wy
+
+if_not_exist o
+	return
+endif
+
+# Can we reach the destination
+get_line_of_sight ctr = o bomb
+if ctr = 0
+	return # Blocked
+endif
+
+# Is it the Bomb? (Mustn't whup the Bomb)
+if o = bomb
+	let o = o.next
+	if_not_exist o
+		return
+	endif
+endif
+
+for ctr = 1 to whupctr
+	if whuptable[ctr] = o	# Already there.  Abort.
+		return
+	endif
+next ctr
+
+# Final check (just to make sure)
+if o = bomb
+	return
+endif
+
+# Add it to the table
+
+add whupctr + 1
+let whuptable[whupctr] = o
+
+end
+
+
+function find_root
+
+let root = bomb
+
+do
+	if_exists root.parent
+		let root = root.parent
+	endif
+while root.parent
+
+end
+
+
+
+
+function radiation_damage
+integer x
+integer y
+
+let bomb = me
+
+call find_root
+
+let x = root.x
+let y = root.y
+let damage = bomb.stats.damage
+
+let whupctr = 1
+
+# Expose the surrounding objects to radiation
+
+let wx = x
+let wy = y
+call whup
+
+let wx = x
+let wy = y - 2
+call whup
+
+let wx = x - 1
+let wy = y - 1
+call whup
+
+let wx = x
+let wy = y - 1
+call whup
+
+let wx = x + 1
+let wy = y - 1
+call whup
+
+let wx = x - 2
+let wy = y
+call whup
+
+let wx = x - 1
+let wy = y
+call whup
+
+let wx = x + 1
+let wy = y
+call whup
+
+let wx = x + 2
+let wy = y
+call whup
+
+let wx = x - 1
+let wy = y + 1
+call whup
+
+let wx = x
+let wy = y + 1
+call whup
+
+let wx = x + 1
+let wy = y + 1
+call whup
+
+let wx = x
+let wy = y + 2
+call whup
+
+call whup_organic_objects
+
+end
+
+## For radiation
+
+function whup_organic_objects
+private
+integer ctr
+object o
+
+for ctr = 1 to whupctr
+	let o = whuptable[ctr]
+	let whuptable[ctr] = null
+
+	if_exists o
+		do
+			if_flag o IS_BIOLOGICAL
+				add o.stats.hp - damage
+				let me = o
+				let current = o
+				check_hurt o
+			endif
+			let o = o.next
+		while o
+	endif
+next ctr
+
+end

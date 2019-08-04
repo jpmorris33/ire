@@ -1,0 +1,279 @@
+#####################################
+#                                   #
+#  Makefile for IRE, Linux version  #
+#                                   #
+#####################################
+
+# Define all the targets first
+all: library_ithe ire-engine ire-ed chknpc resize png2cel cel2png cel2font font2cel fixfont grabfont finished # mover
+#library_bgui2
+
+##
+##  Configurables:
+##
+
+# Where to put binary on 'make install'?
+INSTALL_BIN = $/usr/games
+     
+# Where to put data on 'make install'?
+INSTALL_DATA = $/usr/share/games/ire/data
+
+# Where to put data on 'make install'?
+INI_FILES = $/etc/ire
+
+# Debugging and profiling
+#PROF += -pg
+ifneq ($(DEBUG),)
+	DBG += -g -O2
+endif
+
+# Optimisation
+ifeq ($(DBG),)
+OPT = -O2
+endif
+
+# Graphics backends
+#GRAPHICS = allegro4
+#GRAPHICS = sdl12
+#GRAPHICS = sdl20
+ifeq ($(GRAPHICS),)
+GRAPHICS = sdl12
+endif
+
+
+# Pick one of the following sound libraries:
+# SOUND = fmod3		# Higher quality, but non-Free
+# SOUND = fmod4		# Higher quality, but non-Free (experimental)
+# SOUND = allegro	# Lower quality, but fully-Free
+# SOUND = sdl12		# Higher quality, fully-Free, needs SDL_mixer
+# SOUND = sdl20		# Higher quality, fully-Free, needs SDL2_mixer
+# SOUND = none		# Nothing
+
+ifeq ($(SOUND),)
+SOUND = sdl12
+endif
+
+# Choose whether to use assembler.  This can help on things like VC6 which
+# has no optimiser, or for using SIMD instructions
+# ASM=i386		# Use optional assembly code
+# ASM=amd64		# Use optional assembly code
+# ASM=arm		# Use optional assembly code
+# ASM=no_asm		# no assembly code
+
+ifeq ($(ASM),)
+ASM = no_asm
+endif
+
+##
+##  Okay, do the stuff
+##
+
+# FMOD3 sound library.  May need tweaking
+ifeq ($(SOUND),fmod3)
+	SOUNDLIB_C       = -DUSE_FMOD3
+			  # Force IRE to load the FMOD library from current dir
+	SOUNDLIB_L       = -lfmod-3.70 -L. -Xlinker -rpath .
+endif
+
+# FMOD4 sound library.  May need tweaking
+ifeq ($(SOUND),fmod4)
+	SOUNDLIB_C       = -DUSE_FMOD4
+			  # Force IRE to load the FMOD library from current dir
+#	SOUNDLIB_L       = -lfmod-3.6 -L. -Xlinker -rpath .
+	SOUNDLIB_L       = -lfmodex
+endif
+
+# ALLEGRO sound library with ALOGG.
+ifeq ($(SOUND),allegro)
+	SOUNDLIB_C	 = -DUSE_ALOGG -DUSE_ALSOUND `alogg-config --cflags`
+	SOUNDLIB_L	 = `alogg-config --libs`
+endif
+
+# SDL sound library
+ifeq ($(SOUND),sdl12)
+	SOUNDLIB_C	 = -DUSE_SDLSOUND `sdl-config --cflags`
+	SOUNDLIB_L	 = `sdl-config --libs` -lSDL_mixer
+endif
+
+# SDL sound library
+ifeq ($(SOUND),sdl20)
+	SOUNDLIB_C	 = -DUSE_SDL2SOUND `sdl2-config --cflags`
+	SOUNDLIB_L	 = `sdl2-config --libs` -lSDL2_mixer
+endif
+
+# No sound library
+ifeq ($(SOUND),none)
+	SOUNDLIB_C	 = -DUSE_NOSOUND
+	SOUNDLIB_L	 = 
+endif
+
+
+# Graphics
+gfx_obj = $(gfx_core_obj)
+
+# Allegro 4.x
+ifeq ($(GRAPHICS),allegro4)
+	GRAPHICSLIB_C       = -DUSE_ALLEGRO4 `allegro-config --cflags`
+	GRAPHICSLIB_L       = `allegro-config --libs`
+	gfx_obj		    += $(gfx_alleg4_obj)
+endif
+
+# SDL 1.2
+ifeq ($(GRAPHICS),sdl12)
+        GRAPHICSLIB_C       = -DUSE_SDL12 `sdl-config --cflags`
+        GRAPHICSLIB_L       = `sdl-config --libs`
+        gfx_obj             += $(gfx_sdl12_obj)
+endif
+
+# SDL 2.0
+ifeq ($(GRAPHICS),sdl20)
+        GRAPHICSLIB_C       = -DUSE_SDL20 `sdl2-config --cflags`
+        GRAPHICSLIB_L       = `sdl2-config --libs`
+        gfx_obj             += $(gfx_sdl20_obj)
+endif
+
+
+
+# Use the C or C++ compiler
+CC                = gcc
+LD		  = gcc
+#CFLAGS            = -march=pentium -Wall 
+#CFLAGS            = -O3
+CFLAGS 		  =  -DASM=\"$(ASM)\" $(OPT) -Wall -Wno-write-strings  $(PROF) $(DBG) $(SOUNDLIB_C) $(GRAPHICSLIB_C)
+CFLAGS           += -I. -DPATH_FILES_DAT=\"/$(INSTALL_DATA)/\" -DPATH_FILES_CONF=\"/$(INI_FILES)/\"
+LDFLAGS		  =  $(GRAPHICSLIB_L) $(PROF) $(DBG)
+
+Xopts		  = -Llibs/linux
+
+Lib_files         = -lithe -ljpeg -lpng -lstdc++ -lX11 -lXext -lsqlite3 -lm
+
+ifeq ($(ASM),no_asm)
+	CFLAGS	 += -DNO_ASM
+endif	
+
+# include the BGUI2 library
+# include deb/makefile.bgui2
+
+# include the IT-HE support library
+include deb/makefile.ithe
+
+# Include the makefile core
+include makefile.all
+
+# Linux-dependent components
+lin_obj += audio/fmod3.o audio/fmod4.o audio/allegro.o audio/sdl.o audio/sdl2.o audio/nosound.o
+
+# Assembler cores
+ifeq ($(ASM),i386)
+	lin_obj += graphics/common/dark_32.o graphics/common/font_32.o
+endif
+ifeq ($(ASM),amd64)
+	lin_obj += graphics/common/dark_64.o graphics/common/font_64.o  
+endif
+ifeq ($(ASM),arm)
+	lin_obj += graphics/common/dark_arm.o graphics/common/font_arm.o
+endif
+
+
+# Makefile rules
+
+ire-engine: svnrevision.h $(ire_obj) $(gfx_obj) $(lin_obj)
+	$(LD) $(Xopts) $(ire_obj) $(gfx_obj) $(lin_obj) $(Lib_files) -o ../ire-engine $(LDFLAGS) $(SOUNDLIB_L)
+	-rm -f ire.o
+
+ire-ed: svnrevision.h $(ed_obj) $(lin_obj)
+	$(LD) $(Xopts) $(ed_obj) $(gfx_obj) $(lin_obj) $(Lib_files) -o ../ire-ed $(LDFLAGS) $(SOUNDLIB_L)
+	-rm -f editor.o
+
+resize: $(resize_obj)
+	$(LD) $(Xopts) $(resize_obj) -lithe -ljpeg -o tools/resize_map $(LDFLAGS) -lstdc++
+
+mover: $(move_obj)
+	$(LD) $(Xopts) $(move_obj) -lithe -ljpeg -o tools/mover $(LDFLAGS)
+
+chknpc: $(chknpc_obj)
+	$(LD) $(chknpc_obj) -o tools/chknpc
+
+png2cel: $(png2cel_obj)
+	$(LD) $(png2cel_obj) -lpng -lstdc++ -o tools/png2cel
+
+cel2png: $(cel2png_obj)
+	$(LD) $(cel2png_obj) -lpng -lstdc++ -o tools/cel2png
+
+cel2font: $(cel2font_obj)
+	$(LD) $(cel2font_obj) -lstdc++ -o tools/cel2font
+
+font2cel: $(font2cel_obj)
+	$(LD) $(font2cel_obj) -lstdc++ -o tools/font2cel
+
+fixfont: $(fixfont_obj)
+	$(LD) $(fixfont_obj) -lstdc++ -o tools/fixfont
+
+grabfont: $(grabfont_obj)
+	$(LD) $(grabfont_obj) -lstdc++ -o tools/grabfont
+
+finished:
+	@echo "All done"
+
+svnrevision.h:
+	echo "#define SVNREVISION \"-rev-"`svn info | grep Revision | cut -d \  -f 2`"\"" > svnrevision.h
+#	echo "#define SVNREVISION \"-rev-"`svnversion`"\"" > svnrevision.h
+
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cc
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.S
+	$(CC) -c $(CFLAGS) $< -o $@
+
+# Assembler formats
+ifeq ($(ASM),i386)
+%.o: %.asm
+	nasm -f elf32 $< -o $@
+endif
+
+ifeq ($(ASM),amd64)
+%.o: %.asm
+	yasm -f elf64 $< -o $@
+endif
+
+ifeq ($(ASM),arm)
+%.o: %.asm
+	# fasmarm $< $@
+endif
+
+clean:
+	-rm -f $(ire_obj) $(ed_obj) $(resize_obj) $(chknpc_obj) $(cel2font) $(font2cel) $(fixfont) $(grabfont)
+	-rm -f $(gfx_obj)
+	-rm -f $(lin_obj) $(move_obj) $(png2cel_obj) $(cel2png_obj) $(cel2font_obj) $(font2cel_obj) $(fixfont_obj) $(grabfont_obj)
+	-rm -f $(Object_ithe) $(Object_bgui2)
+	-rm -f ../ire-engine
+	-rm -f ../ire-ed
+	-rm -f tools/chknpc
+	-rm -f tools/resize_map
+
+	echo "#define SVNREVISION \"-rev-"`svn info | grep Revision | cut -d \  -f 2`"\"" > svnrevision.h
+
+distclean:
+	-rm -f $(ire_obj) $(ed_obj) $(resize_obj) $(chknpc_obj) $(cel2font) $(font2cel) $(fixfont) $(grabfont)
+	-rm -f $(gfx_obj)
+	-rm -f $(lin_obj) $(move_obj) $(png2cel_obj) $(cel2png_obj) $(cel2font_obj) $(font2cel_obj) $(fixfont_obj) $(grabfont_obj)
+	-rm -f $(Object_ithe) $(Object_bgui2)
+	-rm -f ../ire-engine
+	-rm -f ../ire-ed
+	-rm -f bootlog.* game.cfg
+	-rm -f tools/*
+	-rm -f $(library_ithe)
+	-rm -f $(library_bgui2)
+
+install:
+		install -d $(INSTALL_BIN) $(INSTALL_DATA) $(INI_FILES)
+		install ../ire-engine $(INSTALL_BIN)
+		install ../ire-ed $(INSTALL_BIN)
+		install -m644 ../game.ini $(INI_FILES)/game.ini

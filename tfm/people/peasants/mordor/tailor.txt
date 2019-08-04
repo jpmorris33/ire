@@ -1,0 +1,334 @@
+[page="start"]
+"Hello, $SIR.  Do you come to buy clothing?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="I would like to buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see $NAME the tailor.
+[colour="#ffffff"]
+
+"Hello again, $SIR.  Do you seek clothing?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="I would like to buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="inchurch"]
+"Quiet!  The sermon is in progress!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+"My name is $NAME.  I am the tailor of the town of
+ Mordor.
+ 
+ If you have need of garments, you need only ask and
+ I shall see what I can do for you."
+
+[link="I would buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I make jackets and cloaks.  The jackets I would sell for
+ 19 gold coins, and the cloaks for 22 gold."
+
+[link="I'd like a cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like a jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="buy_cloak"]
+[take 22 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 clothing01]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'd like to buy another cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like a jacket as well."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_jacket"]
+[take 19 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 clothing00]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'd like to buy another jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like a cloak as well."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="nomoney"]
+
+"I'm afraid you can't afford that, $MILORD."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sell"]
+
+"I would buy thread if you have any.  I can pay you 7
+ gold coins for each reel.
+
+ If you have old clothes, I would pay you 10 gold coins
+ for a jacket, and 12 gold coins for a cloak."
+
+[link="I'm selling some thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_jacket"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="sell_cloak"]
+[take 1 clothing01]
+[if false][goto="nogoods"]
+[create 12 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling another cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_jacket"]
+[take 1 clothing00]
+[if false][goto="nogoods"]
+[create 10 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling another jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_thread"]
+[take 1 thread00]
+[if false][take 1 thread01]
+[if false][goto="nogoods"]
+[create 7 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some more thread."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_purple"]
+[take 1 cloth04]
+[if false][goto="nogoods"]
+[create 30 gold_coins]
+[call="money_sound"]
+
+"Yes, this is fine indeed.  A pleasure doing business
+ with you, $MILORD."
+
+[link="I'm selling some thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nogoods"]
+
+"I fear you have mislaid that item, $MILORD.
+ Is there anything else you would sell?"
+
+[link="I'm selling some thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling another cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sceptre"]
+
+"I know only that it is the symbol of the King's power,
+ that it has been stolen and that the King offers a fine
+ reward for its return."
+
+[link="I would like to buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes"]
+
+"The tithes are a rent that we must pay to live upon this
+ world.
+
+ We pay a third of all our wealth to the LORD and to the
+ Church, that we may live on after our bodies have died."
+
+[link="I would buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Farewell, $MILORD."
+
+[nextpage="exit"]
+[endpage]

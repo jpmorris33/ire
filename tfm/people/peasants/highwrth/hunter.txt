@@ -1,0 +1,430 @@
+
+
+[page="start"]
+
+"Greetings, stranger.  What brings you here?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Join me"]
+[linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+
+[endpage]
+
+
+[page="startname"]
+
+"Hello again."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Join me"]
+[linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"My name is Darian, but most people refer to me as
+ 'The hunter'."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Join me"]
+[linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am a huntsman.  I live off the creatures of the
+ forest, and vegetables I grow myself.
+
+ Sometimes I also trade with others.. fur pelts
+ can fetch a good price in the marketplace."
+
+[link="Tell me about the forests."]
+[linkto="forest"]
+[link="Join me"]
+[linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[call="join_party"]
+[!if false][goto="join2"]
+
+"I would be honoured to help the Promised One in his
+ great work, if that is what you wish."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the forests."]
+[linkto="forest"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join2"]
+
+"I regret I would rather not join such a large party."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the forests."]
+[linkto="forest"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+----- Forest -----
+
+[page="forest"]
+
+"The forest provides cover for the many creatures
+ that dwell in the woodland, and it provides us
+ too with wood and shelter."
+
+[link="Tell me about the creatures of the forest."]
+[linkto="forestc1"]
+[link="Goodbye."]
+[linkto="bye"]
+
+[endpage]
+
+
+
+----- Forest Creatures -----
+
+[page="forestc1"]
+
+"You should watch for snakes, bears, and woolves.
+ They can be dangerous.  But do not attack them, even in
+ self-defence.  The LORD cares for many of His creatures
+ and is quick to anger if you harm them.
+
+ There are also many birds and deer, which can be eaten.
+ Greypigs will make a fine meal, but they can also be
+ dangerous.
+ 
+ Whatever you do, avoid the forest by night, for it is
+ then that the imps and demons of the Evil One stalk the
+ land!"
+
+[link="Tell me about the dangerous creatures."]
+[linkto="forestc2"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+-- dangerous --
+
+[page="forestc2"]
+
+"Which would you hear of.. Snakes, bears, or woolves?"
+ 
+[link="Tell me about the snakes."]
+[linkto="snakes"]
+[link="Tell me about the bears."]
+[linkto="bears"]
+[link="Tell me about the wolves."]
+[linkto="wolves"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snakes"]
+
+"Snakes are common.  They have a poisonous bite which can
+ maim or kill the unwary.  Dress thickly and the chances
+ of being poisoned will diminish.
+
+ There are also magical antidotes available that will
+ cure most kinds of poisoning, so it is good to have some
+ of these at hand.
+
+ I have heard also of witches' spells that kill worms and
+ snakes, but I know not how this be done."
+
+[link="Tell me about the bears."]
+[linkto="bears"]
+[link="Tell me about the wolves."]
+[linkto="wolves"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bears"]
+
+"Bears are seldom seen, but they are big and powerful.
+
+ It I have heard that the best defence is to lie down as
+ if dead, for bears eat only live prey.  It is also said
+ that they like honey."
+
+[link="Tell me about the snakes."]
+[linkto="snakes"]
+[link="Tell me about the wolves."]
+[linkto="wolves"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="wolves"]
+
+"Aye, there are woolves that lurk in the forest, but
+ throughout the Land there are three kinds of woolf.
+ Some also say there is a fourth kind of woolf, called
+ the lynx, but I have never seen one, and so can only
+ tell you of the three kinds that I know.
+
+ There are those which are hairy on the outside, they are
+ the true woolves.  They eat our livestock, yet still they
+ are God's creatures, sent by Him to test us, and save us
+ from the sin of complacency."
+
+
+[link="What are the other kinds of wolf?"]
+[linkto="wolves2"]
+[link="Tell me about the snakes."]
+[linkto="snakes"]
+[link="Tell me about the bears."]
+[linkto="bears"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="wolves2"]
+
+"There are the woolves which are hairy on the inside.
+ They could look like you or I, with but a few subtle
+ differences.
+ 
+ They are men, cursed by God and doomed to wander between
+ the realms of man and beast, never able to settle in
+ either one nor the other.
+
+ But in the far east, in the realms of the Dark One lives
+ a third kind of woolf.  In the mountains where the land
+ meets the Great Desert, lie the dark woolves that
+ worship Satan Himself!"
+
+[link="That's stupid.. Wolves can't worship Satan!"]
+[linkto="wolves2a"]
+[link="Tell me about the snakes."]
+[linkto="snakes"]
+[link="Tell me about the bears."]
+[linkto="bears"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="wolves2a"]
+
+"No, normal woolves cannot worship anyone.. but the dark
+ woolves of the east are no ordinary woolves.
+ 
+ It is said that in exchange for their worship, the Dark
+ One gave them the power to speak, and act as men do!
+
+ Those who have seen them claim they can work iron, and
+ can summon fire and brimstone to consume their foes!"
+
+[link="Tell me about the snakes."]
+[linkto="snakes"]
+[link="Tell me about the bears."]
+[linkto="bears"]
+[link="Tell me about the other creatures."]
+[linkto="forestc3"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+-- food creatures --
+
+
+[page="forestc3"]
+
+"There are brown grouse and chickens in the forest, but
+ I not much care for those.. little challenge in hunting
+ them.  I do not hunt the black grouse, for it is
+ forbidden by the LORD, and beside they have the power to
+ slay men using the black arts!
+
+ If you would hunt fowl, there is a useful text about
+ them by Polak the Younger.  The Abbey at New Cricklade
+ should have a copy.
+ 
+ I can also tell you about the deer and pigs."
+
+[link="Tell me about the pigs."]
+[linkto="pigs"]
+[link="Tell me about the deer."]
+[linkto="deer"]
+[link="Tell me about the dangerous creatures."]
+[linkto="forestc2"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="pigs"]
+
+"The pigs are grey and vicious.  Their tusks can be very
+ unforgiving.  But the pigs can be used in all kinds of
+ stews and roasts if you are able to slay them."
+
+
+[link="Tell me about the dangeous creatures."]
+[linkto="forestc2"]
+[link="Tell me about the deer."]
+[linkto="deer"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="deer"]
+
+"Deer are good for eating.  But they do belong to the
+ King and it is not truly permitted to kill them.
+
+ I have heard that Deer can kill snakes with the power
+ of their breath, and by eating them, become young again.
+
+ Some day, by the grace of God I hope to see this
+ happen."
+
+[link="Tell me about the dangeous creatures."]
+[linkto="forestc2"]
+[link="Tell me about the pigs."]
+[linkto="pigs"]
+[link="What comes out at night?"]
+[linkto="supernatural"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+----- Supernatural Things -----
+
+[page="supernatural"]
+
+"Aside from the imps and devils of the Evil One, there
+ are also the Little People.  Some of them do worship the
+ Trinity, others have their own beliefs.
+
+ Many of them can work magics and can be dangerous if
+ angered.
+
+ And at night, I have seen the black grouse dance for
+ their dark master and do heathen acts of witchcraft!"
+
+[link="Tell me about the creatures of darkness."]
+[linkto="darkness"]
+[link="Tell me of the wild beasts."]
+[linkto="forestc2"]
+[link="Tell me about the birds and deer."]
+[linkto="forestc3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+----- Darkness -----
+
+[page="darkness"]
+[page="#808080"]
+He looks at you with a suspicious eye.
+[page="#ffffff"]
+
+"Why this keen interest in the creatures of Satan?
+ They are Evil, is that not enough?"
+
+[link="Tell me of the wild beasts."]
+[linkto="forestc2"]
+[link="Tell me about the birds and deer."]
+[linkto="forestc3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+------- bye -------
+
+[page="bye"]
+
+"God be with you."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+Popup comments:
+
+"This place is steeped in evil.
+ I think we should turn back."
+
+"Aii!  Hell-cats!  We must be careful not to anger them..
+ I have seen men torn apart by their claws!"
+
+"Is that virtuous?"
+
+"You would have this sheep join our party?"

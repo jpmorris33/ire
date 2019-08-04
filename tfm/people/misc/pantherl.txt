@@ -1,0 +1,352 @@
+
+[page="halt"]
+[goto="start"]
+[endpage]
+
+[page="start"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a large, black panther with red glowing eyes and
+a metallic sheen over its body.
+[colour="#ffffff"]
+
+"Who dares enter the forbidden forest?"
+
+[link="I dare."]
+[linkto="dare"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"Yes, leave the forest.  This treasure is not for you."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="who"]
+[image="panth5d.pcx"]
+[learn_name]
+
+"I am $NAME.
+ Our Master ordered us to guard the treasure until he
+ returns, and this we will do.  Anyone who approaches
+ the treasure must be slain."
+
+[link="What are you?"]
+[linkto="what"]
+[link="Um, what are all those graves?"]
+[linkto="graves"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="what"]
+[image="panth5d.pcx"]
+
+"I am a Mark 8 panther, designed for medium-to-heavy
+ guard duty.
+
+ Currently I am defending the treasure for our Master,
+ who left some time ago.  We must guard it until he
+ returns.  Anyone elso who approaches the treasure must
+ be slain."
+
+[link="Aren't you supposed to be guarding a base instead?"]
+[linkto="base"]
+[link="Um, what are all those graves?"]
+[linkto="graves"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="graves"]
+[image="panth5d.pcx"]
+
+"They are the people who came to steal our treasure.
+
+ We ate them and planted the carcasses in the earth to
+ keep them out of the way.  It is what the Master told us
+ we should do."
+
+[link="Tell me about the treasure."]
+[linkto="treasure"]
+[link="Aren't you a machine?  How can you eat people?"]
+[linkto="eat"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="dare"]
+[image="panth5d.pcx"]
+
+"You have come here to steal our treasure!
+
+ Turn back and leave the forest.  If you try to approach
+ the treasure you must die!"
+
+[link="Tell me about this treasure."]
+[linkto="treasure"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="Um, what are all those graves?"]
+[linkto="graves"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure"]
+[image="panth5d.pcx"]
+
+"Our Master left us here to guard the treasure until he
+ returns.  No-one else may approach the treasure."
+
+[link="When will your master return?"]
+[linkto="master1"]
+[link="When did your master leave?"]
+[linkto="master2"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="What is the treasure for?"]
+[linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure2"]
+[image="panth5d.pcx"]
+
+"It is nice and shiny."
+
+[link="When will your master return?"]
+[linkto="master1"]
+[link="When did your master leave?"]
+[linkto="master2"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="Tell me about this treasure."]
+[linkto="treasure"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master1"]
+[image="panth5d.pcx"]
+
+"I do know not know when he will be back.
+ But until he returns, no-one gets near the treasure."
+
+[link="When did your master leave?"]
+[linkto="master2"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="What is the treasure for?"]
+[linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master2"]
+[image="panth5d.pcx"]
+
+"I last saw the Master approximately three hundred years 
+ ago."
+
+[link="When will your master return?"]
+[linkto="master4"]
+[link="Well, in that case he's probably dead."]
+[linkto="master3"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="What is the treasure for?"]
+[linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master3"]
+[image="panth5d.pcx"]
+
+"Oh, that has occurred to me.  However, we have been
+ ordered to protect the treasure and slay anyone who
+ approaches it until he returns.  We take our orders
+ very seriously."
+
+[link="When will your master return from the dead?"]
+[linkto="master4"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="What is the treasure for?"]
+[linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master4"]
+[image="panth5d.pcx"]
+
+"It is quite likely that he will not.
+ In the meantime, the treasure is rightfully ours and
+ we will protect it from intruders and thieves."
+
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What is the treasure for?"]
+[linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="base"]
+[image="panth5d.pcx"]
+
+"That would be nice.
+ Unfortunately our orders were very strict, and we must
+ instead guard the treasure until the Master returns."
+
+[link="Tell me about this treasure."]
+[linkto="treasure"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="What is the treasure for?"]
+[linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="stolen"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+The panther tries to smile.  It doesn't come out very
+nicely.
+[colour="#ffffff"]
+
+"If the treasure was stolen, we would track it down using
+ our enhanced senses.
+ Then we would eat the people responsible for the theft."
+
+[link="You're a machine.  How can you eat people?"]
+[linkto="eat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="eat"]
+[image="panth5d.pcx"]
+
+"We can extract many useful elements from the corpse to
+ use in our self-repair mechanisms.  Blood is rich in
+ iron and can also be used as a source of energy.
+ It is also nice and warm.
+
+ The rest we get rid of by planting it in the earth."
+
+[link="That is gross."]
+[linkto="gross"]
+[link="Is that what all those graves are?"]
+[linkto="graves"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gross"]
+[image="panth5d.pcx"]
+
+"I suppose it is really, but that is what panthers do.
+
+ We are designed to be predators for guard duty.
+ There was actually an earlier design, that was based on
+ sheep.  It proved wholly incapable of detaining
+ intruders and did not leave the prototype stage.
+
+ I am a Mark 8 panther, and have been upgraded to full
+ human-level self-awareness."
+
+[link="What are all those graves?"]
+[linkto="graves"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="time"]
+[image="panth5d.pcx"]
+
+"It's time you got a watch."
+
+[link="What are you?"]
+[linkto="what"]
+[link="Um, what are all those graves?"]
+[linkto="graves"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="What would you do if the treasure was stolen?"]
+[linkto="stolen"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="gone"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+The panther notices that the treasure is gone, and makes
+a horrified yell, which quickly turns into a snarl filled
+with sheer menace.
+
+Silver fangs hover inches from your throat.
+[colour="#ffffff"]
+
+"Our treasure! ..it is GONE!  It is stolen!
+
+ You did this!!   You must have done this!!
+ But you will not live long enough to enjoy it!"
+
+[nextpage="exit"]
+[endpage]
+

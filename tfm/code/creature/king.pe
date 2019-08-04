@@ -1,0 +1,117 @@
+##############
+#            #
+#  The King  #
+#            #
+##############
+
+
+##
+## Hurt
+##
+
+function king_hurt
+
+# Say 'uh!'
+
+object_sound "uh!" current
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+
+if_not_flag current IS_PARTY
+	if_exist current.enemy
+		if_flag current.enemy IS_PERSON
+			let victim = current
+			let suspect = victim.enemy
+			call justice_HTreason
+
+			# Now go break some heads
+			let current.user.vigilante = 1
+			let arrest_only = 0    # Kill, not arrest
+			let me = current # Make sure
+			call start_attack
+		endif
+	endif
+endif
+
+end
+
+
+##
+## Dies
+##
+
+function king_dies
+
+change current = "deadking"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 50
+endif
+
+# Cry Havoc
+let victim = current
+let suspect = victim.enemy
+call justice_HTreason
+
+# Set up the wanted posters
+if current.personalname = "King Edwyg*"
+	# The King is dead!  Long live the King!
+	if suspect = player
+		set_user_flag "edwyg_murderedp" = 1
+		let current.user.user18 = 0
+		let current.user.user0 = 3
+		start_action current does justice_edwyg
+	else
+		set_user_flag "edwyg_murderedu" = 1
+	endif
+endif
+
+end
+
+
+function king_resurrected
+
+# The King is not dead!  Long live the King!
+if current.personalname = "king edwyg*"
+	set_user_flag "edwyg_murderedp" = 0
+	set_user_flag "edwyg_murderedu" = 0
+	set_user_flag "usurp_edwyg" = 0
+endif
+
+end
+
+
+
+##
+## Prince Hurt
+##
+
+function prince_hurt
+call king_hurt
+end
+
+
+##
+## Prince Dies
+##
+
+function prince_dies
+
+change current = "deadprince"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 30
+endif
+
+# Cry Havoc
+let victim = current
+let suspect = victim.enemy
+call justice_HTreason
+
+end
+

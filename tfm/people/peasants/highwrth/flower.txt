@@ -1,0 +1,103 @@
+[page="start"]
+[colour="#808080"]
+You see a grubby young woman selling flowers.
+[colour="#ffffff"]
+
+"Would you buy some flowers, kind $SIR?"
+
+[link="Yes.  How much are they?"]
+[linkto="yes"]
+[link="No.  I don't want any."]
+[linkto="no"]
+[link="No, but I'll have a Big Issue."]
+[linkto="big"]
+[link="I'll buy some later."]
+[linkto="no2"]
+[endpage]
+
+
+[page="yes"]
+
+"Five gold coins for a bunch, $SIR."
+
+[link="I'll buy some"]
+[linkto="buy"]
+[link="I don't have that much with me"]
+[linkto="no2"]
+
+[endpage]
+
+
+[page="buy"]
+[take 5 gold_coins]
+[if false][goto="no_money"]
+[create 1 flowers_bunch]
+[colour="#808080"]
+She smiles at you.
+[colour="#ffffff"]
+"Thank you so much!"
+
+[addkarma 1]
+
+[nextpage="exit"]
+
+[endpage]
+
+
+[page="no_money"]
+
+[colour="#808080"]
+You don't have enough money.
+[colour="#ffffff"]
+
+[nextpage="no2"]
+[endpage]
+
+
+[page="no2"]
+
+"Thank you, $SIR.  Come back soon.."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="no"]
+[colour="#808080"]
+She looks downcast.
+[colour="#ffffff"]
+
+"Very well, $SIR.  Goodbye."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="big"]
+[colour="#808080"]
+She looks a bit confused.
+[colour="#ffffff"]
+
+"I beg your pardon, $SIR?"
+
+[link="I'm interested in some flowers."]
+[linkto="yes"]
+[link="Never mind.  Catch you later."]
+[linkto="no2"]
+[endpage]
+
+
+Martyn:	They had one of those little hanging baskets of flowers, you know,
+	only they forgot to water them and they're just full of dead stalks..
+
+Joe:	Sounds like mine.
+
+Martyn:	I didn't know you had any.
+
+Joe:	Yes, I had one of those once.  It was outside the door on my flat,
+	full of dead plant.  It was like that when I got it.  I was going to
+	take it down, then the gales came and it wasn't there in the morning.
+
+Martyn:	How far did it go?
+
+Joe:	I don't know... I haven't seen it since.

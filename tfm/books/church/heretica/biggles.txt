@@ -1,0 +1,13 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+              Biggles Learns To Fly
+              by Captain W.E. Johns
+
+ [ This fanciful work describes the trials of a
+  young man learning to operate a flying chariot
+  made of wood and fabric.]
+
+[nextpage="exit"]
+[endpage]

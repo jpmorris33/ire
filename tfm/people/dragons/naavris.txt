@@ -1,0 +1,313 @@
+
+Engineer
+
+
+[page="start"]
+[image="saxiis2.pcx"]
+[learn_name]
+"Good day, human.  I am Engineer Naavris.
+ What do you wish to know?"
+
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="saxiis2.pcx"]
+[colour="#808080"]
+You see Engineer Naavris, of the Dra'kaan research team.
+[colour="#ffffff"]
+
+"Good day, human.  I trust all goes well.."
+
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="xylan"]
+[image="saxiis2.pcx"]
+"I'm an Engineer.. I can only really tell you about the
+ hardware.  If you want to know more about the system
+ software, I suggest you ask Librarian Rulyz or
+ High-Programmer Saaxiis.
+
+ Xy'lan lives inside the ship's mainframe, which is a
+ massively parallel computing engine.  It uses many small
+ computing nodes on a SYZURG quantum interconnect bus."
+
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="buildplace"]
+[image="saxiis2.pcx"]
+"We didn't build it, we prayed for it, and it appeared.
+
+ We had to pray with an alpha-3 override to ensure the
+ job went through properly.  Xy'lan jammed that channel
+ immediately afterwards, of course.
+
+ It's a standard NRC-6 survival shelter, built into a
+ mountain by the sea.  The pumping station extracts rare
+ earth elements from the ocean, allowing us to build
+ semiconductors or any other parts for our starship."
+
+[link="Did you pray for the starship, too?"]
+[linkto="prayship"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="prayship"]
+[image="saxiis2.pcx"]
+"No.  We needed special modifications for the new drive
+ system.  Such things have to be specified with utmost
+ precision, so it's easier to program the magicserver
+ directly.
+
+ We prayed for the furniture though."
+
+[link="If you're so smart, why do you use vacuum tubes?"]
+[linkto="valves"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ship"]
+[image="saxiis2.pcx"]
+"The Maxima is a fairly standard Drakaan exploratory
+ ship.  It has twin redundant power systems, crew
+ quarters, hydroponics and a large cargo area.
+ The bridge is located at the front of the craft.
+
+ There are two warp drives, components of which run the
+ length of the vessel.  The bridge contains most of our
+ computing resources, including the magicserver, and of
+ course, Xy'lan's mainframe."
+
+[link="If you're so smart, why do you use vacuum tubes?"]
+[linkto="valves"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="valves"]
+[image="saxiis2.pcx"]
+"Valves are easy to make without needing any magic,
+ so we can fashion replacements on any YG-class planet.
+ They can also handle vast power loads easily."
+
+[link="Is Xy'lan made out of valves as well?"]
+[linkto="xylan2"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan2"]
+[image="saxiis2.pcx"]
+"Of course not.  His mainframe is a cluster of relatively
+ small computing nodes housed inside a single cabinet.
+ These nodes use a mixture of several technologies, but
+ they all have a very high component density."
+
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[if drakaan_task_getcomms][link="Gurd told me to see you about a mission."]
+[if drakaan_task_getcomms][linkto="aircraft_barrier"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="aircraft_barrier"]
+[if drakaan_task_gavecomms][goto="aircraft_barrier5"]
+[if drakaan_task_gotcomms][goto="aircraft_barrier4"]
+[image="saxiis2.pcx"]
+"Xy'lan has projected a number of barriers in the sky to
+ prevent air-traffic between the military bases.
+ A similar effect is used to jam communications.
+
+ Removing these barriers will be hard.. I suspect that
+ Xy'lan has loaded the program directly into the
+ magicserver.  We would need physical access to the
+ machinery aboard the Maxima in order to do this.
+
+ If you think that you could make your way to the ship,
+ we can probably sort something out.  But it would be
+ very dangerous."
+[nextpage="aircraft_barrier2"]
+[endpage]
+
+
+[page="aircraft_barrier2"]
+[image="saxiis2.pcx"]
+"Solving, or at least working around the communications
+ problem is much easier.  I have designed and prayed for
+ a number of communicators, one for each base and a spare
+ just in case.
+
+ These devices are based on our own technology, as
+ opposed to the RF which your culture favours.  The
+ barrier will be ineffective against them.
+
+ If you can visit all three of the air bases and give each
+ one a communicator, we will at last be able to talk to
+ the air craft, and they will also be able to talk amongst
+ themselves without interference from Xy'lan."
+
+[create 4 comms_unit]
+[set drakaan_task_gotcomms]
+[link="It looks like a bad movie prop."]
+[linkto="aircraft_barrier3"]
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="aircraft_barrier3"]
+[image="saxiis2.pcx"]
+
+"Looks can be deceptive.
+
+ Now take them, go!  Visit the three bases and give each
+ one a communicator."
+
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="aircraft_barrier4"]
+[image="saxiis2.pcx"]
+
+"Xy'lan has set up a number of barriers in the sky to
+ prevent air-traffic between the military bases and he
+ has also jammed communications between them.
+
+ We cannot take down the barriers without boarding the
+ Maxima and it is too early to consider such a thing.
+ However, the communications devices I have given you
+ should allow us to bypass the signal jamming.
+
+ If you can deliver one to each of the three bases,
+ we should be able to make some headway against the
+ barriers."
+
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="aircraft_barrier5"]
+[image="saxiis2.pcx"]
+
+"I think we're done for now.  With the communications up
+ and a link to the air craft, we can think more about ways
+ to reprogram the ship if we are able to board it."
+
+[link="Tell me about your ship."]
+[linkto="ship"]
+[link="How did you build this place?"]
+[linkto="buildplace"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="saxiis2.pcx"]
+"Fare well, human."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="saxiis3.pcx"]
+[at_exit_call="player_killme"]
+
+[colour="#808080"]
+Before you have time to strike, the creature has whipped
+out a small energy pistol and burned through a number
+of vital organs.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

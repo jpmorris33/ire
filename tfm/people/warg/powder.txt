@@ -1,0 +1,181 @@
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="first"]
+[learn_name]
+
+"Welcome, human.  I am DarkPaw the Provisioner.
+
+ In times past, I sold all manner of things, but now I
+ specialise in the selling and use of Black Dust.
+
+ Do you seek to purchase some?"
+
+[link="Tell me about the black dust."]
+[linkto="dust"]
+[link="I'd like to buy some dust."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="back_again"]
+[learn_name]
+
+"Welcome back, human.
+
+ Do you seek to purchase some of the Black Dust?"
+
+[link="Tell me more about the dust."]
+[linkto="dust"]
+[link="I'd like to buy some dust."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="dust"]
+
+"The Black Dust is a fine powder made by the King's
+ Armsmen.  When lit with fire, it will explode with
+ violent force.  As such, it has a great many military
+ uses, but it is also good for mining and the digging
+ of tunnels.
+
+ The dust I sell is suitable for mining."
+
+[link="Tell me about the military uses."]
+[linkto="mil"]
+[link="Isn't this dust a state secret or something?"]
+[linkto="secret"]
+[link="I'd like to buy some dust."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="mil"]
+
+"It formed part of our advantage against the humans
+ during the war, for they seem not to know how it is
+ made.  We do not know why Aa'Ruuff has not yet told
+ the humans, for The Betrayer knows all..
+
+ I am willing to sell you some of the Dust, for you wear
+ the Favour, and I think not that you would be able to
+ work out how the dust is made from any I provide."
+
+[link="Isn't this dust a state secret or something?"]
+[linkto="secret"]
+[link="I'd like to buy some dust."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="secret"]
+
+"The Black Dust was a secret, but is not any longer.
+ The recipe is a secret though, and only the King's
+ Armsmen and engineers know how it is made.
+
+ The Dust I sell is weaker, for civil use.  The army
+ has a stock of much more pure Dust which they use to
+ help defend our Land."
+
+[link="Tell me about the military uses."]
+[linkto="mil"]
+[link="I'd like to buy some dust."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I sell each barrel for 120 gold coins.
+
+ Do you find this price acceptable?
+ If so, I shall get a keg for you from my stores.
+
+ Those in my shop are for display only and are harmless."
+
+[link="Yes, I'd like to buy some dust."]
+[linkto="buy2"]
+[always]
+[link="Tell me more about the dust."]
+[linkto="dust"]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy2"]
+[take 120 gold_coins]
+[if false][goto="nomoney"]
+
+"Your money is fine.. I shall fetch you a barrel."
+
+[colour="#808080"]
+ He disppears into the store room, and comes back,
+ rolling the barrel across the ground.
+[colour="#ffffff"]
+[create 1 gunpowder]
+
+[link="I'd like to buy some more dust."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you cannot afford the keg.
+
+ Is there anything else you are interested in?"
+
+[link="Tell me more about the dust."]
+[linkto="dust"]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well, human."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="nocollar"]
+[colour="#808080"]
+The creature's hackles rise.
+[colour="#ffffff"]
+
+"Leave, human!
+ Leave at once or I shall detonate the powder room!"
+
+[nextpage="exit"]
+[endpage]

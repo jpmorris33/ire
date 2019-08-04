@@ -1,0 +1,173 @@
+
+The guard at the airbase
+
+[page="start"]
+[am_carrying "pass_card1"]
+[if true][goto="start_member"]
+[colour="#808080"]
+You see a modern-day soldier in green uniform, who eyes
+you warily.
+[colour="#ffffff"]
+
+"State your business, please."
+
+[link="What place is this?"]
+[linkto="where"]
+[link="Open the gates, please."]
+[linkto="open"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+Player is authorised
+
+[page="start_member"]
+[colour="#808080"]
+As you show your pass to the soldier, he snaps to
+attention and salutes you.
+[colour="#ffffff"]
+
+"$Sir!"
+
+[link="Open the gates, please."]
+[linkto="open_ok"]
+[if met_ransome][link="Tell me about Commander Ransome."]
+[if met_ransome][linkto="ransome"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="where"]
+
+"This is New Fairford airbase.
+
+ This facility is a restricted area, so I must ask you to
+ leave if you don't have the proper authorisation."
+
+[link="How can you have an airbase in medieval England???"]
+[linkto="where2"]
+[link="How can I get authorisation?"]
+[linkto="get_auth"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="where2"]
+[colour="#808080"]
+He fails to supress a brief grin of amusement.
+[colour="#ffffff"]
+
+"That's classified, I'm afraid!"
+
+[link="How can I get authorisation?"]
+[linkto="get_auth"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="get_auth"]
+
+"You can't.  If the Commander wants to see you, he'll
+ authorise your entry.
+
+ There were crippling attacks in the past by visitors who
+ seemed to be harmless..  We've learned a hard lesson."
+
+[link="Can I see your commander?"]
+[linkto="see_commander"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="see_commander"]
+
+"Sorry.  He's far too busy to be disturbed right now."
+
+[link="How can I get authorisation?"]
+[linkto="get_auth"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="open"]
+[if fairford_open][goto="open_ok"]
+[if_not cow_dead][goto="open_cow"]
+
+"I'm sorry, I can't open the gates except to authorised
+ personnel."
+
+[link="How can I get authorisation?"]
+[linkto="get_auth"]
+[link="Can I see your commander?"]
+[linkto="see_commander"]
+[link="What place is this anyway?"]
+[linkto="where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="open_ok"]
+
+"Right away, $Sir."
+
+[call="guard_openairbase"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="open_cow"]
+[colour="#808080"]
+The soldier loses his composture somewhat.
+[colour="#ffffff"]
+
+"What?  With the BEAST out there?  Not a chance!"
+
+[link="Where am I, anyway?"]
+[linkto="where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="ransome"]
+
+"He's a good Commander, the best I've ever served under.
+ A superb strategist, but he knows how to treat people."
+
+[link="Don't you object to serving a machine?"]
+[linkto="ransome2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ransome2"]
+[colour="#808080"]
+The soldier looks at you in a surprised way.
+[colour="#ffffff"]
+
+"No.. why should I?  I don't have a problem if he comes
+ from a different race."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Good day."
+
+[nextpage="exit"]
+[endpage]

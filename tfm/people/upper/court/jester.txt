@@ -1,0 +1,392 @@
+[page="start"]
+
+[colour="#808080"]
+You see a young man dressed in a ludicrous costume.
+He is carrying a bladder on a stick, and watches you
+with intelligent eyes.
+[colour="#ffffff"]
+
+"Hello, $PLAYER."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="How do you know my name?"]
+[linkto="how_name"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see Bertrand the Jester.
+[colour="#ffffff"]
+
+"Hello, again.  I trust you are well?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="Say something funny!"]
+[linkto="joke"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="how_name"]
+
+"Oh, you know..  Word gets around."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+
+"I'm Bertrand, court fool to his Majesty, King Edwyg the
+ Generous."
+
+[learn_name]
+[link="Is the King generous?"]
+[linkto="king"]
+[link="Say something funny!"]
+[linkto="joke"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+
+"He is a good man, a very wise and fair King who cares
+ a great deal about the plight of his subjects.
+
+ His taxes are fairly imposed, with the rich paying more
+ and the impoverished paying far less, or nothing.
+
+ A good amount of his personal wealth is given to the
+ needy and he pays for the poor to be healed.
+
+ 'Edwyg the generous' is a name given by his subjects."
+
+[link="Say something funny!"]
+[linkto="joke"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="perform"]
+[random_page="perform 00 04"]
+[endpage]
+
+
+[page="perform00"]
+[iftime "0000-0800"][goto="perform01"]
+[iftime "1200-1314"][goto="perform01"]
+[iftime "1900-2359"][goto="perform01"]
+
+[colour="#808080"]
+The jester prances crazily around the throne room, acting
+out caricatures of everybody present..
+
+This raises some scowls and grunts of irritation, but a
+wry smile appears on the King's lips.
+[colour="#ffffff"]
+
+[append="perform_core"]
+[endpage]
+
+
+[page="perform01"]
+
+[colour="#808080"]
+The jester jumps high in the air, and quickly folds his
+legs into the lotus position before landing heavily.
+
+Still in the lotus position, he bounces around the
+room for a little while more, before standing up and
+dusting himself off.
+[colour="#ffffff"]
+
+[append="perform_core"]
+[endpage]
+
+
+[page="perform02"]
+
+[colour="#808080"]
+The jester does a series of stunning cartwheels before
+finally crashing into a wall.
+[colour="#ffffff"]
+
+[append="perform_core"]
+[endpage]
+
+
+[page="perform03"]
+
+[colour="#808080"]
+The jester takes a large hammer and goes hunting spiders.
+[colour="#ffffff"]
+
+[append="perform_core"]
+[endpage]
+
+
+[page="perform04"]
+
+[colour="#808080"]
+The jester ties both his feet together and walks around
+on his hands.  Then he ties his hands together and
+writhes around on the floor.
+[colour="#ffffff"]
+
+[append="perform_core"]
+[endpage]
+
+
+
+[page="perform_core"]
+[link="Say something funny!"]
+[linkto="joke"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I'm the court fool.  Jester to the King, and all-round
+ harmless idiot."
+
+[link="Say something funny!"]
+[linkto="joke"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="joke_old"]
+
+"No!  That's not what it's all about!
+ My role is to poke holes in customs, to point out the
+ absurdity of traditions..  I don't do one-liners.
+
+ Once, I broke into the King's treasure vault, and shaped
+ all the piles of money into a smiley face.."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="joke"]
+[random_page="joke 00 04"]
+[endpage]
+
+
+[page="joke00"]
+
+"Once, I broke into the King's treasure vault, and shaped
+ all the piles of money into a huge smiley face.."
+
+[append="joke_core"]
+[endpage]
+
+
+[page="joke01"]
+[colour="#808080"]
+The jester holds a short dialogue in two silly voices.
+[colour="#ffffff"]
+
+"ABCD gol'fish?"
+
+"MNO gol'fish."
+
+"SDR gol'fish!"
+
+"RDR gol'fish.."
+
+[append="joke_core"]
+[endpage]
+
+
+[page="joke02"]
+
+"Tie your shoelaces together.. AND BE FREE!"
+
+[append="joke_core"]
+[endpage]
+
+
+[page="joke03"]
+
+"When you pirate MP3s, you're downloading SATANISM!"
+
+[link="WHAT?!?"]
+[linkto="outofplace"]
+[append="joke_core"]
+[endpage]
+
+
+[page="joke04"]
+
+"Peter piper picked a pep of pickled pepper.
+ Peter pepper pipped a pic of pippled pecker.
+ Peter picked a pipple pec of peppled pip.."
+
+[append="joke_core"]
+[endpage]
+
+
+[page="joke_core"]
+[link="Say something funny!"]
+[linkto="joke"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="outofplace"]
+[colour="#808080"]
+The jester's eyes bulge and he covers his mouth.
+[colour="#ffffff"]
+
+"Don't tell the Church I said that, for God's sake!
+ They'd kill me!"
+
+[link="How can.. What do you know about MP3s?"]
+[linkto="outofplace2"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="outofplace2"]
+
+"I used to be a respected scholar.  I have studied many
+ forbidden things.. In my past I knew people who
+ collected Elder relics and could use some of them.
+
+ But the Church found out, and the LORD cast me down.
+ He made me into a Jester, to be scorned and scoffed at
+ by all.
+
+ The Church rarely forgives.  If they think I still crave
+ the Ancient ways, they will not spare my life again.."
+
+[link="Tell me about the Ancients."]
+[linkto="outofplace3"]
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="outofplace3"]
+
+"The Ancients knew a great deal.  It is said they could
+ make metal fly, and I know for a fact they preserved
+ music and speech on little squares of shiny material.
+
+ Apparently, it was possible for one with knowledge to
+ freely obtain any writing or music they desired.
+ Some people disapproved.. even before the Church..
+ That is what the joke was referring to.
+
+ If you would know more of the Ancients, speak to
+ Joachim the King's Sorcerer.  But be careful.. It is
+ dangerous to mention such things out loud."
+
+[link="Do something funny!"]
+[linkto="perform"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="painter"]
+
+"Yes, there was a master painter.
+ Giotto Franccini was his name.  He painted many holy
+ works, most of which adorn the walls of Avignon
+ Cathedral itself.
+ 
+ But it was his master work that proved his undoing."
+
+[link="Tell me about Franccini's master work."]
+[linkto="painter2"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="painter2"]
+
+"He painted it in secret.  It took many years to perfect.
+ Beautiful it was, but terrible.  I was there when they
+ unveiled at New Avignon.
+
+ Franccini's canvas portrayed the conception of Christ.
+ It showed the Mother Mary lying with a large white dove.
+ 
+ You should have seen the Pope's face when they unveiled
+ THAT in front of him!"
+
+[link="What happened then?"]
+[linkto="painter3"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="painter3"]
+ 
+"At the hands of the Protectorate, Giotto confessed that
+ he had made a pact with devils to further his skill, and
+ so he was later burned alive for his crimes.
+
+ The blasphemous work was to be burned with him, but it 
+ was taken by unknown persons and never recovered.
+
+ Some say that the Devil himself rescued the painting."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare well."
+
+[nextpage="exit"]
+[endpage]

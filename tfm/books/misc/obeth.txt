@@ -1,0 +1,46 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+       The Journal of Lord O'Beth, Thane of Mordor
+
+ July 14 1324
+
+ Tonight I beheld three weird Sisters.  Clad in rags the wild
+ ones stood and addressed Banquo and I.
+ 
+ They gave unto me seven prophecies upon a tiny scroll, with
+ boxes to tick as they come true.  I have put this in a safe
+ place, but the prophecies I copy to this journal for study.
+
+ I.   I shall stub my left toe twice on the way home.
+     This indeed came to pass before I set quill to vellum.
+
+ II.  King Duncan shall make me a Thane.. yet in spite of this
+     grand title I shall be unhappy.  Even as I write it is so, for
+     the King bade me rule the foul Northlands of Mordor.
+
+ III. Banquo's son Fleance shall become a Knight of the
+     Flower-Children.  He shall renounce his family and all
+     worldly goods to live a life of seclusion and peace.
+
+[right="2"]
+[endpage]
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+
+ IV.  No mortal man or woman shall harm me.
+
+ V.   Banquo shall die in a bizarre gardening accident.
+      With Fleance out of the way and no royal heir the Crown
+      would fall upon me should anything happen to the King.
+     
+ VI.  There shall be an act of dire Treason.
+
+ VII.  I shall be crowned King of Scotia, and my reign shall
+      last unto the End of the World.
+
+[left="start"]
+[right="exit"]
+[endpage]

@@ -1,0 +1,350 @@
+
+[page="start"]
+[learn_name]
+
+"Hello, welcome to the Abbey.
+ I am $NAME the Librarian.
+
+ If there is a book that you wish to read, just ask and I
+ will fetch it for you if possible."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I am interested in a book."]
+[linkto="book"]
+[link="I want to return a book."]
+[linkto="book-return"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+"Hello again.  Was there a book you wanted?
+
+[link="What is your job?"]
+[linkto="job"]
+[link="I am interested in a book."]
+[linkto="book"]
+[link="I want to return a book."]
+[linkto="book-return"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+
+"I look after the books!  They are all-important.  Much
+ of the knowledge that Man has ever known is within the
+ pages of the books within our library.
+
+ It is our sacred duty to collect and preserve all such
+ works."
+
+[link="I am interested in a book."]
+[linkto="book"]
+[link="I want to return a book."]
+[linkto="book-return"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="book"]
+[ifntime "0700-2200"][goto="book-oohours"]
+
+"There is a catalogue of books on my desk.
+ You can look through it to find a work of interest.
+ We try to keep it up to date as much as possible.
+
+ If you already know what you want, ask and it may be
+ given."
+
+[link="I already know what I want."]
+[linkto="book2"]
+[link="I'll look at the catalogue."]
+[linkto="book-bye"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="book-return"]
+
+"Place the book upon my desk and I shall return it to the
+ library later."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I am interested in borrowing another book."]
+[linkto="book"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="book-Given"]
+
+ Remember that it is not permitted for the books to leave
+ the confines of our Abbey without permission from the
+ Abbot himself."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="book2"]
+
+"What do you wish to read?"
+
+[append="book2-list"]
+[endpage]
+
+[page="book2-list"]
+[link="'The Lord of the Rings'"]
+[linkto="book2-NotThere"]
+[link="'Beasts of the Land'"]
+[linkto="book2-beasts"]
+[link="'The Name of the Rose'"]
+[linkto="book2-notr"]
+[link="'A Treatise on the Protectorate'"]
+[linkto="book2-protect"]
+[link="'The Ospray of Weytus'"]
+[linkto="book2-osprey"]
+[link="'The Discovery of Witchcraft'"]
+[linkto="book2-witches"]
+[link="(More books..)"]
+[linkto="book3"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+Books - page2
+
+[page="book2-NotThere"]
+
+"We do not have that book, I fear.
+ Do you seek another work?"
+
+[append="book2-list"]
+[endpage]
+
+
+[page="book2-Gone"]
+
+"I fear that work has already been loaned out.
+ Do you seek another work?"
+
+[append="book2-list"]
+[endpage]
+
+
+[page="book2-beasts"]
+[give 1 book_beasts]
+[if false][goto="book2-Gone"]
+
+"Certainly.  It is a most wholesome and useful work.
+
+[append="book-Given"]
+[endpage]
+
+
+[page="book2-notr"]
+[give 1 book_notr]
+[if false][goto="book2-Gone"]
+
+"Very well.  This fable is frowned upon by the Church but
+ we have no actual prohibitions against reading it.
+
+[append="book-Given"]
+[endpage]
+
+
+[page="book2-protect"]
+[give 1 book_protect]
+[if false][goto="book2-Gone"]
+
+"Certainly.  It is a superb historical overview of this
+ most enlightened order.
+
+[append="book-Given"]
+[endpage]
+
+
+[page="book2-osprey"]
+
+"I am afraid this work has been damaged by mice and it
+ would not survive if lent out.  We are making a copy of
+ the parchment, but I know not when it will be ready.
+
+ Do you seek to read something else?"
+
+[append="book2-list"]
+[endpage]
+
+
+[page="book2-witches"]
+[give 1 book_witches]
+[if false][goto="book2-Gone"]
+
+"Indeed.  This work is the Protectorate's main guide in
+ detecting those who make pacts with the Dark One, and
+ its reading is strongly encouraged.
+
+[append="book-Given"]
+[endpage]
+
+
+Books - page3
+
+
+[page="book3"]
+
+"What do you wish to read?"
+
+[append="book3-list"]
+[endpage]
+
+
+[page="book3-list"]
+[link="'The Book of Abraham the Jew'"]
+[linkto="book3-alchemy"]
+[link="'An Essay on the Holy Ghost'"]
+[linkto="book3-ghost"]
+[link="'The Necronomicon'"]
+[linkto="book3-necro"]
+[link="'The Hunting of Fowl'"]
+[linkto="book3-fowl"]
+[link="'A Vengeance for Crows'"]
+[linkto="book3-crows"]
+[link="'Astrology and the Church'"]
+[linkto="book3-astro"]
+[link="(More books..)"]
+[linkto="book2"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="book3-NotThere"]
+
+"We do not have that book, I fear.
+ Do you seek another work?"
+
+[append="book3-list"]
+[endpage]
+
+
+[page="book3-Gone"]
+
+"I fear that work has already been loaned out.
+ Do you seek another work?"
+
+[append="book3-list"]
+[endpage]
+
+
+[page="book3-alchemy"]
+[give 1 book_alchemy]
+[if false][goto="book3-Gone"]
+
+"Ah, you are interested in the arts of alchemy!
+ This work is believed to be one of the finest.
+
+[append="book-Given"]
+[endpage]
+
+
+[page="book3-ghost"]
+[give 1 book_ghost]
+[if false][goto="book3-Gone"]
+
+"Certainly, for this work is inspiring and good.
+ Following its advice may save your life.
+
+[append="book-Given"]
+[endpage]
+
+
+[page="book3-necro"]
+
+"No!  That work is blasphemous and most evil!
+ To read it is a greatly forbidden thing!
+
+ I shall not tell the Cardinal that you requested it, but
+ please do not ask again.
+
+ Do you wish to read something wholesome?"
+
+[append="book3-list"]
+[endpage]
+
+
+[page="book3-fowl"]
+[give 1 book_fowl]
+[if false][goto="book3-Gone"]
+
+"Yes, it is a fine text on hunting.
+
+ Just remember to avoid the blackcocks at all cost, not
+ least because some of these unholy creatures have
+ settled nearby the Abbey itself!
+
+[append="book-Given"]
+[endpage]
+
+
+[page="book3-crows"]
+
+"That work is considered unwholesome and I cannot lend it
+ to you.
+ 
+ Do you wish to read something more enlightening?"
+
+[append="book3-list"]
+[endpage]
+
+
+[page="book3-astro"]
+[give 1 book_astro]
+[if false][goto="book3-Gone"]
+
+"Certainly.  It is always good to know precisely what is
+ and is not permitted in the magical arts.
+
+[append="book-Given"]
+[endpage]
+
+
+
+[page="book-bye"]
+
+"Very good.  I shall leave you to it."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="book-oohours"]
+
+"I am not working at the moment.  Ask me again in the
+ morning and I'll try to help you.
+
+ Good night."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well!"
+
+[nextpage="exit"]
+[endpage]

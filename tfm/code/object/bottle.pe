@@ -1,0 +1,165 @@
+######################
+#                    #
+#  Bottle functions  #
+#                    #
+######################
+
+
+
+##
+##	Smash
+##
+
+function smashbottle
+object t
+int wielded
+
+object_sound "smash_little1" current
+
+if current is called "bottle_broken"
+	change current = "glass_shards"
+	return
+endif
+
+
+if current is called "bottle_*"
+	get_flag wielded = current IS_WIELDED
+	replace current = "bottle_broken"
+	# Make sure it stays wielded
+	set_flag current IS_WIELDED = wielded
+	let current.stats.hp = 4
+	do
+		let t = current.pocket
+		if_exists t
+			force_from_pocket t from current to current.x current.y
+			# Liquid goes on the floor itself
+			if t.label.race = "liquid"
+				move_to_floor t
+			endif
+		endif
+	while t
+	return
+endif
+
+# Oh no!
+
+end
+
+
+##
+##	What drink is therein?
+##
+
+function viewbottle
+
+if_exists current.pocket
+	if current.pocket.label.race = "liquid"
+		print "The bottle contains "
+		print current.pocket.shortdesc
+		print "."
+		printcr
+		return	# Avoid weird confusion over the bottle contents
+	endif
+
+	# For the ashes of Gomorrah
+	if current.pocket is called "ash*"
+		print "The bottle contains "
+		print current.pocket.shortdesc
+		print "."
+		printcr
+		return	# Avoid weird confusion over the bottle contents
+	endif
+endif
+
+print "The bottle is empty."	
+printcr
+end
+
+
+##
+##	Smash the smashed bottle
+##
+
+function to_glass_shards
+replace current = "glass_shards"
+end
+
+##
+##	Drink the bottle's contents
+##
+
+function drinkbottle
+object o
+
+	if_exists current.pocket
+
+		let o = current.pocket
+
+		# Is it some kind of liquid?
+		if o.label.race = "liquid"
+			destroy o
+			print "Mmm.. good!"
+			printcr
+			return
+		endif
+	endif
+
+print "It's empty."
+printcr
+end
+
+##
+##	Use a jar
+##
+
+function use_jar
+
+object p
+
+let p = current
+
+# Player has a choice, NPCs use on themselves
+
+if me = player
+	let current = player
+
+	print "Use "
+	print p.shortdesc
+	print " on "
+	redraw_text
+
+	call get_far
+else
+	let current = me
+endif
+
+if_not_exist current
+
+	# Honeycomb is actually a tile
+	if_exists curtile
+		if curtile.name = "honeycomb*"
+			replace p = "jar_honey"
+			print "honeycomb."
+			printcr
+			print "Done."
+			printcr
+			return
+		endif
+	endif
+
+	print "nothing."
+	printcr
+	return
+endif
+
+if current is called "puddle_honey"
+	replace p = "jar_honey"
+	print "Done."
+	printcr
+	return
+endif
+
+print "Not going to."
+printcr
+
+end

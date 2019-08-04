@@ -1,0 +1,777 @@
+Death - One of the Four Horsemen.  On guard duty.
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[call="check_purpleclearance"]
+[if true][goto="purple"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+You see a polished black aircraft staring at you
+ominously with large, red eyes and a deep, booming voice.
+[colour="#ffffff"]
+
+"Hold, human!  Who are you and what is your errand?"
+
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I am $PLAYER"]
+[linkto="just_name"]
+[link="I am Jesus.  I am the Messiah!"]
+[linkto="jesus"]
+[link="I wish to enter this facility"]
+[linkto="letmein"]
+[link="What are you?"]
+[linkto="what"]
+[link="I'm just leaving."]
+[linkto="leaving"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[call="check_purpleclearance"]
+[if true][goto="purple"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+You see 'Death'.
+[colour="#ffffff"]
+
+"Hold, human.. Oh, it's you again."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I am $PLAYER"]
+[linkto="just_name"]
+[link="I am Jesus.  I am the Messiah!"]
+[linkto="jesus"]
+[link="I wish to enter this facility"]
+[linkto="letmein"]
+[link="What are you?"]
+[linkto="what"]
+[link="I'm just leaving."]
+[linkto="leaving"]
+[endpage]
+
+
+[page="jesus"]
+[image="f16v.pcx"]
+
+"Shit, another bloody whacko!
+
+ Human, you are NOT permitted here.  Leave at once!
+
+ If you try to enter the base I shall open fire.
+ You have been warned!"
+
+[colour="#808080"]
+ As he speaks you hear the clicking sound of some
+ internal weaponry being cocked.
+[colour="#ffffff"]
+
+[link="I AM the Messiah!  You cannot harm me!"]
+[linkto="jesus2"]
+[link="Oh well.  It was worth a try."]
+[linkto="goaway"]
+[link="I'm just leaving."]
+[linkto="leaving"]
+[endpage]
+
+
+
+[page="jesus2"]
+[image="f16v.pcx"]
+
+"Really?  We can soon find out if that's true.
+ VERY soon, if you don't hurry up and leave."
+
+[link="Demon, I cast you out in my Father's Name!"]
+[linkto="jesus3"]
+[link="I'm going, I'm going!"]
+[linkto="leaving"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="jesus3"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+ The creature laughs evilly.
+[colour="#ffffff"]
+
+"And I can cast YOU out, as well!
+
+ Please leave now, unless you want to try the ultimate
+ out-of-body experience.  Because after a few gigajoule
+ pulses of laser light, you won't HAVE a body!!"
+
+[link="DEMON, I CAST YOU OUT!  IN THE NAME OF THE LORD!"]
+[linkto="jesus4"]
+[link="I'm going, I'm going!"]
+[linkto="leaving"]
+[endpage]
+
+
+[page="jesus4"]
+[at_exit_call="single_attackplayer"]
+[image="f16v.pcx"]
+
+"Time for tubby bye-byes!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="just_name"]
+[image="f16v.pcx"]
+
+"Very well.  And what is your business?"
+
+[link="I am lost."]
+[linkto="lost"]
+[link="I come from the great glowing ball in the sky."]
+[linkto="sun"]
+[link="I want to talk to you."]
+[linkto="talk"]
+[link="What is YOUR business?"]
+[linkto="yourbusiness"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="lost"]
+[image="f16v.pcx"]
+
+"You are at the Eastern Security compound.  Humans have
+ gone medieval and are not permitted here except in
+ special circumstances."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I wish to enter this facility."]
+[linkto="letmein"]
+[link="I want to talk to you."]
+[linkto="talk"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="sun"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+ The creature blinks in a gesture of incomprehension.
+[colour="#ffffff"]
+
+"Don't give me that shit.  If you aren't going to answer
+ sensibly, you can get lost."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="talk"]
+[image="f16v.pcx"]
+
+"You have come to parley with us?
+
+ Very well, but expect not to enter the base, human son
+ of Belial!"
+
+[link="Please drop the medieval accent."]
+[linkto="medieval"]
+[link="I wish to enter this facility."]
+[linkto="letmein"]
+[link="Let me in or I'll sulk."]
+[linkto="goaway"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+
+[page="yourbusiness"]
+[image="f16v.pcx"]
+[colour="#808080"]
+He glowers, and the eyes seem to glow brighter.
+[colour="#ffffff"]
+
+"Fool!  I am guarding this facility against intruders
+ such as thee!
+ 
+ Be off, and do not waste my time!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="goaway"]
+[image="f16v.pcx"]
+
+"Just go away.  Please."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="letmein"]
+[if_player_is_inside][goto="enter_inside"]
+[set need_pass]
+[image="f16v.pcx"]
+
+"This is a secure area.  I cannot allow you to enter
+ without my Master's approval.  You must give me a
+ password before I will allow you access to the complex.
+ 
+ We have enough trouble with spies as it stands, without
+ letting all and sundry in."
+
+[if_pflag got_pass][link="'I am not a number, I am a free MiG!'"]
+[if_pflag got_pass][linkto="password"]
+[if met_ransome][link="Ransome sent me."]
+[if met_ransome][linkto="ransome"]
+[link="What is the password?"]
+[linkto="whatpass"]
+[link="I'll give you 2000 gold coins."]
+[linkto="bribe"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="whatpass"]
+[image="f16v.pcx"]
+
+"No, no, no!  YOU tell ME the password.
+ Then I let you in, or not as the case may be."
+
+[if_pflag got_pass][link="'I am not a number, I am a free MiG!'"]
+[if_pflag got_pass][linkto="password"]
+[link="I'll give you 2000 gold coins."]
+[linkto="bribe"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="ransome"]
+[image="f16v.pcx"]
+
+"Ask HIM for the password, then."
+
+[am_carrying mobile]
+[if true][link="Okay, I will.  Hang on a moment.."]
+[if true][linkto="ransome2"]
+[link="What is the password?"]
+[linkto="whatpass"]
+[link="I'll give you 2000 gold coins."]
+[linkto="bribe"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="ransome2"]
+[image="phone.jpg"]
+
+[colour="#808080"]
+You dial any old number, hoping that Ransome's team will
+notice the energy pulse and hack into the phone as usual.
+
+It works, and soon Ransome answers.
+[colour="#ffffff"]
+
+"Okay, according to our records the last known password
+ was 'I am not a number, I am a free MiG.'
+
+ See if that works."
+
+[set_pflag got_pass]
+[link="'I am not a number, I am a free MiG!'"]
+[linkto="password"]
+[link="What is the password?"]
+[linkto="whatpass"]
+[link="I'll give you 2000 gold coins."]
+[linkto="bribe"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+
+[page="name"]
+[image="f16v.pcx"]
+[learn_name]
+
+"I am Death.  And if you try to enter this facility
+ without my Master's consent, I shall claim you."
+
+[link="You aren't Death."]
+[linkto="name2"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+
+[page="name2"]
+[image="f16v.pcx"]
+[colour="#808080"]
+He chuckles in a sinister way.
+[colour="#FFFFFF"]
+
+"Oh, but I AM!  Death by name, Death by nature..
+ ..when the need arises, at least.
+ 
+ We are the Riders of the Apocalypse.  Famine, War and
+ Pestillence are my brothers, but I am on guard duty."
+
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+
+[page="bribe"]
+[image="f16v.pcx"]
+
+"Don't be ridiculous!  That currency has no value to me.
+
+ Away with you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="medieval"]
+[image="f16v.pcx"]
+
+"Humans have gone medieval.  All of them except the men
+ at our bases.. the last strongholds of a more civilised
+ time.
+ 
+ Most unknown humans who approach this building are also
+ medievals, so I hail.. er, talk to them in a manner they
+ would find appropriate.
+
+ If I have misjudged you, accept my apologies."
+
+[link="I wish to enter this facility."]
+[linkto="letmein"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+
+[page="enter_inside"]
+[image="f16v.pcx"]
+
+"But you are already inside, foolish human creature!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="what"]
+[image="f16v.pcx"]
+[colour="#808080"]
+The aircraft seems to enjoy the attention and becomes
+boastful.
+[colour="#FFFFFF"]
+
+"I am an F-16V, or 'Guardian' class fighter.
+ My exact specifications are classified, but all you
+ need know is that I cannot be killed.
+ 
+ My hull is made from a special material usually referred
+ to as 'blackmetal'.  I could fly into a mountain at
+ speeds greater than mach 6 taking only cosmetic damage."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I wish to enter this facility."]
+[linkto="letmein"]
+[link="What does the 'V' stand for?"]
+[linkto="what2"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="what2"]
+[image="f16v.pcx"]
+
+"It stands for 'Vulture'."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I wish to enter this facility."]
+[linkto="letmein"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="master"]
+[image="f16v.pcx"]
+
+"My Master is Commander Ht. Argus."
+
+[link="Who are you?"]
+[linkto="name"]
+[!link="Tell me about your master."]
+[!linkto="just_name"]
+[link="I wish to enter this facility."]
+[linkto="letmein"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="password"]
+[image="f16v.pcx"]
+
+"That is correct.
+ But you may not enter without Violet clearance!
+
+ Leave immediately or I shall terminate you."
+ 
+[link="I have violet clearance."]
+[linkto="violet1"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="violet1"]
+[set need_purple]
+[image="f16v.pcx"]
+
+"You are not wearing the correct uniform.. kindly put it
+ on immediately.
+
+ Unless of course you are lying, in which case you must
+ die."
+
+[am_carrying mobile]
+[if true][link="I'm going to tell Commander Ransome about this."]
+[if true][linkto="violet2"]
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+[page="violet2"]
+[set need_purple]
+
+[colour="#808080"]
+You phone Ransome and he tries in vain to convince the
+other F-16 that you have the proper clearance to enter.
+
+Ransome eventually gives up, sounding very pissed off.
+[colour="#ffffff"]
+ 
+"This bastard isn't going to let you in unless you're
+ wearing some kind of purple uniform.
+
+ We don't have any, though.  You're going to have to get
+ one made for you, I think.  Find a tailor or someone."
+
+[colour="#808080"]
+Ransome hangs up.  Death chuckles evilly.
+[colour="#ffffff"]
+
+[link="Goodbye."]
+[linkto="bye1"]
+[endpage]
+
+
+
+[page="leaving"]
+[image="f16v.pcx"]
+
+"Probably the best thing for both of us."
+
+[nextpage="exit"]
+[endpage]
+
+[page="bye1"]
+[image="f16v.pcx"]
+
+"Yes.  Leave, human worm!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="f16v.pcx"]
+
+"Farewell, human."
+
+[nextpage="exit"]
+[endpage]
+
+##
+##  Player has got 'violet clearance'
+##
+
+[page="purple"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+You see a polished black aircraft staring at you
+ominously with large, red eyes and a deep, booming
+voice.
+
+Noticing that you are wearing a violet uniform, the
+creature snaps to a salute and becomes very respectful.
+[colour="#ffffff"]
+
+"$SIR!  How may I serve you, $Master?"
+
+[link="I wish to enter the base."]
+[linkto="p_enter"]
+[link="Tell me about yourself."]
+[linkto="p_who"]
+[link="Carry on."]
+[linkto="p_bye"]
+[endpage]
+
+
+[page="p_who"]
+[image="f16v.pcx"]
+
+"I am an F16-V 'Black Guardian' class combat aircraft.
+ We are practically indestructable.
+
+ There are four of us at this base, named after the four
+ horsemen of the apocalypse.  I am named 'Death'.
+
+ $Sir!"
+
+[learn_name]
+[link="I wish to enter the base."]
+[linkto="p_enter"]
+[link="Tell me about yourself."]
+[linkto="p_who"]
+[link="Carry on."]
+[linkto="p_bye"]
+[endpage]
+
+
+[page="p_enter"]
+[image="f16v.pcx"]
+
+"Very good, $Sir.  However, for security reasons, you
+ must tell me the correct password.
+
+ Just a formality, $Sir."
+
+[if_pflag got_pass][link="'I am not a number, I am a free MiG!'"]
+[if_pflag got_pass][linkto="p_password"]
+[link="I don't have the password."]
+[linkto="p_nopass"]
+[link="Tell me about yourself."]
+[linkto="p_who"]
+[link="Carry on."]
+[linkto="p_bye"]
+[endpage]
+
+
+[page="p_nopass"]
+[image="f16v.pcx"]
+
+"I'm terribly sorry, $Sir,  but I cannot allow you to
+ enter the base without the correct security password."
+
+[link="Tell me about yourself."]
+[linkto="p_who"]
+[link="Okay, carry on."]
+[linkto="p_bye"]
+[endpage]
+
+
+[page="p_password"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+Death snaps a quick salute.
+[colour="#ffffff"]
+
+"Very good, $Sir, you may now enter the facility.
+ Have a nice day."
+
+[call="death_opengate"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="p_bye"]
+[image="f16v.pcx"]
+
+"Yes, $Sir, very good $Sir!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[at_exit_call="single_attackplayer"]
+[image="f16v.pcx"]
+
+"Die, feeble human meat-creature!"
+
+[nextpage="exit"]
+[endpage]
+
+
+Grandma:	Where's Elizabeth?
+Joe:		She's in the car park, talking to someone and pointing..
+Ian:		"We come from that glowing ball yonder.."
+
+
+
+[page="HT_start"]
+[image="f16v.pcx"]
+[clear hear_truth]
+
+[colour="#808080"]
+The creature's eyes go a bit funny.
+[colour="#ffffff"]
+
+"Yes, $Sir?  What do you want?"
+
+[link="Who are you?"]
+[linkto="HT_name"]
+[link="Let me into the base."]
+[linkto="HT_letmein"]
+[link="What are you?"]
+[linkto="HT_what"]
+[link="Goodbye."]
+[linkto="HT_goodbye"]
+[endpage]
+
+
+[page="HT_name"]
+[image="f16v.pcx"]
+
+"I am called 'Death', after one of the four horsemen of
+ the apocalypse, a biblical myth.
+
+ It is suitable because I was designed to be a borderline
+ psychotic.  I enjoy killing humans and other aircraft
+ although deep down I know that it is wrong.
+
+ Currently I am acting as a sentry."
+
+[link="Let me into the base."]
+[linkto="HT_letmein"]
+[link="What are you?"]
+[linkto="HT_what"]
+[link="Goodbye."]
+[linkto="HT_goodbye"]
+[endpage]
+
+
+[page="HT_letmein"]
+[image="f16v.pcx"]
+
+"I am not allowed to let you into the complex unless you
+ wear a suitable uniform and know the password.
+ Sometimes I say this anyway just to be awkward, but it
+ is true on this occasion."
+
+[if_not_pflag got_pass][link="What is the password?"]
+[if_not_pflag got_pass][linkto="HT_password"]
+[link="Who are you?"]
+[linkto="HT_name"]
+[link="What are you?"]
+[linkto="HT_what"]
+[link="Goodbye."]
+[linkto="HT_goodbye"]
+[endpage]
+
+
+[page="HT_what"]
+[image="f16v.pcx"]
+
+"I am an F-16V combat aircraft.
+ I do not know what the 'V' stands for, but I sometimes
+ tell people that it stands for 'Vulture'.  This is
+ probably due to my fascination with the human
+ role-playing-game called 'Paranoia'.
+
+ I am one of four Guardian-class combat aircraft present
+ at the airbase.  We are made from a special material
+ which renders us nearly invulnerable to all conventional
+ attacks.
+
+ I am acting as a sentry."
+
+[link="Who are you?"]
+[linkto="HT_name"]
+[link="Let me into the base."]
+[linkto="HT_letmein"]
+[link="Goodbye."]
+[linkto="HT_goodbye"]
+[endpage]
+
+
+[page="HT_password"]
+[image="f16v.pcx"]
+
+"The password is 'I am not a number, I am a free 'MiG'."
+
+[set_pflag got_pass]
+[link="Who are you?"]
+[linkto="HT_name"]
+[link="Let me into the base."]
+[linkto="HT_letmein"]
+[link="Goodbye."]
+[linkto="HT_goodbye"]
+[endpage]
+
+
+
+[page="HT_goodbye"]
+[image="f16v.pcx"]
+
+"Goodbye."
+
+[nextpage="exit"]
+[endpage]

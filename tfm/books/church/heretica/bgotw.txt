@@ -1,0 +1,14 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+ Brethren,
+
+ Now that we have a sacrifice pure and good, this very night
+ shall we gather and and call upon our Patron himself..
+ the Black Grouse of the Woods with a Thousand Young!
+
+ He shall give us grain! And shoots!  And little green leaves!
+
+[nextpage="exit"]
+[endpage]

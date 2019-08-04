@@ -1,0 +1,541 @@
+
+[page="start"]
+[iftime "0800-0900"][goto="inchurch"]
+[ifntime "0900-1800"][goto="outofhours"]
+[colour="#808080"]
+You see a fletcher.
+[colour="#ffffff"]
+[learn_name]
+
+"Hello, friend.  I am $NAME.
+ Are you come to buy bolts, or a crossbow?"
+
+[link="How much are they?"]
+[linkto="buy"]
+[always]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime "0800-0900"][goto="inchurch"]
+[ifntime "0900-1800"][goto="outofhoursname"]
+
+[colour="#808080"]
+You see $NAME, the fletcher.
+[colour="#ffffff"]
+
+"Hello again.  Are you looking to buy arms?"
+
+[link="Yes please."]
+[linkto="buy"]
+[always]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+"Quiet!  The Priest is speaking!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="buy"]
+
+"A crossbow will be 120 gold coins..  My craftsmanship
+ is of a very high standard.
+
+ I sell bolts in packs of a dozen, twenty gold per pack.
+
+ Though it is not my trade, I also sell cloth armour for
+ 100 gold, leather armour for 200, and wooden shields
+ that I can sell for 70 gold coins."
+
+[link="I would like a crossbow."]
+[linkto="xbow"]
+[always]
+[link="I would like a pack of bolts."]
+[linkto="bolts"]
+[always]
+[link="I would like some cloth armour."]
+[linkto="armour00"]
+[always]
+[link="I would like some leather armour."]
+[linkto="armour01"]
+[always]
+[link="I would like a wooden shield."]
+[linkto="shield00"]
+[always]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xbow"]
+[take 120 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "xbow"]
+[call="money_sound"]
+
+"Thankyou, $Sir!
+
+ I'm sure you will find it superbly balanced."
+
+[link="I would like a pack of bolts."]
+[linkto="bolts"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bolts"]
+[take 20 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "xbow_bolts"]
+[call="money_sound"]
+
+"Thankyou, $Sir!
+
+ I am sure they will serve you well."
+
+[link="I would like another pack of bolts."]
+[linkto="bolts"]
+[always]
+[link="I would like something else, please."]
+[linkto="buy"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="armour00"]
+[take 100 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "armour00"]
+[call="money_sound"]
+
+"Thankyou, $Sir.
+
+ I'm sure you will find it comfortable."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="armour01"]
+[take 200 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "armour01"]
+[call="money_sound"]
+
+"Thankyou, $Sir.  Here is your armour."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="shield00"]
+[take 70 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "shield00"]
+[call="money_sound"]
+
+"Thankyou, $Sir.  Here is your shield."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell"]
+
+"Not at this time.  Perhaps later."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="I would like to ask something."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="no_money"]
+
+"I'm afraid you cannot afford that.  I know the prices
+ are high, but I have to eat as well as pay the Tithes.
+
+ Do you wish to buy something else instead?"
+
+[set tithes]
+[link="Yes, I would."]
+[linkto="buy"]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[link="Tell me about the Tithes."]
+[linkto="tithes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="question"]
+
+"Very well.  What do we want to know?"
+
+[link="Who exactly are you?"]
+[linkto="who"]
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="outofhours"]
+
+"Hello there.  Did you want something?"
+
+[link="Who exactly are you?"]
+[linkto="who"]
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="outofhoursname"]
+[colour="#808080"]
+You see $NAME, the fletcher.
+[colour="#ffffff"]
+
+"Hello there.  Was there something you wanted?"
+
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="I'd like to buy something."]
+[linkto="oobuy"]
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="oobuy"]
+
+"My shop is not open at the moment, but if you come
+ during the working hours I shall be glad to aid you."
+
+[link="Who exactly are you?"]
+[linkto="who"]
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+
+"I am $NAME, the fletcher of this town.  I make fine
+ crossbows and bolts from the forest wood.
+
+ If you come to my shop during the day, I can sell you
+ something if you wish."
+
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="tithes"]
+
+"We must all pay Tithes to the Church.  They need the
+ money to help fight Evil and sin.
+
+ It is a heavy burden to pay, but a welcome one, for we
+ who sacrifice our worldly goods shall have a swifter
+ path through purgatory to Heaven when we die."
+
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cow"]
+
+"It guards the south mill and surrounding lands.
+ Apparently this has caused the flour crisis that grips
+ our land!
+
+ The Cow is a giant creature and very powerful.  It would
+ take more than a crossbow to make the creature leave."
+
+
+[if sceptre][link="What do you know about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre"]
+[if returned_sceptre][goto="sceptre3"]
+[set sceptre_strangeman]
+[set strangeman_scar]
+
+"The Sceptre is the seal of our noble King's office, and
+ is very valuable.
+ The theft is a severe blow to the King and he would pay
+ dearly for its return.
+
+ It is a funny thing, but a few days before the sceptre
+ was taken, I noticed a scarred man reading a parchment
+ at the inn where I drink.  I had never seen him before,
+ or since."
+
+[ifntime "1800-2000"][link="Tell me about the Inn."]
+[ifntime "1800-2000"][linkto="sceptre2"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre2"]
+
+"It is called The Green Lion, and it is in the north-west
+ part of our town.  I go there each evening."
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre3"]
+
+"Why, I know that you have returned the sceptre to the
+ King and earned his deepest gratitude."
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="demon"]
+
+"While gathering firewood I was sheltering from a sudden
+ storm.  I found a cave and waited for the rain to pass.
+
+ But the cave was not empty!
+
+ Inside there was a demon!  It was big as a house, and
+ made of metal, just like the LORD has said.
+
+ It had great glowing red eyes and it spoke to me in a
+ horrible voice, threatening my life and my soul!
+
+ I fled for my life, and it told me that it would eat my
+ soul if I ever returned!"
+
+[link="Where did you find the demon?"]
+[linkto="demon2"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="demon2"]
+[journal=jrn_Randolph001]
+
+"The cave was in the woods not too far south of here.
+ I do not remember where, but I will never go back that
+ way for as long as I do live!
+
+ Even if the Demon does not eat me, the LORD may think
+ I wish to associate with them, and He would cut me off
+ from the Book of Life!
+
+ I will keep my soul, and flee the demons ever after as
+ the Trinity commands."
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[if bee_island][link="Do you know where I could find a boat?"]
+[if bee_island][linkto="boat"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="boat"]
+
+"Northwest of 'the Green Lion', there lives in some
+ swamplands, a fisherman by name of Munrick.
+
+ His soul has been touched by the LORD's wrath and he is
+ a difficult man to talk to.  But if you be looking for a
+ boat to take you across the sea, he is the man that you
+ do need."
+
+[if news_demon][link="Tell me about the Demon."]
+[if news_demon][linkto="demon"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

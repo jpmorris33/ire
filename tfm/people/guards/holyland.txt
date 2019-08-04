@@ -1,0 +1,103 @@
+[page="start"]
+
+"Show me your pass."
+
+[link="Where does this road go?"]
+[linkto="where"]
+[link="I don't have a pass."]
+[linkto="nopass"]
+[link="Oh no!  I left it at home!"]
+[linkto="forgot"]
+[link="Here is my pass."]
+[linkto="pass"]
+[link="Goodbye."]
+[linkto="goodbye"]
+[endpage]
+
+
+[page="nopass"]
+
+"You cannot enter the Holy Land without a pass signed by
+ your local Bishop.  Now go away."
+
+[link="Where does this road go?"]
+[linkto="where"]
+[link="Here is my pass."]
+[linkto="pass"]
+[link="Goodbye."]
+[linkto="goodbye"]
+[endpage]
+
+
+[page="where"]
+
+"This is the border of the Holy Land, home to his
+ Holiness Pope Harris, and most hallowed city of all.
+
+ No-one may enter the city except on business or
+ pilgrimage.  In either case, you must have a warrant
+ signed by your local Bishop to allow entry."
+
+[link="Here is my pass."]
+[linkto="pass"]
+[link="Thanks.  Goodbye."]
+[linkto="farewell"]
+[endpage]
+
+
+[page="forgot"]
+
+"Then go home, and get it!
+
+ No-one can enter the Holy City without a pass!
+
+ NEXT, PLEASE!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="farewell"]
+
+"Farewell, citizen."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pass"]
+[am_carrying "pass_pope"]
+[if false][goto="pass_none"]
+
+"Very good, $Sir.  You may enter."
+
+[call="guard_pass"]
+[at_exit_call="guard_openholyland"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="pass_none"]
+
+"Do not give me that!  Go away and do not return until
+ you have a warrant signed by your local Bishop!
+
+ NEXT!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="goodbye"]
+
+[colour="#808080"]
+The guard shrugs.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="halt"]
+[goto="start"]
+[endpage]

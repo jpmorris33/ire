@@ -1,0 +1,17 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                     The Name of the Rose
+                        by Umberto Eco
+                  Translated by William Weaver
+
+
+ This is a novel set in a land where the Lord does not speak
+ to His children and they are left to guess His will.
+
+ At heart it is a mystery tale of murders in an abbey, and the
+ vices which men of the cloth can fall prey to.
+
+[nextpage="exit"]
+[endpage]

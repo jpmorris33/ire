@@ -1,0 +1,280 @@
+
+[page="start"]
+
+"Hello there.  What brings you to the Dragon's keep?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you doing here?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Sir Ross.
+[colour="#ffffff"]
+
+"Hello again.  Can I help you?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+
+"I am Sir Ross of Birnham, known throughout the land as
+ the clumsiest man ever to wield a sword for his King.
+
+ I know that behind my back men call me 'Ross the
+ Bewildered'.  Now I have found friendship with the beast
+ I was sent to destroy, I know it must be true."
+
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I earn my keep by serving the dragon.  I cook, slaughter
+ cattle and go shopping.  In exchange, the dragon lets me
+ stay here and will defend me if ever the King's men come
+ to claim me."
+
+[link="What did you do to offend the King?"]
+[linkto="king"]
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+
+"I accidentally slew the daughter of a nobleman whom I
+ was sent here to rescue.  I dare not return openly for
+ I shall surely hang, so I am living in exile.
+
+ But I sometimes have need to deal with men on behalf of
+ the dragon.. in such times I disguise myself as a monk.
+
+ I worry that one day the nobleman may learn of my crime
+ and send the king's men to take me to the gallows-tree.
+ But the dragon has vowed to protect me should soldiers
+ ever approach the keep."
+
+[link="What did you do to offend the King?"]
+[linkto="king"]
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Tell me about your exile."]
+[linkto="exile"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="beast"]
+
+"The dragon calls herself 'Saxiis' and she is not at all
+ like the evil and deceitful worm I was told to slay.
+
+ Though I must remain here in fear of my life, I could
+ not choose a better companion for my exile.
+ She has more valour and cunning than any woman I have
+ known, and does not laugh behind my back as men do."
+
+[link="Tell me about your exile."]
+[linkto="exile"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="exile"]
+
+"I was sent to the castle to slay a foul worm and rescue
+ the fair maid Grizelda held captive by the beast.
+
+ I travelled for many days and nights to reach the tower,
+ and in the dead of night, when the beast was sleeping I
+ scaled the walls with a rope I had woven from vines.
+
+ I prowled the rooms of the dark tower without light
+ until I came across a room where a huge, bloated dim
+ shape rose and fell with an unearthly sound.
+
+ Taking my longsword, I plunged it deep into the belly of
+ the monster, which screamed and died.
+
+ Then the dragon entered, holding a candle."
+
+[nextpage="exile2"]
+[endpage]
+
+[page="exile2"]
+
+"The dragon looked at me, and then looked at the bed, and
+ then looked at me again.  Then it placed the candle upon
+ the nightstand and gave a gigantic whoop of joy.
+
+ By the light of the dragon's torch, I saw that I had
+ slain an ugly fat girl who snores.  I cowered, waiting
+ for the wyrm to strike me down with a death-blow or
+ roast me with the searing heat of its breath, but
+ instead it turned and asked me to help remove the body.
+
+ We dug a grave for the fat maiden.  It took all night
+ and I quailed, knowing that I would hang when the maid's
+ father found out what I had done.  But the dragon made
+ me an offer that I could not refuse; shelter and
+ protection in exchange for my service."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="jorge"]
+
+"Jorge?  He is a cutthroat, a dealer in forbidden things.
+ His speciality is in acquiring items of value without
+ their owners' consent.
+
+ I have had dealings with him on occasion, much though I
+ loathe his company.  Most recently I ran into him at the
+ Flying Trout in Lakeside.  I understand that he was
+ trying to recruit a warrior thief to obtain for him a
+ heavily-guarded item of great value for his employer."
+
+[link="And do you know who his employer was?"]
+[linkto="jorge_employer"]
+[link="He was stealing the Sceptre of New Albion."]
+[linkto="jorge_sceptre"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="jorge_employer"]
+
+"No.  He was very guarded about the matter, and made it
+ plain that my life would be forfeit if I were to speak
+ of the matter.  I took this to mean that his employer
+ was a man of great power and influence, such as King
+ Edwyg of Albion.
+
+ I have less fear of such reprisals now, for I have the
+ dragon to protect me."
+
+[link="He was stealing the Sceptre of New Albion."]
+[linkto="jorge_sceptre"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="jorge_sceptre"]
+
+"Upon my soul!  And I had thought that his dark business
+ was to be done in the King's name!"
+
+[link="Do you know who his employer was?"]
+[linkto="jorge_employer2"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="jorge_employer2"]
+
+"No, as I said, I believed it was for his King.  Such
+ rulers are prey to vice, as the Church makes plain.
+
+ Jorge was very guarded about the matter, and made it
+ plain that my life would be forfeit if I were to speak
+ of it.  I thought he referred to the long arm of King
+ Edwyg's guards.
+
+ I have less fear of such reprisals now, for I have the
+ dragon to protect me.  Yet if it be not the King of
+ Albion, who could have desired such a theft?"
+
+[link="What about the King of Scotia?"]
+[linkto="jorge_employer3"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="jorge_employer3"]
+
+"Hmm..  I suppose it is possible, even in spite of the
+ treaty between Albion and Scotia.
+
+ King Duncan is not a man known for rash acts, though.
+ Yet it is not outside of reason that he may covet the
+ Sceptre of Albion."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well."
+[nextpage="exit"]
+[endpage]

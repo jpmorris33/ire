@@ -1,0 +1,710 @@
+Keee-Keee-Keee-Chee, Leader of the Folk and major quest NPC
+
+PFLAG 0 - spoken to him
+PFLAG 1 - threatened him
+PFLAG 2 - Will get fish
+
+
+##
+##	Start
+##
+
+[page="start"]
+[if_not find_ospreys][goto="notready"]
+[if stoned][goto="stoned1"]
+[if_not_pflag 0][goto="start2"]
+[goto="start3"]
+[endpage]
+
+##
+##	Drugs
+##
+
+[page="stoned1"]
+[image="kkkc.pcx"]
+
+[link="Argle bargle morsh wumf?"]
+[linkto="stoned2"]
+[link="Worsh mumph nursh argle?"]
+[linkto="stoned2"]
+[link="Whee whee whee whee!"]
+[linkto="stoned2"]
+[link="Umsh wurfle morsh."]
+[linkto="stoned2"]
+[endpage]
+
+[page="stoned2"]
+[image="kkkc2.pcx"]
+
+[colour="#808080"]
+You hear an exasperated sigh in your head.
+[colour="#ffffff"]
+"Stay off the drugs, human.
+ They will destroy your mind."
+
+[colour="#808080"]
+Disappointed, the pink bird jumps from the candy-striped
+tree and flies away.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+##
+##	Start properly (first time)
+##
+
+[page="start2"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey perched on a
+treestump in front of you.
+
+A deep voice booms inside your head!
+[colour="#ffffff"]
+
+"Hail $PLAYER, there are matters we must discuss."
+
+[link="Who are you?"]
+[altlink="What was your name again?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="Come here birdy, birdy, birdy..."]
+[linkto="comeherebirdy"]
+[link="Die, bird!"]
+[linkto="diebird"]
+[link="This can't be happening.  I'm going to lie down for a while."]
+[linkto="bye1"]
+[link="Er, goodbye."]
+[linkto="bye2"]
+[set_pflag 0]
+[endpage]
+
+##
+##	Start (all other times)
+##
+
+[page="start3"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking Osprey perched on a
+treestump in front of you.
+
+A deep voice booms inside your head.
+[colour="#ffffff"]
+
+[if_pflag 2]"Hello again, $PLAYER.  Do you have the fish?"
+[if_not_pflag 2]"Hello again $PLAYER."
+
+[link="What was your name again?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="what"]
+[link="Tell me about fish."]
+[linkto="aboutfish"]
+[link="Come here birdy, birdy, birdy..."]
+[linkto="comeherebirdy"]
+[link="Die, bird!"]
+[linkto="diebird"]
+[if_not_knowname][link="This can't be happening.  I'm going to lie down for a while."]
+[if_not_knowname][linkto="bye1"]
+[if_know_name][link="Goodbye."]
+[if_know_name][linkto="bye2"]
+[set_pflag 0]
+[endpage]
+
+##
+##	Name
+##
+
+[page="name"]
+[image="kkkc.pcx"]
+"I am $CHARNAME, elected chieftan of the Folk.
+
+ I don't suppose you happen to have any fish with you?"
+
+[learn_name]
+[link="How is it that you can talk?"]
+[linkto="talk"]
+[link="What are you?"]
+[linkto="what"]
+[link="You don't have the brain capacity to do this!"]
+[linkto="brain"]
+[link="Yes, I have a fish."]
+[linkto="fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="fishpaste"]
+[link="I'm afraid not."]
+[linkto="nofish"]
+[endpage]
+
+##
+##	No fish
+##
+
+[page="nofish"]
+[image="kkkc.pcx"]
+"A pity.  I have much to say, and it is our custom to
+ discuss important matters over food."
+
+"If you would be so kind as to fetch me a large fish,
+ we can then get down to business."
+
+[link="What kind of fish do you want?"]
+[linkto="whatfish"]
+[link="No.  You want to talk, YOU bring the fish!"]
+[linkto="wontfish"]
+[link="Okay."]
+[linkto="willgetfish"]
+[endpage]
+
+# What kind of fish?
+
+[page="whatfish"]
+[image="kkkc.pcx"]
+
+"A salmon or trout would be best, 10 to 12 inches long.
+ Raw.  And dead."
+
+[link="Too bad.  You want to talk, YOU bring the fish!"]
+[linkto="wontfish"]
+[link="Okay, I'll get one"]
+[linkto="willgetfish"]
+[endpage]
+
+# I don't want to.
+
+[page="wontfish"]
+[image="kkkc.pcx"]
+
+"I have brought something for YOU.
+
+ You must now return the gesture, reciprocate..
+ It would be POLITE of you.
+
+ Bring me nice, big fisshh!"
+
+[link="Okay, I'll get one"]
+[linkto="willgetfish"]
+[link="I don't want to.  I'm going home."]
+[linkto="bye1"]
+[endpage]
+
+# I'll get it.
+
+[page="willgetfish"]
+[image="kkkc.pcx"]
+[colour="#808080"]
+The large bird's head bobs slightly.
+[colour="#ffffff"]
+
+"Thanks.  Come and find me again when you have the fish."
+
+[set_pflag 2]
+[nextpage="exit"]
+[endpage]
+
+##
+##	What are you?
+##
+
+[page="what"]
+[image="kkkc.pcx"]
+
+"I am a fish-hawk.  An Osprey.  Pandion Haliaetus.
+ A dictionary you read when you were seven defines us
+ as 'medium-sized falconiforme that feed almost
+ exclusively upon fish'.
+
+ Of course I have evolved far beyond the simple creatures
+ in the dictionary, so to be honest, I'm not wholly sure.
+
+ But that is unimportant."
+
+[link="What do you want with me?"]
+[linkto="whatdoyouwant"]
+[link="How is it that you can talk?"]
+[linkto="talk"]
+[link="You don't have the brain capacity to do this!"]
+[linkto="brain"]
+[link="I'm out of this."]
+[linkto="bye1"]
+[endpage]
+
+##
+##	What do you want?
+##
+
+[page="whatdoyouwant"]
+[image="kkkc.pcx"]
+
+"I want to talk to you.  There is something very
+ important that must be done.  You are the only person we
+ can trust to help.
+
+ But first, we must observe protocol.  Do you have any fish?"
+
+[link="Yes, I have a fish."]
+[linkto="fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="fishpaste"]
+[link="I'm afraid not."]
+[linkto="nofish"]
+[endpage]
+
+##
+##	Got fish
+##
+
+
+KKKC gives player chocolate biscuits
+Player gives KKKC fish.
+KKKC eats fish as below.
+KKKC begins monologue about the Folk and the fall of humanity.
+KKKC tells you that you must help him make contact with the aircraft.
+KKKC joins your party and changes state so he can be picked up.
+     He flies and so does not set off triggers.  You can either wield him or 
+     have him as a separate party member.  If wielded need logic to prevent
+     switching to KKKC if in pocket.
+
+
+##
+##	Got a fish.
+##
+
+[page="fish"]
+[image="kkkc.pcx"]
+[colour="#808080"]
+$CHARNAME lands at your feet and drops a carrier bag
+containing a sealed packet of chocolate biscuits.
+He flies back onto his perch and waits.
+
+You throw the fish into the air and $CHARNAME
+deftly catches it.  Decapitating the fish, he eats the
+head before speaking.
+[colour="#ffffff"]
+
+"First, I must tell you the history of the Folk.
+ I have seen in the minds of others that we were animals
+ introduced from the world you call Earth."
+
+[colour="#808080"]
+$CHARNAME pauses to gut the fish with his talons
+before continuing.
+[colour="#ffffff"]
+
+"Since those days, we have changed.  We see each others'
+ minds, as I see into yours now.
+ We do not know why we have changed."
+
+[nextpage="fish2"]
+[endpage]
+
+
+[page="fish2"]
+[image="kkkc.pcx"]
+[colour="#808080"]
+$CHARNAME slices the fish into fine strips and
+begins to eat them one by one.
+[colour="#ffffff"]
+
+"In the older days were were migratory creatures.
+ We would fly to the southern continents to avoid the
+ harsh winter, and the lack of fish it causes."
+
+"To migrate, we followed the magnetic fields of the
+ Earth.  But on this planet, we became lost and migration
+ was not successful."
+
+"When the Men found that we could not migrate, they would
+ bring us fish in the winter.  One day, this stopped."
+
+[colour="#808080"]
+Gulp!
+[colour="#ffffff"]
+
+"Fortunately, we had learned much before this had
+ happened.  We could already see each other's minds, and
+ we had learned how to pickle fish for the winter."
+
+[nextpage="fish3"]
+[endpage]
+
+[page="fish3"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+$CHARNAME eats another strip of fish.
+[colour="#ffffff"]
+"In the years leading up to this time, we noticed changes
+ taking place in the minds of Men.
+ They began to lose their reason, and primeval feelings
+ rose up to replace intellect.  They became superstitious.
+ We did not realise what was happening.
+
+ Soon men began to fight each other in the name of the New
+ God.  All who did not worship were killed or driven away.
+
+ There are a few men left who have clung to reason.
+ We know that they have been watching us and suspect what
+ we have become.  But we have decided not to make contact
+ with them, until now."
+
+[nextpage="fish4"]
+[endpage]
+
+
+[page="fish4"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+$CHARNAME eats the last strip of fish.
+[colour="#ffffff"]
+
+"That was a good fissh.
+
+ Now I must ask for your aid.  There are some men left
+ who do not worship the New God.  They have machines
+ that fly and they know much.
+
+ We want to make contact with them, but we need you to
+ act as our emmisary.  I know that you have already
+ made contact with them, so I only require that you
+ carry out the necessary introductions."
+
+[nextpage="fish5"]
+[endpage]
+
+
+[page="fish5"]
+[image="kkkc.pcx"]
+
+"I require that you take me to the one known as Ransome,
+ who I understand can be located in a complex near the
+ town of New Fairford."
+
+[nextpage="fish5"]
+[endpage]
+
+
+
+[page="agree_y"]
+[image="kkkc.pcx"]
+
+"Excellent!"
+
+[colour="#808080"]
+You hold out your arm like a falconer, and the Osprey
+hops gently onto it.
+[colour="#ffffff"]
+
+[call="osprey_to_arm"]
+[nextpage="exit"]
+[endpage]
+
+[page="agree_n"]
+[image="kkkc.pcx"]
+"Damn it, Human!  This is important!
+ I urge you to reconsider."
+
+[colour="#808080"]
+The bird glowers at you angrily for a few moments more,
+then he flies into the distance, leaving you alone.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="agree_n2"]
+[image="kkkc.pcx"]
+"Very well.  But this is important.
+ If you could help me, you will earn the eternal gratitude of the Folk."
+
+[colour="#808080"]
+$CHARNAME looks despondent.
+Then he flies into the distance, leaving you alone.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+##
+##	Insults
+##
+
+[page="comeherebirdy"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+The osprey looks at you unpleasantly, and with a little
+effort makes an obscene gesture with razor-sharp talons.
+[colour="#ffffff"]
+
+"Don't be difficult, human."
+[set_pflag 2]
+
+[nextpage="start"]
+
+[endpage]
+
+##
+##	You don't have the brains to do this
+##
+
+[page="brain"]
+[image="kkkc.pcx"]
+
+"I know.  We'll find out how it works one of these days."
+
+"Now.  About that fish?"
+
+[link="First, tell me how you can talk."]
+[linkto="talk"]
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+[endpage]
+
+##
+##	How can you talk?
+##
+
+[page="talk"]
+[image="kkkc.pcx"]
+
+"Many years ago, we were the simple creatures that
+ arrived from Earth.
+
+ But when we settled, something caused us to mutate, and
+ we began to learn things, like how to preserve fish.
+
+ When we began to hear each others' thoughts it became
+ possible to merge into one large community, which we
+ call the Folk."
+
+"Now, bring me the fisshh."
+
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="fishpaste"]
+[link="I'm afraid not."]
+[linkto="nofish"]
+[link="The folk?"]
+[linkto="thefolk"]
+[endpage]
+
+
+[page="fishpaste"]
+[image="kkkc.pcx"]
+
+"No."
+
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+
+[endpage]
+
+
+##
+##	The Folk?
+##
+
+[page="thefolk"]
+[image="kkkc.pcx"]
+
+"Yes.  I know it doesn't sound very imaginative but it
+ seemed like a good idea at the time.
+
+ Do you have any fish?"
+
+[link="Yes, I have one."]
+[linkto="fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+
+[endpage]
+
+##
+##	Screw you guys I'm going home
+##
+
+[page="bye1"]
+[image="kkkc.pcx"]
+
+"No! No!  Come back!
+ There are things of high importance we need to discuss!"
+
+[colour="#808080"]
+The fishhawk's voice becomes more and more garbled as
+you walk out of range.  You vaguely imagine the word
+'Bustard!' before your thoughts are left alone.
+
+In the distance, the large bird dives from the tree
+stump and flies away.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+##
+##	Goodbye.
+##
+
+[page="bye2"]
+[image="kkkc.pcx"]
+
+"Goodbye, human."
+
+[colour="#808080"]
+The bird flies away to search for fish.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+##
+##	Die, bird!
+##
+
+[page="diebird"]
+[image="kkkc.pcx"]
+
+"I would not say such things if I were you."
+
+[set_pflag 1]
+[nextpage="exit"]
+[endpage]
+
+##
+##	Tell me about fish?
+##
+
+[page="aboutfish"]
+[image="kkkc.pcx"]
+
+"Fish are the single most important part of our society!
+ We harvest them during the summer and pickle them for
+ the winter."
+
+[link="I see."]
+[linkto="start"]
+[link="But Ospreys are migratory!"]
+[linkto="migrant"]
+[link="Are fish really good for the brain?"]
+[linkto="fishgood"]
+[link="Have you heard of the 'holy monkfish'?"]
+[linkto="fish_monkfish"]
+[endpage]
+
+
+[page="migrant"]
+[image="kkkc.pcx"]
+
+"Not anymore.
+
+ When we migrate, we use geomagnetic fields to guide us.
+ The fields on this planet are different and cannot
+ be used, so the urge to migrate has left us.
+
+ Humans noticed this and brought us fish during the
+ winter.  One year humans stopped doing this, but by then
+ we had learned to stockpile food for the winter."
+
+[link="They stopped bringing you fish?"]
+[linkto="stoppedfish"]
+[link="Uh, right."]
+[linkto="fish"]
+[endpage]
+
+
+[page="fishgood"]
+[image="kkkc.pcx"]
+
+"Yes.  They contain omega-3 fatty acids.
+
+ We ate fish for thousands of years.  If it was not good
+ for our brains, we would not be having this
+ conversation now."
+
+[link="Uh, right."]
+[linkto="fish"]
+[endpage]
+
+
+
+[page="stoppedfish"]
+[image="kkkc.pcx"]
+
+"I will tell you more of this over lunch.
+ Bring me a fish and I will tell you much."
+
+[nextpage="fish"]
+[endpage]
+
+##
+##	Have you seen the Holy Monkfish?
+##
+
+[page="fish_monkfish"]
+[image="kkkc.pcx"]
+
+"There is no such thing.  We know all fish and there is
+ no such thing as this so-called 'holy monkfish'.
+
+ I believe that it is an inane and pointless quest set
+ by the god Xy'lan to punish the unfaithful."
+
+[endpage]
+
+
+##
+##	The player tries to kill
+##
+
+[page="bastard"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+[if_not_knowname]A loud voice booms inside your head.
+[colour="#ffffff"]
+
+[if_not_pflag 1]"You bastard!"
+[if_pflag 1]"You asked for it!"
+
+[colour="#808080"]
+[if_knowname]A blue corona forms around $CHARNAME!
+[if_not_knowname]A blue corona forms around the bird!
+
+Inside your chest, your heart stops beating.
+[colour="#ffffff"]
+
+[if_pflag 1]"What a sad waste of human life."
+
+[at_exit_call="kill_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="notready"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey, watching you with a
+silent intent.  There is a strange gleam in the bird's
+eyes.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

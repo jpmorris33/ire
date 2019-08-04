@@ -1,0 +1,963 @@
+##
+##	Doors (and windows).  Opening, closing, breaking
+##
+##	Hangar doors and airfield gates are in GATES.PE
+##
+
+
+##
+##  NPC or Player tries to open a locked door.
+##
+
+integer findkey_tag
+object findkey_key
+string LockDoorAs
+
+
+function DoorLockCheck
+if me.tag = 0
+	BUG START
+	print "Door at "
+	print me.x
+	print ","
+	print me.y
+	print " has no lock ID!"
+	printcr
+	BUG END
+else
+	let me.user.user0 = 1	# Was locked
+endif
+end
+
+
+
+function DoorLocked
+
+object door
+object oldtarget
+
+if me = player
+	print "It is locked."
+	printcr
+	return
+endif
+
+let door = current
+
+# For an NPC, look for a key with the same tag as the door
+let findkey_tag = door.tag
+let findkey_key = null
+search_inside me calling findkey_func
+
+# If it exists, unlock it
+if_exists findkey_key
+	let current = findkey_key
+
+	# Need to set me.target to be the door to call the Key function
+	let oldtarget = me.target
+	let me.target = door
+	call use_key
+	let me.target = oldtarget
+endif
+end
+
+##
+##  Decide whether the door should be locked
+##
+
+function CanLockDoor
+
+# If I AM the door, self-lock
+if me = current
+and me.user.user0 = 1				# Was I locked originally?
+	change current = LockDoorAs
+#	object_sound "key_fits" current
+	return
+endif
+
+if_flag me IS_PARTY
+	# I don't think you want to do that
+	let LockDoorAs = ""
+	return
+endif
+
+if current.tag = 0
+	# No.
+	let LockDoorAs = ""
+	return
+endif
+
+# Was it locked originally?
+if current.user.user0 <> 1
+	# No, abort to prevent the cardinal locking himself in etc
+	return
+endif
+
+
+# Do you have the right key?
+let findkey_tag = current.tag
+let findkey_key = null
+search_inside me calling findkey_func
+
+if_not_exists findkey_key
+	# No key, no locking
+	let LockDoorAs = ""
+	return
+endif
+
+# Let's do it then
+change current = LockDoorAs
+object_sound "key_fits" current
+
+end
+
+##
+## Helper function for the searches
+##
+
+function findkey_func
+# Does it match the tag, first?  (quicker)
+if current.tag = findkey_tag
+	if current is called "key*"
+		let findkey_key = current
+		stop_search
+		return
+	endif
+endif
+
+end
+
+
+##
+##  The door open/close functions:
+##
+
+function Broken_Arch
+replace current = "StoneDoorWay_Broken"
+end
+
+
+function CloseDoorS1
+
+# Lock door if applicable
+let LockDoorAs = "StoneDoor1_Lock"
+call CanLockDoor
+if LockDoorAs <> ""
+	return
+endif
+
+change current = "StoneDoor1_Shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorS1
+change current = "StoneDoor1_Open"
+object_sound "open_door" current
+end
+
+
+function DoorwayS1
+let suspect = current.enemy
+replace current = "StoneDoorWay"
+let victim = current
+call justice_vandalism
+object_sound "doorbreaking" current
+end
+
+function DoorwaySec
+let suspect = current.enemy
+replace current = "SecretDoor1_open"
+let victim = current
+call justice_vandalism
+object_sound "doorbreaking" current
+end
+
+function DoorwayS5
+let suspect = current.enemy
+replace current = "StoneDoorWay"
+let victim = current
+call justice_vandalism
+object_sound "steeldoor_break" current
+end
+
+function CloseDoorS2
+
+# Lock door if applicable
+let LockDoorAs = "StoneDoor2_Lock"
+call CanLockDoor
+if LockDoorAs <> ""
+	return
+endif
+
+change current = "StoneDoor2_Shut"
+object_sound "shut_door" current
+
+end
+
+
+function OpenDoorS2
+change current = "StoneDoor2_Open"
+object_sound "open_door" current
+end
+
+function CloseDoorS3
+
+# Lock door if applicable
+let LockDoorAs = "StoneDoor3_Lock"
+call CanLockDoor
+if LockDoorAs <> ""
+	return
+endif
+
+change current = "StoneDoor3_Shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorS3
+change current = "StoneDoor3_Open"
+object_sound "open_door" current
+end
+
+function CloseDoorS4
+change current = "StoneDoor4_Shut"
+object_sound "portcullis_close" current
+end
+
+
+function OpenDoorS4
+change current = "StoneDoor4_Open"
+object_sound "portcullis_open" current
+end
+
+function CloseDoorS4_tag
+object door
+
+find_tag door = "StoneDoor4_Open" current.tag
+if_exist door
+	change door = "StoneDoor4_Shut"
+	object_sound "portcullis_close" door
+else
+	object_sound "portcullis_clunk" door
+endif
+end
+
+function OpenDoorS4_tag
+object door
+
+find_tag door = "StoneDoor4_Shut" current.tag
+if_exist door
+	change door = "StoneDoor4_Open"
+	object_sound "portcullis_open" door
+else
+	object_sound "portcullis_clunk" door
+endif
+end
+
+function flip_doorS4
+
+object door
+
+find_tag door = "StoneDoor4_Shut" current.tag
+if_exist door
+	change door = "StoneDoor4_Open"
+	object_sound "portcullis_open" door
+else
+	find_tag door = "StoneDoor4_Open" current.tag
+	if_exist door
+		change door = "StoneDoor4_Shut"
+		object_sound "portcullis_close" door
+	else
+		object_sound "portcullis_clunk" door
+	endif
+endif
+
+end
+
+
+function OpenDoorSecret
+change current = "SecretDoor1_open"
+object_sound "open_door" current
+end
+
+function CloseDoorSecret
+change current = "SecretDoor1_shut"
+object_sound "shut_door" current
+end
+
+function OpenDoorSecret2
+change current = "SecretDoor2_open"
+object_sound "open_door" current
+end
+
+function CloseDoorSecret2
+change current = "SecretDoor2_shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorC1
+change current = "cagedoor_open"
+object_sound "open_door" current
+end
+
+function CloseDoorC1
+change current = "cagedoor_shut"
+object_sound "shut_door" current
+end
+
+
+function DoorwayC1
+let suspect = current.enemy
+replace current = "cagedoorway"
+let victim = current
+call justice_vandalism
+object_sound "doorbreaking" current
+end
+
+function CloseDoorS5
+
+# Lock door if applicable
+let LockDoorAs = "StoneDoor5_Lock"
+call CanLockDoor
+if LockDoorAs <> ""
+	return
+endif
+
+change current = "StoneDoor5_Shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorS5
+change current = "StoneDoor5_Open"
+object_sound "open_door" current
+end
+
+function CloseDoorHT
+change current = "hitech_door2_shut"
+object_sound "hitechdoor2" current
+end
+
+
+function OpenDoorHT
+change current = "hitech_door2_open"
+object_sound "hitechdoor1" current
+end
+
+
+##
+##  Steel door has been hit.  If the damage is less than the armour rating
+##  the damage will be undone
+##
+
+function DoorwayS5_hit
+integer damage
+
+let damage = current.user.oldhp - current.stats.hp
+
+if damage < current.stats.armour
+	# Not strong enough to harm me!
+	object_sound "steeldoor_miss" current
+	let current.stats.hp = current.user.oldhp # undo damage
+else
+	object_sound "steeldoor_hit" current
+endif
+end
+
+
+
+
+
+
+
+##
+##	Functions to control the door's self-closing (as in U6)
+##
+
+function door_close_trigger
+
+# The following things do not shut doors automatically
+
+# Dead things
+if victim.stats.hp < 1
+	return
+endif
+
+# Unliving things
+if_not_flag victim IS_PERSON
+	return
+endif
+
+#if victim.stats.intelligence < 50
+#	return
+#endif
+
+# The party
+if_flag victim IS_PARTY
+	return
+endif
+
+# Dogs etc
+if_flag victim NOT_CLOSE_DOORS
+	return
+endif
+
+# If we're still here, the door will shut itself
+
+start_action current does door_selfclose
+
+end
+
+##
+##  This is the door's activity.  When assigned to a door, it will
+##  cause the door to close itself as soon as it can safely be shut.
+##
+
+function door_selfclose
+int x
+int y
+int xctr
+int yctr
+object temp
+
+for xctr = 1 to me.mw
+	for yctr = 1 to me.mh
+		let x = me.x + xctr
+		let y = me.y + yctr
+		# Take away 1 to adjust for 0-based
+		add x - 1
+		add y - 1
+
+		get_solid_object temp from x y
+
+		# If we've found something that isn't the doorway
+		if_exists temp
+			if temp <> me
+				return		# It's blocked, can't shut door
+			endif
+		endif
+	next yctr
+next xctr
+
+stop_action me		# Cancel the self-closing
+let current = me	# This will also force the self-locking if applicable
+call me.funcs.ucache
+
+end
+
+##
+##  Hut doors..
+##
+
+function CloseDoorH1
+change current = "hut_door_shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorH1
+change current = "hut_door_open"
+object_sound "open_door" current
+end
+
+
+function DoorwayH1
+let suspect = current.enemy
+replace current = "hut_doorway"
+let victim = current
+call justice_vandalism
+object_sound "doorbreaking" current
+end
+
+##
+##  Open window shutters
+##
+
+function open_window2
+
+# Are we able to close it (inside only)
+
+if current.curdir = UP
+	if me.y < current.y
+		return
+	endif
+endif
+
+if current.curdir = DOWN
+	if me.y > current.y
+		return
+	endif
+endif
+
+if current.curdir = LEFT
+	if me.x < current.x
+		return
+	endif
+endif
+
+if current.curdir = RIGHT
+	if me.x > current.x
+		return
+	endif
+endif
+
+# We survived the checks.  Do it.
+
+replace current = "stonewindow2a"
+end
+
+##
+##	Shut window shutters
+##
+
+function shut_window2
+
+# Are we able to open it (inside only)
+
+if current.curdir = UP
+	if me.y < current.y
+		return
+	endif
+endif
+
+if current.curdir = DOWN
+	if me.y > current.y
+		return
+	endif
+endif
+
+if current.curdir = LEFT
+	if me.x < current.x
+		return
+	endif
+endif
+
+if current.curdir = RIGHT
+	if me.x > current.x
+		return
+	endif
+endif
+
+# We survived the checks.  Do it.
+
+replace current = "stonewindow2b"
+end
+
+
+##
+##  Fake mud trapdoor - opening
+##
+
+function fakemud_open
+activity
+
+# Open it
+change me = "fakemud_open"
+set_sequence me = "fakemud_opening"
+
+# Wait 3 turns and then close
+let me.user.user1 = 3
+start_action me does fakemud_close
+
+end
+
+##
+##  Fake mud trapdoor - closing
+##
+
+function fakemud_close
+activity
+
+# Are we ready?
+if me.user.user1 > 0
+	# Not yet
+	add me.user.user1 - 1
+	return
+endif
+
+# Yes, close the door
+change me = "fakemud"
+set_sequence me = "fakemud_closing"
+stop_action me
+end
+
+
+
+
+
+function OpenPortculli
+private
+object_array port[32]
+integer ctr
+object done
+
+let done = null
+
+find_tags port[1] = "STONE_ARCHWAY" current.tag
+for ctr = 1 to 32
+	if_exists port[ctr]
+		change port[ctr] = "STONE_ARCHWAY_P"
+		let done = port[ctr]
+	endif
+next
+
+find_tags port[1] = "STONE_ARCHWAY2" current.tag
+for ctr = 1 to 32
+	if_exists port[ctr]
+		change port[ctr] = "STONE_ARCHWAY2_P"
+		let done = port[ctr]
+	endif
+next
+
+if_exists done
+	object_sound "portcullis_open" done
+else
+	if me = player
+		print "It doesn't seem to have worked."
+		printcr
+	endif
+endif
+end
+
+
+function ClosePortculli
+private
+object_array port[32]
+integer ctr
+object done
+
+let done = null
+
+find_tags port[1] = "STONE_ARCHWAY_P" current.tag
+for ctr = 1 to 32
+	if_exists port[ctr]
+		change port[ctr] = "STONE_ARCHWAY"
+		let done = port[ctr]
+	endif
+next
+
+find_tags port[1] = "STONE_ARCHWAY2_P" current.tag
+for ctr = 1 to 32
+	if_exists port[ctr]
+		change port[ctr] = "STONE_ARCHWAY2"
+		let done = port[ctr]
+	endif
+next
+
+if_exists done
+	object_sound "portcullis_close" done
+else
+	if me = player
+		print "It doesn't seem to have worked."
+		printcr
+	endif
+endif
+end
+
+
+
+function UsePortculli
+
+if current.curdir = UP
+	set_direction current = LEFT
+	object_sound "clunk" current
+	call OpenPortculli
+else
+	set_direction current = UP
+	object_sound "clunk" current
+	call ClosePortculli
+endif
+
+end
+
+
+
+function CloseDoorM1
+
+# Lock door if applicable
+let LockDoorAs = "ConcreteDoor1_Lock"
+call CanLockDoor
+if LockDoorAs <> ""
+	return
+endif
+
+change current = "ConcreteDoor1_Shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorM1
+change current = "ConcreteDoor1_Open"
+object_sound "open_door" current
+end
+
+
+function DoorwayM1
+let suspect = current.enemy
+replace current = "ConcreteDoorWay"
+let victim = current
+call justice_vandalism
+object_sound "doorbreaking" current
+end
+
+
+
+function OpenShipPanel1
+change current = "WALL_METAL_WIREPANEL2"
+object_sound "open_door" current
+end
+
+function CloseShipPanel1
+change current = "WALL_METAL_WIREPANEL1"
+object_sound "open_door" current
+end
+
+function OpenShipPanel2
+change current = "WALL_METAL_WIREPANEL4"
+object_sound "open_door" current
+end
+
+function CloseShipPanel2
+change current = "WALL_METAL_WIREPANEL3"
+object_sound "shut_door" current
+end
+
+
+function pphatch_open
+
+if current is called "powerplant_hatch_open"
+	change current = "powerplant_hatch"
+	object_sound "open_door" current
+	return
+endif
+
+if current is called "powerplant_hatch"
+	change current = "powerplant_hatch_open"
+	object_sound "close_door" current
+	return
+endif
+
+if current is called "powerplant_hatch_brk_open"
+	change current = "powerplant_hatch_brk"
+	object_sound "open_door" current
+	return
+endif
+
+if current is called "powerplant_hatch_brk"
+	change current = "powerplant_hatch_brk_open"
+	object_sound "close_door" current
+	return
+endif
+
+end
+
+
+
+
+##
+##	Open and close the sliding door
+##
+
+function close_htdoor
+activity
+
+replace current = "hitech_door_closed"
+
+if_onscreen current
+	centre on me
+	if current.curdir > CHAR_D
+		set_sequence current = "htdoor_closing2"
+	else
+		set_sequence current = "htdoor_closing"
+	endif
+endif
+
+end
+
+
+function open_htdoor
+activity
+
+replace current = "hitech_door_open"
+
+if_onscreen current
+	centre on me
+	if current.curdir > CHAR_D
+		set_sequence current = "htdoor_opening2"
+	else
+		set_sequence current = "htdoor_opening"
+	endif
+endif
+
+let current.user.user1 = 5
+start_action current does htdoor_selfclose
+
+end
+
+
+function htdoor_selfclose
+
+# Count down
+if me.user.user1 > 0
+	add me.user.user1 - 1
+	return
+endif
+
+# close
+stop_action me
+let current = me
+call close_htdoor
+
+end
+
+##
+##  Allow NPCs to open the door
+##
+
+function use_htdoor
+activity
+
+if_flag me IS_PARTY
+	# Player needs to use the cardreader
+	return
+endif
+
+# Open Sez me
+call open_htdoor
+
+end
+
+
+##
+##  Trigger
+##
+
+function htdoor_trapowner
+
+if current.stats.owner is called "hitech_door_closed"
+	let current = current.stats.owner
+	call open_htdoor
+endif
+
+end
+
+# Close base doors, portculli etc.
+
+function trap_closedoors
+object owner
+
+let owner = current.stats.owner
+if_exists owner
+	# Reset the egg lockout to 0
+	let current.user.counter = 0
+
+	# Is it pressed?
+	if owner.curdir = UP
+	or owner.curdir = DOWN
+		let current = owner
+		call current.funcs.ucache
+	endif
+endif
+
+end
+
+
+##
+##  If the player tries to use a hatch in the Maxima
+##
+
+function use_hatch
+if me = player
+	print "You need a special tool."
+	printcr
+endif
+end
+
+
+function use_hatch_tool
+if me = player
+        let current = me
+	print "Use tool on "
+	redraw_text
+	call get_near
+	if_exists current
+		print current.shortdesc
+	else
+		print "nothing."
+	endif
+	printcr
+	redraw_text
+
+
+	if current is called "MAINTENANCE_HATCH_OPEN"
+		change current = "MAINTENANCE_HATCH_SHUT"
+		object_sound "shut_door" current
+		return
+	endif
+
+	if current is called "MAINTENANCE_HATCH_SHUT"
+		change current = "MAINTENANCE_HATCH_OPEN"
+		object_sound "open_door" current
+		return
+	endif
+
+	if current is called "VENT_OPEN"
+		change current = "VENT_SHUT"
+		object_sound "shut_door" current
+		return
+	endif
+
+	if current is called "VENT_SHUT"
+		change current = "VENT_OPEN"
+		object_sound "open_door" current
+		return
+	endif
+
+	print "Nothing happens."
+	return
+endif
+end
+
+
+function use_airlock
+object_array airlock[32]
+integer ctr
+object done
+integer poweroff
+
+let done = null
+
+call check_drives
+get_user_flag poweroff  = "magic_disabled"
+
+# If the drives are both off, prevent the player leaving
+
+if poweroff = 0
+	# Otherwise, look for the airlock and open it
+	find_tags airlock[1] = "AIRLOCK_DOOR" current.tag
+	for ctr = 1 to 32
+		if_exists airlock[ctr]
+			let done = airlock[ctr]
+			let current = done
+			call done.funcs.wield
+		endif
+	next
+else
+	call got_medallion
+	get_user_flag ctr = "true"
+	if ctr = 1
+	        talk_to "people/dragons/comms.txt" "engine-br2"
+	endif
+endif
+
+if_exists done
+	object_sound "hitechdoor1" done
+else
+	if me = player
+		print "Nothing happens."
+		printcr
+	endif
+endif
+end

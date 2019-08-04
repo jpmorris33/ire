@@ -1,0 +1,253 @@
+#################
+#               #
+# Simple Patrol #
+#               #
+#################
+
+function guard_patrol
+activity
+
+int x
+int y
+
+# The guard in the egg must not move
+
+if_in_pocket me
+	return
+endif
+
+let x = me.x
+let y = me.y
+
+centre around me
+
+if me.curdir = RIGHT
+	add x + 1
+	move_object me to x y
+	if err <> 0
+		set_direction me = LEFT
+	endif
+	return
+endif
+
+if me.curdir = LEFT
+	add x - 1
+	move_object me to x y
+	if err <> 0
+		set_direction me = RIGHT
+	endif
+	return
+endif
+
+if me.curdir = DOWN
+	add y + 1
+	move_object me to x y
+	if err <> 0
+		set_direction me = UP
+	endif
+	return
+endif
+
+if me.curdir = UP
+	add y - 1
+	move_object me to x y
+	if err <> 0
+		set_direction me = DOWN
+	endif
+	return
+endif
+
+end
+
+#############
+#           #
+# Wandering #
+#           #
+#############
+
+function guard_wander
+activity
+
+int x
+int y
+int rnd
+
+# The guard in the egg must not move
+
+if_in_pocket me
+	return
+endif
+
+centre around me
+
+let x = me.x
+let y = me.y
+
+random rnd between 0 5
+
+if rnd = 1
+	set_direction me = LEFT
+	let x = x - 1
+endif
+
+if rnd = 2
+	set_direction me = RIGHT
+	let x = x + 1
+endif
+
+if rnd = 3
+	set_direction me = UP
+	let y = y - 1
+endif
+
+if rnd = 4
+	set_direction me = DOWN
+	let y = y + 1
+endif
+
+move_object me to x y
+
+end
+
+#
+# Dies
+#
+
+function guard_dies
+
+change current = "deadguard"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 10
+endif
+
+call make_blood
+call egg_killed
+
+end
+
+
+#
+# Hurt
+#
+
+function guard_hurt
+
+# Safety check
+if_not_exists current
+	return
+endif
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+# Was it the player?
+let suspect = current.enemy
+let victim = current
+call justice_assault
+end
+
+
+#
+# Summoned guards dissolve when they are no longer needed
+#
+
+function guard_vanishes
+
+if_onscreen me
+	return	# Don't vanish if can be seen
+endif
+
+# Correct eggs, to help enforce guard limits
+if_exists me.stats.owner
+	add me.stats.owner.user.user1 - 1
+	if me.stats.owner.user.user1 < 0
+		let me.stats.owner.user.user1 = 0
+	endif
+endif
+
+empty me
+destroy me
+end
+
+
+
+
+##
+## Horrified (medieval guards)
+##
+
+function guard_horror
+
+# Seen a dead body
+if current is called "DEAD*"
+	let victim = current
+	set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
+	let suspect = victim.enemy
+	call justice_assault
+	return
+endif
+
+# Evil must be destroyed
+if current.stats.alignment < 0
+#	if current.stats.alignment > -10
+		# If it isn't TOTALLY evil, make it a 1-shot
+		set_flag current IS_HORRIBLE = 0
+#	endif
+
+	let suspect = current
+	call justice_beast
+	return
+endif
+
+
+# Demon!
+if current is called "guard_panther"
+	if_exists current.wield.body
+		if current.wield.body is called "PANTHERSUIT"
+			# Bail out, this is a 'real' panther
+			return
+		endif
+	endif
+
+	let suspect = current
+	call justice_demon
+	return
+endif
+
+
+end
+
+
+##
+## Horrified (modern-day guards)
+##
+
+function modernguard_horror
+
+# Seen a dead body
+if current is called "DEAD*"
+	let victim = current
+	set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
+	let suspect = victim.enemy
+	call justice_assault
+	return
+endif
+
+# Evil must be destroyed
+if current.stats.alignment < 0
+#	if current.stats.alignment > -10
+		# If it isn't TOTALLY evil, make it a 1-shot
+		set_flag current IS_HORRIBLE = 0
+#	endif
+
+	let suspect = current
+	call justice_beast
+	return
+endif
+
+# Modern-day guards and panthers do not go apeshit over 'demons'
+
+end
+

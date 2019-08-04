@@ -1,0 +1,24 @@
+Papal guard - offices
+
+[page="start"]
+[goto="halt"]
+[endpage]
+
+
+[page="halt"]
+
+"These rooms are private.  Please leave them alone."
+
+[link="Okay then, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Yes, leave, citizen."
+
+[nextpage="exit"]
+[endpage]
+

@@ -1,0 +1,389 @@
+
+Spellmaster
+
+
+[page="start"]
+[image="saxiis1.pcx"]
+[learn_name]
+"Greetings, human creature.  I am Spellmaster Gruiin.
+
+ Do you seek learning?"
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="saxiis1.pcx"]
+[colour="#808080"]
+You see Spellmaster Gruiin, of the Dra'kaan research team.
+[colour="#ffffff"]
+
+"Good day, human.  I trust that life treats you well."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+[image="saxiis1.pcx"]
+"I am the Spellmaster.  It is my duty to learn and study
+ the various magics which we are likely to need in our
+ mission.
+
+ With the right computing equipment, I can also custom
+ design new spells, or modify existing ones to better
+ suit our requirements.
+
+ Have you ever wondered why you wake up after you have
+ died?  That was my doing.. we loaded the resurrection
+ spell into the magicserver.
+ I had expected Xy'lan to interfere, though.  Evidently
+ He wants to keep you alive as well."
+
+[link="Can you teach me some spells?"]
+[linkto="spells"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="spells"]
+[am_carrying spellbook]
+[if false][goto="spellbook"]
+[goto="buy_spells"]
+[endpage]
+
+
+[page="buy_spells"]
+[image="saxiis1.pcx"]
+"Which of the eight protection rings interests you?"
+
+[link="I want to learn some ring 7 spells."]
+[linkto="buy_r7"]
+[always]
+[link="I want to learn some ring 6 spells."]
+[linkto="buy_r6"]
+[always]
+[link="I want to learn some ring 5 spells."]
+[linkto="buy_r5"]
+[always]
+[link="I want to learn some ring 4 spells."]
+[linkto="buy_r4"]
+[always]
+[link="I want to learn some ring 3 spells."]
+[linkto="buy_r3"]
+[always]
+[link="I want to learn some ring 2 spells."]
+[linkto="buy_r2"]
+[always]
+[link="I want to learn some ring 1 spells."]
+[linkto="buy_r1"]
+[always]
+[link="I want to learn some ring 0 spells."]
+[linkto="buy_r0"]
+[always]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="buy_r7"]
+[image="saxiis1.pcx"]
+
+"I have one ring seven spell that I can teach you.
+ It is the Identify spell, and it allows you to know
+ things about an object that your mortal eyes cannot
+ tell you."
+
+[link="I'd like to learn the Identify spell."]
+[linkto="buy_r76"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r6"]
+[image="saxiis1.pcx"]
+
+"I have two ring six spells that I can teach you.
+
+ First, the Peer spell, which connects data from your
+ satellites into your brain, allowing you to see the
+ area around you from above.
+
+ I can also give you the All-Seeing-Eye spell, which
+ is similar but more chaotic.  It shows you flashes
+ of the land.  Not very stable.  I'll fix it someday."
+
+[link="I'd like to learn the Peer spell."]
+[linkto="buy_r63"]
+[link="I'd like to learn the All-Seeing-Eye spell."]
+[linkto="buy_r64"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r5"]
+[image="saxiis1.pcx"]
+
+"I have two ring five spells I can share with you.
+
+ First, the Healing spell, which is the full version.
+ The Ring 7 'Light Heal' spell is just a demo.
+
+ Also, I can teach you the Cure spell, which dispells
+ poison."
+
+[link="I'd like to learn the Heal spell."]
+[linkto="buy_r54"]
+[link="I'd like to learn the Cure spell."]
+[linkto="buy_r55"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r4"]
+[image="saxiis1.pcx"]
+
+"Again, I have two ring four spells I can share with you.
+
+ First, the Mark spell, which you cast upon a glass orb.
+ You give an identifying number as a parameter.  Then,
+ if you cast Recall later on, you will be brought back to
+ wherever the orb was.
+
+ This spell hasn't been very well tested before it was
+ released and it has a few problems.  It doesn't work
+ over very large distances, and it has few safeguards.
+ If you put the orb inside a container and teleport to
+ it, you will not have a fun time.
+
+ And whatever you do, NEVER teleport to an orb you are
+ carrying in your pocket!"
+
+[link="I'd like to learn the Mark spell."]
+[linkto="buy_r42"]
+[link="I'd like to learn the Recall spell."]
+[linkto="buy_r43"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r3"]
+[image="saxiis1.pcx"]
+
+"I have one single ring three spell to give you.
+
+ This is Great Heal, the professional version of the
+ healing system.  As government agents, we have an
+ unlimited usage license for it, so there are no problems
+ as long as you are working for us."
+
+[link="Teach me the Great Heal spell."]
+[linkto="buy_r33"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r2"]
+[image="saxiis1.pcx"]
+
+"I have just one ring two spell to give you.
+
+ I can give you a utility that we use for diagnosing our
+ artificial intelligences.  We call it 'Hear Truth'.
+ It is only intended to work on our AIs, and I'm not sure
+ what it will do if you use it on ones from your planet.
+
+ However, you may find a use for it, perhaps on one of
+ Xy'lan's servants."
+
+[link="Teach me the Hear Truth spell."]
+[linkto="buy_r25"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r1"]
+[image="saxiis1.pcx"]
+
+"I have two ring one spells I can give you.
+
+ The first is Posess, which allows you to control the
+ mind of another.
+ I can also teach you a similar spell, which causes
+ people to forget what they were doing and follow you
+ around.  In your tongue, it would be called the
+ 'Pied Piper' spell.  We have a similar legend of our
+ own."
+
+[link="Teach me the Posess spell."]
+[linkto="buy_r13"]
+[link="Teach me the Pied Piper spell."]
+[linkto="buy_r15"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r0"]
+[image="saxiis1.pcx"]
+
+"Ring zero?  Are you sure that you are ready for this
+ kind of power?
+
+ Very well, but use it wisely.  These spells can be VERY
+ dangerous.  At the moment I have two to offer you.
+
+ First, I have the resurrection spell, which can revive
+ fallen comrades.  I also have a hacked version of the
+ Peer spell, that can see inside buildings.  It has a few
+ problems."
+
+[link="Teach me the Resurrection spell."]
+[linkto="buy_r01"]
+[link="Teach me the hacked peer spell."]
+[linkto="buy_r03"]
+[link="I'm interested in a different ring."]
+[linkto="buy_spells"]
+[always]
+[endpage]
+
+
+[page="buy_r76"]
+[call="learn_identify"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r63"]
+[call="learn_peer"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r64"]
+[call="learn_allseeingeye"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r54"]
+[call="learn_heal"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r55"]
+[call="learn_cure"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r42"]
+[call="learn_mark"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r43"]
+[call="learn_recall"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r33"]
+[call="learn_greatheal"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r25"]
+[call="learn_heartruth"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r13"]
+[call="learn_posess"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r15"]
+[call="learn_piedpiper"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r01"]
+[call="learn_resurrect"]
+[append="bought_spell"]
+[endpage]
+
+[page="buy_r03"]
+[call="learn_uberpeer"]
+[append="bought_spell"]
+[endpage]
+
+
+[page="bought_spell"]
+[image="saxiis1.pcx"]
+
+[colour="#808080"]
+As Gruiin explains the spell's mechanics in great
+detail, you write notes and incantations inside your
+spellbook.  At last, the lesson is over.
+[colour="#ffffff"]
+
+"There.  Use this knowledge wisely.
+
+ I must rest now."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="spellbook"]
+[image="saxiis1.pcx"]
+
+"Before I can teach you any magic, you must have a
+ spellbook in which to take notes.
+
+ I cannot help you with this, but I can suggest that
+ you seek out a wise old sage called 'Ya-Do', who, I
+ understand, lives just to the west of the Holy Land.
+
+ Seek his counsel, but beware his avarice."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="saxiis1.pcx"]
+"Fare well, human."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="saxiis3.pcx"]
+[at_exit_call="player_killme"]
+
+[colour="#808080"]
+Before you have time to strike, the creature waves his
+hand at you and your heart disappears.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

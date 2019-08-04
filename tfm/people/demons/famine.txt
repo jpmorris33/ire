@@ -1,0 +1,53 @@
+
+Famine - One of the Four Horsemen.
+
+[page="start"]
+[goto="start_nonsense"]
+[endpage]
+
+[page="start_nonsense"]
+[image="f16v2.pcx"]
+[learn_name]
+
+"Hello there, human."
+
+[link="Why are you standing in a field?"]
+[linkto="field"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="field"]
+[image="f16v2.pcx"]
+
+"Oh, we're having a little picnic.
+
+ We weren't expecting you to come here in this version,
+ so we decided to relax and put our feet up, so to speak.
+
+ The rest of the base is on order, but it hasn't been
+ delivered yet.  Come back in a year or so."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="attacked"]
+[image="f16v.pcx"]
+[set true]
+
+"Get lost, kid."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="f16v2.pcx"]
+
+"Party on, dude."
+
+[nextpage="exit"]
+[endpage]

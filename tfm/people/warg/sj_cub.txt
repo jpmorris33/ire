@@ -1,0 +1,18 @@
+Steeljaw's cub
+
+[page="start"]
+[if steeljaw_dead][goto="sj_dead"]
+[endpage]
+
+[page="startname"]
+[if steeljaw_dead][goto="sj_dead"]
+[endpage]
+
+
+[page="sj_dead"]
+
+"YOU KILLED MY FATHER!"
+
+[at_exit_call="justice_murder"]
+[nextpage="exit"]
+[endpage]

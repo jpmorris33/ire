@@ -1,0 +1,89 @@
+####################################################################
+#                                                                  #
+#  Hooks for expansions, as we're probably not going to ship this  #
+#  game in a complete form                                         #
+#                                                                  #
+####################################################################
+
+/*
+NOTES:
+
+If we need to install an expansion, we can't change the core world much
+because it's tightly coupled with the savegame and you'd basically need
+to restart to make the objects appear or the properties change.
+However, putting the guts of the expansion in new maps will solve the
+problem adequately.  The question is, how to access them?  I've inserted
+a couple of hooks, one of which is inside 'Eric's Storage Shed' in the
+Scotia map.  There are also two other potential sites, one in the
+Royal Mage's underground lab, the other in one of the ruins in Fairford
+*/
+
+##
+##   Eric's storage shed
+##
+
+function expansion1_check
+object fakemud
+
+# Abort - remove this to enable the expansion
+return 
+
+# Payload - remove the covering above the stairs
+find_tag fakemud = "fakemud" 1000000
+if_exists fakemud
+	destroy fakemud
+	return
+endif
+end
+
+
+function expansion1_stairs
+
+# To install an expansion here, add something like
+# change_map 10 tag 1000000
+# ...which will warp the party to map 10, next to an object with tag 1000000
+
+return
+end
+
+##
+##  Mage's lab - this one has a locked door, we can modify the conversations
+##  to make him give you the key
+##
+
+function expansion2_stairs
+
+# To install an expansion here, add something like
+# change_map 11 tag 1000000
+# ...which will warp the party to map 11, next to an object with tag 1000000
+
+return
+end
+
+##
+##   The house in Fairford
+##
+
+function expansion3_check
+object rubble
+
+# Abort - remove this to enable the expansion
+return 
+
+# Payload - remove the covering above the stairs
+find_tag rubble = "rubble_fake" 1000000
+if_exists rubble
+	destroy rubble
+	return
+endif
+end
+
+
+function expansion3_stairs
+
+# To install an expansion here, add something like
+# change_map 12 tag 1000000
+# ...which will warp the party to map 12, next to an object with tag 1000000
+
+return
+end

@@ -1,0 +1,175 @@
+###################################
+#                                 #
+#  Move or rotate current object  #
+#                                 #
+###################################
+
+
+##
+##	Rotate left
+##
+
+function rotate_l
+
+if_not_exists current
+	let current = me
+	if_not_exists current
+		return
+	endif
+endif
+
+if current.curdir = UP
+	set_direction current = LEFT
+	return
+endif
+
+if current.curdir = LEFT
+	set_direction current = DOWN
+	return
+endif
+
+if current.curdir = DOWN
+	set_direction current = RIGHT
+	return
+endif
+
+if current.curdir = RIGHT
+	set_direction current = UP
+	return
+endif
+
+end
+
+##
+##	Rotate right
+##
+
+function rotate_r
+
+if_not_exists current
+	let current = me
+	if_not_exists current
+		return
+	endif
+endif
+
+if current.curdir = UP
+	set_direction current = RIGHT
+	return
+endif
+
+if current.curdir = RIGHT
+	set_direction current = DOWN
+	return
+endif
+
+if current.curdir = DOWN
+	set_direction current = LEFT
+	return
+endif
+
+if current.curdir = LEFT
+	set_direction current = UP
+	return
+endif
+
+end
+
+
+##
+##	Move Forward
+##
+
+function move_forward
+
+int x
+int y
+
+if_not_exists current
+	return
+endif
+
+let x = current.x
+let y = current.y
+
+if current.curdir = RIGHT
+	add x + 1
+	move_object current to x y
+	return
+endif
+
+if current.curdir = LEFT
+	add x - 1
+	move_object current to x y
+	return
+endif
+
+if current.curdir = DOWN
+	add y + 1
+	move_object current to x y
+	return
+endif
+
+if current.curdir = UP
+	add y - 1
+	move_object current to x y
+	return
+endif
+
+end
+
+
+
+##
+##	Move Forward
+##
+
+function track_enemy
+
+int x
+int y
+int ex
+int ey
+
+if_not_exists current
+	return
+endif
+
+if_not_exists current.enemy
+	return
+endif
+
+let x = current.x
+let y = current.y
+let ex = current.enemy.x
+let ey = current.enemy.y
+
+if x < ex
+	set_direction current facing RIGHT
+	add x + 1
+endif
+
+if x > ex
+	set_direction current facing LEFT
+	add x - 1
+endif
+
+if y < ey
+	set_direction current facing DOWN
+	add y + 1
+endif
+
+if y > ey
+	set_direction current facing UP
+	add y - 1
+endif
+
+move_object current to x y
+
+end
+
+function move_forward_action
+activity
+let current = me
+call move_forward
+end

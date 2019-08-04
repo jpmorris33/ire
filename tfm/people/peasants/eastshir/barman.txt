@@ -1,0 +1,388 @@
+Edward
+
+[page="start"]
+
+[colour="#808080"]
+You see a bearded man standing behind a bar.
+His movements are swift and posessed of an almost catlike
+grace and agility.
+[colour="#ffffff"]
+
+"Welcome to The Lost Lake Inn, my friend.
+ What can I get you?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Why is this pub called 'The Lost Lake'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Edward the barkeeper.
+[colour="#ffffff"]
+
+"Ah, welcome back.  Can I get you anything?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="inchurch"]
+"Not now!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"You may call me Edward."
+
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pubname"]
+
+"Well, there used to be a lake in these parts, but we
+ lost it."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="news"]
+
+"Monsters are once again coming down from the hills,
+ threatening us and our livestock.  The shepherds quail,
+ fearing that they may end up like Noram did last year.
+
+ But all this does provide good trade for adventurers,
+ and for me also, as I do rent my rooms out to men who
+ would seek their fortunes."
+ 
+[link="Tell me about Noram."]
+[linkto="mimics"]
+[link="Tell me about the monsters."]
+[linkto="monsters"]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="mimics"]
+
+"Last spring Noram the shepherd disappeared while tending
+ his flock.  They say he was eaten by his own sheep..
+ a very bad business, that.
+
+ It seems likely to me that mimics have invaded the
+ flocks.  No-one would know until they were eaten, for
+ mimics are greatly cunning and do also act like the
+ thing that they took the form of.
+
+ If this be true it bodes ill, for we will not be able to
+ sort the true sheep from the false when it comes to
+ the shearing season.. which may become a bloodbath."
+ 
+[link="Tell me about the monsters."]
+[linkto="monsters"]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="monsters"]
+
+"They live in the caves to the north.  About this time
+ they will come down from the mountains in search of
+ food.
+
+ Mostly there are trolls, but sometimes also mimics.
+ Although they are not monsters, there are also bands of
+ wandering brigands.
+
+ The problem has become big enough that we depend upon
+ wandering heros to keep things in order.  Avis was once
+ famous for its markets, but now it is a focal point for
+ adventurers."
+ 
+[link="Do you get dragons?"]
+[linkto="dragons"]
+[link="Tell me about mimics."]
+[linkto="mimics"]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="dragons"]
+
+"No.  Dragons are very rare, which is fortunate for they
+ are also most dangerous.
+
+ Many do say that there is a dragon that dwells in a keep
+ in the northernmost realms of Scotia.  Occasionally
+ there will come an adventurer bold or foolish enough to
+ leave in search of the beast, but I do try my best to
+ stop such foolish talk.
+
+ Many have gone to slay the beast, and none have ever
+ returned.  That is bad for my business."
+ 
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="inn"]
+[is_npc_carrying key]
+[if true][goto="inn2"]
+
+"Sorry, we are full up."
+ 
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="inn2"]
+
+"We do have a room free.  For 30 gold, I shall give you
+ a copy of the key."
+ 
+[link="Okay, I'd like the room."]
+[linkto="inn3"]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="inn3"]
+[take 30 gold_coins]
+[if false][goto="no_money"]
+[give 1 key]
+[call="money_sound"]
+
+"Here you go.  It is room number 5."
+ 
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="no_money"]
+
+"I fear you have not the gold for that."
+
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I have beer for 3 gold, or fine wine from North Scotia
+ for 5 gold coins.
+
+ I can also sell you bread and ham for 2 gold coins."
+ 
+[link="I would like some beer, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some wine, please."]
+[linkto="buy_wine"]
+[always]
+[link="I would like food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_ale"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[create 1 bottle_full]
+[call="money_sound"]
+
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more beer, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some wine instead, please."]
+[linkto="buy_wine"]
+[always]
+[link="I would like some food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_wine"]
+[take 5 gold_coins]
+[if false][goto="no_money"]
+[create 1 bottle_wine]
+[call="money_sound"]
+
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more wine, please."]
+[linkto="buy_wine"]
+[always]
+[link="I would like some beer instead, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_food"]
+[take 2 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 foodp04]
+[create 1 foodp00]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more food, please."]
+[linkto="buy_food"]
+[always]
+[link="I would like some beer, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some wine, please."]
+[linkto="buy_wine"]
+[always]
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+ 
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]
+

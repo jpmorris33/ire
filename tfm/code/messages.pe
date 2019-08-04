@@ -1,0 +1,464 @@
+#
+#	Messages
+#
+
+userstring tempstring 128
+
+function Door_sign
+integer l
+if_exists current
+
+	# Are we close enough to read it?
+	if_exists lookobj
+		get_line_of_sight l = lookobj current
+		if l > 3
+			return
+		endif
+	endif
+
+	print "It reads '"
+	print current.personalname
+	print "'"
+	printcr
+endif
+end
+
+function generic_sign
+integer l
+if_exists current
+
+	# Are we close enough to read it?
+	if_exists lookobj
+		get_line_of_sight l = lookobj current
+		if l > 3
+			return
+		endif
+	endif
+
+	print "It reads: "
+	printcr
+	print current.personalname
+	printcr
+endif
+end
+
+function playergrave
+integer l
+object p
+
+if_not_exists current
+	return
+endif
+
+if deathcount > 0
+	# Are we close enough to read it?
+	if_exists lookobj
+		get_line_of_sight l = lookobj current
+		if l > 3
+			return
+		endif
+	endif
+
+	# Find the hero
+	for l = 1 to MAX_MEMBERS
+		let p = party[l]
+		if_flag p IS_HERO
+			break
+		endif
+	next l
+
+	if_exists p
+		print "It reads '"
+		print p.personalname
+		print "'"
+		printcr
+	endif
+endif
+end
+
+
+function please_insert_card
+textcolour 0 200 0
+print "PLEASE INSERT CARD..."
+printcr
+textcolour 255 255 255
+end
+
+
+function use_cardreader
+print "~Looks like it wants a keycard.~"
+printcr
+end
+
+function book_cover
+integer l
+
+if_exists current
+
+	# Are we close enough to read it?
+	if_exists lookobj
+		get_line_of_sight l = lookobj current
+		if l > 3
+			return
+		endif
+	endif
+
+	print "It is '"
+	print current.personalname
+	print "'"
+	printcr
+endif
+end
+
+function check_ammo
+if_exists current
+	if current.stats.str
+		print "It contains "	
+		print current.stats.str
+		print " rounds."
+		printcr
+	else
+		print "It is empty."
+		printcr
+	endif
+endif
+end
+
+function check_xbow_ammo
+if_exists current
+	if current.stats.str > 1
+		print "It contains "	
+		print current.stats.str
+		print " bolts."
+		printcr
+	else
+		print "There is just one bolt left."
+		printcr
+	endif
+endif
+end
+
+function look_gold
+print "You see "
+if_exists current
+	if current.stats.quantity > 1
+		print current.stats.quantity
+		print " gold coins."
+	else
+		print "one gold coin."
+	endif
+else
+	print "no gold coins."
+endif
+printcr
+end
+
+function use_none
+print "You can't use that."
+printcr
+end
+
+function carry_person
+print "You can't carry them."
+printcr
+end
+
+function kidpaper
+talk_to current.personalname
+end
+
+function pray
+if me = player
+	let defaultenemy = player
+	talk_to current.funcs.talk
+endif
+end
+
+#function use_mobile
+#print "No signal."
+#printcr
+#end
+
+# This is too long to go in the Personal Name
+function vtape_jelly
+print "It reads: "
+printcr
+print "Dirk Barron and the terror of the reanimated jelly babies"
+printcr
+end
+
+# So is this
+function book_ring
+print "It reads: "
+printcr
+print "~Ash nazg durbatul–k, ash nazg gimbatul,"
+printcr
+print " ash nazg thrakatul–k, agh burzum-ishi krimpatul.~"
+printcr
+end
+
+function use_ringstone
+print "~Something has to be inserted here.~"
+printcr
+end
+
+
+function airbase_sign
+print "It reads: "
+printcr
+textcolour 200 0 64
+print "USE OF DEADLY FORCE IS AUTHORISED IN THIS AREA"
+printcr
+textcolour 255 255 255
+end
+
+
+function use_tapereel
+textcolour 200 200 0
+print "You can't use the tapes in this version.  Try again next time!"
+printcr
+textcolour 255 255 255
+end
+
+
+# Pies
+function look_pie
+integer i
+
+if_not_exists current.pocket
+	print "Don't know what kind of pie that is."
+	printcr
+	return
+endif
+
+
+set_string tempstring = current.pocket.shortdesc
+str_getpos i = tempstring 1
+
+print "It is a"
+
+# change 'a' to 'an' if the first letter is a vowel (doncha love english?)
+if i = 'a'
+or i = 'e'
+	print "n"
+endif
+if i = 'i'
+or i = 'o'
+	print "n"
+endif
+if i = 'u'
+	print "n"
+endif
+
+print " "
+
+print current.pocket.shortdesc
+print " pie."
+printcr
+end
+
+
+# Give measurements from a sack (8 steps)
+
+function look_sack
+
+if current.stats.karma = 8
+	print "It is full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 7
+	print "It is a little over three-quarters full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 6
+	print "It is three-quarters full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 5
+	print "It is a bit more than half-full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 4
+	print "It is half-full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 3
+	print "It is more than a quarter full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 2
+	print "It is a quarter full."
+	printcr
+	return
+endif
+
+if current.stats.karma = 1
+	print "It is nearly empty.."
+	printcr
+	return
+endif
+
+if current.stats.karma = 0
+	print "It is empty."
+	printcr
+	return
+endif
+
+end
+
+##
+##	Transportation orb
+##
+
+function look_orb
+
+if_exists current
+	if current.tag > 0
+		print "In the depths of the orb, you see the number '"
+		print current.tag
+		print "'."
+		printcr
+	endif
+endif
+end
+
+##
+## 'use sheep'
+##
+
+function use_sheep
+if current is called "SHEEP_DEAD"
+	print "~Now that's just horrible.~"
+	printcr
+	return
+endif
+
+print "~Pervert!~"
+printcr
+end
+
+
+userstring passwordbuffer 16
+
+##
+##  Power station login (laptop)
+##
+
+function laptop_dlpower_login
+string tbuffer
+
+cls
+textcolour 200 200 200
+print "THIS WORKSTATION IS LOCKED."
+printcr
+print "PLEASE ENTER PASSWORD FOR USER CJNUTLEY TO CONTINUE."
+printcr
+textcolour 255 255 255
+
+call get_password
+
+let tbuffer = passwordbuffer
+
+if tbuffer <> "TIFIONA"
+	textcolour 200 200 200
+	print "ACCESS DENIED."
+	printcr
+	textcolour 255 255 255
+	return
+endif
+
+talk_to "books/tech/dlpower.txt" "login"
+
+end
+
+##
+##  Power station login (mainframe)
+##
+
+function mainframe_dlpower_login
+string tbuffer
+integer letlogin
+
+cls
+textcolour 200 200 200
+print "AMPEX LOGIN:"
+printcr
+textcolour 255 255 255
+
+let tbuffer = passwordbuffer
+let letlogin = 1
+
+call get_password
+if tbuffer <> "OPERATOR"
+	# Wrong
+	let letlogin = 0
+endif
+
+textcolour 200 200 200
+print "PASSWORD:"
+printcr
+textcolour 255 255 255
+
+call get_password
+if tbuffer <> "EXCALIBUR"
+	# Wrong
+	let letlogin = 0
+endif
+
+if letlogin = 0
+	textcolour 200 200 200
+	print "ACCESS DENIED."
+	printcr
+	textcolour 255 255 255
+	return
+endif
+
+talk_to "books/tech/dlpower.txt" "ampex"
+
+end
+
+##
+##  Get password (main proc)
+##
+
+function get_password
+integer ctr
+
+set_string passwordbuffer = ""
+
+redraw_text
+
+let ctr = 1
+do
+	get_key_quiet
+	if key = KEY_ENTER
+		break
+	endif
+
+	if key >= KEY_A
+	and key <= KEY_Z
+		add key - KEY_A
+		add key + 'A'
+	endif
+
+	str_setpos passwordbuffer ctr = key
+	print "*"
+	redraw_text
+	add ctr + 1
+	str_setpos passwordbuffer ctr = 0	# Null terminator
+while ctr < 16
+printcr
+let key = 0
+end

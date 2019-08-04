@@ -1,0 +1,163 @@
+######################################################################
+#                                                                    #
+#  Find a temporary animation frame for a single action              #
+#  This is what makes people sit down when standing on a chair etc.  #
+#                                                                    #
+######################################################################
+
+
+##
+## Sit down on a chair
+##
+
+function sit_down_human
+
+integer dir
+string seq
+
+# Get the direction of the chair
+let dir = current.curdir
+
+# Decide what to do
+
+if dir = UP
+	get_data seq where chair_up = victim.name
+	if_exists seq
+		force_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+if dir = DOWN
+	get_data seq where chair_down = victim.name
+	if_exists seq
+		force_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+if dir = LEFT
+	get_data seq where chair_left = victim.name
+	if_exists seq
+		force_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+if dir = RIGHT
+	get_data seq where chair_right = victim.name
+	if_exists seq
+		force_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+end
+
+##
+##  Sit down on a waarg bed
+##
+
+function sit_down_warg
+
+integer dir
+string seq
+
+# Get the direction of the bed
+let dir = current.curdir
+
+# Decide what to do
+
+if dir = UP
+	get_data seq where wargbed_up = victim.name
+	if_exists seq
+		set_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+if dir = DOWN
+	get_data seq where wargbed_down = victim.name
+	if_exists seq
+		set_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+if dir = LEFT
+	get_data seq where wargbed_left = victim.name
+	if_exists seq
+		set_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+if dir = RIGHT
+	get_data seq where wargbed_right = victim.name
+	if_exists seq
+		set_direction victim faces dir
+		set_sequence victim seq
+	endif
+	return
+endif
+
+end
+
+
+##
+##  Find a suitable attacking frame for a creature.
+##
+
+function attack_frame
+
+integer dir
+string seq
+
+# Get the direction of the chair
+let dir = current.curdir
+
+# Decide what to do
+
+if dir = UP
+	get_data seq where attack_up = current.name
+	if_exists seq
+		set_sequence current seq
+	endif
+	return
+endif
+
+if dir = DOWN
+	get_data seq where attack_down = current.name
+	if_exists seq
+		set_direction current faces dir
+		set_sequence current seq
+	endif
+	return
+endif
+
+if dir = LEFT
+	get_data seq where attack_left = current.name
+	if_exists seq
+		set_direction current faces dir
+		set_sequence current seq
+	endif
+	return
+endif
+
+if dir = RIGHT
+	get_data seq where attack_right = current.name
+	if_exists seq
+		set_direction current faces dir
+		set_sequence current seq
+	endif
+	return
+endif
+
+end

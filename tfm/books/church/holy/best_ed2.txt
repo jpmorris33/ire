@@ -1,0 +1,21 @@
+No illumination
+
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+ The Bear
+
+ Bears are large, brown animals which
+ give birth to their young through
+ their mouths.  A she-bear will be
+ pregnant for only thirty days, and so
+ she gives birth to formless meats,
+ which she will lick into the shape of
+ cubs with her tongue over a period of several days.
+ 
+ Bears may be dangerous, especially when they are in cub, and
+
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+

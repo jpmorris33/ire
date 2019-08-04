@@ -1,0 +1,110 @@
+#######################################
+#                                     #
+#  Miscellaneous combat-related code  #
+#                                     #
+#######################################
+
+
+##
+##	Poison your enemy (snake etc)
+##
+
+function poison_enemy
+int rand
+
+if_not_flag current.enemy IS_BIOLOGICAL
+        return 
+endif
+
+if_exists attackweapon
+	# 1/4 chance
+	random rand between 1 4
+	if rand = 1
+		add current.enemy.user.poison + 15
+	endif
+endif
+
+end
+
+
+
+##
+##	Poison bolt strikes enemy
+##
+
+function poisonbolt_attack
+
+if_exists current.enemy
+
+	if_not_flag current.enemy IS_BIOLOGICAL
+       		return 
+	endif
+
+	add current.enemy.user.poison + 20
+	destroy current
+endif
+
+end
+
+##
+##	Flame bolt strikes enemy
+##
+
+function firebolt_attack
+
+if_exists current.enemy
+	# Enemy will have taken damage in the throwing so use it
+	check_hurt current.enemy
+	destroy current
+endif
+
+end
+
+
+##
+##	Face your enemy
+##
+
+function face_enemy
+integer xdx
+integer ydy
+integer abx
+integer aby
+
+let xdx = attacker.enemy.x - attacker.x
+let ydy = attacker.enemy.y - attacker.y
+
+# Get absolute X value
+if xdx < 0
+	let abx = 0 - xdx
+else
+	let abx = xdx
+endif
+
+# Get absolute Y value
+if ydy < 0
+	let aby = 0 - ydy
+else
+	let aby = ydy
+endif
+
+
+# Now, which is bigger, absolute X or absolute Y?
+
+if abx > aby
+	# absolute X is bigger, but face L or R?
+	if xdx > 0
+		set_direction attacker faces RIGHT
+	else
+		set_direction attacker faces LEFT
+	endif
+else
+	# absolute Y is bigger, but face U or D?
+	if ydy > 0
+		set_direction attacker faces DOWN
+	else
+		set_direction attacker faces UP
+	endif
+endif
+
+end

@@ -1,0 +1,161 @@
+
+[page="start"]
+
+[colour="#808080"]
+You see an adventurer.
+[colour="#ffffff"]
+
+"Well met, friend.
+
+ I take it you are here to seek employment?"
+
+[link="Employment?"]
+[linkto="job2"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You Dunhelm the adventurer.
+[colour="#ffffff"]
+
+"Well met again, my friend.
+
+ What brings you back here?"
+
+[link="Tell me again about yourself."]
+[linkto="name"]
+[link="Tell me again about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am called Dirk.  I hail from west Scotia, although I
+ have now given my life over to become a wanderer."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I was once a captain among King Duncan's guards, but I
+ feel that there is little future to be had in his
+ employment.  News came of a prophecy made of the King's
+ downfall.
+
+ My commision as a guard was nearing its end, so rather
+ than stay on and be slain in the coming storm, I chose
+ to leave and seek my fortune as a sword for hire."
+
+[link="What need is there for heroes in a farming town?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+
+"There is much need for warriors here, as the town's
+ fortunes ride upon the wool trade.  For just as the
+ shepherds do prize their sheep for their wool, so too
+ do many beasts prize those sheep for their meat.
+
+ The shepherds will pay well to keep their flocks safe
+ and in this way, many fortune-hunters earn good living.
+
+ But this may come at a price, as Dunhelm and many others
+ have learned to their cost."
+
+[link="Tell me about Dunhelm."]
+[linkto="dunhelm"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+Tell me about Dunhelm.
+
+[page="dunhelm"]
+
+"Dunhelm was, like me, an adventurer and he undertook
+ many quests.  His great talent lay in vanquishing the
+ fell beasts of the Enemy which do on occasion threaten
+ our people.
+
+ One day, during a lean winter, a shepherd came to him
+ seeking his aid.  His sheep were being preyed upon by
+ woolves and he sought a hero to slay the beasts.
+ As all know, such deeds are an abomination in the eyes
+ of the LORD, and although I tried to stay him, Dunhelm
+ foolishly took the quest despite, for he was in need of
+ the gold it would earn him."
+
+[nextpage="dunhelm2"]
+[endpage]
+
+[page="dunhelm2"]
+
+"Later that day he returned to the tavern where we were
+ lodging, and his steel was red with the blood of
+ woolves.  As he sat down, the sky outside did become
+ black, and as the lightning flared, the Holy Ghost did
+ enter into the tavern in the likeness of a great eagle.
+
+ The bird perched upon the rafters and in a shrill voice
+ proclaimed to all that Dunhelm of Avis was a shithead,
+ and then tore the soul screaming from his body.
+
+ Francis of New Avignon was with us, and he did attempt
+ to save Dunhelm from the bird, striking at it with his
+ sword.  It gave a piercing shriek and turned him to ash
+ with a red light from its eyes."
+
+[nextpage="dunhelm3"]
+[endpage]
+
+[page="dunhelm3"]
+
+"But the tale does not end there, for when Dunhelm was
+ dead, the bird flew back upon the rafters and proclaimed
+ that the shepherd too would pay his price for the fell
+ deed which he had bought.
+
+ The shepherd rose and tried to flee, but at that moment
+ he too was struck down by the Holy Ghost and became a
+ woolf himself.  He fled back to his farm only to be
+ confronted with the survivors of the pack he had paid
+ Dunhelm to slay.  They drove him from their territory
+ and he was cast out into the wilderness."
+
+ Seeing that all understood the severity of the LORD's
+ justice for such crimes, the Holy Spirit departed from
+ the eagle, which was carried reverently from the tavern
+ and released in the town square."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="bye"]
+
+"Fare you well, friend."
+
+[nextpage="exit"]
+[endpage]

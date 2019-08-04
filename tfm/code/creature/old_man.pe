@@ -1,0 +1,67 @@
+#
+# Old Man
+#
+
+#
+# Action
+#
+
+function oldman_follow
+move_towards me player
+end
+
+#
+# Hurt
+#
+
+function oldman_hurt
+
+# Say 'uh!'
+
+object_sound "uh!" current
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+
+if_not_flag current IS_PARTY
+	if_exist current.enemy
+		if_flag current.enemy IS_PERSON
+			call enemy_flee
+		endif
+	endif
+endif
+
+end
+
+#
+# Dies
+#
+
+function oldman_dies
+
+change current = "deadoldman"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 20
+endif
+
+end
+
+#
+# Horrified
+#
+
+function oldman_horror
+
+# Seen a dead body
+if current is called "DEADFOLLOWER"
+	let victim = current
+	let me.enemy = victim
+	call enemy_flee # Flee the corpse
+endif
+
+end

@@ -1,0 +1,10 @@
+[page="start"]
+[backing="help1.pcx"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="fbi_file"]
+[call="fbi_file"]
+[nextpage="exit"]
+[endpage]

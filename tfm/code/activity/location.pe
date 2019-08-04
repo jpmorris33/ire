@@ -1,0 +1,175 @@
+##################################################
+#                                                #
+#  Find a distant place and chart a route there  #
+#                                                #
+##################################################
+
+
+##
+##  Go to a location and then stop there (use this)
+##
+
+function sit_at_location
+activity
+
+# Do we have a destination?
+
+if_not_exist me.target
+	bug start
+	set_flag me KNOW_NAME = 1
+	print "Error in location code for NPC "
+	print_bestname me
+	printcr
+	print "Character must have a destination target|"
+	bug end
+
+	let me.stats.hp = -1
+	check_hurt me
+
+	return
+endif
+
+let me.user.pathgoal = me.target # Store our ultimate destination
+
+# Carry on with the main code
+insert_action me does go_to_location2 to me.target
+# Then shut down
+queue_action me does sit_at_location2
+end
+
+
+##
+##  Go to the location and then resume the next task
+##  This is usually called at the start of other activities
+##  and will have slightly odd effects if used directly
+##
+
+function go_to_location
+private
+
+# Do we have a destination?
+
+if_not_exist me.target
+	bug start
+	set_flag me KNOW_NAME = 1
+	print "Error in location code for NPC "
+	print_bestname me
+	printcr
+	print "Character must have a destination target|"
+	bug end
+	return
+endif
+
+let me.user.pathgoal = me.target # Store our ultimate destination
+
+# Carry on with the main code
+insert_action me does go_to_location2 to me.target
+end
+
+
+##
+##  Actual core program
+##
+
+
+function go_to_location2
+private
+object p
+object target
+
+# Can we get to our ultimate destination?
+if_exists me.user.pathgoal
+	move_towards me me.user.pathgoal
+	if err <> PATH_BLOCKED
+		# Yes, break off the path and go there instead
+		let me.target = me.user.pathgoal
+		let me.user.pathgoal = null # Delete destination
+		return
+	endif
+endif
+
+
+# Carry on as usual
+
+let target = me.target
+move_towards me target
+
+# Is it impossible? (out of range etc)
+if err = PATH_BLOCKED
+	# Yes.  Look for a nearer alternative
+	pathmarker p = target.label.location near me
+	if_exists p
+		let me.target = p
+		return
+	endif
+
+	# There isn't a nearby alternative!
+/*
+	print "go_to_location: Cannot route "
+	print me.name
+	print " to "
+	print target.label.personalname
+	printcr
+	resume_action me
+*/
+
+	# We may have to teleport.  Can the player see me?
+	if_onscreen me
+		# Yes.  Don't do anything yet, and it may sort itself out
+		return
+	endif
+
+	# Can the player see the destination?
+	if_onscreen target
+		# Yes  Don't do anything yet, and it may sort itself out
+		return
+	endif
+
+	# Alright, let's do the thing
+	move_object me to target.x target.y
+	return
+endif
+
+# It's possible.  Are we there yet?
+if err = PATH_FINISHED
+	# Yes.  Face the appropriate direction (somewhere else, in case of chair)
+
+	transfer_object me to 0 0
+	force_direction me faces target.curdir
+	transfer_object me to target.x target.y
+
+	# Is there another step?
+	if_exists target.stats.owner
+		let me.target = target.stats.owner
+
+		# If the 'other step' is the NPC, (.e.g. they sat in a chair that points to them as the owner)
+		if me.target = me
+			let me.target = null
+			let me.user.pathgoal = null # Delete destination
+			resume_action me
+			return
+		endif
+###		let me.target = me.target.stats.owner ## COMPILER BUG?
+	else
+		# No.  We have acheived the goal
+		let me.user.pathgoal = null # Delete destination
+		resume_action me
+		return
+	endif
+	return
+endif
+
+# The journey is in progress.  Carry on..
+
+end
+
+
+##
+##  NPC has reached destination, shut them down
+##
+
+function sit_at_location2
+private
+
+stop_action me
+end

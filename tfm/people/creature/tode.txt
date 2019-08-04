@@ -1,0 +1,129 @@
+[page="start"]
+[random_page="toad 00 06"]
+[endpage]
+
+
+[page="toad00"]
+[colour="#808080"]
+The toad speaks!
+[colour="#ffffff"]
+
+"You have sinned.  Satan is your master now.  Purity.
+
+ You shall be cleansed.  Mortal.  Purify.  Sanctity."
+
+[nextpage="stop"]
+[endpage]
+
+
+[page="toad01"]
+[colour="#808080"]
+The toad speaks!
+[colour="#ffffff"]
+
+"I can see you!"
+[nextpage="stop"]
+[endpage]
+
+
+[page="toad02"]
+[colour="#808080"]
+The toad speaks!
+[colour="#ffffff"]
+
+"Pu-Pu-ExtermiFy."
+[nextpage="stop"]
+[endpage]
+
+
+[page="toad03"]
+[colour="#808080"]
+The toad speaks!
+[colour="#ffffff"]
+
+"God is light.  Bring the dark.
+ Heaven and Hell are the same."
+[nextpage="stop"]
+[endpage]
+
+
+[page="toad04"]
+[colour="#808080"]
+The toad speaks!
+[colour="#ffffff"]
+
+"Destroy the mortal.  DestroyDestroy."
+[nextpage="stop"]
+[endpage]
+
+
+[page="toad05"]
+[colour="#808080"]
+The toad speaks!
+[colour="#ffffff"]
+
+"I have come for you!"
+[nextpage="stop"]
+[endpage]
+
+
+[page="stop"]
+[is_onscreen Fisher]
+[if true][goto="fisher"]
+[goto="exit"]
+[endpage]
+
+
+[page="fisher"]
+[if TodeSpokeFisher][random_page="fisher 00 03"]
+[image="f16_03.cel"]
+[set TodeSpokeFisher]
+
+"Oh my god!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fisher00"]
+[image="f16_03.cel"]
+
+"Fascinating!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fisher01"]
+[image="f16_03.cel"]
+
+"Remarkable!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fisher02"]
+[image="f16_03.cel"]
+
+"Hey, toad!  How are you able to speak?"
+
+[nextpage="fishertoad"]
+[endpage]
+
+
+[page="fisher03"]
+[image="f16_03.cel"]
+
+"Incredible!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fishertoad"]
+
+"You shall all die and serve our Dark Master."
+
+[nextpage="exit"]
+[endpage]

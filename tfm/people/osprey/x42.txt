@@ -1,0 +1,152 @@
+
+[page="start"]
+[learn_name]
+[set find_ospreys]
+
+"Hail, $PLAYER.  I am Chii-Chee-Pee-Khii.
+
+ Know that you have great honour among our people.
+ Long have we waited for the Unifying One!"
+
+[link="Who is the Unifying One?"]
+[linkto="unity"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="unity"]
+
+"The Unifying One was foretold by our leader.  Some
+ claim that he saw the future in a sacred vision given
+ him by the Pee-Chee bird, but most agree that he simply
+ predicted the outcome of what was already known by the
+ far-sighted ones.
+
+ Our leader said that one would come and bring together
+ the tribes of man, bird and beast against our common
+ enemy."
+
+[link="Who is the enemy?"]
+[linkto="enemy"]
+[link="What is farsight?"]
+[linkto="farsight"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="enemy"]
+
+"Our enemy is the one called Xy'Lan, for He wishes to
+ enslave our people and use us as His tools.
+
+ Some do say that He created us for this purpose.. to
+ have the strong of our tribe to strike as His claws,
+ and to have the farsighted as His looking-glass upon
+ the future."
+
+[link="Tell me about Xy'Lan."]
+[linkto="xylan"]
+[link="What is farsight?"]
+[linkto="farsight"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="farsight"]
+
+"Farsight is the name that we give to the visions of the
+ future.  Not all can see such visions, but those who can
+ are called 'the farsighted'.  Usually the gifted are
+ weaker of body than their fellows.
+
+ Some do say that the farsight is a gift given by the
+ sacred Pee-Chee bird, but not all believe in this.
+ Some say that the gift of farsight was given us by
+ Xy'lan that we could serve Him.
+
+ I do not know which to believe."
+
+[link="Tell me about Xy'Lan."]
+[linkto="xylan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan"]
+
+"Xy'Lan is greatly powerful, and He demands a tribute of
+ worship from all thinking life.
+
+ We do not trust Him, and we avoid doing His bidding
+ where and when we can, but He is powerful and we fear to
+ bring down His anger, for He could easily slay us all if
+ He desired."
+
+[link="Is Xy'Lan anything to do with the Holy Trinity?"]
+[linkto="trinity"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity"]
+
+[colour="#808080"]
+The bird looks around furtively.
+[colour="#ffffff"]
+
+"I know little of the Trinity, but I have heard that it
+ is a front that Xy'Lan uses when dealing with humans."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am the chief catcher.  I choose the waters that we
+ shall hunt in, and direct those who catch the fish.
+
+ I do fish myself, of course, but the others look to me
+ for guidance.  I know where to catch the finest fisshh.
+
+ Only the farsighted can see fish more accurately."
+
+[link="Tell me about fish."]
+[linkto="fish"]
+[link="What is farsight?"]
+[linkto="farsight"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fish"]
+
+"Fish is very important!  It must be gathered in the
+ summer and the spring and the autumn and it must be
+ preserved.
+
+ Fresh fish is not so easy to find in winter.
+ The lakes freeze, and the fish hide away.."
+
+[link="What is farsight?"]
+[linkto="farsight"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="bye"]
+
+"Enjoy your kills."
+
+[nextpage="exit"]
+[endpage]
+

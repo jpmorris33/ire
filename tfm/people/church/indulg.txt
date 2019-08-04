@@ -1,0 +1,50 @@
+
+"Greetings, good $sir.
+
+ How would you like to be free of all your sins
+ in the eyes of the Lord?
+ 
+ I have the means to achieve this, straight from
+ the Pope himself!  I am one of the few authorised
+ dealers of Papal Indulgences."
+ 
+[link="I'm not interested"]
+[linkto="notinterested"]
+[link="What do you have?"]
+[linkto="indulgences"]
+[endpage]
+
+[page="indulgences"]
+
+"I have here a collection of Papal Indulgences
+ signed by the Holy Father himself.
+
+ I have partial indulgences for a wide range of
+ sins, and also a few plenary indulgences which
+ absolve you of all your crimes, even those not
+ yet committed!
+
+ ... gluttony 600
+ ... vanity 600
+ ... inquiry 600
+
+ ... sins of the flesh 1000
+ ... abominations 2000
+
+ ... theft 4000
+ ... murder 7000
+ ... plenary indulgence 25000"
+ 
+[endpage]
+
+
+
+[page="notinterested"]
+
+"Perhaps not for yourself, but how about a deceased
+ friend or relative?  Indulgences bought in their
+ name will speed up their passage through Purgatory
+ or even free them straight to Heaven!
+ 
+ As the coin in the coffer rings,
+ Another soul to Heaven springs.."

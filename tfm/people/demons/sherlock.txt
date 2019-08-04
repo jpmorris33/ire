@@ -1,0 +1,514 @@
+DESCRIPTION
+Sherlock, a type 'A' reconnaisance variant of the GR-4 bomber.
+Sherlock is of the intelligence team on Weytus and is 'very close' to watson.
+
+LFLAGS
+'sher_gay' to question Sherlock about his private life.
+'sher_irr' to make Sherlock irritable.  This can be transient or not.
+'sher_mad' to make Sherlock so angry he won't talk to you.
+'sher_wat' If you've already met Watson
+
+[esc="bye"]
+
+[page="start"]
+[if_local sher_mad][goto="out"]
+[if_local sher_irr][image="sher-2.pcx"]
+[if_not_local sher_irr][image="sher-0.pcx"]
+
+[colour="#808080"]
+A small bomber looks at you cautiously.
+
+[!set_local sher_gay]
+
+[colour="#ffffff"]
+[if_local sher_irr]"What is it now?"
+[if_not_local sher_irr]"Yes?"
+
+[link="What's your name?"]
+[linkto="name"]
+[altlink="What was your name again?"]
+[altlinkto="name.again"]
+[link="What do you do?"]
+[linkto="job"]
+[altlink="Tell me more about your job."]
+[altlinkto="job.more"]
+[link="Die, fool!"]
+[linkto="angry"]
+[link="Nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="main"]
+[if_local sher_irr][image="sher-2.pcx"]
+[if_not_local sher_irr][image="sher-0.pcx"]
+
+[colour="#ffffff"]
+"Now.  Where were we?"
+
+[link="What's your name?"]
+[linkto="name"]
+[altlink="What was your name again?"]
+[altlinkto="name.again"]
+[link="What do you do?"]
+[linkto="job"]
+[altlink="Tell me more about your job."]
+[altlinkto="job.more"]
+[link="Die, fool!"]
+[linkto="angry"]
+[link="Nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="sher-0.pcx"]
+
+[learn_name]
+[if_hero]"I'm Sherlock.  And you must be Mr. Villani."
+[if_not_hero]"I'm Sherlock.  You must be one of Mr. Villani's companions."
+
+[if_hero][link="How did you know that?"]
+[if_hero][linkto="name.guess"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Hi Sherlock.. Where's Watson?"]
+[linkto="name.sherlock.watson"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="name.sherlock.watson"]
+[image="sher-0.pcx"]
+[is_onscreen "watson"]
+[if true][goto="name.sherlock.watson2"]
+
+"He's around somewhere."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Oh.  Bye then."]
+[linkto="bye"]
+[endpage]
+
+[page="name.sherlock.watson2"]
+[image="wats-0.pcx"]
+
+"I'll be with you in a minute."
+
+[link="Oh.  Okay then."]
+[linkto="main"]
+[endpage]
+
+[page="name.again"]
+[image="sher-2.pcx"]
+
+"I'm SHERLOCK.  Can't you tell us apart or something?"
+
+[link="Sorry, I forgot."]
+[linkto="main"]
+[if_hero][link="I was wondering how you knew who I was."]
+[if_hero][linkto="name.guess"]
+[link="No. I can't."]
+[linkto="angry"]
+[endpage]
+
+[page="name.guess"]
+[image="sher-0.pcx"]
+
+"Elementary, my dear sir.
+
+ I've known everyone else in this facility for more than
+ twenty years.  You're not one of us, but you're not one
+ of the Simple either.  You can't have come directly from
+ Earth because there's a forcefield blocking all V-space
+ warps larger than a pea.
+
+ But we have detected an apparently uncontrolled burst of
+ V-space activity inside the forcefield.  From the
+ warp signature we found a source date BEFORE any
+ commercial V-space activity.. it can only be Villani!
+
+ So you must be Mr. Villani!"
+
+[link="Who are the Simple?"]
+[linkto="simple"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I'm not Villani."]
+[linkto="name.guess.wrong"]
+[link="I am Jesus, the Son of God!"]
+[linkto="name.guess.god"]
+[link="Very clever.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name.guess.wrong"]
+[image="sher-2.pcx"]
+
+[colour="#808080"]Sherlock swears loudly and sulks.
+[set_local sher_irr]
+[nextpage="exit"]
+[endpage]
+
+[page="name.guess.god"]
+[image="sher-5.pcx"]
+
+"Sure you are."
+
+[set_local sher_irr]
+[nextpage="exit"]
+[endpage]
+
+[page="angry"]
+[image="sher-2.pcx"]
+
+"Well if you're going to be like that you can get lost!"
+
+[set_local sher_irr]
+[nextpage="exit"]
+[endpage]
+
+[page="simple"]
+[image="sher-0.pcx"]
+"The 'Simple' was the term used by the Church to
+ describe the uneducated in the Middle Ages.
+
+ Since most of the population of Weytus now thinks it
+ IS in the Middle Ages, it seemed the best word to
+ describe the unfortunates who don't know better.
+
+ I don't know who started using it."
+
+[nextpage="main"]
+[endpage]
+
+[page="job"]
+[is_onscreen "watson"]
+[if true][if_not_local sher_wat][goto="jobw"]
+[image="sher-0.pcx"]
+
+"I run a freelance Private Investigation business with
+ my partner, Watson."
+
+[if_not_local sher_wat][link="Watson?  As in Dr. Watson?"]
+[if_not_local sher_wat][linkto="job.watson"]
+[link="Who do you investigate?"]
+[linkto="job.who"]
+[link="Oh. Right."]
+[linkto="main"]
+[endpage]
+
+[page="jobw"]
+[image="sher-0.pcx"]
+
+"I run a freelance Private Investigation business with
+ my partner, Watson."
+
+[nextpage="jobw2"]
+[endpage]
+
+[page="jobw2"]
+[image="wats-0.pcx"]
+
+"Pleased to meet you, Sir."
+
+[set_local sher_wat]
+[nextpage="jobw3"]
+[endpage]
+
+[page="jobw3"]
+[image="sher-0.pcx"]
+
+[link="Watson?  As in Dr. Watson?"]
+[linkto="job.watson"]
+[link="Who do you investigate?"]
+[linkto="job.who"]
+[link="Oh. Right."]
+[linkto="main"]
+[endpage]
+
+[page="job.watson"]
+[image="sher-0.pcx"]
+
+"Basically, yes."
+
+[link="Who gave you these silly names?"]
+[linkto="name.sherlock.why"]
+[link="Oh. Right."]
+[linkto="main"]
+[endpage]
+
+[page="name.sherlock.why"]
+[image="sher-0.pcx"]
+
+"They're not silly!
+
+ We were the first two aircraft in a fleet of
+ reconnaisance jets built up by our late master, and we
+ were all named after famous detectives."
+
+[link="I see."]
+[linkto="main"]
+[if_local sher_gay][link="There were rumours that Sherlock Holmes was gay."]
+[if_local sher_gay][linkto="name.sherlock.gay"]
+[link="Nice talking to you.  goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="name.sherlock.gay"]
+[image="sher-3.pcx"]
+
+"WHAT??"
+
+[colour="#808080"]
+For a moment Sherlock is panic-stricken but he quickly
+regains self-control.
+[colour="#ffffff"]
+
+[nextpage="name.sherlock.gay2"]
+[endpage]
+
+[page="name.sherlock.gay2"]
+[image="sher-5.pcx"]
+
+"Are you insinuating something..?"
+
+[link="Yes."]
+[linkto="name.sherlock.gay.yes"]
+[link="No."]
+[linkto="name.sherlock.gay.no"]
+[endpage]
+
+[page="name.sherlock.gay.yes"]
+[image="sher-4.pcx"]
+
+"WELL YOU CAN BLOODY WELL FUCK OFF THEN!"
+
+[set_local sher_mad]
+[nextpage="exit"]
+[endpage]
+
+[page="name.sherlock.gay.no"]
+[image="sher-5.pcx"]
+
+"Good!"
+
+[set_local sher_irr]
+[nextpage="main"]
+[endpage]
+
+
+[page="job.more"]
+[image="sher-0.pcx"]
+
+"Watson and I form a small surveillance company that
+ does contract work for government and civillian work.
+ At the moment we're working for the Weytus central
+ government, or what remains of it."
+
+[link="Tell me more about your government jobs."]
+[linkto="job.who.mil"]
+[link="Tell me more about your civillian jobs."]
+[linkto="job.who.civ"]
+[link="What are you doing on Weytus?"]
+[linkto="job.who.weytus"]
+[link="How did you start doing this kind of work?"]
+[linkto="job.who.start"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job.who"]
+[image="sher-0.pcx"]
+
+"Not individuals, usually.
+
+ Generally we try to get government contracts.. take
+ aerial photographs and that sort of thing.  Spy
+ satellites have 'gap' periods and we can go in during
+ the gaps.
+
+ But we also get civillian work.  Watson prefers that,
+ but I'm somewhat less fussy."
+
+[link="Tell me more about your government jobs."]
+[linkto="job.who.mil"]
+[link="Tell me more about your civillian jobs."]
+[linkto="job.who.civ"]
+[link="What are you doing on Weytus?"]
+[linkto="job.who.weytus"]
+[link="How did you start doing this work?"]
+[linkto="job.who.start"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="job.who.mil"]
+[image="sher-0.pcx"]
+
+"Sorry.  That's classified.  But I can tell you that
+ they're very lucrative.
+
+ I know Watson hates it, but whatever.  We've enough
+ money in the kitty to be choosy about which contracts
+ we accept and if there's too way much risk involved,
+ we simply won't take it."
+
+[link="Tell me more about your civillian jobs."]
+[linkto="job.who.civ"]
+[link="What are you doing on Weytus?"]
+[linkto="job.who.weytus"]
+[link="How did you start doing this work?"]
+[linkto="job.who.start"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job.who.civ"]
+[image="sher-0.pcx"]
+
+"Usually it's civil engineering work.  Watson designed a
+ camera pod that can detect gas and water leaks from the
+ air with 100% accuracy.
+
+ We also record aerial footage for the entertainment 
+ industry.  There's still demand for air warfare films,
+ although I'm sure I can't understand why.  Of course,
+ if you've never been shot at by anti-aircraft missiles,
+ you're likely to be a bit less biased."
+
+[link="Tell me more about your government jobs."]
+[linkto="job.who.mil"]
+[link="What are you doing on Weytus?"]
+[linkto="job.who.weytus"]
+[link="How did you start doing this work?"]
+[linkto="job.who.start"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job.who.start"]
+[image="sher-0.pcx"]
+
+"Our Master was a young entrepreneur who commissioned us
+ from TL Aerospace.  He wanted a fleet of reconnaisance
+ jets to cash in on the surveillance market.  We were the
+ first two, and he named us 'Sherlock' and 'Watson'.
+
+ When the Master died there were eight of us and we were
+ each left with an equal stake in the company.
+ But there was a slump in the market and some of the
+ others lost interest anyway, or got better offers with
+ larger firms.  Marple was accidentally shot down by her
+ own employers, and retired to live off the compensation.
+ Now it's just Watson and myself."
+
+[link="What are you doing on Weytus?"]
+[linkto="job.who.weytus"]
+[link="How did your master die?"]
+[linkto="job.who.master-die"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job.who.master-die"]
+[image="sher-0.pcx"]
+
+"The Master died in his sleep.  It was very sad, but we
+ knew it would happen eventually.  He was 122 years old."
+
+[link="What are you doing on Weytus?"]
+[linkto="job.who.weytus"]
+[link="I see."]
+[linkto="main"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="job.who.weytus"]
+[image="sher-0.pcx"]
+
+"On a colony world there is tremendous opportunity for a
+ reconnaisance jet.  We can map the planet more
+ accurately than the ship's scanner, and we're far cheaper
+ than the satellite grid you'd need to get that level of
+ detail around the whole globe.  They would also have to
+ be geosynchronous, which means you have to wait for the
+ satellite to pass over the bit of interest.
+
+ Also we can use thermal imaging and other pods to
+ monitor wildlife, which is what we were doing until the
+ invasion.  Now we're doing military work again.
+ Emergency military rates are always good, assuming we
+ live to collect.  I don't trust the Church to honour
+ the Covenant.."
+
+[link="What's the Covenant?"]
+[linkto="job.who.weytus.covenant"]
+[link="Oh. Right."]
+[linkto="main"]
+[endpage]
+
+
+[page="job.who.weytus.covenant"]
+[image="sher-0.pcx"]
+
+"The Covenant is an agreement with humanity that ensures
+ we are to be resurrected when we die.  It came into
+ being after the Warrior's Revolt."
+
+[link="Tell me about the Warrior's Revolt."]
+[linkto="job.who.weytus.revolt"]
+[link="Okay."]
+[linkto="main"]
+[endpage]
+
+
+[page="job.who.weytus.revolt"]
+[image="sher-5.pcx"]
+
+"Gaah.  I don't have time to explain all that!
+ If you really want to know, there's a good book on the
+ subject by Nikki.  It's called 'Warrior's Revolt',
+ believe it or not."
+
+[link="Okay."]
+[linkto="main"]
+[endpage]
+
+
+[page="bye"]
+[image="sher-0.pcx"]
+
+"Whatever."
+
+[colour="#808080"]Sherlock returns to what he was doing.
+
+[clear_local sher_irr]
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="sher-4.pcx"]
+
+"Guards!  Help me destroy this maniac!"
+
+[set_local sher_irr]
+[nextpage="exit"]
+[endpage]
+
+
+[page="out"]
+[image="sher-4.pcx"]
+
+"GET OUT!"
+
+[nextpage="exit"]
+[endpage]

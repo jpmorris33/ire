@@ -1,0 +1,328 @@
+#####################################################
+#                                                   #
+#  Activities guards do, triggered by conversation  #
+#                                                   #
+#####################################################
+
+local
+object findguardptr
+integer findguardtag
+endlocal
+
+##
+## Give everyone in the party the Favour of the Waarg
+##
+
+function guard_give_collars
+
+int ctr
+object member
+object oldme
+object collar
+
+let oldme = me
+
+# Give everyone in the party a Favour
+
+for ctr = 1 to max_members
+	if_exists party[ctr]
+		let member = party[ctr]
+
+		# Is there something in the way?
+		if_exists member.wield.neck
+			# Unwield whatever's there
+			let wield_obj = member.wield.neck
+			let wield_cont = member
+			call unwield
+		endif
+		
+		# Make the collar and wield it
+		create collar = "w_favour"
+		transfer_to_pocket collar to member
+		let me = member
+		let current = collar
+		call collar.funcs.wcache
+	endif
+next ctr
+
+let me = oldme
+
+end
+
+
+
+##
+##	Check Collar (Waarg)
+##
+
+function check_collar
+
+# Assume the worst
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+# Nothing around neck?  Too bad
+if_not_exist player.wield.neck
+	return
+endif
+
+# Is it the Favour?
+
+if player.wield.neck is called "W_FAVOUR"
+	# Yep, report success
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+
+return
+end
+
+
+##
+##	Check Purple Clearance (Tech)
+##
+
+function check_purpleclearance
+
+# Assume the worst
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+# Not being worn?  Too bad
+if_not_exist player.wield.body
+	return
+endif
+
+# Is it the Favour?
+
+if player.wield.body is called "CLOTHING02"
+	# Yep, report success
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+
+return
+end
+
+
+##
+##	Open the airbase gates (Tech)
+##
+
+function guard_openairbase
+
+object lever
+
+find_tag lever = "wall_metal_d05" -15		# Tag -15 is the airbase gates
+if_exists lever
+	start_action current does seek_target_use_resume to lever
+endif
+end
+
+##
+##	Open holyland
+##
+
+function guard_openholyland
+
+object lever
+
+find_tag lever = "" 88		# Tag 88 is the holy land portcullis
+if_exists lever
+	start_action current does seek_target_use_resume to lever
+endif
+end
+
+##
+##
+##
+
+function guard_telltime
+let usernum1 = game_hour
+let usernum2 = game_minute
+
+# Correct PM times
+if usernum1 > 12
+	add usernum1 - 12
+endif
+end
+
+##
+## The guard stops you and tells you not to proceed
+## This is a radius-triggered action
+##
+
+function guard_talkto
+
+if victim <> player
+	return
+endif
+
+# Abort if invisible
+if victim.user.potion0 > 0
+	return
+endif
+
+# Look for a suitable guard, who is alive, conscious and othewise able to respond
+let findguardtag = 0 - current.tag
+let findguardptr = null
+search_world find_guard
+
+if_not_exists findguardptr
+	return	# No-one to stop me
+endif
+
+let current = findguardptr
+talk_to current.funcs.talk "halt"
+end
+
+
+##
+## The guard stops you and tells you not to proceed
+## Single-shot version of guard_talkto
+##
+
+function guard_talkto_once
+object oldcur
+
+if victim <> player
+	return
+endif
+
+# Abort if invisible
+if victim.user.potion0 > 0
+	return
+endif
+
+
+if current.user.user1 = 0
+	let oldcur = current
+	call guard_talkto
+	if current <> oldcur
+		# If it did something
+		let oldcur.user.user1 = 1
+	endif
+endif
+end
+
+
+##
+##  Disable the guard barrier (called from conversation, e.g. "pass, friend")
+##
+
+function guard_pass
+object barrier
+int tag
+
+let tag = 0 - current.tag
+
+find_tag barrier = "trap_guardbarrier" tag
+if_not_exists barrier
+	return
+endif
+
+let barrier.user.user10 = 1	# Pass, friend
+
+end
+
+##
+##  Re-enable the barrier (player's authority has expired)
+##
+
+function guard_unpass
+object barrier
+int tag
+
+let tag = 0 - current.tag
+
+find_tag barrier = "trap_guardbarrier" tag
+if_not_exists barrier
+	return
+endif
+
+let barrier.user.user10 = 0	# Thou shalt not pass!
+
+end
+
+##
+##  The guard barrier has been triggered
+##
+
+function guard_breach
+# Abort if invisible
+if victim.user.potion0 > 0
+	return
+endif
+
+if current.user.user10 <> 0
+	return			# The player is allowed to enter
+endif
+
+let suspect = victim
+call justice_intruder		# Kill the intruder!
+end
+
+function guard_breach_panthers
+
+# Abort if invisible
+if victim.user.potion0 > 0
+	return
+endif
+
+if current.user.user10 <> 0
+	return			# The player is allowed to enter
+endif
+
+let suspect = victim
+call justice_intruder_deadly	# Kill the intruder!
+end
+
+
+##
+##	Open osprey village
+##
+
+function guard_ospreys
+
+object lever
+
+find_tag lever = "lever" -46		# Tag -46 is the bridge lever
+if_exists lever
+	if lever.curdir = LEFT
+	or lever.curdir = LEFT
+		start_action current does seek_target_use_resume to lever
+	endif
+endif
+end
+
+
+##
+##  Find a suitable guard
+##
+
+function find_guard
+
+# Does it have the tag we want?
+if current.tag <> findguardtag
+	return
+endif
+
+if current.stats.hp < 1
+	return	# Dead men don't count
+endif
+
+if current.parent <> null
+	return	# Nor do the unborn, waiting in their eggs
+endif
+
+if current.user.unconscious > 0
+	return	# Sleeping guards don't work
+endif
+
+# Okay, we've got a suitable candidate
+
+let findguardptr = current
+stop_search 
+
+end
+

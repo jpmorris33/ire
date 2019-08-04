@@ -1,0 +1,256 @@
+###############
+#             #
+#  Monks etc  #
+#             #
+###############
+
+
+##
+## Hurt
+##
+
+function monk_hurt
+
+# Say 'uh!'
+
+object_sound "uh!" current
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+# Hunt down the enemy
+if_not_flag current IS_PARTY
+	let suspect = current.enemy
+	let victim = current
+	call justice_assault
+endif
+
+end
+
+##
+## Dies
+##
+
+int monktag
+int monknum
+
+function monk_dies
+int r
+
+change current = "deadmonk"
+object_sound "man_dying" current
+if_exists current.enemy
+	# You just panned a monk's head in.  That's not being good
+	add current.enemy.stats.karma - 30
+	let suspect = current.enemy
+
+	if suspect = player
+		# Have we just killed the last monk?
+		let monktag = current.tag
+		let monknum = 0
+		search_all countmonks
+#		print monknum
+#		print " monks surviving|"
+		# Give them a good ticking off
+		if monknum = 0
+			talk_to "people/church/lord.txt" "murder_monks_finished"
+			return
+		endif
+
+		# No, find a random comment from the LORD
+		random r between 1 4
+		if r = 1
+			talk_to "people/church/lord.txt" "murder_monks1"
+		endif
+		if r = 2
+			talk_to "people/church/lord.txt" "murder_monks2"
+		endif
+		if r = 3
+			talk_to "people/church/lord.txt" "murder_monks3"
+		endif
+		
+	endif
+endif
+
+end
+
+##
+## Horrified
+##
+
+function monk_horror
+
+# Seen a dead body
+if current is called "DEADMONK"
+	let victim = current
+	set_flag victim IS_HORRIBLE = 0  # Double-jeopardy
+	let suspect = victim.enemy
+	call justice_assault
+endif
+
+end
+
+
+##
+##  Count all surviving monks
+##
+
+function countmonks
+private
+
+if current.tag = monktag
+	if current.stats.hp > 0
+		if current.stats.intel > 40
+			add monknum + 1
+		endif
+	endif
+endif
+
+end
+
+##
+##  Bishop dies
+##
+
+function bishop_dies
+
+change current = "deadcardinal"
+object_sound "man_dying" current
+let current.user.user0 = 3   # A delay of three ticks
+if_exists current.enemy
+	start_action current does "justice_bishop_delayed" to current.enemy
+
+	# The player's really going to cop it for this
+	if current.enemy = player
+		set_user_flag "killed_bishop" = 1
+	endif
+else
+	start_action current does "justice_bishop_delayed"
+	set_user_flag "killed_bishop" = 1
+endif
+
+
+let current.stats.hp = 0
+end
+
+##
+##  A bishop or cardinal has been hurt.  It's Dying Time!
+##
+
+function bishop_hurt
+object oldme
+integer i
+
+# Stop this from happening during the apocalypse
+get_user_flag i = "apocalypse"
+if i <> 0
+	return
+endif
+
+# Safety check
+if_not_exists current
+	print "No Bishop."	
+	printcr
+	return
+endif
+
+# No enemy?
+if_not_exists current.enemy
+	# Must be in error.  Fix it.
+	let current.stats.hp = current.user.oldhp
+	return
+endif
+
+# Was it the player?
+if current.enemy == player
+	# Yes.  Tell them about it.
+	talk_to current.funcs.talk "die"
+	return
+else
+	let oldme = me
+	let me = current
+	call god_killenemy
+	let me = oldme
+endif
+
+end
+
+
+##
+##  Pope dies - this is not good
+##
+
+function pope_dies
+integer i
+
+get_user_flag i = "apocalypse"
+if i = 0
+	play_sound "gameover"
+	talk_to "people/church/lord.txt" "popesdead"
+endif
+
+let player.stats.hp = -300
+replace player = "ash"
+let player.stats.hp = -300
+check_hurt player
+end
+
+function pope_hurt
+call bishop_hurt
+end
+
+##
+##  Satan
+##
+
+function satan_hurt
+object oldme
+
+# Safety check
+if_not_exists current
+	print "Can't find Satan"	
+	printcr
+	return
+endif
+
+# Heal them up, because we can't have Satan dying
+let current.stats.hp = current.user.oldhp
+
+# No enemy?
+if_not_exists current.enemy
+	# Must be an error.
+	return
+endif
+
+# Was it the player?
+if current.enemy == player
+	# Yes.  Tell them about it.
+	talk_to current.funcs.talk "die"
+	return
+else
+	let oldme = me
+	let me = current
+	call god_killenemy
+	let me = oldme
+endif
+
+end
+
+
+function satan_dies
+# Oh wait.. they can't!
+let current.stats.hp = current.user.oldhp
+end
+
+
+##
+##  Pilgrim dies
+##
+
+function pilgrim_dies
+
+change current = "deadpilgrim"
+object_sound "man_dying" current
+
+end

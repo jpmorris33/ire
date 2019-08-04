@@ -1,0 +1,28 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+                    A Treatise On Star-People
+
+                       Astrologer Belelele
+
+ Some say that the stars are but holes in a fabric covering,
+ letting through the great light of creation, but this is surely
+ untrue.  There are legends and memories of stars that fell from
+ the sky, and oftentide are seen stars that shoot across the
+ heavens.
+
+ Though I have seen many hundreds of tendays, and my soul has
+ shifted over the centuries with the births and deaths of many
+ of my members, I have always pondered upon the stars.
+
+ I conclude that the stars in fact are other suns, and those suns
+ may rise and set on other worlds, mayhap worlds like our own.
+ And it may be, that some of these worlds have other people,
+ that can sail between the stars as we sail across the ocean.
+
+ Though some say it be heresy, there may even be star-people so
+ unlike us that they walk only upon their hind paws, each person
+ only a single member and not a pack...
+
+[nextpage="exit"]
+[endpage]

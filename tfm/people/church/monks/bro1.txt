@@ -1,0 +1,205 @@
+Copyist
+
+[page="start"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+
+"Yes, my son?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+[colour="#808080"]
+You see $NAME, the scribe.
+[colour="#ffffff"]
+
+"Yes, my son?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Not now!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"My name is $NAME.  I am a scribe of the 
+ library."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am a copyist here at the Abbey.
+
+ Our library hosts the finest collection of scrolls and
+ codices in the world, and so we often get orders for
+ copies of some of them.
+
+ And, of course, there are always new works being written
+ so copies of those must be made that they may be added
+ to our library."
+
+[link="What exactly do you do?"]
+[linkto="job2"]
+[link="What books are in the library?"]
+[linkto="library_books"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+
+"I read the original tome line by line, and so write it
+ into the copy.  When I have finished each page, they
+ are given to one of the Illuminators, who copy the
+ illustrations.
+
+ The finished pages are then given over to the binders."
+
+[link="What books are in the library?"]
+[linkto="library_books"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books"]
+
+"There are thousands of codices in the library.
+ It contains the sum of human knowledge that has been
+ committed to vellum.
+
+ The emphasis is, of course, upon the teachings of the
+ Trinity, but there are also a number of pagan fables and
+ the dark teachings of the Infidels.
+
+ If you wish to read a codex, ask the Librarian or his
+ assistant, and they will assist you."
+
+[link="Why do you have works of the Infidel?"]
+[linkto="library_books1a"]
+[link="Can I see the library?"]
+[linkto="library_books2"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="library_books1a"]
+
+"There are many great secrets in those teachings.
+ Part of our Order's purpose is to separate the
+ wonders they have known from the evils that would
+ corrupt our society and bring down the wrath of
+ the LORD upon us.
+
+ If you wish to read a codex, ask the Librarian or
+ his assistant, and they will assist you."
+
+[link="Can I see the library?"]
+[linkto="library_books2"]
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="library_books2"]
+
+"No.  It is not permitted to enter the library, by order
+ of the Abbot.
+
+ There are many dark secrets in the library.
+ Only a few are allowed to go in. The librarian, of
+ course, and his assistant.  The Abbot, and a few others,
+ high in the ranks of our Order.
+ 
+ But no-one else may."
+
+[link="What is it like, being a monk?"]
+[linkto="monk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="monk"]
+
+"It is a life of dedication to the LORD.. we are directly
+ His servants.
+ 
+ Our life is simple, and it can be hard at times.
+ But being in the service of the LORD, we have greater
+ access to His wonders, and the sure knowledge that we
+ shall get our reward in Heaven when our lives on Earth
+ be done."
+
+[link="What do you do?"]
+[linkto="job"]
+[if weytus][link="You are not on Earth."]
+[if weytus][linkto="not_earth"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="not_earth"]
+[colour="#808080"]
+The monk crosses himself and recites a hasty prayer.
+[colour="#ffffff"]
+
+"Of course we are on Earth, my son!
+ The Evil One has clouded your mind..
+
+ I pray you be well soon!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"May the Trinity smile upon you, my Son."
+
+[nextpage="exit"]
+[endpage]

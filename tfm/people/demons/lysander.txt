@@ -1,0 +1,382 @@
+Lysander, Milo's mate and osprey expert
+
+[page="start"]
+[image="lysandr2.pcx"]
+
+[colour="#808080"]
+You see a hawk light fighter, with a green stripe on
+their tailfin.  The hawk looks at you with interest, and
+speaks in a female voice.
+[colour="#ffffff"]
+
+"Hello there."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="lysandr2.pcx"]
+
+[colour="#808080"]
+You see Lysander the hawk.
+[colour="#ffffff"]
+
+"Hello again."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What do you do?"]
+[linkto="job"]
+[if find_the_precious][link="I'm looking for a small gold ring."]
+[if find_the_precious][linkto="find_the_precious"]
+[if madmonk][link="Tell me about the monk."]
+[if madmonk][linkto="monk"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[image="lysandr2.pcx"]
+[learn_name]
+
+"I'm Lysander, expert wildlife photographer and lately,
+ full-time Osprey guru. I'm also Milo's mate."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the ospreys."]
+[linkto="ospreys"]
+[if madmonk][link="Tell me about the monk."]
+[if madmonk][linkto="monk"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[mirror osprey_lys from Milo]
+
+
+[page="job"]
+
+[image="lysandr4.pcx"]
+
+"I'm one of the wildlife aircraft.  I was doing
+ industrial espionage and reconnaisance in my previous
+ job, and it didn't appeal to me.  So I quit and
+ found a more ethical job on Weytus instead.  Milo came
+ with me, of course.
+
+ I really wanted a wildlife job.. I like animals a lot."
+
+[if find_the_precious][link="I'm looking for a small gold ring."]
+[if find_the_precious][linkto="find_the_precious"]
+[if madmonk][link="Tell me about the monk."]
+[if madmonk][linkto="monk"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="monk"]
+[image="lysandr3.pcx"]
+
+[colour="#808080"]
+She looks very concerned.
+[colour="#ffffff"]
+
+"He's from the nearby town.. or what's left of it.
+
+ Something very terrible happened there and he's the only
+ survivor we know of, so we took him in.
+
+ He needs help and he doesn't appear to be violent, and
+ anyway, it seemed the humanitarian thing to do.
+
+ Poor guy, he's really confused."
+
+[link="What happened?"]
+[linkto="monk2"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the ospreys."]
+[linkto="ospreys"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="monk2"]
+[image="lysandr1.pcx"]
+
+"The details are sketchy.  I guess you should really ask
+ the monk himself, if he'll talk about it.
+
+ But from what I understand, it seems that Jesus Christ
+ appeared in the village and started killing everyone.
+
+ In the first book of Corinthians, it says that the
+ living cannot enter the Kingdom of God.
+
+ Maybe He was sending the village to Heaven.."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the ospreys."]
+[linkto="ospreys"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+
+[page="ospreys"]
+[image="lysandr2.pcx"]
+[set find_ospreys]
+
+"The ospreys started to behave strangely some years ago.
+ When we investigated this, a paranormal security breach
+ occurred and one of the birds escaped.
+
+ After it happened, the ospreys flocked to the lake where
+ they are now residing.  They built a village from trees
+ a bit like Venice.
+
+ The village is to the west, but they don't like
+ intruders, and shoot at them.  It's dangerous to go near
+ there!"
+
+[link="I don't understand."]
+[linkto="osprey_lys_proj"]
+[link="This is bullshit."]
+[linkto="osprey_lys_bs"]
+[link="How did the osprey escape?"]
+[linkto="osprey_lys_esc"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="osprey_lys_proj"]
+[image="lysandr2.pcx"]
+
+"Look at the project report, it will make a lot more
+ sense."
+
+[link="This is bullshit."]
+[linkto="osprey_lys_bs"]
+[link="I can't be arsed to read it.  You tell me."]
+[linkto="osprey_lys_projr"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="osprey_lys_bs"]
+[image="lysandr3.pcx"]
+
+"I wish it was, sometimes.  Life would be so much easier
+ if we didn't have to worry about psionic birds of prey.
+
+ But the plain fact is, we don't know how smart they are,
+ and that scares me.
+
+ Someone from the village said he once saw an osprey
+ solving a rubik's cube.
+
+ Take a look at the project report, it's in the office."
+
+[link="I'd prefer it if you told me."]
+[linkto="osprey_lys_projr"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="osprey_lys_projr"]
+[image="lysandr0.pcx"]
+
+"Oh, all right.
+
+ We fitted all the birds with satellite transmitters,
+ little black boxes attached to their legs.  We have to
+ recharge them every seven years.
+
+ One day, about fifteen years ago, we found one of the
+ birds was acting funny.  We thought he was just stupid
+ at first, but one day we found him very sick.
+
+ We took him in for study, but some of the other birds
+ were starting to get sick as well."
+
+[nextpage="osprey_lys_projr2"]
+[endpage]
+
+[page="osprey_lys_projr2"]
+[image="lysandr1.pcx"]
+
+"We took an EEG reading of his brainwaves and that was
+ when things started to get out of hand.  They weren't
+ just normal brainwaves, you see.  There was binary data
+ and sinewaves and all kinds of bad stuff.
+
+ Austin said we should try summing all the sinewaves up
+ and we got an audio signal.. audio.. straight from the
+ osprey's brain!
+
+ We put it through Lucent's beatbox and there was this
+ voice, saying things out of the bible and talking about
+ destroying mankind and stuff.  It was very scary."
+
+[nextpage="osprey_lys_projr3"]
+[endpage]
+
+[page="osprey_lys_projr3"]
+[image="lysandr1.pcx"]
+
+"When the voice finished, our bird recovered and we let
+ him go again, it was like nothing ever happened.
+
+ Five years later, we needed to recharge the transmitter
+ so we recaptured him.  It was surprisingly difficult,
+ we had to stun him because he kept escaping.
+
+ We took the opportunity to do a complete physical
+ examination and left him in an aviary overnight."
+
+[nextpage="osprey_lys_projr4"]
+[endpage]
+
+[page="osprey_lys_projr4"]
+[image="lysandr1.pcx"]
+
+"In the morning, we found he was gone and the wire fence
+ was melted to slag.  When we looked at the satellite,
+ we found all the birds had stopped moving!
+
+ So we sent a team out to investigate, and they found
+ dozens of the little black transmitters, all lying in the
+ grass.  One of them had been opened, and it belonged to
+ the bird that we'd taken."
+
+[nextpage="osprey_lys_projr5"]
+[endpage]
+
+[page="osprey_lys_projr5"]
+[image="lysandr2.pcx"]
+
+
+"Back at base, the results from the bird came in and we
+ found that his bones had turned to carbon-composites.
+ When we discovered from the blood sample that he has two
+ extra pairs of chromosomes all hell broke loose.
+
+ In the rush to sequence it they hooked up all the
+ computing power they could get, including our brains.
+ That was a week that really, really, really sucked!
+
+ When my husband was well enough to fly again, he went to
+ try and and locate them, he came back with some really
+ amazing footage of ospreys building a village!"
+
+[link="This is bullshit."]
+[linkto="osprey_lys_proj"]
+[link="How did the osprey escape?"]
+[linkto="osprey_lys_proj"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="find_the_precious"]
+[image="lysandr1.pcx"]
+
+"That sounds like the ring that our master found in
+ New Leuchars.  Interesting little thing.. if you put it
+ on your finger, you become invisible.  It even works on
+ aircraft.
+
+ If the Doctor had taken it with him, the ospreys might
+ not have caught him, but I gather he was rather afraid
+ to use it, in case he ended up eating fish in a cave
+ for the next five hundred years.
+
+ We really wanted to find out how it worked, but we don't
+ have the right equipment.  I'm sure the guys at Fairford
+ could do something with it, though.
+
+ The ring is probably still in Dr. Robertson's study."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What do you do?"]
+[linkto="job"]
+[if madmonk][link="Tell me about the monk."]
+[if madmonk][linkto="monk"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="z"]
+[image="lysandr1.pcx"]
+
+"Why should the ospreys be different?  What is so special
+ about them that should make them become so intelligent?
+ The humans haven't.
+
+ Let's think about this.. what is different?
+
+ Fish!  Ospreys eat fish, and practically nothing else.
+ Do you think you could bring us a a fish so that we can
+ examine it for clues?"
+
+[set_flag lysander_want_fish]
+
+[endpage]
+
+
+[page="zz"]
+[image="lysandr1.pcx"]
+
+"There's.. something.. there, but we don't know what it
+ is.  I can tell you it's not wholly organic.  Most of
+ our equipment is for tissue and biochemistry analysis..
+ this is going to require some hard materials science.
+
+ I think you should ask the Intelligence team to perform
+ an analysis of the fish.  Talk to Fisher if you can, she
+ has more experience with this kind of thing."
+
+[set_flag fisher_want_fish]
+
+[endpage]
+
+
+
+[page="bye"]
+[image="lysandr2.pcx"]
+
+"May the wind lift your wings."
+
+[nextpage="exit"]
+[endpage]
+
+[page="attacked"]
+[image="lysandr3.pcx"]
+[set true]
+
+"Don't hurt me!  I'm only a little hawk!"
+
+[nextpage="exit"]
+[endpage]

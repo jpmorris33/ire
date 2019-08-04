@@ -1,0 +1,49 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+                Chronicles of the Battle of Ul
+
+                        Captain Rimach
+
+
+  In the year 1310, our people heard the calling of the LORD
+  to do battle with the forces of darkness and sin that lurk
+  in the far east of the lands.
+
+  On the morning of the thirteenth of the month of November,
+  the LORD GOD did descend from Heaven to the church at the
+  cathedral of New Avignon, and spoke to our Holy Father the
+  Pope of the evils being done in the far-off land of Ul.
+
+  The LORD commanded all present to rise up in arms and
+  cleanse the land of the dark children of Belial.  And the
+  Icon of our Lord Christ Crucified did speak in all the
+  churches throughout the length of the land, echoing this
+  holy commandment from God.
+[right="2"]
+[endpage]
+
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+
+  We did go to war and after many weeks of travel, found the
+  valley by the desert of Ul where those dogs of hell did live.
+
+  Our enemies fought like the devils of hell itself, and the
+  battle lasted for many moons.  Many of our men fell in battle,
+  and yet most few enemies were taken with them.
+
+  It looked to be the hour of our defeat, when the LORD God
+  intervened by sending an Angel to slay their leader.  Once this
+  was done, their legions scattered.  But the LORD did not
+  deliver their armies to us as He did in the book of Judges,
+  for our victory was short-lived and they found a new leader.
+
+  About this time, the LORD told us that he was pleased with us
+  and commanded that we should return home with our wounded.
+
+[left="start"]
+[right="exit"]
+[endpage]

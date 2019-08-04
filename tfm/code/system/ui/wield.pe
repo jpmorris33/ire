@@ -1,0 +1,672 @@
+############################
+#                          #
+#  Wield and Unwield code  #
+#                          #
+############################
+
+object wieldvar
+object wield_obj
+object wield_cont
+
+integer w_left
+integer w_centre
+integer w_right
+
+integer w_top
+integer w_middle
+integer w_bottom
+integer wield_init = 0
+
+
+##
+##	Set up wield coordinates
+##
+
+# First set up some constants to make it easier to change
+
+local
+function wield_init
+
+# Y
+const __top = 12
+const __middle = 49
+const __bottom = 86
+# X 
+const __left = 2
+const __centre = 39
+const __right = 76
+
+
+let w_left = W_XOFF + __left
+let w_centre = W_XOFF + __centre
+let w_right = W_XOFF + __right
+
+let w_top = W_YOFF + __top
+let w_middle = W_YOFF + __middle
+let w_bottom = W_YOFF + __bottom
+
+# Wield mouse points
+
+mouse_range WIELD_NECK = w_left w_top 32 32
+mouse_range WIELD_HEAD = w_centre w_top 32 32
+mouse_range WIELD_BODY = w_right w_top 32 32
+mouse_range WIELD_LHAND = w_left w_middle 32 32
+mouse_range WIELD_RHAND = w_right w_middle 32 32
+mouse_range WIELD_LRING = w_left w_bottom 32 32
+mouse_range WIELD_FEET = w_centre w_bottom 32 32
+mouse_range WIELD_RRING = w_right w_bottom 32 32
+
+end
+
+endlocal
+
+
+##
+##	Unwield an object if it needs it
+##
+
+function unwield
+
+set_flag wield_obj IS_WIELDED = 0
+
+# If it's a torch, cancel the effect
+
+if wield_obj.light
+	add me.light - wield_obj.light
+endif
+
+# Check the head
+
+if wield_cont.wield.head = wield_obj
+	let wield_cont.wield.head = null
+endif
+
+# Check the neck
+
+if wield_cont.wield.neck = wield_obj
+	let wield_cont.wield.neck = null
+endif
+
+# Check the torso
+
+if wield_cont.wield.body = wield_obj
+	let wield_cont.wield.body = null
+endif
+
+# Check the legs
+
+if wield_cont.wield.legs = wield_obj
+	let wield_cont.wield.legs = null
+endif
+
+# Check the feet
+
+if wield_cont.wield.feet = wield_obj
+	let wield_cont.wield.feet = null
+endif
+
+# Check the arms
+
+if wield_cont.wield.arms = wield_obj
+	let wield_cont.wield.arms = null
+endif
+
+# Check the left hand
+
+if wield_cont.wield.l_hand = wield_obj
+	let wield_cont.wield.l_hand = null
+endif
+
+# Check the right hand
+
+if wield_cont.wield.r_hand = wield_obj
+	let wield_cont.wield.r_hand = null
+endif
+
+# Check the left finger
+
+if wield_cont.wield.l_finger = wield_obj
+	let wield_cont.wield.l_finger = null
+endif
+
+# Check the right finger
+
+if wield_cont.wield.r_finger = wield_obj
+	let wield_cont.wield.r_finger = null
+endif
+
+# Check spares
+
+if wield_cont.wield.spare1 = wield_obj
+	let wield_cont.wield.spare1 = null
+endif
+if wield_cont.wield.spare2 = wield_obj
+	let wield_cont.wield.spare2 = null
+endif
+if wield_cont.wield.spare3 = wield_obj
+	let wield_cont.wield.spare3 = null
+endif
+if wield_cont.wield.spare4 = wield_obj
+	let wield_cont.wield.spare4 = null
+endif
+
+end
+
+##
+##	Wield the object
+##
+
+function wield
+
+# If it's already wielded, unwield it and exit
+
+if_flag current IS_WIELDED
+	let wield_obj = current
+	let wield_cont = me				# Educated guess
+#	call current.funcs.wcache
+	call unwield
+	return
+endif
+
+# Otherwise, call the appropriate Wield function
+
+call current.funcs.wcache
+
+end
+
+
+##
+##	Wield Display
+##
+
+function draw_wield_window
+
+# Set up display variables if need be
+
+if wield_init = 0
+	call wield_init
+	let wield_init = 1
+endif
+
+
+# Top row
+
+if_exist current_bag.wield.neck
+	draw_object current_bag.wield.neck at w_left w_top
+endif
+
+if_exist current_bag.wield.head 
+	draw_object current_bag.wield.head at w_centre w_top
+endif
+
+if_exist current_bag.wield.body
+	draw_object current_bag.wield.body at w_right w_top
+endif
+
+# Middle row
+
+if_exist current_bag.wield.l_hand
+	draw_object current_bag.wield.l_hand at w_left w_middle
+endif
+
+if current_bag.mw = 1
+	if current_bag.mh = 1
+		draw_object current_bag at w_centre w_middle
+	endif
+endif
+
+if_exist current_bag.wield.r_hand
+	draw_object current_bag.wield.r_hand at w_right w_middle
+endif
+
+# Bottom row
+
+if_exist current_bag.wield.l_finger
+	draw_object current_bag.wield.l_finger at w_left w_bottom
+endif
+
+if_exist current_bag.wield.feet
+	draw_object current_bag.wield.feet at w_centre w_bottom
+endif
+
+if_exist current_bag.wield.r_finger
+	draw_object current_bag.wield.r_finger at w_right w_bottom
+endif
+
+end
+
+##
+##  Wield GetMouse - Set wield_obj to the object clicked upon
+##
+
+function wield_getmouse
+
+let wield_obj = null
+
+if mouseclick = WIELD_NECK
+	let wield_obj = current_bag.wield.neck
+	return
+endif
+
+if mouseclick = WIELD_HEAD
+	let wield_obj = current_bag.wield.head
+	return
+endif
+
+if mouseclick = WIELD_BODY
+	let wield_obj = current_bag.wield.body
+	return
+endif
+
+if mouseclick = WIELD_LHAND
+	let wield_obj = current_bag.wield.l_hand
+	return
+endif
+
+if mouseclick = WIELD_RHAND
+	let wield_obj = current_bag.wield.r_hand
+	return
+endif
+
+if mouseclick = WIELD_LRING
+	let wield_obj = current_bag.wield.l_finger
+	return
+endif
+
+if mouseclick = WIELD_FEET
+	let wield_obj = current_bag.wield.feet
+	return
+endif
+
+if mouseclick = WIELD_RRING
+	let wield_obj = current_bag.wield.r_finger
+	return
+endif
+
+end
+
+##################################################
+##                                              ##
+##    Wield drivers for each class of object    ##
+##                                              ##
+##################################################
+
+##
+##	Wield boots or shoes
+##
+
+function wield_boots
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.feet
+	let me.wield.feet = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+
+##
+##	Wield collar
+##
+
+function wield_neck
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.neck
+	let me.wield.neck = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+##
+##	Wield generic ring
+##
+
+function wield_ring
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.l_finger
+	let me.wield.l_finger = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if_not_exist me.wield.r_finger
+	let me.wield.r_finger = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+
+##
+##	Wield left glove
+##
+
+function wield_lglove
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.l_finger
+	let me.wield.l_finger = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "It must go on your left hand."
+	printcr
+endif
+
+end
+
+
+##
+##	Wield right glove
+##
+
+function wield_rglove
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.r_finger
+	let me.wield.r_finger = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "It must go on your right hand."
+	printcr
+endif
+
+end
+
+
+##
+##	Wield invisibility ring
+##
+
+function wield_iring
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.l_finger
+	let me.wield.l_finger = current
+	set_flag current IS_WIELDED = 1
+	let me.user.potion0 = 20000000
+	set_flag me IS_SHADOW = 1
+	return
+endif
+
+if_not_exist me.wield.r_finger
+	let me.wield.r_finger = current
+	set_flag current IS_WIELDED = 1
+	let me.user.potion0 = 20000000
+	set_flag me IS_SHADOW = 1
+	return
+endif
+
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+##
+##	Wield light source
+##
+
+function wield_torch
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.l_hand
+	let me.wield.l_hand = current
+	set_flag current IS_WIELDED = 1
+	add me.light + current.light
+	return
+endif
+
+if_not_exist me.wield.r_hand
+	let me.wield.r_hand = current
+	set_flag current IS_WIELDED = 1
+	add me.light + current.light
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+##
+##	Wield weapon
+##
+
+function wield_weapon
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.l_hand
+	let me.wield.l_hand = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if_not_exist me.wield.r_hand
+	let me.wield.r_hand = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+##
+##	Wield armour
+##
+
+function wield_armour
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.body
+	let me.wield.body = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+
+##
+##	Wield Warg weapon
+##
+
+function wield_wargweapon
+
+
+# Ye are a Warg, right?
+
+if me.label.race <> "waarg"
+	if_flag me IS_PARTY
+		print "This weapon isn't suitable for "
+		print_best_name me
+		print "."
+		printcr
+	endif
+	return
+endif
+
+# If it's already wielded, abort
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.l_hand
+	let me.wield.l_hand = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+
+##
+##	Wield hat or helmet
+##
+
+function wield_helmet
+
+# If it's already wielded, abort
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.head
+	let me.wield.head = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end
+
+##
+##  Items of clothing in NPCs should self-wield
+##
+
+function self_wield
+
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exists me
+	return
+endif
+
+# It must be a person, otherwise you'll find lockers wielding boots
+# and the game could potentially crash
+if_not_flag me IS_PERSON
+	return
+endif
+
+call current.funcs.wield
+
+end
+
+##
+##	Wield panther fur
+##
+
+function wield_panther
+
+if me.label.race <> "panther"
+	if_flag me IS_PARTY
+		print "It won't fit!"
+		printcr
+	endif
+	return
+endif
+
+# If it's already wielded, abort
+if_flag current IS_WIELDED
+	return
+endif
+
+if_not_exist me.wield.body
+	let me.wield.body = current
+	set_flag current IS_WIELDED = 1
+	return
+endif
+
+if me = player
+	print "Nowhere to put!"
+	printcr
+endif
+
+end

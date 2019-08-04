@@ -1,0 +1,2651 @@
+#####################################
+#                                   #
+#  Magic spells from the spellbook  #
+#                                   #
+#####################################
+
+# Refers to some code in MAGIC.PE, which is general-purpose magic
+# and some support routines for the spellbook.
+# The spellbook interface itself is in SPELBOOK.PE
+# This file is purely the spells in the spellbook.
+
+
+##
+##	Awaken
+##
+
+
+function spell_awaken
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "awaken"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+let current = spelltarget
+call awaken_current
+
+if spell_failed
+	object_sound "spellfailed" me
+	print "No effect."
+else
+	print "Success!"
+endif
+printcr
+
+end
+
+
+##
+##	Help
+##
+
+function spell_help
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+if me != player
+	return
+endif
+
+print "ioctl.."
+printcr
+
+redraw_text
+redraw_map
+
+change_map 1 tag 666
+
+end
+
+
+
+##
+##	Light
+##
+
+function spell_light
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+add player.user.potion1 + 100
+# Do the light thing immediately
+if darkness > 32
+	set_darkness 16
+endif
+
+if darkmix > 32
+	let darkmix = 16
+endif
+
+end
+
+
+
+##
+##	Heal
+##
+
+function spell_lheal
+integer val
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "light heal"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# If it is truly a living thing, heal it it
+
+random val between 5 25
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.intel >= 40
+		add spelltarget.stats.hp + val
+		if spelltarget.stats.hp > spelltarget.maxstats.hp
+			let spelltarget.stats.hp = spelltarget.maxstats.hp
+		endif
+		check_hurt spelltarget
+
+		# Add a corona effect
+		let spelltarget.user.user18 = 0		# Initial size
+		let spelltarget.user.user17 = +18	# Speed
+		let spelltarget.user.user16 = TINT_CYAN	# guess
+		overfx spelltarget does fx_bouncecorona
+
+		if me = player
+			print "Success!"
+			printcr
+		endif
+		return
+	endif
+endif
+
+call spell_failed
+
+end
+
+
+##
+##	Full Heal
+##
+
+function spell_heal
+integer val
+
+# Check spell can be cast
+let spell_level = 3
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "heal"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# If it is truly a living thing, heal it it
+
+random val between 25 80
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.intel >= 40
+		add spelltarget.stats.hp + val
+		if spelltarget.stats.hp > spelltarget.maxstats.hp
+			let spelltarget.stats.hp = spelltarget.maxstats.hp
+		endif
+		check_hurt spelltarget
+
+		# Add a corona effect
+		let spelltarget.user.user18 = 0		# Initial size
+		let spelltarget.user.user17 = +18	# Speed
+		let spelltarget.user.user16 = TINT_CYAN	# guess
+		overfx spelltarget does fx_bouncecorona
+
+		if me = player
+			print "Success!"
+			printcr
+		endif
+		return
+	endif
+endif
+
+call spell_failed
+
+end
+
+
+##
+##	Identify
+##
+
+function spell_identify
+integer w
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+if me <> player
+	# Not for NPCs
+	return
+endif
+
+let spellname = "identify"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+
+cls
+print "ObjID V3.02 - (C) Xy'lan 10320"
+printcr
+print "Object: "
+print spelltarget.shortdesc
+printcr
+
+print "Mass: "
+let w = spelltarget.stats.weight / 1000
+print w
+print " kg"
+printcr
+
+if spelltarget.stats.damage > 0
+	print "Damage: "
+	print spelltarget.stats.damage
+	print " units."
+	printcr
+else
+	print "No offensive capability"
+	printcr
+endif
+
+if_exists spelltarget.stats.owner
+	print "Owner: "
+	print_bestname spelltarget.stats.owner
+	printcr
+endif
+
+printcr
+printcr
+
+end
+
+
+##
+##	Harm
+##
+
+function spell_harm
+integer dmg
+integer upper
+
+# Check spell can be cast
+let spell_level = 3
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "harm"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# Work out upper bound for damage
+let upper = me.stats.level * 10
+if upper <= 10
+	let upper = 30
+endif
+
+# Get damage
+random dmg between 10 upper
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.intel >= 40
+
+		# Add a corona effect
+		let spelltarget.user.user18 = 0		# Initial size
+		let spelltarget.user.user17 = +12	# Speed
+		let spelltarget.user.user16 = TINT_RED	# guess
+		overfx spelltarget does fx_bouncecorona
+
+		# Smite them with heavenly forthe
+		add spelltarget.stats.hp - dmg
+		let spelltarget.enemy = player # Blame
+		check_hurt spelltarget
+
+		if me = player
+			# I think they probably know
+			print "Success!"
+			printcr
+		endif
+		return
+	endif
+endif
+
+# Tell the player it went wrong
+call spell_failed
+
+end
+
+
+function spell_sleep
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "sleep"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+let current = spelltarget
+call sleep_current
+
+if spell_failed
+	object_sound "spellfailed" me
+	print "No effect."
+else
+	print "Success!"
+endif
+printcr
+
+end
+
+
+function spell_piedpiper
+
+# Check spell can be cast
+let spell_level = 7
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "pied piper"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+if spelltarget = player
+	play_sound "duh"
+	return
+endif
+
+if_flag spelltarget IS_PERSON
+	if spelltarget.stats.hp > 0
+		if spelltarget.stats.intel >= 40
+			start_action spelltarget does follower_action to me
+			print "Success!"
+			printcr
+			return
+		endif
+	endif
+endif
+
+
+object_sound "spellfailed" me
+print "No effect."
+printcr
+
+end
+
+
+function spell_posess
+
+# Check spell can be cast
+let spell_level = 7
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "posess"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+if_flag spelltarget IS_PERSON
+	if spelltarget.stats.hp > 0
+		if spelltarget.stats.intel >= 40
+			
+			set_player spelltarget player_action
+			print "Success!"
+			printcr
+			return
+		endif
+	endif
+endif
+
+
+object_sound "spellfailed" me
+print "No effect."
+printcr
+
+end
+
+
+
+
+##
+##	Cure
+##
+
+function spell_cure
+
+# Check spell can be cast
+let spell_level = 3
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "cure"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# If it is directly a living thing, cure it
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.intel >= 40
+
+		# Add a corona effect
+		let spelltarget.user.user18 = 0		# Initial size
+		let spelltarget.user.user17 = +24	# Speed
+		let spelltarget.user.user16 = TINT_CYAN	# guess
+		overfx spelltarget does fx_bouncecorona
+
+		let spelltarget.user.poison = 0
+		print "Success!"
+		printcr
+		return
+	endif
+endif
+
+# Tell the player it went wrong
+call spell_failed
+
+end
+
+
+##
+##	Ignite
+##
+
+function spell_ignite
+string replacement
+let spellname = "Ignite"
+
+# Check spell can be cast
+let spell_level = 2
+call spell_check
+if spell_failed
+	return
+endif
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+# Find data entry
+get_data replacement where ignite_list = spelltarget.name
+if err = 0
+	# It worked
+	change spelltarget = replacement
+	object_sound "ignite_sound" spelltarget
+	if me = player
+		print "Success!"
+		printcr
+	endif
+else
+	# Oh dear
+	call spell_failed
+endif
+
+end
+
+
+##
+##	Douse
+##
+
+function spell_douse
+string replacement
+let spellname = "Douse"
+
+# Check spell can be cast
+let spell_level = 2
+call spell_check
+if spell_failed
+	return
+endif
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+# Find data entry
+get_data replacement where douse_list = spelltarget.name
+if err = 0
+	# It worked
+	change spelltarget = replacement
+	object_sound "douse_sound" spelltarget
+	if me = player
+		print "Success!"
+		printcr
+	endif
+else
+	# Oh dear
+	call spell_failed
+endif
+
+end
+
+
+
+##
+##	Confusion Blast
+##
+
+
+function spell_confusion
+
+# Check spell can be cast
+let spell_level = 7
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "confusion blast"
+
+let spell_failed = 1
+for_all_onscreen confusionblast
+if spell_failed = 0
+	# Add a corona effect
+	let me.user.user18 = 0		# Initial size
+	let me.user.user17 = +18	# Speed
+	let me.user.user16 = TINT_GREEN	# guess
+	overfx me does fx_bouncecorona
+
+	if me = player
+		print "Success!"
+		printcr
+	endif
+else
+	call spell_failed
+endif
+
+
+end
+
+##
+##  Callback to make it work
+##
+
+function confusionblast
+
+# Not the Dead
+if current.stats.hp < 1
+	return
+endif
+
+# Only people
+if_not_flag current IS_PERSON
+	return
+endif
+
+# Definitely not
+if_flag current IS_PARTY
+	return
+endif
+
+# Reboot them
+stop_action current
+resume_schedule current
+
+# Success
+let spell_failed = 0
+
+end
+
+
+
+##
+##	Purple Fire Stuff
+##
+
+function spell_purplefirestuff
+
+let spellname = "Purple Fire Stuff"
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+startfx spelltarget does fx_pinkflame
+
+end
+
+
+
+##
+##	Great Light
+##
+
+function spell_greatlight
+
+# Check spell can be cast
+let spell_level = 3
+call spell_check
+if spell_failed
+	return
+endif
+
+add player.user.potion1 + 1000
+# Do the light thing immediately
+if darkness > 32
+	set_darkness 16
+endif
+
+end
+
+
+##
+##	Explosion
+##
+
+function spell_explosion
+object bomb
+object oldme
+
+let spellname = "Explosion"
+
+# Check spell can be cast
+let spell_level = 4
+call spell_check
+if spell_failed
+	return
+endif
+
+call get_spell_range
+#if_not_flag spelltarget IS_ON
+#	return
+#endif
+
+let oldme = me
+
+create bomb = "gunpowder"
+transfer_object bomb to new_x new_y
+let me = bomb
+call explode
+
+let me = oldme
+
+end
+
+
+
+##
+##	Enchant
+##
+
+function spell_ensorcellment
+
+# Check spell can be cast
+let spell_level = 5
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "ensorcellment"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# 
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.damage > 0
+		if_not_flag spelltarget IS_FIXED
+
+			let spelltarget.enemy = me
+
+			if me = player
+
+				let current = player
+				print "Pick the victim: "
+				printcr
+				redraw_text
+				call get_far
+				if_exists current
+					let spelltarget.enemy = current
+					start_action spelltarget does "enemy_attack" to current
+				endif
+
+			else
+
+				let spelltarget.enemy = me.enemy
+
+			endif
+
+			# Add a corona effect
+			let spelltarget.user.user18 = 0			# Initial size
+			let spelltarget.user.user17 = +18		# Speed
+			let spelltarget.user.user16 = TINT_GREEN	# guess
+			overfx spelltarget does fx_bouncecorona
+
+			if me = player
+				print "Success!"
+				printcr
+			endif
+			return
+		endif
+	endif
+endif
+
+call spell_failed
+
+end
+
+
+
+##
+##	Enchant
+##
+
+function spell_commandanimal
+
+# Check spell can be cast
+let spell_level = 2
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "command animal"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# Not for robots
+if_flag spelltarget IS_ROBOT
+	call spell_failed
+	return
+endif
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.intel >= 40
+		if spelltarget.stats.intel < 90
+			let spelltarget.enemy = me
+
+			if me = player
+
+				let current = player
+				print "Pick the victim: "
+				printcr
+				redraw_text
+				call get_far
+				if_exists current
+					let spelltarget.enemy = current
+					start_action spelltarget does "enemy_attack" to current
+				endif
+
+			else
+
+				let spelltarget.enemy = me.enemy
+
+			endif
+
+			# Add a corona effect
+			let spelltarget.user.user18 = 0			# Initial size
+			let spelltarget.user.user17 = +18		# Speed
+			let spelltarget.user.user16 = TINT_GREEN	# guess
+			overfx spelltarget does fx_bouncecorona
+
+			if me = player
+				print "Success!"
+				printcr
+			endif
+			return
+		endif
+	endif
+endif
+
+call spell_failed
+
+end
+
+##
+##	OrbitFX
+##
+
+function spell_orbitfx
+
+let spellname = "annoy"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+startfx spelltarget does Simpleorbit
+
+end
+
+
+##
+##	Drugs
+##
+
+function spell_orbitdrugs
+
+let spellname = "trip"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+startfx spelltarget does fx_orbitdrugs
+
+end
+
+
+##
+##	Death Orbit - Destroy with Great Vengance
+##
+
+function spell_deathorbit
+
+let spellname = "sanctify"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+let spelltarget.user.user18 = 100
+overfx spelltarget does fx_deathorbit
+
+end
+
+
+##
+##	Laserbeam
+##
+
+
+function spell_laserbeam
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "Laserbeam"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+let me.target = spelltarget
+startfx me does fx_laserbeam
+
+end
+
+
+##
+##	Laserbeam2
+##
+
+
+function spell_laserbeam2
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "Laserbeam2"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+let me.target = spelltarget
+startfx me does fx_laserbeam_red
+
+end
+
+
+function spell_barrier
+object barrier
+
+# Check spell can be cast
+let spell_level = 3
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "Magical Barrier"
+
+call get_spell_range
+#if key = KEY_ESC
+#	return
+#endif
+
+create barrier = "magic_barrier"
+transfer_object barrier to new_x new_y
+
+end
+
+
+##
+##	Dispel barrier
+##
+
+function spell_dispelbarrier
+
+# Check spell can be cast
+let spell_level = 4
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "Dispel Barrier"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	object_sound "spellfailed" me
+	return
+endif
+
+# If it is a barrier, remove it
+
+if spelltarget is called "magic_barrier"
+	destroy spelltarget
+	if me = player
+		print "Success!"
+		printcr
+	endif
+	return
+endif
+
+# Tell the player it went wrong
+call spell_failed
+
+end
+
+
+
+function spell_holotest
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "holotest"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+let me.target = spelltarget
+startfx me does fx_holodisplay
+
+end
+
+
+##
+##	Light Kill
+##
+
+function spell_kill
+
+# Check spell can be cast
+let spell_level = 5
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "kill"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	object_sound "spellfailed" me
+	return
+endif
+
+# If it is a living thing, break it
+
+if spelltarget.stats.hp > 0
+	if_flag spelltarget IS_PERSON
+		# Only for ordinary mortals
+		if spelltarget.stats.hp > 150
+
+			# Tell the player it went wrong
+			if me = player
+				print "No effect!"
+				printcr
+			endif
+			object_sound "spellfailed" me
+			return
+		endif
+
+		# Die
+		let spelltarget.stats.hp = -1
+#		let spelltarget.user.oldhp = spelltarget.stats.hp
+		let spelltarget.enemy = player
+		check_hurt spelltarget
+		if me = player
+			print "Success!"
+			printcr
+		endif
+		return
+	endif
+endif
+
+# Tell the player it went wrong
+call spell_failed
+
+end
+
+
+##
+##	Great Kill
+##
+
+function spell_greatkill
+
+# Check spell can be cast
+let spell_level = 7
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "great kill"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+
+	# Tell the player it went wrong
+	if me = player
+		print "No effect!"
+		printcr
+	endif
+	object_sound "spellfailed" me
+
+	return
+endif
+
+# Much fewer restrictions
+
+if spelltarget.stats.hp > 0
+	let spelltarget.stats.hp = -1
+#	let spelltarget.user.oldhp = spelltarget.stats.hp
+	let spelltarget.enemy = player
+	check_hurt spelltarget
+	print "Success!"
+	printcr
+	return
+endif
+
+
+# Tell the player it went wrong
+call spell_failed
+
+end
+
+
+##
+##	Wanton destruction
+##
+
+function spell_destruction
+object_array list[1000]
+integer ctr
+integer ok
+
+# Check spell can be cast
+let spell_level = 8
+call spell_check
+if spell_failed
+	return
+endif
+
+lightning 10
+play_sound "spellsound6"
+wait 2000 BLOCKING
+
+# Sanctify
+
+find_nearby list[1] = "*" near me
+for ctr = 1 to 1000
+	if_exists list[ctr]
+		let ok = 1
+
+		# Do we want it broken?
+		if_flag list[ctr] IS_PARTY
+			let ok = 0
+		endif
+
+		if list[ctr].label.rank = "pope"
+			let ok = 0
+		endif
+
+		if ok = 1
+			let list[ctr].stats.hp = -1
+			let list[ctr].enemy = me
+			check_hurt list[ctr]
+		endif
+	endif
+next
+
+end
+
+
+##
+##	Hear Truth
+##
+
+function spell_heartruth
+
+# Check spell can be cast
+let spell_level = 6
+call spell_check
+if spell_failed
+	return
+endif
+
+cls
+print "AI diagnostics tool Version 2.0"
+printcr
+print "(C)9352 SzyLurbG Labs.  Not for use on organic lifeforms."
+printcr
+
+set_user_flag "hear_truth" = 1
+end
+
+
+
+##
+## Snake Smasher ('nuff sed)
+##
+
+function spell_snake
+object_array list[64]
+object snake
+integer ctr
+
+# Check spell can be cast
+let spell_level = 6
+call spell_check
+if spell_failed
+	return
+endif
+
+# Speak the charm
+if me = player
+	print "~The coldish snake in medowes greene"
+	printcr
+	print " With words is burst in peeces cleene~"
+	printcr
+endif
+
+find_nearby list[1] = "snake" near me
+for ctr = 1 to 64
+	let snake = list[ctr]
+	if_exists snake
+		object_sound "bunny_squish" snake
+		let snake.stats.hp = -50
+		check_hurt snake
+		lightning 2
+	endif
+next
+
+end
+
+
+##
+##	Move via TK
+##
+
+function spell_push
+
+# Check spell can be cast
+let spell_level = 4
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "push"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+if_flag spelltarget IS_FIXED
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+print "Move it "
+redraw_text
+
+let current = spelltarget
+call push_object
+
+end
+
+##
+##	Use via TK
+##
+
+
+function spell_tk
+
+# Check spell can be cast
+let spell_level = 4
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "telekinesis"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+let current = spelltarget
+if current.funcs.ucache > 0
+	call current.funcs.ucache
+else
+	# Tell the player it went wrong
+	call spell_failed
+endif
+
+end
+
+
+##
+##	All-Seeing Eye
+##
+
+function spell_allseeingeye
+integer ctr
+integer rmx
+integer rmy
+object focus
+object oldplayer
+integer ox
+integer oy
+integer roofstate
+
+# Check spell can be cast
+let spell_level = 2
+call spell_check
+if spell_failed
+	return
+endif
+
+if me != player
+	return
+endif
+
+let roofstate = show_roof
+
+create focus = "target"
+set_flag focus IS_INVISIBLE = 1
+let oldplayer = player
+
+# Move the focus into reality
+transfer_object focus to player.x player.y
+
+# Make the camera follow the focus instead of the player
+let player = focus
+
+# We are going to change the X,Y of the Focus directly.
+# This is VERY DANGEROUS but it prevents a splash sound if the focus goes
+# from land to water.  If the object's X/Y is still out of place when the
+# object is moved or destroyed, the engine will shit itself and halt.
+
+# store original X/Y
+let ox = focus.x
+let oy = focus.y
+
+play_sound "spellsound1"
+
+wait 200 NONBLOCKING
+
+for ctr = 1 to 6
+
+	# Random map position
+	random rmx between 32 mapw
+	add rmx - 16
+	random rmy between 32 maph
+	add rmy - 16
+
+	# Don't do this unless you're familiar with the engine's internals
+	let focus.x = rmx
+	let focus.y = rmy
+
+	let show_roof = 1
+	redraw_map
+
+	wait 400 NONBLOCKING
+
+next
+
+# And again (retriggering the sound)
+
+play_sound "spellsound1"
+for ctr = 1 to 6
+
+	# Random map position
+	random rmx between 32 mapw
+	add rmx - 16
+	random rmy between 32 maph
+	add rmy - 16
+
+	# Don't do this unless you're familiar with the engine's internals
+	let focus.x = rmx
+	let focus.y = rmy
+
+	let show_roof = 1
+	redraw_map
+
+	wait 400 NONBLOCKING
+
+next
+
+
+# Set the X/Y coordinates back to where the engine thinks they are
+# before it notices the fraud and unravels the universe
+
+let focus.x = ox
+let focus.y = oy
+
+let player = oldplayer
+let show_roof = roofstate
+redraw_map
+
+destroy focus
+
+end
+
+
+##
+##	'About' spell
+##
+
+function spell_about
+
+# Check spell can be cast
+let spell_level = 2
+call spell_check
+if spell_failed
+	return
+endif
+
+print "MagicServer version "
+print IRE_VERSION
+printcr
+print "Copyright (C)9862 SzyLurbG Labs.  All rights reserved."
+printcr
+print "Greets go to Blinky, Squinky and Pob."
+printcr
+end
+
+
+
+##
+##	Lightning effect
+##
+
+function spell_lightning
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "lightning"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+overfx spelltarget does fx_lightning
+
+end
+
+
+##
+##	Resurrection
+##
+
+
+function spell_resurrect
+
+# Check spell can be cast
+let spell_level = 8
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "resurrect"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+if spelltarget is called "bones*"
+	if me = player
+		print "You've got to be kidding!"
+		printcr
+	endif
+	return
+endif
+
+if spelltarget.stats.hp > 0
+	if me = player
+		print "Didn't work."
+		printcr
+	endif
+	return
+endif
+
+# Attempt resurrection
+
+if spelltarget.funcs.resurrect = "-"
+or spelltarget.funcs.resurrect = ""
+	if me = player
+		print "That cannot be resurrected."
+		printcr
+	endif
+	return
+endif
+
+# Call a user function if the corpse has one
+if spelltarget.funcs.user1 <> ""
+	call spelltarget.funcs.user1
+endif
+
+object_sound "resurrection" spelltarget
+
+# Bring it back
+change spelltarget = spelltarget.funcs.resurrect
+let spelltarget.stats.hp = 10
+resume_action spelltarget
+
+# Add a corona effect
+let spelltarget.user.user18 = 0		# Initial size
+let spelltarget.user.user17 = +12		# Speed
+let spelltarget.user.user16 = TINT_CYAN	# guess
+overfx spelltarget does fx_bouncecorona
+
+# Start the stuff
+if_flag spelltarget IS_PARTY
+	add_member spelltarget
+endif
+reset_flag spelltarget IS_CRITICAL
+
+
+if me = player
+	print "Success!"
+	printcr
+endif
+end
+
+
+##
+##	Scrying (peer)
+##
+
+function spell_peer
+
+# Check spell can be cast
+let spell_level = 2
+call spell_check
+if spell_failed
+	return
+endif
+
+if me != player
+	return
+endif
+
+play_sound "peer"
+
+print "Detecting host..."
+redraw_text
+wait 250 NONBLOCKING
+
+# Use a forbidden syscall to discover if the map is allowed
+status 12
+if err <> 0
+	wait 1000 NONBLOCKING
+	print " timed out."
+	printcr
+	print "Please ensure you are in a clear area and try again."
+	printcr
+	redraw_text
+	let spell_failed = 1
+	return
+endif
+
+
+print " @:L`!SQ3;R4{2!MDSF~.."
+redraw_text
+wait 250 NONBLOCKING
+
+print ".RECONSAT-3 "
+redraw_text
+wait 250 NONBLOCKING
+
+print " decoding.. "
+redraw_text
+wait 250 NONBLOCKING
+
+print " OK"
+printcr
+redraw_text
+wait 250 NONBLOCKING
+
+print "Activating synaptic link: "
+redraw_text
+wait 250 NONBLOCKING
+
+wait 1000 NONBLOCKING
+print "OK"
+printcr
+redraw_text
+
+let usernum1 = 2 # Zoom factor 2
+let usernum2 = 1 # Show rooftops
+status 11 # Syscall to do the zoom map
+get_key_quiet
+
+end
+
+
+##
+##	Uber-Scry
+##
+
+function spell_uberpeer
+
+# Check spell can be cast
+let spell_level = 8
+call spell_check
+if spell_failed
+	return
+endif
+
+if me != player
+	return
+endif
+
+play_sound "peer"
+
+print "OpenXevrox system 9 magicserver found..."
+printcr
+redraw_text
+wait 250 NONBLOCKING
+
+print "Using Talon-3 exploit.. gained root access.."
+redraw_text
+printcr
+wait 250 NONBLOCKING
+
+print "Activating synaptic link: "
+printcr
+redraw_text
+wait 250 NONBLOCKING
+
+print "OK"
+printcr
+redraw_text
+
+let usernum1 = 4 # Zoom factor 4
+let usernum2 = 0 # REMOVE rooftops
+/*
+int x
+int y
+let x = mapw / 2
+let y = maph / 2
+transfer_object player to x y
+centre around player
+let usernum1 = 112
+let usernum2 = 1 # Show rooftops
+*/
+
+status 11 # Syscall to do the zoom map
+get_key_quiet
+
+end
+
+
+
+##
+##	Summon a Devil
+##
+
+
+function spell_devil
+
+# Check spell can be cast
+let spell_level = 8
+call spell_check
+if spell_failed
+	return
+endif
+
+let current = player
+call summon_devil
+
+end
+
+
+
+##
+##	Generic code test spell
+##
+
+function spell_test
+string bale
+integer len
+
+print "Spell test|"
+
+setstr baal = "Hello"
+let bale = baal
+print bale
+printcr
+
+addstr baal = " world!"
+print bale
+printcr
+
+addstr baal = " 1234567890"
+print bale
+printcr
+
+strlen len = baal
+print "length = "
+print len
+printcr
+
+strsetpos baal 8 = '0'
+print bale
+printcr
+
+#call spell_tkuse
+#call spell_deathorbit
+#call spell_orbitdrugs
+#call spell_destruction
+#call spell_lightning
+#call spell_hspark
+#call spell_malcolmtest
+#call spell_testfx
+end
+
+
+
+
+function spell_abolish
+
+# Check spell can be cast
+let spell_level = 8
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "abolish"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+let current = spelltarget
+call FadeMalcolm
+
+if spell_failed = 0
+	print "Success!"
+else
+	# Tell the player it went wrong
+	call spell_failed
+endif
+printcr
+
+end
+
+
+function spell_testfx
+
+# Check spell can be cast
+let spell_level = 1
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "test sfx"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+let current = spelltarget
+call start_magiclights
+
+print "Success!"
+printcr
+
+end
+
+##
+##	Pickpocket
+##
+
+function spell_pickpocket
+object oldbag
+string otype
+string ptype
+
+# Check spell can be cast
+let spell_level = 3
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "pickpocket"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	return
+endif
+
+# If it is truly a living thing, try to pick it's pockets
+
+if spelltarget.stats.hp > 0
+	if spelltarget.stats.intel >= 40
+
+		let current = null
+		let oldbag = current_bag
+		let current_bag = spelltarget
+		let browse_container_msg = "Pickpocket"
+		call browse_container
+		let current_bag = oldbag
+
+		if_exists current
+			play_sound "spellsound7"
+			move_to_pocket current to me
+			let victim = current
+			let suspect = me
+			if current.funcs.gcache > 0
+				call current.funcs.get	# Some objects want to know if they've been lifted
+			endif
+
+			# Are we ripping meat out of the cow?
+			let otype = current.label.race
+			let ptype = spelltarget.label.race
+
+			if otype = ptype
+				let spelltarget.stats.hp = -1
+				check_hurt spelltarget
+			endif
+
+		else
+			print "Nothing."
+			printcr
+		endif
+		return
+	endif
+endif
+
+call spell_failed
+
+end
+
+
+
+function spell_mark
+integer i
+
+# Check spell can be cast
+let spell_level = 4
+call spell_check
+if spell_failed
+	return
+endif
+
+if me <> player
+	# This spell is not for thee
+	return
+endif
+
+let spellname = "mark"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+cls
+print "Mark-Orb Version 1.02"
+printcr
+
+if spelltarget.name <> "orb"
+	print "Error: Must be cast upon an orb."
+	printcr
+	call spell_failed
+	return
+endif
+
+print "Please give your destination ID number: "
+let i = 1
+input i
+let spelltarget.tag = i
+
+play_sound "toadstone_store"
+
+print "Orb imprinted successfully.  Thankyou for using OrbMark."
+printcr
+
+if i <= 0
+	set_direction spelltarget facing CHAR_U	# Off
+else
+	set_direction spelltarget facing CHAR_L	# On
+endif
+
+# Player thinks of a number between 1 and 100.  This is impressed
+# onto the orb.  When the Recall spell is cast it asks for
+# a number and teleports the party to the corresponding stone.
+# If it's inside a container the party are all killed and their
+# bodies are teleported into the container (unless it's a party member)
+
+end
+
+
+function spell_recall
+integer i
+integer ctr
+object stone
+object stonebag
+object person
+
+# Check spell can be cast
+let spell_level = 4
+call spell_check
+if spell_failed
+	return
+endif
+
+if me <> player
+	# This spell is not for thee
+	return
+endif
+
+let spellname = "recall"
+
+cls
+print "Recall-Orb Version 9.637 (beta)"
+printcr
+print "SzyLurbG Labs cannot be held responsible for any injuries"
+printcr
+print "or deaths caused by using this product."
+printcr
+printcr
+print "Please give your destination ID number: "
+let i = 1
+input i
+
+if i <= 0
+	print "Cancelled."
+	printcr
+	return
+endif
+
+find_tag stone = "orb" i
+if_not_exists stone
+	print "Error: Destination stone not found.  Sorry."
+	printcr
+#	call spell_failed
+	return
+endif
+
+print "Destination located.  Have a nice journey."
+printcr
+print "This spell has not been registered and is for"
+printcr
+print "evaluation use only.  Please send 100 credits"
+printcr
+print "to SzyLurbG Labs within 100 years or the product"
+printcr
+print "will cease to operate."
+printcr
+play_sound "toadstone_recall"
+wait 300 NONBLOCKING
+
+# Is the destination stone inside a container?
+if_exists stone.parent
+	# Oho!  Now it gets fun.
+
+	printcr
+	print "WARNING: Destination inside a container!"
+	printcr
+	redraw_text
+
+	wait 1000 NONBLOCKING
+
+	play_sound "toast"
+	wait 300 NONBLOCKING
+
+
+	let stonebag = stone.parent
+
+	# If the player is holding the destination stone..
+	if_flag stonebag IS_PARTY
+		goto crucify
+	endif
+
+	# Or, if the bag is inside another bag, they die.
+	if_exists stonebag.parent
+		label crucify
+
+		printcr
+		print "Segmentation fault"
+		printcr
+		redraw_text
+
+		wait 1000 BLOCKING
+
+		# The player has f___ed up really bad.  Kill everyone.
+		for ctr = 1 to MAX_MEMBERS
+			let person = party[ctr]
+			if_exists person
+				let person.stats.hp = -1
+				check_hurt person
+			endif
+		next
+		return
+	endif
+
+	# Teleport them all into the chest
+	centre around stonebag
+	move_party_to stonebag
+	return
+
+endif
+
+move_party_to stone
+move_party_from stone to stone.x stone.y
+
+end
+
+
+
+
+
+##
+##  Learn spells
+##
+
+# 1.1: Light
+function learn_light
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_light" = 1
+end
+
+
+# 1.2: Awaken
+function learn_awaken
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_awaken" = 1
+end
+
+
+# 1.3: Light Heal
+function learn_lheal
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_lheal" = 1
+end
+
+
+# 1.4: Sleep
+function learn_sleep
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_sleep" = 1
+end
+
+
+# 1.5: Help
+function learn_help
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_help" = 1
+end
+
+
+# 1.6: Identify
+function learn_identify
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_identify" = 1
+end
+
+
+# 2.1: Ignite
+function learn_ignite
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_ignite" = 1
+end
+
+# 2.2: Douse
+function learn_douse
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_douse" = 1
+end
+
+# 2.3: Peer
+function learn_Peer
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_peer" = 1
+end
+
+# 2.4: AllSeeingEye
+function learn_AllSeeingEye
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_allseeingeye" = 1
+end
+
+# 2.5:
+function learn_about
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_about" = 1
+end
+
+# 2.6: Poison
+function learn_poison
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_poison" = 1
+end
+
+
+# 3.1: Pickpocket
+function learn_pickpocket
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_pickpocket" = 1
+end
+
+
+# 3.2: Barrier
+function learn_barrier
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_barrier" = 1
+end
+
+
+# 3.3: Harm
+function learn_harm
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_harm" = 1
+end
+
+
+# 3.4: Heal
+function learn_heal
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_heal" = 1
+end
+
+
+# 3.5: Cure
+function learn_cure
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_cure" = 1
+end
+
+
+# 3.6: Great Light
+function learn_greatlight
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_greatlight" = 1
+end
+
+
+# 4.1: Dispel Barrier
+function learn_dispelbarrier
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_dispelbarrier" = 1
+end
+
+
+# 4.2: Mark
+function learn_mark
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_mark" = 1
+end
+
+
+# 4.3: Recall
+function learn_recall
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_recall" = 1
+end
+
+
+# 4.4: Explosion
+function learn_explosion
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_explosion" = 1
+end
+
+
+# 4.5: TK
+function learn_tk
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_tk" = 1
+end
+
+
+# 4.6: Push
+function learn_push
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_push" = 1
+end
+
+
+# 5.1: Kill
+function learn_kill
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_kill" = 1
+end
+
+
+# 5.2
+function learn_commandanimal
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_commandanimal" = 1
+end
+
+
+# 5.3: Great Heal
+function learn_greatheal
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_greatheal" = 1
+end
+
+
+# 5.4: Ensorcellment
+function learn_ensorcellment
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_ensorcellment" = 1
+end
+
+
+# 5.5: Confusion
+function learn_confusion
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_confusion" = 1
+end
+
+
+# 5.6
+
+# 6.1
+# 6.2
+# 6.3
+# 6.4
+
+
+# 6.5: Hear Truth
+function learn_heartruth
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_heartruth" = 1
+end
+
+
+# 6.6: Bunny Blaster
+function learn_snake
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_snake" = 1
+end
+
+
+
+# 7.1: Great Kill
+function learn_greatkill
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_greatkill" = 1
+end
+
+
+# 7.2: Summon A Devil
+function learn_devil
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_devil" = 1
+end
+
+
+# 7.3: Posess
+function learn_posess
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_posess" = 1
+end
+
+
+# 7.4
+
+# 7.5: Pied Piper
+function learn_piedpiper
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_piedpiper" = 1
+end
+
+# 7.6: alchemy
+
+function learn_alchemy
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_alchemy" = 1
+end
+
+
+# 8.1: Resurrect
+function learn_resurrect
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_resurrect" = 1
+end
+
+
+# 8.2: Abolish
+function learn_abolish
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_abolish" = 1
+end
+
+
+# 8.3: Hacked peer spell
+function learn_uberpeer
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_uberpeer" = 1
+end
+
+# 8.4: Destruction
+function learn_destruction
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_destruction" = 1
+end
+
+
+
+##
+##  What Ya'Do teaches you to begin with.
+##
+
+function learn_basic_spells
+call learn_help
+call learn_identify
+end
+
+##
+##  Learn everything
+##
+
+function learn_all_spells
+call learn_light
+call learn_awaken
+call learn_lheal
+call learn_sleep
+call learn_help
+call learn_identify
+
+call learn_ignite
+call learn_douse
+call learn_peer
+call learn_allseeingeye
+call learn_about
+call learn_poison
+
+call learn_pickpocket
+call learn_barrier
+call learn_harm
+call learn_heal
+call learn_cure
+call learn_greatlight
+
+call learn_dispelbarrier
+call learn_mark
+call learn_recall
+call learn_explosion
+call learn_tk
+call learn_push
+
+call learn_kill
+call learn_commandanimal
+call learn_greatheal
+call learn_ensorcellment
+#call learn_5.5
+#call learn_5.6
+
+#call learn_6.1
+#call learn_6.2
+#call learn_6.3
+#call learn_6.4
+call learn_heartruth
+call learn_snake
+
+call learn_greatkill
+call learn_devil
+call learn_posess
+call learn_confusion
+call learn_piedpiper
+call learn_alchemy
+
+call learn_resurrect
+call learn_abolish
+call learn_uberpeer
+call learn_destruction
+#call learn_8.5
+#call learn_8.6
+end
+
+############################
+
+/*
+
+1-1	"spell_light"
+1-2	"spell_awaken"
+1-3	"spell_lheal"
+1-4	"spell_sleep"
+1-5	"spell_help"
+1-6	"spell_identify"
+
+2-1	"spell_ignite"
+2-2	"spell_douse"
+2-3	"spell_peer"
+2-4	"spell_allseeingeye"
+2-5	"spell_about"
+2-6	"spell_poison"
+
+3-1	"spell_pickpocket"
+3-2	"spell_barrier"
+3-3	"spell_harm"
+3-4	"spell_heal"
+3-5	"spell_cure"
+3-6	"spell_greatlight"
+
+4-1	"spell_dispelbarrier"
+4-2	"spell_mark"
+4-3	"spell_recall"
+4-4	"spell_explosion"
+4-5	"spell_tkuse"
+4-6	"spell_push"
+
+5-1	"spell_kill"
+5-2
+5-3	"spell_greatheal"
+5-4	"spell_ensorcellment"
+5-5	"spell_confusion"
+5-6
+
+6-1
+6-2
+6-3	Lightning?
+6-4
+6-5	"spell_heartruth"
+6-6	"spell_snake"
+
+7-1	"spell_greatkill"
+7-2	"spell_devil"
+7-3	"spell_posess"
+7-4
+7-5	"spell_piedpiper"
+7-6	"spell_alchemy"
+
+8-1	"spell_resurrect"
+8-2	"spell_abolish"
+8-3	"spell_uberpeer"
+8-4	"spell_destruction"
+8-5
+8-6
+
+*/

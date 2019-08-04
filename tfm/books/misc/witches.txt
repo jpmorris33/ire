@@ -1,0 +1,17 @@
+
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+1st Witch:  "Where have you been, sister?"
+2nd Witch: "Killing Pigs."
+1st Witch:  "Cool!"
+3rd Witch:  "I met this bitch eatin' chestnuts..
+             She told me to bugger off."
+1st Witch:  "Did she, now?"
+3rd Witch:  "Yeah.  But she won't do that again."
+2nd Witch: "What you do?"
+3rd Witch:  "I turned her into a badger.."
+
+[nextpage="exit"]
+[endpage]

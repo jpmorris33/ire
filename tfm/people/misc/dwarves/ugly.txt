@@ -1,0 +1,190 @@
+
+Ugly
+
+[page="start"]
+
+[colour="#808080"]
+You see very ugly dwarf, singing.
+[colour="#ffffff"]
+
+"'I.. Don't.. Have.. Any.. Money money money money..
+ My.. B-'
+
+ Oh.  What do you want?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Ugly, one of the Seven Dwarves.
+[colour="#ffffff"]
+
+"'My.. Bo-dy Suffers.. After The Flesh!!!'"
+
+[colour="#808080"]
+The other dwarves all go into a frenzy.  The druggy one
+does some kind of frantic guitar solo.
+[colour="#ffffff"]
+
+"What do you want?  Please make this quick."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+[set dwarves]
+
+"They call me 'Ugly', because I am.   I'm one of the
+ Seven Dwarves."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[set dwarves]
+
+"We're miners.  We mine, er.. things.  From the ground."
+
+[link="What are you mining for?"]
+[linkto="job2"]
+[link="What were you singing just now?"]
+[linkto="singing"]
+[link="Tell me about Snow White."]
+[linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job2"]
+[colour="#808080"]
+He looks distinctly uncomfortable.
+[colour="#ffffff"]
+
+"Um.. nothing.  We just like looking at rocks.
+ Oh!  And gold, yes, we mine gold, lots of gold.
+ Sometimes."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Can I have some gold?"]
+[linkto="job3"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job3"]
+[colour="#808080"]
+He shifts his position.
+[colour="#ffffff"]
+
+"Er, no.  We don't have any at the moment."
+
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="singing"]
+
+"'After The Flesh' by My Life With The Thrill-Kill Cult.
+  We always sing it while we're working.
+
+ I do the vocals.  Dopey sings the guitar parts, Fatso
+ does the bassline, Girly and Sleazy chant the samples
+ and Surly sings the drums.  We don't let Stupid sing."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite"]
+
+"Snow white was a pretty little girl who came here one
+ day.  I think she was on the run from her parents or
+ something.
+
+ Anyway, she came here and we put her up.  In exchange,
+ she earned her keep by washing our clothes and cooking
+ our food.
+
+ Then one fateful day, a wicked witch slew her with a
+ poisoned apple.
+
+ But they do say that she is not dead, only sleeping, and
+ the kiss of a handsome traveller will break the spell."
+
+[link="But she's a dog, though."]
+[linkto="snowwhite2"]
+[link="Oh, right.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite2"]
+
+"Are you sure?"
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you doing just now?"]
+[if dwarves][linkto="singing"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Whatever."
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,68 @@
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[goto="first"]
+[endpage]
+
+
+[page="nocollar"]
+[image="guard.png"]
+[colour="#808080"]
+You see a large, muscular wolf-like creature dressed in
+full armour and wielding some kind of crossbow upon a
+harness around his back.
+
+He speaks in a strange, snarling voice.
+[colour="#ffffff"]
+
+"Human, you do not bear the mark of our King's favour.
+ Leave at once or you shall be slain."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="first"]
+[image="guard.png"]
+[colour="#808080"]
+You see a large, muscular wolf-like creature dressed in
+full armour and wielding some kind of crossbow upon a
+harness around his back.
+
+He speaks in a strange, snarling voice.
+[colour="#ffffff"]
+
+"What do you want, human?"
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="guard.png"]
+
+"I am one of the King's guards.. I keep the peace and
+ defend my liege.
+
+ In time of war we defend the city from attackers."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="guard.png"]
+
+"Keep to our laws, human."
+
+[colour="#808080"]
+The creature returns to duty.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+

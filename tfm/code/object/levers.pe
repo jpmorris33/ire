@@ -1,0 +1,519 @@
+##
+##	Levers
+##
+
+function lever_move_secret_V
+
+if current.curdir = UP
+or current.curdir = DOWN
+	set_direction current faces LEFT
+	object_sound "click" current
+	move_tag current.tag to 0 -1
+else
+	set_direction current faces UP
+	object_sound "click" current
+	move_tag current.tag to 0 1
+endif
+
+end
+
+
+function lever_move_secret_H
+
+if current.curdir = UP
+or current.curdir = DOWN
+	set_direction current faces LEFT
+	object_sound "click" current
+	move_tag current.tag to -1 0
+else
+	set_direction current faces UP
+	object_sound "click" current
+	move_tag current.tag to 1 0
+endif
+
+end
+
+
+function switch_move_secret_L
+
+if current.user.user0 = 0
+	let current.user.user0 = 1
+	object_sound "click" current
+	move_tag current.tag to -1 0
+else
+	let current.user.user0 = 0
+	object_sound "click" current
+	move_tag current.tag to 1 0
+endif
+
+end
+
+function switch_move_secret_R
+
+if current.user.user0 = 0
+	let current.user.user0 = 1
+	object_sound "click" current
+	move_tag current.tag to 1 0
+else
+	let current.user.user0 = 0
+	object_sound "click" current
+	move_tag current.tag to -1 0
+endif
+
+end
+
+
+function switch_move_secret_U
+
+if current.user.user0 = 0
+	let current.user.user0 = 1
+	object_sound "click" current
+	move_tag current.tag to 0 -1
+else
+	let current.user.user0 = 0
+	object_sound "click" current
+	move_tag current.tag to 0 1
+endif
+
+end
+
+function switch_move_secret_D
+
+if current.user.user0 = 0
+	let current.user.user0 = 1
+	object_sound "click" current
+	move_tag current.tag to 0 1
+else
+	let current.user.user0 = 0
+	object_sound "click" current
+	move_tag current.tag to 0 -1
+endif
+
+end
+
+
+
+function lever_gallows
+
+object dest
+object vict
+integer flag
+
+find_tag dest = "hatch_gallows_closed" current.tag
+
+if_exists dest
+	# Open the trapdoor, killing any victim
+
+	object_sound "click" dest
+	change dest = "hatch_gallows_opened"
+	call fliplever
+	
+	get_object vict from dest.x dest.y
+
+	# If we have a victim (the trapdoor does NOT count)
+	if vict <> dest
+
+		# Is it a living thing
+		get_flag flag = vict IS_PERSON
+		if flag = 0
+			# If you comment this out you can hang plates and chairs
+			return
+		endif
+
+		# Check that it is alive (otherwise corpses may be vapourised)
+		if vict.stats.hp > 0
+			# This should kill most men
+			add vict.stats.hp - 150
+			check_hurt vict
+		endif
+	endif
+
+else
+	# No closed trapdoor, look for an open one and close it, else quit
+
+	find_tag dest = "hatch_gallows_opened" current.tag
+	if_exists dest
+		object_sound "click" dest
+		change dest = "hatch_gallows_closed"
+		call fliplever
+	else
+		print "The lever is broken."
+		printcr
+	endif
+endif
+
+end
+
+
+function lever_callwield
+
+call fliplever
+call current.funcs.wcache
+
+end
+
+##
+##	Find a remote object and call it's wield function
+##
+
+function lever_callwield_tag
+int tag
+object obj
+
+call fliplever
+
+let tag = 0 - current.tag
+find_tag obj = "" tag
+if_exists obj
+	if obj.funcs.wcache <= 0
+		goto LCWT_failed
+	endif
+	let current = obj
+	call current.funcs.wcache
+else
+	label LCWT_failed
+	if me = player
+		print "~I don't think it worked.~"
+		printcr
+	endif
+endif
+
+end
+
+
+##
+##	Find several remote objects and call their wield function
+##
+
+function lever_callwield_tags
+int tag
+int ctr
+int ok
+object_array obj[64]
+
+call fliplever
+
+let tag = 0 - current.tag
+find_tags obj[1] = "" tag
+
+let ok = 0
+for ctr = 1 to 64
+	if_exists obj[ctr]
+		let current = obj[ctr]
+		if current.funcs.wcache > 0
+			call current.funcs.wcache
+			let ok = 1
+		endif
+	endif
+next ctr
+
+if me = player
+and ok = 0
+	print "~Nothing happened.~"
+	printcr
+endif
+
+end
+
+
+##
+##	Levers
+##
+
+function lever_drawbridge
+object bridge
+int x
+int y
+
+if current.curdir = UP
+or current.curdir = DOWN
+	set_direction current faces LEFT
+	object_sound "click" current
+	find_tag bridge = "drawbridge_up" current.tag
+	if_exists bridge
+		replace bridge = "drawbridge_down"
+		let x = bridge.x + 2
+		let y = bridge.y + 2
+		transfer_object bridge to x y
+		if_onscreen current
+			redraw_map
+			earthquake 3
+		endif
+	endif
+
+else
+	set_direction current faces UP
+	object_sound "click" current
+	find_tag bridge = "drawbridge_down" current.tag
+	if_exists bridge
+		replace bridge = "drawbridge_up"
+		let x = bridge.x - 2
+		let y = bridge.y - 2
+		transfer_object bridge to x y
+	endif
+endif
+
+end
+
+##
+##	Binary puzzle for traps etc.  Flip the bit pattern in Strength
+##
+
+function lever_binaryadd
+object obj
+
+call fliplever
+
+# Does it have a controlling parent?
+if_not_exists current.stats.owner
+	if me = player
+		print "~It's broken.~"
+		printcr
+	endif
+	return
+endif
+
+let obj = current.stats.owner
+
+# Flip the bits
+if current.curdir = UP
+	let obj.stats.str = obj.stats.str OR current.stats.str
+/*
+	print "set binary = "
+	printx obj.stats.str
+	print
+*/
+else
+	let obj.stats.str = obj.stats.str NAND current.stats.str
+/*
+	print "reset binary = "
+	printx obj.stats.str
+	print
+*/
+endif
+
+end
+
+
+##
+##	Binary puzzle for traps etc.  Call Wield function if it adds up
+##	The combination should be in it's Karma field
+##
+
+function lever_binaryfinish
+
+# Does it have a target to activate?
+if_not_exists current.stats.owner
+	# No!  A bug!
+	if me = player
+		print "~It's broken.~"
+		printcr
+	endif
+	return
+endif
+
+if current.stats.str != current.stats.karma
+	# Wrong combination
+	if me = player
+		print "~It won't move.~"
+		printcr
+	endif
+	return
+endif
+
+call fliplever
+
+# Do the action
+let current = current.stats.owner
+call current.funcs.wcache # call the payload
+
+end
+
+##
+##  Flip the lever around
+##
+
+function fliplever
+private
+
+# Use custom lever flipping if available
+if current.funcs.user2 <> ""
+	call current.funcs.user2
+	return
+endif
+
+if current.curdir = UP
+or current.curdir = DOWN
+	set_direction current faces LEFT
+	object_sound "click" current
+else
+	set_direction current faces UP
+	object_sound "click" current
+endif
+end
+
+
+function flip_cardreader
+
+if current.curdir = UP
+or current.curdir = DOWN
+	set_sequence current = "cardslot_v_used"
+else
+	set_sequence current = "cardslot_h_used"
+endif
+end
+
+
+##
+##
+##
+
+function doorbell
+
+object_sound "doorbell" me
+
+end
+
+
+##
+##	Levers
+##
+
+function move_barrier
+
+if current.curdir = UP
+or current.curdir = DOWN
+	set_direction current faces LEFT
+	move_tag current.tag to 0 -5
+else
+	set_direction current faces UP
+	move_tag current.tag to 0 5
+endif
+
+end
+
+
+##
+##	Osprey Drawbridge
+##
+
+function lever_ospbridge
+object bridge
+object target
+
+if current.curdir = UP
+or current.curdir = DOWN
+
+	# Fold the bridge away
+
+	set_direction current faces LEFT
+	object_sound "click" current
+	find_tag target = "target" 46
+	if_not_exists target
+		return
+	endif
+
+	find_tag bridge = "warg_bridge00" 44
+	if_exists bridge
+		start_action bridge does seek_target_force to target
+#		transfer_object bridge to target.x target.y
+	endif
+
+	find_tag bridge = "warg_bridge00" 45
+	if_exists bridge
+		start_action bridge does seek_target_force to target
+#		transfer_object bridge to target.x target.y
+	endif
+else
+	# Move the bridge into position
+	
+	set_direction current faces UP
+	object_sound "click" current
+
+	find_tag target = "target" 22
+	if_exists target
+		find_tag bridge = "warg_bridge00" 44
+		if_exists bridge
+			start_action bridge does seek_target_force to target
+#			transfer_object bridge to target.x target.y
+		endif
+	endif
+
+	find_tag target = "target" 23
+	if_exists target
+		find_tag bridge = "warg_bridge00" 45
+		if_exists bridge
+			start_action bridge does seek_target_force to target
+#			transfer_object bridge to target.x target.y
+		endif
+	endif
+
+endif
+
+end
+
+##
+##  Breakers only reset if the circuit is OK
+##
+
+function circuit_breaker
+private
+integer x
+object breaker
+
+let breaker = current
+
+# Prevent multiple uses
+if breaker.curdir = UP
+or breaker.curdir = RIGHT
+	return
+endif
+
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+# Call additional logic function to see if the circuit is operating okay
+if breaker.funcs.user2 <> ""
+	call breaker.funcs.user2
+endif
+
+get_user_flag x = "true"
+if x = 0
+	# No
+	return
+endif
+
+if breaker.curdir = LEFT
+	set_direction breaker faces RIGHT
+	object_sound "click" breaker
+endif
+
+if breaker.curdir = DOWN
+	set_direction breaker faces UP
+	object_sound "click" breaker
+endif
+end
+
+
+##
+##  Emergency stop
+##
+
+function use_stopbutton
+
+if current is called "wall_metal_d05"
+	set_sequence current = "mwall_decal18_push"
+else
+	set_sequence current = "mwall_decal48_push"
+endif
+
+# Now do something
+if current.funcs.wcache > 0
+	call current.funcs.wcache
+else
+	if me = player
+		print "Nothing happens."
+		printcr
+	endif
+endif
+end

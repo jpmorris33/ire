@@ -1,0 +1,16 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+        Introduction to the modern theory
+             of Dynamical Systems 
+
+             Katok and Hasselblatt
+
+
+ [ This large tome is considered to be the
+  definitive reference for this branch of
+  mathematics.]
+
+[nextpage="exit"]
+[endpage]

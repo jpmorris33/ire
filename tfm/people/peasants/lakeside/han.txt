@@ -1,0 +1,369 @@
+
+
+[page="start"]
+
+[colour="#808080"]
+You see a short and stout-looking tailor.
+[colour="#ffffff"]
+
+"Well met, good $Sir.
+ Are you interested in buying some clothing?"
+
+[link="Who are you?"]
+[linkto="name"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[if find_ospreys][link="Tell me about the fish-hawks."]
+[if find_ospreys][linkto="ospreys"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="startname"]
+
+[colour="#808080"]
+You see Han the Tailor.
+[colour="#ffffff"]
+
+"Welcome back, good $Sir.
+ Are you interested in buying some clothing?"
+
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[if find_ospreys][link="Tell me about the fish-hawks."]
+[if find_ospreys][linkto="ospreys"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="inchurch"]
+"Quiet!  I would listen to the word of the LORD!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"My name is Han.  Most people call me 'Han the Tailor',
+ since that is, after all, my stock in trade."
+
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[if find_ospreys][link="Tell me about the fish-hawks."]
+[if find_ospreys][linkto="ospreys"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ospreys"]
+[set find_ospreys]
+
+"Aye, there are many such hawks in this village, for the
+ lake provides fine eating for them.
+
+ But there is one particular bird that perches outside my
+ home.  I do not trust it, for it does watch me each day.
+
+ The Church says that the Holy Ghost may appear as a bird
+ and sometimes as a hawk or an eagle.  It maybe that the
+ osprey visiting me is of the Trinity!
+
+ But there are other things which it does too."
+
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What else does this bird do?"]
+[linkto="ospreys2"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ospreys2"]
+
+"I have seen the bird go to a nearby tree-stump, on which
+ can be found a small, shiny cube.  Each face of the cube
+ is covered in squares of different colours.
+
+ One day, I saw the bird perching on the tree-stump and
+ staring at the cube.  And as I watched, I saw the cube
+ begin to split and revolve of its own accord!
+
+ And when all this was done, the cube was changed, and
+ each side of the cube had squares only of the same
+ colour, when before they were mixed!
+
+ And when this was done, the bird flew away!"
+
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross"]
+
+"Ross the Bewildered has not been seen much since he was
+ sent to slay a dragon that lives to the west of our
+ village.  But the dragon has not been seen much either.
+
+ Some say that he defeated the beast but then died of a
+ mortal wound in the attempt.  Others say that the Wyrm
+ did merely eat him and is sleeping it away.
+
+ But I have heard that Ross made a satanic pact with the
+ dragon and serves it!"
+
+[link="Has anyone seen him since?"]
+[linkto="ross2"]
+[if find_ospreys][link="Tell me about the fish-hawks."]
+[if find_ospreys][linkto="ospreys"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross2"]
+
+"Noris the butcher told me that a cloaked stranger bought
+ from him three whole piglets.  But he also says that the
+ man's hood did drop for a second, and he did swear that
+ it looked like Ross!
+
+ Whether or not this be so, the man was last seen heading
+ to the dragon's keep, with the piglets and some fruit."
+ 
+[if find_ospreys][link="Tell me about the fish-hawks."]
+[if find_ospreys][linkto="ospreys"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+Generic tailor stuff
+
+[page="buy"]
+
+"I make jackets and cloaks.  The jackets I would sell for
+ 29 gold coins, and the cloaks for 32 gold.
+
+ This is expensive, I fear, but since the village of New
+ Leuchars was claimed by the forces of Evil, I must get
+ my supplies from the distant realm of Lord O'Beth."
+
+[link="I'd like a cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like a jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="buy_cloak"]
+[take 32 gold_coins]
+[if false][goto="nomoney"]
+[create 1 clothing01]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'd like to buy another cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like a jacket as well."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_jacket"]
+[take 29 gold_coins]
+[if false][goto="nomoney"]
+[create 1 clothing00]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'd like to buy another jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like a cloak as well."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="nomoney"]
+
+"I'm afraid you can't afford that, $MILORD."
+
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sell"]
+
+"I am ever in need of thread and cloth.  Since the
+ village of New Leuchars was destroyed, the nearest
+ weaver is in the Realm of Lord O'Beth and I depend on
+ passing merchants to obtain any.
+
+ Thus would I buy thread if you have some.  I will pay
+ you 12 gold coins for each spindle.
+ For cloth, I would pay you 9 coins per sheet."
+
+[link="I'm selling some thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_cloth"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="sell_thread"]
+[take 1 thread00]
+[if false][take 1 thread01]
+[if false][goto="nogoods"]
+[create 12 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some more thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_cloth"]
+[take 1 cloth00]
+[if false][take 1 cloth01]
+[if false][take 1 cloth02]
+[if false][take 1 cloth03]
+[if false][take 1 cloth04]
+[if false][goto="nogoods"]
+[create 9 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some more thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nogoods"]
+
+"I fear you have mislaid that item, $MILORD.
+ Is there anything else you would sell?"
+
+[link="I'm selling some thread."]
+[linkto="sell_thread"]
+[always]
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Good day to you."
+
+[nextpage="exit"]
+[endpage]

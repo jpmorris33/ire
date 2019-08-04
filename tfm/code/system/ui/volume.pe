@@ -1,0 +1,110 @@
+############################
+#                          #
+# Volume control interface #
+#                          #
+############################
+
+
+##
+##  Entry point
+##
+
+function volumeslider
+#int x
+int y
+int fxv
+int muv
+
+let y = 0
+
+save_screen
+
+do
+        draw_object spellbook_img at 160 120
+        textfont 3
+
+	getvolume fxv = 0
+	getvolume muv = 1
+
+	gotoxy 200 160
+	if y = 0
+		printxy "> Music Volume "
+	else
+		printxy "  Music Volume "
+	endif
+	printxy muv
+	printxy "  "
+	if y = 0
+		if muv < 10
+			printxy " "
+		endif
+		if muv < 100
+			printxy " "
+		endif
+		printxy "<"
+	endif
+
+	gotoxy 200 200
+	if y = 1
+		printxy "> Sound Volume "
+	else
+		printxy "  Sound Volume "
+	endif
+	printxy fxv
+	printxy "  "
+	if y = 1
+		if fxv < 10
+			printxy " "
+		endif
+		if fxv < 100
+			printxy " "
+		endif
+		printxy "<"
+	endif
+
+	getkey_quiet
+
+	if key = KEY_UP
+		let y = 0
+	endif
+
+	if key = KEY_DOWN
+		let y = 1
+	endif
+
+	if key = KEY_LEFT
+		if y = 1
+			add fxv - 5
+			setvolume 0 to fxv
+		endif
+		if y = 0
+			add muv - 5
+			setvolume 1 to muv
+		endif
+	endif
+
+	if key = KEY_RIGHT
+		if y = 1
+			add fxv + 5
+			setvolume 0 to fxv
+		endif
+		if y = 0
+			add muv + 5
+			setvolume 1 to muv
+		endif
+	endif
+
+
+	if key = KEY_ENTER
+		let KEY = KEY_ESC
+	endif
+	
+
+while key <> KEY_ESC
+
+load_screen
+let key = 0
+
+return
+end
+

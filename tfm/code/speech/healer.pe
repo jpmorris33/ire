@@ -1,0 +1,204 @@
+##############################
+#                            #
+#  Healers (and other stuff) #
+#                            #
+##############################
+
+##
+##  Heal the player
+##
+
+function heal_player
+
+let player.stats.hp = player.maxstats.hp
+check_hurt player
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+end
+
+##
+##  Waarg heals player
+##
+
+function heal_playerw
+
+call heal_player
+# Add random poisoning?  The waarg healer isn't very good at humans
+
+end
+
+##
+##  Heal a party member
+##
+
+function heal_member
+
+let victim.stats.hp = victim.maxstats.hp
+check_hurt victim
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+end
+
+##
+##  un-Heal the player
+##
+
+function hurt_player
+
+add player.stats.hp - 30
+if player.stats.hp < 1
+	let player.stats.hp = 2
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+	let player.user.oldhp = player.stats.hp
+	return
+endif
+
+let player.user.oldhp = player.stats.hp
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+end
+
+
+##
+## 'Heal' a party member
+##
+
+function hurt_member
+
+add victim.stats.hp - 30
+if victim.stats.hp < 1
+	let victim.stats.hp = 2
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+	let victim.user.oldhp = victim.stats.hp
+	return
+endif
+
+let victim.user.oldhp = victim.stats.hp
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+end
+
+##
+##  Poison player
+##
+
+function poison_player
+
+if player.user.poison > 0
+	# Check for double-poisoning (else they could make loads of cash)
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+	return
+endif
+
+add player.user.poison + 50
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+end
+
+##
+##  Poison someone
+##
+
+function poison_member
+
+if victim.user.poison > 0
+	# Check for double-poisoning (else they could make loads of cash)
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+	return
+endif
+
+add victim.user.poison + 50
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+end
+
+##
+##  Return true/false depending on whether VICTIM can eat/drink
+##
+
+function can_drink
+if_flag victim CANT_EAT
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+	return
+endif
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+end
+
+##
+##  Return true if there is only the player
+##
+
+function no_party
+integer ctr
+integer tot
+let tot = 0
+for ctr = 1 to MAX_MEMBERS
+	if_exists party[ctr]
+		if_not_flag party[ctr] IS_HERO
+			add tot + 1
+		endif
+	endif
+next ctr	
+
+if tot = 0
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+	return
+endif
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+end
+
+##
+## Is the chosen party member the hero?
+##
+
+function is_player
+
+if_flag victim IS_HERO
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+	return
+endif
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+end
+
+##
+##  Slay a party member
+##
+
+function slay_member
+
+# Assume it can't be done
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+if_not_flag victim IS_BIOLOGICAL
+	return
+endif
+
+let victim.stats.hp = -1
+check_hurt victim
+if victim.stats.hp > 0
+	# Failed
+	return
+endif
+
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+end

@@ -1,0 +1,370 @@
+
+Joachim, the King's sorcerer
+
+[page="start"]
+
+"Hail, $PLAYER.  Welcome to New Highworth.
+
+ Your coming was foretold by the Church and many other
+ seers and astrologers."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[if yado_quest_packages][link="A Master asked me to visit a distant island."]
+[if yado_quest_packages][linkto="yado_island"]
+[if yado_quest_rocks][link="A Master told me to swallow rocks.  Any ideas?"]
+[if yado_quest_rocks][linkto="yado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see Joachim, the King's sorcerer.
+[colour="#ffffff"]
+
+"Hail, $PLAYER.  It is good to see you again."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[if yado_quest_packages][link="A Master asked me to visit a distant island."]
+[if yado_quest_packages][linkto="yado_island"]
+[if yado_quest_rocks][link="A Master told me to swallow rocks.  Any ideas?"]
+[if yado_quest_rocks][linkto="yado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"My name is Joachim.  I am one of the King's closest
+ advisors."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am the court sorcerer to my liege, his majesty
+ King Edwyg the Generous.  I advise the King on matters
+ of the arcane, among other things.
+
+ When I am not needed by my King, I carry out experiments
+ in my workshop."
+
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Doesn't the Church mind sorcery?"]
+[linkto="church"]
+[link="What experiments do you perform?"]
+[linkto="experiments"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="church"]
+[colour="#808080"]
+He chuckles.
+[colour="#ffffff"]
+
+"Oh, they hate it!  But I have the protection of my King.
+ The Pope can do nothing unless I violate Church law, and
+ that is something I strive to avoid.
+
+ Officially, I am court Astrologer and an alchemist, both
+ of which are allowed by the Church."
+
+[link="What experiments do you perform?"]
+[linkto="experiments"]
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="experiments"]
+
+"I seek the philosopher's stone, which can change base
+ metals into gold or silver and prolongs life.
+
+ I try also to distill Alkahest, the universal solvent!
+
+ But I also have an impressive collection of elder texts,
+ containing much wisdom from the ancient ones."
+
+[link="Tell me about the Philosopher's Stone."]
+[linkto="philostone"]
+[link="Tell me about Alkahest."]
+[linkto="alkahest"]
+[link="Tell me about the Ancient Ones."]
+[linkto="ancient"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="philostone"]
+
+"The philosopher's stone is a fabulous material of great
+ power.
+
+ As most people know, it can project lead into gold,
+ mercury into silver, and cause the enoblement of many 
+ other base metals.
+
+ It also has the power to combine the male and the female
+ aspects into a single, immortal whole.
+
+ Have you ever wondered how it is that the Pope is over
+ three hundred years old?"
+
+[link="Tell me about Alkahest."]
+[linkto="alkahest"]
+[link="Tell me about the Ancient Ones."]
+[linkto="ancient"]
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="alkahest"]
+
+"The Alkahest is the universal solvent.  It can dissolve
+ any matter.  We have been searching for a way to distill
+ the Alkahest for many centuries..  Even the Ancient Ones
+ failed to create the Alkahest.
+
+ But I am certain it can be done!
+
+ Of course one of the great problems of the Alkahest is
+ what to put it in once it has finally been distilled.."
+
+[link="Tell me about the Philosopher's Stone."]
+[linkto="philostone"]
+[link="Tell me about the Ancient Ones."]
+[linkto="ancient"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="ancient"]
+
+"The Ancients had many secrets.  They could harness
+ lightning, and built boats that could fly.
+
+ The Church feels threatened by the power such knowledge
+ could bring, and the Pope has tried to conceal much of
+ their teachings.
+
+ But there were too many Elder books around for the Pope
+ to suppress them all."
+
+[link="Tell me about the Philosopher's Stone."]
+[linkto="philostone"]
+[link="Tell me about Alkahest."]
+[linkto="alkahest"]
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pope"]
+
+"He's God's envoy here on Earth, so they say.  But lately
+ I have been wondering if the Pope really does serve God,
+ or if it may be the other way round!
+
+ It used to be said that the Lord is kind and merciful.
+ But the Pope uses the Lord as a stick to beat the people
+ with and keep them in line.
+
+ Christ preached love and peace in the scriptures, but
+ in Church, He speaks only of war and conquest!"
+
+[colour="#808080"]
+ His voice drops to a whisper.
+[colour="#ffffff"]
+
+ I have been wondering if what we believe to be the Lord
+ is a fabrication.  Miracles can be worked by sorcery and
+ juggling knacks.  Our God may be a mere puppet..
+
+ But I say no more.  The Church has many ears."
+
+[link="Tell me about the Philosopher's Stone."]
+[linkto="philostone"]
+[link="Tell me about the Ancient Ones."]
+[linkto="ancient"]
+[link="Tell me about Alkahest."]
+[linkto="alkahest"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic"]
+[colour="#808080"]
+He looks troubled.
+[colour="#ffffff"]
+
+"I cannot teach you any magic.  The Church tolerates my
+ activities so long as I do not cause trouble.
+
+ One of the things they do not allow is the training of
+ sorcerers or magicians without their permission.  Too
+ many mages could upset the balance of power, so they
+ keep our numbers down.
+
+ It would be too dangerous for both of us for me to train
+ you in the sorcerous arts.
+
+ However, if you truly seek to learn the arcane, there
+ might be a way.  I have heard there is an old hermit who
+ lives in the forest to the west of the Holy Land.
+ They say he is a Master and the Church cannot harm him.
+
+ But you did not hear this from me."
+
+[journal="jrn_FindYaDo"]
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="Tell me about Alkahest."]
+[linkto="alkahest"]
+[link="Tell me about the Philosopher's Stone."]
+[linkto="philostone"]
+[link="Tell me about the Ancient Ones."]
+[linkto="ancient"]
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+
+"The King is a man of noble mind and stout heart.
+ He cares for the plight of his subjects far more than
+ the Church cares for its flock.
+
+ And sadly this does bring him and the Pope to blows."
+
+[link="Tell me about the Pope."]
+[linkto="pope"]
+[link="Tell me about Alkahest."]
+[linkto="alkahest"]
+[link="Tell me about the Philosopher's Stone."]
+[linkto="philostone"]
+[link="Tell me about the Ancient Ones."]
+[linkto="ancient"]
+[link="Can you teach me magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yado_rocks"]
+
+"Either he's trying to get rid of you by setting an
+ impossible task, or he's better at this kind of stuff
+ than I am!
+
+ Perhaps you can trick him.  How about making a fake rock
+ that you can eat?"
+
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Doesn't the Church mind sorcery?"]
+[linkto="church"]
+[link="What experiments do you perform?"]
+[linkto="experiments"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yado_island"]
+
+"I believe I know the island of which you speak.  But it
+ is far distant and will take many weeks to reach by ship
+ if even you can find a captain willing to sail there.
+
+ But I think there is a better way.  In times gone by
+ there were flying boats that could encircle the world in
+ less than a day.  If you could find one of these, your
+ journey would take mere hours."
+
+[colour="#808080"]
+He drops to a whisper.
+[colour="#ffffff"]
+
+"Seek for the one who is called 'Ransome'.  I believe he
+ may be able to aid you in this."
+
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Doesn't the Church mind sorcery?"]
+[linkto="church"]
+[link="What experiments do you perform?"]
+[linkto="experiments"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare well in your travels."
+
+[nextpage="exit"]
+[endpage]

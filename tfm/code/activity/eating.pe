@@ -1,0 +1,176 @@
+############
+#          #
+#  Eating  #
+#          #
+############
+
+const WAITER_DELAY = 60		# Delay before asking for more food
+				# Balance this so everyone gets a turn
+				# Too low number and the waiter will only get
+				# to serve people close to the kitchens
+
+##
+##  Eat what's put in front of you!
+##
+
+function eat_infront
+activity
+
+object o
+
+
+# Get object in front of NPC
+
+let current = me
+call get_ahead
+get_object o at new_x new_y
+
+if_not_exists o
+	# Nothing to eat
+	return
+endif
+
+# Does it look like food?
+if o is called "food*"
+
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+	# Yes.  Eat it and set the delay.
+	let me.user.user1 = WAITER_DELAY
+	let current = o
+	call current.funcs.ucache
+	return
+endif
+
+# Is it an empty plate?
+if o is called "plate"
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+
+	# Make it into a special plate, looked for by waiters
+	change o = "plate_waiter"
+	# Make the plate mine.
+	let o.stats.owner = me
+	# Add another delay
+	let me.user.user1 = 7
+	return
+endif
+
+# Did it get smashed?
+if o is called "plate_broken"
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+
+	# Make it into a special plate, looked for by waiters
+	change o = "plate_waiter_broken"
+	# Make the plate mine.
+	let o.stats.owner = me
+	# Add another delay
+	let me.user.user1 = 7
+	return
+endif
+
+end
+
+
+##
+##  Waiter
+##
+
+function waiter_serve
+private
+object o
+
+# First priority, replace smashed plates
+find_nearest o = "plate_waiter_broken" near me
+if_exists o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does waiter_makefood to o
+	run_queue me
+	return
+endif
+
+find_nearest o = "plate_waiter" near me
+if_exists o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does waiter_makefood to o
+	run_queue me
+	return
+endif
+
+# Otherwise, wander around
+
+call loiter
+end
+
+
+
+##
+##  Find place to eat
+##
+
+function eat_at_location
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does eat_infront
+run_queue me
+
+end
+
+
+##
+##  Waiter
+##
+
+function waiter_startup
+activity
+
+if_not_exists me.target
+	BUG START
+	print "Waiter action needs a starting point|"
+	BUG END
+endif
+
+queue_action me does go_to_location to me.target
+queue_action me does waiter_serve to me.target
+run_queue me
+
+end
+
+##
+##  Waiter makes some food appear
+##
+
+function waiter_makefood
+object o
+
+# Create some food randomly
+
+if_exists me.target
+	call create_food
+	let o = current
+	# Create the food and align it with the plate
+	move_object o to me.target.x me.target.y
+	set_direction o faces me.target.curdir
+
+	# The food is mine!
+	let o.stats.owner = me.target.stats.owner
+
+	# Reset the screaming plate to a normal (non-broken) one
+	change me.target = "plate"
+
+	# Go back to loitering mode
+	resume_action me
+endif
+end
+

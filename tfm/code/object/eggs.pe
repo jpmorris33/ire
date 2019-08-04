@@ -1,0 +1,700 @@
+########################
+#                      #
+#  Eggs lay creatures  #
+#                      #
+########################
+
+const MAX_GUARDS = 1
+const MAX_MISC = 4
+int eggspawn = 0
+string NewName
+userstring robotname 11
+
+
+##
+##  Egg Check
+##
+
+function egg_check
+
+if_not_exist me.pocket
+	BUG START
+	print "Empty egg (at "
+	print me.x
+	print ","
+	print me.y
+	print ")"
+	printcr
+	BUG END
+
+	destroy me
+endif
+
+end
+
+##
+##  For patrolling creatures, we want them to be there ALWAYS, not
+##  just when the player arrives
+##
+
+function egg_patrol_init
+call egg_check
+
+# If the check failed, we have a problem
+if_not_exists me
+	return
+endif
+
+# Create the guard
+call egg_spawn_always
+
+end
+
+
+##
+##  Spawn Object
+##
+
+function egg_spawn
+
+if_onscreen me
+	return
+else
+	if me.user.user1 < me.stats.karma
+		call egg_willhatch
+		if eggspawn = 1
+			# Is the egg clear?
+			if_exists me.next
+				return
+			endif
+			if_not_exists me.pocket
+				destroy me
+				return
+			endif
+
+			let NewName = "Swanson"
+			call clone_object
+			resume_activity current
+
+			# Egg keeps track of how many creatures it has created
+			add me.user.user1 + 1
+		endif
+	endif
+endif
+
+end
+
+
+##
+##  Spawn an enemy (more likely at night)
+##
+
+function egg_spawn_enemy
+
+if_onscreen me
+	return
+else
+	if me.user.user1 < me.stats.karma
+		call egg_willhatch
+		call egg_dayhatch	# Reduce chance of daylight hatching
+		if eggspawn = 1
+			# Is the egg clear?
+			if_exists me.next
+				return
+			endif
+			if_not_exists me.pocket
+				destroy me
+				return
+			endif
+
+			let NewName = "Ernest"
+			call clone_object
+			resume_activity current
+
+			# Egg keeps track of how many creatures it has created
+			add me.user.user1 + 1
+		endif
+	endif
+endif
+
+end
+
+
+##
+##  Spawn Object
+##
+
+function egg_spawn_always
+
+if_onscreen me
+	return
+else
+	if me.user.user1 < me.stats.karma
+		# Is the egg clear?
+		if_exists me.next
+			return
+		endif
+
+		if_not_exists me.pocket
+			destroy me
+			return
+		endif
+
+		let NewName = "Ambrose"
+		call clone_object
+
+		resume_activity current
+
+		# Egg keeps track of how many creatures it has created
+		add me.user.user1 + 1
+	endif
+endif
+
+end
+
+
+##
+##  Spawn Guard
+##
+
+function egg_spawn_guards
+
+# Check there is a target
+if_not_exist suspect
+#	print "Guard Egg: NoTarget|"
+	return
+endif
+
+# Okay, are we exposed to the vulgar gaze of the public?
+if_onscreen me
+	return
+else
+	if me.user.user1 < me.stats.karma
+		call egg_willhatch
+		if eggspawn = 1
+			# Is the egg clear?
+			if_exists me.next
+				return
+			endif
+
+			if_not_exists me.pocket
+				destroy me
+				return
+			endif
+
+			let NewName = "Gerard"
+			call clone_object
+
+			# Purify the earth of crime
+			let current.enemy = suspect
+			start_activity current does "enemy_arrest" to suspect
+			# Go forth, and kill!
+			let current.user.vigilante = 1
+
+			# Egg keeps track of how many creatures it has created
+			add me.user.user1 + 1
+		endif
+	endif
+endif
+
+end
+
+
+
+##
+##  Spawn Object at night
+##
+
+function egg_night
+
+if_onscreen me
+	return
+endif
+
+# Bail out during daytime
+
+if game_hour >= 6
+and game_hour < 23
+	return
+endif
+
+
+if me.user.user1 < me.stats.karma
+#	random rnd between 0 3
+#	if rnd = 0
+		# Is the egg clear?
+		if_exists me.next
+			return
+		endif
+
+		if_not_exists me.pocket
+			destroy me
+			return
+		endif
+
+		let NewName = "Nathan"
+		call clone_object
+
+		resume_activity current
+
+		# Egg keeps track of how many creatures it has created
+		add me.user.user1 + 1
+#	endif
+endif
+
+end
+
+
+##
+##	A creature has died.  If an egg spawned it, adjust balance.
+##
+
+function egg_killed
+
+# Was it hatched from an egg?
+if_exists current.stats.owner
+	# If we haven't gone overboard (e.g. creature resurrected?)
+	if current.stats.owner.user.user1 > 0
+		# Splash one lizard
+		add current.stats.owner.user.user1 - 1
+	endif
+endif
+
+if_exists current.enemy
+	# Give experience
+	add current.enemy.user.experience + current.maxstats.hp
+/*
+	if_flag current.enemy IS_PARTY
+		print_bestname current.enemy
+		print " gains experience "
+		print current.enemy.name
+		printcr
+	endif
+*/
+endif
+
+end
+
+
+
+##
+##  Clone the various properties
+##
+
+function clone_object
+private
+
+create current = me.pocket.name
+transfer_object current to me.x me.y
+let current.stats.owner = me # I was made by this egg
+set_flag current IS_SPAWNED = 1 # I am a clone
+
+/*
+print "Creating a "
+print current.name
+print " called "
+print NewName
+print " at "
+print me.x
+print ","
+print me.y
+printcr
+*/
+
+#	start_activity new does me.pocket.activity
+copy_schedule me.pocket to current
+set_direction current faces me.curdir
+set_personalname current = me.pocket.personalname
+if current.personalname = ""
+	if_flag current IS_ROBOT
+		call name_robot
+	else
+		set_personalname current = NewName
+	endif
+endif
+
+
+
+let current.tag = me.pocket.tag
+
+copy_speech me.pocket to current
+
+set_flag current KNOW_NAME = 0 # You don't know me
+
+end
+
+
+##
+##  Dawn destroys the Children of the Night
+##
+
+function night_egg_cleanup
+private
+
+# Make sure the time is right (in case of ResumeSchedule)
+if game_hour < 6
+or game_hour > 21
+	return
+endif
+
+erase_property me
+
+let me.user.user1 = 0 # Reset creature count
+stop_action me
+end
+
+
+##
+##  Spawn Peppers (special)
+##
+
+function spawn_pepper
+activity
+object pepper
+
+# Is the egg clear?
+if_exists me.next
+	# No, don't create the pepper
+	stop_action me
+	return
+endif
+
+# Create the pepper
+create pepper = "foodp09"
+transfer_object pepper to me.x me.y
+
+# If the pepper is onscreen, make it fade in
+if_onscreen pepper
+	let current = pepper
+	call Fade_In
+endif
+
+# Set owner of the pepper to owner of the egg
+let pepper.stats.owner = me.stats.owner
+
+# Single-shot
+stop_action me
+
+end
+
+
+##
+##  Decide whether the egg should be hatched
+##
+
+function egg_willhatch
+private
+int rnd
+
+# No
+let eggspawn = 0
+
+# Throw the dice
+random rnd between 0 100
+
+# If it falls within the range
+if me.stats.str <= rnd
+	# Allow the egg to hatch
+	let eggspawn = 1
+endif
+end
+
+
+##
+##  Halve the chance of the hatching during the day
+##
+
+function egg_dayhatch
+integer rnd
+
+# Don't waste time if it isn't going to hatch
+if eggspawn = 0
+	return
+endif
+
+# If we're in the right time period (i.e. daylight)
+if game_hour >= 7
+	if game_hour < 22
+		random rnd between 0 100
+		# Reduce to a 25% chance
+		if rnd >= 25
+			# Tails you lose, cancel the hatching
+			let eggspawn = 0
+		endif
+		return
+	endif
+endif
+
+end
+
+
+##
+##  Make corpses vanish (at midnight)
+##
+
+function check_corpses
+activity
+
+centre around player # Make sure we don't skew the rot visibility
+search_world corpse_rots
+
+stop_action me
+end
+
+
+function corpse_rots
+private
+
+if_not_flag current IS_SPAWNED
+	return	# Only remove spawned corpses
+endif
+
+if_exists current.parent
+	return	# Only remove corpses in the open, not in containers
+endif
+
+if current.stats.hp > 0
+	return	# If it isn't dead, don't remove it (Guard patrols etc)
+endif
+
+if_onscreen current
+	return	# Don't vanish if can be seen
+endif
+
+#print "Garbage Collecting "
+#print current.name
+#printcr
+
+# Sub one from the number of spawned objects
+if_exists current.stats.owner
+	# Rebalance
+	add current.stats.owner.user.user1 - 1
+endif
+
+# Remove any meat
+empty current
+
+# And 'me'
+destroy current
+end
+
+
+
+
+
+
+##
+##	Summon guards to arrest/attack the suspect
+##
+##	This is different from eggs, because a single event will
+##	create a sudden burst of guards programmed to kill and later vanish
+##
+
+function summon_guards
+object_array list[20]
+integer ctr
+object cur
+
+if_not_exists suspect
+	return
+endif
+
+let cur = current
+
+# Let there be guards
+find_nearby list[1] = "SPAWN_GUARD*" near me
+for ctr = 1 to 20
+	if_exists list[ctr]
+		let current = list[ctr]
+		let victim = suspect
+		call current.funcs.ucache
+	endif
+next
+
+let current = cur
+
+end
+
+##
+##  Spawn Arrest Guard
+##
+
+function spawn_arrestguard
+object guard
+object suspector
+
+# Check there is a target
+if_not_exist suspect
+	return
+endif
+
+# Okay, are we exposed to the vulgar gaze of the public?
+if_onscreen current
+	# Yes.
+	return
+else
+	create guard = "guard_disposable"
+	set_personalname guard = "Gerard"
+	let suspector = suspect
+	transfer_object guard to current.x current.y	# Bring him hence
+	# Refer to the creating egg
+	let guard.stats.owner = current
+	set_flag guard IS_SPAWNED = 1
+
+	# Arrest the criminal
+	let guard.enemy = suspector
+	start_activity guard does "enemy_arrest" to suspector
+	let guard.user.vigilante = 1
+endif
+
+end
+
+
+##
+##  Spawn Death Guard
+##
+
+function spawn_deathguard
+object guard
+
+# Check there is a target
+if_not_exist suspect
+	return
+endif
+
+# Are we allowed any more?
+if current.user.user1 > 0
+	# No
+	return
+else
+	add current.user.user1 + 1
+endif
+
+
+# Okay, are we exposed to the vulgar gaze of the public?
+if_onscreen current
+	# Yes.
+	return
+else
+	create guard = "guard_disposable"
+	set_personalname guard = "Geoffrey"
+	transfer_object guard to current.x current.y	# Bring him hence
+	# Refer to the creating egg
+	let guard.stats.owner = current
+	set_flag guard IS_SPAWNED = 1
+
+	# Purify the earth of crime
+	let guard.enemy = suspect
+	start_activity guard does "enemy_attack" to suspect
+	let guard.user.vigilante = 1
+endif
+
+end
+
+
+##
+##  Spawn Base Guard
+##
+
+function spawn_baseguard
+object guard
+
+# Check there is a target
+if_not_exist suspect
+	return
+endif
+
+# Are we allowed any more?
+if current.user.user1 > 0
+	# No
+	return
+else
+	add current.user.user1 + 1
+endif
+
+# Okay, are we exposed to the vulgar gaze of the public?
+if_onscreen current
+	# Yes.
+	return
+else
+	create guard = "guard_panther"
+
+	set_personalname guard = "Geoffrey"
+	transfer_object guard to current.x current.y	# Bring him hence
+	let current = guard
+	call name_robot
+	# Refer to the creating egg
+	let guard.stats.owner = current
+	set_flag guard IS_SPAWNED = 1
+
+	# Purify the earth of crime
+	let guard.enemy = suspect
+	start_activity guard does "enemy_attack" to suspect
+	let guard.user.vigilante = 1
+endif
+
+end
+
+
+
+##
+##  Spawn Wolf Guard
+##
+
+function spawn_wolfguard
+object guard
+
+# Check there is a target
+if_not_exist suspect
+	return
+endif
+
+# Are we allowed any more?
+if current.user.user1 > 0
+	# No
+	return
+else
+	add current.user.user1 + 1
+endif
+
+# Okay, are we exposed to the vulgar gaze of the public?
+if_onscreen current
+	# Yes.
+	return
+else
+	create guard = "WAARG_GUARD"
+
+	set_personalname guard = "Wolf Guard"
+	transfer_object guard to current.x current.y	# Bring him hence
+	# Refer to the creating egg
+	let guard.stats.owner = current
+	set_flag guard IS_SPAWNED = 1
+
+	# Purify the earth of crime
+	let guard.enemy = suspect
+	start_activity guard does "enemy_attack" to suspect
+	let guard.user.vigilante = 1
+endif
+
+end
+
+##
+##  Create a name for a robot
+##
+
+function name_robot
+integer letter
+integer ctr
+string strname
+let robotname = "Unit 123456"
+
+for ctr = 6 to 11
+	random letter between '0' '9'
+	str_setpos robotname ctr = letter
+next ctr
+
+let strname = robotname
+set_personalname current = strname
+
+end
+

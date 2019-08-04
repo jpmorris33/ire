@@ -1,0 +1,405 @@
+O'Beth, Thane of Mordor
+
+
+[page="start"]
+[image="obeth.pcx"]
+
+"Hold, knave.  Who are you and what business do you have
+ with me?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+##	Who are you?
+##
+
+[page="who"]
+[image="obeth.pcx"]
+[learn_name]
+
+"I am O'Beth, Thane of Mordor!  All the lands between the
+ forest and the western sea are my domain.
+ 
+ You have entered my realm, and are subject to my laws."
+
+[link="Why is the land so barren?"]
+[linkto="land"]
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[link="Thane of WHERE?"]
+[linkto="mordor"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+##
+##  Discussion about Mordor
+##
+
+
+[page="land"]
+[image="obeth.pcx"]
+
+"Four score and ten years ago, the LORD placed a curse
+ upon this land, and it remains barren unto this day.
+ 
+ It was referred to by many as 'Mordor' referring to the
+ fabled land of darkness and evil.  That name has stuck.
+ 
+ But soon I shall rule over more pleasant lands."
+
+[link="Rule over more pleasant lands?"]
+[linkto="soon"]
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="mordor"]
+[image="obeth.pcx"]
+
+[colour="#808080"]
+He chuckles slightly.
+[colour="#ffffff"]
+
+"My domain is officially known as the Northlands but
+ after the land was made barren by the LORD, it became
+ known in jest as Mordor, after the fabled land of
+ darkness and evil.  That name has stuck.
+ 
+ How I long to rule over more pleasant lands.."
+
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+##  Usurpation
+##
+
+[page="badland"]
+[set_obethplot]
+[image="obeth.pcx"]
+
+[colour="#808080"]He smiles grimly.
+[colour="#ffffff"]
+
+"This dark and barren land is the least favourite place
+ of all the King's realm.  He was in need of someone to
+ rule this dread place on his behalf.
+ 
+ I am quite sure that the King longed to be rid of me.
+ No doubt it pleased him that the one problem should
+ solve the other..  But not for long.
+
+ Soon, I shall march against King Duncan the Foolish and
+ usurp his throne!  With the King dead, I shall take the
+ Golden Round for my own, and all Scotia shall be mine.."
+
+[link="Why are you telling me this?"]
+[linkto="whytell"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="soon"]
+[set_obethplot]
+[image="obeth.pcx"]
+
+"Soon I shall march against King Duncan the Foolish and
+ usurp his throne!  With the King dead, I shall take the
+ Golden Round for my own, and all Scotia shall be mine!"
+
+[link="Why are you telling me this?"]
+[linkto="whytell"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="whytell"]
+[set_obethplot]
+[image="obeth.pcx"]
+
+"Why not?  I am immortal!  None can stop me, for it was
+ told to me that I shall become King.
+
+ Three weird sisters gave prophecy, and their outrageous
+ claims became true, one by one.
+ 
+ Even if you were to tell the dotard King, it means
+ naught.. for the King already knows the days of his
+ reign are numbered!
+
+ I am destined to rule and no mere mortal can stop this
+ prophecy."
+
+[link="The King already knows?"]
+[linkto="king"]
+[link="Tell me about the prophecies."]
+[linkto="prophecies"]
+[link="Where may I find the weird sisters?"]
+[linkto="witches"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="prophecies"]
+[image="obeth.pcx"]
+
+"I have written them down, they are in my study.
+ You may read the journal if you wish."
+
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="witches"]
+[image="obeth.pcx"]
+
+"The witches live far north of my home.  Seek a cave in
+ near the mountains, with an apple tree beside it."
+
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross"]
+[image="obeth.pcx"]
+
+"Ross?  He was sent away on a quest by King Duncan, to a
+ castle on an island in the far northwest peninsula.
+
+ His errand was to slay the dragon which has taken
+ residence in those derelict halls, and to rescue the
+ fair maiden held captive there.
+ It was all arranged by some witch if memory serves.
+
+ I have heard nothing of him since, so I presume he is
+ now dead.  He always was a bumbling fool."
+
+[link="Tell me about the fair maiden."]
+[linkto="ross2m"]
+[link="Tell me about the dragon."]
+[linkto="ross2d"]
+[link="Tell me about the witch."]
+[linkto="ross2w"]
+[link="Tell me about the castle."]
+[linkto="ross2c"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross2m"]
+[image="obeth.pcx"]
+
+"Some nobleman's daughter, I think.  He managed to annoy
+ a witch and as usual she plotted some elaborate kind of
+ revenge."
+
+[link="Tell me about the dragon."]
+[linkto="ross2d"]
+[link="Tell me about the witch."]
+[linkto="ross2w"]
+[link="Tell me about the castle."]
+[linkto="ross2c"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross2d"]
+[image="obeth.pcx"]
+
+"I do not know much about it.  They say it is an ancient
+ beast that breathes fire and eats men.
+
+ The King sends men on occasion to assail the dragon,
+ though I can hardly see why.  It lives upon an island
+ and rarely bothers us.
+
+ My belief is that the King sends men who have displeased
+ him, so that it will kill them."
+
+[link="Tell me about the fair maiden."]
+[linkto="ross2m"]
+[link="Tell me about the witch."]
+[linkto="ross2w"]
+[link="Tell me about the castle."]
+[linkto="ross2c"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross2w"]
+[image="obeth.pcx"]
+
+"There's not much to tell.  She was a witch, a mad old
+ woman who worked foul magic in the name of the Devil.
+
+ The judges hanged her and burnt what was left."
+
+[link="Tell me about the fair maiden."]
+[linkto="ross2m"]
+[link="Tell me about the dragon."]
+[linkto="ross2d"]
+[link="Tell me about the castle."]
+[linkto="ross2c"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross2c"]
+[image="obeth.pcx"]
+
+"The castle is a large building on an island to the
+ northwest.  There is a wooden bridge to the island, and
+ it is guarded by the dragon I have mentioned before.
+
+ Since the dragon has slain most of the men the King sent
+ to assail it, little is known of what lies inside.
+
+ Why?  Did you want to go there?"
+
+[link="I might check it out."]
+[linkto="ross3"]
+[link="I need to find Ross."]
+[linkto="ross3r"]
+[link="No.  I was just curious."]
+[linkto="ross3n"]
+[link="Tell me about the fair maiden."]
+[linkto="ross2m"]
+[link="Tell me about the dragon."]
+[linkto="ross2d"]
+[link="Tell me about the witch."]
+[linkto="ross2w"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross3"]
+[image="obeth.pcx"]
+
+"I have no objection to your visiting the castle, but the
+ dragon might.  If you decide to go, expect not to return
+ alive."
+
+[link="I need to find Ross."]
+[linkto="ross3r"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross3r"]
+[image="obeth.pcx"]
+
+"I can't think why.. the man is a fool.
+
+ I have no objection to your visiting the castle, but
+ do not expect to return alive."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="ross3n"]
+[image="obeth.pcx"]
+
+"Probably a wise decision.  The dragon may not allow you
+ to return alive, or indeed, dead."
+
+[link="I need to find Ross."]
+[linkto="ross3r"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="king"]
+[image="obeth.pcx"]
+
+"Aye, indeed.  King Duncan quakes in his boots at the
+ sure knowledge of my conquest.  Yet he is not idle, for
+ he has already sent men to poison me.
+
+ Indeed, my Lady and manservant live only for she has a
+ ring bejewelled with todestone, that glows in presence
+ of poisons.  Thus were they warned.
+
+ Of course, the poison cannot harm ME."
+
+[nextpage="king2"]
+[endpage]
+
+
+[page="king2"]
+[image="obeth.pcx"]
+
+"When this treachery failed, the King's attempts did
+ become more direct.
+
+ Why barely a moon ago, five men with swords burst into
+ the house and clove my skull.
+ Fortunately the wound healed as the blade passed
+ through, yet it were days afore I could remember my
+ Lady's name.
+
+ I know not what happened to these men, but my Lady tells
+ that they were smitten by lightning, inside the house!"
+
+[link="Tell me about the prophecies"]
+[linkto="prophecies"]
+[link="Where may I find the weird sisters?"]
+[linkto="witches"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="obeth.pcx"]
+
+"You may go."
+
+[nextpage="exit"]
+[endpage]

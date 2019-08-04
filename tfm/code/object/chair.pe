@@ -1,0 +1,151 @@
+########################
+#                      #
+#  Chair-related code  #
+#                      #
+########################
+
+##
+##	Rotate the chair
+##
+
+function use_chair
+call rotate_l
+end
+
+##
+##	Perch for birds
+##
+
+function sit_down_bird
+
+if_not_exists me
+	return
+endif
+
+if_not_exists current
+	return
+endif
+
+if me.label.race = "bird"
+
+	# Stop flying first
+	call hawk_stopflying
+
+	# Move the bird onto the perch
+	transfer_object me to current.x current.y
+	set_direction me facing current.curdir
+	return
+endif
+
+if me = player
+	print "This perch is strictly for the birds."
+	printcr
+endif
+
+end
+
+
+
+#
+#	Flushing things down the toilet
+#	(destroys objects, moves people, party)
+#
+
+function flush_bog
+
+object bog
+object dest
+
+integer t
+integer flushus
+
+if me <> player
+	object_sound "bogflush" current
+	return
+endif
+
+let bog = current
+print "Use bog with "
+redraw_text
+
+# We're oriented around the toilet
+
+call get_near
+
+if_exists current
+	print current.shortdesc
+	printcr
+	
+	if_flag current IS_PERSON
+		let t = bog.tag
+		let bog.tag = 0
+		find_tag dest = "" t
+		let bog.tag = t
+		if t = 0
+		    let dest = null
+		endif
+
+		if_not_flag current IS_PARTY
+			print "~AAAAAAAAAAAAAAAAH!~"
+			printcr
+			let suspect = player
+			let victim = current
+			call justice_assault
+			if_not_exist dest
+			        print "~NOW YOU DIE!~"
+				printcr
+			endif
+		endif
+		
+		if_exists dest
+			transfer_object current to dest.x dest.y
+		endif
+		
+		if current = player
+			let flushus = 1
+		endif
+	else
+		if_not_flag current IS_FIXED
+			transfer_to_pocket current to bog
+			print "You flush it down the toilet"
+			printcr
+		endif
+	endif
+else
+	print "nothing"
+	printcr
+endif
+
+if flushus
+	play_sound "bogflush"
+	wait 250 BLOCKING
+else
+	object_sound "bogflush" bog
+	wait 250 BLOCKING
+endif
+
+end
+
+
+##
+##  Chair callback for the Throne
+##
+
+function edwygs_throne
+integer flag
+
+call sit_down_human
+if victim = player
+	get_user_flag flag = "usurp_edwyg"
+	if flag
+		# Player takes the Golden Round for his own
+		call endgame_usurper
+	else
+		# Player has just committed treason
+		let current = player
+		call justice_treason
+		return
+	endif
+endif
+
+end

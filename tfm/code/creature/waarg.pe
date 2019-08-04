@@ -1,0 +1,132 @@
+#
+# Waarg code : for the Waargs
+#
+
+#
+# Action
+#
+
+
+#
+# Hurt
+#
+
+function waarg_hurt
+
+# Say 'uh!'
+
+object_sound "uh!" current
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+if_not_flag current IS_PARTY
+	if_exist current.enemy
+		if_flag current.enemy IS_PERSON
+#			call drive_away
+			let victim = current
+			let suspect = victim.enemy
+			call justice_assault
+		endif
+	endif
+endif
+
+end
+
+
+function waarg_king_hurt
+
+# Say 'uh!'
+
+object_sound "uh!" current
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+
+if_not_flag current IS_PARTY
+	if_exist current.enemy
+		if_flag current.enemy IS_PERSON
+			call justice_Htreason
+		endif
+	endif
+endif
+
+end
+
+#
+# Dies
+#
+
+function waarg_dies
+
+change current = "waarg_male_dead"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 20
+endif
+
+call egg_killed
+call make_blood
+end
+
+
+function waarg_king_dies
+
+# The King is dead!!
+
+change current = "WAARG_KING_DEAD"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 60
+endif
+
+# The King's dead, now you're totally and utterly ffffed
+set_user_flag "warg_regicide" = 1
+
+# If the attacker is an intelligent creature
+
+/*
+if_not_flag current IS_PARTY
+	if_exist current.enemy
+		if_flag current.enemy IS_PERSON
+			call justice_HTreason
+		endif
+	endif
+endif
+*/
+
+call make_blood
+end
+
+##
+## Horrified
+##
+
+function waarg_horror
+integer regicide
+
+# Seen a dead body
+if current is called "WAARG_KING_DEAD"
+	let victim = current
+#	set_flag victim IS_HORRIBLE = 0  # NO Double-jeopardy for the King
+	let suspect = victim.enemy
+	call justice_htreason
+endif
+
+# Seen the player who murdered the King
+if current is called "player*"
+	get_user_flag regicide = "regicide"
+	if regicide
+		let suspect = current
+		call justice_regicide
+	endif
+endif
+
+end

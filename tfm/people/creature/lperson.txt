@@ -1,0 +1,86 @@
+[page="start"]
+
+[colour="#808080"]
+You see a little man dressed in green.  He speaks with an
+Irish accent.
+[colour="#ffffff"]
+
+"What's you looking for?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[if scott_curse][link="Did you curse Scott's hawks?"]
+[if scott_curse][linkto="curse"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+
+"I am one O' the Little People.  We is here to annoy the
+ Big folks."
+
+[link="What do you do?"]
+[linkto="job"]
+[if scott_curse][link="I understand you cursed Scott's hawks."]
+[if scott_curse][linkto="curse"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"Oh, this 'n' that.  We curse the Big People's cattle an'
+ stuff.  Eat their fowls, and curdle their milk."
+
+[if scott_curse][link="I understand you cursed Scott's hawks."]
+[if scott_curse][linkto="curse"]
+[link="Who are you?"]
+[linkto="name"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="curse"]
+
+"Aye, that I did.  I was so hungry I could eat a whore,
+ and not one scrap O' hawk would he gi'e me.
+
+ So I cursed 'em all.  And the curse will never be lifted
+ for as long as I live!"
+
+[link="I will kill you then."]
+[linkto="kill"]
+[link="Oh, right. Goodbye then."]
+[linkto="bye"]
+[endpage]
+
+
+[page="kill"]
+
+"No.. I will kill YOU!
+
+ Die, big person!"
+
+[at_exit_call="attack_party"]
+[nextpage="fakeexit"]
+[endpage]
+
+Fake exit page, so we get an arrow instead of a tick
+
+[page="fakeexit"]
+[goto="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Aye, get you gone, big person."
+
+[nextpage="exit"]
+[endpage]

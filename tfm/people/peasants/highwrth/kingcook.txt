@@ -1,0 +1,185 @@
+
+Darrell, the king's Chef
+
+[page="start"]
+
+"Hello, friend."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see $NAME, the King's Cook.
+[colour="#ffffff"]
+
+"Yes, my friend?"
+
+[link="What do you do?"]
+[linkto="job"]
+
+[am_carrying food08]
+[if true][if_pflag find_fish][link="I have a fish for you."]
+[if true][if_pflag find_fish][linkto="sell_fish"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am Darrell, royal chef to His Majesty King Edwyg the
+ Generous."
+
+[link="Tell me about the King."]
+[linkto="king"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I prepare food the King and his court.
+
+ Of late, this has become somewhat more difficult to
+ achieve, for the lack of flour and now a dearth of
+ fresh fish."
+
+[link="Tell me about the flour problem."]
+[linkto="flour"]
+[link="Tell me about the fish problem."]
+[linkto="fish"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="flour"]
+
+"One of our mills has been destroyed in the LORD's anger,
+ or so I have heard.  The men who ran it were sinners and
+ worshippers of Demons."
+
+[colour="#808080"]
+He crosses himself.
+[colour="#ffffff"]
+
+"Because of this, flour is in short supply, although
+ grain is abundant.  If by chance you could fetch me
+ some flour, I shall pay you well."
+
+[set_pflag find_flour]
+
+[link="Tell me about the fish problem."]
+[linkto="fish"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fish"]
+
+"There is but one fisherman in New Albion, and his mind
+ has been clouded by the LORD.
+
+ In days past I was able to purchase fresh fish from him
+ at any time of year.  Now, it is difficult to speak with
+ him at all.  I am forced to buy fish from travelling
+ merchants of Scotia when they arrive, which is rare.
+
+ I have not the time to seek them out myself.
+ If however, you should find yourself in such lands, I
+ would pay you well for any fish you could bring me."
+
+[set_pflag find_fish]
+
+[link="Tell me about the flour problem."]
+[linkto="flour"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+
+"He is a just and wise ruler, much loved by the people,
+ although he does not always see eye-to-eye with the
+ Church."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"May the LORD be with you."
+
+[nextpage="exit"]
+[endpage]
+
+Currently assumes he'll pay 3 gold per fish, this is set in speech/misc.pe
+
+[page="sell_fish"]
+[call="count_fish"]
+
+"For those fish I would give you $USERNUM1 gold coins.
+ Do you wish to sell them?"
+
+[link="Yes."]
+[linkto="sell_fish2"]
+[always]
+[link="No."]
+[linkto="sell_fish3"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_fish2"]
+[call="sell_all_fish"]
+[create $USERNUM1 "gold_coins"]
+[call="money_sound"]
+"Thankyou, good $Sir!"
+
+[link="Tell me more of your job."]
+[linkto="job"]
+[link="Tell me more of your King."]
+[linkto="king"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_fish3"]
+
+"Very well, friend.  I will likely have need of them still
+ if you should change your mind."
+
+[link="Tell me about the flour problem."]
+[linkto="flour"]
+[link="Tell me about the King."]
+[linkto="king"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]

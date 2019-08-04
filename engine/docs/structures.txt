@@ -1,0 +1,255 @@
+Structures available to the script language
+===========================================
+
+
+Object properties
+-----------------
+
+object.name				String, name of the object type, e.g. "SPELLBOOK"
+object.flags				Bitfield.  See FLAGS section below
+object.w				Width of the object in pixels		
+object.h				Height of the object in pixels
+object.mw				Width in map tiles
+object.mh				Height in map tiles
+object.x				X position in map tiles.  DO NOT CHANGE THIS.  Use move_object etc. instead
+object.y				Y position in map tiles.  DO NOT CHANGE THIS.
+object.z				Not used
+object.personalname			String, this is the character's name, e.g. "John the wanderer"
+object.schedule				Used internally
+object.form				Used internally
+object.sptr				Used internally
+object.sdir				Used internally
+object.curdir				Current direction the object is facing.  Don't change it manually - see set_direction
+object.desc				String, long description of the object, e.g. "You see a small crucifix."
+object.shortdesc			String, one-word description of the object, e.g. "crucifix"
+object.target				Object, target of an attack or other action
+object.tag				A numeric ID, usually set by the editor
+object.activity				Used internally
+object.light				Light level.  -1 is darkness, 0 is neutral, +1 is glowing
+object.enemy				Object, typically the person who just attacked you
+object.pocket				Object, points to a list of objects inside your backpack
+object.parent				Object, the container which the object is inside, or NULL
+object.next				Object, next one in the Z-order list for the given tile, or the next one in the bag
+
+OBJECT.STATS
+------------
+
+These are mostly integers.  'dex' and 'dexterity' etc are aliases and share the same value.
+
+object.stats.hp				If you change this, you may need to call 'check_hurt' afterwards.
+object.stats.dex
+object.stats.dexterity
+object.stats.str
+object.stats.strength
+object.stats.str
+object.stats.strength
+object.stats.intel
+object.stats.intelligence
+object.stats.weight			Weight, nominally in grams
+object.stats.quantity			Number of items in the stack
+object.stats.npcflags			Bitfield.  See the NPCFLAGS section below
+object.stats.damage			Damage done as a weapon or attack
+object.stats.owner			Object: owner of the current object
+object.stats.karma
+object.stats.bulk
+object.stats.range
+object.stats.level
+object.stats.align
+object.stats.alignment
+
+OBJECT.MAXSTATS
+------------
+
+object.maxstats.*			Same as 'stats', but contains the maximum values for this object
+
+OBJECT.FUNCS
+------------
+
+object.funcs.use			String: Function called when an object is used
+object.funcs.ucache			Integer value of same
+object.funcs.talk
+object.funcs.tcache
+object.funcs.kill
+object.funcs.kcache
+object.funcs.look
+object.funcs.lcache
+object.funcs.stand
+object.funcs.scache
+object.funcs.hurt
+object.funcs.hcache
+object.funcs.init
+object.funcs.icache
+object.funcs.wield
+object.funcs.wcache
+object.funcs.resurrect			String: Name of the object to resurrect as, not a function name
+object.funcs.attack			String: Attack function (used by combat code)
+object.funcs.acache
+object.funcs.get			String: Used if an object is taken, this can be used for traps etc.  Not called by engine itself
+object.funcs.gcache
+object.funcs.user1			String: Free text string, often the name of a function or object
+object.funcs.user2			String: free text string
+
+OBJECT.USER
+-----------
+
+Except where specified, these are all integers.  'User' is basically a collection of state data that is used
+while the game is running.  It is initialised to zero by default.
+
+object.user.user0
+object.user.user1
+object.user.user2
+object.user.user3
+object.user.user4
+object.user.user5
+object.user.user6
+object.user.user7
+object.user.user8
+object.user.user9
+object.user.user10
+object.user.user11
+object.user.user12
+object.user.user13
+object.user.user14
+object.user.user15
+object.user.user16
+object.user.user17
+object.user.user18
+object.user.user19			TFM uses this for crimes
+object.user.poison			Amount of poison in the character
+object.user.unconscious			How unconscious they are, 0 is awake
+object.user.potion0			Potion value
+object.user.potion1
+object.user.potion2
+object.user.potion3
+object.user.potion4
+object.user.potion5
+object.user.potion6
+object.user.potion7
+object.user.potion8
+object.user.potion9
+object.user.dx				Used internally, don't touch
+object.user.dy				Used internally, don't touch
+object.user.vigilante			Used by scripts to determine if someone is licensed to kill
+object.user.counter			Countdown timer used by scripts
+object.user.experience			Experience points
+object.user.magic			Magic points
+object.user.oldhp			Used internally.
+object.user.pathgoal			Object, destination used by pathfinder
+object.user.timeout			Timeout counter used by pathfinder
+
+WIELD
+-----
+These are all objects, representing an item that the character is wearing.
+
+object.wield.head
+object.wield.neck
+object.wield.body
+object.wield.legs
+object.wield.feet
+object.wield.arms
+object.wield.l_hand
+object.wield.r_hand
+object.wield.l_finger
+object.wield.r_finger
+object.wield.spare1
+object.wield.spare2
+object.wield.spare3
+object.wield.spare4
+
+OBJECT.LABEL
+------------
+
+These are strings which can be set in the resource file, or editor in the case of 'location'.
+
+object.label.rank			Used by the TFM scripts for various stuff
+object.label.race			Used by the TFM scripts
+object.label.party			Basically a faction.  St. Francis and his animals all have this as "SFRANCIS"
+object.label.location			Set in the editor, used the pathfinder to denote a particular region, e.g. "CHURCH"
+
+
+TILE
+----
+
+tile.name				String, name of the tile, e.g. "GRASS00"
+tile.flags				Bitfield, see FLAGS
+tile.form				Used internally
+tile.seqname				String, name of the animation sequence
+tile.sptr				Used internally
+tile.slen				Used internally
+tile.sdir				Used internally
+tile.tick				Animation timer, used internally
+tile.sdx				Scrolling vector, horizontal
+tile.sdy				Scrolling vector, vertical
+tile.sx					Scrolling postition, used internally
+tile.sy					Scrolling postition, used internally
+tile.desc				String, long description, e.g. "You see some grass"
+
+
+
+DIRECTIONS
+==========
+
+UP / NORTH				0
+DOWN / SOUTH				1
+LEFT / EAST				2
+RIGHT / WEST				3
+
+
+
+FLAGS
+=====
+
+
+IS_ON					Active?
+CAN_OPEN				Can this obstruction be cleared?
+IS_WINDOW				Is it a window?
+IS_SOLID				Is it solid to people?
+IS_FRAGILE				Will it break if dropped?
+IS_TRIGGER				Is it a trigger?
+IS_INVISIBLE				Only appears in the editor?
+IS_PARTY				Party members aren't always considered solid
+IS_FIXED				Is it nailed to the ground?
+IS_CONTAINER				Is it a container?
+IS_TRANSLUCENT				Is it translucent?
+IS_LARGE				Bigger than one tile?
+IS_SPIKEPROOF				Doesn't set off triggers
+CAN_WIELD				Can it be wielded?
+DID_STEPUPDATE				Was just updated (Used internally)
+DID_SETSEQUENCE				Has setsequence just been used?  (Used internally)
+DOES_BLOCKLIGHT				Does it block light?
+IS_TABLETOP				Can you drop things on it even though it's solid?
+DID_INIT				Have we run the INIT code? - Used internally
+DID_UPDATE				Have we just moved (avoids runaway) - Used internally
+IS_PERSON				Is it sentient?
+IS_HORRIBLE / IS_HORROR / IS_SHOCKING	Will the very sight of it upset NPCs?
+IS_QUANTITY				Is it stackable?
+IS_BOAT					Can it travel on water, or is some kind of bridge over water?
+IS_WATER				Is it water?
+IS_SHADOW				Is it just a dark patch?
+IS_DECOR				Is it a special decorative object?
+IS_SYSTEM				Hidden from player (markers triggers etc)
+IS_NPCFLAG				Used internally, do not set
+
+IS_INVISSHADOW				IS_SHADOW+IS_INVISIBLE
+
+
+
+NPCFLAGS
+========
+
+IS_FEMALE				If set, the characer is female, otherwise male
+KNOW_NAME				If set, the player knows this NPCs name
+IS_HERO					If set, the character is the hero of the game
+CANT_EAT / CANT_DRINK			If set, the character cannot eat or drink, typically means they're a robot
+IS_CRITICAL				If set, the character is critically wounded and will ignore their schedule etc
+NOT_CLOSE_DOOR / NOT_CLOSE_DOORS	If set, the character does not close doors when they go through them
+IS_SYMLINK				If set, the character is part of a group mind
+IS_BIOLOGICAL				If set, the character is flesh and blood, "Update_life" will be called each turn
+IS_GUARD				If set, the character is a guard and may arrest you
+IS_SPAWNED				If set, the character was created during the game
+NOT_OPEN_DOOR / NOT_OPEN_DOORS		If set, the character cannot open doors (typically for animals)
+IN_BED					If set, the character is currently in bed
+NO_SCHEDULE				If set, the character's schedule will be ignored
+IS_OVERDUE				If set, the character is late on their schedule and may teleport
+IS_WIELDED				If set, the object is currently being wielded (we were running out of main flags!)
+IS_ROBOT				If set, the character is robotic, "Update_robot" will be called each turn

@@ -1,0 +1,37 @@
+[page="start1"]
+[backing="paper.pcx"]
+[font 3]
+
+     use vulgar persons
+
+  take pleasure from their defects
+
+[nextpage="exit"]
+[endpage]
+
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+     the terrible poison that gives purification
+
+   the best weapon for destroying the enemy
+
+     use humble persons, base and ugly, take pleasure from
+      their defect
+
+              they must not die
+
+ not in the houses of the noble and the powerful but from the
+  peasant villages, after abundant meal and libations
+
+   squat bodies, deformed faces
+
+           the venerable figs
+
+    the shameless stone rolls over the plain
+
+        before the eyes    
+
+[nextpage="exit"]
+[endpage]

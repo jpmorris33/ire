@@ -1,0 +1,207 @@
+
+Fatso
+
+[page="start"]
+
+[colour="#808080"]
+You see an obscenely bloated dwarf, singing in a deep 
+bass voice.
+[colour="#ffffff"]
+
+"Badop-adada-dop-dop-dodop, Badop-adada-dop-dop-dodop..
+
+ Aw nuts.  Whadda ya want?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Fatso, one of the Seven Dwarves.
+[colour="#ffffff"]
+
+"Badop-adada-dop-dop-dodop, Badop-adada-dop-dop-dodop..
+
+ What is it now?"
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+[set dwarves]
+
+"They call me 'Fatso'.  I'm one of the Seven Dwarves."
+
+[colour="#808080"]
+He pats his enormous belly.  It wobbles.
+[colour="#ffffff"]
+
+[link="How did you get so fat?"]
+[linkto="fat"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fat"]
+
+"That's the Power.. of Lard!"
+
+[link="What's your job?"]
+[linkto="job"]
+[link="What were you singing just now?"]
+[linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[set dwarves]
+
+"We're the seven dwarves.  We mine things."
+
+[link="What are you mining for?"]
+[linkto="job2"]
+[link="What were you singing just now?"]
+[linkto="singing"]
+[link="Tell me about Snow White."]
+[linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job2"]
+
+"We've just struck a rich vein of Lard!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="You cannot mine Lard."]
+[linkto="job3"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job3"]
+[colour="#808080"]
+He looks away.
+[colour="#ffffff"]
+
+"Ask Sleazy about that."
+
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="singing"]
+
+"'After The Flesh' by My-Life-With-The-Thrill-Kill-Cult.
+  We always sing it while we're working.
+
+ I used to use a Sequential Pro-One for the bassline, but
+ the LORD tried to take it away so we buried it.
+
+ Now I have to sing the bassline.
+ Ugly sings the vocals.  Dopey sings the guitar parts,
+ and Girly and Sleazy chant the samples.  Surly sings
+ the drum parts.  Stupid isn't allowed to sing."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite"]
+
+"Oh, she was a sporty little girl who ran away from home
+ and turned up here.  We decided to take care of her, and
+ in exchange she helped us by washing our clothes and
+ cooking our food.
+
+ It's too bad she's dead now.  We have to take it in
+ turns to cook, and someone has to watch Dopey when it's
+ his turn to make sure he doesn't try to "pep it up".
+
+ Yeah, it was just too bad.  Some evil witch turned up
+ and gave her some poisoned fruit.
+
+ But I believe that she is not dead, only sleeping, and
+ that someday she will return to lead us to glory!
+
+ Wait, I may be thinking of Jesus instead.  Or Cthulhu.."
+
+[link="But she's a dog, though."]
+[linkto="snowwhite2"]
+[link="Oh, right.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite2"]
+
+"Oh?  I thought she had a nice ass, myself."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you doing just now?"]
+[if dwarves][linkto="singing"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"See ya around."
+
+[nextpage="exit"]
+[endpage]

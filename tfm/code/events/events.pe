@@ -1,0 +1,738 @@
+#########################
+#                       #
+#  Various plot events  #
+#                       #
+#########################
+
+# See also:
+# 	randolph.pe - Harrier subplot and treasure island transfer
+
+
+##
+##	Enter a phone dialog (usually with Ransome)
+##
+
+function phone_trigger_once
+int f
+object conversation
+
+let conversation = me
+# If it's already been triggered, ignore it.
+get_user_flag f = conversation.personalname
+
+if f = 0
+	# Okay.  Do we actually have the phone?
+	let found_obj = 0
+	search_inside player calling look_for_phone
+
+	if found_obj = 0
+		return		# No.  don't take the call.
+	endif
+
+	# Okay, do the thing
+	let current = conversation
+	talk_to current.funcs.talk current.personalname
+	# Disable it.
+	set_user_flag current.personalname = 1
+endif
+
+end
+
+##
+##	Open the drawbridge to the King's castle
+##
+
+function plot_opendrawbridge-edwyg
+object temp
+integer flag
+
+get_user_flag flag = "open_castle_edwyg"
+
+if flag = 0
+	set_user_flag "open_castle_edwyg" = 1
+
+	# Find the lever and pull it
+	find_tag temp = "lever" 21
+	if_exists temp
+		let current = temp
+		call current.funcs.use
+	else
+		print "Can't find drawbridge!|"
+	endif
+endif
+
+end
+
+##
+##  Start the cow attack
+##
+
+function plot_cowattack
+
+object cow
+integer cowdead
+
+get_user_flag cowdead = "cow_dead"
+if cowdead <> 0
+	# The cow's dead
+	return
+endif
+
+
+find_tag cow = "cow_thecow" 0
+#let cow = current.stats.owner
+if_not_exists cow
+	print "No cow|"
+	return # Oops
+endif
+
+# Bring On The Cow
+if_not_onscreen cow
+	if_exists current.stats.owner
+		transfer_object cow to current.stats.owner.x current.stats.owner.y
+		# Wabbit coming!
+	endif
+endif
+
+play_sound "cow_thecow_moo"
+
+# Cow, your task is to destroy all who enter here
+start_action cow does enemy_attack to victim
+
+if victim = player
+	set_user_flag "met_thecow" = 1
+endif
+
+end
+
+##
+##  Is the door to Bedevere's cell in place?
+##
+
+function plot_breakoutbedevere
+object o
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+# Does the door exist?
+find_tag o = "stonedoor5_lock" 60002
+if_not_exists o
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+	return
+endif
+
+end
+
+##
+##  Destroy Bedevere (the new one will be created in mordor)
+##
+
+function plot_breakoutbedevere2
+destroy current
+set_user_flag "broke_out_bedevere" = 1
+end
+
+
+##
+##  Activate new Bedevere in Mordor
+##
+
+function plot_newbedevere
+
+integer i
+
+get_user_flag i = "broke_out_bedevere"
+if i = 0
+	# Player hasn't freed him
+	return
+endif
+
+# Transfer Bedevere and all his personal effects to the workshop
+move_tag -24 to -30 490
+
+# And destroy the trigger so it doesn't happen twice and throw him into the sea
+destroy current
+
+end
+
+
+##
+##  Temporary Ya'Do stuff
+##
+
+function yado_teleport_package
+object telep
+
+find_tag telep = "teleporter0_off" 33
+if_exists telep
+	replace telep = "teleporter0"
+endif
+
+end
+
+
+
+##
+##  Confronting Darett
+##
+
+function trap_darett
+object o
+int f
+
+if_not_exists current
+	# Shit
+	return
+endif
+
+# Get the trap's owner, Darett.  Does he exist?
+let o = current.stats.owner
+if_not_exists o
+	return
+endif
+
+# Is he dead?
+if o.stats.hp < 1
+	return
+endif
+
+# If it's already been triggered, ignore it.
+get_user_flag f = "darett_attack"
+
+if f = 0
+	queue_action o does seek_target_talk
+	run_queue o
+#	talk_to o.funcs.talk
+else
+	# Start killing
+	let me = o
+	let current = o
+	call attack_party
+endif
+
+end
+
+
+
+##
+##	Saxiis doorbell scene
+##
+
+function plot_doorbell_saxiis
+object saxiis
+object doortarget
+object switch
+
+object_sound "doorbell" me
+find_tag saxiis = "dragon_naked" 6
+
+# She is around, yeah?
+if_not_exists saxiis
+	# Oh my Lord, Kyle!  Did you just throw doodoo at Eric?
+#	print "No dragon|"
+	print "~There's no reply.~"
+	printcr
+	return
+endif
+
+# Saxiis is wounded or dead, the player can go bend
+if saxiis.stats.hp < 3
+	print "~There's no reply.~"
+	printcr
+	return
+endif
+
+# Make sure we've got the door target
+find_tag doortarget = "target" 7
+if_not_exists doortarget
+	print "No doortarget|"
+	return
+endif
+
+# And the lever
+find_tag switch = "lever" 5
+if_not_exists switch
+	print "No lever|"
+	return
+endif
+
+# Set the behaviour
+set_flag saxiis NO_SCHEDULE = 1
+queue_action saxiis does seek_target_use_resume to doortarget
+queue_action saxiis does saxiis_answer_door to switch
+run_queue saxiis
+
+end
+
+
+##
+##
+##
+
+function saxiis_answer_door
+activity
+integer i
+
+centre me
+
+if_not_onscreen player
+	centre player
+	return
+endif
+
+centre player
+
+let current = me
+set_user_flag "Saxiis_allow_in" = 0
+talk_to me.funcs.talk "doorbell"
+
+get_user_flag i = "Saxiis_allow_in"
+if i = 1
+	# Open the door
+	let current = me.target
+	call current.funcs.use
+endif
+
+# Reset activity schedule
+set_flag me NO_SCHEDULE = 0 # Resume our normal program
+stop_action me
+resume_action me
+
+end
+
+
+
+
+##
+##	Talk to the trap owner
+##
+
+function talk_to_owner
+object conversation
+
+let conversation = me.stats.owner
+
+# Is the owner OK?
+
+if_not_exists conversation
+	return
+endif
+
+if conversation.stats.hp < 1
+	return
+endif
+
+# Okay, do the thing
+let current = conversation
+talk_to conversation.funcs.talk
+#talk_to conversation.funcs.talk current.personalname
+
+end
+
+##
+##  The lost princes of Agnar
+##
+
+function agnar_mainprince
+object dest
+object prince
+
+set_user_flag "agnar_running" = 1
+
+find_tag prince = "prince" 13
+find_tag dest = "target" 13
+
+if_exists prince
+	start_action prince does seek_target to dest
+else
+	print "Can't find Prince|"
+endif
+end
+
+##
+##  The bizarre events of Agnar reach their catastrophic peak
+##
+
+function agnar_princes
+object prince1
+object prince2
+object prince3
+object prince4
+object prince5
+object ptrap2
+object ptrap3
+object ptrap4
+object ptrap5
+
+# Find the princes
+find_tag prince1 = "prince" 13
+find_tag prince2 = "prince" 14
+find_tag prince3 = "prince" 15
+find_tag prince4 = "prince" 16
+find_tag prince5 = "prince" 17
+
+# Find their places
+find_tag ptrap2 = "target" 14
+find_tag ptrap3 = "target" 15
+find_tag ptrap4 = "target" 16
+find_tag ptrap5 = "target" 17
+
+# Move them into place
+transfer_object prince2 to ptrap2.x ptrap2.y
+transfer_object prince3 to ptrap3.x ptrap3.y
+transfer_object prince4 to ptrap4.x ptrap4.y
+transfer_object prince5 to ptrap5.x ptrap5.y
+
+# Give them their orders
+queue_action prince2 does enemy_attack to prince1
+queue_action prince2 does enemy_attack to prince3
+queue_action prince2 does enemy_attack to prince4
+queue_action prince2 does enemy_attack to prince5
+queue_action prince2 does enemy_attack to prince2 # Kill yourself last
+run_queue prince2
+
+queue_action prince3 does enemy_attack to prince1
+queue_action prince3 does enemy_attack to prince2
+queue_action prince3 does enemy_attack to prince4
+queue_action prince3 does enemy_attack to prince5
+queue_action prince3 does enemy_attack to prince3 # Kill yourself last
+run_queue prince3
+
+queue_action prince4 does enemy_attack to prince1
+queue_action prince4 does enemy_attack to prince2
+queue_action prince4 does enemy_attack to prince3
+queue_action prince4 does enemy_attack to prince5
+queue_action prince4 does enemy_attack to prince4 # Kill yourself last
+run_queue prince4
+
+queue_action prince5 does enemy_attack to prince1
+queue_action prince5 does enemy_attack to prince2
+queue_action prince5 does enemy_attack to prince3
+queue_action prince5 does enemy_attack to prince4
+queue_action prince5 does enemy_attack to prince5 # Kill yourself last
+run_queue prince5
+
+# Make them all vigilante
+let prince1.user.vigilante = 30
+let prince2.user.vigilante = 30
+let prince3.user.vigilante = 30
+let prince4.user.vigilante = 30
+let prince5.user.vigilante = 30
+let prince1.user.user19 = CRIME_HIGHTREASON
+let prince2.user.user19 = CRIME_HIGHTREASON
+let prince3.user.user19 = CRIME_HIGHTREASON
+let prince4.user.user19 = CRIME_HIGHTREASON
+let prince5.user.user19 = CRIME_HIGHTREASON
+
+# Tell the player what the hell is going on
+print "~I AM THE TRUE PRINCE!~"
+printcr
+print "~NO!  I AM THE PRINCE!  YOU ARE IMPOSTORS!~"
+printcr
+print "~TREASON!  DEATH TO THE FALSE PRINCES!~"
+printcr
+
+# Watch, and wait
+destroy me
+end
+
+##
+##  Block the tunnel
+##
+
+function agnar_earthquake
+object_array prince[10]
+object cp
+integer princectr
+
+set_user_flag "agnar_done" = 1
+earthquake 12
+move_tag current.tag by 0 -10
+
+# Kill any surviving princes of agnar
+find_nearby prince[1] = "prince" near player
+for princectr = 1 to 10
+	let cp = prince[princectr]
+	if_exists cp
+		if cp.tag <> 0
+			let cp.stats.hp = -1
+			check_hurt cp
+		endif
+	endif
+next
+
+# Stop
+destroy current
+end
+
+
+function agnar_runprince
+object prince
+object ptrap
+
+find_tag prince = "prince" 13
+find_tag ptrap = "trap_radius" -11
+
+# March onwards!
+start_action prince does seek_target to ptrap
+end
+
+
+
+
+##
+##	God comments on something
+##
+
+function god_comments
+object conversation
+
+let conversation = me
+# If it's already been triggered, ignore it.
+
+if conversation.user.user1 = 0
+	let conversation.user.user1 = 1
+	# Okay, do the thing
+	let current = conversation
+	talk_to current.funcs.talk current.funcs.user1
+endif
+
+end
+
+
+
+##
+##	Satan teleports
+##
+
+function Satan_ToMass
+object conversation
+
+let conversation = me
+# If it's already been triggered, ignore it.
+
+if conversation.user.user1 = 0
+	let conversation.user.user1 = 1
+	# Okay, do the thing
+	let current = conversation
+	talk_to current.funcs.talk current.funcs.user1
+endif
+
+end
+
+
+function death_opengate
+object obj
+
+find_tag obj = "lever" -24
+if_exists obj
+	let current = obj
+	call current.funcs.ucache
+endif
+
+find_tag obj = "lever" -25
+if_exists obj
+	let current = obj
+	call current.funcs.ucache
+endif
+
+end
+
+##
+##  Set where the player will be resurrected
+##
+
+function set_respawn
+integer spawn
+
+if_exists current
+	let spawn = 0 - current.tag
+	let spawn_override = spawn
+endif
+
+end
+
+
+##
+##	Move the Sceptre to its nice new cabinet
+##
+
+function MoveSceptre
+# Move it into the cabinet (tag 40)
+# Make sure it belongs to the King
+end
+
+##
+##	Reviving snow white
+##
+
+function snowwhite
+
+if me = player
+	print "You kiss the dead wolf and she comes to life, giving you a big wet kiss in return."
+	printcr
+endif
+
+add me.stats.karma + 25
+add me.user.experience + 150
+
+set_flag current.pocket NO_SCHEDULE = 0	# Activate wolf schedule
+spill current				# Remove the other wolf
+destroy current				# Destroy the sleeping wolf-shell
+
+end
+
+
+##
+##	Enter a drakaan medallion dialog
+##
+
+function medal_trigger_once
+int f
+object conversation
+
+let conversation = me
+# If it's already been triggered, ignore it.
+get_user_flag f = conversation.personalname
+
+if f = 0
+	# Okay.  Do we actually have the medallion?
+	let found_obj = 0
+	search_inside player calling look_for_medallion
+
+	if found_obj = 0
+		return		# No.  don't take the call.
+	endif
+
+	# Okay, do the thing
+	let current = conversation
+	talk_to current.funcs.talk current.personalname
+	# Disable it.
+	set_user_flag current.personalname = 1
+endif
+end
+
+##
+##
+##
+
+function got_medallion
+
+let found_obj = 0
+search_inside player calling look_for_medallion
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+if found_obj <> 0
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+
+end
+
+
+##
+##  The player betrays steeljaw to the King
+##
+
+function steeljaw_execution
+object steeljaw
+object spot
+find_tag steeljaw = "waarg_male" 49
+find_tag steeljaw = "target" 50
+if_exists steeljaw
+	# Steeljaw is dragged before the throne and executed
+	transfer_object steeljaw to spot.x spot.y
+	let steeljaw.stats.hp = -1
+	check_hurt steeljaw
+endif
+end
+
+
+##
+##   Mr. Packer Goes To Hell
+##
+
+function go_to_hell
+int f
+
+let found_obj = 0
+search_inside player calling look_for_jug
+if found_obj = 1
+	return
+endif
+
+get_user_flag f = "been_to_hell"
+
+let current = me
+if f = 0
+	talk_to "people/church/lord.txt" "hell"
+else
+	talk_to "people/church/lord.txt" "hell2"
+endif
+
+set_user_flag "been_to_hell" = 1
+
+change_map 6 tag 1
+end
+
+##
+## The jug lets you escape from Hell, or other places
+##
+
+function jug_of_insanity
+
+# Maybe play a sample of some electric jug instead
+if me = player
+	print "~Bblplpl!~"
+	printcr
+endif
+change_map 2 tag 616
+end
+
+
+
+##
+##	Helper functions
+##
+
+##
+##	Support for the phone dialog
+##
+
+local
+	integer found_obj
+
+	function look_for_phone
+	private
+	if found_obj = 0
+		if current is called "mobile"
+			let found_obj = 1
+		endif
+	endif
+	end
+	
+
+	function look_for_medallion
+	private
+	if found_obj = 0
+		if current is called "dragoncom"
+			let found_obj = 1
+		endif
+	endif
+	end
+
+
+	function look_for_jug
+	private
+	if found_obj = 0
+		if current is called "jug_insanity"
+			let found_obj = 1
+		endif
+	endif
+	end
+endlocal
+

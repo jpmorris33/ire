@@ -1,0 +1,25 @@
+[page="start"]
+[iftime 2350-2359][goto="evil"]
+[iftime 0000-0100][goto="evil"]
+[goto="normal"]
+[endpage]
+
+
+[page="normal"]
+[colour="#808080"]
+The bird makes a sound like "Kri! Kri! Kri!" and dashes
+for the undergrowth.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="evil"]
+[colour="#808080"]
+The bird chants in a shrill voice.
+[colour="#ffffff"]
+
+"SA-TAN!  SA-TAN!  SA-TAN!"
+[nextpage="exit"]
+[endpage]
+

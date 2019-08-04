@@ -1,0 +1,395 @@
+##############################
+#                            #
+#  Miscellaneous plot stuff  #
+#                            #
+##############################
+
+#int Tithes = 0
+
+##
+## Look for the bits of the sceptre thief
+##
+
+function king_checkbody
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+search_inside player calling king_checkbody2
+
+end
+
+##
+## Check for the right body in the player's pocket
+##
+
+function king_checkbody2
+private
+
+if current is called "deadfollower"
+	if current.tag = 2084
+		set_user_flag "true" = 1
+		set_user_flag "false" = 0
+		stop_search
+		return
+	endif
+endif
+
+end
+
+
+function check_bishop
+object o
+
+# If you kill the cardinal, Jesus kills you
+
+find_tag o = "deadcardinal" 36
+if_exists o
+	set_user_flag "killed_bishop" = 1
+endif
+
+end
+
+##
+##  Add 1320 to your dues to the Church
+##
+
+function tithes_add1320
+add player.user.potion9 + 1320
+end
+
+##
+##  Get sceptre tithes amount remaining, used by the Crucifix
+##
+
+function tithes_num
+#let usernum1 = Tithes
+let usernum1 = player.user.potion9
+
+end
+
+##
+##  Sceptre Tithes flag, TRUE if not yet paid
+##
+
+function tithes_check
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+#if Tithes > 0
+if player.user.potion9 > 0
+
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+end
+
+##
+##  Pay off the Tithes, used by the Bishop
+##
+
+function tithes_paid
+#let Tithes = 0
+let player.user.potion9 = 0
+end
+
+##
+##  Call the speaker's wield function
+##
+
+function talk_callwield
+call current.funcs.wield
+end
+
+##
+##  Do you have any fish that belonged to Munrick the Unstable?
+##
+
+function stolen_fish
+object o
+
+set_user_flag "TRUE" = 0
+set_user_flag "FALSE" = 1
+
+find o = "food08" inside me
+if_exists o
+	if o.tag = 57
+		set_user_flag "TRUE" = 1
+		set_user_flag "FALSE" = 1
+	endif
+endif
+end
+
+##
+##  selL youR souL tO sataN   (which is the Mr. Ed theme tune backwards)
+##
+
+function sellyoursoultosatan
+
+let me.stats.karma = -100 # Really bad mojo
+
+end
+
+
+function check_sheep
+
+set_user_flag "goodsheep" = 0
+set_user_flag "badsheep" = 0
+
+search_world count_sheep
+end
+
+##
+##  Helper
+##
+
+function count_sheep
+	if current.tag = 800
+		if current is called "sheep"
+			set_user_flag "goodsheep" = 1
+		endif
+		if current is called "sheep_evil"
+			set_user_flag "badsheep" = 1
+		endif
+	endif
+end
+
+##
+##  Send the farmer to their doom
+##
+
+function find_badsheep
+object targ
+
+find_tag targ = "TARGET" 800
+
+let current.target = targ
+let current.user.pathgoal = current.target # Store our ultimate destination
+
+insert_action current does go_to_location2 to current.target
+queue_action current does punch_sheep
+end
+
+
+# Hit the sheep and start a massive fight
+
+function punch_sheep
+object badsheep
+find_nearest badsheep = "sheep_evil" near me
+
+let me.enemy = badsheep
+let current = me
+call start_attack
+
+end
+
+
+##
+##  Are the four forcefields shut down?
+##
+
+function check_ship_ffields
+object field
+
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+# If any of these are present, bail out
+
+find_tag field = "forcefield_on" 50
+if_exists field
+	return
+endif
+
+find_tag field = "forcefield_on" 51
+if_exists field
+	return
+endif
+
+find_tag field = "forcefield_on" 52
+if_exists field
+	return
+endif
+
+find_tag field = "forcefield_on" 53
+if_exists field
+	return
+endif
+
+# None there, that's good
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+end
+
+
+##
+## See how many fish the player has and calculate the cost
+##
+
+function count_fish
+
+# Assume it failed
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+let usernum1 = 0
+search_inside player calling count_fish2
+
+if usernum1 > 0
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+
+end
+
+##
+## Calculate the worth of the player's fish
+##
+
+function count_fish2
+private
+
+if current is called "food08"
+	add usernum1 + 3
+endif
+
+end
+
+
+##
+## See how many fish the player has and calculate the cost
+##
+
+function sell_all_fish
+let usernum1 = 0
+
+# Assume it failed
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+search_inside player calling count_fish3
+
+if usernum1 > 0
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+end
+
+##
+## Calculate the worth of the player's fish and remove them
+##
+
+function count_fish3
+private
+
+if current is called "food08"
+	add usernum1 + 3
+	destroy current
+endif
+
+end
+
+
+
+##
+##  DelucaMagic
+##
+
+function deluca_testmagic
+object o
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+# Is candlestick 1 now lit?
+find_tag o = "*" 666002
+if o is called "candlestkunlit"
+	return
+endif
+
+# Is candlestick 2 now doused?
+find_tag o = "*" 666003
+if o is called "candlestk"
+	return
+endif
+
+# Is the plate intact?
+find_tag o = "PLATE" 666004
+if_exists o
+	return
+endif
+
+# Success!
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+end
+
+##
+##  Reset the apparatus
+##
+
+function deluca_resetmagic
+object o
+object newobj
+
+# Reset the candlestick
+find_tag o = "*" 666002
+if_exists o
+	replace o = "candlestkunlit"
+	let o.tag = 666002
+else
+	# Player has destroyed it somehow
+	find_tag o = "TARGET" 666005
+	if_exists o
+		create newobj = "CANDLESTKUNLIT"
+		transfer_object newobj to o.x o.y
+		let newobj.tag = 666002
+	endif
+endif
+
+# Reset 2nd candlestick
+find_tag o = "*" 666003
+if_exists o
+	replace o = "candlestk"
+	let o.tag = 666003
+else
+	# Player has destroyed it somehow
+	find_tag o = "TARGET" 666006
+	if_exists o
+		create newobj = "CANDLESTK"
+		transfer_object newobj to o.x o.y
+		let newobj.tag = 666003
+	endif
+endif
+
+# Reset plate candlestick
+find_tag o = "*" 666004
+if_exists o
+	replace o = "plate"
+	let o.tag = 666004
+else
+	# Player has destroyed it somehow
+	find_tag o = "TARGET" 666007
+	if_exists o
+		create newobj = "PLATE"
+		transfer_object newobj to o.x o.y
+		let newobj.tag = 666004
+	endif
+endif
+
+
+end
+
+##
+##  Is the player evil?
+##
+
+function check_evil
+
+set_user_flag "evil" = 0
+if player.stats.karma < 0
+	set_user_flag "evil" = 1
+endif
+
+end

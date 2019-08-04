@@ -1,0 +1,1170 @@
+#####################################################
+#                                                   #
+# Get_Far - Get an object distant from the player   #
+#                                                   #
+#####################################################
+
+integer cancel
+const CANCEL_NONE = 0
+const CANCEL_POCKET = 1
+const CANCEL_ALL = 2
+const CANCEL_BACK = 3
+
+integer getposx
+integer getposy
+
+function get_far
+
+int x1
+int y1
+int x
+int y
+int good_key
+tile mytile
+
+# Initialise variables
+
+call get_head
+let x1 = getposx
+let y1 = getposy
+let x = x1
+let y = y1
+
+let good_key = 0
+
+call status		# Update the status area
+
+let current = null
+let mytile = null
+
+call hide_dircursor
+call show_cursor
+transfer_object cursor to x1 y1
+#transfer_object cursor to player.x player.y
+
+redraw_map
+
+do
+	get_key
+
+	# If we're quitting, do it and return nothing
+
+	if key = KEY_ESC
+		call hide_cursor
+		let current = null
+		let curtile = null
+		return
+	endif
+
+	# Move the cursor according to the key we read
+
+	if key = KEY_UP
+		let y = y - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_DOWN
+		let y = y + 1
+		let good_key = 1
+	endif
+
+	if key = KEY_LEFT
+		let x = x - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_RIGHT
+		let x = x + 1
+		let good_key = 1
+	endif
+
+	# Check diagonals
+
+	if key = KEY_PGUP
+		let y = y - 1
+		let x = x + 1
+		let good_key = 1
+	endif
+
+	if key = KEY_PGDN
+		let y = y + 1
+		let x = x + 1
+		let good_key = 1
+	endif
+
+	if key = KEY_END
+		let y = y + 1
+		let x = x - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_HOME
+		let y = y - 1
+		let x = x - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_MOUSE
+		# Clicked on the game window?
+		if mouseclick = GAMEWINDOW
+			# get the chosen square and fake the enter key
+			let x = mousemap_x
+			let y = mousemap_y
+			let good_key = 1
+			let key = KEY_ENTER
+		endif
+
+		# If clicked on inventory?
+		if mouseclick = INVENTORY
+			call hide_dircursor
+			let curtile = null
+			let current = null
+			call MouseInventory
+			let key = 0
+			call hide_pocket_cursor
+			call hide_cursor
+			flush_mouse NONBLOCKING
+			return
+		endif
+
+		# Try the wield window?
+		call wield_getmouse
+		if_exists wield_obj
+			call hide_dircursor
+			let current = wield_obj
+			let key = 0
+			call hide_pocket_cursor
+			call hide_cursor
+			flush_mouse NONBLOCKING
+			return
+		endif
+
+	endif
+
+	# Now clip the cursor to the map window or it will escape
+
+	if x > window_right
+		let x = window_right
+	endif
+
+	if x < window_left
+		let x = window_left
+	endif
+
+	if y > window_bottom
+		let y = window_bottom
+	endif
+
+	if y < window_top
+		let y = window_top
+	endif
+
+	# Display it
+	transfer_object cursor to x y
+
+	# Check for other keys
+
+	if key = KEY_ENTER		# Enter will select something
+
+		call hide_cursor	# Go away, or we'll see IT
+		get_tile curtile from x y
+		get_object current from x y
+
+		# If there's a wall in the way, don't allow, unless the wall
+		# turns out to be water, which is also solid but you can
+		# fish things out of it
+
+		if_exists current
+			if_flag curtile IS_SOLID
+				if_not_flag curtile IS_WATER
+
+					# You should still be able to look
+					# if you are on this side of the wall
+					if current.curdir = LEFT
+					or current.curdir = RIGHT
+						if x1 < x
+							let current = null
+							let new_x = x
+							let new_y = y
+							return
+							# Quit because NULL
+						endif
+					endif
+
+
+					if current.curdir = UP
+					or current.curdir = DOWN
+						if y1 < y
+							let current = null
+						endif
+					endif
+				endif
+			endif
+		endif
+
+
+		let new_x = x
+		let new_y = y
+
+		# If we got a selection, see if we're supposed to have it
+		call check_selection_is_visible
+
+		# we can now finish
+		return
+	endif
+
+	if key = KEY_TAB
+		call hide_cursor
+		call choose_object
+
+		# If they pressed ESC, current is null.  Goodkey is still 0
+		# so the loop continues.  Otherwise, leave
+
+		if cancel = CANCEL_NONE
+			let key = 0
+			return		
+		endif
+		
+		# Did they quit?
+		if cancel = CANCEL_ALL
+			call hide_cursor
+			let current = null
+			let curtile = null
+			return
+		endif
+
+		# Finish up		
+		call show_cursor
+		transfer_object cursor to player.x player.y
+	endif
+
+while 1
+
+end
+
+#####################################################
+#                                                   #
+# Get_Near - Get an object next to the player       #
+#                                                   #
+#####################################################
+
+function get_near
+
+int x1
+int y1
+int x
+int y
+int good_key
+tile mytile
+
+# Initialise variables
+
+call get_head
+let x1 = getposx
+let y1 = getposy
+let x = x1
+let y = y1
+
+let good_key = 0
+
+call status		# Update the status area
+
+let current = null
+let mytile = null
+
+# Create the cursor and move it into position
+
+call show_dircursor
+transfer_object directioncursor to x1 y1
+
+redraw_map
+
+do
+	get_key
+
+	# If we're quitting, cancel the selection
+
+	if key = KEY_ESC
+		let current = null
+		let curtile = null
+		call hide_dircursor
+		let key = 0
+		return
+	endif
+
+	# Wait for the direction key to be pressed
+
+	if key = KEY_UP
+		let y = y - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_DOWN
+		let y = y + 1
+		let good_key = 1
+	endif
+
+	if key = KEY_LEFT
+		let x = x - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_RIGHT
+		let x = x + 1
+		let good_key = 1
+	endif
+
+	# Check diagonals
+
+	if key = KEY_PGUP
+		let y = y - 1
+		let x = x + 1
+		let good_key = 1
+	endif
+
+	if key = KEY_PGDN
+		let y = y + 1
+		let x = x + 1
+		let good_key = 1
+	endif
+
+	if key = KEY_HOME
+		let y = y - 1
+		let x = x - 1
+		let good_key = 1
+	endif
+
+	if key = KEY_END
+		let y = y + 1
+		let x = x - 1
+		let good_key = 1
+	endif
+
+	# Check the mouse
+
+	if key = KEY_MOUSE
+		# Clicked on the game window?
+		if mouseclick = GAMEWINDOW
+			# get the chosen square and convert to player vector
+			let x = mousemap_x - player.x
+			let y = mousemap_y - player.y
+
+			# Clip to within reach
+			if x > 0
+				let x = 1
+			endif
+			if x < 0
+				let x = -1
+			endif
+			if y > 0
+				let y = 1
+			endif
+			if y < 0
+				let y = -1
+			endif
+
+			# Add vector to player again
+			let x = player.x + x
+			let y = player.y + y
+
+			# Go
+			let good_key = 1
+		endif
+
+		# If clicked on inventory?
+		if mouseclick = INVENTORY
+			call hide_dircursor
+			let curtile = null
+			let current = null
+			call MouseInventory
+			let key = 0
+			let mouseclick = -1
+			call hide_pocket_cursor
+			flush_mouse NONBLOCKING
+			return
+		endif
+
+		# Try the wield window?
+		call wield_getmouse
+		if_exists wield_obj
+			call hide_dircursor
+			let current = wield_obj
+			let key = 0
+			let mouseclick = -1
+			call hide_pocket_cursor
+			call hide_cursor
+			flush_mouse NONBLOCKING
+			return
+		endif
+	endif
+
+
+	# Check for other keys
+
+	if key = KEY_ENTER		# Enter will select yourself
+		let good_key = 1
+	endif
+
+	# If they press TAB, go to the object browser
+
+	if key = KEY_TAB
+		call hide_dircursor
+		call choose_object
+
+		# If they pressed ESC, current is null.  Goodkey is still 0
+		# so the loop continues.  Otherwise, leave
+
+		if cancel = CANCEL_NONE
+			let key = 0
+			return		
+		endif
+
+		# Did they quit?
+		if cancel = CANCEL_ALL
+			call hide_cursor
+			let current = null
+			let curtile = null
+			return
+		endif
+
+		call show_dircursor
+		transfer_object directioncursor to x1 y1
+	endif
+
+while good_key = 0
+
+let key = 0
+
+# Ok, put the cursor back in it's box
+
+call hide_dircursor
+
+get_tile curtile from x y
+get_object current from x y
+
+let new_x = x
+let new_y = y
+
+# If there's a wall in the way, don't allow, unless the wall
+# turns out to be water, which is also solid but you can
+# fish things out of it
+
+if_flag curtile IS_SOLID
+	if_not_flag curtile IS_WATER
+
+		if x1 < x			# Take perpsective into account
+			let current = null
+		endif
+		if y1 < y			# For both directions
+			let current = null
+		endif
+	endif
+endif
+
+# If we got a selection, see if we're supposed to have it
+call check_selection_is_visible
+
+end
+
+########################################################################
+#                                                                      #
+# Choose - Pick item from the user's pockets (can't browse containers) #
+#                                                                      #
+########################################################################
+
+
+function choose_object
+
+integer finished = 0
+
+call show_pocket_cursor
+
+call status				# Redraw status area
+redraw_text				# Redraw the screen
+
+let finished = 0
+let current = NULL
+let cancel = CANCEL_NONE
+
+
+do
+	get_key
+
+	if key = KEY_UP
+		add cursor_y - 1
+	endif
+
+	if key = KEY_DOWN
+		add cursor_y + 1
+	endif
+
+	if key = KEY_LEFT
+		add cursor_x - 1
+	endif
+
+	if key = KEY_RIGHT
+		add cursor_x + 1
+	endif
+
+	call status			# Redraw status area
+
+	if key = KEY_MOUSE
+		# If clicked on inventory?
+		if mouseclick = INVENTORY
+			let curtile = null
+			let current = null
+			call MouseInventory
+			let mouseclick = -1
+			# Fake the Enter key
+			let key = KEY_ENTER
+		endif
+
+		# If clicked on inventory arrow?
+		if mouseclick = INV_ARROW_U
+			let cursor_y = -1
+			call status			# Redraw status area
+		endif
+		if mouseclick = INV_ARROW_D
+			let cursor_y = 4
+			call status			# Redraw status area
+		endif
+
+		# Try the wield window?
+		call wield_getmouse
+		if_exists wield_obj
+			let current = wield_obj
+			let mouseclick = -1
+			# Fake the Enter key
+			let key = KEY_ENTER
+		endif
+	endif
+
+	# Enter selects an object
+
+	if key = KEY_ENTER
+
+		call hide_pocket_cursor
+		
+		if_exists current
+
+			# If user chose 'Back Out' icon, stop their mischief
+			if current is called "BACK_ICON"
+				let current = null
+				let cancel = CANCEL_BACK
+			endif
+
+			return
+		else
+			let finished = 1	# No object chosen
+			let cancel = CANCEL_ALL
+		endif
+	endif
+
+	if key = KEY_TAB
+		let current = null
+		let cancel = CANCEL_POCKET
+		let finished = 1
+	endif
+	if key = KEY_ESC
+		let current = null
+		let cancel = CANCEL_ALL
+		let finished = 1
+	endif
+
+	redraw_text			# Redraw the screen
+while finished = 0
+
+let key = 0				# Avoid re-entry
+
+call hide_pocket_cursor
+
+# If we got a selection, see if we're supposed to have it
+call check_selection_is_visible
+
+end
+
+
+
+##############################################################
+#                                                            #
+# Browse - Browse the user's pockets (can browse containers) #
+#                                                            #
+##############################################################
+
+function browse_pockets
+
+integer finished = 0
+
+call show_pocket_cursor
+
+redraw_text				# Redraw the screen
+
+let finished = 0
+let current = NULL
+let cancel = CANCEL_NONE
+
+
+do
+	get_key
+
+	if key = KEY_UP
+		add cursor_y - 1
+	endif
+
+	if key = KEY_DOWN
+		add cursor_y + 1
+	endif
+
+	if key = KEY_LEFT
+		add cursor_x - 1
+	endif
+
+	if key = KEY_RIGHT
+		add cursor_x + 1
+	endif
+
+	if key = KEY_MOUSE
+		# If clicked on inventory?
+		if mouseclick = INVENTORY
+			let curtile = null
+			let current = null
+			call MouseInventory
+			let mouseclick = -1
+			# Fake the Enter key
+			let key = KEY_ENTER
+		endif
+
+		# If clicked on inventory arrow?
+		if mouseclick = INV_ARROW_U
+			let cursor_y = -1
+			call status			# Redraw status area
+		endif
+		if mouseclick = INV_ARROW_D
+			let cursor_y = 4
+			call status			# Redraw status area
+		endif
+
+		# Try the wield window?
+		call wield_getmouse
+		if_exists wield_obj
+			let current = wield_obj
+			let mouseclick = -1
+			# Fake the Enter key
+			let key = KEY_ENTER
+		endif
+
+	endif
+
+	call status			# Redraw status area
+
+	# Enter selects an object, goes into a bag or wields a weapon
+
+	if key = KEY_ENTER
+		call hide_pocket_cursor
+		if_exists current
+			# If it's already wielded, unwield it
+			# (chairs etc can't be wielded after they're broken)
+			if cursor_x < 0
+				if_flag current IS_WIELDED
+					let wield_obj = current
+					call unwield
+					call status
+					let current = null
+				endif
+			endif
+			# Can it be wielded?
+			if_flag current CAN_WIELD
+				let wield_obj = current
+				let wield_cont = player
+				call wield
+				call status
+			else
+				# If it's a bag, go inside
+				if_flag current IS_CONTAINER
+					# Is it the back icon?
+					if current is called "BACK_ICON"
+						let current_bag = current_bag.parent
+					else
+						let current_bag = current
+					endif
+					
+					call reset_objects # reset the list
+					call status
+					call show_pocket_cursor
+					continue
+				else
+					let finished = 1
+				endif
+			endif
+			call status
+			return
+		else
+			let finished = 1	# No object chosen
+			let cancel = CANCEL_ALL
+		endif
+	endif
+
+	# TAB and ESC quit the browser
+
+	if key = KEY_TAB
+		let current = null
+		let finished = 1
+		let cancel = CANCEL_POCKET
+	endif
+	if key = KEY_ESC
+		let current = null
+		let finished = 1
+		let cancel = CANCEL_ALL
+	endif
+
+	redraw_text			# Redraw the screen
+
+while finished = 0
+
+let key = 0				# Avoid re-entry
+call hide_pocket_cursor
+
+# If we got a selection, see if we're supposed to have it
+call check_selection_is_visible
+
+end
+
+
+################################################################
+#                                                              #
+#  MouseInventory - Use clicked on inventory, find the object  #
+#                                                              #
+################################################################
+
+
+function MouseInventory
+private
+
+# Set up the cursor so we can grab from the inventory
+let cursor_x = 0
+let cursor_y = 0	# was -1, but this means 'scroll'
+call show_pocket_cursor
+
+let cursor_x = mousegrid_x
+let cursor_y = mousegrid_y
+call status
+
+if_exists current
+	# Pause a little to prevent double-selection
+	flush_mouse NONBLOCKING
+endif
+
+end
+
+
+################################################################
+#                                                              #
+#  MouseWield - User r-clicked on inventory, wield the object  #
+#                                                              #
+################################################################
+
+
+function MouseWield
+private
+
+# Set up the cursor so we can grab from the inventory
+let cursor_x = 0
+let cursor_y = 0	# was -1, but this means 'scroll'
+call show_pocket_cursor
+
+let cursor_x = mousegrid_x
+let cursor_y = mousegrid_y
+call status
+
+call hide_pocket_cursor
+if_exists current
+	# Can it be wielded?
+	if_flag current CAN_WIELD
+		let wield_obj = current
+		let wield_cont = player
+		call wield
+
+		call status
+		call hide_pocket_cursor
+		flush_mouse NONBLOCKING
+		return
+	else
+		# If it's a bag, go inside
+		if_flag current IS_CONTAINER
+			# Is it the back icon?
+			if current is called "BACK_ICON"
+				let current_bag = current_bag.parent
+			else
+				let current_bag = current
+			endif
+					
+			call reset_objects # reset the list
+			call status
+			call hide_pocket_cursor
+			flush_mouse NONBLOCKING
+			return
+#			continue
+		endif
+
+		# Can it be used?
+		if current.funcs.ucache != -1
+			let key = 0
+			flush_mouse NONBLOCKING
+			call current.funcs.ucache
+
+			call status
+			call hide_pocket_cursor
+			flush_mouse NONBLOCKING
+			return
+		endif
+
+		call status
+	endif
+endif
+
+call hide_pocket_cursor
+flush_mouse NONBLOCKING
+
+end
+
+
+##
+## Show Direction cursor
+##
+
+function show_dircursor
+
+if_in_pocket directioncursor
+	force_from_pocket directioncursor from syspocket to 0 0
+endif
+
+##
+## Hide Direction cursor
+##
+
+end
+
+function hide_dircursor
+
+if_not_in_pocket directioncursor
+	transfer_to_pocket directioncursor into syspocket
+endif
+
+end
+
+
+##
+## Show Selection Cursor
+##
+
+function show_cursor
+
+if_in_pocket cursor
+	set_flag cursor IS_INVISIBLE = 0
+	force_from_pocket cursor from syspocket to 0 0
+endif
+
+##
+## Hide Selection Cursor
+##
+
+end
+
+function hide_cursor
+
+if_not_in_pocket cursor
+	set_flag cursor IS_INVISIBLE = 1
+	transfer_to_pocket cursor into syspocket
+endif
+
+end
+
+##
+## Show Pocket Cursor
+##
+
+function show_pocket_cursor
+object temp
+
+let temp = current
+
+let show_cursor = 1
+call status
+
+let current = temp
+end
+
+##
+## Show Pocket Cursor
+##
+
+
+function hide_pocket_cursor
+object temp
+
+let temp = current
+
+let show_cursor = 0
+call status
+
+let current = temp
+end
+
+##
+## Push Object
+##
+
+function push_object
+
+int x1
+int y1
+int x
+int y
+int good_key
+
+call get_head
+let x1 = getposx
+let y1 = getposy
+let x = x1
+let y = y1
+
+let good_key = 0
+
+# Create the cursor and move it into position
+
+call show_dircursor
+transfer_object directioncursor to x y
+
+redraw_map
+
+do
+	get_key
+
+	# If we're quitting, cancel the selection
+
+	if key = KEY_ESC
+		call hide_dircursor
+		let key = 0
+		print "nowhere."
+		printcr
+		return
+	endif
+
+	# Wait for the direction key to be pressed
+
+	if key = KEY_UP
+		let y = y - 1
+		let good_key = 1
+		print "North"
+		printcr
+	endif
+
+	if key = KEY_DOWN
+		let y = y + 1
+		let good_key = 1
+		print "South"
+		printcr
+	endif
+
+	if key = KEY_LEFT
+		let x = x - 1
+		let good_key = 1
+		print "West"
+		printcr
+	endif
+
+	if key = KEY_RIGHT
+		let x = x + 1
+		let good_key = 1
+		print "East"
+		printcr
+	endif
+
+	# Check diagonals
+
+	if key = KEY_PGUP
+		let y = y - 1
+		let x = x + 1
+		let good_key = 1
+		print "Northeast"
+		printcr
+	endif
+
+	if key = KEY_PGDN
+		let y = y + 1
+		let x = x + 1
+		let good_key = 1
+		print "Southeast"
+		printcr
+	endif
+
+	if key = KEY_HOME
+		let y = y - 1
+		let x = x - 1
+		let good_key = 1
+		print "Northwest"
+		printcr
+	endif
+
+	if key = KEY_END
+		let y = y + 1
+		let x = x - 1
+		let good_key = 1
+		print "Southwest"
+		printcr
+	endif
+
+	# Check the mouse
+
+	if key = KEY_MOUSE
+		# Clicked on the game window?
+		if mouseclick = GAMEWINDOW
+			# get the chosen square and convert to player vector
+			let x = mousemap_x - x1
+			let y = mousemap_y - y1
+
+			# Clip to within reach
+			if x > 0
+				let x = 1
+			endif
+			if x < 0
+				let x = -1
+			endif
+			if y > 0
+				let y = 1
+			endif
+			if y < 0
+				let y = -1
+			endif
+
+			# Now print the direction
+			if y < 0
+				if x < 0
+					print "Northwest"
+				endif
+				if x = 0
+					print "North"
+				endif
+				if x > 0
+					print "Northeast"
+				endif
+			endif
+
+			if y = 0
+				if x < 0
+					print "West"
+				endif
+				if x = 0
+					print "nowhere"
+				endif
+				if x > 0
+					print "East"
+				endif
+			endif
+
+			if y > 0
+				if x < 0
+					print "Southwest"
+				endif
+				if x = 0
+					print "South"
+				endif
+				if x > 0
+					print "Southeast"
+				endif
+			endif
+			printcr
+
+			# Add vector to origin again
+			let x = x1 + x
+			let y = y1 + y
+
+			# Go
+			let good_key = 1
+		endif
+	endif
+
+	# Check for other keys
+
+	if key = KEY_ENTER		# Enter is cancel for this one
+		call hide_dircursor
+		let key = 0
+		print "nowhere."
+		printcr
+		return
+	endif
+
+
+while good_key = 0
+
+push_object current to x y
+if err <> 0
+	print "Blocked."
+	printcr
+endif
+
+let key = 0
+
+# Ok, put the cursor back in it's box
+
+call hide_dircursor
+
+end
+
+##
+##  Find the current object's 'head', i.e. where the cursor should go
+##
+
+function get_head
+# Get the hotspot of the current frame
+fx_getxy getposx getposy = current
+
+# Divide it down to convert from pixels to tiles
+add getposx / 32
+add getposy / 32
+
+# Add the correct offsets
+#add getposx + current.x
+#add getposy + current.y
+
+add getposx + window_left
+add getposy + window_top
+
+end
+
+
+##
+##	See if the selected object is valid and try to find one otherwise
+##
+
+local
+function check_selection_is_visible
+
+# First, do we need to check anything?
+if showinvisibleobjects <> 0
+	return
+endif
+
+# Secondly, is there anything to check?
+if_not_exists current
+	return
+endif
+
+# Okay, now we're down to the nitty-gritty
+do
+	if_flag current IS_INVISIBLE
+		let current = current.next
+		continue
+	endif
+	if_flag current IS_SYSTEM
+		let current = current.next
+		continue
+	endif
+
+	# If it's neither of those, we're good
+	break
+
+while current <> null
+
+end
+endlocal

@@ -1,0 +1,91 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+                 The logbook of Governor Wirral
+                 In the year of our Lord, 1325
+
+ Prisoners
+
+   Name:     Gregory
+   Crime:     Found guilty of poaching
+   Sentence:  Five years
+
+   Name:     Ronald
+   Crime:     Guilty of selling without a permit and poverty
+   Sentence:  Eight years
+
+   Name:     Roberto
+   Crime:     Guilty of sins against the Lord, could not pay the
+             fines demanded by the Church.  Guilty of poverty.
+   Sentence:  Twenty years, eleven remaining
+             
+   Name:     Bedevere.
+   Crime:     Found guilty of witchcraft and heresy.
+   Sentence:  To be burned alive at the Pope's leave.
+
+[right="pr2"]
+[endpage]
+
+
+[page="pr2"]
+[backing="paper.pcx"]
+[font 3]
+
+  Prisoners
+
+   Name:     Antoni
+   Crime:     Baking bread with chalk
+   Sentence:  One Year
+
+
+
+[left="start"]
+[right="ex1"]
+[endpage]
+
+
+[page="ex1"]
+[backing="paper.pcx"]
+[font 3]
+
+  Executions
+
+   Name:     Isaiah
+   Crime:     Falsely claiming to be a prophet of the Lord
+   Justice:    Hanged and burned
+
+   Name:     Giotto Franccini
+   Crime:     Guilty of commerce with devils and imps, witchcraft
+              and most vile acts of blasphemy before the Pope
+   Justice:    Burned alive
+
+   Name:     Kytyn of New Highworth
+   Crime:     Witchcraft
+   Justice:    Hanged and burned
+
+   Name:     Henrik of New Fairford
+   Crime:     Horse theft
+   Justice:    Hanged
+
+[left="pr2"]
+[right="ex2"]
+[endpage]
+
+[page="ex2"]
+[backing="paper.pcx"]
+[font 3]
+
+  Executions
+
+   Name:     Father Dolcino
+   Crime:     Heresy, discovered after his death
+   Justice:    Disinterred, excommunicated, beheaded and burned
+
+   Name:     Francis
+   Crime:     Witchcraft
+   Justice:    Burned alive
+
+
+[left="ex1"]
+[right="exit"]
+[endpage]

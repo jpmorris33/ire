@@ -1,0 +1,379 @@
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[image="f18-0.pcx"]
+[colour="#808080"]
+ You see a navy fighter with a very carefree look.  All
+ the identification markings are in elven runes and a
+ tailfin proclaims 'Make Love Not War' in bright red.
+
+ The fighter speaks in a heavily accented male voice.
+[colour="#ffffff"]
+
+"Peace, man."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[image="f18-0.pcx"]
+[colour="#808080"]
+ You see Lucent, the hippie F-18.
+[colour="#ffffff"]
+
+"Hey, man.  Whas' happenin'?"
+
+[link="Tell me about yourself again."]
+[linkto="lucent"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about your master."]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+[image="f18-0.pcx"]
+
+"The name's Lucent.  I'm an F-18, man.  Ex-Navy.
+ I'm in the wildlife program now.  We want to know
+ what'll happen to the local ecology if we start
+ importing species from Earth, so we keeps tabs on
+ the birds an' beasts.
+
+ If you want to know more about the program, ask my
+ Master."
+ 
+[link="Who is your master?"]
+[linkto="master"]
+[link="Why did you leave the navy?"]
+[linkto="leavenavy"]
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="what"]
+[image="f18-0.pcx"]
+
+"I'm an F-18, man, Ex-Navy.  I joined the wildlife
+ program on the planet, man.
+ Keeping tabs on the birds an' beasts.
+
+ You want to know about the program, ask my Master."
+ 
+[link="Who are you?"]
+[linkto="who"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Why did you leave the navy?"]
+[linkto="leavenavy"]
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="f18-0.pcx"]
+
+"I'm part of the wildlife program on the planet, man.
+ We fly around the planet, an' make sure the birds an'
+ beasts are doin' okay.
+
+ You want to know about the program, ask my Master."
+ 
+[link="Who are you?"]
+[linkto="who"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="lucent"]
+[image="f18-0.pcx"]
+
+"I'm an F-18.  I was built for the US Navy but left due
+ to 'musical differences'.
+
+ My new master treats us much better 'n the Navy did.
+ No more killin' people for me, man!"
+ 
+[link="Who is your master?"]
+[linkto="master"]
+[link="Why did you leave the navy?"]
+[linkto="leavenavy"]
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="leavenavy"]
+[image="f18-1.pcx"]
+
+[colour="#808080"]
+He looks uneasy.
+[colour="#ffffff"]
+[set_pflag lucent_draft]
+
+"I was dismissed, man.  Inappropriate conduct with an
+ F-14, they said.
+
+ Hey, man, there wasn't anything between us!  I was
+ ready to try anything to beat the draft, and so was he!
+
+ It got both of us out, man!  You can't argue with that!"
+
+[link="Too much information!"]
+[linkto="leavenavy-tmi"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="leavenavy-tmi"]
+[image="f18-2.pcx"]
+
+"Hey, man.. You asked!"
+
+[link="Who is your master?"]
+[linkto="master"]
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="f18-2.pcx"]
+
+"All you need is love, man."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="blue_angels"]
+[image="f18-3.pcx"]
+
+[colour="#808080"]
+ He raises a mechanical eyebrow.
+[colour="#ffffff"]
+
+"Ah, you're one of their fans, man?  Thass cool.
+ Everywhere they go, the Blue Angels is guaranteed to
+ pull a crowd, man.
+
+ Their debut album, 'Porcine Heirophant Ecliptic' was
+ almost universally acclaimed as the greatest piece of
+ art-rock ever recorded!
+
+ The follow-up was a Genesis tribute album, titled
+ 'The Lamb Breaks Down On Highway'."
+[nextpage="blue_angels2"]
+[endpage]
+
+
+[page="blue_angels2"]
+[image="f18-2.pcx"]
+
+"The Angels' latest release is called 'Grim Fairy Tales'.
+ The whole A-side is about a boy who made rabbits explode
+ whenever he looked at 'em.  It's well far out, man!"
+
+[link="Why did you leave the navy?"]
+[linkto="leavenavy"]
+[link="Shouldn't that be F/A-18?"]
+[linkto="fa18"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fa18"]
+[image="f18-0.pcx"]
+
+"No!  It's F-18!
+ 'A' stands for 'Attack' an' that's bad vibes, man.
+
+ You gotta make love, not war."
+
+[if_pflag lucent_draft][link="Sounds like you've done enough of that already."]
+[if_pflag lucent_draft][linkto="fa18-2"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fa18-2"]
+[image="f18-1.pcx"]
+
+"That's not cool, man.  There was a war on, everyone was
+ lookin' for a way out.
+
+ Ain't no-one gonna make us fight for The Man!"
+
+[link="Tell me about the Blue Angels."]
+[linkto="blue_angels"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Who is your master?"]
+[linkto="master"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master"]
+[if found_robertson][goto="master3"]
+[image="f18-0.pcx"]
+
+"My Master is Dr. Seuss.  He's one of the leading lights
+ of xenobiology, man.
+
+ Probably knows more about on the wildlife of this planet
+ than anyone else, an' a great deal about how animals
+ from Earth are adapting to the new world.
+
+ The trouble is, he's gone missing!"
+
+[link="Uh, right.  Tell me more."]
+[linkto="master2"]
+[link="Excuse me, did you say 'Doctor Seuss'?"]
+[linkto="master2"]
+[endpage]
+
+
+[page="master2"]
+[image="f18-2.pcx"]
+[set find_robertson]
+
+"His real name's Dr. Robertson.  He's a good man, man.
+ A brilliant scientist and a dope MC.
+ He knows more 'n God about little furry animals, and
+ whas' more, he knows how to treat an aircraft right!
+
+ But like I say, he's gone missing.  It was few days ago.
+ He wen' out to, like, try and find some Ospreys, man.
+ Hasn't come back yet.
+
+ There's something funny going on about those birds."
+
+[link="Have you tried searching for him?"]
+[linkto="search"]
+[link="Tell me about the Ospreys."]
+[linkto="ospreys"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ospreys"]
+[image="f18-3.pcx"]
+
+"Oh man.. that's really heavy!  Ask Milo or Lysander."
+
+[link="Have you tried searching for your Master?"]
+[linkto="search"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="search"]
+[image="f18-0.pcx"]
+
+"Only Milo is equipped to do that kind of search, man.
+
+ Iss possible the Doctor's being held by the Church,
+ in which case he'll be under the ground, an' Milo's
+ thermal imaging won't see anything there.
+
+ But Milo thinks the Ospreys have got him, and we dunno
+ what to do about it if they have."
+
+[link="Tell me about the Ospreys."]
+[linkto="ospreys"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="attacked"]
+[image="f18-3.pcx"]
+[set true]
+
+"Stop it!  You're hurtin' me, man!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_start"]
+[clear hear_truth]
+[image="f18-0.pcx"]
+
+"Woah, like, totally trippin', dude!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+

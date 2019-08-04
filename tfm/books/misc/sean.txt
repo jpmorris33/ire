@@ -1,0 +1,72 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+  The Tale of Sean
+  
+  By [Invent some alias for Sofox here]
+
+  Sean was but a peasant boy who dreamed of being an
+  adventurer.  However he was a scrawny youth, and lacking of
+  any significant sense of strategy or battle tactics.  It was
+  said that he was fair game for anyone much larger than his
+  sister.
+
+  Yet Sean did not lose heart - he sought a magical artifact so
+  powerful it could make up for all his shortcomings.  He had
+  heard tell of the legendary Crystal Swords, blades forged by
+  a master glassmaker in ancient times long past.  So powerful
+  were they, that they could fell any foe with but a single stroke.
+
+  But Sean had no idea where such a sword may be found, so
+  many long years were spent in quest of one.  Some say that it
+  was more luck then anything else that led him to stumble upon
+  a Crystal Sword in a dark cave some years later.
+[right="2"]
+[endpage]
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+  Exhilarated, Sean returned home to find that the King had
+  chosen to tour Sean's very village.  "The LORD smiles upon me,"
+  he said, and drew out the blade.
+
+  Confronting the monarch, Sean yelled, raising the blade high in
+  his hand.  "Your reign comes to an end!  You have taxed the
+  people to poverty, and many honourable men have died by your
+  hand!"
+
+  The monarch set his heavily armoured guards on Sean, and Sean
+  did swing his sword at one of them. There was a shattering
+  sound, a blinding flash of light, a release of tremendous
+  energy and the guard did fall dead before his eyes.
+
+  "So you did have the Crystal Sword," said the monarch amazed,
+  "but why did you use it upon that guard instead of me?"
+
+  "Use it...?" Sean looked at his sword and saw to his horror
+  that the entire blade was shattered, leaving only the hilt in
+  his grip with only a few shards of crystal sticking from it.
+[left="start"]
+[right="3"]
+[endpage]
+
+[page="3"]
+[backing="paper.pcx"]
+[font 3]
+  "The Crystal Sword is said to be a truely devastating weapon,"
+  the monarch continued, "But legend says that it can give but
+  one blow, in which it is destroyed.  Did you not know...?"
+
+  Sean was about to answer but his reply was cut off by the
+  sword of another guard cutting off his head.
+
+  As Sean's head rolled along the dust, his grip loosened, and the
+  broken hilt fell and hit the ground.
+
+  "A pity," said the monarch. For a moment he considered collecting
+  the hilt as a momento, but thought better of it, and ordered his
+  procession unto the next village.
+[left="2"]
+[right="exit"]
+[endpage]

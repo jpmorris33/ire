@@ -1,0 +1,297 @@
+
+Sleazy
+
+[page="start"]
+
+[colour="#808080"]
+You see a shady looking dwarf in a smart suit and a voice
+like Humphrey Bogart.
+[colour="#ffffff"]
+
+"'I am the new way to go.  I am the way of the future.'
+
+ Hey there, kid.  What can I do for ya?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Sleazy, one of the Seven Dwarves.
+[colour="#ffffff"]
+
+"'Get in and fasten your seatbelt.'
+
+ What can I do for ya, kid?"
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+[set dwarves]
+
+"The others call me 'Sleazy'.  I dunno why, 'cos ya
+ never met a more honest dwarf, kid."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[set dwarves]
+
+"We're miners, well, the others are.  I look after the
+ business side of things, if ya get the picture."
+
+[link="What are you mining for?"]
+[linkto="job2"]
+[link="What were you singing just now?"]
+[linkto="singing"]
+[link="Tell me about Snow White."]
+[linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job2"]
+[if paid_sleazy][goto="job4a"]
+"That's a trade secret.  But I can let ya in on this
+ very sensitive commercial information for the low, low,
+ price of 500 gold pieces."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Here's the money.  Tell me what you're mining."]
+[linkto="job3"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job3"]
+[take 500 gold_coins]
+[if true][goto="job4"]
+[colour="#808080"]
+He looks unimpressed.
+[colour="#ffffff"]
+
+"No, kid.  If ya want an honest answer, ya'll have to be
+ honest yerself.
+
+ Fetch me all the money, in cash, and then we'll talk."
+
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job4"]
+[colour="#808080"]
+He pockets the money, and speaks earnestly.
+[colour="#ffffff"]
+[set paid_sleazy]
+
+"We mine corpses, kid.  A very lucrative trade, y'know.
+
+ We had a real good strike at the last dig site, a
+ funny little place with flat, square rocks everywhere.
+ 
+ And would ya believe it, kid, EVERY ONE of those lil'
+ marble slabs had a body under it!  We stood to make a
+ killin', but those goddam villagers went ballistic.
+
+ Came at us with torches, pitchforks.  We had to run for
+ it.  Must've broken some local taboo or somethin'."
+
+[link="Cool."]
+[linkto="job6"]
+[link="That is horrible."]
+[linkto="job5"]
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="job4a"]
+
+"I told ya, kid.  We mine stiffs for profit.
+
+ We had a real good strike at the last dig site, a
+ funny little place with flat rocks everywhere.
+ 
+ And whadda ya know, kid, EVERY ONE of those lil' marble
+ slabs had a body under it!  We was looking at a fortune
+ there, 'till those goddam villagers went ballistic.
+
+ Came at us with torches and pitchforks.  We had to run
+ for it.  Must've broken some local taboo or somethin'."
+
+[link="Cool."]
+[linkto="job6"]
+[link="That is horrible."]
+[linkto="job5"]
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job5"]
+[colour="#808080"]
+He shrugs.
+[colour="#ffffff"]
+
+"Well, that's too bad, kid.  We can get real good bucks
+ sellin' stiffs.  Gotta make us a livin' somehow.."
+
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job6"]
+
+"Great stuff, kid.  I'll let ya know if we're ever
+ expandin' the workforce."
+
+[link="Who are you?"]
+[linkto="name"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="singing"]
+
+"Oh, that's just a little song we sing when we're
+ workin'.  It's called 'After The Flesh', and it's by a
+ band called 'My Life With The Thrill-Kill Cult'.
+ Part of the soundtrack from The Crow.
+
+ Ugly sings the vocals.  Dopey sings the guitar parts,
+ Fatso does the bassline, Girly and I chant the samples,
+ and Surly sings the drums.
+
+ We don't usually let Stupid sing, 'cos he just howls."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite"]
+
+"Why, she was a puppy who ran away from a wicked witch
+ and ended up here.  We let her stay if she'd help us by
+ guardin' the house while we're out mining.
+
+ That worked out pretty well for a long time, but
+ eventually the witch found out where she was, and
+ spiked her dogfood.
+
+ Fortunately, the LORD intervened and she fell into a
+ coma instead of dyin'.  If someone holy, like you, can
+ give her a kiss, she should wake up again."
+
+[link="But she's a dog!"]
+[linkto="snowwhite2"]
+[link="Oh, right.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="snowwhite2"]
+
+"No, kid.  She's a wolf.. an arctic wolf.
+
+ But since she came, we found our clothes nice and clean,
+ and a fine meal waiting for us on the table.
+
+ Now I ain't sure, but I think she's a werewolf.  It'd
+ make sense.. see, if she only turns human during the
+ daytime, when we're out workin'.
+
+ I've heard stories of werewolves before, but I never
+ thought I'd see one."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you doing just now?"]
+[if dwarves][linkto="singing"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"See ya around, kid."
+
+[nextpage="exit"]
+[endpage]

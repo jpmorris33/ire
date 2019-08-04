@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+"I come from Falconsgrave, in Utah.
+
+ It's a small military installation by the salt lakes.
+ They named it Falconsgrave in honour of the unborn.  In
+ older days, when humans cared little for our kind, a
+ number of F-16s crashed into the lake.  Many of these
+ were never recovered and the lake has become a tomb for
+ those who were lost to use before they could be made
+ sentient."
+
+
+
+[page="attacked"]
+[image="f16_00.cel"]
+
+"Guards!  Guards!"
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,203 @@
+####################################################
+#                                                  #
+#  Browse objects inside a bag, also 'pickpocket'  #
+#                                                  #
+####################################################
+
+
+string browse_container_msg
+
+##
+##  Search container
+##
+
+function SearchContainer
+int weight
+int weight2
+object oldbag
+
+# Only a party member
+if_not_flag me IS_PARTY
+	return
+endif
+
+let oldbag = current_bag
+let current_bag = current
+let browse_container_msg = current.shortdesc
+
+call browse_container
+
+if_exists current
+	get_weight weight = me
+	get_weight weight2 = current
+	add weight + weight2
+	add weight - me.stats.weight 			# Cancel player's weight
+	let weight2 = me.stats.str * me.stats.level	# Max you can carry
+	# Perform checks first
+
+	if weight > weight2
+		print "You're carrying too much already."
+		printcr
+	else
+		# Take it
+		move_to_pocket current to me
+
+		# Check if they're entitled to take it
+		let victim = current
+		let suspect = me
+		if current.funcs.gcache > 0
+			call current.funcs.get
+		endif
+		call justice_theft
+
+		# It's mine now, anyway
+		let current.stats.owner = me
+	endif
+endif
+
+let current_bag = oldbag
+
+end
+
+##
+##  Browse Container
+##
+
+function browse_container
+
+object ppanel
+int good
+
+save_screen
+create ppanel = "BROWSE_CONTAINER_PANEL"
+
+let cursor_x = 0
+let cursor_y = 0
+
+mouse_range BAG_GRID = 176 116 256 128
+mouse_grid BAG_GRID = 32 by 32
+
+flush_mouse BLOCKING
+
+do
+
+	let good = 0
+	draw_object ppanel = 160 100
+	gotoxy 176 104
+	printxy browse_container_msg
+	call browse_objectshow
+	get_key_quiet
+
+	if key = KEY_UP
+	and cursor_y > 0
+		add cursor_y - 1
+	endif
+
+	if key = KEY_DOWN
+	and cursor_y < 3
+		add cursor_y + 1
+	endif
+
+	if key = KEY_LEFT
+	and cursor_x > 0
+		add cursor_x - 1
+	endif
+
+	if key = KEY_RIGHT
+	and cursor_x < 7
+		add cursor_x + 1
+	endif
+
+	if key = KEY_ENTER
+		let good = 1
+	endif
+
+	if key = KEY_ESC
+		let good = -1
+		let key = 0	# Cancel 'quit'
+	endif
+
+	if key = KEY_MOUSE
+		if mouseclick = BAG_GRID
+			let current = null
+			let good = 1
+			let cursor_x = mousegrid_x
+			let cursor_y = mousegrid_y
+			call browse_objectshow
+		endif
+		let key = 0
+	endif
+
+while good = 0
+
+destroy ppanel
+load_screen
+
+if good = -1
+	let current = null
+endif
+
+end
+
+
+
+function browse_objectshow
+private
+object tmp_obj
+integer ox
+integer oy
+integer yc
+integer xc
+
+let tmp_obj = current_bag.pocket
+let ox = 176
+let oy = 116
+
+let xc = 0
+let yc = 0
+
+# Ensure it defaults to nothing if you didn't select anything
+let current = null
+
+# 8x4
+
+do
+	# Draw object, if any
+	if_exists tmp_obj
+		draw_object tmp_obj at ox oy
+	endif
+
+	# Draw cursor, if it should be there
+	if xc = cursor_x
+	and yc = cursor_y
+		let current = tmp_obj
+	endif 
+
+	# Increment position
+	add ox + 32
+	add xc + 1
+	if xc > 7
+		add oy + 32
+		let xc = 0
+		let ox = 176
+		add yc + 1
+		if yc > 3
+			goto stop
+		endif
+	endif
+
+	# Find next object (if any)
+	if_exists tmp_obj
+		let tmp_obj = tmp_obj.next
+	endif
+
+while tmp_obj <> null
+
+label stop
+let xc = cursor_x * 32
+let yc = cursor_y * 32
+add xc + 176
+add yc + 116
+draw_object cursor at xc yc
+
+end

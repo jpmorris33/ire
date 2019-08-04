@@ -1,0 +1,828 @@
+
+[page="start"]
+[!iftime 0800-0914][goto="inchurch"]
+[ifntime 0915-1800][goto="out-of-hours"]
+[colour="#808080"]
+You see a well-rounded man with the unmistakable aura of
+wealth.
+[colour="#ffffff"]
+
+"Hello there, friend."
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="I would like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[!iftime 0800-0914][goto="inchurch"]
+[ifntime 0915-1800][goto="out-of-hours"]
+[colour="#808080"]
+You see Abraham the Jeweller.
+[colour="#ffffff"]
+
+"Hello again.  Have you some more wealth to trade?"
+
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="I would like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Please, I would listen to the words of God Himself!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+
+"I come from a long line of fine jewellers, and so my
+ parents named me 'Abraham the Jeweller' in jest.
+
+ My namesake is 'Abraham the Jew', who, it is said,
+ could turn lead into gold by the use of divine arts.
+
+ Some believe I can do this myself, and though it is not
+ true, I have become the most respected jeweller in the
+ Holy Land itself."
+
+[learn_name]
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="I would like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+
+"I buy gemstones and I make from them exquisite pieces of
+ jewellery, some of which are worn by the Pope himself."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="I would like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+
+BUYING GEMS
+
+
+
+[page="buy"]
+
+"I find that people who wish to buy are usually
+ interested in one of three things.  There are some who
+ seek ornate pieces of jewellery, and there are some who
+ are seeking for exquisitely polished jewels, usually in
+ the form of orbs.
+ Seers and other students of the arcane ways also come to
+ purchase crystals from me.
+ 
+ Pray, which are you interested in?"
+
+[link="I want to buy some jewellery."]
+[linkto="buy_jewellery"]
+[always]
+[link="I'd like a crystal orb."]
+[linkto="buy_orbs"]
+[always]
+[link="I wish to buy arcana."]
+[linkto="buy_arcana"]
+[always]
+[link="I'd like to sell something instead."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_jewellery"]
+
+"I have a bejewelled necklace that I can sell you for a
+ mere 1600 gold coins.
+
+ I also have some ornate daggers, which have a handle of
+ beaten gold, and a blade of pure silver.  For 1200
+ coins, one can be yours.
+
+ Finally, I have a ring inset with a fine ruby.  I would
+ sell it to you for 1400 gold coins."
+
+[link="I'd like the necklace."]
+[linkto="buy_treasure00"]
+[always]
+[link="I'd like a dagger."]
+[linkto="buy_treasure01"]
+[always]
+[link="I'd like the ring."]
+[linkto="buy_ring_ruby"]
+[always]
+[link="I'd like a crystal orb instead."]
+[linkto="buy_orbs"]
+[always]
+[link="I wish to buy arcana instead."]
+[linkto="buy_arcana"]
+[always]
+[link="I'd like to sell something instead."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buy_orbs"]
+
+"I have ruby and sapphire orbs.  They are 1400 and 1600
+ gold apiece."
+
+[link="I'd like the ruby sphere."]
+[linkto="buy_treasure04"]
+[link="I'd like the sapphire one."]
+[linkto="buy_treasure05"]
+[link="I wish to buy jewellery instead."]
+[linkto="buy_jewellery"]
+[always]
+[link="I wish to buy arcana instead."]
+[linkto="buy_arcana"]
+[always]
+[link="I'd like to sell something instead."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_arcana"]
+
+"The two things most commonly requested are crystal
+ balls, which seers use.  I have heard that there are
+ other uses for them as well, but I am no mage, so I know
+ not what.  I sell the orbs for 700 gold each.
+
+ Mages are also known to use toadstones in their magic,
+ but even laymen such as myself know that they will glow
+ when poison is in a meal.  For 100 gold coins, I shall
+ give you five stones."
+
+[link="I'd like a crystal orb."]
+[linkto="buy_orb"]
+[link="I'd like some toadstones."]
+[linkto="buy_toadstone"]
+[link="I wish to buy jewellery instead."]
+[linkto="buy_jewellery"]
+[always]
+[link="I wish to buy arcana instead."]
+[linkto="buy_arcana"]
+[always]
+[link="I'd like to sell something instead."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_treasure00"]
+[take 1600 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 treasure_00]
+
+"Very well, $SIR.  Here is your necklace."
+
+[link="I would like to buy another one."]
+[linkto="buy_treasure00"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_treasure01"]
+[take 1200 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 treasure_01]
+
+"Thank you, good $SIR.  Here is your dagger."
+
+[link="I would like to buy another one."]
+[linkto="buy_treasure01"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="buy_ring_ruby"]
+[take 1400 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 ring_ruby]
+
+"Very good.  And here is your ring."
+
+[link="I would like to buy another one."]
+[linkto="buy_ring_ruby"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="buy_treasure04"]
+[take 1400 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 treasure_04]
+
+"Good, good.  And here is your ruby sphere."
+
+[link="I would like to buy another one."]
+[linkto="buy_treasure04"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_treasure05"]
+[take 1600 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 treasure_05]
+
+"As you wish.  Here is your sapphire."
+
+[link="I would like to buy another one."]
+[linkto="buy_treasure05"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_orb"]
+[take 700 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 orb]
+
+"As you wish.  Here is your orb.  I hope it proves
+ satisfactory for your use."
+
+[link="I would like to buy another one."]
+[linkto="buy_orb"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_toadstone"]
+[take 100 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 5 toadstone]
+
+"A good choice!  Here are five todestones."
+
+[link="I would like to buy some more."]
+[linkto="buy_toadstone"]
+[always]
+[link="I'd like to buy something else"]
+[linkto="buy"]
+[always]
+[link="I'd like to sell something."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+SELLING GEMS
+
+
+[page="sell"]
+
+"Indeed!  What have you to sell?  I am interested in
+ raw materials such as precious gems, polished orbs of
+ crystal, and finished works such as rings or other
+ jewellery."
+
+[link="I have some gems."]
+[linkto="sell_gems"]
+[always]
+[link="I have a crystal ball."]
+[linkto="sell_orbs"]
+[always]
+[link="I'm selling jewellery."]
+[linkto="sell_jewellery"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_gems"]
+
+"Ah!  And what have you to offer?
+
+ I would pay 350 gold for a ruby, or 400 for a sapphire.
+ And though they are not as rare, I also have a strong
+ demand for todestones, and would pay 15 gold for each."
+
+[am_carrying "treasure_02"]
+[if true][link="I have a ruby."]
+[if true][linkto="sell_treasure02"]
+[if true][always]
+[am_carrying "treasure_03"]
+[if true][link="I have a sapphire."]
+[if true][linkto="sell_treasure03"]
+[if true][always]
+[am_carrying "toadstone"]
+[if true][link="I have a toadstone."]
+[if true][linkto="sell_toadstone"]
+[if true][always]
+[link="I'm selling a crystal ball."]
+[linkto="sell_orbs"]
+[always]
+[link="I'm selling jewellery."]
+[linkto="sell_jewellery"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_orbs"]
+
+"Ah, orbs.
+
+ I will pay 700 gold for a sphere of ruby, or 800 gold
+ for a orb of sapphire.
+
+ I also have demand from mages and students of Al-Chemei
+ for lead-crystal orbs, which they use for seeing and
+ other magic arts.  Though the orbs are not so valuable,
+ they are hard to make and I would pay 350 for each orb."
+
+[am_carrying "treasure_04"]
+[if true][link="I have an orb of ruby."]
+[if true][linkto="sell_treasure04"]
+[if true][always]
+[am_carrying "treasure_05"]
+[if true][link="I have a sapphire sphere."]
+[if true][linkto="sell_treasure05"]
+[if true][always]
+[am_carrying "orb"]
+[if true][link="I have a crystal ball."]
+[if true][linkto="sell_orb"]
+[if true][always]
+[link="I'm selling gems."]
+[linkto="sell_gems"]
+[always]
+[link="I'm selling jewellery."]
+[linkto="sell_jewellery"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_jewellery"]
+
+"I would pay 800 gold for a necklace or bracelet.
+ I have also been offered silver daggers in the past, and
+ will pay 600 gold coins for each one.
+
+ I am also interested in rings, and I shall pay 700 for a
+ ruby ring.  For magical rings, I would pay at least 1200,
+ depending on what you have."
+
+[am_carrying "treasure_00"]
+[if true][link="I have a piece of gold jewellery."]
+[if true][linkto="sell_treasure00"]
+[if true][always]
+[am_carrying "treasure_01"]
+[if true][link="I have a silver dagger."]
+[if true][linkto="sell_treasure01"]
+[if true][always]
+[am_carrying "ring_ruby"]
+[if true][link="I have a ruby ring."]
+[if true][linkto="sell_ring_ruby"]
+[if true][always]
+[am_carrying "ring_pope"]
+[if true][link="I have a neat amethyst ring."]
+[if true][linkto="sell_ring_pope"]
+[if true][always]
+[link="I'm selling gems."]
+[linkto="sell_gems"]
+[always]
+[link="I'm selling jewellery."]
+[linkto="sell_orbs"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_treasure00"]
+[take 1 treasure_00]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 800 gold_coins]
+
+"Thank you, good $SIR.  This is indeed a fine piece.
+ Here are your coins."
+
+[am_carrying "treasure_00"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_treasure00"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="sell_treasure01"]
+[take 1 treasure_01]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 600 gold_coins]
+
+"Oh, indeed, this is most a fine dagger.
+ Here are your coins."
+
+[am_carrying "treasure_01"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_treasure01"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="sell_treasure02"]
+[take 1 treasure_02]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 350 gold_coins]
+
+"Thank you, good $SIR.  This is indeed a fine gem.
+ Here are your coins."
+
+[am_carrying "treasure_02"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_treasure02"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="sell_treasure03"]
+[take 1 treasure_03]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 400 gold_coins]
+
+"Thank you, $SIR.  This is indeed a fine example.
+ Here are your coins."
+
+[am_carrying "treasure_03"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_treasure03"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="sell_treasure04"]
+[take 1 treasure_04]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 700 gold_coins]
+
+"Oh yes, $SIR.  This is a most fine orb!
+ Here are your coins."
+
+[am_carrying "treasure_04"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_treasure04"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="sell_treasure05"]
+[take 1 treasure_05]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 800 gold_coins]
+
+"Oh yes, $SIR.  A most splendid orb!
+ Here are your coins."
+
+[am_carrying "treasure_05"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_treasure05"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_orb"]
+[take 1 orb]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 500 gold_coins]
+
+"Ah yes, a crystal orb, and in fine condition.
+ I will take it.  Here are your coins."
+
+[am_carrying "orb"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_orb"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_toadstone"]
+[take 1 toadstone]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 15 gold_coins]
+
+"Ah, a toadstone.  Here is your 15 gold."
+
+[am_carrying "toadstone"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_toadstone"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_ring_ruby"]
+[take 1 ring_ruby]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 700 gold_coins]
+
+"Ah, a ruby ring.  Fine workmanship.
+ Here is your money.."
+
+[am_carrying "ring_ruby"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_ring_ruby"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_ring_inv"]
+[take 1 ring_inv]
+[if false][goto="no_product"]
+[call="money_sound"]
+[create 1200 gold_coins]
+
+"Indeed.. this is a most valuable find.. an invisibility
+ ring.  I will give you 1200 gold coins."
+
+[am_carrying "ring_inv"]
+[if true][link="I have another one to sell."]
+[if true][linkto="sell_ring_inv"]
+[if true][always]
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_ring_pope"]
+[am_carrying ring_pope]
+[colour="#808080"]
+The jeweller turns white, falls to his knees, crosses
+himself and utters a number of very rapid prayers.
+
+This doesn't look good at all.
+[colour="#ffffff"]
+
+"THIEF!  GUARDS!  THIS MAN STOLE THE PAPAL SIGNET RING!"
+
+[at_exit_call="stopthief_popering"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="no_product"]
+
+"I fear you may have mislaid it."
+
+[link="I have something else to sell."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+##
+##  No Money.. transaction failed.
+##
+
+[page="no_money"]
+
+"I'm afraid you can't afford that, $SIR."
+
+[link="I'd like to buy something else."]
+[linkto="buy"]
+[always]
+[link="I have something to sell."]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+##
+##	Out-of-hours
+##
+
+[page="out-of-hours"]
+
+"I am busy right now.  If you would come to my gem shop
+ during normal business hours, I shall be glad to assist
+ you.
+
+ Farewell."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+##
+##	Exit
+##
+
+[page="bye"]
+"Goodbye."
+[nextpage="exit"]
+[endpage]

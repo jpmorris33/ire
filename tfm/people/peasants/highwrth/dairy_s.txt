@@ -1,0 +1,227 @@
+[page="start"]
+[if_pflag richard_joined][goto="joined"]
+[iftime "0800-0900"][goto="church"]
+
+[colour="#808080"]
+You see a handsome lad in his mid-teens.
+[colour="#ffffff"]
+
+"Well met, good $Sir."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if_pflag richard_joined][goto="joined"]
+[iftime "0800-0900"][goto="church"]
+
+[colour="#808080"]
+You see $NAME, the dairy farmer's son.
+[colour="#ffffff"]
+
+[link="Tell me about your job."]
+[linkto="job"]
+[if_pflag richard_wants_action][link="I'd like you to join my quest."]
+[if_pflag richard_wants_action][linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="church"]
+
+"Hush!  Please wait until the Service is finished."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am $NAME, son of Karl the farmer.
+
+ Right now I am just a farmer's son, but I aim to make
+ my name known throughout the land!"
+
+[colour="#808080"]
+ He looks a little glum.
+[colour="#ffffff"]
+
+"But I haven't worked out how, yet."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about your father."]
+[linkto="karl"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="karl"]
+
+"He is a hard-working man, and a good father to me.
+ All I can say against him is that he knows little else
+ than farming, and I shall have to travel away to learn
+ more of the world."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Tell me about your job."]
+[linkto="job"]
+[if_knowname][link="Would you be interested in joining my quest?"]
+[if_knowname][linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[if_knowname][set_pflag richard_wants_action]
+
+"I tend the beeves for my father.  Sometimes I help uncle
+ Ramirez to butcher them.  It is a messy business, but it
+ provides us with fine meat.
+
+ It's okay, I guess, but I would sooner be off to seek my
+ fortune.  Ramirez has taught me a little swordplay, and
+ I have had the chance to practice upon our beeves, too!"
+
+[link="Tell me about your father."]
+[linkto="karl"]
+[if_knowname][link="Would you be interested in joining my quest?"]
+[if_knowname][linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[if karl_consent][goto="join2"]
+[set richard_joining]
+
+"Would you truly have me?  I will not let you down!
+
+ You would have to seek the consent of my father first,
+ mark you.."
+
+[link="Tell me about your father."]
+[linkto="karl"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join2"]
+[set_pflag richard_joined]
+[call="join_party"]
+
+"Oh thank you!  Yes, indeed I will!
+
+ Thank you, kind $Sir!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Good morrow to you."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="joined"]
+
+[colour="#808080"]
+You see $NAME, ex-dairy farmer's son, now adventurer.
+[colour="#ffffff"]
+
+[link="Tell me again about your job."]
+[linkto="j_job"]
+[link="Tell me more about this rabbit business."]
+[linkto="j_bunny"]
+[link="I think you should leave the party."]
+[linkto="j_leave"]
+[link="Bye."]
+[linkto="j_bye"]
+[endpage]
+
+
+[page="j_bunny"]
+
+"It has been a curse upon me for as long as I can
+ remember, and it is the reason we keep no bunnies
+ ourselves.
+
+ Whenever I see one, they die in a most strange and
+ terrible way!"
+
+[link="Can you be more specific?"]
+[linkto="j_bunny2"]
+[link="Tell me again about your job."]
+[linkto="j_job"]
+[link="Bye."]
+[linkto="j_bye"]
+[endpage]
+
+
+[page="j_bunny2"]
+
+"I fear not.  Although should we find some, you shall
+ doubtless see for yourself."
+
+[link="Tell me again about your job."]
+[linkto="j_job"]
+[link="Bye."]
+[linkto="j_bye"]
+[endpage]
+
+
+[page="j_job"]
+
+"I am a farm-hand, as you recall.  Though I am far more
+ eager to learn what lies elsewhere in the world than to
+ care for the beeves on my father's farm.
+
+ If we pass by, might it be possible to stop for a while
+ near Eastshire?  It is said to be a base for many
+ wandering adventurers, and there is so much for me to
+ learn!"
+
+[link="Bye."]
+[linkto="j_bye"]
+[endpage]
+
+
+[page="j_leave"]
+[clear_pflag richard_joined]
+[call="leave_party"]
+
+[colour="#808080"]
+He looks dejected.
+[colour="#ffffff"]
+
+"Very well, though I hope you change your mind.
+
+ Fair you well in your quest!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="j_bye"]
+
+"Yes, let us return to the quest!"
+
+[nextpage="exit"]
+[endpage]

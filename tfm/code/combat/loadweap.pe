@@ -1,0 +1,136 @@
+
+#include "vrm.hpp"
+
+function load_gun
+
+object ammo
+object wielder
+int ammo_got
+int chambers
+int ammo_in_gun
+
+let ammo = current
+
+if_not_in_pocket ammo
+	print "You must hold the ammo to load it."
+	printcr
+	return
+endif
+
+if ammo.stats.str = 0
+	bug start
+	print "Tell me that you like my float upstream|"
+	print "Draw the line dividing laugh and scream|"
+	bug end
+	return
+endif
+
+print "Use ammunition with "
+redraw_text
+
+call get_near
+
+if_not_exist current
+	print "nothing"
+	printcr
+	return
+endif
+
+print current.shortdesc
+printcr
+
+if current is called "pistol"
+	let wielder = me
+
+	# Get number of chambers in the gun
+	let chambers = current.maxstats.str
+
+	# Get the number of ammo units held by the man with the gun.
+	let ammo_got = ammo.stats.str
+
+	# If we don't have enough to fill the gun, take what we can
+	if ammo_got < chambers
+		let chambers = ammo_got
+	endif
+
+	# How many rounds are in the gun
+	let ammo_in_gun = current.stats.str
+
+	# How many rounds do we need
+	let chambers = chambers - ammo_in_gun
+
+	# Set the weapon's damage according to the ammo
+	let current.stats.damage = ammo.stats.damage
+		
+	if chambers = 0
+		print "The gun is already full."
+		printcr
+		return
+	endif
+
+	add ammo.stats.str - chambers
+	add current.stats.str + chambers
+	if ammo.stats.str = 0
+		replace ammo = "rounds-0"
+	endif
+
+	print "You put "
+	print chambers
+	print " rounds into the gun."
+	printcr
+	return
+endif
+
+# Put bullets in another box
+
+/*
+if current is called ammo.name
+	# Get free space in the second box
+	let chambers = current.maxstats.str - current.stats.str
+
+	if chambers < 1
+		print "The box is already full."
+		printcr
+		return
+	endif
+
+	# Get the number of ammo units in the first box.
+	let ammo_got = ammo.stats.str
+
+	# If we don't have enough to fill the second box, take what we can
+	if ammo_got < chambers
+		let chambers = ammo_got
+	endif
+
+	add ammo.stats.str - chambers
+	add current.stats.str + chambers
+
+	print "You put "
+	print chambers
+	print " rounds into the box."
+	printcr
+	return
+endif
+*/
+
+if current is called "rounds-0"
+	# Get free space in the second box
+
+	# Get the number of ammo units in the first box.
+	let ammo_got = ammo.stats.str
+
+	add current.stats.str + ammo.stats.str
+
+	print "You put "
+	print ammo.stats.str
+	print " rounds into the box."
+	printcr
+	
+	let ammo.stats.str = 0
+	return
+endif
+
+print "Don't want to."
+printcr
+
+end

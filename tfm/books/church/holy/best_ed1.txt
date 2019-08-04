@@ -1,0 +1,9 @@
+Just the illumination
+
+[page="start"]
+[backing="beast1.pcx"]
+
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+

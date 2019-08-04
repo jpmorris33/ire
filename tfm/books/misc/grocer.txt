@@ -1,0 +1,19 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+
+
+
+           Carrots   - 30 gold a bunch
+
+           Berries   - 40 gold a bunch
+
+           Potatoes - 20 gold each
+
+           Lettuce  - 30 gold each
+
+           Apples   - 10 gold each
+
+[nextpage="exit"]
+[endpage]

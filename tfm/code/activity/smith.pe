@@ -1,0 +1,651 @@
+########################
+#                      #
+#  Blacksmith working  #
+#                      #
+########################
+
+object blacksmith_tempvar
+object smithspell
+
+
+##
+##  Public entry point
+##
+
+function blacksmith
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does blacksmith_core to me.target
+run_queue me
+
+end
+
+
+##
+##	Startup code
+##
+
+function blacksmith_core
+private
+
+integer num
+object HammerPoint
+object AnvilPoint
+object BellowsPoint
+object IronPoint
+
+# Check we've got something to do, otherwise think of something to do
+
+if me.user.user2 = 0	# Are we running or waiting to be primed?
+
+	if_not_exist me.target
+#		print "Error in blacksmith code|"
+#		print "Character must point to a target for the first tag|"
+		return
+	endif
+
+	# Get the object to find
+	let me.user.user2 = me.target.tag
+
+endif
+
+# Find iron point
+let num = me.target.tag + 1
+fast_tag IronPoint = num near me
+
+if_not_exist IronPoint
+/*
+	print "Error in blacksmith code|"
+	print "Cannot find iron drop-off point [tag "
+	print num
+	print "]"
+	printcr
+*/
+	return
+endif
+
+# Find hammer point
+let num = me.target.tag + 2
+fast_tag HammerPoint = num near me
+
+if_not_exist HammerPoint
+/*
+	print "Error in blacksmith code|"
+	print "Cannot find hammer drop-off point [tag "
+	print num
+	print "]"
+	printcr
+*/
+	return
+endif
+
+# Find anvil point
+let num = me.target.tag + 3
+fast_tag AnvilPoint = num near me
+
+if_not_exist AnvilPoint
+/*
+	print "Error in blacksmith code|"
+	print "Cannot find anvil point (player faces anvil) [tag "
+	print num
+	print "]"
+	printcr
+*/
+	return
+endif
+
+# Find bellows point
+let num = me.target.tag + 4
+fast_tag BellowsPoint = num near me
+
+if_not_exist BellowsPoint
+/*
+	print "Error in blacksmith code|"
+	print "Cannot find bellows point (player uses bellows) [tag "
+	print num
+	print "]"
+	printcr
+*/
+	return
+endif
+
+# Now we have a base target number, start the procedure
+# The relative object tags are:
+#
+# +0 - base (overlooking work area)
+# +1 - iron point (iron to be heated by forge)
+# +2 - hammer point (where hammer is found/left)
+# +3 - Anvil
+# +4 - Bellows point (facing bellows)
+
+queue_action me does blacksmith_MeltIron to IronPoint
+queue_action me does blacksmith_UseBellows to BellowsPoint
+queue_action me does blacksmith_GetIron to IronPoint
+queue_action me does blacksmith_GetHammer
+queue_action me does blacksmith_Anvil to AnvilPoint
+queue_action me does blacksmith_DropHammer to HammerPoint
+queue_action me does blacksmith_core to me.target # Round again
+run_queue me
+
+end
+
+
+##
+##  Wield the hammer if we haven't already.
+##  If there is no hammer go and look for one
+##  If there really, honestly is no hammer to find, create one
+##
+
+function blacksmith_GetHammer
+private
+object hammer
+
+# How many times do we strike the metal?
+random me.user.user4 between 3 6
+
+let hammer = null
+
+# Look in both hands
+if_exists me.wield.r_hand
+	if me.wield.r_hand is called "tools05"
+		let hammer = me.wield.r_hand
+		resume_action me
+		return
+	endif
+endif
+if_exists me.wield.l_hand
+	if me.wield.l_hand is called "tools05"
+		let hammer = me.wield.l_hand
+		resume_action me
+		return
+	endif
+endif
+
+# Look in my pockets
+if_not_exists hammer
+	let blacksmith_tempvar = null
+	search_inside me calling blacksmith_lookforhammer
+	if_exists blacksmith_tempvar
+		let hammer = blacksmith_tempvar
+		let current = hammer
+		call current.funcs.wield # Wield it
+		resume_action me
+		return
+	endif
+endif
+
+# Find one lying around
+if_not_exists hammer
+	find_nearest hammer = "tools05" near me
+	if_exists hammer
+		# Find the hammer, NOW!
+		insert_action me does seek_target_get to hammer
+		return
+	endif
+endif
+
+# If at first you don't succeed, cheat
+create hammer = "tools05"
+let hammer.stats.owner = me
+let current = hammer
+move_to_pocket hammer to me
+call current.funcs.wield
+
+# NOW we have a hammer!
+resume_action me
+end
+
+
+
+##
+##  Identify a hammer if given
+##
+
+function blacksmith_lookforhammer
+private
+if current is called "tools05"
+	let blacksmith_tempvar = current
+endif
+end
+
+
+##
+##  Identify metal if given
+##
+
+function blacksmith_lookformetal
+private
+if current is called "metal*"
+	let blacksmith_tempvar = current
+endif
+end
+
+
+##
+##  Put the iron in the fire
+##
+
+function blacksmith_MeltIron
+private
+object ironpoint
+object iron
+integer newx
+
+let ironpoint = me.target
+let newx = ironpoint.x - 1
+
+# If there iron on the forge?
+
+if_exists ironpoint.next
+	let iron = ironpoint.next
+	if iron is called "metal*"
+		# Okay, that's cool
+		resume_action me
+		return
+	endif
+
+	no_operation
+
+	# That's not cool.  Move all the crap away
+	do
+		transfer_object iron to newx iron.y
+		let iron = ironpoint.next
+
+		if_not_exists iron
+			# Nothing there, skip to end of function
+			break
+		endif
+		if iron is called "metal*"
+			# Good, found it
+			resume_action me
+			return
+		endif
+
+		# Not good.  Go around again
+	while 1
+
+endif
+
+# No.  Are we carrying some?
+
+let blacksmith_tempvar = null
+search_inside me calling blacksmith_lookformetal
+
+if_not_exists blacksmith_tempvar
+	# There was no iron, make some
+	create iron = "metal02"
+	move_object iron to ironpoint.x ironpoint.y
+	let iron.stats.owner = me
+	return
+endif
+
+# drop it
+force_from_pocket blacksmith_tempvar from me to ironpoint.x ironpoint.y
+return
+
+# This should then exit the next time around
+end
+
+
+##
+##  Use the bellows
+##
+
+function blacksmith_UseBellows
+private
+object bellowspoint
+object bellows
+int newx
+
+let bellowspoint = me.target
+
+# Keep going until we find it
+move_towards me bellowspoint
+if err <> PATH_FINISHED
+	return
+endif
+
+# If we're here, we found it
+set_direction me facing bellowspoint.curdir
+
+# Bellows should always be to the right of the spot
+let newx = me.x + 1
+
+get_object bellows = newx me.y
+if_exists bellows
+	let current = bellows
+	call bellows.funcs.use
+endif
+
+# Finish and go to next step
+resume_action me
+
+end
+
+
+##
+##  Get the iron out of the forge
+##
+
+function blacksmith_GetIron
+private
+object ironpoint
+object iron
+
+let ironpoint = me.target
+
+if_exists ironpoint.next
+	let iron = ironpoint.next
+	if iron is called "metal*"
+		# Go and get it (this will replace the current activity)
+		insert_action me does seek_target_get to iron
+		return
+	endif
+endif
+
+# Some bastard's nicked it!!!  Now we have to reboot the blacksmith
+
+stop_action me
+resume_action me
+end
+
+
+##
+##  Use the anvil
+##
+
+function blacksmith_Anvil
+private
+object anvil
+int ironx
+
+let anvil = me.target
+
+# Go to the anvil
+move_towards me anvil
+call close_to
+if close_to = 0
+#if err <> PATH_FINISHED
+	return
+endif
+
+# At the anvil, what do we find?
+if_not_exists anvil.next
+	# Nothing, so drop the iron we're carrying
+	let blacksmith_tempvar = null
+	search_inside me calling blacksmith_lookformetal
+
+	# We are carrying it, aren't we?
+	if_not_exists blacksmith_tempvar
+		# Oh hell, reboot the blacksmith
+		stop_action me
+		resume_action me
+		return
+	endif
+
+	# drop it
+	force_from_pocket blacksmith_tempvar from me to anvil.x anvil.y
+	return
+endif
+
+
+# Now we have some iron, hit it
+let me.enemy = anvil.next
+call attack
+
+# Make sure it is iron
+if anvil.next is called "metal*"
+	# Time out for hitting the metal
+	add me.user.user4 - 1
+	if me.user.user4 < 1
+		# It's ready, pick it up again and stop
+		transfer_to_pocket anvil.next to me
+		resume_action me
+		# Reset strike counter
+		random me.user.user4 between 3 6
+	endif
+	return
+endif
+
+# Hang on, this isn't metal, move it away
+let ironx = anvil.x - 1
+transfer_object anvil.next to ironx anvil.y
+
+end
+
+
+##
+##  Put the hammer where it belongs
+##
+
+function blacksmith_DropHammer
+private
+object hammerpoint
+
+
+let hammerpoint = me.target
+
+# Keep going until we find it
+move_towards me hammerpoint
+call close_to
+if close_to = 0
+	return
+endif
+
+# If we're here, we found it
+set_direction me facing hammerpoint.curdir
+
+# drop the hammer
+let blacksmith_tempvar = null
+search_inside me calling blacksmith_lookforhammer
+if_exists blacksmith_tempvar
+	force_from_pocket blacksmith_tempvar from me to hammerpoint.x hammerpoint.y
+endif
+
+# Finish and go to next step (which should restart it)
+resume_action me
+end
+
+#############################################################
+#
+#  Waarg Blacksmith
+#
+#############################################################
+
+
+##
+##  Public entry point
+##
+
+function blacksmith_waarg
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does blacksmith_waarg_core to me.target
+run_queue me
+
+end
+
+
+##
+##	Startup code
+##
+
+function blacksmith_waarg_core
+private
+
+integer num
+object AnvilPoint
+object IronPoint
+
+# Check we've got something to do, otherwise think of something to do
+
+if me.user.user2 = 0	# Are we running or waiting to be primed?
+
+	if_not_exist me.target
+/*
+		print "Error in waargsmith code|"
+		print "Character must point to a target for the first tag|"
+*/
+		return
+	endif
+
+	# Get the object to find
+	let me.user.user2 = me.target.tag
+
+endif
+
+# Find iron point
+let num = me.target.tag + 1
+fast_tag IronPoint = num near me
+
+if_not_exist IronPoint
+/*
+	print "Error in waargsmith code|"
+	print "Cannot find iron drop-off point [tag "
+	print num
+	print "]"
+	printcr
+*/
+	return
+endif
+
+# Find anvil point
+let num = me.target.tag + 2
+fast_tag AnvilPoint = num near me
+
+if_not_exist AnvilPoint
+/*
+	print "Error in waargsmith code|"
+	print "Cannot find anvil point (player faces anvil) [tag "
+	print num
+	print "]"
+	printcr
+*/
+	return
+endif
+
+# Now we have a base target number, start the procedure
+# The relative object tags are:
+#
+# +0 - base (overlooking work area)
+# +1 - iron point (iron to be heated by forge)
+# +2 - Anvil
+
+queue_action me does blacksmith_MeltIron to IronPoint
+queue_action me does blacksmith_GetIron to IronPoint
+queue_action me does blacksmith_waarg_anvil to AnvilPoint
+queue_action me does blacksmith_waarg_core to me.target # Round again
+run_queue me
+
+end
+
+
+##
+##  Use the anvil (magically)
+##
+
+function blacksmith_waarg_anvil
+private
+object anvil
+object iron
+int ironx
+
+let anvil = me.target
+
+# Go to the anvil
+move_towards me anvil
+call close_to
+if close_to = 0
+#if err <> PATH_FINISHED
+	return
+endif
+
+# At the anvil, what do we find?
+if_not_exists anvil.next
+	# Nothing, so drop the iron we're carrying
+	let blacksmith_tempvar = null
+	search_inside me calling blacksmith_lookformetal
+
+	# We are carrying it, aren't we?
+	if_not_exists blacksmith_tempvar
+		# Oh hell, reboot the blacksmith
+		stop_action me
+		resume_action me
+		return
+	endif
+
+	# drop it
+	force_from_pocket blacksmith_tempvar from me to anvil.x anvil.y
+	return
+endif
+
+# Now we have the iron..
+let iron = anvil.next
+
+# Set up the spell system
+if_not_exists smithspell
+	create smithspell = "spell_yellow"
+	# Leave it in limbo
+endif
+
+# Bless the iron
+if iron is called "metal*"
+	object_sound "smithspell" iron
+	let iron.user.user18 = 255 # Fully solid
+	startfx iron does smithspell_fx
+endif
+
+# Now we have some iron, hit it
+let me.enemy = iron
+call attack
+
+# Make sure it is iron
+if iron is called "metal*"
+	# Time out for hitting the metal
+	add me.user.user4 - 1
+	if me.user.user4 < 1
+
+		# Stop the glowing stuff
+		stopfx iron
+
+		# It's ready, pick it up again and stop
+		transfer_to_pocket iron to me
+		resume_action me
+		# Reset strike counter
+		random me.user.user4 between 3 6
+	endif
+	return
+endif
+
+# Hang on, this isn't metal, move it away
+let ironx = anvil.x - 1
+transfer_object iron to ironx anvil.y
+
+end
+
+
+
+##
+##  Animate
+##
+
+function smithspell_fx
+private
+
+# Set alpha level from current object
+fx_alpha current.user.user18
+add current.user.user18 - 4	# Fade away
+if current.user.user18 < 0
+	let current.user.user18 = 0
+endif
+
+# Get coordinates from current object
+fx_getxy fx_srcx fx_srcy = current
+# But display this object instead
+let current = smithspell
+fx_alphamode ALPHA_TRANS
+fx_animsprite
+
+end

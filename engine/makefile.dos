@@ -1,0 +1,73 @@
+#
+# Makefile for IRE, DOS-DJGPP version
+#
+
+all: ire ed chknpc resize
+
+# Use the C or C++ compiler
+
+CC                = gcc
+LD		  = gcc -Llibs/dos
+CFLAGS            = -I. -g -Wunused -O6 -mpentium -Ljpeg -Ijpeg/dos -DBGUI -DUSE_ALSOUND
+
+Lib_files         = -ljpeg -lbgui -lalleg -lithe -lstdcx -lpng -lz
+
+
+# Include the makefile core
+
+include makefile.all
+
+
+# DOS-dependent components:
+
+ire_dos = darken_a.o audio/allegro.o
+
+
+# Makefile rules
+
+ire: $(ire_obj) $(ire_dos)
+	$(LD) $(ire_obj) $(ire_dos) $(Lib_files) -o ire.exe
+
+#setup: $(set_obj)
+#	$(LD) $(set_obj) -lalleg -o setup.exe
+
+ed: $(ed_obj) $(ire_dos)
+	$(LD) $(ed_obj) $(ire_dos) $(Lib_files) -o ed.exe
+
+resedit: $(res_obj)
+	$(LD) $(res_obj) $(Lib_files) -o resedit.exe
+
+resize: $(resize_obj)
+	$(LD) $(resize_obj) $(Lib_files) -o tools/resize.exe
+
+chknpc: $(chknpc_obj)
+	$(LD) $(chknpc_obj) -lithe -o tools/chknpc.exe
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cc
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.S
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.asm
+	nasm -f coff $< -o $@
+
+clean:
+	-rm -f *.o
+	-rm -f resedit\\*.o
+	-rm -f audio\\*.o
+	-rm -f gui\\*.o
+	-rm -f pe\\*.o
+	-rm -f ire.exe
+	-rm -f ed.exe
+	-rm -f setup.exe
+	-rm -f resedit.exe
+	-rm -f tools\\*.exe
+	-rm -f bootlog.*
+	-rm -f game.cfg

@@ -1,0 +1,9 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+  Yeah, I know.  But we need to have decent-looking boats before
+  it can be put where it belongs.
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,724 @@
+Edras
+
+[page="start"]
+[iftime 0800-0914][goto="inchurch"]
+[ifntime 0915-1800][goto="out-of-hours"]
+[if flour1][am_carrying flour_sack]
+[if flour1][if true][goto="gotflour"]
+[colour="#808080"]
+You see a lad wearing an apron.
+[colour="#ffffff"]
+
+"Hello there.  Do you want to buy some bread?"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like some bread please."]
+[linkto="bread"]
+[always]
+[link="Do you sell anything else?"]
+[linkto="bread"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if yado_quest_rocks][link="I've been asked to swallow a rock.  Any ideas?"]
+[if yado_quest_rocks][linkto="yado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0800-0914][goto="inchurch"]
+[ifntime 0915-1800][goto="out-of-hours-name"]
+[if flour1][am_carrying flour_sack]
+[if flour1][if true][goto="gotflour"]
+[colour="#808080"]
+You see Edras, the young baker.
+[colour="#ffffff"]
+
+"Hello again.  Do you want to buy some bread?"
+
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like some bread please."]
+[linkto="bread"]
+[always]
+[link="Do you sell anything else?"]
+[linkto="bread"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if yado_quest_rocks][link="Do you have anything like an edible rock?"]
+[if yado_quest_rocks][linkto="yado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Please, I am listening to the Service!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+
+"I am called 'Edras', after my grandfather, who was a
+ famed baker of yore."
+
+[learn_name]
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like some bread please."]
+[linkto="bread"]
+[always]
+[link="Do you sell anything else?"]
+[linkto="bread"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+
+"I am the town baker's apprentice.  I bake bread and
+ cakes under my Master's direction.
+
+ But recently he was sent to jail.  Now I am the baker,
+ and I do my best to fill my Master's shoes until he is
+ released."
+
+[link="I would like buy something."]
+[linkto="bread"]
+[always]
+[link="Why was he jailed?"]
+[linkto="jailed"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bread"]
+[ifntime 0900-1800][goto="oobread"]
+
+"Bread is 15 gold coins a loaf.
+
+ I can also sell you four rolls for 12 gold, and our fine
+ cakes are 30 coins each."
+
+[link="I want a loaf."]
+[linkto="buy_bread"]
+[always]
+[link="I want a some rolls."]
+[linkto="buy_rolls"]
+[always]
+[link="I want a cake."]
+[linkto="buy_cake"]
+[always]
+[link="That seems expensive."]
+[linkto="expensive"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if yado_quest_rocks][link="Do you have anything like an edible rock?"]
+[if yado_quest_rocks][linkto="yado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+## Money is tight in the Land
+##
+
+[page="expensive"]
+
+"The Church has raised the tithes again.  I must charge
+ more for the bread to make my own ends meet.. or I would
+ face jail for my poverty.
+
+ Worse, there is a shortage of flour in the land.
+ Because of this my Master began to add chalk to his
+ bread, but the Church found out and he was jailed.
+ The bread I make is honest, but costly.
+
+ If you too are short of money, I can sell half a
+ loaf for 7 gold coins."
+
+[link="I would like a half-loaf."]
+[linkto="buy_halfbread"]
+[always]
+[link="What are you selling again?"]
+[linkto="bread"]
+[always]
+[link="Why is there a shortage of flour?"]
+[linkto="flour"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+## Why was his Master was jailed
+##
+
+[page="jailed"]
+
+"There is a shortage of flour in the land.
+
+ Because of this my Master began to add chalk to his
+ bread, but the Church found out and he was jailed.
+
+ I am glad I resisted the temptation to follow him or we
+ would be sharing a cell together."
+
+[link="Why is there a shortage of flour?"]
+[linkto="flour"]
+[always]
+[link="What are you selling again?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+## The flour crisis
+##
+
+[page="flour"]
+
+"New Highworth was served by two mills, one in the north
+ border, and another at New Fairford in the south.  Five
+ years ago there was a disaster at the Fairford mill.
+
+ The people there angered the Lord GOD, and a terrible
+ beast in the form of a cow slew everyone in the town.
+ The beast still roams free, and we cannot take back the
+ mill, although the scouts say the mill itself is in good
+ repair.
+
+ If you could provide me with some flour, I would pay you
+ for your trouble."
+
+[set flour1]
+[link="Tell me about the beast."]
+[linkto="cow"]
+[link="Why not build a new mill?"]
+[linkto="newmill"]
+[link="Won't God make the Cow go away?"]
+[linkto="cowchurch"]
+[link="What are you selling again?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="newmill"]
+
+"The King was petitioned for a new mill to be built, but
+ little has come of that plan.
+
+ I fear that the Miller's guild may be stalling it, for
+ they stand to profit as long as flour be expensive."
+
+[link="Tell me about the beast."]
+[linkto="cow"]
+[link="Won't God make the Cow go away?"]
+[linkto="cowchurch"]
+[link="What are you selling again?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cow"]
+
+"It is tall as an oak, and tramples men to death.
+ Many tried to kill the beast, and it has slain them all!
+
+ The Church says that since the Cow is a servant of God,
+ it is a sin to try and slay the creature.  But we need
+ to use the mill!"
+
+[link="Won't God make the Cow go away?"]
+[linkto="cowchurch"]
+[link="Why not build a new mill?"]
+[linkto="newmill"]
+[link="What are you selling again?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cowchurch"]
+
+"We have asked the Church to ask our God if the Cow might
+ be removed, but the Lord God does not wish it.
+
+ You may ask them yourself, but I doubt it will help..
+ the Cow has been there for five years now."
+
+
+[link="Tell me about the beast."]
+[linkto="cow"]
+[link="Why not build a new mill?"]
+[linkto="newmill"]
+[link="What are you selling again?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+BUYING FOOD
+
+FOOD01 : loaf
+FOOD02 : half a loaf
+FOODP04 : roll
+FOODP06 : cake
+
+[page="buy_bread"]
+[take 15 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 food01]
+
+"Thankyou, $SIR."
+
+[link="I want another loaf."]
+[linkto="buy_bread"]
+[always]
+[link="What else do you sell?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_rolls"]
+[take 12 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 4 foodP04]
+
+"Thankyou, $SIR."
+
+[link="I want some more rolls."]
+[linkto="buy_rolls"]
+[always]
+[link="What else do you sell?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_cake"]
+[take 30 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 foodP06]
+
+"Thankyou, $SIR."
+
+[link="I want to buy another cake."]
+[linkto="buy_cake"]
+[always]
+[link="What else do you sell?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_halfbread"]
+[take 7 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 food02]
+
+"Thankyou, $SIR."
+
+[link="What else do you sell?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+SELLING FLOUR
+
+[page="sell_flour"]
+[take 1 flour_sack]
+[if false][goto="no_flour"]
+[call="money_sound"]
+[create 20 gold_coins]
+
+"Many thanks!  This flour will be a great help!"
+
+[am_carrying flour_sack]
+[if true][link="I have some more flour to sell."]
+[if true][linkto="sell_flour"]
+[if true][always]
+[link="I'd like to buy something."]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_flour"]
+
+"Hmm?  Where did the flour go?  I'm sure you had some.."
+
+[link="I'd like to buy something."]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+##
+##  No Money.. transaction failed.
+##
+
+[page="no_money"]
+
+"I'm afraid you can't afford that, $SIR.
+ But in these times it is nothing to be shamed of."
+
+[link="What do you mean?"]
+[linkto="tithes"]
+[always]
+[link="What else do you sell?"]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+## Tithes
+##
+
+[page="tithes"]
+
+"Well, with the tithes raised again.. few people have
+ much to spend, and they prefer to keep what little they
+ have once both Church and State have taken their share.
+
+ It doesn't help that I have had to raise the prices
+ for our goods to make my own ends meet."
+
+[link="I would like to buy something else."]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+##	Out-of-hours
+##
+
+[page="out-of-hours"]
+[if flour1][am_carrying flour_sack]
+[if flour1][if true][goto="oogotflour"]
+
+"Hello.  Did you want something?"
+
+[link="What's your name?"]
+[linkto="ooname"]
+[link="What's your job?"]
+[linkto="oojob"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[if yado_quest_rocks][link="Do you know of anything like an edible rock?"]
+[if yado_quest_rocks][linkto="ooyado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="out-of-hours-name"]
+[if flour1][am_carrying flour_sack]
+[if flour1][if true][goto="oogotflour"]
+
+[colour="#808080"]
+You see Edras, the young baker.
+[colour="#ffffff"]
+
+"Hello.  Did you want something?"
+
+[link="What's your job?"]
+[linkto="oojob"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[if yado_quest_rocks][link="Do you know of anything like an edible rock?"]
+[if yado_quest_rocks][linkto="ooyado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ooname"]
+
+"I am called 'Edras', after my grandfather."
+[learn_name]
+[link="What's your job?"]
+[linkto="oojob"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="oojob"]
+
+"I am the baker's apprentice.  I bake bread and cakes
+ under my Master's direction.
+
+ But recently he was sent to jail.  Now I am the baker,
+ and I do my best to fill his shoes until my Master is
+ freed again."
+
+[link="I would like buy some bread."]
+[linkto="oobread"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[if yado_quest_rocks][link="Do you have anything like an edible rock?"]
+[if yado_quest_rocks][linkto="ooyado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="oobread"]
+
+"The shop is closed right now, but if you come by during
+ working hours, I will be happy to sell you some."
+
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[if yado_quest_rocks][link="Do you have anything like an edible rock?"]
+[if yado_quest_rocks][linkto="ooyado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="oogotflour"]
+
+"You have some flour!  I would be most interested in
+ buying some of that, if you bring it to my bakery
+ during the day."
+
+[link="Tell me about your job."]
+[linkto="oojob"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[if yado_quest_rocks][link="Do you have anything like an edible rock?"]
+[if yado_quest_rocks][linkto="ooyado_rocks"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+##	The Royal Sceptre
+##
+
+[page="sceptre"]
+[if returned_sceptre][goto="sceptre2"]
+
+"Not really..  It is greatly valuable, and it has been
+ stolen.
+ Given the level of poverty, I am not too surprised that
+ someone has become desperate enough to do such a deed.
+
+ But the thief will not be able to pawn the sceptre off
+ now, for it is too widely known.  I suspect they have
+ hidden it, as any man found concealing the sceptre would
+ almost certainly be hanged as the thief."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like some bread please."]
+[linkto="bread"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="sceptre2"]
+
+"I know little of the sceptre, but I am glad that you
+ have been able to dispense justice upon the thief and
+ return the artifact to our king."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="I would like some bread please."]
+[linkto="bread"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="oosceptre"]
+[if returned_sceptre][goto="oosceptre2"]
+
+"Not really..  It is greatly valuable, and it has been
+ stolen.
+ Given the level of poverty, I am not too surprised that
+ someone has become desperate enough to do such a deed.
+
+ But the thief will not be able to pawn the sceptre off
+ now, for it is too widely known.  I suspect they have
+ hidden it, as any man found concealing the sceptre would
+ almost certainly be hanged as the thief."
+
+[link="What's your name?"]
+[linkto="ooname"]
+[link="What's your job?"]
+[linkto="oojob"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="oosceptre2"]
+
+"I know little of the sceptre, but I am glad that you
+ have been able to dispense justice upon the thief and
+ return the artifact to our king."
+
+[link="What's your name?"]
+[linkto="ooname"]
+[link="What's your job?"]
+[linkto="oojob"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+##
+##	Flour
+##
+
+[page="gotflour"]
+[colour="#808080"]
+Edras the baker looks at you in wonder.
+[colour="#ffffff"]
+
+"You have some flour!
+
+ I will pay you 20 coins per sack, if you are willing
+ to sell."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="I will sell you some flour."]
+[linkto="sell_flour"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yado_rocks"]
+
+"I sell rolls.  They are about the right size and shape.
+ They are the wrong colour, of course, but perhaps you
+ can find some way to change that."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="I would like some bread please."]
+[linkto="bread"]
+[always]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ooyado_rocks"]
+
+"I sell rolls.  They are about the right size and shape.
+ They are the wrong colour, of course, but perhaps you
+ can find some way to change that.
+
+ Come by during the day if you are interested."
+
+[link="Tell me about your job."]
+[linkto="oojob"]
+[link="I would like some rolls please."]
+[linkto="oobread"]
+[if sceptre][link="Do you know anything about the Sceptre?"]
+[if sceptre][linkto="oosceptre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+##
+##	Exit
+##
+
+[page="bye"]
+"Goodbye."
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,11 @@
+
+
+* NPC detects a crime.
+  Criminal tagged as fugitive.
+  NPC chases fugitive and attacks if possible.
+  If fugitive is killed during attack
+	arrested
+	fugitive tag revoked
+  If fugitive dies during chase
+	fugitive tag revoked
+

@@ -1,0 +1,497 @@
+################################
+#                              #
+#  Power Sparks and lightning  #
+#                              #
+################################
+
+##
+## Variables used by the effect code (faster than local variables)
+##
+
+int spdist	# Absolute distance
+int sptotal	# Total number of steps (chunks of beam)
+int spstep	# Size of each step (length of line making up beam section)
+int spctr	# Counter variable
+int spoff	# Vector added to prevent visible joins in the beam
+int spx		# Destination X,Y coordinates (stored for speed)
+int spy
+int sptmp	# storage variable
+
+# Globals used by spark_core
+int sparkdx = 0
+int sparkdy = 0
+
+##
+##	Start a safe spark going
+##
+
+function spark_start_safe
+
+if_not_exist current.stats.owner
+	print "Bug: Spark has no matching owner at "
+	print current.x
+	print ","
+	print current.y
+	printcr
+	return # Do nothing
+endif
+
+# Set reciprocal ownership
+let current.stats.owner.stats.owner = current
+
+# Set the animation up, vertical or horizontal
+if current.stats.owner.y == current.y
+	overfx current does Hspark
+	overfx current.stats.owner does Hspark
+endif
+
+if current.stats.owner.x == current.x
+	overfx current does Vspark
+	overfx current.stats.owner does Vspark
+endif
+
+end
+
+
+##
+##	Start a dangerous spark going
+##
+
+function spark_start_dangerous
+call spark_start_safe
+start_action current does spark_source_dangerous
+end
+
+
+##
+##	Switch off any spark
+##
+
+function spark_stop
+stopfx current
+stopfx current.stats.owner
+stop_action current
+end
+
+
+##
+##  Start lightning
+##
+
+function lightning_start
+activity
+overfx current does LightningFX
+end
+
+
+##
+##  Stop lightning
+##
+
+function lightning_stop
+stopfx current
+end
+
+
+
+##
+##	Kill anything that gets in the way
+##
+
+function spark_source_dangerous
+private
+integer dx
+integer dy
+
+if_not_exists me.stats.owner
+	return
+endif
+
+let dx = me.stats.owner.x - me.x
+let dy = me.stats.owner.y - me.y
+
+# One of them must be zero (i.e. not a diagonal) or it won't work
+if dx <> 0
+and dy <> 0
+	return
+endif
+
+
+if dx < 0
+	let sparkdx = -1
+	let sparkdy = 0
+	call spark_core
+	return
+endif
+
+if dx > 0
+	let sparkdx = 1
+	let sparkdy = 0
+	call spark_core
+	return
+endif
+
+if dy < 0
+	let sparkdx = 0
+	let sparkdy = -1
+	call spark_core
+	return
+endif
+
+if dy > 0
+	let sparkdx = 0
+	let sparkdy = 1
+	call spark_core
+	return
+endif
+
+
+end
+
+
+##
+##	If anyone else gets in the way.. sschk!
+##
+
+function spark_core
+private
+integer x
+integer y
+integer timeout
+object temp
+tile temptile
+
+# Get ready
+let timeout = 0
+let x = me.x + sparkdx
+let y = me.y + sparkdy
+
+# See what we can find
+
+do
+	# Stop if we hit a brick wall
+	get_tile temptile from x y
+	if_flag temptile IS_SOLID
+		if_not_flag temptile IS_WATER
+			return
+		endif
+	endif
+
+	get_solid_object temp from x y
+
+	# If something got in the way, attack it
+	if_exists temp
+		if temp = me.stats.owner
+			return		# Found the receiving end?
+		endif
+
+		add temp.stats.hp - me.stats.damage
+		let victim = temp
+		let victim.enemy = null # No enemy
+		check_hurt temp
+	endif
+
+	# Move along
+	add x + sparkdx
+	add y + sparkdy
+	add timeout + 1
+
+while timeout < mapw # Timeout
+
+end
+
+
+##
+##  Power spark effect (horizontal)
+##
+##  Effects code is pretty much time-critical, so program for speed.
+##  If it takes too long, the slowdown will look bad
+##
+
+function Hspark
+private
+
+fx_alpha 192
+fx_alphamode ALPHA_ADD
+fx_colour 0x0020d0
+let fx_brush = 1
+
+# Get both sets of coordinates
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy spx spy = current.stats.owner # RY is the destination Y.  Keep it safe
+
+# Work out absolute distance and get number of steps needed
+let spdist = spx - fx_srcx
+if spdist < 0
+	let spdist = 0 - spdist # Invert
+	let sptotal = spdist / 24
+	let spstep = -24 # Set negative stepping
+	let spoff = -1
+else
+	let sptotal = spdist / 24
+	let spstep = 24
+	let spoff = 1
+endif
+
+# Subtract two nodes from the number of steps, clipping appropriately
+add sptotal - 2
+if sptotal < 1
+	let sptotal = 1
+endif
+
+# Start line
+fx_random sptmp = 16
+add sptmp - 8
+
+let fx_destx = fx_srcx + spstep
+let fx_desty = fx_srcy - sptmp
+fx_line
+
+# Initial line done, now do it several more times
+for spctr = 1 to sptotal
+	let fx_srcx = fx_destx + spoff
+	let fx_srcy = fx_desty
+
+	fx_random sptmp = 16
+	add sptmp - 8
+	add fx_desty + sptmp
+
+	fx_random sptmp = 2
+	add sptmp - 1
+	add fx_destx + sptmp
+	add fx_destx + spstep
+	fx_line
+next spctr
+
+# Last step, to destination
+
+let fx_srcx = fx_destx + spoff
+let fx_srcy = fx_desty
+
+let fx_destx = spx
+let fx_desty = spy
+fx_line
+
+end
+
+
+##
+##  Power sparks (vertical)
+##
+##  Effects code is pretty much time-critical, so program for speed.
+##  If it takes too long, the slowdown will look bad
+##
+
+function Vspark
+private
+
+fx_alpha 192
+fx_alphamode ALPHA_ADD
+fx_colour 0x0020d0
+let fx_brush = 1
+
+# Get both sets of coordinates
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy spx spy = current.stats.owner # SPX is the destination X.  Keep it safe
+
+# Work out absolute distance and get number of steps needed
+let spdist = spy - fx_srcy
+if spdist < 0
+	let spdist = 0 - spdist # Invert
+	let sptotal = spdist / 24
+	let spstep = -24 # Set negative stepping
+	let spoff = -1
+else
+	let sptotal = spdist / 24
+	let spstep = 24
+	let spoff = 1
+endif
+
+# Subtract two nodes from the number of steps, clipping appropriately
+add sptotal - 2
+if sptotal < 1
+	let sptotal = 1
+endif
+
+fx_random sptmp = 16
+add sptmp - 8
+
+let fx_destx = fx_srcx - sptmp
+let fx_desty = fx_srcy + spstep
+fx_line
+
+# Initial line done, now do it several more times
+for spctr = 1 to sptotal
+	let fx_srcx = fx_destx
+	let fx_srcy = fx_desty + spoff
+
+	fx_random sptmp = 16
+	add sptmp - 8
+	add fx_destx + sptmp
+
+	fx_random sptmp = 2
+	add sptmp - 1
+	add fx_desty + sptmp
+	add fx_desty + spstep
+	fx_line
+next spctr
+
+# Last step, to destination
+
+let fx_srcx = fx_destx 
+let fx_srcy = fx_desty + spoff
+
+let fx_destx = spx
+let fx_desty = spy
+fx_line
+
+end
+
+
+##
+##  Generic lightning
+##
+##  Effects code is pretty much time-critical, so program for speed.
+##  If it takes too long, the slowdown will look bad
+##
+
+function LightningFX
+private
+
+fx_alpha 192
+fx_alphamode ALPHA_ADD
+fx_colour 0x0020d0
+let fx_brush = 1
+
+# Start from destination and work backwards
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcx + 4
+add fx_srcy + 4
+
+# Get random between -31 - 32
+fx_random sptmp = 32
+add sptmp - 16
+
+let fx_destx = fx_srcx - sptmp
+let fx_desty = fx_srcy - 24
+fx_line
+
+# Initial line done, now do it several more times
+for spctr = 1 to 13
+	let fx_srcx = fx_destx - 1
+	let fx_srcy = fx_desty - 1
+
+	fx_random sptmp = 32
+	add sptmp - 16
+	add fx_destx - sptmp
+
+	fx_random sptmp = 8
+	add sptmp - 4
+	add fx_desty - 23
+	add fx_desty + sptmp
+	fx_line
+next spctr
+end
+
+
+##
+##	Start forcefield animation
+##
+
+function start_forcefield
+overfx current does fx_forcefield
+end
+
+##
+##	Toggle forcefield
+##
+
+function toggle_forcefield
+if current is called "forcefield_on"
+	replace current = "forcefield_off"
+	stopfx current
+	let current.light = 0
+else
+	replace current = "forcefield_on"
+	overfx current does fx_forcefield
+	let current.light = 1
+endif
+end
+
+
+##
+##	Start forcefield animation
+##
+
+function start_generatorfx
+startfx current does fx_generator
+end
+
+##
+##	Initialise magical barrier
+##
+
+function start_barrier
+# Set up colour increments for the special effect
+let current.user.user13 = 2
+let current.user.user14 = 1
+let current.user.user15 = 3
+
+random current.user.user16 between 64 200
+random current.user.user17 between 64 200
+random current.user.user18 between 64 200
+startfx current does fx_magicbarrier
+end
+
+
+function toggle_barrier
+if current is called "magic_barrier"
+	replace current = "magic_barrier_off"
+	stopfx current
+	let current.light = 0
+else
+	replace current = "magic_barrier"
+	overfx current does fx_magicbarrier
+	let current.light = 1
+endif
+end
+
+
+##
+##	Remove barrier
+##
+
+function remove_barrier
+if current is called "magic_barrier"
+	replace current = "magic_barrier_off"
+	stopfx current
+	let current.light = 0
+endif
+end
+
+
+function powerplant_strobe
+activity
+object_array list[32]
+integer ctr
+
+find_nearby list[1] = "spark_start" near me
+
+# increment counter
+add me.user.user1 + 1
+if me.user.user1 > 3
+	let me.user.user1 = 1
+endif
+
+# Toggle sparks accordingly
+for ctr = 1 to 32
+	if_exists list[ctr]
+		let current = list[ctr]
+		call spark_stop
+
+		if current.tag = me.user.user1
+			call spark_start_dangerous
+		endif
+	endif
+next
+end

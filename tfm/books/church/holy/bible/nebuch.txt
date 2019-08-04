@@ -1,0 +1,27 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+                         The Book of Daniel
+                              Chapter 4
+
+  30  The king spoke, saying "Is this not the great Babylon,
+      which I did build as the seat of my throne by the might
+      of my power, and for the glory of my majesty?"
+
+  31  And as the King said this, there came a voice from
+      Heaven which spoke, saying "KING NEBUCHADNEZZAR,
+      YOUR KINGDOM IS GONE FROM YOU."
+
+  32  "YOU SHALL BE DRIVEN AWAY FROM MEN, AND LIVE
+      AMONG THE BEASTS OF THE FIELD!  YOU SHALL
+      EAT GRASS AS CATTLE DO FOR SEVEN YEARS UNTIL
+      YOU LEARN WHO TRULY RULES THE KINGDOM OF
+      MEN, AND GRANTS IT TO ANYONE HE CHOOSES."
+
+  33  And at that moment the prophecy came true for the
+      King, for he was driven from men, and ate grass as oxen.
+      The hairs of his body were like eagles' feathers, and his
+      nails like birds' claws.
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,38 @@
+Papal guard - pope's bedroom
+
+[page="start"]
+[goto="halt"]
+[endpage]
+
+
+[page="halt"]
+
+"Halt!
+
+ No-one may enter the bedchambers of His Holiness!"
+
+[link="I have a permit."]
+[linkto="permit"]
+[link="Okay then, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="permit"]
+
+"No!  No-one may enter!  There are no exceptions bar His
+ Holiness in person!
+
+ Leave this instant or you shall lose your head!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Yes, leave, citizen."
+
+[nextpage="exit"]
+[endpage]
+

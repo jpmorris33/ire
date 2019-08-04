@@ -1,0 +1,55 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+                      Library Index I
+
+
+   A Treatise on the Protectorate
+   Cardinal Tod
+
+   Beasts of the Land Vol. II
+   Chorley of New Avignon
+
+   An Essay on the Holy Ghost
+   Cardinal Trom
+
+   The Ospray of Weytus
+   W. Hauser
+
+   A Vengeance for Crowes
+   J. Maddison
+
+   Of Astrology and the Church
+   Maura of New Avignon
+
+[right="2"]
+[endpage]
+
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+                      Library Index I
+
+
+   The Discovery of Witchcraft
+   Scot the Elder
+
+   A True Tale of Witchcraft
+   Bishop Sprenger
+
+   The Hunting of Fowl
+   Polak the Younger
+
+   The Second Book of Poetics
+   Aristotle
+
+   The Book of Abraham The Jew
+   Abraham The Jew
+
+   The Name of the Rose
+   Umberto of Panavius
+   
+[left="start"]
+[right="exit"]
+[endpage]

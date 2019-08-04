@@ -1,0 +1,172 @@
+####################################
+#                                  #
+#  General Resurrection Machinery  #
+#                                  #
+####################################
+
+##
+##  Prepare for resurrection
+##
+
+function resurrection_findbody
+
+object temp
+
+# assume failure
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+find_tag temp = "bed*" current.tag
+if_not_exists temp
+	return
+endif
+
+let victim = temp.next
+
+# Nothing on the bed
+if_not_exists victim
+	return
+endif
+
+# It's not dead
+if victim.stats.hp > 0
+	return
+endif
+
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+end
+
+
+##
+##  Do the actual resurrection
+##
+
+function resurrection_doit
+
+integer i
+
+call resurrection_findbody
+
+# assume failure
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+# Random failure
+random i between 1 10
+if i <= 3
+	return
+endif
+
+# System failure
+if_not_exists victim
+	return	
+endif
+
+if victim.funcs.resurrect <> ""
+	if victim.funcs.resurrect <> "-"
+		change victim = victim.funcs.resurrect
+		let victim.stats.hp = 10
+		let victim.user.oldhp = 10
+
+		set_user_flag "true" = 1
+		set_user_flag "false" = 0
+	endif
+endif
+
+end
+
+
+
+function resurrect
+
+# Get object to be resurrected
+
+if me = player
+	print "Resurrect "
+	let current = player
+	call get_near
+
+	if_exist current
+		print_bestname current
+	else
+		print "nothing"
+	endif
+
+	print "."
+	printcr
+endif
+
+if_not_exists current
+	return
+endif
+
+let spelltarget = current
+
+# Hereon is nicked from the resurrection spell
+
+if spelltarget is called "bones*"
+	if me = player
+		print "You've got to be kidding!"
+		printcr
+	endif
+	return
+endif
+
+if spelltarget.stats.hp > 0
+	if me = player
+		print "Didn't work."
+		printcr
+	endif
+	return
+endif
+
+# Attempt resurrection
+
+if spelltarget.funcs.resurrect = "-"
+or spelltarget.funcs.resurrect = ""
+	if me = player
+		print "It cannot be resurrected."
+		printcr
+	endif
+	return
+endif
+
+if spelltarget is called "deadpanther_head"
+	let spelltarget.stats.weight = 25000	# Make it 25kg again
+endif
+
+# Call a user function if the corpse has one
+if spelltarget.funcs.user1 <> ""
+	call spelltarget.funcs.user1
+endif
+
+object_sound "resurrection" spelltarget
+
+# Bring it back
+change spelltarget = spelltarget.funcs.resurrect
+let spelltarget.stats.hp = 10
+resume_action spelltarget
+
+# Add a corona effect
+let spelltarget.user.user18 = 0		# Initial size
+let spelltarget.user.user17 = +12		# Speed
+let spelltarget.user.user16 = TINT_CYAN	# guess
+overfx spelltarget does fx_bouncecorona
+
+# If it's a dead follower...
+if_flag spelltarget IS_PARTY
+	add_member spelltarget
+	call check_playerisfirst
+	start_action spelltarget does "follower_action"
+endif
+reset_flag spelltarget IS_CRITICAL
+
+
+if me = player
+	print "Success!"
+	printcr
+endif
+
+
+end

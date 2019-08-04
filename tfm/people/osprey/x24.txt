@@ -1,0 +1,136 @@
+Gatekeeper
+
+[page="start"]
+[if_not find_ospreys][goto="notready"]
+
+"I am the keeper of the gate.  I raise and lower the
+ bridge that keeps out land-beasts such as you."
+
+[link="Please let me pass."]
+[linkto="enter"]
+[link="Why do you have all these fortifications?"]
+[linkto="fortifications"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="enter"]
+
+"Tell me the password, and this I shall do."
+
+[if password_fish][link="The password is 'fisshh'!"]
+[if password_fish][linkto="enter2"]
+[link="I don't know the password."]
+[linkto="denied"]
+[link="If I give you a fish, will you let me pass?"]
+[linkto="givefish"]
+[link="Never mind."]
+[linkto="bye"]
+[endpage]
+
+
+[page="denied"]
+
+"Then you are not welcome."
+
+[if password_fish][link="The password is 'fisshh'!"]
+[if password_fish][linkto="enter2"]
+[link="If I give you a fish, will you let me pass?"]
+[linkto="givefish"]
+[link="Never mind."]
+[linkto="bye"]
+[endpage]
+
+
+[page="enter2"]
+
+"Fisshh!  The passssword is correct.. I shall now lower
+ the bridge for you."
+
+[call="guard_ospreys"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="givefish"]
+[if password_fish][goto="givefish3"]
+[am_carrying="food08"]
+[if true][goto="givefish2"]
+
+"I see in your mind that you do not even have fisshh.
+ Away with you."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="givefish2"]
+[colour="#808080"]
+You remove the fish from your backpack and dangle it in
+front of the osprey.
+
+The bird stares longingly at the fish, but eventually
+closes both eyes to avoid the temptation.
+[colour="#ffffff"]
+
+"No.  I see in your mind that you do not know the
+ password.  I must not be tempted with fisshh.
+
+ Away with you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="givefish3"]
+
+"I see in your mind that you have been told the password
+ anyway, so this bribery is unnecessary.
+
+ I shall now lower the bridge for you."
+
+[call="guard_ospreys"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="fortifications"]
+
+"The men of the New God.. they do not trust us and we
+ do not trust them.
+
+ Just as the weak lose their fisshh to the eagle, so we
+ too must remain ever vigilant.  For it may be that they
+ will one day decide to raid our village and steal our
+ eggs and our fisshh.
+
+ The bridge makes that hard for them to do."
+
+[link="Please let me pass."]
+[linkto="enter"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="notready"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey, watching you with a
+silent intent.  There is a strange gleam in the bird's
+eyes.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

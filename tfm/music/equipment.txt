@@ -1,0 +1,33 @@
+The following equipment was used for the music:
+===============================================
+
+Keyboards and Synths
+--------------------
+
+Roland M-VS1 Vintage Synth sound module
+Roland JV-1010 sound module with orchestral card
+Waldorf Pulse analogue monophonic synthesizer
+Cheetah MS-6 analogue polysynth
+Evolution 225c controller keyboard
+
+Processing
+----------
+Zoom RFX-2000 effects rack
+Danelectro phaser
+TLA Fat-1 stereo valve compressor
+
+Mixing and Mastering
+---------
+Phonic MM1002 sub-mixer
+Behringer MX802A mixer
+Tascam TSR-8 1/2" multitrack recorder
+Tascam-32 2-track 1/4" master recorder
+
+Computer
+--------
+Creative Labs SB Live 1024 soundcard for digital remaster
+Creative Labs SB-16 for I/O and secondary audio bus
+Sonar V1.31
+Goldwave v5
+Applied Acoustics Lounge Lizard electric piano engine
+Ogg Vorbis Encoder toolkit

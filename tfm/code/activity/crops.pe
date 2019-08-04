@@ -1,0 +1,192 @@
+##
+##	Tend Crops (based on SHOPPING module from The Flat)
+##
+
+
+#
+#  part I
+#  Pick a target
+#
+
+function tend_crops
+activity
+
+integer num
+object o
+object bucket
+
+# Check we've got something to do, otherwise think of something to do
+
+if me.user.user2 = 0	# Are we running or waiting to be primed?
+	# Get the object to find
+	if_not_exist me.target
+		print "Error in crops code|"
+		print "Character must point to a target for the first tag|"
+		return
+	endif
+
+	let me.user.user2 = me.target.tag
+endif
+
+# Do we have any water?
+
+find bucket = "bucket_water" in me
+
+if_not_exists bucket
+
+	# No, do we have an empty one?
+	find bucket = "bucket" in me
+	if_exists bucket
+		find_tag o = "target" me.user.user2
+		if_exists o
+			start_action me does "tend_crops_water" to o
+			return
+		endif
+	else
+		# No, find one
+		start_action me does "tend_crop_bucket"
+		return
+	endif
+endif
+
+
+# Now we have a base target number, do a random decision which one to go for
+# if we can't find an object with that tag, guess again until we have something
+# worth doing
+
+#do
+label do_again
+
+	random num between 1 10 # 0 is the water-source
+	add num + me.user.user2
+	find_tag o = "target" num
+	if_exists o
+
+		# Make sure we aren't already at that target
+		if o.x = me.x
+			if o.y = me.y
+				# Guess again
+				let o = null
+			endif
+		endif
+	endif
+
+if_not_exist o
+	goto do_again
+endif
+#while o = null
+
+# Chain to the next stage
+
+start_action me does "tend_crops2" to o
+
+end
+
+
+#
+#	part II
+#	Go to the desired target
+#
+
+
+function tend_crops2
+private
+
+object bucket
+
+if_exists me.target
+	# Try to move there
+	move_towards me me.target
+
+	if err <> PATH_WAITING
+		# Face the same direction as the target object
+		set_direction me faces me.target.curdir
+
+		find bucket = "bucket_water" in me
+		if_not_exists bucket
+			# IT'S GONE!!
+			start_action me does "tend_crops3"
+			return
+		endif
+
+		# pour bucket (on me.target)
+		let current = bucket
+		call bucket.funcs.ucache
+		
+		# Wait for 7 turns
+		let me.user.user1 = 7
+
+		# Chain to part 3
+		start_action me does "tend_crops3"
+	endif
+endif
+
+end
+
+
+#
+#  part III
+#  Wait for a while, then go to part I again
+#
+
+function tend_crops3
+private
+
+add me.user.user1 - 1
+if me.user.user1 <= 0
+	let me.user.user1 = 0
+	# Chain to the first stage again to repeat the process
+	start_action me does "tend_crops"
+endif
+
+end
+
+#
+#	Get Water
+#	Go to the water target
+#
+
+
+function tend_crops_water
+private
+
+object bucket
+integer nx
+integer ny
+
+if_exists me.target
+	# Try to move there
+	move_towards me me.target
+
+	# not there yet
+	if err <> PATH_WAITING
+		# Face the same direction as the target object
+		set_direction me faces me.target.curdir
+
+		# Bucket..
+		find bucket = "bucket" in me
+		if_not_exists bucket
+			# IT'S GONE!!
+			start_action me does "tend_crops3"
+			return
+		endif
+
+		# Get water from NE
+		let nx = me.target.x + 1
+		let ny = me.target.y - 1
+		get_tile curtile at nx ny
+
+		# Use the bucket
+		let current = bucket
+		call bucket.funcs.ucache
+
+		# Wait for 7 turns
+		let me.user.user1 = 7
+
+		# Chain to part 3
+		start_action me does "tend_crops3"
+	endif
+endif
+
+end
+

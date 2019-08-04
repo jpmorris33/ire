@@ -1,0 +1,109 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+[call="playermagic_start"]
+
+                   Stampbook of the Ancients
+                     Gotta catch 'em all!
+
+  Contents:
+
+1. Level One
+2. Level Two
+3. Level Three
+4. Level Four
+5. Level Five
+6. Level Six
+7. Level Seven
+8. Level Eight
+
+[right="1"]
+[endpage]
+
+
+
+[page="1"]
+[backing="paper.pcx"]
+[font 3]
+
+[if_pflag spell_awaken] Awaken - Instantly rouse a man from the deepest slumber
+[if_pflag spell_awaken]  
+[if_pflag spell_help] Help - A prayer to the LORD that he may forgive you
+[if_pflag spell_help]  
+ * Light Heal
+ * Cure
+ * Light Kill
+ * Magic Fluff
+ * Zapify
+
+[link="Awaken"]
+[if_pflag spell_awaken][linkto="awaken"]
+[link="Help"]
+[if_pflag spell_help][linkto="help"]
+
+[link="Light Heal"]
+[linkto="lheal"]
+
+[link="Cure"]
+[linkto="cure"]
+
+[link="Light Kill"]
+[linkto="kill"]
+
+[link="Magic Fluff"]
+[linkto="ignite"]
+
+[link="Zapify"]
+[linkto="zapify"]
+
+[link="Test"]
+[linkto="test"]
+
+[link="Cancel"]
+[linkto="exit"]
+[left="start"]
+[endpage]
+
+
+
+[page="awaken"]
+[at_exit_call="spell_awaken"]
+[goto="exit"]
+[endpage]
+
+
+[page="help"]
+[at_exit_call="spell_help"]
+[goto="exit"]
+[endpage]
+
+[page="lheal"]
+[at_exit_call="spell_lheal"]
+[goto="exit"]
+[endpage]
+
+[page="cure"]
+[at_exit_call="spell_cure"]
+[goto="exit"]
+[endpage]
+
+[page="kill"]
+[at_exit_call="spell_kill"]
+[goto="exit"]
+[endpage]
+
+[page="ignite"]
+[at_exit_call="spell_ignite"]
+[goto="exit"]
+[endpage]
+
+[page="zapify"]
+[at_exit_call="spell_laserbeam"]
+[goto="exit"]
+[endpage]
+
+
+[page="test"]
+[at_exit_call="spell_test"]
+[goto="exit"]
+[endpage]

@@ -1,0 +1,1115 @@
+####################
+#                  #
+#  Justice Engine  #
+#                  #
+####################
+
+const CRIME_NONE = 0
+const CRIME_THEFT = 1
+const CRIME_MURDER = 2
+const CRIME_DESECRATION = 3
+const CRIME_HERESY = 4
+const CRIME_WITCH = 5
+const CRIME_BLASPHEMY = 6
+const CRIME_ASSAULT = 7
+const CRIME_HIGHTREASON = 8
+const CRIME_REGICIDE = 9
+const CRIME_TRESPASSING = 10
+const CRIME_BEAST = 11		# Wild beast amok.. not a crime as such
+const CRIME_TREASON = 12
+const CRIME_VANDALISM = 13
+
+object arrested
+
+
+local
+int witnesses
+endlocal
+
+
+##
+##  Justice_Theft - Someone stole things
+##
+
+function justice_theft
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# What was stolen?
+
+if_not_exists victim
+	return
+endif
+
+# Okay, we have an alleged theft and a suspect.
+# Determine if a crime has been committed
+
+# Is the object public property?
+if_not_exists victim.stats.owner
+	return
+endif
+
+# Does the object belong to the accused?
+if victim.stats.owner = suspect
+	return
+endif
+
+# Are they both party members?  (Thanks for finding this Michael!)
+if_flag victim.stats.owner IS_PARTY
+	if_flag suspect IS_PARTY
+		return
+	endif
+endif
+
+# Is the owner a person?  (Not an artifact or egg)
+if_not_flag victim.stats.owner IS_PERSON
+	return
+endif
+
+# Thieving scoundrel!
+let suspect.user.user19 = CRIME_THEFT
+
+# And were there any witnesses?
+
+let witnesses = 0
+for_all_onscreen justice_stopthief
+
+# No
+
+if witnesses = 0
+#	print suspect.personalname
+#	print " was "
+	print "Stealing!"
+	printcr
+else
+#	print suspect.personalname
+#	print " must be arrested! "
+	print "~STOP THIEF!~"
+	printcr
+	call call_guards
+endif
+
+end
+
+
+##
+##  Justice_Assault - Beating people up
+##
+
+function justice_assault
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# Who or what was attacked?
+
+if_not_exists victim
+	return
+endif
+
+# Are they human or animal?
+if victim.stats.intel <= 90
+	return
+endif
+
+# If they die, it becomes murder
+if victim.stats.hp < 1
+	let suspect.user.user19 = CRIME_MURDER
+else
+	let suspect.user.user19 = CRIME_ASSAULT
+endif
+
+
+# Were there any witnesses?
+
+let witnesses = 0
+#for_all_onscreen justice_stopthief
+all_around me radius 20 does justice_stopthief
+
+if witnesses > 0
+	if suspect.user.user19 = CRIME_MURDER
+		print "~HELP!  MURDER!!~"
+	else
+		print "~HELP!  HELP!~"
+	endif
+
+	printcr
+	call call_guards
+endif
+
+end
+
+
+##
+##  Hit_Jesus - Someone attacked the cross
+##
+
+function hit_jesus
+
+let suspect = me
+let victim = current
+
+# Repair the Crucifix to prevent it being destroyed
+if victim.stats.hp <= 0
+	let victim.stats.hp = 75
+	check_hurt victim
+endif
+
+if_not_exists suspect
+	return
+endif
+
+if suspect.stats.intelligence < 40
+	return
+endif
+
+if_not_exist victim
+	return
+endif
+
+if_not_onscreen victim
+	return
+endif
+
+talk_to "people/church/crucifix.txt" "kill"
+let suspect.user.user19 = CRIME_BLASPHEMY
+
+let witnesses = 0
+#for_all_onscreen justice_attack_party
+all_around suspect radius 32 does justice_attack_party
+
+if witnesses > 0
+	print "~DESTROY IT!~"
+	printcr
+	call call_guards
+endif
+
+end
+
+
+##
+##  Hit_Panther - If you attack a panther, you die
+##
+
+function hit_panther
+
+let suspect = me
+let victim = current
+
+if_not_exists suspect
+	return
+endif
+
+if suspect.stats.intelligence < 40
+	return
+endif
+
+if_not_exist victim
+	return
+endif
+
+if_not_onscreen victim
+	return
+endif
+
+let suspect.user.user19 = CRIME_ASSAULT
+
+let witnesses = 0
+all_around suspect radius 32 does justice_attack_party
+
+if witnesses > 0
+	print "~DESTROY THE INTRUDER!~"
+	printcr
+	call call_guards_deadly
+endif
+
+end
+
+
+
+##
+##  A blasphemous act has been committed
+##
+
+function justice_blasphemy
+
+let suspect = me
+
+if_not_exists suspect
+	return
+endif
+
+# Is it rational?
+if_not_flag suspect IS_PERSON
+	return
+endif
+
+let suspect.user.user19 = CRIME_BLASPHEMY
+
+let witnesses = 0
+all_around suspect radius 32 does justice_attack_party
+
+if witnesses > 0
+	print "~KILL THE BLASPHEMER!~"
+	printcr
+#	call call_guards
+endif
+
+end
+
+
+##
+##  You have committed a heresy
+##
+
+function justice_heresy
+
+let suspect = me
+
+if_not_exists suspect
+	return
+endif
+
+# Is it rational?
+if_not_flag suspect IS_PERSON
+	return
+endif
+
+let suspect.user.user19 = CRIME_HERESY
+
+let witnesses = 0
+all_around suspect radius 32 does justice_attack_party
+
+if witnesses > 0
+	print "~BURN THE HERETIC!~"
+	printcr
+#	call call_guards
+endif
+
+end
+
+
+##
+##  justice_desecration - you been naughty
+##
+
+function justice_desecration
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# Who or what was attacked?
+
+if_not_exists victim
+	return
+endif
+
+# There was a desecration.  Only the player would dare do that
+set_user_flag "desecrate" = 1
+
+let suspect.user.user19 = CRIME_DESECRATION
+
+# Were there any witnesses?
+
+let witnesses = 0
+#for_all_onscreen justice_attack_party
+all_around suspect radius 32 does justice_attack_party
+
+if witnesses > 0
+	print "~GET THEM!  HANG THEM!  BURN THEM!~"
+	printcr
+#	call call_guards
+endif
+
+end
+
+
+##
+##  justice_vandalism - you been naughty
+##
+
+function justice_vandalism
+
+# Is there a suspect?
+
+if_not_exists suspect
+	print "vandal: No suspect|"
+	return
+endif
+
+# Who or what was attacked?
+
+if_not_exists victim
+	print "vandal: No victim|"
+	return
+endif
+
+# Is the object public property?
+if_not_exists victim.stats.owner
+	print "vandal: public|"
+	return
+endif
+
+# Does the object belong to the accused?
+if victim.stats.owner = suspect
+	print "vandal: yours|"
+	return
+endif
+
+# Are they both party members?  (Thanks for finding this Michael!)
+if_flag victim.stats.owner IS_PARTY
+	if_flag suspect IS_PARTY
+	print "vandal: of party|"
+		return
+	endif
+endif
+
+# Is the owner a person?  (Not an artifact or egg)
+if_not_flag victim.stats.owner IS_PERSON
+	print "vandal: owner not human|"
+	return
+endif
+
+let suspect.user.user19 = CRIME_VANDALISM
+
+# Were there any witnesses?
+
+let witnesses = 0
+all_around suspect radius 32 does justice_stopthief
+
+if witnesses > 0
+	print "~VANDAL!~"
+	printcr
+	call call_guards
+endif
+
+end
+
+
+##
+##  justice_calloff - Call off your dogs
+##
+
+function justice_calloff
+
+all_around me radius 32 does justice_calloff_guards
+#for_all_onscreen justice_calloff_guards
+
+end
+
+
+##
+##  Justice_HTreason - Beating a king up
+##
+
+function justice_HTreason
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# Who or what was attacked?
+
+if_not_exists victim
+	return
+endif
+
+# Assume it's High treason unless told otherwise
+if suspect.user.user19 <> CRIME_TREASON
+	let suspect.user.user19 = CRIME_HIGHTREASON
+	if victim.stats.hp > 1
+		print "The King calls for help!"
+		printcr
+	endif
+endif
+
+# If the king is dead, it becomes regicide
+if victim.stats.hp < 1
+	let suspect.user.user19 = CRIME_REGICIDE
+	print "~AAGHH!~"
+	printcr
+endif
+
+# Summon guards to the King
+call call_guards
+
+# Were there any witnesses?
+
+let witnesses = 0
+for_all_onscreen justice_attack_party
+
+if witnesses > 0
+
+	if suspect.user.user19 = CRIME_TREASON
+		print "~Treason!  TREASON!!~"
+		printcr
+		redraw_text
+	endif
+
+	if suspect.user.user19 = CRIME_HIGHTREASON
+		if_flag suspect IS_FEMALE
+			print "~GUARDS!  OFF WITH HER HEAD!~"
+		else
+			print "~GUARDS!  OFF WITH HIS HEAD!~"
+		endif
+		printcr
+		redraw_text
+		wait 1000 NONBLOCKING
+	endif
+
+	if suspect.user.user19 = CRIME_REGICIDE
+		print "~TAKE THEM ALIVE!!  MAKE THEM SUFFER!!~"
+		printcr
+		# If there are witnesses, get them to call the guards
+		call call_guards
+	endif
+endif
+
+end
+
+##
+##  Bootstrap for spoken treason 
+##
+
+function justice_Treason
+let suspect = me
+let victim = current
+let suspect.user.user19 = CRIME_TREASON
+call justice_HTreason
+end
+
+
+##
+##  Justice_Regicide - You killed the King
+##
+
+function justice_Regicide
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# Just to be clear on this
+let suspect.user.user19 = CRIME_REGICIDE
+
+# Summon guards to the King
+call call_guards
+
+# Were there any witnesses?
+
+let witnesses = 0
+for_all_onscreen justice_attack_party
+
+if witnesses > 0
+
+	print "~THEY DID IT!  THEY KILLED THE KING!!~"
+	printcr
+	# If there are witnesses, get them to call the guards
+	call call_guards
+endif
+end
+
+
+##
+##  Justice_Blackcock - you don't want to know
+##
+
+
+function justice_blackcock
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# Who or what was attacked?
+
+if_not_exists victim
+	return
+endif
+
+# If they die, it becomes murder
+if victim.stats.hp < 1
+	let suspect.user.user19 = CRIME_MURDER
+	print "~Avenge me, brothers!  I go to join the Evil One!~"
+	printcr
+	redraw_text
+	wait 1000 NONBLOCKING
+endif
+
+# Were there any witnesses?
+let witnesses = 0
+for_all_onscreen justice_attack_party
+
+if witnesses > 0
+	if suspect.user.user19 = CRIME_MURDER
+		print "~Feed him to the slugs!!~"
+		printcr
+	endif
+endif
+
+end
+
+
+
+
+
+
+function call_guards
+
+for_all_onscreen justice_arrest		# Recruit guards onscreen
+
+# Spawned guards cannot summon more guards
+if_not_flag me IS_SPAWNED
+	call summon_guards			# Very good Asok, you bring more..
+	return
+endif
+
+end
+
+
+function call_guards_deadly
+
+for_all_onscreen justice_attack_party
+# Spawned guards cannot summon more guards
+if_not_flag me IS_SPAWNED
+	call summon_guards			# Very good Asok, you bring more..
+	return
+endif
+
+end
+
+
+
+##
+##  A bishop or cardinal has been murdered!
+##  Now heads are really going to roll
+##
+
+##  Wait a bit before proclaiming 
+
+function justice_bishop_delayed
+if me.user.user0 > 0
+	add me.user.user0 - 1
+	return
+endif
+
+let me.enemy = me.target
+let current = me
+call justice_bishop
+stop_action me
+end
+
+##
+##  Now the LORD gets really angry.
+##
+
+function justice_bishop
+private
+
+# Safety check
+if_not_exists current
+	print "Spurious bishop death"	
+	printcr
+	return
+endif
+
+# No enemy?  That's odd
+if_not_exists current.enemy
+	# The player must have engineered this somehow, get them
+	talk_to "people/church/lord.txt" "cardinal_n"
+	let current.enemy = player
+	call fry_current
+	return
+endif
+
+# Was it the player?
+if current.enemy == player
+	# Yes.  Tell them about it.
+	talk_to "people/church/lord.txt" "cardinal_p"
+else
+	talk_to "people/church/lord.txt" "cardinal_u"
+endif
+
+call fry_current
+end
+
+##
+##  Cook the player
+##
+
+function fry_current
+object oldme
+
+let oldme = me
+let me = current
+call god_killenemy_slowly
+if_exists me.enemy
+	# Turn them into a skeleton
+	if me.enemy.label.race = "human"
+		replace me.enemy = "bones0"
+		set_direction me.enemy = RIGHT
+	else
+		replace me.enemy = "ash"
+	endif
+endif
+let me = oldme
+
+end
+
+
+##
+##  Justice_Intruder - Someone broke into the treasury/pope's bedroom
+##
+
+function justice_intruder
+int alreadyguilty = 0
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# No double jeopardy
+if suspect.user.user19 = CRIME_TRESPASSING
+	let alreadyguilty = 1
+endif
+
+# Thieving scoundrel!
+let suspect.user.user19 = CRIME_TRESPASSING
+
+# And were there any witnesses?
+
+let witnesses = 0
+for_all_onscreen justice_stopthief
+
+# No
+
+if witnesses <> 0
+	if alreadyguilty = 0
+		print "~GUARDS!  INTRUDER!~"
+		printcr
+	endif
+	call call_guards
+endif
+
+end
+
+
+function justice_intruder_deadly
+int alreadyguilty = 0
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# No double jeopardy
+if suspect.user.user19 = CRIME_TRESPASSING
+	let alreadyguilty = 1
+endif
+
+# Thieving scoundrel!
+let suspect.user.user19 = CRIME_TRESPASSING
+
+# And were there any witnesses?
+
+let witnesses = 0
+for_all_onscreen justice_attack_party
+
+if witnesses > 0
+	if alreadyguilty = 0
+		print "~SLAY THE INTRUDER!~"
+		printcr
+	endif
+	call call_guards_deadly
+endif
+
+end
+
+
+
+########################################
+#  Callbacks used by For_All_Onscreen  #
+########################################
+
+
+##
+##	Stop Thief!
+##	If the current object is not of the party it gives chase
+##
+
+function justice_stopthief
+
+# Prevent anyone from trying to wreak justice upon themselves
+if current = suspect
+	return
+endif
+
+# Are you smart enough to spot a theft?
+if current.stats.intel < 90
+	return
+endif
+
+# Are you conscious?
+if current.user.unconscious > 0
+	return
+endif
+
+
+if suspect.user.vigilante = 0			# Licensed to kill?
+	if_not_flag current IS_PARTY		# Are you of Us?
+		let current.enemy = suspect
+
+		if suspect.user.user19 = CRIME_MURDER
+
+			if suspect.stats.hp > current.stats.hp
+				# Too strong, run away!
+				start_activity current does enemy_flee to suspect
+			else
+				# Beat them up
+				start_activity current does enemy_attack to suspect
+			endif
+
+/*
+			print  current.personalname
+			print "("
+			print current.name
+			print ") at "
+			print current.x
+			print ","
+			print current.y
+			print " accuses "
+			print_bestname suspect
+			print " of murder"
+			printcr
+*/
+#			status 3
+		else
+			let arrested = null
+			start_activity current does enemy_arrest to suspect
+		endif
+		add witnesses + 1
+		# Grant permission to kill (reset by start_activity etc)
+		let current.user.vigilante = 1
+	endif
+endif
+
+end
+
+
+##
+##	Attack Party
+##	If the current object is not of the party it gives chase
+##
+
+function justice_attack_party
+
+# Prevent anyone from trying to wreak justice upon themselves
+if current = suspect
+	return
+endif
+
+if suspect.user.vigilante = 0			# Licensed to kill?
+	if_not_flag current IS_PARTY		# Are you of Us?
+		# Are you conscious?
+		if current.user.unconscious > 0
+			return
+		endif
+		let current.enemy = suspect
+		# Attack and kill
+		start_activity current does enemy_attack to suspect
+		add witnesses + 1
+		# Grant permission to hurt (reset by start_activity etc)
+		let current.user.vigilante = 1
+	endif
+endif
+
+end
+
+
+##
+##	Call off the vigilantes
+##
+
+function justice_calloff_guards
+
+if current.enemy = me
+	if_flag current IS_PARTY
+		return	# Prevent the player getting de-brained
+	endif
+	# Stop attacking
+	let current.enemy = null
+	stop_activity current
+	resume_activity current
+	let current.user.vigilante = 0
+	let current.user.user19 = CRIME_NONE
+endif
+
+end
+
+
+##
+##	Guards!  Arrest that person!
+##	If the current object is a guard, it goes into arrest mode
+##
+
+function justice_arrest
+
+# Prevent anyone from trying to wreak justice upon themselves
+if current = suspect
+	return
+endif
+
+if suspect.user.vigilante = 0			# Licensed to kill?
+	if_not_flag current IS_PARTY		# Are you of Us?
+		if_flag current IS_GUARD
+			let current.enemy = suspect
+			start_activity current does enemy_arrestnow to suspect
+			# Grant permission to hurt (reset by start_activity etc)
+			let current.user.vigilante = 1
+			let arrested = null
+		endif
+	endif
+endif
+
+end
+
+
+##
+##	Jail the victim
+##
+
+function arrest_victim
+object target
+
+# Mark the victim of the arrest, so everyone else stops trying to arrest them
+let arrested = victim
+
+if_exists victim
+	# Reset the crime flag
+	let victim.user.user19 = CRIME_NONE
+endif
+
+if victim = player
+
+	# Lock the door again
+
+	find_tag target = "stonedoor5_*" 60008
+	if_exists target
+		change target = "stonedoor5_lock"
+		let target.user.oldhp = target.stats.hp
+	endif
+
+	# No door?  Well 'Ard.
+
+	find_tag target = "stonedoorway*" 60008
+	if_exists target
+		change target = "stonedoor5_lock"
+		let target.user.oldhp = target.stats.hp
+	endif
+
+	# Chuck the player into their cell
+
+	find_tag target = "target" 60008 # Find the player's cell
+	if_exist target
+#		cls
+		print "~You are under arrest!~"
+		printcr
+		redraw_text
+		fade_out
+		push_object victim to target.x target.y
+		if party_mode = 1
+			move_party_to target
+			spill target
+			set_leader player player_action follower_action
+		endif
+		fade_in
+	else
+		print "No target: cannot arrest"
+		printcr
+	endif
+
+
+endif
+
+end
+
+
+##
+##  Justice_Beast - A wild beast runs amok in the city
+##
+
+function justice_beast
+int alreadyguilty = 0
+
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# No double jeopardy
+if suspect.user.user19 = CRIME_BEAST
+	let alreadyguilty = 1
+endif
+
+let suspect.user.user19 = CRIME_BEAST
+
+# Were there any witnesses?
+
+all_around me radius 20 does justice_attack_party
+
+if alreadyguilty = 0
+	print "~BEAST!  BEAST!~"
+	printcr
+endif
+call call_guards
+
+end
+
+
+##
+##  Justice_Demon
+##
+
+function justice_demon
+int alreadyguilty = 0
+
+# Is there a suspect?
+if_not_exists suspect
+	return
+endif
+
+# No double jeopardy
+if suspect.user.user19 = CRIME_BEAST
+	let alreadyguilty = 1
+endif
+
+let suspect.user.user19 = CRIME_BEAST
+
+# Were there any witnesses?
+all_around me radius 20 does justice_attack_party
+
+if alreadyguilty = 0
+	print "~DEMON!  KILL IT!~"
+	printcr
+endif
+call call_guards
+
+end
+
+
+##
+##	Hang the victim
+##
+
+function hang_victim
+object target
+object hatch
+object guard
+int x
+int y
+int x2
+
+# Mark the victim of the arrest, so everyone else stops trying to arrest them
+let arrested = victim
+
+if victim = player
+
+	find_tag target = "gallows" 60008
+	if_not_exists target
+		print "Error: no gallows to hang the player from|"
+		return
+	endif
+
+	# Put the player on the scaffold
+
+	fade_out
+#	push_object victim to target.x target.y
+#	if party_mode = 1
+#	move_party_to target
+#		spill target
+	let x = target.x
+	let y = target.y
+	add x + 1
+	add y + 2
+
+	# Find the trapdoor and ensure it is shut
+	get_first_object hatch = x y
+	if hatch is called "HATCH_GALLOWS_OPENED"
+		let me = hatch.stats.owner
+		let current = hatch.stats.owner
+		if_exists current
+			call current.funcs.use
+		else
+			print "Error: cannot close gallows (hatch has no parent)|"
+			fade_in
+			return
+		endif
+	endif
+
+	# Create a guard and have them pull the lever
+	let x2 = y + 9
+	create guard = "guard"
+	transfer_object guard to x x2
+	queue_action guard does seek_target_use to hatch.stats.owner
+	queue_action guard does nothing
+	run_queue guard
+	set_flag guard IS_SPAWNED = 1	# Guard must evapourate afterwards
+
+	# Move the player into position and have them bound
+	transfer_object victim to x y
+	set_direction victim facing SOUTH
+	if victim = player
+		set_leader victim nothing follower_action
+	endif
+
+	fade_in
+
+	# Go.. player is helpless and awaiting execution
+
+endif
+
+end
+
+
+function hang_player
+let victim = player
+call hang_victim
+end
+
+
+##
+##  The player usurps King Edwyg's throne
+##
+
+##  Wait a bit before proclaiming 
+
+function justice_edwyg
+if me.user.user0 > 0
+	add me.user.user0 - 1
+	return
+endif
+
+let current = me
+talk_to "people/church/lord.txt" "regicide"
+stop_action me
+end

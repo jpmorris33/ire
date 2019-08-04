@@ -1,0 +1,431 @@
+############################################
+#                                          #
+#  Visual effects when a weapon is used    #
+#  Firebolts are thrown, chairs break etc  #
+#                                          #
+############################################
+
+
+
+##
+##  Attack engine for energy weapons
+##
+
+function attack_laser
+
+int r
+
+# Check range, and move towards foe
+get_line_of_sight r = attacker attacker.enemy
+
+if r > attackweapon.stats.range
+or r = 0
+	if attacker == player
+		print "Out of range!"
+		printcr
+	else
+		move_towards attacker attacker.enemy
+	endif
+	return
+endif
+
+# We're in range, so do the attack.
+
+# Set a suitable attack frame if we have one
+let current = attacker
+call attack_frame
+
+let new_x = attacker.enemy.x
+let new_y = attacker.enemy.y
+
+call fudge_thrown  # Cause them to miss, perhaps
+
+# Zap the enemy
+let attacker.target = attacker.enemy
+overfx attacker does attacker.funcs.user1
+wait 250 NONBLOCKING
+stop_fx attacker
+
+# reset the attacker's frame
+set_direction attacker = attacker.curdir
+
+# Apply the damage
+if new_x = attacker.enemy.x
+and new_y = attacker.enemy.y
+	# Hurt me
+	add attacker.enemy.stats.hp - attacker.stats.damage
+	check_hurt attacker.enemy
+endif
+
+end
+
+
+##
+##  Attack engine for energy weapons without LOS checking
+##
+
+function attack_laseralways
+
+# Set a suitable attack frame if we have one
+let current = attacker
+call attack_frame
+
+let new_x = attacker.enemy.x
+let new_y = attacker.enemy.y
+
+call fudge_thrown  # Cause them to miss, perhaps
+
+# Zap the enemy
+let attacker.target = attacker.enemy
+overfx attacker does attacker.funcs.user1
+wait 2500 NONBLOCKING
+stop_fx attacker
+
+# reset the attacker's frame
+set_direction attacker = attacker.curdir
+
+# Apply the damage
+if new_x = attacker.enemy.x
+and new_y = attacker.enemy.y
+	# Hurt me
+	add attacker.enemy.stats.hp - attacker.stats.damage
+	check_hurt attacker.enemy
+endif
+
+end
+
+
+
+/*
+# Bottles
+
+if attackweapon is called "bottle_full"
+or attackweapon is called "bottle_empty"
+	let temp = current
+	let current = attackweapon
+	let attackweapon.x = enemy.x		# Bottle spills on enemy
+	let attackweapon.y = enemy.y
+	call smashbottle
+	let current = temp
+endif
+
+
+
+# Tree 1
+
+if enemy is called "tree01"
+	get_decor enemyx enemyy enemy
+	if enemyx <> 0
+		del_decor enemyx enemyy enemy
+		create enemy = "tree01_real"
+		print "treeify at "
+		print enemyx
+		print ","
+		print enemyy
+		printcr
+		transfer_object enemy to enemyx enemyy
+	endif
+endif
+
+*/
+
+
+
+##
+##  Attack engine for venom-spitting creatures
+##
+
+function attack_venom
+
+object ammo
+
+# Create some venom to throw and align it with the attacker
+
+create ammo = "poisonbolt"
+set_direction ammo = attacker.curdir
+transfer_object ammo to attacker.x attacker.y
+let ammo.enemy = attacker.enemy
+let ammo.stats.owner = attacker
+
+# Set a suitable attack frame if we have one
+let current = attacker
+call attack_frame
+
+# Throw the ammo at the enemy
+let victim = ammo
+let new_x = attacker.enemy.x
+let new_y = attacker.enemy.y
+
+call fudge_thrown  # Cause them to miss, perhaps
+
+let drop_quiet = 1	# Drop without comments
+let drop_nodamage = 1	# Prevent interial damage from thrown objects
+call do_drop
+
+# reset the attacker's frame
+set_direction attacker = attacker.curdir
+
+# Smash the ammo to trigger its attack
+let ammo.stats.hp = -1
+check_hurt ammo
+end
+
+
+##
+##  Attack engine for fire-spitting creatures, e.g. todes
+##
+
+function attack_firebolt
+
+object ammo
+
+# Create some venom to throw and align it with the attacker
+
+create ammo = "firebolt"
+set_direction ammo = attacker.curdir
+transfer_object ammo to attacker.x attacker.y
+let ammo.enemy = attacker.enemy
+let ammo.stats.owner = attacker
+
+# Set a suitable attack frame if we have one
+let current = attacker
+call attack_frame
+
+# Throw the ammo at the enemy
+let victim = ammo
+let new_x = attacker.enemy.x
+let new_y = attacker.enemy.y
+
+call fudge_thrown  # Cause them to miss, perhaps
+
+let drop_quiet = 1	# Drop without comments
+let drop_nodamage = 1	# Prevent internal damage from thrown objects
+call do_drop
+
+# reset the attacker's frame
+set_direction attacker = attacker.curdir
+
+# Smash the ammo to trigger its attack
+let ammo.stats.hp = -1
+check_hurt ammo
+end
+
+##
+##  Chair used as a weapon
+##
+
+function chair_weapon
+
+	# Smash the chair
+	call break_chair
+
+	# Use hit damage from chair being smashed over their head
+	let hit_damage = current.stats.weight / 100	# Crash!
+
+	# Clip damage to prevent chair killing a fully healthy man outright
+	if hit_damage > 75
+		let hit_damage = 75
+	endif
+
+	# Make sure it is still properly wielded
+	set_flag attackweapon IS_WIELDED = 1
+end
+
+
+##
+##  Mining
+##
+
+function pickaxe_weapon
+integer orepct
+object ore
+
+	# Are we mining with it?
+	if attacker.enemy is called "rockface"
+		random orepct between 1 25
+		if orepct > 18
+			create ore = attacker.enemy.funcs.user1
+			move_to_pocket ore to attacker
+			if attacker = player
+				print "You got some ore."
+				printcr
+			endif
+		else
+			if attacker = player
+				print "Didn't get anything."
+				printcr
+			endif
+		endif
+		# Don't hurt the rock
+		let hit_damage = 0
+		return
+	endif
+
+	# If you hit someone with a pickaxe it gets very messy
+	if_flag attacker.enemy IS_BIOLOGICAL
+		let hit_damage = 50	# was 75: too easy!
+		return
+	endif
+
+end
+
+##
+##  Mining
+##
+
+function axe_rd_weapon
+
+let hit_damage = 20
+
+if attacker.enemy.stats.hp < 1
+	let current = attacker.enemy
+	call resurrect
+	let hit_damage = 0
+endif
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##
+##  gun_attack - distant attack with a gun
+##
+
+/*
+	Loadable weapons have the following properties:
+
+	stats->str = number of shots left
+	maxstats->str = number of shots when full (not needed here)
+	stats->damage = damage done by weapon, can be set when you load
+			a specific type of ammo to vary this.
+*/
+
+function gun_attack
+/*
+if_not_exist attacker
+	return
+endif
+
+if attacker = player
+	print "Attack with "
+	print attackweapon.shortdesc
+	print " "
+	redraw_text
+
+	let current = player	# Orient around player
+	call get_far
+
+	if_exist current
+		print current.shortdesc
+		printcr
+
+		let attacker = player
+		let attacker.enemy = current
+		call attack_it_gun
+	else
+	        print "nothing."
+		printcr
+	endif
+else		# If not the player, just whack it
+#	let enemy = attacker.enemy
+	call attack_it_gun
+endif
+*/
+end
+
+
+##
+## attack_it_gun - Calculate damage, do the actual violence
+##
+/*
+function attack_it_gun
+
+int damage
+#int div
+int rnd
+int r
+
+get_line_of_sight r = attacker attacker.enemy
+if r > attackweapon.stats.range
+or r = 0
+	if attacker == player
+		print "Out of range!"
+		printcr
+	else
+		move_towards attacker attacker.enemy
+	endif
+	return
+endif
+
+# Make sure there is ammo in the weapon
+
+if attackweapon.stats.str < 1
+	if attacker == player
+		print "Out of ammo!"
+		printcr
+	else
+		let current = attacker
+		call find_best_weapon
+	endif
+	return
+endif
+
+# Shoot with the ammo
+let damage = attackweapon.stats.damage
+
+if attacker <> attacker.enemy			# Self-injury can't miss
+	if_flag attacker.enemy IS_SHADOW
+		random rnd between 0 3
+		if rnd <> 0	# If opponent invisible, only 1/4 chance of hitting
+			let damage = 0
+		endif
+	else
+		# Give the guy a 3/4 chance of hitting you.
+		# Later this will depend on dexterity
+		random rnd between 0 3
+		if rnd == 0
+			let damage = 0
+			print "Missed!"
+			printcr
+		endif
+	endif
+endif
+
+# Take away a round
+add attackweapon.stats.str - 1
+
+let splatvictim = attacker.enemy
+
+object_sound attackweapon.name attacker
+
+if damage > 0
+	add attacker.enemy.stats.hp - damage	# Hit the enemy
+	let attacker.enemy.enemy = attacker	# I am my enemies' enemy
+	check_hurt attacker.enemy		# Play sounds etc
+
+	# Mark that you assaulted them
+
+	if_flag attacker.enemy IS_PERSON		# is a creature
+		if_not_flag attacker.enemy IS_PARTY	# not one of us
+			let suspect = attacker
+			let victim = attacker.enemy
+			call justice_assault
+		endif
+	endif
+endif
+end
+*/
+

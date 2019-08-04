@@ -1,0 +1,372 @@
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="nocollar"]
+[image="rt_mad.png"]
+[colour="#808080"]
+You see a large, grizzled wolf-creature, with a crown
+upon his head.  His eyes narrow to two slits.
+[colour="#ffffff"]
+
+"So, human!  Come to finish the work of your dark master,
+ have you?  I think not!
+
+ Come my guards, end its life!
+ We shall dine on human meat this night!"
+
+[at_exit_call="justice_treason"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="first"]
+[learn_name]
+
+[colour="#808080"]
+You see a large, grizzled wolf-creature, with a crown
+upon his head.  He eyes you suspiciously.
+[colour="#ffffff"]
+
+"So, you are the human that has entered my realm.
+
+ I am King Redtooth the Great, and you are bound to
+ obey my laws for as long as you do remain here.
+
+ Know that if you commit any violent deeds you shall
+ surely be slain."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your rule."]
+[linkto="rule"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="back_again"]
+
+[colour="#808080"]
+You see King Redtooth.  He eyes you suspiciously.
+[colour="#ffffff"]
+
+"Again I greet you, human.
+
+ Again I bid you remember that you are bound to obey my
+ laws for as long as you do remain here.
+
+ Again I remind you that if you commit any violent deeds
+ you shall be slain."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your rule."]
+[linkto="rule"]
+[if captain_treason][link="Steeljaw is planning treason against you."]
+[if captain_treason][linkto="steeljaw_treason"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"Foolish human!  I rule this land, and all who tread
+ within this valley are subject to my law."
+
+[link="Tell me about your rule."]
+[linkto="rule"]
+[link="Tell me why you stole the throne."]
+[linkto="usurper"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="rule"]
+
+"I have brought peace and prosperity to this land.
+ But with any ruler there are always some who are not
+ content.  Ignore their whinings for they know not of
+ what they speak.
+
+ Under my rule, our wealth has flourished.  We do far
+ much more trade with the humans than ever before, and
+ they have left us be in peace for many a year.
+ My policies do work."
+
+[link="Why do they live in mud huts?  You live in a castle."]
+[linkto="rule2"]
+[link="Tell me why you usurped the throne."]
+[linkto="usurper"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="rule2"]
+[set rt_rule_trade]
+
+"The security of our nation has to be the highest priority
+ and we cannot afford to be distracted from the threat
+ that the Betrayer poses.
+
+ When It is no longer a danger to our people, then the
+ rebuilding can begin anew.  But it is pointless to try
+ and rebuild first, since a fresh attack from Its forces
+ will only mean that we have to rebuild everything yet
+ again!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="usurper"]
+[image="rt_mad.png"]
+
+[colour="#808080"]
+The King bares his teeth and his hackles rise.
+[colour="#ffffff"]
+
+"Insolence!  On your belly, man-thing!  Crawl!
+
+ Know that it would take just a single word from me and
+ the guards can have your head in a bowl faster than you
+ could blink!
+
+ If I were you I would curb your tongue if you wish to
+ see tomorrow!"
+
+[nextpage="usurper2"]
+[endpage]
+
+[page="usurper2"]
+
+[colour="#808080"]
+The king's temper begins to subside.
+[colour="#ffffff"]
+
+"There are many who think that I did a great kindness in
+ saving this nation from the palsied rule of an impotent
+ weakling.
+
+ This world is a harsh one, and the Betrayer poses a
+ constant threat to us.  Only the strong survive, and
+ the weak perish.
+
+ That is the key to my policies.  A ruler must be strong,
+ even ruthless at times, for a nation is only so strong
+ as its leader."
+
+[nextpage="usurper3"]
+[endpage]
+
+[page="usurper3"]
+
+"The leader whom I deposed - in a just and lawful coup -
+ was weak.
+
+ His foolish indecision crippled our nation and because
+ of this, he himself posed a threat to his own country!
+
+ A weak leader is a threat to us all, for such a waarg
+ would offer no protection against the might of the
+ Betrayer and we would again find ourselves in his thrall
+ or wiped from the face of the world.
+
+ It takes a strong leader with an iron paw to protect our
+ land against evil.
+
+ I am such a leader; Swiftrunner was not - He had to go."
+
+[link="Grey was a good leader though."]
+[linkto="usurper4"]
+[link="Tell me about your rule."]
+[linkto="rule"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="usurper4"]
+
+"Yes.. but Grey is dead.
+
+ We cannot mourn forever, we must act.  Our enemies will
+ not merely hold fire out of respect.
+
+ The land needs a strong leader to replace him, and his
+ successor was not up to the job.  It has fallen to me
+ to try and fill the gap that Grey has left."
+
+[link="Tell me about your rule."]
+[linkto="rule"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+Why would you ever want to do this?
+
+[page="steeljaw_treason"]
+[sub_karma 30]
+[image="rt_mad.png"]
+[create 1000 gold_coins]
+[colour="#808080"]
+The King grins savagely.
+[colour="#ffffff"]
+
+"So.. my suspicions are confirmed!
+ I appreciate your assistance, man-thing.  Take this gold
+ as a token of my thanks."
+
+[colour="#808080"]
+As you watch, Steeljaw is dragged whimpering before the
+throne, where he dies messily by the King's own jaws.
+[colour="#ffffff"]
+
+[clear captain_treason]
+[set steeljaw_dead]
+[at_exit_call="steeljaw_execution"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="king_treason"]
+[image="rt_mad.png"]
+
+[colour="#808080"]
+A wild expression enters the King's face.
+Suddenly he leaps from the throne, and with a single
+massive bound, tears out your throat.
+[colour="#ffffff"]
+
+[at_exit_call="kill_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="king_treason2"]
+[image="rt_mad.png"]
+
+[colour="#808080"]
+The King looks at you and Steeljaw with an expression
+of hatred.
+[colour="#ffffff"]
+
+"The human scum I can understand.. but you, Steeljaw?
+
+ I have long suspected it, but I still do not understand
+ what has driven you to this treachery.
+ Tell me now, and I shall make your death quick."
+
+[nextpage="king_treason2a"]
+[endpage]
+
+[page="king_treason2a"]
+[image="steelj1.png"]
+
+"Majesty, I have obtained intelligence that you are
+ guilty of selling gunpowder to agents of the Betrayer.
+
+ I must ask that you abdicate immediately and consider
+ yourself under arrest."
+
+[colour="#808080"]
+There is a muted gasp of amazement among the court.
+[colour="#ffffff"]
+
+
+[nextpage="king_treason2b"]
+[endpage]
+
+[page="king_treason2b"]
+[image="redtooth.png"]
+
+[colour="#808080"]
+The King looks at you and Steeljaw with a smug expression
+tinged with hatred.
+[colour="#ffffff"]
+
+"What fairy-tales are these, Captain?
+ Has this human somehow addled your mind?"
+
+[nextpage="king_treason2c"]
+[endpage]
+
+
+
+[page="king_treason2c"]
+[image="steelj1.png"]
+
+"I have proof, Majesty."
+
+[colour="#808080"]
+You pass the note to Steeljaw, who in turn, passes the 
+note to Spellthrower, who begins to read it aloud.
+[colour="#ffffff"]
+
+[nextpage="king_treason2d"]
+[endpage]
+
+
+[page="king_treason2d"]
+[image="spellthr.png"]
+
+"............."
+
+[nextpage="king_treason2e"]
+[endpage]
+
+
+[page="king_treason2e"]
+[image="rt_mad.png"]
+
+[colour="#808080"]
+The King's expression changes to one of hatred.
+[colour="#ffffff"]
+
+"I had long suspected that you were plotting to seize the
+ crown for your own, my Captain, but I still do not know
+ why you have chosen to perform this treachery.
+ Tell me now, and I shall make your death quick."
+
+[nextpage="king_treason2f"]
+[endpage]
+
+[page="king_treason2f"]
+[image="steelj1.png"]
+
+"You conspired to sell the weapons that keep our country
+ safe.. to our sworn enemy!
+ You have betrayed the nation that you are sworn to
+ protect!
+
+ Which of us is the real traitor - me or you?"
+
+[nextpage="king_treason2g"]
+[endpage]
+
+
+[page="king_treason3"]
+[image="rt_mad.png"]
+
+[colour="#808080"]
+The King's expression changes to one of hatred.
+[colour="#ffffff"]
+
+""
+
+[nextpage="king_treason2g"]
+[endpage]
+
+
+[page="bye"]
+
+"You may go."
+
+[nextpage="exit"]
+[endpage]

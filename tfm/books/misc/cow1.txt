@@ -1,0 +1,4 @@
+[page="start"]
+[backing="cow1.jpg"]
+[nextpage="exit"]
+[endpage]

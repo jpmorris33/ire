@@ -1,0 +1,85 @@
+##
+## Follower code : for people who can join your party
+## This is mostly obsolete but is still used for generic people
+##
+
+##
+## Action
+##
+
+function follower_action
+activity
+move_towards me player
+
+if_not_exists me.target
+	# Urgh
+	return
+endif
+
+# It's impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+		endif
+	endif
+endif
+
+end
+
+##
+## Hurt
+##
+
+function follower_hurt
+
+# Say 'uh!'
+object_sound "uh!" current
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+# Hunt down the enemy
+if_not_flag current IS_PARTY
+	let suspect = current.enemy
+	let victim = current
+	call justice_assault
+endif
+
+end
+
+##
+## Dies
+##
+
+function follower_dies
+
+change current = "deadfollower"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 20
+endif
+end
+
+##
+## Horrified
+##
+
+function follower_horror
+
+# Seen a dead body
+if current is called "DEAD*"
+	let victim = current
+	set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
+	let suspect = victim.enemy
+	call justice_assault
+	return
+endif
+
+end
+

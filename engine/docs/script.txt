@@ -1,0 +1,4893 @@
+TO DO
+		Example for fx_line
+		Document System Variables
+		Document Data Structures
+
+
+SYSTEM OBJECT TYPES
+
+	*player
+	*light_start
+	*light_end
+	*pathmarker	
+	*target (change_map)
+
+
+==================================================================
+
+System Variables
+----------------
+
+
+player
+
+Type: object	
+
+Description:
+	This object always points to the object that the user is controlling.
+	It doesn't necessarily have to be the hero, but it usually is.
+	The player object is protected against various things like being
+	deleted, because the game relies on a valid player object and may
+	crash if there isn't one.
+
+Internal name: 'person'
+
+
+
+me
+
+Type: object
+
+Description:
+	During the course of the game loop, non-playing characters, monsters
+	and other active objects need to be updated.  This is achieved using
+	scripts for each activity.  When each activity is called, 'me' is
+	pointed to the object being updated.  This goes for the player as well.
+
+Internal name: 'person'
+
+
+
+current
+
+Type: object
+
+Description:
+	This is essentially a general register.  It can be used for any purpose,
+	but is reset to null for each object activity (see 'me') to avoid any
+	problems resulting from stale data.
+	Some script calls by the engine will set 'current' to equal 'me' for
+	legacy reasons.  These are as follows: ... ... ....
+
+Internal name: 'current_object'
+
+
+curtile
+
+Type: tile
+
+Description:
+	This is the same idea as 'current', but for tiles instead.
+	... .... ....
+
+
+
+victim
+
+Type: object
+
+Description:
+	This is mostly a general register, intended for when one object is
+	attacking another.  It should be set to the victim of the attack or
+	damage.
+	The engine will load something into 'victim' under the following
+	circumstances:
+	
+	* When an object that reacts to having other objects above it finds
+	  that it does have something on top.  Victim is the object resting
+	  on the current object ('me')
+	  
+	* When an object is following an A-star path and is unexpectedly
+	  blocked.  'current' is set to the moving object, and 'victim' is
+	  set to the destination object (not the obstruction).
+
+Internal name: 'victim'
+
+
+===========================================================
+Callbacks
+---------
+
+
+object.funcs.activity
+
+Purpose:
+	Called each turn while the object is active.  For the player, this
+	function usually handles keyboard input.  For everyone else, it
+	can be used to drive their schedule, make them attack etc.
+
+Parameters:
+	me = object
+
+
+
+object.funcs.OnInit
+
+Purpose:
+	Objects can have a function that is called when they are
+	created.  This can be used to set up variables for activities,
+	or to start a special effect running etc.
+
+Parameters:
+	current = object being initialised
+	me = object being initialised
+	new_x = object's X coordinate
+	new_y = object's Y coordinate
+
+
+object.funcs.Hurt
+
+Purpose:
+	Called when an object is damaged.  Typically used to play a
+	pain sound etc.  Hit points are automatically deducted.
+
+	This function is not called if the object is killed or destroyed.
+
+Parameters:
+	current = object being hurt
+
+
+object.funcs.Kill
+
+Purpose:
+	Called when an object is destroyed.  Typically used to turn the
+	object into a corpse and make a dying noise.
+	Alternatively you could set the HP up to maximum again, effectively
+	making the object or person unkillable.
+
+Parameters:
+	current = object being destroyed
+
+
+object.funcs.Stand
+
+Purpose:
+	Called when one object stands on another.  This could be used to
+	hurt someone standing on spikes, smash a plate the player stepped
+	upon, open a trapdoor or whatever you like.
+	
+Parameters:
+	current = object being stood upon (e.g. the spikes)
+	victim = object standing on the spikes (e.g. the player)
+
+
+object.funcs.Horror
+
+Purpose:
+	Called when an NPC sees something horrible (obj with HORROR flag set)
+	I use this to make the citizens go ballistic if they find someone
+	that the player has murdered and left lying in the street.
+	At present NPCs only check every game minute (not each turn) but
+	this will have to change since they sometimes ignore stiffs.
+	
+Parameters:
+	person = Angry citizen
+	current = Whatever they saw that enraged them
+
+
+object.funcs.use
+
+Purpose:
+	Usually called when the player USEs an object, but these are also
+	called when radius-triggered objects are activated.
+
+Parameters:
+	current = object
+	victim = person that triggered it (radius triggers only)
+
+
+
+============================================================
+Commands
+--------
+
+
+return, ret, finish
+
+Parameters:
+	none
+
+Function:
+	Exits the current function and returns to the calling function, or
+	the game engine.
+
+
+
+call
+
+Parameters:
+	call <function name>
+	call <integer>
+
+Function:
+	Calls another function.  The parameter is the function to be
+	called, and it can either be the name of the function or an integer.
+
+	You should always call the function by name, unless you are
+	writing system code that uses the function table in an object
+	(e.g. call player.funcs.kcache )
+
+Example:
+	call now_you_die
+	call player.funcs.kcache
+
+
+
+print
+
+Parameters:
+	print <string>
+	print <integer>
+
+Function:
+	Prints the string or number on the console.
+	The text will not normally appear immediately unless you call printcr
+	or redraw_text afterwards.
+
+See Also:
+	printcr, redraw_text
+
+Example:
+	print "Health = "
+	print player.stats.hp
+	printcr
+
+
+
+printx
+
+Parameters:
+	printx <integer>
+	printx <object>
+
+Function:
+	Prints the number on the console in hexadecimal.  If passed an object,
+	it will print the address of the object in hexadecimal.  Used almost
+	exclusively for debugging.
+
+See Also:
+	print, printcr, redraw_text
+
+Example:
+	print "Player address = "
+	printx player
+	printcr
+
+
+
+printcr, newline
+
+Parameters:
+	none
+
+Function:
+	Starts a new line, and makes sure the previous line is drawn onscreen
+	(it is usually deferred for performance reasons).
+
+See Also:
+	print, printcr, redraw_text
+
+Example:
+	print "This is on line 1."
+	printcr
+	print "This is on line 2."
+	printcr
+
+
+
+clear, clearline, cls
+
+Parameters:
+	none
+
+Function:
+	Clear the text window.
+
+Example:
+	print "You won't see this"
+	printcr
+	cls
+
+
+
+
+
+
+
+let
+
+Parameters:
+	let <integer> = <integer>
+	let <object> = <object>
+	let <integer> = <integer> <operator> <integer>
+	let <object> = null
+	let <tile> = <tile>
+	let <tile> = null
+
+Function:
+	Assigns a value to a variable.
+	Can also be used for simple math operations, such as 'let a = b + c'
+	Currently the language does not support more complex operations such
+	as 'let a = (b + c) / d'
+	Make sure each operator is surrounded by spaces. 'let a=b+c' will fail.
+
+	Valid math operators are: + - / * mod
+
+	Let is also used with Objects.  Each Object refers to an item in the
+	game map, such as decorative items, creatures and the player.
+	You can only assign an Object variable to another Object variable, or
+	to Null (which means 'no object').  'let current = 45123' is invalid.
+	Similarly, Let can also be used with Tiles, although this isn't
+	often necessary except with system code.
+
+Examples:
+	let a = b = c
+	let current = null
+	let current = player
+
+
+
+add
+
+Parameters:
+	add <integer> <operator> <integer>
+
+Function:
+	A shorthand way to increment a variable, similar to '+=' in C.
+	'add a + 3' is essentially the same as 'let a = a + 3' but it is
+	quicker to type, and theoretically faster to execute.
+	It does not have to be an addition: any valid operator can be used.
+	See the list given for 'let'.
+
+Examples:
+	add a + 3
+	add c - 4
+	add x + y
+
+
+
+label
+
+Parameters:
+	label <name>
+
+Function:
+	Declares a label that can be used with GOTO to perform a jump.
+	This is of course, unstructured tack but it can be useful.
+
+Example:
+	label die
+	print "Oh no!"
+	printcr
+	goto die
+
+
+
+goto
+
+Parameters:
+	goto <label>
+
+Function:
+	Perform an unconditional jump.  See 'label'.
+
+Example:
+	label die
+	print " Oh no!"
+	printcr
+	goto die
+
+
+if
+
+Parameters:
+	if <integer>
+	if <integer> <operator> <integer>
+	if <object> = <object>
+	if <object> != <object>
+	if <string> = <string>
+	if <string> <> <string>
+	if <string> <operator> <string>
+
+Function:
+	Conditional branching.  Provides basic IF functionality.
+
+	IF is normally used with an operator, for example:
+
+	if a > 4
+		let a = 4
+	endif
+
+	If a is greater than 4, it gets set back to 4, but only if a is
+	greater than 4.
+
+	When IF is used without an operator, the code inside the IF statement
+	will only be executed if the parameter is non-zero, e.g.
+
+	if a
+		print "A isn't zero!"
+		printcr
+	endif
+
+	The ELSE keyword is also available, for example:
+
+	if a = 1
+		print "A is one."
+		printcr
+	else
+		print "A isn't one."
+		printcr
+	endif
+
+
+	When used with integers or strings, the following operators
+	can be used:
+
+	if a = b		(also if a == b)
+	if a <> b 		(also if a != b)	
+	if a < b
+	if a <= b
+	if a > b
+	if a >= b
+
+	String comparisons are not case-sensitive.
+
+	It is also possible to use IF to compare objects.
+	When used with objects, the following operators are available:
+
+	if a = b		(also if a == b)
+	if a <> b		(also if a != b)
+
+
+Example:
+	if a <> 3
+		print "That is not the answer."
+		printcr
+	endif
+
+
+and
+
+Parameters:
+	and <integer>
+	and <integer> <operator> <integer>
+	and <object> = <object>
+	and <object> != <object>
+	and <string> = <string>
+	and <string> <> <string>
+	and <string> <operator> <string>
+
+Function:
+	Crude support for a logical AND operation.
+	This has the same basic syntax as the IF statement, and is
+	designed to be used just after one.  You can have as many
+	and statements stacked together as you like.
+
+See Also:
+	If, Or
+
+Example:
+	if  a < 3
+	and a > 1
+		print "The answer is two!"
+		printcr
+	endif
+
+
+or
+
+Parameters:
+	or <integer>
+	or <integer> <operator> <integer>
+	or <object> = <object>
+	or <object> != <object>
+	or <string> = <string>
+	or <string> <> <string>
+	or <string> <operator> <string>
+
+Function:
+	Crude support for a logical OR operation.
+	This has the same basic syntax as the IF statement, and is
+	designed to be used just after one.  In theory it should be
+	possible to stack any number of OR statements together, but
+	at present there are issues with this.
+	One OR statement per IF works perfectly, however.
+
+See Also:
+	If, And
+
+Example:
+	if  a < 3
+	or a > 5
+		print "The answer isn't four!"
+		printcr
+	endif
+
+
+if_exists, if_not_exists
+
+Parameters:
+	if_exists <object>
+	if_not_exists <object>
+
+Function:
+	The code inside the IF block is only executed if the object variable
+	points to an object that exists (i.e. it is not NULL).
+
+	It is important to make sure that the object variable is valid before
+	attempting to access its members.  Using an invalid object will
+	cause the game engine to kill the script and issue an error message.
+
+	Remember that all object variables you define are invalid by default,
+	until they have been set up using get_object or by assigning a valid
+	object to the variable using Let.
+
+	If_not_exists is the same principle as if_exists, but the code is
+	only executed if the object DOESN'T exist.
+
+Example:
+	if_not_exists current
+		print "Error!  CURRENT not defined"
+		printcr
+		return
+	endif
+
+
+
+if object is called
+
+Parameters:
+	if <object> is called <string>
+
+Function:
+	The code inside the IF block is only executed if the object's name is
+	equal to the given string.  Not case-sensitive.
+	There are also equivalents for AND and OR.
+
+Example:
+	if current is called "player"
+		print "Cannot delete the player!"
+		printcr
+	endif
+
+
+for-next loops
+
+Parameters:
+	for <integer> = <integer> to <integer>
+
+Function:
+	Provides a BASIC-style FOR construct, which is used to repeat a block
+	of code a set number of times.  The first parameter must always be
+	a variable, the other two can be either variables or numbers.
+
+	The block of code being looped is terminated with the NEXT command.
+	You can specify the variable after the NEXT statement for tidiness if
+	you wish, but it is ignored by the parser.
+
+	At present the STEP parameter is not implemented, so the control
+	variable is always incremented by 1.
+	If you wish to count downwards, specify the numbers in reverse, e.g.
+	'for n = 10 to 1' will count down from 10 to 1.
+
+Example:
+	for f = 1 to 10
+		print "Counting: "
+		print f
+		printcr
+	next f
+
+
+
+do-while
+
+Parameters:
+	do
+	while <integer> <operator> <integer>
+	while <object> <operator> <object>
+	while <integer>
+
+Function:
+	Provides a DO-WHILE construct, that repeats a block of code for
+	as long as the WHILE condition is true.
+
+	Normally there is an operator and two integers, for example
+	'while a = b' or 'while c < 6'.  See IF for a list of valid operators.
+
+	If you have just a single integer and no operator, e.g. 'while x'
+	the loop will continue until the integer becomes zero.
+
+	You can also compare two objects instead of two integers, although
+	this is only usually useful if you are doing some strange, low-level
+	stuff, like traversing a linked list.
+
+Example:
+	let x = 0
+	do
+		let x = x + 1
+	while x < 10
+
+
+
+break
+
+Parameters:
+	none
+
+Function:
+	Interrupts a DO-WHILE or FOR loop.
+
+Example:
+	let x = 1
+	do
+		let x = x + 1
+		if x = 0
+			print "Oops, quitting loop"
+			printcr
+			break
+		endif
+	while x < 10
+
+
+
+continue
+
+Parameters:
+	none
+
+Function:
+	Skip the current iteration of a DO-WHILE or FOR loop.
+	Jumps straight to the condition check and decides whether to carry on.
+
+
+Example:
+	let x = 1
+	do
+		let x = x + 1
+		if x = < 3
+			print "I don't like "
+			print x
+			printcr
+			continue
+		endif
+	while x < 10
+
+
+
+search_inside
+
+Parameters:
+	search_inside <object> calling <function >
+
+Function:
+	Search_Inside is given an object as a parameter.
+	If the object has nothing in it's pockets/backpack, nothing will
+	happen.  Otherwise, it will go through all the objects in turn, and
+	call the given function once for each object.
+	The system will set the variable 'current' to point to the object
+	under scrutiny.  Once the search is complete, 'current' will be reset
+	to the object it was before the search began.
+
+	If the object being studied has objects inside it, the function will
+	descend recursively into the objects.
+	If you don't want this behaviour, you can use list_after, but you will
+	have to specify the pocket explictly,
+	e.g. list_after player.pocket calling list_object
+
+
+Example:
+
+	let anything = 0
+	print "Your backpack contains:"
+	printcr
+
+	search_inside player calling list_func
+	if anything = 0
+		print "Nothing."
+		printcr
+	endif
+
+	:
+
+	function list_func
+		print current.shortdesc
+		print " "
+		let anything = 1
+	end
+
+
+
+list_after
+
+Parameters:
+	list_after <object> calling <function >
+
+Function:
+	List_After is given an object as a parameter.
+	If the object has any objects following it in its list, it will go
+	through all the objects in turn, and call the given function once for
+	each object.  The system will set the variable 'current' to point to
+	the object under scrutiny.  The list includes the given object itself.
+
+	In practical terms, this is useful for two things:
+	1. It can be used to manipulate or display the objects inside a
+	   container, or someone's pocket
+	2. It can be used to manipulate all the objects that are drawn above
+	   an object in the world.
+
+	Once the search is complete, 'current' will be reset to the object it
+	was before the search began.
+
+
+Example:
+
+	let anything = 0
+	print "Your backpack contains:"
+	printcr
+
+	list_after player.pocket calling list_func
+	if anything = 0
+		print "Nothing."
+		printcr
+	endif
+
+	:
+
+	function list_func
+		print current.shortdesc
+		print " "
+		let anything = 1
+	end
+
+
+
+search_world, search_all
+
+Parameters:
+	search_world <function >
+
+Function:
+	Search_World is given a callback function as its sole parameter.
+	It will then go through every single object in the world, setting
+	the variable 'current' to point to the object under scrutiny.
+	Once the search is complete, 'current' will be reset to the object
+	it was pointing to before the search began.
+	The search will continue until every single object has been examined
+	or the 'stop_search' command has been called.
+
+	e.g. list_after player.pocket calling list_object
+
+
+See Also:
+	stop_search
+
+
+Example:
+
+	let count = 0
+
+	search_world count_func
+	print "There are "
+	print count
+	print " items in the world."
+	printcr
+
+	:
+
+	function count_func
+		add anything + 1
+	end
+
+
+
+stop_search, stopsearch
+
+Parameters:
+	none
+
+Function:
+	Aborts the 'search_world' command.
+	If the search_world function is currently in operation, this will
+	stop it.  Typically it will be called from your callback function
+	when a certain condition it met.
+
+
+See Also:
+	search_world
+
+
+Example:
+
+	object demon
+	let demon = null
+
+	search_world find_demon
+	if_exists demon
+		print "Found it!"
+		printcr
+	else
+		print "Not found"
+		printcr
+	endif
+
+	:
+
+	function find_demon
+	if current is called "demon"
+		let demon = current
+		stop_search		# Found it, no need to keep searching
+	endif
+	end
+
+
+
+create
+
+Parameters:
+	create <object> = <string>
+
+Function:
+	Creates a new object of type <string>.  The first parameter (object)
+	will point to the newly-created object.
+
+Example:
+	create newobj = "bread"
+	move_object newobj to oven.x oven.y
+
+
+
+destroy
+
+Parameters:
+	destroy <object>
+
+Function:
+	Destroys the given object and frees the memory it was using.
+	Object deletion is delayed until the end of the current game turn,
+	so the object will continue to exist for a short period, and it is
+	possible to refer to the object for a duration.  This is, however,
+	not recommended.
+
+	It is not possible to delete the player, and a warning message will
+	be displayed if this is attempted.
+
+Example:
+	delete myobj
+
+
+
+set_darkness
+
+Parameters:
+	set_darkness <integer>
+
+Function:
+	Sets the amount of darkness, for night etc.
+	The darkness level can be between 0 and 255. 0 is day, 255 is black.
+	160 should be a comfortable level for night.
+
+Example:
+	set_darkness 160
+
+
+
+play_music
+
+Parameters:
+	play_music <string>
+
+Function:
+	Start playing a piece of music.  The parameter is the name of the
+	music, which must be in the list in SECTION: MUSIC in the resource
+	file.  If the music cannot be found, a warning is displayed on the
+	console.
+
+Example:
+	play_music "follow_thy_fair_sunne"
+
+
+
+play_sound
+
+Parameters:
+	play_sound <string>
+
+Function:
+	Start playing a sound effect.  The parameter is the name of the
+	sound, which must be in the list in SECTION: SOUNDS in the resource
+	file.  If the sound effect cannot be found, a warning is displayed on
+	the console.
+
+	Play_sound always plays the sound effect at maximum volume.  If you
+	want the volume to fade with the player's distance from the sound
+	source, use object_sound instead.
+
+Example:
+	play_sound "smash"
+
+
+
+object_sound
+
+Parameters:
+	object_sound <string> <object>
+
+Function:
+	Start playing a sound effect.  The parameters are the name of the
+	sound and the sound source, which is an object.
+
+	The volume of the sound depends on the distance between the object
+	and the player.  As of this writing (0.68), only the starting volume
+	is changed by distance; the volume does not drop as you move further
+	away from the sound source.  This will be fixed in future.
+
+Example:
+	object_sound "smash" plate
+
+
+
+set_flag
+
+Parameters:
+	set_flag <object> <flag> = <integer>
+
+Function:
+	Each object has a set of flags associated with it.  These flags are
+	switches that control various properties of the object, such as
+	whether it is solid or not, whether it is translucent, whether it
+	should break when dropped, etc.
+
+	These flags are set up in the resource file, where the object is
+	defined in Section: Characters.  However, it is often necessary to
+	examine and change the flags while the game is in progress.
+
+	Set_flag is used to set the value of a flag for an object.
+
+	Flags are either on or off.  This is represented by a number.
+	In principle, 0 is off and 1 is on, but in practice, 0 is off
+	and anything else means on.
+
+	The flag parameter is the name of a flag, such as 'IS_SOLID'.
+	There is a list of valid flags near the end of the file.
+
+See Also:
+	get_flag
+	reset_flag
+	if_flag
+	if_not_flag
+
+Example:
+	set_flag player IS_TRANSLUCENT = 1		# Freak out!
+
+
+
+get_flag
+
+Parameters:
+	get_flag <integer> = <object> <flag>
+
+Function:
+	Store the value of a object's flag.
+
+	The flag parameter is the name of a flag, such as 'IS_SOLID'.
+	There is a list of valid flags near the end of the file.
+
+See Also:
+	set_flag
+	reset_flag
+	if_flag
+	if_not_flag
+
+Example:
+	integer flag
+	get_flag flag = player IS_TRANSLUCENT
+
+
+
+reset_flag
+
+Parameters:
+	reset_flag <object> <flag>
+
+Function:
+	Reset an object's flag to the default specified in the resource file.
+
+	The flag parameter is the name of a flag, such as 'IS_SOLID'.
+	There is a list of valid flags near the end of the file.
+
+See Also:
+	set_flag
+	get_flag
+	if_flag
+	if_not_flag
+
+Example:
+	reset_flag player IS_TRANSLUCENT		# End the trip
+
+
+
+if_flag
+
+Parameters:
+	if_flag <object> <flag>
+
+Function:
+	The code inside the IF block is only executed if the given flag for
+	this object is true.
+
+Example:
+	if_flag player IS_TRANSLUCENT
+		print "Player is high as a Lord!"
+		printcr
+	endif
+
+
+
+if_not_flag
+
+Parameters:
+	if_not_flag <object> <flag>
+
+Function:
+	The code inside the IF block is only executed if the given flag for
+	this object is false.
+
+Example:
+	if_not_flag player IS_TRANSLUCENT
+		print "Player is normal"
+		printcr
+	endif
+
+
+
+move_object
+
+Parameters:
+	move_object <object> to <integer> <integer>
+
+Function:
+	Moves the object from its current position to the X and Y coordinates
+	given in the last two parameters.  Collision detection is handled and
+	nothing will happen if the object cannot be moved to the new position.
+	If you need to override this, use transfer_object instead.
+
+	As of 0.80, the object that caused the movement to fail will be
+	put into a system variable called 'blockage'.  This can be useful,
+	particularly if you want large objects to be able to trample
+	obstructions.
+
+	Objects can also have a speed attached, as a percentage of movement
+	each turn (10% = once every 10 turns, 90% = 9 turns out of 10 etc.)
+	A speed of 0 will cause the object to move once every turn as usual.
+
+	It is sometimes desirable to override the speed checking.
+	This can be achieved either through 'transfer_object', which lacks
+	any kind of collision or bounds checking, or through 'push_object'
+	which still has most of the collision detection, but no speed limiting.
+
+See Also:
+	transfer_object
+	push_object
+
+Example:
+	move_object bread to x y
+
+
+push_object
+
+Parameters:
+	push_object <object> to <integer> <integer>
+
+Function:
+	Moves the object from its current position to the X and Y coordinates
+	given in the last two parameters.  Collision detection is handled and
+	nothing will happen if the object cannot be moved to the new position.
+
+	Push_object is modelled on the object being moved by external forces,
+	rather than under its own power.  As such, it differs from the regular
+	'move_object' command in two ways:
+
+	Firstly, it has no speed checking.. unless the object is blocked
+	by an obstruction it will be moved this very turn, without delay.
+
+	Secondly, 'move_object' prevents people and animals from being able
+	to move onto tabletops.  This is largely to prevent them stumbing
+	onto them as they move around.  However, it can be desirable to
+	push someone onto a table, as in Ultima 6.  'push_object' does not
+	have this restriction.
+
+
+See Also:
+	move_object
+	transfer_object
+
+Example:
+	push_object bread to x y
+
+
+
+transfer_object
+
+Parameters:
+	transfer_object <object> to <integer> <integer>
+
+Function:
+	Moves the object from its current position to the X and Y coordinates
+	given in the last two parameters.  No collision detection, and only
+	minimal error-checking is performed.
+
+See Also:
+	move_object
+	push_object
+
+Example:
+	transfer_object bread to x y
+
+
+
+draw_object
+
+Parameters:
+	draw_object <object> <integer> <integer>
+
+Function:
+	Displays the object directly on the screen at the X and Y coordinates
+	given.  These coordinates are in PIXELS, not map squares.
+	This is intended to be used for status areas and similar displays,
+	rather than as part of the game.
+
+
+Example:
+	draw_object statuswindow 320 0
+	draw_object cursor x y
+
+
+gotoxy
+
+Parameters:
+	gotoxy <integer> <integer>
+
+Function:
+	Text can be drawn directly onto the screen, for use in status areas
+	and suchlike.  GotoXY is used to set the position on the screen
+	where the text will appear.  It sets the position of an invisible
+	text cursor.  Text is printed using the PRINTXY function, which will
+	update the cursor X position according to the number of characters
+	drawn.  Characters are normally 8 pixels wide.
+
+	The two parameters are, therefore the X and Y coordinates in pixels
+	where the text will be drawn.
+
+See Also:
+	printxy
+
+Example:
+	draw_object statuswindow 320 0
+	gotoxy 336 16
+	printxy "Health: "
+	printxy player.stats.hp
+
+
+printxy
+
+Parameters:
+	printxy <string>
+	printxy <integer>
+	printxy
+
+Function:
+	Draws text directly to the screen at the current cursor position
+	and moves the cursor to the right by the appropriate amount.
+	The cursor should be set up using GOTOXY first.
+	If printxy is issued with no parameter, it acts as a newline.
+
+
+See Also:
+	gotoxy, printxycr
+
+Example:
+	draw_object statuswindow 320 0
+	gotoxy 336 16
+	printxy "Health: "
+	printxy player.stats.hp
+	printxy
+	printxy "Dexterity: "
+	printxy player.stats.dex
+	printxy
+
+
+printxycr
+
+Parameters:
+	none
+
+Function:
+	Carriage return.  Moves the text cursor down a line and resets it
+	to the X coordinate given in the last GOTOXY statement.
+
+See Also:
+	gotoxy, printxy
+
+Example:
+	draw_object statuswindow 320 0
+	gotoxy 336 16
+	printxy "Health: "
+	printxy player.stats.hp
+	printxycr
+	printxy "Dexterity: "
+	printxy player.stats.dex
+	printxycr
+
+
+printxyx
+
+Parameters:
+	printxyx <string>
+
+Function:
+	Draws text directly to the screen at the current cursor position
+	and moves the cursor to the right by the appropriate amount.
+	Prints the given number in hexadecimal.
+
+See Also:
+	printxy, printxycr, gotoxy
+
+Example:
+	printxy "enemy pointer: 0x"
+	printxyx player.enemy
+	printxycr
+
+
+textcolour, textcolor, text_colour, text_color
+
+Parameters:
+	textcolour <integer> <integer> <integer>
+
+Function:
+	Set the colour of all subsequent text drawn to the screen, and also
+	to the text console.  The parameters are the RGB levels.
+	E.g. 255 255 255 is white (default), 255 0 0 is red and so forth.
+	You can determine colours either by experimentation, or by using an
+	image editor.  Certain Java applets for use in Web design may also
+	be useful.
+
+
+Example:
+	draw_object statuswindow 320 0
+	gotoxy 336 16
+
+	if player.user.poison > 0
+		textcolour 0 200 0	# green HP number when poisoned
+	endif
+	printxy "Health: "
+	printxy player.stats.hp
+	textcolour 255 255 255
+
+
+
+set_sequence
+
+Parameters:
+	set_sequence <object> <integer>
+	set_sequence <object> <string>
+
+Function:
+	Set the animation sequence of an object.  This changes the appearance
+	of the object temporarily.  It can be used to start an object
+	animating, for special effects, or a number of other purposes.
+
+	It is widely used in the demo, but a good example is chairs.
+	When someone occupies the same square as a chair, their animation
+	is changed into that of the person sitting down.  When the person
+	changes direction (which happens when they move away) their sequence
+	is set back to normal.
+ 
+	The parameter is the name of the sequence from Section: Sequences
+	or the corresponding integer value.  It is best to use the name,
+	except when you are using the sequence number of another object.
+
+
+Example:
+	set_sequence dynamite "lit_dynamite"
+
+
+
+lightning
+
+Parameters:
+	lightning <integer>
+
+Function:
+	Lights the screen for a short duration to simulate lightning or
+	flashes (for explosions etc)
+ 
+	The parameter is the duration of the flash in ticks: each tick is
+	1/35 of a second.  3 is a reasonable choice.
+
+	It is not currently possible to tint the colour of the flash.  At
+	present it simply boosts the brightness of all colours, but with a
+	bias towards blue (to mimick a lightning flash).
+
+
+Example:
+	lightning 3
+
+
+
+earthquake
+
+Parameters:
+	earthquake <integer>
+
+Function:
+	Bounces the screen vertically for a short duration to simulate
+	earth tremors.
+ 
+	The parameter is the number of pixels to shift the screen up and
+	down each frame.  This number is inverted each frame and pushed
+	towards zero, so the tremor begins violently and subsides.
+	6 is a reasonable choice.
+
+
+Example:
+	earthquake 6
+
+
+
+print_bestname, print_best_name
+
+Parameters:
+	print_bestname <object>
+
+Function:
+	Prints the most appropriate name for a given object on the console.
+	If the object has a personal name e.g. 'John Smith' and the know_name
+	flag is set for this object, the personal name will be printed.
+	If this can't be used, the short name is displayed.
+	If that doesn't work either, the object's internal name is used.
+
+Example:
+	print_bestname player
+
+
+
+get_object
+
+Parameters:
+	get_object <object> from <integer> <integer>
+	get_object <object> at <integer> <integer>
+
+Function:
+	Describe in detail.
+
+	Looks at the given map square and gives the object in this position.
+	If there is more than one object in this square, it will return the
+	one on the top of the pile. 
+
+See Also:
+	get_solid_object, get_first_object, get_tile
+
+Example:
+	object myobj
+	get_object myobj at 10,10
+	if_exists my_obj
+		print my_obj.name
+		printcr
+	endif
+
+
+
+get_first_object
+
+Parameters:
+	get_first_object <object> from <integer> <integer>
+	get_first_object <object> at <integer> <integer>
+
+Function:
+	Like get_object, except it always obtains the first object in the
+	square, in other words the object at the bottom of the pile.
+
+See Also:
+	get_object, get_solid_object, get_tile
+
+Example:
+	object myobj
+	get_first_object myobj at 10,10
+	if_exists my_obj
+		print my_obj.name
+		printcr
+	endif
+
+
+
+get_solid_object
+
+Parameters:
+	get_solid_object <object> from <integer> <integer>
+	get_solid_object <object> at <integer> <integer>
+
+Function:
+	Like get_object, except it always obtains the last SOLID object.
+	If there are no solid objects, it will set the object variable to
+	NULL.
+
+See Also:
+	get_object, get_first_object, get_tile
+
+Example:
+	object myobj
+	get_solid_object myobj at 10,10
+	if_exists my_obj
+		print "blocked by "
+		print my_obj.name
+		printcr
+	endif
+
+
+
+get_tile
+
+Parameters:
+	get_tile <tile> from <integer> <integer>
+	get_tile <tile> at <integer> <integer>
+
+Function:
+	Like get_object, but for Tile variables, not Objects.
+	It will set the Tile to a valid type in all cases except when given
+	X,Y coordinates off the edge of the map, in which case it will return
+	NULL.
+
+See Also:
+	get_object, get_first_object, get_solid_object
+
+Example:
+	tile mytile
+	get_tile mytile at 10,10
+	if_exists my_tile
+		print my_tile.desc
+		printcr
+	endif
+
+
+
+get_object_below
+
+Parameters:
+	get_object_below <object> = <object>
+
+Function:
+	Gets the identity of an object directly below the specified one.
+	The first parameter is the variable that will point to the new object,
+	the second parameter is the object to look beneath.
+	If there is nothing beneath the given object, it will be set to NULL.
+
+Example:
+	object temp
+	get_object_below temp = player
+	if_exists temp
+		print "object below player .."
+		print temp.name
+	else
+		print "Nothing below player."
+	endif
+	printcr
+
+
+
+change
+
+Parameters:
+	change <object> = <string>
+	change <object> = <integer>
+
+Function:
+	Transform one object into another.  This changes the appearance and
+	behaviour of the object so it takes on the properties of the new one.
+	The first parameter is the object to be transformed, and the second
+	parameter is the name of the new object from Section: Characters
+	in the resource file.  You can also use the ID number if you know it,
+	but this is intended for system use only.
+
+	When changed, certain properties remain unchanged, which is useful
+	for living things changing state, things being broken, and things
+	which change state when used, such as doors opening.
+	If the statistics were reset when a door opened, it would automatically
+	be reset to full health, which would be stupid and quite unhelpful.
+
+	If you need the object's individual settings to be completely reset,
+	(i.e. a total conversion to another object) use 'replace' instead.
+	
+	The following data is preserved:
+	  * Party member flag (IS_PLAYER)
+	  * All statistics (object.stats.*)
+	  * Resurrection object type (object.funcs.resurrect)
+	  * Speech file and speech flag (object.funcs.talk)
+	  * Personal name (object.personalname)
+
+See Also:
+	replace
+
+Example:
+
+	change door "door_open"
+
+
+
+replace
+
+Parameters:
+	replace <object> = <string>
+	replace <object> = <integer>
+
+Function:
+	Like 'change', but does a total reset of the objects data.
+	Any individual settings will be erased.  This is occasionally useful
+	but more often than not, you will want to use 'change' instead.
+
+See Also:
+	change
+
+Example:
+
+	replace player "pile_of_ash"
+
+
+
+set_direction
+
+Parameters:
+	set_direction <object> to <integer>
+	set_direction <object> facing <integer>
+
+Function:
+	Sets the direction an object is facing to one of the four cardinal
+	directions.  The main effect of this is to change the appearance of
+ 	the object.  The direction is an integer from 0 to 3, however some
+	macros have been defined and it is suggested that you use these unless
+	you have some overriding reason to use the numbers directly.
+
+	The macros are: UP, DOWN, LEFT, RIGHT, NORTH, SOUTH, WEST, EAST
+
+See Also:
+	set_sequence
+
+Example:
+
+	set_direction player to WEST
+
+
+
+redraw_map
+
+Parameters:
+	none
+
+Function:
+	Redraw the game window and update the animations.
+	This is needed if you are doing something that will take a long time
+	or you have taken the control away from the player (to pan the camera
+	or show a vision of somewhere else, or a plot sequence).
+	It is also used extensively by the user interface, e.g. get_near
+
+	It does not re-draw the text window.
+
+See Also:
+	redraw_text
+
+Example:
+
+	redraw_map
+
+
+
+redraw_text
+
+Parameters:
+	none
+
+Function:
+	Redraw the text window.
+	This is needed if you are prompting the user for something, especially
+	if you are building up the prompt word-by-word like the Ultima games.
+
+	It does not re-draw the game window.
+
+See Also:
+	print, printcr, printx, redraw_map
+
+Example:
+
+	print "Get "
+	redraw_text
+	call get_near
+	if_exists current
+		print current.shortdesc
+	else
+		print "nothing."
+	endif
+	printcr
+
+
+
+move_from_pocket
+
+Parameters:
+	move_from_pocket <object> from <object> to <integer> <integer>
+
+Function:
+	Transfers the object from the specified container to a pair of
+	coordinates on the map.  If there is an obstruction of some kind
+	(or the object isn't in the container) the transfer will fail, and
+	ERR will be set.
+
+	If you want to do this without checking for obstructions, use
+	force_from_pocket instead.
+
+	If you do not want to specify the container, just use move_object
+	instead and the game will work out where the object is (but this may
+	be a lot slower than if you know where the object is).
+
+See Also:
+	force_from_pocket, move_object
+
+Example:
+
+	move_from_pocket sword from player to x y
+
+
+
+force_from_pocket
+
+Parameters:
+	force_from_pocket <object> from <object> to <integer> <integer>
+
+Function:
+	Transfers the object from the specified container to a pair of
+	coordinates on the map.  There is no checking for obstructions.
+	If the object isn't in the specified container, the request will
+	silently fail.
+
+	If you do not want to specify the container, just use transfer_object
+	instead and the game will work out where the object is (but this may
+	be a lot slower than if you know where the object is).
+
+See Also:
+	move_from_pocket, transfer_object
+
+Example:
+
+	force_from_pocket sword from player to 0 0
+
+
+
+move_to_pocket
+
+Parameters:
+	move_to_pocket <object> to <object>
+
+Function:
+	Transfers the specified object to a given container.
+	If the object to be moved has a quantity (e.g. 200 gold coins) it
+	will automatically handle this, and applies several safety checks.
+
+See Also:
+	transfer_to_pocket
+
+Example:
+
+	move_to_pocket sword to player
+
+
+
+transfer_to_pocket
+
+Parameters:
+	transfer_to_pocket <object> to <object>
+
+Function:
+	Transfers the specified object to a given container.
+	Similar to move_to_pocket, but with fewer safety checks.
+	For most purposes, use move_to_pocket instead.
+
+See Also:
+	move_to_pocket
+
+Example:
+
+	transfer_to_pocket sword to player
+
+
+
+spill
+
+Parameters:
+	spill <object>
+	spill <object> <integer> <integer>
+
+Function:
+	Empties a give container of all the objects inside it.
+	If the X,Y coordinates are specified, the objects will
+	appear there.  If only the container is specified, the
+	objects will appear on top of it.
+
+Example:
+	let x = body.x + 1
+	let y = body.y + 1
+	spill body x y
+	
+
+
+fade_in
+
+Parameters:
+	none
+
+Function:
+	Fade the game window from black to full colour.
+	Sprites and tiles will continue to animate during the transition.
+	
+See Also:
+	fade_out
+
+Example:
+	fade_in
+
+
+
+fade_out
+
+Parameters:
+	none
+
+Function:
+	Fade the game window to black.
+	Sprites and tiles will continue to animate during the transition.
+	Useful for when the player dies, or transition between worlds etc.
+	
+See Also:
+	fade_in
+
+Example:
+	fade_out
+
+
+
+move_to_top
+
+Parameters:
+	move_to_top <object>
+
+Function:
+	Moves the specified object to the top of the pile on the
+	square it is currently standing on.
+	(This is actually achieved by moving the object to 0,0
+	 and back to its original coordinates).
+	If the object is inside a container, nothing will happen.
+
+See Also:
+	move_to_floor
+
+Example:
+	move_to_top bottle
+
+
+
+move_to_floor, move_to_bottom
+
+Parameters:
+	move_to_floor <object>
+
+Function:
+	Moves the specified object to the bottom of the pile on the
+	square it is currently standing on.  If there are any FIXED
+	objects, the object will appear above those, to prevent it
+	from getting lost.
+	If the object is inside a container, nothing will happen.
+
+See Also:
+	move_to_top
+
+Example:
+	move_to_floor puddle_of_water
+
+
+
+check_hurt
+
+Parameters:
+	check_hurt <object>
+
+Function:
+	Check the given object and see if it has been hurt.
+	This will be the case if the object's stats.hp number is
+	less that stats.oldhp.  If the object has been injured or
+	damaged, it will call the object's HURT function, with 'current'
+	pointing to the object.  The hp and oldhp fields will be
+	put back into sync.  If the object has died/been destroyed by
+	the damage such that stats.hp < 0, the HURT function will not
+	be called, but the KILL function will happen instead.
+	If the object's hp falls below the 'destroy' threshold, a
+	call will be made to the system function 'erase'.
+
+Example:
+	add enemy.stats.hp - 10
+	check_hurt enemy
+
+
+
+get_line_of_sight
+
+Parameters:
+	check_hurt <integer> = <object> <object>
+
+Function:
+	Calculate the line-of-sight between two objects.
+	If there is no clear line between them, the integer is set to
+	zero.  Otherwise it is set to the number of 'steps' between them.
+
+Example:
+	integer steps
+	get_line_of_sight steps = player player.enemy
+	if steps = 0
+		return
+	endif
+	print "Distance = "
+	print steps
+	printcr
+
+
+
+if_solid
+
+Parameters:
+	if_solid <integer> <integer>
+
+Function:
+	The code inside the IF block is only executed if the tile at the
+	given X,Y coordinates is solid.
+	
+	There is currently no equivalent 'if_not_solid'.
+	
+Example:
+	if_solid new_x new_y
+		return
+	endif
+
+
+if_visible
+
+Parameters:
+	if_visible <integer> <integer>
+
+Function:
+	The code inside the IF block is only executed if the tile at the
+	given X,Y coordinates is visible.  If the coordinates are offscreen,
+	or the tile has been hidden by the room-blanking algorithm, the tile
+	is considered invisible.
+	
+	There is currently no equivalent 'if_not_visible'.
+	
+Example:
+	if_visible new_x new_y
+		print "You see "
+		print object.description
+	else
+		print "You can't see anything."
+	endif
+	printcr
+
+
+
+set_user_flag
+
+Parameters:
+	set_user_flag <string> = <integer>
+
+Function:
+	Set a user-defined flag.  These flags are the same ones that can
+	be created and used in the conversation language, using the [set myflag]
+	and [if myflag] keywords.  See these keywords in the conversation docs.
+
+	Flags are either on or off, so you should set them to either 1 or 0
+	respectively.  Any non-zero number will be counted as 1.
+	
+See Also:
+	get_user_flag
+
+Example:
+	set_user_flag "killed_king" = 1
+
+
+
+get_user_flag
+
+Parameters:
+	get_user_flag <integer> = <string>
+
+Function:
+	Extract the value of a user-created flag. 
+	If the specified flag was set to 0, or does not exist, it will give 0.
+	If the flag is set to 1, you will get 1 back.
+
+	At present there is no if_user_flag keyword, so if you need to do this,
+	use get_user_flag and a separate If statement.
+	
+See Also:
+	set_user_flag
+
+
+Example:
+	integer flag
+	
+	get_user_flag flag = "killed_king"
+	if flag = 1
+		print "The King is dead!"
+		printcr
+		return
+	endif
+
+
+
+set_local
+
+Parameters:
+	set_local <object> <string> = <integer>
+
+Function:
+	Set a user-defined flag.  This differs from set_user_flag in that the
+	created flag is specific to a pair of objects.
+	The idea is that you can record an interaction between two parties,
+	normally the player and a non-playing character.
+	
+	The object is usually the person you're talking to, and the string is
+	the name of the flag to be set.  As with the other flag functions, the
+	integer is the value to set the flag to, either 1 or 0.
+
+	As mentioned before, two objects are involved.  Usually it is the
+	player speaking, so the flag in the object will be marked against
+	the player, i.e. the current party member.
+	If you need to change this, it is always possible to 'fiddle' the
+	player variable with something like:
+	
+	let temp = player
+	let player = otherguy
+	set_local guy "have_met" = 1
+	let player = temp
+	
+	.. which would create a flag in 'otherguy', essentially saying that
+	'guy' had spoken to him.
+	
+	These flags are the same ones that can be created and used in
+	the conversation language, using the [set_pflag ??]
+	and [if_pflag ??] keywords.  See these keywords in the conversation docs.
+	
+See Also:
+	get_local
+
+Example:
+	set_local player.enemy "did_attack" = 1
+
+
+
+get_local
+
+Parameters:
+	get_local <integer> = <object> <string>
+
+Function:
+	Extract the value of a flag local to an object. 
+	If the specified flag was set to 0, or does not exist, it will give 0.
+	If the flag is set to 1, you will get 1 back.
+	The object is the object that contains the flag you're interested in.
+	As with set_local, it is assumed that the 'other party' is the player.
+
+	At present there is no if_local keyword, so if you need to do this,
+	use get_local and a separate If statement.
+	
+See Also:
+	set_local
+
+Example:
+	integer flag
+	
+	get_local flag = current "did_attack"
+	if flag = 1
+		print "Aaah!  Leave me alone!"
+		printcr
+		return
+	endif
+
+
+
+get_weight
+
+Parameters:
+	get_weight <integer> = <object>
+
+Function:
+	Calculate the total weight of the container and all the objects
+	inside it.
+	
+See Also:
+	get_bulk
+
+Example:
+	integer pweight
+	integer objweight
+	
+	get_weight pweight = player
+	get_weight objweight = obj
+	add pweight + objweight
+	
+	if pweight > player.stats.str
+		print "You're carrying too much already."
+		printcr
+		return
+	endif
+
+
+
+get_bulk
+
+Parameters:
+	get_bulk <integer> = <object>
+
+Function:
+	Ultima 7 and some other games have a 'bulk' factor, where the size
+	of objects determines where they will fit and how many you can
+	carry.  IRE does not use this, but provision is made for any
+	developers who do want this.
+
+	get_bulk is the same idea as get_weight, but it adds up the stats.bulk
+	fields instead of stats.weight.	
+	
+See Also:
+	get_weight
+
+Example:
+	integer pweight
+	integer objweight
+	
+	get_weight pweight = player
+	get_weight objweight = obj
+	add pweight + objweight
+	
+	if pweight > player.stats.str
+		print "You're carrying too much already."
+		printcr
+		return
+	endif
+	
+
+
+if_in_pocket
+
+Parameters:
+	if_in_pocket <object>
+
+Function:
+	The code inside the IF block is only executed if the given object
+	is inside a container.
+	
+See Also:
+	if_not_in_pocket
+	
+Example:
+	if_in_pocket bed
+		print "Put the bed on the ground before using it."
+		printcr
+		return
+	endif
+	
+
+
+if_not_in_pocket
+
+Parameters:
+	if_not_in_pocket <object>
+
+Function:
+	The code inside the IF block is only executed if the given object
+	is NOT inside a container.
+	
+See Also:
+	if_in_pocket
+	
+Example:
+	if_not_in_pocket spellbook
+		print "You must be holding the spellbook to use it."
+		printcr
+		return
+	endif
+
+	
+	
+resync_everything
+
+Parameters:
+	none
+
+Function:
+	Reset the current behaviour of all objects in the world.
+	The objects will consult their task schedules and find the next
+	task they should be doing for the current time of day.
+	This is particularly useful if the time of day has changed radically,
+	for instance if the player has been sleeping.
+	It is also used when the game starts or after a reload.	
+	
+See Also:
+	resume_schedule, check_time
+	
+Example:
+	add hour + 1
+	check_time
+	resync_everything
+
+
+
+resume_schedule
+
+Parameters:
+	resume_schedule <object>
+
+Function:
+	Reset the current behaviour of a given object.
+	This is basically the same as resync_everything, but for a single
+	specified object, rather than the whole world.
+	
+See Also:
+	resync_everything, check_time
+	
+Example:
+	# Simple confusion spell:
+	resume_schedule player.enemy
+
+
+
+talk_to
+
+Parameters:
+	talk_to <string>
+	talk_to <string> <string>
+
+Function:
+	Activate the interaction system, used for conversations and books.
+	The first parameter is a filename based from the project path,
+	e.g. "books/holy/bible.txt".  You can use either UNIX or MSDOS slashes,
+	the game will convert them as appropriate.
+	
+	The second, optional, parameter is the page to jump to, or "start"
+	if no starting page is given.
+		
+Example:
+	if key == KEY_F1
+		talk_to "books/info.txt" "help"
+	endif
+
+
+
+random
+
+Parameters:
+	random <integer> between <integer> <integer>
+
+Function:
+	Random number generator.  Sets the given integer variable to
+	a number in the given range.
+		
+Example:
+	integer r
+	random r between 1 20
+	print "Picked "
+	print r
+	printcr
+
+
+
+if_confirm, if_getyn
+
+Parameters:
+	if_confirm <string>
+
+Function:
+	Display a Yes/No prompt.  The code inside the IF block is only executed
+	if the user presses 'Y'.  The string will have the text '- are you sure?'
+	appended to it, and the game window will continue to animate while the
+	program is waiting for the user to respond.
+
+See Also:
+	if_not_confirm
+	
+Example:
+	if_confirm "Restart game "
+		restart
+		return
+	endif
+	
+
+
+if_not_confirm, if_not_getyn
+
+Parameters:
+	if_not_confirm <string>
+
+Function:
+	Display a Yes/No prompt.  The code inside the IF block is only executed
+	if the user presses 'N'.  The string will have the text '- are you sure?'
+	appended to it, and the game window will continue to animate while the
+	program is waiting for the user to respond.
+
+See Also:
+	if_confirm
+	
+Example:
+	if_not_confirm "Keep current game "
+		restart
+		return
+	endif
+
+
+
+restart, restart_game
+
+Parameters:
+	none
+
+Function:
+	Restarts the game, as if the program was quit and re-run.
+	The current world is erased and the initial world reloaded from disk.
+
+Example:
+	if_confirm "Restart game "
+		restart_game
+		return
+	endif
+	
+
+
+scroll_tile
+
+Parameters:
+	scroll_tile <string> <integer> <integer>
+	scroll_tile <integer> <integer> <integer>
+
+Function:
+	Cause all tiles of the specified type to scroll in a given direction.
+	The tile can be specified either by name, or by number.
+	Either way, the first parameter is the tile to scroll, and the last two
+	parameters are X,Y vectors for the scrolling, a number between -31 and 31.
+	
+	For example, 1 0 will make the tile scroll smoothly East, 1 -1 will make
+	a tile scroll smoothly NorthEast. 0 0 will stop it scrolling.
+	This is mainly used for special effects.
+
+See Also:
+	scroll_tile_number
+	
+Example:
+	scroll_tile "mud00" -1 2 
+
+
+
+scroll_tile_number
+
+Parameters:
+	scroll_tile_number <integer> <integer> <integer>
+
+Function:
+	As scroll_tile, but the tile is explicitly a number, and never
+	a string.  Useful if you have two variables with the same name but
+	different types..
+
+See Also:
+	scroll_tile
+	
+Example:
+	scroll_tile_number 59 -1 2 
+
+
+
+get_input, get_key, getkey
+
+Parameters:
+	none
+
+Function:
+	Wait for a keypress from the user.  The keypress is loaded into
+	the system variable 'key'.  Animation continues while waiting.
+	Generally, the key variable will be compared against a keypress,
+	which is a number.  It is strongly advised to use the given macros
+	for the keypresses, e.g. KEY_S, KEY_UP, KEY_ESC etc.
+	There is a list towards the end of this file.
+
+Example:
+	get_key
+	if key = KEY_S
+		print "s"
+		printcr
+	endif
+
+See Also:
+	get_key_quiet
+
+
+
+get_key_quiet
+
+Parameters:
+	none
+
+Function:
+	Same as get_key, but animation does NOT continue.
+	This is useful for pop-up dialogues such as the spell book that
+	the user navigates like a menu.
+
+Example:
+	get_key_quiet
+	if key = KEY_S
+		print "s"
+		printcr
+	endif
+
+
+
+start_action, do_action, start_activity, do_activity
+
+Parameters:
+	start_action <object> does <function>
+	start_action <object> does <function> to <object>
+
+Function:
+	Start an object doing a task.  Each turn of the game, the given
+	function will be called.  The system variable 'me' will point to
+	the current object.  Some tasks will need a parameter, for instance
+	attacking will need someone to attack.  This is provided for by the
+	last parameter.  When the task is activated, the object's .target
+	member will be set accordingly.  If the optional target is omitted,
+	me.target will be set to NULL.
+	(It is advisable to check the target is not null in activity scripts)
+
+	If the object has any sub-tasks queued, they will be deleted.
+	If you don't want this to happen, use 'insert_action' instead.
+
+See Also:
+	stop_action, resume_action, queue_action, start_queue, insert_action
+
+Example:
+	start_action object does start_attack to player
+
+
+
+stop_action, stop_activity
+
+Parameters:
+	stop_action <object>
+
+Function:
+	Stop the chosen object's current task.  No replacement activity
+	is offered and the object will freeze until a new task is given it.
+
+See Also:
+	start_action, resume_action, queue_action, start_queue
+
+Example:
+	stop_action player.enemy
+
+
+
+resume_action, resume_activity, last_action, last_activity
+
+Parameters:
+	resume_action <object>
+
+Function:
+	Stop the chosen object's current task, and find a new one to do, based
+	upon the object's schedule.  If no other tasks are found, it will stop
+	rather than run the current task again.  If you want this behaviour,
+	issue a 'stop_action' command beforehand.
+	
+	If you have any tasks in the sub-activity queue, the next one in the
+	queue will be started.
+
+See Also:
+	start_action, stop_action, queue_action, start_queue
+
+Example:
+	resume_action object
+
+
+
+queue_action
+
+Parameters:
+	queue_action <object> does <function>
+	queue_action <object> does <function> to <object>
+
+Function:
+	Give an object a sub-task to do.  Up to 8 activities can be put in
+	a queue so they are carried out in sequence.  This is useful for
+	such tasks as bread-baking, where you must get the flour and only
+	when you have the flour can you go on to the next step.
+
+	The syntax is the same as the 'start_action' command.
+	Each new activity will be added to the end of the queue.
+
+	When the queue is ready, use 'run_queue' to start it going from
+	the next turn of the game.
+
+	When the activity script is finished, it should use 'resume_schedule
+	to stop the current sub-task or go on to the next one.
+	(For the curious, 'run_queue' is really an alias for 'resume_schedule')
+	
+	All currently running sub-tasks will all be erased if a new action
+	is given to the object by 'start_action', or by the scheduler.
+
+	If you want to set a new current task without affecting the sub-task
+	queue, use 'insert_action' instead of 'start_action'
+
+
+See Also:
+	stop_action, resume_action, run_queue, insert_action
+
+Example:
+
+	queue_action baker does get_flour
+	queue_action baker does get_water
+	queue_action baker does mix_dough to flour
+	queue_action baker does bake_dough to oven
+	run_queue baker
+
+
+
+run_queue, do_queue, start_queue
+
+Parameters:
+	run_queue <object>
+	
+Function:
+	The given object will change activity to the next in the list of
+	sub-tasks it has been given.  If there are no more tasks in the
+	queue, it will do the current task according to the object's schedule.
+	
+	This is actually an alias for 'resume_schedule', but it is intended to be
+	used in conjunction with 'queue_action'
+
+See Also:
+	queue_action, run_queue, resume_schedule
+
+
+
+insert_action
+
+Parameters:
+	insert_action <object> does <function>
+	insert_action <object> does <function> to <object>
+
+Function:
+	Same as start_action, but any sub-tasks the object may have
+	will not be erased.	
+
+See Also:
+	start_action, queue_action
+
+Example:
+	start_action object does start_attack to player
+
+
+
+set_leader
+
+Parameters:
+	set_leader <object> <function> <function>
+
+Function:
+	Set up the party to follow a leader.  The object is the one that will
+	become the leader of the game.  The two functions are activities.
+	The first activity is what the player will do.  This is usually the
+	system function 'player_action' which normally gets the keyboard input
+	from the user and moves them accordingly.  The second activity is what 
+	all the followers will do.
+	In 'flat' and 'TFM', this is set to the system function 'follower',
+	which is a simple piece of code to make them move towards the player,
+	essentially tagging along after their leader.
+	A more complex function could be written to support flocking etc.
+
+See Also:
+	set_player, add_member, del_member
+
+Example:
+	set_leader me player_action follower
+
+
+
+set_player, set_member
+
+Parameters:
+	set_player <object> <function>
+
+Function:
+	Set a party member to be the player, in solo mode.
+	All other party members will freeze until set_leader is used to
+	restart the party-following.  The specified object does not have to
+	be a party member; this is useful for vehicle support, where you want
+	to have control of the boat etc, but not make them a follower.
+
+See Also:
+	set_leader, add_member, del_member
+
+Example:
+	set_member party[1] player_action
+
+
+
+add_member
+
+Parameters:
+	add_member <object>
+
+Function:
+	Adds a new character to the party list, and sets them to use
+	the system function 'follower'.
+	
+See Also:
+	set_leader, set_player, del_member
+
+Example:
+	add_member current
+
+
+
+del_member
+
+Parameters:
+	del_member <object>
+
+Function:
+	Removes a party member from the party list.
+	If they are dead, they will be stopped (same as 'stop_action'), otherwise
+	they will resume their activity schedule (as 'resume_schedule').
+	If the party leader is leaving, a new leader will be chosen and set
+	to the system function 'player_action'.
+	
+See Also:
+	set_leader, set_player, add_member
+
+Example:
+	add_member current
+
+
+
+move_towards
+
+Parameters:
+	move_towards <object> <object>
+
+Function:
+	Move one object towards another using A-star pathfinding.
+	The first parameter is the object to be moved, the second is the
+	destination.  The path will be routed around obstacles, and it can
+	move in 8 directions.  (Use 'move_towards4' if you don't like that).
+	Animation and direction will be taken care of automatically.
+	
+	It is possible that there will be a 'temporary' obstruction, such as
+	a door in the way.  Such objects should have the flag 'can_open' set,
+	or the pathfinder will just route around them.
+	Objects that 'can be opened' will be treated as if they do not exist,
+	and the engine will call the system function 'trackstop' when the
+	object comes up to an unexpected obstruction.
+	If this happens, current will be set to the moving object, victim
+	to their destination.  new_x and new_y will be set to the location
+	that is blocked, and the direction that the object was trying to move
+	will be put in the two variables user.dx and user.dy.
+	
+	MoveTowards will set 'err' to one of the following constants:
+	PATH_FINISHED - Path is completed and we have reached the target
+	PATH_BLOCKED  - Cannot calculate a path to the target
+	PATH_WAITING  - Following the path but haven't yet reached the target.
+	If the path is blocked, the object's user.counter will be incremented so
+	you can cause them to time out and go away if you want.
+	
+See Also:
+	move_towards4
+
+Example:
+	move_towards beast player
+
+
+
+move_towards4
+
+Parameters:
+	move_towards4 <object> <object>
+
+Function:
+	Move one object towards another using A-star pathfinding.
+	This is functionally identical to 'move_towards', except that the object
+	may only move in the four cardinal points, rather than the full 8 ways.
+	See 'move_towards' for a full explanation.
+
+See Also:
+	move_towards
+
+Example:
+	move_towards4 beast player
+
+
+
+wait
+
+Parameters:
+	wait <integer> <blocking flag>
+
+Function:
+	Pause the engine for a given time, with the object animation either
+	continuing in the background, or completely ceased.
+
+	The integer is the time in milliseconds, but an accuracy of only around
+	1/140th of a second is guaranteed.
+	The second parameter is whether you want the game window to stop
+	animating.  This is actually a number, 1 or 0, but it is best to use
+	the macros provided, BLOCKING or NON_BLOCKING.
+
+See Also:
+	wait_for_animation
+
+Example:
+	play_sound "intro1"
+	wait 15000 BLOCKING
+	play_sound "intro2"
+	wait 15000 BLOCKING
+
+
+
+wait_for_animation
+
+Parameters:
+	wait_for_animation <object>
+
+Function:
+	Pause the engine until the specified object has finished its animation.
+	This is useful for engine-based cutscenes, or similar events.
+	If the object is inside a container, there will be no delay (otherwise
+	the engine would lock, because objects in pockets don't animate).
+	By definition, the game window continues to animate in the background.
+
+See Also:
+	wait
+
+Example:
+	set_sequence ark "ark_of_the covenant"
+	wait_for_animation ark
+	call "kill_everything"
+
+
+
+centre, center
+
+Parameters:
+	centre <object>
+	center around <object>
+	
+Function:
+	Changes the viewpoint so that it centres around the given object
+	instead of the player.  This effect is generally temporary.. when
+	the player moves again the viewpoint will be focussed around them.
+	It can also be handy to force a refresh of the screen if you're
+	moving the player around within a script.
+	
+Example:
+	fade_out
+	move_object player to altar.x altar.y
+	centre around player			# Try this without!
+	fade_in
+
+
+
+if_onscreen
+
+Parameters:
+	if_onscreen <object>
+
+Function:
+	The code inside the IF block is only executed if the object is on the
+	current game window.
+	There is also a corresponding if_not_onscreen.
+
+Example:
+	if_onscreen me
+		# This must only happen when the player can't see it
+		return
+	endif
+
+
+
+input
+
+Parameters:
+	input <integer>
+
+Function:
+	Get a number from the user.  This will appear on the console.
+	The parameter is the variable to receive the input.
+	It also contains the default value which will appear when the command
+	is executed (so the user can just hit enter to go with the default).
+	If the user hit ESC, the system variable 'err' will be non-zero.
+
+Example:
+	let val = 100
+	print "Enter the number: "
+	input val
+
+
+
+take
+
+Parameters:
+	take <integer> <string> from <object>
+
+Function:
+	Take a quantity of objects from a container.
+	This is normally used for trade, in this case, selling objects, or
+	taking the money from the player.
+	
+	The objects will be destroyed.  If the given object is stackable,
+	the quantity will be reduced appropriately, and the object will be
+	destroyed if the quantity reaches zero.  If the object is not
+	stackable, it will search the container and destroy the requisite
+	number of objects.
+	
+	Before any of this takes place, however, it first checks to make sure
+	that the specified number of objects is actually present.
+	If that number isn't available, the 'err' variable will be non-zero.
+
+See Also:
+	give, move
+	
+Example:
+	take 100 "gold_coin" from player
+
+
+
+give
+
+Parameters:
+	give <integer> <string> to <object>
+
+Function:
+	Create a quantity of objects in a container.
+	This is normally used for trade, e.g. creating the goods which the
+	player has bought.
+
+	The objects will be created.  If the object is stackable, it will
+	search for an existing instance and add the new objects to its
+	quantity.  If there isn't one, a new object will be created and
+	set to the appropriate quantity.  If the objects aren't stackable
+	the required amount of objects will be created.
+
+	It does not check that the user has space to carry the objects,
+	because this really depends on the game's policy for such things.
+
+See Also:
+	take, move
+	
+Example:
+	give 1 "cake" to player
+
+
+
+move
+
+Parameters:
+	move <integer> <string> from <object> to <object>
+
+Function:
+	Transfer a quantity of objects from one container to another,
+	with the same basic process as 'give' and 'take'.
+	If the objects are stackable, they will effectively be destroyed
+	and re-created in destination.  If they are not stackable, the
+	actual objects will be transferred.
+	'err' will be set if there were not enough objects to perform
+	the transfer.
+
+	It does not check that the user has space to carry the objects,
+	because this really depends on the game's policy for such things.
+
+See Also:
+	take, give
+	
+Example:
+	move 100 "gold_coin" from player to baker
+
+
+
+count
+
+Parameters:
+	count <integer> = <string> inside <object>
+
+Function:
+	Count the number of a given kind of object inside a container.
+	This correctly handles stackable objects such as money, which have
+	a quantity associated with them.
+
+Example:
+	count m = "gold_coin" inside player
+
+
+
+copy_schedule
+
+Parameters:
+	copy_schedule <object> to <object>
+
+Function:
+	Duplicate the schedule of one object onto another.  This is used
+	by the 'egg' system for spawning monsters, guards and animals.
+
+Example:
+	copy_schedule baker to clone_baker
+
+
+copy_speech
+
+Parameters:
+	copy_speech <object> to <object>
+
+Function:
+	Duplicate the conversations of one object onto another.  This is used
+	by the 'egg' system for spawning guards and other talking creatures.
+
+	The guards, for example, are all cloned from a guard contained inside
+	the egg.  The 'master' guard contains the schedule, conversation etc
+	that all the spawned guards will have.
+
+Example:
+	copy_speech baker to clone_baker
+
+
+
+for_all_onscreen
+
+Parameters:
+	for_all_onscreen <function>
+
+Function:
+	Go through all the objects on the screen, and find the ones which have
+	a positive amount of health, and an intelligence of 1 or more.
+	For each one, 'current' is set to point to the object, and the given
+	function is called.
+	This can be used to cause all the characters onscreen to do something
+	special, like attack the player if they stole something, or cause everyone
+	to wander around in a daze (confusion spell?).
+
+Example:
+	let victim = player
+	for_all_onscreen stop_thief
+	
+	:
+	end
+	
+	function stop_thief
+		if current.stats.intel > 40
+			start_action current does start_attack to player
+		endif
+	end
+
+
+
+check_time
+
+Parameters:
+	none
+
+Function:
+	Check that the current time is valid.  If the number of seconds or
+	minutes is greater than 60, or the hour is greater than 23 etc,
+	adjust the clock to make it valid and set the time into the future
+	as necessary.  The game engine will use this itself automatically,
+	but if the player sleeps or falls unconscious, you will probably
+	want to change the time, use this function and then call
+	'resync_everything' to fix everything up.
+
+See Also:
+	resync_everything
+	
+Example:
+	add hour + 1
+	check_time
+	resync_everything
+
+
+
+find_nearest
+
+Parameters:
+	find_nearest <object> = <string> near <object> 
+	
+Function:
+	Find the closest matching object to the 'source' object.
+	It will look for an object of the given type, and try to find
+	a route to it.  The shortest path will be used.
+	It will go for an object belonging to the 'source' by preference,
+	or a public object otherwise.
+
+	The search field will be a 32x32 grid centred on the 'source'.
+
+See Also:
+	find_nearby, find_tag
+
+Example:
+	find_nearest chair = "chair" near me
+
+
+
+find_nearby
+
+Parameters:
+	find_nearby <object array> = <string> near <object> 
+	
+Function:
+	Find a number of matching objects near the 'source' object.
+	It has no preference for ownership, but because it builds a list
+	of what it has found, rather than returning a single object, you
+	can perform this yourself if you need it.  Only objects that have
+	an A-star path between the object and the 'source' will be added.
+	
+	The first parameter is the first element of the array of objects
+	that will be filled, e.g. list[0].
+	find_nearby will blank the list first, to avoid confusion.
+	Only as many objects as will fit in the array will be added.
+	The string is the type of object to search for.  Fuzzy matching
+	is supported, e.g. 'food*' will match 'food00', 'food01' etc.
+	The match is not case-sensitive.
+	The last parameter is the source object.
+	The search field will be a 32x32 grid centred on the 'source'.
+
+See Also:
+	find_nearest, find_tag
+
+Example:
+	object_array list[16]
+	integer ctr
+	
+	find_nearby list[0] = "chair" near EvilOne
+	for ctr = 0 to 15
+		if_exists list[ctr]
+			let current = list[ctr]
+			call smash_chair
+		endif
+	next ctr
+
+
+
+find_tag
+
+Parameters:
+	find_tag <object> = <string> <integer>
+	
+Function:
+	Search all existing objects to find one of the given type,
+	with a given tag.  The first parameter will point to the
+	object that has been found.  If nothing was found it will be
+	null, so make sure you use 'if_exists' after the search.
+	The second parameter is the type of object to search for.
+	If it is empty (""), any kind of object will match, providing
+	it has the right tag.
+	The last parameter is, of course, the tag to search for.
+
+	Unlike find_nearest or find_nearby, this function will search
+	the entire map area.
+
+See Also:
+	find_nearest, find_nearby
+
+Example:
+	find_tag door = "stone_door" 5
+
+
+
+light_tag
+
+Parameters:
+	light_tag <integer> = <integer>
+	
+Function:
+	Turn static lights on or off.
+	Static lights are managed by pairs of objects.  These are
+	system-defined markers, that set the start and end of a rectangle
+	of light.  The object 'light_start' is the top-left corner, and
+	'light_end' is the bottom-right corner.
+	
+	This command will search for the two matching corners with a given
+	tag number, and turn on/off all the static lights between these
+	two corners.  It supports up to 128 light ranges with the same
+	tag.
+
+	The first parameter is the tag number to search for, and the second
+	parameter is the light state.  1 is on, and 0 is off.
+	
+Example:
+	light_tag 50 = 1	# switch on all tag-50 static lights
+
+
+
+move_party_to
+
+Parameters:
+	move_party_to <object>
+	
+Function:
+	Move the entire party into a container.
+	This is what you need for vehicles, where everyone boards a boat
+	or something similar.  (It can also be handy for teleportation).
+	It is usually desirable to set the vehicle to be the current player
+	afterwards. 	There is no weight checking or suchlike.
+
+See Also:
+	move_party_from
+
+Example:
+	# Board the boat
+	move_party_to boat
+	set_player boat
+
+
+
+move_party_from
+
+Parameters:
+	move_party_from <object> to <integer> <integer>
+	
+Function:
+	Reverse the process of 'move_party_to' and transfer all the party
+	members from the given container to the place on the map given as
+	the X,Y coordinates.  There is no check to see if they will fit in the
+	given square, so they might appear inside a wall or something.
+
+See Also:
+	move_party_to
+
+Example:
+	# Leave the boat
+	move_party_from boat to boat.x boat.y
+	set_leader player
+
+
+
+move_tag
+
+Parameters:
+	move_tag <integer> to <integer> <integer>
+	
+Function:
+	Move all the objects with a given tag in any direction.
+	This is useful for secret doors and the like, where you pull a lever
+	and a bookcase moves along, or a table shifts revealing a stairway.
+	The last two parameters are VECTORS, not X,Y coordinates.  The numbers
+	will be added to the X,Y coordinate of the tagged objects, which will
+	effectively move them all a certain amount.  You can then give the
+	reversed coordinates to move it back.
+	Now.  To avoid the lever being moved with the table, it negates the tag
+	first.  If you give tag 20, it will move all objects with tag -20,
+	or vice-versa.
+	The first paremeter is the tag, the last two are the vectors to be added.
+	There is no checking to see if the objects can go into the location.
+	(We are coordinating the move of many objects here.  We don't want the
+	 table to break up if only some of the objects can be moved).
+	All the tagged objects will be moved to the bottom of their respective
+	lists, which prevents anything on the table getting buried by it.
+
+Example:
+	# Move tag 20 upwards one square
+	move_tag -20 by 0 -1 
+
+
+
+get_data
+
+Parameters:
+	get_data <string> where <table> = <string>
+	get_data <string> where <table> = <integer>
+	get_data <integer> where <table> = <string>
+	get_data <integer> where <table> = <integer>
+	
+Function:
+	Perform a data store lookup.  In the game's resource file, you can set
+	up lookup tables containing data that the game needs.  This is accessed
+	using 'get_data' and it searches the given table for a key, giving the
+	data for this key.
+	
+	Suppose we had the following in the resource.txt file:
+	
+	section: tables
+	
+		name lock
+			key=string
+			data=string
+			
+			list:
+				green_door	green_card
+				red_door	red_card
+				blue_door	blue_card
+			end
+	
+	This declares a simple lookup table.  Both the data and the key we are
+	looking for are strings (they can also be integers, or a combination).
+	The left value in the list is the key, and the right value is the data.
+	
+	If we had the following code:
+	
+		string keystr
+		get_data keystr where lock = "red_door"
+		
+	..the variable 'keystr' would be set to the text "red_card".
+	You should get the idea.
+	
+	If there isn't a matching value, the 'err' variable will be nonzero.
+	You may also specify the table name as a string if you need to, but it
+	is quicker to use the table name directly.
+
+Example:
+
+	integer hits
+	get_data hits where weapon_damage = "sword"
+
+
+
+get_decor
+
+Parameters:
+	get_decor <integer> <integer> <object>
+	
+Function:
+	Get the exact location of a decorative object.
+	Decoratives are shared memory, and because they are all the same,
+	they do not have individual X,Y coordinates. This makes life
+	'interesting' if you want to change them.  Any changes you make will
+	be reflected to all the objects, so the only thing you can do is delete
+	it and create a new, NON-decorative replacement in its place, e.g. if
+	a tree is being cut down.
+
+	But even to do this, we must have the exact X,Y coordinates of the
+	object we wish to delete or it cannot be done.
+	You cannot use object.x and object.y to get the coordinates, but if
+	you know of a square that the decorative is on, you can use 'get_decor'
+	to find the exact X,Y coordinates you will need to delete the decor.
+	
+	'get_decor' has three parameters.  The first two are the X,Y
+	coordinates where the object is known to be.  These are two integer
+	variables, and they MUST be variables, because the exact X,Y coordinates
+	will be written	back into them.  The third parameter is the decorative
+	object.  This is needed to make sure we are getting the right one, for
+	cases like a forest, where several decoratives may be overlapped.
+	If there are two decoratives of the same type overlapping, you -might-
+	get the wrong one but this should be a rare occurrence.
+
+	If an error occurred, 'err' is set non-zero.
+	
+See Also:
+	del_decor
+
+Example:
+	let enemy_x = player.x
+	let enemy_y = player.y - 1
+	get_object obj at enemy_x enemy_y
+	# Got anything?
+	
+	if_not_exists obj
+		# No, cancel
+		return
+	endif
+	
+	# Is it a decorative object?
+	if_flag obj IS_DECOR
+		# Get precise coordinates (from rough location)
+		get_decor enemy_x enemy_y obj
+		# Destroy it
+		del_decor enemy_x enemy_y obj
+	else
+		# Normal object, no need for special tricks
+		destroy obj
+	endif
+
+
+
+del_decor
+
+Parameters:
+	del_decor <integer> <integer> <object>
+	
+Function:
+	Delete a decorative object.
+	Decoratives are shared memory, and because they are all the same,
+	they do not have individual X,Y coordinates.
+	Because of this, we need to pass the X,Y coordinates containing the
+	object to be deleted.  The object pointer is also used for validation.
+	So, the first two parameters are the coordinates, and the last parameter
+	is the object.  You should always use get_decor to obtain the coordinates
+	you need.
+
+See Also:
+	get_decor
+
+Example:
+	See get_decor for an example.
+
+
+
+find
+
+Parameters:
+	find <object> = <string> inside <container>
+	
+Function:
+	Do a recursive search through the given container for a specified
+	type of object.  Fuzzy matching (* at end of name) is supported.
+	The first parameter is the object, and it will point to anything
+	that matches the name, or NULL if nothing matches.
+	Use 'if_exists' afterwards to be sure.
+
+Example:
+	find obj = "ammo*" inside player
+	if_not_exists obj
+		print "Out of bullets!"]
+		printcr
+	endif
+
+
+change_map
+
+Parameters:
+	change_map <integer> at <integer> <integer>
+	change_map <integer> tag <integer>
+	
+Function:
+	Change to a different world.  Bring the party along, plus everything
+	in their pockets, and also stuff in the System pocket, e.g. the cursors
+	and the display panels.
+
+	There are two basic modes of operation.  You always specify the map
+	number to switch to, but there are two ways to specify where the party
+	appears once the transfer has been made.  You can specify the X,Y
+	coordinates manually, but this will be a nuisance if you need to change
+	it, or you can specify a tag number.  If you use a tag, this is the tag
+	for an object on the other map.  When the switch takes place, the engine
+	will look for a 'target' object with this tag and place the party on
+	top of it.  If no 'target' is found, it will search again for this tag
+	number, but matching any object type.
+	
+Example:
+	change_map 5 tag ladder.tag
+
+
+
+scroll_picture
+
+Parameters:
+	scroll_picture <string> <integer> <integer>
+
+Function:
+	Display a full-screen still picture for cut-scene purposes, along the
+	lines of the DOOM bunny.  If the picture is larger than 640x480, it
+	can be scrolled in any direction.  Scrolling stops when the edge of
+	the picture is reached.  You can also have a delay before and after
+	the scrolling starts to give the user time to understand what they see.
+
+	The first parameter is the filename of the image to load.  This can be
+	a JPEG or PCX file.  The path is assumed to be from the project
+	directory, so it will be something like 'backings/clouds.pcx'.
+	
+	The other two parameters are the scrolling vectors.  The number will
+	be added to the X and Y coordinates respectively each turn.  If you
+	don't want any scrolling, use 0 0.
+	
+	If you want the delays, set the global variables 'start_delay' and
+	'end_delay' respectively.  They are in hundredths of a second.
+
+Example:
+	let start_delay = 300
+	let end_delay = 300
+	play_music "telescope"
+	scroll_picture "backings/stars.pcx" 0 1
+	print "~I don't recognise any of these stars!~"
+	printcr
+
+
+
+pathmarker
+
+Parameters:
+	pathmarker <object> = <string> near <player>
+	
+Function:
+	If you have NPCs with schedules, you will probably have a situation
+	where an NPC has to go from one building across town to another.
+	This will often be outside the 64x64 area of the pathfinder, and so
+	you will have to divide the journey up into sections.
+	The best way to do this is to lay path markers in the road.  Set the
+	owner for each marker to be the property of the next one in the chain,
+	and you can then use the A-star routine to move them from each one
+	to the next, following the chain until they reach their destination.
+	
+	The next level of intelligence is to simply specify the destination
+	and have the NPC find the nearest path marker for that destination,
+	whatever part of the town they are in.
+	The 'pathmarker' command performs this search.  Each path marker
+	(and they must be objects called 'pathmarker') should have their
+	destination as their 'Personal Name'.
+	The first parameter is an object variable.  It will be pointed to
+	the nearest matching path marker, if any was found, or else NULL.
+	The second parameter is a string containing the destination we are
+	looking for.  Any 'pathmarker' objects with this as their personal
+	name will be considered a valid match.
+	The last parameter is the NPC.  This object will be the focus of the
+	search, a 64x64 grid centered on them.
+
+Example:
+	See the script file code\activity\location.pe for an example.
+
+
+
+set_string
+
+Parameters:
+	set_string <user string> = <string>
+	
+Function:
+	Changes the value of a user-modifyable string.
+	You can set a user-string to a text string, or the contents of
+	another string.  If the length of the new string exceeds the
+	maximum	length of the user-string, it will be cut off at the end.
+	
+Example:
+	userstring mystring 10
+	set_string mystring = "000000"
+
+
+
+str_setpos
+
+Parameters:
+	str_setpos <userstring> <integer> = <integer>
+	
+Function:
+	Pokes a single character into a user-modifyable string.
+	The first parameter is the string to be modified, the second
+	parameter is the position within the string that is going to
+	be changed, starting from 1, e.g. the 'C' in "ABCDE" is position 3.
+	The final parameter is the new character.  Technically this
+	is an integer, however to make life easier, the compiler allows
+	you to specify a character in single-quotes, e.g. 'G', which will
+	automatically be converted into the corresponding number.
+	
+Example:
+	userstring mystring 10
+	set_string mystring = "000"
+	str_setpos mystring 1 = '3'
+
+
+str_getpos
+
+Parameters:
+	str_getpos <integer> = <userstring> <integer>
+	
+Function:
+	Retrieves a single character from a user-modifyable string.
+	The first parameter is a variable that will contain the character.
+	The second parameter is the string that we wish to examine.
+	position within the string that is going to
+	be changed, starting from 1, e.g. the 'C' in "ABCDE" is position 3.
+	The final parameter is the new character.  Technically this
+	is an integer, however to make life easier, the compiler allows
+	you to specify a character in single-quotes, e.g. 'G', which will
+	automatically be converted into the corresponding number.
+	
+Example:
+	userstring mystring 10
+	set_string mystring = "000"
+	str_setpos mystring 1 = '3'
+
+
+
+find_pocket, find_container
+
+Parameters:
+	find_pocket <object> = <object>
+	
+Function:
+	If the object specified in the second parameter is inside a
+	container - or nested containers - the first parameter will be
+	set to the outermost container, e.g. the person carrying it,
+	regardless of whether it is inside a bag inside a box etc.
+	If the object is lying on the ground, the first parameter will
+	be set to NULL.
+
+Example:
+	find_pocket thief = stolen_ring
+
+
+
+===============================================
+
+Special Effects group
+---------------------
+
+
+fx_getxy
+
+Parameters:
+	fx_getxy <integer> <integer> = <object>
+	
+Function:
+	Get the screen X,Y coordinates of an object visible in the game window.
+	This is necessary if you wish to bond an effect to an object.
+	If you just want to draw directly to the screen for a transition or
+	something like that, you won't need this.
+	
+	The first two parameters are the variables which will receive the X,Y
+	coordinates.  The last parameter is the object to get them from.
+
+	If the object is off-screen, you will still get a valid set of coordinates
+	but this may result in some interesting visual effects.
+
+Example:
+
+	integer x
+	integer y
+	
+	fx_colour 0xff00ff	# Horrid pink
+	fx_alpha 128
+	fx_alphamode ALPHA_TRANS
+	fx_getxy x y = player
+	let fx_brush = 5
+	let fx_srcx = x + 4
+	let fx_srcy = y + 4
+	fx_point
+
+
+
+fx_colour, fx_color
+
+Parameters:
+	fx_colour <integer>
+	
+Function:
+	Set the colour of the special effects brush.  Any lines or dots drawn
+	by the effects engine will be in this colour.
+	
+	The colour is best specified as a 6-digit hexadecimal number,
+	containing the Red, Green and Blue levels respectively.
+	To tell the compiler that the number is hex, use C notation (e.g 0x123456)
+	If you don't understand how the colour code works, look for a java
+	applet or something for web page design that has a colour builder.
+	(Some paint packages may also show the colour as a hex number).
+	
+	There are also some macros for common colours:
+	<???>
+
+Example:
+	See fx_getxy for an example
+
+
+
+fx_alpha
+
+Parameters:
+	fx_alpha <integer>
+	
+Function:
+	Set the alpha transparency level for the effects brush.
+	This is a number from 0 to 255.  0 is totally invisible, 255 is solid.
+	128 is half-way visible.  Exactly what this does depends on the alpha
+	mode you have selected.
+
+	THE ALPHA LEVEL WILL NOT CHANGE UNTIL THE NEXT FX_ALPHAMODE COMMAND.
+
+See Also:
+	fx_alphamode	
+
+Example:
+	See fx_getxy for an example
+
+
+
+fx_alphamode
+
+Parameters:
+	fx_alphamode <flag>
+	
+Function:
+	Set the type of alpha transparency used by the brush.
+	This should be one of the following constants:
+	
+	ALPHA_SOLID			: No translucency at all
+	ALPHA_TRANS			: Straightforward translucency
+	ALPHA_ADD			: Add the colour levels together
+	ALPHA_BURN			: Darken the colours (subtraction?)
+	ALPHA_COLOUR			: ?
+	ALPHA_COLOR			: same
+	ALPHA_DIFFERENCE		: ?
+	ALPHA_DISSOLVE			: Random pixel substitution (instead of translucency)
+	ALPHA_DODGE			: Brighten the colours
+	ALPHA_HUE			: ?
+	ALPHA_INVERT			: ?
+	ALPHA_LUMINANCE			: ?
+	ALPHA_MULTIPLY			: ?
+	ALPHA_SATURATION		: ?
+	ALPHA_SCREEN			: ?
+	
+	Most of them use the alpha level to control the strength of the effect.
+	Your best bet is probably to play around and see what does what.
+
+	Note: setting the alpha mode also sets the alpha level (fx_alpha).
+	You must always use fx_alpha first, or the results will be
+	unpredictable (it will go wrong when there are several FX onscreen).
+
+See Also:
+	fx_alpha
+
+Example:
+	See fx_getxy for an example
+
+
+
+fx_random
+
+Parameters:
+	fx_random <integer> = <integer>
+	
+Function:
+	Optimised random number generator for special effects use.  This is
+	based on a 32k lookup table.  The first parameter is the variable
+	to receive the random number, and the second parameter is the maximum
+	allowable value.  The result will be a number between 0 and it.
+	Do not use the generic 'random' function for special effects, it is
+	very slow.
+
+Example:
+	integer r
+	
+	fx_random r = 4
+	add fx_srcx + r
+	fx_random r = 4
+	add fx_srcy + r
+	fx_point
+
+
+
+fx_line
+
+Parameters:
+	none
+	
+Function:
+	Draw a line on the game window in the current brush size.
+	The line will be draw between the coordinates in the system variables
+	fx_srcx,fx_srcy and fx_destx,fx_desty.
+	
+	You can set the brush size with the variable 'fx_brush'.
+
+See Also:
+	fx_point
+
+Example:
+	TBD
+
+
+
+fx_point
+
+Parameters:
+	none
+	
+Function:
+	Draw a circle or dot with the effects brush.
+	The point will be draw at the current brush position set with
+	fx_srcx,fx_srcy.
+	
+	You can set the brush size with the variable 'fx_brush'.
+	If the brush size is 0, it will be a single pixel. Otherwise
+	this value will be the radius of the circle.
+
+See Also:
+	fx_line
+
+Example:
+	See fx_getxy for an example
+
+
+
+fx_rect
+
+Parameters:
+	none
+	
+Function:
+	Draw a filled rectangle in the current colour.
+	The rectangle will be draw between the coordinates in the system
+	variables fx_srcx,fx_srcy and fx_destx,fx_desty.
+
+	srcx,srcy should be the top-left corner, destx,desty the bottom-right
+
+See Also:
+	fx_point, fx_line, fx_poly
+
+Example:
+	TBD
+
+
+
+fx_poly
+
+Parameters:
+	vertex array
+	
+Function:
+	Draw a filled polygon in the current colour.
+	The vertex array is a list of points, x and y coordinate respectively.
+	Essentially, the polygon routine will 'join the dots' as it were.
+	These coordinates are relative to destx,desty.
+
+See Also:
+	fx_point, fx_line, fx_rect
+
+Example:
+	integer_array poly[8]
+
+	poly[1] = 0	# 0,0	Top left corner
+	poly[2] = 0
+	poly[3] = 10	# 10,0	Top right corner
+	poly[4] = 0
+	poly[5] = 10	# 10,10	Bottom-right corner
+	poly[6] = 10
+	poly[7] = 0	# 0,10	Bottom-left corner
+	poly[8] = 10
+
+	fx_poly poly[1]	# Draw the polygon, a square
+
+
+
+fx_sprite
+
+Parameters:
+	none
+	
+Function:
+	Draw a sprite using the current effects brush.
+	The sprite will be draw at the current brush position set
+	with fx_srcx,fx_srcy.
+	Since special effects tend to be bound to a particular sprite,
+	fx_sprite will draw the current frame for the current object,
+	i.e. the contents of the system variable called 'current'.
+
+See Also:
+	fx_line, fx_point
+
+Example:
+	TBD
+
+
+
+fx_corona
+
+Parameters:
+	fx_corona <tint colour>
+	
+Function:
+	Draw a corona effect at fx_srcx,fx_srcy in the given colour
+        according to the parameters set up beforehand.
+
+	The tint colour can be one of the following:
+
+	TINT_WHITE
+	TINT_RED
+	TINT_GREEN
+	TINT_BLUE
+	TINT_CYAN  (also TINT_LIGHTBLUE)
+	TINT_YELLOW 
+	TINT_MAGENTA (also TINT_PURPLE)
+
+	The variables used by corona are:
+
+	fx_srcx      - X coordinate of the centre of the corona
+	fx_srcy      - Y coordinate of the centre of the corona
+	fx_radius    - radius in pixels of the corona effect
+	fx_intensity - intensity (0-65536?)
+	fx_falloff   - intensity falloff rate (in 100ths)
+
+
+Example:
+	# Centre around player
+	fx_getxy fx_srcx fx_srcy = player
+	let fx_intensity = 175			# Intensity 175
+	let fx_radius = 64			# Radius 64 pixels
+	let fx_falloff = 230			# 2.30 falloff rate
+	fx_corona TINT_YELLOW
+
+
+
+
+startfx, start_fx
+
+Parameters:
+	start_fx <object> does <function>
+	
+Function:
+	Start a special effect running.  Special effects are made by calling
+	a function every animation frame.  Such functions should therefore, be
+	written to take as little time as possible or the whole game will slow
+	down when the effect is running.
+	
+	Effect functions are bound to an object, so you can store context data.
+	Every time an effect function is called, 'current' will point to the
+	object it is bound to.
+	
+	The special effect will keep running until it is stopped, or the object
+	is destroyed.  Any running effect will also be suspended if the object
+	is moved into a container.
+	
+	The special effect will be drawn with the object, so if the effect
+	spreads over a large area, there may be occlusion problems.  You can
+	use 'over_fx' if you want the effect to be drawn over all the other
+	objects.
+	
+	The first parameter is the object to bind to, and the last parameter is
+	the effect function to be called.
+
+See Also:
+	over_fx, stop_fx
+
+Example:
+	start_fx player does see_stars
+
+
+
+overfx, over_fx
+
+Parameters:
+	over_fx <object> does <function>
+	
+Function:
+	Start a special effect running.  This differs from 'start_fx' in that
+	the object will be drawn on top of all objects (but below the roof).
+
+See Also:
+	over_fx, stop_fx
+
+Example:
+	over_fx player does explosion_effect
+
+
+
+stopfx, stop_fx
+
+Parameters:
+	stopfx <object>
+	
+Function:
+	Stop a special effect that is bound to an object.
+
+See Also:
+	start_fx, over_fx
+
+Example:
+	stop_fx player
+
+
+
+fx_orbit
+
+Parameters:
+	fx_orbit <integer>
+	
+Function:
+	Calculate an orbital path around an object from an angle.
+	For some effects you may want to have lights or suchlike circling
+	an object.  This command does most of the grunt-work involved.
+	It is given an angle, and a number of other parameters are provided
+	using global variables.
+	For the given data, it will update the angle (using the current speed)
+	and write the resulting X,Y coordinates to fx_srcx and fx_srcy.
+	
+	The angle is in tens of degrees, i.e. there are 3600 degrees in a circle.
+	Normally you will use a spare object member (such as object.user.user19)
+	to hold the angle, because you will need to keep hold of it for proper
+	rotation.
+
+	The variables it uses are:
+
+	IN
+	fx_destx  - X coordinate of the centre of the orbit
+	fx_desty  - Y coordinate of the centre of the orbit
+	fx_radius - radius in pixels around the given coordinates
+	fx_drift  - amount of turbulence in the path (in pixels)
+	fx_speed  - speed of rotation (degrees per frame)
+
+	OUT
+	fx_srcx   - X coordinate returned after the calculation
+	fx_srcy   - X coordinate returned after the calculation
+
+Example:
+
+	function SimpleOrbit
+
+	# Get pixel coordinates of object into DX,DY (where Orbit wants it)
+	fx_getxy fx_destx fx_desty = current
+	add fx_destx + 7
+	add fx_desty + 7
+
+	# Set up colour stuff
+	fx_alpha 128
+	let fx_brush = 3
+	fx_alphamode ALPHA_ADD
+	fx_colour 0x5050e0
+
+	# Set up a simple orbit
+	let fx_drift = 0
+	let fx_radius = 20
+	let fx_speed = 60
+
+	fx_orbit current.user.user19
+	fx_point
+
+	end
+
+
+
+===============================================
+Mouse Functions
+---------------
+
+
+mouse_range
+
+Parameters:
+	mouse_range <integer> = <integer> <integer> <integer> <integer>
+
+Function:
+	Create a region that the mouse can click upon.
+	The first parameter is the ID number that the region will have, this
+	is returned when you click upon it.  The ID can be any number except 0,
+	which is reserved, and you can have multiple regions with the same ID
+	(although you won't be able to identify each one if you do).
+	
+	The next two parameters are the X,Y coordinates for the top-left
+	hand corner of the region, and the final pair of parameters are
+	the width and height of the area in pixels.
+	
+	This command will create a region with the default parameters.
+	It will only respond to a left-click and has no features.
+	This can be changed later, using other commands to modify the
+	region to suite your needs.
+
+	The mouse click will appear as a special 'keypress' returned from
+	'get_key'.  If the key is KEY_MOUSE, the coordinates that were clicked
+	on and the ID are loaded into the global variables ... ... ...
+
+See Also:
+	right_click, mouse_grid
+
+Example:
+	mouse_range 1 = 100 100 32 32
+
+
+
+right_click
+
+Parameters:
+	right_click <integer>
+
+Function:
+	Sets a region that has already been created so that it responds if
+	it is right-clicked upon.  The default is left-click only.
+	You can have two regions overlapping, and if they both respond to
+	different mouse buttons you will be able to tell them apart.
+
+See Also:
+	mouse_range, button
+
+Example:
+	mouse_range 1 = 100 100 32 32
+	right_click 1
+
+
+
+button
+
+Parameters:
+	button <integer> = <integer> <integer> <string> <string>
+
+Function:
+	Create a button using sprites.
+	The first parameter is the ID of the button to create, in the same
+	way as 'mouse_range'.  The next two parameters are the X,Y coordinates
+	where the button will appear.
+	What comes next is the sprite which the button will be made from.
+	This is the fourth parameter, and it is a string, which must be an
+	entry from "Section: sprites" in the resource file.  The width and
+	height of the button will be taken from this sprite.
+	The final parameter is the bitmap that will be displayed when the
+	button is clicked on, i.e. when it's pushed down.  If you don't want
+	that, you can use a blank string ("") for the last parameter and it
+	will use the same image as the main button.
+	
+	As with mouse ranges, they default to left-click and you can use
+	the 'right_click' command to change this if you prefer.
+
+See Also:
+	right_click, mouse_range
+
+Example:
+	button 2 = 100 100 "UpButton" "UpButton2"
+
+
+
+button_push
+
+Parameters:
+	button_push <integer> = <integer>
+
+Function:
+	Change the state of a button, pushing it in.  This is not done
+	automatically by the game engine, because it doesn't know how long
+	you want the button to remain pushed or highlighted for.
+	In the case of 'Take' or 'Get', you will probably want the button to
+	remain highlighted until the user has selected the object to pick up.
+	
+	The first parameter is the ID of the button to push in.  The last
+	parameter is the state of the button.  1 is pushed in, 0 is normal.
+
+Example:
+	button_push 2 = 1
+	wait 1000 NON_BLOCKING
+	button_push 2 = 0
+
+
+
+mouse_grid
+
+Parameters:
+	mouse_grid <integer> = <integer> by <integer>
+	mouse_grid <integer> = <integer> <integer>
+
+Function:
+	Convert an existing mouse range into a grid.
+	Grids differ from mouse ranges in that they are divided into rectangles
+	and you will get the grid coordinates where the mouse was clicked
+	instead of the absolute pixel coordinates.  The game does this
+	internally with the game window, dividing it into 32x32 squares so that
+	you get a square of the map window when the user left-clicks on it.
+	
+	The first parameter is the ID of the existing range to convert, and
+	the last two parameters are the width and height of each grid cell
+	in pixels.
+
+Example:
+	button_push 2 = 1
+	wait 1000 NON_BLOCKING
+	button_push 2 = 0
+
+
+
+range_pointer
+
+Parameters:
+	range_pointer <integer> = <integer>
+
+Function:
+	Set a mouse range to change the mouse pointer.
+	When the mouse moves over the specified range, the pointer will
+	be changed to another shape.
+	At present, the only other shape is a hand but this will change.
+	Future releases will include user-definable mouse pointers.
+
+	The first parameter is the ID of an existing range, and the last
+	parameter is the mouse cursor to use.  At present, only 0 and 1
+	are supported.  0 is the normal cursor, and 1 is a hand cursor.
+
+Example:
+	mouse_range 1 = 100 100 32 32
+	range_pointer 1 = 1
+
+
+
+flush_mouse
+
+Parameters:
+	flush_mouse <blocking flag>
+
+Function:
+	Waits for the mouse button to be released.
+	Useful (if not, essential) for when two objects are selected
+	in quick succession (e.g. use key on lock).  Without the wait,
+	the user will invariably double-select the first object.
+
+	The parameter is whether you want the game window to stop animating.
+	This is actually a number, 1 or 0, but it is best to use the macros
+	provided, BLOCKING or NON_BLOCKING.
+
+Example:
+	flush_mouse NON_BLOCKING
+	return
+
+
+set_panel
+
+Parameters:
+	set_panel <filename>
+
+Function:
+
+	Load a new backing image onto the screen, e.g. for the game's status
+	panel.  It must be a 640x480 picture or the results will be
+	unpredictable.
+
+	The parameter is the file to be loaded, which can be either PCX
+	or JPEG format.  The path will be relative to the project directory,
+	and should have UNIX slashes and be in double-quotes, so for example:
+
+		c:\ire\flat\backings\panel.pcx
+
+		..should be:
+
+		"backings/panel.pcx"
+
+Example:
+	set_panel "backings/panel.pcx"
+
+
+
+save_screen
+
+Parameters:
+	none
+
+Function:
+
+	Saves the state of the screen and all clickable buttons.
+	It will also erase the existing buttons and ranges giving a
+	completely fresh slate.
+
+See Also:
+	restore_screen
+
+Example:
+	save_screen
+	button 1 = 8 8 "button" "button"
+	restore_screen
+
+
+
+restore_screen
+
+Parameters:
+	none
+
+Function:
+
+	Retrieves the state of the screen and all clickable buttons,
+	if they were previously saved with save_screen.
+
+See Also:
+	save_screen
+
+Example:
+	save_screen
+	button 1 = 8 8 "button" "button"
+	restore_screen
+
+
+===============================================
+
+dump_vm
+
+Parameters:
+	none
+
+Function:
+	Dump the current virtual machine state to the log file.
+	Useful for debugging.
+
+
+printaddr
+
+Parameters:
+	printaddr <integer>
+	printaddr <object>
+
+Function:
+	Prints the address of a variable in hexadecimal on the console.
+	Useful for debugging.
+	The text will not normally appear immediately unless you call printcr
+	or redraw_text afterwards.
+
+Example:
+	print "&player = "
+	printaddr player
+	printcr
+
+
+Bug
+
+Parameters:
+	bug <integer>
+
+Function:
+	Write all subsequent text output to the log file for error messages.
+	The parameter turns this on or off, 1 or 0 respectively.
+	You should use the macros START and END instead of 1 or 0.
+
+Example:
+	if_not_exists current
+		bug START
+		print "Error in scripts/foo.pe, current is NULL"
+		printcr
+		bug END
+		return
+	endif
+
+
+(((((((((((((((((
+
+
+                   y {"ret",PEVM_Return,"",PE_generic,NULL,0},
+                   y {"return",PEVM_Return,"",PE_generic,NULL,0},
+                   y {"finish",PEVM_Return,"",PE_generic,NULL,0},
+                   y {"print",PEVM_Printstr,"s",PE_generic,NULL,1},
+                   y {"printx",PEVM_PrintXint,"i",PE_generic,NULL,1},
+                   y {"printcr",PEVM_PrintCR,"",PE_generic,NULL,0},
+                   y {"newline",PEVM_PrintCR,"",PE_generic,NULL,0},
+                   y {"cls",PEVM_ClearLine,"",PE_generic,NULL,0},
+                   y {"clear",PEVM_ClearLine,"",PE_generic,NULL,0},
+                   y {"clearline",PEVM_ClearLine,"",PE_generic,NULL,0},
+                   y {"call",PEVM_Callfunc,"f",PE_generic,NULL,1},
+                   y {"call",PEVM_CallfuncS,"P",PE_generic,NULL,1},
+
+                    {"function",0,"l",PE_newfunc,PEP_newfunc,0},
+                    {"end",0,"",PE_endfunc,PEP_endfunc,0},
+                    {"local",0,"",PE_declare,PEP_StartLocal},
+                    {"endlocal",0,"",PE_declare,PEP_EndLocal},
+                    {"activity",0,"",PE_classAct,NULL,0},
+                    {"private",0,"",PE_classPrv,NULL,0},
+                    {"const",0,"l=n",PE_declare,PEP_const,0},
+                    {"constant",0,"l=n",PE_declare,PEP_const,0},
+                    {"integer",0,"l",PE_declare,PEP_integer,0},
+                    {"integer",0,"l=n",PE_declare,PEP_integer,0},
+                    {"integer_array",0,"a",PE_declare,PEP_intarray,0},
+                    {"string",0,"l",PE_declare,PEP_string,0},
+                    {"string_array",0,"b",PE_declare,PEP_strarray,0},
+                    {"int",0,"l",PE_declare,PEP_integer,0},
+                    {"int",0,"l=n",PE_declare,PEP_integer,0},
+                    {"int_array",0,"a",PE_declare,PEP_intarray,0},
+                    {"object",0,"o",PE_declare,PEP_object,0},
+                    {"object_array",0,"c",PE_declare,PEP_objarray,0},
+                    {"tile",0,"t",PE_declare,PEP_tile,0},
+
+                   y {"let",PEVM_Let_iei,"o=0",PE_generic,NULL,2},
+                   y {"label",0,"l",PE_label,PEP_label,0},
+                   y {"goto",PEVM_Goto,"l",PE_goto,NULL,1},
+                   y {"if",PEVM_If_o,"i",PE_if,PEP_if,2},
+                   y {"if",PEVM_If_ses,"sps",PE_if,PEP_if,4},
+                   y {"and",PEVM_If_o,"i",PE_and,PEP_and,2},
+                   y {"and",PEVM_If_iei,"ipn",PE_and,PEP_and,4},
+                   y {"and",PEVM_If_oics,"o??s",PE_and_oics,PEP_and,3},
+                   y {"or",PEVM_If_o,"i",PE_and,PEP_or,2},
+                   y {"or",PEVM_If_iei,"ipn",PE_or,PEP_or,4},
+                   y {"or",PEVM_If_oics,"o??s",PE_or_oics,PEP_or,3},
+                   y {"if_exist",PEVM_If_o,"o",PE_if,PEP_if,2},
+                   y {"if_exists",PEVM_If_o,"o",PE_if,PEP_if,2},
+                   y {"if_not_exist",PEVM_If_no,"o",PE_if,PEP_if,2},
+                   y {"if_not_exists",PEVM_If_no,"o",PE_if,PEP_if,2},
+                   y {"else",0,"",PE_else,PEP_else,0},
+                   y {"endif",0,"",PE_endif,PEP_endif,0},
+                   y {"for",PEVM_For,"i=n?n",PE_for,PEP_for,5},
+                   y {"next",0,"",PE_next,PEP_next,0},
+                   y {"next",0,"?",PE_next,PEP_next,0},
+                   y {"do",0,"",PE_do,PEP_do,0},
+                   y {"while",PEVM_While2,"ipn",PE_while2,PEP_while,4},
+                   y {"while",PEVM_While1,"n",PE_while1,PEP_while,2},
+                   y {"continue",PEVM_Goto,"",PE_continue,NULL,1},
+                   y {"break",PEVM_Break,"",PE_break,NULL,1},
+                   y {"search_inside",PEVM_Searchin,"o?f",PE_generic,NULL,2},
+                   y {"list_after",PEVM_Listafter,"o?f",PE_generic,NULL,2},
+                   y {"create",PEVM_Create,"o=s",PE_oChar,NULL,2},
+                   y {"destroy",PEVM_Destroy,"o",PE_generic,NULL,1},
+                   y {"set_darkness",PEVM_SetDarkness,"i",PE_generic,NULL,1},
+                   y {"play_music",PEVM_PlayMusic,"s",PE_generic,NULL,1},
+                   y {"start_music",PEVM_StartMusic,"",PE_generic,NULL,1},
+                   y {"stop_music",PEVM_StopMusic,"",PE_generic,NULL,1},
+                   y {"play_sound",PEVM_PlaySound,"s",PE_generic,NULL,1},
+                   y {"object_sound",PEVM_ObjSound,"so",PE_generic,NULL,2},
+                   y {"set_flag",PEVM_SetFlag,"on=n",PE_generic,NULL,3},
+                   y {"get_flag",PEVM_GetFlag,"i=on",PE_generic,NULL,3},
+                   y {"reset_flag",PEVM_ResetFlag,"on",PE_generic,NULL,2},
+                   y {"if_flag",PEVM_If_on,"on",PE_if,PEP_if,3},
+                   y {"if_not_flag",PEVM_If_non,"on",PE_if,PEP_if,3},
+                   y {"move_object",PEVM_MoveObject,"o?nn",PE_generic,NULL,3},
+                   y {"transfer_object",PEVM_XferObject,"o?nn",PE_generic,NULL,3},
+                   y {"draw_object",PEVM_ShowObject,"o?nn",PE_generic,NULL,3},
+                   y {"gotoxy",PEVM_GotoXY,"nn",PE_generic,NULL,2},
+                   y {"printxy",PEVM_PrintXYs,"s",PE_generic,NULL,1},
+                   y {"printxy",PEVM_PrintXYcr,"",PE_generic,NULL,0},
+                   y {"printxycr",PEVM_PrintXYcr,"",PE_generic,NULL,0},
+                   y {"printxyx",PEVM_PrintXYx,"n",PE_generic,NULL,1},
+                   y {"textcolour",PEVM_TextColour,"nnn",PE_generic,NULL,3},
+                   y {"textcolor",PEVM_TextColour,"nnn",PE_generic,NULL,3},
+                   y {"text_colour",PEVM_TextColour,"nnn",PE_generic,NULL,3},
+                   y {"text_color",PEVM_TextColour,"nnn",PE_generic,NULL,3},
+                   y {"set_sequence",PEVM_SetSequenceN,"os",PE_oSeq,NULL,2},
+                   y {"lightning",PEVM_Lightning,"n",PE_dword,NULL,1},
+                   y {"print_bestname",PEVM_Bestname,"o",PE_generic,NULL,2},
+                   y {"print_best_name",PEVM_Bestname,"o",PE_generic,NULL,2},
+                   y {"get_object",PEVM_GetObject,"o?nn",PE_generic,NULL,3},
+                   y {"get_tile",PEVM_GetTile,"t?nn",PE_generic,NULL,3},
+                   y {"get_solid_object",PEVM_GetSolidObject,"o?nn",PE_generic,NULL,3},
+                   y {"get_first_object",PEVM_GetFirstObject,"o?nn",PE_generic,NULL,3},
+                   y {"get_object_below",PEVM_GetObjectBelow,"o=o",PE_generic,NULL,2},
+                   y {"change",PEVM_ChangeObject,"o=s",PE_oChar,NULL,2},
+                   y {"change",PEVM_ChangeObject,"O=s",PE_OChar,NULL,2},
+                   y {"change",PEVM_ChangeObjectS,"o=S",PE_generic,NULL,2},
+                   y {"change",PEVM_ChangeObject,"x=i",PE_generic,NULL,2},
+                   y {"change",PEVM_ChangeObject,"o=I",PE_generic,NULL,2},
+                   y {"replace",PEVM_ReplaceObject,"o=s",PE_oChar,NULL,2},
+                   y {"replace",PEVM_ReplaceObjectS,"o=S",PE_generic,NULL,2},
+                   y {"replace",PEVM_ReplaceObject,"o=i",PE_generic,NULL,2},
+                   y {"set_direction",PEVM_SetDir,"o?n",PE_generic,NULL,2},
+                   y {"redraw_text",PEVM_RedrawText,"",PE_generic,NULL,0},
+                   y {"redraw_map",PEVM_RedrawMap,"",PE_generic,NULL,0},
+                   y {"move_from_pocket",PEVM_MoveFromPocket,"o?o?nn",PE_generic,NULL,4},
+                   y {"force_from_pocket",PEVM_ForceFromPocket,"o?o?nn",PE_generic,NULL,4},
+                   y {"move_to_pocket",PEVM_MoveToPocket,"o?o",PE_generic,NULL,2},
+                   y {"transfer_to_pocket",PEVM_XferToPocket,"o?o",PE_generic,NULL,2},
+                   y {"spill",PEVM_Spill,"o",PE_generic,NULL,1},
+                   y {"spill",PEVM_SpillXY,"o?nn",PE_generic,NULL,3},
+                   y {"fade_out",PEVM_FadeOut,"",PE_generic,NULL,0},
+                   y {"fade_in",PEVM_FadeIn,"",PE_generic,NULL,0},
+                   y {"move_to_top",PEVM_MoveToTop,"o",PE_generic,NULL,1},
+                   y {"move_to_bottom",PEVM_MoveToFloor,"o",PE_generic,NULL,1},
+                   y {"move_to_floor",PEVM_MoveToFloor,"o",PE_generic,NULL,1},
+                   y {"check_hurt",PEVM_CheckHurt,"o",PE_generic,NULL,1},
+                   y {"get_line_of_sight",PEVM_GetLOS,"i=oo",PE_generic,NULL,3},
+                   y {"if_solid",PEVM_IfSolid,"nn",PE_if,PEP_if,3},
+                   y {"if_visible",PEVM_IfVisible,"nn",PE_if,PEP_if,3},
+                   y {"set_user_flag",PEVM_SetUFlag,"s=n",PE_generic,NULL,2},
+                   y {"get_local",PEVM_GetLocal,"i=os",PE_generic,NULL,3},
+                   y {"set_local",PEVM_SetLocal,"os=n",PE_generic,NULL,3},
+                   y {"get_weight",PEVM_WeighObject,"i=o",PE_generic,NULL,2},
+                   y {"get_bulk",PEVM_GetBulk,"i=o",PE_generic,NULL,2},
+                   y {"if_in_pocket",PEVM_IfInPocket,"o",PE_if,PEP_if,2},
+                   y {"if_not_in_pocket",PEVM_IfNInPocket,"o",PE_if,PEP_if,2},
+                   y {"resync_everything",PEVM_ReSyncEverything,"",PE_generic,NULL,0},
+                   y {"resume_schedule",PEVM_ResumeSchedule,"o",PE_generic,NULL,1},
+                   y {"talk_to",PEVM_TalkTo1,"s",PE_generic,NULL,1},
+                   y {"talk_to",PEVM_TalkTo2,"ss",PE_generic,NULL,2},
+                   y {"random",PEVM_Random,"i?nn",PE_generic,NULL,3},
+                   y {"if_confirm",PEVM_GetYN,"s",PE_if,PEP_if,2},
+                   y {"if_getYN",PEVM_GetYN,"s",PE_if,PEP_if,2},
+                   y {"if_not_confirm",PEVM_GetYN,"s",PE_if,PEP_if,2},
+                   y {"if_not_getYN",PEVM_GetYN,"s",PE_if,PEP_if,2},
+                   y {"restart",PEVM_Restart,"",PE_generic,NULL,0},
+                   y {"restart_game",PEVM_Restart,"",PE_generic,NULL,0},
+                   y {"scroll_tile",PEVM_ScrTileN,"nnn",PE_generic,NULL,3},
+                   y {"scroll_tile",PEVM_ScrTileS,"snn",PE_generic,NULL,3},
+                   y {"scroll_tile_number",PEVM_ScrTileN,"nnn",PE_generic,NULL,3},
+                   y {"get_input",PEVM_GetKey,"",PE_generic,NULL,0},
+                   y {"get_key",PEVM_GetKey,"",PE_generic,NULL,0},
+                   y {"getkey",PEVM_GetKey,"",PE_generic,NULL,0},
+                   y {"get_funcname",PEVM_GetFuncP,"P=I",PE_generic,NULL,2},
+                   y {"start_action",PEVM_DoAct,"o?f",PE_generic,NULL,2},
+                   y {"start_action",PEVM_DoActS,"o?s",PE_generic,NULL,2},
+                   y {"start_action",PEVM_DoActTo,"o?f?o",PE_generic,NULL,3},
+                   y {"start_action",PEVM_DoActSTo,"o?s?o",PE_generic,NULL,3},
+                   y {"do_action",PEVM_DoAct,"o?f",PE_generic,NULL,2},
+                   y {"do_action",PEVM_DoActS,"o?s",PE_generic,NULL,2},
+                   y {"do_action",PEVM_DoActTo,"o?f?o",PE_generic,NULL,3},
+                   y {"do_action",PEVM_DoActSTo,"o?s?o",PE_generic,NULL,3},
+                   y {"start_activity",PEVM_DoAct,"o?f",PE_generic,NULL,2},
+                   y {"start_activity",PEVM_DoActS,"o?s",PE_generic,NULL,2},
+                   y {"start_activity",PEVM_DoActTo,"o?f?o",PE_generic,NULL,3},
+                   y {"start_activity",PEVM_DoActSTo,"o?s?o",PE_generic,NULL,3},
+                   y {"do_activity",PEVM_DoAct,"o?f",PE_generic,NULL,2},
+                   y {"do_activity",PEVM_DoActTo,"o?f?o",PE_generic,NULL,3},
+                   y {"stop_action",PEVM_StopAct,"o",PE_generic,NULL,1},
+                   y {"stop_activity",PEVM_StopAct,"o",PE_generic,NULL,1},
+                   y {"resume_action",PEVM_ResumeAct,"o",PE_generic,NULL,1},
+                   y {"resume_activity",PEVM_ResumeAct,"o",PE_generic,NULL,1},
+                   y {"last_action",PEVM_ResumeAct,"o",PE_generic,NULL,1},
+                   y {"last_activity",PEVM_ResumeAct,"o",PE_generic,NULL,1},y
+                   y {"queue_action",PEVM_NextAct,"o?f",PE_generic,NULL,2},
+                   y {"queue_action",PEVM_NextActS,"o?s",PE_generic,NULL,2},
+                   y {"queue_action",PEVM_NextActTo,"o?f?o",PE_generic,NULL,3},
+                   y {"do_queue",PEVM_ResumeAct,"o",PE_generic,NULL,1},
+                   y {"start_queue",PEVM_ResumeAct,"o",PE_generic,NULL,1},
+                   y {"run_queue",PEVM_ResumeAct,"o",PE_generic,NULL,1},
+                   y {"set_leader",PEVM_SetLeader,"off",PE_generic,NULL,3},
+                   y {"set_member",PEVM_SetMember,"of",PE_generic,NULL,2},
+                   y {"set_player",PEVM_SetMember,"of",PE_generic,NULL,2},
+                   y {"add_member",PEVM_AddMember,"o",PE_generic,NULL,1},
+                   y {"del_member",PEVM_DelMember,"o",PE_generic,NULL,1},
+                   y {"move_towards",PEVM_MoveTowards8,"oo",PE_generic,NULL,2},
+                   y {"move_towards4",PEVM_MoveTowards4,"oo",PE_generic,NULL,2},
+                   y {"wait",PEVM_WaitFor,"nn",PE_generic,NULL,2},
+                   y {"wait_for_animation",PEVM_WaitForAnimation,"o",PE_generic,NULL,1},
+                   y {"if_onscreen",PEVM_If_oonscreen,"o",PE_if,PEP_if,2},
+                   y {"if_not_onscreen",PEVM_If_not_oonscreen,"o",PE_if,PEP_if,2},
+                   y {"input",PEVM_InputInt,"i",PE_generic,NULL,1},
+                   y {"take",PEVM_TakeQty,"ns?o",PE_generic,NULL,3},
+                   y {"give",PEVM_GiveQty,"ns?o",PE_generic,NULL,3},
+                   y {"move",PEVM_MoveQty,"ns?o?o",PE_generic,NULL,4},
+                   y {"count",PEVM_CountQty,"i=s?o",PE_generic,NULL,3},
+                   y {"copy_schedule",PEVM_CopySchedule,"o?o",PE_generic,NULL,2},
+                   y {"for_all_onscreen",PEVM_AllOnscreen,"f",PE_generic,NULL,1},
+                   y {"check_time",PEVM_CheckTime,"",PE_generic,NULL,0},
+                   y {"find_nearest",PEVM_FindNear,"o=s?o",PE_generic,NULL,3},
+                   y {"find_nearby",PEVM_FindNearby,"c=s?o",PE_generic,NULL,3},
+                   y {"find_tag",PEVM_FindTag,"o=sn",PE_generic,NULL,3},
+                   y {"light_tag",PEVM_SetLight,"n=n",PE_generic,NULL,2},
+                   y {"printaddr",PEVM_Printaddr,"i",PE_generic,NULL,1},
+                   y {"BUG",PEVM_PrintLog,"n",PE_generic,NULL,1},
+                   y {"dump_vm",PEVM_Dump,"",PE_generic,NULL,0},
+                   y {"move_party_to",PEVM_MovePartyToObj,"o",PE_generic,NULL,1},
+                   y {"move_party_from",PEVM_MovePartyFromObj,"o?nn",PE_generic,NULL,3},
+                   y {"move_tag",PEVM_MoveTag,"n?nn",PE_generic,NULL,3},
+                   y {"update_tag",PEVM_UpdateTag,"n",PE_generic,NULL,1},
+                   y {"get_data",PEVM_GetDataSSS,"P?s=s",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataSSI,"P?s=i",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataSIS,"P?T=s",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataSII,"P?T=i",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataISS,"i?s=s",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataISI,"i?s=i",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataIIS,"i?T=s",PE_generic,NULL,3},
+                   y {"get_data",PEVM_GetDataIII,"i?T=i",PE_generic,NULL,3},
+                   y {"get_decor",PEVM_GetDecor,"iio",PE_generic,NULL,3},
+                   y {"del_decor",PEVM_DelDecor,"nno",PE_generic,NULL,3},
+                   y {"find",PEVM_SearchContainer,"o=s?o",PE_generic,NULL,3},
+                   y {"change_map",PEVM_ChangeMap1,"n?nn",PE_generic,NULL,3},
+                   y {"change_map",PEVM_ChangeMap2,"n?n",PE_generic,NULL,2},
+                   y {"scroll_picture",PEVM_PicScroll,"snnn",PE_generic,NULL,4},
+                   y {"pathmarker",PEVM_FindPathMarker,"o=s?o",PE_generic,NULL,3},
+                   y {"fx_getxy",PEVM_fxGetXY,"ii=o",PE_generic,NULL,3},
+                   y {"fx_colour",PEVM_fxColour,"n",PE_generic,NULL,1},
+                   y {"fx_color",PEVM_fxColour,"n",PE_generic,NULL,1},
+                   y {"fx_alpha",PEVM_fxAlpha,"n",PE_generic,NULL,1},
+                   y {"fx_alphamode",PEVM_fxAlphaMode,"n",PE_generic,NULL,1},
+                   y {"fx_random",PEVM_fxRandom,"i=n",PE_generic,NULL,2},
+                   y {"fx_line",PEVM_fxLine,"",PE_generic,NULL,0},
+                   y {"fx_point",PEVM_fxPoint,"",PE_generic,NULL,0},
+                   y {"start_fx",PEVM_dofx,"o?f",PE_generic,NULL,2},
+                   y {"startfx",PEVM_dofx,"o?f",PE_generic,NULL,2},
+                   y {"stop_fx",PEVM_stopfx,"o",PE_generic,NULL,1},
+                   y {"stopfx",PEVM_stopfx,"o",PE_generic,NULL,1},
+                   y {"over_fx",PEVM_stopfx,"o?f",PE_generic,NULL,1},
+                   y {"overfx",PEVM_stopfx,"o?f",PE_generic,NULL,1},
+
+                   y {"status",PEVM_LastOp,"n",PE_generic,NULL,1},
+                   y {"no_operation",PEVM_NOP,"",PE_generic,NULL,0},
+                    {"fixup_locals",PEVM_Dofus,"",NULL,NULL,-1},
+                    {NULL,0,NULL,NULL,0}
+					// READ AND OBEY
+					// OVERLOADED KEYWORDS *MUST* BE CONSECUTIVE IN THE LIST!
+               };
+
+
+// Game API structure definitions
+// With overloaded members, e.g. object.enemy, where the member is an Object,
+// an Integer and a redirection to another structure definition, the
+// Redirection MUST be LAST, i.e. after the Object and Integer entries..
+// The Type of the first entry must be set if the structure can exist as
+// a separate variable, e.g. a Tile or an Object.  It is used by the
+// structure member lookup engine.
+
+STRUCTURE objspec[] =
+					{
+					{"object",		'o',"",&obj_template,NULL},
+					{"name",		's',"R",&obj_template.name,NULL},
+					{"flags",		'i',"R",&obj_template.flags,NULL},
+					{"w",			'i',"R",&obj_template.w,NULL},
+					{"h",			'i',"R",&obj_template.h,NULL},
+					{"mw",			'i',"R",&obj_template.mw,NULL},
+					{"mh",			'i',"R",&obj_template.mh,NULL},
+					{"x",			'i',"R",&obj_template.x,NULL},
+					{"y",			'i',"R",&obj_template.y,NULL},
+					{"z",			'i',"R",&obj_template.z,NULL},
+					{"personalname",'s',"R",&obj_template.personalname,NULL},
+					{"schedule",	' ',"",&obj_template.schedule,NULL},
+					{"form",		' ',"",&obj_template.form,NULL},
+					{"sptr",		'i',"RW",&obj_template.sptr,NULL},
+					{"slen",		'i',"R",&obj_template.slen,NULL},
+					{"sdir",		'i',"R",&obj_template.sdir,NULL},
+					{"maxstats",	'>',"",&obj_template.maxstats,&statspec},
+					{"stats",		'>',"",&obj_template.stats,&statspec},
+					{"funcs",		'>',"",&obj_template.funcs,&funcspec},
+					{"curdir",		'i',"RW",&obj_template.curdir,NULL},
+					{"desc",		's',"R",&obj_template.desc,NULL},
+					{"shortdesc",	's',"R",&obj_template.shortdesc,NULL},
+					{"target",		'o',"RW",&obj_template.target,NULL},
+					{"target",		'i',"RW",&obj_template.target,NULL},
+					{"target",		'>',"R",&obj_template.target,&objspec},
+					{"tag",			'i',"RW",&obj_template.tag,NULL},
+					{"activity",	'i',"RW",&obj_template.activity,NULL},
+					{"user",		'i',"RW",&obj_template.user,NULL},
+					{"user",		'>',"R",&obj_template.user,&userspec},
+					{"light",		'i',"RW",&obj_template.light,NULL},
+					{"enemy",		'o',"RW",&obj_template.enemy,NULL},
+					{"enemy",		'i',"RW",&obj_template.enemy,NULL},
+					{"enemy",		'>',"R",&obj_template.enemy,&objspec},
+					{"wield",		'i',"RW",&obj_template.wield,&wieldspec},
+					{"wield",		'>',"R",&obj_template.wield,&wieldspec},
+					{"pocket",		'o',"RW",&obj_template.pocket,NULL},
+					{"pocket",		'i',"RW",&obj_template.pocket,NULL},
+					{"pocket",		'>',"R",&obj_template.pocket,&objspec},
+					{"next",		'o',"RW",&obj_template.next,NULL},
+					{"next",		'i',"RW",&obj_template.next,NULL},
+					{"next",		'>',"R",&obj_template.next,&objspec},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+STRUCTURE objarrayhack[] =
+					{
+					{"object",		'c',"",&obj_template,NULL},
+					{"name",		's',"R",&obj_template.name,NULL},
+					{"flags",		'i',"R",&obj_template.flags,NULL},
+					{"w",			'i',"R",&obj_template.w,NULL},
+					{"h",			'i',"R",&obj_template.h,NULL},
+					{"mw",			'i',"R",&obj_template.mw,NULL},
+					{"mh",			'i',"R",&obj_template.mh,NULL},
+					{"x",			'i',"R",&obj_template.x,NULL},
+					{"y",			'i',"R",&obj_template.y,NULL},
+					{"z",			'i',"R",&obj_template.z,NULL},
+					{"personalname",'s',"R",&obj_template.personalname,NULL},
+					{"schedule",	' ',"",&obj_template.schedule,NULL},
+					{"form",		' ',"",&obj_template.form,NULL},
+					{"sptr",		'i',"RW",&obj_template.sptr,NULL},
+					{"slen",		'i',"R",&obj_template.slen,NULL},
+					{"sdir",		'i',"R",&obj_template.sdir,NULL},
+					{"maxstats",	'>',"",&obj_template.maxstats,&statspec},
+					{"stats",		'>',"",&obj_template.stats,&statspec},
+					{"funcs",		'>',"",&obj_template.funcs,&funcspec},
+					{"curdir",		'i',"RW",&obj_template.curdir,NULL},
+					{"desc",		's',"R",&obj_template.desc,NULL},
+					{"shortdesc",	's',"R",&obj_template.shortdesc,NULL},
+//					{"goals",		's',"R",&obj_template.goals,&goalspec},
+					{"tag",			'i',"RW",&obj_template.tag,NULL},
+//					{"goal",		's',"R",&obj_template.goal,&goalspec},
+					{"user",		'i',"RW",&obj_template.user,NULL},
+					{"user",		'>',"R",&obj_template.user,&userspec},
+					{"light",		'i',"RW",&obj_template.light,NULL},
+					{"enemy",		'o',"RW",&obj_template.enemy,NULL},
+					{"enemy",		'i',"RW",&obj_template.enemy,NULL},
+					{"enemy",		'>',"R",&obj_template.enemy,&objspec},
+					{"wield",		'i',"RW",&obj_template.wield,&wieldspec},
+					{"wield",		'>',"R",&obj_template.wield,&wieldspec},
+					{"pocket",		'o',"RW",&obj_template.pocket,NULL},
+					{"pocket",		'i',"RW",&obj_template.pocket,NULL},
+					{"pocket",		'>',"R",&obj_template.pocket,&objspec},
+					{"next",		'o',"RW",&obj_template.next,NULL},
+					{"next",		'i',"RW",&obj_template.next,NULL},
+					{"next",		'>',"R",&obj_template.next,&objspec},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+STRUCTURE tilespec[] =
+					{
+					{"tile",		't',"",&tile_template,NULL},
+					{"name",		's',"R",&tile_template.name,NULL},
+					{"flags",		'i',"R",&tile_template.flags,NULL},
+					{"form",		' ',"",&tile_template.form,NULL},
+					{"seqname",		' ',"",&tile_template.seqname,NULL},
+					{"sptr",		'i',"R",&tile_template.sptr,NULL},
+					{"slen",		'i',"R",&tile_template.slen,NULL},
+					{"sdir",		'i',"R",&tile_template.sdir,NULL},
+					{"tick",		'i',"R",&tile_template.tick,NULL},
+					{"sdx",			'i',"R",&tile_template.sdx,NULL},
+					{"sdy",			'i',"R",&tile_template.sdy,NULL},
+					{"sx",			'i',"R",&tile_template.sx,NULL},
+					{"sy",			'i',"R",&tile_template.sy,NULL},
+//					{"funcs",		'>',"",&tile_template.funcs,&funcspec},
+					{"desc",		's',"R",&tile_template.desc,NULL},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+STRUCTURE statspec[] =
+					{
+					{"stats",		' ',"",&stats_template,NULL},
+					{"hp",			'i',"RW",&stats_template.hp,NULL},
+					{"dex",			'i',"RW",&stats_template.dex,NULL},
+					{"dexterity",	'i',"RW",&stats_template.dex,NULL},
+					{"str",			'i',"RW",&stats_template.str,NULL},
+					{"strength",	'i',"RW",&stats_template.str,NULL},
+					{"intel",		'i',"RW",&stats_template.intel,NULL},
+					{"intelligence",'i',"RW",&stats_template.intel,NULL},
+					{"weight",		'i',"RW",&stats_template.weight,NULL},
+					{"quantity",	'i',"RW",&stats_template.quantity,NULL},
+					{"damage",		'i',"RW",&stats_template.damage,NULL},
+					{"oldhp",		'i',"RW",&stats_template.oldhp,NULL},
+					{"owner",		'o',"RW",&stats_template.owner,NULL},
+					{"owner",		'>',"",&stats_template.owner,&objspec},
+					{"karma",		'i',"RW",&stats_template.karma,NULL},
+					{"bulk",		'i',"RW",&stats_template.bulk,NULL},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+STRUCTURE funcspec[] =
+					{
+					{"funcs",		' ',"",&funcs_template,NULL},
+					{"use",			's',"R",&funcs_template.use,NULL},
+					{"ucache",		'i',"RW",&funcs_template.ucache,NULL},
+					{"talk",		's',"R",&funcs_template.talk,NULL},
+					{"tcache",		'i',"RW",&funcs_template.tcache,NULL},
+					{"kill",		's',"R",&funcs_template.kill,NULL},
+					{"kcache",		'i',"RW",&funcs_template.kcache,NULL},
+					{"look",		's',"R",&funcs_template.look,NULL},
+					{"lcache",		'i',"RW",&funcs_template.lcache,NULL},
+					{"stand",		's',"R",&funcs_template.stand,NULL},
+					{"scache",		'i',"RW",&funcs_template.scache,NULL},
+					{"hurt",		's',"R",&funcs_template.hurt,NULL},
+					{"hcache",		'i',"RW",&funcs_template.hcache,NULL},
+					{"init",		's',"R",&funcs_template.init,NULL},
+					{"icache",		'i',"RW",&funcs_template.icache,NULL},
+					{"wield",		's',"R",&funcs_template.wield,NULL},
+					{"wcache",		'i',"RW",&funcs_template.wcache,NULL},
+					{"resurrect",	's',"R",&funcs_template.resurrect,NULL},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+STRUCTURE userspec[] =
+					{
+					{"usedata",		' ',"",&usedata_template,NULL},
+					{"user0",		'i',"RW",&usedata_template.user[0],NULL},
+					{"user1",		'i',"RW",&usedata_template.user[1],NULL},
+					{"user2",		'i',"RW",&usedata_template.user[2],NULL},
+					{"user3",		'i',"RW",&usedata_template.user[3],NULL},
+					{"user4",		'i',"RW",&usedata_template.user[4],NULL},
+					{"user5",		'i',"RW",&usedata_template.user[5],NULL},
+					{"user6",		'i',"RW",&usedata_template.user[6],NULL},
+					{"user7",		'i',"RW",&usedata_template.user[7],NULL},
+					{"user8",		'i',"RW",&usedata_template.user[8],NULL},
+					{"user9",		'i',"RW",&usedata_template.user[9],NULL},
+					{"user10",	'i',"RW",&usedata_template.user[10],NULL},
+					{"user11",	'i',"RW",&usedata_template.user[11],NULL},
+					{"user12",	'i',"RW",&usedata_template.user[12],NULL},
+					{"user13",	'i',"RW",&usedata_template.user[13],NULL},
+					{"user14",	'i',"RW",&usedata_template.user[14],NULL},
+					{"user15",	'i',"RW",&usedata_template.user[15],NULL},
+					{"user16",	'i',"RW",&usedata_template.user[16],NULL},
+					{"user17",	'i',"RW",&usedata_template.user[17],NULL},
+					{"user18",	'i',"RW",&usedata_template.user[18],NULL},
+					{"user19",	'i',"RW",&usedata_template.user[19],NULL},
+					{"poison",		'i',"RW",&usedata_template.poison,NULL},
+					{"unconscious",	'i',"RW",&usedata_template.unconscious,NULL},
+					{"potion0",		'i',"RW",&usedata_template.potion[0],NULL},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+STRUCTURE wieldspec[] =
+					{
+					{"wield",		' ',"",&wield_template,NULL},
+					{"head",		'S',"RW",&wield_template.head,NULL},
+					{NULL,			NULL,NULL,NULL,NULL},
+					};
+
+
+add_symbol_ptr("player",'o',&player);
+add_symbol_ptr("current",'o',&current_object);
+add_symbol_ptr("curtile",'t',&current_tile);
+add_symbol_ptr("victim",'o',&victim);
+add_symbol_ptr("syspocket",'o',&syspocket);
+
+ptr = add_symbol_ptr("party",'c',&party);
+ptr->arraysize=MAX_MEMBERS;
+
+add_symbol_ptr("game_minute",'i',&game_minute);
+add_symbol_ptr("game_hour",'i',&game_hour);
+add_symbol_ptr("game_day",'i',&game_day);
+add_symbol_ptr("game_month",'i',&game_month);
+add_symbol_ptr("game_year",'i',&game_year);
+add_symbol_ptr("window_left",'i',&mapx);
+add_symbol_ptr("window_right",'i',&mapx2);
+add_symbol_ptr("window_top",'i',&mapy);
+add_symbol_ptr("window_bottom",'i',&mapy2);
+
+add_symbol_ptr("ok",'i',&pe_result_ok);
+add_symbol_ptr("success",'i',&pe_result_ok);
+
+add_symbol_ptr("key",'i',&irekey);
+
+// These are the supported math operators
+
+add_symbol_val("+",'p',1);
+add_symbol_val("-",'p',2);
+add_symbol_val("/",'p',3);
+add_symbol_val("*",'p',4);
+add_symbol_val("=",'p',5);
+add_symbol_val("==",'p',5);
+add_symbol_val("!=",'p',6);
+add_symbol_val("<>",'p',6);
+add_symbol_val("<",'p',7);
+add_symbol_val("<=",'p',8);
+add_symbol_val(">",'p',9);
+add_symbol_val(">=",'p',10);
+
+// constants (defined in opcodes.h)
+// ADD_CONST is a macro to quote the symbol name.  Constants are type 'n'
+
+ADD_CONST(UP);
+ADD_CONST(DOWN);
+ADD_CONST(LEFT);
+ADD_CONST(RIGHT);
+
+ADD_CONST(CHAR_U);
+ADD_CONST(CHAR_D);
+ADD_CONST(CHAR_L);
+ADD_CONST(CHAR_R);
+
+// Object Flags
+
+ADD_CONST(IS_ON);
+ADD_CONST(CAN_OPEN);
+ADD_CONST(IS_OVERLAY);
+ADD_CONST(IS_SOLID);
+ADD_CONST(IS_FRAGILE);
+ADD_CONST(IS_TRIGGER);
+ADD_CONST(IS_INVISIBLE);
+ADD_CONST(IS_PARTY);
+ADD_CONST(IS_FIXED);
+ADD_CONST(IS_CONTAINER);
+ADD_CONST(IS_TRANSLUCENT);
+ADD_CONST(IS_LARGE);
+ADD_CONST(IS_SPIKEPROOF);
+ADD_CONST(CAN_WIELD);
+ADD_CONST(DID_STEPUPDATE);
+ADD_CONST(IS_RANGED);
+ADD_CONST(DOES_BLOCKLIGHT);
+ADD_CONST(IS_TABLETOP);
+ADD_CONST(DID_INIT);
+ADD_CONST(DID_UPDATE);
+ADD_CONST(IS_PERSON);
+ADD_CONST(IN_POCKET);
+ADD_CONST(IS_QUANTITY);
+ADD_CONST(IS_BOAT);
+ADD_CONST(IS_SHADOW);
+ADD_CONST(IS_WATER);
+
+// NPC Flags
+
+ADD_CONST(IS_FEMALE);
+ADD_CONST(KNOW_NAME);
+ADD_CONST(IS_HERO);
+ADD_CONST(CANT_EAT);
+ADD_CONST(CANT_DRINK);
+ADD_CONST(IS_CRITICAL);
+ADD_CONST(NOT_CLOSE_DOOR);
+ADD_CONST(NOT_CLOSE_DOORS);
+ADD_CONST(IS_SYMLINK);
+
+// Keys
+
+ADD_CONST(KEY_A);
+ADD_CONST(KEY_B);
+ADD_CONST(KEY_C);
+ADD_CONST(KEY_D);
+ADD_CONST(KEY_E);
+ADD_CONST(KEY_F);
+ADD_CONST(KEY_G);
+ADD_CONST(KEY_H);
+ADD_CONST(KEY_I);
+ADD_CONST(KEY_J);
+ADD_CONST(KEY_K);
+ADD_CONST(KEY_L);
+ADD_CONST(KEY_M);
+ADD_CONST(KEY_N);
+ADD_CONST(KEY_O);
+ADD_CONST(KEY_P);
+ADD_CONST(KEY_Q);
+ADD_CONST(KEY_R);
+ADD_CONST(KEY_S);
+ADD_CONST(KEY_T);
+ADD_CONST(KEY_U);
+ADD_CONST(KEY_V);
+ADD_CONST(KEY_W);
+ADD_CONST(KEY_X);
+ADD_CONST(KEY_Y);
+ADD_CONST(KEY_Z);
+ADD_CONST(KEY_0);
+ADD_CONST(KEY_1);
+ADD_CONST(KEY_2);
+ADD_CONST(KEY_3);
+ADD_CONST(KEY_4);
+ADD_CONST(KEY_5);
+ADD_CONST(KEY_6);
+ADD_CONST(KEY_7);
+ADD_CONST(KEY_8);
+ADD_CONST(KEY_9);
+ADD_CONST(KEY_0_PAD);
+ADD_CONST(KEY_1_PAD);
+ADD_CONST(KEY_2_PAD);
+ADD_CONST(KEY_3_PAD);
+ADD_CONST(KEY_4_PAD);
+ADD_CONST(KEY_5_PAD);
+ADD_CONST(KEY_6_PAD);
+ADD_CONST(KEY_7_PAD);
+ADD_CONST(KEY_8_PAD);
+ADD_CONST(KEY_9_PAD);
+ADD_CONST(KEY_F1);
+ADD_CONST(KEY_F2);
+ADD_CONST(KEY_F3);
+ADD_CONST(KEY_F4);
+ADD_CONST(KEY_F5);
+ADD_CONST(KEY_F6);
+ADD_CONST(KEY_F7);
+ADD_CONST(KEY_F8);
+ADD_CONST(KEY_F9);
+ADD_CONST(KEY_F10);
+ADD_CONST(KEY_F11);
+ADD_CONST(KEY_F12);
+ADD_CONST(KEY_ESC);
+ADD_CONST(KEY_TILDE);
+ADD_CONST(KEY_MINUS);
+ADD_CONST(KEY_EQUALS);
+ADD_CONST(KEY_BACKSPACE);
+ADD_CONST(KEY_TAB);
+ADD_CONST(KEY_OPENBRACE);
+ADD_CONST(KEY_CLOSEBRACE);
+ADD_CONST(KEY_ENTER);
+ADD_CONST(KEY_COLON);
+ADD_CONST(KEY_QUOTE);
+ADD_CONST(KEY_BACKSLASH);
+ADD_CONST(KEY_BACKSLASH2);
+ADD_CONST(KEY_COMMA);
+ADD_CONST(KEY_STOP);
+//ADD_CONST(KEY_DOT);
+ADD_CONST(KEY_SLASH);
+ADD_CONST(KEY_SPACE);
+ADD_CONST(KEY_INSERT);
+ADD_CONST(KEY_DEL);
+ADD_CONST(KEY_HOME);
+ADD_CONST(KEY_END);
+ADD_CONST(KEY_PGUP);
+ADD_CONST(KEY_PGDN);
+ADD_CONST(KEY_LEFT);
+ADD_CONST(KEY_RIGHT);
+ADD_CONST(KEY_UP);
+ADD_CONST(KEY_DOWN);
+ADD_CONST(KEY_SLASH_PAD);
+ADD_CONST(KEY_ASTERISK);
+ADD_CONST(KEY_MINUS_PAD);
+ADD_CONST(KEY_DEL_PAD);
+ADD_CONST(KEY_ENTER_PAD);
+ADD_CONST(KEY_PRTSCR);
+ADD_CONST(KEY_PAUSE);
+ADD_CONST(KEY_YEN);
+ADD_CONST(KEY_YEN2);
+ADD_CONST(KEY_MODIFIERS);
+ADD_CONST(KEY_LSHIFT);
+ADD_CONST(KEY_RSHIFT);
+ADD_CONST(KEY_LCONTROL);
+ADD_CONST(KEY_RCONTROL);
+ADD_CONST(KEY_ALT);
+ADD_CONST(KEY_ALTGR);
+ADD_CONST(KEY_LWIN);
+ADD_CONST(KEY_RWIN);
+ADD_CONST(KEY_MENU);
+ADD_CONST(KEY_SCRLOCK);
+ADD_CONST(KEY_NUMLOCK);
+ADD_CONST(KEY_CAPSLOCK);
+
+ADD_CONST(MAX_MEMBERS);
+
+add_symbol_val("null",'0',0);
+add_symbol_val("null",'n',0);
+
+
+
+
+
+
+
+
+Apocrypha - Dangerous and esoteric commands
+=========
+
+p_let
+
+Parameters:
+	p_let <object> = <integer>
+	p_let <integer> = <object>
+
+Function:
+	Assigns an integer variable to an object or vice-versa.
+	This is appallingly dangerous and should not be attempted unless
+	you are doing VERY low-level things such as debugging the script VM.
+
+Examples:
+	p_let current = 0
+	p_let current = myint
+
+
+get_funcname
+
+Parameters:
+	get_funcname <stringvar> = <integer>
+
+Function:
+	Given an integer, finds the name of the corresponding function.
+	There is no real use for this outside diagnostics and debugging.
+	Used in the 'cheat' code for the object analyser.
+
+Examples:
+	string funcname
+	
+	get_funcname func = current.activity
+	print "activity = "
+	print func
+	printcr
+
+
+no_operation
+
+Parameters:
+	none
+
+Function:
+	No effect.  Sometimes these are generated as part of the IF statement
+	handling, but there is no need to put them in your code, unless you find
+	it helps you identify what you're seeing in a crash dump.
+
+
+status
+
+Parameters:
+	status <integer>
+
+Function:
+	Generate a status request.  This causes the program to do something that
+	could be useful for debugging, or could be instantly fatal.
+	What it does depends on the request number.
+	
+	The following status requests are supported:
+	
+		0 - print the number of active objects on the console.
+		1 - describe the contents of 'current'
+		2 - print the total number of existing objects to the console.
+		3 - Write the current VM stack trace to the log file.
+		4 - Halt the program and dump the VM state to the log file.
+		5 - Print whether CURRENT object is active or idle
+		6 - Print all tasks in CURRENT's activity queue
+		7 - Quit the game
+		8 - Load game (pops up the load dialog)
+		9 - Save game (pops up the save dialog)
+		10 - Bring up sound settings dialog
+		11 - Draw a map.  usernum1 = scale, usernum2 = draw roof flag
+		12 - Sets err = whether the map should be allowed (underground?)
+
+
+update_tag
+
+Parameters:
+	update_tag <integer>
+	
+Function:
+	Each turn of the game, all the objects in the world that have a
+	behaviour activity will have this activity function called.
+	Usually this is enough.  However, if you have an object made up
+	from many smaller units (a laser beam for example), you need to
+	make sure they are all updated in sync with each other, or it will
+	look bad.  For this and anything else which requires it, the command
+	'update_tag' will call the activity for all objects with a given tag
+	number.  Be very careful when using this.  If it is use by the activity
+	that is being called, you could put the game in an endless loop.
+
+Example:
+	update_tag laser.tag
+
+

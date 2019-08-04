@@ -1,0 +1,26 @@
+
+
+"In the northeast, there lies a fell tower.  Some say
+ that it is home to an evil wizard, or even a daemon.
+ Tales, there are, of a liche that guards a hoard of
+ most fabulous treasure.
+ But no-one knows for sure what evil lurks within,
+ for the tower is guarded by deadly rabbits."
+
+[link="Did you say rabbits?"]
+[linkto="rabbits"]
+[link="What do they do, nibble your bum?"]
+[linkto="rabbits"]
+
+"Do not jest!  It is horrible!  When an intruder
+ approaches the tower, the bunnies do swarm from their
+ holes and attack every living thing.  They will
+ overpower a man by sheer weight of numbers.
+
+ Many moons ago I did journey there with four heroes,
+ in quest to slay the beast that lurks within the tower
+ and claim its treasures for our own.
+ I saw them all die, the flesh stripped from their bones
+ by the gnawing teeth.  I alone survived by sacrificing
+ my own feet, that the rest of me could escape."
+

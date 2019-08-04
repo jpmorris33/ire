@@ -1,0 +1,59 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+      The Osprey on Weytus - A case study
+           W. Hauser, 2106 edition
+
+ The Osprey, scientific name Pandion Haliataes,
+ is a large falconiforme which can be found on
+ every continent of Earth except Antarctica.
+
+ The birds are brown, with white head and breast
+ feathers.  The face is white, except for a dark
+ patch over the eyes.  The beak is black.
+
+ Ospreys feed almost exclusively on fish, mainly
+ salmon or trout about 25cm long, and the bird
+ has special adaptations for fishing.
+ The feathers are waterproofed and the bird can
+ shake them dry like a dog, even during flight.
+
+ The blue-grey feet have four toes, one of which
+ is opposable.  They all have spicules to help
+ keep hold of a slippery fish, and are finished
+ with long, sharp talons that can snap shut
+ completely in one fiftieth of a second.
+[right="2"]
+[endpage]
+
+
+[page="2"]
+[backing="paper2.pcx"]
+[font 2]
+ Ospreys were introduced into Weytus in 2091
+ using chicks and sub-adults from Norway and
+ Canada.  The oceans and some rivers had been
+ seeded with Earth fish-stocks about nine years
+ previously, and when it was deemed there was
+ enough food to support the birds in the wild
+ the project was approved.
+
+ Initially the birds were carefully monitored by
+ the wildlife survey teams on Weytus, but after
+ five years of success, with the colony numbers
+ rising dramatically, the monitoring became
+ less frequent.
+
+ After ten years, the breeding rate slowed,
+ apparently in response to the large local
+ population, since they tend to cluster,
+ spreading out only slowly.
+
+ As of this writing, fifteen years have elapsed,
+ and the population has stabilised.  The survey
+ team intends to begin translocating birds from
+ the initial colony site to other locations on
+ the planet.
+[left="start"]
+[right="exit"]
+[endpage]

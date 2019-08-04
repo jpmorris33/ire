@@ -1,0 +1,192 @@
+
+'Bob the Sinner'
+There are a couple of characters in Ultima IV who are like this
+
+
+[page="start"]
+[color="#808080"]
+You see a lean, vacant-looking man in rags.
+[color="#ffffff"]
+
+"I have sinned."
+
+[link="Why?  What have you done?"]
+[linkto="sin1"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+"I have sinned."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="What have you done?"]
+[linkto="sin1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="job"]
+"I have sinned."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="What have you done?"]
+[linkto="sin1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sin1"]
+"I have sinned."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="But what is your sin?"]
+[linkto="sin2"]
+[link="You're useless.  I'm leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sin2"]
+"I have sinned."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="How have you sinned?"]
+[linkto="sin3"]
+[link="You're useless.  I'm leaving."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sin3"]
+"I have sinned."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me about your sin."]
+[linkto="sin4"]
+[link="You're useless.  I'm leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sin4"]
+"I have sinned."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="What did you do?"]
+[linkto="sin5"]
+[link="I have sinned."]
+[linkto="sin-finally"]
+[link="You're useless.  I'm leaving."]
+[linkto="bye"]
+[endpage]
+
+[page="sin5"]
+"I have sinned."
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Tell me what your sin was."]
+[linkto="sin1"]
+[link="I have sinned."]
+[linkto="sin-finally"]
+[link="You're useless.  I'm leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sin-finally"]
+[color="#808080"]
+He stirs and looks up.
+[color="#ffffff"]
+
+"What a coincidence!  So have I."
+
+[link="What is your name?"]
+[linkto="name2"]
+[link="What is your job?"]
+[linkto="job2"]
+[link="What exactly did you do?"]
+[linkto="sin-finally2"]
+[endpage]
+
+
+[page="sin-finally2"]
+"I sinned against the Church, and against the Lord.
+ The Church fined me over a thousand gold pieces for my
+ deeds and I could not pay.  So I am in jail."
+
+[link="What is your name?"]
+[linkto="name2"]
+[link="What is your job?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name2"]
+"I am called 'Bob'."
+[learn_name]
+
+[link="What is your job?"]
+[linkto="job2"]
+[link="What was yor crime?"]
+[linkto="sin-finally2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+"I cannot remember.  It has been a long time."
+
+[link="What is your name?"]
+[linkto="name2"]
+[link="What was yor crime?"]
+[linkto="sin-finally2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+"I have sinned."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye2"]
+"Goodbye."
+
+[color="#808080"]
+His eyes glaze over again.
+[color="#ffffff"]
+[nextpage="exit"]
+[endpage]

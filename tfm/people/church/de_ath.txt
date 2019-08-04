@@ -1,0 +1,154 @@
+
+Cardinal De'Ath
+
+[esc="bye"]
+[page="start"]
+[iftime 0800-0900][goto="inchurch"]
+[learn_name]
+
+[colour="#808080"]
+ You see a young-looking Cardinal.
+[colour="#ffffff"]
+
+"Greetings, my $Son.  I am Cardinal De'Ath.
+
+ The LORD has told me to expect your arrival to our
+ humble town.  I am but recently-appointed yet I
+ will help you as best I can."
+ 
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="You are a new Cardinal?"]
+[linkto="ludwig"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0800-0900][goto="inchurch"]
+[reset_links]
+
+[colour="#808080"]
+ Cardinal De'Ath greets you.
+[colour="#ffffff"]
+
+"Welcome back, my $Son.
+
+ What may I do for you this day?"
+
+[link="Do you believe in the Trinity?"]
+[linkto="trinity_believe"]
+[if know_aaruuff][link="Tell me about Aa'Ruuff."]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity"]
+
+"The Trinity is the Father, the Son and the Holy Ghost..
+ everyone knows this."
+
+[if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]
+[if know_aaruuff][linkto="aaruuff"]
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity_believe"]
+
+"Of course.  My predecessor angered the LORD and I have seen
+ His will carried out on Earth.  Christ himself has spoken to
+ me as has the Holy Ghost.  I would be a fool to disbelieve
+ in the Trinity after this."
+
+[link="Tell me about your predecessor."]
+[linkto="ludwig"]
+[if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]
+[if know_aaruuff][linkto="aaruuff"]
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ludwig"]
+
+"I was, until recently, a priest.
+
+ My predecessor was Cardinal Ludwig, who until recently
+ resided here at Avis.  However, the LORD entrusted him with
+ some most sacred duty in which he had failed.  I know not
+ what this task was, but he failed and the LORD, very
+ greatly displeased, smote him down with holy fire.
+
+ I happened to be nearby at the time and the LORD commanded
+ me to take his place, which I try to do.
+
+ Cardinal Ludwig's personal effects are in a chest in my
+ home, I have not yet had time to examine them."
+
+[if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+[colour="#808080"]
+ The Cardinal adopts a speaking voice and addresses
+ the congregation. 
+[colour="#ffffff"]
+
+[A speech for De'Ath]
+
+[nextpage="exit"]
+[endpage]
+
+
+The player has tried to kill the Cardinal
+
+[page="die"]
+[colour="#808080"]
+The Cardinal looks horrifed.
+[colour="#ffffff"]
+
+"No, LORD!  Don't..."
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+Goodbye
+
+[page="bye"]
+
+"Fare thee well, my $son.
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="aaruuff"]
+
+[colour="#808080"]
+Cardinal De'Ath shakes his head.
+[colour="#ffffff"]
+
+"I do not wish to speak of this.  Suffice it to say
+ that Aa'Ruuff is a false god worshiped by the Dark
+ Woolves of the east.
+
+ They are not to be trusted and it is forbidden to
+ treat with them."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+

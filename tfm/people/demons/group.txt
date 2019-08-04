@@ -1,0 +1,120 @@
+An aircraft conference.
+Player says it's time to kick booty.
+
+
+[link="Let us go then, and bloody our steel!"]
+[linkto="blood"]
+
+
+[page="blood"]
+[if_onscreen="de luca"][goto="blood1"]
+[if_onscreen="xxxxxxx"][goto="blood2"]
+[if_onscreen="austin"][goto="blood3"]
+[goto="blood4"]
+[endpage]
+
+[page="blood1"]
+<De Luca, look sarcastic>
+
+"Someone's been reading too much David Gemmell."
+
+[if_onscreen="austin"][nextpage="blood2"]
+[nextpage="blood3"]
+[endpage]
+
+
+[page="blood2"]
+<xxxxx some f15, look sad>
+
+"If MY steel gets bloodied, that means someone
+ got in the way while I was landing."
+
+[if_onscreen="austin"][nextpage="blood3"]
+[nextpage="blood4"]
+[endpage]
+
+
+[page="blood3"]
+<austin, look annoyed>
+
+"I must agree that action is needed.
+
+ But I want you to know that I find your desire to
+ kill other humans sickening."
+
+
+[nextpage="blood4"]
+[endpage]
+
+[page="blood4"]
+[image="f16-00.cel"]
+
+"We are aircraft; We do not just go around killing
+ people.  If there is to be any violence, it must
+ be done in a politically correct manner.
+ 
+ We need a name to call what we are about to do."
+
+<'Bob.'
+ "Yeah!  Let's go and Bob the Pope!
+  And since you thought of the name, YOU can go do it!".>
+ 
+<'Downsizing.'
+ Possibly.. but I'm still not sure..>
+
+<Austin:
+ If there must be killing, we should not delude ourselves
+ or try to hide behind names.  It must be done as quickly
+ and as cleanly as the circumstances allow.>
+
+[nextpage="blood5"]
+[endpage]
+
+
+
+
+
+
+
+[page="mad"]
+[image="f16-00.cel"]
+
+"No.  All the colonists went through psychometric
+ testing to judge that they were suitable.
+
+ At the time he arrived on planet, Harris was NOT
+ likely to go off on a bender!
+
+ He must have found something on the planet.."
+
+[if_onscreen="de luca"][nextpage="mad-a"]
+[nextpage="blood3"]
+[endpage]
+
+
+[page="mad-a"]
+<De Luca, look thoughtful>
+
+"Perhaps something on the planet found HIM.."
+
+[nextpage="mad2"]
+[endpage]
+
+
+
+Player: I've decided to abandon you all and serve the LORD.
+
+De Luca: What?!?
+
+Player: I'm going to merge with Xy'lan.  I shall become a God!
+
+Death:  Please let me kill him!
+
+Ransome: Villani!  Think what you are doing.. No good can come of this!
+         Xy'lan will destroy you!
+
+Austin: That settles it.  We should surrender immediately!
+        Mr. Villani, when you become one with Christ or whatever, can
+	you put in a good word for us?  Do you think?
+	We're all really sorry and quite happy to serve Xy'lan in a
+	peacetime role..

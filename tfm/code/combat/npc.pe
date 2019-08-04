@@ -1,0 +1,759 @@
+######################
+#                    #
+#  NPC attack logic  #
+#                    #
+######################
+
+# enemy_attack
+# enemy_arrest
+# enemy_flee
+# enemy_arrestnow
+# find_best_weapon
+# start_attack
+# attack_party
+# attackplayer_once
+# talk_hurt
+
+##
+##  Attack the enemy until death
+##
+
+function enemy_attack
+
+object atk
+integer r
+
+let atk = me
+
+
+# Sanity checks
+if_not_exist atk
+	print "enemy_attack: I do not exist|"
+	return
+endif
+
+# Am I still inside my egg?
+if_exists me.parent
+	return
+endif
+
+# ENOUGH!  THERE WILL BE NO MORE UNDEAD TAXMEN!
+if atk.stats.hp < 1
+	stop_action atk
+	return
+endif
+
+# Have we got someone to attack?
+if_not_exist atk.enemy
+
+	# No enemy.  Do I have a target?
+	if_exist atk.target
+		# You shall be my victim!
+		let atk.enemy = atk.target
+	else
+		resume_activity atk
+		return
+	endif
+endif
+
+
+/*
+if_flag atk.enemy IS_SHADOW
+#	move_thick atk atk.enemy
+else
+	move_towards atk atk.enemy
+endif
+*/
+
+# Set up for attack, if successful
+let splatvictim = atk.enemy
+
+call attack
+
+if atk.enemy
+	if atk.enemy.stats.hp < 1	# Murder completed.  return to duty.
+		let atk.enemy = null
+		resume_activity atk
+	endif
+endif
+
+# Hook for the bunny blaster
+if atk is called "bunny*"
+	random r between 1 8
+	if r = 1
+		call bunny_blast
+	endif
+endif
+
+end
+
+
+##
+##  Beat the enemy senseless and then arrest them
+##
+
+function enemy_arrest
+
+object atk
+
+let atk = me
+
+# Sanity checks
+if_not_exist atk
+	return
+endif
+
+# Am I still inside my egg?
+if_exists me.parent
+	return
+endif
+
+# The Waarg always use deadly force
+if me.label.race = "waarg"
+	call enemy_attack
+	return
+endif
+
+
+# Have we got someone to attack?
+if_not_exist atk.enemy
+	# No enemy.  Do I have a target?
+	if_exist atk.target
+		# You shall be my victim!
+		let atk.enemy = atk.target
+	else
+		resume_activity atk
+		return
+	endif
+endif
+
+# ENOUGH!  THERE WILL BE NO MORE UNDEAD TAXMEN!
+if atk.stats.hp < 1
+	return
+endif
+
+# Are they already dead?
+if atk.enemy.stats.hp < 1
+	# Yes.  Forget it.
+	let atk.enemy = null
+	resume_activity atk
+	return
+endif
+
+# Have they been caught by someone else?
+if arrested = atk.enemy
+	# Yes, return to duty
+	let atk.enemy = null
+	resume_activity atk
+	return
+endif
+
+
+# Set up for attack, if successful
+let splatvictim = atk.enemy
+
+let arrest_only = 1
+call attack
+let arrest_only = 0
+
+# Have we got them?
+if atk.enemy.stats.hp < 2
+and atk.enemy.stats.hp > -1
+	# Yes.  Make them alive
+	let victim = atk.enemy
+	let victim.stats.hp = 10
+	check_hurt victim
+
+	# Sling them in pokey
+	call arrest_victim
+
+	let atk.enemy = null
+	resume_activity atk
+endif
+
+end
+
+
+
+##
+##  Flee the enemy
+##
+
+function enemy_flee
+
+int a
+object enemy
+
+if_not_exist me
+	return
+endif
+
+# Am I still inside my egg?
+if_exists me.parent
+	return
+endif
+
+# Do I have a target to flee from
+if_not_exist me.enemy
+	if_not_exists me.target
+		# No target either
+		resume_action me
+		return
+	endif
+	# Get an enemy
+	let me.enemy = me.target
+endif
+
+let enemy = me.enemy
+
+
+if me.x < enemy.x
+	let a = me.x - 1
+	move_object me to a me.y
+	set_direction me facing LEFT
+	return
+endif
+
+if me.x > enemy.x
+	let a = me.x + 1
+	move_object me to a me.y
+	set_direction me facing RIGHT
+	return
+endif
+
+if me.y < enemy.y
+	let a = me.y - 1
+	move_object me to me.x a
+	set_direction me facing UP
+	return
+endif
+
+if me.y > enemy.y
+	let a = me.y + 1
+	move_object me to me.x a
+	set_direction me facing DOWN
+	return
+endif
+
+end
+
+
+
+##
+##  Arrest the enemy
+##
+
+function enemy_arrestnow
+
+object atk
+int tx
+int ty
+
+let atk = me
+
+# Sanity checks
+if_not_exist atk
+	return
+endif
+
+# Am I still inside my egg?
+if_exists me.parent
+	return
+endif
+
+# The Waarg always use deadly force
+if me.label.race = "waarg"
+	call enemy_attack
+	return
+endif
+
+# Have we got someone to attack?
+if_not_exist atk.enemy
+	# No enemy.  Do I have a target?
+	if_exist atk.target
+		# You shall be my victim!
+		let atk.enemy = atk.target
+	else
+		resume_activity atk
+		return
+	endif
+endif
+
+# ENOUGH!  THERE WILL BE NO MORE UNDEAD TAXMEN!
+if atk.stats.hp < 1
+	resume_activity atk
+	return
+endif
+
+# You cannot arrest what you cannot see
+if_flag atk.enemy IS_SHADOW
+	return
+endif
+
+# Have they been caught by someone else?
+if arrested = atk.enemy
+	# Yes, return to duty
+	let atk.enemy = null
+	resume_activity atk
+	return
+endif
+
+
+move_towards atk atk.enemy
+
+let tx = atk.x - atk.enemy.x
+let ty = atk.y - atk.enemy.y
+if tx < 0
+	let tx = 0 - tx
+endif
+if ty < 0
+	let ty = 0 - ty
+endif
+
+if tx < 2
+and ty < 2
+	let victim = atk.enemy
+	call arrest_victim
+	resume_activity atk
+endif
+
+end
+
+
+
+##
+## find_best_weapon - look in current's pockets for best weapon and wield it
+##                    calls search_container
+##
+
+
+function find_best_weapon
+
+object a
+object p
+object b
+integer n
+
+let p = current
+let n = 0
+
+# first the gun: this is complicated
+
+find a = "pistol" inside p
+if_exists a
+	# Check for sufficient ammo, best first
+	if a.stats.str = 0
+		# Explosive rounds ;-)
+		find b = "rounds-e" inside p
+
+		if_not_exist b
+			find b = "rounds-s" inside p
+		endif
+		
+		# etc..
+		
+		if_exists b
+			let n = b.stats.str
+		endif
+		
+		# If there are any
+		
+		if n > 0
+			if n >= a.maxstats.str		# Clip to gun capacity
+				let n = a.maxstats.str
+			endif
+			
+			add b.stats.str - n	# Take from box
+			add a.stats.str + n	# Add to gun
+			let a.stats.damage = b.stats.damage	# Set damage
+			
+			# No more in box?
+			if b.stats.str = 0
+				destroy b	# Destroy empty box
+			endif
+			
+			print_best_name p
+			print " reloads"
+			printcr
+
+
+#			let p.wield.l_hand = a
+#			set_flag a IS_WIELDED = 1
+
+			return	# reloading takes a turn
+		endif
+	endif
+endif
+
+# Next the crossbow
+
+find a = "warg_xbow" inside p
+if_exists a
+	# Check for ammo
+	find b = a.funcs.user1 inside p
+
+	if_not_exists b
+		let a = null
+	else
+		let a.stats.damage = b.stats.damage
+	endif
+endif
+
+if_not_exist a
+	find a = "halberd" inside p
+endif
+
+if_not_exist a
+	find a = "knife*" inside p
+endif
+
+if_not_exist a
+	find a = "sword*" inside p
+endif
+
+if_not_exist a
+	find a = "bottle_beer" inside p
+endif
+
+if_not_exist a
+	find a = "chair" inside p
+endif
+
+# Got it, wield the thing
+
+if_exists a
+	let p.wield.l_hand = a
+	set_flag a IS_WIELDED = 1
+endif
+
+end
+
+
+
+
+
+
+##
+##	Start Attacking enemy
+##
+
+function start_attack
+activity
+object us
+
+# Decide who we are, first.
+let us = me
+if_exists current
+	let us = current
+endif
+
+# Am I still inside my egg?
+if_exists us.parent
+	return
+endif
+
+# Am I alive?
+if us.stats.hp < 1
+	return
+endif
+
+if_exists us.enemy
+	if us <> player
+		do_action us does enemy_attack to us.enemy
+	endif
+endif
+
+end
+
+
+##
+##	Attack Party
+##
+
+function attack_party
+activity
+object us
+
+# Decide who we are, first.
+let us = me
+if_exists current
+	let us = current
+endif
+
+# Am I still inside my egg?
+if_exists us.parent
+	return
+endif
+
+# Am I alive?
+if us.stats.hp < 1
+	return
+endif
+
+if_not_exists us.enemy
+	let us.enemy = player
+endif
+
+if us <> player
+	do_action us does enemy_attack to us.enemy
+endif
+
+end
+
+
+##
+##	Attack and feast upon the juicy corpse
+##
+
+function start_attack_eat
+activity
+object us
+
+# Decide who we are, first.
+let us = me
+if_exists current
+	let us = current
+endif
+
+# Am I still inside my egg?
+if_exists us.parent
+	return
+endif
+
+# Am I alive?
+if us.stats.hp < 1
+	return
+endif
+
+if us <> player
+	do_action us does enemy_attack_eat to us.enemy
+endif
+
+end
+
+
+
+##
+##  Attack the player once
+##
+
+function single_attackplayer
+activity
+
+# Attack the player
+if_exists current
+	let current.enemy = player
+else
+	if_exists me
+		let me.enemy = player
+	endif
+endif
+
+call single_attackenemy
+end
+
+
+##
+##  Attack the enemy once
+##
+
+function single_attackenemy
+activity
+
+object oldme
+
+let oldme = me
+if_exists current
+	let me = current
+endif
+
+# Sanity checks
+if_not_exist me
+	print "single_attackplayer: I do not exist|"
+	let me = oldme
+	return
+endif
+
+# Am I still inside my egg?
+if_exists me.parent
+	let me = oldme
+	return
+endif
+
+# ENOUGH!  THERE WILL BE NO MORE UNDEAD TAXMEN!
+if me.stats.hp < 1
+	stop_action me
+	let me = oldme
+	return
+endif
+
+# Set up for attack, if successful
+let splatvictim = me.enemy
+
+call attack
+let me = oldme
+end
+
+##
+##  Activity to attack the player once and resume
+##
+
+function attackplayer_once
+start_action current does single_attackplayer
+queue_action current does stopaction
+run_queue current
+end
+
+
+##
+##  If hurt, talk to the player instead of retaliating
+##  (This can be used to do interesting things to the player!)
+##
+
+function talk_hurt
+
+if current.enemy = player
+	if current.funcs.tcache <> -1
+		resume_action current
+		talk_to current.funcs.talk "attacked"
+		return
+	endif
+
+	start_action current does enemy_attack to current.enemy
+endif
+
+end
+
+
+##
+##  Attack the enemy until death and then eat them
+##
+
+function enemy_attack_eat
+
+object atk
+
+let atk = me
+
+
+# Sanity checks
+if_not_exist atk
+#	print "enemy_attack_eat: I do not exist|"
+	return
+endif
+
+# Am I still inside my egg?
+if_exists me.parent
+	return
+endif
+
+# ENOUGH!  THERE WILL BE NO MORE UNDEAD TAXMEN!
+if atk.stats.hp < 1
+	stop_action atk
+	resume_activity atk
+	return
+endif
+
+# Have we got someone to attack?
+if_not_exist atk.enemy
+	# No enemy.  Do I have a target?
+	if_exist atk.target
+		# You shall be my victim!
+		let atk.enemy = atk.target
+	else
+		resume_activity atk
+		return
+	endif
+endif
+
+# Set up for attack, if successful
+let splatvictim = atk.enemy
+call attack
+if atk.enemy
+	if atk.enemy.stats.hp < 1	# Got them.  Eat..
+		start_action atk does eat_enemy to atk.enemy
+#		call eat_enemy
+#		let atk.enemy = null
+#		resume_activity atk
+	endif
+endif
+
+end
+
+##
+##  Eat the prey: assumes 'me' is the predator, 'me.enemy' is prey
+##
+
+function eat_enemy
+object food
+object nextfood
+object prey
+
+if_not_exists me
+	resume_activity me
+	return
+endif
+
+let prey = me.target
+if_exists me.enemy
+	let prey = me.enemy
+endif
+
+if_not_exists prey
+#	print "eat_enemy: prey not found|"
+	resume_activity me
+	return
+endif
+
+# Don't eat a party member
+if_flag prey IS_PARTY
+	let me.enemy = null
+	let me.target = null
+	resume_activity me
+	return
+endif
+
+# Spill the contents on the ground, sort through them
+spill prey
+
+get_first_object nextfood at prey.x prey.y
+
+do
+	let food = nextfood
+	if_exists food
+		let nextfood = food.next
+
+		# Is it prepared food?
+		if food is called "food*"
+			destroy food
+			continue
+		endif
+
+		# Animals also eat raw meat
+		if food is called "meat*"
+			destroy food
+			continue
+		endif
+			
+	endif
+while food
+
+# Eat the corpse too
+if_flag prey IS_LARGE
+	# Dead cows etc. split open when destroyed
+	let prey.stats.hp = -100
+	check_hurt prey
+else
+	# If it's small, no-one will notice
+#	destroy prey
+endif
+let me.enemy = null
+let me.target = null
+
+# Refresh the predator
+let me.stats.hp = me.maxstats.hp
+check_hurt me
+
+resume_activity me
+
+end

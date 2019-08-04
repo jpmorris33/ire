@@ -1,0 +1,256 @@
+[page="start"]
+[iftime "0800-0900"][goto="church"]
+[learn_name]
+
+"Hail, friend.
+
+ I am $NAME, provider of milk and beef to the town of
+ New Highworth.
+
+ If you would buy my wares, seek my wife, who sells our
+ produce in the market."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your wife."]
+[linkto="wife"]
+[link="Tell me about your son."]
+[linkto="son"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime "0800-0900"][goto="church"]
+
+[colour="#808080"]
+You see $NAME, the dairy farmer.
+[colour="#ffffff"]
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your wife."]
+[linkto="wife"]
+[link="Tell me about your son."]
+[linkto="son"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="church"]
+
+"Not now!  Ask me later!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="job"]
+
+"I keep beeves and pigs.  Mostly for their milk, but the
+ pigs and certain of the calves I slay for their meats.
+
+ This is done by my cousin, Ramirez, who is our butcher.
+ He sells the meats at the market in town."
+
+[link="Tell me about your wife."]
+[linkto="wife"]
+[link="Tell me about your son."]
+[linkto="son"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes"]
+
+"Yea, the tithes are hard to pay, but we must.
+ We have to find the money somehow, to keep the LORD
+ pleased and save us from the fell enemies of mankind!
+
+ In the past, I confess I was skeptical of the coming
+ of the forces of darkness, and I believed, in my error,
+ that it was but a ruse to open our purses to the Church.
+
+ But now I have seen the evil with mine own eyes and I
+ recant the errors of my youth.
+ Without the tithes we will surely perish at the paws of
+ the Evil One's fell children!"
+
+[link="What evil creatures did you see?"]
+[linkto="evil"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about your wife."]
+[linkto="wife"]
+[link="Tell me about your son."]
+[linkto="son"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="evil"]
+
+"I saw the dark woolves of the East!
+
+ I was travelling to Eastwarren, which is as far east as
+ a man may dare to go.  It was approaching dusk, and I
+ was hunting for grouse in the forest when I saw a light
+ in the distance.
+
+ It was a pair of dark woolves.  They were pushing a
+ cart, and upon the cart was a lamp, and a keg of some
+ fearsome devilry."
+
+[nextpage="evil2"]
+[endpage]
+
+[page="evil2"]
+
+"For the greater glory of the LORD, I took it upon myself
+ to slay these two fiends before they could work their
+ mischief upon us.
+
+ But when I took aim with my bow, one of the darkling
+ creatures knocked the lamp over onto the keg and ran off
+ into the night.  There was a sound like thunder and the
+ cart was destroyed!
+
+ I was fair knocked over by the force of the blast and
+ could hear nothing until the morrow.
+
+ Truly these creatures have unlocked the powers of
+ Darkness to create such an evil weapon!"
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about your wife."]
+[linkto="wife"]
+[link="Tell me about your son."]
+[linkto="son"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="wife"]
+
+"Aye, she is a good woman.  I would have trouble to
+ sell my goods without her, and be a mere tenant farmer
+ than a landowner and provider of milk to the King
+ himself."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your son."]
+[linkto="son"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="son"]
+
+"My son can take good care of our beeves, but the time
+ is soon approaching that he should go off to seek his
+ own fortune."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[if richard_joining][link="I'd like your son to accompany my quest."]
+[if richard_joining][linkto="son_join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="son_join"]
+
+"Yes indeed, you may take my son with you and further his
+ education if it will aid the greater glory of the LORD.
+
+ I ask only two things;
+
+ Firstly, that you bring him back safe, and secondly,
+ I beg that you keep him away from rabbits."
+
+[link="What?  What was that about the rabbits?"]
+[linkto="son_join2"]
+[link="Yes, I shall.  Thankyou, good sir."]
+[linkto="son_join3"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="son_join2"]
+[colour="#808080"]
+The man looks uncomfortable, and gazes at his feet.
+[colour="#ffffff"]
+
+"Er, rabbits make him sneeze.  It is most unpleasant.
+
+ Please, just keep him from them if you can!"
+
+[link="Yes, I shall.  Thankyou, good sir."]
+[linkto="son_join3"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="son_join3"]
+[set karl_consent]
+
+"Then I do give my consent, and I thank you for this
+ opportunity to show my son the wider world."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Good morrow to you."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+"Yes, you may take my son with you if it will aid the
+ greater glory of the LORD.
+
+ I ask only two things..
+
+ Firstly, that you bring him back safe, and secondly,
+ I beg that you keep him away from rabbits."
+
+
+(why)
+
+

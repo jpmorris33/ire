@@ -1,0 +1,294 @@
+
+[page="start"]
+[if_time 0000-0600][goto="MadMan"]
+[if_time "0800-0900"][goto="church"]
+[if_time 2200-2359][goto="MadMan"]
+[if_ntime 0700-1900][goto="OutOfHours"]
+
+"Well met, good $Sir.
+
+ Are you perchance in need of healing?"
+
+[link="Who are you?"]
+[linkto="job"]
+[link="Are you a healer, then?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+"Well met, good $Sir.
+
+ Are you perchance in need of healing?"
+
+[link="Tell me again about your job."]
+[linkto="job"]
+[link="I am in need of your services."]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[learn_name]
+
+"My name is $NAME, and I am the healer of this town.
+
+ As you may know, Avis is oft visited by many adventurers
+ who seek to earn their gold by battling the fell beasts
+ which the Evil One sends to devour our livestock and
+ our farmers.
+
+ But in battle there are always casualties, men mauled
+ by beasts or set upon by brigands.  I tend to such
+ casualties, and earn my own gold thereby.
+
+ Sometimes heroes are slain, oftentimes if his patron be
+ a wealthy shepherd, he may be brought to me for
+ resurrection.  Of course this is never cheap."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job2"]
+
+"I can heal most injuries, or cure poisons for a modest
+ fee.  If you have such need, I can often raise the dead
+ also, but this comes at a high price."
+ 
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="healing"]
+
+"My cost will be 10 gold coins.  Is this acceptable?"
+
+[link="Yes."]
+[linkto="healing2"]
+[link="No."]
+[linkto="services"]
+[endpage]
+
+
+
+[page="healing2"]
+[call no_party]
+[if true][goto="heal_player"]
+
+"Who among you needs healing?"
+
+[choose_member "heal_member"]
+[goto="services"]
+[endpage]
+
+
+
+
+[page="heal_player"]
+[take 10 gold_coins]
+[if false][goto="nomoney"]
+[call heal_player]
+
+"I believe your wounds should now be healed."
+
+[nextpage="services"]
+[endpage]
+
+
+[page="heal_member"]
+[take 10 gold_coins]
+[if false][goto="nomoney"]
+[call heal_member]
+
+"I believe the wounds should now be healed."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="curing"]
+
+"My cost will be 7 gold coins.  Is this acceptable?"
+
+[link="Yes."]
+[linkto="curing2"]
+[link="No."]
+[linkto="services"]
+[endpage]
+
+
+
+[page="curing2"]
+[call no_party]
+[if true][goto="cure_player"]
+
+"Who among you needs curing?"
+
+[choose_member "cure_member"]
+[goto="services"]
+[endpage]
+
+
+
+[page="cure_player"]
+[take 7 gold_coins]
+[if false][goto="nomoney"]
+[call cure_player]
+
+"I have cured the poison."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="cure_member"]
+[take 7 gold_coins]
+[if false][goto="nomoney"]
+[call cure_member]
+
+"I have cured the poison."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="resurrection"]
+[call resurrection_findbody]
+[if true][goto="resurrection2"]
+
+"It is a most difficult thing to do.
+ My fee will be 600 gold pieces, and I will need to refer
+ to the ancient lore.
+
+ If you truly require this service, place the body of
+ your departed companion upon my bed, and ask me again
+ when you are ready for the service to be carried out.
+
+ If you require any other healing in the mean-time,
+ just ask me."
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="resurrection2"]
+[take 600 gold_coins]
+[if false][goto="nomoney"]
+[call resurrection_doit]
+
+[colour="#808080"]
+The healer lays his hands upon the corpse, and the room
+is filled with unearthly light.
+
+And the body breathes again!
+[colour="#ffffff"]
+
+"It is done.  Your companion is returned to the land of
+ the living.  I, however, am weary and must sleep now."
+
+[on_exit_call="I_must_sleep_now"]
+[nextpage="bye"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you have not the monies to afford that.
+ I am sorry.
+
+ Are you interested in any other service?"
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="No, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="services"]
+
+"Have you further need of my services?"
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="No, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="MadMan"]
+
+"Guards!  Help!  Intruder!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="church"]
+
+"Please, not now.  Pray do not interrupt the Service!"
+
+[nextpage="exit"]
+[endpage]
+
+
+This should be fairly complete, but without the 'purchasing'
+
+[!page="OutOfHours"]
+[!nextpage="exit"]
+[!endpage]
+

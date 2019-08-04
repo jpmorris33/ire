@@ -1,0 +1,40 @@
+#
+#	Splatter.  Appears on a character or object when they take damage
+#
+
+function splat_blood
+
+	object newpos
+
+	let newpos = splatvictim
+
+	if_not_onscreen newpos
+		return
+	endif
+
+	force_from_pocket splat from syspocket to newpos.x newpos.y
+	set_sequence splat "splat_blood"
+	redraw_map
+	wait 500 NONBLOCKING
+	move_to_pocket splat to syspocket
+
+end
+
+function splat_spark
+
+	object newpos
+
+	let newpos = splatvictim
+
+	if_not_onscreen newpos
+		return
+	endif
+
+	force_from_pocket splat from syspocket to newpos.x newpos.y
+	set_sequence splat "splat_spark"
+	redraw_map
+	wait 500 NONBLOCKING
+	move_to_pocket splat to syspocket
+
+end
+

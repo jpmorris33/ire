@@ -1,0 +1,112 @@
+
+Lay brother, the cook
+
+[page="start"]
+
+"Yes, my $son?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Lay-Brother Serivus.
+[colour="#ffffff"]
+
+"Yes, my $son?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am lay-Brother Serivus.  I am the abbey cook."
+
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I prepare the food for all the monks and guests who
+ stay at the abbey.
+
+ There is not much to tell, really.  All the food we eat
+ is grown in our own fields and pens."
+
+[link="Are you allowed to eat meat?"]
+[linkto="meat"]
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="meat"]
+
+"Yes.  We keep our own pigs and slaughter them when we
+ have need for fresh meat."
+
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="abbey"]
+
+"This Abbey is many hundreds of years old and is one of
+ the wealthier Church institutions.  It boasts a fabulous
+ collection of manuscripts in the library.
+
+ One of the finest collections in the world, they say.."
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books"]
+
+"I have not used it much myself for I am kept busy.
+ The scriptorium is in the middle of the abbey if you
+ wish to see it yourself.  You may not enter the library
+ chambers, but ask the Librarian and he will help you if
+ he can."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"May the Trinity be with you, my $Son."
+
+[nextpage="exit"]
+[endpage]

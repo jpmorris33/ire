@@ -1,0 +1,26 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+                 I am not me
+
+               by Lj. Trillian
+
+ [ This is Trillian's gripping bestseller
+   about a renegade F-22 on the run from the
+   law.
+   The F-22 captures a learjet and with the
+   help of his accomplices, swaps his own
+   brain module with the learjet's.
+
+   The learjet, now trapped in the F-22's
+   old body, is captured and sentenced to
+   death for the F-22's crimes.  He manages
+   to break free before he can be executed,
+   and is left on the run himself, in a grim
+   and desparate bid to find the missing
+   learjet to reclaim his true body, and save
+   his own life.. ]
+ 
+[nextpage="exit"]
+[endpage]

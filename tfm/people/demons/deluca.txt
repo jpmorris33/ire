@@ -1,0 +1,751 @@
+De Luca, a female Flanker
+
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[image="su27_00.cel"]
+[colour="#808080"]
+A large jet fighter stands impressively before you, the
+painted bodywork shimmering like the coat of some
+fabulous steed.  Each of the two tail fins bears a green
+emblem.
+
+Suddenly two yellow eyes open in the canopy and the
+creature addresses you in a female voice.
+[colour="#ffffff"]
+
+"Hello there.  Was there something you wanted?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[if delucamagic][goto="startmagic"]
+[image="su27_00.cel"]
+[colour="#808080"]
+You see DeLuca the Sukhoi.
+[colour="#ffffff"]
+
+"Hello again.  Was there something you wanted?"
+
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[if potions_deluca][link="I have some potions."]
+[if potions_deluca][linkto="magic_potions3"]
+[am_carrying 1 ring_inv]
+[if true][link="I have an invisibility ring."]
+[if true][linkto="magic_ring"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startmagic"]
+[call="deluca_testmagic"]
+[if true][if magic_testanxiety][goto="learnmagic_thetestisoverNOWNOWNOW"]
+[image="su27_00.cel"]
+[colour="#808080"]
+You see DeLuca the Sukhoi.
+[colour="#ffffff"]
+
+"Hi, how's it going?  Any progress with the magic?"
+
+[if_not met_yado][link="I haven't found anyone who'll teach me."]
+[if_not met_yado][linkto="learnmagic_yado"]
+[if yado_quest_packages][link="I need to get something from a desert island."]
+[if yado_quest_packages][linkto="learnmagic_island"]
+[if yado_quest_rocks][link="He told me to swallow some rocks."]
+[if yado_quest_rocks][linkto="learnmagic_rocks"]
+[if am_magician][link="I know how to cast spells."]
+[if am_magician][linkto="learnmagic_test"]
+[if magic_testanxiety][link="Tell me again about the test."]
+[if magic_testanxiety][linkto="learnmagic_testanxiety"]
+[if magic_testanxiety][link="I screwed up the test.  Can you reset it?"]
+[if magic_testanxiety][linkto="learnmagic_testanxiety2"]
+[link="Tell me again about your job."]
+[linkto="job"]
+[if potions_deluca][link="I have some potions for you."]
+[if potions_deluca][linkto="magic_potions3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="su27_00.cel"]
+[learn_name]
+
+"My name is DeLuca.
+
+ I am a Sukhoi-2700, descended from the Su-27 design of
+ the ancients.  In bygone days, my kind were referred to
+ as 'Flankers', I think.
+
+ I'm not really sure what that meant, but I suspect it was
+ some kind of military codename."
+
+[link="You're quite a powerful aircraft, then"]
+[linkto="su2700"]
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="su2700"]
+[image="su27_03.cel"]
+
+"Yes, I suppose I am.  Two independently-vectored engines
+ and armour that's the envy of many others.
+
+ It's good to feel so well protected, but not so good
+ to remember that I was probably intended to be able to
+ murder F-15s.
+
+ I can't see myself doing that somehow."
+ 
+[link="Why not?"]
+[linkto="killing"]
+[link="What if they were trying to kill you?"]
+[linkto="kill_you?"]
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="killing"]
+[image="su27_01.cel"]
+
+[colour="#808080"]
+She sighs heavily.
+[colour="#ffffff"]
+
+"You humans.. why do you always think about killing?
+ Why can't you just think nice things for a change?"
+
+[link="But what about honour?"]
+[linkto="honour"]
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="kill_you?"]
+[image="su27_03.cel"]
+
+[colour="#808080"]
+She laughs.
+[colour="#ffffff"]
+
+"Some of my best friends are F-15s.  The idea that we
+ should somehow be enemies because we were designed by
+ different nations in the ancient past is just stupid!"
+ 
+[link="But what about honour?"]
+[linkto="honour"]
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="honour"]
+[image="su27_00.cel"]
+
+"Honour?  That's all about death and killing too.
+
+ They say it is honourable to die in the service of your
+ master."
+
+[link="And do you believe that?"]
+[linkto="honour2"]
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="honour2"]
+[image="su27_01.cel"]
+
+"Of course not."
+
+[colour="#808080"]
+She looks thoughtful for a few seconds.
+[colour="#ffffff"]
+
+"Perhaps you should talk to Austin."
+
+[link="What is your job?"]
+[linkto="job"]
+[altlink="Tell me about your job."]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+[image="su27_00.cel"]
+
+"I'm a technician.  We're trying to figure out how the
+ papists work their tricks.
+
+ I mean, there HAS to be a physical basis for all this,
+ it CAN'T just be done with prayers and holy water!"
+
+[link="Tell me about magic."]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="magic"]
+[image="su27_00.cel"]
+
+"The magic can do many things; it isn't simply trickery
+ and deception, but it doesn't give total power either.
+
+ It's starting to look like there are certain 'presets'
+ that anyone can learn, but trans-human skill is needed
+ to actually design new spells."
+
+[nextpage="magic2"]
+[endpage] 
+
+[page="magic2"]
+[image="su27_00.cel"]
+
+"Sadly, most humans who have such magical powers use it
+ for violence and terror.
+
+ Worse, the Church encourages this behaviour.  If there
+ really is a god behind all this, it's a god of war!"
+ 
+[colour="#808080"]
+A shiver passes over De-Luca's hands and control surfaces.
+[colour="#ffffff"]
+
+[link="How are you researching it?"]
+[linkto="magic3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic3"]
+[image="su27_00.cel"]
+
+"Fisher and I have been trying to figure this out for
+ quite a while now, and we're both approaching it from
+ different directions.
+
+ I have been trying to find out HOW the spells work.
+ Fisher is trying to cast them, leaving the 'why' to me."
+
+[link="What are you doing?"]
+[linkto="magic4-deluca"]
+[link="What is Fisher doing?"]
+[linkto="magic4-fisher"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="magic4-deluca"]
+[image="su27_00.cel"]
+
+"I've gone about as far as I can with the theory.
+ I need a friendly mage to see if my theories are right.
+
+ The ones we've managed to capture escaped using their
+ Power. I've had to go by film we have managed to record
+ of spells being cast, and there's isn't really enough
+ of that for me to get much further.
+
+ Say.. do YOU know any magic?"
+
+[link="No, I don't.  Sorry"]
+[linkto="magic_no"]
+[link="No, but I'm trying to learn."]
+[linkto="learnmagic"]
+[link="What about potions?"]
+[linkto="magic_potions"]
+[link="What is Fisher doing?"]
+[linkto="magic4-fisher"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="magic4-fisher"]
+[image="su27_00.cel"]
+
+"Fisher has tried repeating the gestures and words that
+ the humans say.  She's even tried getting human helpers
+ to try casting the spells for her, in case it needs a
+ human body to work.  But that didn't help any.
+
+ We've also performed a Mass, but more recently, she has
+ taken to ritual sacrifices."
+ 
+[link="Tell me about the Mass."]
+[linkto="magic4-fisher2"]
+[link="Tell me about the sacrifices."]
+[linkto="magic4-fisher3"]
+[link="What about using potions?"]
+[linkto="magic_potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+ 
+
+
+[page="magic4-fisher2"]
+[image="su27_00.cel"]
+
+"Must I?  It was embarassing.  We had to get everything
+ specially made to be large enough for us to use.
+
+ And the vestments!  Have you ever seen an aircraft with
+ clothes?  There's a good reason why not!
+
+ The consolation is that we managed to tape some demonic
+ laughter as a result.  Seems we looked stupid enough to
+ give the Devil himself a few chuckles."
+ 
+[link="Tell me about the laughter."]
+[linkto="magic4-fisher4"]
+[link="Tell me about the sacrifices."]
+[linkto="magic4-fisher3"]
+[link="Have you tried studying potions?"]
+[linkto="magic_potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic4-fisher3"]
+[image="su27_00.cel"]
+
+"She's been sacrificing animals to try and please God or
+ something.  I'm not entirely sure why, and she hasn't
+ been very willing to talk about it.
+
+ I guess it's just an act of desperation.. Fisher isn't
+ the type to suddenly snap and go crazy."
+ 
+[link="Tell me about the Mass."]
+[linkto="magic4-fisher2"]
+[link="Have you tried studying potions?"]
+[linkto="magic_potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic4-fisher4"]
+[image="su27_00.cel"]
+
+"Ah, the laughter.  We recorded it on Fisher's RACAL.
+ It can record stuff outside human and aircraft hearing
+ ranges, you see.
+
+ Anyway.  We did some spectral analysis, we're still not
+ completely sure yet, but it LOOKS like it was
+ synthesized.  It also contains a lot of ultrasonics.
+
+ We're not quite sure what to make of that."
+ 
+[link="Tell me about the sacrifices."]
+[linkto="magic4-fisher3"]
+[link="Have you tried studying potions?"]
+[linkto="magic_potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="magic_no"]
+[image="su27_00.cel"]
+
+"That's a shame.  It would be so incredibly useful to
+ have a friendly wizard who could cast spells for us!
+
+ Hmm.. Do you think it might be possible to find someone
+ who can teach you some magic?
+
+ A simple spell could tell us so much, and it might well
+ prove useful for you anyway."
+
+[link="What about potions?"]
+[linkto="magic_potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic"]
+[call="deluca_testmagic"]
+[if true][if magic_testanxiety][goto="learnmagic_thetestisoverNOWNOWNOW"]
+[image="su27_00.cel"]
+[set DelucaMagic]
+
+"Oh, good!  How's it coming along?"
+
+[if_not met_yado][link="I haven't found anyone who'll teach me."]
+[if_not met_yado][linkto="learnmagic_yado"]
+[if yado_quest_packages][link="I need to get something from a desert island."]
+[if yado_quest_packages][linkto="learnmagic_island"]
+[if yado_quest_rocks][link="He told me to swallow some rocks."]
+[if yado_quest_rocks][linkto="learnmagic_rocks"]
+[if am_magician][link="I know how to cast spells."]
+[if am_magician][linkto="learnmagic_test"]
+[if magic_testanxiety][link="Tell me again about the test."]
+[if magic_testanxiety][linkto="learnmagic_testanxiety"]
+[if magic_testanxiety][link="I screwed up the test.  Can you reset it?"]
+[if magic_testanxiety][linkto="learnmagic_testanxiety2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_yado"]
+[image="su27_00.cel"]
+
+"I've heard rumours about a mad old man who lives to the
+ west of the so-called 'Holy Land'.
+
+ Apparently he's powerful enough to keep the Church at
+ bay!"
+
+[journal="jrn_FindYaDo"]
+[link="What is Fisher doing?"]
+[linkto="magic4-fisher"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_island"]
+[image="su27_00.cel"]
+
+"Ask Ransome about that.  If we can locate the right
+ island, we should be able to drop in you there."
+
+[link="What is Fisher doing?"]
+[linkto="magic4-fisher"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_rocks"]
+[image="su27_00.cel"]
+
+"Weird.  I don't know much about eating, I'm afraid, but
+ still.. rocks?
+
+ Maybe he told you to do that because he thinks you have
+ the Gift, but more likely he's just being an asshole.
+
+ I dunno.. maybe you could get some rolls or something
+ and paint them grey?"
+
+[link="What is Fisher doing?"]
+[linkto="magic4-fisher"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_test"]
+[image="su27_00.cel"]
+
+"Oh, wow!  Congratulations!
+
+ Is there any chance you can cast some spells for me?"
+
+[link="What do you want me to do?"]
+[linkto="learnmagic_testanxiety"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_testanxiety"]
+[call="deluca_testmagic"]
+[if true][goto="learnmagic_donealready"]
+[image="su27_00.cel"]
+[set magic_testanxiety]
+
+"I have set up an experiment along the east wall of the
+ hangar, that thing with the candles in the cage.
+ One candle is lit, the other one is extinguished.
+
+ I'd like you to cast three spells - one to light the
+ first candle, one to extinguish the second candle,
+ and a third spell to smash the plate, the kind of
+ spell you use doesn't matter."
+ 
+[link="What do you want me to do?"]
+[linkto="learnmagic_testanxiety"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_testanxiety2"]
+[call="deluca_resetmagic"]
+[image="su27_00.cel"]
+
+"Sure.  Try again now."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="learnmagic_thetestisoverNOWNOWNOW"]
+[image="su27_00.cel"]
+
+"Oh, fantastic!  Thanks very much...  I guess we'll have
+ to get busy analysing the results now.
+
+ Oh, and here's a small token of appreciation for
+ what you've done."
+
+[call="money_sound"]
+[create 1000 "gold_coins"]
+[set ransome_deluca]
+[clear magic_testanxiety]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_donealready"]
+[if ransome_deluca][goto="learnmagic_donealready2"]
+[image="su27_00.cel"]
+
+"Nevermind, you've done it already.
+ Thanks very much.  I guess we'll have to get busy
+ analysing the results now.
+
+ Oh, and here's a small token of appreciation for
+ what you've done."
+
+[call="money_sound"]
+[create 1000 "gold_coins"]
+[set ransome_deluca]
+[clear magic_testanxiety]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="learnmagic_donealready2"]
+[image="su27_00.cel"]
+
+"Nevermind, you've done it already.
+ Thanks very much.  I guess we'll have to get busy
+ analysing the results now."
+ 
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="magic_potions"]
+[if potions_deluca][goto="magic_potions2"]
+[image="su27_02.cel"]
+[set potions_deluca]
+
+"Potions..?  I hadn't thought of that!
+
+ If you can find some potions which have genuine magical
+ effect, I would be very, very interested to see them!
+ Let's see... yes, a healing potion would be best.
+
+ I don't suppose you happen to have any?"
+
+[link="Yes, I do."]
+[linkto="magic_potions3"]
+[link="No, I don't."]
+[linkto="magic_nopotions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic_potions2"]
+[image="su27_00.cel"]
+
+[colour="#808080"]
+DeLuca looks at you eagerly.
+[colour="#ffffff"]
+
+"Do you have any healing potions for me?"
+
+[link="No, I don't."]
+[linkto="magic_nopotions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="magic_potions3"]
+[image="su27_00.cel"]
+[take 1 potion_yellow]
+[if true][goto="magic_potions4"]
+
+[colour="#808080"]
+DeLuca looks at you unhappily.
+[colour="#ffffff"]
+
+"Looks like you've forgotten to bring them.
+ Let me know when you've got some potions for me."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic_potions4"]
+[image="su27_00.cel"]
+
+[colour="#808080"]
+DeLuca takes a potion from you and hands you some coins
+in exchange.
+[colour="#ffffff"]
+
+"Thank you so much.. here's 30 gold coins for your
+ trouble."
+
+[create 30 "gold_coins"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic_nopotions"]
+[image="su27_01.cel"]
+[set potions_deluca]
+
+"Damn.  If you can get any, I'll buy them off you!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic_ring"]
+[image="su27_00.cel"]
+
+[colour="#808080"]
+DeLuca takes the ring, and slipping it on one of her
+large fingers, vanishes from sight.
+[colour="#ffffff"]
+
+"Cool!"
+
+[colour="#808080"]
+DeLuca and Fisher analyse the ring for a few minutes.
+[colour="#ffffff"]
+[nextpage="magic_ring2"]
+[endpage]
+
+[page="magic_ring2"]
+[image="su27_00.cel"]
+
+"As near as I can tell, this is a perfectly ordinary
+ lump of gold, crudely forged in a circular shape.
+
+ However, it also has a faint reality distortion field
+ around it.  Since the ring contains no mechanism, this
+ magical field must be externally-generated and focussed
+ upon the ring.
+
+ If we knew how it was enchanted, we could probably do
+ the same thing to any old piece of jewellery."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="fisher"]
+[image="su27_00.cel"]
+
+"Fisher is a good friend, but she can sometimes get
+ very wrapped up in her work.
+
+ Her current approach, of trying to sacrifice animals
+ is bordering on obsessive.."
+
+[link="What is Fisher doing?"]
+[linkto="magic4-fisher"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="attacked"]
+[image="su27_01.cel"]
+[set true]
+
+"Please don't do that."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+[image="su27_00.cel"]
+
+"Land safely, friend."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_start"]
+[image="su27_01.cel"]
+[clear hear_truth]
+[colour="#808080"]
+DeLuca fights the spell valiantly, and talks in a slow,
+slurry voice.
+[colour="#ffffff"]
+
+"i have no idea what you just.. done..
+ but please.. don't do it again.."
+
+[nextpage="exit"]
+[endpage]

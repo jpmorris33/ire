@@ -1,0 +1,109 @@
+Third prince of Agnar
+
+[page="start"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+[esc="disabled"]
+[learn_name]
+
+"Hold, warrior!
+
+ I am the exiled Prince of the realm of Agnar.
+
+ I was to rule the land of my father when he died, but
+ instead his throne was usurped by a foul traitor!
+
+ My father was slain and I was sent into exile by the
+ new King.
+
+ I seek a bold warrior to aid me in my quest.
+ The cur must be put to justice so I can reclaim the
+ throne and restore harmony to the kingdom of my father.
+
+ Would you aid me in my quest?"
+
+[link="Yes, gladly."]
+[linkto="yes"]
+[link="No, not today."]
+[linkto="no"]
+[if Agnar][link="Haven't I met you before?"]
+[if Agnar][linkto="before"]
+[set Agnar]
+[endpage]
+
+
+[page="startname"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+
+"If you would aid my quest, meet up with me at the
+ mountain pass in the East.   There is a cave leading
+ through to the sacred realm of Agnar.
+
+ If need be, I shall go alone.  But any who aid me in
+ reclaiming the throne shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="yes"]
+
+"You have my deepest gratitude!
+
+ Meet up with me at the mountain pass in the East.
+ There is a cave leading through to the realm of Agnar.
+
+ Together, we shall march on the usurper and reclaim
+ the stolen throne!
+
+ If we succeed, you shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="no"]
+
+"A curse upon the usurper!  Who will aid me?
+
+ If you do change your mind, meet up with me at the
+ mountain pass in the East.  There is a cave leading
+ through to the realm of Agnar.
+
+ If need be, I shall go alone.  But any who aid me in
+ reclaiming the throne shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="before"]
+
+"A curse upon the usurper!  The man you have seen is but a
+ vile impostor!  I alone am the true Prince.
+
+ Now, will you aid my quest?"
+
+[link="Yes, gladly."]
+[linkto="yes"]
+[link="No, I'm already pledged to another Prince."]
+[linkto="no"]
+[endpage]
+
+
+[page="running"]
+
+"I alone am the true Prince!  Slay the impostors!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="done"]
+[at_exit_call="king_dies"]
+"Program violation!"
+
+[nextpage="exit"]
+[endpage]

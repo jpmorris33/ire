@@ -1,0 +1,747 @@
+
+Scott and Benji
+
+[page="start"]
+[if benji_dead][goto="benji_dead"]
+[if scott_curse_lifted][goto="curse_lifted_preliminary"]
+[clear scott_job]
+[clear benji]
+[colour="#808080"]
+You see a slim man with dark hair.  A brown hawk
+settles close by and looks at you intently.
+[colour="#ffffff"]
+
+"Hail, stranger.  Do you seek something?"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your trade?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if benji_dead][goto="benji_dead"]
+[if scott_curse_lifted][goto="curse_lifted"]
+[clear scott_job]
+[colour="#808080"]
+You see Scott the falconer, and Benji.
+[colour="#ffffff"]
+
+"Welcome back."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+[if scott_curse_lifted][goto="name_cl"]
+
+"I am Scott, but many people call me 'The Birdman', as I
+ am the town falconer.
+
+ And this is Benji.
+
+ Forgive me if I am not much company.. the curse weighs
+ heavily upon my mind."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[link="Tell me about the curse."]
+[linkto="curse"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name_cl"]
+[learn_name]
+
+"I am Scott, but many people call me 'The Birdman', as I
+ am the town falconer.
+
+ And this is Benji, my noble companion."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[if deny_lep_kill][link="I was the one who killed the leprechaun."]
+[if deny_lep_kill][linkto="curse_lifted2_confess_kill"]
+[if_not given_hawk][if_not deny_lep_kill][link="I've decided I would like gold as a reward."]
+[if_not given_hawk][if_not deny_lep_kill][linkto="gold"]
+[if_not given_hawk][if_not deny_lep_kill][link="I've decided I would like a hawk as a reward."]
+[if_not given_hawk][if_not deny_lep_kill][linkto="buyhawk"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+[set scott_job]
+[if scott_curse_lifted][goto="job_cl"]
+
+"I breed hawks.  They make fine hunters, and when trained
+ can bring home a fine catch each day.
+
+ In other days I could sell you a fledgeling at fair
+ price, but my hawks have been cursed by a fell imp and
+ refuse to mate.
+
+ I have none that I can sell right now."
+
+[colour="#808080"]
+He turns to the hawk upon his shoulder.
+[colour="#ffffff"]
+
+"Isn't that right, Benji?"
+
+[colour="#808080"]
+The bird nods.
+[colour="#ffffff"]
+
+[link="What kind of hawks are they?"]
+[linkto="hawks"]
+[link="Did you say they were cursed?"]
+[linkto="curse"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[if benji][link="Can Benji talk?"]
+[if benji][linkto="benji_talk"]
+[if benji][link="Where did Benji come from?"]
+[if benji][linkto="benji_where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job_cl"]
+[set scott_job]
+
+"I breed hawks.  They make fine hunters, and when trained
+ can bring home a fine catch each day.
+
+ Normally I could sell you a fledgeling at fair price,
+ but as you know, my hawks had been cursed by a fell imp
+ and refused to mate.
+
+ I still have very few to sell right now."
+
+[colour="#808080"]
+Benji shifts position on his arm and nods in agreement.
+[colour="#ffffff"]
+
+[link="What kind of hawks are they?"]
+[linkto="hawks"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[if_not benjipen][link="Can Benji talk?"]
+[if_not benjipen][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[link="Where did Benji come from?"]
+[linkto="benji_where"]
+[if deny_lep_kill][link="I was the one who killed the leprechaun."]
+[if deny_lep_kill][linkto="curse_lifted2_confess_kill"]
+[if_not given_hawk][if_not deny_lep_kill][link="I've decided I would like gold as a reward."]
+[if_not given_hawk][if_not deny_lep_kill][linkto="gold"]
+[if_not given_hawk][if_not deny_lep_kill][link="I've decided I would like a hawk as a reward."]
+[if_not given_hawk][if_not deny_lep_kill][linkto="buyhawk"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="hawks"]
+
+"They are hunting hawks.  In the wild they hunt in packs
+ as woolves do, but when reared and trained they can also
+ hunt alone.
+
+ They can become very affectionate to their master."
+
+[if_not scott_curse_lifted][link="Did you say they were cursed?"]
+[if_not scott_curse_lifted][linkto="curse"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[if_not benjipen][if benji][link="Can Benji talk?"]
+[if_not benjipen][if benji][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[if benji][link="Where did Benji come from?"]
+[if benji][linkto="benji_where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="Benji"]
+[set benji]
+
+"Benji is my companion, and we go hunting each night.
+
+ He is a very intelligent bird, and understands more of
+ what I say than any other hawk or parrot I have seen."
+
+[if_not benjipen][link="Can Benji talk?"]
+[if_not benjipen][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[link="Where did he come from?"]
+[linkto="benji_where"]
+[if scott_job][link="Tell me about your hawks."]
+[if scott_job][linkto="hawks"]
+[if_not scott_curse_lifted][link="Tell me about the curse"]
+[if_not scott_curse_lifted][linkto="curse"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="benji_talk"]
+[set benjicanttalk]
+[colour="#808080"]
+The bird shakes his head.
+[colour="#ffffff"]
+
+"No.  Benji cannot talk, but he can makes gestures as
+ you see.  I have never seen any other bird do that.
+
+ Sometimes I wonder if he is not a hawk at all, but a
+ friendly spirit or the victim of some witches' spell."
+
+[link="Where did he come from?"]
+[linkto="benji_where"]
+[if scott_job][link="Tell me about your hawks."]
+[if scott_job][linkto="hawks"]
+[if_not scott_curse_lifted][link="Tell me about the curse."]
+[if_not scott_curse_lifted][linkto="curse"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="benji_where"]
+
+"I found him in the woods, many years ago.  His wing was
+ broken, and I decided to try and rescue him.
+
+ When his wing was healed, I took him out to release him,
+ for I already had enough hawks.  But instead of flying
+ away, he shook his head and stayed with me.
+
+ He has been a most faithful companion ever since."
+
+[if_not benjipen][if benji][link="Can Benji talk?"]
+[if_not benjipen][if benji][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[if scott_job][link="Tell me about your hawks."]
+[if scott_job][linkto="hawks"]
+[if_not scott_curse_lifted][link="Tell me about the curse?"]
+[if_not scott_curse_lifted][linkto="curse"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="benji_write"]
+
+"Perhaps we shall see.  Try asking him a question."
+
+[link="Benji, what are you?"]
+[linkto="benji_write2"]
+[link="Benji, where do you come from?"]
+[linkto="benji_write3"]
+[if scott_job][link="Tell me about your hawks."]
+[if scott_job][linkto="hawks"]
+[link="Forget it.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="benji_write2"]
+[colour="#808080"]
+You place the parchment and inkwell on the ground.
+Benji flutters down, and standing on one leg, takes
+hold of the quill and writes:
+[colour="#ffffff"]
+
+[font 3]
+[colour="#a0a0a0"]
+ I AM A WEREHAWK
+[colour="#ffffff"]
+    
+
+[font 1]
+[link="Where do you come from?"]
+[linkto="benji_write3"]
+[link="Uh, right.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="benji_write3"]
+[colour="#808080"]
+Benji takes hold of the quill and writes:
+[colour="#ffffff"]
+
+[font 3]
+[colour="#a0a0a0"]
+  NOT TELLING
+[colour="#ffffff"]
+    
+[font 1]
+[link="Benji, where do you come from?"]
+[linkto="benji_write3"]
+[link="Uh, right.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="benji_write4"]
+[colour="#808080"]
+Benji takes hold of the quill and writes a long passage:
+[colour="#ffffff"]
+
+[font 3]
+[colour="#a0a0a0"]
+  ONCE I COULD BE MAN OR A HAWK AS I CHOSE
+
+  I BROKE THE LAW
+
+  I WAS CAST OUT OF MY CLAN AND FORCED TO REMAIN
+  AS A HAWK FOREVER
+
+  I TRIED TO RETURN BUT WAS INJURED WHEN THEY
+  DROVE ME AWAY
+
+  SCOTT RESCUED ME AND TOOK ME IN
+
+  I OWE HIM MY LIFE AND HAVE PLEDGED TO BE HIS
+  SERVANT AND COMPANION FOREVER
+[colour="#ffffff"]
+    
+[font 1]
+[link="What did you do?"]
+[linkto="benji_write3"]
+[link="Uh, right.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="curse"]
+
+"Benji and I were out hunting one evening, but we strayed
+ too far into the forest and came across one of the
+ Little People.
+
+ He said he was hungry and asked me to give him a young
+ hawk to roast, and I refused.
+
+ The Little Man grew angry and said that if he could not
+ have a fledgeling, I would have none either.
+ Since that day not one egg has been laid to any of my
+ hawks."
+
+[set scott_curse]
+[link="How can the curse be lifted?"]
+[linkto="curse2"]
+[link="Have you asked the Church for help?"]
+[linkto="church"]
+[link="Tell me about your hawks."]
+[linkto="hawks"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="curse2"]
+
+"I am sure that the only way to heal the curse is to find
+ the Little Man and appease him somehow.
+
+ I think he lives to the southeast of my hut, but I dare
+ not go near him, lest he try to take Benji from me.
+
+ I have heard many tales of imps and fairies that can be
+ appeased only through the sacrifice of one most dear."
+
+[colour="#808080"]
+Scott looks at you hopefully.
+[colour="#ffffff"]
+
+"Perhaps you could speak to him on our behalf?"
+
+[link="I will find the Little Man."]
+[linkto="quest_y"]
+[link="I don't have time."]
+[linkto="quest_n"]
+[link="Have you asked the Church for help?"]
+[linkto="church"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[link="Tell me about your hawks."]
+[linkto="hawks"]
+[if benji][link="Where did Benji come from?"]
+[if benji][linkto="benji_where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="quest_y"]
+
+"Will you truly?  I would be in your debt if you can
+ lift the curse upon my poor hawks."
+
+[link="Tell me about your hawks."]
+[linkto="hawks"]
+[if benji][link="Can Benji talk?"]
+[if benji][linkto="benji_talk"]
+[if benji][link="Where did Benji come from?"]
+[if benji][linkto="benji_where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="quest_n"]
+
+[colour="#808080"]
+Scott looks crestfallen.  Benji is less polite and makes
+an obscene gesture at you with his talons.
+[colour="#ffffff"]
+
+"If you should reconsider, I would be most grateful. I
+ would be in your debt if you can lift the curse upon my
+ poor hawks."
+
+[link="Tell me about your hawks."]
+[linkto="hawks"]
+[if benji][link="Can Benji talk?"]
+[if benji][linkto="benji_talk"]
+[if benji][link="Where did Benji come from?"]
+[if benji][linkto="benji_where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="church"]
+
+"I went to the Priests and the Bishops but they told me
+ that the LORD is too busy to deal with my petty troubles.
+
+ I prayed to God each night for many months that my hawks
+ might again lay even one egg.  Upon the third eve of the
+ new moon, I beheld a shining ball of light in my cabin!
+
+ Choirs of angels did sing and the glory of the LORD
+ filled the room, and then He spoke!
+
+ The LORD told me to shut up and stop bothering Him, and
+ He threatened to turn me inside out and send all my
+ hawks to Hell if I disturbed Him again.
+
+ And then the glory of God did shrink to the size of a
+ pea and floated out through the window."
+
+"It was not very helpful."
+
+[link="I will find the Little Man."]
+[linkto="quest_y"]
+[link="I don't have time."]
+[linkto="quest_n"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[link="Tell me about your hawks."]
+[linkto="hawks"]
+[if benji][link="Can Benji talk?"]
+[if benji][linkto="benji_talk"]
+[if benji][link="Where did Benji come from?"]
+[if benji][linkto="benji_where"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+"Farewell."
+[learn_name]
+
+[colour="#808080"]
+The hawk stands on one leg and waves goodbye with his
+other foot.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="benji_dead"]
+
+"Benji is dead!  I curse in the name of the LORD the fell
+ villain who murdered him!"
+
+[at_exit_call="avenge_benji"]
+[nextpage="exit"]
+[endpage]
+
+
+The user has killed the leprechaun before talking to Scott
+
+[page="curse_lifted_preliminary"]
+[colour="#808080"]
+You see a slim man with dark hair.  A brown hawk
+perches upon his shoulder and looks at you intently.
+[colour="#ffffff"]
+
+"Hail, friend.  Might you have slain an evil leprechaun,
+ perchance?
+
+ My hawks have been plagued by a foul curse for many
+ moons, but now it is ended!"
+
+[link="It wasn't me!"]
+[linkto="clp_no"]
+[link="I did it."]
+[linkto="clp_yes"]
+[endpage]
+
+
+[page="clp_no"]
+[learn_name]
+
+"Well, if you should come across the hero, tell him that
+ Scott the Falconer would repay him for his good deeds.
+
+ Farewell!"
+
+[set deny_lep_kill]
+[nextpage="exit"]
+[endpage]
+
+
+[page="clp_yes"]
+[learn_name]
+
+"I am indebted to you.  My name is Scott, and I am the
+ town falconer.  For many years I have bred fine hunting
+ hawks, yet this vile imp stopped them all from laying so
+ much as one single egg!
+
+ Now the Little Man is dead, his curse is lifted and my
+ birds are free to breed again.
+ I shall be able to pay the Church Tithes after all!"
+
+[colour="#808080"]
+He breathes a sigh of relief.
+[colour="#ffffff"]
+
+"Is there any way I can repay you?"
+
+[link="Some gold would be nice."]
+[linkto="gold"]
+[link="Can you sell me a hawk?"]
+[linkto="buyhawk"]
+[link="I'll think of something."]
+[linkto="think"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="curse_lifted"]
+[if_pflag oneshot][goto="curse_lifted2"]
+[set_pflag oneshot]
+[if deny_lep_kill][goto="curse_lifted2_deny"]
+[add_karma 5]
+[colour="#808080"]
+Scott looks at you with a wild expression of joy, and the
+hawk on his fist spreads his tail and bows deeply to you.
+[colour="#ffffff"]
+
+"You have done it!  Martha has laid an egg just minutes
+ ago, and I shall have young hawklings once more!
+
+ I am in your debt.  Is there anything I can do to
+ repay you?"
+
+[link="Some gold would be nice."]
+[linkto="gold"]
+[link="Can you sell me a hawk?"]
+[linkto="buyhawk"]
+[link="I'll think of something."]
+[linkto="think"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="curse_lifted2"]
+[if deny_lep_kill][goto="curse_lifted2_deny"]
+[clear benjipen]
+[if benjicanttalk][set benjipen]
+[am_carrying "inkwell"]
+[if false][clear benjipen]
+[am_carrying "paper"]
+[if false][clear benjipen]
+[colour="#808080"]
+You see Scott the falconer, and Benji.
+[colour="#ffffff"]
+
+"Welcome back!  I am most grateful for your help."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[if_not given_hawk][link="I've decided I would like gold as a reward."]
+[if_not given_hawk][linkto="gold"]
+[if_not given_hawk][link="I've decided I would like a hawk as a reward."]
+[if_not given_hawk][linkto="buyhawk"]
+[if_not benjipen][link="Can Benji talk?"]
+[if_not benjipen][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="curse_lifted2_deny"]
+[clear benjipen]
+[if benjicanttalk][set benjipen]
+[am_carrying "inkwell"]
+[if false][clear benjipen]
+[am_carrying "paper"]
+[if false][clear benjipen]
+[colour="#808080"]
+You see Scott the falconer, and Benji.
+[colour="#ffffff"]
+
+"Welcome back!"
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[link="I was the one who killed the leprechaun."]
+[linkto="curse_lifted2_confess_kill"]
+[if_not benjipen][link="Can Benji talk?"]
+[if_not benjipen][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="curse_lifted2_confess_kill"]
+[clear deny_lep_kill]
+[clear benjipen]
+[if benjicanttalk][set benjipen]
+[am_carrying "inkwell"]
+[if false][clear benjipen]
+[am_carrying "paper"]
+[if false][clear benjipen]
+[colour="#808080"]
+The falconer looks at you with admiration.
+[colour="#ffffff"]
+
+"Somehow I felt that you were responsible.
+
+ Thank you so much for what you have done, it
+ has restored my livelihood.
+ If there is any way I can repay you, please
+ let me know."
+
+[link="Some gold would be nice."]
+[linkto="gold"]
+[link="Can you sell me a hawk?"]
+[linkto="buyhawk"]
+[link="I'll think of something."]
+[linkto="think"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="gold"]
+
+"I have little to give, it has all gone to the Church.
+ Their tithes must be paid, and I have had none of my
+ usual income from the sale of fledgelings.
+
+ Is there any other way I can repay you?"
+
+[link="Can you sell me a hawk?"]
+[linkto="buyhawk"]
+[link="I'll think of something."]
+[linkto="think"]
+[link="Tell me about Benji."]
+[linkto="benji"]
+[if_not benjipen][link="Can Benji talk?"]
+[if_not benjipen][linkto="benji_talk"]
+[if benjipen][link="Benji can't talk, but can he write?"]
+[if benjipen][linkto="benji_write"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="think"]
+
+"When you have decided, come back to see me and I'll
+ see what I can do for you."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="buyhawk"]
+[if given_hawk][goto="buyhawk_2"]
+
+"I shall give you a Jercel, free of charge.. that is the 
+ least I can do.
+
+ But I do ask that you promise to treat the bird well,
+ for I would usually ask several hundred gold."
+
+[colour="#808080"]
+He whispers something to Benji, who flies away.
+There is a sound like some kind of major avian dispute
+and Benji reappears, with a younger hawk following.
+
+Scott presents the young bird to you.
+[colour="#ffffff"]
+
+[create 1 hawk_jercel]
+[set given_hawk]
+
+[link="Thanks!  Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buyhawk_2"]
+
+[endpage]

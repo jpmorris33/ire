@@ -1,0 +1,8 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+   The Cow is the LORD's judgement upon us!
+
+[nextpage="exit"]
+[endpage]

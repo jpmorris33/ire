@@ -1,0 +1,543 @@
+
+
+[page="start"]
+
+[colour="#808080"]
+You see a barkeeper.
+[colour="#ffffff"]
+
+"Hail, friend and welcome to the Flying Trout.
+ Can I get you anything?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Reynard the barkeeper.
+[colour="#ffffff"]
+
+"Hail, friend and welcome back to the Flying Trout.
+ Can I get you anything?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="inchurch"]
+"Not now!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"My name is Reynard."
+
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pubname"]
+[set_local pubname]
+
+"In these parts it is not so uncommon to see a trout fly
+ though the air.  The lakes nearby are home to fish-hawks
+ that dive for fish and seize them in their talons.
+
+ They do fly back to their nests holding the fish to
+ devour it on the spot or feed them to their hawklings.
+
+ Trout is their favourite fish."
+
+[link="Tell me more about the fish-hawks."]
+[linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ospreys"]
+[set find_ospreys]
+
+"Some call them ospreys.  They are brown and white with
+ the bigness of a buzzard, and they eat fish.
+
+ As for their allegiance in the great battle of creation,
+ of that we are uncertain.
+
+ Some say that they do bring good luck, but I am not so
+ sure..  Han the tailor says that there is a large
+ fish-hawk that perches by his house every day and
+ watches him always.
+
+ I wonder that it may be they are spies of the LORD.. or
+ maybe even The Adversary!"
+
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="dragon"]
+
+"It is a ferocious beast that lives in the keep to the
+ northwest of our village.  Every fortnight it would come
+ to our village, causing panic and terror.  Our warriors
+ would try to slay it, but the creature's skin is tough.
+ It would fight back, and many men were slain.
+
+ We lost too many men for this to continue, so instead we
+ did build many tunnels and cellars to hide in when the
+ beast came.  It would take a pig or two and begone.
+ Funny it is, but sometimes it did leave behind a small
+ lump of gold or more."
+
+[nextpage="dragon2"]
+[endpage]
+
+[page="dragon2"]
+
+"Our King, good Duncan, has from time to time sent heroes
+ to slay the dragon, yet none have returned.
+
+ Yet, not so long ago, a man did come on such a quest..
+ and since then, the dragon has not come to our village.
+ Although some do say they have seen a cloaked stranger
+ going to and from the keep."
+
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross2"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[link="Tell me more about the fish-hawks."]
+[linkto="ospreys"]
+
+
+
+[page="ross"]
+
+"Mean you Ross the Bewildered?  He was sent to rescue a
+ fair maiden from the clutches of the evil wyrm in the
+ dragon's keep.
+ Many men have gone to face the beast, and none have ever
+ returned.
+
+ But the man is a fool and anything is possible.  Why, he
+ has probably slain the maid and rescued the dragon!"
+
+[link="Tell me more about the dragon."]
+[linkto="dragon"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross2"]
+
+"Mean you Ross the Bewildered?  Aye.. well, that is the
+ strangest part of the tale..  for HE was the one last
+ sent to the Dragon's keep!
+
+ The man is a fool who barely knows one end of a sword
+ from the other, yet it would seem that he alone was
+ able to vanquish the evil wyrm that has been plaguing
+ our village.  The whole thing is absurd!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+ 
+
+[page="news"]
+[if agnar_done][goto="news2"]
+
+"The village of New Leuchars has been consumed by the
+ forces of darkness.  This is a blow to our village, for
+ there was much trade with them, and certain goods are
+ now in short supply.
+
+ Naught has been heard of the Dragon.. for this we are
+ thankful.  The fish-hawks, however, are in greater
+ numbers than ever in living memory.  We know not yet
+ if this is a blessing or a curse."
+
+[colour="#808080"]
+His chest puffs up with pride.
+[colour="#ffffff"]
+
+ "But I do have the exiled prince of Agnar lodging here!"
+ 
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[link="Tell me more about the dragon."]
+[linkto="dragon"]
+[link="Tell me more about the fish-hawks."]
+[linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="news2"]
+
+"The village of New Leuchars has been consumed by the
+ forces of darkness.  This is a blow to our village, for
+ there was much trade with them, and certain goods are
+ now in short supply.
+
+ Naught has been heard of the Dragon.. for this we are
+ thankful.  The fish-hawks, however, are in greater
+ numbers than ever in living memory.  We know not yet
+ if this is a blessing or a curse."
+ 
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[link="Tell me more about the dragon."]
+[linkto="dragon"]
+[link="Tell me more about the fish-hawks."]
+[linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inn"]
+[is_npc_carrying key]
+[if true][goto="inn2"]
+
+"Sorry, we are full up."
+ 
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="inn2"]
+
+"We do have a room free.  For 30 gold I would give you
+ the key to it."
+ 
+[link="Okay, I'd like the room."]
+[linkto="inn3"]
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="inn3"]
+[take 30 gold_coins]
+[if false][goto="no_money"]
+[give 1 key]
+[call="money_sound"]]
+
+"Here you go.  It is room number 2."
+ 
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="no_money"]
+
+"I fear you have not the gold for that."
+
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I have beer for 3 gold, or some of our own local wine
+ for 4 gold coins.
+
+ I can also sell you bread and ham for 5 gold coins."
+ 
+[link="I would like some beer, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some wine, please."]
+[linkto="buy_wine"]
+[always]
+[link="I would like food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_ale"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[create 1 bottle_full]
+[call="money_sound"]
+
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more beer, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some wine instead, please."]
+[linkto="buy_wine"]
+[always]
+[link="I would like some food, please."]
+[linkto="buy_food"]
+[always]
+
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_wine"]
+[take 4 gold_coins]
+[if false][goto="no_money"]
+[create 1 bottle_wine]
+[call="money_sound"]
+
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more wine, please."]
+[linkto="buy_wine"]
+[always]
+[link="I would like some beer instead, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_food"]
+[take 5 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 foodp04]
+[create 1 foodp00]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more food, please."]
+[linkto="buy_food"]
+[always]
+[link="I would like some beer, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some wine, please."]
+[linkto="buy_wine"]
+[always]
+[link="Why is this pub called the 'Flying Trout'?"]
+[linkto="pubname"]
+[if_local pubname][link="Tell me more about the fish-hawks."]
+[if_local pubname][linkto="ospreys"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+ 
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]
+
+
+"Mean you Ross the Bewildered?  He was sent to rescue a
+ fair maiden from the clutches of an evil wyrm.
+
+ No man who has assailed the Wyrm has returned, yet there
+ are some who claim he is alive and in hiding.
+ Further I have heard it said that he betrayed the King's
+ trust by slaying the maiden and rescuing the dragon!
+
+ The man is a fool and I wouldn't put it past him."
+
+

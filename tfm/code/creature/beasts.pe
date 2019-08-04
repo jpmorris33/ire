@@ -1,0 +1,600 @@
+##########################################
+#                                        #
+#  Death and pain code for wild animals  #
+#                                        #
+##########################################
+
+object benjis_murderer
+
+##
+##	Snake
+##
+
+function snake_dies
+
+if_onscreen current
+	print "Snake is killed!"
+	printcr
+endif
+
+change current = "snake_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Pig
+##
+
+function pig_dies
+
+if_onscreen current
+	print "Pig is killed!"
+	printcr
+endif
+
+change current = "pig_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Rat
+##
+
+function rat_dies
+
+if_onscreen current
+	print "Rat is killed!"
+	printcr
+endif
+
+change current = "rat_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Spider
+##
+
+function spider_dies
+
+if_onscreen current
+	print "Spider is killed!"
+	printcr
+endif
+
+change current = "spider_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+
+
+##
+##	Blackcock
+##
+
+function blackcock_dies
+
+# Is it a 'real' blackcock and not a spawned one?
+if_not_exists current.parent
+	if current.stats.hp > -100
+		# Not dead yet (but you will be!)
+		call blackcock_hurt
+	else
+		let victim = current
+		let suspect = victim.enemy
+		call justice_blackcock
+	endif
+	return
+endif
+
+
+if_onscreen current
+	print "Blackcock is killed!"
+	printcr
+endif
+
+change current = "blackcock_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Blackcock
+##
+
+function blackcock_hurt
+int i
+
+let splatvictim = current
+call splat_blood
+
+# Hurt by environment, perhaps?
+if_not_exist current.enemy
+	# Self-correct
+	let current.stats.hp = current.maxstats.hp
+	check_hurt current
+	return
+endif
+
+# Is it a 'real' blackcock and not a spawned one?
+if_not_exists current.parent
+	# Yes.  Now the fun begins.
+	get_user_flag i = "bcock_justice"
+	if i = 0
+		talk_to "people/creature/bcock_hp.txt" "attacked"
+		set_user_flag "bcock_justice" = 1
+	endif
+
+	# protection?
+	let current.stats.hp = current.maxstats.hp
+	check_hurt current
+
+	# Now it gets really nasty
+	call summon_devil
+	return
+endif
+
+# This is sometimes called by BlackCock_Dies to keep the magic birds alive
+if current.stats.hp <= 0
+	return
+endif
+
+#No, run away
+call enemy_flee
+
+end
+
+
+##
+##	Tode
+##
+
+function tode_dies
+
+if_onscreen current
+	print "Tode is killed!"
+	printcr
+endif
+
+change current = "tode_dead"
+
+#call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Hawk
+##
+
+function hawk_dies
+
+if_onscreen current
+	print "Hawk is killed!"
+	printcr
+endif
+
+change current = "hawk_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Werehawk
+##
+
+function whawk_dies
+
+if_onscreen current
+	print "Hawk is killed!"
+	printcr
+endif
+
+change current = "whawk_dead"
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Benji is a very special hawk
+##
+
+function benji_dies
+
+if_onscreen current
+	print "Hawk is killed!"
+	printcr
+endif
+
+change current = "whawk_dead"
+call make_blood
+
+set_user_flag "benji_dead" = 1
+if current.enemy
+	let benjis_murderer = current.enemy
+else
+	let benjis_murderer = player
+endif
+end
+
+##
+##	Benji resurrected
+##
+
+function benji_resurrected
+
+change current = "hawk"
+
+set_user_flag "benji_dead" = 0
+let benjis_murderer = null
+end
+
+
+function avenge_benji
+if_exists benjis_murderer
+	let current = benjis_murderer
+	call god_killcurrent
+endif
+end
+
+
+
+##
+##	Cow
+##
+
+function cow_dies
+
+if_onscreen current
+	print "Cow is killed!"
+	printcr
+endif
+
+change current = "cow_dead"
+call make_blood
+call egg_killed
+end
+
+
+##
+##	THE Cow
+##
+
+function thecow_dies
+
+if_onscreen current
+	print "Cow is killed!"
+	printcr
+endif
+
+set_user_flag "cow_dead" = 1	# Ding dong The Cow is dead
+add player.user.experience + current.maxstats.hp
+
+play_sound "cow_thecow_dies"
+change current = "cow_thecow_dead"
+#call make_blood
+call egg_killed
+
+end
+
+
+function hurt_thecow
+play_sound "cow_thecow_pain"
+call hurt_wild
+end
+
+
+##
+##  Dead cow breaks into chunks
+##
+
+function deadcow_hurt
+int x
+int y
+
+if current.stats.hp < -50
+	let x = current.x
+	let y = current.y
+
+	replace current = "meat02"
+	add y + 1
+	create current = "meat00"
+	transfer_object current to x y
+	create current = "meat01"
+	transfer_object current to x y
+	add y - 1
+	create current = "meat03"
+	transfer_object current to x y
+	move_to_bottom current
+endif
+end
+
+##
+##	Sheep
+##
+
+function sheep_dies
+
+if_onscreen current
+	print "Sheep is killed!"
+	printcr
+endif
+
+# Hack for the Avis sheep quest, if killed by evil sheep
+if current.enemy is called "sheep_evil"
+	if current.tag = 800
+		# Replenish the sheep to prevent them running out before
+		# the player even finds them
+		if_not_onscreen current
+			let current.stats.hp = current.maxstats.hp
+			check_hurt current
+			return
+		endif
+	endif
+endif
+
+# Now you're a dead sheep
+change current = "sheep_dead"
+call make_blood
+call egg_killed
+end
+
+
+##
+##	A dangerous animal has been injured and turns on their attacker
+##
+
+function hurt_wild
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+if_not_flag current IS_PARTY
+        if_exist current.enemy
+                if_flag current.enemy IS_PERSON
+			# Size them up
+			if current.enemy.stats.hp > current.stats.hp
+				# Too strong, run away!
+				queue_action current does enemy_flee to current.enemy
+				run_queue current
+				return
+			endif
+
+			# Beat the crap out of them, and then eat the body
+			insert_action current does enemy_attack_eat to current.enemy
+			return
+                endif
+        endif
+endif
+ 
+end
+
+
+##
+##	Bee
+##
+
+function bee_dies
+
+if_onscreen current
+	print "Bee is killed!"
+	printcr
+endif
+
+change current = "bee_dead"
+move_to_floor current
+
+let current.stats.weight = 10	# You must be able to pick up the bee now
+
+call egg_killed
+
+end
+
+
+##
+##	Bunny
+##
+
+function bunny_dies
+
+if_onscreen current
+	if current.enemy <> null
+		print "Rabbit is killed!"
+		printcr
+	endif
+endif
+
+if current.stats.hp < -10
+	change current = "bunny_vdead"
+else
+	change current = "bunny_dead"
+endif
+
+call make_blood
+
+call egg_killed
+
+end
+
+
+##
+##	Anything else
+##
+
+function misc_dies
+
+
+if_onscreen current
+	print current.shortdesc
+	print " is killed!"
+	printcr
+endif
+
+call make_blood
+
+destroy current
+call egg_killed
+
+end
+
+
+
+
+
+
+##
+##	Bleed
+##
+
+function make_blood
+integer rnd
+object o
+
+if_not_exists current
+	return
+endif
+
+random rnd between 0 4
+
+if rnd = 0
+	create o = "blood0"
+endif
+
+if rnd = 1
+	create o = "blood01"
+endif
+
+if rnd = 2
+	create o = "blood02"
+endif
+
+if rnd = 3
+	create o = "blood03"
+endif
+
+if rnd = 4
+	create o = "blood04"
+endif
+
+if_exists o
+	transfer_object o to current.x current.y
+	let o.stats.owner = current
+	move_to_floor o
+	set_flag o IS_SPAWNED = 1	# Blood is temporary
+
+	# Set its HP to <0, otherwise the GC won't remove it
+	let o.stats.hp = -1
+	let o.maxstats.hp = -1
+endif
+
+end
+
+##
+##  Summon a devil
+##
+
+function summon_devil
+object devil
+int x
+int y
+
+# Pick a point for it to appear
+centre on current
+random x between window_left window_right
+random y between window_top window_bottom
+centre on player
+
+# Create it
+create devil = "devil"
+transfer_object devil = x y
+
+# Make it face south (to match animation) and fade it in
+set_direction devil faces CHAR_D
+if_onscreen devil
+	set_flag devil IS_TRANSLUCENT = 1
+	set_sequence devil = "devil_appears"
+	wait_for_animation devil
+	set_flag devil IS_TRANSLUCENT = 0
+endif
+
+# Make it do stuff
+if_exists current.enemy
+	let devil.enemy = current.enemy
+else
+	let devil.enemy = current
+endif
+	
+call start_attack
+end
+
+
+##
+## Wolf
+##
+
+function wolf_hurt
+
+# Say 'uh!' (You're kidding, right?)
+#object_sound "uh!" current
+
+call hurt_wild
+end
+
+##
+## Dies
+##
+
+function wolf_dies
+
+change current = "wolf_dead"
+#object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 5
+endif
+end
+
+function wwolf_dies
+
+change current = "wolf_dead"
+#object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 5
+endif
+end
+
+function snail_dies
+
+change current = "firesnail_dead"
+#object_sound "snail_dying" current
+call egg_killed
+end

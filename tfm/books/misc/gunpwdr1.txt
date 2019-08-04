@@ -1,0 +1,43 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+[set gunpowder_1_read]
+
+ On behalf of the Church, I do give thanks to King
+ Redtooth for the supply of 50 barrels of military-grade
+ blasting powder.
+
+ We have now accepted the initial shipment, my men shall
+ return soon to collect the second half of our order and
+ bring the outstanding the gold ingots.
+
+   Bishop Ludwig,
+   on behalf of His Holiness, Pope Edward Harris the Just
+
+[nextpage="exit"]
+[endpage]
+
+(a parchment in English detailing a sale of n barrels of military
+ gunpowder to the Church in exchange for 18 ingots of pure gold.
+
+ SteelJaw can't read English.. by custom only Kings are permitted
+ to know the human writings.
+
+ You can't present this as proof to the court because only the
+ King can read it and he'll simply deny it.
+ The only other living Waarg who can read English is Swiftrunner
+ and he's been exiled and cannot enter the city by law.
+
+ SteelJaw reasons that if the Church is involved they should
+ have some Waargish documents incriminating them.  Since you
+ can't read Waarg yourself, you'll need a Waarg to help you locate
+ the documents.
+
+ Swiftrunner won't join you, but one of SteelJaw's men will.
+ When you meet King Grey, he will join.. you must have him
+ to log in to the systems anyway.
+
+When you find the documents they reveal that RedTooth sold out
+to Xy'Lan.. betraying King Grey in exchange for the Throne.
+This will be enough to oust Redtooth.. or you can lead King
+Grey back to the Waarg city and overthrow the King directly)

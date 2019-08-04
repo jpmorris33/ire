@@ -1,0 +1,179 @@
+[page="start"]
+
+"Greetings, brother.  I am Father Malcolm.
+
+ When I walk alone, the LORD often descends from Heaven
+ and talks to me.  He tells me of the evils that plague
+ our land.
+
+ Long have I walked with God, and he has shown me many
+ great things.  Soon he will show me the greatest thing
+ of all..."
+
+[link="Tell me about the evils of the land."]
+[linkto="evils"]
+[link="You're a bloody nutcase!"]
+[linkto="nutcase"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="evils"]
+
+"Some years ago the LORD told me of the evil of the
+ Demons which lurk to the south of this town, and that
+ none would rise to fight them.
+
+ In His name I travelled as a pilgrim, with a band of
+ warrior monks to seek this evil out and banish it by the
+ power of Jesus Christ.
+ 
+ The LORD led me to the town of New Fairford, where the
+ men and women were corrupt and worshippers of devils.
+ When I told them of my holy errand, they laughed to my
+ face and refused me shelter.
+
+ The LORD waxed wroth and summoned a terrible beast to
+ slay the unbelievers.
+ 
+ We did march on, and I confronted the Demons alone.
+ They took me prisoner, but I had my faith to comfort me,
+ and the LORD freed my bonds.
+ 
+ We slew many pawns of Satan that night, but the Dark One
+ is not easily vanquished, and the Demons still roam free,
+ though many of their worshippers now burn in Hell."
+
+[link="Tell me about the Demons."]
+[linkto="demons"]
+[link="You're a bloody nutcase!"]
+[linkto="nutcase"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="demons"]
+
+"The Demons are evil.  They are not God's creatures but
+ works of darkness and sin.
+ They can fly through the air as they wish, breathing
+ fire and death upon the faithful.
+
+ But worst of all, they tempt men to worship them with
+ their promises of shelter, food and magic.
+
+ Worshippers that win their highest favour are taught to
+ perform certain of their magics by themselves, without
+ need for praying to the LORD!
+
+ We cannot let demons tempt men away from the path of the
+ Trinity, for this angers the LORD.  Yet we cannot slay
+ the demons either; the LORD has warned us that it is
+ useless to try.  So we must kill their followers and
+ save the souls of others before they can be seduced by
+ the false promises of an easy life."
+
+[if CrickladeAbbey2][nextpage="end"]
+[if_not CrickladeAbbey2][nextpage="bye1"]
+[endpage]
+
+
+[page="bye1"]
+
+"I must go now, and prepare for the LORD's glory.
+ Goodbye, my $son."
+
+[nextpage="exit"]
+[endpage]
+
+
+God gets shirty
+
+[page="nutcase"]
+[image="lord.jpg"]
+
+"DO NOT MOCK A TRUE SERVANT OF THE TRINITY."
+
+[link="Oh, and why not?"] 
+[linkto="nutcase2"]
+[link="Sorry."] 
+[linkto="nutcase4"]
+[endpage]
+
+
+[page="nutcase2"]
+[image="lord.jpg"]
+
+"BECAUSE I'LL KILL YOU."
+
+[link="Fair enough!"]
+[linkto="nutcase4"]
+[link="Bite me!"]
+[linkto="nutcase3"]
+[endpage]
+
+
+[page="nutcase3"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+"MY.. AREN'T WE FEELING COCKY TODAY!"
+
+[on_exit_call="god_killplayer"]
+[nextpage="stop"]
+[endpage]
+
+
+All is forgiven
+
+[page="nutcase4"]
+[image="lord.jpg"]
+
+"THAT'S BETTER.
+
+ NOW, BLESSED MALCOLM.  TELL $HIM ABOUT THE DEMONS THAT
+ YOU FOUGHT IN MY NAME."
+
+[nextpage="demons"]
+[endpage]
+
+
+Father Malcolm's ascension
+
+[page="end"]
+
+"The time is at hand!  The LORD has come to bless me!
+
+ Farewell, for it is time for me to leave this world!"
+
+[nextpage="end2"]
+[endpage]
+
+[page="end2"]
+[image="lord.jpg"]
+
+"FATHER MALCOLM, IT IS TIME!"
+
+[set malcolm_ascended]
+[on_exit_call="FadeMalcolm"]
+[nextpage="stop"]
+[endpage]
+
+
+Stop the page.  This is used instead of just "exit" because a link
+to "exit" doesn't have the waiting arrow.
+
+[page="stop"]
+[goto="exit"]
+[endpage]
+
+
+
+[page="bye"
+
+"Farewell, my $son."
+
+[nextpage="exit"]
+[endpage]

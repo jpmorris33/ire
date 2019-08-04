@@ -1,0 +1,304 @@
+#
+#	Laser Tripwire
+#
+#
+#
+
+function laser_tripwire_trigger
+integer mytag
+object source
+
+if victim is called "laser_tripwire_left"
+	let victim = victim.next
+endif
+
+if_not_exists victim
+	return
+endif
+
+if victim.tag <> me.tag
+	find_tag source = "laser_source" me.tag
+	if_exists source
+		# Do something BAD
+		call source.funcs.wcache
+	else
+		print "No source|"
+	endif
+endif
+
+let mytag = current.tag
+destroy current
+
+# Update the lasers, requires several calls for it to propagate through
+
+update_tag mytag
+update_tag mytag
+update_tag mytag
+update_tag mytag
+
+end
+
+##
+##	Laser beam shining right.  If nothing to the left, cut it off.
+##	If no beam to the right, create one
+##
+
+
+function laser_tripwire_right
+integer x
+integer y
+integer good
+object temp
+
+let x = me.x - 1
+let y = me.y
+
+get_first_object temp from x y
+
+let good = 0
+
+# Go through the objects in this square.  If we find a laserbeam, that's good
+
+#status 4
+do
+	if_exists temp
+		if temp is called "laser_tripwire_right"
+			let good = 1
+			break
+		endif
+		if temp is called "laser_source"
+			let good = 1
+			break
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+# If we didn't find a laser beam to the left, extinguish ourselves
+
+if good = 0
+	destroy me
+	return
+endif
+
+# Now look right, and create a beam if there isn't one there
+
+let x = me.x + 1
+let y = me.y
+
+get_first_object temp from x y
+
+# Go through the objects in this square.  If we find a laserbeam, bail out
+
+do
+	if_exists temp
+		if temp is called "laser_tripwire_right"
+			return
+		endif
+		if temp is called "laser_target"
+			return
+		endif
+		if temp is called "mirror"
+			return
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+if_solid x y
+	return
+endif
+
+create temp = "laser_tripwire_right"
+transfer_object temp to x y
+let temp.tag = me.tag # Copy the tag number
+
+end
+
+
+##
+##	Laser beam shining left (reflected beam).
+##	If nothing to the right, cut it off.
+##	If no beam to the left, create one.
+##
+
+
+function laser_tripwire_left
+integer x
+integer y
+integer good
+object temp
+
+let x = me.x + 1
+let y = me.y
+
+get_first_object temp from x y
+
+let good = 0
+
+# Go through the objects in this square.  If we find a laserbeam, that's good
+
+do
+	if_exists temp
+		if temp is called "laser_tripwire_left"
+			let good = 1
+			break
+		endif
+		if temp is called "laser_target"
+			let good = 1
+			break
+		endif
+		if temp is called "mirror"
+			let good = 1
+			break
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+# If we didn't find a laser beam to the right, extinguish ourselves
+
+if good = 0
+	destroy me
+	return
+endif
+
+# Now look right, and create a beam if there isn't one there
+
+let x = me.x - 1
+let y = me.y
+
+get_first_object temp from x y
+
+# Go through the objects in this square.  If we find a laserbeam, bail out
+
+do
+	if_exists temp
+		if temp is called "laser_tripwire_left"
+			return
+		endif
+		if temp is called "laser_target"
+			return
+		endif
+		if temp is called "mirror"
+			return
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+if_solid x y
+	return
+endif
+
+create temp = "laser_tripwire_left"
+transfer_object temp to x y
+let temp.tag = me.tag # Copy the tag number
+
+
+end
+
+##
+##	Laser beam source (creates a right-travelling beam if appropriate)
+##
+
+function laser_tripwire_source
+integer x
+integer y
+object temp
+
+# Create a laser beam to the right if necessary
+
+let x = me.x + 1
+let y = me.y
+
+get_first_object temp from x y
+
+# Go through the objects in this square.  If we find a laserbeam, bail out
+
+do
+	if_exists temp
+		if temp is called "laser_tripwire_right"
+			return
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+if_solid x y
+	return
+endif
+
+create temp = "laser_tripwire_right"
+transfer_object temp to x y
+let temp.tag = me.tag # Copy the tag number
+
+end
+
+
+##
+##	Laser beam mirror (creates a left-travelling beam if appropriate)
+##
+
+function laser_tripwire_mirror
+integer x
+integer y
+integer source
+object temp
+
+# Create a laser beam to the left if necessary
+
+let x = me.x - 1
+let y = me.y
+
+get_first_object temp from x y
+
+# Go through the objects in this square.  Look for a source beam
+
+let source = 0
+do
+	if_exists temp
+		if temp is called "laser_tripwire_right"
+			let source = temp.tag
+			break
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+# Now look to see if we need/are allowed a reflected beam
+
+get_first_object temp from x y
+
+do
+	if_exists temp
+		if temp is called "laser_tripwire_left"
+			if source = 0
+				# if you don't have a source, you must die
+				destroy temp
+			endif
+			# There's a beam already there, or there should be NO
+			# beam there.  Either way, we can quit
+			return
+		endif
+		let temp = temp.next
+	endif
+while temp
+
+# Try to create
+
+if source = 0
+	return
+endif
+
+if_solid x y
+	return
+endif
+
+create temp = "laser_tripwire_left"
+transfer_object temp to x y
+let temp.tag = source # Set the tag number
+
+end
+
+

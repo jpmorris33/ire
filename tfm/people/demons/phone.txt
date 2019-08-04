@@ -1,0 +1,109 @@
+##
+##	Default page.  Not supposed to happen.
+##
+
+[page="start"]
+[image="phone.pcx"]
+
+[colour="#808080"]
+Your phone rings.
+[colour="#ffffff"]
+
+"This is the programmer. If you can read this there's a
+ bug in the map.   Please email jpm@it-he.org and tell
+ us where you were when this happened."
+
+[link="Oh."]
+[linkto="exit"]
+
+[endpage]
+
+##
+##	First
+##
+
+[page="phone-1"]
+[image="phone.pcx"]
+[journal jrn_Phone1]
+[colour="#808080"]
+Your phone rings.
+Answering it you hear a man's voice speaking in clipped,
+precise tones.
+[colour="#ffffff"]
+
+"Hello $PLAYER, this is Ransome.
+ I don't have time to explain, so listen carefully.
+
+ We're at New Fairford, a small village to the
+ south-southeast of the town you're in at the moment.
+
+ Please get here as quickly as you can, but take care..
+ we need you alive.  I'll call you back when I can."
+
+[link="How do you know my name?"]
+[linkto="hangoff1"]
+[link="How do you know where I am?"]
+[linkto="hangoff1"]
+[link="You've got the wrong number."]
+[linkto="hangoff1"]
+[link="Goodbye."]
+[linkto="hangoff1"]
+
+[endpage]
+
+
+##
+##	Last
+##
+
+[page="phone-last"]
+[image="phone.pcx"]
+
+[colour="#808080"]
+Your phone rings.
+[colour="#ffffff"]
+
+"Okay, $PLAYER, you're nearly there.
+ Talk to the guards and ask to see me.
+ They've been instructed to let you in.
+
+ I look forward to meeting you properly."
+
+[set fairford_open]
+
+[link="Okay.  I'm going in."]
+[linkto="hangoff"]
+[link="Goodbye."]
+[linkto="hangoff"]
+
+[endpage]
+
+##
+##	End of conversation.
+##
+
+[page="hangoff"]
+[image="phone.pcx"]
+
+[colour="#808080"]
+The phone hangs up.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="hangoff1"]
+[image="phone.pcx"]
+
+[colour="#808080"]
+The phone hangs up.
+
+You look at the phone, with a faint feeling of unease,
+before you realise that there isn't any signal!
+
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+

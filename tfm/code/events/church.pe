@@ -1,0 +1,231 @@
+################################
+#                              #
+#  Church-related plot events  #
+#                              #
+################################
+
+local
+integer delaytimer = 0
+endlocal
+
+##
+##  Returned from New Cricklade
+##
+
+function plot_cricklade3_off
+integer x
+get_user_flag x = "CrickladeAbbey2"
+if x <> 0
+	get_user_flag x = "CrickladeAbbey3"
+	if x = 0
+		set_user_flag "CrickladeAbbey3" = 1
+		destroy current # Destroy the trigger
+	endif
+endif
+end
+
+##
+##  Sacrifice sacrifice sacrifice sacrifice..
+##
+
+function plot_sacrifice
+object jesus
+object cardinal
+integer i
+
+# Check the entire cast is here
+
+let jesus = me.stats.owner
+if_not_exist jesus
+	# Jesus has gone MIA, kill the player
+	let current = player
+	talk_to "people/church/lord.txt" "jesusisdead"
+	let current = player
+	let current.enemy = player
+	call fry_current
+	return
+endif
+
+let cardinal = jesus.stats.owner
+if_not_exist cardinal
+	# Where is the cardinal?
+	let current = player
+	talk_to "people/church/lord.txt" "umbringisdead"
+	let current = player
+	let current.enemy = player
+	call fry_current
+	return
+endif
+
+# Now we can begin
+fade_out
+
+transfer_object player to me.x me.y
+move_to_top player
+set_sequence player = "player_tiedup"
+start_action player does sleeping	# You not move!
+centre around player
+
+wait 2000 NONBLOCKING
+# Play bundle sounds?
+
+fade_in
+
+wait 2000 NONBLOCKING
+
+set_user_flag "false" = 0
+talk_to "people/church/lord.txt" "sacrfice"
+get_user_flag i = "false"
+if i <> 0
+	# Kill Umbring instead
+	destroy me		# Remove the trigger
+	return
+endif
+
+# Hurt the player
+start_action cardinal does start_attack to player
+let player.user.oldhp = 100
+let player.stats.hp = 90
+check_hurt player
+
+
+# Start the plasma from Jesus
+fx_getxy player.user.user14 player.user.user15 = jesus
+fx_getxy player.user.user16 player.user.user17 = player
+# Jockey the coordinates into place
+#add player.user.user14 + 32
+#add player.user.user15 + 16
+add player.user.user16 + 16
+add player.user.user17 + 16
+# Set the corona intensity (initially 0)
+let player.user.user18 = 0
+
+overfx player does fx_sacrfice
+
+destroy me
+
+end
+
+##
+## SFX for the sacrifice scene ('sacrfice' was a neat set of Doom levels)
+##
+
+function fx_sacrfice
+
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+let fx_srcx = player.user.user14
+let fx_srcy = player.user.user15
+let fx_intensity = player.user.user18
+
+let fx_radius = 64
+let fx_falloff = 3400			# 2.30 falloff rate
+fx_corona TINT_WHITE
+let current = player
+fx_sprite
+
+# First, fade the plasma in
+add player.user.user18 + 10
+if player.user.user18 >= 800
+	# Done, now start moving it
+	overfx player does fx_sacrfice2
+endif
+
+end
+
+
+function fx_sacrfice2
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+let fx_srcx = player.user.user14
+let fx_srcy = player.user.user15
+let fx_destx = player.user.user16
+let fx_desty = player.user.user17
+let fx_intensity = player.user.user18
+
+let fx_radius = 64
+let fx_falloff = 3400			# 2.30 falloff rate
+fx_corona TINT_WHITE
+let current = player
+fx_sprite
+
+# Move the corona towards its target
+if fx_srcy > fx_desty
+	let player.user.user15 = fx_srcy - 1
+endif
+if fx_srcy < fx_desty
+	let player.user.user15 = fx_srcy + 1
+endif
+
+# Are we there yet?
+if delaytimer = 0
+	if fx_srcx > fx_destx
+		let player.user.user14 = fx_srcx - 1
+	endif
+	if fx_srcx < fx_destx
+		let player.user.user14 = fx_srcx + 1
+	endif
+endif
+
+add delaytimer + 1
+if delaytimer > 2
+	let delaytimer = 0
+endif
+
+if fx_srcy = fx_desty
+	if fx_srcx = fx_destx
+		# Yes, now the player is Jesus
+		set_sequence player = "jesus_tiedup"
+		# fade the plasma away again
+		overfx player does fx_sacrfice3
+	endif
+endif
+
+end
+
+
+function fx_sacrfice3
+
+fx_alpha 0
+fx_alphamode ALPHA_ADD
+
+let fx_srcx = player.user.user14
+let fx_srcy = player.user.user15
+let fx_intensity = player.user.user18
+
+let fx_radius = 64
+let fx_falloff = 3400			# 2.30 falloff rate
+fx_corona TINT_WHITE
+let current = player
+fx_sprite
+
+# fade the plasma out
+add player.user.user18 - 10
+if player.user.user18 < 10 
+	# Done, now start moving it
+	stopfx player
+	call plot_sacrifice_done
+endif
+
+end
+
+
+##
+## The player has been sacrificed to Jesus
+## 
+
+function plot_sacrifice_done
+
+wait 2000 NONBLOCKING
+talk_to "people/church/crucifix.txt" "sacrifice"
+fade_out
+
+wait 2000 BLOCKING
+
+restart_game	# Game over
+
+fade_in
+end
+

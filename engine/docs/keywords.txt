@@ -1,0 +1,569 @@
+Keywords understood by the NPC script engine.
+=============================================
+
+[page="name"]
+
+The page called 'name' starts here.  The first page should usually be called
+'start'.  This is the default if one hasn't been specified.
+
+As of 0.80 the engine will also look for 'startname' if the player knows the
+NPC's name (it will default to 'start' if there isn't one).
+See also [ifknowname]
+
+
+
+[endpage]
+
+The current page stops here.
+
+
+
+[link_colour="#123456"]
+
+Set the colour for all page links to be 0x12 Red, 0x34 Blue, 0x56 Green
+(god knows what colour that would be)
+
+Also called: link_color, linkcolour, linkcolor, links
+
+
+
+[colour="#123456"]
+
+Set the colour for all text to be 0x12 Red, 0x34 Blue, 0x56 Green
+(god knows what colour that would be)
+
+Also called: color
+
+
+[font 2]
+
+Set the font used on the page to font number 2.  There are currently 8
+font banks, the system font is 0, and the default conversation font is 1.
+If you load fonts into other banks (using -loadfont <n> <filename> in
+the .gam file, you can use this to select them.
+If the font is a coloured font, (like the DOOM font) the font's colours
+will be used by default.  If you set the colour yourself, the font will
+be displayed opaquely in that colour.
+
+
+[link_offset=16]
+
+Set the position of the Links menu to be 16 pixels to the right.
+You can use this to align the links against a background image.
+
+Also called: linkoffset, link_x, linkx
+
+
+
+[backing="filename.pcx"]
+
+Use the file 'pics/filename.pcx' as a background image.
+
+
+
+[image="spritename"]
+
+Look in the resource.txt file for a sprite called 'spritename' and use
+that as the portrait at the top of the page.
+
+
+
+[nextpage="mypage"]
+
+At the end of the page, wait for a key and then jump to 'mypage' as the
+next page.
+
+
+
+[delay 3]
+
+When the page is drawn, wait 3 seconds before showing the page links.
+This is useful for a plot-critical conversation that appears from nowhere
+(e.g. mobile phone rings, or a passing god speaks to the player etc.).
+This guarantees the user will see it and not skip it instantly because
+they are holding down the arrow keys to move.
+
+
+
+[left="mypage"]
+
+At the end of the page, wait for a key and then jump to 'mypage' if the
+left arrow was pressed.
+
+
+
+[right="mypage"]
+
+At the end of the page, wait for a key and then jump to 'mypage' if the
+left arrow was pressed.
+
+
+
+[goto="mypage"]
+
+Jump immediately to 'mypage', without displaying the rest of the page
+being parsed.  Use this before the page body to jump to other pages when
+certain conditions are met.
+
+
+
+[append="mypage"]
+
+Jump immediately to 'mypage', without displaying the rest of the page
+being parsed, OR clearing the screen.  This effectively splices two pages
+together.  It is especially useful for having a common set of links for
+several different pages.
+
+
+
+[random_page="mypage 00 99"]
+
+Constructs a random numbered page name, from the given parameters.
+The first parameter is the base name of the page, the second parameter is the
+starting number, and the third parameter is the number of pages in the range.
+
+For example, [random_page="mypage 00 03"] will jump to one of the following
+pages:
+
+	mypage00
+	mypage01
+	mypage02
+	mypage03
+
+Useful for making 'fortune cookies' or random hints.  Jump behaviour is the
+same as [goto=]
+
+
+
+[link="conversation subject"]
+
+Add a new link to the menu at the bottom of the page.  Link adds the
+heading, e.g. "What is your name?".  It must be followed by linkto.
+
+
+
+[linkto="newpage"]
+
+Adds the destination of the link being constructed.  This is the page it
+jumps to when you choose the menu option.  It must be preceded by link.
+
+
+
+[alt_link="conversation subject"]
+
+If you have already chosen the above link in a previous conversation, the
+menu option will be replaced with the alternate text given here,
+e.g. "what was your name again?"
+You must have both a link= and linkto= statement just before this command.
+
+Also called: altlink
+
+
+
+[alt_linkto="mypage"]
+
+Like alt_link, you can also specify an alternate destination page for the
+conversation after the link has been seen the first time.
+e.g. "As I've told you before, you must look for the golden staff.."
+
+Also called: altlinkto
+
+
+
+[always]
+
+If this is placed just after a link, that link will always be show.
+As of 0.81, the default behaviour is to only show a link once each
+time the player talks to an NPC.
+
+
+[resetlinks]
+
+Forget which pages the user has visited.  If you put this on the first
+page, links marked with [once] will effecitvely be shown once each time
+you talk to the NPC, rather than once for the entire game, which is the
+default behaviour.
+
+Also called: reset_links
+
+
+[if <flag>]
+
+If the flag is true, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+
+
+
+[if_not <flag>]
+
+If the flag is false, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+
+
+
+[set <flag>]
+
+Makes the flag true.
+
+
+
+[clear <flag>]
+
+Makes the flag false.
+
+Also called: clr
+
+
+
+[if_local <localflag>]
+
+If the flag is true, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+Local flags are specific to the player.
+
+
+
+[if_not_local <localflag>]
+
+If the flag is false, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+Local flags are specific to the player.
+
+
+
+[set_local <localflag>]
+
+Makes the local flag true.
+
+
+
+[clear_local <localflag>]
+
+Makes the local flag false.
+
+Also called: clr_local
+
+
+
+[if_personal_flag <localflag>]
+
+If the flag is true, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+
+Also called: if_pflag, ifpflag, ifpersonalflag
+
+
+
+[if_not_personal_flag <localflag>]
+
+If the flag is false, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+The flag is a number from 0-31 inclusive.
+
+Also called: if_npflag, ifnpflag, if_not_pflag, ifnotpersonalflag
+
+
+
+[set_personal_flag <flag no>]
+
+Makes the flag for the NPC you're talking to true.  The flag is a number
+from 0-31 inclusive.
+
+Also called: set_pflag
+
+
+[clear_personal_flag <flag no>]
+
+Makes the flag for the NPC you're talking to false.  The flag is a number
+from 0-31 inclusive.
+
+Also called: clear_pflag, clr_personal_flag, clr_pflag
+
+
+
+[call function]
+
+Calls the script function.  Avoid touching the display in the function
+otherwise the screen may become corrupted.
+
+Also called: callvrm, call_vrm
+
+
+
+[on_exit_call function]
+
+Calls the script function, but only when the conversation finishes.
+
+Also called: at_exit_call, call_at_exit, call_on_exit, at_exit_callvrm,
+at_exit_call_vrm, on_exit_callvrm, on_exit_call_vrm
+
+
+
+[remove 123 thing]
+
+Remove or subtract 123 objects of type 'thing' from the player's inventory.
+If successful, the flag 'true' is set, and the flag 'false' is cleared.
+If unsuccessful (none, or not enough objects of that type) then 'false' is
+set and 'true' is cleared.
+
+Also called: destroy
+
+
+
+[create 123 thing]
+
+Create 123 objects of type 'thing' in the player's inventory.
+It is currently assumed that this will always be successful.
+
+
+
+[give 123 thing]
+
+Remove 123 objects of type 'thing' from the NPC you are talking to and
+transfer them into the player's inventory.  It sets True and False
+accordingly.
+
+
+
+[take 123 thing]
+
+Remove 123 objects of type 'thing' from the player you are talking to and
+transfer them into the NPC's inventory.  It sets True and False
+accordingly.
+
+
+
+[is_in_party]
+
+If the person you're talking to is a party member, the flag 'true' is set
+and the flag 'false' is cleared.  Otherwise, 'true' is cleared and 'false'
+is set.
+
+Also called is_in_party?, in_party, in_party?
+
+
+
+[am_carrying object]
+
+If the player is holding an object called 'object', the flag 'true' is set
+and the flag 'false' is cleared.  Otherwise, 'true' is cleared and 'false'
+is set.
+
+Also called is_carrying, is_in_pocket
+
+
+[is_npc_carrying object]
+
+If the current NPC is holding an object called 'object', the flag 'true'
+is set and the flag 'false' is cleared.  Otherwise, 'true' is cleared and
+'false' is set.
+
+Also called are_they_carrying
+
+
+
+[are_there 3 thing]
+
+If the player is carrying 3 objects of type 'thing', the flag 'true' is set
+and the flag 'false' is cleared.  Otherwise, 'true' is cleared and 'false'
+is set.
+
+
+
+[is_onscreen NPC_name]
+
+Set true and false accordingly, depending on whether an NPC of that name
+is currently visible onscreen.
+
+Also called: is_on_screen, isonscreen
+
+
+
+[add_karma 4]
+
+Add 4 points to the player's Karma level.
+
+Also called: addkarma
+
+
+
+[sub_karma 4]
+
+Takes 4 points from the player's Karma level.
+
+Also called: subkarma
+
+
+
+[choose_member mypage]
+
+Displays a menu of everyone in your party.  If the user selects a party
+member, VICTIM is set to that person and the parser immediately jumps to
+the page 'mypage'.  Otherwise it continues to the next line.
+
+Also called: choosemember, chooseparty, choose_party
+
+
+
+[iftime 1100-1300]
+
+If the current time is between 11:00am and 1:00pm inclusive, the flags
+'true' and 'false' are set accordingly.  The two times are in 24 hour
+notation.
+
+Also called: if_time, iftimeis, if_time_is
+
+
+
+[ifntime 1100-1300]
+
+If the current time ISN'T between 11:00am and 1:00pm inclusive, the flags
+'true' and 'false' are set acordingly.  The two times are in 24 hour
+notation.
+
+Also called: if_not_time, ifntimeis, if_not_time_is
+
+
+
+[knowname]
+
+The party learns the name of the NPC they are talking to.
+
+Also called: know_name, learnname, learn_name
+
+
+
+[ifknowname]
+
+If the party knows the name of the NPC the player is talking to, the rest
+of the line will be parsed.  It can either be text that will be displayed,
+or it can also be another command.
+
+Also called: if_know_name, if_knowname
+
+
+
+[ifnknowname]
+
+If the party DOESN'T know the name of the NPC the player is talking to, the
+rest of the line will be parsed.  It can either be text that will be displayed,
+or it can also be another command.
+
+Also called: if_not_know_name, if_not_knowname, if_nknowname
+
+
+
+[ifplayermale]
+
+If the player is male, the rest of the line will be parsed.  It can either be
+text that will be displayed, or it can also be another command.
+
+Also called: if_player_male, if_male
+
+
+
+[ifplayerfemale]
+
+If the player is female, the rest of the line will be parsed.  It can either
+be text that will be displayed, or it can also be another command.
+
+Also called: if_player_female, if_female
+
+
+
+[ifplayerhero]
+
+If the current player is the hero of the game (i.e. not one of their followers)
+the rest of the line will be parsed.  It can either be text that will be
+displayed, or it can also be another command.
+
+Also called: if_player_hero, if_hero
+
+
+
+[ifnplayerhero]
+
+If the current player is the hero of the game (i.e. not one of their followers)
+the rest of the line will be parsed.  It can either be text that will be
+displayed, or it can also be another command.
+
+Also called: if_not_player_hero, if_not_hero
+
+
+
+$PLAYER	 (also $PLAYERNAME)
+
+This string is replaced with the player's name.
+
+
+
+$CHARNAME
+
+This string is replaced with the name of the character you're talking to.
+If the character is a Symlink, i.e. the object points to a 'master' object,
+it will use the name of the 'master' object not the current one.
+
+
+
+$OBJNAME
+
+This is replaced with the actual name of the character you're talking to.
+If the character is a Symlink, i.e. it points to a 'master' object, it
+will still use the name of the current object, not the 'master'.
+
+
+
+$DECODExxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+This will replace the encrypted string 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+with the decoded text.  Use the 'crypter' utility to create encrypted text.
+The cypher is a simple alphabet substitution to prevent casual users from
+seeing spoilers in the conversation.  It's not industrial-strength.
+
+
+
+$SIR
+
+This will be replaced with 'Sir' or 'Madam' depending on whether the
+player is male or female.
+
+
+
+$HE
+
+This will be replaced with 'He' or 'She' depending on whether the player
+is male or female.
+
+
+
+$he
+
+This will be replaced with 'he' or 'she' depending on whether the player
+is male or female.  (It's lower-case, that's the only difference)
+
+
+
+$LORD
+
+This will be replaced with 'Lord' or 'Lady' depending on the player's sex.
+
+
+
+$MILORD
+
+This will be replaced with 'Milord' or 'Milady' depending on the player's
+sex.
+
+
+
+$MR
+
+This will be replaced with 'Mr' or 'Miss' depending on the player's sex.
+The engine doesn't yet support marital ties so it doesn't do 'Mrs'.
+
+
+$MASTER
+
+This will be replaced with 'master' or 'mistress' depending on the
+player's sex.
+

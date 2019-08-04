@@ -1,0 +1,725 @@
+SureTooth the Weaver
+
+[p_age="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+============== FEAR =======================
+
+[page="start"]
+[p!age="first"]
+[image="weaver.png"]
+[colour="#808080"]
+You see a startled wolf-creature, cowering away
+from you.
+[colour="#ffffff"]
+
+"Aaahh!!!  A Man!   What do you want with me?"
+
+[link="Who are you?"]
+[linkto="name-fear"]
+[link="What are you?"]
+[linkto="waarg-fear"]
+[link="What do you do?"]
+[linkto="job-fear"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1-fear"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name-fear"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature becomes a bit less tense.
+[colour="#ffffff"]
+
+"I am SureTooth the weaver.
+ Good jaw coordination is necessary for this and
+ many other professions.
+ 
+ My parents noticed I had the gift early on, and
+ so they named me "SureTooth".
+ 
+ What is it that you want?"
+
+[learn_name]
+[link="What are you?"]
+[linkto="waarg-fear"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2-fear"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1-fear"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job-fear"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature becomes a bit less tense.
+[colour="#ffffff"]
+
+"My name is SureTooth.. I am one of the weavers of
+ this town.
+  
+ What is it that you want with me?"
+
+[learn_name]
+[link="What are you?"]
+[linkto="waarg-fear"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2-fear"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1-fear"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+
+[page="job2-fear"]
+[image="weaver.png"]
+"What?  Er, it was the looms.  I used to watch the
+ other weavers as a cub, I was always fascinated by
+ the way they worked.  So I became an apprentice.
+ 
+ But then the war against the humans broke out.
+ Many died, and after the carnage, good King Grey
+ was assassinated!
+ 
+ When Lord Redtooth took the throne, the guild of
+ the Royal Weavers fell out of favour and was
+ disbanded."
+
+[nextpage="job2-fear2"]
+[endpage]
+
+[page="job2-fear2"]
+[image="weaver.png"]
+"All the guild members were imprisoned or banished.
+ Now, only a handful of independent weavers remain.
+ 
+ Tell me, why have you come here?""
+
+[link="Tell me about RedTooth."]
+[linkto="redtooth"]
+[link="Tell me about Grey."]
+[linkto="grey"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="What are you?"]
+[linkto="waarg"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1-fear"]
+[link="I am on a mission from God."]
+[linkto="god"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, no real reason.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="waarg-fear"]
+[image="weaver.png"]
+"I am a Waarg.  We are the inhabitants of this land.
+ We were raised from dumb beasts by our God,
+ Aa'Ruuff, now known as "Aa'Ruuff The Betrayer".
+
+ We don't worship Him after the Great Battle against
+ Men..."
+ 
+[colour="#808080"]
+The creature backs away, his voice rising to a
+shriek as a terrible thought occurs to him.
+[colour="#ffffff"]
+
+"..has He sent you here TO FINISH US OFF?!?"
+
+[link="No, I'm lost."]
+[linkto="explore"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1-fear"]
+[link="I am exploring the world."]
+[linkto="explore"]
+[link="I am on a mission from God."]
+[linkto="god"]
+[link="Yes!  I have come to sanctify this place with blood!"]
+[linkto="help"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2-fear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="explore"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature straightens up, and becomes less
+nervous.
+[colour="#ffffff"]
+
+"Thank the heavens!  Some among us live in fear that the
+ Betrayer may decide to finish off His ex-worshippers."
+
+[link="Who is the Betrayer?"]
+[linkto="who_aaruuff"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="What made you choose to become a weaver?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cloth1-fear"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature looks stunned.
+[colour="#ffffff"]
+"C..cloth?  Uh, certainly.
+
+ Which colour do you want?
+ I have Red, green, brown, blue or purple.
+ They are all 15 gold coins a piece.."
+
+[append="cloth2"]
+[endpage]
+
+
+[page="god"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature backs away from you!
+[colour="#ffffff"]
+"You worship the Betrayer! He has sent you here to kill
+ us all!"
+
+[link="Who is the Betrayer?"]
+[linkto="who_aaruuff"]
+[link="He didn't say anything about that to me."]
+[linkto="not_kill"]
+[link="Er, no.."]
+[linkto="not_kill"]
+[link="Yes!  I am here to end your blasphemous lives!"]
+[linkto="help"]
+[link="This is getting out of hand.  I'm going."]
+[linkto="bye"]
+[endpage]
+
+
+============== NO FEAR =======================
+
+[page="back_again"]
+[image="weaver.png"]
+[colour="#808080"]
+You see SureTooth the weaver.
+[colour="#ffffff"]
+
+"Hello again.  What can I do for you?"
+
+[link="Who are you again?"]
+[linkto="name"]
+[link="What exactly are you?"]
+[linkto="waarg"]
+[link="What is your job?"]
+[linkto="job"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="not_kill"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature straightens up, and becomes less
+nervous.
+[colour="#ffffff"]
+
+"Really?  In that case I may have misunderstood
+ your intent.
+ 
+ Is there something I can do for you?"
+
+[link="Who is the Betrayer?"]
+[linkto="who_aaruuff"]
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="What made you choose to become a weaver?"]
+[linkto="job2"]
+[link="Wrong!  Time to die!"]
+[linkto="help"]
+[link="This is getting out of hand.  I'm going."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="weaver.png"]
+"I am SureTooth the weaver.  Good mouth coordination
+ is necessary for this and many other professions.
+ My parents noticed I had the gift early on, and so
+ they named me "SureTooth".
+ 
+[learn_name]
+
+[link="What are you?"]
+[linkto="waarg"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="weaver.png"]
+"My name is SureTooth.. I am one of the weavers of
+ this town.
+  
+ Is there something you want?"
+
+[learn_name]
+[link="What are you?"]
+[linkto="waarg"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+[image="weaver.png"]
+"I used to watch the other weavers as a cub, and I
+ was always fascinated by the way the looms worked.
+ So I became an apprentice.
+ 
+ But then the war against the humans broke out.
+ Many died, and after the carnage, King Grey was
+ assassinated.
+ 
+ When Lord RedTooth took the throne, the guild of
+ the Royal Weavers fell out of favour and was
+ disbanded."
+ 
+[nextpage="job2b"]
+[endpage]
+
+[page="job2b"]
+[image="weaver.png"]
+ "All the guild members were imprisoned or banished.
+ Now, only a handful of independent weavers remain."
+
+[link="Tell me about your king."]
+[linkto="kings"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="helpyou"]
+[image="weaver.png"]
+"Is there some other way I can help you, then?"
+
+[link="Tell me about your King."]
+[linkto="kings"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="cloth1"]
+[image="weaver.png"]
+[if_not_know_name][goto="cloth1-fear"]
+"Certainly.  I have  red, green, brown, blue and
+ purple cloth.  Two gold coins per piece.
+ 
+ Which would you prefer?"
+
+[append="cloth2"]
+[endpage]
+
+
+[page="cloth2"]
+[link="red"]
+[linkto="red"]
+[always]
+[link="green"]
+[linkto="green"]
+[always]
+[link="brown"]
+[linkto="brown"]
+[always]
+[link="blue"]
+[linkto="blue"]
+[always]
+[link="purple"]
+[linkto="purple"]
+[always]
+[link="I've changed my mind."]
+[linkto="helpyou"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="red"]
+[take 2 gold_coins]
+[if false][goto="nomoney"]
+[create 1 cloth00]
+[append="gotcloth"]
+[endpage]
+
+
+[page="green"]
+[take 2 gold_coins]
+[if false][goto="nomoney"]
+[create 1 cloth01]
+[append="gotcloth"]
+[endpage]
+
+
+[page="blue"]
+[take 2 gold_coins]
+[if false][goto="nomoney"]
+[create 1 cloth03]
+[append="gotcloth"]
+[endpage]
+
+[page="purple"]
+[take 2 gold_coins]
+[if false][goto="nomoney"]
+[create 1 cloth04]
+[append="gotcloth"]
+[endpage]
+
+
+[page="brown"]
+[take 2 gold_coins]
+[if false][goto="nomoney"]
+[create 1 cloth02]
+[append="gotcloth"]
+[endpage]
+
+
+
+[page="gotcloth"]
+[image="weaver.png"]
+"Is there anything else I can do for you?"
+[link="Tell me about your King."]
+[linkto="kings"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="I'd like some more cloth, please."]
+[linkto="cloth1"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+[image="weaver.png"]
+"I fear you have not the gold for that.  Can I help you
+ in some other manner?"
+
+[link="Tell me about your King."]
+[linkto="kings"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who_aaruuff"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature eases off.
+[colour="#ffffff"]
+"You don't know of the Betrayer?
+ He is our God.  He created us, but turned against
+ us when Men arrived on this world.
+ 
+ You would do better to ask another of this if you
+ wish to know any details.."
+
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="waarg"]
+[image="weaver.png"]
+"I am a Waarg.  We are the inhabitants of this land.
+ We were raised from dumb beasts by our God,
+ Aa'Ruuff, now known as "Aa'Ruuff The Betrayer".
+
+ We haven't worshipped Him since He sent Men to
+ smash our temples and kill our people."
+ 
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+============ POLITICS ===================
+
+[page="kings"]
+[image="weaver.png"]
+"Of late we have had three kings in fast succession.
+ Would you speak of our King Redtooth the Usurper, his
+ predecessor, SwiftRunner the Unready, or the late and
+ beloved King Grey?"
+
+[link="Tell me more about King RedTooth."]
+[linkto="redtooth"]
+[always]
+[link="Tell me about King Swiftrunner."]
+[linkto="swiftrunner"]
+[always]
+[link="Tell me about King Grey."]
+[linkto="grey"]
+[always]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="redtooth"]
+[image="weaver.png"]
+"He is our current King. It is not proper to speak ill of
+ him, yet there are those who feel that his reign
+ is less ..just.. than that of our old King.
+ 
+ I was only ten when the war ended, and I can tell
+ you little of the old times of King Grey.  But
+ others say that he paid much more attention to the
+ welfare of his subjects than our present King does."
+ 
+ To be sure, our Royal Majesty has rebuilt the
+ Castle with great speed.  But most everyone else
+ still lives in these crude huts of wood and thatch
+ that were built as temporary shelter after the
+ war.."
+
+[nextpage="redtooth2"]
+[endpage]
+
+
+[page="redtooth2"]
+[image="weaver.png"]
+[colour="#808080"]
+SureTooth lowers his voice to a curious, doggy
+whispering.
+[colour="#ffffff"]
+
+"At Grey's death, his younger brother, SwiftRunner,
+ took the crown.  His rule was fair and good, but
+ he was inexperienced, and General RedTooth, as he
+ was then known, usurped the throne in a coup.
+
+ I cannot say much more about His Majesty, but I
+ urge you to take care if you would speak to others
+ on this matter.  It is not wise to question the
+ King's rule openly, for walls may have ears, and
+ our King is far less tolerant of criticism than his
+ predecessor.  His ire can be terrible."
+
+[link="Tell me about Swiftrunner."]
+[linkto="swiftrunner"]
+[link="Tell me about Grey."]
+[linkto="grey"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="swiftrunner"]
+[image="weaver.png"]
+"Swiftrunner the Unready took the crown unwillingly when
+ our good King Grey was slain.  His rule was just, but
+ he was ever in the shadow of his elder brother's
+ greatness.
+
+ He was dethroned and exiled by an ambitious general, who
+ was then crowned King Redtooth.  He is now our King."
+
+[link="Tell me about RedTooth."]
+[linkto="redtooth"]
+[link="Tell me about Grey."]
+[linkto="grey"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="grey"]
+[image="weaver.png"]
+"Grey was a noble ruler, and well-loved by his
+ subjects.  He had a silver-grey coat, which is
+ quite unusual among our race.
+ 
+ He was picked as successor by the previous king,
+ who abdicated when he felt he was too old to rule.
+ 
+ Grey was close to Aa'Ruuff, and even had audiences
+ with Him.  Yet he was no puppet.  At the Betrayal,
+ Grey swore vengance against Aa'Ruuff and put his
+ mind to defending our realm, with great success.
+ 
+ If you have seen the Field of Bones, you will note
+ that most of the dead are not Waarg."
+
+[nextpage="grey2"]
+[endpage]
+
+
+[page="grey2"]
+[image="weaver.png"]
+"Grey's downfall was brought about by Aa'Ruuff.
+ Not only King, but our main strategist, he was a
+ prime target for assassination.
+ 
+ Part of Grey's secret to success, it is said, was
+ that he always hunted his own food.  Other kings
+ were waited on by their servants, but Grey wanted
+ to be as much like his subjects as possible.
+
+ Aa'Ruuff sent a human, armed with a weapon that
+ shot metal, and so Grey was slain while hunting."
+ 
+
+[link="Tell me about Swiftrunner."]
+[linkto="swiftrunner"]
+[link="Tell me about RedTooth."]
+[linkto="redtooth"]
+[link="Tell me about the war."]
+[linkto="war"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="war"]
+[image="weaver.png"]
+"In truth, I know little of how the war began, though I
+ do know that it was started by Aa'Ruuff, and it was this
+ act of violence against His own Faithful, that lead to
+ our rejection of Him as our God.
+
+ If you would know more, I suggest you find an elder
+ waarg to ask, for I was but young when the war was
+ ended."
+
+[link="Tell me about your King."]
+[linkto="kings"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+============ ENDINGS =================
+
+[page="bye"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature looks at you nervously and returns to
+his business.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="nocollar"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature gives a great yell and bounds away.
+[colour="#ffffff"]
+
+[on_exit_call="flee"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="help"]
+[image="weaver.png"]
+[colour="#808080"]
+The creature shouts in a keening voice!
+[colour="#ffffff"]
+
+"HELP!  GUARDS!"
+
+[on_exit_call="call_guards"]
+[nextpage="exit"]
+[endpage]

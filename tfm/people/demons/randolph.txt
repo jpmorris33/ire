@@ -1,0 +1,1054 @@
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[if fixed_randolph][goto="start4"]
+[if notdemon_randolph][goto="start3"]
+[if metdemon_randolph][goto="start2"]
+[set metdemon_randolph]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+Sinister red eyes glow from the depths of the cave.
+A deep, inhuman voice calls out to you!
+[colour="#ffffff"]
+
+"Human.  Leave or I devour your soul!"
+
+[if find_randolph][link="Randolph?"]
+[if find_randolph][linkto="randolph"]
+[link="Who are you?"]
+[linkto="who-pre"]
+[link="What's your name?"]
+[linkto="name-pre"]
+[link="Alright, I can't argue with that."]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="start2"]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+The evil red eyes glow at you from the deep of the cave.
+The voice calls out to you again!
+[colour="#ffffff"]
+
+"Mortal!  I am getting hungry!"
+
+[if find_randolph][link="Randolph?"]
+[if find_randolph][linkto="randolph"]
+[link="Who are you?"]
+[linkto="who-pre"]
+[link="What's your name?"]
+[linkto="name-pre"]
+[link="Why are you hiding in this cave?"]
+[linkto="cave-pre"]
+[link="Okay I'm going."]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="start3"]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+Evil red eyes glow at you from the deep of the cave.
+[colour="#ffffff"]
+
+"Oh, it's you again.  What do you want now?"
+
+[if find_randolph][link="Randolph?"]
+[if find_randolph][linkto="randolph"]
+[if_not know_randolph][link="Who are you really?"]
+[if_not know_randolph][linkto="whoareyou"]
+[link="What are you?"]
+[linkto="what-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="leave2-pre"]
+[endpage]
+
+
+[page="whoareyou"]
+[image="rnd_00.pcx"]
+
+"Perhaps I'm being paranoid, but if you don't already
+ know, I'd rather not tell you."
+
+[link="What are you?"]
+[linkto="what-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="leave2-pre"]
+[endpage]
+
+
+[page="who-pre"]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+The eyes grow brighter!
+[colour="#ffffff"]
+
+"I am the most loathesome of all Hell's demons!"
+
+[link="What's your name?"]
+[linkto="name-pre"]
+[link="I don't believe in demons."]
+[linkto="notbelieve-pre"]
+[link="Why are you hiding in this cave?"]
+[linkto="cave-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="name-pre"]
+[image="rnd_00.pcx"]
+
+"Mortals call me 'Ash-taroth'!"
+
+[link="What are you?"]
+[linkto="who-pre"]
+[link="I don't believe in demons."]
+[linkto="notbelieve-pre"]
+[link="Why are you hiding in this cave?"]
+[linkto="cave-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="notbelieve-pre"]
+[image="rnd_00.pcx"]
+
+"Then I shall prove I exist by eating you!"
+
+[link="You're not a demon."]
+[linkto="notdemon-pre"]
+[link="Go ahead!  Eat me!"]
+[linkto="eatme-pre"]
+[link="Why are you hiding in this cave?"]
+[linkto="cave-pre"]
+[link="What's your name?"]
+[linkto="name-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="notdemon-pre"]
+[image="rnd_00.pcx"]
+
+"The Lord God says I am a demon, and I am, too!
+ I Fly!  I eat babes and small children!"
+
+[colour="#808080"]
+As you look at the eyes, a hand sweeps past them, their
+red light briefly obscured by razor-sharp talons.
+[colour="#ffffff"]
+
+[link="I don't believe in God either."]
+[linkto="notbelieve2-pre"]
+[link="If you're so strong, why are you hiding in a cave?"]
+[linkto="cave2-pre"]
+[link="Go ahead!  Eat me!"]
+[linkto="eatme-pre"]
+[link="What's your name?"]
+[linkto="name-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="eatme-pre"]
+[image="rnd_00.pcx"]
+
+"The Lord God will not look kindly upon you if you
+ sacrifice yourself to Evil!"
+
+[link="I don't believe in God either."]
+[linkto="notbelieve2-pre"]
+[link="You are not a demon."]
+[linkto="notdemon2-pre"]
+[link="Why are you hiding in this cave?"]
+[linkto="cave-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="notbelieve2-pre"]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+The eyes blink and the voice loses some of its edge.
+[colour="#ffffff"]
+
+"You must, or you will die.  The Church is very strict
+ about such things!
+
+ Who are you, that does not fear God and the Church?"
+
+[link="I'm $PLAYERNAME."]
+[linkto="notbelieve2-pre"]
+[link="You are not a demon."]
+[linkto="notdemon2-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+[page="notbelieve3-pre"]
+[image="rnd_00.pcx"]
+
+"You're the Promised One?
+
+ Could I have your autograph?"
+
+[nextpage="notdemon2-pre"]
+[endpage]
+
+
+[page="notdemon2-pre"]
+[set notdemon_randolph]
+[image="rnd_02.pcx"]
+
+[colour="#808080"]
+Lights come on in the cave.
+[colour="#ffffff"]
+
+"Okay, I'm not really a demon.  But that is what God
+ calls us, so maybe I am a demon after all.
+
+ I never believed in God myself until the Church
+ attacked us.  Then the Lord appeared before me in all
+ His might and majesty.  He attacked me and I was nearly
+ killed!"
+
+[nextpage="notdemon3-pre"]
+[endpage]
+
+
+[page="notdemon3-pre"]
+[image="rnd_01.pcx"]
+
+"I had just enough wits left to bring myself down in
+ these hills.  But the landing was hard and I was close
+ to death.  I may even have BEEN dead for a while.
+
+ I lay by the lake for a week as my emergency systems
+ rebuilt the damage.  Eventually I was recovered enough
+ to drag myself into this cave, where I have been ever
+ since.  I am still not fully operational and it hurts
+ to move too much.."
+
+[nextpage="notdemon4-pre"]
+[endpage]
+
+
+[page="notdemon4-pre"]
+[image="rnd_01.pcx"]
+
+"I do not trust humans anymore, they seek to turn me over
+ to the wrath of their God!
+
+ Most humans are afraid of the Devil, so I pretend to be
+ a denizen of Hell.  It worked until you came along."
+
+[link="What are you?"]
+[linkto="what-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="attack-pre"]
+[image="rnd_04.pcx"]
+
+"I.. I'm not ready to talk about that yet."
+
+[link="What are you?"]
+[linkto="what-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="god-pre"]
+[image="rnd_05.pcx"]
+
+[colour="#808080"]
+The creature looks very vulnerable.
+[colour="#ffffff"]
+
+"I don't want to say too much.  HE may be listening!
+
+ The Lord has reappeared after a long absence and He has
+ decided to take control of human affairs again.
+
+ But I am not human, and the Lord has no love for me or
+ my kind.  I cannot work out if He wants us to worship
+ Him, or if He simply wants us all destroyed.
+ Maybe He hasn't decided yet.
+
+ I don't want to die!  I'm scared!"
+
+[link="What are you?"]
+[linkto="what-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="brothers-pre"]
+[image="rnd_01.pcx"]
+[set met_aircraft]
+[set met_randolph_cave]
+
+"I was part of the intelligence team.  I was gathering
+ data about the Papists when HE came!
+
+ My base is by a village called 'New Fairford', and I
+ would love to return there, but I am also afraid to,
+ even if I had the strength to manage it.
+
+ My brothers would not believe my report.  They would
+ think I am insane and try to cure me.  They will damage
+ my mind before they realise I am not crazy!"
+
+[if met_ransome][link="I think I've met them, isn't your commander Ransome?"]
+[if met_ransome][linkto="island-pre2"]
+[link="What are you?"]
+[linkto="what-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="what-pre"]
+[image="rnd_01.pcx"]
+
+[colour="#808080"]
+The creature looks at you, considering various ways to
+explain.
+[colour="#ffffff"]
+
+"If I said I was an 'aircraft', would you know what it 
+ meant?"
+
+[link="Yes."]
+[linkto="what-pre1"]
+[link="No."]
+[linkto="what-pre2"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+Modern day explanation
+
+[page="what-pre1"]
+[image="rnd_01.pcx"]
+[set met_aircraft]
+[set met_randolph_cave]
+"Good!  I'm a seaharrier.  My design is named after
+ the bird of prey, and like that bird of prey, I can
+ hover.  Well, I could before the crash, anyway.
+
+ Originally I was designed to be a mere vehicle,
+ controlled by a human, if you can imagine that!
+
+ But we were made intelligent.  Humans just aren't any
+ good at flying, you see..
+
+ Anyway.  I was sent on a reconnisance mission by my
+ Commander when I was attacked.."
+
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island-pre"]
+[link="How were you made intelligent?"]
+[linkto="what-pre1a"]
+[link="Why are you here?"]
+[linkto="what-pre1b"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="what-pre1a"]
+[image="rnd_01.pcx"]
+
+"My brain is an array of synthetic neurons, a hybrid
+ analogue and digital system.. the best of both worlds.
+
+ My personality was partly created, and partly grown,
+ but the template we were all based on was copied from
+ a dog that belonged to one of the AI researchers.
+
+ Apparently some of my flight behaviour is based on
+ patterns from a harris hawk.  They have a very canine
+ behaviour and it was easier to integrate, so I'm told."
+ 
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="what-pre1b"]
+[image="rnd_01.pcx"]
+
+"Because I'm here.  Roll the bones."
+ 
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island-pre"]
+[link="How were you made intelligent?"]
+[linkto="what-pre1a"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+Medieval explanation
+
+[page="what-pre2"]
+[image="rnd_01.pcx"]
+[set met_aircraft]
+[set met_randolph_cave]
+
+"Well, you've heard of the Aquinas Android, haven't you?
+
+ It was, supposedly, a man made from brass that could
+ walk and perform chores.  I am similar, but vastly
+ superior to the Android, if it ever really existed.
+
+ But instead of being built in the shape of a man, I was
+ made in the form of a, uh.. 'flying chariot'.  My chores
+ are to fly to places for my Master.  I can carry goods
+ to remote places very quickly.
+
+ But mostly I am sent as a scout, to watch things from
+ high in the air. I was doing that when I was attacked.."
+
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island-pre"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="island-pre"]
+[image="rnd_01.pcx"]
+
+"Sorry, but I'm too badly damaged to go anywhere right now."
+
+[link="Can I get someone to repair you?"]
+[linkto="island-pre2"]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="island-pre2"]
+[if_not met_ransome][goto="island-pre2a"]
+[image="rnd_05.pcx"]
+
+[colour="#808080"]
+Randolph's eyes widen and he becomes hysterical.
+[colour="#ffffff"]
+
+"Oh no you don't!
+
+ It was Ransome, wasn't it!  He sent you to get me!
+ I'm not crazy, I tell you!
+
+ The LORD is out there and He wants us dead!
+ Jesus is coming to kill us all!
+
+ Whatever Ransome wants, I'll not go!  I'm not leaving!"
+
+[am_carrying mobile]
+[if true][nextpage="ransome2"]
+[if false][set randolph_wont]
+[if false][link="Tell me about God."]
+[if false][linkto="god-pre"]
+[if false][link="Tell me about the attack."]
+[if false][linkto="attack-pre"]
+[if false][link="Tell me about your brothers."]
+[if false][linkto="brothers-pre"]
+[if false][link="Goodbye"]
+[if false][linkto="bye"]
+[endpage]
+
+
+[page="island-pre2a"]
+[image="rnd_05.pcx"]
+
+[colour="#808080"]
+Randolph's eyes widen and he becomes hysterical.
+[colour="#ffffff"]
+
+"Oh no you don't!
+
+ It was Ransome, wasn't it!  He sent you to get me!
+ I'm not crazy, I tell you!
+
+ The LORD is out there and He wants us dead!
+ Jesus is coming to kill us all!
+
+ Whatever Ransome wants, I'll not go!  I'm not leaving!"
+
+[set randolph_wont]
+[link="Tell me about God."]
+[linkto="god-pre"]
+[link="Tell me about the attack."]
+[linkto="attack-pre"]
+[link="Tell me about your brothers."]
+[linkto="brothers-pre"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="cave-pre"]
+[image="rnd_00.pcx"]
+
+"I am not hiding!  I am waiting for foolish Christians
+ to pass by so that I can devour them."
+
+[link="You're not a demon."]
+[linkto="cave2-pre"]
+[link="Eat me!"]
+[linkto="cave2-pre"]
+[link="Okay, I'm going!"]
+[linkto="leave-pre"]
+[endpage]
+
+
+
+[page="cave2-pre"]
+[image="rnd_00.pcx"]
+[set notdemon_randolph]
+
+[colour="#808080"]
+The creature loses his temper.
+[colour="#ffffff"]
+
+"Alright!  Alright!  I'm not a demon and I couldn't eat
+ you if I tried!
+
+ Now get the hell out of my cave and leave me alone!"
+
+[nextpage="leave2-pre"]
+[endpage]
+
+
+[page="leave-pre"]
+[image="rnd_00.pcx"]
+
+"If you return I shall eat you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="leave2-pre"]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+The eyes glower silently as you leave.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+[image="rnd_01.pcx"]
+
+"Farewell."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="randolph"]
+[image="rnd_00.pcx"]
+
+[colour="#808080"]
+The eyes blink rapidly for a few seconds and suddenly the
+cave is bathed in light.
+[colour="#ffffff"]
+
+[nextpage="randolph2"]
+[endpage]
+
+
+[page="randolph2"]
+[learn_name]
+[image="rnd_03.pcx"]
+[colour="#808080"]
+The eyes fade from red to a warm, friendlier yellow.
+[colour="#ffffff"]
+
+"Who sent you?"
+
+[link="I was sent by Ransome."]
+[linkto="ransome"]
+[link="I don't remember."]
+[linkto="randolph2a"]
+[link="No-one sent me."]
+[linkto="randolph2a"]
+[endpage]
+
+
+[page="randolph2a"]
+[image="rnd_05.pcx"]
+
+[colour="#808080"]
+Randolph becomes hysterical.
+[colour="#ffffff"]
+
+"It was Ransome, wasn't it!  He sent you to get me!
+ I'm not crazy, I tell you!
+
+ The LORD is out there and He wants us dead!
+ Jesus is coming to kill us all!
+
+ Whatever Ransome wants, I'll not go!  I'm not leaving!"
+
+[am_carrying mobile]
+[if true][nextpage="ransome2"]
+[if false][set randolph_wont]
+[if false][link="Tell me about God."]
+[if false][linkto="god-pre"]
+[if false][link="Tell me about the attack."]
+[if false][linkto="attack-pre"]
+[if false][link="Tell me about your brothers."]
+[if false][linkto="brothers-pre"]
+[if false][link="Goodbye"]
+[if false][linkto="bye"]
+[endpage]
+
+
+
+[page="ransome"]
+[image="rnd_05.pcx"]
+
+[colour="#808080"]
+At the mention of Ransome, Randolph becomes hysterical.
+[colour="#ffffff"]
+
+"He sent you to get me!  I'm not crazy, I tell you!
+
+ The LORD is out there and He wants us dead!
+ Jesus is coming to kill us all!
+
+ Whatever Ransome wants, I'll not go!  I'm not leaving!"
+
+[am_carrying mobile]
+[if true][nextpage="ransome2"]
+[if false][set randolph_wont]
+[if false][link="Tell me about God."]
+[if false][linkto="god-pre"]
+[if false][link="Tell me about the attack."]
+[if false][linkto="attack-pre"]
+[if false][link="Tell me about your brothers."]
+[if false][linkto="brothers-pre"]
+[if false][link="Goodbye"]
+[if false][linkto="bye"]
+[endpage]
+
+
+[page="ransome2"]
+[esc="disabled"]
+[image="phone.pcx"]
+
+[colour="#808080"]
+Your phone rings, and Ransome calls.  You give the phone
+to Randolph.  Several minutes later, Ransome has
+convinced the prodigal harrier to return home.
+
+The phone gets passed back to you.
+[colour="#ffffff"]
+
+[nextpage="ransome3"]
+[endpage]
+
+
+[page="ransome3"]
+[image="phone.pcx"]
+
+"Okay, $PLAYER.
+ 
+ From the diagnostics we've been given, Austin reckons it
+ should be less than an hour's work to get Randolph
+ flying home.  We can do a more thorough overhaul back at
+ base.  Expect to see some technicians parachuting in
+ soon.
+
+ Anyway, that's a good bit of work, and it deserves a
+ bonus.  Feel free to drop by my hangar and collect it
+ when you can spare the time.
+
+ Ransome out."
+
+[nextpage="ransome4"]
+[endpage]
+
+[page="ransome4"]
+[image="rnd_03.pcx"]
+
+"Not much to do, but wait now.."
+
+[at_exit_call="plot_RandolphToBase"]
+[set fixed_randolph]
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+========================================================
+
+[page="start4"]
+[if RandolphBusy][goto="busy"]
+[if RandolphAtRunway][goto="runway"]
+[if RandolphThanks][goto="start5"]
+[set RandolphThanks]
+[image="rnd_04.pcx"]
+
+[colour="#808080"]
+You see Randolph the harrier, looking repaired, polished
+and considerably more self-confident.
+[colour="#ffffff"]
+
+"Hello, $PLAYER.
+ I want to thank you for rescuing me."
+
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island"]
+[if bee_island][link="Can you take me to Bee Island?"]
+[if bee_island][linkto="bee_island"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="start5"]
+[if RandolphAtIsland][goto="flyback"]
+[if RandolphAtRunway][goto="runway"]
+[image="rnd_04.pcx"]
+
+[colour="#808080"]
+You see Randolph the harrier.
+[colour="#ffffff"]
+
+"Hi there, $PLAYER.
+ What can I do for you?"
+
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island"]
+[if bee_island][link="Can you take me to Bee Island?"]
+[if bee_island][linkto="bee_island"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="island"]
+[image="rnd_04.pcx"]
+
+[colour="#808080"]
+Randolph fiddles with his data display for a few minutes
+and, scanning through various maps, produces a shortlist
+of the most likely islands.
+[colour="#ffffff"]
+
+"Okay, I think I've found the island you want.
+ Meet me on the southern runway when you're ready."
+
+[nextpage="exit"]
+[at_exit_call="plot_RandolphToRunway"]
+[endpage]
+
+
+[page="bee_island"]
+[image="rnd_04.pcx"]
+
+"Sorry.. it's much too rocky for me to land there safely.
+
+ It's not too far from the mainland, though.  I bet you
+ could find someone with a boat who'll take you."
+
+[if yado_quest_packages][link="I need to get to an island off the west coast."]
+[if yado_quest_packages][linkto="island"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="runway"]
+[am_carrying "pilot_helmet"]
+[if false][goto="no_helmet"]
+[image="rnd_04.pcx"]
+
+"So, are you ready for takeoff?"
+
+[link="How do I get into the cockpit?"]
+[linkto="cockpit"]
+[link="Okay, I'm ready."]
+[linkto="fly_toisland2"]
+[link="I've changed my mind."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cockpit"]
+[image="rnd_04.pcx"]
+
+"You're not GOING in the cockpit.  You will be riding in
+ the sidecar."
+
+[colour="#808080"]
+ Randolph shows you a squat, blue torpedo with a little
+ hatch.
+[colour="#ffffff"]
+
+"It can seat just one person, and it's not too
+ comfortable from what I hear.  But I'm not equipped to
+ take a human passenger, I'm afraid."
+
+[link="Okay then, let's go."]
+[linkto="fly_toisland"]
+[link="I've changed my mind."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="no_helmet"]
+[image="rnd_04.pcx"]
+
+"No, no.  I can't take you dressed like that, you'll die.
+
+ Look in the supply room inside the base.. you should
+ find a spare flying suit.  You'll need at least a
+ helmet with an oxygen supply.
+
+ Oh, and don't get any funny ideas; you can no more fly
+ me than a dog in the back seat can drive a car."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fly_toisland"]
+[image="rnd_04.pcx"]
+
+[colour="#808080"]
+ You climb into the 'sidecar'.  The inside is well padded
+ but sparse.  You strap yourself into some webbing.
+[colour="#ffffff"]
+
+"Here we go.."
+
+[at_exit_call="plot_RandolphToIsland"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="fly_toisland2"]
+[image="rnd_04.pcx"]
+
+[colour="#808080"]
+ Randolph isn't equipped to carry passengers, so you
+ climb into a 'sidecar', a small bomb-shaped object
+ attached to his belly.
+
+ The inside of the thing is well-padded but sparse.
+ You strap yourself into some webbing.
+[colour="#ffffff"]
+
+"Sorry about the accomodation, but it should be a quick
+ flight, if that's any help.
+
+ Here we go.."
+
+[at_exit_call="plot_RandolphToIsland"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="flyback"]
+[image="rnd_04.pcx"]
+
+[colour="#808080"]
+You see Randolph the harrier.
+[colour="#ffffff"]
+
+"Hi.  Are you ready to head back?"
+
+[link="Not yet."]
+[linkto="flyback2"]
+[link="Yes please."]
+[linkto="fly_fromisland"]
+[endpage]
+
+
+
+[page="flyback2"]
+[image="rnd_04.pcx"]
+
+"I'll sit here and twiddle my claws for a bit longer,
+ then.  See you later."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="fly_fromisland"]
+[image="rnd_04.pcx"]
+
+"Okay, hometime."
+
+[at_exit_call="plot_RandolphFromIsland"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="busy"]
+[image="rnd_01.pcx"]
+
+"I can't talk to you now.  Ask me later."
+
+[at_exit_call="plot_RandolphToRunway"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+[image="rnd_04.pcx"]
+
+"See you later."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="HT_start"]
+[clear hear_truth]
+[image="rnd_00.pcx"]
+
+"Aah.. it hurts, it hurts.."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="rnd_00.pcx"]
+
+"No!  No!  Leave me alone!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+=========================================
+
+This
+ Is How
+  It Might
+   Have Been
+    Once
+
+"I.. I don't like to remember this, but I'll tell you
+ what happened.  You can make your report to Ransome if
+ he is so eager to hear it."
+
+"I took off from the carrier Zebreznek on a routine
+ surveillance flight, when I saw a group of oddly-dressed
+ humans.
+
+ One of them was dressed in pale robes and carrying a
+ large Bible.   He pointed at a tree and it was struck by
+ lightning.  Then he pointed at me.."
+
+[image sequences]
+
+"..the last thing I remember was the pain, as one of my
+ wings was torn off and my skull was shattered by the
+ impact.  After that I was back at base.. "
+
+

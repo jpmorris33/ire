@@ -1,0 +1,4 @@
+[page="start"]
+[backing="world.jpg"]
+[nextpage="exit"]
+[endpage]

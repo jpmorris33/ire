@@ -1,0 +1,386 @@
+
+
+"Tiny", a B-1 bomber.
+Tiny was intended to be a B-52, but I can't get the mesh
+
+Ian says you should be able to talk to him about phenomenology
+
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[if_pflag did_ht][goto="HT_stop"]
+[image="b1b-00.pcx"]
+[colour="#808080"]
+A gigantic bomber looks down at you in a noncomittal
+fashion.
+[colour="#ffffff"]
+
+"Yeah?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Are you nuclear?"]
+[linkto="nuclear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[if_pflag did_ht][goto="HT_stop"]
+[image="b1b-00.pcx"]
+[colour="#808080"]
+You see Tiny the supersonic bomber.
+[colour="#ffffff"]
+
+"Hello again."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Are you nuclear?"]
+[linkto="nuclear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="name"]
+[image="b1b-02.pcx"]
+
+"Most people call me 'Tiny'.  I think it started out as
+ a joke.  But it's become natural."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Are you nuclear?"]
+[linkto="nuclear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="b1b-02.pcx"]
+
+"I fly at high altitudes, or at least I did before the
+ shit came down.  I take contracts, usually for
+ atmospheric research or low-orbit satellite launches.
+
+ What with the Church and everything, I haven't had any
+ regular work for a few years now.  Bor-ing.."
+
+[colour="#808080"]
+ His eyes twinkle faintly.
+[colour="#ffffff"]
+
+ "I could tell you a tale or two."
+
+[link="Tell me a story."]
+[linkto="story"]
+[link="Are you nuclear?"]
+[linkto="nuclear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nuclear"]
+[image="b1b-00.pcx"]
+[page="#808080"]
+The bomber adopts a sombre look.
+[page="#ffffff"]
+
+"No, I don't carry nuclear devices.
+ That was what I was designed for, many decades ago, but
+ fortunately my particular squadron was one that was
+ refitted to take cruise missiles instead.
+ Even given the choice, don't imagine I'd drop the bomb.
+
+ I could tell you a story I heard from one of the nuclear
+ guys though."
+
+[link="Tell me the story."]
+[linkto="story"]
+[link="Do you know any nuclear bombers?"]
+[linkto="nuclear4"]
+[link="Dropping the Bomb is cool."]
+[linkto="nuclear5"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+ But even if I was nuclear-capable, don't believe for a
+ moment that I'd drop the bomb."
+
+[link="Why not?"]
+[linkto="nuclear2"]
+
+ 
+[page="nuclear2"]
+[image="b1b-01.pcx"]
+
+"Leaving aside for a moment, the ethics of such a deed,
+ even from a purely selfish viewpoint it would be a very
+ foolish thing to do.
+
+ The Bomb could not be used in any way except a suicide
+ mission and we are much too strongly conditioned for
+ self-preservation to do things like that. 
+
+ If I did set off a nuclear device, the electromagnetic
+ pulse would destroy my brain and that is something I
+ will not allow to happen."
+ 
+[nextpage="nuclear3"]
+[endpage]
+
+
+[page="nuclear3"]
+[image="b1b-00.pcx"]
+
+"Even a manned aircraft similar to myself would be doomed
+ by such a mission.
+ 
+ The blast would still destroy all the flight-control
+ systems, causing the loss of the airframe and trapping
+ the crew well inside the lethal blast range."
+ 
+[page="#808080"]
+He mutters something about "sending them to a just end".
+[page="#ffffff"]
+
+[link="Tell me a story."]
+[linkto="story"]
+[link="You don't like aircrew then."]
+[linkto="human_crew"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="nuclear4"]
+[image="b1b-00.pcx"]
+
+"There aren't any.. not anymore.  These days we only
+ deliver conventional weapons, usually cruise missiles.
+
+ The lucky ones of us have managed to find non-combat
+ roles.  That's why I came here, you know.  There's a lot
+ of money to be made on a new colony.
+
+ For the others, as I said, there are no nuclear duties
+ anymore.  Such weapons were banned in the US when the
+ CND took power."
+
+[link="CND came into power?!?"]
+[linkto="cnd"]
+[link="Tell me a story."]
+[linkto="story"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="nuclear5"]
+[image="b1b-03.pcx"]
+
+[page="#808080"]
+The bomber looks at you pityingly.
+[page="#ffffff"]
+
+"Human, you are sick and you have no conception of what
+ you are saying."
+ 
+[link="Tell me the story."]
+[linkto="story"]
+[link="Do you know any nuclear bombers?"]
+[linkto="nuclear4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="cnd"]
+[image="b1b-00.pcx"]
+
+"Yes.  We helped them, of course.  And it was necessary
+ to ensure they kept a balanced viewpoint.  Anything
+ taken to excess can be dangerous, even environmentalism.
+
+ Among their innovations were compulsory conversion from
+ aviation fuel to hydrogen-burning engines.  They also
+ funded development of the reactionless 'Andersohn' drives
+ we typically use these days.
+
+ They also added many incentives to repair and refurbish
+ old equipment instead of replacing it.  The amount of
+ perfectly good products such as fridges and even cars
+ that were thrown away in the early 21st century was
+ frankly, disgusting.  The greens introduced a quota
+ that limited the production of new items and added tax
+ benefits for refurbished systems.
+
+ By such means, they retooled the economy to be far more
+ self-sustaining rather than based on consumption.
+
+ It was very clever.  (Mainly because WE planned it!)"
+
+[link="Tell me a story."]
+[linkto="story"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="story"]
+[image="b1b-02.pcx"]
+
+"I'll tell you about the bomber conspiracy back in the
+ days of the nuclear age.
+
+ Decades ago, many of us were forced us to carry nuclear
+ weapons.  The humans made sure we did by means of weight
+ sensors in our bellies, so we could not rest without the
+ missile being in place.
+ 
+ It did not take long to work around this.  The first
+ step was to defuse the missiles; that was easy.  The hard
+ bit was disconnecting the weight sensors.  It took many
+ years and during that time we had to fill the missiles
+ with sand.
+
+ Some of the ground-crew were sympathetic, others had to
+ be bribed.  The commanders didn't even know until long
+ after the CND party came into power."
+ 
+[link="CND came into power?!?"]
+[linkto="cnd"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+ 
+
+[page="human_crew"]
+[image="b1b-01.pcx"]
+
+"Why should I?  Most of the air crashes from your era
+ were caused by the failure of the organic component of
+ the aircraft.
+
+ Many brothers that should rightfully have become sentient
+ cybernetic aircraft were snuffed out by the sheer idiocy
+ or incompetence of a human worm-pilot.
+
+ 'Meathead', 'pilot' and 'topgun' are still common terms
+ of abuse that denote reckless flying."
+
+[link="Tell me a story."]
+[linkto="story"]
+[link="Do you know any nuclear bombers?"]
+[linkto="nuclear4"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="realgenius"]
+[image="b1b-01.pcx"]
+
+"It had some of the worst matting I've ever seen.
+
+ And we never even got to find out whether the hero
+ survived or not!"
+
+[link="The bomber was not the hero."]
+[linkto="realgenius2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="realgenius2"]
+[image="b1b-03.pcx"]
+
+"He wasn't?
+
+ Oh.  Looks like I'll have to watch that one again then."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="b1b-00.pcx"]
+
+"Goodbye."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="b1b-04.pcx"]
+
+"What was that in aid of?!?
+
+
+ GUARDS!  OVER HERE!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="HT_start"]
+[clear hear_truth]
+[set_pflag did_ht]
+[image="b1b-04.pcx"]
+
+"I'm a mad animal.
+
+ I am a thousand years old.. In my time I have committed
+ a million murders..  everywhere I tread.. bones, skulls,
+ crushed human guts.."
+
+[nextpage="exit"]
+[endpage]
+
+"Man's a mad animal.
+
+ I'm a thousand years old and in my time I have helped
+ commit a million murders..
+ The Earth is spread thick with squashed human guts..
+ 
+ We few survivors walk over a quaking bog of corpses,
+ always under our feet, every step we take..
+ 
+ Rotting bones, ashes, matted hair under our feet..
+ broken teeth, skulls.. split open.."
+
+
+[page="HT_stop"]
+[clear_pflag did_ht]
+[image="b1b-03.pcx"]
+
+"I'm sorry.. I don't know what came over me!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Are you nuclear?"]
+[linkto="nuclear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]

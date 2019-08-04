@@ -1,0 +1,102 @@
+/*
+ *	Open the Ark of Testimony
+ */
+
+
+function ark_of_testimony
+
+int x
+int y
+int rnd
+object temp
+
+# Everything at full volume, no distance falloff
+# Switch it off again in AllDead, since you won't survive
+
+let SoundFixed = 1
+
+# open It
+set_sequence current "ArkOfCovenant_Open"
+wait_for_animation current
+
+# Nasty
+let current.user.user18 = 32
+let current.user.user17 = 4
+overfx current does fx_blast
+
+printcr
+
+random rnd between 0 3
+
+if rnd = 0
+	print "...there was silence in Heaven about the space of half an hour."
+	printcr
+	redraw_text
+	print "After that, things started to go a little pear-shaped."
+	printcr
+	# Don't redraw, that will happen later
+endif
+
+
+if rnd = 1
+	print "And the voice of the LORD spake out of the midst of the fire, saying:"
+	printcr
+	redraw_text
+	print "~LET THE WHUPPING COMMENCE!~"
+	printcr
+	# Don't redraw, that will happen later
+endif
+
+if rnd = 2
+	print "And the voice of the LORD spake out of the midst of the fire, saying:"
+	printcr
+	redraw_text
+	print "~DIE WELL!~"
+	printcr
+	# Don't redraw, that will happen later
+endif
+
+if rnd = 3
+	print "And the voice of the LORD spake out of the midst of the fire, saying:"
+	printcr
+	redraw_text
+	print "~TIME FOR SOME FUN!~"
+	printcr
+	# Don't redraw, that will happen later
+endif
+
+# Kill Everything
+
+for y = 0 to maph
+	for x = 0 to mapw
+		get_object temp at x y
+		if_exists temp
+			let temp.stats.damage = 10000
+			start_action temp does explode
+			add x + 1	# Skip half
+		endif
+	next x
+	add y + 1
+next y
+
+/*
+for y = 0 to 1020
+	for x = 0 to 1020
+		get_first_object temp at x y
+		do
+			if_exists temp
+				if_flag temp IS_ON
+					let temp.stats.damage = 10000
+					start_action temp does explode
+				endif
+				let temp = temp.next
+			endif
+		while temp
+	next x
+next y
+*/
+redraw_text
+let player.stats.hp = 1
+set_user_flag "apocalypse" = 1
+
+end

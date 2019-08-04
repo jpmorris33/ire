@@ -1,0 +1,588 @@
+####################################
+#                                  #
+#  Other objects (decorative etc)  #
+#                                  #
+####################################
+
+
+
+##
+##  Rubic's cube
+##
+
+function rubics_cube
+integer r
+
+if me.stats.intel >= 150
+	set_direction current = LEFT	# completed
+
+	if me = player
+		print "~Easy!~"
+		printcr
+	endif
+
+else
+	# scramble the cube
+	random r between 0 3
+	if r = LEFT		# Left is complete, can't have that
+		let r = RIGHT	# Now it's scrambled
+	endif
+	set_direction current = r
+
+	if me = player
+		print "~I could never do these things.~"
+		printcr
+	endif
+
+endif
+
+end
+
+
+
+function start_holodisplay
+if current.user.user0
+	stopfx current
+	let current.user.user0 = 0
+else
+	overfx current does fx_holodisplay
+	let current.user.user0 = 1
+endif
+end
+
+##
+##  Call the wield function for the owner
+##
+
+function call_owner_wield
+
+if_exists current.stats.owner
+	let current = current.stats.owner
+	call current.funcs.wield
+endif
+
+end
+
+##
+##  Thunk to call User1 as a function (used by animation calls)
+##
+
+function CallUser1
+call me.funcs.user1
+end
+
+
+##
+##  Use pliers on something
+##
+
+function use_cutters
+
+if me <> player
+	return
+endif
+
+print "Use "
+print current.shortdesc
+print " on "
+redraw_text
+
+let current = player
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print_bestname current
+printcr
+
+# What can we cut?
+
+if current is called "WALL_METAL_WIREPANEL2"
+	# Call the user1 function
+	call current.funcs.user1
+	# Change it
+	replace current = "WALL_METAL_WIREPANEL4"
+	return
+endif
+
+print "No effect."
+printcr
+
+end
+
+
+##
+##  Use spade
+##
+
+function use_spade
+
+if me <> player
+	return
+endif
+
+print "Use "
+print current.shortdesc
+print " on "
+redraw_text
+
+let current = player
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print_bestname current
+printcr
+
+# What can we dig up?
+
+if current is called "FAKESAND"
+	if_exists current.pocket
+		spill current
+		print "You found something!"
+		printcr
+		return
+	endif
+endif
+
+print "Didn't find anything interesting."
+printcr
+
+end
+
+##
+##  Vending machine
+##
+
+function snackmachine
+int rand
+
+if me <> player
+	return
+endif
+
+take 1 "gold_coins" from player
+if err <> 0
+	print "~I don't have a gold coin.~"
+	printcr
+	return
+endif
+
+random rand between 1 4
+
+if rand = 1
+	give 1 "snack00" to player	# Crisps
+	return
+endif
+
+if rand = 2
+	give 1 "snack01" to player	# Chocolate
+	return
+endif
+
+give 1 "snack02" to player		# Drink
+end
+
+##
+##  Clocks and watches
+##
+
+function use_clock
+int hour
+
+if me = player
+	# Convert to 12hr format
+	let hour = game_hour
+	if hour > 12
+		add hour - 12
+	endif
+	if hour = 0
+		let hour = 12
+	endif
+
+	print "The time is "
+	print hour
+	print ":"
+	if game_minute < 10
+		print "0"
+	endif
+	print game_minute
+	print " "
+	printcr
+endif
+end
+
+
+function use_watch
+
+if me = player
+	print "The time is "
+	if game_hour < 10
+		print "0"
+	endif
+	print game_hour
+	print ":"
+	if game_minute < 10
+		print "0"
+	endif
+	print game_minute
+	print ":"
+	print "00"
+	printcr
+endif
+end
+
+
+##
+##  Use rings
+##
+
+function use_ring
+object ring
+object popering
+
+if me <> player
+	return
+endif
+
+print "Use "
+print current.shortdesc
+print " on "
+redraw_text
+
+let ring = current
+let current = player
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print_bestname current
+printcr
+
+# What can we dig up?
+
+if current is called "RINGSTONE"
+	if ring is called "RING_POPE"
+		print "The bejewelled seal fits perfectly into the slot."
+		printcr
+		call current.funcs.wield
+		return
+	endif
+
+	if ring is called "RING_POPE_FAKE"
+		print "The jewel fits with a faint click, but nothing happens."
+		printcr
+		return
+	endif
+
+	if ring is called "RING_RUBY"
+		print "The jewel fits with a faint click, but nothing happens."
+		printcr
+		return
+	endif
+
+	print "It doesn't fit."
+	printcr
+	return
+endif
+
+if current is called "MAN_POPE"
+	if current.user.unconscious < 1
+		print "Bad idea."
+		printcr
+		return
+	endif
+
+	if ring is called "RING_POPE_FAKE"
+		find popering = "RING_POPE" inside current
+		if_exists popering
+			print "You substitute the Pope's ring with the copy."
+			printcr
+
+			transfer_to_pocket popering to player
+			transfer_to_pocket ring to current
+			return
+		endif
+		print "You find the Pope's ring is missing!"
+		printcr
+		return
+	endif
+
+endif
+
+if current is called "BED_FULL"
+	if current.stats.owner is called "MAN_POPE"
+		
+	else
+		print "It's the wrong person."
+		printcr
+		return
+	endif
+
+	if ring is called "RING_POPE_FAKE"
+		find popering = "RING_POPE" inside current
+		if_exists popering
+			print "You substitute the Pope's ring with the copy."
+			printcr
+
+			transfer_to_pocket popering to player
+			transfer_to_pocket ring to current
+			return
+		endif
+		print "You find the Pope's ring is missing!"
+		printcr
+		return
+	endif
+
+endif
+
+print msg_DontKnowWhatToDo
+printcr
+
+end
+
+##
+##  Pope's ring self-check
+##
+
+function popering_stolen
+
+if_not_exist suspect
+	return
+endif
+
+if suspect is called "MAN_POPE"
+	return
+endif
+
+# Okay, it wasn't the pope what took it, start the recall mechanism
+# You get five turns to do what you want with it.
+
+if current.user.user1 < 1	# Prevent player cheating by re-running it
+	let current.user.user1 = 5
+endif
+start_action current does popering_recall
+end
+
+##
+##  
+##
+
+function popering_recall
+object pope
+object fakering
+
+if me.user.user1 < 1
+	stop_action me
+
+	find_tag pope = "MAN_POPE" 58
+	if_exists pope
+
+		find fakering = "RING_POPE_FAKE" inside pope
+		if_not_exists fakering
+			transfer_to_pocket me to pope
+			play_sound "pop"
+		endif
+	else
+		if_exists me.stats.owner
+			let me.stats.owner.stats.hp = -1
+			check_hurt me.stats.owner
+		endif
+	endif
+
+	return
+endif
+
+add me.user.user1 - 1
+
+end
+
+
+##
+##
+##
+
+function use_codecterminal
+int x
+
+if current.user.user10 = 666
+	talk_to "books/tech/codec.txt" "login"
+	return
+endif
+
+if player is called "waarg_*"
+	if player.personalname = "king grey"
+		talk_to "books/tech/codec.txt" "kinggrey"
+		let current.user.user10 = 666
+		return
+	endif
+endif
+
+call got_medallion
+get_user_flag x = "true"
+if x = 1
+	talk_to "people/dragons/comms.txt" "codecterminal"
+	return
+endif
+
+# Don't know what to do
+print "You cannot work out how to log into the terminal."
+printcr
+
+end
+
+function use_datacrystal
+object cube
+
+if me <> player
+	return
+endif
+
+print "Use "
+print current.shortdesc
+print " on "
+redraw_text
+
+let cube = current
+let current = player
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print_bestname current
+printcr
+
+if current is called "terminal"
+	if current.user.user10 <> 666
+		print "Not logged in."
+		printcr
+		return
+	endif
+
+	if cube.tag <> 333
+		talk_to "people/dragons/comms.txt" "codecterminal2"
+		set_user_flag "datacube_crashed" = 1
+		return
+	endif
+
+	talk_to "people/dragons/comms.txt" "codecterminal3"
+	#set_user_flag "datacube_crashed" = 1
+else
+	print "It won't fit."
+	printcr
+	return
+endif
+
+end
+
+##
+##  Non-usable ladder, door etc
+##
+
+function use_blocked_door
+
+if me <> player
+	return
+endif
+
+print "It's blocked."
+printcr
+
+end
+
+
+##
+##  Power bus for the Maxima drives
+##
+
+function powerlink_use
+object linkage
+
+if me <> player
+	return
+endif
+
+let linkage = current
+
+print "Use "
+print current.shortdesc
+print " on "
+redraw_text
+
+let current = player
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print_bestname current
+printcr
+
+# What are we using it on?
+
+if current is called "POWERPLANT_HATCH_BRK_OPEN"
+	if current.curdir = UP
+		# System is running, this is not very clever
+		lightning 3
+		let me.stats.hp = -1000
+		check_hurt me
+		return
+	endif
+
+	replace current = "POWERPLANT_HATCH_OPEN"
+	destroy linkage
+	print "Replaced the power linkage."
+	printcr
+	return
+endif
+
+if current is called "POWERPLANT_HATCH_OPEN"
+	if current.curdir = UP
+		# System is running, this is not very clever
+		lightning 3
+		let me.stats.hp = -1000
+		check_hurt me
+		return
+	endif
+
+	print "It doesn't need replacing."
+	printcr
+	return
+endif
+
+print "No effect."
+printcr
+
+end
+
+##
+##  Print out the diary
+##
+
+function print_drrobs_diary
+object printer
+object printout
+integer y
+
+find_tag printer = "PRINTER" current.tag
+if_exists printer
+	let y = printer.y + 1
+	object_sound "print" printer
+	create printout = "DRROB_DIARY"
+	transfer_object printout to printer.x y
+endif
+end

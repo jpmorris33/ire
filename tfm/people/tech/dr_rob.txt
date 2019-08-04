@@ -1,0 +1,325 @@
+[page="start"]
+[if_not dr_rob_free][goto="helpme"]
+
+""
+[endpage]
+
+
+[page="helpme"]
+[if dr_rob_needdiary][goto="hm_spoketo"]
+
+"Help!  You've got to get me out of here!"
+
+[link="Who are you?"]
+[linkto="hm_name"]
+[link="Goodbye."]
+[linkto="hm_bye"]
+[endpage]
+
+[page="hm_name"]
+[learn_name]
+[set know_drrob]
+
+"I'm Dr. Robertson.  These birds have taken me prisoner!
+ I have no idea why.. I've never seen anything like it
+ before in all my life!
+
+ I notice you're still free.  Can you try and persuade
+ them to let me go?"
+
+[link="I'll try."]
+[linkto="hm_talk"]
+[link="Nah."]
+[linkto="hm_bye"]
+[endpage]
+
+[page="hm_talk"]
+
+"Thanks!  I'm in your debt."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="hm_bye"]
+
+"No!  Come back!  Help me!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="hm_spoketo"]
+
+"What happened?  Are they going to set me free?"
+
+[link="I told them you were peaceful."]
+[linkto="hm_peaceful"]
+[link="I told them you were probably neutral."]
+[linkto="hm_peaceful"]
+[link="I told them you were in league with the Church."]
+[linkto="hm_church"]
+[endpage]
+
+
+
+[page="hm_peaceful"]
+
+"Thank you!  Are they going to let me go now?"
+
+[link="They want proof.  I need to get your diary."]
+[linkto="hm_proof"]
+[endpage]
+
+
+[page="hm_proof"]
+[give 1 key]
+[if false][goto="hm_proof2"]
+
+"Very well.  My diary is in one of the base lockers.
+ You'll need this:"
+
+[colour="#808080"]
+The professor hands slides a small key beneath the cell
+door.
+[colour="#ffffff"]
+
+"By all means give them the diary, if that's what it
+ takes."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="hm_proof2"]
+
+"Please give them the diary.  I've already given you the
+ key, it should be in a locker in the base."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="hm_church"]
+
+"What?!?  Why?   I never did anything to you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+
+[linkto=""]
+
+
+
+
+
+
+
+
+
+[page="comms_unit"]
+[take 1 "comms_unit"]
+[set base_leuchars1]
+[if base_panavius1][if base_fairford1][goto="comms_active"]
+
+[colour="#808080"]
+Dr. Robertson takes the Drakaan communications unit and
+switches it on.
+[colour="#ffffff"]
+
+"Here goes nothing.."
+
+[nextpage="comms_unit2"]
+[endpage]
+
+[page="comms_unit2"]
+[image="comms.pcx"]
+
+"Ah, a human commander?  Greetings.  I am commander Gurd
+ of the Drakaan research team, and I wish to propose an
+ alliance against Xy'lan, who the humans worship as a
+ god."
+
+[nextpage="comms_unit3"]
+[endpage]
+
+
+[page="comms_unit3"]
+
+[colour="#808080"]
+Dr. Robertson interrupts with an awkward gesture,
+taking the sight of the alien commander in his stride.
+[colour="#ffffff"]
+
+"Commander, I'm just a doctor of xenobiology.  I am the
+ most senior surviving member of this base, but I...
+
+"...I'm just not cut out to lead.  Not to burden you with
+ my troubles, I mean... I just don't want you to get your
+ hopes up."
+
+[nextpage="comms_unit4"]
+[endpage]
+
+
+[page="comms_unit4"]
+[image="comms.pcx"]
+
+"Ah, you have my sympathies, Doctor.  These are trying
+ times for all of us.
+
+ Fortunately, we may be able to help you.  I have sent
+ you this communications device of our own design, which
+ will not be affected by Xy'lan's jamming signals.
+
+ Once these devices have been given to all three of your
+ bases, you will again be able to talk to your comrades
+ who may be able to assist you in the running of your
+ base.
+ And, once all are in contact, we can then discuss my
+ proposals for dealing with Xy'lan in more detail."
+
+[nextpage="comms_unit5"]
+[endpage]
+
+
+[page="comms_unit5"]
+
+[colour="#808080"]
+Dr. Robertson looks noticably happier at the prospect
+of assistance.
+[colour="#ffffff"]
+
+"Commander, that would be most helpful.  The other units
+ will have to be hand-delivered, though.  We cannot
+ breach the sky-barriers."
+
+[nextpage="comms_unit6"]
+[endpage]
+
+
+[page="comms_unit6"]
+[image="comms.pcx"]
+
+"Sadly, yes.  They will have to be delivered by our
+ friend here.  I do not ask for your aid in delivering
+ them, Doctor - but if you can offer any help to $him
+ that would be most useful.
+
+ Oh, and if you can have someone watching the
+ communicator at all times, that would help too.
+
+ In the meantime, I can send you biological data
+ regarding the Drakaan race, if it will not distract
+ you too much.  I believe your computers will be able
+ to interpret it.
+
+ For now, farewell."
+
+[nextpage="comms_unit7"]
+[endpage]
+
+
+[page="comms_unit7"]
+
+[colour="#808080"]
+Dr. Robertson looks at you as the comms device shuts off.
+[colour="#ffffff"]
+
+"Well, well.  I think is our first contact with another
+ star-going race!  So much to learn...
+
+ Meanwhile, I guess you'd better deliver the other
+ communicators.  Commander Ransome's base is at New
+ Fairford to the south, and Commander Argus runs the
+ Panavius intelligence facility in the southeast.
+
+ If there's anything here in the base that can help you
+ on this mission, feel free."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="comms_active"]
+[set drakaan_task_gavecomms]
+
+[colour="#808080"]
+You show Dr. Robertson the Drakaan communications unit.
+He looks shrugs and switches it on.
+[colour="#ffffff"]
+
+"Here goes nothing..."
+
+[nextpage="comms_active2"]
+[endpage]
+
+
+
+[page="comms_active2"]
+[image="comms.pcx"]
+
+"Greetings, Doctor.
+
+ I am Commander Gurd of the Drakaan research team, and I
+ wish to propose an alliance against Xy'lan, whom the
+ humans worship as a god.
+
+ As a token of our good faith, I have sent you this
+ communications device of our own design, which will not
+ be affected by Xy'lan's jamming signals.
+
+ Now that these devices have been given to all three of
+ your bases, you will again be able to talk to your
+ comrades.
+
+ Now that everyone is in contact, we can then discuss my
+ proposals in more detail."
+
+[nextpage="comms_active3"]
+[endpage]
+
+
+[page="comms_active3"]
+[image="comms.pcx"]
+
+[colour="#808080"]
+As all the comms units are linked together, there is a
+tremendous babel of voices as the three base commanders
+attempt to catch up on decades worth of news.
+
+Eventually, Gurd butts in and calls the meeting to order.
+[colour="#ffffff"]
+
+"Gentlemen, gentlemen.. Xy'lan waits for no-one.
+ We must first discuss the plan, then you may talk as
+ you will.
+
+ As I suppose you are aware, it was our race that created
+ the mad god, so it is therefore our responsibility to
+ un-create Him.  But we lack the resources to manage this
+ on our own.
+
+ I have therefore decided to place our knowledge and
+ skill at your disposal, that we may be able do together
+ what cannot be done alone."
+
+[nextpage="comms_active4"]
+[endpage]
+
+
+[page="comms_active4"]
+
+Here endeth the script
+
+[endpage]
+
+

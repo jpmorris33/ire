@@ -1,0 +1,23 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                  The Book Of Fish
+
+              By Munrick The Unstable
+
+
+ [ This tome describes various kinds of fish.
+   It explains what each fish looks like, tastes like, smells like
+   and sounds like.
+
+   Particular attention is paid to the mating song of the yellow
+   swamp-trout, which supposedly has handles that enable it to
+   be carried around.
+
+   Later chapters describe the Great Man'O'War of Ub, which
+   according to Munrick is shocking pink, has tentacles up to
+   twenty kilometers in length and is able to fly. ]
+
+[nextpage="exit"]
+[endpage]

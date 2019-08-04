@@ -1,0 +1,461 @@
+Keee-Keee-Keee-Chee, Leader of the Folk
+
+PFLAG 0 - spoken to him
+PFLAG 1 - threatened him
+PFLAG 2 - insulted him, he gave you the finger
+
+[page="start"]
+[image="kkkc.jpg"]
+
+[colour="#808080"]You see an impressive-looking Osprey perched on a treestump in front of you.
+
+[colour="#808080"]You hear a deep voice inside your head.
+
+"Hail $PLAYER, there are matters we must discuss."
+
+[if_not stoned][link="Who are you?"]
+[if_not stoned][linkto="name"]
+[if_not stoned][link="Tell me about fish."]
+[if_not stoned][linkto="fish"]
+[if_not stoned][if_not_pflag 2][link="Come here birdy, birdy, birdy..."]
+[if_not stoned][if_not_pflag 2][linkto="comeherebirdy"]
+[if_not stoned][link="Die, bird!"]
+[if_not stoned][linkto="diebird"]
+[if_not_knowname][if_not stoned][link="This can't be happening.  I'm going to lie down for a while."]
+[if_not_knowname][if_not stoned][linkto="bye1"]
+[if_know_name][if_not stoned][link="Goodbye."]
+[if_know_name][if_not stoned][linkto="bye2"]
+[if stoned][link="Argle bargle morsh wumf?"]
+[if stoned][linkto="stoned"]
+[if stoned][link="Worsh mumph nursh argle?"]
+[if stoned][linkto="stoned"]
+[if stoned][link="Whee whee whee whee!"]
+[if stoned][linkto="stoned"]
+[if stoned][link="Umsh wurfle morsh."]
+[if stoned][linkto="stoned"]
+[endpage]
+
+
+[page="name"]
+[image="kkkc.jpg"]
+"I am $CHARNAME, elected chieftan of the Folk.
+
+ I don't suppose you happen to have any fish with you?"
+
+[learn_name]
+[link="How is it that you can talk?"]
+[linkto="talk"]
+[link="You don't have the brain capacity to do this!"]
+[linkt="brain"]
+[link="Yes, I have a fish."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+[endpage]
+
+[page="mason_nofish"]
+[image="kkkc.jpg"]
+"A pity."
+
+"It is our custom to discuss important matters over fish.
+ If you could be so kind as to fetch some, we can get down to business."
+[nextpage="exit"]
+[endpage]
+
+Negotiate with Mason.  (fish)
+
+[page="mason_fish"]
+[image="kkkc.jpg"]
+[colour="#808080"]You throw the fish into the air and $CHARNAME deftly catches it.
+[colour="#808080"]Decapitating the fish, $CHARNAME eats the head before speaking.
+
+"Fiisshh!"
+
+[colour="#808080"]$CHARNAME pauses to gut the fish with his talons before continuing.
+
+"You have spoken with the F-15C Strike Eagle, and he has told you of the trout
+ which he breeds as a hobby.
+ You know that we have been, shall we say, 'appropriating' them."
+[nextpage="mason_fish2"]
+[endpage]
+
+
+[page="mason_fish2"]
+[image="kkkc.jpg"]
+[colour="#808080"]$CHARNAME slices the fish into fine strips and begins to eat them
+[colour="#808080"]one at a time.
+
+"I'd like you to arrange a meeting with Mason, so that we can negotiate some
+ form of payment, in exchange for a continued supply of trout for The Folk."
+
+[colour="#808080"]Gulp!
+
+"I know everything, but I did not understand that they belong to him, until
+ very recently."
+
+[colour="#808080"]Gulp!
+
+"I cannot read his thoughts yet.
+ So far I've only learned to read the emotions of aircraft."
+
+[colour="#808080"]Gulp!
+
+"By the way, he's done very good job sculpting the pond.
+ I was convinced it was a natural feature of the land, and not his property."
+
+[colour="#808080"]Gulp!
+
+[nextpage="mason_fish3"]
+[endpage]
+
+[page="mason_fish3"]
+[image="kkkc.jpg"]
+
+[colour="#808080"]$CHARNAME eats the final strip.
+
+Will you do this?
+
+[link="Yes, I'll take you to him."]
+[linkto="mason_y"]
+[link="No, I'm too busy."]
+[linkto="mason_n"]
+[endpage]
+
+
+Negotiate with Mason.  (bloater paste)
+
+[page="mason_fishpaste"]
+[image="kkkc.jpg"]
+[colour="#808080"]You hold out the jar and $CHARNAME examines it cautiously, puzzling
+[colour="#808080"]over the object for several seconds.
+
+"Is this really the best you could manage?"
+
+[colour="#808080"]$CHARNAME concentrates on the jar for a few seconds.
+[colour="#808080"]Suddenly the lid begins to rotate slowly of its own accord.
+
+"You have spoken with the F-15C Strike Eagle, and he has told you of the trout
+ which he breeds as a hobby.
+ You know that we have been, shall we say, 'appropriating' them."
+
+[nextpage="mason_fishpaste2"]
+[endpage]
+
+
+[page="mason_fishpaste2"]
+[image="kkkc.jpg"]
+[colour="#808080"]The Osprey ducks as the jar pressurises suddenly and the lid shoots off.
+
+"I'd like you to arrange a meeting with Mason, so that we can negotiate some
+ form of payment, in exchange for a continued supply of trout for the Folk."
+
+[colour="#808080"]He pauses to dip his wicked-looking beak into the small jar.
+
+"I know everything, but I did not understand that they belong to him, until
+ very recently."
+
+[colour="#808080"]$CHARNAME sucks at the fishpaste, slurping loudly.
+
+"I cannot read his thoughts yet.
+ So far I've only learned to read the emotions of aircraft."
+
+[colour="#808080"]$CHARNAME discovers that his beak is wedged tightly into the jar.
+
+"By the way, he's done very good job sculpting the pond.
+ I was convinced it was a natural feature of the land, and not his property."
+
+[colour="#808080"]With a murderous look, the Osprey concentrates again and the jar splits
+[colour="#808080"]cleanly in two.  The two halves bounce off the tree-stump and onto the grass.
+
+[nextpage="mason_fishpaste3"]
+[endpage]
+
+[page="mason_fishpaste3"]
+[image="kkkc.jpg"]
+
+[colour="#808080"]$CHARNAME wipes the fishpaste from his beak with a leaf and eats it.
+
+
+"Will you do this?"
+
+[link="Yes, I'll take you to him."]
+[linkto="mason_y"]
+[link="No, I don't want to."]
+[linkto="mason_n"]
+[link="No, I'm too busy."]
+[linkto="mason_n2"]
+[endpage]
+
+
+[page="mason_y"]
+[image="kkkc.jpg"]
+
+"Excellent!"
+
+[colour="#808080"]You hold out your arm like a falconer, and the Osprey hops gently onto it.
+
+[callvrm="osprey_to_arm"]
+[nextpage="exit"]
+[endpage]
+
+[page="mason_n"]
+[image="kkkc.jpg"]
+"Damn it, Human!  This is important!
+ I ask you to reconsider."
+
+[colour="#808080"]$CHARNAME glowers at you angrily for a few moments more.
+[colour="#808080"]Then he flies into the distance, leaving you alone.
+[nextpage="exit"]
+[endpage]
+
+
+[page="mason_n2"]
+[image="kkkc.jpg"]
+"Very well.  But this is important.
+ If you could help me, you will earn the eternal gratitude of the Folk."
+
+[colour="#808080"]$CHARNAME looks despondent.
+[colour="#808080"]Then he flies into the distance, leaving you alone.
+[nextpage="exit"]
+[endpage]
+
+
+[page="stoned"]
+[image="kkkc2.pcx"]
+
+[colour="#808080"]You hear an exasperated sigh in your head.
+
+"Stay off the drugs, human.  They will destroy your mind."
+
+[colour="#808080"]
+Disappointed, the pink bird jumps from the candy-striped tree and flies away.
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="comeherebirdy"]
+[image="kkkc.jpg"]
+
+[colour="#808080"]The Osprey looks at you unpleasantly, and with a little effort makes an
+[colour="#808080"]obscene gesture with one of his razor-sharp talons.
+
+"Don't be difficult, human."
+[set_pflag 2]
+
+[nextpage="start"]
+
+[endpage]
+
+
+[page="brain"]
+[image="kkkc.jpg"]
+
+"I know.  Clever, isn't it?
+ We'll find out how it works one of these days."
+
+"Now.  About that fish?"
+
+[link="First, tell me how you can talk."]
+[linkto="talk"]
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+[endpage]
+
+[page="talk"]
+[image="kkkc.jpg"]
+
+"About 200 years ago, we were the simple creatures that arrived from Earth.
+
+ But just a few years after we settled, something caused us to mutate, and
+ we began to learn things rapidly, like how to preserve fish.
+
+ When we began to hear each others thoughts it became possible to merge into
+ one large community, which we now refer to as the Folk."
+
+"Now, the fisshh."
+
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+[link="The folk?"]
+[linkto="thefolk"]
+[endpage]
+
+[page="thefolk"]
+[image="kkkc.jpg"]
+
+"Yes.  It doesn't sound very imaginative, but it seemed like a good idea
+ at the time.
+
+ Do you have any fish?"
+
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+
+[endpage]
+
+
+[page="bye1"]
+[image="kkkc.jpg"]
+
+"No!  Come back!
+ We need to talk about fishing rights!"
+
+[colour="#808080"]
+The fishhawk's voice becomes more and more garbled as you walk out of range.
+You vaguely imagine the word 'Bustard!' before your thoughts are left alone.
+
+In the distance, the large bird dives from the tree stump and flies
+towards Mason's fish farm.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye2"]
+[image="kkkc.jpg"]
+
+"Goodbye, human."
+
+[colour="#808080"]The raptor flies away to search for fish.
+
+[nextpage="exit"]
+[endpage]
+
+[page="diebird"]
+[image="kkkc.jpg"]
+
+"I wouldn't say such things if I were you."
+
+[set_pflag 1]
+[nextpage="exit"]
+[endpage]
+
+[page="fish"]
+[image="kkkc.jpg"]
+
+"Fish are the single most important part of our society!
+ We harvest fish during the summer and pickle them for the winter."
+
+[link="I see."]
+[linkto="start"]
+[link="But Ospreys are migratory!"]
+[linkto="migrant"]
+[link="Are fish really good for the brain?"]
+[linkto="fishgood"]
+[link="Can you identify this fish for me?"]
+[linkto="fish_id"]
+[endpage]
+
+[page="migrant"]
+[image="kkkc.jpg"]
+
+"Not anymore.
+
+ When we migrate, we use geomagnetic fields to guide us.
+ The fields on this planet are different and cannot be used, so the urge to
+ migrate has left us.
+
+ The humans noticed this and brought us fish during the winter.
+
+ One year the humans stopped doing this, but by then we had learned to
+ stockpile food for the winter."
+
+[link="They stopped bringing you fish?"]
+[linkto="stoppedfish"]
+[link="Uh, right."]
+[linkto="fish"]
+[endpage]
+
+
+[page="migrant"]
+[image="kkkc.jpg"]
+
+"Not anymore.
+
+ When we migrate, we use geomagnetic fields to guide us.
+ The fields on this planet are different and cannot be used, so the urge to
+ migrate has left us.
+
+ The humans noticed this and brought us fish during the winter.
+
+ One year the humans stopped doing this, but by then we had learned to
+ stockpile food for the winter."
+
+[link="They stopped bringing you fish?"]
+[linkto="stoppedfish"]
+[link="Uh, right."]
+[linkto="fish"]
+[endpage]
+
+
+[page="stoppedfish"]
+[image="kkkc.jpg"]
+
+"In the years leading up to that time, we noticed changes taking place in 
+ the minds of men.
+ They began to lose their reason, and primeval feelings rose up to
+ replace intellect.  They became more superstitious.  We did not realise
+ what was happening.
+
+ Soon men began to fight each other in the name of their God.
+ All who would not worship were killed or driven away.
+
+ There are only a few men left who have clung to reason.
+ We know that they have been watching us.  They suspect what we have become.
+ But we have decided not to make contact with them, until now."
+
+[nextpage="fish"]
+[endpage]
+
+[page="fish_id"]
+[image="kkkc.jpg"]
+
+"No, because certain necessary kernel thunks have not been implemented yet."
+
+[link="What?"]
+[linkto="kt2"]
+[endpage]
+
+[page="kt2"]
+[image="kkkc.jpg"]
+
+"Never mind."
+
+[nextpage="fish"]
+[endpage]
+
+
+[page="bastard"]
+[image="kkkc.jpg"]
+
+[if_not_knowname][colour="#808080"]A loud voice booms inside your head.
+[if_not_knowname]  
+[if_not_pflag 1]"You bastard!"
+[if_pflag 1]"You asked for it!"
+
+[if_knowname][colour="#808080"]A blue corona forms around $CHARNAME!
+[if_not_knowname][colour="#808080"]A blue corona forms around the bird!
+
+[colour="#808080"]Inside your chest, your heart stops beating.
+
+[if_pflag 1]"What a sad waste of human life."
+
+[at_exit_call="kill_player"]
+[nextpage="exit"]
+[endpage]

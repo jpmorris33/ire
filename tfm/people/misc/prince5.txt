@@ -1,0 +1,85 @@
+
+Fifth Prince (crazy)
+
+[page="start"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+[esc="disabled"]
+[learn_name]
+
+"I'm the lost Prince of the realm of Agnar!
+
+ It is my holy mission to kill the king and regain the
+ throne o' my Dad.
+
+ Will ya help me?"
+
+[link="Yes."]
+[linkto="yes"]
+[link="No."]
+[linkto="no"]
+[link="Haven't I met you before?"]
+[linkto="before"]
+[endpage]
+
+[page="startname"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+[goto="yes"]
+[endpage]
+
+
+[page="yes"]
+
+"Go for a stroll in the mountains, mountains, mountains,
+ mountains, mountains, mountains, mountains, mountains,
+ mountains..
+
+ If we Off the king, I'll give you stuff."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="no"]
+
+"I'll not take 'No' for an answer!
+
+ Go for a stroll in the mountains, mountains, mountains,
+ mountains, mountains, mountains, mountains, mountains,
+ mountains..
+
+ If we Off the king, I'll give you stuff."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="before"]
+
+"Yes.. and no!
+
+ Anyway, go for a stroll in the mountains, mountains,
+ mountains, mountains, mountains, mountains, mountains,
+ mountains, mountains..
+
+ If we Off the king, I'll give you stuff."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="running"]
+
+"I'm the true Prince.. they aren't.  Kill 'em all!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="done"]
+[at_exit_call="king_dies"]
+"You suck!"
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,30 @@
+[page="start"]
+[esc="disabled"]
+[if darett_attack][goto="wrong"]
+[colour="#808080"]
+You see a man with a crescent-shaped scar on one cheek.
+[colour="#ffffff"]
+
+"You're not Jorge.  What's the password?"
+
+[link="Password?"]
+[linkto="wrong"]
+[link="I don't know."]
+[linkto="wrong"]
+[link="Wrong person.  Goodbye!"]
+[linkto="wrong"]
+[endpage]
+
+[page="startname"]
+[esc="disabled"]
+[goto="wrong"]
+[endpage]
+
+[page="wrong"]
+[colour="#808080"]
+He draws his sword.
+[colour="#ffffff"]
+[call="attack_party"]
+[set darett_attack]
+[nextpage="exit"]
+[endpage]

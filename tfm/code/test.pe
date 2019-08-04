@@ -1,0 +1,124 @@
+#
+#	Test script for the PissEasy compiler
+#
+
+constant BEERS = 3
+function newfunc1
+
+integer yowsah = 254
+integer yowsah2
+integer max = 5
+integer ctr = 0
+#object gusu
+
+
+let ctr = 0
+if ctr > 5
+	print "."
+else
+	print "!"
+endif
+
+let ctr = 0
+if ctr > max
+	print "!"
+else
+	print "."
+endif
+
+let ctr = 0
+if ctr < 0
+	print "!"
+else
+	print "."
+endif
+
+let ctr = 0
+if ctr <= 0
+	print "."
+else
+	print "!"
+endif
+
+let ctr = 0
+if ctr != 0
+	print "!"
+else
+	print "."
+endif
+
+let ctr = 0
+if ctr <> 0
+	print "!"
+else
+	print "."
+endif
+printcr
+printcr	
+
+for yowsah = 1 to max
+		for yowsah2 = 5 to 1
+		print yowsah2
+		if yowsah = yowsah2
+			if yowsah > 1
+			print "*"
+			else
+			print " "
+			endif
+		else
+			print " "
+		endif
+		next yowsah2
+	print yowsah
+	printcr
+next yowsah
+
+if player is called "player"
+	print "player is player"
+	printcr
+endif
+
+call beer
+
+end
+
+
+int beer = BEERS
+
+function beer
+int f
+
+for f = BEERS to 1
+	call beerify
+	print "of beer on the wall,"
+	printcr
+
+	call beerify
+	print "of beer.."
+	printcr
+
+	let beer = beer - 1
+
+	print "Take one down, pass it around,"
+	printcr
+	print "There'll be "
+	call beerify
+	print "of beer on the wall."
+	printcr
+
+next
+end
+
+function beerify
+if beer = 1
+	print beer
+	print " bottle "
+else
+	if beer = 0
+		print "no more bottles "
+	else
+		print beer
+		print " bottleS "
+	endif
+endif
+end

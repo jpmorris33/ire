@@ -1,0 +1,18 @@
+Memo from God
+
+[page="start"]
+[font 3]
+[backing="deadtown.pcx"]
+
+
+
+
+     A polite reminder NOT to trade with the Demons.
+            Thankyou.
+
+
+
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+

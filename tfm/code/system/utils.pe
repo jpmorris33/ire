@@ -1,0 +1,38 @@
+######################
+#                    #
+#  Useful functions  #
+#                    #
+######################
+
+
+##
+##	Set new_x and new_y to in front of Current object
+##
+
+function get_ahead
+
+if current.curdir = UP
+	let new_x = current.x
+	let new_y = current.y - 1
+	return
+endif
+
+if current.curdir = DOWN
+	let new_x = current.x
+	let new_y = current.y + 1
+	return
+endif
+
+if current.curdir = LEFT
+	let new_x = current.x - 1
+	let new_y = current.y
+	return
+endif
+
+if current.curdir = RIGHT
+	let new_x = current.x + 1
+	let new_y = current.y
+	return
+endif
+
+end

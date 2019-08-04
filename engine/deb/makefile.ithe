@@ -1,0 +1,12 @@
+#
+#	Makefile for the IT-HE support library
+#
+
+library_ithe      = libs/linux/libithe.a
+Librarian         = ar
+
+Object_ithe   = ithelib/debug.o ithelib/doslib.o ithelib/fs.o ithelib/memory.o ithelib/strlib.o
+
+library_ithe: $(Object_ithe)
+	-rm -f $(library_ithe)
+	$(Librarian) rcs $(library_ithe) $^

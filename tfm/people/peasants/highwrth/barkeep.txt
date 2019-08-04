@@ -1,0 +1,417 @@
+[page="start"]
+[iftime 0800-0914][goto="inchurch"]
+[colour="#808080"]
+You see a sturdy-looking tavern lass.
+[colour="#ffffff"]
+
+"Hello there.. Welcome to the Green Lion.
+
+ What'll it be?"
+
+[link="What do you have?"]
+[linkto="buy"]
+[link="Why is it called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[if sceptre_strangeman][link="Have you seen a strange man in here?"]
+[if sceptre_strangeman][linkto="strangeman"]
+[if yado_quest_packages][link="Do you know of a treasure island?"]
+[if yado_quest_packages][linkto="yado_island"]
+[if bee_island][link="Do you know where I can find a boat?"]
+[if bee_island][linkto="boat"]
+
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+"I am trying to hear the Mass!"
+[nextpage="exit"]
+[endpage]
+
+[page="greenlion"]
+
+"It is named after one of the fabulous animals to be
+ found in the realm of the saintly king, Prester John.
+
+ Within his domain may be found many other wondrous beasts
+ such as camels and tigers.  There are hares that are the
+ bigness of a sheep, centaurs that live in trees, and
+ the immortal phoenix-bird!"
+
+[link="Tell me more about Prester John."]
+[linkto="presterjohn"]
+[link="What are you serving?"]
+[linkto="buy"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="presterjohn"]
+
+"It is said that he is a king of such piety that he took
+ the title of priest instead of emperor.
+
+ His kingdom is in the eastern lands, beyond the places
+ where evil things dwell, and across the desert.
+
+ Many have gone in search of this fabulous land, but very
+ few have ever returned."
+
+
+[link="What are you serving?"]
+[linkto="buy"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="news"]
+[set news_demon]
+[journal=jrn_Randolph000]
+
+"The Church has increased the Tithes again.  We will all
+ have to work harder to pay the Church and keep our souls
+ safe from the forces of darkness.
+
+ There have been grim omens.  The black grouse of the
+ woods did settle nearby and perform horrible acts of
+ devilry at night!
+
+ A bull gave birth to four pigs, and the Devil appeared
+ before two men in the forest and spoke to them!
+
+ And only the other day, Holm the Fletcher came across a
+ terrible demon while gathering wood in the forests.
+ It said it would eat him if he ever returned!"
+ 
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inn"]
+[is_npc_carrying key]
+[if true][goto="inn2"]
+
+"Sorry, we are full up."
+ 
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="What are you serving?"]
+[linkto="buy"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="inn2"]
+
+"We do have a room free.  For 30 gold I will give you
+ the key to it."
+ 
+[link="Okay, I'd like the room."]
+[linkto="inn3"]
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="What are you serving?"]
+[linkto="buy"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="inn3"]
+[take 30 gold_coins]
+[if false][goto="no_money"]
+[give 1 key]
+
+"Here you go.  It is the left-hand room."
+ 
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="What are you serving?"]
+[linkto="buy"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"We have a fine ale, for only 3 gold a mug.
+
+ If you are hungry, we have bread and cheese for only
+ 4 gold coins."
+ 
+[link="I would like some ale, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_ale"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[create 1 bottle_full]
+[call="money_sound"]
+
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more ale, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_food"]
+[take 4 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 foodp03]
+[create 1 foodp04]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some ale, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some more food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_money"]
+
+"I'm afraid you cannot afford that."
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[if sceptre][link="What do you know of the Sceptre?"]
+[if sceptre][linkto="sceptre"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sceptre"]
+[if returned_sceptre][goto="sceptre2"]
+
+"I know little of the Sceptre.  I have heard of the theft
+ of course, but I have never actually seen the relic.
+
+ Perhaps you might ask some of my patrons."
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="sceptre2"]
+
+"Last I heard it had been returned to its rightful place
+ in the King's treasury..
+
+ Is there a problem?  Has it been stolen again?"
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="strangeman"]
+[set strangeman_scar]
+[colour="#808080"]
+She looks thoughtful.
+[colour="#ffffff"]
+
+"Time ago I did see a man with a scar on his forehead.
+ He was reading a parchment, but he took pains to conceal
+ it when anyone approached him.
+
+ I don't know who he was, but he disappeared a few days
+ before.. before the Sceptre was taken!
+
+ Perhaps some of my patrons know who he is?"
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yado_island"]
+
+"I once heard a tale of a Captain Skint, who it is said,
+ bought many valuable spices and goods with his wealth,
+ which all believe he did gain through crime and villany.
+
+ They say that when the Church demanded their tithes, he
+ fled with these goods and sailed away to a far distant
+ isle, and burying most of it there did reduce his own
+ tithings.  But things went ill for him and his ship
+ did sink on the voyage home.  Some do say that it was a
+ justice from God for his attempt to cheat the Trinity."
+
+[link="Do you know how I could get there?"]
+[linkto="yado_island2"]
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yado_island2"]
+
+"The tale I heard said not where the isle may be found,
+ only that it took at least three moons to sail there,
+ and but few people know the way.
+
+ In these parts you will find only small fishing-boats,
+ not the ship you would need to make such a voyage."
+
+[colour="#808080"]
+She chuckles.
+[colour="#ffffff"]
+
+"Ah, if only you had wings and could fly!"
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="boat"]
+
+"There is a fisherman named Mundrick who lives by the
+ river, but he was a vain man and the LORD clouded his
+ mind as punishment.
+
+ Yet still he may be able to take you to a nearby
+ island if you can fathom his words."
+
+[link="Why is this place called the Green Lion?"]
+[linkto="greenlion"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

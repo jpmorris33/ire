@@ -1,0 +1,27 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+   How to live on the Cosmic Charge Account:
+   An introduction to Functional Epistemology
+
+            By Professor Konrad Leuten
+           Translated by C.M. Kornbluth
+                Hopedale Press 1955
+
+ This work describes a system of magic based
+ upon the principles of rational thought, inner
+ contemplation and accepting your place in the
+ scheme of things.
+
+ More advanced chapters include:
+
+  * Levelled Personality Interflow
+
+  * The Principle of Permissive Evolution
+
+  * How to Be In Utter Harmony With Your
+    Environment
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,30 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+            A True Tale Of Witchcraft - Sprenger
+
+  A little girl, walking with her father in his land, heard
+  him complain of drought, wishing for rain.
+  "Why, father!" she said, "I can make it rain or hail when
+   and where I wish!"
+
+  Her father asked her where she learned this.  She said it
+  was her mother, who forbade her to tell anybody of it.
+  He asked her how her mother taught it.  She answered that
+  her mother committed her to a Master, who would at any
+  time do anything for her.
+
+  "Why then," said he, "make it rain, but only in my field."
+  And so she went to the stream, and threw up water in the
+  air, in her Master's name, and made it rain presently.
+  And proceding further with her father, she made it hail in
+  another field, at her father's request.
+
+  And so he accused his wife of witchcraft, and caused her
+  to burned, and re-christened his daughter by a new name.
+[nextpage="exit"]
+[endpage]
+
+(This is from Discoverie of Witchcraft, which in turn quotes
+ the Malleus Maleficarum.  I may revise this to use the
+ original source rather than the second-hand one)

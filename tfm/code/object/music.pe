@@ -1,0 +1,25 @@
+##
+##	Musical instruments
+##
+
+
+function music_piano
+object_sound "piano" current
+end
+
+function music_bass
+object_sound "bass_synth" current
+end
+
+function music_organ
+object_sound "organ_killer" current
+end
+
+function music_farfisa
+stop_music
+play_music "farfisa"
+end
+
+function music_prize
+play_sound "prize"
+end

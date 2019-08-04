@@ -1,0 +1,54 @@
+#
+#	SEER Compatability layer
+#
+
+# Other
+
+function book_use
+if_exists current
+	talk_to current.funcs.talk current.funcs.user1
+endif
+end
+
+function respawn
+/*
+bug start
+print "respawning "
+print current.name
+printcr
+bug end
+*/
+
+change current = current.name
+let current.stats.hp = current.maxstats.hp
+let current.user.oldhp = current.stats.hp
+end
+
+
+function trap_jackinthebox
+return
+end
+
+function use_ccard
+print "Like I'm going to find a cashpoint out here.."
+printcr
+end
+
+
+function lie_down
+/*
+BUG START
+print "lie_down not supported|"
+BUG END
+*/
+end
+
+
+function do_nothing
+no_operation
+end
+
+function nothing
+activity
+stop_action me
+end

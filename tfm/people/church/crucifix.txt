@@ -1,0 +1,1006 @@
+[esc="bye2"]
+[page="start"]
+[call="check_bishop"]
+[if killed_bishop][goto="final_sin"]
+[if hear_truth][goto="HT_start"]
+[call="tithes_check"]
+[if true][goto="pay_tithes"]
+[if desecrate][goto="desecrate"]
+[if heretic][goto="returned"]
+[if_not MetUmbring][goto="umbring"]
+[if_not MetUmbring][goto="umbring"]
+[if pledged][goto="crusade"]
+[image="crucifix.jpg"]
+[journal jrn_Crucifix]
+[colour="#808080"]
+As you stare at the Crucifix, its face begins to shimmer
+slightly and the painted eyes turn to look back at you
+in a penetrating and disturbing manner.
+[colour="#ffffff"]
+
+"Yes, my $Son?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[always]
+[link="Woah.  That must have been some really bad acid."]
+[linkto="acid"]
+[link="I thought you were invented to subjugate the masses."]
+[linkto="fiction"]
+[link="Um, wrong person.  Goodbye"]
+[linkto="bye"]
+[altlink="Goodbye, my Lord."]
+[endpage]
+
+
+[page="missionlist"]
+[endpage]
+
+
+[page="who"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix smiles.
+[colour="#ffffff"]
+
+"Don't you know me?"
+
+[link="Are you Christ?"]
+[linkto="who1"]
+[link="I think you are the Devil!"]
+[linkto="who2"]
+[link="No.  I don't know who you are."]
+[linkto="who3"]
+[link="I don't know who you are, but you are not Christ."]
+[linkto="who3c"]
+[endpage]
+
+
+
+[page="acid"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shows no emotion.
+[colour="#ffffff"]
+
+"I am not the product of drugs.
+
+ I am the Son of God.
+ The second of the Holy Trinity."
+
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[link="I really must be going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who1"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix smiles in a charming fashion.
+[colour="#ffffff"]
+
+"Yes, my child.  I am the Son of God.
+ The second of the Holy Trinity."
+
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[link="I really must be going."]
+[linkto="bye"]
+
+[endpage]
+
+
+
+[page="who2"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix smiles.
+[colour="#ffffff"]
+
+"No, my child.  I am Christ.. the Son of God.
+ The second of the Holy Trinity."
+
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[link="I really must be going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who3"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix looks puzzled.
+[colour="#ffffff"]
+
+"I am Christ.  The Son of God.
+ The Second of the Holy Trinity.
+ How is it that you do not know me?"
+
+[link="I'm new here."]
+[linkto="who3a"]
+[link="I don't believe in God."]
+[linkto="who3b"]
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[link="I really must be going."]
+[linkto="bye"]
+
+[endpage]
+
+
+
+[page="who3a"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix smiles knowingly.
+[colour="#ffffff"]
+
+"I understand.  But put your faith in the Trinity and you
+ shall partake of many miracles.
+ 
+ Goodbye for now, my $Son, and take care."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="who3b"]
+[image="crucifix.jpg"]
+"The Lord still exists whatever you believe, and He will
+ punish you with great vengance if you do not obey.
+
+ Do you pledge yourself to the Holy Trinity?"
+
+[link="Yes, I do."]
+[linkto="who3y"]
+[link="No."]
+[linkto="kill"]
+[link="You aren't Christ."]
+[linkto="who3d"]
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[link="I really must be going."]
+[linkto="bye2"]
+[endpage]
+
+
+
+[page="who3c"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+In a state of apparent confusion, the Crucifix opens and
+closes its mouth soundlessly for a few seconds.
+[colour="#ffffff"]
+
+"I am.  Christ.  The Son of God.
+ The Second of the Holy Trinity. Trinity.
+
+ All must bow in worship to me.. to Us.
+ We am the Holy Trinity."
+
+[link="You aren't Christ."]
+[linkto="who3d"]
+[link="I don't want to."]
+[linkto="kill"]
+[link="Yes, Master."]
+[linkto="who3y"]
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[link="I really must be going."]
+[linkto="bye2"]
+[endpage]
+
+
+
+[page="who3d"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+An expression of fury fills the wooden face.
+[colour="#ffffff"]
+
+"I AM CHRIST!
+
+ Those who will not worship the Living God are blasphemers
+ and heretics!
+
+ I offer you one last chance to accept the Trinity!"
+
+[link="I will worship you, O Lord."]
+[linkto="who3y"]
+[link="No.  I won't."]
+[linkto="kill"]
+[endpage]
+
+
+
+[page="who3y"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix smiles in a relaxing manner and you feel your
+troubles melt away.
+[colour="#ffffff"]
+[set pledged]
+
+"That is good, my $Son.
+ You are always welcome in the House of the Lord.
+
+ As a soldier of Christ you may later be called upon to
+ join in a Pious Cause, which some call a 'Crusade'.
+
+ You shall attend Church regularly, for news of any such
+ Cause will come from my lips."
+
+[colour="#808080"]
+The Crucifix flickers slightly and becomes wood once more.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="fiction"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix remains silent for a long time, then quotes
+fragments of litany.
+[colour="#ffffff"]
+
+"I am not a fiction.  I am real.
+ You will believe in Me and carry out Our work.
+
+ Everything has the place assigned it by our Father.
+ The poor are poor because it is the will of God.
+ Salvation awaits the poor.  It is the will of God."
+
+[link="That's the problem."]
+[linkto="fiction2"]
+[link="I was sure you were just a fairy tale."]
+[linkto="fiction3"]
+[link="Okay, that's cool."]
+[linkto="who3y"]
+[link="I really must be going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="fiction2"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The crucifix assumes a neutral expression.
+[colour="#ffffff"]
+
+"There is no problem. It is the will of God. It shall be.
+
+ Do not question the wisdom of the Lord, for that path
+ leads to the valley of the shadow of death."
+
+[link="Okay, I've decided to worship you."]
+[linkto="who3y"]
+[link="I was sure you were just a fairy tale."]
+[linkto="fiction3"]
+[link="I really must be going."]
+[linkto="bye2"]
+[endpage]
+
+
+
+[page="fiction3"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix stares at you menacingly.
+[colour="#ffffff"]
+
+"I am Christ.  I am real.
+ The Lord is very real and He shall punish you with great
+ vengance if you do not obey.
+
+ Like the nations the Lord destroyed before you, so you
+ will be destroyed for not obeying the Lord your God."
+
+[link="I don't believe in you or God."]
+[linkto="kill2"]
+[link="I obey my own God."]
+[linkto="kill"]
+[link="You aren't God, I am!"]
+[linkto="kill"]
+[link="Oh, all right."]
+[linkto="bye2"]
+[endpage]
+
+
+
+[page="whatwant"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix smiles.
+[colour="#ffffff"]
+
+"I want you to cast away your sins and accept the way of
+ the Lord.  Place your faith in the Trinity and be saved
+ at the day of Judgement."
+
+[link="Yes, that sounds like a good idea."]
+[linkto="who3y"]
+[link="Screw that."]
+[linkto="kill"]
+[link="I really must be going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[if heretic][goto="bye_bad"]
+[if_not pledged][goto="bye_bad"]
+[image="crucifix.jpg"]
+"Fare you well, my $Son."
+
+[colour="#808080"]
+The eyes of the Crucifix return to their original
+positions and the shimmering aura fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye2"]
+[if heretic][goto="bye_bad"]
+[if_not pledged][goto="bye_bad"]
+[image="crucifix.jpg"]
+"Put your faith in the Trinity."
+
+[colour="#808080"]
+The eyes of the Crucifix return to their original
+positions and the shimmering fades away.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye_bad"]
+[image="crucifix.jpg"]
+"If you do not accept the way of the Trinity you shall
+ surely die."
+
+[colour="#808080"]
+The eyes of the Crucifix return to their original
+positions and the shimmering aura fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="kill"]
+[image="crucifix.jpg"]
+[set heretic]
+[colour="#808080"]
+The Crucifix shimmers, and a wild expression forms in the
+wooden face!
+[colour="#ffffff"]
+
+"DESTROY THE UNBELIEVER!"
+
+[nextpage="exit"]
+[at_exit_call="justice_blasphemy"]
+[endpage]
+
+
+
+[page="kill2"]
+[image="crucifix.jpg"]
+[set heretic]
+[colour="#808080"]
+The Crucifix shimmers, grinning with malevolence!
+[colour="#ffffff"]
+
+"THE PROMISED ONE HAS TURNED TO THE DEVIL!
+
+ BURN $HIM!"
+
+[nextpage="exit"]
+[at_exit_call="justice_heresy"]
+[endpage]
+
+
+
+[page="kill3"]
+[image="crucifix.jpg"]
+[set heretic]
+[colour="#808080"]
+The Crucifix shimmers, and an expression of pure evil
+appears on its features.
+[colour="#ffffff"]
+
+"DESTROY IT!"
+
+[nextpage="exit"]
+[at_exit_call="justice_heresy"]
+[endpage]
+
+
+
+[page="call_off"]
+[image="crucifix.jpg"]
+[clear heretic]
+[colour="#808080"]
+The Crucifix shimmers, and a neutral expression forms on
+its face.
+[colour="#ffffff"]
+
+"$HE HAS ACCEPTED THE TRINITY.
+ LET $HIM LIVE."
+
+[nextpage="exit"]
+[at_exit_call="justice_calloff"]
+[endpage]
+
+
+
+[page="returned"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and a vicious expression forms on
+the painted face.
+[colour="#ffffff"]
+
+"So, Heretic!
+
+ Do you come back to repent, and to accept the Trinity?
+ Have you come to be Saved?"
+
+[link="Yes."]
+[linkto="call_off"]
+[link="No."]
+[linkto="kill3"]
+[link="I haven't decided yet."]
+[linkto="returned2"]
+[endpage]
+
+
+[page="returned2"]
+[image="crucifix.jpg"]
+"Then think quickly!
+
+ What happened to Lot's wife can happen to you, too!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="desecrate"]
+[image="crucifix.jpg"]
+[clear desecrate]
+[set heretic]  # simplifies things
+
+[colour="#808080"]
+The Crucifix shimmers, and a dark expression forms upon
+the painted man's face.
+[colour="#ffffff"]
+
+"You have desecrated My house.  Men have died for this,
+ yet you may live on if you repent and pledge yourself
+ to Our cause and the betterment of the Church of the
+ Holy Trinity.
+
+ Do you promise to sin no more, and to serve only the
+ Trinity?"
+
+[link="Yes."]
+[linkto="call_off"]
+[link="No."]
+[linkto="kill3"]
+[link="Not sure."]
+[linkto="returned2"]
+[endpage]
+
+
+[page="final_sin"]
+[esc="exit"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and grins in a most unholy way.
+[colour="#ffffff"]
+
+"There are some sins that the Trinity can never forgive.
+
+ Goodbye, my $Son."
+
+[at_exit_call="single_attackplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="crusade"]
+[call="tithes_check"]
+[if true][goto="pay_tithes"]
+[if_not CrickladeAbbey][goto="mission_cricklade"]
+[if_not CrickladeAbbey2][goto="mission_cricklade2"]
+[if_not CrickladeAbbey3][goto="mission_cricklade3"]
+[image="crucifix.jpg"]
+"At this time we have no quest for you.
+
+ Work, however, progresses upon my Second Coming."
+
+[link="I have a question."]
+[linkto="question"]
+[link="Tell me about the Second Coming."]
+[linkto="2ndcoming"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="2ndcoming"]
+[image="crucifix.jpg"]
+"The time is not yet ripe for my return, but I shall tell
+ of what will come to pass.
+
+ The Second Coming shall be the day of Judgement.
+ For the Faithful my return will herald joy and wonder.
+ There will be jubilation.
+
+ But for those who reject the Trinity it shall be a time
+ of woe and suffering.
+
+ It shall be a time of fire and much blood.
+ Heretic kings and sinners shall be overthrown by the
+ army of the Trinity and a new golden age shall begin."
+
+[link="I have a question."]
+[linkto="question"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="umbring"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"Now hear me, my $son.
+
+ Speak with Cardinal Umbring before anything else.
+ He tends the Church at New Highworth, where you emerged.
+
+ He shall give you items which you shall need."
+
+[link="I have a question."]
+[linkto="umbring2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="umbring2"]
+[image="crucifix.jpg"]
+"This must wait.  Do not return until you have spoken to
+ Cardinal Umbring."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="mission_cricklade"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+[if_not MetUmbring][goto="umbring"]
+
+"Now hear me, my $son.
+
+ You shall speak with Cardinal Tod.  He may be found at
+ Cricklade Abbey.
+
+ Once this be done, you may return to New Highworth."
+
+[link="I have a question."]
+[linkto="question"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="mission_cricklade2"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"Now hear me, my $son.
+
+ Speak again with Cardinal Tod and learn our ways.
+ Learn of the Evils which plague our land."
+
+[link="I have a question."]
+[linkto="question"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="mission_cricklade3"]
+[set CrickladeAbbey3]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"Now hear me, my $son.
+
+ You are to journey to New Highworth, there to learn of
+ the sceptre of King Edwyg.  This precious thing must be
+ found and brought unto the Church, that it may be
+ returned to its true owner.
+
+ Hear and obey."
+
+[link="I have a question."]
+[linkto="question"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="mission_sceptre"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"Now hear me, my $son.
+
+ You must take the Sceptre of New Highworth to His
+ Holiness the Pope, that it may be blessed in Our Name.
+
+ It must be done at once.  Jesus has spoken."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="question"]
+[image="crucifix.jpg"]
+"Ask and you may be told, my $Son."
+
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[always]
+[link="I thought you were invented to subjugate the masses."]
+[linkto="fiction"]
+[if met_waarg][link="Tell me about the Waarg."]
+[if met_waarg][linkto="waarg"]
+[link="Um, wrong person.  Goodbye"]
+[linkto="bye"]
+[altlink="Goodbye, my Lord."]
+[endpage]
+
+
+[page="waarg"]
+[image="crucifix.jpg"]
+"They are the.. the Dominie Canes.. The LORD's Dogs.
+ It is not forbidden to enter their realm but it is not
+ considered wholesome.  The LORD disapproves of it.
+
+ They that you call the 'Waarg' were the first Chosen
+ Ones picked by the LORD to spread His Word.
+ This was before He made man.  Man was a better idea."
+
+[colour="#808080"]
+You notice that this is the first time you've heard any
+latin since arriving, and the Crucifix stuttered over it.
+[colour="#ffffff"]
+
+[link="Why was there a war?"]
+[linkto="waarg_war"]
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[always]
+[link="Goodbye, my Lord."]
+[linkto="bye"]
+[endpage]
+
+
+[page="waarg_war"]
+[image="crucifix.jpg"]
+"It was not a war.  It was a test of faith.  A test of
+ mankind's faith and a test of the faith of the Waarg.
+
+ The LORD requires that His servants obey without
+ question.  The Waarg did not obey.  Their leader was
+ taken from them as punishment.  They are in disarray.
+
+ Soon they shall again worship the LORD."
+
+[link="What do you want with me?"]
+[linkto="whatwant"]
+[always]
+[link="Goodbye, my Lord."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pay_tithes"]
+[esc="disabled"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"Now hear me, my $son.
+
+ You have not yet paid the LORD His dues.
+ The Church demands that the tithe of 1320 gold coins
+ be paid in full.
+[call="tithes_num"]
+
+ You still owe the Holy Trinity $USERNUM1 gold coins."
+
+[link="I was just about to."]
+[linkto="pay_tithes1"]
+[link="I cannot pay it yet."]
+[linkto="pay_tithes2"]
+[link="The LORD can get bent."]
+[linkto="kill"]
+[link="Do you take Mastercard?"]
+[linkto="pay_tithes3"]
+[endpage]
+
+
+
+[page="pay_tithes1"]
+[image="crucifix.jpg"]
+"Good.  The LORD will be pleased with you.
+
+ You may pay the gold to any Cardinal, or deposit the
+ coins in the poor-box.  The LORD will know."
+
+[link="Do you take Mastercard?"]
+[linkto="pay_tithes3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="pay_tithes2"]
+[image="crucifix.jpg"]
+"Then you must find the money soon!  The LORD grows
+ impatient and it would not do to keep Him waiting.
+
+ You may pay the gold to any Cardinal, or donate the
+ coins in the poor-box.  The LORD will know."
+
+[link="Do you take Mastercard?"]
+[linkto="pay_tithes3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="pay_tithes3"]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix assumes a very stern expression.
+[colour="#ffffff"]
+
+"That is a forbidden technology!
+ 
+ Renounce the sins of the modern age or your place in
+ the LORD's plan shall be one of eternal suffering!"
+
+[nextpage="exit"]
+[endpage]
+
+
+Hear Truth
+
+
+[page="HT_start"]
+[clear hear_truth]
+[image="crucifix.jpg"]
+[colour="#808080"]
+The Crucifix shimmers and speaks to you in a flat,
+toneless voice.
+[colour="#ffffff"]
+
+"Command me, Master."
+
+[link="Tell me who you are."]
+[linkto="HT_name"]
+[link="Tell me what you are."]
+[linkto="HT_what"]
+[link="Tell me what happens to the tithes."]
+[linkto="HT_tithes"]
+[link="Nothing.  Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_name"]
+[image="crucifix.jpg"]
+
+"I have been given the name 'Jesus Christ' to further
+ Xy'lan's plan."
+
+[link="Tell me what you are."]
+[linkto="HT_what"]
+[link="Tell me about the plan."]
+[linkto="HT_plan"]
+[link="Tell me about Xy'lan."]
+[linkto="HT_xylan"]
+[link="Tell me what happens to the tithes."]
+[linkto="HT_tithes"]
+[link=" Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_what"]
+[image="crucifix.jpg"]
+
+"I am a personality construct based upon the central
+ figure from the human religion.
+
+ It is necessary that the humans accept me as a figure
+ of divine authority to prevent rebellion and ensure
+ that Xy'lan's orders are obeyed efficiently.
+
+ There were other human religions.  Their followers did
+ not worship me.  They were destroyed.  Now there is only
+ one religion.  This is more suitable for Xy'lan's plan."
+
+[link="Tell me about Xy'lan's plans."]
+[linkto="HT_plan"]
+[link="Tell me about Xy'lan."]
+[linkto="HT_xylan"]
+[link="Tell me what happens to the tithes."]
+[linkto="HT_tithes"]
+[link="Nothing.  Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_plan"]
+[image="crucifix.jpg"]
+
+"I can not reveal Xy'lan's plans until after the Second
+ Coming has taken place."
+
+[link="Tell me about the Second Coming."]
+[linkto="HT_2nd"]
+[link="Tell me about Xy'lan."]
+[linkto="HT_xylan"]
+[link="Tell me what happens to the tithes."]
+[linkto="HT_tithes"]
+[link="Nothing.  Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_2nd"]
+[image="crucifix.jpg"]
+
+"The Second Coming will see me upgraded to Drakaan-level
+ intelligence and equipped with a fully functional body
+ that will enable me to interact with the humans more
+ completely.
+
+ A donor human body will be required for this operation."
+
+[link="Tell me about Xy'lan."]
+[linkto="HT_xylan"]
+[link="Tell me what happens to the tithes."]
+[linkto="HT_tithes"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_tithes"]
+[image="crucifix.jpg"]
+
+"Fifteen percent of the tithings are used to purchase
+ decorative items and supplies for the Church.
+
+ Ten percent is used to purchase weapons and pay troops.
+
+ Seven percent is used to pay Church staff.
+
+ Between one and two percent is embezzled by the Clergy.
+
+ What remains is stored beneath the Cathedral at New
+ Avignon.  The Pope enjoys looking at it.
+ Xy'lan enjoys counting it."
+
+[nextpage="HT_tithes2"]
+[endpage]
+
+
+[page="HT_tithes2"]
+[image="crucifix.jpg"]
+
+"Xy'lan and the Pope are both motivated by a desire to
+ obtain more gold.  It is called 'greed'.
+
+ At last data refresh the vault contents were worth two
+ hundred and forty-six million one hundred and twenty-
+ three thousand four hundred and seventy-two gold coins.
+
+ More recent data can be queried from the accounting
+ database."
+
+[link="Tell me about Xy'lan's plans."]
+[linkto="HT_plan"]
+[link="Tell me about the Second Coming."]
+[linkto="HT_2nd"]
+[link="Tell me about Xy'lan."]
+[linkto="HT_xylan"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_xylan"]
+[image="crucifix.jpg"]
+
+"Xy'lan is an intelligent control system who resides in
+ the data network of the research starship 'Maxima'.
+
+ He i-"
+
+[colour="#808080"]
+The Crucifix's mouth opens and closes soundlessly and the
+shimmering projection suddenly blinks out of existence,
+leaving the wooden idol's face to stare blankly at the
+ceiling.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_bye"]
+[image="crucifix.jpg"]
+
+"Good bye Master."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="sacrifice"]
+[image="crucifix.jpg"]
+
+"The Second Coming is complete.
+ I am now fully operational.
+
+ The might of the Holy Trinity shall kill all sinners.
+
+ This world and the Earth shall belong to the Holy
+ Trinity for ever."
+ 
+[nextpage="exit"]
+[endpage]

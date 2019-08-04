@@ -1,0 +1,201 @@
+##########################
+#                        #
+#   Traps and triggers   #
+#                        #
+##########################
+
+
+##
+##	Spiky objects
+##
+
+constant BOOTS_THRESHOLD = 20
+
+function spikes
+
+if_not_flag victim IS_PERSON
+	return
+endif
+
+# If wearing shoes, negate a certain amount of damage
+
+if_exists victim.wield.feet
+	if current.stats.damage < BOOTS_THRESHOLD
+		return
+	endif
+endif
+
+# Damage the victim
+	
+add victim.stats.hp - current.stats.damage
+let splatvictim = victim
+check_hurt victim
+
+/*
+print "spikes "
+print current.name
+print " at "
+print current.x
+print ","
+print current.y
+print " hurt NPC "
+print_bestname victim
+print " at "
+print victim.x
+print ","
+print victim.y
+printcr
+*/
+end
+
+
+##
+##	Open Roof
+##
+
+function openroof
+
+let show_roof = -1 # Hide the roof
+
+end
+
+
+##
+##	Close Roof
+##
+
+function closeroof
+
+let show_roof = 1 # Force the roof to be shown
+
+end
+
+##
+##	Stood in the swamp
+##
+
+function swamp_poison
+integer r
+object boots
+
+# Only biological creatures are affected by poison
+# undead or cybers etc. aren't affected
+if_not_flag victim IS_BIOLOGICAL
+	return
+endif
+
+# Do not poison the dead
+if victim.stats.hp < 1
+	return
+endif
+
+fx_random r = 4
+
+if r > 1
+	# Your luck's bad..
+	let boots = victim.wield.feet
+	if_exists boots
+		if boots is called "swamp_boots"
+			# Ah, but I have swamp boots!
+			return
+		endif
+	endif
+	# You've
+		# Been
+			# Poisoned
+	add victim.user.poison + 25
+endif
+
+end
+
+
+function lava_incinerate
+
+# If it goes under minus a million it's probably not meant to be destroyed
+if victim.stats.hp < -1000000
+	return
+endif
+
+# This is going to hurt.  A lot
+add victim.stats.hp - 1000
+check_hurt victim
+
+end
+
+
+
+
+##
+##	Find several remote objects and call their wield function
+##
+
+function callwield_tags
+int tag
+int ctr
+object_array obj[32]
+
+let tag = 0 - current.tag
+find_tags obj[1] = "" tag
+
+for ctr = 1 to 32
+	if_exists obj[ctr]
+		let current = obj[ctr]
+		if current.funcs.wcache > 0
+			call current.funcs.wcache
+		endif
+	endif
+next ctr
+
+end
+
+##
+##	Player breaks jail
+##
+
+function break_jail
+
+if victim = player
+	if victim.curdir = current.curdir
+		let suspect = player
+		let suspect.user.user19 = CRIME_TRESPASSING	# close enough
+		let current.user.counter = 0
+		call call_guards	# All guards grab the player
+	endif
+endif
+end
+
+##
+##  Grow flowers (Pinnacle of Ascension)
+##
+
+function plant_spawn
+int tag
+int ctr
+object_array obj[16]
+object temp
+object objpos
+string plant_type
+
+let tag = current.tag
+if_not_exists current.pocket
+	# No flowers inside, bail
+	return
+endif
+
+# Store the object type
+let plant_type = current.pocket.name
+
+find_tags obj[1] = "target" tag
+for ctr = 1 to 16
+	let objpos = obj[ctr]
+	if_exists objpos
+		if_not_exists objpos.next
+			create temp = plant_type
+			transfer_object temp to objpos.x objpos.y
+			random tag = 0 3
+			set_direction temp facing tag
+		endif
+	endif
+next ctr
+
+end

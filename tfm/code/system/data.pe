@@ -1,0 +1,71 @@
+#
+#	Global variables used in the game
+#
+
+# Mouse regions
+
+constant INVENTORY = 696
+constant INV_ARROW_U = 697
+constant INV_ARROW_D = 698
+constant WIELD_NECK = 900
+constant WIELD_HEAD = 901
+constant WIELD_BODY = 902
+constant WIELD_LHAND = 903
+constant WIELD_RHAND = 904
+constant WIELD_LRING = 905
+constant WIELD_FEET = 906
+constant WIELD_RRING = 907
+constant BAG_GRID = 908
+
+#120
+
+# Interface Widgets
+
+object	cursor
+object	splat
+object  back_icon
+object	directioncursor
+object	objectpanel
+object	statuspanel
+object	karmometer
+object  spellbook_img
+object  phone_img
+object  drak_keypad
+object	dlp_display
+
+# Game status variables
+
+object	splatvictim
+object	defaultenemy
+object	current_bag
+object	bankaccount
+object	usercard
+object  thrown
+object  attacker
+object  attackweapon
+object  suspect
+
+# integers
+
+int player_load
+int player_strength
+
+# Object browser
+int show_cursor = 0
+int cursor_x
+int cursor_y
+int quit_browser
+int drop_ok
+int deathcount = 0	# How many times has the player died?
+
+int party_mode
+int spawn_override = 0	# Use a different respawn spot after death (islands etc)
+int light_magic = 0
+
+# NPC classes
+
+const CLASS_MISC = 0
+const CLASS_SOLDIER = 1
+const CLASS_KING = 2
+
+userstring baal 20

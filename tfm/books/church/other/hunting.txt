@@ -1,0 +1,41 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+              A treatise on the hunting of fowl
+                    by Polak the Younger
+
+  The thick forest in which we live is home also to a great many
+  woodland creatures.  Common among these are fowl, chickens and
+  grouse which make a fine stew if you can catch them.
+
+  If you would hunt fowl, take a crossbow, or perhaps a falcon
+  if you are versed in the art of hawking.
+
+  Chickens make fine eating, and a single large bird can feed a
+  family for several days.  Brown grouse are also good for their
+  meat, and are highly prized.
+
+  But there is a bird of the forest that you should NOT eat, the
+  blackcock, the male black grouse.  The blackcock is evil, and
+  has oft been seen performing vile acts of witchcraft at night.
+
+  It was so decreed by a Cardinal that the blackcocks should be
+  hunted down as agents of the Evil One, and for a while a
+  bounty could be had for each blackcock slain.
+
+[right="2"]
+[endpage]
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+  But this found disfavour with the LORD who revealed that the
+  evil black grouse must mate with the fair brown grouse to raise
+  her young, and the bounty was ended.
+  
+  You should leave the blackcock well alone during the day, and
+  flee them if you be left in the forest after dark.
+  
+[left="start"]
+[right="exit"]
+[endpage]

@@ -1,0 +1,572 @@
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[learn_name]
+[image="f16_00.cel"]
+[colour="#808080"]
+You see an F-16 with a green stripe on her tail.
+[colour="#ffffff"]
+
+"Hello there.  I'm Fisher."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What in Hades are all these dead things for?"]
+[linkto="magic"]
+[altlink="What are all these dead animals for again?"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Why are some buildings too old?"]
+[linkto="buildings"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[image="f16_00.cel"]
+[colour="#808080"]
+You see Fisher, a female F-16.
+[colour="#ffffff"]
+
+"Hello again."
+
+[am_carrying "tode"]
+[if true][if FisherToadQuest][link="I have a toad for you."]
+[if true][if FisherToadQuest][linkto="toad3"]
+[link="What is your full name?"]
+[linkto="name"]
+[link="What in Hades are all these dead things for?"]
+[linkto="magic"]
+[altlink="What are all these dead animals for again?"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Why are some buildings too old?"]
+[linkto="buildings"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="f16_00.cel"]
+
+"My full name and title is 'Fc. Fisher 102-R', but I much
+ prefer just to be called 'Fisher'."
+
+[link="What in Hades are all these dead things for?"]
+[linkto="magic"]
+[altlink="What are all these dead animals for again?"]
+[link="What's your job?"]
+[linkto="job"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="f16_06.cel"]
+
+"I'm actually a trained quantum physicist.  My jobs
+ involved qcomp engines and qcrypto blocks.
+ 
+ But secure data communication is not exactly high on our
+ list of priorities right now, so I work with DeLuca to
+ try and understand the miracles we've been seeing."
+
+[link="Don't you believe that God is responsible?"]
+[linkto="god"]
+[link="Tell me about DeLuca."]
+[linkto="deluca"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic"]
+[image="f16_06.cel"]
+
+"I'm working with DeLuca to try and stimulate magical
+ phenomena for study.  It's not working too well, though.
+
+ So far I've sacrificed two cows and a toad, with not
+ very much to show for it.
+
+ The toad was quite interesting, though.  Inside the
+ skull I found a crystal of some kind that shouldn't
+ be there.  It was exhibiting some quite unusual quantum
+ phenomena, but it gradually faded after the toad died.
+ 
+ Some Church texts I've read describe a jewel called a
+ 'todestone', and I think I've found one."
+ 
+[link="Don't you believe God is responsible for magic?"]
+[linkto="god"]
+[link="Tell me more about the toad."]
+[linkto="toad"]
+[link="Tell me about DeLuca."]
+[linkto="deluca"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="toad"]
+[image="f16_06.cel"]
+
+"The toad kept attacking me.. it spat fire and stuff.
+
+ I'd love to know how that worked, but unfortunately it
+ hurt me, and as a result the sacrificing may have been
+ a little, er, extreme.  There's not much left to study.
+
+ Now I know what to look for, I think I could have some
+ real successes with another specimen.
+
+ Do you think you might be able to get me a live toad?"
+
+[link="Yes, I'll get one for you."]
+[linkto="toad2"]
+[link="Don't you believe God is responsible for magic?"]
+[linkto="god"]
+[link="Tell me about DeLuca."]
+[linkto="deluca"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="toad2"]
+[set FisherToadQuest]
+[image="f16_00.cel"]
+
+"I'd be very grateful if you can!
+
+ My toad was found by the guards.  It was lurking outside
+ the base, and as far as I know it was the only one.
+
+ I understand there are swamps in the forest, you should
+ be able to find one there.  Or you might try following
+ the rivers and streams.
+
+ Be careful when you find one, they are quite dangerous.
+ If you can stun it, or drug it to sleep somehow, that
+ could save you many burns."
+
+[link="Do you believe God is responsible for magic?"]
+[linkto="god"]
+[link="Tell me about DeLuca."]
+[linkto="deluca"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="toad3"]
+[delete 1 tode]
+[image="f16_00.cel"]
+
+"Excellent!"
+
+[colour="#808080"]
+Fisher takes the toad carefully and, after administering
+a sedative, attaches probes to it.  DeLuca comes across to
+watch.
+
+Fifteen minutes later, during which time the toad has
+claimed to be the property of Satan and babbled about
+crucifixion in a flat toneless voice, Fisher turns towards
+you holding the now silent toad and looking rather happy.
+[colour="#ffffff"]
+
+[nextpage="toad4"]
+[endpage]
+
+[page="toad4"]
+[image="f16_00.cel"]
+
+"I knew watching ZARDOZ was gonna help!
+
+ See, this toad has a crystal implanted in its skull,
+ presumably by Pope Harris or his cronies.
+
+ Around the crystal, there's a faint distortion of
+ reality at the quantum level, which enables the toad
+ to shoot fireballs and project a voice.
+
+ We also think it's allowing the toad to be controlled
+ remotely."
+
+[nextpage="toad5"]
+[endpage]
+
+[page="toad5"]
+[image="su27_00.cel"]
+
+[colour="#808080"]
+DeLuca chimes in.
+[colour="#ffffff"]
+
+"Now.  This is just a guess, but I THINK the toadstone
+ is acting as a focal point to concentrate the magical
+ power onto the toad.  We're not quite sure of the
+ mechanism yet.
+
+ But, Fisher thinks that if YOU have one of these
+ crystals, you might be able to cast spells yourself!
+
+ But it doesn't look like the crystal lattice is very
+ stable outside of the toad.  I expect the stone will
+ break down after heavy usage."
+
+[link="Can you implant the crystal into me?"]
+[linkto="toad.implant"]
+[if magical][link="I already know about the crystals."]
+[if magical][linkto="toad.knewthat"]
+[endpage]
+
+
+[page="toad.implant"]
+[image="f16_00.pcx"]
+
+"Nothing doing!  We really don't know enough about how it
+ works to attempt a thing like that.
+
+ Besides which my brain surgery is a little rusty.. you'd
+ probably end up with a five-second memory or something."
+
+[if magical][link="I already know about the crystals."]
+[if magical][linkto="toad.knewthat"]
+[endpage]
+
+
+[page="toad.knewthat"]
+[image="f16_01.cel"]
+
+[colour="#808080"]
+Fisher looks at you as if you'd crawled out from under a
+rock or something.
+[colour="#ffffff"]
+
+"Then if you knew, WHY didn't you TELL us?"
+
+[nextpage="toad7"]
+[endpage]
+
+
+
+[page="display"]
+[image="f16_00.cel"]
+
+"That's LifeSim 4.0, by M-Corporation.
+
+ It's a people simulator.  The objective is to try and
+ walk to the chemists to buy aspirins without being run
+ into by traffic, shot down by muggers or tripping over.
+
+ There are other missions of course.  It's great fun."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="deluca"]
+[image="f16_00.cel"]
+
+"DeLuca's a good friend and mentor, and we work together
+ extremely well.  Either of us alone would not have got
+ anywhere near our present understanding of magic.
+
+ She is a true friend who I could trust with anything.
+
+ The only thing I can say against her is that she is too
+ squeamish.  I seem to end up doing all the messy work."
+
+[link="Tell me about your researches."]
+[linkto="magic"]
+[link="Don't you believe God is responsible for miracles?"]
+[linkto="god"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="god"]
+[image="f16_06.cel"]
+
+"You ever seen ZARDOZ, kid?"
+
+[link="Yes, I've seen it."]
+[linkto="wizard1-1"]
+[link="No, what is it?"]
+[linkto="wizard2-1"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="wizard1-1"]
+[image="f16_06.cel"]
+
+"Good!  Then you'll remember the Stone Head was run by
+ one of the Immortals to create a figurehead which the
+ people worshipped.
+
+ Now I bet you anything you like, that what we are up
+ against is another ZARDOZ.
+
+ Pope Harris is the supreme ruler, and somehow he's
+ fashioned a pet god which he uses as a front. 
+ And when we take him out, we'll find he's just
+ another charlatan."
+ 
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="wizard1-2"]
+[image="f16_06.cel"]
+
+"Good.
+ Then you'll remember that the Wizard was bogus, and just
+ some guy who invented a holographic projector and made a
+ fake god which the people worshipped.  He used this sham
+ to rule the city by proxy.
+
+ Now I bet you anything you like, that what we are up
+ against is another Wizard Of Oz.
+
+ Pope Harris is the supreme ruler, and somehow he's
+ fashioned a pet god which he uses as a front. 
+ And when we take him out, we'll find he's just
+ another charlatan."
+ 
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="wizard2-1"]
+[image="f16_07.cel"]
+
+"It's a film!  You're missing some classic human cinema,
+ you know that?
+ 
+ But you've seen The Wizard Of Oz, though, haven't you?"
+
+[link="Yes, I've seen that."]
+[linkto="wizard1-2"]
+[link="No, I haven't seen that either."]
+[linkto="wizard2-2"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="wizard2-2"]
+[image="f16_04.cel"]
+
+"Pfff.  What HAVE you watched?
+
+ Anyway.  At the end of the Wizard of Oz, it turned out
+ that the Wizard, a terrifying deity, was actually a
+ holograph run by some clever guy. He made a god which
+ the people worshipped and used the sham to rule the city
+ by proxy.  ZardoZ took the same theme and amplified it.
+ 
+ Now I bet you anything you like, that what we are up
+ against is another Wizard Of Oz.
+
+ Pope Harris is the supreme ruler, and somehow he's
+ fashioned a pet god which he uses as a front. 
+ And when we take him out, we'll find he's just
+ another charlatan."
+
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buildings"]
+[image="f16_06.cel"]
+
+"Ah, so you've noticed that some of the buildings are
+ over 300 years old, when the colony itself was only
+ established 40 years ago.
+
+ To be perfectly frank, I don't know.  But from what I
+ do know, or have guessed, something very scary has
+ happened!
+
+ You can guess the panic when we found that huge
+ buildings were being put up overnight.
+
+ At first, I thought that WE had been put into stasis.
+ That would have been horrible!  All the humans we know
+ on Earth would be long-dead.."
+
+[nextpage="buildings2"]
+[endpage]
+
+[page="buildings2"]
+[image="f16_06.cel"]
+
+"But when we contacted Earth, we found that it still was
+ the year we thought it was.
+
+ That came as a relief, but it doesn't make sense.
+
+ As near as I can guess, the Pope has somehow speed up
+ the rate of time for SOME places, but not others.
+ For the areas affected, a year seems to have passed for
+ each day that went by.
+ The effect lasted for exactly one year, then stopped.
+
+ And that brings me to another point."
+
+[nextpage="buildings3"]
+[endpage]
+
+[page="buildings3"]
+[image="f16_07.cel"]
+
+[colour="#808080"]
+Fisher begins to lose composture.
+[colour="#ffffff"]
+
+"The initial surveys on Weytus recorded the planet's
+ year as 379.2 days.
+
+ After the.. time thing.. happened, we discovered that
+ this figure was no longer correct.  The Weytus year is
+ now precisely 360.00 days.
+
+ Or to put it another way, Pope Harris has slowed down
+ the rotation of the planet, apparently on a whim.
+
+ What kind of man, or devil is he?  And what can protect
+ us from that kind of power..?"
+
+[link="What in Hades are all these dead things for?"]
+[linkto="magic"]
+[altlink="What are all these dead animals for again?"]
+[link="What's your job?"]
+[linkto="job"]
+[link="What's that on your display?"]
+[linkto="display"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="lord1"]
+[image="f16_07.cel"]
+
+[colour="#808080"]
+A wisp of smoke rises out from the toad, and becomes
+solid.  Then it begins to glow..
+[colour="#ffffff"]
+
+"Oh my God.."
+
+[nextpage="lord2"]
+[endpage]
+
+
+[page="lord2"]
+[image="lord.jpg"]
+
+"EXACTLY.
+
+
+ NOW, FISHER...  YOU'VE BEEN A BAD LITTLE PLANE.
+ YOU BROKE MY TOAD.  I'M GOING TO HAVE TO PUNISH YOU."
+
+[nextpage="lord3"]
+[endpage]
+
+
+[page="lord3"]
+[image="f16_07.cel"]
+
+"Oh God Oh God Please I don't wanna die, I don't wanna die.."
+
+[nextpage="lord4"]
+[endpage]
+
+
+[page="lord4"]
+[image="lord.jpg"]
+
+"IF YOU WORSHIP ME, I SHALL BE PLEASED.
+ IF I AM PLEASED, I MIGHT NOT KILL YOU."
+
+[nextpage="lord5"]
+[endpage]
+
+
+"Hmm.  The jury's still out on that one.  I still reckon
+ we're dealing with an alien Jesus."
+
+
+
+[page="bye"]
+[image="f16_00.cel"]
+
+"Fly high, land well!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="f16_00.cel"]
+
+"Guards!  Help me!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_start"]
+[image="f16_08.cel"]
+[clear hear_truth]
+[colour="#808080"]
+Fisher doesn't look at all well.
+[colour="#ffffff"]
+
+"Jesus, I feel terrible..."
+
+[nextpage="exit"]
+[endpage]

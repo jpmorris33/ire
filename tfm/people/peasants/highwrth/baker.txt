@@ -1,0 +1,142 @@
+[page="start"]
+[if_not baker_freed][goto="cell"]
+
+"my release is not implemented!"
+[nextpage="exit"]
+[Ngoto="released"]
+[endpage]
+
+
+[page="cell"]
+[if_ntime 0700-2200][goto="c_OutOfHours"]
+[colour="#808080"]
+You see a large man in a cell, who seems to be in
+fair spirit, despite his incarceration.
+[colour="#ffffff"]
+
+"Hello, good sir.
+ What brings you to see me?"
+ 
+[link="What is your name?"]
+[linkto="c_name"]
+[link="Why are you in prison?"]
+[linkto="c_job"]
+[link="What is your job?"]
+[linkto="c_job"]
+[link="I must go."]
+[linkto="c_bye"]
+[endpage]
+
+
+[page="c_name"]
+
+"I am Antoni, the baker of this town.
+ At least, I was until they put me here, hehe.."
+ 
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Why are you in prison?"]
+[linkto="c_job"]
+[link="I must go."]
+[linkto="c_bye"]
+[endpage]
+
+
+[page="c_job"]
+
+"I am the chief baker of this town.  For many years
+ I have baked the finest bread.. I was apprentice
+ to the King's personal cook.
+ 
+ But the tithes of the Church have been my bane.
+ I could afford no longer to make bread for the
+ poorest, so I had to add chalk to the dough.
+
+ I never thought I should need to do that, but
+ the poor must have bread to eat, no matter how
+ bad it may taste.
+ This bread I sell cheaply to the poor, but I erred,
+ for a batch was sold to the Church by mistake and
+ I was jailed.
+ 
+ But I do not despair, for my sentence was light.
+ I shall be free in a year.."
+ 
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="I must go."]
+[linkto="c_bye"]
+[endpage]
+
+
+[page="c_bye"]
+
+"Whatever.  You know where to find me.  Hehe.."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="tithes"]
+
+"The tithes are hard.  It is difficult to pay the
+ Church their due and have money left to eat with.
+
+ But still, it is a small enough amount to secure
+ a place in Heaven for your immortal soul.."
+
+[link="What happens if you don't pay?"]
+[linkto="no_tithes"]
+[link="I must go."]
+[linkto="c_bye"]
+[endpage]
+
+
+[page="no_tithes"]
+
+"We must pay the tithes.. our Lord demands it!
+ If you try to cheat Him, He will know.
+
+ Many have tried, and some have even succeeded
+ but they shall all burn in Hell when they die..
+
+ It is much easier to cheat the poor."
+
+[link="Why are you in prison?"]
+[linkto="c_job"]
+[link="I must go."]
+[linkto="c_bye"]
+[endpage]
+
+
+
+[page="no_tithesCDL"]
+
+MOVE THIS TO THE CARDINALS!
+
+"We must all pay the tithes, my $Son.
+ For if you do not pay the tithes, you will have
+ failed the Trinity.  The LORD judges us all when
+ our time on this earth is ended, and those who
+ disappoint our Father shall be sent to Hell.
+ 
+ And those who OFTEN fail to pay shall have a
+ particularly short time upon this earth!"
+
+[page=""]
+
+##
+##  Out of Hours
+##
+
+[page="c_OutOfHours"]
+[colour="#808080"]
+You see a large man in a cell, who seems annoyed
+that you have disturbed him.
+[colour="#ffffff"]
+
+"Away!  Even a prisoner needs his sleep.
+ Come back in the morning.."
+
+[nextpage="exit"] 
+[endpage]

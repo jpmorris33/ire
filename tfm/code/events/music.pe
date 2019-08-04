@@ -1,0 +1,242 @@
+###########################################
+#                                         #
+#  Trigger functions to change the music  #
+#                                         #
+###########################################
+
+
+##
+##	Start the cow dance
+##
+
+function music_cow
+integer a
+
+# Ensure the player met The Cow
+set_user_flag "met_thecow" = 1
+
+is_playing a
+if a <> 0
+	return
+endif
+
+get_user_flag a = "cow_dead"
+if a <> 0
+	# The cow's dead
+	return
+endif
+
+get_user_flag a = "cow_dance"
+if a <> 0
+	return
+endif
+
+play_music "cowdance"
+set_user_flag "cow_dance" = 1
+
+end
+
+
+##
+##	Start the creepy music
+##
+
+function music_creepy 
+integer a
+is_playing a
+
+if a == 0
+	play_music "creepy"
+endif
+end
+
+##
+##	Start the lab music
+##
+
+function music_lab
+integer a
+is_playing a
+
+if a == 0
+	play_music "DeLucas_Lab"
+endif
+end
+
+
+##
+##	Start the ransome music
+##
+
+function music_ransome
+integer a
+is_playing a
+
+if a == 0
+	play_music "Ransome"
+endif
+end
+
+
+##
+##	Start the dragon music
+##
+
+function music_dragons
+integer a
+is_playing a
+
+if a == 0
+	play_music "Dragons"
+else
+	let current.user.counter = 0
+endif
+end
+
+
+##
+##	Start the pope music
+##
+
+function music_pope
+integer a
+is_playing a
+
+if a == 0
+	play_music "Pope"
+else
+	let current.user.counter = 0
+endif
+end
+
+
+##
+##	Start the waarg music
+##
+
+function music_waarg
+integer a
+is_playing a
+
+if a == 0
+	# Only play the music if the player is heading towards the waarg village
+	if player.curdir = UP
+		play_music "waarg_folksong"
+	endif
+endif
+end
+
+
+##
+##	Start the pub music
+##
+
+function music_pub
+integer a
+is_playing a
+
+if a == 0
+	play_music "pubsong"
+endif
+end
+
+
+##
+##	Start the spooky castle music
+##
+
+function music_castle
+integer a
+is_playing a
+
+if a == 0
+	# Only play the music if the player is heading towards the castle
+	if player.curdir = LEFT
+		play_music "castle"
+	else
+		let current.user.counter = 0
+	endif
+else
+	let current.user.counter = 0
+endif
+end
+
+
+##
+##	Start playing 'osprey'
+##
+
+function music_osprey
+integer a
+is_playing a
+
+if a == 0
+	play_music "osprey_flight"
+else
+	let current.user.counter = 0
+endif
+end
+
+
+##
+##	Start playing 'lakeside'
+##
+
+function music_lakeside
+integer a
+is_playing a
+
+if a == 0
+	play_music "lakeside"
+else
+	let current.user.counter = 0
+endif
+end
+
+##
+##	Start playing 'Dungeons of the Church'
+##
+
+function music_churchdungeons
+integer a
+is_playing a
+
+if a == 0
+	play_music "church_dungeons"
+else
+	let current.user.counter = 0
+endif
+end
+
+
+function music_sorrow
+integer a
+is_playing a
+
+if a == 0
+	play_music "sorrow_theme"
+else
+	let current.user.counter = 0
+endif
+end
+
+
+function music_medievaldance
+integer a
+is_playing a
+
+if a == 0
+	play_music "medieval_dance"
+else
+	let current.user.counter = 0
+endif
+end
+
+function music_church
+integer a
+is_playing a
+
+if a == 0
+	play_music "church"
+endif
+end

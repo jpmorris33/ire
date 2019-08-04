@@ -1,0 +1,166 @@
+
+##
+## Teleport: stand on it
+##
+
+
+function teleport_single_stand
+object temp
+
+if current.tag = 0
+	if me = player
+		print "It's blocked."
+		printcr
+	endif
+	return
+endif
+
+find_tag temp = "target" current.tag
+if_exist temp
+	transfer_object victim to temp.x temp.y
+endif
+end
+
+
+function teleport_party_stand
+object temp
+
+if current.tag = 0
+	if victim = player
+		print "It's blocked."
+		printcr
+	endif
+	return
+endif
+
+find_tag temp = "target" current.tag
+if_not_exist temp
+	return
+endif
+
+transfer_object victim to temp.x temp.y
+
+if victim = player
+	if party_mode
+		move_party_to temp
+		move_party_from temp to temp.x temp.y
+#	else
+#		transfer_object(person,temp->x,temp->y);
+	endif
+endif
+
+end
+
+
+##
+## Teleport: person presses a button
+##
+
+function teleport_press
+object temp
+
+if current.tag = 0
+	if me = player
+		print "It's blocked."
+		printcr
+	endif
+	return
+endif
+
+find_tag temp = "target" current.tag
+if_exist temp
+	transfer_object me to temp.x temp.y
+endif
+end
+
+
+##
+## Teleport: player presses a button, move whole party or single person
+##	     depending in whether we're in party mode or solo mode
+##
+
+function teleport_pressparty
+object temp
+
+if current.tag = 0
+	if me = player
+		print "It's blocked."
+		printcr
+	endif
+	return
+endif
+
+find_tag temp = "target" current.tag
+if_not_exist temp
+	return
+endif
+
+transfer_object me to temp.x temp.y
+
+if me = player
+	if party_mode
+		move_party_to temp
+		move_party_from temp to temp.x temp.y
+#	else
+#		transfer_object(person,temp->x,temp->y);
+	endif
+endif
+
+end
+
+##
+##  Open Fakemud trapdoor
+##
+
+function teleport_fakemud
+object temp
+object oldme
+
+if current.tag = 0
+	if me = player
+		print "It's blocked."
+		printcr
+	endif
+	return
+endif
+
+find_tag temp = "target" current.tag
+if_not_exist temp
+	return
+endif
+
+transfer_object me to temp.x temp.y
+
+if me = player
+	if party_mode
+		move_party_to temp
+		move_party_from temp to temp.x temp.y
+#	else
+#		transfer_object(person,temp->x,temp->y);
+	endif
+endif
+
+# Open the trapdoor if we can
+find_tag temp = "fakemud" current.tag
+if_not_exist temp
+	find_tag temp = "fakemud_open" current.tag
+endif
+
+# Got it?  If so, call the wield function
+if_exists temp
+	let oldme = me
+	let me = temp
+	call temp.funcs.wield
+	let me = oldme
+endif
+
+end
+
+
+##
+## Teleport: player presses a button, move whole party to new map
+##
+
+function teleport_newmap
+change_map current.stats.karma at current.tag
+end

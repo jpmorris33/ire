@@ -1,0 +1,188 @@
+#
+#	Laser Tripwire
+#
+#
+#
+
+local
+int laserdx = 0
+int laserdy = 0
+int laserrx
+endlocal
+
+
+##
+##	Laser beam source - publically called
+##
+
+function laser_tripwire_source
+
+# Work out direction and do it
+
+if me.curdir = LEFT
+	let laserdx = -1
+	let laserdy = 0
+	call laser_tripwire_core
+	return
+endif
+
+if me.curdir = RIGHT
+	let laserdx = 1
+	let laserdy = 0
+	call laser_tripwire_core
+	return
+endif
+
+if me.curdir = UP
+	let laserdx = 0
+	let laserdy = -1
+	call laser_tripwire_core
+	return
+endif
+
+if me.curdir = DOWN
+	let laserdx = 0
+	let laserdy = 1
+	call laser_tripwire_core
+	return
+endif
+
+end
+
+
+##
+##	Work out the laserbeam stuff (internal)
+##
+
+function laser_tripwire_core
+private
+integer x
+integer y
+integer timeout
+object temp
+
+stopfx me
+if_exists me.target
+	stopfx me.target
+endif
+
+# Get ready
+let timeout = 0
+let x = me.x + laserdx
+let y = me.y + laserdy
+
+# See what we can find
+
+do
+	get_solid_object temp from x y
+
+	# What have we found?
+
+	if_exists temp
+		if temp is called "laser_target"
+		or temp is called "mirror"
+			# Shine beam right
+			startfx me does laserfx
+			let me.target = temp
+			# And back again
+#			startfx temp does laserfx
+#			let temp.target = me
+			return
+		endif
+
+		if me.funcs.wcache < 1
+			# No activity defined, ignore it
+			goto laser_skip
+		endif
+
+		# If the obstruction is allowed to be there
+		if temp.tag = me.tag
+			# Ignore it
+			return
+		endif
+
+		# Something else is in the way
+		startfx me does laserfx
+		let me.target = temp
+
+		# Do something BAD!
+		let current = me
+		call me.funcs.wcache
+		return
+
+	endif
+
+	label laser_skip
+
+	# Move along
+	add x + laserdx
+	add y + laserdy
+	add timeout + 1
+
+while timeout < mapw # Timeout
+
+end
+
+
+##
+##  Call a function if the authorised personnel stands on the object
+##  The object will call it's owner's wield function
+##
+
+function trap_authcall_ownerwield
+
+if victim.tag = current.tag
+	let current = current.stats.owner
+	call current.funcs.wcache
+endif
+
+end
+
+
+##
+##  Laser beam
+##
+
+function laserfx
+
+if_not_exist current.target
+	return
+endif
+
+# Get start coordinates
+fx_getxy fx_srcx fx_srcy = current
+fx_getxy fx_destx fx_desty = current.target
+
+# Set up the blender
+fx_colour 0xff0000
+let fx_brush = 1
+
+# Get random translucency level for variable brightness
+fx_random laserrx = 10
+add laserrx + laserrx # Multiply by two to quantise it
+add laserrx + 96
+fx_alpha laserrx
+fx_alphamode ALPHA_ADD
+
+add fx_srcx + 7
+add fx_srcy + 7
+add fx_destx + 7
+add fx_desty + 7
+fx_line
+add fx_srcy + 1
+add fx_desty + 1
+fx_line
+
+end
+
+##
+##  Decorative laser beam
+##
+
+function laser_decorative
+activity
+stop_action me	# Prevent recalling
+
+startfx me does laserfx
+let me.target = me.stats.owner
+end

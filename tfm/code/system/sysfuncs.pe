@@ -1,0 +1,474 @@
+#
+#	System Functions
+#	These are called directly by the game engine.
+#	They must exist or the engine won't work properly.
+#
+#
+
+########################################
+#                                      #
+# Splash - when an object enters water #
+#                                      #
+########################################
+
+function splash
+
+object_sound "plop" current
+
+end
+
+
+####################################################################
+#                                                                  #
+# erase - An object has taken too much damage and must be deleted. #
+#                                                                  #
+####################################################################
+
+#
+# If it's the player, we must take care not to delete their object
+# otherwise the game engine will sulk
+#
+
+function erase
+
+if_not_exist current
+	return
+endif
+
+if current = player
+	let player = NULL	# Force any drug trip to end
+	call unfreak		# just in case
+	let player = current
+endif
+
+# If it doesn't make the weight, destroy it
+
+if current.stats.weight > 0
+	if current.stats.weight < 5000
+		if current <> player
+			destroy current
+			return
+		endif
+	endif
+endif
+
+# Dust you were and unto dust shall you return..
+
+spill current
+replace current = "ash"
+move_to_floor current
+
+end
+
+
+####################################
+#                                  #
+# Schedule - Each turn of the game #
+#                                  #
+####################################
+
+function scheduler
+integer temp
+
+# If player extinguishes candle or torch, make sure he goes out too
+let player.light = 0
+
+# Precalculate the weight carried each turn to improve speed
+
+get_weight temp = player
+add temp - player.stats.weight
+let player_load = temp / 1000
+
+let temp = player.stats.str * player.stats.level
+let player_strength = temp / 1000
+
+# Fetch a bucket of water, the hero's freaked out
+
+if player.user.user0 >= 1
+	call freak
+endif
+
+
+# Wielded torches etc
+
+if_exists player.wield.l_hand
+	add player.light + player.wield.l_hand.light
+#	let light_magic = 1
+endif
+
+if_exists player.wield.r_hand
+	add player.light + player.wield.r_hand.light
+#	let light_magic = 1
+endif
+
+# Mix any additional light
+if light_magic > 0
+	add darkmix - light_magic
+	if darkmix < 0
+		let darkmix = 0
+	endif
+	if darkness > 32
+		set_darkness 16
+	endif
+endif
+
+# And reset light magic level
+let light_magic = 0
+end
+
+
+#############################################################
+#                                                           #
+# Update_Life - Each turn of the game for all bio-organisms #
+#                                                           #
+#############################################################
+
+function update_life
+integer poison
+
+# It is ALIVE, right?
+if me.stats.hp < 1
+	return
+endif
+
+if me.user.poison > 0
+	add me.user.poison - 1
+	let poison = me.user.poison MOD 8
+	if poison = 0
+		print_bestname me
+		print " is poisoned!"
+		printcr
+		add me.stats.hp - 8
+		check_hurt me
+	endif
+endif
+
+# Poison
+if me.user.potion0 > 0
+	add me.user.potion0 - 1
+	if me.user.potion0 = 0
+		set_flag me IS_SHADOW = 0	# Not invisible anymore	
+	endif
+endif
+
+# Magic Light
+if me.user.potion1 > 0
+
+	add me.user.potion1 - 1
+	if me.user.potion1 > 0
+
+		if_onscreen me
+			let light_magic = 32
+		endif
+	endif
+endif
+
+end
+
+
+#############################################################
+#                                                           #
+# Update_Robot - Each turn of the game for panthers etc     #
+#                                                           #
+#############################################################
+
+function update_robot
+
+# It is ALIVE, right?
+if me.stats.hp < 1
+	return
+endif
+
+# Self-healing
+if me.stats.hp < me.maxstats.hp
+	add me.stats.hp + 1
+	check_hurt me
+endif
+
+end
+
+
+###################################################################
+#                                                                 #
+# TrackStop - Obstruction encountered while following A-star path #
+#                                                                 #
+#             current           Object or person moving           #
+#             victim            Destination object                #
+#             new_x,new_y       location of obstruction           #
+###################################################################
+
+
+function trackstop
+
+object temp
+
+get_solid_object temp from new_x new_y
+if_exists temp
+	# Can it be opened like a door?
+	if_flag temp CAN_OPEN
+		# Can the creature open it?
+		if_not_flag current NOT_OPEN_DOORS
+			# Yes
+			let current = temp
+			call temp.funcs.ucache
+			return
+		endif
+	else
+		return
+/*
+		print me.name
+		print " blocked by "
+		print temp.name
+		print " at "
+		print new_x
+		print ","
+		print new_y
+		print "   :"
+		printx me.flags
+		printcr
+*/
+	endif
+else
+	get_object temp from new_x new_y
+	if_exists temp
+
+		/*
+		print "FIXME: blocked by not-solid object|"
+		print me.name
+		print " bocked by "
+		print temp.name
+		printcr
+		*/
+
+		if_flag temp CAN_OPEN
+			let current = temp
+			call temp.funcs.ucache
+			return
+		endif
+	endif
+endif
+
+end
+
+
+###############################################################
+#                                                             #
+# all_dead - Everyone in the party has died.  What can we do? #
+#                                                             #
+###############################################################
+
+##		   
+##	It is IMPERATIVE that the system variable 'player' is set to
+##	point to an object.  If not, the game will crash.
+##
+##	Calling restart is one way to do this, but finding the player
+##	and re-assigning player to them is another way.
+##
+##	In this implementation, you get several lives, then the game ends
+##
+
+
+constant DEAD = 1000 # Number of lives
+
+function all_dead
+
+object temp
+object target
+object grave
+int rx
+int ry
+
+let SoundFixed = 0	# If we opened the Ark of Testimony, set SFX to normal
+
+# Fade to black
+
+fade_out
+
+call unfreak
+
+cls
+
+# stop_music
+
+find_tag target = "target" 666			# Find a spawn-spot
+if spawn_override <> 0
+	find_tag target = "target" spawn_override
+endif
+
+find_tag temp = "dead*" 666		# Is it there?  We must know
+
+# Has the player been atomized?
+if_exists temp
+	if temp.stats.hp < -9000
+		# Yes.  You ain't getting out of that one, mate!
+		let temp = null
+	endif
+endif
+
+# Make the grave, if we need it
+
+if_not_exist temp
+or deathcount >= DEAD
+	create grave = "grave_picture"
+else
+	let grave = null
+endif
+
+# If there is no corpse:
+
+if_not_exist temp
+	print "Your body has been destroyed!"
+	printcr
+
+	goto die
+endif
+
+# Otherwise, we probably have a happier ending.
+
+print "An unending darkness engulfs you..."
+printcr
+redraw_text
+wait 2000 BLOCKING
+
+add deathcount + 1
+if deathcount >= DEAD
+	print "A voice in the dark intones ~ENOUGH!  YOU HAVE FAILED ME.~"
+	printcr
+	goto die
+else
+	print "A voice in the dark intones ~RISE AND WALK, MY SON!~"
+	printcr
+endif
+
+redraw_text
+wait 2000 BLOCKING
+
+print "...and you're not dead anymore!  Cool!"
+printcr
+
+redraw_text
+wait 2000 BLOCKING
+
+# Where are you going to appear?
+
+if_not_exist target
+	let rx = temp.x
+	let ry = temp.y
+else
+	let rx = target.x
+	let ry = target.y
+endif
+
+# Find the player and resurrect them
+change temp = temp.funcs.resurrect
+
+let temp.stats.hp = temp.maxstats.hp	# Best give them some health
+check_hurt temp				# Keep it in sync
+
+let temp.user.user0 = 0			# Take the drugs away
+add_member temp
+set_flag temp IS_PARTY = 1
+set_leader temp player_action follower_action
+
+# if the player isn't first in the party, swap with the new first member
+call check_player
+
+create temp = "TARGET"
+move_party_to temp
+move_party_from temp to rx ry
+destroy temp
+
+# Finish up and return
+
+fade_in
+return
+
+# Or...
+
+# The player's dead.  Wrap it up.
+
+label die
+	
+draw_object grave at 16 16
+redraw_text
+wait 8000 BLOCKING
+
+let deathcount = 0
+print "Restarting.."
+printcr
+redraw_text
+restart_game
+destroy grave
+fade_in
+return
+
+end
+
+
+#################################
+#                               #
+# Wake Up - Get 'me' out of bed #
+#                               #
+#################################
+
+function wakeup
+# This is in misc/bed.pe
+call wake_up
+end
+
+################################
+#                              #
+#  The player has broken down. #
+#                              #
+################################
+
+function PlayerBroken
+# Call function to parse function keys, restart game etc
+call input
+end
+
+
+######################################################
+#                                                    #
+#  The keyword 'erase_property' calls this function  #
+#                                                    #
+######################################################
+
+function delprop_callback
+
+# erase_property deletes all the objects belonging to the specified object.
+# Typically this is used by creature eggs to mop up all their creations.
+# In TFM, undead are banished by sunlight, so we want to make them fade away
+# (but only if the player can see it.  Otherwise we just wipe them)
+
+if_onscreen current
+	call Fade_And_Destroy
+else
+	destroy current
+endif
+
+end
+
+
+##
+##  Utility function to make sure player comes first
+##
+
+function check_player
+int ctr
+
+if party[1] = player
+	# Good
+	return
+endif
+
+for ctr = 1 to MAX_MEMBERS
+	if party[ctr] = player
+		# Got him, swap them around and quit
+		let party[ctr] = party[1]
+		let party[1] = player
+		return
+	endif
+next ctr
+
+end

@@ -1,0 +1,67 @@
+#
+# Makefile core for IRE
+#
+
+ire_obj = console.o database.o fortifyj.o gamedata.o\
+	 init.o ire.o library.o linklist.o loaders.o loadfile.o loadpng.o\
+	 loadsave.o mainloop.o map.o media.o mouse.o\
+	 nuspeech.o object.o oscli.o pathfind.o pe/pe_lang.o pe/pe_keyw.o\
+	 pe/pe_sys.o pe/pe_vm.o project.o resource.o textfile.o slotalloc.o
+
+#set_obj = setup.o allegro/irq.o allegro/irqwrap.o
+
+ed_obj = editor/about.o editor/backgrnd.o editor/bigmap.o editor/editor.o\
+	 editor/editarea.o editor/gfx.o editor/igui.o editor/lights.o editor/objects.o\
+	 editor/roof.o pe/pe_lang.o pe/pe_keyw.o pe/pe_sys.o\
+	 console.o database.o dummy.o dummy_c.o fortifyj.o\
+	 gamedata.o init.o linklist.o loaders.o loadfile.o loadpng.o\
+	 loadsave.o map.o media.o mouse.o nuspeech.o\
+	 object.o oscli.o resource.o textfile.o
+
+# Common graphics modules
+gfx_core_obj = graphics/iregraph.o \
+	 graphics/common/bitfont.o graphics/common/blenders.o \
+	 graphics/common/bytefont.o graphics/common/darkness.o \
+	 graphics/common/iconsole.o graphics/common/ilightmap.o \
+	 graphics/common/keybuf.o graphics/common/picklist.o \
+	 graphics/common/primitve.o graphics/common/textedit.o
+
+# Allegro4 graphics backend
+gfx_alleg4_obj = \
+	 graphics/allegro4/ibitmap.o graphics/allegro4/icursor.o \
+	 graphics/allegro4/ikeys.o graphics/allegro4/imain.o \
+	 graphics/allegro4/isprite.o graphics/allegro4/istartup.o \
+	 widgets/w_generic.o mymode.o
+#	 widgets/w_bill.o
+
+# SDL 1.2 graphics backend
+gfx_sdl12_obj = \
+	 graphics/sdl/ibitmap.o graphics/sdl/icursor.o \
+	 graphics/sdl/ikeys.o graphics/sdl/imain.o \
+	 graphics/sdl/isprite.o graphics/sdl/istartup.o \
+	 widgets/w_generic.o
+
+# SDL 2.0 graphics backend
+gfx_sdl20_obj = \
+	 graphics/sdl2/ibitmap.o graphics/sdl2/icursor.o \
+	 graphics/sdl2/ikeys.o graphics/sdl2/imain.o \
+	 graphics/sdl2/isprite.o graphics/sdl2/istartup.o \
+	 widgets/w_generic.o
+
+resize_obj = resize.o dummy_r.o resize_e.o loaders.o gamedata.o
+
+move_obj = move.o dummy_r.o resize_e.o loaders.o
+
+chknpc_obj = chknpc.o
+
+cel2png_obj = utils/cel2png.o utils/cel-png.o
+
+png2cel_obj = utils/png2cel.o utils/cel-png.o
+
+cel2font_obj = utils/cel2font.o
+
+font2cel_obj = utils/font2cel.o
+
+fixfont_obj = utils/fixfont.o
+
+grabfont_obj = utils/grabfont.o

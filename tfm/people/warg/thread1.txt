@@ -1,0 +1,325 @@
+
+SnowPaw the Threadmaster
+
+
+[page="start"]
+[call="check_collar"]
+[if true][goto="start1"]
+[goto="no_collar"]
+[endpage]
+
+
+[page="start1"]
+[colour="#808080"]
+You see a large wolf-like creature, with a white front
+paw.  He looks at you nervously, but relaxes somewhat
+upon seeing your collar.
+[colour="#ffffff"]
+
+"Good day, sir.  We do not get many humans in these
+ parts.  Do you require something?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+
+"I am Snow-paw, the threadmaster.  I provide thread to
+ the weavers.
+
+ My family has been in this trade for many generations
+ and we have refined the techniques of threadmaking over
+ this time.
+
+ We can supply anything from the thinnest fibre, to the
+ strongest ropes for boats and building."
+
+[link="Tell me about your work."]
+[linkto="job"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"Our thread is made from the bark of the Yrmwat bush,
+ the plants that grow on my farmland.
+ 
+ When they are ripe, we gather the harvest, and strip
+ the bark off so it can be spun into thread."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yrmwat"]
+
+"The bushes are most useful.  Their bark is tough and
+ fibrous.  When stripped off and treated, it can be spun
+ into thread or rope.
+
+ When dried, the leaves have medicinal purposes as well.
+
+ Some say that the bush was a gift from Aa'Ruuf.
+ I do not know.."
+
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="strip"]
+
+"It can be done by mouth and paw, but the job is hard
+ work.  It is much easier to use magic.
+ 
+ Centuries ago the spell was given to my ancestors
+ by Aa'Ruuf, and it has been passed down from father
+ to son ever since."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="spin"]
+
+"The spinning wheel is of an old design, given to us by
+ our God, Aa'Ruuff, before he turned against his people.
+
+ It does not seem well suited to our kind, for we have to
+ use a little spell to thread it.
+ 
+ But after it has been threaded, it can be run 
+ continuously without any further magic."
+ 
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buyrope"]
+
+"A length of rope will be 12 gold coins, please.
+ Are you still interested?"
+
+[link="Yes, please."]
+[linkto="buyrope2"]
+[link="No, I've changed my mind."]
+[linkto="buynothing"]
+[link="I'd prefer to buy some thread."]
+[linkto="buythread"]
+[always]
+[endpage]
+
+[page="buyrope2"]
+[take 12 gold_coins]
+[if false][goto="buyrope3"]
+[create 1 rope00]
+[colour="#808080"]
+He deftly takes out a small pouch from his backpack,
+and opens it out for you, watching intently as each coin
+falls into the purse.
+
+Then, closing the purse, he pulls out a coil of rope with
+his mouth, and drops the bundle neatly at your feet.
+You stoop to pick it up.
+[colour="#ffffff"]
+
+"Here you go."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some more rope."]
+[linkto="buyrope"]
+[always]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buyrope3"]
+
+"You don't have that much money."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buythread"]
+
+"The thread will be 4 gold coins, please.
+ Are you still interested?"
+
+[link="Yes, please."]
+[linkto="buythread2"]
+[link="No, I've changed my mind."]
+[linkto="buynothing"]
+[link="I'd prefer to buy some rope."]
+[linkto="buyrope"]
+[always]
+[endpage]
+
+[page="buythread2"]
+[take 4 gold_coins]
+[if false][goto="buythread3"]
+[create 1 thread00]
+[colour="#808080"]
+He deftly takes out a small pouch from his backpack,
+and opens it out for you, watching intently as each coin
+falls into the purse.
+
+Then, closing the purse, he pulls out a spool of thread
+with his mouth, and places it neatly at your feet.
+You stoop to pick it up.
+[colour="#ffffff"]
+
+"Here you go."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="I would like to buy some more thread."]
+[linkto="buythread"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buythread3"]
+
+"You don't have that much money."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buynothing"]
+
+"As you wish."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare well in your travels."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="no_collar"]
+[colour="#808080"]
+You see a wolf-like creature.  One of his paws is white.
+Suddenly he notices you and bounds away in terror.
+[colour="#ffffff"]
+
+"Aiiiieeee!"
+
+[on_exit_call="flee_home"]
+[nextpage="exit"]
+[endpage]

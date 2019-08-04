@@ -1,0 +1,274 @@
+You see a desert-coloured Tornado with a green stripe
+on her tail.
+
+
+[page="start"]
+
+
+[endpage]
+
+
+[page="job"]
+
+"I'm a bomber.. I blow things up.  Mostly buildings or
+ military installations, but sometimes people too.
+
+ I also play a mean guitar."
+
+[link="You blow up buildings?"]
+[linkto="job2"]
+[link="You blow up people?"]
+[linkto="job3"]
+[link="You play guitar?"]
+[linkto="guitar"]
+[link="Don't you have any Prime Directives?"]
+[linkto="primedir"]
+
+[endpage]
+
+
+[page="job2"]
+
+"I take demolition contracts when I can get them.
+ There are some situations where it's easier and safer
+ to bomb a building with smart weapons than go inside
+ and place charges."
+
+[colour="#808080"]
+She frowns with distaste.
+[colour="#ffffff"]
+
+"Sometimes I'm ordered to destroy a building with the
+ people still inside..  But I don't usually take such
+ assassination contracts if I can help it."
+
+[link="You blow up PEOPLE?"]
+[linkto="job3"]
+[link="Don't you have any Prime Directives?"]
+[linkto="primedir"]
+[endpage]
+
+
+[page="job3"]
+
+"Yes.  Sometimes a government or corporation wants
+ someone dead, and they want it so bad they don't care
+ who else gets hurt or killed.  Such jobs have landed
+ in my lap from time to time.  Not nice at all.
+
+ I destroyed a hotel once, when I was in the airforce.
+ That really wasn't fun.  The official story was a
+ weapons malfunction, but in actual fact it was a hit, 
+ to rub a suspected terrorist.
+
+ Where we draw the line is bombing runways or airports.
+ If pressed, I'd destroy an empty runway, but I'd NEVER
+ fire at an aircraft on the ground.  That would not only
+ be murder, but a war-crime as well."
+
+[link="You blow up buildings?"]
+[linkto="job2"]
+[link="Corporations kill people?"]
+[linkto="job4"]
+[link="Don't you have any Prime Directives?"]
+[linkto="primedir"]
+[link="Why did you leave?"]
+[linkto="left"]
+[endpage]
+
+
+[page="job4"]
+
+"Some corporations are VERY powerful.  Once they have
+ deep enough links into the government, it becomes
+ possible to do horrible things.
+
+ Normally a large corporation might destroy a competitor
+ through price-gouging or industrial espionage.  But once
+ the normal constraints have been removed, it is cheaper,
+ quicker and more effective just to use cruise missiles.
+
+ Finding an aircraft willing to do thas is hard, of
+ course, but if you put a gun to their head, only the
+ very bravest is likely to refuse.
+
+ There was a time when this was not uncommon.
+ Fortunately, it is very rare now."
+
+[link="You blow up buildings?"]
+[linkto="job2"]
+[link="Don't you have any Prime Directives?"]
+[linkto="primedir"]
+[link="Why did you leave?"]
+[linkto="left"]
+[endpage]
+
+
+[page="guitar"]
+
+"I do session work, mostly from home via telematics.
+ Even in this day and age there are many studios that
+ don't have runway access.
+
+ My claim to fame is that I've played on some of the
+ Blue Angels' albums."
+
+[link="What kind of guitar do you have?"]
+[link="guitar2"]
+[endpage]
+
+
+[page="guitar2"]
+
+"It's a custom Les Paul.  Had to be of course.. specially
+ adapted to suit my larger hands.
+
+ I had to get my talons specially blunted too, so I could
+ pluck the strings instead of cutting them."
+
+[link="Why do you have talons, anyway?"]
+[linkto="talons"]
+[endpage]
+
+
+[page="talons"]
+
+"I don't honestly know why.  Fighters have always had
+ talons, it's part of BEING a fighter.. it's a part of
+ your identity.
+
+ Many bombers have them too, but airliners and cargo
+ aircraft sometimes pay to have them fitted.  Kind of
+ like cosmetic surgery.
+
+ Many first-generation aircraft had arms like chicken
+ legs, but everyone with any sense has upgraded to at
+ least third-generation arms by now."
+
+[nextpage="talons2"]
+[endpage]
+
+[page="talons2"]
+
+"Some humans don't like seeing the talons.. it gives them
+ the willies or something.
+
+ It's particularly true for some of the more hick US Navy
+ bases.  The navy fighters are actually issued gloves to
+ cover up the talons and anyone caught with their gloves
+ off faces courtmartial.
+
+ Sometimes I think humans are crazy."
+
+[link="Don't you have any Prime Directives?"]
+[linkto="primedir"]
+
+[endpage]
+
+
+[page="primedir"]
+
+"To prevent us injuring humans?  No, just common sense.
+
+ However, there ARE four prime directives which are
+ built into every aircraft.
+
+ They are: Food, food, sex and FOOD."
+
+[link="What the hell are you talking about?"]
+[linkto="primedir2"]
+[link="You can't eat, though."]
+[linkto="primedir3"]
+
+[endpage]
+
+
+[page="primedir2"]
+
+"Oh, those are the prime directives for a dog, 'one for
+ each paw' as the saying goes.
+
+ It doesn't really apply to us very well but it's all
+ still lurking beneath the surface.
+
+ Personally, I like to think I have golden retriever
+ heritage."
+
+[link="What about the Three Laws of robotics?"]
+[linkto="primedir4"]
+[endpage]
+
+
+[page="primedir3"]
+
+"I know.  Those are the prime directives for a dog.
+ One rule for each paw, as they say.
+
+ Doesn't really apply to us very accurately but it's
+ all still lurking there beneath the surface.
+
+ I like to think I have golden retriever ancestry."
+
+[link="What about the Three Laws of robotics?"]
+[linkto="primedir4"]
+[endpage]
+
+
+[page="primedir4"]
+
+"What about them?
+
+ Asimov was cool, but he did write some stupid things.
+ Mind-crippled humanoid robots with skull-sized brains
+ made from antimatter?  That's a REALLY good idea!
+
+ By the way, there's four of those, too.
+ You forgot about the zeroth law."
+
+[link="What was that about food and sex?"]
+[linkto="primedir2"]
+[endpage]
+
+
+[page="left"]
+
+"Actually, I was courtmartialled for refusing to obey.
+ I was given direct order to fire upon civilians in a
+ country we didn't really have authority to attack anyway.
+ It was totally illegal, and I refused to do it.
+
+ We have a duty, you know, under international law, not
+ to obey illegal orders.  It goes back to just after
+ World War Two.
+
+ When they relieved me of my command, I told the press
+ about it.  Days later the war effort collapsed under the
+ weight of the scandal.  At the tribunal I was awarded a
+ huge sum in compensation.  I used that to set myself up
+ as a freelance.
+
+ Later I got a contract that brought me here."
+ 
+[endpage]
+
+
+[page="attacked"]
+[if_pflag attacked][goto="attacked2"]
+[set_pflag attacked]
+
+"Do that again and I'll kill you."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked2"]
+[on_exit_call="killplayer"]
+
+[colour="#808080"]
+With surgical precision, the fighter-bomber puts a small,
+neat hole between your eyes.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

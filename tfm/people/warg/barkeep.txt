@@ -1,0 +1,422 @@
+BlackEar the barkeep
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="nocollar"]
+[colour="#808080"]
+The wolf-creature looks up at you nervously.
+[colour="#ffffff"]
+
+"Please, leave me be, warrior.  I am just a barkeep."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="first"]
+[colour="#808080"]
+You see a large wolf-creature running a tavern.
+[colour="#ffffff"]
+
+"Hail, wanderer.  What will it be?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you have?"]
+[linkto="buy"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="back_again"]
+[colour="#808080"]
+You see BlackEar the barkeep.
+[colour="#ffffff"]
+
+"Hello again wanderer.  What will it be?"
+
+[link="What do you have?"]
+[linkto="buy"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am called BlackEar.  I know.. I don't have black ears
+ anymore, but I did when I was named.  All my dark fur
+ faded away as I grew up."
+
+[link="What do you have?"]
+[linkto="buy"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I have few human customers of late, so what I sell is
+ intended for Waarg consumption, but you should find it
+ edible.
+
+ I have a meat broth or salted meat for 3 gold, or a
+ fruit for a single gold coin.
+ To drink we have water, milk and of course, beer.
+ Water and milk are 1 gold coin, beer is 2 gold coins.
+
+ I can't find any cups, so you will have to take your
+ beverages in a bowl, I'm afraid."
+
+[link="I'd like some broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like some fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like a beer, please."]
+[linkto="buy_beer"]
+[always]
+ 
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="news"]
+
+"Well, the humans show no signs of attacking, and the
+ price of beer is steady.
+
+ The Betrayer has been quiet too, except some nights ago,
+ when the sky turned pale and letters were seen moving
+ through the air.  It said 'magicserver abended, please
+ restart', and the message was repeated five times, but
+ no-one knows what that means."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I'd like to order something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Farewell, human."
+
+[nextpage="exit"]
+[endpage]
+
+
+=========
+
+
+[page="buy_broth"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[create 1 bowl_broth]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I'd like some more broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like some fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like a beer, please."]
+[linkto="buy_beer"]
+[always]
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_meat"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[create 1 foodp00]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I'd like some broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some more meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like some fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like a beer, please."]
+[linkto="buy_beer"]
+[always]
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_fruit"]
+[take 1 gold_coins]
+[if false][goto="no_money"]
+[create 1 foodp08]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I'd like some broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like another fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like a beer, please."]
+[linkto="buy_beer"]
+[always]
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_water"]
+[take 1 gold_coins]
+[if false][goto="no_money"]
+[create 1 bowl_water]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I'd like some broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like some fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some more water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like a beer, please."]
+[linkto="buy_beer"]
+[always]
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_milk"]
+[take 1 gold_coins]
+[if false][goto="no_money"]
+[create 1 bowl_milk]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I'd like some broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like some fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some more milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like a beer, please."]
+[linkto="buy_beer"]
+[always]
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_beer"]
+[take 2 gold_coins]
+[if false][goto="no_money"]
+[create 1 bowl_beer]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I'd like some broth, please."]
+[linkto="buy_broth"]
+[always]
+[link="I'd like some meat, please."]
+[linkto="buy_meat"]
+[always]
+[link="I'd like some fruit, please."]
+[linkto="buy_fruit"]
+[always]
+[link="I'd like some water, please."]
+[linkto="buy_water"]
+[always]
+[link="I'd like some milk, please."]
+[linkto="buy_milk"]
+[always]
+[link="I'd like another beer, please."]
+[linkto="buy_beer"]
+[always]
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_money"]
+
+"I'm afraid you can't afford that."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Do you have any news?"]
+[linkto="news"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+===== Player stood on the crockery =====
+
+[page="vandal"]
+[call="check_collar"]
+[if false][goto="vandal_nc"]
+[colour="#808080"]
+A large wolf-creature looks up at you angrily.
+[colour="#ffffff"]
+
+"Clumsy human oaf!  Now you must pay for that crockery!"
+
+[take 6 gold_coins]
+[if false][nextpage="vandal_chuckout"]
+[if true][nextpage="vandal_paid"]
+[endpage]
+
+[page="vandal_paid"]
+[colour="#808080"]
+The barkeep takes six gold coins to cover the damage.
+[colour="#ffffff"]
+
+"Be more careful in future!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="vandal_chuckout"]
+[colour="#808080"]
+When the barkeep discovers that you cannot pay for the
+broken crockery, he becomes livid and throws you out.
+[colour="#ffffff"]
+
+"Leave!  Do not darken my tavern again this day!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="vandal_nc"]
+[colour="#808080"]
+A wolf-creature looks up with a snarl, but it dies in
+his throat as fear overcomes his anger at the smashed
+crockery.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+

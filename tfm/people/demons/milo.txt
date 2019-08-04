@@ -1,0 +1,299 @@
+DESCRIPTON
+Milo is a hawk of the Wildlife Survey Team.  He is married to Lysander,
+a female hawk.
+
+LFLAGS
+'lys_here' - Lysander is part of the conversation.
+
+
+[page="start"]
+[image="milo3.pcx"]
+[colour="#808080"]
+You see a hawk light fighter, with a lion crest on his
+tail.  His manner is somewhat nervous.
+[colour="#ffffff"]
+
+"Hello, $Sir."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What does the crest on your tail mean?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[if dr_rob_needdiary][link="Do you know where Dr. Robertson keeps his diary?"]
+[if dr_rob_needdiary][linkto="need_diary"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="milo2.pcx"]
+[learn_name]
+
+[is_onscreen "lysander"]
+[if false]"My name is Lieutenant Hk Milo, $Sir."
+[if true]"My name is Milo, $Sir, and this is my mate, Lysander."
+[if true][set_local lys_here]
+
+[link="What do you do?"]
+[linkto="job"]
+[link="What is the crest on your tail?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="milo2.pcx"]
+
+"I'm a killing machine, designed for one purpose:
+ studying wildlife."
+
+[link="What is the crest on your tail?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="crest"]
+[image="milo2.pcx"]
+
+"It's the insignia of the Weytus Wildlife Survey Team
+ that I belong to.  It's part of my uniform."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="lysander"]
+[image="milo1.pcx"]
+
+"She is the love of my life.  This year will be the tenth anniversary of
+ our marriage.  We were hoping to celebrate it on Earth, but it doesn't
+ look like that is going to happen.
+
+"Now, where were we, $Sir?"
+
+[Questions about marriage, possibly aircraft sex
+[How did you meet lysander?
+[Lysander should have a green patch on tail to mark her female
+[Lysander loves animals join Wlife team, whyt did Milo join
+
+
+
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the crest on your tail."]
+[linkto="crest"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="ospreys"]
+[set find_ospreys]
+[is_onscreen "lysander"]
+[if true][goto="ospreys_lys"]
+[image="milo0.pcx"]
+
+"Lysander knows more about them, but I'll tell you what
+ I can.
+
+ The ospreys have become intelligent.  We don't know how,
+ and we don't know what they want.
+
+ We do know that they posess superhuman powers, and
+ they've built some kind of village."
+
+[link="Get real."]
+[linkto="ospreys2"]
+[endpage]
+
+
+[page="ospreys2"]
+[image="milo2.pcx"]
+
+"Sounds crazy, doesn't it?
+
+ I suggest you check out the project report.  There's
+ a copy of it in the main offices.
+
+ The village is to the west, but be very careful!
+ The birds don't like intruders, and they can zap you."
+
+[endpage]
+
+
+[page="osprey_lys"]
+[image="lysander1.pcx"]
+
+"The ospreys started to behave strangely some years ago.
+ When we investigated this, a paranormal security breach
+ occurred and one of the birds escaped.
+
+ After it happened, the ospreys flocked to the lake where
+ they are now residing.  They built a village from trees
+ a bit like Venice.
+
+ The village is to the west, but they don't like
+ intruders, and shoot at them.  It's dangerous to go near
+ there!"
+
+[link="This is bullshit."]
+[linkto="osprey_lys_proj"]
+[link="How did the osprey escape?"]
+[linkto="osprey_lys_proj"]
+[endpage]
+
+
+[page="osprey_lys_proj"]
+[image="lysander1.pcx"]
+
+"Look at the project report, it will make a lot more
+ sense.
+
+"
+
+[link="This is bullshit."]
+[linkto="osprey_lys_bs"]
+[link="I can't be arsed to read it.  You tell me."]
+[linkto="osprey_lys_projr"]
+[endpage]
+
+
+[page="osprey_lys_bs"]
+[image="lysander1.pcx"]
+
+"I wish it was, sometimes.  Life would be so much easier
+ if we didn't have to worry about psionic birds of prey.
+
+ But the plain fact is, we don't know how smart they are,
+ and that scares me.
+
+ Someone from the village said he once saw an osprey
+ solving a rubik's cube."
+
+[link="How did the osprey escape?"]
+[linkto="osprey_lys_proj"]
+[endpage]
+
+
+[page="osprey_lys_projr"]
+[image="lysander1.pcx"]
+
+"We fitted all the birds with satellite transmitters,
+ little black boxes attached to their legs.  We have to
+ recharge them every seven years.
+
+ One day, we found one of the birds was acting funny.
+ We thought he was stupid at first, but one day we found
+ him very sick.  We took him in for study, but some of
+ the other birds were starting to get sick as well.
+
+ We took an EEG reading of his brainwaves and that was
+ when things started to get out of hand.  They weren't
+ just normal brainwaves, you see.  There was binary data
+ and sinewaves and all kinds of stuff."
+
+"Austin said we should try summing them and we got an
+ audio signal.. audio.. from the osprey's brain!
+
+ We put it through a stereo and there was this voice,
+ saying things out of the bible and talking about
+ destroying mankind and stuff.  It was very scary.
+
+ When the voice finished, our bird recovered and we let
+ him go again, it was like nothing ever happened.
+
+ Five years later, we needed to recharge the transmitter
+ so we recaptured him.  It was surprisingly difficult,
+ we had to stun him because he kept escaping."
+
+"We took the opportunity to do a complete physical
+ examination and left him in an aviary overnight.
+
+ In the morning, we found he was gone and the wire fence
+ was melted to slag.  When we looked at the satellite,
+ we found all the birds had stopped moving!
+
+ So we sent a team out to investigate, and they found
+ dozens of the little black transmitters, all lying in the
+ grass.  One of them had been opened, and it belonged to
+ the bird that we'd taken."
+
+"Back at base, the results from the bird came in and we
+ found that his bones had turned to carbon-composites.
+ When we discovered from the blood sample that he has two
+ extra pairs of chromosomes all hell broke loose.
+
+ In the rush to sequence it they hooked up all the
+ computing power they could get, including our brains.
+ That was a week that really, really, really SUCKED!
+
+ When my husband was well enough to fly again, he went to
+ try and and locate them, he came back with some really
+ amazing footage of ospreys building a village!"
+
+[link="This is bullshit."]
+[linkto="osprey_lys_proj"]
+[link="How did the osprey escape?"]
+[linkto="osprey_lys_proj"]
+[endpage]
+
+
+
+[page="bye"]
+[image="milo2.pcx"]
+
+"Goodbye, $Sir."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="need_diary"]
+[image="milo2.pcx"]
+
+"Do you have to, $Sir?  It's his private thoughts...
+
+ It's probably on his computer.  But please, show
+ some respect for his privacy..."
+
+[link="What is the crest on your tail?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="attacked"]
+[image="milo4.pcx"]
+[set true]
+
+"Oi!  What are you trying to do?"
+
+[nextpage="exit"]
+[endpage]
+

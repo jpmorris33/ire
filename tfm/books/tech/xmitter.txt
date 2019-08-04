@@ -1,0 +1,66 @@
+[page="login"]
+[backing="dlpower.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="start"]
+[if dlpower_fixed][goto="operational"]
+[colour="#2aa903"]
+
+Panavius Base - V-space transciever
+===================================
+
+Synchrotron status
+
+Proton Source:       Idle
+Cryogenics:          Online
+Injectors:           OFFLINE
+Undulators:          OFFLINE
+Acceleration coils:  OFFLINE
+
+WARNING: Insufficient power
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="operational"]
+[colour="#2aa903"]
+
+Panavius Base - V-space transciever
+===================================
+
+Synchrotron status
+
+Proton Source:       Idle
+Cryogenics:          Online
+Injectors:           Idle
+Undulators:          Online
+Acceleration coils:  Idle
+
+System operational
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="live"]
+[colour="#2aa903"]
+
+Panavius Base - V-space transciever
+===================================
+
+Synchrotron status
+
+Proton Source:       Online
+Cryogenics:          Online
+Injectors:           Online
+Undulators:          Online
+Acceleration coils:  Online
+
+System LIVE
+
+[nextpage="exit"]
+[endpage]
+
+

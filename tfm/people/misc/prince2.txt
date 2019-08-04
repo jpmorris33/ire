@@ -1,0 +1,102 @@
+Prince of Agnar Mk.II
+
+[page="start"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+[esc="disabled"]
+[learn_name]
+
+"Hail, friend!
+
+ I am the Prince of the lost realm of Agnar, sent into
+ exile by the treacherous cur who slew my father and
+ usurped his throne!
+
+ I seek a bold warrior to help me in my quest to avenge
+ my father's murder and regain the kingdom!
+
+ Will you aid me in this quest?"
+
+[link="Yes, gladly."]
+[linkto="yes"]
+[link="No, not today."]
+[linkto="no"]
+[if Agnar][link="Haven't I met you before?"]
+[if Agnar][linkto="before"]
+[set Agnar]
+[endpage]
+
+
+[page="startname"]
+[if agnar_done][goto="done"]
+[if agnar_running][goto="running"]
+
+"If you would seek to aid my quest, meet up with me in
+ the mountains to the East of this land.
+ There is a cave leading through to my realm.
+
+ I shall march on the usurper alone if need be, but any
+ who help me regain the throne shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="yes"]
+
+"You have my gratitude!
+
+ Meet up with me in the mountains to the East.
+ There is a cave leading through to my realm.. together
+ we shall march on the usurper.
+
+ If I regain the throne you shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="no"]
+
+"Then I shall seek help elsewhere.
+
+ Nevertheless, if you should change your mind, meet up
+ with me in the mountains to the East.
+ There is a cave leading through to my realm.
+
+ I shall march on the usurper alone if need be, but any
+ who help me regain the throne shall be richly rewarded."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="before"]
+
+"A curse upon the usurper!  The man you have seen is but a
+ vile impostor!
+
+ I alone am the true Prince.
+
+ Now, will you aid my quest?"
+
+[link="Yes, gladly."]
+[linkto="yes"]
+[link="No, not today."]
+[linkto="no"]
+[endpage]
+
+[page="running"]
+
+"I alone am the true Prince!  Slay the impostors!"
+
+[nextpage="exit"]
+[endpage]
+
+[page="done"]
+[at_exit_call="king_dies"]
+"Program violation!"
+
+[nextpage="exit"]
+[endpage]

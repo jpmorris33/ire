@@ -1,0 +1,75 @@
+
+Wanted posters
+
+[page="start"]
+[if edwyg_murderedp][goto="kingmurderp"]
+[if edwyg_murderedu][goto="kingmurderu"]
+[if_not sceptre_returned][goto="sceptre"]
+[goto="sceptre"]
+[endpage]
+
+
+[page="sceptre"]
+[backing="wanted.pcx"]
+[font 3]
+
+
+
+
+
+    Information leading to the recovery of the Sceptre of the
+    Royal House of Ingar, which was stolen in a most heinous
+    act of treason against the Crown.
+
+    A reward of 4000 gold coins shall be given to any man
+    who can bring about the return of the aforesaid relic, and
+    bring the thief before the king, alive or dead.
+
+[set sceptre]
+[nextpage="exit"]
+[endpage]
+
+
+[page="kingmurderp"]
+[backing="wanted2.pcx"]
+[font 3]
+
+
+
+
+
+    The head of $PLAYER, who is guilty of the treacherous
+    murder of our noble king, Edwyg the generous of the
+    Royal House of Ingar.
+
+    A reward of 10000 gold coins shall be given to any man
+    who can bring the felon's corpse before the Regent.
+
+    A further reward of 900 gold coins shall be added if
+    the head be presented on a platter with an apple in
+    their mouth.
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="kingmurderu"]
+[backing="wanted2.pcx"]
+[font 3]
+
+
+
+
+
+    Informations leading to the arrest and execution of the
+    unknown person or persons responsible for the most
+    treacherous murder of our noble king, Edwyg the generous
+    of the Royal House of Ingar.
+
+    A reward of 9000 gold coins shall be given to any man
+    who can bring the guilty before the Regent.
+    If he be taken alive, an extra 1000 gold coins shall be
+    added to the reward.
+
+[nextpage="exit"]
+[endpage]

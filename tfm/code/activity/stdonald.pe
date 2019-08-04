@@ -1,0 +1,344 @@
+################
+#              #
+#  St Donalds  #
+#              #
+################
+
+# Counter self-check and burger machine are in misc/machines.pe
+
+##
+##  Sod it, lets go to St. Donalds!
+##
+
+function eat_at_stdonalds
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does get_stdonalds
+run_queue me
+end
+
+
+################################################
+##
+##  Pilgrims
+##
+
+function get_stdonalds
+activity
+object o
+
+# Random delay before restarting
+if me.user.user5 > 0
+	add me.user.user5 - 1
+	return
+endif
+
+find_nearest o = "stdonalds_burger" near me
+if_exists o
+	random me.user.user5 between 2 7
+	replace o = "stdonalds_burger_transita"	# Prevent two pilgrims taking same one
+	let o.stats.owner = me	# MINE!
+	queue_action me does seek_target_get to o
+	queue_action me does stdonalds_serveburger
+	run_queue me
+	return
+endif
+
+#print "Pilgrim: no burger|"
+
+# Otherwise, wander around
+
+call bird_wander
+end
+
+##
+## Pilgrim puts the burger on the table
+##
+
+function stdonalds_serveburger
+private
+object o
+
+# Random delay before starting
+if me.user.user5 > 0
+	add me.user.user5 - 1
+	return
+endif
+
+find_nearest o = "tableplate" near me
+if_exists o
+	random me.user.user5 between 2 10
+	replace o = "tableplate_locked"	# Prevent two pilgrims taking same one
+	queue_action me does seek_target_sit_near to o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does stdonalds_eatburger to o
+	run_queue me
+	return
+endif
+
+#print "Pilgrim: no place|"
+# Otherwise, wander around
+
+call bird_wander
+end
+
+##
+## Pilgrim eats the burger
+##
+
+function stdonalds_eatburger
+private
+object o
+
+# Random delay before starting
+if me.user.user5 > 0
+	add me.user.user5 - 1
+	return
+endif
+
+if_not_exists me.target
+	print "eat burger: no target!"
+	printcr
+	stop_action me
+	return
+endif
+
+let o = me.target
+do
+	if o is called "stdonalds_*"
+		break
+	endif
+	let o = o.next
+while o <> null
+
+# Now eat the burger, then chuck it
+if_exists o
+	random me.user.user5 between 2 6
+	queue_action me does seek_target_sit_near to o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does stdonalds_chuckburger to o
+	queue_action me does get_stdonalds	# Round again
+	run_queue me
+	return
+endif
+
+# Lost my burger, get another one
+do_action me does get_stdonalds
+run_queue me
+
+/*
+#print "Pilgrim: lost my burger!..."
+
+# Self-destruct: Kill him so we know who it was
+let me.stats.hp = -1
+check_hurt me
+
+if_exists me.target
+	print "target = "
+	print me.target.name
+endif
+printcr
+
+# Otherwise, wander around
+call bird_wander
+*/
+end
+
+##
+## Pilgrim disposes of the wrapper
+##
+
+function stdonalds_chuckburger
+activity
+object o
+object burger
+
+# Random delay before starting
+if me.user.user5 > 0
+	add me.user.user5 - 1
+	return
+endif
+
+if_not_exists me.target
+	# The burger packaging is gone, now it's someone else's problem
+	resume_action me	# Next
+	return
+endif
+
+let burger = me.target
+
+# Throw it in a corner
+find_nearest o = "burgerbintarget" near me
+if_exists o
+	let new_x = o.x
+	let new_y = o.y
+	let victim = burger
+	let drop_quiet = 1
+	let drop_ok = 0
+
+	# Don't slow the game down if we can't see it
+	if_onscreen me
+		call do_drop
+	endif
+
+	if drop_ok = 0
+		# If the drop failed, throw it on the floor or something
+		force_from_pocket burger from me to me.x me.y
+		move_to_floor burger
+	endif
+
+## Prevent a bloodbath because it's been stolen
+## commenting this out is fun, but you also need to comment out the 'random me'
+## bits and re-enable the self-destruct if the Pilgim loses his burger
+
+	let burger.stats.owner = null
+
+endif
+
+random me.user.user5 between 2 10
+
+resume_action me
+end
+
+
+################################################
+##
+##  St.Donalds staff
+##
+
+##
+##  Waiter entrypoint
+##
+
+function waiter_stdonalds
+activity
+object o
+
+find_nearest o = "stdonalds_burger_hot" near me
+if_exists o
+	replace o = "stdonalds_burger_transita"	# Prevent waiters going for same burger
+	queue_action me does seek_target_get to o
+	queue_action me does waiter_dropburger to o
+	run_queue me
+	return
+endif
+
+#print "STDWAITER NO HOTBURGER|"
+
+# Otherwise, wander around
+call bird_wander
+end
+
+##
+##  Waiter puts the burger on the counter
+##
+
+function waiter_dropburger
+private
+object o
+object burger
+
+# Rename the burger if necessary now the race is won
+let burger = me.target
+if_exists burger
+	if burger is called "stdonalds_burger_transita"
+		replace burger = "stdonalds_burger"
+	endif
+endif
+
+find_nearest o = "stdonaldscounter" near me
+if_exists o
+	replace o = "stdonaldscounter_locked"	# Prevent race
+	queue_action me does seek_target_use_resume to o
+	queue_action me does waiter_dropburger2 to o
+	run_queue me
+	return
+endif
+
+#print "STDWAITER NO COUNTER|"
+
+# Otherwise, wander around
+call bird_wander
+end
+
+##
+##  Actually drop the burger
+##
+
+function waiter_dropburger2
+private
+object o
+object counter
+
+# Rename the counter if necessary now the race is won
+let counter = me.target
+if_exists counter
+	if counter is called "stdonaldscounter_locked"
+		replace counter = "stdonaldscounter_full"
+		do_action counter does stdonalds_counter_check
+	endif
+endif
+
+find o = "stdonalds_burger*" inside me
+if_exists o
+	transfer_object o to counter.x counter.y
+endif
+
+# Do the whole thing again
+do_action me does waiter_stdonalds
+end
+
+##
+##  This guy tidies up
+##
+
+function waiter_stdonalds_cleanup
+activity
+object o
+integer run = 0
+
+# Top priority, find any litter
+find_nearest o = "stdonalds_litter" near me
+if_exists o
+	queue_action me does seek_target_get to o
+	let run = 1
+endif
+
+# Now look for cold burgers
+find_nearest o = "stdonalds_burger_cold" near me
+if_exists o
+	queue_action me does seek_target_get to o
+	let run = 1
+endif
+
+if run = 1
+	queue_action me does waiter_purgeburgers
+	queue_action me does waiter_stdonalds_cleanup # Go round again
+	run_queue me
+	return
+endif
+
+# Otherwise, wander around
+
+# But don't forget to purge your burgers first
+take 10 "stdonalds_litter" from me
+take 10 "kfs_litter" from me
+take 10 "stdonalds_*" from me
+
+call bird_wander
+end
+
+##
+##  Sanitation guy destroys whatever burgers he has
+##
+
+
+function waiter_purgeburgers
+
+take 10 "stdonalds_litter" from me
+take 10 "kfs_litter" from me
+take 10 "stdonalds_*" from me
+
+resume_action me
+end

@@ -1,0 +1,141 @@
+
+[page="start"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+[learn_name]
+[set stfrancis]
+[colour="#808080"]
+You see a curious-looking monk.
+[colour="#ffffff"]
+
+"Hail, fellow.  I am St. Francis.
+ The birds and beasts are my friends.."
+
+[link="Don't you have to be dead to be a Saint?"]
+[linkto="saint"]
+[link="Tell me about your friends."]
+[linkto="friends"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+
+[colour="#808080"]
+You see Saint Francis the monk.
+[colour="#ffffff"]
+
+"Hello again, my comrade!
+ The birds and beasts are my friends.."
+
+[link="Don't you have to be dead to be a Saint?"]
+[linkto="saint"]
+[link="Tell me about your friends."]
+[linkto="friends"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Please, not now.  I will talk to you after the mass!"
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="saint"]
+[colour="#808080"]
+He grins crazily.
+[colour="#ffffff"]
+
+"Why, yes.  But I WAS!"
+
+ Many years ago, the Cardinal took offence to me talking
+ to my little friends, and I was burned as a witch.
+
+ But the LORD must have found great favour with me, for
+ I am risen again!  And the Pope has canonised me.
+
+ So I am now a living Saint.."
+
+[set_local burned]
+[link="Tell me about your friends."]
+[linkto="friends"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="friends"]
+
+"Why, the hawks and the crows are my friends!
+ The foxes and the woolves that come to scavenge..
+
+ They say it is good manners to talk while you eat, so
+ I go every day to the graveyard to converse with them."
+
+[if_local burned][link="I can see why they burned you."]
+[if_not_local burned][link="You're sick."]
+[if_local burned][linkto="burned"]
+[link="You can talk to the animals?"]
+[linkto="talk"]
+[link="Don't you have to be dead to be a Saint?"]
+[linkto="saint"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="burned"]
+
+"How can it be bad?  They are God's creatures, and few
+ enough have love for them.
+
+ They are only eating the dead, as who have no use for
+ their bodies anymore.  Is it not selfish to keep
+ something you do not need from those who can make good
+ use of it?
+
+ I will gladly share MY body with the hawks and the
+ woolves the next time I die."
+
+[link="Don't you have to be dead to be a Saint?"]
+[linkto="saint"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="talk"]
+
+"Indeed.  And they can understand what I say.
+ But there are few indeed that the Lord has blessed with
+ such ability.
+
+ The only other I can remember was Brother Dolittle, and
+ he's dead now."
+
+[link="Don't you have to be dead to be a Saint?"]
+[linkto="saint"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Farewell.  I wish you a pleasant life and a fun death!"
+
+[colour="#808080"]
+What an odd fellow.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,505 @@
+
+
+[page="start"]
+[learn_name]
+[image="pope.pcx"]
+
+[colour="#808080"]
+You see a short man of about thirty, with long, dark hair
+and penetrating, hawk-like eyes.
+[colour="#ffffff"]
+
+"Ah-h, $PLAYERNAME.  The LORD has told me much about you,
+ but I have not yet had the pleasure of meeting you
+ face-to-face.
+
+ I am the Pope, as well you know.. the first, and most
+ trusted of the LORD's servants since His return.
+
+ You may address me as 'Your Holiness'."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+You see the Holy Father.  His eyes fix upon you, as if
+reading your every thought.
+[colour="#ffffff"]
+
+"Ah-h, $PLAYERNAME.. we meet again.
+
+ To what do I owe the pleasure of this visit?"
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about God's plan."]
+[linkto="plan"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+[image="pope.pcx"]
+
+"I am merely here to ensure that God's divine will is
+ properly carried out here on Earth, and to assist His
+ great plan in any manner that I am able.
+
+ I have served the LORD faithfully for a great many years
+ and He has rewarded me with a position of power over
+ lesser men, and, dare I say it, immortality.
+
+ I am His prophet, just as Moses was in the beginning."
+
+[link="Tell me about God's plan."]
+[linkto="plan"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="plan"]
+[image="pope.pcx"]
+
+"For many thousand years the LORD has dreamed of a
+ perfect world, one dedicated entirely to His worship,
+ where only Good can be permitted to exist.
+
+ There have been a number of attempts before.
+ Adam and Eve were merely prototypes, a trial run.
+ They failed the LORD and had to be destroyed.
+
+ Moses led the first true attempt at dominion, but again
+ the people rebelled and rejected the way of the LORD.
+ Millions were terminated in the LORD's displeasure."
+
+[nextpage="plan2"]
+[endpage]
+
+[page="plan2"]
+[image="pope.pcx"]
+
+"The last attempt was led by His son, Jesus the Christ.
+ It nearly succeeded, but in this attempt, the LORD's
+ servant was detained and executed before he was able
+ to assume overall control.
+
+ The LORD has noted these previous failures, and the new
+ project combines the best aspects of all prior attempts.
+ There shall be several servants of the LORD, including
+ myself.  Physical invulnerability will ensure these new
+ servants will not be slain by unbelievers as Christ was.
+
+ The promise of miracles and eternal bliss shall woo the
+ faithful, and the sure promise of agony and death by the
+ edge of the sword shall cow the nonbelievers and add
+ them to our ranks.
+
+ None shall resist.  This time we will not fail."
+
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="pope.pcx"]
+
+"You may leave my presence."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="unbeliever"]
+[image="pope.pcx"]
+
+ Come, come.  What can there be to disbelieve?
+
+ The LORD is in evidence all around us.  Ours is the only
+ faith in the whole of history that has continous and
+ absolute proof that it is the One True Religion.
+
+ The LORD Himself walks among us again, through His
+ agent, the Holy Ghost and soon, through His son, Jesus
+ the Christ.
+
+ A man can no more deny the LORD than he can deny that
+ the sun rises each day.
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="sceptre_got"]
+[esc="disabled"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+You see the Holy Father.  His eyes fix upon you, as if
+reading your every thought.
+[colour="#ffffff"]
+
+"Ah-h, $PLAYERNAME.. we meet again.
+
+ And.. you have the Royal Sceptre of New Highworth!
+ I am impressed.  Very, very impressed.
+
+ Now, perhaps you would be so kind as to give the Sceptre
+ to me, that I may bless it in the name of the Father,
+ the Son and the Holy Ghost?"
+
+[link="Yes, here you go."]
+[linkto="sceptre_give"]
+[link="No, I won't."]
+[linkto="sceptre_nogive"]
+[link="I want the reward money."]
+[linkto="sceptre_nogive3"]
+[endpage]
+
+
+[page="sceptre_give"]
+[image="pope.pcx"]
+[set sceptre_to_pope]
+[take 1 sceptre]
+[create 2780 gold_coins]
+[call="money_sound"]
+
+[colour="#808080"]
+The Vicar of Christ smiles broadly and then makes the
+sign of the cross before you.
+[colour="#ffffff"]
+
+"Blessings be upon you, my $Son.
+
+ Take this.. it is the gold you would have earned from
+ the King had you given it to him directly.
+
+ I shall personally return the Sceptre to its rightful
+ owner once it has been properly sanctified.
+
+ Indeed, I must attend to this business at once.
+ Fare you well."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="sceptre_nogive"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Vicar of Christ does not take your refusal kindly.
+[colour="#ffffff"]
+
+"It is important that I bless the Sceptre, and then
+ return it to its owner in person.  Only in this way can
+ the rift between Church and Crown be mended.
+
+ Now give me the Sceptre."
+
+[link="Yes, here you go."]
+[linkto="sceptre_give"]
+[link="No, I won't."]
+[linkto="sceptre_nogive2"]
+[link="I want the reward money."]
+[linkto="sceptre_nogive3"]
+[endpage]
+
+Harris lifts the sceptre
+
+[page="sceptre_nogive2"]
+[image="pope.pcx"]
+[set sceptre_to_pope]
+[set pope_stole_sceptre]
+[take 1 sceptre]
+
+[colour="#808080"]
+The Pope sighs.
+[colour="#ffffff"]
+
+"As you wish.  But know that I am very disappointed with
+ you.
+ Know that the LORD too, is disappointed with you also.
+
+ You may leave my presence."
+
+[colour="#808080"]
+He makes a strange blessing gesture.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="sceptre_nogive3"]
+[image="pope.pcx"]
+
+"Never mind that.  I shall reimburse you the full amount
+ of the reward money - minus tithes, of course - but I
+ wish to take the Sceptre to the King myself.
+
+ Kindly give me the Sceptre."
+
+[link="Yes, here you go."]
+[linkto="sceptre_give"]
+[link="No, I won't."]
+[linkto="sceptre_nogive2"]
+[endpage]
+
+
+[page="sceptre_notgot"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+You see the Holy Father.  His eyes fix upon you, as if
+reading your every thought.  He looks at you with an
+air of distaste.
+[colour="#ffffff"]
+
+"Ah-h, $PLAYERNAME.
+
+ I have heard that you have returned the Sceptre of New
+ Highworth to King Edwyg.  That is a fine and noble deed.
+
+ However, it was my intention to bless that sceptre in
+ the name of the Holy Trinity, and I had expected that it
+ would be brought here to me for that very purpose
+ before it was finally returned to its rightful owner."
+
+[nextpage="sceptre_notgot2"]
+[endpage]
+
+
+[page="sceptre_notgot2"]
+[image="pope.pcx"]
+
+"I am.. disappointed.. that you have seen fit to deny me
+ this opportunity to heal the rift between the King and
+ Holy Mother Church.
+
+ However the LORD is merciful, and so I shall try not to
+ hold this against you."
+
+
+
+
+
+[page="inchurch"]
+[esc="bye2"]
+[image="pope.pcx"]
+[colour="#808080"]
+ The Pope adopts a speaking voice and addresses his
+ congregation.
+[colour="#ffffff"]
+
+"Children of God, you are welcome to this service that
+ we give unto our LORD in thanks.
+
+ As we stand here today, the power of the Dark One grows
+ and Evil spreads upon our land!  Devils stalk the night!
+
+ But we are not powerless!  Our faith is in the LORD and
+ with His power and majesty we shall conquer!"
+
+[colour="#808080"]
+ The congregation cheers.
+[colour="#ffffff"]
+
+[nextpage="inchurch2"]
+[endpage]
+
+
+[page="inchurch2"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+ The Pope calls out a rallying cry and his flock reply
+ with one, ecstatic voice.
+[colour="#ffffff"]
+
+"WHAT do we LOVE?"
+
+[colour="#e0e000"]
+"THE CHURCH!"
+[colour="#ffffff"]
+
+"WHO do we LOVE?"
+
+[colour="#e0e000"]
+"THE LORD!"
+[colour="#ffffff"]
+
+"WHAT do we HATE?"
+
+[colour="#e0e000"]
+"SIN!"
+[colour="#ffffff"]
+
+"AND WHO DO WE HATE?"
+
+[colour="#e0e000"]
+"SINNERS!"
+[colour="#ffffff"]
+
+[nextpage="inchurch3"]
+[endpage]
+
+
+[page="inchurch3"]
+[image="pope.pcx"]
+
+"Yea, my children!
+
+ The LORD is pleased, and He sends His Son, Jesus Christ
+ of the Holy Trinity, among us!
+
+ Hear the word of the Trinity!"
+
+[colour="#808080"]
+ As the Pope speaks, the crucifix, which has been
+ steadily pulsing throughout the ceremony, shimmers and
+ seems to become larger.  Soon, the image of Jesus, now
+ fifteen feet tall, rises into the air and hovers before
+ the congregation.
+[colour="#ffffff"]
+
+[nextpage="inchurch4"]
+[endpage]
+
+
+[page="inchurch4"]
+[esc="bye3"]
+[image="crucifix.jpg"]
+
+[colour="#808080"]
+ The shimmering, transparent crucifix addresses the
+ congregation.
+[colour="#ffffff"]
+
+"My Children.. The Trinity is pleased.
+
+ You have purified the land of the sinners who worshipped
+ other gods and idols, of the children of Ba'al and many
+ others who would not give up their old gods and kneel
+ before the might and power of the Trinity.
+
+ Yet there remain still some who do not bow down before
+ the LORD!"
+
+[colour="#808080"]
+ A muted gasp runs through the congregation.
+[colour="#ffffff"]
+
+[nextpage="inchurch5"]
+[endpage]
+
+[page="inchurch5"]
+[image="crucifix.jpg"]
+
+"This defiance angers the LORD your God.  It angers the
+ Holy Ghost, and it angers Me!
+
+ All shall worship the Trinity.  Any who do not worship
+ the Holy Trinity must be destroyed.  It is the Way.
+
+ There are men who worship Daemons.  These daemons are
+ creatures of metal, and they tempt men with food and
+ shelter in exchange for their fealty and servitude."
+
+[nextpage="inchurch6"]
+[endpage]
+
+
+[page="inchurch6"]
+[image="crucifix.jpg"]
+
+"These Demons cannot be slain by mortal hand.  Their fate
+ shall be judged by the LORD God alone.
+ But their worshippers ARE mortal.  They must all die.
+
+ Men, women, children.. all who have turned from the
+ Living God are betrayers.  They must all be destroyed!
+
+ Go forth, and kill!  The Trinity has spoken!"
+
+[nextpage="inchurch7"]
+[endpage]
+
+[page="inchurch7"]
+[image="crucifix.jpg"]
+[esc="exit"]
+[colour="#808080"]
+ The crucifix floats back down to its normal place,
+ shrinking as it does so.  The shimmering fades away.
+
+ That wasn't quite the kind of thing that you had
+ expected the Saviour to come out with.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye2"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+ You decide to quietly slip out.  The Pope looks at you
+ gravely, but says nothing.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye3"]
+[image="crucifix.jpg"]
+
+[colour="#808080"]
+ This is much, much too creepy.
+
+ You decide to quietly slip out and hope the LORD will
+ forgive you.  Judging by the sermon, that's doubtful.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+The player has tried to kill the Pope
+
+[page="die"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Pope looks at you in frank amazement.
+[colour="#ffffff"]
+
+"You dare to strike ME?  The Vicar of Christ Himself???
+
+ LORD!  Dispatch this heathen scum!"
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+"Normally I am of the opinion that the gallows is too
+ quick and easy a death for crimes such as this, but
+ in this particular instance, I see no good reason to
+ delay your swift passage to Hell.
+
+ Take him to the scaffold."
+
+

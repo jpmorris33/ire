@@ -1,0 +1,4 @@
+[page="start"]
+[backing="joachim.png"]
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,116 @@
+############################
+#                          #
+#  Supernatural creatures  #
+#                          #
+############################
+
+
+##
+##  Golem dies
+##
+
+function golem_dies
+
+change current = "golem_dead"
+
+# Inform the creating egg
+call egg_killed
+
+end
+
+
+##
+##  Skeleton dies
+##
+
+function skeleton_dies
+
+change current = "undead_skeleton_dead"
+
+# Inform the creating egg
+call egg_killed
+
+end
+
+
+##
+##  Spook dies
+##
+
+function spook_dies
+
+if_onscreen current
+	set_sequence current = "spook_dies"
+	wait_for_animation current
+endif
+destroy current
+
+# Inform the creating egg
+call egg_killed
+
+end
+
+
+##
+##  Juicy Jelly Monster dies
+##
+
+function jjm_dies
+
+if_onscreen current
+	set_sequence current = "jjm_dies"
+	wait_for_animation current
+endif
+destroy current
+
+# Inform the creating egg
+call egg_killed
+
+end
+
+
+
+##
+##  Leprechaun dies
+##
+
+function Leprechaun_dies
+
+change current = "DeadLeprechaun"
+
+# Inform the creating egg
+call egg_killed
+
+end
+
+
+##
+##  Leprechaun dies
+##
+
+function LeprechaunC_dies
+
+change current = "DeadLeprechaun"
+
+set_user_flag "scott_curse_lifted" = 1
+set_user_flag "scott_curse" = 0
+
+end
+
+
+##
+##  Spook dies
+##
+
+function devil_dies
+
+if_onscreen current
+	set_sequence current = "devil_dies"
+	wait_for_animation current
+endif
+destroy current
+
+# Inform the creating egg
+call egg_killed
+
+end

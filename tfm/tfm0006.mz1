@@ -1,0 +1,442 @@
+iMZ1r00
+
+	object 201326593
+		type DARKSOURCE
+		at 287 43
+		curdir 0
+
+	object 201326594
+		type DARKSOURCE
+		at 291 43
+		curdir 0
+
+	object 201326595
+		type TABLE7
+		at 289 45
+		curdir 0
+
+	object 201326596
+		type JUG_INSANITY
+		at 289 45
+		curdir 0
+
+	object 201326597
+		type DARKSOURCE
+		at 287 47
+		curdir 0
+
+	object 201326598
+		type DARKSOURCE
+		at 291 47
+		curdir 0
+
+	object 201326672
+		type MEMO
+		at 287 48
+		curdir 3
+		name Jug should be fortified against
+
+	object 201326673
+		type MEMO
+		at 288 48
+		curdir 3
+		name intruders stealing it to leave
+
+	object 201326674
+		type MEMO
+		at 289 48
+		curdir 3
+		name maybe have npcs or book hints
+
+	object 201326675
+		type MEMO
+		at 290 48
+		curdir 3
+		name about a jug of salvation
+
+	object 201326676
+		type MEMO
+		at 291 48
+		curdir 3
+		name jug curr. dumps you in forest
+
+	object 201326677
+		type MEMO
+		at 292 48
+		curdir 3
+		name Maybe follower says you should
+
+	object 201326678
+		type MEMO
+		at 293 48
+		curdir 3
+		name have left orb marker on Bridge
+
+	object 201326599
+		type GUILLOTINE
+		at 190 196
+		curdir 0
+
+	object 201326600
+		type BRIDGE_END_N
+		at 191 196
+		curdir 2
+
+	object 201326601
+		type BRIDGE_END_N
+		at 192 196
+		curdir 1
+
+	object 201326602
+		type BRIDGE_END_N
+		at 193 196
+		curdir 1
+
+	object 201326603
+		type BRIDGE_END_N
+		at 193 196
+		curdir 1
+
+	object 201326604
+		type LEVER
+		at 193 196
+		curdir 1
+
+	object 201326605
+		type BRIDGE_END_N
+		at 194 196
+		curdir 3
+
+	object 201326606
+		type BRIDGE_END_N
+		at 197 196
+		curdir 2
+
+	object 201326607
+		type GALLOWS
+		at 197 196
+		curdir 0
+
+	object 201326608
+		type BRIDGE_END_N
+		at 198 196
+		curdir 1
+
+	object 201326609
+		type BRIDGE_END_N
+		at 199 196
+		curdir 3
+
+	object 201326610
+		type BRIDGE_POLE
+		at 191 197
+		curdir 2
+
+	object 201326611
+		type BRIDGE_POLE
+		at 194 197
+		curdir 3
+
+	object 201326612
+		type BRIDGE_POLE
+		at 197 197
+		curdir 2
+
+	object 201326613
+		type GALLOWS_VICTIM
+		at 197 197
+		curdir 0
+
+	object 201326614
+		type BRIDGE_MIDDLEV
+		at 198 197
+		curdir 0
+
+	object 201326615
+		type LEVER
+		at 198 197
+		curdir 3
+
+	object 201326616
+		type BRIDGE_POLE
+		at 199 197
+		curdir 3
+
+	object 201326617
+		type BRIDGE_POLE
+		at 191 198
+		curdir 2
+
+	object 201326618
+		type BRIDGE_POLE
+		at 194 198
+		curdir 3
+
+	object 201326619
+		type BRIDGE_POLE
+		at 197 198
+		curdir 2
+
+	object 201326620
+		type HATCH_GALLOWS_OPENED
+		at 198 198
+		curdir 1
+
+	object 201326621
+		type BRIDGE_POLE
+		at 199 198
+		curdir 3
+
+	object 201326622
+		type BRIDGE_STEPS_S
+		at 191 199
+		curdir 2
+
+	object 201326623
+		type BRIDGE_STEPS_S
+		at 192 199
+		curdir 0
+
+	object 201326624
+		type BRIDGE_STEPS_S
+		at 193 199
+		curdir 0
+
+	object 201326625
+		type BRIDGE_STEPS_S
+		at 194 199
+		curdir 3
+
+	object 201326626
+		type BRIDGE_STEPS_S
+		at 197 199
+		curdir 2
+
+	object 201326627
+		type BRIDGE_STEPS_S
+		at 198 199
+		curdir 1
+
+	object 201326628
+		type BRIDGE_STEPS_S
+		at 199 199
+		curdir 3
+
+	object 201326629
+		type GUILLOTINE_BLOODY
+		at 192 200
+		curdir 1
+
+	object 201326630
+		type GUILLOTINE_VICTIM_BLOODY
+		at 194 201
+		curdir 0
+
+	object 201326632
+		type STONEFLOOR18
+		at 193 286
+		curdir 3
+
+	object 201326633
+		type STONEFLOOR18
+		at 193 287
+		curdir 3
+
+	object 201326634
+		type STONEFLOOR14
+		at 193 288
+		curdir 2
+
+	object 201326635
+		type STONEFLOOR10
+		at 194 288
+		curdir 3
+
+	object 201326636
+		type STONEFLOOR18
+		at 194 289
+		curdir 3
+
+	object 201326637
+		type STONEFLOOR18
+		at 194 290
+		curdir 3
+
+	object 201326638
+		type STONEFLOOR18
+		at 194 291
+		curdir 3
+
+	object 201326639
+		type STONEFLOOR18
+		at 194 292
+		curdir 3
+
+	object 201326640
+		type STONEFLOOR18
+		at 194 293
+		curdir 3
+
+	object 201326641
+		type STONEFLOOR18
+		at 194 294
+		curdir 3
+
+	object 201326642
+		type STONEFLOOR18
+		at 194 295
+		curdir 3
+
+	object 201326643
+		type STONEFLOOR18
+		at 194 296
+		curdir 3
+
+	object 201326644
+		type STONEFLOOR18
+		at 194 297
+		curdir 3
+
+	object 201326645
+		type STONEFLOOR18
+		at 194 298
+		curdir 3
+
+	object 201326646
+		type STONEFLOOR10
+		at 189 299
+		curdir 0
+
+	object 201326647
+		type STONEFLOOR14
+		at 190 299
+		curdir 1
+
+	object 201326648
+		type STONEFLOOR18
+		at 194 299
+		curdir 3
+
+	object 201326649
+		type STONEFLOOR10
+		at 188 300
+		curdir 0
+
+	object 201326650
+		type STONEFLOOR14
+		at 189 300
+		curdir 1
+
+	object 201326651
+		type STONEFLOOR14
+		at 194 300
+		curdir 2
+
+	object 201326652
+		type STONEFLOOR10
+		at 195 300
+		curdir 3
+
+	object 201326653
+		type STONEFLOOR18
+		at 188 301
+		curdir 2
+
+	object 201326654
+		type STONEFLOOR18
+		at 195 301
+		curdir 3
+
+	object 201326655
+		type STONEFLOOR10
+		at 188 302
+		curdir 2
+
+	object 201326656
+		type STONEFLOOR14
+		at 189 302
+		curdir 3
+
+	object 201326657
+		type TARGET
+		at 191 302
+		curdir 0
+		tag 1
+
+	object 201326631
+		type PLAYER
+		at 192 302
+		curdir 0
+		activity player_action
+
+	object 201326658
+		type STONEFLOOR18
+		at 195 302
+		curdir 3
+
+	object 201326659
+		type STONEFLOOR18
+		at 189 303
+		curdir 2
+
+	object 201326671
+		type TARGET
+		at 191 303
+		curdir 0
+		tag 666
+
+	object 201326660
+		type STONEFLOOR14
+		at 194 303
+		curdir 0
+
+	object 201326661
+		type STONEFLOOR10
+		at 195 303
+		curdir 1
+
+	object 201326670
+		type BOAT1
+		at 195 303
+		curdir 3
+
+	object 201326662
+		type STONEFLOOR10
+		at 189 304
+		curdir 2
+
+	object 201326663
+		type STONEFLOOR14
+		at 190 304
+		curdir 3
+
+	object 201326664
+		type STONEFLOOR14
+		at 192 304
+		curdir 0
+
+	object 201326665
+		type STONEFLOOR18
+		at 193 304
+		curdir 1
+
+	object 201326666
+		type STONEFLOOR10
+		at 194 304
+		curdir 1
+
+	object 201326667
+		type STONEFLOOR10
+		at 190 305
+		curdir 2
+
+	object 201326668
+		type STONEFLOOR18
+		at 191 305
+		curdir 1
+
+	object 201326669
+		type STONEFLOOR10
+		at 192 305
+		curdir 1
+

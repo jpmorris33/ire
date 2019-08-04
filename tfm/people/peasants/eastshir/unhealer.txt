@@ -1,0 +1,333 @@
+
+The healer's evil twin
+
+[page="start"]
+[if_time 0000-0600][goto="MadMan"]
+[if_time "0800-0900"][goto="church"]
+[if_time 2200-2359][goto="MadMan"]
+[if_ntime 0700-1900][goto="OutOfHours"]
+
+"Well met, good $Sir.
+
+ You look nice and healthy.  Do you want me to change
+ that for you?"
+
+[link="I beg your pardon?"]
+[linkto="job"]
+[link="Who are you?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+"Well met, good $Sir.
+
+ Are you perchance in need of having yer head panned in?"
+
+[link="Tell me again about your job."]
+[linkto="job"]
+[link="I am in need of your services."]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[learn_name]
+
+"My name is $NAME, and I am the evil twin of the healer
+ of this town.
+
+ As you may know, Avis is oft visited by many adventurers
+ who seek to earn their gold by battling the fell beasts
+ which the Evil One sends to devour our livestock and
+ our farmers.  A bit like me, I suppose.
+
+ Oftentimes there come men who seek healing by my
+ brother, and sometimes they do not pay him.  When this
+ happens, I help change their mind.
+
+ If you are interested in my services, you need but ask."
+
+[link="I am in need of your services."]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job2"]
+
+"I can cause most injuries for 10 gold coins.
+ Or, if you prefer, I'll 'cure' you and throw 7 gold
+ coins into the bargain.
+ If you let me kill one of your party members, I'll give
+ you 600 gold coins."
+ 
+[link="I need hurting."]
+[linkto="hurting"]
+[always]
+[link="I don't need curing."]
+[linkto="poisoning"]
+[always]
+[link="I need the money.  Kill one of my followers."]
+[linkto="slay"]
+[always]
+[link="Er, no thanks.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="hurting"]
+[call="no_party"]
+[if true][goto="hurt_player"]
+
+"Who's it gonna be?"
+
+[choose_member "hurt_member"]
+[goto="services"]
+[endpage]
+
+
+
+
+[page="hurt_player"]
+[call="hurt_player"]
+[if false][goto="hurt_already"]
+
+[create 10 gold_coins]
+
+[colour="#808080"]
+The crazy old man smacks you round the head and gives
+you ten gold coins for the privilege.
+[colour="#ffffff"]
+
+"Cool!"
+
+[nextpage="services"]
+[endpage]
+
+
+[page="hurt_member"]
+[call="hurt_member"]
+[if false][goto="hurt_already"]
+
+[create 10 gold_coins]
+
+"I believe they are now injured."
+
+[nextpage="services"]
+[endpage]
+
+
+[page="hurt_already"]
+
+[colour="#808080"]
+The old man is disappointed.
+[colour="#ffffff"]
+
+"Too far gone.  No gold for you!"
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="poisoning"]
+
+"You will soon!"
+
+[nextpage="poisoning2"]
+[endpage]
+
+
+
+[page="poisoning2"]
+[call="no_party"]
+[if true][goto="poison_player"]
+
+"Who wants to have some of my beautiful drink, then?"
+
+[choose_member "poison_member"]
+[goto="services"]
+[endpage]
+
+
+
+[page="poison_player"]
+[call="can_drink"]
+[if false][goto="poison_nogood"]
+[call="poison_player"]
+[if false][goto="poison_already"]
+
+[colour="#808080"]
+The old man pours some foul liquid down your throat, and
+gives you seven gold coins.
+[colour="#ffffff"]
+[create 7 gold_coins]
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="poison_member"]
+[call="can_drink"]
+[if false][goto="poison_nogood"]
+[call="poison_member"]
+[if false][goto="poison_already"]
+
+[colour="#808080"]
+The old man pours some foul liquid down their throat, and
+gives you seven gold coins.
+[colour="#ffffff"]
+[create 7 gold_coins]
+
+[nextpage="services"]
+[endpage]
+
+
+[page="poison_already"]
+
+[colour="#808080"]
+The old man is disappointed.
+[colour="#ffffff"]
+
+"Already poisoned.  No gold for you!"
+
+[nextpage="services"]
+[endpage]
+
+
+[page="poison_nogood"]
+
+[colour="#808080"]
+The old man is disappointed.
+[colour="#ffffff"]
+
+"How am I supposed to poison someone who can't drink?"
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="slay"]
+[call="no_party"]
+[if true][goto="slay_player"]
+
+[colour="#808080"]
+The old man giggles with anticipation.
+[colour="#ffffff"]
+
+"Oh, fantastic!  Who will be my happy volunteer?"
+
+[choose_member "slay_member"]
+[goto="services"]
+[endpage]
+
+
+
+
+[page="slay_player"]
+
+[colour="#808080"]
+The old man is bitterly disappointed.
+[colour="#ffffff"]
+
+"No, you idiot!  If I kill you, who am I going to give
+ the money to afterwards?"
+
+[nextpage="services"]
+[endpage]
+
+
+[page="slay_member"]
+[call="is_player"]
+[if true][goto="slay_player"]
+[call="slay_member"]
+[if false][goto="slay_nogood"]
+
+[create 600 gold_coins]
+
+[colour="#808080"]
+The old man kills them.  Horribly.
+[colour="#ffffff"]
+
+"Hehehehehehe..."
+
+[nextpage="services"]
+[endpage]
+
+
+[page="slay_nogood"]
+
+[colour="#808080"]
+The old man is disappointed.
+[colour="#ffffff"]
+
+"They're no good to me.  I want to kill a normal human."
+
+[nextpage="services"]
+[endpage]
+
+
+
+
+
+
+[page="services"]
+
+"Have you further need of my services?"
+
+[link="I need hurting."]
+[linkto="hurting"]
+[always]
+[link="I want to be poisoned."]
+[linkto="poisoning2"]
+[always]
+[link="I need the money.  Kill one of my followers."]
+[linkto="slay"]
+[always]
+[link="Er, no thanks.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Die well."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="MadMan"]
+
+"Guards!  Help!  Intruder!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="church"]
+
+"Please, not now.  Pray do not interrupt the Service!"
+
+[nextpage="exit"]
+[endpage]
+
+
+This should be fairly complete, but without the 'purchasing'
+
+[!page="OutOfHours"]
+[!nextpage="exit"]
+[!endpage]
+

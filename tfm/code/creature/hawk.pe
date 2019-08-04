@@ -1,0 +1,367 @@
+########################
+#                      #
+#  Hawks and falconry  #
+#                      #
+########################
+
+
+function hawk_tame
+
+# Look for falconry glove.  First check hand wield space
+if_not_exists me.wield.l_finger
+	if me = player
+		print "You need a glove to do that."
+		printcr
+	endif
+	return
+endif
+
+if me.wield.l_finger is called "hawking_kit0"
+	if_exists me.wield.l_hand
+		if me = player
+			print "You're already holding something."
+			printcr
+		endif
+	else
+		move_to_pocket current to me
+		# Wield the hawk
+		let me.wield.l_hand = current
+		set_flag current IS_WIELDED = 1
+	endif
+else
+	if me = player
+		print "You need a glove to do that."
+		printcr
+	endif
+endif
+
+end
+
+
+##
+##
+##
+
+function bird_soar
+
+int x
+int y
+
+if me.user.user2 < 1
+	call hawk_startflying
+	# Give it an initial count
+	let me.user.user2 = 5
+
+	# Record the starting position
+	let me.user.user3 = me.x
+	let me.user.user4 = me.y
+	return
+endif
+
+
+let x = me.x
+let y = me.y
+
+if me.curdir = UP
+	add y - 1
+endif
+
+if me.curdir = DOWN
+	add y + 1
+endif
+
+if me.curdir = LEFT
+	add x - 1
+endif
+
+if me.curdir = RIGHT
+	add x + 1
+endif
+
+transfer_object me to x y
+
+# Count down to a direction change
+add me.user.user2 - 1
+if me.user.user2 < 2
+	random me.user.user2 between 5 9
+	let current = me
+	call rotate_l
+
+	# if the hawk has strayed too far from their average,
+	# we need to guide them back
+
+	let x = me.x - me.user.user3
+	let y = me.y - me.user.user4
+
+/*
+	print "hawk: "
+	print x
+	print ","
+	print y
+	printcr
+*/
+
+	if x < -8
+		set_direction me = RIGHT
+		return
+	endif
+
+	if x > 8
+		set_direction me = LEFT
+		return
+	endif
+
+	if y < -8
+		set_direction me = DOWN
+		return
+	endif
+
+	if y > 8
+		set_direction me = UP
+		return
+	endif
+
+endif
+
+/*
+# If we have a target, we've been called as an action queue
+if_exists me.target
+	# do the next thing
+	resume_action me
+endif
+*/
+end
+
+
+##
+##
+##
+
+function hawk_startflying
+
+if me.label.race <> "bird"
+	return
+endif
+
+# The hawk flies above traps and poisons
+set_flag me IS_SPIKEPROOF = 1
+
+# Change the regular hawk into the flying hawk
+if me is called "hawk"
+	change me = "hawk_flying"
+endif
+
+if me is called "whawk"
+	change me = "whawk_flying"
+endif
+
+if me is called "osprey"
+	change me = "osprey_flying"
+endif
+end
+
+
+function hawk_stopflying
+
+if me.label.race <> "bird"
+	return
+endif
+
+# Reset spikeproof flag
+reset_flag me IS_SPIKEPROOF
+
+if me.user.user2 > 0
+	# ..And back
+	if me is called "hawk_flying"
+		change me = "hawk"
+	endif
+
+	if me is called "whawk_flying"
+		change me = "whawk"
+	endif
+
+	if me is called "osprey_flying"
+		change me = "osprey"
+	endif
+
+	let me.user.user2 = 0
+endif
+
+end
+
+
+
+##
+##  Hawk - Go to a location and then fold your wings
+##
+
+function hawk_to_location
+activity
+
+# Do we have a destination?
+
+if_not_exist me.target
+	bug start
+	set_flag me KNOW_NAME = 1
+	print "Error in location code for NPC "
+	print_bestname me
+	printcr
+	print "Character must have a destination target|"
+	bug end
+	return
+endif
+
+# Spread those wings of yours
+call hawk_startflying
+
+# Go there
+let me.user.pathgoal = me.target # Store our ultimate destination
+
+# Use the generic location code
+insert_action me does go_to_location2 to me.target
+
+# Then shut down
+queue_action me does hawk_stopflying
+end
+
+
+const HAWK_LOST = 30		# Hawk runs away
+const HAWK_LOSINGIT = 25	# Hawk is about to quit
+const HAWK_CALMAGAIN = 23	# Hawk is calm again
+
+
+function hawk_flightmode
+object hawk
+object oldplayer
+let hawk = current
+integer nx
+integer ny
+integer oldroof
+integer dx
+integer dy
+integer range
+integer lockout
+
+if_not_exist hawk.stats.owner
+	return
+endif
+
+if roof_visible = 0
+	if me = player
+		print "Must be outside"
+		printcr
+	endif
+	return
+endif
+
+let oldroof = show_roof
+let current = hawk.stats.owner
+let nx = current.x
+let ny = current.y
+
+force_from_pocket hawk from current to current.x current.y
+
+change hawk = "hawk_flying"
+
+let lockout = 0
+
+let oldplayer = player
+let player = hawk			# Otherwise Redraw_Map will fail
+
+let show_roof = 1
+let blanking_off = 1
+
+do
+	centre around hawk
+	redraw_map
+	get_key
+	let current = hawk
+	if key = KEY_LEFT
+		call rotate_l
+	endif
+	if key = KEY_RIGHT
+		call rotate_r
+	endif
+
+	let nx = hawk.x
+	let ny = hawk.y
+
+	if hawk.curdir = UP
+		add ny - 1
+	endif
+	if hawk.curdir = DOWN
+		add ny + 1
+	endif
+	if hawk.curdir = LEFT
+		add nx - 1
+	endif
+	if hawk.curdir = RIGHT
+		add nx + 1
+	endif
+
+	# Range check
+	let dx = nx - hawk.stats.owner.x
+	let dy = ny - hawk.stats.owner.y
+	if dx < 0
+		let dx = 0 - dx
+	endif
+	if dy < 0
+		let dy = 0 - dy
+	endif
+
+	let range = dx
+	if dy > dx
+		let range = dy
+	endif
+
+	if range > HAWK_LOSINGIT
+		if lockout = 0
+			print "The hawk is getting restless!"
+			printcr
+			redraw_text
+			let lockout = 1
+		endif
+	else
+		if range < HAWK_CALMAGAIN
+			# Hawk is back in range, reset the message
+			if lockout = 1
+				print "The hawk has calmed down again!"
+				printcr
+				redraw_text
+			endif
+			let lockout = 0
+		endif
+	endif
+
+	if range > HAWK_LOST
+		let key = KEY_ESC
+	endif
+
+
+	transfer_object hawk to nx ny
+
+while key != KEY_ESC
+
+let player = oldplayer
+let current = hawk.stats.owner
+
+if range < HAWK_LOST
+	transfer_to_pocket hawk to current
+else
+	print "The hawk has flown away!"
+	printcr
+	# Hawk has flown away
+	let hawk.stats.owner = null
+	resume_schedule hawk
+endif
+
+let show_roof = oldroof
+let blanking_off = 0
+centre on player
+redraw_map
+
+change hawk = "hawk_jercel"
+
+
+
+end

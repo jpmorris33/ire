@@ -1,0 +1,21 @@
+[page="start"]
+[font 3]
+[backing="paper.pcx"]
+
+            The Second Book of Kings, Chapter Two
+
+
+  23   And Elisha went unto Bethel, and as he was going by
+       the way, there came forth little children out of the city,
+       and they mocked him, calling "Baldy!  Baldy!"
+
+  24   And he turned back, and looked on them, and cursed
+       them in the name of the LORD. And there came forth
+       two she-bears out of the wood, and slew forty two of
+       the children.
+
+  25   And he went from there to mount Carmel, and from
+       there he returned to Samaria.
+
+[nextpage="exit"]
+[endpage]

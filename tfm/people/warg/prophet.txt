@@ -1,0 +1,254 @@
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="nocollar"]
+[image="prophet.png"]
+[colour="#808080"]
+You see a wizened old wolf-creature, his fur flecked
+with white.
+
+He closes his eyes and cowers before you.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="first"]
+[image="prophet.png"]
+[colour="#808080"]
+You see a wizened old wolf-creature, his fur flecked
+with white.
+[colour="#ffffff"]
+
+"I know of you, man-creature.  I have Seen a vision of
+ you, and I know that you are the Promised One."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="back_again"]
+[image="prophet.png"]
+[colour="#808080"]
+You see ???? the prophet.
+[colour="#ffffff"]
+
+"Welcome back, O Promised One."
+
+[link="Tell me again about yourself."]
+[linkto="who"]
+[link="Tell me about weaving."]
+[linkto="weaver"]
+[link="Tell me about Seeing."]
+[linkto="seeing"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+[image="prophet.png"]
+[colour="#808080"]
+You see a wizened old wolf-creature, his fur flecked
+with white.
+[colour="#ffffff"]
+
+"I am called ????.  Once I was a member of the
+ weaver's guild, but for many years I have also been a
+ seer.
+
+ A few short years ago I gave a prophecy which upset the
+ King.  He ordered my banishment, and I now live my life
+ as a hermit.
+
+ That prophecy concerns you."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Tell me about weaving."]
+[linkto="weaver"]
+[link="Tell me about Seeing."]
+[linkto="seeing"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="weaver"]
+[image="prophet.png"]
+
+"It was a good living.  Turning thread into cloth was a
+ satisfying job.  I also built looms and made countless
+ improvements to our basic design.  For this I was on
+ good terms with the guild.
+
+ While the glory days of the weavers are now past, I know
+ that all the looms in use today are of my design."
+
+[link="Tell me about the guild."]
+[linkto="weaver2"]
+[link="Tell me about Seeing."]
+[linkto="seeing"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="weaver2"]
+[image="prophet.png"]
+
+"The weavers' guild became too powerful, and the King saw
+ it as a threat to his authority.
+
+ The guild was accused of siding with The Betrayer.
+ Nonsense of course, but it made a convenient excuse for
+ him to abolish the guild, imprison its members and seize
+ all their land and assets.  The only weavers today are
+ freelancers.
+
+ I was imprisoned for five years.  Many others are still
+ serving their sentences, or fled to seek sanctuary in 
+ other towns.
+
+ It was during my years in jail that I discovered my
+ mystical talents."
+
+[link="Tell me about Seeing."]
+[linkto="seeing"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="seeing"]
+[image="prophet.png"]
+
+"The gift of Seeing depends upon the of the full moon.
+ While the moon waxes, and afterwards as it
+ wanes, the visions become faint and lose their substance
+ rapidly.  Most of the visions are but pale shadows.
+
+ But the moon does not only affect when I can See, it
+ also affects WHAT I can See.  We who have the gift can
+ only See things which are lit by the full moon.
+ As the moon fades in the daylight hours the visions
+ again lose clarity.
+
+ The gift is limited, but it can on occasion be of
+ great use.  In days past there would be great Seeings
+ where prophets from all around would converge on the
+ night of the full moon, and enter the trance together."
+
+[link="Can you take me to a Seeing?"]
+[linkto="seeing2"]
+[link="Tell me about weaving."]
+[linkto="weaver"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="seeing2"]
+[image="prophet.png"]
+
+"Alas, the new King disapproves of our gift, and he has
+ declared that such gatherings be outlawed, saying that
+ they are a work of the Betrayer.
+
+ You see, it was at one of these Seeings that I received
+ a vision of King Redtooth's dethronement, and when the
+ King learned of this he flew into a great rage.
+
+ So angered was he that I was lucky to escape with my
+ life, but his councillors prevailed upon him.
+ Under torture I was forced to recant what I had Seen,
+ and I think that it was my vision which has moved the
+ King to outlaw the Seeings.
+
+ Since then I have been in constant ridicule, so I now
+ live alone."
+
+[link="Tell me about the Betrayer."]
+[linkto="betrayer"]
+[link="Tell me what you Saw."]
+[linkto="seeing3"]
+[link="Tell me about weaving."]
+[linkto="weaver"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="betrayer"]
+[image="prophet.png"]
+
+"The Betrayer was our God, and we worshipped Him until
+ the humans came along, and He lost interest in us.
+
+ Then He told us that He would have his humans kill us
+ all, and there was a great war against them.
+ When the old King was slain in battle, the attacks
+ ended, but we still revile the God for His evil deeds.
+
+ Sadly, the Betrayal and the beginning of the war took
+ place upon days of the new moon and could not be
+ foreseen.. as was the murder of our King."
+
+[link="Tell me what you Saw."]
+[linkto="seeing3"]
+[link="Tell me about weaving."]
+[linkto="weaver"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="seeing3"]
+[image="prophet.png"]
+
+[colour="#808080"]
+The old prophet becomes very nervous.
+[colour="#ffffff"]
+
+"There were twenty of us in the Seeing, as is usually the
+ case.  For time is strange, and not everything that is
+ Seen will happen.  Different prophets will See different
+ things, but by counting up those who agree on an event
+ we can determine how likely that event is.
+
+ In the Seeing, I Saw many things.  I Saw you, with a
+ number of companions.  Many others saw this too, but
+ no others saw you with a Waarg companion.
+
+ I alone saw was that one of your companions was no less
+ than our own King Grey, returned from the dead to fight
+ against Aa'Ruuff the Betrayer Himself, and to dethrone
+ King Redtooth the Usurper.
+
+ That is what I Saw."
+
+[link="Tell me about the Betrayer."]
+[linkto="betrayer"]
+[link="Tell me about weaving."]
+[linkto="weaver"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="prophet.png"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

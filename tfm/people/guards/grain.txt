@@ -1,0 +1,135 @@
+
+
+[page="start"]
+
+"Why have you entered the grain store, citizen?"
+
+[link="I want some grain."]
+[linkto="grain"]
+[link="I was going to steal some grain."]
+[linkto="grain3"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="I'm just leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grain"]
+
+"I see.  Do you have a warrant for this grain?"
+
+[link="Yes."]
+[linkto="grain2a"]
+[link="No."]
+[linkto="grain2c"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="I'm just leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grain2a"]
+[remove 1 warrant_flour]
+[if false][goto="grain2b"]
+[call grain_give]
+[set flour2]
+
+"Good, citizen.
+
+ This warrent entitles you to five sacks of grain.
+ I will help move them outside.
+
+ Take care when you visit the mill.. there are many
+ devils in the woods of late, to say nothing of snakes.
+
+ It would be wise to go armed."
+
+[link="Thanks, I'll be off now."]
+[linkto="bye"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="I'm just leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grain2b"]
+[set flour2]
+
+"I do not see the warrant.
+
+ You must have a warrant for the grain to be transferred
+ signed by the King or one of his deputies.
+
+ Without this I cannot let you take any grain."
+
+[link="I will try to get a warrant."]
+[linkto="bye"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="I'm just leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="grain2c"]
+[set flour2]
+
+"All grain must be properly accounted for.
+
+ If the King accepts your petition for some grain, you
+ will be given a warrant for it to be milled.
+
+ I cannot help you without such a warrant."
+
+[link="I will try to get a warrant."]
+[linkto="bye"]
+[link="I will steal some grain instead."]
+[linkto="grain3"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="I'm just leaving."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="grain3"]
+[set flour2]
+
+"A bad idea, Citizen.
+
+ The LORD does not smile upon thieves and you could be
+ hanged, or worse.
+
+ If you do not have a warrant to take the grain, please
+ leave now."
+
+[link="I will try to get a warrant."]
+[linkto="bye"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="I'm just leaving."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Do Good, citizen."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="time"]
+[call="guard_telltime"]
+
+"It is $USERNUM2 past $USERNUM1."
+
+[link="Thankyou.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+

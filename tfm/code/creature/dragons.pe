@@ -1,0 +1,39 @@
+##
+##  Dragons
+##
+
+
+function dragon_hurt
+
+# Safety check
+if_not_exists current
+	print "No dragon"	
+	printcr
+	return
+endif
+
+# Heal them up, because we don't have any death frames yet
+let current.stats.hp = current.maxstats.hp
+check_hurt current
+
+# No enemy?
+if_not_exists current.enemy
+	# Must be an error.
+	return
+endif
+
+# Was it the player?
+if current.enemy == player
+	# Yes.  Explain their demise.
+	if_onscreen current
+		talk_to current.funcs.talk "attacked"
+	endif
+endif
+end
+
+
+function dragon_dies
+# Oh wait.. they can't!
+let current.stats.hp = current.maxstats.hp
+check_hurt current
+end

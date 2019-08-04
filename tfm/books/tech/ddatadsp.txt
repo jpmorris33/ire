@@ -1,0 +1,12 @@
+Data display panel (Drakaan)
+
+[page="start"]
+[backing="data4.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="2"]
+[backing="data7.png"]
+[nextpage="exit"]
+[endpage]
+

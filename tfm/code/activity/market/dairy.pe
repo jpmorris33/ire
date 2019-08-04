@@ -1,0 +1,664 @@
+#################################
+#                               #
+#  Dairy farmer goes to market  #
+#  Lay out all the goods        #
+#                               #
+#################################
+
+object milkmarket_temp
+
+##
+##  Public entry point
+##
+
+function milk_market
+activity
+
+# Check we've got something to do, otherwise think of something
+if_not_exist me.target
+	print "Error in milkmarket code|"
+	print "Character must point to a target for the first tag|"
+	call milkmarket_panic
+	return
+endif
+
+if me.target.tag = 0
+	print "Error in milkmarket code|"
+	print "Character's target has no tag!!|"
+	call milkmarket_panic
+	return
+endif
+
+queue_action me does go_to_location to me.target
+queue_action me does milkmarket_milk to me.target
+run_queue me
+
+end
+
+
+##
+##	Deal wit the milk
+##
+
+function milkmarket_milk
+private
+
+integer num
+object milkpoint1
+object milkpoint2
+
+# Find milk bucket points
+let num = me.target.tag + 1
+fast_tag milkpoint1 = num near me
+
+if_not_exist milkpoint1
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint1 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find milk bucket points
+let num = me.target.tag + 4
+fast_tag milkpoint2 = num near me
+
+if_not_exist milkpoint2
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint2 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# See if we have milk at point 1
+queue_action me does seek_target_use_resume to milkpoint1
+queue_action me does milkmarket_makemilk to milkpoint1
+
+# See if we have milk at point 2
+queue_action me does seek_target_use_resume to milkpoint2
+queue_action me does milkmarket_makemilk to milkpoint2
+
+# Once the milk stuff is done, look to the cheese
+queue_action me does milkmarket_cheese to me.target
+run_queue me
+end
+
+
+##
+##	Deal with the cheeses
+##
+
+function milkmarket_cheese
+private
+
+integer num
+object cheesepoint1
+object cheesepoint2
+object cheesepoint3
+
+# Find cheese points
+let num = me.target.tag + 5
+fast_tag cheesepoint1 = num near me
+
+if_not_exist cheesepoint1
+	print "Error in milkmarket code|"
+	print "Cannot find cheesepoint1 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+let num = me.target.tag + 7
+fast_tag cheesepoint2 = num near me
+
+if_not_exist cheesepoint2
+	print "Error in milkmarket code|"
+	print "Cannot find cheesepoint2 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+let num = me.target.tag + 8
+fast_tag cheesepoint3 = num near me
+
+if_not_exist cheesepoint3
+	print "Error in milkmarket code|"
+	print "Cannot find cheesepoint2 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# See if we have cheese at point 1
+queue_action me does seek_target_use_resume to cheesepoint1
+queue_action me does milkmarket_makecheese to cheesepoint1
+
+# See if we have cheese at point 2
+queue_action me does seek_target_use_resume to cheesepoint2
+queue_action me does milkmarket_makecheese to cheesepoint2
+
+# See if we have cheese at point 3
+queue_action me does seek_target_use_resume to cheesepoint3
+queue_action me does milkmarket_makecheese to cheesepoint3
+
+
+# Once the cheeses are done, do the cheese slices
+queue_action me does milkmarket_cheese2 to me.target
+run_queue me
+end
+
+
+##
+##	Deal with the cheese slices
+##
+
+function milkmarket_cheese2
+private
+
+integer num
+object cheesepoint
+
+# Find cheese points
+let num = me.target.tag + 6
+fast_tag cheesepoint = num near me
+
+if_not_exist cheesepoint
+	print "Error in milkmarket code|"
+	print "Cannot find cheese slices point [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+queue_action me does seek_target_use_resume to cheesepoint
+queue_action me does milkmarket_makecheeseslices to cheesepoint
+
+# Once the cheese slices are done, check out the butter
+queue_action me does milkmarket_butter to me.target
+run_queue me
+end
+
+
+##
+##	Deal with the butter
+##
+
+function milkmarket_butter
+private
+
+integer num
+object butterpoint1
+object butterpoint2
+
+# Find butter points
+let num = me.target.tag + 2
+fast_tag butterpoint1 = num near me
+
+if_not_exist butterpoint1
+	print "Error in milkmarket code|"
+	print "Cannot find butterpoint1 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find butter points
+let num = me.target.tag + 3
+fast_tag butterpoint2 = num near me
+
+if_not_exist butterpoint2
+	print "Error in milkmarket code|"
+	print "Cannot find butterpoint2 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+queue_action me does seek_target_use_resume to butterpoint1
+queue_action me does milkmarket_makebutter to butterpoint1
+
+queue_action me does seek_target_use_resume to butterpoint2
+queue_action me does milkmarket_makebutter to butterpoint2
+
+# Once the cheese slices are done, sit down and stop
+queue_action me does seek_target_sit to me.target
+queue_action me does halt_schedule
+run_queue me
+end
+
+
+##
+##  Create milk
+##
+
+function milkmarket_makemilk
+private
+object food
+
+# Destroy the stuff that's there
+let current = me.target
+call milkmarket_KillAllMilkProducts
+
+# Recreate it
+create food = "bucket_milk"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+
+resume_action me
+end
+
+
+##
+##  Create cheese
+##
+
+function milkmarket_makecheese
+private
+object food
+
+# Destroy the stuff that's there
+let current = me.target
+call milkmarket_KillAllMilkProducts
+
+# Recreate it
+create food = "food07"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+
+resume_action me
+end
+
+
+##
+##  Create cheese slices
+##
+
+function milkmarket_makecheeseslices
+private
+object food
+
+# Destroy the stuff that's there
+let current = me.target
+call milkmarket_KillAllMilkProducts
+
+# Recreate it
+create food = "foodp03"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+set_direction food faces NORTH
+
+create food = "foodp03"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+set_direction food faces SOUTH
+
+create food = "foodp03"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+set_direction food faces EAST
+
+create food = "foodp03"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+set_direction food faces WEST
+
+resume_action me
+end
+
+
+##
+##  Create butter
+##
+
+function milkmarket_makebutter
+private
+object food
+
+# Destroy the stuff that's there
+let current = me.target
+call milkmarket_KillAllMilkProducts
+
+# Recreate it
+create food = "food04"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+set_direction food faces NORTH
+
+# Recreate it
+create food = "food04"
+let food.stats.owner = me
+transfer_object food to me.target.x me.target.y
+set_direction food faces SOUTH
+
+resume_action me
+end
+
+
+
+
+##
+##  De-stroy, kill all milk products.  Anarchy!
+##
+##  current must be the base object, e.g. tray or table below the food
+## 
+
+function milkmarket_KillAllMilkProducts
+private
+object nextobj
+
+if_not_exists current
+	return
+endif
+
+let nextobj = current
+
+do
+
+	let current = nextobj
+
+	if_not_exists current
+		return
+	endif
+
+	let nextobj = current.next
+
+	if current is called "foodp03"
+		destroy current
+		continue
+	endif
+
+	if current is called "food07"
+		destroy current
+		continue
+	endif
+
+	if current is called "food04"
+		destroy current
+		continue
+	endif
+
+	if current is called "bucket_milk"
+		destroy current
+		continue
+	endif
+
+while current <> null
+
+end
+
+
+
+##
+##  Wait there like a lemon
+##
+
+function halt_schedule
+stop_action me
+end
+
+
+
+##
+##  Clean up the market
+##
+
+function milk_market_cleanup
+activity
+
+# Check we've got something to do, otherwise think of something
+if_not_exist me.target
+	print "Error in milkmarket_cleanup code|"
+	print "Character must point to a target for the first tag|"
+	call milkmarket_panic
+	return
+endif
+
+if me.target.tag = 0
+	print "Error in milkmarket_cleanup code|"
+	print "Character's target has no tag!!|"
+	call milkmarket_panic
+	return
+endif
+
+queue_action me does milkmarket_clean1 to me.target
+run_queue me
+end
+
+
+##
+##	Clean up the goods, part 1
+##
+
+function milkmarket_clean1
+private
+
+integer num
+object point1
+object point2
+object point3
+
+# Find milk bucket points
+let num = me.target.tag + 1
+fast_tag point1 = num near me
+
+if_not_exist point1
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint1 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find milk bucket points
+let num = me.target.tag + 2
+fast_tag point2 = num near me
+
+if_not_exist point2
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint2 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find milk bucket points
+let num = me.target.tag + 3
+fast_tag point3 = num near me
+
+if_not_exist point3
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint2 [tag "
+	print num
+	print "]"
+	printcr
+	return
+endif
+
+
+# See if we have milk at point 1
+queue_action me does seek_target_use_resume to point1
+queue_action me does milkmarket_destroy to point1
+
+# See if we have milk at point 2
+queue_action me does seek_target_use_resume to point2
+queue_action me does milkmarket_destroy to point2
+
+# See if we have milk at point 3
+queue_action me does seek_target_use_resume to point3
+queue_action me does milkmarket_destroy to point3
+
+# Do the next bit
+queue_action me does milkmarket_clean2 to me.target
+run_queue me
+end
+
+
+##
+##	Clean up the goods, part 2
+##
+
+function milkmarket_clean2
+private
+
+integer num
+object point1
+object point2
+object point3
+
+# Find milk bucket points
+let num = me.target.tag + 4
+fast_tag point1 = num near me
+
+if_not_exist point1
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint4 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find milk bucket points
+let num = me.target.tag + 5
+fast_tag point2 = num near me
+
+if_not_exist point2
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint5 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find milk bucket points
+let num = me.target.tag + 6
+fast_tag point3 = num near me
+
+if_not_exist point3
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint6 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+
+# See if we have milk at point 1
+queue_action me does seek_target_use_resume to point1
+queue_action me does milkmarket_destroy to point1
+
+# See if we have milk at point 2
+queue_action me does seek_target_use_resume to point2
+queue_action me does milkmarket_destroy to point2
+
+# See if we have milk at point 3
+queue_action me does seek_target_use_resume to point3
+queue_action me does milkmarket_destroy to point3
+
+# Do the next bit
+queue_action me does milkmarket_clean3 to me.target
+run_queue me
+end
+
+##
+##	Clean up the goods, part 3
+##
+
+function milkmarket_clean3
+private
+
+integer num
+object point1
+object point2
+
+# Find milk bucket points
+let num = me.target.tag + 7
+fast_tag point1 = num near me
+
+if_not_exist point1
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint7 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# Find milk bucket points
+let num = me.target.tag + 8
+fast_tag point2 = num near me
+
+if_not_exist point2
+	print "Error in milkmarket code|"
+	print "Cannot find milkpoint8 [tag "
+	print num
+	print "]"
+	printcr
+	call milkmarket_panic
+	return
+endif
+
+# See if we have milk at point 1
+queue_action me does seek_target_use_resume to point1
+queue_action me does milkmarket_destroy to point1
+
+# See if we have milk at point 2
+queue_action me does seek_target_use_resume to point2
+queue_action me does milkmarket_destroy to point2
+
+# Go to your location and then to bed
+queue_action me does go_to_location to me.target
+queue_action me does go_to_sleep to me.target
+resume_action me
+end
+
+
+##
+##  Destroy the milk products at this Point
+##
+
+function milkmarket_destroy
+let current = me.target
+call milkmarket_KillAllMilkProducts
+resume_action me
+end
+
+
+##
+##  Panic - go to bed
+##
+
+function milkmarket_panic
+stop_action me
+#queue_action me does go_to_location to me.target
+#queue_action me does go_to_sleep to me.target
+#resume_action me
+end

@@ -1,0 +1,207 @@
+
+QuickJaw the fisherman
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="first"]
+[colour="#808080"]
+You see a large wolf-creature who smells of fish.
+[colour="#ffffff"]
+
+"Hail, wanderer.  Do you seek fish?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="I would like some fish."]
+[linkto="buy"]
+[always]
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="back_again"]
+[colour="#808080"]
+You see QuickJaw the fishmonger.
+[colour="#ffffff"]
+
+"Hail, wanderer.  Do you seek fish?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="I would like some fish."]
+[linkto="buy"]
+[always]
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am QuickJaw the fishsmith.  My reflexes are so good
+ that I can catch fish with my mouth alone.
+
+ But I normally fish using just a rod, for that is more
+ productive."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="I would like some fish."]
+[always]
+[linkto="buy"]
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am the town fishsmith.  I catch fish, fillet them, and
+ sell to anyone who will buy.
+
+ If you would like some fish, just tell me."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="I would like some fish."]
+[linkto="buy"]
+[always]
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I sell my fish for 2 gold each.  Would you like one?"
+
+[link="Yes, please."]
+[linkto="buy2"]
+[always]
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="buy2"]
+[take 2 gold_coins]
+[if false][goto="buy3"]
+[create 1 FOOD08]
+
+"There you are."
+
+[link="I would like another fish."]
+[linkto="buy2"]
+[always]
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy3"]
+
+"I'm afraid you can't afford that, sir."
+
+[link="Do you buy fish?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sell"]
+
+"I might, if it is not more than a week from the water.
+ I would give you a gold coin for every fish."
+
+[link="I have a fish to sell you."]
+[linkto="sell2"]
+[always]
+[link="I'd like to buy a fish."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell2"]
+[take 1 FOOD08]
+[if false][goto="sell3"]
+[create 1 gold_coins]
+
+"Yes, that is a good fish.  Here is your gold."
+
+[link="I'd like to sell another fish."]
+[linkto="sell2"]
+[always]
+[link="I would to buy a fish."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell3"]
+
+"Traveller, it would seem you have mislaid your fish."
+
+[link="I'd like to buy some fish instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="nocollar"]
+[colour="#808080"]
+The wolf-creature stares at you nervously.
+[colour="#ffffff"]
+
+"Please, I am just a fishsmith.  I have nothing worth
+ killing me for.  Please, just leave me alone."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Farewell, human."
+
+[nextpage="exit"]
+[endpage]

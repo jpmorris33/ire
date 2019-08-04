@@ -1,0 +1,26 @@
+[page="start"]
+New Fairford
+
+1: Base
+2: Ya'Do garden
+3: Cathedral
+4: Guardhut 
+5: Randolph
+6: Ya'Do chest
+7: Abbey
+
+1066: Unfinished Island
+1600: Treasure Island
+1700: Bee Island
+
+[next="2"]
+[endpage]
+
+[page="2"]
+East
+
+38: Tower
+39: Jaguars
+40: Power plant
+
+[endpage]

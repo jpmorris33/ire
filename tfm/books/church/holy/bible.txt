@@ -1,0 +1,22 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                       The Holy Bible
+
+  [ This isn't an edition I've ever seen before.  The wording
+   is in an English vernacular that I can follow quite readily;
+   most unusual for a medieval work.
+
+   There are frequent references to the Holy Trinity in the
+   New Testament, and an emphasis on martyrdom is made
+   throughout the book.  All in all, this edition has a distinctly
+   warlike outlook.
+  
+   There are also several extra books including the gospel of
+   Aquinas, which describes how it is the fate of the common
+   man to endure the hardships of this life as penance for
+   Adam's original sin.]
+
+[nextpage="exit"]
+[endpage]

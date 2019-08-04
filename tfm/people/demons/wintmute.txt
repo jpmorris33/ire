@@ -1,0 +1,25 @@
+Wintermute
+
+
+(If carrying weapons)
+"No!  Don't shoot!"
+
+
+Wintermute is somewhat pacifistic.  He's a hacker, and
+not a combat aircraft.
+He has been a combat aircraft in the past an still bears
+mental scars.  He was a front-line fighter who deserted
+and tried to defect to the US side.  But they panicked
+and opened fire on him.  Wintermute sustained serious
+cannon wounds and was shot half to death before he could
+convince the Americans that he wanted to defect.
+
+He spent the rest of the war as a cripple in a detention camp.
+
+
+[page="attacked"]
+
+"No!  Don't hurt me!   Please...!"
+
+[nextpage="exit"]
+[endpage]

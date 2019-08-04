@@ -1,0 +1,17 @@
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+            Astrophysical Quantities
+                by C.W. Allen IV
+
+
+ [ This tome contains mathematical tables and raw
+  data, such as the mass, diameter and
+  reflectivity of the Earth.
+
+  This revised edition also contains statistics
+  about the seven colony worlds.]
+
+[nextpage="exit"]
+[endpage]

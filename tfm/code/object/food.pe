@@ -1,0 +1,679 @@
+######################################################
+#                                                    #
+#  Use food: Either to eat or to prepare for eating  #
+#	     Also Potions			     #
+#                                                    #
+######################################################
+
+# Global variable
+object food_dest
+integer eat_silently = 0
+
+##
+##	Eat
+##
+
+function eat_food
+object p
+let p = current
+
+# Player has a choice, NPCs use on themselves
+
+if me = player
+and eat_silently = 0
+	let current = player
+
+	print "Use "
+	print p.shortdesc
+	print " on "
+	redraw_text
+
+	call get_far
+else
+	let current = me
+endif
+
+if_not_exist current
+	print "nothing."
+	printcr
+	return
+endif
+
+# Print message only if player
+if me = player
+	print_best_name current
+	printcr
+endif
+
+# Check for special effects (sandwich-making etc)
+let food_dest = p
+call food_effects
+# dest is set to NULL on success
+if_not_exist food_dest
+	return
+endif
+
+
+# Check for unsupported behaviour
+
+if_not_flag current IS_PERSON
+	print msg_DontKnowWhatToDo
+	printcr
+	return
+endif
+
+# Check for feeding robots
+
+if_flag current CANT_EAT
+	print msg_DontNeedToEat
+	printcr
+	return
+endif
+
+# Food can be poisoned
+add current.user.poison + p.user.poison
+if current.user.poison < 0
+	let current.user.poison = 0
+endif
+
+
+# Now, eating stuff.  Heal the recipient
+if p.stats.str = 0
+	# Choose a random heal amount if 0
+	random p.stats.str between 1 5
+endif
+
+add current.stats.hp + p.stats.str
+if current.stats.hp > current.maxstats.hp
+	let current.stats.hp = current.maxstats.hp
+endif
+
+# Keep them in sync, or you will feel no pain and then suddenly die
+check_hurt current
+
+if current = player
+	if p is called "bread_toast"
+		object_sound "toast" player
+	endif
+	if p is called "flower*"
+		object_sound "toast" player
+	endif
+endif
+
+if p is called "food13"
+	if current = player
+		print "~Euurgh!~"
+		printcr
+	endif
+endif
+
+# Delete the food, or reduce the count
+if p.stats.quantity > 1
+	add p.stats.quantity - 1
+else
+	# If it has residue, transform it.
+	if p.funcs.user2 <> ""
+		replace p = p.funcs.user2
+	else
+		destroy p
+	endif
+endif
+
+end
+
+
+##
+##	Drink
+##
+
+function drink_potion
+
+object p
+
+let p = current
+
+# Player has a choice, NPCs use on themselves
+if me = player
+	let current = player
+
+	print "Use "
+	print p.shortdesc
+	print " on "
+	redraw_text
+	call get_far
+else
+	let current = me
+endif
+
+if_not_exist current
+	print "nothing"
+	printcr
+endif
+
+# Messages only for player
+if me = player
+	print_bestname current
+	printcr
+endif
+
+# You can use the green potion to poison food
+if p is called "potion_green"
+	if current.funcs.use = "EAT_FOOD"
+		add current.user.poison + 100
+		if me = player
+			print "Done."
+			printcr
+		endif
+		return
+	endif
+endif
+
+# You can use the red potion to un-poison food
+if p is called "potion_red"
+	if current.funcs.use = "EAT_FOOD"
+		add current.user.poison - 100
+		if me = player
+			print "Done."
+			printcr
+		endif
+		return
+	endif
+endif
+
+
+# Make sure the destination is a person
+if_not_flag current IS_PERSON
+	if me = player
+		print msg_DontKnowWhatToDo
+		printcr
+	endif
+	return
+endif
+
+# Make sure the person is biological (not a god or a robot)
+if_flag current CANT_EAT
+	if me = player
+		print msg_CannotDrinkThings
+		printcr
+	endif
+	return
+endif
+
+# Now decide what to do
+
+# Light
+if p is called "potion_white"
+
+	let current.user.potion0 = 50
+	if darkness > 32
+		let darkness = 16
+	endif
+endif
+
+# Heal
+if p is called "potion_yellow"
+
+	add current.stats.hp + p.stats.str
+	if current.stats.hp > current.maxstats.hp
+		let current.stats.hp = current.maxstats.hp
+	endif
+	check_hurt current
+endif
+
+# Poison
+if p is called "potion_green"
+	let current.user.poison = 50
+endif
+
+# Cure
+if p is called "potion_red"
+	let current.user.poison = 0
+endif
+
+# Invisible
+if p is called "potion_black"
+	set_flag current IS_SHADOW = 1
+	let current.user.potion0 = 50
+endif
+
+# Sleep
+if p is called "potion_blue"
+	call lie_down
+	add current.user.unconscious + 20
+	start_action current does sleeping
+endif
+
+# empty
+if p is called "potion_empty"
+	if me = player
+		print "Empty, dammit!"
+		printcr
+	endif
+	object_sound "smash_little2" current
+	destroy p
+	return
+endif
+
+/*
+# Ded Bull give you wings (little angelic ones)
+if p is called "ded_bull_energy_drink"
+	object_sound "gulp" current
+	add current.stats.str + p.stats.str	# Give Energy
+	add current.stats.hp - 10		# Give you wings (if you take too much)
+	check_hurt current
+	replace p = "ded_bull_empty"
+	return
+endif
+
+# Cocaine Cola (no effect)
+if p is called "cocaine_cola"
+	object_sound "gulp" current
+	replace p = "cocaine_cola_empty"
+	return
+endif
+
+# Pepsee
+if p is called "pepsee"
+	object_sound "gulp" current
+	replace p = "pepsee_empty"
+	return
+endif
+
+# Happy Drink
+if p is called "happy_drink"
+	object_sound "gulp" current
+	add current.stats.hp - 1000	# This will make you very happy
+	check_hurt current
+	replace p = "happy_drink_empty"
+	return
+endif
+
+# Paracetamol
+if p is called "paracetamol"
+	object_sound "gulp" current
+	let current.user.poison = 0
+	add p.stats.quantity - 1
+	if p.stats.quantity < 1
+		destroy p 		# All gone
+	endif
+	return
+endif
+
+# Aspirin
+if p is called "aspirin"
+	object_sound "gulp" current
+	let current.user.poison = 0
+	add p.stats.quantity - 1
+	if p.stats.quantity < 1
+		destroy p 		# All gone
+	endif
+	return
+endif
+
+# Cod Liver Oil
+if p is called "cod_liver_oil"
+	object_sound "gulp" current
+
+	add current.stats.hp + 50
+	# Don't constrain the HP increase
+	check_hurt current
+	let current.user.poison = 0
+	destroy p
+	return
+endif
+
+
+# Herbal Extract
+if p is called "herbal_extract"
+	object_sound "gulp" current
+
+	let temp = current.stats.hp / 2
+	if current.stats.hp < temp
+		let current.stats.hp = temp
+		check_hurt current
+	endif
+	destroy p
+	return
+endif
+*/
+
+
+object_sound "gulp" current
+replace p = "potion_empty"
+
+end
+
+##
+##	Food Effects
+##
+
+function food_effects
+private
+object c
+object fd
+
+# Pies can contain filling
+if food_dest is called "FOOD15"
+	if_flag current IS_PERSON
+		if_exists food_dest.pocket
+#			if food_dest.pocket is called "food*"
+			if food_dest.pocket.funcs.use = "eat_food"
+				# Eat the contents first (recursion pie, anyone?)
+				let eat_silently = 1
+				let c = current
+				let fd = food_dest
+				let current = food_dest.pocket
+				call eat_food
+				let current = c
+				let food_dest = fd
+				let eat_silently = 0
+			else
+				# Contents aren't edible, spit it out
+				if current = player
+					print "~Pppthhhh!~"
+					printcr
+				endif
+
+				spill food_dest to current.x current.y
+				replace food_dest = "food15_dead"
+#				transfer_object food_dest to current.x current.y
+				let food_dest = NULL
+				return
+			endif
+		else
+			# 'nothing pie'
+			if current = player
+				print "The pie is strangely unsatisfying."
+				printcr
+			endif
+		endif
+	endif
+	destroy food_dest
+	let food_dest = NULL
+	return
+endif
+
+# Check for sandwich-building
+if current is called "lettuce_leaf"
+	if food_dest is called "bread_slice"
+		destroy current
+		replace food_dest = "sandwich_lettuce"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+if current is called "food06"			# Ham sandwich
+	if food_dest is called "bread_slice"
+		destroy current
+		replace food_dest = "sandwich_ham"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+# Check for honey
+if current is called "jar_honey"
+	if food_dest is called "FOODP08"
+		replace current = "jar_empty"
+		replace food_dest = "FOODP08_honey"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if food_dest is called "FOODP04"
+		replace current = "jar_empty"
+		replace food_dest = "FOODP04_honey"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+# Check for pouring bowls
+if food_dest is called "bowl_*"
+	# Transfer to another bowl
+	if current is called "bowl"
+		replace current = food_dest.name
+		replace food_dest = "bowl"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	# Mixing contents
+	if current is called "bowl_*"
+		if current.name = food_dest.name
+			# Both the same
+			replace food_dest = "bowl"
+		else
+			# Dissimilar (eww!)
+			replace current = "bowl_gunk"
+			replace food_dest = "bowl"
+		endif
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+# Eat the Gunk
+if food_dest is called "bowl_gunk"
+	print "~No!!~"
+	printcr
+	let food_dest = NULL
+endif
+
+# Raw meat
+if food_dest is called "meat*"
+	print "~I'm not eating that.~"
+	printcr
+	let food_dest = NULL
+endif
+
+# Ash stuff
+if food_dest is called "ash"
+	if current is called "FOODP08_honey"
+		replace current = "rock03"
+		destroy food_dest
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if current is called "FOODP04_honey"
+		replace current = "rock03"
+		destroy food_dest
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if current is called "FOODP08"
+		print "~The ash won't stay on!  I wish it was sticky.~"
+		printcr
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if current is called "FOODP04"
+		print "~The ash won't stay on!  I wish it was sticky.~"
+		printcr
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+# Otherwise..
+if food_dest is called "ash"
+	print "The ash goes everywhere."
+	printcr
+endif
+
+##
+## Now look for the reverse logic combinations
+##
+
+# First the ash
+if current is called "ash"
+	if food_dest is called "FOODP04_honey"
+		replace food_dest = "rock03"
+		destroy current
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if food_dest is called "FOODP04_honey"
+		replace food_dest = "rock03"
+		destroy current
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if food_dest is called "FOODP08"
+		print "~The ash won't stay on!  I wish it was sticky.~"
+		printcr
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if food_dest is called "FOODP04"
+		print "~The ash won't stay on!  I wish it was sticky.~"
+		printcr
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+# And for the honey:
+if food_dest is called "jar_honey"
+	if current is called "FOODP08"
+		replace food_dest = "jar_empty"
+		replace current = "FOODP08_honey"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+	if current is called "FOODP04"
+		replace food_dest = "jar_empty"
+		replace current = "FOODP04_honey"
+		# Return success
+		let food_dest = NULL
+		return
+	endif
+endif
+
+end
+
+
+
+##
+##	Apple Tree
+##
+
+function appletree
+object apple
+integer weight
+
+# Is the tree 'empty'?
+if current.stats.karma <= 0
+	if me = player
+		print "Can't reach any apples."
+		printcr
+	endif
+	return
+endif
+
+# Create an apple
+create apple = "foodp08"
+let apple.stats.quantity = 1
+
+# Calculate the weight the player is carrying plus the apple
+get_weight weight = player
+add weight + apple.stats.weight
+add weight - me.stats.weight # Cancel out player's weight
+
+# If the weight is bigger then you can carry
+if weight > me.stats.str
+	# Wouldn't fit
+	destroy apple
+	if me = player
+		print "Can't carry it."
+		printcr
+	endif
+	return
+else
+	move_to_pocket apple to me
+	add current.stats.karma - 1 # Take an apple away
+	if me = player
+		print "Got an apple."
+		printcr
+	endif
+endif
+
+end
+
+##
+##  Player tries to use the honey in the Bee Cave
+##
+
+function honey_pool
+
+object jar
+
+if me != player
+	return
+endif
+
+find jar = "jar_empty" inside player
+if_not_exists jar
+	print "You need an empty jar to put the honey in."
+	printcr
+	return
+endif
+
+# Transform the jar into a honey jar
+replace jar = "jar_honey"
+end
+
+##
+##  Player tries to eat a stone
+##
+
+function eat_stones
+
+integer i
+
+# Do nothing for NPCs
+if me != player
+	return
+endif
+
+# Does the player know about rock-eating?
+get_user_flag i = "yado_quest_rocks"
+if i = 0
+	print "Not usable."
+	printcr
+	return
+endif
+
+# Is it over and done with?
+get_user_flag i = "yado_done_rocks"
+if i = 1
+	print "~I'm through with rock-eating.~"
+	printcr
+	return
+endif
+
+print "~I cannot eat this.~"
+printcr
+end
+
+
+function eat_horrible
+if me = player
+	print "~It tastes gross!~"
+	printcr
+endif
+end

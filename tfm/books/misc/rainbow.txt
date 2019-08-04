@@ -1,0 +1,228 @@
+
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+              Ship's log of the Rainbow
+                     Captain Zippy
+
+
+ 12th April 1281
+
+ After much planning, we finally set sail in quest of the lost
+ treasure of Captain Skint, who is said to have converted the
+ bulk of his great wealth into valuable goods which he buried in
+ a secret place to avoid the tithes of the Church.
+
+ 28th April 1281
+
+ Bungle fell overboard and had to be rescued.  He became
+ waterlogged and it took many hours before he was dry enough
+ to work.
+
+ 7th May 1281
+
+ Our journey has been good until today.  From out of nowhere,
+ violent storms assailed our ship.  Several men were lost at sea.
+
+[right="2"]
+[endpage]
+
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+ 10th May 1281
+
+ The dread storms have died down, but the irony is that we are
+ now becalmed.  Just as we prayed before that the wind would
+ die down, we are now praying for the wind to pick up so we
+ can resume our voyage.
+
+ 14th May 1281
+
+ At last the weather returns to normal!  Perhaps now our journey
+ will prove uneventful.
+
+ 20th June 1281
+
+ After more than a month of peaceful routine, our ship was
+ suddenly attacked by pirates.
+ In the battle, George consumed a large amount of fly agaric
+ and slew many men, mostly our enemies.  With their crew routed,
+ we took posession of the enemy ship.  It will fetch a good sum
+ at the next port.
+
+[left="start"]
+[right="3"]
+[endpage]
+
+
+[page="3"]
+[backing="paper.pcx"]
+[font 3]
+ 23rd June 1281
+
+ We docked at New Brent to take on provisions.
+ The captured pirate ship we sold at excellent price and the
+ surviving pirates were turned over to the port authorities.
+ The booty was split amongst our crew.
+
+ 10th July 1281
+
+ While taking stock of our provisions, Bungle discovered that
+ half the boxes of provisions actually contain sand.  I asked 
+ Jeffrey for his advice, and we decided to press on.  From
+ now on, what remains of our supplies will have to be rationed
+ carefully.  I have diverted some of the crew to fishing.
+
+ 20th July 1281
+
+ Our provisions are running low, and the fish are not biting.
+ The crew are becoming restless.
+
+[left="2"]
+[right="4"]
+[endpage]
+
+[page="4"]
+[backing="paper.pcx"]
+[font 3]
+ 24th July 1281
+
+ Rod, Jane and Freddy attempted mutiny, saying they could run
+ the show better themselves.  Fortunately enough crew remained
+ loyal to me that we were able to quell the revolt.
+ Most of the mutineers are now clapped in irons, except for Rod,
+ Jane and Freddy who I ordered hanged as an example.
+ They'll not defy Captain Zippy again!
+
+ 25th July 1281
+
+ We came across a small islet.  Marooned on it, we found the
+ body of a man, clutching a half-eaten Twiggley bar!  This
+ means we are close, and the men have perked up somewhat, but
+ our fate is still grim.
+
+ 27th July 1281
+
+ Lady luck smiles upon us at last; the fish are biting.  Fish
+ such as I have never seen!  I have ordered the crew to catch
+ as many of the fish as they can and have them salted.
+
+[left="3"]
+[right="5"]
+[endpage]
+
+[page="5"]
+[backing="paper.pcx"]
+[colour="#705030"]
+
+ 28th July 12
+
+ SOmEthINg vEry Od aBOUt THe fIShhiEsS
+ aLL tHe creW aCCtinNg StrRaNGElY
+ GEorRGeE LiKeS THEM ThouGH
+ TeLL CrREEW StOp EatTinG FisHiES
+ CaNnOt RiTE aNYMoR toDaY
+
+ 2q
+
+[font 3]
+ (At this point the captain's writing becomes wholly unintelligible.
+  The diagrams however express a keenly psychedelic charm.)
+
+[left="4"]
+[right="6"]
+[endpage]
+
+
+[page="6"]
+[backing="paper.pcx"]
+[font 3]
+ 30th July 1281
+
+ My head is stiLL not completely free of the Fish.  With the
+ entIre crew ravIng mAd it seems we we ran agrOund without even
+ knowing.  AmaZingly we hav struck the very isLand we seek!
+
+ But I have orDered the crEw to rest one more dAy so we can
+ approAch the task at hand with clear headS.
+
+ 5th August 1281
+
+ This will be the last entry in the Rainbow's log.
+ On exploring the island, we found the ship of my arch-foe,
+ Tinky Winky!  It was not long before we came across him and
+ his vile henchmen La, Dipsy and Po in the flesh.
+
+ We also discovered a strange old man, by name of Bent Gunn..
+ one of Skint's original crew. It seems he missed the journey
+ home.  Tinky Winky no doubt tried to get the secret of the
+ Treasure from him, but he could not understand a word they said.
+
+[left="5"]
+[right="7"]
+[endpage]
+
+[page="7"]
+[backing="paper.pcx"]
+[font 3]
+ We have defeated the four fools in a grand victory, yet we can
+ find no bodies, even after three days search.  Perhaps they
+ escaped in some other vessel, but it matters not for the
+ Treasure is ours!
+
+ I have the crew loading up as much booty as will fit in
+ Tinky Winky's longship.  Some unfortunately will have to stay
+ behind.. the sum of the treasure is too great to take it all.
+
+ When this is done, we set sail for home.  Gunn would come with
+ us, but he must hurry for we are all eager to sail home.
+
+ Victory is sweet.. the treasure sweeter still!
+
+   Captain Zippy
+   George
+   Bungle
+   First Mate Jeffrey
+
+[left="6"]
+[right="exit"]
+[endpage]
+
+
+
+
+The crew discover that Zippy's arch-nemesis Tinky Winky (backed up by La,
+Dipsy and Po) has got there first but Gunn can't understand what they are 
+saying so they can't ask him where the treasure is.
+
+A grand battle takes place for the treasure.  The tellytubbies are
+routed and escape by unknown means.  Zippy and co search for the treasure
+but find more than they can handle.
+
+Commandeering the tellytubbies' ship they take what they can and leave the rest.
+This is the last entry in the Rainbow's log.
+
+In the mean time Gunn has got wasted and misses the ride home *again*.
+
+
+
+
+
+
+
+
+
+On this day, the 12th of April in the year of our Lord, 1281,
+we set sail on a voyage to seek the lost treasure of Captain Skint.
+
+The treasure, by all accounts some 9 million pounds worth, was
+buried in haste by the Captain on a nameless isle, the location of
+which was written on two maps.  The first map was held by the Captain
+and had the location of the island itself.  The other map, kept by
+the Bosun, held the location of the treasure on the island.
+
+The Bosun, however was drowned and the map was lost, but our bold
+Captain Zippy had a Dream that the treasure would be found, so we
+have set forth to fulfil his prophecy.

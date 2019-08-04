@@ -1,0 +1,263 @@
+
+
+[page="start"]
+[iftime "0800-0900"][goto="church"]
+[iftime "1300-1700"][goto="selling"]
+[iftime "0000-0700"][goto="sleeping"]
+[iftime "2100-2359"][goto="sleeping"]
+[goto="working"]
+[endpage]
+
+
+[page="sleeping"]
+
+"Away with you, rogue!  Leave me be!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="church"]
+
+"Please, not now.  Pray do not interrupt the Service!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+Selling Meat
+
+[page="selling"]
+[colour="#808080"]
+You see a bloodstained man selling meat.
+[colour="#ffffff"]
+
+"Hello, are you come to buy meat?  It is freshly killed
+ by my own hand.  I have ham and beef."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy meat?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+[ifntime "1300-1700"][goto="buy_notnow"]
+
+"I can sell you a leg of beef for 10 gold, or a fine
+ ham for 8 gold.
+
+ If you would want less meat, I can also sell slices of
+ ham for 2 gold each."
+
+[link="I would like some beef."]
+[linkto="beef"]
+[always]
+[link="I would like some ham."]
+[linkto="ham"]
+[always]
+[link="I would like a slice of ham."]
+[linkto="ham_slice"]
+[always]
+[link="Do you buy meat?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="beef"]
+[take 10 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "food05"]
+
+"Thank you, $Sir.  If you enjoy it, feel free to buy
+ more.  I am at the market in the afternoons."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy meat?"]
+[linkto="sell"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="ham"]
+[take 8 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "food06"]
+
+"Thank you, $Sir.  If you enjoy it, feel free to buy
+ more.  I am at the market in the afternoons."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy meat?"]
+[linkto="sell"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ham_slice"]
+[take 2 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "foodp00"]
+
+"Thank you, $Sir.  If you enjoy it, feel free to buy
+ more.  I am at the market in the afternoons."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Do you buy meat?"]
+[linkto="sell"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sell"]
+
+"Why would I want to do that?  The LORD Himself would
+ only know where your meat has been!"
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="no_money"]
+
+"I'm afraid you do not have the money to but that,
+ $Milord.
+
+ Would you buy anything else instead?"
+
+[link="Yes, I would."]
+[linkto="buy"]
+[always]
+[link="Do you buy meat?"]
+[linkto="sell"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="working"]
+[colour="#808080"]
+You see a bloodstained man.
+[colour="#ffffff"]
+
+"Hello there."
+
+[link="Who are you?"]
+[linkto="who"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buy_notnow"]
+
+"I sell things in the market, between one and five.
+
+ If you wish to buy my goods, meet me there and then."
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+Idle chitchat
+
+[page="who"]
+[learn_name]
+
+"I am $NAME, $Milord.  I am the town butcher.
+ I slaughter the beeves of my cousin, and sell the meats
+ at the market in the square."
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes"]
+
+"The Tithes are part of the cost of living.  We must pay
+ a portion of our monies to the LORD, that he will still
+ love us and save us from the Evil One."
+
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cow"]
+
+"Mean you the giant cow that has razed the next village?
+
+ Aye, it is a fearsome beast indeed, and has slain many
+ men.  But most of those who have been slain were sinners
+ and it is the will of the LORD that they die for their
+ evil ways."
+
+
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[link="I would like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+"Fare well, $Milord."
+
+[nextpage="exit"]
+[endpage]

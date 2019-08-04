@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>TFM Dialog Editor</title>
+        <script type="text/javascript" src="jquery-1.7.1.js">
+        </script>
+        <script type="text/javascript">
+            
+            function scriptToHtml(input){
+                return $("<div />").text(input).html();
+            }
+            function htmlToScript(input){
+                return input.replace(/(<br>)|(<br \/>)|(<p>)|(<\/p>)/g, "\r\n");
+            }
+            function newPage(){
+                var p = $("<div class='dialogBox' contenteditable='true'></div>");
+                $("#pageContainer").append(p);
+                return p;
+            }
+            function htmlEncode( html ) {
+    return document.createElement( 'a' ).appendChild( 
+        document.createTextNode( html ) ).parentNode.innerHTML;
+};
+
+function htmlDecode( html ) {
+    var a = document.createElement( 'a' ); a.innerHTML = html;
+    return a.textContent;
+};
+
+            function setupDialog(script){
+                $("#pageContainer").empty();
+                var currentPage = newPage();
+                $("#testBox").text(script);
+                var lines = script.split("\n");
+                
+                var tagPattern = /^\[([\w]+)="(\w+)"\]$/g;
+                                
+                var re = new RegExp("regex","g");
+                var res;
+                for(var i in lines){
+                    var l = lines[i];
+                    res = tagPattern.exec(l);
+                    if(res !=null && res.length==3 && res[1]=="page"){
+                        currentPage = newPage();
+                    }
+                    currentPage.append(scriptToHtml(l) + "<br />");
+                }
+                
+            }
+            
+            $(function(){
+                $("#dialogForm").submit(function(){
+                    setupDialog($("#dialogScript").val());
+                    $("#saveButton").click(saveDialog);
+                    //console.log(data);
+                    //$("#testBox").text(d);
+                    return false;
+                });
+            });
+            
+            function saveDialog(){
+                var box = $("#dialogScript");
+                box.val("");
+                $(".dialogBox").each(function(i){
+                    box.val(box.val() + htmlToScript($(this).html()));
+                });
+            }
+            
+        </script>
+        <style type="text/css">
+            .dialogBox{
+                width:640px;
+                height:480px;
+                background-color: #000000;
+                color: #FFFFFF;
+                margin:5px;
+                float: left;
+                cursor: text;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="pageContainer"></div>
+        <form id="dialogForm">
+            <textarea id="dialogScript"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+        <input type="button" value="save" id="saveButton"></input>
+        
+    </body>
+</html>

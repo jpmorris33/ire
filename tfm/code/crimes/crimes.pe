@@ -1,0 +1,62 @@
+#################################
+# Crimes comitted by the player #
+#################################
+
+
+function crime_posession
+
+print current.personalname
+print " comitted heinous acts under the Devil's influence"
+printcr
+
+end
+
+
+
+function crime_witchcraft
+
+print current.personalname
+print " comitted forbidden acts of witchcraft"
+printcr
+
+end
+
+
+
+function crime_assault
+
+print current.personalname
+print " assaulted the righteous"
+printcr
+
+end
+
+
+
+function crime_murder
+
+print current.personalname
+print " comitted foul murder"
+printcr
+
+end
+
+
+
+function crime_theft
+
+print current.personalname
+print " comitted theft"
+printcr
+
+end
+
+
+
+function crime_blasphemy
+
+print current.personalname
+print " comitted vile acts of blasphemy against our Lord"
+printcr
+
+end

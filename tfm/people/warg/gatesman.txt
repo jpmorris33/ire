@@ -1,0 +1,583 @@
+##
+##  Gatekeeper, guarding the city of Yapp
+##
+
+[page="start"]
+[call="check_evil"
+[call="check_collar"]
+[if true][goto="back_again"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+You see a wolf-like creature in armour with some kind of
+crossbow attached to a harness around his back.  He
+speaks in a strange, snarling voice.
+[colour="#ffffff"]
+
+"Stop!  What humans are you that wish to enter the city
+ of the Waarg?
+
+ Who are you, and what do you want?"
+
+[link="Where am I?"]
+[linkto="where"]
+[link="I am lost."]
+[linkto="lost"]
+[link="What do YOU want?"]
+[linkto="wdyw"]
+[link="Life, Liberty and the pursuit of Happiness!"]
+[linkto="llph"]
+[link="I come to trade."]
+[linkto="peace"]
+[link="I come in peace."]
+[linkto="peace"]
+[if evil][link="I am Death.  I have come for you."]
+[if evil][linkto="kill_all"]
+[link="Er, never mind.  I'm going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="lost"]
+[image="gatesman.png"]
+
+"You certainly are..  but as servants of Aa'Ruuff the
+ Betrayer, you must leave at once, or face detention as
+ enemies of our people!"
+
+[link="Where am I?"]
+[linkto="where"]
+[link="Who is Aa'Ruuff?"]
+[linkto="who_aaruuf"]
+[link="I'm not your enemy"]
+[linkto="not_enemy"]
+[link="I come in peace."]
+[linkto="peace"]
+[if evil][link="I have come to sanctify this land."]
+[if evil][linkto="kill_all"]
+[link="I'm going.. I'm going!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="where"]
+[image="gatesman.png"]
+
+"You stand at the gates of the city-state of Yapp,
+ principal city of the Waarg, and slowly being rebuilt
+ after the unjust war waged upon us by your God.
+
+ Our leader is good King Redtooth, and he has decreed
+ that humans are not welcome unless it can be proved that
+ you bear no ill-will."
+
+[link="I am exploring this land."]
+[linkto="explore"]
+[link="I come to trade."]
+[linkto="peace"]
+[link="I come in peace."]
+[linkto="peace"]
+[link="I have come to slay you all."]
+[linkto="kill_all"]
+[link="Er, never mind.  I'm going."]
+[linkto="bye"]
+[endpage]
+
+
+[page="not_enemy"]
+[image="gatesman.png"]
+
+"You are!  Humans worship Aa'Ruuff the Betrayer..
+ the false god who sent you to devastate our city!"
+
+[link="I don't worship Aa'Ruuff."]
+[linkto="no_aaruuff"]
+[link="I don't worship anyone."]
+[linkto="no_worship"]
+[link="I worship the Trinity"]
+[linkto="worship_trinity"]
+[link="I worship Aa'Ruuff!"]
+[linkto="worship_aaruuff"]
+[link="Look at the time.  I must be going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who_aaruuf"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The creature steps backwards in surprise.
+[colour="#ffffff"]
+
+"What?  Do you not worship the Betrayer?
+
+ Aa'Ruuff taught us to build and keep livestock.
+ We worshipped Him for centuries, but He turned against
+ us and sent His human servants to kill us!"
+
+[link="I don't worship Aa'Ruuff."]
+[linkto="no_aaruuff"]
+[link="I don't worship anyone."]
+[linkto="no_worship"]
+[link="I worship the Trinity"]
+[linkto="worship_trinity"]
+[link="Look at the time.  I must be going."]
+[linkto="bye"]
+
+[endpage]
+
+
+
+[page="wdyw"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The creature sniffs.
+[colour="#ffffff"]
+
+"What does it look like?  I'm guarding the city entrance
+ against humans!  Humans worship the evil God Aa'Ruuff
+ who tried to annihilate his own faithful worshippers!
+
+ Humans are not welcome here after the war brought about
+ by His evil, and YOUR complicity!"
+
+[link="Tell me about the war"]
+[linkto="aboutwar"]
+[link="I don't worship Aa'Ruuff"]
+[linkto="no_aaruuff"]
+[link="I don't worship anyone"]
+[linkto="no_worship"]
+[link="I worship the Trinity"]
+[linkto="worship_trinity"]
+
+[endpage]
+
+
+
+[page="no_worship"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The creature relaxes.
+[colour="#ffffff"]
+
+"If you are not in league with Him, then I see little
+ reason why you should not enter our city.
+ 
+ But the memories of the carnage wrought by your people
+ are still fresh, so you must wear a Favour about your
+ neck.  It shall be a sign that you mean our people no
+ harm.
+ 
+ And any mischief you cause shall be dealt with severely!
+ 
+ Are these conditions acceptable to you?"
+
+[link="Yes.  I would like to enter the city."]
+[linkto="may_enter1"]
+[link="No.  I don't really want to."]
+[linkto="may_enter2a"]
+[link="Not at the moment."]
+[linkto="may_enter3"]
+
+[endpage]
+
+
+[page="explore"]
+[image="gatesman.png"]
+
+"Then know that your kind is not welcome in these parts,
+ for you stole the liking of our God Aa'Ruuff, resulting
+ in war and terrible carnage.
+ 
+ However.  If you are merely exploring the land, you may
+ enter the city.  But you must wear a Favour about your
+ neck, as a token of peaceful intent.
+ 
+ And I must warn you that if you DO commit any violence,
+ it shall be dealt with most harshly!
+ 
+ Are these conditions acceptable to you?"
+
+[link="Yes.  I would like to enter the city."]
+[linkto="may_enter1"]
+[link="No.  I've changed my mind."]
+[linkto="may_enter2a"]
+[link="Not at the moment."]
+[linkto="may_enter3"]
+
+[endpage]
+
+
+[page="peace"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The creature relaxes.
+[colour="#ffffff"]
+
+"If you are of peaceful intent, then you may enter the
+ city.
+
+ But to avoid causing panic among our people, you must
+ wear a Favour about your neck.  It shall be a sign to
+ our people that you mean us no hurt.
+ 
+ Also, I must warn you that if you DO commit any
+ violence, it shall be dealt with most harshly.
+ 
+ Are these conditions acceptable to you?"
+
+[link="Yes.  I would like to enter the city."]
+[linkto="may_enter1"]
+[link="No.  I've changed my mind."]
+[linkto="may_enter2a"]
+[link="Not at the moment."]
+[linkto="may_enter3"]
+
+[endpage]
+
+
+
+
+[page="worship_trinity"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The creature snarls angrily and snaps at the air.
+[colour="#ffffff"]
+
+"The Trinity does not exist!  It is a fabrication of
+ Aa'Ruuff that He uses to obtain your worship.
+
+ You still worship Aa'Ruuff, whatever name He chooses to
+ go by!  If you are devotees of the Betrayer, leave now!"
+
+[link="I don't REALLY worship the Trinity."]
+[linkto="trinity_notreally"]
+[link="Aagh!  I'm not going to worship the Trinity anymore!"]
+[linkto="trinity_giveup"]
+[link="I will not give up my God.  Farewell."]
+[linkto="bye_nocom"]
+[link="This is blasphemy and you must die."]
+[linkto="die"]
+[link="Oh, right then.  Goodbye."]
+[linkto="bye_nocom"]
+
+[endpage]
+
+
+
+[page="trinity_notreally"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The creature stiffens.
+[colour="#ffffff"]
+
+"You just say that so you can get into our city
+ and KILL US ALL!"
+
+[link="I pretend to worship the Trinity so they don't kill me."]
+[linkto="trinity_pretend"]
+[link="Oops, you saw through me.  Got to go!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity_pretend"]
+[image="gatesman.png"]
+[colour="#808080"]
+The creature's ears prick up.
+[colour="#ffffff"]
+
+"Really?  You too are a fugitive from Aa'Ruuff?
+ 
+ That changes things.  I must consult our leader..."
+
+[nextpage="may_enter"]
+[endpage]
+
+
+[page="trinity_giveup"]
+[image="gatesman.png"]
+
+"That changes things.  I must consult our leader..."
+
+[nextpage="may_enter"]
+[endpage]
+
+
+[page="llph"]
+
+"What?  What are you talking about?"
+
+[link="Never mind."]
+[linkto="whyhere"]
+[link="I am exploring this land."]
+[linkto="explore"]
+[link="I am a tourist."]
+[linkto="peace"]
+[link="I was sent here to slay you all!"]
+[linkto="kill_all"]
+[link="Nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="whyhere"]
+[image="gatesman.png"]
+
+"I ask you again.. why have you come here?"
+
+[link="I am lost."]
+[linkto="lost"]
+[link="I am exploring this land."]
+[linkto="explore"]
+[link="I am a tourist."]
+[linkto="peace"]
+[link="I was sent here to slay you all!"]
+[linkto="kill_all"]
+[link="No reason.. I'll be off now."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="aboutwar"]
+[image="gatesman.png"]
+
+"What?!?  You do not know of the war?
+ You must have seen the Field of Bones, but perhaps you
+ did not know what happened there.
+
+ Maybe you are not hostiles after all.. I must consider."
+ 
+[nextpage="may_enter"]
+[endpage]
+
+
+
+[page="may_enter"]
+[image="gatesman.png"]
+[colour="#808080"]
+The guards deliberate for a while.  A messenger goes to
+their leader, and soon his decision comes back.
+[colour="#ffffff"]
+
+"Very well, you may enter the city, but there are two
+ conditions.
+
+ Firstly, you must wear a Favour about your neck, this
+ shall be a sign that you come in peace.
+ 
+ And secondly, any violence you commit will be taken as
+ a betrayal of our trust, and punished harshly.
+ 
+ Do you still wish to enter the city?"
+
+[link="Yes, I wish to enter your city."]
+[linkto="may_enter1"]
+[link="No, I'm not wearing any collar!"]
+[linkto="may_enter2"]
+[link="Not at the moment."]
+[linkto="may_enter3"]
+[endpage]
+
+
+[page="may_enter1"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The guard presents all the members of your party with
+woven collars, which you all put around your necks.
+[colour="#ffffff"]
+
+"I shall open the gates for you.
+
+ But remember, you enter at your own risk!"
+
+[on_exit_call="guard_open_door"]
+[call="guard_give_collars"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="may_enter2"]
+[image="gatesman.png"]
+
+"Good.  Less work for us, then!"
+
+[colour="#808080"]
+The guard returns to duty.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="may_enter2a"]
+[image="gatesman.png"]
+
+"Whatever."
+
+[colour="#808080"]
+The guard returns to duty.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="may_enter3"]
+[image="gatesman.png"]
+
+"Very well."
+
+[colour="#808080"]
+The guard returns to duty.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="no_aaruuff"]
+[image="gatesman.png"]
+
+"You don't worship the Betrayer?
+
+ If that is so, you are not necessarily our enemies...
+ but you are not necessarily our friends, either.
+
+ I don't trust you.  Trusting a people who tried to wipe
+ us out comes hard.."
+
+[nextpage="may_enter"]
+[endpage]
+
+
+
+[page="kill_all"]
+[image="gatesman.png"]
+
+"The Betrayer take you and all your ilk!"
+
+[colour="#808080"]
+The window slams shut.
+[colour="#ffffff"]
+
+[on_exit_call="guard_shut_window"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="worship_aaruuff"]
+[image="gatesman.png"]
+
+[colour="#808080"]
+The window slams shut with remarkable speed.
+[colour="#ffffff"]
+
+"Then return to your accursed Master!
+
+ We repelled His armies before and we shall do it again
+ if need be!"
+
+[on_exit_call="guard_shut_window"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="die"]
+[image="gatesman.png"]
+
+"I think not!"
+
+[colour="#808080"]
+The window slams shut.
+[colour="#ffffff"]
+
+[on_exit_call="guard_shut_window"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+[image="gatesman.png"]
+[colour="#808080"]
+The creature sniffs and returns to duty.
+[colour="#ffffff"]
+
+"Hmmph!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye_nocom"]
+[image="gatesman.png"]
+
+"..And do not come back!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="back_again"]
+[image="gatesman.png"]
+[colour="#808080"]
+Good day.  Do you wish me to open the gate?
+[colour="#ffffff"]
+
+[link="Yes please."]
+[linkto="open_gate"]
+[link="No thanks."]
+[linkto="not_open_gate"]
+[!link="May I have a word?"]
+[!linkto="other"]
+[link="Goodbye."]
+[linkto="may_enter2a"]
+[endpage]
+
+
+[page="open_gate"]
+[image="gatesman.png"]
+[colour="#808080"]
+The creature opens the gate and returns to duty.
+[colour="#ffffff"]
+
+"A good journey to you."
+
+[on_exit_call="guard_open_door"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="not_open_gate"]
+[image="gatesman.png"]
+[colour="#808080"]
+The creature returns to duty.
+[colour="#ffffff"]
+
+"Very well then.  Goodbye."
+
+[nextpage="exit"]
+[endpage]
+
+
+[!page="other"]
+[colour="#808080"]
+What would you speak of?
+[colour="#ffffff"]
+
+[endpage]

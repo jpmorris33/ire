@@ -1,0 +1,618 @@
+###########################################################################
+#                                                                         #
+#  user interface: Status window.                                         #
+#                                                                         #
+#  Draws the current player's status window                               #
+#  This module is complex, and not easily understood by the beginner.     #
+#                                                                         #
+#  However, you will probably only want to change simple things like      #
+#  the position of the window, which is easily done by changing the       #
+#  defined values of the ?_XOFF and ?_YOFF values below                   #
+#                                                                         #
+###########################################################################
+
+
+
+##
+##	Window Positions
+##
+
+# Define original position (That is, the position of the panel itself)
+constant P_XOFF = 320
+constant P_YOFF = 0
+
+# Position the the first object in the pocket display (which is 4x4 wide)
+constant O_XOFF = 496
+constant O_YOFF = 18
+
+# Position of first object in the panel
+constant W_XOFF = 382
+constant W_YOFF = 16
+
+# stats window
+constant WIN_XOFF = 336
+constant WIN_YOFF = 130
+
+##
+##	variables global to this module
+##
+
+local
+
+int cur_pos
+int sel_pos = -1
+int listposition = 0
+int listobjects = 0
+int listobjects2 = 0
+int wpos = 0
+object temp
+
+endlocal
+
+
+##
+##	Main function
+##
+
+function status
+
+	draw_object statuspanel at W_XOFF W_YOFF
+
+	call count_objects
+	call objects
+	call stats
+
+end
+
+
+##
+##	Stats: Print the player's vital statistics
+##
+
+local
+
+function stats
+
+#gotoxy 336 146	# 320+16,130+16
+#printxy player.personalname
+
+## Write health in green if the player is poisoned
+if player.user.poison
+	textcolour 0 200 0
+endif
+
+## If the player's alive draw their health, otherwise write 'DEAD!'
+if player.stats.hp >= 0
+#	gotoxy 336 162  # 320+16,130+32
+	gotoxy 400 162  # 320+16,130+32
+	printxy "Health:  "
+	printxy player.stats.hp
+	printxy " / "
+	printxy player.maxstats.hp
+else
+	gotoxy 400 162
+	if player.stats.hp < -9000
+		printxy "Health:  OBLITERATED!"
+	else
+		printxy "Health:  DEAD!"
+	endif
+endif
+
+# Switch off the poison colour if necessary
+if player.user.poison
+	textcolour 255 255 255
+endif
+
+# Print the weight they're carrying:
+gotoxy 400 178 # 320+16 130+48
+printxy "Carrying: "
+printxy player_load
+printxy " kg / "
+printxy player_strength
+printxy " kg"
+
+/*
+# Print the time of day:
+gotoxy 400 194 # 320+16 130+64
+printxy game_hour
+printxy ":"
+printxy game_minute
+printxy " "
+let tmp = game_day + 1
+printxy tmp
+printxy "/"
+let tmp = game_month + 1
+printxy tmp
+printxy "/"
+printxy game_year
+*/
+
+# Print the Karma halo
+call show_karma
+draw_object karmometer at 592 146 # 320+272 130+16
+
+gotoxy 400 204
+printxy player.personalname
+/*
+if_exists party[1]
+	printxy party[1].personalname
+endif
+*/
+end
+
+
+##
+##	Objects: Display the objects in the player's pocket
+##
+
+function objects
+
+int cx				# Cursor position
+int cy
+int x
+int y
+
+let current = NULL
+
+# First make sure the x and y position do not exceed the window boundary
+
+let cx = cursor_x
+if cx > 3
+	let cx = 3	# Too big?  Limit to +3
+endif
+
+if cx < -3
+	let cx = -3	# Too small? Limit it to -3
+endif
+
+# -3 to -1 is the wielding window
+# 0 to 3 is the pocket
+
+let cursor_x = cx	# Write clipped x position
+
+# Next clip the Y coordinate to within the window
+# Also, scroll the list position if necessary
+
+let cy = cursor_y
+
+if cy > 3
+and cx >= 0			# Only scroll in the Pockets
+	let cy = 3		# Too big?  Limit to 3
+	add listposition + 4		# And scroll down one row.
+	if listposition > listobjects2	# Clip if we scrolled too far
+		let listposition = listobjects2
+	endif
+	
+endif
+
+if cy < 0
+	let cy = 0			# Too small?  Limit it to 0?
+	add listposition - 4		# And scroll up one row.
+	if listposition < 0		# If we scrolled too far..
+		let listposition = 0	# Limit the scrolling too.
+	endif
+endif
+
+let cursor_y = cy	# Write clipped y position
+
+# Find offset listposition, of currently selected object
+# But only if we're browsing the pockets.
+# And we're not looking at the wielding window (cx < 0)
+
+if show_cursor				# If browsing
+	if cx >= 0			# If in pocket (not wield list)
+		let sel_pos = cy * 4	# Find the start of the row (4 column)
+		add sel_pos + cx	# Add the column position
+	endif
+endif
+
+# Before we draw the pockets, add a virtual object (back out icon)
+# But only if there is another container outside (e.g. bag inside player)
+if_exists current_bag.parent
+	transfer_to_pocket back_icon to current_bag	# Back icon
+	let back_icon.pocket = current_bag # This is dangerous if uncontrolled
+endif
+
+# Draw the box
+
+draw_object objectpanel at W_XOFF W_YOFF	# Backing
+let temp = current_bag.pocket			# Get first item in pocket
+
+call draw_status				# Draw objects.  See later.
+
+# Draw cursor on the list.
+# Don't do this if we're not looking at the list
+
+if show_cursor
+and cx >= 0
+	let x = cx * 32
+	add x + O_XOFF
+	let y = cy * 32
+	add y + O_YOFF
+	draw_object cursor at x y
+endif
+
+call draw_wield_window		# See wield.pe
+
+# Draw cursor on the wield list, if we're looking at it.
+
+if show_cursor
+and cx < 0
+
+	let x = cx + 3	# X is negative, make it positive
+	let y = cy
+
+	if y > 2	# Restrict to the top 3, as there is no 4th wield line
+		let y = 2
+	endif
+
+	let wpos = y * 3
+	add wpos + x
+	
+	# Look up the X,Y coordinates in the datatables
+	
+	get_data x where wield_x = wpos
+	get_data y where wield_y = wpos
+	
+	# Add the X,Y coordinates of the panel
+	
+	add x + W_XOFF
+	add y + W_YOFF
+
+	# Draw the cursor
+	draw_object cursor at x y
+
+	# Set Current to point to the selected object
+
+	call select_object
+
+endif
+
+transfer_to_pocket back_icon to syspocket	# Get rid of any back icon
+
+
+/*
+
+#	Show the player, chest etc we're looking inside.
+#	It is number 4 in the wield_pos table
+#	But only show it if it's a single square large
+
+if(current_bag->mw == 1)
+    if(current_bag->mh == 1)
+        show_object(current_bag,wield_pos[4][0],wield_pos[4][1]);
+*/
+
+end
+
+endlocal
+
+##
+##  Reset the bag listing back to zero
+##
+
+function reset_objects
+let listposition = 0
+let cursor_x = 0
+let cursor_y = 0
+call objects
+end
+
+
+##
+##	Support functions
+##
+
+
+local
+
+##
+##	Set current to point to the wielded object determined by wpos index
+##
+
+function select_object
+
+	# Get the currently selected object from the 3x3 wield grid
+	# Pos will be one of the following, and we need to get a pointer
+	# to the appropriate wield pointer:
+	#
+	# 	012
+	# 	345
+	# 	678
+	#
+
+	let current = null
+
+	if wpos = 0	# Neck
+		let current = current_bag.wield.neck
+	endif
+
+	if wpos = 1	# Head
+		let current = current_bag.wield.head
+	endif
+
+	if wpos = 2	# Body
+		let current = current_bag.wield.body
+	endif
+
+	if wpos = 3	# L hand
+		let current = current_bag.wield.l_hand
+	endif
+
+	# 4 is nothing
+
+	if wpos = 5	# R hand
+		let current = current_bag.wield.r_hand
+	endif
+
+	if wpos = 6	# L ring
+		let current = current_bag.wield.l_finger
+	endif
+
+	if wpos = 7	# Feet
+		let current = current_bag.wield.feet
+	endif
+
+	if wpos = 8	# R ring
+		let current = current_bag.wield.r_finger
+	endif
+
+end
+
+
+
+
+##
+##	find_next_object  - Set TEMP to the next item in your pocket that isn't 
+##			    being wielded as a weapon.
+##
+##			    This does some linked-list stuff
+##
+
+function find_next_object
+
+integer finished = 0				# not going to finish yet
+
+do
+	if_not_exists temp			# Are we out of objects?
+		let finished = 1		# OK, we'll finish
+	else
+		if_flag temp IS_WIELDED	# Wielded?  find the next
+			let temp = temp.next	# object in the list.
+		else
+			let finished = 1	# Not wielded? Done!
+		endif
+	endif
+while finished = 0				# while not finished
+end
+
+
+##
+##	Draw_Status - display the contents of your pockets
+##
+##	This does linked-list stuff
+##
+
+function draw_status
+# loop controllers
+integer a
+integer b
+# Coordinates
+integer ox
+integer oy
+
+let ox = O_XOFF
+let oy = O_YOFF
+
+# Cancel button highlights
+button_push INV_ARROW_U = 0
+button_push INV_ARROW_D = 0
+
+# Move through the list until we find the object on the top line
+
+if listposition > 0
+	for a = 0 to listposition
+		if_exist temp			# Make sure we don't overrun
+			let temp = temp.next	# Move along
+		endif
+	next a
+
+	# Highlight the up arrow
+	button_push INV_ARROW_U = 1
+endif
+
+if listposition < listobjects2
+	# Highlight the down arrow
+	button_push INV_ARROW_D = 1
+endif
+
+# Eliminate wielded objects and seek until we find a normal one, or we run out
+if_exists temp
+	do
+
+		if_not_flag temp IS_WIELDED
+			break # This isn't wielded, use it
+		endif
+
+		# Oh, go round again
+		let temp = temp.next
+	while temp
+endif
+
+# Now, draw the objects in the status window
+
+let cur_pos = 0
+
+for a = 0 to 3
+	for b = 0 to 3
+		if_exists temp
+
+			if cur_pos = sel_pos
+				let current = temp	# grab selected object
+
+				# Bypass visibility checks
+				let new_x = current_bag.x
+				let new_y = current_bag.y
+			endif
+			draw_object temp at ox oy	# Draw selected object
+			let temp = temp.next		# Get next object
+		endif
+		call find_next_object			# Find next good obj
+
+		add cur_pos + 1				# Increase position
+		add ox + 32				# Do next line
+	next b
+
+	let ox = O_XOFF					# Start a new line
+	add oy + 32					# Do next row
+next a
+
+end
+
+##
+##	Find total number of objects visible in pocket
+##
+
+function count_objects
+
+object t
+
+# How many are there?
+let listobjects = 0
+let t = current_bag.pocket
+do
+	if_exist t
+		add listobjects + 1
+		let t = t.next
+	endif
+while t <> null
+
+# Adjust for visible objects
+let listobjects2 = listobjects - 16
+if listobjects2 < 0
+	let listobjects2 = 0
+endif
+
+end
+
+
+##
+##	Show Karma - show the player's halo
+##
+
+function show_karma
+int karma
+
+let karma = player.stats.karma
+
+if karma < -100
+	set_sequence karmometer "halo00"
+	return
+endif
+
+if karma < -90
+	set_sequence karmometer "halo01"
+	return
+endif
+
+if karma < -80
+	set_sequence karmometer "halo02"
+	return
+endif
+
+if karma < -70
+	set_sequence karmometer "halo03"
+	return
+endif
+
+if karma < -60
+	set_sequence karmometer "halo04"
+	return
+endif
+
+if karma < -50
+	set_sequence karmometer "halo05"
+	return
+endif
+
+if karma < -40
+	set_sequence karmometer "halo06"
+	return
+endif
+
+if karma < -30
+	set_sequence karmometer "halo07"
+	return
+endif
+
+if karma < -20
+	set_sequence karmometer "halo08"
+	return
+endif
+
+if karma < -10
+	set_sequence karmometer "halo09"
+	return
+endif
+
+if karma < 0
+	set_sequence karmometer "halo10"
+	return
+endif
+
+if karma < 10
+	set_sequence karmometer "halo11"
+	return
+endif
+
+if karma < 20
+	set_sequence karmometer "halo12"
+	return
+endif
+
+if karma < 30
+	set_sequence karmometer "halo13"
+	return
+endif
+
+if karma < 40
+	set_sequence karmometer "halo14"
+	return
+endif
+
+if karma < 50
+	set_sequence karmometer "halo15"
+	return
+endif
+
+if karma < 60
+	set_sequence karmometer "halo16"
+	return
+endif
+
+if karma < 70
+	set_sequence karmometer "halo17"
+	return
+endif
+
+if karma < 80
+	set_sequence karmometer "halo18"
+	return
+endif
+
+if karma < 90
+	set_sequence karmometer "halo19"
+	return
+endif
+
+if karma < 100
+	set_sequence karmometer "halo20"
+	return
+endif
+
+set_sequence karmometer "halo21"
+
+
+end
+
+
+endlocal

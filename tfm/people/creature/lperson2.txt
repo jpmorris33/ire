@@ -1,0 +1,18 @@
+[page="start"]
+
+[colour="#808080"]
+You see a little man dressed in green.  He yells with
+an Irish accent.
+[colour="#ffffff"]
+
+"BEAT THE CRAP OUT O' THE BIG PERSON!"
+
+[nextpage="fakeexit"]
+[endpage]
+
+Fake exit page, so we get an arrow instead of a tick
+
+[page="fakeexit"]
+[goto="exit"]
+[endpage]
+

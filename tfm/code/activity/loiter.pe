@@ -1,0 +1,247 @@
+##
+##	Loiter - randomly go between points and wait there
+##
+
+
+#
+#  Loitering, part I
+#  Pick something interesting to look at
+#
+
+function loiter
+activity
+
+integer num
+integer timeout
+object o
+
+# Check we've got something to do, otherwise think of something to do
+
+if me.user.user2 = 0	# Are we running or waiting to be primed?
+
+	if_not_exist me.target
+		BUG START
+		print "Error in loiter code for NPC "
+		set_flag me KNOW_NAME = 1
+		print_bestname me
+		printcr
+		print "Activity must have a target for the first tag|"
+		BUG END
+		return
+	endif
+
+	# Get the object to find
+	let me.user.user2 = me.target.tag
+
+endif
+
+# Now we have a base target numer, do a random decision which one to go for
+# if we can't find an object with that tag, guess again until we have something
+# worth doing
+
+let timeout = 7
+label round_again
+
+random num between 0 9
+add num + me.user.user2
+fast_tag o = num near me
+if_exists o
+	# Make sure we aren't already at that target
+	if o.x = me.x
+		if o.y = me.y
+			# Guess again
+			let o = null
+		endif
+	endif
+endif
+
+if_not_exist o
+	# Don't do this forever
+	add timeout - 1
+	if timeout <= 0
+		return
+	endif
+	goto round_again
+endif
+
+# Prepare the next stages
+
+queue_action me does loiter_2 to o
+queue_action me does loiter_3
+run_queue me
+
+end
+
+
+#
+#	Loitering, part II
+#	Go to the desired target
+#
+
+
+function loiter_2
+private
+integer randwait
+integer maxrw
+
+if_exists me.target
+	# Try to move there
+	move_towards me me.target
+
+	# code 1 means not ready
+	if err <> PATH_WAITING
+		# Face the same direction as the target object
+		force_direction me faces me.target.curdir
+
+		# Wait for 7 turns plus a random factor
+		let me.user.user1 = 7
+		let maxrw = 10 + me.target.stats.str
+		random randwait between 0 maxrw
+		add me.user.user1 + randwait
+
+		# Chain to part 3
+		resume_action me
+	endif
+endif
+
+end
+
+
+#
+#  Loitering, part III
+#  Wait for a while, then go to part I again
+#
+
+function loiter_3
+private
+
+add me.user.user1 - 1
+if me.user.user1 <= 0
+	let me.user.user1 = 0
+	# Fall back to first stage and repeat the process
+	resume_action me
+endif
+
+end
+
+
+
+
+##
+##  Working
+##
+
+function loiter_atwork
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does loiter to me.target
+run_queue me
+
+end
+
+
+
+##
+##  Random wandering (taken from bird_wander)
+##
+
+function man_wander
+activity
+
+int x
+int y
+int max
+int may
+int mix
+int miy
+int rnd
+int overcount
+
+# Not if you're inside an egg
+
+if_in_pocket me
+	return
+endif
+
+
+# Store XY state if not stored
+if me.user.user2 = 0
+	let me.user.user2 = me.x
+	let me.user.user3 = me.y
+endif
+
+# Establish boundaries (bigger than the bird boundary)
+let max = me.user.user2 + 8
+let mix = me.user.user2 - 8
+let may = me.user.user3 + 8
+let miy = me.user.user3 - 8
+
+let overcount = 0
+
+# Get current X/Y
+label retry
+
+let x = me.x
+let y = me.y
+
+random rnd between 0 7
+
+if rnd = 1
+	set_direction me = LEFT
+	let x = x - 1
+endif
+
+if rnd = 2
+	set_direction me = RIGHT
+	let x = x + 1
+endif
+
+if rnd = 3
+	set_direction me = UP
+	let y = y - 1
+endif
+
+if rnd = 4
+	set_direction me = DOWN
+	let y = y + 1
+endif
+
+# retry and bail out if necessary
+add overcount + 1
+if overcount > 10
+	goto stop
+endif
+
+# Clip and re-throw if necessary
+if x > max
+or y > may
+	goto retry
+endif
+
+if x < mix
+or y < miy
+	goto retry
+endif
+
+# Otherwise, stop
+label stop
+
+centre around me # Make sure collision detection window is up to date
+move_object me to x y
+
+end
+
+
+##
+##  Wander_at_location
+##
+
+function wander_at_location
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does man_wander
+run_queue me
+
+end

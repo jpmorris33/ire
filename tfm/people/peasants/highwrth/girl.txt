@@ -1,0 +1,100 @@
+
+Religious girl
+
+[page="start"]
+[random_page="girl 00 05"]
+[endpage]
+
+
+
+[page="girl00"]
+[colour="#808080"]
+You see a small girl.
+[colour="#ffffff"]
+
+"If any man holdth that it ith impothible to follow
+ the ten commandmentth, accurthed be he!"
+
+[append="links"]
+[endpage]
+
+
+
+[page="girl01"]
+[colour="#808080"]
+You see a small girl.
+[colour="#ffffff"]
+
+"Follow the path of the Trinity!"
+
+[append="links"]
+[endpage]
+
+
+
+[page="girl02"]
+
+[colour="#808080"]
+You see a small girl.
+[colour="#ffffff"]
+
+"Jethuth luvth me!"
+
+[append="links"]
+[endpage]
+
+
+
+[page="girl03"]
+
+[colour="#808080"]
+You see a small girl.
+[colour="#ffffff"]
+
+"Jethuth ith our Lord and Mathter!"
+
+[append="links"]
+[endpage]
+
+
+
+[page="girl04"]
+
+[colour="#808080"]
+You see a small girl.
+[colour="#ffffff"]
+
+"I would kill for you, Jethuth!"
+
+[append="links"]
+[endpage]
+
+
+
+[page="girl05"]
+
+[colour="#808080"]
+You see a small girl.
+[colour="#ffffff"]
+
+"Praith be to the Trinity!"
+
+[append="links"]
+[endpage]
+
+
+[page="links"]
+[link="Uh, right.  Goodbye."]
+[linkto="exit"]
+[link="Die, urchin!"]
+[linkto="urchin"]
+[endpage]
+
+
+[page="urchin"]
+
+"Help me, Jethuth!"
+
+[Go into flee mode, summon an angel to assist her]
+
+[endpage]

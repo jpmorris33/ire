@@ -1,0 +1,21 @@
+
+##
+## Guard
+##
+
+"Who seeks entry to the noble house of Lord O'Beth,
+ Thane of Mordor?"
+ 
+[I am $PLAYER]
+[Who is O'Beth]
+[Mordor?]
+[Never mind]
+
+
+
+"I see.  And what is your errand?"
+
+[I want to see the Lord]
+[I am on a quest.. I seek the ____]
+[Nothing]
+

@@ -1,0 +1,53 @@
+
+Ingram the Torturer
+
+[page="start"]
+[colour="#808080"]
+You see a very brutish man.
+[colour="#ffffff"]
+
+"Ugh."
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[colour="#808080"]
+He glowers at you, but does not speak.
+[colour="#ffffff"]
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[colour="#808080"]
+He reaches to a shelf and picking up a human skull,
+crushes it with a single motion of one hand.
+[colour="#ffffff"]
+
+"Ug!"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[colour="#808080"]
+He turns away and goes back to what he was doing.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,116 @@
+
+[page="start"]
+[learn_name]
+
+"Greetings, Knave.  I am Governor Wirral.
+ I tend the jail of New Highworth."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+"Greetings once again.
+
+ I trust you have remained good and true."
+
+[link="Yes."]
+[linkto="yes"]
+[link="No."]
+[linkto="no"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="yes"]
+
+"Good."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no"]
+[at_exit_call="jail_player"]
+
+"Penance is good for the soul!"
+
+[nextpage="fakeexit"]
+[endpage]
+
+
+
+[page="job"]
+
+"I record the crimes of the Simple and see to it that
+ their justice is properly carried out.
+
+ It is a hard job, but society is better for it."
+
+[link="Tell me about Justice."]
+[linkto="justice"]
+[link="Tell me about the crimes of the Simple."]
+[linkto="crimes"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="justice"]
+
+"Justice is the wages of sin.
+
+ For some it is mere jail..  Others must pay for their
+ deeds in blood!
+
+ The Church has lent us a fully-equipped torturer for
+ dealing with heretics and witches."
+
+[link="Tell me about the crimes of the Simple."]
+[linkto="crimes"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="crimes"]
+
+"In times of poverty there is much theft.
+ If the item be small, jail is the answer.
+
+ For the theft of a horse or something of equal value,
+ the necessary justice shall be the gallows-tree!
+
+ As the tithes of the Church increase we see more and
+ more false dealings.
+ The justice for this crime is imprisonment."
+
+[link="Tell me about Justice."]
+[linkto="justice"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well.  Stay upon the path of the good."
+
+[nextpage="exit"]
+[endpage]
+
+Immediate exit, without the tick
+
+[page="fakeexit"]
+[goto="exit"]
+[endpage]

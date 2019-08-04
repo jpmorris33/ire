@@ -1,0 +1,19 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                   MacBeth - Abridged Version
+
+                     By William Shakespeare
+
+
+
+ Macbeth: Have some more of my Beautiful Drink, guards,
+          for I have slain King Duncan and now I must
+          wipe his blood on you!
+
+
+ And thus began the glorious reign of Macbeth, King of Scotland!
+
+[nextpage="exit"]
+[endpage]

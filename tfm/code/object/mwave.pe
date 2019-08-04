@@ -1,0 +1,99 @@
+####################
+#                  #
+#  microwave oven  #
+#                  #
+####################
+
+
+##
+## Broken microwave
+##
+
+function microwave_brk
+
+object_sound "microwave_brk" current
+
+print "Ooops, it's broken!"
+printcr
+
+end
+
+
+##
+##	Basic microwave core: destroys things or cooks them if food
+##
+
+
+function microwave_core
+
+let current = me
+
+add current.user.user0 - 1
+
+if current.user.user0 > 0
+	return
+endif
+
+# Cook the things (-very- well done)
+if_exists current.pocket
+	list_after current.pocket calling cook
+
+	# change state again
+	change current = "microwave"
+
+else	# Was it empty?
+
+	# Ooops
+	replace current = "microwave_broken"
+	print "The microwave was empty!"
+	printcr
+endif
+
+# Stop cooking
+stop_action current
+
+end
+
+
+##
+##	Start the microwave oven
+##
+
+function microwave
+
+object_sound "microwave" current
+change current = "microwave_cooking"
+do_action current does "microwave_core"
+let current.user.user0 = 3
+
+end
+
+
+
+##
+##
+##	Support
+##
+##
+
+
+local
+
+function cook
+
+if current is called "bread_slice"
+	replace current = "bread_toast"
+	return
+endif
+
+if current.stats.hp > -1
+	let current.stats.hp = -1
+else
+	add current.stats.hp - 100
+endif
+
+check_hurt current
+
+end
+
+endlocal

@@ -1,0 +1,14 @@
+[page="start"]
+
+[colour="#808080"]
+It murmurs something in a terrible voice.
+[colour="#ffffff"]
+
+"Kill and eat!
+
+ Kill and eat!
+
+ Kill and eat!"
+
+[nextpage="exit"]
+[endpage]

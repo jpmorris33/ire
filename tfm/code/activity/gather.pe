@@ -1,0 +1,125 @@
+#######################
+#                     #
+#  Gather Crops etc.  #
+#                     #
+#######################
+
+object crop_ptr
+integer did_find_crops
+
+##
+##  Move in the direction you're facing, and grab (destroy) all objects
+##  of a type matching the Target's personal name
+##
+
+function gather_crops
+activity
+object newtag
+integer tagg
+
+if_not_exists me.target
+	stop_action me
+	return
+endif
+
+# reset timeout counter
+let me.user.user1 = 0
+
+queue_action me does go_to_location to me.target
+queue_action me does gather_crops2 to me.target
+
+# If the target has a negative tag, go to positive target after picking
+let tagg = 0 - me.target.tag # invert the tag
+let current = me
+find_tag newtag = "target" tagg # Look for other target
+if_exists newtag
+	queue_action me does seek_target to newtag
+endif
+run_queue me
+
+end
+
+##
+##  Gather Crops
+##
+
+function gather_crops2
+private
+integer vx
+integer vy
+
+let vx = me.x - 1 
+let vy = me.y - 1
+get_first_object crop_ptr at vx vy
+call getcrop
+
+if did_find_crops = 1
+	# Got something, stop a turn
+	return
+endif
+
+let vx = me.x 
+get_first_object crop_ptr at vx vy
+call getcrop
+
+if did_find_crops = 1
+	# Got something, stop a turn
+	return
+endif
+
+let vx = me.x + 1
+get_first_object crop_ptr at vx vy
+call getcrop
+
+if did_find_crops = 1
+	# Got something, stop a turn
+	let me.user.user1 = 0
+	return
+endif
+
+add me.user.user1 + 1
+
+# Out of crops, stop
+if me.user.user1 >= 3
+	resume_action me
+	return
+endif
+
+# Otherwise, step forwards
+let current = me
+call move_forward
+
+end
+
+
+##
+##  Destroy the crops in crop_ptr (if any)
+##
+
+function getcrop
+private
+string m
+
+let m = me.target.personalname
+let did_find_crops = 0
+
+do
+	# Safety check
+	if_not_exists crop_ptr
+		return
+	endif
+
+	if crop_ptr.name = me.target.personalname
+#	if crop_ptr is called me.target.personalname   BUG!!
+		let did_find_crops = 1
+		destroy crop_ptr
+	endif
+
+	# May have changed
+	if_exists crop_ptr
+		let crop_ptr = crop_ptr.next
+	endif
+
+while crop_ptr
+
+end

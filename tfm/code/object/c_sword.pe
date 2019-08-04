@@ -1,0 +1,53 @@
+#
+#	Code for the Crystal Sword
+#
+
+
+# Broken
+
+function crystal_sword_break
+
+object bits
+object breakobj
+integer was_inv
+
+# Play sound
+#object_sound "smash_little1"
+play_sound "smash_little1"
+
+# Flash the screen
+lightning 3
+
+# Was it wielded?
+get_flag was_inv = current IS_WIELDED
+
+# Break it
+replace current = "crystal_sword_hilt"
+if was_inv
+	set_flag current IS_WIELDED = 1
+endif
+
+# If it's thrown, destroy the object beneath it
+if thrown = current
+	get_object_below breakobj = thrown
+	if_exists breakobj
+		add breakobj.stats.hp - thrown.stats.damage
+		# Clip damage
+		if breakobj.stats.hp < -100
+			let breakobj.stats.hp = -100
+		endif
+		check_hurt breakobj
+	endif
+endif
+
+# Drop the broken blade
+
+let bits = current.pocket
+
+if_exists bits
+	force_from_pocket bits from current to bits.x bits.y
+	move_to_floor bits
+endif
+
+end
+

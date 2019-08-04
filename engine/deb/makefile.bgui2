@@ -1,0 +1,12 @@
+# Makefile for BGui 2.0
+
+library_bgui2 = libs/linux/libbgui.a 
+
+Object_bgui2 = bgui2/src/bgfx.o bgui2/src/bgui.o bgui2/src/billfs.o bgui2/src/bmenu.o bgui2/src/bprocs.o 
+
+library_bgui2: 	$(Object_bgui2) 
+		-rm -f $(library_bgui2)
+		ar rs $(library_bgui2) $(Object_bgui2)
+
+%.o: %.c
+	$(CC) -c -O $< -o $@

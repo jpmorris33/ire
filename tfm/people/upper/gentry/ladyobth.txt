@@ -1,0 +1,121 @@
+
+[page="start"]
+[learn_name]
+
+[colour="#808080"]
+You see a downcast woman with an air of quality.
+[colour="#ffffff"]
+
+[ifplayermale]"Well met, my good man.  I am Lady O'Beth.  
+[ifplayerfemale]"Well met, fair lady.  I am Lady O'Beth.
+
+ Less it is that you are lost, I would imagine you came
+ to speak with my husband.  Though I shall try to aid
+ you myself, if I can."
+
+[if obethplot][link="Your husband is mad."]
+[if obethplot][linkto="mad"]
+[link="Why are you miserable?"]
+[linkto="miserable"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Lady O'Beth.
+[colour="#ffffff"]
+
+"Hail, friend."
+
+[if obethplot][link="Your husband is mad."]
+[if obethplot][linkto="mad"]
+[link="Tell me again why you are miserable."]
+[linkto="miserable"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="miserable"]
+
+"When I came of age, I visited a seer who foretold that I
+ should marry with a man of great quality and power.
+
+ When, later that year, I was wed to a handsome general
+ who was in line to the throne, I believed that the
+ prophecy was fulfilled.  But now that I know the whole
+ truth of the matter, it fills me with dread!"
+
+[link="But your husband will be king."]
+[linkto="throne"]
+[link="What is the whole truth of the matter?"]
+[linkto="wholetruth"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="throne"]
+
+"Yea, but I fear he is too full o' the milk of human
+ badness to catch the gentle path to the throne.
+
+ I can see that his accession, if it takes place as is
+ foretold, shall be a bloody one indeed.
+
+ His sinistrous plotting will bring doom upon us all!"
+ 
+[link="What is this 'whole truth' you mentioned?"]
+[linkto="wholetruth"]
+[if obethplot][link="Your husband is mad."]
+[if obethplot][linkto="mad"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="wholetruth"]
+
+"My husband, Thane-Lord O'Beth, is the centre of a grim
+ prophecy that he shall be immortal and usurp the throne
+ of Scotia after an act of most foul treason, likely the
+ murder of King Duncan the Foolish.
+
+ There are other parts of the prophecy, but they are
+ of little consequence.  If it interests you deeply, you
+ may find the prophecies in the study.
+
+ My husband applies himself to fulfilling the prophecy
+ with great vigour, and is constantly devising foul
+ schemes to storm the castle."
+
+[link="But your husband will be king."]
+[linkto="throne"]
+[link="Your husband is mad."]
+[linkto="mad"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="mad"]
+
+"Mad?  If only that were so.  Most of the Prophecies are
+ fulfilled, and no mortal can harm him.
+
+ To kill a king and seize his throne is a dreadful deed.
+ But he means to do it, and nothing can stop him!"
+
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Goodbye."
+
+[nextpage="exit"]
+[endpage]

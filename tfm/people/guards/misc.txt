@@ -1,0 +1,55 @@
+Portrait should have an eyepatch
+
+
+
+[page="start"]
+[image="guard1.png"]
+
+"I am $OBJNAME of Guard.
+ State your business."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="You all look the same.."]
+[linkto="same"]
+[link="I'll be on my way."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="guard1.png"]
+
+"Do Good, citizen."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="same"]
+[image="guard1.png"]
+
+"We are the Guard.
+ Crime is futile.  All malefactors will be assimilated."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Uh, right.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="time"]
+[image="guard1.png"]
+[call="guard_telltime"]
+
+"It is $USERNUM2 minutes past $USERNUM1."
+
+[link="You all look the same.."]
+[linkto="same"]
+[link="Thankyou.  Goodbye."]
+[linkto="bye"]
+[endpage]
+

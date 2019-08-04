@@ -1,0 +1,575 @@
+
+Cardinal Tod
+
+[esc="bye"]
+[page="start"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+[learn_name]
+[set CrickladeAbbey]
+
+"Welcome, my $Son.  My name is Cardinal Tod.
+
+ I apologise that I could not make the journey to
+ New Highworth, but my ankle is sprained and I cannot
+ travel.
+
+ The LORD has commanded me to tell you of our faith, and
+ of the battle against evil.  The End is growing near."
+
+[link="God commanded you?"]
+[linkto="godtold"]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[always]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+[reset_links]
+
+"Welcome back, my $Son.
+
+ Did you wish to know more about our faith?"
+
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the forces of evil."]
+[linkto="evil"]
+[always]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[if stfrancis][link="Tell me about Saint Francis."]
+[if stfrancis][linkto="francis"]
+[link="Not right now, thanks."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+[colour="#808080"]
+ The Cardinal adopts a speaking voice and addresses his
+ congregation.
+[colour="#ffffff"]
+
+"The wise do say, 'Knowledge is Power', and this is true.
+ But though knowledge is Power, it be a dangerous Power:
+ one that can assist the Evil One in its plotting 'gainst
+ the Trinity and holy mother Church.
+
+ Therefore, it is our holy duty to maintain and protect
+ this knowledge, and to safeguard it against those whom
+ the LORD does not wish it to become known to.
+ And yes, to protect indeed the common man from the
+ burden and corruption that this knowledge would bring.
+
+ Brothers, I say to you now that the LORD and Christ have
+ told to me that they are well pleased with our
+ performance in this task."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="godtold"]
+
+"Yes, my $Son.  The LORD does talk to His children.  He
+ will come down from Heaven as a glowing ball of flame..
+ it is a most wondrous sight.  But this happens rarely.
+ Usually His word shall be sent through the Holy Ghost,
+ who takes the form of a bird for His messages.
+
+ But if the Simple have committed sins against His law,
+ the Holy Ghost may appear in the form of a beast to
+ slay the unbelievers."
+
+[link="Who are the Simple?"]
+[linkto="simple"]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="battle"]
+
+"The LORD has told us that the Reign of the Just is over.
+ The trumpets of the apocalypse shall sound and the war
+ of Good against Evil will enter the final stage!
+
+ The Just have reigned for a thousand years, my $son.
+ But now their reign is over.  Satan has been freed from
+ the pit, and the forces of darkness roam free!"
+
+[link="God spoke to you?"]
+[linkto="godtold"]
+[link="Tell me about the forces of evil."]
+[linkto="evil"]
+[always]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="eotw"]
+
+ It is unfortunate, but it cannot be helped for it is the
+ Will of the LORD, that we are in the last days.
+
+ The War of Good and Evil is being waged.  Imps and demons
+ do manifest themselves.  The forces of Evil are at hand!
+
+ How long we have is not known, and the LORD will not
+ say.  But be sure that when the time comes, the faithful
+ shall be led unto paradise!"
+
+[link="That's reassuring."]
+[linkto="eotw2"]
+[always]
+[link="Tell me about the forces of evil."]
+[linkto="evil"]
+[always]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="eotw2"]
+
+"Yes, but there are still some who have not yet embraced
+ the way of the Trinity.  It is the will of the LORD that
+ we convert as many of these people as we can to spare
+ them the fate that befell Sodom and Gomorrah!
+
+ But we must also prepare the faithful for their part in
+ the final battle that the LORD has ordained."
+
+[link="I don't like the sound of that."]
+[linkto="eotw2a"]
+[always]
+[link="Tell me about the forces of evil."]
+[linkto="evil"]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="eotw2a"]
+
+"Ours is not to question the divine.. we are here but to
+ carry out His great plan.
+
+ But fear not.  The Faithful shall be led unto paradise,
+ the new Jerusalem.. Eden!  So promises the LORD."
+
+[link="Tell me about the forces of evil."]
+[linkto="evil"]
+[always]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="simple"]
+
+"The Simple are those who do not know the Scriptures.
+ It usually refers to the general populace, as opposed to
+ clerics such as myself, those whom the LORD has blessed,
+ and His servants, such as you."
+
+
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity"]
+
+"The Holy Trinity is the three forms of our LORD.
+ For as the clover has three leaves, so too does the LORD
+ have three parts.
+
+ He is the LORD, our Father.
+ He is Christ, the Son of God.
+ He is the Holy Ghost.
+
+ This is the Trinity."
+
+[link="I see."]
+[linkto="trinity2"]
+[always]
+[link="That sounds like a crock of shit to me."]
+[linkto="blasphemy"]
+[always]
+[link="God is One!  The LORD died on the cross!"]
+[linkto="blasphemy2"]
+[always]
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity2"]
+
+"I am glad.  For it is through the Trinity that we
+ worship our LORD."
+
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="francis"]
+[colour="#808080"]
+The Cardinal sighs.
+[colour="#ffffff"]
+
+"He is something of a burden upon us.
+
+ He has tamed many woolves, and they follow him around,
+ even to Mass.  Once we attempted to slay the beasts,
+ but they rose again and continued to follow him!
+
+ For this and his many unorthodox beliefs, Francis was
+ burned at the stake.  But the LORD must have found great
+ favour in him, for like the woolves, he arose from the
+ grave where his ashes were placed!
+
+ He arrived at Mass that day as if nothing had happened,
+ and the icon of our Saviour Crucified spoke and told us
+ not to try and burn him again!
+
+ He was canonised by the Holy Father under orders
+ straight from the Lord God.  We dare not refuse him
+ shelter, even though his animals are a strain upon us."
+
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the forces of evil."]
+[linkto="evil"]
+[link="Tell me about the battle against evil."]
+[linkto="battle"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="blasphemy"]
+[colour="#808080"]
+The cardinal crosses himself feverently with a gasp, and
+looks to the ceiling.
+[colour="#ffffff"]
+
+[if_not_pflag godwarning]"LORD!  The Promised One rejects the Trinity!
+[if_pflag godwarning]"LORD!  The Promised One rejects the Trinity again!
+ What is to be done?"
+
+[colour="#808080"]
+A glowing ball of plasma forms in the air above you.
+A great voice booms out, echoing inside your skull..
+[colour="#ffffff"]
+
+[if_pflag godwarning][nextpage="godwarning_kill"]
+[set_pflag godwarning]
+[nextpage="godwarning"]
+[endpage]
+
+[page="godwarning"]
+[image="lord.jpg"]
+
+"I AM THE FATHER.  JAWEH, THE LIVING GOD.
+
+ I AM THE SON.  CHRIST THE SAVIOUR, THE MESSIAH.
+
+ I AM THE HOLY GHOST.  SLAYER OF ALL WHO REJECT OUR WAY.
+
+ WE ARE THE TRINITY.
+ ACCEPT US.  WORSHIP US.  OBEY OUR LAW.
+
+ IF YOU DON'T, I'LL SMASH YOUR FACE IN."
+[nextpage="godwarning2"]
+[endpage]
+
+
+[page="godwarning2"]
+[colour="#808080"]
+The voice ends and the ball fades away.
+You feel very weak.
+[colour="#ffffff"]
+
+[link="What was that?"]
+[linkto="whatwasthat"]
+[link="Was that the Holy Ghost?"]
+[linkto="whatwasthat"]
+[endpage]
+
+
+[page="godwarning_kill"]
+[image="lord.jpg"]
+
+"GIVE THE PIECES A DECENT CHRISTIAN BURIAL."
+
+[call_at_exit="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="whatwasthat"]
+
+"That was the LORD, my $Son.
+ He has appeared in His Glory, to warn you to mend your
+ ways and accept the Trinity.
+
+ I strongly urge you to do so, and never blaspheme again,
+ for the LORD is very jealous.
+ 
+ Few are those who cross the LORD and live.. I suggest
+ you lie down and recover."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="blasphemy2"]
+
+[colour="#808080"]
+The cardinal emits a gasp and crosses himself.
+[colour="#ffffff"]
+
+[nextpage="blasphemy2a"]
+[endpage]
+
+
+[page="blasphemy2a"]
+[image="lord.jpg"]
+[colour="#808080"]
+A glowing ball of plasma forms in the air above you!
+[colour="#ffffff"]
+
+"WE'LL SOON SEE WHO'S DEAD AROUND HERE!"
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="evil"]
+[set CrickladeAbbey2]
+[call="plot_opendrawbridge-edwyg"]
+
+"There are many terrible portents!
+
+ In our forests lurk the black grouse.  This is an ill
+ omen, for it is well known that they are evil and
+ commit grim acts of witchcraft and heresy.
+
+ Imps and Devils manifest themselves at night in the
+ woods, and the unquiet dead rise from the graves!
+ You should not venture forth in the dark.
+
+ In the air, strange Daemons fly with a terrible sound.
+ Some take the form of the holy cross, but upside-down!!
+
+ And the Dark One appears visibly before men and speaks
+ to them!"
+
+[link="Did you say that Satan appears before men?"]
+[linkto="satan"]
+[always]
+[link="Tell me about the demons."]
+[linkto="demons"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="satan"]
+
+"Yes, my $son.  It is a most terrible thing.
+ He would try to steal your immortal soul!"
+
+[link="Do you know where I could find him?"]
+[linkto="satan2"]
+[always]
+[link="Tell me about the demons."]
+[linkto="demons"]
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Tell me about the end of the world."]
+[linkto="eotw"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="satan2"]
+[colour="#808080"]
+The cardinal chokes.
+[colour="#ffffff"]
+
+"No, no, my $son!  You must not seek to challenge HIM!
+
+ His powers nearly equal those of the LORD.. no mortal
+ man can hope to stand against the Evil One!"
+
+[link="Good point."]
+[linkto="satan4"]
+[always]
+[link="Actually I was going to worship him."]
+[linkto="satan3"]
+[always]
+[link="Tell me about the demons."]
+[linkto="demons"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="satan3"]
+[image="lord.jpg"]
+[colour="#808080"]
+A glowing ball of plasma forms in the air above you!
+[colour="#ffffff"]
+
+"WORSHIP THIS, BITCH!"
+
+[at_exit_call="god_blastplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="satan4"]
+
+"I am glad you agree.  Only the highest members of the
+ Church are powerful enough to hold the Evil One at bay."
+
+[link="Tell me about the demons."]
+[linkto="demons"]
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="demons"]
+[colour="#808080"]
+The cardinal's face becomes wild and he speaks in a
+powerful voice, as if delivering a heavy sermon.
+[colour="#ffffff"]
+
+"The Demons are evil creatures, not made by the LORD!
+ They can fly through the air as they wish, breathing
+ fire and death upon the faithful!
+
+ They are corruptors of men's hearts, and there are 
+ heathen sinners who worship them!  These sons of Belial
+ shall be slain and the Demons shall bow to the might and
+ majesty of the Holy Trinity!"
+
+[colour="#808080"]
+The cardinal pauses and looks thoughtful for a second,
+before resuming in a calmer tone.
+[colour="#ffffff"]
+
+"In New Highworth, there is a holy man by name of Father
+ Malcolm, whom the LORD commanded to march against the 
+ Demons.  He was captured, but later escaped and put many
+ heathens to the sword.  If you would know more about
+ the Demons, I suggest you talk with him." 
+
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Tell me about the battle of good and evil."]
+[linkto="battle"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+The player has tried to kill the Cardinal
+
+[page="die"]
+[colour="#808080"]
+The Cardinal makes a strange gesture.
+[colour="#ffffff"]
+
+"Protect me, LORD!"
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+Goodbye
+
+[page="bye"]
+
+"Farewell then, my $son.
+ May the Trinity bless you."
+
+[nextpage="exit"]
+[endpage]

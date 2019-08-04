@@ -1,0 +1,146 @@
+
+
+const HOME_TAG = 6
+const ISLAND_TAG = 7
+
+function fisherman_island1
+private
+object boat
+
+find_tag boat = "boat2" current.tag
+if_not_exists boat
+	print "~He doesn't know where the boat is!~"
+	printcr
+	return
+endif
+
+#set_flag me NO_SCHEDULE = 1
+
+let current.user.user2 = 25 # 25 turn wait on arriving at the boat
+
+# Go to the boat first
+queue_action current does seek_target_use_resume to boat
+# Then stand there waiting for the player to arrive
+queue_action current does fisherman_island1a
+# Do it.
+run_queue current
+
+end
+
+##
+## Wait 25 turns at the boat for the player to show, then abort
+##
+
+function fisherman_island1a
+private
+
+if me.user.user2 > 0
+	add me.user.user2 - 1
+	return
+endif
+
+# You may now revert to normal behaviour
+set_flag me NO_SCHEDULE = 0
+
+# Do nothing (until the next schedule event)
+stop_action me
+end
+
+##
+##  Use the fisherman's boat.
+##
+
+function fisherman_boat
+integer x
+integer y
+integer target
+object dest
+
+if me <> player
+	return
+endif
+
+get_user_flag x = "munrick_do_island"
+
+if x = 0
+	if me = player
+		print "~I don't know how to sail!~"
+		printcr
+	endif
+	return
+endif
+
+if_not_onscreen current.stats.owner
+or current.stats.owner.stats.hp < 1
+	if me = player
+		print "~I don't know how to sail!~"
+		printcr
+	endif
+	return
+endif
+
+# Decide where to go
+
+let target = HOME_TAG			# Default to 'home'
+
+# Home
+find_tag dest = "target" HOME_TAG
+if_onscreen dest
+	let target = ISLAND_TAG		# We're home, so go to the island
+endif
+
+# Island
+find_tag dest = "target" ISLAND_TAG
+if_onscreen dest
+	let target = HOME_TAG		# At the island, go home
+endif
+
+# Panic!  Go home, or worse..
+
+find_tag dest = "target" target
+if_not_exists dest
+	if me = player
+		print "~We're lost!~"
+		printcr
+	endif
+	return
+endif
+
+# Go there
+
+move_party_to current
+transfer_to_pocket current.stats.owner to current
+
+fade_out
+
+transfer_object current to dest.x dest.y
+force_direction current = dest.curdir
+
+fade_in
+
+# Everyone gets out, but where?
+let x = current.x
+let y = current.y
+
+if current.curdir = UP
+	add x - 1
+endif
+if current.curdir = LEFT
+	add y - 1
+endif
+
+# Spill the passengers
+spill current to x y
+
+# Set respawn override, as applicable
+if target = HOME_TAG
+	let spawn_override = 0
+	set_user_flag "munrick_at_island" = 0
+endif
+
+if target = ISLAND_TAG
+	let spawn_override = 666001
+	set_user_flag "munrick_at_island" = 1
+endif
+
+end

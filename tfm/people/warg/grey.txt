@@ -1,0 +1,644 @@
+Leader of the Waarh
+
+
+Grey won't believe you are the Promised One until you
+give him suitable proof.  But what?
+
+
+[page="start"]
+[if freed_grey][goto="main"]
+[if_pflag promisedone][goto="3start"]
+[call="got_waarg"]
+[if true][goto="3start"]
+[colour="#808080"]
+You see a large, grey wolf-like creature.
+[colour="#ffffff"]
+
+"Back again, humans?  You are wasting your time!
+
+ Tell your Master I shall never aid him!"
+
+[link="Who are you?"]
+[linkto="1name"]
+[link="What are you talking about?"]
+[linkto="1what"]
+[link="Who is the Master?"]
+[linkto="1master"]
+[link="Sorry, wrong cell.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+
+[page="1name"]
+[learn_name]
+[set met_grey]
+
+"What?  You must know who I am.. surely!
+
+ I am Grey, king of the Waarg.  Your Dark Master turned
+ against us, His faithful worshippers, and tried to
+ enslave His own people!
+
+ I had communed with Him many times over the years, and
+ learned many things from my God.
+ But one of those things, He has forgotten, and now He
+ wants very badly for me to tell Him what it was.
+
+ But I shall never tell Him!  NEVER!"
+
+[link="I've never heard of you."]
+[linkto="1name2"]
+[link="How did God forget something?"]
+[linkto="1who"]
+[link="Oh yes, now I remember.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+[page="1name2"]
+
+"If you are one of Aa'Ruuff's lackeys, you are prying
+ into the secrets of your God.  Remember, there are some
+ things that humans were not meant to know.
+
+ I have half a mind to tell you anyway.  It might be fun
+ to see how your precious God 'rewards' you."
+
+[link="I am a wandering adventurer."]
+[linkto="1advent"]
+[link="I am the Promised One."]
+[linkto="1promised"]
+[link="How did God forget something?"]
+[linkto="1who"]
+[link="You're right.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+[page="1name3"]
+
+"I am not sure, for He will not willingly admit to any
+ kind of weakness.  But from what I understand, Aa'Ruuff
+ suffered something like.. a 'stroke', I believe you say.
+
+ I do not know exactly what happened, for Aa'Ruuff does
+ not suffer from the ailments of our earthly forms.
+
+ But whatever happened, it left Aa'Ruuff insane for
+ a few minutes, and when He had recovered His sanity,
+ several important facts were missing from His mind."
+
+[link="Who are you?  I've never heard of you."]
+[linkto="1name2"]
+[link="Oh yes, now I remember.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+[page="1what"]
+
+"Why, your holy Lord and Master, of course!
+ Aa'Ruuff, whom we now call The Betrayer!
+
+ After all the worship I gave, and all the confidence
+ I shared, He sent you two-legs to invade my Kingdom!
+
+ I spit on your Holy Trinity!  What pathetic kind of Gods
+ are They who needs reminding of Their own security
+ codes?  Tell your Master that!"
+
+[link="I don't worship the Trinity."]
+[linkto="1notrin"]
+[link="How did God forget something?"]
+[linkto="1who"]
+
+[link="Whatever.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+[page="1master"]
+
+"Do not play silly games with me, servant of evil!
+ I refer of course to your holy Lord and Master, Aa'Ruuff,
+ whom we now call The Betrayer!
+
+ After all the worship I gave, and all the confidence
+ I shared, He sent you two-legs to invade my Kingdom!
+
+ I spit on your Master's name!  What pathetic kind of God
+ is it who loses His own security codes?
+ Tell your Master that!"
+
+[link="I don't worship the Trinity."]
+[linkto="1notrin"]
+[link="How did God forget something?"]
+[linkto="1who"]
+
+[link="Whatever.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+[page="1who"]
+
+"First, tell me who YOU are."
+
+[link="I am one of the guards."]
+[linkto="1guard"]
+[link="I am a wandering adventurer."]
+[linkto="1advent"]
+[link="I am the Promised One."]
+[linkto="1promised"]
+[link="Oh yes, now I remember.  Goodbye."]
+[linkto="1bye"]
+[endpage]
+
+
+[page="1guard"]
+
+"Then take my advice and leave immediately!
+
+ Forget you ever spoke to me, lest the LORD may splatter
+ your brains in reward for your curiosity!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="1advent"]
+[!set_pflag promisedone]
+
+"An adventurer who is able to breach the Cathedral
+ dungeons?  Nonsense.
+
+ Only one man could do such a thing and I would need
+ good proof before I will believe that you are him.
+ It is far more likely that you are a guard in disguise."
+
+[link="What proof do you need?"]
+[linkto="1proof"]
+[link="Tell me how God forget something."]
+[linkto="1name3"]
+[endpage]
+
+
+[page="1promised"]
+
+"Truly?
+
+ Over the years, many of our mages and seers have given
+ prophecy about the one that the humans call the
+ 'Promised One'.
+
+ It is written that this one shall gather a band of many
+ races.  There shall be a dragon, a buzzard, a fish-hawk
+ and a Waarg.
+
+ Some interpretations of the visions say that I am the
+ Waarg who will join the Promised One. "
+
+[nextpage="1promised2"]
+[endpage]
+
+[page="1promised2"]
+
+"I would like to believe you, but it is far more likely
+ you are sent by The Betrayer to trap me.
+
+ I need proof before I can trust you."
+
+[link="What proof do you need?"]
+[linkto="1proof"]
+[endpage]
+
+[page="1notrin"]
+
+"What?  Who are you that can stand against the power of
+ a God?"
+
+[link="Tell me how God forget something."]
+[linkto="1name3"]
+[endpage]
+
+
+
+[page="1bye"]
+
+"Yes, slave of the Dark One.  Leave me be!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+
+
+
+
+[page="2start"]
+[learn_name]
+[set met_grey]
+[colour="#808080"]
+You see an emaciated wolf-creature in a cell.
+$USER1 sees the prisoner and crawls before them in a
+submissive action of amazement and reverence.
+[colour="#ffffff"]
+
+"King Grey!  You are alive!"
+
+[nextpage="2start2"]
+[endpage]
+
+
+[page="2start2"]
+[colour="#808080"]
+The King looks at you.
+[colour="#ffffff"]
+
+"Human, as you can see, I am being held captive by the
+ minions of Aa'Ruuff, the God who betrayed my people.
+
+ If you would release me from this cell, and allow me
+ to join your party, I can aid your quest."
+
+[link="Who are you?"]
+[link="How can you help?"]
+[linkto="2code"]
+[link="How do I release you?"]
+[linkto="2release"]
+[endpage]
+
+
+
+
+
+[page="2release"]
+
+"I am not wholly sure.  But I believe it is opened from
+ behind.
+
+ Such times as I have been taken from this cage, one of
+ the guards has always walked behind it, out of my sight.
+
+ I expect there is a hidden lever somewhere."
+
+[link="Who are you?"]
+[link="How can you help?"]
+[linkto="2code"]
+[link="How do I release you?"]
+[linkto="2release"]
+[endpage]
+
+
+[page="2code"]
+
+"You are the one whom the humans call the 'Promised One'.
+
+ There have been many prophecies about you, but most of
+ them agree that you shall have a band of warriors, and
+ this band shall be made up from many races.
+
+ Among others, it is said that a Waarg King who has
+ returned from betrayal and death shall accompany you,
+ bringing the knowledge that you shall require if you
+ mission is to succeed."
+
+[link="What do you mean by 'returned from death?'"]
+[linkto="2undead"]
+[link="What is this knowledge?"]
+[linkto="2undead"]
+[endpage]
+
+
+
+
+[page="main"]
+[if_not_knownname][goto="main1"]
+[colour="#808080"]
+You see King Grey, leader of the Waarg.
+[colour="#ffffff"]
+
+"Well met, $PLAYER."
+
+[link="What are the Waarg?"]
+[altlink="Tell me again about the Waarg."]
+[linkto="waarg"]
+[link="Why are you called 'Grey'?"]
+[altlink="Tell me again why you are called 'Grey'."]
+[linkto="grey"]
+[link="Tell me about Aa'Ruuff and the code."]
+[altlink="Tell me again about Aa'Ruuff and the code."]
+[linkto="code"]
+[endpage]
+
+
+[page="main1"]
+[learn_name]
+[set met_grey]
+[colour="#808080"]
+You see a regal-looking wolf-creature.
+[colour="#ffffff"]
+
+"Well met, $PLAYER.
+
+ I am King Grey, of the Waarg, and you have my eternal
+ gratitude for freeing me from this dungeon.
+
+ I was kept here by our God, Aa'Ruuff.  He was trying to
+ get me to reveal a special code.  Used correctly it can
+ unlock tremendous power, enough even to overthrow Him.
+
+ If you will accept me into your party, the code will
+ make your quest possible."
+
+[link="How did you know who I am?"]
+[linkto="main1a"]
+[link="Who are the Waarg?"]
+[linkto="waarg"]
+[link="Why are you called 'King Grey'?"]
+[linkto="grey"]
+[link="Tell me about the code."]
+[linkto="code"]
+[link="Tell me about Aa'Ruuff."]
+[linkto="Aa'Ruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="main1a"]
+
+"It was the prophecy.  Only the Promised One could
+ possibly break into Aa'Ruuff's own dungeons!"
+
+[link="Who are the Waarg?"]
+[linkto="waarg"]
+[link="Why are you called 'King Grey'?"]
+[linkto="grey"]
+[link="Tell me about the code."]
+[linkto="code"]
+[link="Tell me about Aa'Ruuff."]
+[linkto="Aa'Ruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="waarg"]
+
+"We are a people who live in the eastern lands near the
+ desert.  Unlike you humans, we are covered in fur and
+ walk upon four legs instead of two.
+
+ It is said that our people were created by Aa'Ruuff,
+ whom we worshipped as our God, before He turned His
+ back upon us.
+
+ The legends say that there were animals like us but
+ dumb, and that Aa'Ruuff raised us up to intelligence
+ using His power.  He also made our bodies strong
+ and long-lived, which proved a great advantage in
+ the war against the humans."
+
+[link="Why are you called 'King Grey'?"]
+[linkto="grey"]
+[link="Tell me about the code."]
+[linkto="code"]
+[link="Tell me about Aa'Ruuff."]
+[linkto="Aa'Ruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="grey"]
+
+"It is our tradition that names are given on the night
+ of the sixth full moon after a cub has been born.
+
+ The name is taken from the first impression that the
+ cub gives the town elders on the night of the naming
+ ceremony.
+
+ Often it is the cub's behaviour, such as 'QuickJaw',
+ but it is often taken from a cub's appearance, too,
+ such as 'SnowPaw'.
+
+ I was called 'GreyCoat' because my fur is strangely
+ light for my people.  We are usually darker colours.
+
+ Sometimes, a favoured King or Noble is given a title,
+ or a different name by their subjects.  The people
+ named me 'King Grey' as a token of affection."
+
+[link="Who are the Waarg?"]
+[linkto="waarg"]
+[link="Tell me about the code."]
+[linkto="code"]
+[link="Tell me about Aa'Ruuff."]
+[linkto="Aa'Ruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="code"]
+
+"Several years ago, I was king of the city-state of Yapp,
+ a powerful waarg stronghold.  As God's annointed ruler,
+ I frequently had communion with the great God Aa'Ruuff
+ Himself, and He told me many useful things.
+ 
+ One interesting thing I learned was a code number that
+ gives access to the source of Aa'Ruuff's power.
+
+ One day, Aa'Ruuff announced that we were no longer His
+ favourite race, and that our city would be invaded by
+ His new champion, mankind.  That night our priests
+ cursed our God's name, and henceforth we referred to
+ Him as 'The Betrayer'."
+
+[nextpage="code2"]
+[endpage]
+
+[page="code2"]
+
+"Aa'Ruuff was true to His loathsome word, but I devised
+ a series of cunning strategies to protect our land from
+ His onslaught.  Aa'Ruuff Himself stayed out of the
+ battle, but occasionally He visited me in the evenings
+ when I was in session with my advisors.  He would offer
+ taunts or sarcastic comments.
+
+ One night, it was as if Aa'Ruuff was delirious.  
+ His voice was slurred and He spoke in fragments that made 
+ no sense.  Little pink wet things appeared in the tops
+ of trees, and we later found that all our wine had 
+ been turned into fruit juice overnight.
+
+ After a few minutes, Aa'Ruuff stopped rambling and He 
+ began to say things we could understand again.  We may
+ never know what happened to Him that night, but while
+ He was insane, He had lost a number of important facts
+ from his memory."
+
+[nextpage="code3"]
+[endpage]
+
+
+[page="code3"]
+
+"After the 'stroke', or whatever happened to our God,
+ Aa'Ruuff's manner changed.  The sarcastic banter that
+ He often used with me was dropped and He became more
+ ruthless and threatening.
+
+ One day, when I was hunting rabbits with my brother,
+ a human dressed in black was seen in the distance.
+ When my guards went to investigate, another human 
+ appeared behind me.  He aimed a weapon at my head, and
+ then the blackness claimed me."
+
+[nextpage="code4"]
+[endpage]
+
+[page="code4"]
+
+"I awoke surrounded by human guards loyal to Aa'Ruuff.
+ Then He appeared before me.  The guards took me to
+ this dungeon.  It seems that the Betrayer had ordered
+ me to be killed, and then He had resurrected me with
+ His power so that I could be questioned.
+
+ Aa'Ruuff has been questioning me ever since.  He wants
+ to know just one thing.. the access code that He
+ revealed to me all those years ago!
+
+ But I shall never tell Him!"
+
+[link="Who are the Waarg?"]
+[linkto="waarg"]
+[link="Why are you called 'King Grey'?"]
+[linkto="grey"]
+[link="Tell me about Aa'Ruuff."]
+[linkto="Aa'Ruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="Aa'Ruuff"]
+ 
+"Centuries ago, our people were visited by a God that we
+ call Aa'Ruuff.  He taught us many things, such as how to
+ manipulate objects and build houses.
+
+ Aa'Ruuff would answer our prayers and show Himself
+ before us from time to time.  We worshipped Him for five
+ centuries, and vast temples were built in His honour.
+
+ Not long ago, Aa'Ruuff told us that there were new
+ creatures in the world that He called 'humans'.
+
+ Aa'Ruuff started to become fickle and irritable.  We
+ didn't know why at the time, but it seems now that He
+ was more interested in the humans than His chosen ones."
+
+[nextpage="aaruuf2"]
+[endpage]
+
+[page="aaruuf2"]
+
+"Finally Aa'Ruuff appeared in our holiest temple and said
+ that we were no longer any use to Him, and that we
+ would all be destroyed by his new worshippers, Mankind.
+
+ I mobilised our armies and the war against humanity 
+ began.  Aa'Ruuff stayed out of the way.  I am convinved
+ now that He had engineered the conflict to see which
+ race was strongest.
+
+ Many of us were routed but there were few losses,
+ because Aa'Ruuff had changed us to make our bodies
+ stronger."
+
+[nextpage="aaruuf3"]
+[endpage]
+
+[page="aaruuf3"]
+
+"The humans concentrated mostly on destroying our temples
+ and our homes, and when this was done we were largely
+ left alone, apart from occasional raiding parties,
+ bandits and zealots come to destroy the 'Infidel', or
+ 'Devils' or whatever it is they call us.
+
+ The betrayal by Aa'Ruuff overturned our entire social
+ structure, and the resulting chaos is probably the main
+ reason why the humans left us alone."
+
+[link="Who are the Waarg?"]
+[linkto="waarg"]
+[link="Why are you called 'King Grey'?"]
+[linkto="grey"]
+[link="Tell me about the code."]
+[linkto="code"]
+[link="Tell me about Aa'Ruuff."]
+[linkto="Aa'Ruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+Tell me the code
+
+"I cannot.  It is not a code like the pass-phrases that
+ we use among our guards, it is.. shapes and numbers..
+ colours and smells.. they all come together in my mind.
+
+ I think that to enter the code, you will be asked
+ several of many possible questions, and that you have
+ to give the right answers no matter which questions
+ are asked.
+
+ This is one of the reasons that Aa'Ruuff has difficulty
+ extracting the code from me."
+
+<Xy'lan has changed the original code so the Dra'kaan don't know it>
+
+How did Aa'Ruuff tell you the code?
+
+"I do not know.  I fell asleep one day and dreamed a
+ dream of whisperings and strange feelings.
+
+ I think that he placed the code in my mind to see if it
+ would work.  But for some reason he cannot do anything
+ similar to read the code back again.
+
+ Perhaps he needs to have the code first..."
+
+[page="join"]
+
+"I am glad. 
+
+ I believe my coat is light enough that I can pass for a
+ wolf.  That should keep the Church from suspecting I am
+ one of their so-called 'Hell Hounds'.
+
+[endpage]
+
+
+Old leader became blind, and chose Grey to succeed him
+
+
+/ Our then-leader was banished from the city.  He formed
+/ a pack of his own, with some of his most loyal subjects
+/ and advisors.  Occasionally people leave our city to join him.
+/ We don't mind.. it seems to attract the malcontents.  
+/ Most of those who merely seek adventure become soldiers or guards."
+
+[endpage]

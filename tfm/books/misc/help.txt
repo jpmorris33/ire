@@ -1,0 +1,26 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+  For the Promised One
+
+  On the advice of the Church and my own counsel, I have
+  ordered prepared for you a house, to the northeast of the
+  Church where the astrologers say you will arrive.
+  A key should be given with this note that will let you in.
+
+  In the house you should find items of use, such as a sword
+  to defend yourself if you should seek to travel, some coins
+  of the realm, and some provisions.
+
+  For the safety of our people there is a curfew imposed at
+  the hour of eleven.  Beasts walk abroad at night and it is
+  not safe outside, even when armed.  A bed is provided that
+  you may sleep away these unsafe hours.
+
+  I ask that you respect this and other laws of the realm.
+  
+                               King Edwyg the Generous
+
+[nextpage="exit"]
+[endpage]

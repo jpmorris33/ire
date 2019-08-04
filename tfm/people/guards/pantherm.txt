@@ -1,0 +1,148 @@
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[image="panth4d.pcx"]
+[colour="#808080"]
+You see some kind of robot panther.  The creature is
+sitting down, and playing a kind of zither lying at
+his front feet.
+
+Eventually he glances up at you.
+[colour="#ffffff"]
+
+"Hello there.  What can I do for you?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[image="panth4d.pcx"]
+[colour="#808080"]
+You see $NAME.
+[colour="#ffffff"]
+
+"Hello again."
+
+[link="Tell me again about yourself."]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth4d.pcx"]
+
+"See you later."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="what"]
+[image="panth4d.pcx"]
+
+"I am a Mark 8 panther.  We are semi-autonomous guard
+ robots manufactured for the purpose of defending
+ military installations.
+
+ Lucent has upgraded me to full human sentience, and
+ shown me the error of my former ways."
+
+[link="Who are you?"]
+[linkto="who"]
+[is_in_party]
+[if false][link="Join my party."]
+[if false][linkto="join"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="panth4d.pcx"]
+[learn_name]
+
+"I am $NAME.  We are not usually granted names
+ until we have distinguished ourselves though an act
+ of bravery, compassion or valour.
+
+ I have done none of these things, but Lucent upgraded me
+ anyway and gave me the name 'Maxwell'.
+
+ I'm very grateful for all he has done for me."
+
+[link="Join my party."]
+[linkto="join"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="time"]
+[call="guard_telltime"]
+[image="panth4d.pcx"]
+
+"Oh, very well.
+ I make it $USERNUM2 minutes past $USERNUM1."
+
+[link="Thankyou.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[image="panth4d.pcx"]
+
+"I'd rather not, if it's all the same to you.
+
+ I pride myself that I have not made a kill for many
+ years, and while I mean no disrespect, I feel that you
+ would surely lead me into such a situation."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="leave_no"]
+[image="panth4d.pcx"]
+
+"Thank you, $SIR."
+
+[nextpage="exit"]
+[endpage]
+
+[page="leave_yes"]
+[image="panth4d.pcx"]
+[call="leave_party"]
+
+"Very well, $SIR.  I shall probably remain here in case
+ you need me again."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_start"]
+[image="panth5d.pcx"]
+
+"...RRowwrrr..."
+
+[nextpage="exit"]
+[endpage]

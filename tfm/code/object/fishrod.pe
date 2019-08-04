@@ -1,0 +1,79 @@
+##################
+#                #
+#   Fishing Rod  #
+#                #
+##################
+
+##
+##	Fish 4 U
+##
+
+function fish4u
+object fish
+int rnd
+
+if me = player
+
+	print "Use where.."
+	printcr
+	redraw_text
+
+	let current = player
+	call get_near
+	if_not_exist curtile
+		return
+	endif
+
+	if_exists current
+		if current.label.race = "water"
+		or current.label.race = "liquid"
+			print "Don't be silly."
+			printcr
+			return
+		endif
+	endif
+
+	if_not_flag curtile IS_WATER
+		print "Must be used in deep water."
+		printcr
+		return
+	endif
+
+	random rnd between 0 10
+	if rnd > 7
+		print "Got something!"
+		printcr
+
+		if rnd = 9
+			create fish = "boots"
+		else
+			create fish = "food08"
+		endif
+		
+		move_to_pocket fish into player
+	else
+		print "Aw, nothing.."
+		printcr
+	endif
+
+	return
+endif
+
+# Not the player
+
+# If they already have fish, don't get any more
+
+count rnd = "food08" inside me
+if rnd >= 3
+	# Three fish, maximum
+	return
+endif
+
+# Okay, try your luck
+random rnd between 0 10
+if rnd > 7
+	create fish = "food08"
+	move_to_pocket fish into me
+endif
+
+end

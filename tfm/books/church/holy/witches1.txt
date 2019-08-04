@@ -1,0 +1,20 @@
+
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                  The Discoverie of Witchcraft
+
+                        By Reginald Scot
+
+
+ [ This tome describes various acts of witchcraft with a view
+  to disproving the existence of witches.
+
+  This edition is abridged, and has been re-edited by the Church
+  for use as a guide to help prospective witchfinders tell if an
+  accused woman is really a witch or not.]
+
+[nextpage="exit"]
+[endpage]
+

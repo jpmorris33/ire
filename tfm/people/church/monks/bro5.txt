@@ -1,0 +1,151 @@
+
+Lay brother, tends the orchard
+
+[page="start"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+
+"Yes, my son?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+
+[colour="#808080"]
+You see Lay-Brother Michael.
+[colour="#ffffff"]
+
+"Yes, my son?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Please, not during Mass!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am $NAME, a lay-Brother.  I am one of the labourers
+ who help to keep the Abbey running smoothly."
+
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I tend the orchards.  We eat only what we grow
+ ourselves.  Apples are important, for the LORD has
+ commanded that we eat at least five fruits a day."
+
+[link="Tell me about the apples."]
+[linkto="apples"]
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="abbey"]
+
+"The Abbey is hundreds of years old.  I do not know
+ how long, for I am not a scholar.
+
+ But I know it holds one of the finest libraries in
+ the world."
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books"]
+
+"The library is vast and contains many tomes.
+ None may enter the library itself, but the
+ librarian may be found in the scriptorium.
+
+ He is the one to speak to about such things."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="apples"]
+
+"Apples have been given a bad reputation by the
+ Fall from Eden.  But the LORD has consecrated
+ the orchard and we may eat them without sin.
+
+ I praise the LORD our God for making the apples
+ grow.
+
+ Would you like one?"
+
+[link="I would like an apple."]
+[linkto="apples_y"]
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="apples_y"]
+
+"Take one, and be blessed."
+
+[colour="#808080"]
+He hands you an apple.
+[colour="#ffffff"]
+
+[create 1 foodp08]
+
+[link="Tell me about the Abbey."]
+[linkto="abbey"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="bye"]
+
+"May the Trinity bless you, my Son."
+
+[nextpage="exit"]
+[endpage]

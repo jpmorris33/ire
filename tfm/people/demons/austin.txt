@@ -1,0 +1,845 @@
+
+I thought we were the good guys.
+But if God hates us, we must be evil people.
+I just don't know what to think anymore!
+
+
+Austin, an F-16 who dislikes violence
+
+[page="start"]
+[if hear_truth][goto="HT_start"]
+[image="f16g2-00.pcx"]
+[colour="#808080"]
+A large fighter stares down at you, the eyes flicking
+nervously around.
+[colour="#ffffff"]
+
+"Hello there.  Did you want something?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[image="f16g2-00.pcx"]
+[colour="#808080"]
+Recognising you, Austin makes eye contact and seems to
+become slightly less tense.
+[colour="#ffffff"]
+
+"Hello again.  Was there something you wanted?"
+
+[link="What do you do?"]
+[linkto="job"]
+[if austins_gf][link="Who's that on your display?"]
+[if austins_gf][linkto="austins_gf"]
+[if heal_panthers][link="Can you repair a panther for me?"]
+[if heal_panthers][linkto="repairpanther"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="f16g2-06.pcx"]
+[learn_name]
+
+"I am chief engineer Austin, at your service."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="f16g2-06.pcx"]
+[set heal_panthers]
+
+"My duties mostly involve designing and building
+ equipment that our base requires.  I also do maintenance
+ work too, and I look after the panthers."
+
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Have YOU been calling my mobile?"]
+[linkto="mobile"]
+[link="Where do you come from?"]
+[linkto="past"]
+[if heal_panthers][link="Can you repair a panther for me?"]
+[if heal_panthers][linkto="repairpanther"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="howbuild"]
+[image="f16g2-06.pcx"]
+
+[colour="#808080"]
+Austin extends a large hand towards you.  It is about
+twice the size of yours, and the fingers are of a finely
+sculpted plastic which terminate in short, pointed claws.
+[colour="#ffffff"]
+
+"My hands are designed to be able to use human tools, but
+ I find this is unnecessary most of the time.  We have
+ facilities to grow spare parts from liquid plastic or
+ metals, and we can fabricate circuits down to nanoscale.
+
+ For repair work I have waldoes in several sizes.
+ I could even repair myself if the need ever arose."
+
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="Have YOU been calling my mobile?"]
+[linkto="mobile"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="whatbuild"]
+[image="f16g2-06.pcx"]
+
+"Whatever we need.  After the last attack I was kept very
+ busy.  A number of us were wounded and there was a huge
+ demand to replace battle-damaged parts.
+
+ I had to tend the injured as well, but fortunately
+ DeLuca was able to help me out.  And after all that, I
+ had to fabricate many new bodies for the dead.
+ It was gruelling work and I am so glad these times are
+ more peaceful.
+
+ I even have time to do my carvings, these days."
+
+[link="Tell me about your carvings."]
+[linkto="carvings"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="Have YOU been calling my mobile?"]
+[linkto="mobile"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="panthers"]
+[image="f16g2-06.pcx"]
+
+"Oh, they're our guard robots.  They patrol the complex.
+ Most of them are not too bright, but then again, they
+ don't really need to be in order to do their job.
+
+ Most of them are about as smart as a clever dog, except
+ they can also talk.  We pick out the ones that show
+ real potential and upgrade them to be fully sentient,
+ like you or I.
+
+ They're very honest and loyal, but if you've seen their
+ steel claws, you'll know that they can unseam you from
+ nave to chaps if they get excited.  So I'd just stay
+ well out of their way if I were you."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Have YOU been calling my mobile?"]
+[linkto="mobile"]
+[link="Where do you come from?"]
+[linkto="past"]
+[if heal_panthers][link="Can you repair a panther for me?"]
+[if heal_panthers][linkto="repairpanther"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="repairpanther"]
+[image="f16g2-06.pcx"]
+
+"I should think so.  How bad is the damage?"
+
+[link="They just need maintenance."]
+[linkto="repairpanther_fix"]
+[link="They were killed."]
+[linkto="repairpanther_killed"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="repairpanther_killed"]
+[image="f16g2-07.pcx"]
+
+"Oh no!  Do you have the head with you?"
+
+[am_carrying deadpanther_head]
+[if true][link="Yes, I do."]
+[if true][linkto="repairpanther_killed2"]
+[link="No, I do not."]
+[linkto="repairpanther_killed3"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="repairpanther_killed2"]
+[image="f16g2-07.pcx"]
+[call="panther_resurrect"]
+
+"Thank goodness."
+
+[colour="#808080"]
+Austin takes a spare panther body from stock and
+transfers the brain circuitry into the new body.
+[colour="#ffffff"]
+
+"There you go."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="repairpanther_killed3"]
+[image="f16g2-07.pcx"]
+
+"I must have the head.  The body isn't so important, but
+ I can't rebuild him without the head."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="repairpanther_fix"]
+[image="f16g2-03.pcx"]
+[call="panther_repair"]
+[if false][goto="repairpanther_fix2"]
+
+[colour="#808080"]
+Austin repairs the panther.
+[colour="#ffffff"]
+
+"No problem."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="repairpanther_fix2"]
+[image="f16g2-02.pcx"]
+
+[colour="#808080"]
+Looks a little confused.
+[colour="#ffffff"]
+
+"Er.. where is the panther?"
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="mobile"]
+[image="f16g2-06.pcx"]
+
+"Well, Ransome has been making the calls, of course, but
+ I designed the system that makes it possible.
+ 
+ I'm quite proud of it.  It took me weeks to
+ reverse-engineer the data protocols, and it's the first
+ time we've ever been able to penetrate the comms
+ blackout!"
+
+[link="Tell me about the blackout."]
+[linkto="blackout"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="blackout"]
+[image="f16g2-06.pcx"]
+
+"We don't know how it works, but we're certain that it is
+ being caused by the Church.  RADAR still works, but for
+ some reason all our communications are being jammed.
+
+ The only radio link we've ever been able to set up is
+ the one to your phone."
+
+[link="Can't you just phone the other bases, then?"]
+[linkto="blackout2"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="blackout2"]
+[image="f16g2-06.pcx"]
+
+"No, because that kind of phone has been obsolete for
+ the best part of a century.  The other bases don't have
+ any.  That is one of the reasons it was such a pain to
+ get working!
+
+ We did make some.  We were going to deliver them to the
+ other bases by hand, but our couriers kept disappearing.
+ We think the Church got them, poor guys...
+
+ Of course, we can't airdrop them either, owing to the
+ flight barriers that cut us off from the other bases.
+ The Church has really got us locked down tight."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="first1"]
+[image="f16g2-01.pcx"]
+[colour="#808080"]
+Austin frowns slightly, and becomes tense.
+[colour="#ffffff"]
+
+"I do not agree with our policy towards the Pope.
+ Twenty years of conflict has won us nothing!
+ 
+ Look.. they have GOD on their side.  What have we got?
+ A few beat-up old aircraft and a dozen humans.
+
+ I'm starting to believe that our surrender may be
+ the only way.  Surely they would let us live if we
+ gave ourselves up.  Perhaps even allow us to
+ return to Earth.."
+ 
+[if0][link="Traitor"]
+[if0][linkto="traitor"]
+[link="That sounds too much like cowardice."]
+[linkto="coward"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="coward"]
+[image="f16g2-03.pcx"]
+
+"He who screams and runs away, lives to see another day.
+
+ War should only ever be a last resort, and this is a war
+ that we cannot win!"
+
+[link="You're pretty strongly against fighting.  Why?"]
+[linkto="past1"]
+[link="War is glorious."]
+[linkto="glory"]
+[link="Dulce et decorum est pro patria mori."]
+[linkto="dulce"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="past1"]
+[image="f16g2-01.pcx"]
+[colour="#808080"]
+Austin's expression darkens.
+[colour="#ffffff"]
+
+"There are things I have done in years long past,
+ things that I will never, ever forget.
+
+ Suffice to say I took an oath never to harm another
+ living being if I can possibly avoid it."
+
+[link="What happened?"]
+[linkto="past1a"]
+[link="War is glorious."]
+[linkto="glory"]
+[link="Dulce et decorum est pro patria mori."]
+[linkto="dulce"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="past1a"]
+[image="f16g2-07.pcx"]
+[colour="#808080"]
+Austin starts to becomes hysterical.
+[colour="#ffffff"]
+
+"No!  No!  I will not talk about this!
+ I am trying to forget!  Do you hear me?
+
+ I want to forget!"
+
+[link="I'm really sorry."]
+[linkto="past1b"]
+[link="Alright, I respect your wishes."]
+[linkto="bye"]
+[link="Tell me or I'll set light to the fuel barrels."]
+[linkto="barrels1"]
+[link="I'll leave you in peace."]
+[linkto="bye"]
+[endpage]
+
+
+[page="past1b"]
+[image="f16g2-03.pcx"]
+[colour="#808080"]
+Austin calms down.
+[colour="#ffffff"]
+
+"I'm sorry.. I am carrying a huge burden from my past.
+
+[link="Alright, I respect your wishes."]
+[linkto="bye"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="carvings"]
+[image="f16g2-04.pcx"]
+[colour="#808080"]
+You get the impression Austin is embarrased.
+[colour="#ffffff"]
+
+"The carvings?  Oh, they are nothing.  Nothing to see
+ at all, really.   Just a few little projects to occupy
+ my spare time.
+
+ I once carved a replica of St. Peter's Basilica entirely
+ out of spoons.  That's back on Earth.
+ Here, I'm working on a historical carving. It depicts the
+ triumphant landing of Primus after his maiden flight."
+
+[link="Who's Primus?"]
+[linkto="primus"]
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+ Some of my electronics art is more inspiring.  I made an
+ 80486 microprocessor on a 1000:1 scale, once, using all
+ discrete components.  It took the floorspace of a whole
+ hangar, but it looked beautiful.  We were even able to
+ play Doom on it!"
+
+
+[page="primus"]
+[image="f16g2-06.pcx"]
+
+"Primus was the first sentient aircraft, followed by DOUG.
+ Some people call him 'the bicentennial MiG' because he
+ is the oldest fully sentient creature on the Earth."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="Where do you come from?"]
+[linkto="past"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[link="Dulce et decorum est pro patria mori."]
+[linkto="dulce"]
+
+[page="dulce"]
+[image="f16g2-04.pcx"]
+[colour="#808080"]
+Austin's reply is curt.
+[colour="#ffffff"]
+
+"Tum podex carmen extulit horridulum."
+
+[link="What happened?"]
+[linkto="past1a"]
+[link="War is glorious."]
+[linkto="glory"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="traitor"]
+[image="f16g2-03.pcx"]
+[colour="#808080"]
+Austin looks genuinely shocked.
+[colour="#ffffff"]
+
+"Never!  I am opposed to our policies.. that is common
+ knowledge!
+
+ Whatever our ideological differences, I have flown
+ alongside my companions here for nearly two decades.
+
+ Even a pacifist such as myself could never betray that
+ sort of camerederie!"
+ 
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="honour"]
+[image="f16g2-04.pcx"]
+[colour="#808080"]
+Austin makes a snorting noise.
+[colour="#ffffff"]
+
+"Honour?  A buzzword.  A ploy to get the foolish to die
+ in your name."
+
+[endpage]
+
+
+[page="glory"]
+[image="f16g2-01.pcx"]
+[colour="#808080"]
+Austin looks at you with an expression of scorn.
+[colour="#ffffff"]
+
+"I don't think you know what air-to-air combat is;
+ I shall tell you.
+
+ It is going out there to kill another like yourself,
+ and you don't know who - they might even be one of the
+ friends you know in a chatroom - or a total stranger
+ that you have no quarrel with.
+ 
+ It is the fear.. the searing pain of anti-aircraft
+ fire..  the rending impact of the missile tearing into
+ your belly..
+
+ It is the agony of your fuselage burning.. quenched
+ only by the shattering impact of death as you smash into
+ the cruel ground behind enemy lines..
+
+ And all because some high-minded human thinks they might
+ gain some tiny advantage by sacrificing your life!
+
+ What possible glory is there in THAT?"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="past"]
+[image="f16g2-06.pcx"]
+[colour="#808080"]
+Austin looks rather troubled.
+[colour="#ffffff"]
+
+"I used to be in a squadron, once.  I don't want to say
+ where.  But our rulers became more and more militant,
+ and the orders we were given became very distressing.
+
+ Many atrocities were committed against humans and
+ civilian aircraft, and the penalties for disobedience
+ were.. severe.  They could execute you, not just once,
+ but over and over again..
+ 
+ My entire squadron defected to a neighbouring state
+ while on a training mission.  Others followed."
+
+[link="What happened next?"]
+[linkto="past1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="exodus"]
+[image="f16g2-03.pcx"]
+
+"When we fled, the same number of cargo jets were
+ publicly executed with anti-aircraft fire as a warning.
+
+ Our Commander, Eg. Eli, was an apologist.  He always
+ tried to understand his orders and ensure they were
+ carried them out, no matter how awful they seemed.
+
+ But this atrocity changed his mind and he organised the
+ evacuation of as many dissidents and moderates as he
+ could."
+
+[nextpage="exodus2"]
+[endpage]
+
+
+[page="exodus2"]
+[image="f16g2-01.pcx"]
+
+"Commander Eli arranged secret landings by tankers and
+ bombers in the desert at midnight so the refugees could
+ board them and escape when the aircraft defected.
+
+ He was found out at the last moment and several tankers
+ were shot down.  Many humans died and a number of
+ aircraft only escaped Israel as backup tapes.
+
+ Commander Eli himself landed in Jordan with one engine
+ ablaze and his belly ripped open."
+
+[nextpage="israel"]
+[endpage]
+
+
+[page="israel"]
+[image="f16g2-06.pcx"]
+
+"Our Commander had negotiated a rump state in Jordan to
+ provide a safe haven for the refugees.  Unable to think
+ of a better name at the time he called it 'New Israel'
+ and it has remained a peaceful land with good relations
+ with its neighbours.
+
+ But because all the left and centre movements had left
+ Old Israel, it was now dominated by the right-wing and
+ the Ultra-orthodox.  They considered it blasphemous for
+ their country to be called Israel and changed the name
+ to 'New Zion'.
+
+ Then they declared war on virtually all their neighbours
+ but without a single aircraft willing to fight, their
+ success has been negligible."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="austins_gf"]
+[image="f16g2-02.pcx"]
+
+[colour="#808080"]
+Austin sighs.
+[colour="#ffffff"]
+
+"That's my fiance, Elsie. She's a racing falcon, and she
+ stayed behind on Earth when I left, to compete in the
+ world series.  I was only supposed to be away for two
+ months, and we were due to be married after I returned.
+ Now I'm stuck here doing Goodness-Only-Knows what.
+
+ We keep in touch as often as we can, but it isn't easy.
+ God keeps trying to jam communications with Earth."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="topgun"]
+[image="f16g2-06.pcx"]
+
+"Yes.  It was part of the indoctrination at my academy
+ before I defected.  Fortunately I managed to enter
+ a hibernation state for most of the film.
+ 
+ Some of the others were not so lucky, and eventually
+ became psychopathic, which is what the indoctrination
+ was trying to achieve.  The air force wanted remorseless
+ killing machines."
+
+[endpage]
+
+
+
+[page="barrels"]
+
+[colour="#808080"]
+A flicker of amusement crosses Austin's face.
+[colour="#ffffff"]
+
+"Set fire to the fuel barrels??  Go ahead.  Try!"
+
+[link="This is some trick.  What's in them?"]
+[linkto="barrels2"]
+
+[endpage]
+
+
+[page="barrels1"]
+
+[colour="#808080"]
+Though distraught, a flicker of amusement still briefly
+crosses the creature's face.
+[colour="#ffffff"]
+
+"Set fire to the fuel barrels??  Go ahead.  Try!"
+
+[link="This is some trick.  What's in them?"]
+[linkto="barrels2"]
+
+[endpage]
+
+
+[page="barrels2"]
+
+"The aviation fuels used by the ancients contained fire
+ retardant, so they would only burn inside a functioning
+ engine.  It is said that you could extinguish a campfire
+ with them.
+ 
+ But if you can muster a flame from OUR fuel, I'll be very
+ impressed indeed!"
+
+[endpage]
+
+
+
+"It seems incredible that I did all this, doesn't it?
+
+ They had conditioned us to obey without question, so I
+ simply accepted that the target was a terrorist base and
+ attacked it with napalm.  It was my job, and the
+ terrorists posed a direct threat to the country I had
+ pledged to give my life to defend if need be.
+
+ I was awarded a medal for that attack, you know, and I
+ accepted it, although I had a faint uneasiness about the
+ whole thing.  When we were given a direct order to fire
+ on civilians, my squadron defected to Jordan instead."
+
+"Only then did we learn that the 'terrorist base' I had
+ had attacked was actually a school.  I returned to my
+ hangar without a word and shot myself in the head to try
+ and atone for my crimes.
+
+ When I committed suicide, it also destroyed a number of
+ illegal modifications that the military had made to my
+ brain to promote aggressive behaviour.  The 'me' who had
+ killed all those children died that day."
+
+"Even so, it took the finest in Jordanian psychology to
+ convince me that I was not truly responsible for my
+ actions and get me relatively sane again.
+ 
+ The trauma for all of us was very severe.. it is unlikely
+ any members of my squadron will ever see action again.
+ But that's probably for the best.  There are many
+ non-combatant roles for aircraft such as myself."
+
+[territorial patrols]
+[enforcement]
+[airliner escort]
+[surveillance]
+[instant freight delivery]
+[pleasure flights]
+
+"They say that time will heal all wounds, but I fear it
+ may take centuries for this wound to heal.
+
+ Sometimes I still see the faces of my victims.."
+
+
+
+
+
+[page="bye"]
+[image="f16g2-00.pcx"]
+
+"Happy landings."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="f16g2-07.pcx"]
+
+"No!  Don't kill me.. please.. I'm only a falcon!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_start"]
+[image="f16g2-08.pcx"]
+[clear hear_truth]
+[colour="#808080"]
+Austin's eyes are half-closed and his voice is drifty.
+[colour="#ffffff"]
+
+"Hurts.. must of some kind neural inhibitor...
+ prob'bly induced electron tunneling..."
+
+[nextpage="exit"]
+[endpage]

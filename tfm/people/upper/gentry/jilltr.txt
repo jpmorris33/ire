@@ -1,0 +1,195 @@
+[page="start"]
+[colour="#808080"]
+You see a short, stout woman.
+[colour="#ffffff"]
+
+"Good day, $MILORD.
+
+ I am $NAME, the treasurer.  How may I assist you?"
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Do you take gold?"]
+[linkto="takegold"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see $NAME the treasurer.
+[colour="#ffffff"]
+
+"Hello again, $SIR.  Do you seek to exchange gold?"
+
+[link="Yes, I would."]
+[linkto="sell"]
+[always]
+[link="Tell me about the gold."]
+[linkto="gold"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+"I am the King's treasurer.  I keep the accounts of the
+ Kingdom, but I also perform other duties.
+
+ The Kingdom mints its coinage from gold, and from time
+ to time, we require raw materials to replenish coins
+ that are lost or worn to uselessness.
+
+ Citizens are thus encouraged to trade any gold that
+ they have and no longer require for coins."
+
+[link="Where does gold come from?"]
+[linkto="gold"]
+[link="I'd like to exchange some gold."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="takegold"]
+"Aye, indeed.  That is in fact, one of my chief duties.
+
+ The Kingdom mints its coinage from gold, and from time
+ to time, we require raw materials to replenish coins
+ that are lost or worn to uselessness.
+
+ Citizens are thus encouraged to trade any gold that
+ they have and no longer require for coins.
+
+ Since you ask, I presume you intend to do this?"
+
+[link="I'd like to exchange some gold."]
+[linkto="sell"]
+[always]
+[link="Where does gold come from?"]
+[linkto="gold"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="gold"]
+"Many believe it is mined from the earth by dog-sized
+ ants.  Others claim it is mined by ant-sized dogs.
+
+ But I know that most of it is mined by the Dark Waargs
+ of the east.  They are woolves that have embraced the
+ left-handed path of The Adversary.
+
+ It is funny, is it not, that the coins of the realm come
+ from the servants of darkness?  The priests do sometimes
+ say that money is the root of evil.
+
+ That is where most of the gold comes from.  The rest is
+ given directly to the Church by the LORD Himself.  It is
+ said that He makes it from the sea, but I know not if
+ this be true."
+
+[link="I'd like to exchange some gold."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell"]
+
+"I take gold bars and nuggets.
+
+ When the taxes are taken into consideration, I can pay
+ you 240 gold coins for each bar.
+
+ For nuggets, I will pay 22 coins each.
+
+ Are you still interested?"
+
+[am_carrying gold_bar]
+[if true][link="I have a gold bar."]
+[if true][linkto="sell_bar"]
+[if true][always]
+[am_carrying gold_nugget]
+[if true][link="I have a gold nugget."]
+[if true][linkto="sell_nugget"]
+[if true][always]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_bar"]
+[destroy 1 gold_bar]
+[if false][goto="nogoods"]
+[create 240 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[am_carrying gold_bar]
+[if true][link="I have another gold bar."]
+[if true][linkto="sell_bar"]
+[if true][always]
+[am_carrying gold_nugget]
+[if true][link="I have a gold nugget."]
+[if true][linkto="sell_nugget"]
+[if true][always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="sell_nugget"]
+[destroy 1 gold_nugget]
+[if false][goto="nogoods"]
+[create 22 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[am_carrying gold_nugget]
+[if true][link="I have another gold nugget."]
+[if true][linkto="sell_nugget"]
+[if true][always]
+[am_carrying gold_bar]
+[if true][link="I have a gold bar."]
+[if true][linkto="sell_bar"]
+[if true][always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="nogoods"]
+
+"I fear you have mislaid that item, $MILORD.
+ Have you any other gold?"
+
+[am_carrying gold_nugget]
+[if true][link="I have a gold nugget."]
+[if true][linkto="sell_nugget"]
+[if true][always]
+[am_carrying gold_bar]
+[if true][link="I have a gold bar."]
+[if true][linkto="sell_bar"]
+[if true][always]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"May fortune favour you."
+
+[nextpage="exit"]
+[endpage]

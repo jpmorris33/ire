@@ -1,0 +1,80 @@
+[page="start"]
+[colour="#808080"]
+You see a huge sheep.
+[colour="#ffffff"]
+
+"Mehhhh!"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="name"]
+[is_in_party]
+[if_true][link="Leave my party."]
+[if_true][linkto="leave"]
+[if_false][link="Join my party."]
+[if_false][linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"Mehhhh!"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="name"]
+[if_true][link="Leave my party."]
+[if_true][linkto="leave"]
+[if_false][link="Join my party."]
+[if_false][linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"Mehhhh!"
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="name"]
+[if_true][link="Leave my party."]
+[if_true][linkto="leave"]
+[if_false][link="Join my party."]
+[if_false][linkto="join"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[call="join_party"]
+
+"Mehhhh!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="leave"]
+[call="leave_party"]
+
+"Baaa-staaard!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Mehhhh!"
+
+[nextpage="exit"]
+[endpage]

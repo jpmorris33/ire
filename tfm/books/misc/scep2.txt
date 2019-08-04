@@ -1,0 +1,18 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+
+  Jorge,
+
+  When you have It, return to our usual meeting place.
+  We have obtained the payments for you and your agent.
+
+  N.
+
+
+[!if returned_sceptre]
+[set sceptre_jorge]
+[set sceptre_dead]
+[nextpage="exit"]
+[endpage]

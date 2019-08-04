@@ -1,0 +1,33 @@
+
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+          Status Report 93
+
+ Randolph
+ ________
+ No positive progress has been made in locating
+ Randolph.  Sherlock and Watson have made a
+ number of sweeps over the forest area and we
+ should have been able to locate him by now if
+ he was outside in the open.  The conclusion is
+ that he must be somehow concealed.
+
+ Connectivity
+ ____________
+ Communications with the other bases are still
+ jammed, although Austin did manage to obtain a
+ few seconds of visual contact with Commander
+ Argus of Security.  No further transmissions
+ have been received from the saurians who
+ remain unidentified.
+
+ Magic
+ _____
+ Fisher and DeLuca have nothing new to report
+ at this time although their researches are
+ continuing.
+
+[nextpage="exit"]
+[endpage]

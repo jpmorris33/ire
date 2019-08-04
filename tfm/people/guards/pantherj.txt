@@ -1,0 +1,203 @@
+
+[page="start"]
+[if join_jmac][goto="join_jmac"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see some kind of robot panther.  The creature speaks
+in a smooth manner.
+[colour="#ffffff"]
+
+"Yes, $SIR?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[is_in_party]
+[if true][goto="startparty"]
+[if join_jmac][goto="join_jmac"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see $NAME.
+[colour="#ffffff"]
+
+"Yes, $SIR?"
+
+[link="Tell me again about yourself."]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startparty"]
+[image="panth5d.pcx"]
+
+"Well, $SIR.  What can I do for you?"
+
+[link="Tell me again about yourself."]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Leave the party."]
+[linkto="leave"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"Goodbye, $SIR."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="what"]
+[image="panth5d.pcx"]
+
+"I am a Mark 8 panther.  We are semi-autonomous guard
+ robots manufactured for the purpose of defending
+ military installations."
+
+[link="Who are you?"]
+[linkto="who"]
+[is_in_party]
+[if false][link="Join my party."]
+[if false][linkto="join"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="panth5d.pcx"]
+[learn_name]
+
+"I am $NAME.  We are not usually granted names
+ until we have distinguished ourselves though an act
+ of bravery, compassion or valour.
+
+ I distinguished myself in the battle against the rogue
+ humans that attacked our base about five years ago.
+ My intelligence was upgraded beyond the usual
+ specifications and is approximately human.
+
+ I was also granted the designation $NAME."
+
+[link="Join my party."]
+[linkto="join"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="time"]
+[call="guard_telltime"]
+[image="panth5d.pcx"]
+
+"Oh all right.  It is currently $USERNUM2 minutes past $USERNUM1."
+
+[link="Thankyou.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+# Bootstrap JMAC so he doesn't deny all knowledge if you've already got him cleared to join
+
+[page="join_jmac"]
+[is_in_party]
+[if true][goto="startparty"]
+[learn_name]
+[goto="join"]
+[endpage]
+
+
+[page="join"]
+[is_in_party]
+[if true][goto="join_already"]
+[if_not join_jmac][goto="join_no"]
+[image="panth5d.pcx"]
+[call="join_party"]
+
+"Thanks for this, boss.  I've been hoping for a chance to
+ improve myself and wandering around the same old base,
+ day after day is boring."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="join_no"]
+[image="panth5d.pcx"]
+
+"That would be cool, but you'll have to ask my Captain
+ first. He should be in the guardroom."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join_already"]
+[image="panth5d.pcx"]
+
+"But I already have."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="leave"]
+[image="panth5d.pcx"]
+
+"Are you sure?  I bet I could still prove useful."
+
+[link="No.  You may stay in the party."]
+[linkto="leave_no"]
+[link="Yes.  You must leave."]
+[linkto="leave_yes"]
+[endpage]
+
+
+[page="leave_no"]
+[image="panth5d.pcx"]
+
+"Thank you, $SIR."
+
+[nextpage="exit"]
+[endpage]
+
+[page="leave_yes"]
+[image="panth5d.pcx"]
+[call="leave_party"]
+[call="panther_leaves"]
+
+"You're no fun anymore.  Okay, I will try to make my way
+ back to the nearest base, in case you need me again."
+
+[nextpage="exit"]
+[endpage]
+
+
+"Cool.. an immortal human."

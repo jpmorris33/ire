@@ -1,0 +1,406 @@
+[page="start"]
+[image="comms05a.pcx"]
+
+"Testing, testing, 1, 2, 3, testing!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="power-r"]
+[image="comms05a.pcx"]
+
+"This is the starboard power station."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="power-l"]
+[image="comms05a.pcx"]
+
+"This is the port power station.
+ Looks like it was damaged in the crash.
+
+ If you can fix it, we may be able to get the engines
+ running."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="engine-r"]
+[image="comms05a.pcx"]
+
+"This is the starboard engine room.
+ Everything looks in order, which is good."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="engine-l"]
+[image="comms05a.pcx"]
+
+"This is the port engine room.
+ Obviously the drive systems are not going to work
+ properly until the port power station is functional."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="engine-fix1"]
+[image="comms05a.pcx"]
+
+"Good work!  You might want to check the diagnostic
+ panel at the end of the generator hallway."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="engine-br3"]
+[image="comms05a.pcx"]
+
+"Oh dear.  That's not good.  Have you tried rebooting it?
+
+ Look for the emergency stop button.  You will need to
+ reset the power afterwards, though - the controls for
+ that are in the emergency power plant, which is in a
+ small maintenance room opposite the bridge."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="engine-br"]
+[image="comms05a.pcx"]
+
+"You broke the engines!  How could you do such a thing??
+
+ Fix that at once!  We will never get this mess sorted
+ out unless both drive systems are powered up...
+
+ ...Oh.  I think $he is dead."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="engine-br2"]
+[image="comms05a.pcx"]
+
+"Both the main generator plants are offline.  You must
+ have at least one powered up for the airlock to open."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="barracade1"]
+[if barracade2][goto="barracade1b"]
+[goto="barracade1a"]
+[endpage]
+
+[page="barracade2"]
+[if barracade1][goto="barracade2b"]
+[goto="barracade2a"]
+[endpage]
+
+
+[page="barracade1a"]
+[image="comms05a.pcx"]
+
+"This junk shouldn't be here.. I don't know what Xy'lan
+ thinks He's doing, but the ship is symmetrical, so try
+ going round the other side."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+[page="barracade1b"]
+[image="comms05a.pcx"]
+
+"This junk shouldn't be here.. it looks like Xy'lan has
+ barracaded off the bridge.
+
+ I guess that makes sense.. after all, the magicserver
+ and his mainframe are both located there.
+
+ The other side is blocked, so try looking for a
+ different way in.  There should be a service shaft or
+ something..
+
+ Navriis is going to check the schematics for you."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="barracade2a"]
+[image="comms05a.pcx"]
+
+"Not good.  Keep away from that barrier.
+
+ There is another way into the bridge, though.
+ The ship is symmetrical, so there will be another
+ corridor like this one.  See if you can get in that
+ way."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="barracade2b"]
+[image="comms05a.pcx"]
+
+"Oho.. Xy'lan has barracaded the bridge, has he?
+ I guess that makes sense.. after all, the magicserver
+ and his mainframe are both located there.
+
+ Since both sides are blocked, try looking for a wholly
+ different way in.  There should be a service shaft or
+ something..
+
+ Navriis is going to check the schematics for you."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="hydroponics"]
+[image="comms05a.pcx"]
+
+"This is the hydroponics system.  We use a combination
+ of algae and grasses to recycle the air and water for
+ us."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="drive-preamp-tl"]
+[image="comms05a.pcx"]
+
+"This is drive preamp 1A."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="drive-preamp-bl"]
+[image="comms05a.pcx"]
+
+"This is drive preamp 1B."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+[page="drive-preamp-tr"]
+[image="comms05a.pcx"]
+
+"This is drive preamp 2A."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="drive-preamp-br"]
+[image="comms05a.pcx"]
+
+"This is drive preamp 2B."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="terminal"]
+[image="comms05a.pcx"]
+
+[colour="#808080"]
+For a moment, the commander says nothing.
+[colour="#ffffff"]
+
+"Well.. I never thought I would see this room again.
+ Quickly.. to the terminal!  See if you can gain access!"
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="codec"]
+[image="comms05a.pcx"]
+
+"NO!  Stupid human!  It is NOT A SOUND CHIP!"
+
+[endpage]
+
+
+[page="codecterminal"]
+[image="comms05a.pcx"]
+
+"Hmm.  Xy'lan has changed the main password.
+ We must somehow find out what He has changed them to.
+
+ I don't know what we are going to do.  It will take eons
+ to brute-force it, and unless he has trusted the
+ password to one of his servants, we will not be able to
+ get into the system.
+
+ I can only suggest that you look among the Pope's
+ belongings.  If anyone has been given the entry codes,
+ it will most likely be him.
+ There is probably some kind of workshop in the region
+ below the Great Cathedral.. this would be where the Pope
+ gets into the system himself.  Find it and look for
+ clues there."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="codecterminal2"]
+[image="comms05a.pcx"]
+
+"Oh Hell, it's crashed.  I'm terribly sorry.
+
+ Ruliyz thinks he knows the reason, though.  Do you think
+ you could bring the data cube back to us so that we can
+ give you a fixed version?"
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+[page="codecterminal3"]
+[image="comms05a.pcx"]
+
+"That's much better!  In theory at least, this should
+ take down the force barriers isolating the airbases.
+
+ But first you will need to
+
+   (repair the power plant)
+   (reset the engine controllers)
+
+..and return here before we can run it properly."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="bridge-n"]
+[image="comms05a.pcx"]
+
+"Getting closer.  You've got past the barricade, but
+ since Xy'Lan obviously doesn't want anyone entering
+ the bridge itself, he's going to have left a number of
+ booby-traps for you."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="ffield"]
+[call="check_ship_ffields"]
+[if false][goto="ffield2"]
+[image="comms05a.pcx"]
+
+"Now that should not be there.  You'll have to look for
+ some way of switching those off.  It's probably tapped
+ from the drive amplifiers." 
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+[page="ffield2"]
+[image="comms05a.pcx"]
+
+"Go through.. you should be almost there!"
+
+[delay 2]
+[nextpage="exit"]
+[endpage]
+
+
+[page="water"]
+[image="comms05a.pcx"]
+
+"Oh, Xy'Lan.. what hast thou wrought?"
+
+[delay 2]
+[nextpage="water2"]
+[endpage]
+
+[page="water2"]
+[image="lord.png"]
+
+"WATER, OBVIOUSLY."
+
+[nextpage="water3"]
+[endpage]
+
+[page="water3"]
+[image="comms05a.pcx"]
+
+"Ah, but Xy'Lan, humans can swim!"
+
+[link="Actually, I can't."]
+[linkto="water4"]
+[endpage]
+
+[page="water4"]
+[image="comms05a.pcx"]
+[colour="#808080"]
+Xy'Lan bursts into peals of mocking laughter.
+The commander does not look at all pleased.
+[colour="#ffffff"]
+
+"Well you'll have to find some way around it, then,
+ won't you?"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="defence_grid"]
+[image="comms05a.pcx"]
+
+"Wait!  That force barrier is deadly.. keep well away
+ from it.
+
+ Naavris says that this defence grid has an inspection hatch
+ nearby.  You may be able to cut the power line feeding it.
+
+ Watch out, though - there are going to be more of these."
+
+[delay 2]
+[nextpage="exit"]
+[endpage]

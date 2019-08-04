@@ -1,0 +1,123 @@
+
+[page="start"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see some kind of robot panther.  The creature speaks
+in a somewhat clumsy and deliberate manner.
+[colour="#ffffff"]
+
+"Yes, $SIR?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"Goodbye, $SIR."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="what"]
+[image="panth5d.pcx"]
+
+"I am a Mark 8 panther.  We are semi-autonomous guard
+ robots manufactured for the purpose of defending
+ military installations."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="You all look the same."]
+[linkto="same"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="panth5d.pcx"]
+[learn_name]
+
+"I am $NAME.  We are not usually granted names until we
+ have distinguished ourselves though an act of bravery,
+ compassion or valour.
+
+ I am still awaiting such an opportunity."
+
+[link="What happens when you are granted a name?"]
+[linkto="who2"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="You all look the same."]
+[linkto="same"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who2"]
+[image="panth5d.pcx"]
+
+"As well as the honour of being allowed to take a name
+ instead of a serial number, and that we have proved we
+ are properly self-aware, we are also granted a permanent
+ system upgrade to improve our intelligence, strength or
+ some other attribute.  Usually such upgrades are only
+ enabled for the duration of an individual mission.
+
+ If you wish to meet one who has been so honoured, seek
+ our captain, who can be found in the guard room.  He has
+ brought honour to himself many times and has been
+ upgraded to full human-level intelligence.. a state that
+ many of us covet, but few attain."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="You all look the same."]
+[linkto="same"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="time"]
+[call="guard_telltime"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+Without consulting any kind of timepiece, the creature
+answers immediately.
+[colour="#ffffff"]
+
+"Yes, it is currently $USERNUM1 : $USERNUM2."
+
+[link="You all look the same."]
+[linkto="same"]
+[link="Thankyou.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="same"]
+[image="panth5d.pcx"]
+
+"That is because we are all the same model."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+

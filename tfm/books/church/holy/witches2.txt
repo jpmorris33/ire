@@ -1,0 +1,21 @@
+
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                  The Discoverie of Witchcraft
+
+                        By Reginald Scot
+
+
+ [ This tome describes various acts of witchcraft with a view
+  to disproving the existence of witches.
+
+  This edition is complete, and describes in depth how some
+  apparently magical deeds can be feigned using sleight of hand
+  and other such tricks.  It also includes a section on how to
+  juggle.]
+
+[nextpage="exit"]
+[endpage]
+

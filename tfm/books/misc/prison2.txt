@@ -1,0 +1,26 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+         The Diary of Governor Wirral
+
+  26th March 1324 
+  Woke up with a headache.  Hanged some urchin.  Felt better.
+
+  27th March 1324
+  Church wanted some guy strung up.  Decided to leave it a few
+  days.
+
+  30th March 1324
+  Forgot to have the prisoners fed yesterday.  Hope the guards
+  remembered.
+
+  1st April 1324
+  The LORD appeared before me and demanded to know why the
+  guy they sent me Wednesday was still alive.. whoops.
+  Told Him that I was going to let Ingram loose on him for a
+  bit first.  Gave him to Ingram for a little pre-hanging
+  warm-up which the LORD found most amusing.  Hanged him.
+  The LORD was pleased.
+
+[nextpage="exit"]
+[endpage]

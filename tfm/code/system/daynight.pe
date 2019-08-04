@@ -1,0 +1,105 @@
+#
+# DAWN
+#
+
+
+constant LIGHT_DAY = 0
+constant LIGHT_NIGHT = 88	# was 96
+
+const LIGHT1 = 88
+const LIGHT2 = 80
+const LIGHT3 = 72
+const LIGHT4 = 64
+const LIGHT5 = 56
+const LIGHT6 = 48
+const LIGHT7 = 40
+const LIGHT8 = 32
+const LIGHT9 = 24
+const LIGHT10 = 16
+const LIGHT11 = 8
+const LIGHT12 = 0
+
+function light01
+activity
+let darkness = LIGHT1
+set_darkness darkness
+stop_action me
+end
+
+function light02
+activity
+let darkness = LIGHT2
+set_darkness darkness
+stop_action me
+end
+
+function light03
+activity
+let darkness = LIGHT3
+set_darkness darkness
+stop_action me
+end
+
+function light04
+activity
+let darkness = LIGHT4
+set_darkness darkness
+stop_action me
+end
+
+function light05
+activity
+let darkness = LIGHT5
+set_darkness darkness
+stop_action me
+end
+
+function light06
+activity
+let darkness = LIGHT6
+set_darkness darkness
+stop_action me
+end
+
+function light07
+activity
+let darkness = LIGHT7
+set_darkness darkness
+stop_action me
+end
+
+function light08
+activity
+let darkness = LIGHT8
+set_darkness darkness
+stop_action me
+end
+
+function light09
+activity
+let darkness = LIGHT9
+set_darkness darkness
+stop_action me
+end
+
+function light10
+activity
+let darkness = LIGHT10
+set_darkness darkness
+stop_action me
+end
+
+function light11
+activity
+let darkness = LIGHT11
+set_darkness darkness
+stop_action me
+end
+
+function light12
+activity
+let darkness = LIGHT12
+set_darkness darkness
+stop_action me
+end
+

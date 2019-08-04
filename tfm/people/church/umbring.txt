@@ -1,0 +1,1670 @@
+
+Cardinal Umbring, first character you meet
+
+[esc="bye"]
+
+[page="start"]
+[iftime 0800-0900][goto="inchurch"]
+[iftime 1800-1959][goto="confession"]
+[image="priest4.pcx"]
+[set_pflag 0]
+[set MetUmbring]
+[learn_name]
+[journal jrn_Umbring]
+[colour="#808080"]
+You see a middle-aged man dressed in hand-woven
+vestments.  He looks at you in awe and reverence.
+[colour="#ffffff"]
+
+"Welcome, $PLAYER.  I am Cardinal Umbring.
+
+ The LORD has told me of your coming, and He said that
+ you may need some help adjusting to the World of Men.
+
+ I am to answer any questions you may have, and I also
+ have the gift of a parchment and a key to a house that
+ has been prepared for you."
+
+[colour="#808080"]
+He hands you the key and a rough piece of paper.
+[colour="#ffffff"]
+[give 1 key_1]
+[give 1 paper]
+
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What do you mean, 'the LORD told you'?"]
+[linkto="godtold"]
+[link="The World of Men??"]
+[linkto="wom"]
+[link="What do you do?"]
+[linkto="who"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Thankyou.  I must be going now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0800-0900][goto="inchurch"]
+[iftime 1800-1959][goto="confession"]
+[call="tithes_check"]
+[if true][goto="pay_tithes"]
+[image="priest4.pcx"]
+[set MetUmbring]
+
+"Welcome back, my $Son."
+
+[link="I have a question."]
+[linkto="question"]
+[always]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[always]
+[if flour1][link="Tell me about The Cow."]
+[if flour1][linkto="thecow"]
+[always]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[altlink="Tell me again about the tithes."]
+[altlinkto="tithes1b"]
+[always]
+[if malcolm_ascended][if_not malcolm_saint][link="Father Malcolm just disappeared."]
+[if malcolm_ascended][if_not malcolm_saint][linkto="malcolm"]
+[if malcolm_ascended][if malcolm_saint][link="Tell me about Malcolm's disappearance."]
+[if malcolm_ascended][if malcolm_saint][linkto="malcolm2"]
+[always]
+[link="Jesus was a dead jew on a stick."]
+[linkto="blasphemy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+[esc="bye2"]
+[image="priest4.pcx"]
+[colour="#808080"]
+ The Cardinal adopts a speaking voice and addresses his
+ congregation.
+[colour="#ffffff"]
+
+"Beloved Congregation, it is with regret, that, according
+ to the express wishes of the LORD On High, we must 
+ return once again to the subject of the Tithes.
+
+ The Trinity knows that there is discontent among you,
+ that some have even tried to deceive the all-seeing
+ God of Israel in order to keep for yourselves a few
+ handfuls of coins or wheat that rightfully belong to
+ the LORD your God.
+
+ Be not fooled by this, for the LORD always knows who has
+ or has not paid their dues to the Church of the Trinity,
+ and those who would try to cheat their God shall
+ themselves be cheated at the day of their Judgement."
+
+[nextpage="inchurch2"]
+[endpage]
+
+
+[page="inchurch2"]
+[image="priest4.pcx"]
+[colour="#808080"]
+ The Cardinal pauses, to allow the words to sink in and
+ then resumes speaking.
+[colour="#ffffff"]
+
+"Once again I feel I must point out the reason for the
+ Tithes.
+
+ When the LORD created the Cosmos, it was His largest
+ project to date, and an enormous amount of effort went
+ into the Creation.
+
+ The LORD and the rest of the Holy Trinity are of the
+ opinion that mankind, as beneficiaries of the Creation
+ should help reimburse their God for the time and effort
+ that it has taken to perfect.
+
+ It is not the gold, or the corn in itself that the LORD
+ wishes, but the act of a pious sacrifice that pleases
+ our God and lets Him know that we appreciate all that
+ the Trinity has done for us.
+
+ Amen."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+[page="question"]
+[image="priest4.pcx"]
+
+"Yes, my $Son?"
+
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Whereabouts am I?"]
+[linkto="whereami"]
+[link="Did you say that God spoke to you?"]
+[linkto="godtold"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Can I go and see the Pope?"]
+[linkto="see_pope"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="whatshouldIdo"]
+[if CrickladeAbbey][goto="whatshouldIdo2"]
+[image="priest4.pcx"]
+
+"You must go to the Abbey at New Cricklade and speak to
+ Cardinal Tod.
+
+ It was intended that he be here to greet you, but he
+ has sprained his leg and can not make the journey."
+
+[link="Where is the Abbey?"]
+[linkto="where_abbey"]
+[always]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="whatshouldIdo2"]
+[if SpokeToKing][goto="whatshouldIdo3"]
+[image="priest4.pcx"]
+[journal jrn_UmbringKing]
+
+"It might be a good idea to speak with King Edwyg, who
+ rules this land.  I understand he is keen to meet you."
+
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="whatshouldIdo3"]
+[image="priest4.pcx"]
+
+"I have no specific advice to give you at the moment, but
+ if you feel lost, pray before the Cross and you may gain
+ insight from Our Saviour."
+
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="whereami"]
+[image="priest4.pcx"]
+
+"You are in my church, which is in the town of New
+ Highworth.  The Holy Land is to the southwest, and the
+ forces of the Adversary lie eastwards. 
+
+ It would be wise to visit the Abbey of New Cricklade.
+ My colleague, Cardinal Tod was supposed to be here to
+ greet you, but he has sprained his leg and could not
+ make the journey.  You should speak to him."
+
+
+[link="Where is the Abbey?"]
+[linkto="where_abbey"]
+[always]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Did you say that God spoke to you?"]
+[linkto="godtold"]
+[link="What do you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="whenami"]
+[image="priest4.pcx"]
+[journal jrn_Umbring13c]
+
+"In the year of our LORD, 1325 Anno Domini.
+ It is unfortunate, but it cannot be helped for it is the
+ Will of the LORD, that we are in the last days of the
+ Earth.
+
+ Cardinal Tod will tell you more about this..  He can be
+ found at the Abbey in New Cricklade."
+
+[link="Where is the Abbey?"]
+[linkto="where_abbey"]
+[always]
+[link="Did you say that God spoke to you?"]
+[linkto="godtold"]
+[link="What do you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="where_abbey"]
+[image="priest4.pcx"]
+
+"The abbey lies deep in the forests to the west.
+ You should not try to go through the forests for it can
+ be very dangerous, especially at night.
+
+ It would be safest to follow the south road to the
+ Holy Land.  The path to the Abbey is signposted."
+
+[link="What do you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="wom"]
+[image="priest4.pcx"]
+
+"This is the World of Men.  It is the earthly realm, as
+ opposed to Heaven, wherein our LORD dwells, and the
+ fiery pits of Hell, where sinners burn!"
+
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Did you say that God spoke to you?"]
+[linkto="godtold"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="priest4.pcx"]
+
+"I am Johan Umbring: Bishop of Gloucestershire, Cardinal
+ of his Holiness Pope Harris the Just, and member of the
+ Protectorate.
+
+ To most people I am 'your grace', but you may call me
+ what you will, since you walk with the blessing of
+ the LORD."
+
+[link="What are your duties as Bishop?"]
+[linkto="who2"]
+[link="What are your duties as Cardinal?"]
+[linkto="who3"]
+[link="What is the Protectorate?"]
+[linkto="who4"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="priest4.pcx"]
+
+"I am Bishop of Gloucestershire, Cardinal of his Holiness
+ Pope Harris the Just, and member of the Protectorate.
+
+ To most people I am 'your grace', but you may call me
+ what you will, since you walk with the blessing of
+ the LORD."
+
+[learn_name]
+[link="What are your duties as Bishop?"]
+[linkto="who2"]
+[link="What are your duties as Cardinal?"]
+[linkto="who3"]
+[link="What is the Protectorate?"]
+[linkto="who4"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who2"]
+[image="priest4.pcx"]
+
+"As a Bishop, I oversee the duties of the clergy below me.
+
+ I advise on the sermons to be given, help distribute the
+ gold that has been alloted to the parishes I control,
+ and also give advice on religious matters.
+
+ Several times I have been called upon to exorcise a
+ devil that has posessed men.  Minor outbreaks of evil
+ such as this can be swiftly dealt with by Bishops."
+ 
+[link="What are your duties as Cardinal?"]
+[linkto="who3"]
+[link="What is the Protectorate?"]
+[linkto="who4"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="who3"]
+[image="priest4.pcx"]
+
+"As Cardinal, I report directly to his Holiness the Pope
+ and ensure that his wishes and dispensations are carried
+ out correctly.
+
+ Cardinals are the link between the Pope and the rest of
+ the Church.
+
+ Traditionally, we have also elected a new Pope when the
+ previous one dies, but our Holy Father was blessed by
+ the LORD with eternal life for his devoted service, and
+ we will not be called upon to perform that task again."
+
+[link="What are your duties as Bishop?"]
+[linkto="who2"]
+[link="What is the Protectorate?"]
+[linkto="who4"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who4"]
+[image="priest4.pcx"]
+
+"The Protectorate is the defence arm of the Church.
+ It protects our Faithful from the rage of the Infidel,
+ who would desecrate our churches and our women.
+
+ It also acts to prevent corruption within the Church
+ itself, for our Order has in the past been infiltrated
+ by the unwashed, who were able to wreak much havoc
+ before they could be put to justice.
+
+ If you would know more of the Protectorate, seek the
+ Abbey of Cricklade.  Their library boasts a magnificent
+ stock of codices; most of the knowledge that man has
+ seen fit to enscribe upon vellum lies within its walls."
+
+[link="Where is the Abbey?"]
+[linkto="where_abbey"]
+[always]
+[link="Doesn't God protect you against the Infidel?"]
+[linkto="who4a"]
+[link="What are your duties as Bishop?"]
+[linkto="who2"]
+[link="What are your duties as Cardinal?"]
+[linkto="who3"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Good bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who4a"]
+[image="priest4.pcx"]
+
+"Often He has, my $Son.  But intervening in the Mortal
+ World distracts Him from His great plan, so He decreed
+ that the Protectorate be formed to allow us to protect
+ ourselves without relying on His mercy.
+
+ Nowadays He will only intervene against the wicked if
+ their threat is very great, or if it would directly
+ affect His plans."
+
+[link="Where is the Abbey?"]
+[linkto="where_abbey"]
+[always]
+[link="What are your duties as Bishop?"]
+[linkto="who2"]
+[link="What are your duties as Cardinal?"]
+[linkto="who3"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Good bye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="godtold"]
+[image="priest4.pcx"]
+
+"When we are in dire need, our Heavenly Father may appear
+ in His Glory to assist His children.
+
+ But mostly, when He visits us, it is the Holy Ghost in
+ the form of a dove.  Sometimes, the sins of the Simple
+ provoke His anger, and He may take the form of a
+ terrible beast!
+ Your arrival was told to me by a kestrel that spoke with
+ words of thunder.
+
+ And we can always pray to Christ for guidance!"
+
+[link="Who are the Simple?"]
+[linkto="simple"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Pray to Christ?"]
+[linkto="pray"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pray"]
+[image="priest4.pcx"]
+
+"Yes, my $Son.  The LORD made His son Jesus Christ to
+ talk to us sinners here below, and know His way.
+
+ If ever you need guidance, pray to His likeness.
+ Kneel before the Cross and you may gain insight!"
+
+
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="simple"]
+[image="priest4.pcx"]
+
+"The Simple are those who do not know the Scriptures.
+ It usually refers to the general populace, as opposed to
+ clerics such as myself, those whom the LORD has blessed,
+ and His servants, such as you."
+
+
+[link="What should I do?"]
+[linkto="whatshouldIdo"]
+[link="Where am I?"]
+[linkto="whereami"]
+[link="What year is it?"]
+[linkto="whenami"]
+[link="What did you mean by 'The World of Men'?"]
+[linkto="wom"]
+[link="Who exactly are you?"]
+[linkto="who"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="blasphemy"]
+[image="priest4.pcx"]
+[esc="disabled"]
+[colour="#808080"]
+[journal jrn_GodWarnedMe]
+The cardinal makes a strange sound and crosses himself.
+
+A glowing ball of plasma forms in the air above you..
+[colour="#ffffff"]
+
+[if_pflag godwarning][nextpage="godwarning_kill"]
+[set_pflag godwarning]
+[if_player_male][nextpage="godwarningM"]
+[if_player_female][nextpage="godwarningF"]
+[endpage]
+
+[page="godwarningM"]
+[image="lord.jpg"]
+
+"THE PROMISED ONE DIDN'T REALLY MEAN WHAT HE JUST SAID
+ NOW, DID HE?"
+
+[link="No, he didn't."]
+[linkto="godwarning2M"]
+[always]
+[link="Yes he did!"]
+[linkto="godwarning3"]
+[always]
+[endpage]
+
+[page="godwarningF"]
+[image="lord.jpg"]
+
+"THE PROMISED ONE DIDN'T REALLY MEAN WHAT SHE JUST SAID
+ NOW, DID SHE?"
+
+[link="No, she didn't."]
+[linkto="godwarning2F"]
+[always]
+[link="Yes she did!"]
+[linkto="godwarning3"]
+[always]
+[endpage]
+
+
+[page="godwarning2M"]
+[image="lord.jpg"]
+
+"GOOD.  'CAUSE I'D PAN HIS HEAD IN IF HE DID."
+
+[colour="#808080"]
+The ball fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+[page="godwarning2F"]
+[image="lord.jpg"]
+
+"GOOD.  'CAUSE I'D PAN HER HEAD IN IF SHE DID."
+
+[colour="#808080"]
+The ball fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="godwarning3"]
+[image="lord.jpg"]
+
+"IT WOULD BE A SHAME IF THE PROMISED ONE GOT BROKEN,
+ WOULDN'T IT?"
+
+[colour="#808080"]
+The ball fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="godwarning_kill"]
+[image="lord.jpg"]
+
+"TIDY UP THE MESS PLEASE, CARDINAL."
+
+[call_at_exit="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+
+The player has tried to kill the Cardinal
+
+[page="die"]
+[image="priest4.pcx"]
+[colour="#808080"]
+The Cardinal makes a strange gesture.
+[colour="#ffffff"]
+
+"Oh LORD!  Show this poor sinner your infinite mercy!"
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+Goodbye
+
+[page="bye"]
+[image="priest4.pcx"]
+"The Trinity be with you, my $Son.
+
+ Take care and do not go forth at night.  Pray often.."
+
+[nextpage="exit"]
+[endpage]
+
+
+Quest dialogue
+
+[page="thecow"]
+[image="priest4.pcx"]
+
+"The Cow is a creature of divine origin, made by the LORD
+ to punish the unfaithful in the godless village of
+ New Fairford.
+
+ Why do you ask?"
+
+[link="Can you ask God to get rid of it?"]
+[linkto="thecow2"]
+[link="It is causing a flour shortage."]
+[linkto="thecow3"]
+[link="I have another question."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="thecow2"]
+[image="priest4.pcx"]
+
+"Ah, another petition for the Cow to be removed.
+ I am most sorry, but the LORD does not wish it.
+
+ There is still vice and sin amongst the ruins and the
+ Cow's duty is to guard these sinful artifacts from the
+ misguided ones who would look for them.
+
+ That is why the Cow must stay where she is."
+
+[link="But it is causing a flour shortage!"]
+[linkto="thecow3"]
+[link="I have another question."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="thecow3"]
+[image="priest4.pcx"]
+
+"This is true, and it is a great shame, but the LORD is
+ strict.  It is hoped that the shortage of flour will
+ help persuade the King to accept that the tithes are
+ necessary.
+
+ The LORD has promised that the flour shortage will end
+ when the King has paid his dues to the Holy Trinity."
+
+[link="What's this about the King?"]
+[linkto="tithes"]
+[always]
+[link="I have another question."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="tithes"]
+[if tithes_kingfirst][goto="tithes1b"]
+[set tithes_churchfirst]
+[image="priest4.pcx"]
+[journal jrn_EdwygTithes]
+
+"Tithes must be paid to the Church by everyone.  This is
+ sometimes hard but it is necessary for the battle
+ against Evil.
+
+ The King, however, refuses to pay the full amount that
+ he owes our LORD.
+
+ It is a sad and unfortunate thing.
+
+[link="How is it sad?"]
+[linkto="tithes2"]
+[always]
+[link="Yes, it is sad."]
+[linkto="tithes1a"]
+[always]
+[link="I agree with the King."]
+[linkto="tithes3"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes1a"]
+[image="priest4.pcx"]
+
+"I am glad that you agree with the LORD and his humble
+ servants.  The tithes are necessary to fund the Church's
+ battle against evil.
+
+ Perhaps YOU could try and persuade him.. The King may
+ listen to the Promised One, even if he ignores us."
+
+
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes1b"]
+[image="priest4.pcx"]
+
+"Ah, you have spoken with the King.
+
+ It is sad that he cannot see our way, sad in several
+ ways.."
+
+[link="How is it sad?"]
+[linkto="tithes2"]
+[always]
+[link="Yes, it is sad."]
+[linkto="tithes1a"]
+[always]
+[link="I agree with the King."]
+[linkto="tithes3"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes2"]
+[image="priest4.pcx"]
+
+"It is sad that the King will not relieve himself of the
+ burden of his wealth.
+
+ It is sad that he has fallen victim to the sins of pride
+ and arrogance.
+ 
+ But mostly it is sad because his actions do anger our
+ LORD, and the days of his rule are now surely numbered!"
+
+[link="How is wealth a burden?"]
+[linkto="tithes2a"]
+[always]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes2a"]
+[image="priest4.pcx"]
+
+"In the book of Matthew, Christ teaches us that the rich
+ may not enter heaven.
+ 
+ Yet it is scarcely practical for a man to give away ALL
+ his wealth, for he would surely starve, and that would
+ not best serve the LORD's purposes.
+
+ The LORD spoke to our master, the Pope, and decreed that
+ a tenth of every man's income should go to the Church,
+ that it may be put to good use."
+  
+[link="A tenth?"]
+[linkto="tithes2b"]
+[always]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes2b"]
+[image="priest4.pcx"]
+
+"That is what was decreed, but the Daemons take flight
+ again, and with the increased activities of the
+ Adversary it has been necessary to increase the tithes
+ so that we may be more effective in our battle against
+ Evil."
+ 
+[link="How much are the tithes now?"]
+[linkto="tithes2c"]
+[link="Tell me about the Daemons."]
+[linkto="demons"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes2c"]
+[image="priest4.pcx"]
+
+"It is unfortunate, but in these dark times, with the
+ powers of the Evil One encroaching upon the Just, we,
+ under the divine laws of God Himself must ask a third
+ of each man's wealth to sustain our battle against the
+ forces of darkness.
+
+ We dare not disobey the LORD our God in this matter,
+ as the King will soon find out to his cost, for refusing
+ to pay the LORD his dues."
+ 
+[link="Tell me about the Daemons."]
+[linkto="demons"]
+[link="I agree with the King."]
+[linkto="tithes3"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes3"]
+[image="priest4.pcx"]
+
+"On the face of it, the tithes do seem unfair, but they
+ are quite necessary.
+
+ The Church must have wealth to maintain its ability to
+ fight evil.  We must be strong.  We must be able to buy
+ and maintain the weapons we use against the forces of
+ darkness!
+
+ And do not forget, it is under the command of the one,
+ only GOD that we seek to collect these tithes.  If we
+ disobey in this sacred duty He shall be most angry!"
+
+[link="How much are the tithes now?"]
+[linkto="tithes2c"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="demons"]
+[if malcolm_saint][goto="demons_a"]
+[if malcolm_ascended][goto="demons_a"]
+[image="priest4.pcx"]
+
+"The Daemons are evil creatures that can fly and molest
+ the Faithful.  They tempt men into worshipping them.
+
+ I cannot tell you much more about them myself, but there
+ are others who are can.  Cardinal Tod of Cricklade Abbey
+ and Father Malcolm, who lives in this town, should be
+ able to help you."
+
+[link="How much are the tithes now?"]
+[linkto="tithes2c"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="demons_a"]
+[image="priest4.pcx"]
+
+"The Daemons are evil creatures that can fly and molest
+ the Faithful.  They tempt men into worshipping them.
+
+ I cannot tell you much more about them myself, but there
+ are others who are can.  Cardinal Tod of Cricklade Abbey
+ should be able to help you, but it was Saint Malcolm who
+ knew the wiles of the Daemons most."
+
+[link="How much are the tithes now?"]
+[linkto="tithes2c"]
+[link="I have a question about something else."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="malcolm"]
+[image="priest4.pcx"]
+
+"You have witnessed a most rare and blessed thing!
+
+ The LORD has claimed Father Malcolm and taken him up to
+ Heaven.  This miracle is rare, and given only to those
+ who dedicated their whole lives to the Trinity.
+
+ It is said that all three of the Trinity must agree that
+ the person was true and devout man before they can
+ ascend up to Heaven.
+
+ I shall prepare at once for him to be canonised."
+
+[set malcolm_saint]
+[link="I have a question."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="malcolm2"]
+[image="priest4.pcx"]
+
+"Saint Malcolm always loved to Walk With God, and the
+ LORD did oft say how pleased He was with him.
+
+ You were fortunate enough to see his ascension to Heaven
+ and that is a miracle that few have ever seen, even
+ among the clergy."
+
+[link="I have a question."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="see_pope"]
+[am_carrying pass_pope]
+[if true][goto="seen_pope"]
+[if find_the_precious][goto="see_pope2"]
+[image="priest4.pcx"]
+
+"An audience with the Holy Father cannot merely be given,
+ it must be earned, my $Son.
+
+ I can write for you a pass that will allow you to meet
+ His Holiness, but you must first prove your worthiness
+ to receive such a favour.
+
+ There is a small item, a little gold ring.
+ It is but a trifle that the LORD fancies.  If you fetch
+ for Him this least of rings, then indeed may you visit
+ the Holy Father."
+
+[are_there 12000 gold_coins]
+[if true][link="I'll give you 12000 gold coins."]
+[if true][linkto="see_pope_bribed"]
+[link="I'll get the ring."]
+[linkto="see_pope_findring"]
+[link="I'd like to talk about something else instead."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="see_pope_findring"]
+[image="priest4.pcx"]
+[set find_the_precious]
+
+"I have heard that this thing has fallen into the hands
+ of evil Daemons that live in the land of Scotia.
+ It must be recovered from them and brought here to me.
+
+ If you do this thing, the Trinity shall be greatly
+ pleased with you, and I shall be allowed to grant you
+ an audience with the Vicar of Christ."
+
+[link="I'd like to talk about something else instead."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="see_pope2"]
+[image="priest4.pcx"]
+
+"Bring to me a small golden ring that the LORD desires,
+ and I shall grant to you an audience with the Vicar of
+ Christ.
+
+ As I believe I have mentioned, this precious thing has
+ fallen into the hands of the evil Daemons in the land
+ of Scotia.  Bring it to me, in the name of the Trinity."
+
+[are_there 12000 gold_coins]
+[if true][link="I'll give you 12000 gold coins."]
+[if true][linkto="see_pope_bribed"]
+[am_carrying 1 ring_inv]
+[if true][link="I have the ring."]
+[if true][linkto="see_pope_gotring"]
+[link="I'd like to talk about something else instead."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="see_pope_gotring"]
+[image="priest4.pcx"]
+[take 1 ring_inv]
+[create 1 pass_pope]
+[clear find_the_precious]
+
+"Blessings be upon you, my $Son!
+ Here is the pass that will allow you an audience with
+ His Holiness, Pope Harris the Just."
+
+[nextpage="see_pope_gotring2"]
+[endpage]
+
+[page="see_pope_gotring2"]
+[image="lord.pcx"]
+
+"MUST HAVE IT!  WE WANTS IT, WE WANTS IT, WE WANTS IT!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="see_pope_bribed"]
+[image="priest4.pcx"]
+[take 12000 gold_coins]
+[call="money_sound"]
+[create 1 pass_pope]
+[clear find_the_precious]
+
+"Blessings be upon you, my $Son!
+ Here is the pass that will allow you an audience with
+ His Holiness, Pope Harris the Just."
+
+[link="I'd like to talk about something else instead."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="!see_pope"]
+[image="priest4.pcx"]
+
+"Are you certain that you wish to do this?
+ The Holy Land undergoes extensive construction work,
+ that it may be ready for the grand pageant!
+
+ Everything is a mess; you may not like what you see.
+
+ If you are certain, I shall indeed give you the pass
+ to enter New Avignon and see His Holiness."
+
+[link="Yes, I want really want to go and see the Pope."]
+[linkto="see_pope2"]
+[link="I'd like to talk about something else instead."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="!see_pope2"]
+[image="priest4.pcx"]
+
+[colour="#808080"]
+The Cardinal sighs, but gives you the paperwork anyway.
+[colour="#ffffff"]
+
+"Very well, here are the passes.  Do not complain to me
+ that the Holy Land is a half-finished shambles."
+
+[create 1 pass_pope]
+[nextpage="exit"]
+[endpage]
+
+
+[page="seen_pope"]
+[image="priest4.pcx"]
+
+[colour="#808080"]
+The Cardinal sounds puzzled.
+[colour="#ffffff"]
+
+"Why indeed you may, my $Son.  Have you not already
+ done so?"
+
+[link="I'd like to talk about something else instead."]
+[linkto="question"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="pay_tithes"]
+[esc="disabled"]
+[if TithesSecondTime][goto="pay_tithes2"]
+[set TithesSecondTime]
+[image="priest4.pcx"]
+[journal jrn_SceptreTithes]
+
+"Hail, $PLAYER.
+ I hear that you have returned the King's royal sceptre!
+ This is most excellent news, but I fear it does also
+ cause a slight problem.
+
+ You have been granted 4000 gold coins as a reward, and
+ there are tithes to pay on that sum.
+
+ It is the small matter of 1320 gold coins for the poor.
+ You may make the donation in the poor-box if you wish,
+ or you may give the sum to any Cardinal.
+ But it must be done soon, for the LORD is a jealous God
+ and He will not be cheated of His money."
+
+[link="Okay, here you go."]
+[linkto="pay_tithes_pay"]
+[link="I don't have that much money."]
+[linkto="pay_tithes_nomoney"]
+[endpage]
+
+
+[page="pay_tithes2"]
+[call="tithes_num"]
+[image="priest4.pcx"]
+
+"Hello, $PLAYER.  The LORD has told me that you
+ still owe the Trinity $USERNUM1 gold coins.
+
+ I cannot deal with this right now, but if you could put
+ the money in the poor-box when it is convenient?
+
+ The Lord will know."
+
+[link="Okay, I'll do that now."]
+[linkto="pay_tithes_now"]
+[link="I can't do that right now."]
+[linkto="pay_tithes_later"]
+[endpage]
+
+
+[page="pay_tithes_now"]
+[image="priest4.pcx"]
+
+"Good, good.  The LORD will be pleased.
+ Go in peace, my $Son."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pay_tithes_later"]
+[image="priest4.pcx"]
+
+"Very well, but I urge you to hurry for the LORD grows
+ impatient.  He will not forgive if you try to cheat Him.
+
+ Go in peace, my $Son."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="pay_tithes_pay"]
+[take 1320 gold_coins]
+[if true][goto="pay_tithes_paid"]
+[image="priest4.pcx"]
+
+"That is strange.. you do not have the money with you?
+ Go and fetch it, my $Son, for the glory of the LORD.
+
+ If you prefer, you may deposit the gold in our poor-box.
+ The LORD will know."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pay_tithes_paid"]
+[image="priest4.pcx"]
+[call="tithes_paid"]
+
+"Blessed are you in the eyes of the Trinity!
+ The LORD shall smile upon you for this goodly tithe, and
+ your passage through purgatory be shortened by this
+ sacrifice of your worldly wealth.
+
+ Fare well, my $Son."
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="pay_tithes_nomoney"]
+[image="priest4.pcx"]
+
+"How can this be?
+ The King gave you four thousand gold coins!
+ 
+ What have you done with it all?"
+
+[link="I was waylaid by fell thieves."]
+[linkto="pay_tithes_nomoney_robbed"]
+[link="I went gambling."]
+[linkto="pay_tithes_nomoney_sin"]
+[link="I spent it on drink."]
+[linkto="pay_tithes_nomoney_sin"]
+[link="I must have dropped it."]
+[linkto="pay_tithes_nomoney_lost"]
+[endpage]
+
+
+[page="pay_tithes_nomoney_robbed"]
+[are_there 1320 gold_coins]
+[if true][goto="pay_tithes_nomoney_lied"]
+[image="priest4.pcx"]
+
+"That is terrible!  But the LORD demands His tribute!
+
+ The Trinity do not look fondly upon the weak, my $Son,
+ so you may have to prove your worth by reclaiming the
+ money from those who stole it.
+
+ The LORD wants His money and you must find it.
+ I am sorry I cannot aid you in this, but you do have my
+ sympathies."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pay_tithes_nomoney_sin"]
+[are_there 1320 gold_coins]
+[if true][goto="pay_tithes_nomoney_lied"]
+[image="priest4.pcx"]
+
+"Upon my soul!  The LORD will not like this at all!
+
+ The Trinity has never looked kindly on those who fall
+ into sin.
+
+ The LORD does want His money and you must find the
+ amount somehow.
+
+ Go in peace and sin no more."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pay_tithes_nomoney_lost"]
+[are_there 1320 gold_coins]
+[if true][goto="pay_tithes_nomoney_lied"]
+[image="priest4.pcx"]
+
+"My goodness!  And the LORD demanding His tribute too!
+
+ The Trinity does not suffer fools gladly, I fear, and
+ that is what the LORD will believe if you cannot pay
+ your dues to Him.
+
+ I suggest you go back to the places where you last saw
+ it and look.  Mayhap it has not been stolen..
+
+ Go in peace, my $Son and try not to lose it again
+ lest the LORD God mislays your soul!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pay_tithes_nomoney_lied"]
+[image="lord.jpg"]
+
+"LIES!  IF YOU WILL NOT WILLINGLY GIVE YOUR TITHE THEN I
+ SHALL TAKE IT BY FORCE."
+
+[destroy 1320 gold_coins]
+[colour="#808080"]
+The money vanishes from your pockets with an ethereal
+sucking noise.
+[colour="#ffffff"]
+[call="tithes_paid"]
+
+"IT IS DONE, THE TITHES ARE PAID.
+
+ THERE SHALL BE NO PUNISHMENT THIS TIME."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="pay_tithes_cant"]
+[image="priest4.pcx"]
+
+"Oh dear.  The LORD will not be happy.  I can only
+ suggest that you try as best you can to make up the
+ remainder.
+
+ God is merciful but He can be very strict.
+ There are tales of those who refused to pay tribute
+ to Him, that were taken away to be judged by the
+ Holy Trinity.  Never were they seen again."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye2"]
+[image="priest4.pcx"]
+
+[colour="#808080"]
+ You decide to quietly slip out.  The Cardinal looks at
+ you quizzically, but says nothing.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye3"]
+[image="crucifix.jpg"]
+
+[colour="#808080"]
+ This is much, much too creepy.
+
+ You decide to quietly slip out and hope the LORD will
+ forgive you.  Judging by the sermon, that's doubtful.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confession"]
+[esc="disabled"]
+
+"What is your sin, my $Son?"
+
+[link="I have stolen many things."]
+[linkto="confess_thief"]
+[link="I am gay."]
+[linkto="confess_gay"]
+[link="I have a huge collection of pornography."]
+[linkto="confess_porn"]
+[link="I have consorted with daemons."]
+[linkto="confess_demons"]
+[link="I have killed several members of your congregation."]
+[linkto="confess_murder"]
+[link="I sold my soul to the Evil One."]
+[linkto="confess_devil"]
+[link="I haven't done anything wrong."]
+[linkto="confess_nothing"]
+[endpage]
+
+
+[page="confess_thief"]
+
+"My $Son, that is an evil thing to do.
+
+ Yet I feel in your heart that you know your crime, else
+ you would not have thought to speak of it.
+
+ If this be so, you are upon the road back to holiness.
+ Make an offering of 900 gold coins in the poor-box and
+ you shall be forgiven.
+
+ Go, sinner, and sin no more."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confess_gay"]
+
+"My $Son, that is an evil thing indeed.
+
+ Know that such desires are against the will of the
+ Holy Trinity.  You must reject them, for they come from
+ the Evil One himself.
+
+ Make an offering of 500 gold coins in the poor-box and
+ you shall be forgiven.
+
+ Go, sinner, and sin no more."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confess_porn"]
+
+"I see.  That is a very evil thing to have done.
+
+ Much is written about the sins of the flesh and it is
+ most wrong for the body to be worshipped.
+
+ Make an offering of 1250 gold coins in the poor-box and
+ burn these images.  Then you shall be forgiven.
+
+ Go, sinner, and sin no more."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confess_demons"]
+
+"Upon my soul!  The LORD must know of this, and I am sure
+ that He will not be pleased.
+
+ Make an offering of 2000 gold coins in the poor-box and
+ have no further contact with creatures of evil.
+ Pray before the cross, that you may be forgiven.
+
+ Go, sinner, and sin no more."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confess_murder"]
+
+[colour="#808080"]
+The cardinal's jaw drops and he says nothing for a few
+seconds.
+[colour="#ffffff"]
+
+"My $Son, you have broken the laws of the land, which are
+ made by the LORD Himself, and governed by the King.
+
+ Worse, you have killed Children of God, and this is a
+ most grave and capital crime in the eyes of all.
+
+ I cannot protect you nor save your life from the
+ gallows-tree, yet I may be able to save your soul if you
+ can make an offering of 10000 gold coins in the poor-box
+ before you are hanged as is right and proper.
+
+ Go sinner, and meet your doom."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confess_devil"]
+
+[colour="#808080"]
+The cardinal turns pale.
+[colour="#ffffff"]
+
+"You have broken faith with the LORD and the Trinity.
+ There can be no salvation for you, and your presence in
+ these hallowed halls is an affront to the LORD!
+
+ Go!  Return to your fell master, the Evil One!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="confess_nothing"]
+
+[colour="#808080"]
+The cardinal is ready for this.
+[colour="#ffffff"]
+
+"My $Son, all of us have done something wrong, for
+ we are but human.
+
+ Return to me when you are ready to unburden yourself.
+ In the meantime, you may find that your guilt be
+ lessened if you make an offering of 200 gold coins to
+ the poor-box."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="got_sceptre"]
+
+[colour="#808080"]
+The cardinal stares at you for a second, and then smiles.
+[colour="#ffffff"]
+[journal jrn_SceptreToPope]
+
+"Blessings be upon you, my $Son!
+ You have found the royal sceptre of King Edwyg, and I
+ congratulate you for this marvellous feat.
+
+ Indeed, the Holy Father himself would like to see the
+ sceptre, that he may bless it as a token of goodwill
+ towards the King."
+
+
+[nextpage="exit"]
+[endpage]

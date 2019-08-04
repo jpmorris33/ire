@@ -1,0 +1,606 @@
+[page="halt"]
+[if_knowname][goto="startname"]
+[goto="start"]
+[endpage]
+
+[page="start"]
+[esc="goodbye1"]
+[image="saxiis1.pcx"]
+[colour="#808080"]
+You see a large reptillian creature in a neat uniform.
+There is an emblem on the left of the breast and words
+in a language that you cannot read.
+[colour="#ffffff"]
+[learn_name]
+
+"Salutations, $PLAYERNAME.
+
+ Welcome to our humble home.  I am Commander Gurd, of
+ the Dra'kaan research ship Maxima.
+
+ I wish to explain the origins of the malevolent god
+ Xy'lan, who stalks this world, performing dark miracles.
+
+ But first, take this device.  It is a communicator which
+ will allow us to contact you."
+
+[create 1 "dragoncom"]
+[link="Tell me about the god."]
+[linkto="xylan"]
+[link="Tell me about the ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Er, goodbye."]
+[linkto="goodbye1"]
+[endpage]
+
+
+[page="startname"]
+[image="saxiis1.pcx"]
+[colour="#808080"]
+You see Commander Gurd, of the Dra'kaan research team.
+[colour="#ffffff"]
+
+"Hello again."
+
+[link="Tell me about the god."]
+[linkto="xylan"]
+[link="Tell me about the ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="What should I do?"]
+[linkto="task"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="goodbye1"]
+[image="saxiis1.pcx"]
+
+"No!  Please return!
+
+ All our hopes depend on uniting against Xy'lan!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="saxiis1.pcx"]
+"Go in peace, human."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="xylan"]
+[image="saxiis1.pcx"]
+"Thousands of your years ago our ship, the Maxima, was
+ built.. the third vessel to be equipped with a new type
+ of drive system, and all the on-board systems were run
+ by an experimental computer sentience called "Xy'lan".
+
+ We took the Maxima on her maiden voyage to gather data
+ about the worlds in a volume of space we could not
+ reach before the new drive was invented.
+
+ A repair was made to some auxiliary computer systems,
+ and this impacted Xy'lan's datacore.  Something went
+ wrong and he became psychotic and said he was God."
+
+[nextpage="xylan2"]
+[endpage]
+
+
+[page="xylan2"]
+[image="saxiis1.pcx"]
+"When we refused to worship him, Xy'lan took command of
+ the Maxima.  But before he did, we managed to stall the
+ engines and the ship collided with this world.
+
+ The Maxima's stasis fields protected us all from
+ annihilation, but the impact must have rendered this
+ continent uninhabitable for centuries.
+
+ What happened next is unclear.  The Maxima had several
+ independent stasis fields, and it seems that Xy'lan
+ managed to prevent the crew stasis fields from shutting
+ down, keeping us trapped in a zero-time state."
+
+[nextpage="xylan3"]
+[endpage]
+
+
+[page="xylan3"]
+[image="saxiis1.pcx"]
+"We do not know if Xy'lan thinks he is a god, or if he
+ simply wishes to be treated as one.  It doesn't really
+ matter, since the Maxima contains a device that is able
+ to perform what you would call 'miracles'.
+
+ Xy'lan started looking for worshippers immediately, but
+ at the time we crashed, this world had only primitive
+ animal life.
+
+ However, the Maxima was carrying universal nano-devices
+ which could be used to stimulate the development of
+ intelligence in the native fauna.  Xy'lan seems to have
+ done this, for we detect other intelligent races."
+
+[nextpage="xylan4"]
+[endpage]
+
+
+[page="xylan4"]
+[set_pflag "xylan"]
+[set miracle_machine]
+[image="saxiis1.pcx"]
+"Then one day, you humans come along, a star-going race
+ far more advanced than Xy'lan's own creations!
+
+ As you can imagine, he dropped everything in a mad
+ effort to gain the worship of your people, and later
+ enslave them.
+
+ That might also be how we were released from stasis.. a
+ momentary lapse of concentration.  Or perhaps he needed
+ to divert power away from the stasis generators to work
+ enough miracles for the new religion.  We may never know.
+
+ But now we are free, and Xy'lan must be stopped!"
+
+[link="Oh all right.  What do you want me to do..?"]
+[linkto="task"]
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="task"]
+[if drakaan_task_gotcomms][goto="task2"]
+[set drakaan_task_getcomms]
+[image="saxiis1.pcx"]
+
+"First, we need to establish communications with the
+ aircraft-creatures.  We will need their help, but
+ Xy'lan has jammed the communications systems that
+ they use.
+ 
+ Talk to engineer Naavris.  He will give you a set of
+ our own communications devices that will allow us to
+ bypass this interference.  Take them to the air bases.
+
+ I would start with the base belonging to 'Ransome'
+ first - he should be able to tell you where the others
+ are located."
+
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="task2"]
+[if drakaan_task_gavecomms][goto="task3"]
+[image="saxiis1.pcx"]
+
+"We need you to establish a communications link
+ between the air bases and our survival shelter.
+
+ I believe there are three such bases established by
+ your race.  Take the comms devices that Naavris
+ has given you and deliver them to the commander of
+ each base."
+
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="task3"]
+[goto="task_notask"]
+[endpage]
+
+
+[page="task_notask"]
+[image="saxiis1.pcx"]
+
+"I don't have anything for you at the moment, so just do
+ whatever you want.
+
+ It might be an idea for you to locate and explore the
+ Maxima.  You'll need to see the Pope first.
+
+ If you can get to the Maxima without cheating, it would
+ be a fantastic feat.  One worthy of informing IT-HE
+ about, at jpm@it-he.org!
+
+ If this prospect intrigues you, speak to Librarian Rulyz
+ for more information about the Maxima."
+
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="task_old"]
+[image="saxiis1.pcx"]
+
+"Well, I was going to ask you to help us make contact
+ with the aircraft-creatures in New Fairford.
+
+ But we're just about out of time for this episode, so
+ just do whatever you want.
+
+ It might be an idea for you to locate and explore the
+ Maxima.  You'll need to see the Pope first.
+
+ If you can get to the Maxima without cheating, it would
+ be a fantastic feat.  One worthy of informing IT-HE
+ about, at jpm@it-he.org!
+
+ If this prospect intrigues you, speak to Librarian Rulyz
+ for more information about the Maxima."
+
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="drakaan"]
+[if_pflag "xylan"][goto="drakaan1"]
+[image="saxiis1.pcx"]
+"It would be more beneficial to discuss Xy'lan first."
+
+[link="Okay, tell me about Xy'lan."]
+[linkto="xylan"]
+[link="First, tell me about your people."]
+[linkto="drakaan1"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="drakaan1"]
+[image="saxiis1.pcx"]
+"We are an ancient space-faring race.  Eons ago, we
+ decided to to explore the galaxy and catalogue all
+ life-bearing planets and their inhabitants.
+
+ We also seek to document and preserve a record of
+ alien cultures, and occasionally we provide help.
+
+ Of course, it didn't go down too well when we visited
+ your planet."
+
+[link="You visited Earth?"]
+[linkto="earth"]
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="earth"]
+[image="dragon1.png"]
+"Indeed, we visited several times.
+
+ The first time we visited was several thousand years ago.
+ Your peoples were a bit primitive then.  The smartest
+ people lived on a really huge continent and had narrow
+ eyes like us.
+
+ When we introduced ourselves, they called us 'dragons'
+ and worshipped us as gods.  It was all very flattering,
+ but it caused such strong memories and legends that they
+ still exist to this day, even though your lifespans are
+ so short compared to ours."
+
+[nextpage="earth2"]
+[endpage]
+
+[page="earth2"]
+[image="dragon2.png"]
+"Anyway, we had to leave, but we came back a few millenia
+ later on, and then we met up with this other kind of
+ people.  They had round eyes and they worshipped a
+ creature called 'Ahura-Mazda'.  They didn't like us at
+ all and said that we were evil serpents and daevas in
+ the pay of the evil 'Angra Mainyu'.
+
+ They were very rude and tried to kill us.  And because
+ these people were so influential, all the bad things
+ they wrote about us being evil dragons got put in the
+ holy books and incorporated into all the religions,
+ even the one that Xy'lan is supporting now."
+
+[nextpage="earth3"]
+[endpage]
+
+[page="earth3"]
+[image="saxiis1.pcx"]
+"But we did manage to do some good things as well.
+ In the minds of a few experimental subjects, we
+ implanted design plans, data structures and systems
+ theory.
+
+ It became part of your race-memory, and it stayed
+ dormant until about 1959 in your calendar, when your
+ technology became good enough for it to be useful.
+ These racial memories became active in the minds of
+ some of your greatest men, although they never knew it
+ and believed that they had invented it themselves."
+
+[nextpage="earth4"]
+[endpage]
+
+[page="earth4"]
+[image="saxiis1.pcx"]
+"It was the design for the computer system that we use
+ ourselves to this day, refined over the course of eons.
+ The system itself, and the languages needed to maintain
+ and support it.  We call it 'UNIX'."
+
+
+[link="Oh my god."]
+[linkto="unix"]
+[link="Heavy, man!"]
+[linkto="unix"]
+[link="I do not believe it."]
+[linkto="unix"]
+[link="So that's why it's so weird."]
+[linkto="unix"]
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="unix"]
+[image="saxiis1.pcx"]
+"It is great!  It is one of the best ideas our race ever
+ had!  We gave it to all the intelligent species we
+ encountered.
+
+ That way we can easily share data and programs.
+ Of course, it also meant that Xy'lan was able to invade
+ the data infrastructure belonging to your colony after
+ only a brief period of handshaking."
+
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Tell me about your ship."]
+[linkto="maxima"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="codec"]
+[image="saxiis1.pcx"]
+"I'll just give you an overview.  Ask Librarian Rulyz if
+ you wish to know more about the science involved.
+
+ Basically, our race discovered a technique that allows
+ one to affect the universe in interesting ways.
+ It is very complex, but when controlled by a computing
+ engine it allows arbitrary changes to reality itself
+ on demand.
+ 
+ The normal setup is to have a 'magic server' which
+ listens out for prayers and incantations and carries
+ them out."
+
+[nextpage="codec2"]
+[endpage]
+
+
+[page="codec2"]
+[image="saxiis1.pcx"]
+"Users are granted different privilege levels, for
+ safety reasons.
+
+ Beginners can be restricted to the safest and easiest
+ spells.  More dangerous spells need higher privilege
+ levels to make them work.
+
+ With enough privilege and access to the server itself
+ it is possible to create new spells.
+
+ Since this technique is so useful, it is used in most of
+ our technology.  So the Maxima carries a magicserver of
+ its own.  We called it 'The CoDec of ultimate power'.
+
+ Now Xy'lan is misusing it for his own insane purposes!"
+
+[link="Oh all right.  What do you want me to do..?"]
+[linkto="task"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about the ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="maxima"]
+[image="saxiis1.pcx"]
+"The Maxima is a small scout ship, equipped for
+ long-range missions, terraforming and various other
+ tasks.
+
+ It was really intended to orbit around a planet rather
+ than land on one, but it is able to do so in an
+ emergency.  Which is of course what happened.
+
+ The impact crater we left is huge, and created a small,
+ circular mountain range.  The ship is in the centre of
+ the impact site.  If you want to know more about it, I
+ suggest you ask Librarian Rulyz."
+
+[link="Tell me about the crew."]
+[linkto="crew"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="crew"]
+[image="saxiis1.pcx"]
+"There were six of us.  When we escaped from the Maxima,
+ we took a council on what to do next.  Most of us agreed
+ that our task should be to stop Xy'lan if at all possible.
+
+ The only dissenting voice was Saxiis, who believed there
+ was no hope of ever stopping Xy'lan or returning to
+ known space even if we did.
+
+ She chose to make her home on this world and live out
+ her life best she can.
+
+ Now we are only five, unless Saxiis can be persuaded to
+ rejoin us."
+
+[link="Why do you need her?"]
+[linkto="saxiis"]
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="saxiis"]
+[image="saxiis1.pcx"]
+"No-one knows as much about Xy'lan as she does.  Saxiis
+ was our chief software engineer, and she was the one who
+ saved us when Xy'lan took control.
+
+ She was part of the team who designed Xy'lan."
+ 
+[link="Tell me about Xy'lan."]
+[linkto="xylan"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[if miracle_machine][link="Tell me about the miracle machine."]
+[if miracle_machine][linkto="codec"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="attacked"]
+[image="saxiis3.pcx"]
+[at_exit_call="player_killme"]
+
+[colour="#808080"]
+Before you have time to strike, the creature has whipped
+out a small energy pistol and burned through a number
+of vital organs.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+
+"Your ship doesn't look too advanced to me."
+
+"We prefer the retro look."
+
+
+
+"I thought advanced races would be vegetarian. "
+
+
+"Only meat-eaters become tool users.  Carnivores are
+ basically lazy and tend to develop short-cuts.
+
+ Herbivores have to spend all their time eating and
+ are therefore unable to develop instrumentality.
+ There are some exceptions, of course."
+
+
+"Don't worry.  We kill our meat humanely."
+
+
+
+
+"Take this memory wafer.  If you can make it to the drive
+ controller in both engine rooms, load it up."
+
+The program uses the engines to do something other
+than propel the ship.  You have to get both engines
+working first, of course.
+
+The first time you try to load the disk it doesn't work.
+The drakaans ask you to come back, and they give you
+another disk, which works.
+
+
+
+
+
+
+

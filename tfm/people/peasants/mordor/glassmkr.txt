@@ -1,0 +1,274 @@
+[page="start"]
+[learn_name]
+[colour="#808080"]
+You see $NAME, the glassmaker.  He looks up at you with
+gratitude.
+[colour="#ffffff"]
+
+"Hail, friend!  I am ever in your debt.
+ Is there anything that I am able to do for you?"
+
+[link="How goes it?"]
+[linkto="howdo"]
+[link="What are you selling?"]
+[linkto="buy_blurb"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[learn_name]
+[colour="#808080"]
+You see $NAME, the glassmaker.
+[colour="#ffffff"]
+
+"Hail, friend!  What can I do for you?"
+
+[link="Tell me again what you sell."]
+[linkto="buy_blurb"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="howdo"]
+
+"Very well, and I thank you for asking.  Since you freed
+ me from death at the stake, I have taken refuge in these
+ lands, and am free to ply my trade as before.
+
+ Yet I shall make no more telescopes, that is certain!"
+
+[link="What are you selling?"]
+[linkto="buy_blurb"]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_blurb"]
+
+"I make glassware.  Since I am in your debt, I shall sell
+ you these items much less than I would normally charge.
+
+ I can sell you wineglasses for 3 gold each, and jars
+ for 2 gold.  These are sundry items.
+
+ I also make glass orbs, which many find useful for the
+ mystical arts that the LORD allows men to practice.
+ These orbs are not easy to craft, but I can still offer
+ one to you for 50 gold."
+
+[colour="#808080"]
+ His voice drops to a conspiratorial whisper.
+[colour="#ffffff"]
+
+"Also, because I owe you my life, I can forge for you
+ a secret weapon, the crystal sword.  I must ask 750
+ golds, and I will need two todestones to make it.
+
+ This is a magical weapon, and most deadly, but the
+ sword's power is only released as the blade shatters,
+ so use it only in dire need.  Tell no-one of it."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"What do you wish to purchase?
+
+ My wineglasses are 3 gold each, and jars are 2 gold.
+ I sell glass orbs for 50 gold, and the 'other item'
+ would be 750 gold coins."
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="I would like to buy the sword."]
+[linkto="buy_sword"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_wineglass"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[create 1 wineglass]
+
+"Thankyou, friend.  Here is your glassware.
+ Do you require anything else?"
+
+[link="I would like to buy another wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="I would like to buy the sword."]
+[linkto="buy_sword"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_jar"]
+[take 2 gold_coins]
+[if false][goto="no_money"]
+[create 1 jar_empty]
+
+"Thankyou, friend.  Here is your item.
+ Do you require anything else?"
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy another jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="I would like to buy the sword."]
+[linkto="buy_sword"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_orb"]
+[take 50 gold_coins]
+[if false][goto="no_money"]
+[create 1 orb]
+
+"Thankyou, friend.  Here is your item.
+ Do you require anything else?"
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy another glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="I would like to buy the sword."]
+[linkto="buy_sword"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_sword"]
+[take 750 gold_coins]
+[if true][goto="buy_sword2"]
+[goto="no_money"]
+[endpage]
+
+[page="buy_sword2"]
+[take 2 todestone]
+[if true][goto="buy_sword3"]
+[give 750 gold_coins]
+
+"I fear you do not have the two todestones.  I need these
+ for they will give the sword its power, else it shall be
+ naught but a hefty glass stick.
+
+ I will return your money, until such time as you can
+ bring me the gems.  Is there anything else you would
+ wish to have in the meantime?"
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_sword3"]
+[create 1 crystal_sword]
+
+"Here is the weapon.  I entreat that you endeavour to
+ remember two important things:
+
+ Firstly, by using the weapon, it will be destroyed.
+ Set it aside, use it only in dire need.
+
+ And secondly, you did not get the item from me.."
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_money"]
+
+"I fear you cannot afford that.  Though I owe you my
+ life, I must still eat, lest my new-found freedom will
+ be short.
+
+ Is there anything else you would like?"
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
+[always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy another glass orb."]
+[linkto="buy_orb"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="bye"]
+
+"Fare well, friend."
+
+[nextpage="exit"]
+[endpage]

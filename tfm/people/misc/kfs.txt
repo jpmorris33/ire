@@ -1,0 +1,204 @@
+
+The Kentucky Fried Squirrel guy
+
+
+[page="start"]
+
+[colour="#808080"]
+You see a young man in kitchen clothes.
+[colour="#ffffff"]
+
+"Welcome to Kentucky-Fried Squirrel. How can I help you?"
+
+[link="Does the Church know about this?"]
+[linkto="church"]
+[link="Excuse me, did you just say 'squirrel'?"]
+[linkto="squirrel"]
+[link="I'd like a kebab, please."]
+[linkto="kebab"]
+[link="I'd like a burger, please."]
+[linkto="burger"]
+[link="I'd like a KFS Sandwich, please."]
+[linkto="sandwich"]
+[if curryquest][link="One squirrel curry to take away, please."]
+[if curryquest][linkto="curry"]
+[link="goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="church"]
+
+"Of course not.  Why do you think we're based in the
+ middle of the forest?  God hates fast food.
+
+ Are you ready to order yet?"
+
+[link="Do you get many customers?"]
+[linkto="customers"]
+[link="Did you just say it was squirrel?"]
+[linkto="squirrel"]
+[link="I'd like a kebab, please."]
+[linkto="kebab"]
+[link="I'd like a burger, please."]
+[linkto="burger"]
+[link="I'd like a KFS Sandwich, please."]
+[linkto="sandwich"]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="squirrel"]
+[colour="#808080"]
+He nods.
+[colour="#ffffff"]
+
+"They're finger-lickin' good."
+
+[link="Does the Church know about this?"]
+[linkto="church"]
+[link="I'd like a kebab, please."]
+[linkto="kebab"]
+[link="I'd like a burger, please."]
+[linkto="burger"]
+[link="I'd like a KFS Sandwich, please."]
+[linkto="sandwich"]
+[link="goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="customers"]
+
+"We get enough to live by.
+
+ And in times of poverty, the King himself has paid us to
+ give food to the starving."
+
+[link="Did you just say it was squirrel?"]
+[linkto="squirrel"]
+[link="I'd like a kebab, please."]
+[linkto="kebab"]
+[link="I'd like a burger, please."]
+[linkto="burger"]
+[link="I'd like a bucket, please."]
+[linkto="sandwich"]
+[link="I've changed my mind.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="kebab"]
+
+"Certainly.  That'll be 6 gold pieces, please."
+
+[link="Okay, here you go."]
+[linkto="kebab2"]
+[link="I've changed my mind, thanks."]
+[linkto="bye"]
+[endpage]
+
+[page="kebab2"]
+[take 6 gold_coins]
+[if false][goto="nomoney"]
+[create 1 kfs_kebab]
+
+"Have a nice day."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="burger"]
+
+"Certainly.  That'll be 5 gold pieces, please."
+
+[link="Okay, here you go."]
+[linkto="burger2"]
+[link="I've changed my mind, thanks."]
+[linkto="bye"]
+[endpage]
+
+[page="burger2"]
+[take 5 gold_coins]
+[if false][goto="nomoney"]
+[create 1 kfs_burger]
+
+"Have a nice day."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="sandwich"]
+
+"Certainly.  That'll be 7 gold pieces, please."
+
+[link="Okay, here you go."]
+[linkto="sandwich2"]
+[link="I've changed my mind, thanks."]
+[linkto="bye"]
+[endpage]
+
+[page="sandwich2"]
+[take 7 gold_coins]
+[if false][goto="nomoney"]
+[create 1 kfs_sandwich]
+
+"Have a nice day."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="curry"]
+
+"Hmmm.. we don't get orders for that very much.
+ 'An abomination in the eyes of the LORD' or so I'm told.
+ I'll see if we've got any..
+
+ Yes, $Sir, there are a few left.  I'll defrost it for
+ you, if you're happy to wait.
+
+ And it will be 10 gold pieces, okay?"
+
+[link="Okay, here you go."]
+[linkto="curry2"]
+[link="I've changed my mind, thanks."]
+[linkto="bye"]
+[endpage]
+
+[page="curry2"]
+[take 10 gold_coins]
+[if false][goto="nomoney"]
+[create 1 kfs_curry]
+
+"Have a nice day."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="nomoney"]
+
+"You don't have the money."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Goodbye then."
+
+[nextpage="exit"]
+[endpage]

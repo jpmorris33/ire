@@ -1,0 +1,269 @@
+
+SpellThrower
+
+[page="start"]
+[image="spellthr.png"]
+
+[colour="#808080"]
+You see a large Waarg in peak condition and a red
+pentagram dyed into the fur of his back.
+[colour="#ffffff"]
+
+"Human, know that your race has caused us much ill.
+ Do not expect much sympathy from me or my Liege."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Join my party."]
+[linkto="join"]
+[link="Who is your Liege?"]
+[linkto="king"]
+[link="What ill are you talking about?"]
+[linkto="ill"]
+[link="What's that pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="spellthr.png"]
+[learn_name]
+
+"I am SpellThrower, court Sorcerer and advisor to
+ his Majesty, King RedTooth the Great."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Join my party."]
+[linkto="join"]
+[link="Who is your Liege?"]
+[linkto="king"]
+[link="What ill are you talking about?"]
+[linkto="ill"]
+[link="What's that pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="spellthr.png"]
+
+"I work magics to aid my King, and I advise him with the
+ wisdom I have collected across the ages."
+
+[link="Can you teach me some magic?"]
+[linkto="teach"]
+[link="Join my party."]
+[linkto="join"]
+[link="Who is your Liege?"]
+[linkto="king"]
+[link="What's that pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="king"]
+[image="spellthr.png"]
+
+"Our King is Redtooth the Great.  He was instrumental in
+ driving off the invading hordes from your lands, and has
+ wrested the Kingdom from the ineffectual paws of a
+ weakling leader!"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Join my party."]
+[linkto="join"]
+[link="What's that pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="pentagram"]
+[image="spellthr.png"]
+
+"The pentagram is a symbol of magical power.  Wherever
+ the symbol is painted, strong magical force will be
+ concentrated.  Having the pentagram upon my back gives
+ me a constant source of power for binding and
+ maintaining spells.
+ 
+ It also makes my youth spell more practical.
+
+ Others prefer a special place where spells can
+ be bound.  The pentagram is usually on the floor.
+ I also have one in my study.. having two is useful
+ for the binding of very powerful spells."
+
+[link="How old are you?"]
+[linkto="old"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Who is your King?"]
+[linkto="king"]
+[link="What ill were you talking about?"]
+[linkto="ill"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="old"]
+[image="spellthr.png"]
+
+"I may not look it, but I am a hundred and sixty-three
+ years old.  As a master sorcerer, it is a fairly simple
+ matter to keep myself from aging."
+
+[link="Can you teach me some magic?"]
+[linkto="teach"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Who is your King?"]
+[linkto="king"]
+[link="What ill were you talking about?"]
+[linkto="ill"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="teach"]
+[image="spellthr.png"]
+
+"Certainly not!
+
+ You are an enemy of our race.  As long as you wear the
+ Favour, your presence here will be tolerated.
+ 
+ But I shall not endanger all our lives by giving you the
+ power to destroy us!"
+
+[link="I don't want to destroy you."]
+[linkto="teach2"]
+[link="What's the pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="teach2"]
+[image="spellthr.png"]
+
+"I fear my answer is still 'no'.
+
+ Even if you do not wish to destroy us, there is a risk
+ that you would pass the knowledge on to those who do!
+ 
+ It would be safer for us all if I do not teach you."
+
+[link="I already know some sorcery."]
+[linkto="teach3"]
+[link="What's the pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="teach3"]
+[image="spellthr.png"]
+[colour="#808080"]
+He looks startled.
+[colour="#ffffff"]
+
+"Then I shall not help you further it; even good spells
+ can be misused for evil intent.
+
+ If as you claim, you wish our people no harm, I beg that
+ you tell no-one what you have learned until such time as
+ the war between our races is over."
+ 
+[link="What's the pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="ill"]
+[image="spellthr.png"]
+
+"Many years ago, the God - Aa'Ruuff - whom we worshipped
+ turned against his faithful, and sent an army of men to
+ invade our villages.
+
+ Many fierce battles were fought, and the last such was
+ but ten years ago.  Your people slew our beloved King
+ Grey and his younger brother claimed the crown.  His
+ weak and ineffectual reign was ended by the courage of
+ our present King RedTooth, who took the throne by force.
+
+ So you see, a mere decade ago, you men slew our King in
+ an unprovoked attack against our people.  Time is a
+ great healer, but we will not quickly forgive all your
+ race has done."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Join my party."]
+[linkto="join"]
+[link="Tell me about your King."]
+[linkto="king"]
+[link="What's that pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="join"]
+[image="spellthr.png"]
+
+"Your offer is tempting, not least since I could keep an
+ eye upon you and ensure you do not harm our people.
+
+ Regrettably, I must remain here and serve my King."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Who is your King?"]
+[linkto="king"]
+[link="What ill were you talking about?"]
+[linkto="ill"]
+[link="What's that pentagram for?"]
+[linkto="pentagram"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="spellthr.png"]
+
+"Go in peace, human."
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,233 @@
+Stupid
+
+[page="start"]
+[colour="#808080"]
+You see a dwarf.  He seems to be drooling.
+[colour="#ffffff"]
+
+"Duuhhh..."
+
+[link="What's your name?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see 'Stupid', one of the seven dwarves.
+[colour="#ffffff"]
+
+"Duuuuhhhhh..."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[if_onscreen girly][goto="name_girly"]
+[if_onscreen fatso][goto="name_fatso"]
+[if_onscreen sleazy][goto="name_sleazy"]
+[if_onscreen ugly][goto="name_ugly"]
+[if_onscreen surly][goto="name_surly"]
+
+"Buuuuhhhh..."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[if_onscreen girly][goto="job_girly"]
+[if_onscreen fatso][goto="job_fatso"]
+[if_onscreen sleazy][goto="job_sleazy"]
+[if_onscreen ugly][goto="job_ugly"]
+[if_onscreen surly][goto="job_surly"]
+
+"Uuuuuhhhh..."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Guuuhhh..."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="name_girly"]
+[learn_name]
+
+[colour="#808080"]
+Another dwarf butts in and talks in a falsetto voice.
+[colour="#ffffff"]
+
+"His name is 'Stupid'.  We're the seven dwarves."
+
+[link="What's your job?"]
+[linkto="job_girly"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name_fatso"]
+[learn_name]
+
+[colour="#808080"]
+A disgustingly fat dwarf butts in.
+[colour="#ffffff"]
+
+"His name is 'Stupid'.  We're the seven dwarves."
+
+[link="What's your job?"]
+[linkto="job_fatso"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name_sleazy"]
+[learn_name]
+
+[colour="#808080"]
+A seedy-looking dwarf butts in.
+[colour="#ffffff"]
+
+"His name is 'Stupid'.  We're the seven dwarves."
+
+[link="What's your job?"]
+[linkto="job_sleazy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name_ugly"]
+[learn_name]
+
+[colour="#808080"]
+A very ugly dwarf butts in.
+[colour="#ffffff"]
+
+"His name is 'Stupid'.  We're the seven dwarves."
+
+[link="What's your job?"]
+[linkto="job_ugly"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name_surly"]
+[learn_name]
+
+[colour="#808080"]
+A very nasty-looking dwarf butts in.
+[colour="#ffffff"]
+
+"'is name is 'Stupid', ya poof.  Now Leave 'im alone, or
+ I'll kick yer 'ead in."
+
+[link="What's your job?"]
+[linkto="job_surly"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job_girly"]
+
+[colour="#808080"]
+A dwarf with long hair and a falsetto voice answers for
+him.
+[colour="#ffffff"]
+
+"We're the seven dwarves.  We're miners."
+
+[link="What's your name?"]
+[linkto="name_girly"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job_fatso"]
+
+[colour="#808080"]
+A disgustingly fat dwarf answers instead.
+[colour="#ffffff"]
+
+"We're the seven dwarves.  We're a band of miners.
+ Surely you've heard of us!"
+
+[link="What's your name?"]
+[linkto="name_fatso"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job_sleazy"]
+
+[colour="#808080"]
+A shady-looking dwarf answers instead.
+[colour="#ffffff"]
+
+"We're the seven dwarves, a small mining concern.
+ If you'd care to invest, say, a few thousand gold coins
+ just let me know."
+
+[link="What's your name?"]
+[linkto="name_sleazy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job_ugly"]
+
+[colour="#808080"]
+A very ugly dwarf answers instead.
+[colour="#ffffff"]
+
+"We're the seven dwarves.  We mine.. stuff."
+
+[link="What's your name?"]
+[linkto="name_ugly"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job_surly"]
+
+[colour="#808080"]
+A very nasty-looking dwarf answers instead.
+[colour="#ffffff"]
+
+"That's none 'o yer business, ya ponce!
+ Now bugger off."
+
+[link="What's your name?"]
+[linkto="name_surly"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+

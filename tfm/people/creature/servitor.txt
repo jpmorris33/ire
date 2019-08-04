@@ -1,0 +1,13 @@
+[page="start"]
+[call="startattack"]
+
+[colour="#808080"]
+You see some kind of maintenance robot.
+[colour="#ffffff"]
+
+
+"EX-COM-MUN-I-CATE!"
+
+
+[nextpage="exit"]
+[endpage]

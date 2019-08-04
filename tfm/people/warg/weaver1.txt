@@ -1,0 +1,253 @@
+SureTooth the Weaver
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[if_not_know_name][goto="first"]
+[goto="back_again"]
+[endpage]
+
+
+[page="first"]
+
+[colour="#808080"]You see a startled wolf-creature, cowering away from you.
+[colour="#ffffff"]
+
+"Aaahh!!!  A Man!  What do you want with me?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What are you?"]
+[linkto="waarg"]
+[link="What do you do?"]
+[linkto="job"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+
+[endpage]
+
+
+[page="name"]
+
+[colour="#808080"]The creature becomes slightly less tense.
+[colour="#ffffff"]
+
+"I am SureTooth the weaver.  Good mouth coordination is necessary for this
+ and many other professions.  My parents noticed I had the gift early on,
+ and so they named me "SureTooth".
+ 
+ What is it that you want?"
+
+[learn_name]
+
+[link="What are you?"]
+[linkto="waarg"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+[colour="#808080"]The creature becomes slightly less tense.
+[colour="#ffffff"]
+
+"My name is SureTooth.. I am one of the weavers of this town.
+  
+ What is it that you want with me?"
+
+[learn_name]
+
+[link="What are you?"]
+[linkto="waarg"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, nothing.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+
+"What?  Er, it was the looms.  I used to watch the other weavers as a cub,
+ I was always fascinated by the way they worked.  So I became an apprentice.
+ 
+ But then the war against the humans broke out.  Many died, and after the war,
+ King Grey was assassinated.  When Lord Redtooth took the throne, the guild of
+ the Royal Weavers fell out of favour and was disbanded.  All the guild members
+ were imprisoned or banished.  Now, only a handful of independent weavers
+ remain.
+ 
+ Tell me, why have you come here?"
+
+[link="What are you?"]
+[linkto="waarg"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I am on a mission from God."]
+[linkto="god"]
+[link="I mean to skin you!"]
+[linkto="help"]
+[link="Er, no real reason.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="waarg"]
+
+"I am a Waarg.  We are the inhabitants of this land.  We were raised from
+ from dumb beasts by our God, Aa'Ruuff, now called "Aa'Ruuff The Betrayer".
+
+ We don't worship Him now, not after the Great Battle against Men..."
+ 
+[colour="#808080"]
+The creature backs away, his voice rising to a shriek as a terrible thought
+occurs to him.
+[colour="#ffffff"]
+
+"...has He sent you here TO FINISH US OFF?!?"
+
+[link="No, I'm lost."]
+[linkto="lost"]
+[link="I'd like some cloth, please."]
+[linkto="cloth1"]
+[link="I am exploring the world."]
+[linkto="explore"]
+[link="I am on a mission from God."]
+[linkto="god"]
+[link="Yes!  I have come to sanctify this place with blood!"]
+[linkto="help"]
+[link="Why did you choose to become a weaver?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cloth1"]
+[if_not_know_name][goto="cloth2"]
+
+"Certainly.  I have  red, green, brown, blue and purple cloth.
+
+ Thirty gold coins per piece.  Which do you want to buy?"
+
+[append="cloth3"]
+[endpage]
+
+
+
+[page="cloth2"]
+[colour="#808080"]
+The creature looks stunned.
+[colour="#ffffff"]
+
+"C..cloth?  Uh, certainly.
+
+ Which colour do you want?   Red, green, brown, blue or purple?
+ They are all 30 gold coins a piece.."
+
+[append="cloth3"]
+[endpage]
+
+
+[page="cloth3"]
+[link="red"]
+[linkto="red"]
+[link="green"]
+[linkto="green"]
+[link="brown"]
+[linkto="brown"]
+[link="blue"]
+[linkto="blue"]
+[link="purple"]
+[linkto="purple"]
+[endpage]
+
+
+[page="god"]
+
+[colour="#808080"]
+The creature backs away from you!
+[colour="#ffffff"]
+
+"You worship the Betrayer!  He has sent you here to kill us!"
+
+[link="Who is the Betrayer?"]
+[linkto="who_aaruuff"]
+[link="He didn't say anything about that to me."]
+[linkto="not_kill"]
+[link="Er, no.."]
+[linkto="not_kill"]
+[link="Yes!  I am here to end your blasphemous lives!"]
+[linkto="help"]
+[link="This is getting out of hand.  I'm going."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who_aaruuff"]
+
+[colour="#808080"]
+The creature eases off..
+[colour="#ffffff"]
+
+"You don't know of the Betrayer?
+ He is our God.  He created us, but turned against us when Men arrived..
+
+ Which God do you worship, then?"
+
+[link="I worship the Holy Trinity!"]
+[linkto="trinity"]
+[link="I worship Satan!"]
+[linkto="satan"]
+[link="Actually I don't worship any god."]
+[linkto="no_god"]
+[link="This is getting out of hand.  I'm going."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="help"]
+
+[colour="#808080"]The creature shouts in a keening voice!
+[colour="#ffffff"]
+
+"HELP!  GUARDS!"
+
+[on_exit_call="call_guards"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+
+[colour="#808080"]The creature looks at you nervously and returns to his business.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+[page="nocollar"]
+[colour="#808080"]The creature gives a great yell and bounds away.
+[colour="#ffffff"]
+
+[on_exit_call="flee"]
+[nextpage="exit"]
+[endpage]

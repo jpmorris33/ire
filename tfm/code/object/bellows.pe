@@ -1,0 +1,29 @@
+##
+##	Use forge
+##
+
+function use_bellows
+
+object temp
+integer x2
+integer y2
+
+if current is called "bellows0"
+	set_sequence current "bellows1"
+endif
+
+if current is called "bellows1"
+	set_sequence current "bellows3"
+endif
+
+let x2 = current.x + 1
+let y2 = current.y - 1
+get_first_object temp at x2 y2
+
+if_exists temp
+	if temp is called "forge"
+		set_sequence temp "forge1"
+	endif
+endif
+
+end

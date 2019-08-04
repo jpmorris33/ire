@@ -1,0 +1,174 @@
+Erstam
+
+[page="start"]
+[learn_name]
+
+"Hail good sir,
+ I am $NAME the shepherd.
+
+ Are you in need of employment?  I am in need of a bold
+ adventurer to defend my flock.
+
+ I am not a rich man, but would reward you as best I can.""
+
+[link="What is threatening your flock?  Wolves?"]
+[linkto="flock"]
+[link="I'm interested."]
+[linkto="mimics"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if sheepkiller][goto="sheepkiller"]
+[if donesheep][goto="thanks"]
+
+"Hail good sir,
+ Are you in need of employment?  I am in need of a bold
+ adventurer to defend my flock.
+
+ I am not a rich man, but would reward you as best I can.""
+
+[link="What is threatening your flock?  Wolves?"]
+[linkto="flock"]
+[if_not donesheep][link="I'm interested in helping you."]
+[if_not donesheep][linkto="mimics"]
+[if_not donesheep][if erstam_sheep][link="I have slain all the evil sheep."]
+[if_not donesheep][if erstam_sheep][linkto="done_deed"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="flock"]
+
+[colour="#808080"]
+He turns pale.
+[colour="#ffffff"]
+
+"Nay, not woolves.  There are woolves, yes, but the
+ priests of the LORD have struck a bargain with them
+ that they feast only upon rabbits and not my sheep.
+
+ There was a shepherd who commissioned a warrior to hunt
+ woolves.. but it did end most horribly.. I will not
+ speak of it..
+
+ The enemies of which I speak are fell monsters that come
+ from the hills in the north."
+
+[link="Can't the soldiers to deal with it instead?"]
+[linkto="soldiers"]
+[if_not donesheep][link="I'm interested in helping you."]
+[if_not donesheep][linkto="mimics"]
+[if_not donesheep][if erstam_sheep][link="I have slain all the evil sheep."]
+[if_not donesheep][if erstam_sheep][linkto="done_deed"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="soldiers"]
+
+"Soldiers?  We have none.  Armies are forbidden by Papal
+ decree.
+
+ Only the LORD is permitted soldiers, and His Holiness
+ has little interest in the affairs of humble shepherds.
+ We have only a handful of guards here to keep law and
+ order.  They are too few to fight beasts in the fields.
+
+ We must look instead to wandering adventurers to
+ defend our flocks."
+
+[if_not donesheep][link="I'm interested in helping you."]
+[if_not donesheep][linkto="mimics"]
+[if_not donesheep][if erstam_sheep][link="I have slain all the evil sheep."]
+[if_not donesheep][if erstam_sheep][linkto="done_deed"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="mimics"]
+[set erstam_sheep]
+
+"My flock has been invaded by fell sheep which have made
+ an horrific pact with the Evil one!  They have
+ infiltrated the pen and I dare not enter.
+
+"We never found Farmer Northram's body after last shearing
+ season, only his teeth.
+
+ I need a skilled warrior to separate the good sheep from
+ the bad, and dispatch the evil ones back to the Hell from
+ whence they came."
+
+[link="I have slain all the evil sheep."]
+[linkto="done_deed"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="done_deed"]
+[call="check_sheep"]
+[if badsheep][goto="done_dead"]
+[if goodsheep][goto="done_indeed"]
+
+"You have slaughtered my entire flock!
+ There is no gold here for the likes of thee! 
+
+ Be off with you and never darken my door again!"
+
+[set sheepkiller]
+[nextpage="exit"]
+[endpage]
+
+
+[page="done_dead"]
+[call="find_badsheep"]
+
+"They are all dead?  Oh $Sir, that is wonderful!
+ Let me go out and see!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="done_indeed"]
+
+"They are all dead?  Oh $Sir, that is wonderful!
+ I am in your debt.  Here, as I promised, is your reward
+ for this noble action."
+
+[add_karma 10]
+[create 300 gold_coins]
+[set donesheep]
+[nextpage="exit"]
+[endpage]
+
+
+[page="sheepkiller"]
+
+"Out!  Get out!   Sheep killer!"
+
+[nextpage="exit"]
+[endpage]
+
+[page="thanks"]
+
+"I thank you again, good $Sir!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare thee well!"
+
+[nextpage="exit"]
+[endpage]

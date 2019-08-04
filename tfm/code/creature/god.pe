@@ -1,0 +1,266 @@
+#################
+#               #
+#  God's power  #
+#               #
+#################
+
+object deadbishop
+
+##
+##  Destroy or heavily damage the current object
+##
+
+function god_killCurrent
+int md
+
+# Is the magicserver running?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	return
+endif
+
+if player.wield.body is called "armour07"
+	return
+endif
+
+# Would we be able to see the attack?
+if_onscreen current
+	overfx current does LightningFx
+	wait 500 NONBLOCKING
+	stopfx current
+endif
+
+# Damage it
+add current.stats.hp - 200
+check_hurt current
+end
+
+
+##
+##  Kill the sinners!
+##
+
+function god_killenemy
+int md
+
+# Sanity check
+if_not_exists me.enemy
+	return
+endif
+
+if player.wield.body is called "armour07"
+	return
+endif
+
+# Is the magicserver running?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	return
+endif
+
+# Would we be able to see the attack?
+if_onscreen me.enemy
+	play_sound "thunder"
+	overfx me.enemy does LightningFx
+#	wait 500 NONBLOCKING
+	wait 5 NONBLOCKING
+	stopfx me.enemy
+endif
+
+# Do the damage
+add me.enemy.stats.hp - 200
+check_hurt me.enemy
+end
+
+
+##
+##  Kill the sinners!
+##
+
+function god_killenemy_slowly
+int md
+
+# Sanity check
+if_not_exists me.enemy
+	return
+endif
+
+# Is the magicserver running?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	return
+endif
+
+if player.wield.body is called "armour07"
+	return
+endif
+
+# Would we be able to see the attack?
+if_onscreen me.enemy
+or me.enemy = player
+	play_sound "thunder"
+	overfx me.enemy does LightningFx
+	wait 2000 NONBLOCKING
+	stopfx me.enemy
+endif
+
+# Do the damage
+let me.enemy.stats.hp = -1
+check_hurt me.enemy
+end
+
+
+##
+##  Maim the sinners!
+##
+
+function god_blastenemy
+int md
+
+# Sanity check
+if_not_exists me.enemy
+	return
+endif
+
+# Is the magicserver running?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	return
+endif
+
+if player.wield.body is called "armour07"
+	return
+endif
+
+# Would we be able to see the attack?
+if_onscreen me.enemy
+	play_sound "thunder"
+	overfx me.enemy does LightningFx
+	wait 500 NONBLOCKING
+	stopfx me.enemy
+endif
+
+# Do the damage
+add me.enemy.stats.hp - 50
+check_hurt me.enemy
+end
+
+
+##
+##  Maim the sinners!
+##
+
+function god_blastplayer
+int md
+
+# Is the magicserver running?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	return
+endif
+
+if player.wield.body is called "armour07"
+	return
+endif
+
+
+lightning 10
+play_sound "thunder"
+overfx player does LightningFx
+wait 500 BLOCKING
+stopfx player
+
+# Quarter the player's health
+add player.stats.hp / 4
+check_hurt player
+end
+
+
+##
+##  Zap the player to death
+##
+
+function god_killplayer
+int md
+
+# Is the magicserver running?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	return
+endif
+
+# Reset trap to ensure retriggering on next encounter
+let current.user.counter = 0
+
+if player.wield.body is called "armour07"
+	get_user_flag md = "god_bastardised"	# Has He already said this?
+	if md = 0
+		talk_to "people/church/lord.txt" "powerplant2b"
+		set_user_flag "god_bastardised" = 1
+	endif
+	# Otherwise just abort
+	return
+endif
+
+if player.user.potion0 > 0
+	talk_to "people/church/lord.txt" "powerplant2a"
+endif
+
+play_sound "thunder"
+overfx player does LightningFx
+wait 1500 NONBLOCKING
+stopfx player
+
+let arrest_only = 0 # Stop any arrest flag
+let player.stats.hp = -1
+check_hurt player
+end
+
+
+
+##
+##  Commuting for Satan
+##
+
+function SatanToMass
+object t
+integer i
+
+let t = me.target
+stop_action me
+let me.target = t
+
+get_user_flag i = "meet_satan"
+if i = 0
+	return
+endif
+
+transfer_object me to me.target.x me.target.y
+if_onscreen me
+	set_flag me IS_INVISIBLE = 1
+	let me.user.user18 = 0
+	overfx me does fx_FadeSatanIn
+endif
+
+end
+
+##
+##  Home from work
+##
+
+function SatanFromMass
+object t
+
+let t = me.target
+stop_action me
+let me.target = t
+
+if_onscreen me
+	set_flag me IS_INVISIBLE = 1
+	let me.user.user18 = 255
+	overfx me does fx_FadeSatanOut
+else
+	transfer_object me to me.target.x me.target.y
+endif
+
+end

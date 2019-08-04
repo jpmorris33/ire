@@ -1,0 +1,202 @@
+
+In medieval times the blackcock was thought to be evil, because of
+its peculiar mating dance.  It was suspected of witchcraft and hunted
+and killed until it became almost extinct in England.
+
+
+[page="start"]
+[iftime 2340-2359][random_page="bcock 00 05"]
+[iftime 0000-0029][random_page="bcock 00 05"]
+[iftime 0030-0130][goto="talk"]
+[goto="normal"]
+[endpage]
+
+
+[page="normal"]
+[colour="#808080"]
+The bird makes a sound like "Kri! Kri! Kri!" and dashes
+for the undergrowth.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="bcock00"]
+[colour="#808080"]
+The bird cocks its head and speaks in a shrill voice.
+[colour="#ffffff"]
+
+"Good Is Evil!  Evil Is Good!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="bcock01"]
+[colour="#808080"]
+The bird cocks its head and speaks in a shrill voice.
+[colour="#ffffff"]
+
+"All hail the Light-Bringer!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="bcock02"]
+[colour="#808080"]
+The bird cocks its head and speaks in a shrill voice.
+[colour="#ffffff"]
+
+"Do not interrupt the ceremony!
+
+ Praise be to the Dark One!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="bcock03"]
+[colour="#808080"]
+The bird cocks its head and speaks in a shrill voice.
+[colour="#ffffff"]
+
+"Worship God's Brother!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="bcock04"]
+[colour="#808080"]
+The bird cocks its head and speaks shrill in a voice.
+[colour="#ffffff"]
+
+"Down with God!  Down with Christ and the Holy Ghost!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="bcock05"]
+[colour="#808080"]
+The bird cocks its head and speaks shrill in a voice.
+[colour="#ffffff"]
+
+"Join the Black Mass!"
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="talk"]
+[colour="#808080"]
+The bird cocks its head and addresses you shrilly.
+[colour="#ffffff"]
+
+"Welcome, O sinner!
+ Do you come to learn more about Our-Father-Below?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Yes."]
+[linkto="satan"]
+[link="Do you know any magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+
+"I am the high priest of our coven!
+
+ For centuries mankind has believed that we grouse have
+ worshipped the Black One in diabolical rituals of
+ obscene dancing and foul orgies.  And we do!"
+
+[link="Rubbish.  That's just a mating display."]
+[linkto="rubbish"]
+[link="Do you know any magic?"]
+[linkto="magic"]
+[link="Tell me about the Black One."]
+[linkto="satan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="rubbish"]
+
+"So you think!  But have you not wondered why goats are
+ sometimes found turned inside-out?
+
+ It is a sacrifice!  A goat for our Dark Master!"
+
+[link="Do you know any magic?"]
+[linkto="magic"]
+[link="Tell me about your Dark Master."]
+[linkto="satan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="satan"]
+
+"Satan is our Dark Master!  We worship Him with dead
+ things and He rewards us with grain!  And shoots!
+ And little green leaves!
+
+ And when He is really happy, He gives us spells and the
+ power to cloud the minds of men.
+
+ Satan loves a sacrifice!  Dead things for the Evil One!"
+
+[link="Do you know any magic?"]
+[linkto="magic"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="magic"]
+[set meet_satan]
+
+"Yes.  But we cannot teach you!  Only our Dark Master can
+ teach others the evil rites.
+
+ Join our Black Mass at midnight tomorrow and you shall
+ learn such dread things as to make your feathers curl!"
+
+[link="Tell me about the Dark Master."]
+[linkto="satan"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"The Word is a lie!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"] 
+[colour="#808080"]
+The largest bird's eyes bulge and it shouts in a shrill
+and supernaturally loud voice.
+[colour="#ffffff"]
+
+"O Dark Lord!  Protect your faithful servants!"
+[delay 3]
+[nextpage="pre-exit"]
+[endpage]
+
+
+This is a hack, so we get a 'continue' button.  You don't normally
+get one for the end of the conversation
+
+[page="pre-exit"]
+[goto="exit"]
+[endpage]

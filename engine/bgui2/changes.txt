@@ -1,0 +1,45 @@
+Changes:
+BGui v2.0.4JM -- 17 Mar 2011:
+    Joseph Morris:
+	A number of changes to keep the library running.  It has had a tendency
+	to lock up under X11 owing to a mixture of scare_mouse() and
+	acquire_screen() calls which worked nicely under DJGPP, but can cause
+	catastrophic failure under more recent versions of Allegro.
+	See the SCARE_MOUSE and ACQUIRE_SCREEN macros.
+	In addition I have been reworking parts of the library so it does not
+	use any deprecated Allegro functions anymore.  It should tide us over
+	until such time as IRE is ported to Allegro 5.0, at which point I'll
+	probably need to write my own BGUI replacement anyhow
+
+BGui v2.0.3 -- 16 Nov 2002:
+    Alexandre Pineau:
+	Released of the library under a gift-ware license
+BGui v2.0.2 -- 20 Jan 2001:
+    Jason Winnebeck:
+	Quickly added ability for editboxes and listboxes to be D_DISABLED
+BGui v2.0.1 -- 19 Oct 2000:
+    Jason Winnebeck:
+        Reformatted the text files -- they were wrapped to 88 characters, not
+        78.  Added .sh and .bat files to convert text types and copy the
+        proper makefile to Makefile.
+
+        Fixed btest.c to not lock up in Windows when taking a screen shot.
+        Removed ununsed variables (got rid of some warnings).
+
+    Chris de Sousa:
+        Added 2 makefiles, 1 for dos and 1 for linux.
+
+        Made a few changes to btest.c to make it compile with glibc,
+        the itoa function is not standard, so i used sprintf instead.
+
+        Also changed the structure a bit, sources in src/, docs in /docs,
+        libs in /lib.
+
+--
+Jason Winnebeck <gillius@mail.rit.edu>
+http://www.rit.edu/~jpw9607/
+
+Chris de Sousa <cdesousa@xs4all.nl>
+http://syf.penguinpowered.com
+
+

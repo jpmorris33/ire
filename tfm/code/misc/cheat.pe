@@ -1,0 +1,330 @@
+########################
+#                      #
+#  Cheat-related code  #
+#                      #
+########################
+
+
+function fbi_file
+string funcname
+
+gotoxy 2 0
+
+printxy current.name
+printxy "  : "
+printxy current.personalname
+printxy
+
+printxy "Resurrect as: "
+printxy current.funcs.resurrect
+printxy
+
+printxy "Race: "
+printxy current.label.race
+printxy "  Rank: "
+printxy current.label.rank
+printxy "  Party: "
+printxy current.label.party
+printxy
+
+printxy "Coordinates: "
+printxy current.x
+printxy ","
+printxy current.y
+printxy ","
+printxy current.z
+printxy "  Facing: "
+if current.curdir = UP
+	printxy "North"
+endif
+if current.curdir = DOWN
+	printxy "South"
+endif
+if current.curdir = LEFT
+	printxy "West"
+endif
+if current.curdir = RIGHT
+	printxy "East"
+endif
+printxy
+printxy
+
+
+printxy "Dimensions: "
+printxy current.mw
+printxy "x"
+printxy current.mh
+printxy "  in pixels: "
+printxy current.w
+printxy "x"
+printxy current.h
+printxy
+
+printxy "Tag: "
+printxy current.tag
+printxy "  System flags "
+printxyx current.flags
+printxy "  NPC flags "
+printxyx current.stats.npcflags
+printxy
+
+printxy "Enemy: "
+if_exists current.enemy
+	printxy current.enemy.name
+else
+	printxy "<none>"
+endif
+printxy "  Owner: "
+if_exists current.stats.owner
+	printxy current.stats.owner.name
+	printxy " @ "
+	printxy current.stats.owner.x
+	printxy ","
+	printxy current.stats.owner.y
+else
+	printxy "<none>"
+endif
+printxy
+
+printxy
+printxy "Statistics:"
+printxy
+
+printxy "HP: "
+printxy current.stats.hp
+printxy "  OLDHP: "
+printxy current.user.oldhp
+printxy "  Dexterity: "
+printxy current.stats.dex
+printxy "  Strength: "
+printxy current.stats.str
+printxy
+
+printxy "Intelligence: "
+printxy current.stats.intel
+printxy "  Damage: "
+printxy current.stats.damage
+printxy "  Armour: "
+printxy current.stats.armour
+printxy
+
+printxy "Weight: "
+printxy current.stats.weight
+printxy "  Quantity: "
+printxy current.stats.quantity
+printxy "  Karma: "
+printxy current.stats.karma
+printxy
+
+printxy "Bulk: "
+printxy current.stats.bulk
+printxy "  Range: "
+printxy current.stats.range
+printxy
+
+printxy
+printxy "Functions: "
+printxy
+if current.activity >= 0
+	get_funcname funcname = current.activity
+	printxy "Activity: "
+	printxy funcname
+	printxy " target = "
+	if_exist current.target
+		printxy current.target.name
+		printxy
+		printxy "Target at: "
+		printxy current.target.x
+		printxy ","
+		printxy current.target.y
+	else
+		printxy "<none>"
+	endif
+	printxy
+endif
+
+if current.funcs.ucache <> -1
+	printxy "USE: "
+	printxy current.funcs.use
+	printxy
+endif
+
+if current.funcs.tcache <> -1
+	printxy "TALK: "
+	printxy current.funcs.use
+	printxy
+endif
+
+if_flag current IS_TRIGGER
+	printxy "STAND: "
+	printxy current.funcs.stand
+	printxy
+endif
+
+if current.funcs.hcache <> -1
+	printxy "HURT: "
+	printxy current.funcs.hurt
+	printxy
+endif
+
+if current.funcs.kcache <> -1
+	printxy "KILLED: "
+	printxy current.funcs.kill
+	printxy
+endif
+
+if current.funcs.lcache <> -1
+	printxy "LOOKED AT: "
+	printxy current.funcs.look
+	printxy
+endif
+
+if current.funcs.wcache <> -1
+	printxy "WIELD: "
+	printxy current.funcs.wield
+	printxy
+endif
+
+if current.funcs.acache <> -1
+	printxy "ATTACK: "
+	printxy current.funcs.attack
+	printxy
+endif
+
+if current.funcs.icache <> -1
+	printxy "INIT: "
+	printxy current.funcs.init
+	printxy
+endif
+
+printxy "User1: '"
+printxy current.funcs.user1
+printxy "' User2: '"
+printxy current.funcs.user2
+printxy "'"
+printxy
+
+printxy 
+printxy "User State:"
+printxy
+printxy "Poison: "
+printxy current.user.poison
+printxy "  Vig.: "
+printxy current.user.vigilante
+printxy "  Ctr: "
+printxy current.user.counter
+printxy "  KO: "
+printxy current.user.unconscious
+printxy "  EXP: "
+printxy current.user.experience
+printxy 
+
+printxy 
+printxy "Usedata:"
+printxy
+printxy "U00: "
+printxy current.user.user0
+printxy "  U01: "
+printxy current.user.user1
+printxy "  U02: "
+printxy current.user.user2
+printxy "  U03: "
+printxy current.user.user3
+printxy "  U04: "
+printxy current.user.user4
+printxy
+
+printxy "U05: "
+printxy current.user.user5
+printxy "  U06: "
+printxy current.user.user6
+printxy "  U07: "
+printxy current.user.user7
+printxy "  U08: "
+printxy current.user.user8
+printxy "  U09: "
+printxy current.user.user9
+printxy
+
+printxy "U10: "
+printxy current.user.user10
+printxy "  U11: "
+printxy current.user.user11
+printxy "  U12: "
+printxy current.user.user12
+printxy "  U13: "
+printxy current.user.user13
+printxy "  U14: "
+printxy current.user.user14
+printxy
+
+printxy "U15: "
+printxy current.user.user15
+printxy "  U16: "
+printxy current.user.user16
+printxy "  U17: "
+printxy current.user.user17
+printxy "  U18: "
+printxy current.user.user18
+printxy "  Crime: "
+printxy current.user.user19
+printxy
+
+printxy
+printxy "Potions: "
+printxy
+printxy "  Invisible: "
+printxy current.user.potion0
+printxy "  Light: "
+printxy current.user.potion1
+printxy "  P02: "
+printxy current.user.potion2
+printxy "  P03: "
+printxy current.user.potion3
+printxy "  P04: "
+printxy current.user.potion4
+printxy
+
+printxy "P05: "
+printxy current.user.potion5
+printxy "  P06: "
+printxy current.user.potion6
+printxy "  P07: "
+printxy current.user.potion7
+printxy "  P08: "
+printxy current.user.potion8
+printxy "  P09: "
+printxy current.user.potion9
+printxy
+
+
+if_exists current.pocket
+	printcr
+	print "It contains:"
+	printcr
+	list_after current.pocket calling print_pocket
+endif
+
+end
+
+## Can King Edwyg join your party?  (This is Not Normal)
+
+
+function cheat_joinking
+private
+list_after player.pocket calling joinking_callback
+end
+
+function joinking_callback
+private
+if current is called "key"
+	if current.tag = 0
+		set_user_flag "join_king" = 1
+	endif
+endif
+end
+
+
+function cheat_island
+set_user_flag "bee_island" = 1
+end

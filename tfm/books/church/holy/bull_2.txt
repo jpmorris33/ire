@@ -1,0 +1,26 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+ Papal Bull on Swimming Pool, 6th March 1302
+
+
+ The LORD has decreed to me that the Holy Land does require
+ a pool be built for purposes of swimming and like activities.
+
+ It shall be 50 cubits long and 30 cubits wide.  It shall be
+ 10 cubits deep at the deep end and 2 cubits deep at the shallow
+ end and finished with tiles of finest marble.
+
+ Any man who does wish to swim therein shall pay a fee not
+ less than 5 gold coins.
+
+ Construction shall begin on the day of this new moon and must
+ be completed before Christmas Mass.  If this happens not, those
+ responsible shall face the wrath of the LORD Himself.
+
+ By order of the Holy Trinity,
+
+     Pope Harris 
+
+[nextpage="exit"]
+[endpage]

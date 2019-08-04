@@ -1,0 +1,317 @@
+PCPK - ordered to bring you to KKKC
+
+[page="start"]
+[image="x36.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey, watching you with a
+silent intent.  There is a strange gleam in the bird's
+eyes.
+
+Suddenly you hear a deep voice in your head.
+[colour="#ffffff"]
+[learn_name]
+
+"I am Pee-Chee-Phee-Khee of the Folk.
+
+ Know that I am to bring you to our leader, who much
+ desires to speak with you.
+
+ But in this I am not without my price."
+
+[set find_ospreys]
+[link="And what is this price?"]
+[linkto="price"]
+[link="Not interested.  Goodbye."]
+[linkto="price_no"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="x36.pcx"]
+
+"My job is to keep watch upon the humans, and so provide
+ early warning should they become hostile towards us.
+
+ I have already identified their leader."
+
+[link="Who is their leader?"]
+[linkto="leader"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="leader"]
+[image="x36.pcx"]
+
+"He is known as Han.  He provides the fisshh to his
+ community."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+PCPK thinks Han is the leader because he provides meat for
+the community
+
+
+[page="price"]
+[image="x36.pcx"]
+[set fishquest]
+
+"Fisshh."
+
+[link="And just why should I bring you a fish?"]
+[linkto="price2"]
+[link="Does your leader know about this extortion?"]
+[linkto="price2"]
+[link="Very well, I shall bring you a fish."]
+[linkto="price_yes"]
+[link="No, I will not bring you any fish."]
+[linkto="price_no"]
+[endpage]
+
+[page="price1"]
+[image="x36.pcx"]
+
+"I am to allow you entry to our village that you may
+ discuss matters of importance with our leader.
+
+ But this I will only do if you bring me a fisshh."
+
+[link="And just why should I bring you a fish?"]
+[linkto="price2"]
+[link="Very well, I shall bring you a fish."]
+[linkto="price_yes"]
+[link="No, I will not bring you any fish."]
+[linkto="price_no"]
+[endpage]
+
+
+[page="price2"]
+[image="x36.pcx"]
+
+"It is a test.  We need to be sure we can trust you.
+
+ Prove your trust, bring the fissh or not as you see fit.
+ But it would be your loss, as well as ours."
+
+[link="Very well, I shall bring you a fish."]
+[linkto="price_yes"]
+[link="I will not bring you fish."]
+[linkto="price_no"]
+[endpage]
+
+
+[page="price_no"]
+[image="x36.pcx"]
+
+"Then there is no more to be said.
+ But our offer remains open should you change your mind."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="price_yes"]
+[image="x36.pcx"]
+
+"Fisshh!  Fisshh!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="pre_price"]
+[image="x36.pcx"]
+
+"Yes, our leader, he very much wishes to see you.
+
+ But first my price must be paid."
+
+[link="What is this price?"]
+[linkto="price"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[clear true]
+[if fishquest][goto="200fishcheck"]
+[image="x36.pcx"]
+
+[colour="#808080"]
+You see the osprey Pee-Chee-Phee-Khee.
+
+You hear a deep voice resounding in your head.
+[colour="#ffffff"]
+
+"Again I greet you, human."
+
+[if_not fishquest][if_not password_fish][link="You said you were to bring me to your leader?"]
+[if_not fishquest][if_not password_fish][linkto="pre_price"]
+[if password_fish][link="Where was I supposed to go again?"]
+[if password_fish][linkto="location"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fish"]
+[clear fishquest]
+[image="x36.pcx"]
+
+"Fisshh!  Fisshh!"
+
+[colour="#808080"]
+You throw the fish into the air, and the osprey catches
+it deftly, and begins to devour it messily.
+[colour="#ffffff"]
+
+[nextpage="fish2"]
+[endpage]
+
+
+[page="fish2"]
+[image="x36.pcx"]
+[set password_fish]
+
+"This is goood fisshh.  You have earned respect.
+
+ You may now enter our village.  It can be found on the
+ lake that humans call 'Milton'.
+
+ There is a guard who will lower the bridge for you to
+ enter the village.. give him the password 'Fisshh'.
+
+ Our leader is known as Kee-Kee-Kee-Chee.. you will
+ find him in the eastern parts of the village.
+
+ Live long."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="location"]
+[image="x36.pcx"]
+[set password_fish]
+
+"Our village can be found in the lake of Milton,
+ which is south-east of the human settlement.
+
+ There is a guard who will lower the bridge for you to
+ enter the village.. give him the password 'Fisshh'.
+
+ Our leader is known as Kee-Kee-Kee-Chee.. you will
+ find him in the eastern parts of the village.
+
+ Live long."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="200fishcheck"]
+[take 1 "food08"]
+[if true][goto="fish"]
+[image="x36.pcx"]
+
+[colour="#808080"]
+You see the osprey Pee-Chee-Phee-Khee.
+
+You hear a deep voice resounding in your head.
+[colour="#ffffff"]
+
+"Again I greet you, human."
+
+[link="Tell me again about your offer."]
+[linkto="price1"]
+[if find_robertson][link="Do you know anything about Doctor Robertson?"]
+[if find_robertson][linkto="robertson1"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="robertson1"]
+[image="x36.pcx"]
+
+"Such things are not for me to speak of.
+ You must ask that of our leader."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="x36.pcx"]
+
+"Enjoy your catches."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="notready"]
+[image="x36.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey, watching you with a
+silent intent.  There is a strange gleam in the bird's
+eyes.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+##
+##	Die, bird!
+##
+
+[page="diebird"]
+[image="kkkc.pcx"]
+
+"I would not say such things if I were you."
+
+[set_pflag 1]
+[nextpage="exit"]
+[endpage]
+
+[page="bastard"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+[if_not_knowname]A loud voice booms inside your head.
+[colour="#ffffff"]
+
+[if_not_pflag 1]"You bastard!"
+[if_pflag 1]"You asked for it!"
+
+[colour="#808080"]
+[if_knowname]A blue corona forms around $CHARNAME!
+[if_not_knowname]A blue corona forms around the bird!
+
+Inside your chest, your heart stops beating.
+[colour="#ffffff"]
+
+[if_pflag 1]"What a sad waste of human life."
+
+[at_exit_call="kill_player"]
+[nextpage="exit"]
+[endpage]
+

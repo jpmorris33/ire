@@ -1,0 +1,70 @@
+#
+# Makefile for IRE, MingW32 version
+#
+
+all: ire ed resedit chknpc 
+# resize
+
+# Use the C or C++ compiler
+
+CC                = gcc -DUSE_CONSOLE -D_CONSOLE -DNO_ASM
+LD                = gcc -Llibs/win -L$(MINGDIR)\lib -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound
+CFLAGS            = -I. -g -Wunused -O6 -mpentium -Ljpeg -Ijpeg/dos
+Lib_files         = -lalleg -lithe -ljpeg
+# -lbgui
+
+
+# Include the makefile core
+
+include makefile.all
+
+
+# Makefile rules
+
+ire: $(ire_obj)
+	$(LD) $(ire_obj) $(Lib_files) -o ire.exe
+	# -laud 
+
+#setup: $(set_obj)
+#	$(LD) $(set_obj) -lalleg -o setup.exe
+
+ed: $(ed_obj)
+	$(LD) $(ed_obj) $(Lib_files) -lbgui -o ed.exe
+
+resedit: $(res_obj)
+	$(LD) $(res_obj) $(Lib_files) -o resedit.exe
+
+resize: $(resize_obj)
+	$(LD) $(resize_obj) $(Lib_files) -o tools/resize.exe
+
+chknpc: $(chknpc_obj)
+	$(LD) $(chknpc_obj) -lithe -o tools/chknpc.exe
+
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cc
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.S
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.o: %.asm
+	nasm -f coff $< -o $@
+
+clean:
+	-rm -f *.o
+	-rm -f resedit\\*.o
+	-rm -f gui\\*.o
+	-rm -f pe\\*.o
+	-rm -f ire.exe
+	-rm -f ed.exe
+	-rm -f setup.exe
+	-rm -f resedit.exe
+	-rm -f tools\\*.exe
+	-rm -f bootlog.*
+	-rm -f game.cfg

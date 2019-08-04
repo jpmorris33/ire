@@ -1,0 +1,220 @@
+
+Pestillence - One of the Four Horsemen.
+
+[page="start"]
+[image="f16v2.pcx"]
+[learn_name]
+
+[colour="#808080"]
+A polished black aircraft watches you with large, red
+eyes.  Finally he speaks in a soft, quiet voice.
+[colour="#ffffff"]
+
+"Hello there, human.  Welcome to the Security base.
+
+ I'm one of the Four Horsemen of the Apocalypse, I just
+ happen to be the one called 'Pestillence'.  Don't let
+ the name put you off."
+
+[link="What are you?"]
+[linkto="what"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="black_metal"]
+[image="f16v2.pcx"]
+
+"No, no, no.  It's 'Blackmetal'.. one single word."
+
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="invrepair"]
+[image="f16v2.pcx"]
+
+"Oh yes, we can be repaired, it just takes a long time.
+ The alloy can be pierced if it's exposed to just the
+ right wavelength of radiation for about three days.
+
+ There are weaker joins to the armour so it can be
+ removed in sections to allow access to my internal
+ systems.  That way, I can be opened up for maintenance
+ in a properly-equipped workshop, but still be
+ invulnerable in a combat situation."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="v"]
+[image="f16v2.pcx"]
+
+"I can defeat dozens of lesser aircraft in air-to-air
+ combat.  That would be mean, though."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+About job
+
+[page="job"]
+[image="f16v2.pcx"]
+
+[colour="#808080"]
+Pestillence sighs.
+[colour="#ffffff"]
+
+"I kill people and stuff.  I did't ASK to be one of the
+ four horsemen, it's just my lot in life.
+ I can't help it.. I have to serve my master, even if it
+ means doing evil things from time to time.
+
+ I don't have to ENJOY it, like Death does."
+
+[link="Tell me about Death."]
+[linkto="death"]
+[link="Tell me about the other horsemen."]
+[linkto="horsemen"]
+[link="Why don't you resign?"]
+[linkto="resign"]
+[link="What would you prefer to do?"]
+[linkto="liketodo"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+Death
+
+[page="death"]
+[image="f16v2.pcx"]
+
+"He's pretty far gone.. it's scary.
+
+ I'm afraid he's going to kill somebody one of these
+ days.  He's got to be rebalanced, but I fear that's only
+ going to happen after he's murdered one of the ground
+ crew, or a passer-by or something.  Yeech."
+
+[colour="#808080"]
+Pestillence shivers.
+[colour="#ffffff"]
+
+[endpage]
+
+
+
+[page="horsemen"]
+[image="f16v2.pcx"]
+
+"Who are you interested in?  War, Famine or Death?"
+
+[link="Tell me about War."]
+[linkto="war"]
+[link="Tell me about Famine."]
+[linkto="famine"]
+[link="Tell me about Death."]
+[linkto="death"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="war"]
+[image="f16v2.pcx"]
+
+"He's very professional, like Famine.  Tries not to think
+ too hard about who he's killing.
+
+ I don't think he enjoys his job much either, but he
+ tries hard to conceal that, and convince himself that
+ he's on the side of the angels, as it were.
+
+ He's a good comrade, and can be fun when he's off-duty."
+
+[endpage]
+
+
+[page="famine"]
+[image="f16v2.pcx"]
+
+"I like Famine.  I think he's got just the right balance
+ between me and Death.  Nobility, a good sense of loyalty
+ but enough justice to refuse illegal orders.
+
+ Having said that, I think that nobility and honour are
+ very overrated, at least for us.  I mean, risking your
+ life for your country is a pretty hollow gesture if you
+ can't die.
+
+ But I'm rambling.  Basically, I think that Famine
+ represents everything I can never really be myself."
+
+[endpage]
+
+
+
+Why don't you resign
+
+[page="resign"]
+[image="f16v2.pcx"]
+
+"Oh yeah, I'd love to just turn round and tell my Master
+ to go .... himself.  But I can't do that while we four
+ are the last line of defence against a mad god.
+
+ I just can't shirk that kind of responsibility."
+
+[link="What would you prefer to do?"]
+[linkto="liketodo"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="liketodo"]
+[image="f16v2.pcx"]
+
+"What I'd really like to do is become a FireFighter, and
+ do some actual good, not just killing people that my
+ Master happens to dislike on that particular week.
+
+ The uniform's nice, too."
+ 
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="attacked"]
+[image="f16v.pcx"]
+[set true]
+
+"I don't like killing people, but I will if you do that
+ again."
+
+[nextpage="exit"]
+[endpage]

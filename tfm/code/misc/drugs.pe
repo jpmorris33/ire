@@ -1,0 +1,118 @@
+##############################################
+#                                            #
+#  Nice Trippies (with Smack Crack and Pot)  #
+#                                            #
+##############################################
+
+const MAX_TRIPTILE = 107
+
+##
+##	UNFREAK
+
+#	bring the player back down to earth
+
+function unfreak
+int l
+
+if_not_exists player
+	set_user_flag "stoned" = 0
+	set_darkness darkness
+	for l = 0 to MAX_TRIPTILE
+		scroll_tile_number l 0 0
+	next
+	return
+endif
+
+if player.user.user0 <= 0
+	set_user_flag "stoned" = 0
+	set_flag player IS_TRANSLUCENT = 0
+	stopfx player
+	set_darkness darkness
+	for l = 0 to MAX_TRIPTILE
+		reset_tile l
+	next
+endif
+
+end
+
+##
+##	FREAK
+##
+
+#	keep the player in a state of delirium after a member switch
+
+function freak
+int dark
+
+# Should we be here?
+
+if player.user.user0 < 1
+	return
+endif
+
+# Yes, time for some fun
+
+# Work out how dark we should be
+let dark = player.user.user0 * 2
+set_darkness dark
+
+let player.light = 1			# Nice healthy glow
+set_flag player IS_TRANSLUCENT = 1	# See-through
+set_user_flag "stoned" = 1		# Speech fragmented
+
+# Reduce the trip intensity and end it when it's over
+let player.user.user0 = player.user.user0 - 1
+
+if player.user.user0 = 0
+	call unfreak
+endif
+
+end
+
+##
+##	TAKE_DRUGS
+##
+
+#	the player takes a mild hallucinogen
+
+function take_drugs
+
+int ctr
+int rnd1
+int rnd2
+
+if player.user.user0 = 0
+	print "Ohh.. the drugs are really working!"
+	printcr
+endif
+
+add player.user.user0 + 50		# Set the length of the Trip
+overfx player does fx_orbitdrugs	# add the pretty lights
+
+for ctr = 0 to 9
+    scroll_tile_number ctr 1 0
+next
+
+scroll_tile "wood00" -2 1
+scroll_tile "tile00" 2 -1
+scroll_tile "wall_stone_h" 1 0
+scroll_tile "wall_stone_v" 0 1
+
+# Skip the odd bits of wall 13-19
+
+# mud goes diagonal
+
+for ctr = 21 to 85
+    scroll_tile_number ctr 1 -1
+next
+
+# everything else goes whichever way it fancies
+
+for ctr = 86 to MAX_TRIPTILE
+	random rnd1 between -4 4
+	random rnd2 between -4 4
+	scroll_tile_number ctr rnd1 rnd2
+next
+
+
+end

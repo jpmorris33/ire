@@ -1,0 +1,27 @@
+[page="start"]
+
+[]
+
+"Oh, humans!  How far you have come!
+ 
+ You have already achieved starflight.. we are so proud!"
+
+ 
+[endpage]
+
+
+[page="visited"]
+"Yes, last time we visited, many thousands of years ago.
+ Bit of a mess that was.  We announced ourselves openly to
+ the people; it always worked before.
+ 
+ But this time it messed up.  Started many myths in China,
+ not too bad.  But we came into conflict with the
+ followers of Ahura-Mazda.  That got real messy, we had
+ to abort our mission.
+ 
+ Never should have tried to contact so young a race."
+ 
+[endpage]
+
+

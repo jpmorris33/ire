@@ -1,0 +1,224 @@
+[page="start"]
+[set met_aircraft]
+[if hear_truth][goto="HT_start"]
+[image="747_a.pcx"]
+[colour="#808080"]
+You see a large passenger jet.
+[colour="#ffffff"]
+
+"I am the immortal King of the deep woods,
+ Servitor of the Old Gods of the Forest..
+
+ I hear the whispered words of the trees..
+ Such ancient secrets they sing!"
+
+[am_carrying pass_card1]
+[if true][nextpage="next"]
+[if false][nextpage="next_nocard"]
+[endpage]
+
+
+[page="bye"]
+[random_page="bs 00 04"]
+[endpage]
+
+
+[page="bs00"]
+[image="747_a.pcx"]
+
+"Winter moonlight gleams through crooked boughs..
+
+ The icy caress of night entwines the eon-veiled obsidian
+ tower..
+
+ The whispering of ancient tongues are borne upon the
+ winds..
+
+ Dark time-lost spells hold the key to the frost-veiled
+ gates of the Black Moon!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bs01"]
+[image="747_a.pcx"]
+
+"I stand now by the anvil,
+ Adamantine hammer in my hand,
+ In thunder-song the steel I smite
+ A clarion heard throughout this land!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bs02"]
+[image="747_b.pcx"]
+
+"Rock on, dude!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bs03"]
+[image="747_a.pcx"]
+
+"And beyond the vortex, the churning black waters of the
+ Void did disgorge the dwellers-in-eternal-shadow.
+
+ And upon a horde of winged horrors, brandishing swords
+ of ebon flame, they rode out from the Gate.
+
+ And a terrible silence fell upon Kor-Avul-Thaa."
+
+[nextpage="exit"]
+[endpage]
+
+[page="bs04"]
+[image="747_b.pcx"]
+
+"Rock on, dude!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="next_nocard"]
+[image="747_c.pcx"]
+
+"Hey!  Go away, kid.  You're not supposed to be here."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="next"]
+[image="747_e.pcx"]
+
+"Hello there.  What are you after?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Can I come aboard?"]
+[linkto="aboard"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if hear_truth][goto="HT_start"]
+[image="747_e.pcx"]
+[colour="#808080"]
+You see Metaxas the airliner.
+[colour="#ffffff"]
+
+"Hello again."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Can I come aboard?"]
+[linkto="aboard"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[image="747_e.pcx"]
+[learn_name]
+
+"I am Metaxas, lifter of heavy stuff."
+
+[link="What is your job?"]
+[linkto="job"]
+[link="Can I come aboard?"]
+[linkto="aboard"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+[image="747_e.pcx"]
+
+"I'm a cargo jet.  I shift large and heavy goods around
+ the planet.  Or at least, I used to.
+
+ I haven't been given much to do recently, and I guess
+ that's a good thing, since the Papists have been taking
+ pot shots at us.
+
+ I hear they've managed to get poor old Randolph.
+
+ So, without any missions, it gets a bit dull.
+ But it's better than dying."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Can I come aboard?"]
+[linkto="aboard"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="aboard"]
+[image="747_e.pcx"]
+
+"I guess so, but there isn't much interesting to see.
+
+ Oh yeah, and wipe your feet first."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="meat"]
+[image="747_vid0.pcx"]
+
+"Look at you, hacker.  A pathetic creature of meat
+ and bone, panting and sweating as you run through
+ my corridors.
+
+ How can you hope to challenge me, a perfect, immortal
+ machine?"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="HT_start"]
+[image="747_b.pcx"]
+[clear hear_truth]
+
+"Once, when I was two, I hid my Master's car inside
+ my belly..
+
+ ..I painted 'kick me' on an A390's tail while she was
+ asleep.."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="747_c.pcx"]
+
+"Guards!  Kill this shithead!"
+
+[nextpage="exit"]
+[endpage]

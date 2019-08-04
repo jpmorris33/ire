@@ -1,0 +1,4 @@
+[page="start"]
+[backing="map-1.jpg"]
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,266 @@
+
+#####################################
+#                                   #
+#  Various magic-related functions  #
+#                                   #
+#####################################
+
+# This is just support stuff.  The spells are all in SPELLS.PE
+
+
+
+string spellname
+object spelltarget
+object spellbook
+int spell_level
+int spell_failed
+
+##
+##  Get target
+##
+
+function get_spell_range
+private
+
+# Find the spell's target
+if me = player
+
+	print "Cast "
+	print spellname
+	print " on "
+	redraw_text
+
+	let current = player
+	call get_far
+
+	if_not_exist current
+		print "nothing."
+		printcr
+		let spelltarget = null
+		return
+	else
+		let spelltarget = current
+		print_bestname spelltarget
+		print "."
+		printcr
+	endif
+else
+	let spelltarget = me.target
+endif
+
+# Is it decorative?
+
+if_flag spelltarget IS_DECOR
+	let spelltarget = null
+	return
+endif
+
+end
+
+##
+##  Create Food - set CURRENT to the new object created
+##
+
+function create_food
+integer rnd
+string foodtype
+
+do
+	random rnd between 0 15
+	get_data foodtype where "createfood" = rnd
+while err <> 0
+
+create current = foodtype
+end
+
+
+
+##
+##  Check you are powerful enough to cast this spell
+##
+
+function spell_check
+private
+int md
+
+# Assume success
+let spell_failed = 0
+
+# Is the magic system enabled?
+get_user_flag md = "magic_disabled"
+if md <> 0
+	if me = player
+		print "Error: magicserver not responding"
+		printcr
+	endif
+	play_sound "spellfailed"
+	let spell_failed = 1
+	return
+endif
+
+
+# Check we are high enough to do this
+if me.stats.level < spell_level
+	if me = player
+		print "You don't have that level of ability yet."
+		printcr
+	endif
+	play_sound "spellfailed"
+	let spell_failed = 1
+	return
+endif
+
+/*
+# Check we have the spell points
+if player.user.magic < spell_level
+	print "Not enough magic points."
+#	print player.user.magic
+#	print "/"
+#	print spell_level
+	printcr
+	play_sound "spellfailed"
+	let spell_failed = 1
+	return
+endif
+
+# Subtract the spell points
+#add player.user.magic - spell_level
+*/
+
+# If an NPC, stop checking here
+
+if me <> player
+	return
+endif
+
+# Take a todestone
+
+take 1 "toadstone" from me
+if err <> 0
+	if me = player
+		print "You need a crystal focus to cast spells."
+		printcr
+	endif
+	let spell_failed = 1
+	return
+endif
+
+end
+
+
+##
+##  Refresh player magic points
+##
+
+function playermagic_refresh
+int maxmagic
+int ctr
+object pl
+
+# Refresh all party members
+
+for ctr = 1 to MAX_MEMBERS
+	if_exists party[ctr]
+		let pl = party[ctr]
+
+		# Make sure it is right
+		if pl.stats.hp > 0
+
+			# Calculate maximum level
+			let maxmagic = pl.stats.intel * pl.stats.level
+
+			# Increase points and clip
+			add pl.user.magic + pl.stats.intel
+			if pl.user.magic > maxmagic
+				let pl.user.magic = maxmagic
+			endif
+		endif
+	endif
+next ctr
+
+end
+
+
+##
+##  Initialise player magic
+##
+
+function playermagic_start
+int lflag
+
+# Have we already done this?
+get_local lflag = player "magic_on"
+if lflag = 1
+	return
+endif
+
+# Initialise magic level
+let player.user.magic = player.stats.intel * player.stats.level
+
+# Mark it done for this character
+set_local player "magic_on" = 1
+
+# Activate the default spells in this spellbook
+set_local current "spell_awaken" = 1
+set_local current "spell_help" = 1
+
+end
+
+
+##
+##  Get Spellbook for learning magic
+##
+
+function player_getspellbook
+
+let spellbook = null
+
+# Have we been given it already?
+
+if current is called "spellbook"
+	let spellbook = current
+	return
+endif
+
+# Look for a wielded spellbook as a priority
+
+if player.wield.l_hand is called "spellbook"
+	let spellbook = player.wield.l_hand
+	return
+endif
+
+if player.wield.r_hand is called "spellbook"
+	let spellbook = player.wield.r_hand
+	return
+endif
+
+# No joy, look for one anywhere and hope it's the right one
+
+search_inside player calling player_getspellbook_hook
+end
+
+# Private helper function
+
+function player_getspellbook_hook
+private
+if current is called "spellbook"
+	let spellbook = current
+endif
+end
+
+
+##
+##  A spell has failed
+##
+
+function spell_failed
+
+# Tell the player it went wrong
+if me = player
+	print "Failed!"
+	printcr
+endif
+object_sound "spellfailed" me
+
+end
+

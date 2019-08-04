@@ -1,0 +1,13 @@
+[page="start"]
+[backing="paper.pcx"]
+[colour="#705030"]
+
+     Zen and the Art of Motorcycle Maintainance
+                   by Robert M Pirsig
+
+
+ [ This book attempts to define what quality is and
+  how it can be measured.]
+
+[nextpage="exit"]
+[endpage]

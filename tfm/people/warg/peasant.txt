@@ -1,0 +1,103 @@
+
+Peasant farmer (tinish peasant farmers after Steel's fall)
+
+
+[page="start"]
+[call="check_collar"]
+[if true][goto="start1"]
+[goto="no_collar"]
+[endpage]
+
+
+[page="start1"]
+[colour="#808080"]
+You see a large wolf-like creature, looking at you with
+an air of tension.
+[colour="#ffffff"]
+
+"Well met, human.  What brings you to these parts?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What is your trade?"]
+[linkto="job"]
+[link="I come seeking ???"]
+[linkto="???"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+
+"I am Snow-paw, the threadmaster.  I provide thread to
+ the weavers.
+
+ My family has been in this trade for many generations
+ and we have refined the techniques of threadmaking over
+ this time.
+
+ We can supply anything from the thinnest fibre, to the
+ strongest ropes for boats and building."
+
+[link="Tell me about your work."]
+[linkto="job"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"Our thread is made from the bark of the Yrmwat bush,
+ the plants that grow on my farmland.
+ 
+ When they are ripe, we gather the harvest, and strip
+ the bark off so it can be spun into thread."
+
+[link="Tell me about the bushes."]
+[linkto="yrmwat"]
+[link="How do you strip off the bark?"]
+[linkto="strip"]
+[link="How do you spin the threads?"]
+[linkto="spin"]
+[link="I would like to buy some thread."]
+[linkto="buythread"]
+[always]
+[link="I would like to buy some rope."]
+[linkto="buyrope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare well in your travels."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="no_collar"]
+[colour="#808080"]
+You see a wolf-like creature.  He gives a great yell and
+bounds away.
+[colour="#ffffff"]
+
+"Aaaahhh!"
+
+[on_exit_call="flee_home"]
+[nextpage="exit"]
+[endpage]

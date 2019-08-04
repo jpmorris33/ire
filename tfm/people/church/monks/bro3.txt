@@ -1,0 +1,217 @@
+
+Doras the Scribe
+
+
+
+[page="start"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+
+"Yes, my son?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0900-1000][goto="inchurch"]
+[iftime 1400-1500][goto="inchurch"]
+[iftime 1930-2000][goto="inchurch"]
+[colour="#808080"]
+You see $NAME, the scribe.
+[colour="#ffffff"]
+
+"Yes, my son?"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+
+"Pray do not disturb this holy service!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am $NAME, a scribe.. one of the copyists of the
+ library."
+
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="What do you do?"]
+[linkto="job"]
+[endpage]
+
+
+[page="job"]
+
+"I am a copyist of the Abbey library.
+ I copy the text of works from our library so that
+ visitors may take away a copy of the work if they
+ wish it.
+
+ Such copies obviously take a long time, and must be
+ arranged in advance or sent to their buyer afterwards.
+
+ In my spare time, I study the paradox of the duality
+ of Christ.  I am writing a treatise on this topic."
+
+[link="Tell me about the copying process."]
+[linkto="copying"]
+[link="Tell me about the duality of Christ."]
+[linkto="christ"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="christ"]
+
+"Our Saviour took the form of a man, but as the
+ Son of God, great powers of the LORD were bestowed
+ upon him, and it is by such means that he performed
+ the slaying of the swine, the fig-tree, and the
+ destruction of the Temple as described in the book
+ of Darthinia.
+
+ There has always been debate as to whether Jesus
+ was a man, or a god, or something in between."
+
+[link="Why don't you ask God or Jesus?"]
+[linkto="christ2"]
+[link="Tell me about the destruction of the Temple."]
+[linkto="christ3"]
+[link="Tell me about the copying of works."]
+[linkto="copying"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="christ2"]
+
+"The LORD moves in mysterious ways.  He told us that we
+ had to decide for ourselves, and then remained silent.
+
+ When I prayed to the crucifix for enlightenment, the
+ Icon of our Saviour Crucified told me that the matter
+ was personal and reminded me of the eighth deadly sin
+ of Inquiry."
+
+[link="Tell me about the destruction of the Temple."]
+[linkto="christ3"]
+[link="Tell me about the copying of works."]
+[linkto="copying"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="christ3"]
+
+"It is in the apocryphal writings.  I have a copy of the
+ book of Darthinia in my cell, if you wish to read it.
+
+ It tells of the means by which the Lord cleansed the
+ temple of sinners.  It truly was an awesome event."
+
+[link="Tell me about the copying of works."]
+[linkto="copying"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="copying"]
+
+"I simply copy the text a line at a time.
+ When I have finished each page, it is handed to
+ the Illuminators for the next stage."
+
+[link="Tell me about the duality of Christ."]
+[linkto="christ"]
+[link="Tell me about the library"]
+[linkto="library_books"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books"]
+
+"The library is our Abbey's collection of tomes and
+ scrolls.  It contains many thousands of works,
+ making it one of the wonders of the world!
+
+ Pilgrims come from all around to see the texts from
+ our library, and buy copies which can be made for
+ them during their stay.
+
+ If you desire a text, ask the librarian or his
+ assistant.  They should be able to help you."
+
+[link="Can I see the library?"]
+[linkto="library_books2"]
+[link="Tell me about the copying process."]
+[linkto="copying"]
+[link="Tell me about the duality of Christ."]
+[linkto="christ"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="library_books2"]
+
+"I fear not.  For the more times a text is handled,
+ the shorter it will survive.
+
+ Also, there are texts among the collections of the
+ library that are unholy.  You see, there are some things
+ that mankind is not meant to know.. at least, not all of
+ mankind.  Were such secrets known by others than those
+ whom the LORD has chosen for such knowledge, the Trinity
+ would be angered and many men would be cleansed.
+
+ For these reasons, the Librarian and certain other
+ acolytes are allowed to enter the library itself, but no
+ others are.  You may ask the librarian for a book if you
+ desire to read something."
+
+[link="Tell me about the copying process."]
+[linkto="copying"]
+[link="Tell me about the duality of Christ."]
+[linkto="christ"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"May the Holy Trinity bless you, my Son."
+
+[nextpage="exit"]
+[endpage]

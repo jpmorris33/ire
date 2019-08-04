@@ -1,0 +1,1277 @@
+######################################################
+#                                                    #
+#  Player code : the person currently under control  #
+#                                                    #
+######################################################
+
+local
+int bx
+int by
+endlocal
+
+
+##
+## Action
+##
+
+function player_action
+
+int weight
+int weight2
+int maxweight
+int x
+int y
+object oldcur
+object phone
+
+label rerun
+
+# First deal with the cardinal directions
+
+let x = player.x
+let y = player.y
+
+if key = KEY_MOUSE
+
+	if mouseclick = KEY_U
+		button_push KEY_U = 1
+		let key = KEY_U
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_G
+		button_push KEY_G = 1
+		let key = KEY_G
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_D
+		button_push KEY_D = 1
+		let key = KEY_D
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_A
+		button_push KEY_A = 1
+		let key = KEY_A
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_T
+		button_push KEY_T = 1
+		let key = KEY_T
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_L
+		button_push KEY_L = 1
+		let key = KEY_L
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_M
+		button_push KEY_M = 1
+		let key = KEY_M
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_C
+		button_push KEY_C = 1
+		let key = KEY_C
+		let mouseclick = -1
+	endif
+
+
+	# Movement
+
+	if mouseclick = KEY_HOME
+		let key = KEY_HOME
+		let mouseclick = -1
+	endif
+	if mouseclick = KEY_UP
+		let key = KEY_UP
+		let mouseclick = -1
+	endif
+	if mouseclick = KEY_PGUP
+		let key = KEY_PGUP
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_LEFT
+		let key = KEY_LEFT
+		let mouseclick = -1
+	endif
+	if mouseclick = KEY_RIGHT
+		let key = KEY_RIGHT
+		let mouseclick = -1
+	endif
+
+	if mouseclick = KEY_END
+		let key = KEY_END
+		let mouseclick = -1
+	endif
+	if mouseclick = KEY_DOWN
+		let key = KEY_DOWN
+		let mouseclick = -1
+	endif
+	if mouseclick = KEY_PGDN
+		let key = KEY_PGDN
+		let mouseclick = -1
+	endif
+
+	# If clicked on inventory, wield or use something
+	if mouseclick = INVENTORY
+		let mouseclick = -1
+
+		let curtile = null
+		let current = null
+		call MouseWield
+
+		# The user's just playing with the inventory, give them
+		# another turn
+		if key = -1
+			get_key
+			goto rerun
+		endif
+		let key = 0
+		return
+	endif
+
+	# If clicked on inventory arrow?
+	if mouseclick = INV_ARROW_U
+		let cursor_y = -1
+		call status			# Redraw status area
+		let mouseclick = -1
+	endif
+	if mouseclick = INV_ARROW_D
+		let cursor_y = 4
+		call status			# Redraw status area
+		let mouseclick = -1
+	endif
+
+	# Try the wield window?
+	call wield_getmouse
+	if_exists wield_obj
+		let wield_cont = player
+		call unwield
+		# just using inventory, give them another turn
+		get_key
+		goto rerun
+	endif
+
+endif
+
+if key = KEY_UP
+	if_key KEY_LEFT
+		let x = x - 1	
+	endif
+	if_key KEY_RIGHT
+		let x = x + 1
+	endif
+	let y = y - 1
+	set_direction player to UP
+	move_object player to x y
+	let key = 0
+endif
+
+if key = KEY_DOWN
+	if_key KEY_LEFT
+		let x = x - 1	
+	endif
+	if_key KEY_RIGHT
+		let x = x + 1
+	endif
+	let y = y + 1
+	set_direction player to DOWN
+	move_object player to x y
+	let key = 0
+endif
+
+if key = KEY_LEFT
+	if_key KEY_UP
+		let y = y - 1	
+	endif
+	if_key KEY_DOWN
+		let y = y + 1
+	endif
+	let x = x - 1
+	set_direction player to LEFT
+	move_object player to x y
+	let key = 0
+endif
+
+if key = KEY_RIGHT
+	if_key KEY_UP
+		let y = y - 1	
+	endif
+	if_key KEY_DOWN
+		let y = y + 1
+	endif
+	let x = x + 1
+	set_direction player to RIGHT
+	move_object player to x y
+	let key = 0
+endif
+
+# Now the diagonals
+
+if key = KEY_HOME
+	let x = x - 1
+	let y = y - 1
+	set_direction player to LEFT
+	move_object player to x y
+	let key = 0
+endif
+
+if key = KEY_END
+	let x = x - 1
+	let y = y + 1
+	set_direction player to LEFT
+	move_object player to x y
+	let key = 0
+endif
+
+if key = KEY_PGUP
+	let x = x + 1
+	let y = y - 1
+	set_direction player to RIGHT
+	move_object player to x y
+	let key = 0
+endif
+
+if key = KEY_PGDN
+	let x = x + 1
+	let y = y + 1
+	set_direction player to RIGHT
+	move_object player to x y
+	let key = 0
+endif
+
+# Attack
+
+if key = KEY_A
+	printcr
+	call attack
+	button_push KEY_A = 0 # Clear button
+endif
+
+# Cast
+
+if key = KEY_C
+	if_exists player.wield.l_hand
+		if player.wield.l_hand is called "spellbook"
+			flush_mouse NONBLOCKING
+			call use_spellbook
+			goto finishcast
+		endif
+	endif
+	if_exists player.wield.r_hand
+		if player.wield.r_hand is called "spellbook"
+			flush_mouse NONBLOCKING
+			call use_spellbook
+			goto finishcast
+		endif
+	endif
+
+	print msg_NoSpellbook
+	printcr
+
+	label finishcast
+	button_push KEY_C = 0 # Clear button
+endif
+
+# Journal
+
+if key = KEY_J
+	find phone = "mobile" inside player
+	if_exists phone
+		call phone.funcs.use
+	else
+		print msg_NoPhone
+		printcr
+	endif
+	button_push KEY_C = 0 # Clear button
+endif
+
+
+# Get an object
+
+if key = KEY_G
+	printcr
+	print "Get "
+	redraw_text
+
+	let current = player
+	call get_near
+
+	if_not_exist curtile
+		let current = NULL
+	endif
+
+	if_exist current
+		print current.shortdesc
+		print "."
+		printcr
+		redraw_text
+
+		if current.stats.weight < 0
+			print msg_CannotPickThat
+			printcr
+		else
+			get_weight weight = player
+			get_weight weight2 = current
+			add weight + weight2
+			add weight - player.stats.weight # Cancel out player's weight
+
+			# Work out maximum you can carry
+			let maxweight = player.stats.str * player.stats.level
+
+			# Perform checks first
+
+			if_flag current IS_PERSON
+				call carry_person
+			else
+				if weight > maxweight
+					print msg_CarryingTooMuch
+					printcr
+				else
+					# Stealing?
+					let victim = current
+					let suspect = player
+					if current.funcs.gcache > 0
+						call current.funcs.get
+					endif
+					call justice_theft
+					move_to_pocket current to player
+					let current.stats.owner = player
+				endif
+			endif
+		endif
+	else
+		print "nothing."
+		printcr
+		redraw_text
+	endif
+
+	button_push KEY_G = 0 # Clear button
+
+	let key = 0
+endif
+
+
+# Drop an object
+
+if key = KEY_D
+	printcr
+	print "Drop "
+	redraw_text
+
+	if show_cursor = 0
+		let current = player
+		call choose_object
+	endif
+
+
+	if_exists current
+		print current.shortdesc
+		printcr
+
+		# Ask the user how much of the pile to throw, as applicable
+		# If the user aborts, current is set to NULL
+		# If they didn't, the object is now perched on the player's head
+
+		call do_divide
+
+		# Did they press ESC? (no)
+		if_exists current
+			print "Drop it "
+			redraw_text
+			# Hide the object
+			set_flag current IS_INVISIBLE = 1
+			# Store the object, before we lose it
+			let victim = current
+
+			let current = player
+			# Find out where it goes
+
+			call get_far
+
+			let current = victim # Get it back
+
+			# did they press ESC now?
+
+			if new_x = 0
+				if new_y = 0
+					print "nowhere"
+					printcr
+					set_flag current IS_INVISIBLE = 0
+					move_to_pocket current to current_bag
+					let current = null
+				endif
+			endif
+
+			# Did they drop it on their own thick skull?
+
+			if new_x = player.x
+				if new_y = player.y
+					print "blocked"
+					printcr
+					set_flag current IS_INVISIBLE = 0
+					move_to_pocket current to current_bag
+					let current = null
+				endif
+			endif
+
+			# Is it a gold bar? (replace with if_dropped in 0.8)
+/*
+			if_exists current
+				if current is called "gold_bar"
+					set_flag current IS_INVISIBLE = 0
+					call gold_bar_count
+					if cancel = 1
+						print "blocked.. pile too big"
+						printcr
+						move_to_pocket current to current_bag
+						let current = null
+					endif
+				endif
+			endif
+*/
+			# Are we cleared to drop it?
+
+			if_exists current
+				# Say where it's going
+				call drop_where
+
+				# Start from the player's head (panther etc)
+				let oldcur = current
+				let current = me
+				call get_head
+				let current = oldcur
+				transfer_object current to getposx getposy
+
+				# Make it visible again
+				set_flag current IS_INVISIBLE = 0
+				call do_drop
+				if drop_ok <> 0
+					let wield_obj = current
+					let wield_cont = current_bag
+					call unwield 
+				endif
+
+				# Sort gold pile again
+				if current is called "gold_bar"
+					call gold_bar_count
+				endif
+
+				# See if it breaks
+				check_hurt victim
+
+			endif
+		else
+			print msg_Cancelled
+			printcr
+		endif
+	else
+		print msg_Cancelled
+		printcr
+	endif
+
+	let key = 0
+	button_push KEY_D = 0 # Clear button
+endif
+
+
+# Move object
+
+if key = KEY_M
+	printcr
+	print "move "
+	redraw_text
+
+	let current = player
+	call get_near
+
+	if_exists current
+		print current.shortdesc
+		if_flag current IS_FIXED
+		and current.parent = null	# was current.pocket
+			print "."
+			printcr
+			print msg_CannotMoveThat
+			printcr
+		else
+			print " to "
+			redraw_text
+			flush_mouse NONBLOCKING
+			call do_move	# This also moves the object
+		endif
+	else
+		print "nothing."
+		printcr
+	endif
+	let key = 0
+	button_push KEY_M = 0 # Clear button
+endif
+
+call input
+
+# Object selector
+
+if key = KEY_TAB
+	let current_bag = player
+	call browse_pockets
+endif
+
+end
+
+#
+#
+#
+#
+#
+
+##
+## Action
+##
+
+function boat_action
+
+constant SPEED = 1
+
+# First deal with the cardinal directions
+
+let bx = player.x
+let by = player.y
+
+if key = KEY_UP
+	add by - SPEED
+	set_direction player to UP
+	call do_boat
+endif
+
+if key = KEY_DOWN
+	add by + SPEED
+	set_direction player to DOWN
+	call do_boat
+endif
+
+if key = KEY_LEFT
+	add bx - SPEED
+	set_direction player to LEFT
+	call do_boat
+endif
+
+if key = KEY_RIGHT
+	add bx + SPEED
+	set_direction player to RIGHT
+	call do_boat
+endif
+
+# Now the diagonals
+
+if key = KEY_HOME
+	add bx - SPEED
+	add by - SPEED
+	set_direction player to LEFT
+	call do_boat
+endif
+
+if key = KEY_END
+	add bx - SPEED
+	add by + SPEED
+	set_direction player to LEFT
+	call do_boat
+endif
+
+if key = KEY_PGUP
+	add bx + SPEED
+	add by - SPEED
+	set_direction player to RIGHT
+	call do_boat
+endif
+
+if key = KEY_PGDN
+	add bx + SPEED
+	add by + SPEED
+	set_direction player to RIGHT
+	call do_boat
+endif
+
+call input
+
+# Object selector
+
+if key = KEY_TAB
+	let current_bag = player
+	call browse_pockets
+endif
+
+end
+
+
+#
+#
+#
+#
+
+
+local
+
+##
+##	Move the boat
+##
+
+function do_boat
+tile dest
+
+get_tile dest from bx by
+if_flag dest IS_WATER
+	move_object player to bx by
+else
+	print "blocked"
+	printcr
+endif
+
+let key = 0
+
+end
+
+##
+##	Split a pile of items
+##
+
+function do_divide
+
+integer  sum
+integer req
+object n
+
+let sum = current.stats.quantity
+
+# If it's just one object, don't bother asking
+
+if sum < 2
+	force_from_pocket current from current_bag to player.x player.y
+	return
+endif
+
+# Okay, so there's lots of them.  Ask the user how many.
+
+print "Drop how many? (1-"
+print current.stats.quantity
+print ")"
+printcr
+
+let req = sum
+input req
+
+# Did the user abort?
+
+if req < 1
+	print "cancelled."
+	printcr
+	let current = null
+	return
+endif
+
+# Are we transferring the whole lot
+
+if req >= sum
+	force_from_pocket current from current_bag to player.x player.y
+	return
+endif
+
+# Create a copy of the pile
+create n = current.name
+
+# Set it to the requested amount
+let n.stats.quantity = req
+
+# Subtract the requested sum from the original pile
+add current.stats.quantity - req
+update_quantity n
+
+# If the original is now empty, destroy it
+if current.stats.quantity < 1
+	destroy current
+endif
+
+let current = n
+
+# Finally, move the pile to the player so it can be thrown.
+
+transfer_object current to player.x player.y
+
+end
+
+endlocal
+
+
+
+##
+##	say_watchit - If you push someone, make them complain
+##
+
+/*
+void say_watchit()
+{
+int a;
+a = rnd(5);
+
+switch(a)
+	{
+	case 0:
+	printf("\"Hey!\"\n");
+	break;
+
+	case 1:
+	printf("\"Oi!\"\n");
+	break;
+
+	case 2:
+	printf("\"Watch it!\"\n");
+	break;
+
+	case 3:
+	printf("\"Who are you pushing?\"\n");
+	break;
+
+	case 4:
+	printf("\"Oof!\"\n");
+	break;
+	}
+
+}
+*/
+
+##
+## Hurt
+##
+
+function player_hurt
+
+# Say 'uh!'
+
+object_sound "uh!" current
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+end
+
+##
+## Dies
+##
+
+function player_dies
+
+if current.stats.hp > -9000
+	change current = "deadplayer"
+	object_sound "man_dying" current
+else
+	# Embrace annihilation
+	change current = "ash"
+endif
+
+# Leave some blood so the player can see where they died
+let new_x = current.x
+let new_y = current.y
+call make_blood
+
+# Switch off any drugs
+call unfreak
+
+# Deduct karma from the murderer
+if_exists current.enemy
+	add current.enemy.stats.karma - 20
+endif
+
+end
+
+##
+## Destroy the player
+##
+
+function player_killme
+
+let player.stats.hp = -1
+check_hurt player
+
+end
+
+
+##
+## Slap the player
+##
+
+function slap_person
+
+add me.stats.hp - 5
+check_hurt me
+
+end
+
+##
+## Shock the monkey
+##
+
+function shock_person
+
+lightning 3
+add me.stats.hp - 50
+check_hurt me
+
+end
+
+
+
+#
+#	do-move needs to have the following properties
+#
+#	1. Get a direction or point to a party member
+#	2. Can only select containers inside pockets (what does U6 do?)
+#	3. Preserves 'current'
+#	4. Prints the direction after the keypress (or Aborted, or NPC name
+#	   or description of container.
+#	5. If a container or NPC is chosen move the object into it
+#	   otherwise move the object in the specified direction
+#
+
+function do_move
+
+int x1
+int y1
+int x
+int y
+int good_key
+#int old_state
+object oldcurrent
+
+# Initialise variables
+
+let oldcurrent = current
+let x1 = current.x
+let y1 = current.y
+let x = x1
+let y = y1
+
+let good_key = 0
+
+# Disable cursor
+#let oldcursor = show_cursor
+#let show_cursor = 0
+
+call status		# Update the status area
+
+let current = null
+
+# Create the cursor and move it into position
+
+call show_dircursor
+transfer_object directioncursor to x y
+
+redraw_map
+
+do
+	get_key
+
+	# If we're quitting, cancel the selection
+
+	if key = KEY_ESC
+		let current = oldcurrent
+		call hide_dircursor
+		let key = 0
+		print "nowhere."
+		printcr
+		return
+	endif
+
+	# Wait for the direction key to be pressed
+
+	if key = KEY_UP
+		let y = y - 1
+		let good_key = 1
+		print "North"
+		printcr
+	endif
+
+	if key = KEY_DOWN
+		let y = y + 1
+		let good_key = 1
+		print "South"
+		printcr
+	endif
+
+	if key = KEY_LEFT
+		let x = x - 1
+		let good_key = 1
+		print "West"
+		printcr
+	endif
+
+	if key = KEY_RIGHT
+		let x = x + 1
+		let good_key = 1
+		print "East"
+		printcr
+	endif
+
+	# Check diagonals
+
+	if key = KEY_PGUP
+		let y = y - 1
+		let x = x + 1
+		let good_key = 1
+		print "Northeast"
+		printcr
+	endif
+
+	if key = KEY_PGDN
+		let y = y + 1
+		let x = x + 1
+		let good_key = 1
+		print "Southeast"
+		printcr
+	endif
+
+	if key = KEY_HOME
+		let y = y - 1
+		let x = x - 1
+		let good_key = 1
+		print "Northwest"
+		printcr
+	endif
+
+	if key = KEY_END
+		let y = y + 1
+		let x = x - 1
+		let good_key = 1
+		print "Southwest"
+		printcr
+	endif
+
+	# Check the mouse
+
+	if key = KEY_MOUSE
+		# Clicked on the game window?
+		if mouseclick = 0
+			# get the chosen square and convert to player vector
+			let x = mousemap_x - x1
+			let y = mousemap_y - y1
+
+			flush_mouse NONBLOCKING
+
+			# Clip to within reach
+			if x > 0
+				let x = 1
+			endif
+			if x < 0
+				let x = -1
+			endif
+			if y > 0
+				let y = 1
+			endif
+			if y < 0
+				let y = -1
+			endif
+
+			# Now print the direction
+			if y < 0
+				if x < 0
+					print "Northwest"
+				endif
+				if x = 0
+					print "North"
+				endif
+				if x > 0
+					print "Northeast"
+				endif
+			endif
+
+			if y = 0
+				if x < 0
+					print "West"
+				endif
+				if x = 0
+					print "nowhere"
+				endif
+				if x > 0
+					print "East"
+				endif
+			endif
+
+			if y > 0
+				if x < 0
+					print "Southwest"
+				endif
+				if x = 0
+					print "South"
+				endif
+				if x > 0
+					print "Southeast"
+				endif
+			endif
+			printcr
+
+			# Add vector to origin again
+			let x = x1 + x
+			let y = y1 + y
+
+			# Go
+			let good_key = 1
+		endif
+	endif
+
+	# Check for other keys
+
+	if key = KEY_ENTER		# Enter is cancel for this one
+		call hide_dircursor
+		let key = 0
+		let current = oldcurrent
+		print "nowhere."
+		printcr
+		return
+	endif
+
+	# If they press TAB, go to the object browser
+
+	if key = KEY_TAB
+		call hide_dircursor
+		call choose_object
+
+		# If they pressed ESC, current is null.  Goodkey is still 0
+		# so the loop continues.  Otherwise, leave
+
+		# If player is trying to move object 'up'
+		if cancel = CANCEL_BACK
+
+			print "out of container."
+			printcr
+
+			let current = oldcurrent.parent.parent
+			let key = 0
+			move_to_pocket oldcurrent to current
+			let current = oldcurrent
+			return		
+		endif
+
+		if_exists current
+
+			print current.shortdesc
+			printcr
+			if_flag current IS_CONTAINER
+				let key = 0
+				move_to_pocket oldcurrent to current
+				let current = oldcurrent
+				return		
+			else
+				print "Not a container."
+				printcr
+				let current = oldcurrent
+				let key = 0
+				return
+			endif
+		endif
+		call show_dircursor
+	endif
+
+while good_key = 0
+
+push_object oldcurrent to x y
+if err <> 0
+	print "Blocked."
+	printcr
+endif
+
+let key = 0
+
+# Ok, put the cursor back in it's box
+
+call hide_dircursor
+
+let current = oldcurrent
+
+end
+
+
+##
+## Car Action
+##
+
+function car_action
+
+constant CARSPEED = 2
+
+# First deal with the cardinal directions
+
+let bx = player.x
+let by = player.y
+
+if key = KEY_UP
+	add by - CARSPEED
+	set_direction player to UP
+	move_object player to bx by
+	let key = 0
+endif
+
+if key = KEY_DOWN
+	add by + CARSPEED
+	set_direction player to DOWN
+	move_object player to bx by
+	let key = 0
+endif
+
+if key = KEY_LEFT
+	add bx - CARSPEED
+	set_direction player to LEFT
+	move_object player to bx by
+	let key = 0
+endif
+
+if key = KEY_RIGHT
+	add bx + CARSPEED
+	set_direction player to RIGHT
+	move_object player to bx by
+	let key = 0
+endif
+
+# Now the diagonals
+
+if key = KEY_HOME
+	add bx - CARSPEED
+	add by - CARSPEED
+	set_direction player to LEFT
+	move_object player to bx by
+	let key = 0
+endif
+
+if key = KEY_END
+	add bx - CARSPEED
+	add by + CARSPEED
+	set_direction player to LEFT
+	move_object player to bx by
+	let key = 0
+endif
+
+if key = KEY_PGUP
+	add bx + CARSPEED
+	add by - CARSPEED
+	set_direction player to RIGHT
+	move_object player to bx by
+	let key = 0
+endif
+
+if key = KEY_PGDN
+	add bx + CARSPEED
+	add by + CARSPEED
+	set_direction player to RIGHT
+	move_object player to bx by
+	let key = 0
+endif
+
+call input
+
+# Object selector
+
+if key = KEY_TAB
+	let current_bag = player
+	call browse_pockets
+	let key = 0
+endif
+
+end
+
+
+#
+#
+#
+#
+
+function check_playerisfirst
+object test
+object hero
+integer ctr
+
+let test = party[1]
+if_flag test IS_HERO
+	# Fine
+	return
+endif
+
+# Okay, the player is NOT first in line.  Sort this out.
+
+for ctr = 1 to MAX_MEMBERS
+	let hero = party[ctr]
+	if_flag hero IS_HERO
+		# Found him
+		let party[1] = hero
+		let party[ctr] = test
+		# Force him to be the leader
+		set_leader hero player_action follower_action
+		return
+	endif
+next count
+
+end
+
+
+function drop_where
+object target
+
+if_visible new_x new_y
+
+	get_object target at new_x new_y
+	if_exists target
+		print "on "
+		print_bestname target
+		printcr
+		return
+	endif
+
+	# No object, work out relative direction
+
+	if new_y < player.y
+		if new_x < player.x
+			print "Northwest"
+		endif
+		if new_x = player.x
+			print "North"
+		endif
+		if new_x > player.x
+			print "Northeast"
+		endif
+	endif
+
+	if new_y = player.y
+		if new_x < player.x
+			print "West"
+		endif
+		if new_x = player.x
+			print "nowhere"
+		endif
+		if new_x > player.x
+			print "East"
+		endif
+	endif
+
+	if new_y > player.y
+		if new_x < player.x
+			print "Southwest"
+		endif
+		if new_x = player.x
+			print "South"
+		endif
+		if new_x > player.x
+			print "Southeast"
+		endif
+	endif
+	printcr
+else
+	print "into darkness"
+	printcr
+endif
+
+end

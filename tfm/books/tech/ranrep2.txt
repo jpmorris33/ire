@@ -1,0 +1,63 @@
+
+[page="start"]
+[backing="paper2.pcx"]
+[font 2]
+
+          Status Report 91
+
+ Austin, Randolph and Metaxas have been
+ analysing the message received from the
+ unknown persons referred to hereon as the
+ 'saurians'.  Fisher and I have been assisting.
+
+ As you know, we have managed to break the
+ transmission into frames and decode them.
+ The audio data remains anomalous.  When
+ decoded as PCM and loaded into a wave analyser
+ we see a series of barks and glottal noises,
+ doubtless the creature's language.  When
+ directly injected into our audio circuits,
+ this is what we hear.
+
+ If the sound is played through a speaker,
+ however, we hear the English words below:
+
+  ON?  OH.  TESTING.. ONE TWO THREE..
+  UM, GREETINGS, FELLOW SENTIENTS.
+  WE WISH TO OFFER OUR..
+
+ ..at this point another voice says 'NAUGHTY!'
+ and the transmission breaks up.
+ 
+[nextpage="2"]
+[endpage]
+
+[page="2"]
+[backing="paper2.pcx"]
+[font 2]
+
+ As near as Fisher and I can establish,
+ something is intercepting the sound vibrations
+ in mid-air and translating them into English.
+
+ We do not know what is doing this, let alone
+ how.
+
+ It would appear that the transmission, which
+ was apparently blocked by the Papal forces in
+ the same way as our own broadcasts are being
+ jammed, was being made by another race
+ attempting to contact us, apparently in hopes
+ of forming an alliance.
+
+ It seems probable that the saurian creatures 
+ are off-worlders like ourselves, most likely
+ some kind of exploratory team left stranded
+ by the Pope in the same manner as us.
+
+ We did not manage to get a direction on the
+ transmission, so we can only wait for further
+ attempts to contact us.
+ 
+[nextpage="exit"]
+[endpage]

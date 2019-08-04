@@ -1,0 +1,360 @@
+
+Healer
+
+[page="start"]
+[call="check_collar"]
+[if false][goto="nocollar"]
+[goto="first"]
+[endpage]
+
+
+
+[page="first"]
+[if_know_name][colour="#808080"]
+[if_know_name]You see KindTongue the healer.
+[if_know_name][colour="#ffffff"]
+[if_know_name]
+
+"Welcome, O traveller.  I do not get many humans
+ enquiring after my services.
+
+ Do you seek healing?"
+
+[link="Yes."]
+[linkto="yes_heal"]
+[link="No."]
+[linkto="no_heal"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What services do you provide?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="name"]
+[learn_name]
+
+"I am KindTongue.  It is a traditional name for one who
+ shows aptitude for healing at an early age.
+
+ Traditionally we licked our wounds and waited for them
+ to heal, but The Betrayer taught us of hearbs and
+ potions that cause our wounds to heal more swiftly, and
+ cure poisons that we could not heal otherwise. 
+
+ He also taught us spells that are even more effective."
+
+[link="What kind of healing can you do?"]
+[linkto="job"]
+[link="I need healing"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+
+"I have an ensorcelled potion that heals most injuries,
+ or I can cure poisons as well.
+
+ But if you have the need, when the night is at its
+ darkest, and with the aid of skilled mages, I can 
+ sometimes raise the dead."
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="healing"]
+
+"My cost will be 7 gold monies, and as this is to pay
+ for the potions, I fear I cannot refund you if the
+ healing is not successful.
+
+ Do you still wish me to try and heal you?"
+
+[link="Yes."]
+[linkto="healing2"]
+[link="No."]
+[linkto="services"]
+[endpage]
+
+
+
+[page="healing2"]
+[call no_party]
+[if true][goto="yes_heal2"]
+
+"Who among you needs healing?"
+
+[choose_member "heal_member"]
+[goto="services"]
+[endpage]
+
+
+
+[page="yes_heal"]
+[colour="#808080"]
+The creature looks at you thoughtfully.
+[colour="#ffffff"]
+
+"I was afraid of that.  I do not have many dealings with
+ humans..  The ointments and potions I use upon my own
+ kind may not work well on men.
+ 
+ In fact, they might worsen your wounds, not cure them.
+ 
+ My cost will be 7 gold monies, and as this is to pay
+ for the potions, I fear I cannot refund you if the
+ healing is not successful.
+
+ Do you still wish me to try and heal you?"
+
+[link="Yes."]
+[linkto="yes_heal2"]
+[link="No."]
+[linkto="no_heal"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What services do you provide?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="yes_heal2"]
+[take 7 gold_coins]
+[if false][goto="nomoney"]
+[call heal_playerw]
+[if true][goto="yes_heal3"]
+
+"I have healed the wounds, but there may be some
+ side-effects.  There is much I do not know about the
+ healing of men."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="yes_heal3"]
+
+"I believe I have healed the wounds completely."
+ 
+[nextpage="services"]
+[endpage]
+
+
+
+[page="heal_member"]
+[take 7 gold_coins]
+[if false][goto="nomoney"]
+[call heal_member]
+[if true][goto="yes_heal3"]
+
+"I have healed the wounds, but there may be some
+ side-effects.  There is much I do not know about the
+ healing of men."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="curing"]
+
+"My cost will be 3 gold monies, and as this is to pay
+ for the hearbs, I fear I cannot refund you if the
+ healing is not successful.
+
+ Do you still wish me to try and cure you?"
+
+[link="Yes."]
+[linkto="curing2"]
+[link="No."]
+[linkto="services"]
+[endpage]
+
+
+
+[page="curing2"]
+[call no_party]
+[if true][goto="curing3"]
+
+"Who among you needs curing?"
+
+[choose_member "cure_member"]
+[goto="services"]
+[endpage]
+
+
+
+[page="curing3"]
+[take 3 gold_coins]
+[if false][goto="nomoney"]
+[call cure_player]
+
+"I have cured the poison."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="cure_member"]
+[take 3 gold_coins]
+[if false][goto="nomoney"]
+[call cure_member]
+[if true][goto="yes_heal3"]
+
+"I have healed the wounds, but there may be some
+ side-effects.  There is much I do not know about the
+ healing of men."
+
+[nextpage="services"]
+[endpage]
+
+
+
+[page="resurrection"]
+[call resurrection_findbody]
+[if true][goto="resurrection2"]
+
+"It is a most difficult thing to do.
+ My fee will be 300 gold pieces, and I will need to refer
+ to the ancient lore.
+
+ If you truly require this service, place the body of
+ your departed companion upon my bed, and ask me again
+ when you are ready for the service to be carried out.
+
+ If you require any other healing in the mean-time,
+ just ask me."
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="resurrection2"]
+[take 300 gold_coins]
+[if false][goto="nomoney"]
+[call resurrection_doit]
+
+[colour="#808080"]
+KindTongue smears an ointment upon the body and growls an
+incantation.  The room is filled with unearthly light.
+
+And the body breathes again!
+[colour="#ffffff"]
+
+"It is done.  Your companion is returned to the land of
+ the living.  I, however, am weary and must sleep now."
+
+[on_exit_call="I_must_sleep_now"]
+[nextpage="bye"]
+[endpage]
+
+
+
+[page="nomoney"]
+
+"I fear you have not the monies to afford that.
+ I am truly sorry.
+
+ Are you interested in any other service?"
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="No, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="no_heal"]
+
+"That is good to know.
+
+ So many wounded.. So many that I could not save.."
+
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What services do you provide?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="services"]
+
+"Have you further need for my services?"
+
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="No, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="nocollar"]
+[colour="#808080"]
+The creature backs away.
+[colour="#ffffff"]
+
+"Let me be, Servant of Aa'Ruuff..
+ I am but a healer!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Farewell, traveller."
+
+[nextpage="exit"]
+[endpage]

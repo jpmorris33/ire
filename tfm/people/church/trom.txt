@@ -1,0 +1,332 @@
+
+Cardinal Trom
+
+[esc="bye"]
+[page="start"]
+[iftime 0800-0900][goto="inchurch"]
+[learn_name]
+
+[colour="#808080"]
+ You see a very stern-looking Cardinal.
+[colour="#ffffff"]
+
+"Greetings, my $Son.  I am Cardinal Trom.
+
+ I hear by way of the Holy Spirit that you are sent among
+ us and go with the blessings of the LORD.
+
+ Yet merciful though the Trinity are, I confess I do not
+ trust you.
+ I shall watch you as hawks do, and if you prove false, I
+ shall strike you down with vengeance faster than the
+ LORD Himself could deliver.
+
+ Now.  What did you wish to speak with me about?"
+ 
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0800-0900][goto="inchurch"]
+[reset_links]
+
+[colour="#808080"]
+ Cardinal Trom looks at you suspiciously.
+[colour="#ffffff"]
+
+"Welcome back, my $Son.
+
+ What brings you before my presence?"
+
+[link="Do you believe all this crap about the Trinity?"]
+[linkto="trinity_cack"]
+[if know_aaruuff][link="Tell me about Aa'Ruuff."]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="trinity"]
+
+"The Trinity is the Father, the Son and the Holy Ghost..
+ everyone knows this."
+
+[if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]
+[if know_aaruuff][linkto="aaruuff"]
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+[colour="#808080"]
+ The Cardinal's already grim expression darkens as he
+ begins the Mass.  He points a finger accusingly at the
+ congregation, who begin to cower.
+[colour="#ffffff"]
+
+"Brothers, as you have now witnessed, the fate of Sodom
+ and Gomorrah has fallen upon the unrepentant.
+ The sinners who did dwell in the village of New Leuchars
+ have been put to justice by the Holy Trinity.
+
+ I know, and the LORD knows, that many here among you are
+ equally guilty of the heinous crimes that the men of
+ New Leuchars did perpetrate.
+
+ Many of you here do also deserve the slow and painful
+ death that has been meted out unto their earthly bodies
+ and which they endure still in Hell."
+
+[nextpage="inchurch2"]
+[endpage]
+
+
+[page="inchurch2"]
+
+"It would be just for the LORD Himself to appear and
+ claim that penalty upon you this very day, yet He has
+ decided in His wisdom and mercy to spare your worthless
+ lives in the hopes that the sight of His anger delivered
+ unto others may turn you back to the path of the
+ righteous and the just.
+
+ I personally do not understand this undue clemency for I
+ know that you are all heathen scum who deserve to burn
+ for your treacherous dealings with Daemons and witches.
+
+ But the LORD is our God, and He has commanded that your
+ lives be spared for now.  His will be done."
+
+[nextpage="inchurch3"]
+[endpage]
+
+
+[page="inchurch3"]
+
+"Be thankful that the LORD is merciful, and know that
+ your do souls teeter upon the brink of the abyss of
+ Hell itself!
+
+ A single mistake and you shall fall.. an eternity of
+ torment awaits all who would do deals with the foul
+ enemies of the LORD and His son Christ, and the
+ Holy Ghost.  Heed well these words!"
+
+[colour="#808080"]
+ The Cardinal pauses for a moment, allowing his words
+ to sink in.
+[colour="#ffffff"]
+
+"The Mass is ended.
+ Go, my children, and pray for your worthless souls."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="trinity_cack"]
+
+[colour="#808080"]
+The Cardinal looks mildly surprised, and snaps his
+fingers once.
+[colour="#ffffff"]
+
+[if_player_male]"Hang this man."
+[if_player_female]"Hang this woman."
+
+[call_at_exit="hang_player"]
+[nextpage="exit"]
+[endpage]
+
+
+
+The player has tried to kill the Cardinal
+
+[page="die"]
+[colour="#808080"]
+The Cardinal laughs horribly and points at you.
+[colour="#ffffff"]
+
+[at_exit_call="god_killplayer"]
+[nextpage="exit"]
+[endpage]
+
+
+Goodbye
+
+[page="bye"]
+
+"Farewell then, my $son, but remember.
+ I shall be watching you."
+
+[nextpage="exit"]
+[endpage]
+
+
+#############################
+
+We should have a check and cause Trom to explode if you
+talk to him with a Waarg party member present.
+If you have JMAC, and JMAC is provoked into speaking, you
+will be similarly damned.
+
+
+[page="aaruuff"]
+[esc="disabled"]
+
+[colour="#808080"]
+ Cardinal Trom's eyes narrow to two slits.
+[colour="#ffffff"]
+
+"You desecrate the house of the LORD by using that name!
+
+ It is one of the names of the False One, Ba'al-Zebub
+ the Lord of Lies and Prince of Darkness!
+
+ You must have been dealing with the hounds of Hell to
+ learn of their false god!"
+
+[link="They don't worship him anymore."]
+[linkto="aaruuff2"]
+[link="They said he was God and the Trinity is a hoax."]
+[linkto="aaruuff3"]
+[link="I heard about it in a bar."]
+[linkto="aaruuff4"]
+[endpage]
+
+
+[page="aaruuff2"]
+
+"You expect truth from these foul creatures?  Fool!
+
+ Know that the LORD Himself has decreed that they are our
+ enemies.  If any man be caught trading with them, his
+ punishment shall be one of death.
+
+ However, His Son speaks occasionally of compassion, and
+ so I shall inform no-one of your crime.  However, if you
+ are caught trading with servants of Evil again, your
+ blood shall be upon you.
+
+ Now be on your way."
+
+[link="They said he was God and the Trinity is a hoax."]
+[linkto="aaruuff3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="aaruuff3"]
+[call_at_exit="hang_player"]
+
+[colour="#808080"]
+ The Cardinal's eyes burn with hatred.
+[colour="#ffffff"]
+
+"Did you hear that, O LORD?
+ This wretched creature dares gainsay the Holy Trinity!
+
+ What shall its punishment be?"
+
+[nextpage="aaruuff4"]
+[endpage]
+
+
+[page="aaruuff3a"]
+[image="lord.jpg"]
+[call_at_exit="hang_player"]
+
+[colour="#808080"]
+ The LORD appears before you.
+[colour="#ffffff"]
+
+"HANG THE LITTLE SHIT.  RIGHT NOW."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="aaruuff4"]
+
+[colour="#808080"]
+ Cardinal Trom looks at you critically and then relaxes.
+[colour="#ffffff"]
+
+"Then know this.  Aa'R.. - the False One - is worshipped
+ by devils in the form of woolves.  These hell-hounds do
+ dwell in the south-east and they are fell creatures
+ who make dark sacrements to the Evil One.
+
+ The LORD has decreed that they are our enemies.  If any
+ man be caught trading with them, his punishment shall be
+ one of death.
+
+ Now go, and trouble me no more."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="jmac_fluffs"]
+
+[colour="#808080"]
+ Cardinal Trom's eyes narrow horribly.
+[colour="#ffffff"]
+
+"It spoke!  This is no ordinary panther.  It is one of
+ the fell demon cats which the LORD warned us 'gainst!
+
+ You are in league with servants of evil, as I suspected!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="a"]
+
+"I have had men watching you, waiting for you to slip
+ and fall.  Their diligence has now been rewarded.
+
+ You have been seen entering other people's homes and
+ looting their property.
+
+ You have been seen to raise a man from the grave using
+ fell witchcrafts.
+
+ And, you have been seen consorting with the Evil One
+ itself in person!  Who knows what dread bargains the
+ pair of you have struck!
+ For the safety of the Realm itself, you must burn!
+
+ A witch!!  This $man must burn!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+"It is a miracle of Satan!  Burn him!"
+
+
+[page="xx"]
+[image="lord.jpg"]
+
+"DON'T BOTHER PRAYING FOR YOUR SOUL.  WE WON'T LISTEN."
+
+[nextpage="exit"]
+[endpage]

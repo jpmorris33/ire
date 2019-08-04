@@ -1,0 +1,196 @@
+[page="start"]
+[call="plot_breakoutbedevere"]
+[if true][goto="breakout"]
+[colour="#808080"]
+You see an old man, sitting miserably in his cell.
+He notices you and turns to look.
+[colour="#ffffff"]
+
+"What do you want?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Why are you in prison?"]
+[linkto="why"]
+[link="oops, wrong cell.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[call="plot_breakoutbedevere"]
+[if true][goto="breakout"]
+[colour="#808080"]
+You see an old man, sitting miserably in his cell.
+He notices you and turns to look.
+[colour="#ffffff"]
+
+"Hello again."
+
+[link="Why are you in prison, again?"]
+[linkto="why"]
+[link="Is there anything I can do for you?"]
+[linkto="can_do"]
+[link="oops, wrong cell.  Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+
+"My name is $NAME.  I am - was - the chief glassmaker of
+ New Highworth."
+
+[learn_name]
+[link="What do you mean, 'was'?"]
+[linkto="why"]
+[link="Why are you in prison?"]
+[linkto="why"]
+[link="Okay then, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+
+"I shall soon be dead.  Pray do not mock me."
+
+[link="Why will you be dead?"]
+[linkto="why"]
+[link="Is there anything I can do for you?"]
+[linkto="can_do"]
+[link="I must go now."]
+[linkto="bye2"]
+[endpage]
+
+
+[page="why"]
+
+"I found a heathen text.  It explained some of the
+ miracles of the Ancients.  Using it, I made a device
+ called a 'telescope' that lets one to see into Heaven.
+
+ The Church found out and accused me of heresy and
+ witchcraft.  They said that I was trying to disprove the
+ Lord's word on the Creation.
+
+ The LORD himself appeared as plaintiff at my trial, and I
+ was condemnned to die."
+
+[link="What will they do to you?"]
+[linkto="stake"]
+[link="Is there anything I can do for you?"]
+[linkto="can_do"]
+[link="Where is this device?"]
+[linkto="telescope"]
+[link="I must go now."]
+[linkto="bye2"]
+
+[endpage]
+
+
+[page="stake"]
+
+"I shall face the stake.
+
+ The punishment for heresy or witchraft alone is to be
+ hanged and burned, but I was found guilty of BOTH
+ crimes, and so I shall be burned alive."
+
+[link="Is there anything I can do for you?"]
+[linkto="can_do"]
+[link="I must go now."]
+[linkto="bye2"]
+[endpage]
+
+
+[page="telescope"]
+
+"If it has not yet been destroyed by the Church, you may
+ find it in the land behind my home.
+
+ But if you would use it, take care.. I do not wish for a
+ cell-mate to share my pyre."
+
+[link="Is there anything I can do for you?"]
+[linkto="can_do"]
+[link="I must go now."]
+[linkto="bye2"]
+[endpage]
+
+
+[page="can_do"]
+
+"I thank you for asking, but there is nothing you can do
+ for me.  They have already sentenced me and that cannot
+ now be undone.
+
+ I can only sit and wait for the end.."
+
+[link="What if I break down the door?"]
+[linkto="escape"]
+[link="I must go now."]
+[linkto="bye2"]
+[endpage]
+
+
+[page="escape"]
+
+"The doors are solid steel.  You will not be able to
+ break them down.
+
+ But I thank you for your concern."
+
+[link="I must go now."]
+[linkto="bye2"]
+[endpage]
+
+
+[page="bye"]
+
+[colour="#808080"]
+The old man stares at the wall again.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye2"]
+
+"Count your blessings.
+ I shall not leave these prisons alive.."
+
+[colour="#808080"]
+The old man stares at the wall again.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="breakout"]
+[at_exit_call="plot_breakoutbedevere2"]
+[set bedevere_breakout]
+[colour="#808080"]
+The old man looks in amazement.
+[colour="#ffffff"]
+
+"By the Trinity.. I am free!
+ Oh, good $Sir!  Can I ever repay you for this deed?
+
+ But I must flee now, or my thanks will be in vain.
+ I shall head for the Northlands.. I have friends there.
+
+ If you should ever travel to the Northlands, seek me out
+ and I shall do my best to repay your kindness!
+
+ Farewell.."
+
+[colour="#808080"]
+The old man dons his rags and hiding in the shadows,
+creeps out of his cell and away.
+[colour="#ffffff"]
+[addkarma 10]
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,89 @@
+[page="start"]
+[learn_name]
+
+[colour="#808080"]
+You see a woman with vacant eyes. 
+[colour="#ffffff"]
+
+"I'm Irene, and I can buy, or sell."
+
+[link="What is your job?"]
+[linkto="2"]
+[link="What are you selling?"]
+[linkto="2"]
+[link="I'd like to sell something."]
+[linkto="2"]
+[link="Goodbye."]
+[linkto="4"]
+[endpage]
+
+
+[page="2"]
+
+[colour="#808080"]
+The woman repeats herself.
+[colour="#ffffff"]
+
+"I'm Irene, and I can buy, or sell."
+
+[link="I'd like to buy something."]
+[linkto="3"]
+[link="I'd like to sell something."]
+[linkto="3"]
+[link="Excuse me, miss.."]
+[linkto="3"]
+[link="Goodbye."]
+[linkto="4"]
+[endpage]
+
+
+[page="3"]
+
+[colour="#808080"]
+The woman repeats herself again.
+[colour="#ffffff"]
+
+"I'm Irene, and I can buy, or sell."
+
+[link="I'd like to buy something."]
+[linkto="3"]
+[link="I'd like to sell something."]
+[linkto="3"]
+[link="Goodbye."]
+[linkto="4"]
+[endpage]
+
+
+[page="4"]
+
+
+"I'm Irene, and I can buy, or sell..."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Irene.
+[colour="#ffffff"]
+
+"I'm Irene, and I can buy, or sell..."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="startfixed"]
+
+[colour="#808080"]
+You see Irene.
+[colour="#ffffff"]
+
+"Thank you for aiding me, good $SIR."
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,136 @@
+#
+#	General light switch code
+#
+
+
+##
+##	Toggle
+##
+
+function light_toggle
+
+object start
+object end
+
+# Find start and end objects
+
+find_tag start = "light_start" current.tag
+find_tag end = "light_end" current.tag
+
+# Validate the objects..
+
+if_not_exist start
+	return
+endif
+
+if_not_exist end
+	return
+endif
+
+# Toggle light state
+
+if current.user.user0 = 0
+	let current.user.user0 = 1
+else
+	let current.user.user0 = 0
+endif
+
+# Set the lights
+set_light start to end = current.user.user0
+
+end
+
+
+##
+##	On
+##
+
+function light_on
+
+object start
+object end
+
+# Find start and end objects
+
+find_tag start = "light_start" current.tag
+find_tag end = "light_end" current.tag
+
+# Validate the objects..
+
+if_not_exist start
+	return
+endif
+
+if_not_exist end
+	return
+endif
+
+# Toggle light state
+
+let current.user.user0 = 1
+
+# Set the lights
+
+set_light start to end = 0
+end
+
+
+##
+##	Off
+##
+
+function light_off
+
+object start
+object end
+
+# Find start and end objects
+
+find_tag start = "light_start" current.tag
+find_tag end = "light_end" current.tag
+
+# Validate the objects..
+
+if_not_exist start
+	return
+endif
+
+if_not_exist end
+	return
+endif
+
+# Toggle light state
+
+let current.user.user0 = 0
+
+# Set the lights
+
+set_light start to end = 0
+
+end
+
+##
+##  Lights on forever
+##
+
+function light_always
+
+object start
+object end
+
+# Find start and end objects
+
+let start = current
+if_not_exist start
+	return
+endif
+
+let end = current.stats.owner
+if_not_exist end
+	return
+endif
+
+# Set the lights
+
+set_light start to end = 1
+end

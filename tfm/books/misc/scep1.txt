@@ -1,0 +1,29 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+  Darett,
+
+  My principals are willing to pay you ten and a half thousand
+  gold coins for obtaining it.  We can't conceal that amount
+  easily so it will have to be paid in installments.  To help
+  make up for this I think we can also buy you a plenary
+  indulgence for crimes you haven't even committed yet.
+  
+  Once it has been acquired there will be an outcry, so lie low.
+  Let no-one even SUSPECT you have it and do NOT leave it
+  unattended.  Keep it about your person at all times until I
+  come to collect it.  Eat with it, wash with it, even sleep
+  with the thing.  Feel free to dispose of anyone who strays
+  too close.  Remember, no-one will be able to save you if it
+  is found in your keeping.
+  
+  I shall return in a fortnight with the first part of your
+  reward.  I am confident you will have secured it by then and
+  there should also have been time for the uproar to die down.
+
+  Jorge
+
+[!if returned_sceptre]
+[set sceptre_jorge]
+[nextpage="exit"]  
+[endpage]

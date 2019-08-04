@@ -1,0 +1,738 @@
+##########################
+#                        #
+#  Spell book interface  #
+#                        #
+##########################
+
+
+
+int sp_level = 1
+int sp_spell = 1
+string spellfunc
+string_array spell[6]
+
+##
+##  Entry point
+##
+
+function use_spellbook
+
+int x
+int y
+
+# Set up the player if need be
+call playermagic_start
+
+# Find the spellbook, make sure it's valid
+call player_getspellbook
+
+let spellfunc = ""
+
+save_screen
+
+# Set up mouse grid
+
+let x = 200
+let y = 144 + 23
+mouse_range 1 = x y 256 16
+range_pointer 1 = 1
+add y + 19
+
+mouse_range 2 = x y 256 16
+range_pointer 2 = 1
+add y + 19
+
+mouse_range 3 = x y 256 16
+range_pointer 3 = 1
+add y + 19
+
+mouse_range 4 = x y 256 16
+range_pointer 4 = 1
+add y + 19
+
+mouse_range 5 = x y 256 16
+range_pointer 5 = 1
+add y + 19
+
+mouse_range 6 = x y 256 16
+range_pointer 6 = 1
+
+mouse_range 7 = 200 319 32 16
+range_pointer 7 = 1
+
+mouse_range 8 = 432 319 32 16
+range_pointer 8 = 1
+
+
+
+# Start the loop
+
+do
+	draw_object spellbook_img at 160 120
+	textfont 3
+	call draw_spellbook
+	call draw_spellcursor
+
+	if sp_level > 1
+		gotoxy 200 319
+		printxy "<<"
+	endif
+	if sp_level < player.stats.level
+		gotoxy 432 319
+		printxy ">>"
+	endif
+	textfont 0
+
+
+
+	getkey_quiet
+
+	# Mouse click?
+	if key = KEY_MOUSE
+		if mouseclick < 7
+			# Fake spell shortcut
+			let key = mouseclick + KEY_0
+		endif
+		if mouseclick = 7
+			let key = KEY_LEFT
+		endif
+		if mouseclick = 8
+			let key = KEY_RIGHT
+		endif
+		flush_mouse BLOCKING
+	endif
+
+	# Go through the keys
+	if key = KEY_LEFT
+		if sp_level > 1
+			add sp_level - 1
+		endif
+	endif
+
+	if key = KEY_RIGHT
+		if sp_level < player.stats.level
+			add sp_level + 1
+		endif
+	endif
+
+	if key >= KEY_F1
+	and key <= KEY_F8
+		let sp_level = key - KEY_F1
+		add sp_level + 1
+	endif
+
+	if key = KEY_UP
+		if sp_spell > 1
+			add sp_spell - 1
+		endif
+	endif
+
+	if key = KEY_DOWN
+		if sp_spell < 6
+			add sp_spell + 1
+		endif
+	endif
+
+	if key >= KEY_1
+	and key <= KEY_6
+		let sp_spell = key - KEY_0
+		let key = KEY_ENTER
+	endif
+
+	if key = KEY_ENTER
+		load_screen
+		flush_mouse NONBLOCKING
+
+		let spellfunc = spell[sp_spell]
+		if spellfunc <> ""
+			call spellfunc
+		endif
+
+		let key = 0
+		flush_mouse NONBLOCKING
+		return
+	endif
+
+while key <> KEY_ESC
+
+load_screen
+let key = 0
+
+return
+end
+
+##
+##  Draw the required page of the spellbook
+##
+
+function draw_spellbook
+private
+
+# Erase the spells
+let spell[1] = ""
+let spell[2] = ""
+let spell[3] = ""
+let spell[4] = ""
+let spell[5] = ""
+let spell[6] = ""
+
+if sp_level = 1
+	call spellbook1
+	return
+endif
+
+if sp_level = 2
+	call spellbook2
+	return
+endif
+
+if sp_level = 3
+	call spellbook3
+	return
+endif
+
+if sp_level = 4
+	call spellbook4
+	return
+endif
+
+if sp_level = 5
+	call spellbook5
+	return
+endif
+
+if sp_level = 6
+	call spellbook6
+	return
+endif
+
+if sp_level = 7
+	call spellbook7
+	return
+endif
+
+if sp_level = 8
+	call spellbook8
+	return
+endif
+
+call draw_spellbook0 # Bug
+end
+
+##
+##  Draw the cursor
+##
+
+function draw_spellcursor
+private
+int curpos
+
+let curpos = sp_spell * 19
+add curpos + 144
+
+gotoxy 184 curpos
+printxy ">"
+end
+
+
+
+
+
+
+
+function spellbook1
+private
+
+	gotoxy 200 128
+	printxy "Ring Seven  (Apprentice)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_light"
+		printxy "1. Light"
+		let spell[1] = "spell_light"
+		endif
+	printxycr
+
+	if_local spellbook "spell_awaken"
+		printxy "2. Awaken"
+		let spell[2] = "spell_awaken"
+	endif
+	printxycr
+
+	if_local spellbook "spell_lheal"
+		printxy "3. Light Heal"
+		let spell[3] = "spell_lheal"
+	endif
+	printxycr
+
+	if_local spellbook "spell_sleep"
+		printxy "4. Sleep"
+		let spell[4] = "spell_sleep"
+	endif
+	printxycr
+
+
+	if_local spellbook "spell_help"
+		printxy "5. Panic"
+		let spell[5] = "spell_help"
+	endif
+	printxycr
+
+	if_local spellbook "spell_identify"
+		printxy "6. Identify"
+		let spell[6] = "spell_identify"
+	endif
+	printxycr
+
+
+end
+
+
+function spellbook2
+private
+
+	gotoxy 200 128
+	printxy "Ring Six   (Novice)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_ignite"
+		printxy "1. Ignite"
+		let spell[1] = "spell_ignite"
+	endif
+	printxycr
+
+	if_local spellbook "spell_douse"
+		printxy "2. Douse"
+		let spell[2] = "spell_douse"
+	endif
+	printxycr
+
+	if_local spellbook "spell_peer"
+		printxy "3. Peer"
+		let spell[3] = "spell_peer"
+	endif
+	printxycr
+
+	if_local spellbook "spell_allseeingeye"
+		printxy "4. All-Seeing Eye"
+		let spell[4] = "spell_allseeingeye"
+	endif
+	printxycr
+
+	if_local spellbook "spell_about"
+		printxy "5. About Spell"
+		let spell[5] = "spell_about"
+	endif
+	printxycr
+
+	if_local spellbook "spell_poison"
+		printxy "6. Poison"
+		let spell[6] = "spell_poison"
+	endif
+	printxycr
+
+end
+
+
+function spellbook3
+private
+
+	gotoxy 200 128
+	printxy "Ring Five  (Acolyte)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_pickpocket"
+		printxy "1. Pickpocket"
+		let spell[1] = "spell_pickpocket"
+	endif
+	printxycr
+
+	if_local spellbook "spell_barrier"
+		printxy "2. Create Barrier"
+		let spell[2] = "spell_barrier"
+	endif
+	printxycr
+
+	if_local spellbook "spell_harm"
+		printxy "3. Harm"
+		let spell[3] = "spell_harm"
+	endif
+	printxycr
+
+	if_local spellbook "spell_heal"
+		printxy "4. Heal"
+		let spell[4] = "spell_heal"
+	endif
+	printxycr
+
+	if_local spellbook "spell_cure"
+		printxy "5. Cure"
+		let spell[5] = "spell_cure"
+	endif
+	printxycr
+
+	if_local spellbook "spell_greatlight"
+		printxy "6. Great Light"
+		let spell[6] = "spell_greatlight"
+	endif
+	printxycr
+
+
+end
+
+
+function spellbook4
+private
+
+	gotoxy 200 128
+	printxy "Ring Four  (Priest)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_dispelbarrier"
+		printxy "1. Dispel Barrier"
+		let spell[1] = "spell_dispelbarrier"
+	endif
+	printxycr
+
+	if_local spellbook "spell_mark"
+		printxy "2. Mark Stone"
+		let spell[2] = "spell_mark"
+	endif
+	printxycr
+
+	if_local spellbook "spell_recall"
+		printxy "3. Recall Stone"
+		let spell[3] = "spell_recall"
+	endif
+	printxycr
+
+	if_local spellbook "spell_explosion"
+		printxy "4. Explosion"
+		let spell[4] = "spell_explosion"
+	endif
+	printxycr
+
+	if_local spellbook "spell_tk"
+		printxy "5. Telekinesis"
+		let spell[5] = "spell_tk"
+	endif
+	printxycr
+
+	if_local spellbook "spell_push"
+		printxy "6. Push"
+		let spell[6] = "spell_push"
+	endif
+	printxycr
+
+
+end
+
+
+function spellbook5
+private
+
+	gotoxy 200 128
+	printxy "Ring Three  (Master)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_kill"
+		printxy "1. Light Murder"
+		let spell[1] = "spell_kill"
+	endif
+	printxycr
+
+	if_local spellbook "spell_commandanimal"
+		printxy "2. Command Animal"
+		let spell[2] = "spell_commandanimal"
+	endif
+	printxycr
+
+	if_local spellbook "spell_greatheal"
+		printxy "3. Great Heal"
+		let spell[3] = "spell_greatheal"
+	endif
+	printxycr
+
+	if_local spellbook "spell_ensorcellment"
+		printxy "4. Ensorcellment"
+		let spell[4] = "spell_ensorcellment"
+	endif
+	printxycr
+
+	if_local spellbook "BLANK"
+		printxy "5. "
+		let spell[5] = "spell_"
+	endif
+	printxycr
+
+end
+
+
+function spellbook6
+private
+
+	gotoxy 200 128
+	printxy "Ring Two  (Heirophant)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_BLANK"
+		printxy "1. "
+		let spell[1] = "spell_"
+	endif
+	printxycr
+
+	if_local spellbook "spell_BLANK"
+		printxy "2. "
+		let spell[2] = "spell_"
+	endif
+	printxycr
+
+	if_local spellbook "spell_lightning"
+		printxy "3. X-Lightning"
+		let spell[3] = "spell_lightning"
+	endif
+	printxycr
+
+	if_local spellbook "spell_BLANK"
+		printxy "4. "
+		let spell[4] = "spell_"
+	endif
+	printxycr
+
+	if_local spellbook "spell_heartruth"
+		printxy "5. Hear Truth"
+		let spell[5] = "spell_heartruth"
+	endif
+	printxycr
+
+	if_local spellbook "spell_snake"
+		printxy "6. Snake Smasher"
+		let spell[6] = "spell_snake"
+	endif
+	printxycr
+
+end
+
+
+function spellbook7
+private
+
+	gotoxy 200 128
+	printxy "Ring One  (Supervisor)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_greatkill"
+		printxy "1. Great Kill"
+		let spell[1] = "spell_greatkill"
+	endif
+	printxycr
+
+	if_local spellbook "spell_devil"
+		printxy "2. Summon a Devil"
+		let spell[2] = "spell_devil"
+	endif
+	printxycr
+
+	if_local spellbook "spell_posess"
+		printxy "3. Posess"
+		let spell[3] = "spell_posess"
+	endif
+	printxycr
+
+	if_local spellbook "spell_confusion"
+		printxy "5. Confusion Blast"
+		let spell[4] = "spell_confusion"
+	endif
+	printxycr
+
+	if_local spellbook "spell_piedpiper"
+		printxy "5. Pied Piper"
+		let spell[5] = "spell_piedpiper"
+	endif
+	printxycr
+
+	if_local spellbook "spell_alchemy"
+		printxy "6. Alchemy"
+		let spell[6] = "spell_alchemy"
+	endif
+
+end
+
+
+function spellbook8
+private
+
+	gotoxy 200 128
+	printxy "Ring Zero (Privileged Level)"
+	printxycr
+	printxycr
+
+	if_local spellbook "spell_resurrect"
+		printxy "1. Resurrection"
+		let spell[1] = "spell_resurrect"
+	endif
+	printxycr
+
+	if_local spellbook "spell_abolish"
+		printxy "2. Abolish"
+		let spell[2] = "spell_abolish"
+	endif
+	printxycr
+
+	if_local spellbook "spell_uberpeer"
+		printxy "3. Hacked peer spell"
+		let spell[3] = "spell_uberpeer"
+	endif
+	printxycr
+
+	if_local spellbook "spell_destruction"
+		printxy "4. Destruction"
+		let spell[4] = "spell_destruction"
+	endif
+
+/*
+	printxy "3."
+	printxycr
+
+	printxy "4. self-destruct"
+	printxycr
+*/
+end
+
+
+function draw_spellbook0
+private
+
+	gotoxy 176 128
+	printxy "The London Borough of"
+	printxycr
+	printxy "Lambeth once sent a"
+	printxycr
+	printxy "church four poll-tax"
+	printxycr
+	printxy "demands. One was for the"
+	printxycr
+	printxy "vicar, the others were"
+	printxycr
+	printxy "God the Father, God the "
+	printxycr
+	printxy "Son and the Holy Ghost."
+	printxycr
+end
+
+
+
+function use_spellcard
+object p
+let p = current
+
+if me <> player
+	return
+endif
+
+let current = player
+
+print "Use "
+print p.shortdesc
+print " on "
+redraw_text
+
+call get_far
+if_not_exist current
+	print "nothing."
+	printcr
+	return
+endif
+
+print current.shortdesc
+printcr
+
+if current is called "spellbook"
+	# Run the spell
+	call p.funcs.user1
+	# Delete the card and create a backing paper, which the player drops
+	destroy p
+	create p = "spellcard_wrapper"
+	transfer_object p to player.x player.y
+	move_to_floor p
+	play_sound "spellbook"
+
+	print "Success!"
+	printcr
+else
+	print "Only on a spellbook."
+	return
+endif
+end
+
+/*
+  maim
+  MK
+*/
+
+/*
+
+1-1	"spell_light"
+1-2	"spell_awaken"
+1-3	"spell_lheal"
+1-4	"spell_sleep"
+1-5	"spell_help"
+1-6	"spell_identify"
+
+2-1	"spell_ignite"
+2-2	"spell_douse"
+2-3	"spell_peer"
+2-4	"spell_allseeingeye"
+2-5	"spell_about"
+2-6	"spell_poison"
+
+3-1	"spell_pickpocket"
+3-2	"spell_barrier"
+3-3	"spell_harm"
+3-4	"spell_heal"
+3-5	"spell_cure"
+3-6	"spell_greatlight"
+
+4-1	"spell_dispelbarrier"
+4-2	"spell_mark"
+4-3	"spell_recall"
+4-4	"spell_explosion"
+4-5	"spell_tkuse"
+4-6	"spell_push"
+
+5-1	"spell_kill"
+5-2	"spell_commandanimal"
+5-3	"spell_greatheal"
+5-4	"spell_ensorcelment"
+5-5	""
+5-6
+
+6-1
+6-2
+6-3	Lightning?
+6-4
+6-5	"spell_heartruth"
+6-6	"spell_snake"
+
+7-1	"spell_greatkill"
+7-2	"spell_devil"
+7-3	"spell_posess"
+7-4	"spell_confusion"
+7-5	"spell_piedpiper"
+7-6	"spell_alchemy"
+
+8-1	"spell_resurrect"
+8-2	"spell_abolish"
+8-3	"spell_uberpeer"
+8-4	"spell_destruction"
+8-5
+8-6
+
+*/

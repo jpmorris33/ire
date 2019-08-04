@@ -1,0 +1,650 @@
+Keee-Keee-Keee-Chee, Leader of the Folk.
+
+[page="start"]
+[if_not find_ospreys][goto="notready"]
+[learn_name]
+[colour="#808080"]
+You hear a deep voice in your head.
+[colour="#ffffff"]
+
+"Welcome, $PLAYER.
+
+ I am Keee-Keee-Keee-Chee of The Folk.
+ Long have we desired a human to treat with.
+ But although we can hear your thoughts, it is a rare
+ human indeed who can hear our thoughts in return.
+
+ Know also that we have taken prisoner another of your
+ kind.  It was our intent to question him, but alas, he
+ is one of the many whom we cannot communicate with.
+ If you can vouch for his good faith, he shall be freed.
+ If not, he shall remain here for us to study."
+
+[if know_drrob][link="He is Doctor Robertson and he came to study you."]
+[if know_drrob][linkto="drrob"]
+[if_not know_drrob][link="I don't know who he is."]
+[if_not know_drrob][linkto="not_drrob"]
+[endpage]
+
+
+[page="startname"]
+[if dr_rob_needdiary][goto="needdiary"]
+[if dr_rob_free][goto="rob_is_free"]
+[colour="#808080"]
+You hear a deep voice in your head.
+[colour="#ffffff"]
+
+"Welcome, $PLAYER.
+
+ Long have we desired a human to treat with.
+ But although we can hear your thoughts, it is a rare
+ human indeed who can hear our thoughts in return.
+
+ Know also that we have taken prisoner another of your
+ kind.  It was our intent to question him, but alas, he
+ is one of the many whom we cannot communicate with.
+ If you can vouch for his good faith, he shall be freed.
+ If not, he shall remain here for us to study."
+
+[if know_drrob][link="He is Doctor Robertson and he came to study you."]
+[if know_drrob][linkto="drrob"]
+[if_not know_drrob][link="I don't know who he is."]
+[if_not know_drrob][linkto="not_drrob"]
+[endpage]
+
+
+[page="not_drrob"]
+
+"Then he must remain here until we know who he is
+ and whether he is friend or foe to the New God.
+
+ I can tell you no more until this matter is
+ dealt with.  If he is our foe we cannot risk
+ your telling him our secrets."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="drrob"]
+[esc="disabled"]
+
+"That I know, but tell me this: Is he friend or foe to
+ the New God that has enslaved mankind, and seeks to
+ enslave us too?"
+
+[link="He worships the New God."]
+[linkto="enemy"]
+[link="I don't think he likes the New God."]
+[linkto="ally"]
+[link="I don't think he cares."]
+[linkto="neutral"]
+[link="I don't know."]
+[linkto="dunno"]
+[endpage]
+
+
+[page="enemy"]
+
+"This is ill news.  As I feared, he has been sent to
+ study us by the Church, that they can report his
+ findings to the New God.
+
+ He shall not leave unless he renounces the New God and
+ swears to keep secret all he has learned."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="ally"]
+[set dr_rob_needdiary]
+
+"Excellent.  I shall order his release.
+
+ But before I do, I need final proof that he is no threat
+ to us.  We cannot be too careful.
+
+ Bring to us his diary, and read it that we may know
+ his thoughts through yours."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="neutral"]
+[set dr_rob_needdiary]
+
+"Very well.  I shall order his release."
+
+ But first I need more proof that he is no threat to us.
+
+ Bring to us his diary, and read it that we may know
+ his thoughts through yours."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dunno"]
+
+"Then he must remain here.
+
+ I can tell you no more until we know of his plans.
+ If he is our foe we cannot risk your telling him
+ our secrets."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="needdiary"]
+[colour="#808080"]
+You hear a deep voice in your head.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYER.
+
+ Have you located the diary of this Doctor you call
+ Robertson?"
+
+[link="Yes, I have it."]
+[linkto="diary"]
+[link="No, I haven't."]
+[linkto="diary_no"]
+[link="Goodbye."]
+[linkto="diary_no"]
+[endpage]
+
+
+
+[page="diary"]
+[am_carrying "drrob_diary"]
+[if true][goto="diary2"]
+
+"No, you do not.  Bring to us this diary and read it,
+ that we may know his thoughts through yours."
+
+[nextpage="exit"]
+[endpage]
+
+[page="diary_no"]
+
+"Bring to us his diary, and read it that we may know
+ his thoughts through yours."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="diary2"]
+[call="free_drrob"]
+[clear dr_rob_needdiary]
+[set dr_rob_free]
+
+[colour="#808080"]
+You read the diary.  As you reach the end, you hear a
+voice in your head again.
+[colour="#ffffff"]
+
+"Good.  He will make a useful ally.
+ I have ordered his immediate release.
+
+ Now it is safe for us to discuss the future."
+
+
+[link="Tell me everything."]
+[linkto="everything"]
+[link="I have questions."]
+[linkto="questions"]
+[link="I need to sort something else out first."]
+[linkto="backlater"]
+[endpage]
+
+
+[page="backlater"]
+
+"Very well, but do not delay too long.  The New God
+ grows stronger with each passing day."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="rob_is_free"]
+
+"Now it is safe for us to discuss the future.
+ Do you have questions, or should I speak first?"
+
+
+[link="Tell me everything."]
+[linkto="everything"]
+[link="I have questions."]
+[linkto="questions"]
+[link="I need to sort something else out first."]
+[linkto="backlater"]
+[endpage]
+
+
+
+
+
+
+
+
+##
+##	Got a fish.
+##
+
+[page="fish"]
+[image="kkkc.pcx"]
+[colour="#808080"]
+$CHARNAME lands at your feet and drops a carrier bag
+containing a sealed packet of chocolate biscuits.
+He flies back onto his perch and waits.
+
+You throw the fish into the air and $CHARNAME
+deftly catches it.  Decapitating the fish, he eats the
+head before speaking.
+[colour="#ffffff"]
+
+"First, I must tell you the history of the Folk.
+ I have seen in the minds of others that we were animals
+ introduced from the world you call Earth."
+
+[colour="#808080"]
+$CHARNAME pauses to gut the fish with his talons
+before continuing.
+[colour="#ffffff"]
+
+"Since those days, we have changed.  We see each others'
+ minds, as I see into yours now.
+ We do not know why we have changed."
+
+[nextpage="fish2"]
+[endpage]
+
+
+[page="fish2"]
+[image="kkkc.pcx"]
+[colour="#808080"]
+$CHARNAME slices the fish into fine strips and
+begins to eat them one by one.
+[colour="#ffffff"]
+
+"In the older days were were migratory creatures.
+ We would fly to the southern continents to avoid the
+ harsh winter, and the lack of fish it causes."
+
+"To migrate, we followed the magnetic fields of the
+ Earth.  But on this planet, we became lost and migration
+ was not successful."
+
+"When the Men found that we could not migrate, they would
+ bring us fish in the winter.  One day, this stopped."
+
+[colour="#808080"]
+Gulp!
+[colour="#ffffff"]
+
+"Fortunately, we had learned much before this had
+ happened.  We could already see each other's minds, and
+ we had learned how to pickle fish for the winter."
+
+[nextpage="fish3"]
+[endpage]
+
+[page="fish3"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+$CHARNAME eats another strip of fish.
+[colour="#ffffff"]
+"In the years leading up to this time, we noticed changes
+ taking place in the minds of Men.
+ They began to lose their reason, and primeval feelings
+ rose up to replace intellect.  They became superstitious.
+ We did not realise what was happening.
+
+ Soon men began to fight each other in the name of the New
+ God.  All who did not worship were killed or driven away.
+
+ There are a few men left who have clung to reason.
+ We know that they have been watching us and suspect what
+ we have become.  But we have decided not to make contact
+ with them, until now."
+
+[nextpage="fish4"]
+[endpage]
+
+
+[page="fish4"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+$CHARNAME eats the last strip of fish.
+[colour="#ffffff"]
+
+"That was a good fissh.
+
+ Now I must ask for your aid.  There are some men left
+ who do not worship the New God.  They have machines
+ that fly and they know much.
+
+ We want to make contact with them, but we need you to
+ act as our emmisary.  I know that you have already
+ made contact with them, so I only require that you
+ carry out the necessary introductions."
+
+[nextpage="fish5"]
+[endpage]
+
+
+[page="fish5"]
+[image="kkkc.pcx"]
+
+"I require that you take me to the one known as Ransome,
+ who I understand can be located in a complex near the
+ town of New Fairford."
+
+[nextpage="fish5"]
+[endpage]
+
+
+
+[page="agree_y"]
+[image="kkkc.pcx"]
+
+"Excellent!"
+
+[colour="#808080"]
+You hold out your arm like a falconer, and the Osprey
+hops gently onto it.
+[colour="#ffffff"]
+
+[call="osprey_to_arm"]
+[nextpage="exit"]
+[endpage]
+
+[page="agree_n"]
+[image="kkkc.pcx"]
+"Damn it, Human!  This is important!
+ I urge you to reconsider."
+
+[colour="#808080"]
+The bird glowers at you angrily for a few moments more,
+then he flies into the distance, leaving you alone.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="agree_n2"]
+[image="kkkc.pcx"]
+"Very well.  But this is important.
+ If you could help me, you will earn the eternal gratitude of the Folk."
+
+[colour="#808080"]
+$CHARNAME looks despondent.
+Then he flies into the distance, leaving you alone.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+##
+##	Insults
+##
+
+[page="comeherebirdy"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+The osprey looks at you unpleasantly, and with a little
+effort makes an obscene gesture with razor-sharp talons.
+[colour="#ffffff"]
+
+"Don't be difficult, human."
+[set_pflag 2]
+
+[nextpage="start"]
+
+[endpage]
+
+##
+##	You don't have the brains to do this
+##
+
+[page="brain"]
+[image="kkkc.pcx"]
+
+"I know.  We'll find out how it works one of these days."
+
+"Now.  About that fish?"
+
+[link="First, tell me how you can talk."]
+[linkto="talk"]
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+[endpage]
+
+##
+##	How can you talk?
+##
+
+[page="talk"]
+[image="kkkc.pcx"]
+
+"Many years ago, we were the simple creatures that
+ arrived from Earth.
+
+ But when we settled, something caused us to mutate, and
+ we began to learn things, like how to preserve fish.
+
+ When we began to hear each others' thoughts it became
+ possible to merge into one large community, which we
+ call the Folk."
+
+"Now, bring me the fisshh."
+
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="fishpaste"]
+[link="I'm afraid not."]
+[linkto="nofish"]
+[link="The folk?"]
+[linkto="thefolk"]
+[endpage]
+
+
+[page="fishpaste"]
+[image="kkkc.pcx"]
+
+"No."
+
+[link="Yes, I have one."]
+[linkto="mason_fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+
+[endpage]
+
+
+##
+##	The Folk?
+##
+
+[page="thefolk"]
+[image="kkkc.pcx"]
+
+"Yes.  I know it doesn't sound very imaginative now, but
+ it seemed like a good idea at the time.
+
+ Do you have any fish?"
+
+[link="Yes, I have one."]
+[linkto="fish"]
+[link="I have some bloater paste.  Will that do?"]
+[linkto="mason_fishpaste"]
+[link="I'm afraid not."]
+[linkto="mason_nofish"]
+
+[endpage]
+
+##
+##	Goodbye.
+##
+
+[page="bye2"]
+[image="kkkc.pcx"]
+
+"Goodbye, human."
+
+[colour="#808080"]
+The bird flies away to search for fish.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+##
+##	Die, bird!
+##
+
+[page="diebird"]
+[image="kkkc.pcx"]
+
+"I would not say such things if I were you."
+
+[set_pflag 1]
+[nextpage="exit"]
+[endpage]
+
+##
+##	Tell me about fish?
+##
+
+[page="aboutfish"]
+[image="kkkc.pcx"]
+
+"Fish are the single most important part of our society!
+ We harvest them during the summer and pickle them for
+ the winter."
+
+[link="I see."]
+[linkto="start"]
+[link="But Ospreys are migratory!"]
+[linkto="migrant"]
+[link="Are fish really good for the brain?"]
+[linkto="fishgood"]
+[link="Have you heard of the 'holy monkfish'?"]
+[linkto="fish_monkfish"]
+[endpage]
+
+
+[page="migrant"]
+[image="kkkc.pcx"]
+
+"Not anymore.
+
+ When we migrate, we use geomagnetic fields to guide us.
+ The fields on this planet are different and cannot
+ be used and the urge to migrate has left us.
+
+ Humans noticed this and brought us fish during the
+ winter.  One year humans stopped doing this, but by then
+ we had learned to stockpile food for the winter."
+
+[link="They stopped bringing you fish?"]
+[linkto="stoppedfish"]
+[link="Uh, right."]
+[linkto="fish"]
+[endpage]
+
+
+[page="fishgood"]
+[image="kkkc.pcx"]
+
+"Yes.  They contain omega-3 fatty acids.
+
+ We ate fish for thousands of centuries.  If it was not
+ good for our brains, we would not be having this
+ conversation now."
+
+[link="Uh, right."]
+[linkto="fish"]
+[endpage]
+
+
+
+[page="stoppedfish"]
+[image="kkkc.pcx"]
+
+"I will tell you more of this over lunch.
+ Bring me a fish and I will tell you much."
+
+[nextpage="fish"]
+[endpage]
+
+##
+##	Have you seen the Holy Monkfish?
+##
+
+[page="fish_monkfish"]
+[image="kkkc.pcx"]
+
+"There is no such thing.  We know all fish and there is
+ no such thing as this so-called 'holy monkfish'.
+
+ I believe that it is an inane and pointless quest set
+ by the god Xy'lan to punish the unfaithful."
+
+[nextpage="exit"]
+[endpage]
+
+
+##
+##	The player tries to kill
+##
+
+[page="bastard"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+[if_not_knowname]A loud voice booms inside your head.
+[colour="#ffffff"]
+
+[if_not_pflag 1]"You bastard!"
+[if_pflag 1]"You asked for it!"
+
+[colour="#808080"]
+[if_knowname]A blue corona forms around $CHARNAME!
+[if_not_knowname]A blue corona forms around the bird!
+
+Inside your chest, your heart stops beating.
+[colour="#ffffff"]
+
+[if_pflag 1]"What a sad waste of human life."
+
+[at_exit_call="kill_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="notready"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey, watching you with a
+silent intent.  There is a strange gleam in the bird's
+eyes.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

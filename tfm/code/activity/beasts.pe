@@ -1,0 +1,449 @@
+##################
+#                #
+#  Animal logic  #
+#                #
+##################
+
+
+##
+##  Bird foraging for food
+##
+
+function bird_wander
+activity
+
+int x
+int y
+int max
+int may
+int mix
+int miy
+int rnd
+int overcount
+
+# The bird in the egg must not move
+
+if_in_pocket me
+	return
+endif
+
+
+# Store XY state if not stored
+if me.user.user2 = 0
+	let me.user.user2 = me.x
+	let me.user.user3 = me.y
+endif
+
+# Establish boundaries
+let max = me.user.user2 + 4
+let mix = me.user.user2 - 4
+let may = me.user.user3 + 4
+let miy = me.user.user3 - 4
+
+let overcount = 0
+
+# Get current X/Y
+label retry
+
+let x = me.x
+let y = me.y
+
+random rnd between 0 8
+
+if rnd = 1
+	set_direction me = LEFT
+	let x = x - 1
+endif
+
+if rnd = 2
+	set_direction me = RIGHT
+	let x = x + 1
+endif
+
+if rnd = 3
+	set_direction me = UP
+	let y = y - 1
+endif
+
+if rnd = 4
+	set_direction me = DOWN
+	let y = y + 1
+endif
+
+# retry and bail out if necessary
+add overcount + 1
+if overcount > 10
+	goto stop
+endif
+
+# Clip and re-throw if necessary
+if x > max
+or y > may
+	goto retry
+endif
+
+if x < mix
+or y < miy
+	goto retry
+endif
+
+# Otherwise, stop
+label stop
+
+centre around me # Make sure collision detection window is up to date
+move_object me to x y
+
+end
+
+
+
+##
+##  grazing animals
+##
+
+function graze
+activity
+
+int rnd
+string graze
+
+# The cow in the egg must not move
+if_in_pocket me
+	return
+endif
+
+# Are we waiting?
+if me.user.user2 > 0
+	add me.user.user2 - 1
+	return
+endif
+
+# Choose a behaviour: move, turn, wait, graze
+
+random rnd between 0 3
+
+# turn around
+if rnd = 1
+
+	# If we did this last turn, don't do it again
+	if me.user.user3 = 1
+		goto JustMove
+	endif
+
+	random rnd between 0 4
+
+	if rnd = 1
+		set_direction me = LEFT
+	endif
+
+	if rnd = 2
+		set_direction me = RIGHT
+	endif
+
+	if rnd = 3
+		set_direction me = UP
+	endif
+
+	if rnd = 4
+		set_direction me = DOWN
+	endif
+
+	# For future reference, last move was a turn
+	let me.user.user3 = 1
+	return
+endif
+
+
+# graze for a few turns
+if rnd = 2
+
+	# set random wait
+	random me.user.user2 between 2 10
+	
+	# Get graze frame
+	if me.curdir = UP
+		get_data graze where graze_up = me.name
+	endif
+	if me.curdir = DOWN
+		get_data graze where graze_down = me.name
+	endif
+	if me.curdir = LEFT
+		get_data graze where graze_left = me.name
+	endif
+	if me.curdir = RIGHT
+		get_data graze where graze_right = me.name
+	endif
+	
+	# Use it
+	if err = 0
+		set_sequence me graze
+	endif
+	# Last move was a graze
+	let me.user.user3 = 2
+	return
+endif
+
+label JustMove
+
+# Move forward
+let current = me
+call move_forward
+
+# Last move was a movement
+let me.user.user3 = 3
+
+end
+
+
+##
+##  Mimic sheep
+##
+
+function graze_attack_party
+activity
+int v
+
+# Is there any prey within range?
+
+let v = me.x - 1
+get_object victim at v me.y
+call mimic_victim
+if_exists victim
+	return
+endif
+
+let v = me.x + 1
+get_object victim at v me.y
+call mimic_victim
+if_exists victim
+	return
+endif
+
+let v = me.y - 1
+get_object victim at me.x v
+call mimic_victim
+if_exists victim
+	return
+endif
+
+let v = me.y + 1
+get_object victim at me.x v
+call mimic_victim
+if_exists victim
+	return
+endif
+
+# no, pretend to be a sheep
+call graze
+
+end
+
+function mimic_victim
+int infighting
+random infighting between 1 33
+
+if_exists victim
+	if_flag victim IS_BIOLOGICAL
+		# Is the victim another mimic (or a real animal)
+		if victim.name = me.label.race
+			if infighting <> 3
+				# Can't have the sheep fighting too much
+				# it would give the game away
+				let victim = null
+				return
+			endif
+			print "matched, run infighting"
+			printcr
+		endif
+
+		# Is it weaker?
+		if victim.stats.hp < me.stats.hp
+			let me.enemy = victim
+			let me.target = victim
+			# Must eat victim, not just kill it
+			call start_attack_eat
+			return
+		endif
+	endif
+endif
+let victim = null
+end
+
+
+
+##
+##  Cow Panic
+##
+
+function cow_horror
+
+# Seen a dead cow
+if current is called "COW_DEAD"
+	start_action me does enemy_flee to current
+	return
+endif
+
+if current is called "SHEEP_DEAD"
+	start_action me does enemy_flee to current
+	return
+endif
+
+end
+
+
+
+##
+##
+##
+
+function hawk_gofly
+activity
+
+call hawk_startflying					# Change shape
+queue_action me does go_to_location to me.target	# go there
+queue_action me does bird_soar				# Begin hunting
+run_queue me
+
+
+end
+
+
+##
+##  Rabbits wander around.  If they see Richard, well then..
+##
+
+function bunny_wander
+activity
+integer rand
+
+call bird_wander
+
+random rand between 1 8
+if rand = 1
+	call bunny_blast
+endif
+end
+
+##
+##  Bunny fall down, go boom
+##
+
+function bunny_blast
+
+integer ctr
+object rick
+object_array list[64]
+object bunny
+
+find_tag rick = "man_boy" -616
+if_exists rick
+	if_onscreen rick
+		if_flag rick IS_PARTY
+			print "~BUNNY!~"
+			printcr
+		endif
+
+		# Bunny apocalypse
+		find_nearby list[1] = "bunny*" near rick
+		for ctr = 1 to 64
+			let bunny = list[ctr]
+			if_exists bunny
+				object_sound "bunny_squish" bunny
+				let bunny.stats.hp = -50
+				check_hurt bunny
+				lightning 2
+			endif
+		next
+	endif
+endif
+end
+
+
+##
+##  Predator
+##
+
+function predator
+activity
+object_array list[64]
+object prey
+int ctr
+
+# The beast in the egg must not move
+if_in_pocket me
+	return
+endif
+
+# Do we have a valid target to hunt?
+if_exists me.target
+	if me.target.stats.hp < 1
+		# No, we have a target but it's dead.  Try again.
+		let me.target = null
+		return
+	endif
+
+	# Yes.  go for it.
+	let me.enemy = me.target
+	call start_attack_eat
+	return
+endif
+
+# Count down.  We wander around for a while, and then sniff the air.
+if me.user.user4 > 0
+	add me.user.user4 - 1
+	call bird_wander
+	return
+endif
+
+# Sniff the air, reset the wandering count
+random me.user.user4 between 5 15
+
+# Look for easy prey
+find_nearby list[1] = "food*" near me
+for ctr = 1 to 64
+	let prey = list[ctr]
+	if_exists prey
+		# Found suitable prey, hunt it
+		let me.target = prey
+		return
+	endif
+next
+
+# Look for natural prey (psycho.. no safeguards)
+if me.stats.alignment < 0
+	find_nearby list[1] = "*" near me
+	for ctr = 1 to 64
+		let prey = list[ctr]
+		if_exists prey
+			if_flag prey IS_BIOLOGICAL
+				if prey.stats.hp > 0
+					# Found suitable prey, hunt it
+					let me.target = prey
+					return
+				endif
+			endif
+		endif
+	next
+	# If the beast is psycho, don't do a normal scan
+	return
+endif
+
+# Look for natural prey (normal.. safeguards, and only hunt 'prey')
+find_nearby list[1] = "*" near me
+for ctr = 1 to 64
+	let prey = list[ctr]
+	if_exists prey
+		if_flag prey IS_BIOLOGICAL
+			if prey.label.rank = "prey"
+				if prey.stats.hp > 0
+				and prey.stats.hp < me.stats.hp
+					# Found suitable prey, hunt it
+					let me.target = prey
+					return
+				endif
+			endif
+		endif
+	endif
+next
+
+end

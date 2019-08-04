@@ -1,0 +1,12 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+                    The Second Book of Poetics
+
+                A treatise on comedy and laughter
+
+                             Aristotle
+
+[nextpage="exit"]
+[endpage]

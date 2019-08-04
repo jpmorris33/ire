@@ -1,0 +1,541 @@
+##########################
+#                        #
+# Mobile Phone interface #
+#                        #
+##########################
+
+const PHONEWIDTH = 362
+const PHONEHEIGHT = 232
+const PHONETEXTMAX = 32
+
+userstring phonetime 10
+userstring phonechosen 128
+userstring phonetextinput 32
+string phoneprompt
+
+##
+##  Entry point
+##
+
+function use_mobile
+int win
+int x
+int y
+int a
+int b
+int timex
+int timey
+string timestr
+
+save_screen
+
+let x = 640
+add x - PHONEWIDTH
+add x / 2
+let y = 480
+add y - PHONEHEIGHT
+add y / 2
+
+draw_object phone_img at x y
+
+# Offset to screen
+add x + 19
+add y + 21
+
+# Disabled text (later buttons?)
+textcolour 0xb5 0xb5 0xb5
+let a = x
+let b = y
+gotoxy a b
+printxy "Index"
+
+let a = x
+let b = y + 184
+gotoxy a b
+printxy "Add Entry"
+
+# EXIT button
+let a = x + 272
+let b = y + 184
+textcolour 0 0 0
+textbutton KEY_ESC = a b "Exit"
+range_pointer KEY_ESC = 1
+
+# Phone buttons
+
+let a = x + 313
+let b = y + 47
+mouse_range KEY_UP = a b 19 16
+range_pointer KEY_UP = 1
+
+let a = x + 313
+let b = y + 127
+mouse_range KEY_DOWN = a b 19 16
+range_pointer KEY_DOWN = 1
+
+
+# Time X,Y and time string
+let timex = x + 264
+let timey = y
+
+let phonetime = ""
+if game_hour < 10
+	add_string phonetime = "0"
+endif
+add_string phonetime = game_hour
+add_string phonetime = ":"
+if game_minute < 10
+	add_string phonetime = "0"
+endif
+add_string phonetime = game_minute
+let timestr = phonetime
+
+# Offset to first line of display
+add y + 8 
+
+# Create the phone window
+createwindow win = x y 296 176
+if win < 1
+	load_screen
+	print "The phone is broken!"
+	printcr
+	return
+endif
+
+# Make sure the arrival entry is set at minimum
+journal jrn_Arrival
+
+addwindowline win "Journal"
+drawjournal win
+
+# Start the loop
+
+do
+	drawwindow win
+	textcolour 0 0 0
+	gotoxy timex timey
+	printxy timestr
+	getkey_quiet
+
+	# Go through the keys
+        if key = KEY_MOUSE
+                let key = mouseclick
+                flush_mouse BLOCKING
+        endif
+
+	if key = KEY_UP
+		scrollwindow win -1
+	endif
+
+	if key = KEY_DOWN
+		scrollwindow win +1
+	endif
+
+	if key = KEY_HOME
+		setwindowpercent win 0
+	endif
+
+	if key = KEY_END
+		setwindowpercent win 100
+	endif
+
+while key <> KEY_ESC
+
+destroywindow win
+
+load_screen
+let key = 0
+
+return
+end
+
+
+##
+##
+##
+
+function use_mobile_savegame
+int win
+int x
+int y
+int a
+int b
+int ctr
+int last
+string chosen
+
+save_screen
+textcolour 0 0 0
+
+let x = 640
+add x - PHONEWIDTH
+add x / 2
+let y = 480
+add y - PHONEHEIGHT
+add y / 2
+
+draw_object phone_img at x y
+
+# Offset to screen
+add x + 19
+add y + 21
+
+# Message at top of screen
+textcolour 0 0 0
+let a = x + 112
+let b = y
+gotoxy a b
+printxy "Save Game"
+
+# EXIT button
+let a = x
+let b = y + 184
+textcolour 0 0 0
+textbutton KEY_ENTER = a b "Save"
+range_pointer KEY_ENTER = 1
+
+
+# EXIT button
+let a = x + 272
+let b = y + 184
+textcolour 0 0 0
+textbutton KEY_ESC = a b "Exit"
+range_pointer KEY_ESC = 1
+
+# Phone buttons
+
+let a = x + 313
+let b = y + 47
+mouse_range KEY_UP = a b 19 16
+range_pointer KEY_UP = 1
+
+let a = x + 313
+let b = y + 127
+mouse_range KEY_DOWN = a b 19 16
+range_pointer KEY_DOWN = 1
+
+
+# Offset to first line of display, and skip another
+add y + 16
+
+# Create the phone window
+createlist win = x y 296 160
+if win < 1
+	load_screen
+	print "The phone is broken!"
+	printcr
+	return
+endif
+
+lastsave last
+for ctr = 1 to last
+	addlistsave win ctr
+next ctr
+addlistline win -666 "[New Slot]"
+
+setlistpercent win 100
+
+listpoll win
+
+# Start the loop
+
+do
+	listpoll win
+
+	# Go through the keys
+        if key = KEY_MOUSE
+                let key = mouseclick
+                flush_mouse BLOCKING
+        endif
+
+	if key = KEY_ENTER
+		getlisttext phonechosen = win
+		let chosen = phonechosen
+		getlistid ctr = win
+
+		if ctr == -1
+			load_screen
+			bug 1
+			print "Error: negative savegame ID!"
+			printcr
+			bug 0
+			return
+		endif
+
+/*
+		bug 1
+		print "CHOSE ITEM: "
+		print chosen
+		print " : id = "
+		print ctr
+		printcr
+		bug 0
+*/		
+		let phoneprompt = "Enter the name of your savegame:"
+		if ctr = -666
+			getdate phonetextinput
+		else
+			setstr phonetextinput = chosen
+		endif
+		call mobile_gettext
+
+		if key > 0
+/*
+			bug 1
+			print "Got title:|"
+			let phoneprompt = phonetextinput 
+			print phoneprompt
+			print
+			bug 0
+*/
+
+			if ctr = -666
+				lastsave ctr
+				add ctr + 1
+			endif
+			savegame ctr phonetextinput
+
+		endif
+		let key = KEY_ESC
+	endif
+
+
+while key <> KEY_ESC
+
+destroywindow win
+
+load_screen
+let key = 0
+
+return
+end
+
+
+
+function use_mobile_loadgame
+int win
+int x
+int y
+int a
+int b
+int ctr
+int last
+int slot
+
+save_screen
+textcolour 0 0 0
+
+let x = 640
+add x - PHONEWIDTH
+add x / 2
+let y = 480
+add y - PHONEHEIGHT
+add y / 2
+
+draw_object phone_img at x y
+
+# Offset to screen
+add x + 19
+add y + 21
+
+# Message at top of screen
+textcolour 0 0 0
+let a = x + 112
+let b = y
+gotoxy a b
+printxy "Load Game"
+
+# EXIT button
+let a = x
+let b = y + 184
+textcolour 0 0 0
+textbutton KEY_ENTER = a b "Load"
+range_pointer KEY_ENTER = 1
+
+
+# EXIT button
+let a = x + 272
+let b = y + 184
+textcolour 0 0 0
+textbutton KEY_ESC = a b "Exit"
+range_pointer KEY_ESC = 1
+
+# Phone buttons
+
+let a = x + 313
+let b = y + 47
+mouse_range KEY_UP = a b 19 16
+range_pointer KEY_UP = 1
+
+let a = x + 313
+let b = y + 127
+mouse_range KEY_DOWN = a b 19 16
+range_pointer KEY_DOWN = 1
+
+
+# Offset to first line of display, and skip another
+add y + 16
+
+# Create the phone window
+createlist win = x y 296 160
+if win < 1
+	load_screen
+	print "The phone is broken!"
+	printcr
+	return
+endif
+
+lastsave last
+for ctr = 1 to last
+	addlistsave win ctr
+next ctr
+addlistline win -666 "[Restart Game]"
+
+setlistpercent win 100
+
+listpoll win
+
+# Start the loop
+
+let slot = -1
+
+do
+	listpoll win
+
+	# Go through the keys
+        if key = KEY_MOUSE
+                let key = mouseclick
+                flush_mouse BLOCKING
+        endif
+
+	if key = KEY_ENTER
+		getlistid slot = win
+		let key = KEY_ESC
+	endif
+
+while key <> KEY_ESC
+
+destroywindow win
+
+load_screen
+let key = 0
+let err = slot
+
+#bug 1
+#print "got slot = "
+#print slot
+#printcr
+#bug 0
+
+# If we're in the main menu, prevent the 'Restart Game' option
+# That must be handled by the menu instead
+if InMenu = 1
+and slot == -666
+	return
+endif
+
+# otherwise, load the game if it's valid
+if slot != -1
+	loadgame slot
+endif
+
+return
+end
+
+##
+##
+##
+
+function mobile_gettext
+int x
+int y
+int a
+int b
+int px
+int py
+int pos
+string textstr
+
+let x = 640
+add x - PHONEWIDTH
+add x / 2
+let y = 480
+add y - PHONEHEIGHT
+add y / 2
+
+# EXIT button
+let a = x + 256
+let b = y + 184
+textcolour 0 0 0
+textbutton KEY_ESC = a b "Cancel"
+range_pointer KEY_ESC = 1
+
+let px = x
+let py = y
+
+# Offset to screen
+add x + 19
+add y + 21
+
+strlen pos = phonetextinput
+if pos > 0
+	add pos + 1
+endif
+let textstr = phonetextinput
+
+do
+
+	draw_object phone_img at px py
+	textcolour 255 255 255
+
+	let a = x + 8
+	let b = y + 96
+	gotoxy a b
+	printxy phoneprompt
+
+	add b + 16
+	gotoxy a b
+	printxy textstr
+	printxy "_"
+	get_key_quiet
+
+	# Go through the keys
+        if key = KEY_MOUSE
+                let key = mouseclick
+                flush_mouse BLOCKING
+        endif
+
+        if key = KEY_BACKSPACE
+                if pos > 1
+                        add pos - 1
+                        strsetpos phonetextinput pos = 0    # Terminate
+                endif
+                continue
+        endif
+
+	if key = KEY_ENTER
+		break
+	endif
+
+	if key = KEY_ESC
+		let key = -1
+		break
+	endif
+
+	call find_ascii
+	if key = 0
+		continue
+	endif
+
+	if pos < PHONETEXTMAX
+		strsetpos phonetextinput pos = key
+		add pos + 1
+		strsetpos phonetextinput pos = 0
+	endif
+
+
+while key <> KEY_ESC
+
+return
+end
+

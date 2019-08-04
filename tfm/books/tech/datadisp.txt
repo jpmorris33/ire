@@ -1,0 +1,88 @@
+Data display panel (Demons)
+
+[page="start"]
+[random_page="data 01 06"]
+[goto="data02"]
+[endpage]
+
+[page="data00"]
+[backing="data2.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="data01"]
+[backing="data1.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="data02"]
+[backing="data2.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="data03"]
+[backing="data1.png"]
+[nextpage="exit"]
+[endpage]
+[page="data04"]
+[backing="data2.png"]
+[nextpage="exit"]
+[endpage]
+
+Game
+
+[page="data05"]
+[backing="data3.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="data06"]
+[backing="data1.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="austin"]
+[backing="data5.png"]
+[set austins_gf]
+[nextpage="exit"]
+[endpage]
+
+[page="growthtank"]
+[backing="data6.png"]
+[nextpage="exit"]
+[endpage]
+
+[page="people"]
+[backing="peeplsim.jpg"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="lucent"]
+[backing="datablnk.png"]
+[font 4]
+
+
+
+
+  Ospreys feed almost exclusively on fish,
+  mainly salmon or trout about 25cm long, and
+  the bird has special adaptations for fishing.
+  The feathers are waterproofed and the bird
+  can shake them dry like a dog, even during
+  flight.
+
+  The blue-grey feet have four toes, one of
+  which is opposable.  They all have spicules
+  to help keep hold of a slippery fish, and are
+  finished with long, sharp talons that can 
+  snap shut completely in one fiftieth of a
+  second.
+
+  Ospreys were introduced into Weytus in 2091
+  using chicks and sub-adults from Norway and
+  Canada.  The oceans and some rivers had been
+  seeded with Earth fish-stocks about nine
+
+[nextpage="exit"]
+[endpage]

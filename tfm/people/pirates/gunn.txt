@@ -1,0 +1,421 @@
+
+[page="start"]
+
+[colour="#808080"]
+You see a ragged old man in torn clothes, his beard long
+and straggled.  He removes a lit pipe from his mouth and
+speaks in a slow voice.
+[colour="#ffffff"]
+
+"Who be thoo?
+
+ 'Tis so many years since I spoke t' another soul..
+ Has thoo any curry?"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if curryquest_done][goto="postcurry"]
+
+[colour="#808080"]
+You see a Bent Gunn.  He removes a lit pipe from his
+mouth and speaks in a slow voice.
+[colour="#ffffff"]
+
+"Hail to thoo.  Has thoo any curry yet?"
+
+[am_carrying kfs_curry]
+[if true][link="Yes, I've got it."]
+[if true][linkto="curry"]
+[link="Remind me, who are you again?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+
+"'Bent Gunn' is me name.
+  Bent by name, Bent by nature.  Hehehe.."
+  
+[learn_name]
+[link="What do you do?"]
+[linkto="job"]
+[link="How did you get here?"]
+[linkto="gethere"]
+[link="I understand there's some treasure here."]
+[linkto="treasure"]
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I has no job, for I's rich as a king..
+ Them'll hail me 'Bent Gunn the first'..
+
+ ..For I knows where the Treasure is! 
+ But I shan't tell thoo!"
+
+[learn_name]
+[link="Tell me about the Treasure."]
+[linkto="treasure"]
+[link="How did you get here?"]
+[linkto="gethere"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="treasure"]
+
+"Aye, 'tis nine million pounds worth of the finest goods
+ Cap'n Skint could lay his hands upon."
+
+[colour="#808080"]
+ He takes a small, grubby snuff box from his pocket and
+ taking a pinch of the contents, shoves some up his nose.
+ It is not snuff.
+[colour="#ffffff"]
+
+"Aye, 'Twas all hidden t' keep't from the Church..
+ T' Keep't safe from God, Christ 'n the Virgin Mary.."
+
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[if_not curryquest_done][link="Tell me where the treasure is."]
+[if_not curryquest_done][linkto="treasure_where"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure_what"]
+
+"'Twas all the finest quality t' Cap'n could buy.
+ Thoo'd never believe the hoard if thoo saw it!
+
+ Row upon row o' salt-shakers, filled with naught but
+ t' finest coke in all the world..
+
+ ..great bars o' solid E that take two men t' carry..
+
+ ..whole kegs o' LSD, sack upon sack o' Jimson Weed..
+
+ ..and O'course, all t' twiggleybars a man could eat!"
+
+[link="Is there any gold or jewels?"]
+[linkto="treasure_gold"]
+[link="What are Twiggleybars?"]
+[linkto="treasure_twig"]
+[if_not curryquest_done][link="Tell me where the treasure is."]
+[if_not curryquest_done][linkto="treasure_where"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure_twig"]
+
+[if_male]"Twiggleybars be sweetmeats, lad.  A secret recipe
+[if_female]"Twiggleybars be sweetmeats, lass.  A secret recipe
+ known to include:
+
+  * Speed
+  * Heroin
+  * Nitric Acid
+
+  .. and a delicious milk chocolate an' vodka covering!
+
+  'Tis said that a man'll be addicted after the first
+  bite.  But too many an' they'll dissolve your teeth.
+
+  The men who make them be outlaws in every nation.
+  They've more money than God, mind."
+
+[link="Isn't there any gold or jewels?"]
+[linkto="treasure_gold"]
+[if_not curryquest_done][link="Tell me where the treasure is."]
+[if_not curryquest_done][linkto="treasure_where"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure_gold"]
+
+[if_male]"Nay, lad!
+[if_female]"Nay, lass!
+
+ Cap'n Skint spend all his wealth upon drugs, for they be
+ more difficult for t' Holy Trinity to trace.
+
+ He 'n his men buried most o' the treasure on this
+ island, but they took some back with 'em for the
+ journey.  Years later, Cap'n Zippy an' some fuzzy
+ cretins came to try an' take the treasure for themselves
+ but there were far too much for them t' carry it all.
+
+ Zippy 'n Bungle told me that Cap'n Skint ran aground on
+ t' journey home when t' bosun fell asleep wi' a reefer.
+
+ Skint had no money then, and could nay afford a ship
+ to take him back to t' island."
+
+[link="Who the hell is Captain Zippy?"]
+[linkto="treasure_zippy"]
+[link="So what's in the treasure, then?"]
+[linkto="treasure_what"]
+[if_not curryquest_done][link="Tell me where the treasure is."]
+[if_not curryquest_done][linkto="treasure_where"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure_zippy"]
+
+"Cap'n Zippy were short an' yellow, eyes like saucers
+ an' teeth made o' metal.  One o' his henchmen were
+ called Bungle, an' he were like a bear on two legs.
+
+ They came in a ship called 'The Rainbow' an' fought wi'
+ some even stranger folk, like short, ugly fuzzy babies,
+ who was led by Cap'n Tinkywinky.
+ I thought I were havin' a trip at first!
+
+ Anyway.  Cap'n Zippy ran aground, so they stole Tinky's
+ ship an' loaded her up wi' all t' drugs she could carry.
+
+ I have t' log o' the 'Rainbow' if thoo is interested."
+
+[link="So what's in the treasure, then?"]
+[linkto="treasure_what"]
+[if_not curryquest_done][link="Tell me where the treasure is."]
+[if_not curryquest_done][linkto="treasure_where"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="treasure_where"]
+
+[if_male]"Nay, lad!  This treasure's not for thoo!
+[if_female]"Nay, lass!  This treasure's not for thoo!
+ I'll not tell where it be hidden."
+
+[link="Tell me where the treasure is or I'll kill you."]
+[linkto="treasure_where2"]
+[link="Why won't you tell me?"]
+[linkto="whynottell"]
+[link="I only want a part of the treasure."]
+[linkto="part"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="treasure_where2"]
+
+"Thoo'll kill me?  And ne'er find the Treasure..?"
+ 
+[link="Why won't you tell me where it is?"]
+[linkto="whynottell"]
+[link="I only want a part of the treasure."]
+[linkto="part"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="whynottell"]
+
+"Thoo'd get there first, 'N make thoo King 'afore I can!"
+
+[link="Being King isn't all it's cracked up to be."]
+[linkto="kingbad"]
+[link="I only want part of the treasure."]
+[linkto="part"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="Oops, rumbled.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="kingbad"]
+
+"What be this?
+ Hoo can it be bad t' rule o'er men?"
+
+[link="Everyone wants you to solve their problems!"]
+[linkto="problems"]
+[link="I only want part of the treasure."]
+[linkto="part"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="I don't know.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="problems"]
+
+[if_male]"Thoo'll needs try harder than that, lad!
+[if_female]"Thoo'll needs try harder than that, lass!
+ A King has advisors, 'll tell him right answers.
+ Them'll solve problems!"
+
+[link="I only want part of the treasure."]
+[linkto="part"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="Damn.  Goodbye, then!"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="gethere"]
+
+"I were wi' Cap'n Skint when we came t' bury the Treasure.
+ But when it were done, I fell asleep wi' a reefer, an'
+ woke t' find me still here.  The ship were gone.
+ 
+ 'Twere five year ago.."
+ 
+[link="Tell me about the Treasure."]
+[linkto="treasure"]
+[if_not curryquest_done][link="Tell me where the treasure is."]
+[if_not curryquest_done][linkto="treasure_where"]
+[link="That's nice.  Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="part"]
+
+"Aye?  An' what part be that?"
+
+[link="Brown packages. I was sent by a Master to find them."]
+[linkto="packages"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="Damn.  Goodbye, then!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="packages"]
+
+"Brown packages..?  O Aye, the amphetamines.. Tha'll be
+ for Master Ya'Do, I fancies.
+
+ Well I can gi' thoo' some o' those if thoo' need it,
+ but thoo must gi' me something in exchange."
+
+[link="What do you want me to get for you?"]
+[linkto="whatget"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="Damn.  Goodbye, then!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="whatget"]
+[set curryquest]
+
+"Many's the night I's dreamed of curry --chicken mostly--
+ and woke up here again.
+ North o' t' Holy Land, by a river, there' a place in the
+ deep woods as sells a fine a curry as ever there were.
+
+ 'Tis a strange place, they calls it the 'KFS', and 'tis
+ hidden from the Church, for is said that curry be an
+ abomination in t' eyes of the LORD.
+
+[if_male] Fetch me a curry, lad, and I'll give thoo some Stuff."
+[if_female] Fetch me a curry, lass, and I'll give thoo some Stuff."
+
+[link="I will fetch you a curry."]
+[linkto="getcurry"]
+[link="What's in the treasure?"]
+[linkto="treasure_what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="curry"]
+
+"By t' stars!  A KFS Squirrel Curry!
+
+ I's not had a good curry for so many a year..
+ Here be the uppers that I promised thoo in return.
+
+ Take care, 'tis highly refined!  Rare stuff, it be!"
+
+[colour="#808080"]
+He hands you a small brown package, and starts eating
+the curry.
+[colour="#ffffff"]
+
+[take 1 kfs_curry]
+[create 1 brown_package]
+[set curryquest_done]
+[nextpage="exit"]
+[endpage]
+
+
+[page="postcurry"]
+
+[colour="#808080"]
+You see a Bent Gunn.  He removes a lit pipe from his
+mouth and speaks in a slow voice.
+[colour="#ffffff"]
+
+"Thank thoo again for t' curry."
+
+[link="Tell me about who are you again."]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="getcurry"]
+
+"Aye, if thoo could!  Fair morrow to thoo!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare well to thoo.."
+
+[nextpage="exit"]
+[endpage]

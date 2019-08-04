@@ -1,0 +1,295 @@
+## $Id: Makefile.am,v 1.4 2004/05/12 18:54:46 mlefebvr Rel mlefebvr $
+## $Name: 0_91 $ /* codename */
+## automake file for the src/ directory of IRE
+## -- Michael G. Lefebvre
+
+## automake will eat up lines beginning by "##"
+
+
+AM_MAKEFLAGS = -f Makefile
+
+# Paths to other 'Makefile.am' files
+SUBDIRS = bgui2 ithelib
+
+
+# Manual pages
+# ~~~~~~~~~~~~
+man_MANS = deb/ire.6
+
+
+
+## Binaries of the IRE package
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Programs to install:
+bin_PROGRAMS = ire ire-ed
+	## "bin_" means that all the binaries listed here
+	## will go to the GNU "bindir" directory
+	## "sbin_" would mean to the "sbindir"
+
+# Programs to be built, but not installed:
+noinst_PROGRAMS = chknpc crypter resize_map cel2png png2cel
+
+
+
+## Global rule for asm files
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if ENABLE_ASM_SOURCES
+	## This conditional has been set in the autoconf 'configure.ac'script
+
+# Add a rule to compile asm files:
+## It must stick to the left margin.
+.asm.$(OBJEXT):
+	@nasm@ @NASM_OPTIONS@ $< -o $@
+
+endif
+
+
+## The "ire" binary
+## ~~~~~~~~~~~~~~~~
+
+# Sources of the "ire" program:
+## Headers, although not required, should be cited here too,
+## to let automake know that they should be distributed 
+## through the "dist" rule.
+ire_SOURCES = \
+	console.h console.c cookies.h core.hpp \
+	darken.h darken_c.c \
+	fortify.h fortifyj.c \
+	gamedata.h gamedata.c \
+	init.h init.c ire.cpp ithelib.h \
+	library.hpp library.cpp linklist.hpp linklist.cpp loaders.c \
+	loadfile.h loadfile.c loadpng.c loadsave.hpp loadsave.cpp \
+	mainloop.cpp map.hpp map.cpp media.h media.c mouse.h mouse.c mymode.c \
+	nuspeech.hpp nuspeech.cpp \
+	object.hpp object.cpp oscli.h oscli.c \
+	pathfind.cpp project.hpp project.cpp \
+	resource.hpp resource.cpp sound.h \
+	tdgui.h textfile.h textfile.c \
+	pe/pe_api.hpp \
+	pe/pe_lang.cpp \
+	pe/pe_sys.cpp \
+	pe/pe_vm.cpp \
+	pe/opcodes.h 
+
+## Here are the missing sources of "ire" to complete the full list
+## of circumstance-independent files which can possibly build it.
+EXTRA_ire_SOURCES = \
+	darken_a.asm mymode95.c mymodeds.c \
+	audio/allegro.h audio/allegro.c \
+	audio/fmod.h audio/fmod.c \
+	audio/sdl.h audio/sdl.c
+
+ire_CPPFLAGS = $(AM_CPPFLAGS) \
+	-DPATH_FILES_DAT=\"$(pkgdatadir)\" \
+	-DPATH_FILES_CONF=\"$(pkgsysconfdir)\" \
+	-DBGUI 
+	## Note: we have to explicitly recall the AutoMake "AM_CPPFLAGS"
+	## variable (taken from the 'configure' script) if it is needed
+	## in the the per-program "_CPPFLAGS".
+
+ire_LDADD = ithelib/libithe.a bgui2/src/libbgui.a -ljpeg -lpng
+
+## "ire" uses Allegro
+ire_CPPFLAGS += -DALLEGRO @ALLEGRO_CFLAGS@
+ire_LDADD += @ALLEGRO_LIBS@
+
+
+
+# Config-time management of "ire"
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	## This step is mainly an addition of sources
+	## from $(EXTRA_ire_SOURCES) to $(ire_SOURCES).
+	
+
+if ENABLE_ASM_SOURCES
+
+ire_SOURCES += darken_a.asm
+
+else
+
+ire_CPPFLAGS += -DNO_ASM
+
+endif
+
+
+
+if WITH_SDL_SOUND
+# Sound with the SDL_mixer lib
+
+ire_SOURCES += audio/sdl.h audio/sdl.c
+ire_CPPFLAGS += -DUSE_SDLSOUND @SDL_CFLAGS@
+ire_LDADD += @SDL_LIBS@ -lSDL_mixer
+
+
+else
+if WITH_ALLEGRO_SOUND
+
+# Allegro/Alogg sound
+ire_SOURCES += audio/allegro.h audio/allegro.c
+ire_CPPFLAGS += -DUSE_ALOGG -DUSE_ALSOUND @ALOGG_CFLAGS@
+ire_LDADD += @ALOGG_LIBS@
+
+
+else
+
+# fmod sound system
+ire_SOURCES += audio/fmod.h audio/fmmod.c
+ire_CPPFLAGS += -DUSE_FMOD
+ire_LDADD += -lfmod-3.61
+
+endif
+
+
+endif
+
+
+
+# "ire-ed" binary
+# ~~~~~~~~~~~~~~~
+
+# Sources (and headers) of the "ire-ed" program:
+## Note: "ire-ed" is read (canonicalized) "ire_ed" by automake.
+## Therefore we must use the prefix "ire_ed"
+## when using automake variables.
+ire_ed_SOURCES = \
+	console.h console.c cookies.h core.hpp \
+	darken.h darken_c.c dummy.cpp dummy_c.c \
+	fortify.h fortifyj.c \
+	gamedata.h gamedata.c \
+	init.h init.c ithelib.h \
+	linklist.hpp linklist.cpp loaders.c loadfile.h loadfile.c \
+	loadpng.c loadsave.hpp loadsave.cpp \
+	map.hpp map.cpp media.h media.c mouse.h mouse.c mymode.c \
+	nuspeech.hpp nuspeech.cpp \
+	object.hpp object.cpp oscli.h oscli.c \
+	resource.hpp resource.cpp sound.h \
+	tdgui.h textfile.h textfile.c \
+	gui/about.cpp \
+	gui/backgrnd.cpp \
+	gui/bigmap.cpp \
+	gui/editor.cpp \
+	gui/editarea.cpp \
+	gui/gfx.c \
+	gui/igui.hpp \
+	gui/igui.cpp \
+	gui/lights.cpp \
+	gui/menusys.h \
+	gui/objects.cpp \
+	gui/roof.cpp \
+	pe/pe_api.hpp \
+	pe/pe_lang.cpp \
+	pe/pe_sys.cpp \
+	pe/opcodes.h 
+
+EXTRA_ire_ed_SOURCES = \
+	darken_a.asm mymode95.c mymodeds.c \
+	audio/allegro.h audio/allegro.c \
+	audio/fmod.h audio/fmod.c \
+	audio/sdl.h audio/sdl.c
+
+
+ire_ed_CPPFLAGS = $(AM_CPPFLAGS) -DBGUI
+ire_ed_LDADD = ithelib/libithe.a bgui2/src/libbgui.a -ljpeg -lpng
+
+## "ire-ed" uses Allegro
+ire_ed_CPPFLAGS += -DALLEGRO @ALLEGRO_CFLAGS@
+ire_ed_LDADD += @ALLEGRO_LIBS@
+
+
+# Config-time management of "ire-ed"
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if ENABLE_ASM_SOURCES
+
+ire_ed_SOURCES += darken_a.asm
+
+else
+
+ire_ed_CPPFLAGS += -DNO_ASM
+
+endif
+
+
+if WITH_SDL_SOUND
+# Sound with the SDL_mixer lib
+
+ire_ed_SOURCES += audio/sdl.h audio/sdl.c
+ire_ed_CPPFLAGS += -DUSE_SDLSOUND @SDL_CFLAGS@
+ire_ed_LDADD += @SDL_LIBS@ -lSDL_mixer
+
+else 
+if WITH_ALLEGRO_SOUND
+
+# Allegro/Alogg sound
+ire_ed_SOURCES += audio/allegro.h audio/allegro.c
+ire_ed_CPPFLAGS += -DUSE_ALOGG -DUSE_ALSOUND @ALOGG_CFLAGS@
+ire_ed_LDADD += @ALOGG_LIBS@
+
+else
+
+# fmod sound system
+ire_SOURCES += audio/fmod.h audio/fmmod.c
+ire_CPPFLAGS += -DUSE_FMOD
+ire_LDADD += -lfmod-3.61
+
+endif 
+
+endif 
+
+
+
+# Tools programs
+# ~~~~~~~~~~~~~~
+
+# "crypter"
+crypter_SOURCES = crypter.h crypter.c
+crypter_LDADD = ithelib/libithe.a
+
+# "chknpc"
+chknpc_SOURCES = chknpc.c
+
+# "resize_map"
+resize_map_SOURCES = cookies.h core.hpp dummy_r.c \
+	gamedata.h gamedata.c ithelib.h \
+	loaders.c loadfile.h  media.h \
+	resize.cpp resize_e.c
+	
+resize_map_CPPFLAGS = $(AM_CPPFLAGS)
+resize_map_LDADD = ithelib/libithe.a bgui2/src/libbgui.a -ljpeg
+
+# "resize_map" uses Allegro
+resize_map_CPPFLAGS += -DALLEGRO @ALLEGRO_CFLAGS@
+resize_map_LDADD += @ALLEGRO_LIBS@
+
+# CEL <-> PNG converters
+cel2png_SOURCES = cel-png.h cel-png.c cel2png.c
+cel2png_CPPFLAGS = $(AM_CPPFLAGS)
+cel2png_LDADD = -lpng
+
+png2cel_SOURCES = cel-png.h cel-png.c png2cel.c
+png2cel_CPPFLAGS = $(AM_CPPFLAGS)
+png2cel_LDADD = -lpng
+
+
+# Distributed files (and dirs) which don't take part to programs:
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Note:
+## - All files in pe/ are already cited
+## - some are missing in gui/
+## - all are missing in attic/
+EXTRA_DIST = \
+	audio/besound.h audio/besound.c bitmap.h bitmap_c.c \
+	dummy.cpp dummy2.c dummy2a.cpp dummy_c.c dummy_r.c \
+	media.hpp move.cpp \
+	nosound.c \
+	ogglib.h \
+	rcel.cpp resize.cpp resize_e.c \
+	script.old  structur.cpp \
+	\
+	gui \
+	attic \
+	\
+	makefile.all makefile.be makefile.dos makefile.lib \
+	makefile.lin makefile.win

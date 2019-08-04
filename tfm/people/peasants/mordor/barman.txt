@@ -1,0 +1,228 @@
+
+
+[page="start"]
+
+[colour="#808080"]
+You see an innkeeper.
+[colour="#ffffff"]
+
+"Welcome to the Yawning Woolf, traveller.
+
+ Do you need food, drink or shelter?"
+
+[link="What do you have?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Why is it called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+"I am trying to hear the Mass!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="yawningwolf"]
+
+"As all know, there are three kinds of woolf.  There are
+ the proper woolves, who patrol the world of beasts as
+ the LORD decreed, there are the outcast woolf-men whom
+ our LORD has cursed for their sins, and there are the
+ black woolves of the East, who pay tribute to the
+ Evil One.
+
+ It is said that the evil black woolves never yawn, so if
+ you do see a woolf and it yawns, you shall know that the
+ woolf is a holy woolf."
+
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="news"]
+
+"Nothing much has been heard from the Dragon of the North
+ lately, though rumours say that a foolish man has sold
+ his soul to the beast, and serves it!
+
+ Jon the Apocather claims to have seen a number of
+ dwarves singing, while he was out gathering hearbs.
+
+ The village of New Leuchars has been destroyed by the
+ forces of darkness.  The Church has increased the Tithes
+ again as a result."
+ 
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inn"]
+
+"Sorry, we are full up."
+ 
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"3 gold coins would buy you a mug of ale.
+ For 4 gold, I can serve you a hearty meal."
+ 
+[link="I would like some ale, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like food, please."]
+[linkto="buy_food"]
+[always]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_ale"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[call="player_drink_ale"]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some more ale, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_food"]
+[take 4 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[call="player_eat"]
+
+"Thank you, $Sir.
+ Would you like anything else?"
+
+[link="I would like some ale, please."]
+[linkto="buy_ale"]
+[always]
+[link="I would like some more food, please."]
+[linkto="buy_food"]
+[always]
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_money"]
+
+"I'm afraid you cannot afford that."
+
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ross"]
+
+"I know of him, but not much.  I have heard tell that he
+ was once a friend to Lord O'Beth, who rules this land.
+
+ May be that should ask him, if he will see you."
+
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare you well."
+
+[nextpage="exit"]
+[endpage]

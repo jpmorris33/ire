@@ -1,0 +1,54 @@
+
+Ulric the Yellow
+
+[colour="#808080"]
+The man pales.
+[colour="#ffffff"]
+
+"Who has not heard of the Dragon of Lakeside?
+ I am, I think, the only man who has confronted the beast
+ and yet lived to speak of it.
+
+ It was twice as long and twice the width of a cow, and
+ had sharp teeth and claws.  The sharpest sword cannot
+ piece its armour and it can summon up flames, not from
+ its breath, but from the walls of the keep.
+
+ Only by feigning death did I manage to escape the beast
+ with my life."
+
+> why did you take on the dragon?
+
+I went to try and slay it, to prove myself.
+It was a foolish deed.  Since then I have stuck with smaller prey.
+
+
+"In the depths of the forest, there is an area of dense
+ woodland, that some call the Forbidden Forest.
+ In it there lies a great pile of gold and jewels, but
+ no man may approach it, for it is well-guarded.
+
+ This treasure is guarded by five great Hell-Cats, with
+ eyes like coals and claws like razors.  It is said that
+ they will slay any man who comes too close to their prize.
+
+ I journeyed to this spot, with twelve other men.
+ We thought that by our numbers we could conquer the
+ beasts, but it was not to be.  The largest cat rose as
+ we approached and snarled, as if to warn us off.
+
+ Our leader ignored it, and we attacked.  Within ten
+ seconds, everyone else was dead, their throats torn out.
+
+ I alone survived, for the beasts did not give chase when
+ I threw down my sword and fled."
+
+"As adventurers go, I seem to have more than my fair share
+ of bad luck." he says glumly.
+
+> But you're still alive.  They aren't.
+
+
+
+ 
+
