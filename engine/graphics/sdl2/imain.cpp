@@ -119,13 +119,13 @@ SDL_ShowCursor(0);
 int XlateMousebuttons(int input)
 {
 int output=0;
-//printf("mousebutton = %d\n",input);
+printf("mousebutton = %d\n",input);
 if(input & 1)
 	output |= IREMOUSE_LEFT;
 if(input & 2)
 	output |= IREMOUSE_LEFT|IREMOUSE_RIGHT;
 if(input & 4)
 	output |= IREMOUSE_RIGHT;
-//printf("mousebutton now = %d\n",output);
+printf("mousebutton now = %d\n",output);
 return output;
 }

@@ -13,6 +13,7 @@ static char BackendVersion[256];
 extern int MakeIREScreen(int bpp, int fullscreen);
 extern void InvalidateIREScreen();
 static Uint32 TimerShim(Uint32 interval, void *param);
+extern void IRESDL2_InitKeys();
 
 const char *IRE_Backend()
 {
@@ -52,6 +53,8 @@ if(MakeIREScreen(bpp,fullscreen) == 0)
 	return 0;
 
 IRE_StartGFX(bpp);
+
+IRESDL2_InitKeys();
 
 return bpp;
 }
