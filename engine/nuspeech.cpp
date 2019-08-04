@@ -438,7 +438,7 @@ do  {
 
 		CheckSpecialKeys(k);	// F10, CTRL-BREAK
 
-		if(k==IREKEY_MAX+1) // Mouse click?  Get the 'virtual key'
+		if(k==IREKEY_MOUSE) // Mouse click?  Get the 'virtual key'
 			{
 			k=MouseID;
 			WaitForMouseRelease();

@@ -3708,7 +3708,7 @@ add_symbol_val("KEY_CTRL_F10",'n',IREKEY_F10|IREKEY_CTRLMOD);
 add_symbol_val("KEY_CTRL_F11",'n',IREKEY_F11|IREKEY_CTRLMOD);
 add_symbol_val("KEY_CTRL_F12",'n',IREKEY_F12|IREKEY_CTRLMOD);
 
-add_symbol_val("KEY_MOUSE",'n',IREKEY_MAX+1);
+add_symbol_val("KEY_MOUSE",'n',IREKEY_MOUSE);
 
 ADD_CONST(MAX_MEMBERS);
 

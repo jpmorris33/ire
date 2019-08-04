@@ -893,7 +893,7 @@ do  {
 	if(MouseID != -1)
 		{
 		waitredraw(MouseWait);
-		input=IREKEY_MAX+1; // Not a valid key, a mouse click
+		input=IREKEY_MOUSE; // Not a valid key, a mouse click
 		}
 	else
 		{
@@ -923,7 +923,7 @@ do  {
 		{
 //		rest_callback(100,poll_mouse);
 		IRE_WaitFor(MouseWait);
-		input=IREKEY_MAX+1; // Not a valid key, a mouse click
+		input=IREKEY_MOUSE; // Not a valid key, a mouse click
 		}
 	else
 		input = GetKey();

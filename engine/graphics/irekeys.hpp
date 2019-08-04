@@ -10,6 +10,8 @@
 #include "sdl2/keylist.h"
 #endif
 
+#define IREKEY_MOUSE (IREKEY_MAX+1)
+
 #define IREKEY_SHIFTMOD 0x8000
 #define IREKEY_CTRLMOD 0x10000
 

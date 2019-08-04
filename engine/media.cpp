@@ -338,11 +338,8 @@ int k,z;
 do
 	{
 	k = IRE_GetBufferedKeycode();
-//	S_PollMusic();
-
 	// look for a mouse click?
 
-//	IRE_GetMouse();
 	IRE_GetMouse(NULL,NULL,&z,NULL);
 	if(z<0)
 		return IREKEY_UP;
@@ -351,7 +348,7 @@ do
 	CheckMouseRanges();
 	if(MouseID != -1)
 		{
-		return IREKEY_MAX+1; // Not a valid key, a mouse click
+		return IREKEY_MOUSE;
 		}
 
 	} while(!k);

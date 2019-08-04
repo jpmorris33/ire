@@ -2457,7 +2457,7 @@ else
 	if(MouseID != -1)
 		{
 		IRE_WaitFor(MouseWait);
-		irekey=IREKEY_MAX+1; // Not a valid key, a mouse click
+		irekey=IREKEY_MOUSE;
 		}
 		
 	// Now process the list
