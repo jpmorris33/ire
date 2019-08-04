@@ -44,7 +44,8 @@ void IRE_GetKeys()	{
 	int k,m;
 
 	if( SDL_PollEvent( &sdlEvent ) )	{
-		k=sdlEvent.key.keysym.sym & STRIP_TO_FIT;
+//		k=sdlEvent.key.keysym.sym & STRIP_TO_FIT;
+		k=sdlEvent.key.keysym.scancode & STRIP_TO_FIT;
 		m=sdlEvent.key.keysym.mod;
 
 		if(sdlEvent.type == SDL_KEYDOWN)	{
@@ -141,8 +142,9 @@ static int overrun=0;
 int a;
 
 a=IRE_KeyPressed();
-if(!a)
+if(!a) {
 	return 0;
+}
 
 // We're bypassing the internal keybuffer so add the shift modifiers ourselves
 if(IRE_TestShift(IRESHIFT_SHIFT))
@@ -179,5 +181,6 @@ void IRE_FlushBufferedKeycodes()
 
 
 int getAsciiForKey(int k, int m)	{
+	printf("!!! SDL2 backend: getAsciiForKey() is not implemented!\n");
 	return 0;
 }

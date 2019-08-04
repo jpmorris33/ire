@@ -79,7 +79,6 @@ endif
 ifeq ($(SOUND),fmod4)
 	SOUNDLIB_C       = -DUSE_FMOD4
 			  # Force IRE to load the FMOD library from current dir
-#	SOUNDLIB_L       = -lfmod-3.6 -L. -Xlinker -rpath .
 	SOUNDLIB_L       = -lfmodex
 endif
 
@@ -216,8 +215,7 @@ finished:
 	@echo "All done"
 
 svnrevision.h:
-	echo "#define SVNREVISION \"-rev-"`svn info | grep Revision | cut -d \  -f 2`"\"" > svnrevision.h
-#	echo "#define SVNREVISION \"-rev-"`svnversion`"\"" > svnrevision.h
+	echo "#define SVNREVISION \"-rev-"`date -I`"\"" > svnrevision.h
 
 
 %.o: %.c
@@ -258,7 +256,7 @@ clean:
 	-rm -f tools/chknpc
 	-rm -f tools/resize_map
 
-	echo "#define SVNREVISION \"-rev-"`svn info | grep Revision | cut -d \  -f 2`"\"" > svnrevision.h
+	echo "#define SVNREVISION \"-rev-"`date -I`"\"" > svnrevision.h
 
 distclean:
 	-rm -f $(ire_obj) $(ed_obj) $(resize_obj) $(chknpc_obj) $(cel2font) $(font2cel) $(fixfont) $(grabfont)
