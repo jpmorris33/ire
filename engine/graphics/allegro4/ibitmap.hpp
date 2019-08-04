@@ -12,9 +12,7 @@ class A4BMP : public IREBITMAP
 		~A4BMP();
 		void Clear(IRECOLOUR *col);
 		void Draw(IREBITMAP *dest, int x, int y);
-		void DrawAddition(IREBITMAP *dest, int x, int y, int level);
 		void DrawAlpha(IREBITMAP *dest, int x, int y, int level);
-		void DrawDissolve(IREBITMAP *dest, int x, int y, int level);
 		void DrawShadow(IREBITMAP *dest, int x, int y, int level);
 		void DrawSolid(IREBITMAP *dest, int x, int y);
 		void DrawStretch(IREBITMAP *dest, int x, int y, int w, int h);

@@ -37,6 +37,8 @@ else
 	flags |= SDL_WINDOW_RESIZABLE;
 
 SDL_CreateWindowAndRenderer(640, 480, flags, &sdl_framebuffer, &sdl_renderer);
+//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"linear");
+SDL_RenderSetLogicalSize(sdl_renderer, 640,480);
 if(!sdl_framebuffer || !sdl_framebuffer)
 	return 0;
   
@@ -163,29 +165,9 @@ rec.y=y;
 rec.w=width;
 rec.h=height;
 SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
-
+SDL_SetSurfaceBlendMode(img,SDL_BLENDMODE_NONE);
 SDL20BMP *destptr=(SDL20BMP *)dest;
 SDL_BlitSurface(img,NULL,destptr->img,&rec);
-}
-
-//
-//  Additive drawing - need to implement
-//
-
-void SDL20BMP::DrawAddition(IREBITMAP *dest, int x, int y, int level)
-{
-if(!img || !dest)
-	return;
-SDL_Rect rec;
-rec.x=x;
-rec.y=y;
-rec.w=width;
-rec.h=height;
-SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
-SDL_SetSurfaceAlphaMod(img,level);
-SDL20BMP *destptr=(SDL20BMP *)dest;
-SDL_BlitSurface(img,NULL,destptr->img,&rec);
-SDL_SetSurfaceAlphaMod(img,ALPHA_OPAQUE);
 }
 
 //
@@ -204,28 +186,8 @@ rec.h=height;
 SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
 SDL_SetSurfaceAlphaMod(img,level);
 SDL20BMP *destptr=(SDL20BMP *)dest;
+SDL_SetSurfaceBlendMode(img,SDL_BLENDMODE_BLEND);
 SDL_BlitSurface(img,NULL,destptr->img,&rec);
-SDL_SetSurfaceAlphaMod(img,ALPHA_OPAQUE);
-}
-
-//
-//  Dissolved drawing - need to implement properly myself
-//
-
-void SDL20BMP::DrawDissolve(IREBITMAP *dest, int x, int y, int level)
-{
-if(!img || !dest)
-	return;
-SDL_Rect rec;
-rec.x=x;
-rec.y=y;
-rec.w=width;
-rec.h=height;
-SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
-SDL_SetSurfaceAlphaMod(img,level);
-SDL20BMP *destptr=(SDL20BMP *)dest;
-SDL_BlitSurface(img,NULL,destptr->img,&rec);
-SDL_SetSurfaceAlphaMod(img,ALPHA_OPAQUE);
 }
 
 //
@@ -244,8 +206,9 @@ rec.h=height;
 SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
 SDL_SetSurfaceAlphaMod(img,level);
 SDL20BMP *destptr=(SDL20BMP *)dest;
+SDL_SetSurfaceBlendMode(img,SDL_BLENDMODE_BLEND);
 SDL_BlitSurface(img,NULL,destptr->img,&rec);
-SDL_SetSurfaceAlphaMod(img,ALPHA_OPAQUE);
+//SDL_SetSurfaceAlphaMod(img,ALPHA_OPAQUE);
 }
 
 //

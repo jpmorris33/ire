@@ -186,11 +186,6 @@ if(!party[0])	{
 	player->flags |= IS_PARTY;  // Make sure
 }
 
-//ilog_quiet("%d bytes free as we start the game:\n",coreleft());
-
-//ilog_break=0; // Disable break, now the engine is about to start
-		// This is done prior to InitProc now
-
 ilog_quiet("Player =%x\n",player);
 ilog_quiet("Player action =%d\n",player->activity);
 if(player->activity > 0)

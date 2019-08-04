@@ -30,9 +30,7 @@ class IREBITMAP
 		virtual ~IREBITMAP();
 		virtual void Clear(IRECOLOUR *col);
 		virtual void Draw(IREBITMAP *dest, int x, int y)=0;
-		virtual void DrawAddition(IREBITMAP *dest, int x, int y, int level);
 		virtual void DrawAlpha(IREBITMAP *dest, int x, int y, int level);
-		virtual void DrawDissolve(IREBITMAP *dest, int x, int y, int level);
 		virtual void DrawShadow(IREBITMAP *dest, int x, int y, int level);
 		virtual void DrawSolid(IREBITMAP *dest, int x, int y);
 		virtual void DrawStretch(IREBITMAP *dest, int x, int y, int w, int h);

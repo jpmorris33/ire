@@ -5,12 +5,14 @@
 #include <unistd.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_keyboard.h>
+#include "../iregraph.hpp"
 #include "../irekeys.hpp"
 
 extern int IRE_ReadKeyBuffer();
 extern void IRE_FlushKeyBuffer();
 static inline int IsModifier(int keycode);
 static int getAsciiForKey(int k, int m);
+static int XlateMousebuttons(int input);
 
 #define SDLK_LAST 4096
 #define STRIP_TO_FIT (SDLK_LAST-1)
@@ -20,6 +22,7 @@ static int lastkey=0;
 static char lastascii=0;
 static char asciitab[SDLK_LAST];
 static char shiftascii[256];
+static int mousex,mousey;
 
 // Is it a modifier, rather than something that should return a proper keycode?
 
@@ -63,6 +66,12 @@ void IRE_GetKeys()	{
 				lastascii=0;
 			}
 		}
+
+		if(sdlEvent.type == SDL_MOUSEMOTION)	{
+			mousex = sdlEvent.motion.x;
+			mousey = sdlEvent.motion.y;
+		}
+
 	}
 }
 
@@ -279,5 +288,78 @@ shiftascii[';']=':';
 for(int ctr='a';ctr<='z';ctr++) {
 	shiftascii[ctr]=ctr-32;
 }
-
 }
+
+
+int IRE_GetMouse()
+{
+SDL_PumpEvents();
+return 1;
+}
+
+
+int IRE_GetMouse(int *b)
+{
+SDL_PumpEvents();
+int mousestate = SDL_GetMouseState(NULL,NULL);
+if(b)
+	*b=XlateMousebuttons(mousestate);
+return 1;
+}
+
+
+int IRE_GetMouse(int *x, int *y, int *z, int *b)
+{
+SDL_PumpEvents();
+IRE_GetKeys();
+int mousestate = SDL_GetMouseState(NULL,NULL);
+if(x)
+	*x=mousex;
+if(y)
+	*y=mousey;
+if(z)
+	*z=0;
+/*
+if(z)
+	{
+	*z=0;
+	if(mousestate == 4)
+		*z=-1;
+	if(mousestate == 5)
+		*z=1;
+	}
+*/
+if(b)
+	*b=XlateMousebuttons(mousestate);
+return 1;
+}
+
+
+void IRE_ShowMouse()
+{
+SDL_ShowCursor(1);
+}
+
+void IRE_HideMouse()
+{
+SDL_ShowCursor(0);
+}
+
+
+int XlateMousebuttons(int input)
+{
+int output=0;
+//if(input != 0)
+//	printf("mousebutton = %d\n",input);
+if(input & 1)
+	output |= IREMOUSE_LEFT;
+if(input & 2)
+	output |= IREMOUSE_LEFT|IREMOUSE_RIGHT;
+if(input & 4)
+	output |= IREMOUSE_RIGHT;
+//if(output != 0)
+//	printf("mousebutton now = %d\n",output);
+return output;
+}
+
+

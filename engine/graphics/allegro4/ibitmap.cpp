@@ -106,20 +106,6 @@ draw_sprite(((A4BMP *)dest)->img,img,x,y);
 }
 
 //
-//  Additive drawing
-//
-
-void A4BMP::DrawAddition(IREBITMAP *dest, int x, int y, int level)
-{
-if(!img || !dest)
-	return;
-A4BMP *destptr=(A4BMP *)dest;
-
-set_add_blender(0,0,0,level);
-draw_trans_sprite(destptr->img,img,x,y);
-}
-
-//
 //  Alpha-blended drawing
 //
 
@@ -130,20 +116,6 @@ if(!img || !dest)
 A4BMP *destptr=(A4BMP *)dest;
 
 set_trans_blender(0,0,0,level);
-draw_trans_sprite(destptr->img,img,x,y);
-}
-
-//
-//  Dissolved drawing
-//
-
-void A4BMP::DrawDissolve(IREBITMAP *dest, int x, int y, int level)
-{
-if(!img || !dest)
-	return;
-A4BMP *destptr=(A4BMP *)dest;
-
-set_dissolve_blender(0,0,0,level);
 draw_trans_sprite(destptr->img,img,x,y);
 }
 

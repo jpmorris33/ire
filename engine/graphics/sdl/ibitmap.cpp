@@ -154,50 +154,10 @@ SDL_BlitSurface(img,NULL,destptr->img,&rec);
 }
 
 //
-//  Additive drawing - need to implement
-//
-
-void SDL12BMP::DrawAddition(IREBITMAP *dest, int x, int y, int level)
-{
-if(!img || !dest)
-	return;
-SDL_Rect rec;
-rec.x=x;
-rec.y=y;
-rec.w=width;
-rec.h=height;
-SDL_SetColorKey(img,SDL_SRCCOLORKEY,ire_transparent->packed);
-SDL_SetAlpha(img,SDL_SRCALPHA,level);
-SDL12BMP *destptr=(SDL12BMP *)dest;
-SDL_BlitSurface(img,NULL,destptr->img,&rec);
-SDL_SetAlpha(img,0,SDL_ALPHA_OPAQUE);
-}
-
-//
 //  Alpha-blended drawing
 //
 
 void SDL12BMP::DrawAlpha(IREBITMAP *dest, int x, int y, int level)
-{
-if(!img || !dest)
-	return;
-SDL_Rect rec;
-rec.x=x;
-rec.y=y;
-rec.w=width;
-rec.h=height;
-SDL_SetColorKey(img,SDL_SRCCOLORKEY,ire_transparent->packed);
-SDL_SetAlpha(img,SDL_SRCALPHA,level);
-SDL12BMP *destptr=(SDL12BMP *)dest;
-SDL_BlitSurface(img,NULL,destptr->img,&rec);
-SDL_SetAlpha(img,0,SDL_ALPHA_OPAQUE);
-}
-
-//
-//  Dissolved drawing - need to implement properly myself
-//
-
-void SDL12BMP::DrawDissolve(IREBITMAP *dest, int x, int y, int level)
 {
 if(!img || !dest)
 	return;

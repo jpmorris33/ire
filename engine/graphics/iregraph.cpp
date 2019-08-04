@@ -58,9 +58,7 @@ merge_blit(fb,src->GetFramebuffer(),sw*sh);
 
 void IREBITMAP::Clear(IRECOLOUR *col) {}
 void IREBITMAP::Draw(IREBITMAP *dest, int x, int y) {}
-void IREBITMAP::DrawAddition(IREBITMAP *dest, int x, int y, int level) {}
 void IREBITMAP::DrawAlpha(IREBITMAP *dest, int x, int y, int level) {}
-void IREBITMAP::DrawDissolve(IREBITMAP *dest, int x, int y, int level) {}
 void IREBITMAP::DrawShadow(IREBITMAP *dest, int x, int y, int level) {}
 void IREBITMAP::DrawSolid(IREBITMAP *dest, int x, int y) {}
 void IREBITMAP::DrawStretch(IREBITMAP *dest, int x, int y, int w, int h) {}

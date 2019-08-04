@@ -37,7 +37,7 @@ endif
 #GRAPHICS = sdl12
 #GRAPHICS = sdl20
 ifeq ($(GRAPHICS),)
-GRAPHICS = sdl12
+GRAPHICS = sdl20
 endif
 
 
@@ -50,7 +50,7 @@ endif
 # SOUND = none		# Nothing
 
 ifeq ($(SOUND),)
-SOUND = sdl12
+SOUND = sdl20
 endif
 
 # Choose whether to use assembler.  This can help on things like VC6 which

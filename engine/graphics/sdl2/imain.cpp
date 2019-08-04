@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include "ibitmap.hpp"
 
-static int lastz=0;
-
-static int XlateMousebuttons(int input);
 
 IRECOLOUR::IRECOLOUR()
 {
@@ -60,72 +57,10 @@ SDL_Quit();
 
 void IRE_WaitFor(int ms)
 {
+if(ms < 1) {
+	ms=5;
+}
 SDL_Delay(ms);
 }
 
 
-
-int IRE_GetMouse()
-{
-SDL_PumpEvents();
-return 1;
-}
-
-
-int IRE_GetMouse(int *b)
-{
-SDL_PumpEvents();
-int mousestate = SDL_GetMouseState(NULL,NULL);
-if(b)
-	*b=XlateMousebuttons(mousestate);
-return 1;
-}
-
-
-int IRE_GetMouse(int *x, int *y, int *z, int *b)
-{
-SDL_PumpEvents();
-int mousestate = SDL_GetMouseState(x,y);
-
-if(z)
-	*z=0;
-/*
-if(z)
-	{
-	*z=0;
-	if(mousestate == 4)
-		*z=-1;
-	if(mousestate == 5)
-		*z=1;
-	}
-*/
-if(b)
-	*b=XlateMousebuttons(mousestate);
-return 1;
-}
-
-
-void IRE_ShowMouse()
-{
-SDL_ShowCursor(1);
-}
-
-void IRE_HideMouse()
-{
-SDL_ShowCursor(0);
-}
-
-
-int XlateMousebuttons(int input)
-{
-int output=0;
-printf("mousebutton = %d\n",input);
-if(input & 1)
-	output |= IREMOUSE_LEFT;
-if(input & 2)
-	output |= IREMOUSE_LEFT|IREMOUSE_RIGHT;
-if(input & 4)
-	output |= IREMOUSE_RIGHT;
-printf("mousebutton now = %d\n",output);
-return output;
-}
