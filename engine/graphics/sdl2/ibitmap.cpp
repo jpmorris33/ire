@@ -39,7 +39,7 @@ else
 SDL_CreateWindowAndRenderer(640, 480, flags, &sdl_framebuffer, &sdl_renderer);
 //SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"linear");
 SDL_RenderSetLogicalSize(sdl_renderer, 640,480);
-if(!sdl_framebuffer || !sdl_framebuffer)
+if(!sdl_framebuffer || !sdl_renderer)
 	return 0;
   
 return 1;
@@ -576,6 +576,8 @@ if(_IRE_MouseActivated)
 	SDL_ShowCursor(0);
 	}
 */	
+
+SDL_RenderClear(sdl_renderer); // This stops the shimmering border in fullscreen
 
 SDL_UpdateTexture(texture,NULL,img->pixels,img->pitch);
 SDL_RenderCopy(sdl_renderer,texture,NULL,NULL);
