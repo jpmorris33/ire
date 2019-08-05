@@ -121,6 +121,7 @@ some kind of cameras, follow your movements.
 [set weytus]
 [set met_aircraft]
 [call music_ransome]
+[journal jrn_Fairford-expose]
 
 "It is the year 2131, and you are on a planet called
  Weytus, which is the seventh planet Earth has colonised.
@@ -318,7 +319,7 @@ some kind of cameras, follow your movements.
  
  Obviously the choice is up to you.
  I can't make you join, but you aren't going back to your
- native time without a technical civilisation..
+ native time without an advanced technical civilisation..
  and that is something the Church has sworn to destroy."
 
 [set_pflag offered]
@@ -338,6 +339,7 @@ some kind of cameras, follow your movements.
 [set weytus]
 [set met_aircraft]
 [call music_ransome]
+[journal jrn_Fairford-expose]
 
 "Very well.  But you really should hear the whole thing
  in detail at some stage.  Ask me about it later.
@@ -399,6 +401,7 @@ to a compartment in his underside gives you a small
 plastic card.
 [colour="#ffffff"]
 [create 1 pass_card1]
+[journal jrn_Fairford-joined]
 
 "Thank you.  I'm glad to hear you will.
  This is a passcard that will give you access to most of
@@ -447,9 +450,12 @@ Ransome sighs deeply.
 "If you join us, we can provide you with accomodation,
  food, and access to our technology.
 
- In return, we need you to go out there and mingle
- with the people.  Try to find out what the Hell is
- going on and report back here."
+ In return, we need you to go out there and find out
+ what the hell is causing all this.  The medievalists
+ haven't killed you, so you may be able to get
+ information from them that we can't.
+ Also, if you can visit the other airbases, that would
+ help us immensely."
 
 [link="I will join you."]
 [linkto="willjoin"]
@@ -458,6 +464,10 @@ Ransome sighs deeply.
 [link="I don't want to join you."]
 [linkto="wontjoin"]
 [endpage]
+
+# In return, we need you to go out there and mingle
+# with the people.  Try to find out what the Hell is
+# going on and report back here."
 
 
 [page="thinkjoin"]
@@ -1167,6 +1177,7 @@ Spellsmith,Engineer -> Fisher, DeLuca
 
 [page="magicquest"]
 [image="f16_06.cel"]
+[journal jrn_Fairford-magicquest]
 
 "Well, if you can get to know some of the people who work
  here, that would be a good start.
@@ -1229,6 +1240,7 @@ Spellsmith,Engineer -> Fisher, DeLuca
 
 [page="popequest3"]
 [image="f16_00.cel"]
+[journal jrn_Fairford-popequest]
 
 "Excellent!
 

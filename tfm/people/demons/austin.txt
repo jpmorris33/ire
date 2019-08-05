@@ -310,10 +310,12 @@ Looks a little confused.
 
 [page="blackout"]
 [image="f16g2-06.pcx"]
+[journal jrn_Fairford-comms]
 
 "We don't know how it works, but we're certain that it is
  being caused by the Church.  RADAR still works, but for
- some reason all our communications are being jammed.
+ some reason all our communications are being jammed,
+ and we're cut off from the other airbases.
 
  The only radio link we've ever been able to set up is
  the one to your phone."

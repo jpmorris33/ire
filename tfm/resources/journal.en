@@ -61,8 +61,7 @@ end
 
 name jrn_FindYaDo
 start:
-I have been advised to seek an old hermit who lives west of the entrance to the
-Holy Land.  He is supposed to be a powerful master who can teach me magic.
+I have been advised to seek an old hermit who lives west of the entrance to the Holy Land.  He is supposed to be a powerful master who can teach me magic.
 end
 
 name jrn_FoundYaDo
@@ -109,4 +108,42 @@ end
 name jrn_Randolph001
 start:
 I have been told of an evil metal demon that lives in a cave south and to the east of New Highworth.  Maybe I should investigate.
+end
+
+name jrn_Fairford-inside
+start:
+The guards have let me inside New Fairford airbase.  I should look for Commander Ransome, who is in hanger 1.
+end
+
+name jrn_Fairford-expose
+start:
+Commander Ransome has told me that I am actually on an alien planet in the year 2131.  It has reverted to medievalism,
+and the Church is trying to stamp out all advanced technology and societal progress.
+end
+
+name jrn_Fairford-joined
+start:
+I have agreed to help Commander Ransome.  He has given me access to the rest of the airbase, in exchange he has some tasks for me to perform.
+end
+
+name jrn_Fairford-comms
+start:
+I have spoken to Austin, who mentioned that communications are down with the other bases.  Perhaps I should visit them myself.
+end
+
+name jrn_Fairford-magicquest
+start:
+Ransome suggested I talk to DeLuca in hangar 2, who is doing some crucial research.
+end
+
+name jrn_Fairford-popequest
+start:
+Ransome asked me to steal the Pope's diary.  This is extremely risky, but it has to be done.
+I can find a tranquiliser gun in the armoury.
+end
+
+name jrn_Fairford-dragonquest
+start:
+Ransome asked me to try and contact a dragon-like alien race who appear to be stranded on this planet as well.
+I should ask around the various kingdoms for rumours or sightings of dragons.
 end
