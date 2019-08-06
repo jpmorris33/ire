@@ -61,6 +61,7 @@ extern char *getname4string(const char *data);	// Convert string pointer to name
 extern char *getstring4name(const char *name);
 extern char *getstringtitle4name(const char *name);
 extern int getnum4string(const char *data); // String pointer to num
+extern int getnum4stringname(const char *name);
 
 // Random number generator
 

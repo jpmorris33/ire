@@ -37,7 +37,7 @@ else
 	flags |= SDL_WINDOW_RESIZABLE;
 
 SDL_CreateWindowAndRenderer(640, 480, flags, &sdl_framebuffer, &sdl_renderer);
-//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"linear");
+SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY,"best");
 SDL_RenderSetLogicalSize(sdl_renderer, 640,480);
 if(!sdl_framebuffer || !sdl_renderer)
 	return 0;

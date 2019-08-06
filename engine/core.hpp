@@ -119,8 +119,10 @@ typedef struct JOURNALENTRY
 VMINT id;	// Journal entry ID, or -1 for a user-written entry
 VMINT day;	// Day no
 char date[32];	// YYYY/MM/DD HH:MM
+char *name;	// For ID -1 (User), this must be freed, else pointer to journal name
 char *text;	// For ID -1 (User), this must be freed, else pointer to journal text
 char *title;	// For ID -1 (User), this must be freed, else pointer to journal title
+char *tag;	// For ID -1 (User), this must be freed, else pointer to journal tag
 struct JOURNALENTRY *next;
 } JOURNALENTRY;
 
@@ -293,6 +295,7 @@ typedef struct ST_ITEM
 	{
 	char *name;
 	char *title;
+	char *tag;
 	char *data;
 	} ST_ITEM;
 	

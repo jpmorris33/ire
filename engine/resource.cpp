@@ -3261,6 +3261,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			STlist[pos].title = stradd(NULL,Rptr);
 			}
 
+		// Tag, optional
+
+		if(!istricmp(Rptr,"tag"))
+			{
+			Rptr=strrest(line);
+			STlist[pos].tag = stradd(NULL,Rptr);
+			}
+
 		// The 'END' clause.
 
 		if(!istricmp(Rptr,"END"))       // End of the sequence

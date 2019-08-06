@@ -8,6 +8,8 @@ I've found myself in what appears to be a medieval church in a town called 'New 
 end
 
 name jrn_Umbring
+tag task
+title Visit New Cricklade abbey
 start:
 I've been greeted by someone calling themselves Cardinal Umbring.
 He has given me a key and a letter, and suggested that I make my way to an abbey at a place called 'New Cricklade', to the west of the church where I arrived.  Apparently they knew I was coming.
@@ -24,6 +26,8 @@ Cardinal Umbring told me that it is the year 1325 and that the end of the world 
 end
 
 name jrn_UmbringKing
+tag task
+title Visit King Edwyg
 start:
 Cardinal Umbring suggested I visit King Edwyg who rules this land.  Apparently he is keen to meet with me.
 end
@@ -60,6 +64,8 @@ Whoever it was, they sounded kind of desperate.
 end
 
 name jrn_FindYaDo
+tag task
+title Find the magic teacher
 start:
 I have been advised to seek an old hermit who lives west of the entrance to the Holy Land.  He is supposed to be a powerful master who can teach me magic.
 end
@@ -70,11 +76,15 @@ I have found Master Ya'Do.  He appears to be a bit of a fraud, though.
 end
 
 name jrn_YaDo-packages
+tag task
+title Find Ya'Do's package
 start:
 Master Ya'Do has offered to teach me magic, if I will find and bring him a valuable package.  It is on an island many miles off the West coast.  Getting there might be a problem.
 end
 
 name jrn_YaDo-beequest
+tag task
+title Kill 25 bees
 start:
 I brought Ya'Do his package of drugs.  I hope he doesn't eat them all at once.
 Anyway, he has agreed to train me as an apprentice.
@@ -83,6 +93,8 @@ My first mission is to visit a cave on the nearby Isle of Honey.  There I must k
 end
 
 name jrn_YaDo-rockquest
+tag task
+title Eat three rocks
 start:
 I brought Ya'Do 25 dead bees, what he wants them for I dread to think.
 Now he has instructed me to find three small rocks and eat them.  He seems to be serious about it.
@@ -106,11 +118,15 @@ I have heard that Holm the Fletcher came across a demon while gathering wood in 
 end
 
 name jrn_Randolph001
+tag task
+title Find the Demon
 start:
 I have been told of an evil metal demon that lives in a cave south and to the east of New Highworth.  Maybe I should investigate.
 end
 
 name jrn_Fairford-inside
+tag task
+title Find Commander Ransome
 start:
 The guards have let me inside New Fairford airbase.  I should look for Commander Ransome, who is in hanger 1.
 end
@@ -132,17 +148,23 @@ I have spoken to Austin, who mentioned that communications are down with the oth
 end
 
 name jrn_Fairford-magicquest
+tag task
+title Talk to DeLuca
 start:
 Ransome suggested I talk to DeLuca in hangar 2, who is doing some crucial research.
 end
 
 name jrn_Fairford-popequest
+tag task
+title Steal the Pope's diary
 start:
 Ransome asked me to steal the Pope's diary.  This is extremely risky, but it has to be done.
 I can find a tranquiliser gun in the armoury.
 end
 
 name jrn_Fairford-dragonquest
+tag task
+title Find the dragons
 start:
 Ransome asked me to try and contact a dragon-like alien race who appear to be stranded on this planet as well.
 I should ask around the various kingdoms for rumours or sightings of dragons.

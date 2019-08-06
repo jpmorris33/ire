@@ -903,7 +903,7 @@ char *getname4string(const char *data)
 {
 int ctr;
 
-for(ctr=0;ctr<DTtot;ctr++)
+for(ctr=0;ctr<STtot;ctr++)
 	if(STlist[ctr].data == data)
 		return STlist[ctr].name;
 
@@ -914,8 +914,19 @@ int getnum4string(const char *data)
 {
 int ctr;
 
-for(ctr=0;ctr<DTtot;ctr++)
+for(ctr=0;ctr<STtot;ctr++)
 	if(STlist[ctr].data == data)
+		return ctr;
+
+return -1;
+}
+
+int getnum4stringname(const char *name)
+{
+int ctr;
+
+for(ctr=0;ctr<STtot;ctr++)
+	if(!istricmp(name,STlist[ctr].name))
 		return ctr;
 
 return -1;

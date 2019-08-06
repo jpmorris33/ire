@@ -803,37 +803,39 @@ ML_Del(a,o);
 
 JOURNALENTRY *J_Add(int ID, int day, const char *date)
 {
+char *nameptr = NULL;
 char *textptr = NULL;
 char *titleptr = NULL;
+char *tagptr = NULL;
 JOURNALENTRY *ptr;
 
 if(!date)
 	date="";
 
-if(ID >= 0 && ID < STtot)
-	{
+if(ID >= 0 && ID < STtot) {
+	nameptr = STlist[ID].name;
 	textptr = STlist[ID].data;
 	titleptr = STlist[ID].title;
-	}
+	tagptr = STlist[ID].tag;
+}
 
-if(!Journal)
-	{
+if(!Journal) {
 //printf("Journal: Add 1st entry %d\n",ID);
 	ptr = (JOURNALENTRY *)M_get(1,sizeof(JOURNALENTRY));
-	if(ptr)
-		{
+	if(ptr) {
 		ptr->id=ID;
 		SAFE_STRCPY(ptr->date,date);
-		if(ID != -1)
-			{
+		if(ID != -1) {
 			ptr->day = day;
+			ptr->name = nameptr;
 			ptr->text = textptr; 
 			ptr->title = titleptr;
-			}
-		Journal=ptr;
+			ptr->tag = tagptr;
 		}
-	return ptr;
+		Journal=ptr;
 	}
+	return ptr;
+}
 
 //printf("Journal: Add next entry %d\n",ID);
 
@@ -864,8 +866,10 @@ SAFE_STRCPY(ptr->date,date);
 if(ID != -1)
 	{
 	ptr->day = day;
+	ptr->name = nameptr;
 	ptr->text = textptr; 
 	ptr->title = titleptr;
+	ptr->tag = tagptr;
 	}
 
 return ptr;
@@ -877,35 +881,39 @@ void J_Del(JOURNALENTRY *j)
 if(!j)
 	return;
 
-if(Journal == j)
-	{
+if(Journal == j) {
 	Journal=j->next;
-	if(j->id < 0)
-		{
+	if(j->id < 0) {
+		if(j->name)
+			M_free(j->name);
 		if(j->text)
 			M_free(j->text);
 		if(j->title)
 			M_free(j->title);
-		}
+		if(j->tag)
+			M_free(j->tag);
+	}
 	M_free(j);
 	return;
-	}
+}
 
 
 for(JOURNALENTRY *ptr = Journal;ptr->next;ptr=ptr->next)
-	if(ptr->next == j)
-		{
+	if(ptr->next == j) {
 		ptr->next = j->next;
-		if(j->id < 0)
-			{
+		if(j->id < 0) {
+			if(j->name)
+				M_free(j->name);
 			if(j->text)
 				M_free(j->text);
 			if(j->title)
 				M_free(j->title);
-			}
+			if(j->tag)
+				M_free(j->tag);
+		}
 		M_free(j);
 		return;
-		}
+	}
 
 }
 

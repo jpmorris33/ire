@@ -1830,6 +1830,7 @@ OBJECT *o,*o2;
 USEDATA usedata;
 GLOBALINT *globalint;
 GLOBALPTR *globalptr;
+char *journalname;
 
 int act;
 
@@ -1940,15 +1941,14 @@ if(dark >= 0 && dark < 256)	// If it's an old savegame, this will be junk
 
 ilog_quiet("game time = %02d:%02d\n",game_hour,game_minute);
 
-if(GetWadEntry(ifp,"JOURNAL "))
-	{
+// Old format!
+if(GetWadEntry(ifp,"JOURNAL "))	{
 	int id,day;
 	// Load journal entries
 	J_Free();
 
 	ut=igetl_i(ifp);
-	for(ctr2=0;ctr2<ut;ctr2++)
-		{
+	for(ctr2=0;ctr2<ut;ctr2++) {
 		id=igetl_i(ifp);	// ID
 		day=igetl_i(ifp);	// day
 		num=igetl_i(ifp);	
@@ -1957,8 +1957,7 @@ if(GetWadEntry(ifp,"JOURNAL "))
 		JOURNALENTRY *j=J_Add(id,day,buf);
 		if(!j)
 			ithe_panic("Savegame error","Out of memory allocating journal entry");
-		if(id != -1)
-			{
+		if(id != -1) {
 			// Read title, then text
 			num=igetl_i(ifp);
 			j->title = (char *)M_get(1,num+1);
@@ -1966,9 +1965,57 @@ if(GetWadEntry(ifp,"JOURNAL "))
 			num=igetl_i(ifp);
 			j->text = (char *)M_get(1,num+1);
 			iread((unsigned char *)j->text,num,ifp);
-			}
 		}
 	}
+}
+
+// New format
+if(GetWadEntry(ifp,"JOURNAL2"))	{
+	int id,day;
+	// Load journal entries
+	J_Free();
+
+	ut=igetl_i(ifp);
+	for(ctr2=0;ctr2<ut;ctr2++) {
+		id=igetl_i(ifp);
+
+		num=igetl_i(ifp);
+		journalname = (char *)M_get(1,num+1);
+		iread((unsigned char *)journalname,num,ifp);
+		if(id != -1) {
+			id=getnum4stringname(journalname);
+			if(id == -1) {
+				ithe_panic("Savegame corrupted, journal entry not found",journalname);
+			}
+		}
+
+		day=igetl_i(ifp);	// day
+		num=igetl_i(ifp);
+		iread((unsigned char *)buf,num,ifp); // Date
+		buf[32]=0;
+		JOURNALENTRY *j=J_Add(id,day,buf);
+		if(!j) {
+			ithe_panic("Savegame error","Out of memory allocating journal entry");
+		}
+		if(id == -1) {
+			// Read title, then text
+			num=igetl_i(ifp);
+			j->title = (char *)M_get(1,num+1);
+			iread((unsigned char *)j->title,num,ifp);
+			num=igetl_i(ifp);
+			j->text = (char *)M_get(1,num+1);
+			iread((unsigned char *)j->text,num,ifp);
+			num=igetl_i(ifp);
+			j->tag = (char *)M_get(1,num+1);
+			iread((unsigned char *)j->tag,num,ifp);
+
+			j->name = journalname;
+		} else {
+			M_free(journalname);
+		}
+		num=igetl_i(ifp); // Task completed flag (future use)
+	}
+}
 
 
 // If we're doing a map switch, reload from here:
@@ -2523,7 +2570,7 @@ iputl_i(GetDarkness(),ofp);
 
 
 // Block header
-entry[Entry].name="JOURNAL ";
+entry[Entry].name="JOURNAL2";
 entry[Entry++].start = itell(ofp);
 
 num=0;
@@ -2535,36 +2582,46 @@ for(ptr=Journal;ptr;ptr=ptr->next)
 iputl_i(num,ofp);	// Number of entries
 
 for(ptr=Journal;ptr;ptr=ptr->next)
-	if(ptr)
-		{
+	if(ptr)	{
 		iputl_i(ptr->id,ofp);
+
+		num=strlen(ptr->name)+1;
+		iputl_i(num,ofp);
+		iwrite((unsigned char *)ptr->name,num,ofp);
+
 		iputl_i(ptr->day,ofp);
 
 		num=strlen(ptr->date)+1;
 		iputl_i(num,ofp);
 		iwrite((unsigned char *)ptr->date,num,ofp);
 
-		if(ptr->id >= 0)
-			{
-			if(ptr->title)
-				{
+		if(ptr->id == -1) {
+			if(ptr->title) {
 				num=strlen(ptr->title)+1;
 				iputl_i(num,ofp);
 				iwrite((unsigned char *)ptr->title,num,ofp);
-				}
-			else
+			} else {
 				iputl_i(0,ofp);
+			}
 
-			if(ptr->text)
-				{
+			if(ptr->text) {
 				num=strlen(ptr->text)+1;
 				iputl_i(num,ofp);
 				iwrite((unsigned char *)ptr->text,num,ofp);
-				}
-			else
+			} else {
+				iputl_i(0,ofp);
+			}
+
+			if(ptr->tag) {
+				num=strlen(ptr->tag)+1;
+				iputl_i(num,ofp);
+				iwrite((unsigned char *)ptr->tag,num,ofp);
+			} else {
 				iputl_i(0,ofp);
 			}
 		}
+		iputl_i(0,ofp);	// Task completion state, future use
+	}
 
 
 // Block header
