@@ -234,6 +234,7 @@ enum {
 	PEVM_AddJournal2,
 	PEVM_DrawJournal,
 	PEVM_DrawJournalDay,
+	PEVM_DrawJournalTasks,
 	PEVM_GetJournalDays,
 	PEVM_GetJournalDay,
 	PEVM_SetConsoleLine,

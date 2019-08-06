@@ -123,6 +123,7 @@ char *name;	// For ID -1 (User), this must be freed, else pointer to journal nam
 char *text;	// For ID -1 (User), this must be freed, else pointer to journal text
 char *title;	// For ID -1 (User), this must be freed, else pointer to journal title
 char *tag;	// For ID -1 (User), this must be freed, else pointer to journal tag
+VMINT status;	// User data, e.g. whether the task has been completed
 struct JOURNALENTRY *next;
 } JOURNALENTRY;
 

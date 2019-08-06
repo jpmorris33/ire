@@ -216,18 +216,22 @@ SDL_BlitSurface(img,NULL,destptr->img,&rec);
 //  Stretch-blit - need to implement myself
 //
 
-void SDL12BMP::DrawStretch(IREBITMAP *dest, int x, int y, int w, int h)
-{
+void SDL12BMP::DrawStretch(IREBITMAP *dest, int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh) {
 if(!img || !dest)
 	return;
-SDL_Rect rec;
-rec.x=x;
-rec.y=y;
-rec.w=width;
-rec.h=height;
+SDL_Rect srec,drec;
+srec.x=sx;
+srec.y=sy;
+srec.w=sw;
+srec.h=sh;
+drec.x=dx;
+drec.y=dy;
+drec.w=dw;
+drec.h=dh;
 SDL_SetColorKey(img,SDL_SRCCOLORKEY,ire_transparent->packed);
 
 SDL12BMP *destptr=(SDL12BMP *)dest;
+//SDL_BlitScaled(img,&srec,destptr->img,&drec);
 SDL_BlitSurface(img,NULL,destptr->img,&rec);
 }
 
@@ -256,7 +260,6 @@ if(BlenderAlpha == 255)	{
 	for(int hc=h;hc>0;hc--)	{
 		HLine(x,ya++,w,col);
 	}
-		
 }
 }
 

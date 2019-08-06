@@ -62,6 +62,7 @@ void IREBITMAP::DrawAlpha(IREBITMAP *dest, int x, int y, int level) {}
 void IREBITMAP::DrawShadow(IREBITMAP *dest, int x, int y, int level) {}
 void IREBITMAP::DrawSolid(IREBITMAP *dest, int x, int y) {}
 void IREBITMAP::DrawStretch(IREBITMAP *dest, int x, int y, int w, int h) {}
+void IREBITMAP::DrawStretch(IREBITMAP *dest, int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh) {}
 void IREBITMAP::FillRect(int x, int y, int w, int h, IRECOLOUR *col) {}
 void IREBITMAP::FillRect(int x, int y, int w, int h, int r, int g, int b) {}
 void IREBITMAP::Line(int x, int y, int x2, int y2, IRECOLOUR *col) {}

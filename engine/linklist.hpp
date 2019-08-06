@@ -59,6 +59,7 @@ extern void STR_Free(USERSTRING *u);
 extern JOURNALENTRY *J_Add(int id, int day, const char *date);
 extern void J_Del(JOURNALENTRY *j);
 extern void J_Free();
+extern JOURNALENTRY *J_Find(const char *name);
 
 
 #ifdef CHECK_OBJECT_STRICT

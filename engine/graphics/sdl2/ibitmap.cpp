@@ -232,7 +232,7 @@ SDL_BlitSurface(img,NULL,destptr->img,&rec);
 }
 
 //
-//  Stretch-blit - need to implement myself
+//  Stretch-blit
 //
 
 void SDL20BMP::DrawStretch(IREBITMAP *dest, int x, int y, int w, int h)
@@ -247,7 +247,25 @@ rec.h=height;
 SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
 
 SDL20BMP *destptr=(SDL20BMP *)dest;
-SDL_BlitSurface(img,NULL,destptr->img,&rec);
+SDL_BlitScaled(img,NULL,destptr->img,&rec);
+}
+
+void SDL20BMP::DrawStretch(IREBITMAP *dest, int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh) {
+if(!img || !dest)
+	return;
+SDL_Rect srec,drec;
+srec.x=sx;
+srec.y=sy;
+srec.w=sw;
+srec.h=sh;
+drec.x=dx;
+drec.y=dy;
+drec.w=dw;
+drec.h=dh;
+SDL_SetColorKey(img,SDL_TRUE,ire_transparent->packed);
+
+SDL20BMP *destptr=(SDL20BMP *)dest;
+SDL_BlitScaled(img,&srec,destptr->img,&drec);
 }
 
 

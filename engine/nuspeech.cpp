@@ -1689,6 +1689,19 @@ if(!istricmp(line2,"journal") || !istricmp(line2,"set_journal")
     return 31;
     }
 
+if(!istricmp(line2,"journal_done")) {
+    strcpy(temp,strrest(line1));
+    strstrip(temp);
+    JOURNALENTRY *journal = J_Find(temp);
+    if(!journal) {
+	// Do nothing for now, revisit if we end up with lots of uncompletable quests
+        return 32;
+    }
+    journal->status = 100;
+    
+    return 32;
+}
+
 ilog_quiet("Parse error in file '%s':\n>>%s\n",curfile,line);
 return 0;
 }

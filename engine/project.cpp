@@ -825,14 +825,14 @@ h2=h/divisor;
 
 gamewin->Clear(ire_black);
 roofwin->Clear(ire_black);
+gamewin->Clear(new IRECOLOUR(128,0,255));
+roofwin->Clear(new IRECOLOUR(128,0,255));
 for(y2=0;y2<divisor;y2++)
-	for(x2=0;x2<divisor;x2++)
-		{
+	for(x2=0;x2<divisor;x2++) {
 		if(x+(x2*VSW) > 0)
 			if(y+(y2*VSH) > 0)
 				if(x+(x2*VSW)+VSW+4 < curmap->w)
-					if(y+(y2*VSH)+VSH+4 < curmap->h)
-						{
+					if(y+(y2*VSH)+VSH+4 < curmap->h) {
 						// Rebuild the map details
 						mapx=x+(x2*VSW);
 						mapy=y+(y2*VSH);
@@ -840,20 +840,17 @@ for(y2=0;y2<divisor;y2++)
 
 						Project_Map(x+(x2*VSW),y+(y2*VSH));
 						Project_Sprites(x+(x2*VSW),y+(y2*VSH));
-						if(roof)
-							{
+						if(roof) {
 							Project_Roof(x+(x2*VSW),y+(y2*VSH));
 							gamewin->Merge(roofwin);
-							}
-						scalebmp->DrawStretch(gamewin,w2*x2,h2*y2,w2,h2);
-//						stretch_blit(gamewin,scalebmp,0,0,w,h,w2*x2,h2*y2,w2,h2);
 						}
-		}
+						gamewin->DrawStretch(scalebmp,0,0,w,h,w2*x2,h2*y2,w2,h2);
+					}
+	}
 
 CentreMap(player);
 gen_largemap();
 
-//draw_sprite(gamewin,scalebmp,0,0);
 scalebmp->Draw(gamewin,0,0);
 }
 

@@ -155,6 +155,14 @@ A4BMP *destptr=(A4BMP *)dest;
 stretch_blit(img,destptr->img,0,0,width,height,x,y,w,h);
 }
 
+void A4BMP::DrawStretch(IREBITMAP *dest, int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh) {
+if(!img || !dest)
+	return;
+
+A4BMP *destptr=(A4BMP *)dest;
+stretch_blit(img,destptr->img,sx,sy,sw,sh,dx,dy,dw,dh);
+}
+
 
 //
 //  Fillrect

@@ -168,6 +168,7 @@ extern int GetConsoleLines(int console);
 extern int GetConsoleRows(int console);
 extern void ConsoleJournal(int console);
 extern void ConsoleJournalDay(int console, int day);
+extern void ConsoleJournalTasks(int console, int mode);
 
 extern void make_journaldate(char *date);
 
@@ -215,6 +216,10 @@ extern int FindLastSave();
 #define TINT_CYAN 6
 #define TINT_LIGHTBLUE 6
 #define TINT_WHITE 7
+
+#define JOURNAL_ALL 0
+#define JOURNAL_TODO_ONLY 1
+#define JOURNAL_DONE_ONLY 2
 
 #endif
 

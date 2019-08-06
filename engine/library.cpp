@@ -2315,6 +2315,41 @@ for(ptr=Journal;ptr;ptr=ptr->next)
 		}
 }
 
+void ConsoleJournalTasks(int console, int mode) {
+console--;
+if(console <0 || console >= MAXCONSOLES)
+	 return;
+if(!consolelist[console])
+	return;
+
+JOURNALENTRY *ptr;
+for(ptr=Journal;ptr;ptr=ptr->next) {
+	if(!ptr->tag || !stricmp(ptr->tag, "task")) {
+		continue;
+	}
+	if(mode == JOURNAL_TODO_ONLY) {
+		if(ptr->status != 0) {
+			continue;
+		}
+	}
+	if(mode == JOURNAL_DONE_ONLY) {
+		if(ptr->status == 0) {
+			continue;
+		}
+	}
+
+	if(ptr->title)
+		consolelist[console]->Printf("%s - %s\n",ptr->date,ptr->title);
+	else
+		consolelist[console]->Printf("%s\n",ptr->date);
+	consolelist[console]->Newline();
+	consolelist[console]->Printf(ptr->text);
+	consolelist[console]->Newline();
+	consolelist[console]->Newline();
+}
+}
+
+
 
 void make_journaldate(char *date)
 {

@@ -2013,7 +2013,7 @@ if(GetWadEntry(ifp,"JOURNAL2"))	{
 		} else {
 			M_free(journalname);
 		}
-		num=igetl_i(ifp); // Task completed flag (future use)
+		j->status = igetl_i(ifp); // status code
 	}
 }
 
@@ -2617,7 +2617,7 @@ for(ptr=Journal;ptr;ptr=ptr->next)
 				iputl_i(num,ofp);
 				iwrite((unsigned char *)ptr->tag,num,ofp);
 			} else {
-				iputl_i(0,ofp);
+				iputl_i(ptr->status,ofp);
 			}
 		}
 		iputl_i(0,ofp);	// Task completion state, future use

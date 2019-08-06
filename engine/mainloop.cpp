@@ -1911,6 +1911,7 @@ if(zoom>32)
 */
 MicroMap(mapx-(((zoom-1)*VSW)/2),mapy-(((zoom-1)*VSH)/2),zoom,roof);
 //draw_sprite(swapscreen,gamewin,VIEWX,VIEWY);
+
 gamewin->Draw(swapscreen,VIEWX,VIEWY);
 
 return 1;

@@ -917,6 +917,26 @@ for(JOURNALENTRY *ptr = Journal;ptr->next;ptr=ptr->next)
 
 }
 
+JOURNALENTRY *J_Find(const char *name) {
+	JOURNALENTRY *ptr;
+
+	if(!Journal) {
+		return NULL;
+	}
+
+	if(!stricmp(Journal->name, name)) {
+		return Journal;
+	}
+
+	for(ptr = Journal;ptr->next;ptr=ptr->next) {
+		if(!stricmp(Journal->name, name)) {
+			return ptr;
+		}
+	}
+
+	return NULL;
+}
+
 
 void J_Free()
 {

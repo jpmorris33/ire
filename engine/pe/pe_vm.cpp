@@ -362,6 +362,7 @@ static void PV_AddJournal();
 static void PV_AddJournal2();
 static void PV_DrawJournal();
 static void PV_DrawJournalDay();
+static void PV_DrawJournalTasks();
 static void PV_GetJournalDays();
 static void PV_GetJournalDay();
 static void PV_SetConsoleLine();
@@ -1388,6 +1389,7 @@ VMOP(AddJournal);
 VMOP(AddJournal2);
 VMOP(DrawJournal);
 VMOP(DrawJournalDay);
+VMOP(DrawJournalTasks);
 VMOP(GetJournalDays);
 VMOP(GetJournalDay);
 VMOP(SetConsoleLine);
@@ -6812,6 +6814,18 @@ day = GET_INT();
 CHECK_POINTER(day);
 
 ConsoleJournalDay(*id,*day);
+}
+
+void PV_DrawJournalTasks()
+{
+VMINT *id,*mode;
+
+id = GET_INT();
+CHECK_POINTER(id);
+mode = GET_INT();
+CHECK_POINTER(mode);
+
+ConsoleJournalTasks(*id,*mode);
 }
 
 
