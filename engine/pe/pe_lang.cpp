@@ -12,6 +12,7 @@
 #include "../mouse.hpp"
 #include "../init.hpp"
 #include "../linklist.hpp"
+#include "../library.hpp"
 #include "../graphics/irekeys.hpp"
 #include "opcodes.h"
 #include "pe_api.hpp"
@@ -2647,6 +2648,8 @@ OPCODE vmspec[] =
                     {"createwindow",PEVM_CreateConsole,"i=iiii",PE_generic,NULL,5},
                     {"destroywindow",PEVM_DestroyConsole,"n",PE_generic,NULL,1},
                     {"destroywindow",PEVM_DestroyConsole,"i",PE_generic,NULL,1},
+                    {"clearwindow",PEVM_ClearConsole,"n",PE_generic,NULL,1},
+                    {"clearwindow",PEVM_ClearConsole,"i",PE_generic,NULL,1},
                     {"windowcolour",PEVM_ConsoleColour,"nn",PE_generic,NULL,2},
                     {"windowcolour",PEVM_ConsoleColour,"ni",PE_generic,NULL,2},
                     {"windowcolour",PEVM_ConsoleColour,"in",PE_generic,NULL,2},
@@ -3737,6 +3740,12 @@ ADD_CONST(TINT_MAGENTA);
 ADD_CONST(TINT_PURPLE);
 ADD_CONST(TINT_LIGHTBLUE);
 ADD_CONST(TINT_WHITE);
+
+ADD_CONST(JOURNAL_ALL);
+ADD_CONST(JOURNAL_TODO_ONLY);
+ADD_CONST(JOURNAL_TODO_HEADER_ONLY);
+ADD_CONST(JOURNAL_DONE_ONLY);
+ADD_CONST(JOURNAL_DONE_HEADER_ONLY);
 
 add_symbol_ptr("fx_srcx",'i',&tfx_sx);
 add_symbol_ptr("fx_srcy",'i',&tfx_sy);

@@ -2084,6 +2084,15 @@ delete consolelist[console];
 consolelist[console]=NULL;
 }
 
+void ClearConsole(int console) {
+console--;
+if(console <0 || console >= MAXCONSOLES)
+	 return;
+if(!consolelist[console])
+	return;
+
+consolelist[console]->Clear();
+}
 
 void SetConsoleColour(int console, unsigned int packed)
 {
@@ -2324,27 +2333,29 @@ if(!consolelist[console])
 
 JOURNALENTRY *ptr;
 for(ptr=Journal;ptr;ptr=ptr->next) {
-	if(!ptr->tag || !stricmp(ptr->tag, "task")) {
+	if(!ptr->tag || stricmp(ptr->tag, "task")) {
 		continue;
 	}
-	if(mode == JOURNAL_TODO_ONLY) {
+	if(mode == JOURNAL_TODO_ONLY || mode == JOURNAL_TODO_HEADER_ONLY) {
 		if(ptr->status != 0) {
 			continue;
 		}
 	}
-	if(mode == JOURNAL_DONE_ONLY) {
+	if(mode == JOURNAL_DONE_ONLY || mode == JOURNAL_DONE_HEADER_ONLY) {
 		if(ptr->status == 0) {
 			continue;
 		}
 	}
 
 	if(ptr->title)
-		consolelist[console]->Printf("%s - %s\n",ptr->date,ptr->title);
+		consolelist[console]->Printf("* %s\n",ptr->title);
 	else
-		consolelist[console]->Printf("%s\n",ptr->date);
+		consolelist[console]->Printf("!!! TASK '%s' HAS NO TITLE!\n",ptr->name);
 	consolelist[console]->Newline();
-	consolelist[console]->Printf(ptr->text);
-	consolelist[console]->Newline();
+	if(mode != JOURNAL_TODO_HEADER_ONLY && mode != JOURNAL_DONE_HEADER_ONLY) {
+		consolelist[console]->Printf(ptr->text);
+		consolelist[console]->Newline();
+	}
 	consolelist[console]->Newline();
 }
 }

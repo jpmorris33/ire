@@ -135,7 +135,8 @@ do
 
 	if key >= KEY_1
 	and key <= KEY_6
-		let sp_spell = key - KEY_0
+		let sp_spell = key - KEY_1
+		add sp_spell + 1
 		let key = KEY_ENTER
 	endif
 

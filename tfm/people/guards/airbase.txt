@@ -121,6 +121,7 @@ He fails to supress a brief grin of amusement.
 "Right away, $Sir."
 
 [journal jrn_Fairford-inside]
+[journal_done jrn_Phone1]
 [call="guard_openairbase"]
 [nextpage="exit"]
 [endpage]

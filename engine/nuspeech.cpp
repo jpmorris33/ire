@@ -1694,7 +1694,7 @@ if(!istricmp(line2,"journal_done")) {
     strstrip(temp);
     JOURNALENTRY *journal = J_Find(temp);
     if(!journal) {
-	// Do nothing for now, revisit if we end up with lots of uncompletable quests
+	Bug("Did not find journal '%s'\n", temp);
         return 32;
     }
     journal->status = 100;

@@ -351,6 +351,7 @@ static void PV_stopfx();
 
 static void PV_CreateConsole();
 static void PV_DestroyConsole();
+static void PV_ClearConsole();
 static void PV_ConsoleColour();
 static void PV_ConsoleAddLine();
 static void PV_ConsoleAddLineWrap();
@@ -1378,6 +1379,7 @@ VMOP(IfKeyPressed);
 
 VMOP(CreateConsole);
 VMOP(DestroyConsole);
+VMOP(ClearConsole);
 VMOP(ConsoleColour);
 VMOP(ConsoleAddLine);
 VMOP(ConsoleAddLineWrap);
@@ -6485,6 +6487,18 @@ id = GET_INT();
 CHECK_POINTER(id);
 
 DeleteConsole(*id);
+}
+
+//Clear a text window
+
+void PV_ClearConsole()
+{
+VMINT *id;
+
+id = GET_INT();
+CHECK_POINTER(id);
+
+ClearConsole(*id);
 }
 
 

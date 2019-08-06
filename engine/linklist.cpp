@@ -929,7 +929,7 @@ JOURNALENTRY *J_Find(const char *name) {
 	}
 
 	for(ptr = Journal;ptr->next;ptr=ptr->next) {
-		if(!stricmp(Journal->name, name)) {
+		if(!stricmp(ptr->name, name)) {
 			return ptr;
 		}
 	}

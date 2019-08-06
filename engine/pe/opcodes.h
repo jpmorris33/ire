@@ -223,6 +223,7 @@ enum {
 	
 	PEVM_CreateConsole,
 	PEVM_DestroyConsole,
+	PEVM_ClearConsole,
 	PEVM_ConsoleColour,
 	PEVM_ConsoleAddLine,
 	PEVM_ConsoleAddLineWrap,

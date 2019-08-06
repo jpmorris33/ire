@@ -1,5 +1,5 @@
 ##
-##  Add english journal here
+##  Here be spoilers baked in butter...
 ##
 
 name jrn_Arrival
@@ -58,6 +58,8 @@ Cardinal Umbring wants me to deliver the Sceptre to the Pope.
 end
 
 name jrn_Phone1
+tag task
+title Visit New Fairford, find Ransome
 start:
 Despite the fact that I seem to be in the middle ages, someone called 'Ransome' phoned me up and asked me to go to a village called 'New Fairford'.  Apparently this is south of the town where I arrived.
 Whoever it was, they sounded kind of desperate.

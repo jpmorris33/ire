@@ -122,6 +122,7 @@ some kind of cameras, follow your movements.
 [set met_aircraft]
 [call music_ransome]
 [journal jrn_Fairford-expose]
+[journal_done jrn_Fairford-inside]
 
 "It is the year 2131, and you are on a planet called
  Weytus, which is the seventh planet Earth has colonised.
@@ -340,6 +341,7 @@ some kind of cameras, follow your movements.
 [set met_aircraft]
 [call music_ransome]
 [journal jrn_Fairford-expose]
+[journal_done jrn_Fairford-inside]
 
 "Very well.  But you really should hear the whole thing
  in detail at some stage.  Ask me about it later.
@@ -1206,6 +1208,7 @@ Spellsmith,Engineer -> Fisher, DeLuca
 
 
 [page="popequest"]
+[journal_done jrn_Fairford-magicquest]
 [if popequest_wip][goto="popequest4"]
 [set popequest_wip]
 [image="f16_06.cel"]
@@ -1310,6 +1313,7 @@ Finally he hands you a large bag of coins as a reward.
 
 
 [page="dragonquest"]
+[journal_done jrn_Fairford-popequest]
 [if dragonequest_wip][goto="dragonquest2"]
 [set dragonquest_wip]
 [image="f16_00.cel"]

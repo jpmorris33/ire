@@ -26,8 +26,13 @@ int b
 int timex
 int timey
 string timestr
+int headermode
+int journalmode
 
 save_screen
+
+let journalmode = 0
+let headermode = JOURNAL_TODO_ONLY
 
 let x = 640
 add x - PHONEWIDTH
@@ -42,16 +47,25 @@ draw_object phone_img at x y
 add x + 19
 add y + 21
 
-# Disabled text (later buttons?)
-textcolour 0xb5 0xb5 0xb5
 let a = x
 let b = y
 gotoxy a b
-printxy "Index"
+textcolour 0 0 0
+textbutton KEY_I = a b "INDEX"
+range_pointer KEY_I = 1
 
+# TODO button
+let a = x + 64
+let b = y
+textcolour 0 0 0
+textbutton KEY_T = a b "TO-DO"
+range_pointer KEY_T = 1
+
+# Disabled text (later buttons?)
 let a = x
 let b = y + 184
 gotoxy a b
+textcolour 0xb5 0xb5 0xb5
 printxy "Add Entry"
 
 # EXIT button
@@ -106,6 +120,7 @@ endif
 journal jrn_Arrival
 
 addwindowline win "Journal"
+addwindowline win " "
 drawjournal win
 
 # Start the loop
@@ -131,12 +146,43 @@ do
 		scrollwindow win +1
 	endif
 
+	if key = KEY_PGUP
+		scrollwindow win -10
+	endif
+
+	if key = KEY_PGDN
+		scrollwindow win +10
+	endif
+
 	if key = KEY_HOME
 		setwindowpercent win 0
 	endif
 
 	if key = KEY_END
 		setwindowpercent win 100
+	endif
+
+	if key = KEY_T
+		# If you press it twice in succession, toggle headers
+		if journalmode = 1
+			if headermode = JOURNAL_TODO_ONLY
+				let headermode = JOURNAL_TODO_HEADER_ONLY
+			else
+				let headermode = JOURNAL_TODO_ONLY
+			endif
+		endif
+		let journalmode = 1
+		clearwindow win
+		addwindowline win "To do:"
+		addwindowline win " "
+		drawjournaltasks win headermode
+	endif
+	if key = KEY_I
+		let journalmode = 0
+		clearwindow win
+		addwindowline win "Journal"
+		addwindowline win " "
+		drawjournal win
 	endif
 
 while key <> KEY_ESC

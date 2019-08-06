@@ -153,6 +153,7 @@ extern void DeleteConsole(int console);
 extern void SetConsoleColour(int console, unsigned int packed);
 extern void AddConsoleLine(int console, const char *line);
 extern void AddConsoleLineWrap(int console, const char *line);
+extern void ClearConsole(int console);
 
 extern void DrawConsole(int console);
 extern void ScrollConsole(int console, int dir);
@@ -219,7 +220,9 @@ extern int FindLastSave();
 
 #define JOURNAL_ALL 0
 #define JOURNAL_TODO_ONLY 1
-#define JOURNAL_DONE_ONLY 2
+#define JOURNAL_TODO_HEADER_ONLY 2
+#define JOURNAL_DONE_ONLY 3
+#define JOURNAL_DONE_HEADER_ONLY 4
 
 #endif
 
