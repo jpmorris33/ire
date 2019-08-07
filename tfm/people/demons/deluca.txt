@@ -543,6 +543,8 @@ A shiver passes over De-Luca's hands and control surfaces.
 [create 1000 "gold_coins"]
 [set ransome_deluca]
 [clear magic_testanxiety]
+[journal_done jrn_Fairford-magicquest]
+[call="give_250_xp"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]

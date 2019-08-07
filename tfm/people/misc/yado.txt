@@ -967,6 +967,7 @@ Player rebels over the rock thing
 [set_local yado_done_rocks]
 [clear yado_quest_rocks]
 [set am_magician]
+[call="give_250_xp"]
 [journal="jrn_YaDo-rocks"]
 [image="yado.pcx"]
 
@@ -1013,7 +1014,7 @@ becomes immobile for a few seconds.
  Anyway.  Here is your spellbook.  By reading it, spells
  you may cast.  Spells come on small cards, they do.
  Peel off the little backing, you must.  Stick them in
- your spellbook, you must.  Gotta catch 'em all, yes..
+ your spellbook, you must.  Catch 'em all, you must. yes..
 
  To cast a spell, a focus crystal will you need too..
  the stone from the head of a tode is best.  Each spell
@@ -1043,7 +1044,7 @@ He rubs his hands greedily.
 "Take this, your spellbook.  By reading it, spells you
  may cast.  Spells come on small cards, they do.
  Peel off the little backing, you must.  Stick them in
- your spellbook, you must.  Gotta catch 'em all, yes..
+ your spellbook, you must.  Catch 'em all, you must. yes..
 
  To cast a spell, a focus crystal will you need too..
  the stone from the head of a tode is best.  Each spell
@@ -1363,7 +1364,7 @@ He rubs his hands greedily.
 [page="fortune14"]
 [image="yado.pcx"]
 
-"Treat your bitch like you treat your plane; take her
+"Treat your woman like you treat your plane; take her
  up to heaven each night, and cut her up for scrap
  when she gets too old."
 

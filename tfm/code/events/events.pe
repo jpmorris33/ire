@@ -693,6 +693,17 @@ endif
 change_map 2 tag 616
 end
 
+##
+##  Give the player experience
+##
+
+function give_50_xp
+	add player.user.experience + 50
+end
+
+function give_250_xp
+	add player.user.experience + 250
+end
 
 
 ##

@@ -123,6 +123,8 @@ some kind of cameras, follow your movements.
 [call music_ransome]
 [journal jrn_Fairford-expose]
 [journal_done jrn_Fairford-inside]
+[if_not fairford_exposition][call="give_100_xp"]
+[set fairford_exposition]
 
 "It is the year 2131, and you are on a planet called
  Weytus, which is the seventh planet Earth has colonised.
@@ -342,6 +344,9 @@ some kind of cameras, follow your movements.
 [call music_ransome]
 [journal jrn_Fairford-expose]
 [journal_done jrn_Fairford-inside]
+[if_not fairford_exposition][call="give_100_xp"]
+[set fairford_exposition]
+
 
 "Very well.  But you really should hear the whole thing
  in detail at some stage.  Ask me about it later.
@@ -1208,7 +1213,6 @@ Spellsmith,Engineer -> Fisher, DeLuca
 
 
 [page="popequest"]
-[journal_done jrn_Fairford-magicquest]
 [if popequest_wip][goto="popequest4"]
 [set popequest_wip]
 [image="f16_06.cel"]
@@ -1253,7 +1257,8 @@ Spellsmith,Engineer -> Fisher, DeLuca
 
  You should be able to find some tranquilizers in the
  armoury.  I'm not altogether sure where the key is,
- though."
+ though.  If you can cast magic, invisibility might
+ be another option to consider."
 
 [link="Goodbye."]
 [linkto="bye"]
@@ -1276,7 +1281,10 @@ Spellsmith,Engineer -> Fisher, DeLuca
 
  You should be able to find some tranquilizers in the
  armoury.  I'm not altogether sure where the key is,
- though."
+ though.  If you can cast magic, invisibility might 
+ be another option to consider."
+
+
 
 [link="Goodbye."]
 [linkto="bye"]
@@ -1288,6 +1296,8 @@ Spellsmith,Engineer -> Fisher, DeLuca
 [set ransome_pope]
 [create 1500 gold_coins]
 [call="money_sound"]
+[call="give_250_xp"]
+[call="give_250_xp"]
 
 [colour="#808080"]
 Commander Ransome examines the diary, scanning in each
