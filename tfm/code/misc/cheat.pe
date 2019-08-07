@@ -293,7 +293,7 @@ printxy "  P07: "
 printxy current.user.potion7
 printxy "  P08: "
 printxy current.user.potion8
-printxy "  P09: "
+printxy "  Throw damage cooldown: "
 printxy current.user.potion9
 printxy
 

@@ -163,6 +163,11 @@ if me.user.potion1 > 0
 	endif
 endif
 
+# We're abusing this to make thrown damage fairer
+if me.user.potion9 > 0
+	add me.user.potion9 - 1
+endif
+
 end
 
 
@@ -183,6 +188,11 @@ endif
 if me.stats.hp < me.maxstats.hp
 	add me.stats.hp + 1
 	check_hurt me
+endif
+
+# We're abusing this to make thrown damage fairer
+if me.user.potion9 > 0
+	add me.user.potion9 - 1
 endif
 
 end

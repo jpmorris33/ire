@@ -39,6 +39,7 @@ const char *local;     // Name of function it's local to
 char *localfile; // File it's local to (if any)
 int index;	// Base Index within array (used for fast searching)
 int keywordid;
+bool preconfigured; // Constants can be overridden on the commandline
 KEYWORD *next;
 };
 

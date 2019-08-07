@@ -2,6 +2,7 @@
 ##	do_drop - Perform a throwing action and return success or failure
 ##
 
+# These variabls may be set by the calling function
 integer drop_quiet # If this is set to 1, DO_DROP doesn't print anything
 integer drop_nodamage # If this is set to 1, thrown objects don't hurt people
 
@@ -137,9 +138,18 @@ for t = -1 to distance
 
 		get_object temp at xa ya
 		if_exists temp
-			add temp.stats.hp - weightdamage
-			let temp.enemy = obj.stats.owner
-			check_hurt temp
+			if temp.user.potion9 < 1
+			or FUN_BUGS = 1
+				# If this is a living creature or robot,
+				# add a cooldown period to stop the player
+				# rampaging with a candlestick etc
+				if temp.stats.intel > 40
+					let temp.user.potion9 = 25
+				endif
+				add temp.stats.hp - weightdamage
+				let temp.enemy = obj.stats.owner
+				check_hurt temp
+			endif
 		endif
 
 		# Destroy the object if applicable.

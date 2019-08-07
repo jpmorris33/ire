@@ -116,6 +116,7 @@ if_exists dest
 		# Is it a living thing
 		get_flag flag = vict IS_PERSON
 		if flag = 0
+		and FUN_BUGS = 0
 			# If you comment this out you can hang plates and chairs
 			return
 		endif

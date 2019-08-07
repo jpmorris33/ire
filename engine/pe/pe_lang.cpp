@@ -3986,8 +3986,13 @@ if(!pe_isnumber(ptr))
 val=pe_getnumber(ptr);
 
 k = add_keyword(line[1],'n',curfunc);
-if(!k)
+if(!k) {
+    k=find_keyword(line[1],'n',curfunc);
+    if(k && k->preconfigured) {
+        return; // It's been overridden on the commandline, ignore and keep the original value
+    }
     PeDump(srcline,"Duplicate constant",line[1]);
+}
 
 k->value = (void *)val;
 return;

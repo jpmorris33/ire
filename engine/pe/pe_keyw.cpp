@@ -115,6 +115,7 @@ klist[kl]=newlist;
 SAFE_STRCPY(k->name,name);
 k->value = (void *)idno;
 k->type = type;
+k->preconfigured = false;
 
 if(func)
 	{
@@ -200,7 +201,11 @@ return k;
 
 void AddScriptConstant(const char *name, VMINT value)
 {
-add_symbol_val(name,'n',value);
+KEYWORD *k;
+k=add_symbol_val(name,'n',value);
+if(k) {
+	k->preconfigured=true;
+}
 }
 
 

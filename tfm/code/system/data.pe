@@ -68,4 +68,9 @@ const CLASS_MISC = 0
 const CLASS_SOLDIER = 1
 const CLASS_KING = 2
 
+# Temporary string for spell diagnostics
 userstring baal 20
+
+
+# Config settings
+const FUN_BUGS = 0	# Disable some amusing glitches by default
