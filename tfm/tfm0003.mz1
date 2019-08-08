@@ -36883,13 +36883,6 @@ iMZ1r00
 		at 657 564
 		curdir 2
 
-	object 100677310
-		type F15-GREY
-		at 715 564
-		curdir 1
-		name Mason
-		funcs->talk people/demons/mason.txt
-
 	object 100677311
 		type FENCE
 		at 786 564
@@ -43750,6 +43743,13 @@ iMZ1r00
 		curdir 3
 		name Lucent
 		funcs->talk people/demons/lucent.txt
+
+	object 100677310
+		type F15-GREY
+		at 710 621
+		curdir 2
+		name Mason
+		funcs->talk people/demons/mason.txt
 
 	object 100680261
 		type TABLE-SHADOW2

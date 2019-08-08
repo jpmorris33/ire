@@ -17,6 +17,8 @@ tail.  His manner is somewhat nervous.
 
 [link="Who are you?"]
 [linkto="name"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What does the crest on your tail mean?"]
 [linkto="crest"]
 [if_local lys_here][link="Tell me about Lysander."]
@@ -41,6 +43,8 @@ tail.  His manner is somewhat nervous.
 
 [link="What do you do?"]
 [linkto="job"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What is the crest on your tail?"]
 [linkto="crest"]
 [if_local lys_here][link="Tell me about Lysander."]
@@ -56,6 +60,8 @@ tail.  His manner is somewhat nervous.
 "I'm a killing machine, designed for one purpose:
  studying wildlife."
 
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What is the crest on your tail?"]
 [linkto="crest"]
 [if_local lys_here][link="Tell me about Lysander."]
@@ -63,6 +69,26 @@ tail.  His manner is somewhat nervous.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+
+[page="master"]
+[image="milo2.pcx"]
+
+"Dr. Robertson is in charge.  Unfortunately, he has
+ gone missing.  I'm rather worried about him."
+
+[link="Where do you think he went?"]
+[linkto="master2"]
+[link="What is the crest on your tail?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 
 
 [page="crest"]
@@ -75,6 +101,8 @@ tail.  His manner is somewhat nervous.
 [linkto="name"]
 [link="What do you do?"]
 [linkto="job"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [if_local lys_here][link="Tell me about Lysander."]
 [if_local lys_here][linkto="lysander"]
 [link="Goodbye."]
@@ -97,10 +125,10 @@ tail.  His manner is somewhat nervous.
 [Lysander loves animals join Wlife team, whyt did Milo join
 
 
-
-
 [link="What do you do?"]
 [linkto="job"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="Tell me about the crest on your tail."]
 [linkto="crest"]
 [link="Goodbye."]

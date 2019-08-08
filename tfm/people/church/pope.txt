@@ -3,6 +3,7 @@
 [page="start"]
 [learn_name]
 [image="pope.pcx"]
+[esc=disabled]
 
 [colour="#808080"]
 You see a short man of about thirty, with long, dark hair
@@ -16,13 +17,86 @@ and penetrating, hawk-like eyes.
  I am the Pope, as well you know.. the first, and most
  trusted of the LORD's servants since His return.
 
- You may address me as 'Your Holiness'."
+ You may address me as 'Your Holiness'.  But first, the
+ LORD bade me deliver a message to you, and a warning."
 
+[nextpage="intro"]
+[endpage]
+
+
+
+[page="intro"]
+[image="pope.pcx"]
+
+"I know that you are likely confused as to how you ended
+ up in this realm, and uncertain as to what to do.
+
+ I can reveal that you were brought here to this land,
+ as part of the divine plan.
+ You see, the LORD  believes you may be the one foretold,
+ who will finally rid us of the scourge of the Demons."
+
+[link="Can't the LORD do that Himself?"]
+[linkto="intro2"]
+[link="I see."]
+[linkto="intro3"]
+[endpage]
+
+
+[page="intro2"]
+[image="pope.pcx"]
+
+"The LORD moves in mysterious ways, and it is not for us
+ to question His ineffable wisdom.  He desires a tool to
+ rid the land of evil, and we must be content with that.
+
+ That said, it occurs to me that the sight of a human
+ conquering the inhuman may rally our divine cause, and
+ ensure peace is finally brought to the world."
+
+[nextpage="intro3"]
+[endpage]
+
+[page="intro3"]
+[image="pope.pcx"]
+[esc="bye"]
+[journal jrn-Pope_expose]
+
+"Approach your task as you see fit, but know that the
+ LORD has shared this wisdom: You owe Him big.
+
+ By rights, leaving your own land should have killed you.
+ It was the LORD who brought you here, moulding the
+ fabric of reality itself to save you from a painful
+ death in the cold vacuum of space.
+
+ It is by His command that the Church has shown you
+ leniency for sins which have seen others beheaded.
+
+ All this was done that you may serve His will.
+ It is for this reason that the LORD hasspared you, and
+ He expects to be repaid for this act of mercy.
+ Ignore His wishes at your peril."
+
+[nextpage="intro4"]
+[endpage]
+
+
+[page="intro4"]
+[image="pope.pcx"]
+
+"Now that we have the business of your holy errand
+ out of the way, is there anything you would discuss
+ while you are in audience with the Vicar of Christ?"
+
+[link="Is the LORD really real?"]
+[linkto="unbeliever"]
 [link="Tell me about your job."]
 [linkto="job"]
 [link="Farewell."]
 [linkto="bye"]
 [endpage]
+
 
 
 [page="startname"]
@@ -37,6 +111,8 @@ reading your every thought.
 
  To what do I owe the pleasure of this visit?"
 
+[link="Is the LORD really real?"]
+[linkto="unbeliever"]
 [link="Tell me about your job."]
 [linkto="job"]
 [link="Tell me about God's plan."]
@@ -62,6 +138,8 @@ reading your every thought.
 
 [link="Tell me about God's plan."]
 [linkto="plan"]
+[link="Is the LORD really real?"]
+[linkto="unbeliever"]
 [link="Farewell."]
 [linkto="bye"]
 [endpage]
@@ -93,11 +171,19 @@ reading your every thought.
  servant was detained and executed before he was able
  to assume overall control.
 
- The LORD has noted these previous failures, and the new
- project combines the best aspects of all prior attempts.
- There shall be several servants of the LORD, including
- myself.  Physical invulnerability will ensure these new
- servants will not be slain by unbelievers as Christ was.
+ The LORD has noted these previous failures, and the
+ new project combines the best of all prior attempts."
+
+[nextpage="plan3"]
+[endpage]
+
+[page="plan3"]
+[image="pope.pcx"]
+
+"This time, there shall be several servants of the LORD,
+ including myself.  Physical invulnerability will ensure
+ these new servants will not be slain by unbelievers as
+ Christ was.
 
  The promise of miracles and eternal bliss shall woo the
  faithful, and the sure promise of agony and death by the
@@ -106,6 +192,8 @@ reading your every thought.
 
  None shall resist.  This time we will not fail."
 
+[link="Is the LORD really real?"]
+[linkto="unbeliever"]
 [link="Farewell."]
 [linkto="bye"]
 [endpage]
@@ -123,20 +211,52 @@ reading your every thought.
 [page="unbeliever"]
 [image="pope.pcx"]
 
- Come, come.  What can there be to disbelieve?
+"Come, come.  Of course the LORD is real!
+ What can there be to disbelieve?
 
- The LORD is in evidence all around us.  Ours is the only
- faith in the whole of history that has continous and
- absolute proof that it is the One True Religion.
+ His power is in evidence all around us.  Ours is the
+ only faith in the whole of history that has continous
+ and absolute proof that it is the One True Religion.
 
  The LORD Himself walks among us again, through His
  agent, the Holy Ghost and soon, through His son, Jesus
  the Christ.
 
  A man can no more deny the LORD than he can deny that
- the sun rises each day.
+ the sun rises each day."
 
-[nextpage="exit"]
+[link="Is the LORD an alien?"]
+[linkto="alien"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about God's plan."]
+[linkto="plan"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="alien"]
+[image="pope.pcx"]
+[colour="#808080"]
+The Holy Father gives an exasperated sigh.
+[colour="#ffffff"]
+
+"You try my patience, and that is unwise.
+ 
+ Know that if any other had asked that question, they
+ would be eviscerated slowly for the amusement of the
+ LORD's Faithful.
+ Probe not into the LORD's personal life, my friend,
+ for His patience is not boundless, not even for the
+ Promised One."
+
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Tell me about God's plan."]
+[linkto="plan"]
+[link="Farewell."]
+[linkto="bye"]
 [endpage]
 
 

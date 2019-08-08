@@ -171,3 +171,13 @@ start:
 Ransome asked me to try and contact a dragon-like alien race who appear to be stranded on this planet as well.
 I should ask around the various kingdoms for rumours or sightings of dragons.
 end
+
+
+
+name jrn-Pope_expose
+tag task
+title Slay the demons
+start:
+Pope Harris I has revealed that the LORD brought me to this world to slay the 'demons' which threaten the Church's domination.
+He warned me that I face the LORD's wrath if I fail to do this.
+end

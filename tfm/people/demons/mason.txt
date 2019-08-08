@@ -30,6 +30,8 @@ You see Mason, the F-15.
 
 [link="Tell me about the destroyed village."]
 [linkto="leuchars"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What is your job?"]
 [linkto="job"]
 [link="Goodbye."]
@@ -48,6 +50,8 @@ You see Mason, the F-15.
 
 [link="Tell me about the village."]
 [linkto="leuchars"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What is your job?"]
 [linkto="job"]
 [link="Goodbye."]
@@ -67,6 +71,8 @@ You see Mason, the F-15.
 [linkto="name"]
 [link="What is your job?"]
 [linkto="job"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -91,6 +97,8 @@ He gives a very convincing sigh.
 
 [if_know_name][link="Tell me about the village."]
 [if_know_name][linkto="leuchars"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -113,6 +121,8 @@ He gives a very convincing sigh.
 
 [link="How did you rescue him?"]
 [linkto="rescue"]
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What is your job?"]
 [linkto="job"]
 [link="Goodbye."]
@@ -135,6 +145,8 @@ He gives a very convincing sigh.
  there to locate any survivors.  So I picked him up and
  brought him home with me."
 
+[link="Who is in charge here?"]
+[linkto="master"]
 [link="What is your job?"]
 [linkto="job"]
 [link="Goodbye."]
@@ -166,6 +178,21 @@ He gives a very convincing sigh.
 "He went to visit Lake Milton, but never returned.
  We do have a theory about what happened, but you 
  wouldn't believe me if I told you."
+
+[link="What do you think happened to him?"]
+[linkto="master3"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master3"]
+[image="f15_04.pcx"]
+
+"Fine.  We think the ospreys captured him.
+ Talk to Milo or Lysander.  They can explain it better."
 
 [link="What is your job?"]
 [linkto="job"]

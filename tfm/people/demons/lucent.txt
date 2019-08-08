@@ -359,7 +359,7 @@ He looks uneasy.
 [image="f18-3.pcx"]
 [set true]
 
-"Stop it!  You're hurtin' me, man!"
+"You're harshin' my vibes, man!"
 
 [nextpage="exit"]
 [endpage]
