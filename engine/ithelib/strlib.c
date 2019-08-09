@@ -33,7 +33,7 @@ if(!input)
 return input<=32?1:0;
 }
 
-static inline char iisxspace(unsigned char input)
+static __inline char iisxspace(unsigned char input)
 {
 if(!input)
 	return 0;

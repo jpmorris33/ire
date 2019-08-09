@@ -26,7 +26,7 @@
 
 #define PAD_OUT(a,b) PadOut(a,b);
 
-#ifdef WINDOWS_IS_RETARDED
+#ifdef WINDOWS_IS_BROKEN
 #define snprintf _snprintf
 #endif
 

@@ -467,6 +467,10 @@ do	{
 	} while(FindNextFile(e,&d));
 FindClose(e);
 
+if(!count) {
+	return NULL;
+}
+
 out=(char **)M_get(1,sizeof(char *)*count);
 if(!out)	{
 	// Actually, M_get will kill the program if it fails...

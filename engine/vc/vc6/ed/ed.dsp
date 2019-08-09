@@ -43,7 +43,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I "\allegro\include" /I ".\jpeg" /I "\fmod\api\inc" /I "\zlib" /I "\lpng125" /I "\sqlite" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /D "NO_ASM" /D "USE_CONSOLE" /D "USE_ALSOUND" /D "USE_ALLEGRO4" /D "WINDOWS_IS_RETARDED" /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "\allegro\include" /I ".\jpeg" /I "\fmod\api\inc" /I "\zlib" /I "\lpng125" /I "\sqlite" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /D "NO_ASM" /D "USE_CONSOLE" /D "USE_ALSOUND" /D "USE_ALLEGRO4" /D "WINDOWS_IS_BROKEN" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
@@ -71,7 +71,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MT /W3 /Gm /GX /ZI /Od /I "\allegro\include" /I ".\jpeg" /I "\fmod\api\inc" /I "\zlib" /I "\lpng125" /I "\sqlite" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "NO_ASM" /D "USE_CONSOLE" /D "USE_ALSOUND" /D "USE_ALLEGRO4" /D "WINDOWS_IS_RETARDED" /YX /FD /GZ /c
+# ADD CPP /nologo /MT /W3 /Gm /GX /ZI /Od /I "\allegro\include" /I ".\jpeg" /I "\fmod\api\inc" /I "\zlib" /I "\lpng125" /I "\sqlite" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "NO_ASM" /D "USE_CONSOLE" /D "USE_ALSOUND" /D "USE_ALLEGRO4" /D "WINDOWS_IS_BROKEN" /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
