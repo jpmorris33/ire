@@ -12662,6 +12662,7 @@ section: sounds
 	cow_thecow_moo			sound/cow1-22.wav
 	cow_thecow_pain		sound/cow2-22.wav
 	cow_thecow_dies		sound/cow3-22.wav
+	crisps			sound/crisps.wav
 
 section: music
 

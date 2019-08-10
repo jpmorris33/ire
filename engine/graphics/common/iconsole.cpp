@@ -97,7 +97,7 @@ do	{
 	ptr=next;
 	} while(ptr);
 
-linehead=curline=NULL;
+linehead=curline=topline=NULL;
 lines=0;
 Select=NULL;
 running=wasrunning;

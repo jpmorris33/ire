@@ -98,6 +98,10 @@ if current = player
 	if p is called "flower*"
 		object_sound "toast" player
 	endif
+	if p is called "SNACK00"
+		object_sound "crisps" player
+	endif
+
 endif
 
 if p is called "food13"
