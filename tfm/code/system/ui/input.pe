@@ -93,7 +93,10 @@ endif
 if key >= KEY_1
 	if key <= KEY_9
 		set_flag player IS_TRANSLUCENT = 0
-		let member = key - KEY_0
+		# KEY_0 may really be 10 rather than 0 so use KEY_1 and add 1
+		let member = key - KEY_1
+		add member + 1
+
 		set_member party[member] player_action
 		let current_bag = player
 		call reset_objects		# Reset the object display

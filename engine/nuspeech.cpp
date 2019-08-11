@@ -2353,7 +2353,7 @@ do  {
     FlushKeys();
     k=WaitForKey();
     ctr=0;
-    if(k>= IREKEY_0 && k<= IREKEY_9)
+    if((k>= IREKEY_1 && k<= IREKEY_9) || k == IREKEY_0)
         ctr=1;
     } while(!ctr);
 

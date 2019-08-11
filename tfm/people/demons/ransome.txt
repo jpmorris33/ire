@@ -263,9 +263,26 @@ some kind of cameras, follow your movements.
 [image="f16_01.cel"]
 
 "This man is responsible for the ethnic cleansing of an
- entire WORLD!!!  Have you noticed any Muslims here?!?
+ entire WORLD!!!  Are you just ignoring that the only
+ survivors are straight white men and women?!  Everyone
+ who didn't fit that model has been exterminated!
 
- The Church demands the worship of the Holy Trinity.
+ Anyone who was the wrong colour, gender identity,
+ religion... they're GONE.  They're all gone, and it's
+ HIS doing!"
+
+[nextpage="first4c"]
+[endpage]
+
+[page="first4c"]
+[image="f16_01.cel"]
+
+[colour="#808080"]
+Ransome pauses to collect himself, before continuing
+in a more calm voice.
+[colour="#ffffff"]
+
+"The Church demands the worship of the Holy Trinity.
  It rules the whole goddamn planet with an iron fist,
  and they've got the death penalty all over the shop.
  

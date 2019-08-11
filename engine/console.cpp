@@ -493,6 +493,7 @@ do  {
 	irecon_print("_"); // Cursor
 	irecon_update();
 	Show();
+	IRE_WaitFor(5);
 	if(IRE_KeyPressed())
 		{
 		input = IRE_NextKey(&ascii);

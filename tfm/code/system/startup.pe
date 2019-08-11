@@ -110,7 +110,8 @@ do
 
 	if key >= KEY_1
 		if key <= KEY_4
-			let menupos = key - KEY_0
+			let menupos = key - KEY_1
+			add menupos + 1
 			let key = KEY_ENTER
 		endif
 	endif
@@ -444,6 +445,7 @@ do
 #	printxy " "
 
 	get_key_quiet
+	wait 10 BLOCKING
 
 	if key = KEY_ENTER
 		break
@@ -484,6 +486,7 @@ while key <> KEY_ENTER
 
 do
 	get_key_quiet
+	wait 10 BLOCKING
 
 	if key = KEY_M
 		let PlayerMF = 1
@@ -541,10 +544,16 @@ let sz = KEY_Z or 128
 		return
 	endif
 
-	if key >= KEY_0
+	if key >= KEY_1
 	and key <= KEY_9
-		let key = key - KEY_0
-		let key = '0' + key
+		let key = key - KEY_1
+		let key = '1' + key
+		return
+	endif
+
+	# KEY_0 may be 'key 10' for some backends
+	if key = KEY_0
+		let key = '0'
 		return
 	endif
 

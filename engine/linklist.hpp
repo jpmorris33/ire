@@ -63,7 +63,7 @@ extern JOURNALENTRY *J_Find(const char *name);
 
 
 #ifdef CHECK_OBJECT_STRICT
-	#define CHECK_OBJECT(ptr) if(!OB_Check(ptr)) {Bug("Fuck-up in %s at line %d\n",__FILE__,__LINE__);ithe_panic("Fuck-up detected, check logfile",NULL);}
+	#define CHECK_OBJECT(ptr) if(!OB_Check(ptr)) {Bug("Screwup in %s at line %d\n",__FILE__,__LINE__);ithe_panic("Screwup detected, check logfile",NULL);}
 #else
 	#define CHECK_OBJECT(ptr) ;
 #endif

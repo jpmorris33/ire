@@ -91,7 +91,8 @@ do
 	if key = KEY_MOUSE
 		if mouseclick < 7
 			# Fake spell shortcut
-			let key = mouseclick + KEY_0
+			let key = mouseclick + KEY_1
+			add key - 1
 		endif
 		if mouseclick = 7
 			let key = KEY_LEFT
