@@ -1,0 +1,66 @@
+###########################
+#                         #
+#  Quit game, yes or no?  #
+#                         #
+###########################
+
+
+function quit_game_ui
+
+object qpanel
+int x
+int y
+int vx
+int vy
+int done = 0
+
+save_screen
+create qpanel = "QUIT_PANEL"
+
+let x = 160
+let y = 100
+
+draw_object qpanel = x y
+
+let vx = x + 37
+let vy = y + 87
+mouse_range KEY_Y = vx vy 68 38
+range_pointer KEY_Y = 1
+
+let vx = x + 181
+mouse_range KEY_N = vx vy 68 38
+range_pointer KEY_N = 1
+
+flush_mouse BLOCKING
+
+do
+	get_key_quiet
+
+	if key = KEY_MOUSE
+		let key = mouseclick
+		let mouseclick = -1
+	endif
+
+	gotoxy 10 10
+	printxy key
+
+	if key = KEY_Y
+		# Tell the game we're ending
+		status 7
+		# It doesn't immediately shut down, we need
+		# to get back to the main loop first
+		let done = 1
+	endif
+
+	if key = KEY_N
+	or key = KEY_ESC
+		let done = 1
+	endif
+
+while done = 0
+
+destroy qpanel
+load_screen
+
+end
+

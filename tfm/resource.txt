@@ -15,6 +15,7 @@ section: sprites
 	stats_panel		sprites/panel_st.cel
 	backicon		sprites/backicon.cel
 	browse_container_panel	sprites/panel_pp.cel
+	quit_panel		sprites/text/panel_quit.png
 	music			sprites/music.cel
 	keypad_panel		sprites/tech/drakdisp.pcx
 	phone_panel		sprites/tech/phonedsp.png
@@ -3532,6 +3533,7 @@ section: sequences
 	quickname OBJECT_PANEL OBJECT_PANEL
 	quickname STATS_PANEL STATS_PANEL
 	quickname BROWSE_CONTAINER_PANEL BROWSE_CONTAINER_PANEL
+	quickname QUIT_PANEL QUIT_PANEL
 
 	quickname blank blank
 
@@ -12856,6 +12858,7 @@ section: scripts
 	code/system/ui/wield.pe
 	code/system/ui/drop.pe
 	code/system/ui/volume.pe
+	code/system/ui/quit.pe
 	code/activity/beasts.pe
 	code/activity/blkmass.pe
 	code/activity/crops.pe

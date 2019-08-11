@@ -15,9 +15,11 @@ integer y
 
 if key = KEY_ESC
 	centre on player
-	if_confirm "Quit Game "
-		status 7
-	endif
+	call quit_game_ui
+#	if_confirm "Quit Game "
+#		status 7
+#	endif
+
 endif
 
 #	Press F1 for help

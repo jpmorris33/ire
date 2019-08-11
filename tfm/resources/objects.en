@@ -298,6 +298,14 @@ section: characters
 	short		"No description"
 	invisible
 
+	name QUIT_PANEL
+	frame		QUIT_PANEL
+	hp		1
+	weight		1
+	description	"No description"
+	short		"No description"
+	invisible
+
 	name SPLAT
 	left		SPLAT_BLOOD
 	right		SPLAT_BLOOD
