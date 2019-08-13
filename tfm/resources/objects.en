@@ -8479,8 +8479,8 @@ section: characters
 	rank prey
 	wont_shut_doors
 	wont_open_doors
-	contains	food05
-	contains	food05
+	contains	food05_sheep
+	contains	food05_sheep
 
 	name SHEEP_DEAD
 	left		SHEEP_DEAD
@@ -8523,8 +8523,8 @@ section: characters
 	race sheep
 	wont_shut_doors
 	wont_open_doors
-	contains	food05
-	contains	food05
+	contains	food05_sheep
+	contains	food05_sheep
 	contains	toadstone
 
 	name KID_PAPER
@@ -9422,11 +9422,24 @@ section: characters
 	down		FOOD05
 	hp		2
 	weight		500
-	description	"You see a leg of meat."
+	description	"You see a leg of beef."
 	short		"meat"
 	IfUsed		EAT_FOOD
 	no_resurrect
 	race cow
+
+	name FOOD05_SHEEP
+	left		FOOD05
+	right		FOOD05
+	up		FOOD05
+	down		FOOD05
+	hp		2
+	weight		500
+	description	"You see a leg of lamb."
+	short		"meat"
+	IfUsed		EAT_FOOD
+	no_resurrect
+	race sheep
 
 	name FOOD06
 	left		FOOD06
