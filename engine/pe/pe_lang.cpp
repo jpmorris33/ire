@@ -2416,6 +2416,8 @@ OPCODE vmspec[] =
                     {"change_map",PEVM_ChangeMap2,"I?n",PE_generic,NULL,2},
                     {"change_map",PEVM_ChangeMap2,"I?i",PE_generic,NULL,2},
                     {"change_map",PEVM_ChangeMap2,"I?I",PE_generic,NULL,2},
+                    {"get_mapno",PEVM_GetMapNo,"i",PE_generic,NULL,1},
+                    {"get_mapno",PEVM_GetMapNo,"I",PE_generic,NULL,1},
 
                     {"scroll_picture",PEVM_PicScroll,"snn",PE_generic,NULL,3},
                     {"scroll_picture",PEVM_PicScroll,"sni",PE_generic,NULL,3},

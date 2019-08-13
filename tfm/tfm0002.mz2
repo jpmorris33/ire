@@ -1893,6 +1893,102 @@ iMZ2r01
 	roof 38 at 487 31
 	roof 38 at 488 31
 	roof 38 at 489 31
+	roof 38 at 498 41
+	roof 38 at 499 41
+	roof 38 at 500 41
+	roof 38 at 501 41
+	roof 38 at 502 41
+	roof 38 at 503 41
+	roof 38 at 504 41
+	roof 38 at 505 41
+	roof 38 at 498 42
+	roof 38 at 499 42
+	roof 38 at 500 42
+	roof 38 at 501 42
+	roof 38 at 502 42
+	roof 38 at 503 42
+	roof 38 at 504 42
+	roof 38 at 505 42
+	roof 38 at 498 43
+	roof 38 at 499 43
+	roof 38 at 500 43
+	roof 38 at 501 43
+	roof 38 at 502 43
+	roof 38 at 503 43
+	roof 38 at 504 43
+	roof 38 at 505 43
+	roof 38 at 498 44
+	roof 38 at 499 44
+	roof 38 at 500 44
+	roof 38 at 501 44
+	roof 38 at 502 44
+	roof 38 at 503 44
+	roof 38 at 504 44
+	roof 38 at 505 44
+	roof 38 at 498 45
+	roof 38 at 499 45
+	roof 38 at 500 45
+	roof 38 at 501 45
+	roof 38 at 502 45
+	roof 38 at 503 45
+	roof 38 at 504 45
+	roof 38 at 505 45
+	roof 38 at 498 46
+	roof 38 at 499 46
+	roof 38 at 500 46
+	roof 38 at 501 46
+	roof 38 at 502 46
+	roof 38 at 503 46
+	roof 38 at 504 46
+	roof 38 at 505 46
+	roof 38 at 498 47
+	roof 38 at 499 47
+	roof 38 at 500 47
+	roof 38 at 501 47
+	roof 38 at 502 47
+	roof 38 at 503 47
+	roof 38 at 504 47
+	roof 38 at 505 47
+	roof 38 at 498 48
+	roof 38 at 499 48
+	roof 38 at 500 48
+	roof 38 at 501 48
+	roof 38 at 502 48
+	roof 38 at 503 48
+	roof 38 at 504 48
+	roof 38 at 505 48
+	roof 38 at 498 49
+	roof 38 at 499 49
+	roof 38 at 500 49
+	roof 38 at 501 49
+	roof 38 at 502 49
+	roof 38 at 503 49
+	roof 38 at 504 49
+	roof 38 at 505 49
+	roof 38 at 498 50
+	roof 38 at 499 50
+	roof 38 at 500 50
+	roof 38 at 501 50
+	roof 38 at 502 50
+	roof 38 at 503 50
+	roof 38 at 504 50
+	roof 38 at 505 50
+	roof 38 at 498 51
+	roof 38 at 499 51
+	roof 38 at 500 51
+	roof 38 at 501 51
+	roof 38 at 502 51
+	roof 38 at 503 51
+	roof 38 at 504 51
+	roof 38 at 505 51
+	roof 38 at 498 52
+	roof 38 at 499 52
+	roof 38 at 500 52
+	roof 38 at 501 52
+	roof 38 at 502 52
+	roof 38 at 503 52
+	roof 38 at 504 52
+	roof 38 at 505 52
 	roof 86 at 390 89
 	roof 87 at 391 89
 	roof 86 at 392 89
@@ -10613,6 +10709,13 @@ iMZ2r01
 	roof 7 at 166 632
 	roof 7 at 167 632
 	roof 17 at 168 632
+	roof 12 at 210 632
+	roof 13 at 211 632
+	roof 14 at 212 632
+	roof 15 at 213 632
+	roof 12 at 214 632
+	roof 13 at 215 632
+	roof 14 at 216 632
 	roof 18 at 160 633
 	roof 9 at 161 633
 	roof 10 at 162 633
@@ -10622,6 +10725,15 @@ iMZ2r01
 	roof 11 at 166 633
 	roof 7 at 167 633
 	roof 19 at 168 633
+	roof 16 at 209 633
+	roof 1 at 210 633
+	roof 2 at 211 633
+	roof 2 at 212 633
+	roof 2 at 213 633
+	roof 2 at 214 633
+	roof 3 at 215 633
+	roof 4 at 216 633
+	roof 17 at 217 633
 	roof 20 at 160 634
 	roof 8 at 161 634
 	roof 10 at 162 634
@@ -10631,6 +10743,15 @@ iMZ2r01
 	roof 10 at 166 634
 	roof 11 at 167 634
 	roof 21 at 168 634
+	roof 18 at 209 634
+	roof 5 at 210 634
+	roof 1 at 211 634
+	roof 2 at 212 634
+	roof 3 at 213 634
+	roof 4 at 214 634
+	roof 7 at 215 634
+	roof 7 at 216 634
+	roof 19 at 217 634
 	roof 24 at 161 635
 	roof 25 at 162 635
 	roof 26 at 163 635
@@ -10638,6 +10759,51 @@ iMZ2r01
 	roof 24 at 165 635
 	roof 25 at 166 635
 	roof 26 at 167 635
+	roof 20 at 209 635
+	roof 5 at 210 635
+	roof 5 at 211 635
+	roof 5 at 212 635
+	roof 7 at 213 635
+	roof 7 at 214 635
+	roof 7 at 215 635
+	roof 7 at 216 635
+	roof 21 at 217 635
+	roof 22 at 209 636
+	roof 5 at 210 636
+	roof 9 at 211 636
+	roof 10 at 212 636
+	roof 11 at 213 636
+	roof 7 at 214 636
+	roof 7 at 215 636
+	roof 7 at 216 636
+	roof 23 at 217 636
+	roof 16 at 209 637
+	roof 5 at 210 637
+	roof 8 at 211 637
+	roof 10 at 212 637
+	roof 10 at 213 637
+	roof 11 at 214 637
+	roof 7 at 215 637
+	roof 7 at 216 637
+	roof 17 at 217 637
+	roof 18 at 209 638
+	roof 9 at 210 638
+	roof 10 at 211 638
+	roof 10 at 212 638
+	roof 10 at 213 638
+	roof 10 at 214 638
+	roof 11 at 215 638
+	roof 7 at 216 638
+	roof 19 at 217 638
+	roof 20 at 209 639
+	roof 8 at 210 639
+	roof 10 at 211 639
+	roof 10 at 212 639
+	roof 10 at 213 639
+	roof 10 at 214 639
+	roof 10 at 215 639
+	roof 11 at 216 639
+	roof 21 at 217 639
 	roof 12 at 765 639
 	roof 13 at 766 639
 	roof 14 at 767 639
@@ -10647,6 +10813,13 @@ iMZ2r01
 	roof 14 at 771 639
 	roof 15 at 772 639
 	roof 12 at 773 639
+	roof 24 at 210 640
+	roof 25 at 211 640
+	roof 26 at 212 640
+	roof 27 at 213 640
+	roof 24 at 214 640
+	roof 25 at 215 640
+	roof 26 at 216 640
 	roof 12 at 218 640
 	roof 13 at 219 640
 	roof 14 at 220 640

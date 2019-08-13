@@ -1,0 +1,50 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+                 The logbook of Avis Prison
+                 In the year of our Lord, 1325
+
+ Prisoners
+
+   Name:     
+   Crime:     
+   Sentence:  
+
+   Name:     
+   Crime:    
+   Sentence: 
+
+   Name:     
+   Crime:    
+             
+   Sentence: 
+             
+   Name:     
+   Crime:    
+   Sentence: 
+
+[right="ex1"]
+[endpage]
+
+[page="ex1"]
+[backing="paper.pcx"]
+[font 3]
+
+  Executions
+
+   Name:     Elvis of New Leuchars
+   Crime:     Sodomy
+   Justice:    Beheaded
+
+   Name:     Fendrick the Wanderer
+   Crime:     Sodomy
+   Justice:    Beheaded
+
+   Name:     Overmann
+   Crime:     Murder
+   Justice:    Hanged
+
+[left="pr1"]
+[right="exit"]
+[endpage]
+

@@ -305,6 +305,7 @@ static void PV_DelDecor();
 static void PV_SearchContainer();
 static void PV_ChangeMap1();
 static void PV_ChangeMap2();
+static void PV_GetMapNo();
 static void PV_PicScroll();
 static void PV_SetPanel();
 static void PV_FindPathMarker();
@@ -1331,6 +1332,7 @@ VMOP(DelDecor);
 VMOP(SearchContainer);
 VMOP(ChangeMap1);
 VMOP(ChangeMap2);
+VMOP(GetMapNo);
 VMOP(PicScroll);
 VMOP(SetPanel);
 VMOP(FindPathMarker);
@@ -5687,6 +5689,19 @@ CHECK_POINTER(t);
 
 change_map = *z;
 change_map_tag = *t;
+}
+
+// Return map number
+
+void PV_GetMapNo()
+{
+VMINT *z;
+
+z = GET_INT();
+CHECK_POINTER(z);
+
+// We can't expose mapnumber as a writeable variable!
+*z = (VMINT)mapnumber;
 }
 
 // Scroll a still picture

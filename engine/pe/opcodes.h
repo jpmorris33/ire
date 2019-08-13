@@ -182,6 +182,7 @@ enum {
 	PEVM_SearchContainer,
 	PEVM_ChangeMap1,
 	PEVM_ChangeMap2,
+	PEVM_GetMapNo,
 	PEVM_PicScroll,
 	PEVM_SetPanel,
 	PEVM_FindPathMarker,

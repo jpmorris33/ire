@@ -24,6 +24,7 @@ object arrested
 
 local
 int witnesses
+int prison_tag
 endlocal
 
 
@@ -909,10 +910,11 @@ if_exists victim
 endif
 
 if victim = player
+	call find_prison
 
 	# Lock the door again
 
-	find_tag target = "stonedoor5_*" 60008
+	find_tag target = "stonedoor5_*" prison_tag
 	if_exists target
 		change target = "stonedoor5_lock"
 		let target.user.oldhp = target.stats.hp
@@ -920,7 +922,7 @@ if victim = player
 
 	# No door?  Well 'Ard.
 
-	find_tag target = "stonedoorway*" 60008
+	find_tag target = "stonedoorway*" prison_tag
 	if_exists target
 		change target = "stonedoor5_lock"
 		let target.user.oldhp = target.stats.hp
@@ -928,7 +930,7 @@ if victim = player
 
 	# Chuck the player into their cell
 
-	find_tag target = "target" 60008 # Find the player's cell
+	find_tag target = "target" prison_tag # Find the player's cell
 	if_exist target
 #		cls
 		print "~You are under arrest!~"
@@ -943,12 +945,128 @@ if victim = player
 		endif
 		fade_in
 	else
-		print "No target: cannot arrest"
+#		print "No target: cannot arrest"
+		print "Did not find cell for tag "
+		print prison_tag
 		printcr
 	endif
 
 
 endif
+
+end
+
+##
+##  Find a suitable prison for the territory the player is in
+##
+
+function find_prison
+int map
+get_mapno map
+let prison_tag = -10000
+
+if map = 1
+	# Are they in the airbase
+	if victim.x >= 780
+	and victim.x <= 1024
+	and victim.y >= 719
+	and victim.y <= 1024
+		let prison_tag = 10001
+		return
+	endif
+
+	# Are they in the Holy Land?
+	if victim.x >= 425
+	and victim.x <= 779
+	and victim.y >= 653
+	and victim.y <= 1024
+		# Special: the dungeon is in another map
+		# Or we could frig it and add a holding cell
+		let prison_tag = -1
+		return
+	endif
+
+	# Otherwise, it's New Highworth jail for you
+	let prison_tag = 10000
+	return	
+endif
+
+
+if map = 2
+	# Are they in the airbase?
+	if victim.x >= 87
+	and victim.x <= 230
+	and victim.y >= 816
+	and victim.y <= 905
+		let prison_tag = 10001
+		return
+	endif
+
+	# Are they in Avis?
+	if victim.x >= 0
+	and victim.x <= 290
+	and victim.y >= 0
+	and victim.y <= 1024
+		let prison_tag = 10000
+		return
+	endif
+
+	# Waarg territory?
+	# (Also the dam, but if they can get arrested there, that's their problem)
+	if victim.x >= 608
+		let prison_tag = 10002
+		return
+	endif
+
+	# Have them wake up in the middle of nowhere
+	let prison_tag = 10003
+	return	
+endif
+
+
+if map = 3
+	# Are they in the airbase?
+	if victim.x >= 655
+	and victim.x <= 790
+	and victim.y >= 528
+	and victim.y <= 643
+		let prison_tag = 10001
+		return
+	endif
+
+	# Are they in the survival shelter?
+	if victim.x >= 533
+	and victim.x <= 608
+	and victim.y >= 874
+	and victim.y <= 995
+		let prison_tag = 10002
+		return
+	endif
+
+	# Are they in the osprey village?
+	if victim.x >= 618
+	and victim.x <= 696
+	and victim.y >= 283
+	and victim.y <= 324
+		let prison_tag = 10003
+		return
+	endif
+
+	# Are they in the dragon castle?
+	if victim.x >= 283
+	and victim.x <= 405
+	and victim.y >= 51
+	and victim.y <= 136
+		let prison_tag = 10004
+		return
+	endif
+
+	# Otherwise, assume Church territory
+	let prison_tag = 10000
+	
+endif
+
+
 
 end
 
@@ -1034,7 +1152,8 @@ let arrested = victim
 
 if victim = player
 
-	find_tag target = "gallows" 60008
+
+	find_tag target = "gallows" 10000
 	if_not_exists target
 		print "Error: no gallows to hang the player from|"
 		return
