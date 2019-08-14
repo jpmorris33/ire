@@ -36,6 +36,7 @@ static char *Brushes[]=	{
 						"BRUSH  2X2    ",
 						"BRUSH  4X4    ",
 						"BRUSH  8X8    ",
+						"BRUSH 16X16   ",
 						"BRUSH 32X32   ",
 						"ROOF  8X8     ",
 						"ROOF 32X32    ",
@@ -43,7 +44,7 @@ static char *Brushes[]=	{
 						NULL,
 						};
 
-static int BrushType[]={0,1,2,4,8,32,-8,-32,-1};	// MUST MATCH Brushes[]
+static int BrushType[]={0,1,2,4,8,16,32,-8,-32,-1};	// MUST MATCH Brushes[]
 
 extern int focus,BM_Id;
 extern int L_bgtile,L_rooftile;

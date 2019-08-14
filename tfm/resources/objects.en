@@ -5171,6 +5171,7 @@ section: characters
 	setsolid	V 1 1 1 1
 	setsolid	H 1 1 1 1
 
+
 	name GUILLOTINE
 	frame		GUILLOTINE_S_UP
 	up		GUILLOTINE_S_UP
@@ -5182,7 +5183,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
-	ifUsed		flip_lever
+	ifUsed		fliplever
 	setsolid	V 2 0 1 2
 	setsolid	H 2 0 1 2
 
@@ -5197,7 +5198,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
-	ifUsed		flip_lever
+	ifUsed		fliplever
 	setsolid	V 2 0 1 2
 	setsolid	H 2 0 1 2
 
@@ -5218,6 +5219,36 @@ section: characters
 	short		"victim"
 	IfKilled	respawn
 	fixed
+
+	name GUILLOTINE_WAARG
+	frame		GUILLOTINE_W_UP
+	up		GUILLOTINE_W_UP
+	down		GUILLOTINE_W_DOWN
+	hp		1000000
+	weight		-1
+	description	"You see a guillotine."
+	short		"guillotine"
+	IfKilled	respawn
+	solid
+	fixed
+	ifUsed		fliplever
+	setsolid	V 2 1 1 1
+	setsolid	H 2 1 1 1
+
+	name GUILLOTINE_WAARG_BLOODY
+	frame		GUILLOTINE_W_UP_BLOODY
+	up		GUILLOTINE_W_UP_BLOODY
+	down		GUILLOTINE_W_DOWN_BLOODY
+	hp		1000000
+	weight		-1
+	description	"You see a guillotine.  It has been used recently."
+	short		"guillotine"
+	IfKilled	respawn
+	solid
+	fixed
+	ifUsed		fliplever
+	setsolid	V 2 1 1 1
+	setsolid	H 2 1 1 1
 
 	name WOOD_MASK
 	left		WOODMASK_L
@@ -18887,3 +18918,64 @@ section: tiles
 	cost 128
 	function lava_incinerate
 
+# Evil death sand
+
+	name SAND22
+	sequence	SAND00
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND23
+	sequence	SAND01
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND24
+	sequence	SAND02
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND25
+	sequence	SAND03
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND26
+	sequence	SAND04
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND27
+	sequence	SAND05
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND28
+	sequence	SAND06
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND29
+	sequence	SAND07
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND30
+	sequence	SAND08
+	description	"You see some sand."
+	cost 128
+	function desert_sand
+
+	name SAND31
+	sequence	SAND09
+	description	"You see some sand."
+	cost 128
+	function desert_sand

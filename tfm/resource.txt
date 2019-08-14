@@ -2135,6 +2135,12 @@ section: sprites
 	guillotine_s_dn_ovl	sprites/guiltn05.png
 	guillotine_s_victim1	sprites/guiltnv1.png
 	guillotine_s_victim2	sprites/guiltnv2.png
+	guillotine_w_up		sprites/guiltn06.png
+	guillotine_w_dn		sprites/guiltn07.png
+	guillotine_w_up_b	sprites/guiltn08.png
+	guillotine_w_dn_b	sprites/guiltn09.png
+	guillotine_w_up_ovl	sprites/guiltn10.png
+	guillotine_w_dn_ovl	sprites/guiltn11.png
 
 	machinery_00		sprites/machin00.cel
 	machinery_01		sprites/machin01.cel
@@ -9038,6 +9044,39 @@ section: sequences
 
 	quickname GUILLOTINE_S_VICTIM1 GUILLOTINE_S_VICTIM1
 	quickname GUILLOTINE_S_VICTIM2 GUILLOTINE_S_VICTIM2
+
+	name GUILLOTINE_W_UP
+	post_overlay
+	overlay GUILLOTINE_W_UP_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_W_UP
+	end
+
+	name GUILLOTINE_W_UP_BLOODY
+	post_overlay
+	overlay GUILLOTINE_W_UP_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_W_UP_B
+	end
+
+	name GUILLOTINE_W_DOWN
+	post_overlay
+	overlay GUILLOTINE_W_DN_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_W_DN
+	end
+
+	name GUILLOTINE_W_DOWN_BLOODY
+	post_overlay
+	overlay GUILLOTINE_W_DN_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_W_DN_B
+	end
+
 
 	name MACHINERY_GRINDSTONE_RIGHT
 	loop

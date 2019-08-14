@@ -123,6 +123,33 @@ check_hurt victim
 end
 
 
+function desert_sand
+
+# If it goes under minus a million it's probably not meant to be destroyed
+if_not_flag victim IS_BIOLOGICAL
+	return
+endif
+
+# Ignore the dead
+if victim.stats.hp < 1
+	return
+endif
+
+# Only when the sun's out
+if game_hour < 4
+or game_hour > 22
+	return
+endif
+
+# Ideally check if victim has water
+
+# You will be baked and there will be cake
+add victim.stats.hp - 10
+check_hurt victim
+
+end
+
+
 
 
 ##

@@ -128495,7 +128495,7 @@ iMZ1r00
 		type TORCHUNLIT
 		at 146 591
 		curdir 0
-		tag 55
+		tag -55
 		funcs->use LEVER_MOVE_SECRET_V
 
 	object 67171292
@@ -143611,7 +143611,7 @@ iMZ1r00
 		at 210 636
 		curdir 1
 
-	object 67177089
+	object 67177088
 		type BUCKET
 		at 216 636
 		curdir 2
@@ -143834,27 +143834,27 @@ iMZ1r00
 
 	decorative TREE03 at 166 637
 
-	object 67177199
+	object 67177198
 		type BRIDGE_STEPS_S
 		at 203 637
 		curdir 2
 
-	object 67177200
+	object 67177199
 		type BRIDGE_STEPS_S
 		at 204 637
 		curdir 1
 
-	object 67177201
+	object 67177200
 		type BRIDGE_STEPS_S
 		at 205 637
 		curdir 0
 
-	object 67177202
+	object 67177201
 		type BRIDGE_STEPS_S
 		at 206 637
 		curdir 1
 
-	object 67177203
+	object 67177202
 		type BRIDGE_STEPS_S
 		at 207 637
 		curdir 3
@@ -143999,17 +143999,17 @@ iMZ1r00
 
 	decorative MOUNT04 at 684 637
 
-	object 67177274
+	object 67177273
 		type BRIDGE_STEPS_N
 		at 734 637
 		curdir 2
 
-	object 67177275
+	object 67177274
 		type BRIDGE_STEPS_N
 		at 735 637
 		curdir 0
 
-	object 67177276
+	object 67177275
 		type BRIDGE_STEPS_N
 		at 736 637
 		curdir 3
@@ -144110,39 +144110,39 @@ iMZ1r00
 
 	decorative TREE02 at 166 638
 
-	object 67177325
+	object 67177324
 		type TABLE6-V
 		at 211 638
 		curdir 0
 
-	object 67177326
+	object 67177325
 		type BOOK_OPEN
 		at 211 638
 		curdir 2
 		funcs->talk /books/misc/prison3.txt
 
-	object 67177327
+	object 67177326
 		type TABLE-SHADOW2
 		at 212 638
 		curdir 3
 
-	object 67177328
+	object 67177327
 		type TABLE5-LEGS2
 		at 212 638
 		curdir 3
 
-	object 67177329
+	object 67177328
 		type CHAIR
 		at 212 638
 		curdir 2
 
-	object 67177330
+	object 67177329
 		type STONEDOOR5_LOCK
 		at 214 638
 		curdir 2
 		tag 10000
 
-	object 67177088
+	object 67177330
 		type TARGET
 		at 215 638
 		curdir 0
@@ -146381,7 +146381,7 @@ iMZ1r00
 		curdir 2
 
 	object 67178229
-		type GUILLOTINE
+		type GUILLOTINE_WAARG
 		at 743 644
 		curdir 1
 

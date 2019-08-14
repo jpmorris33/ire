@@ -810,10 +810,15 @@ oldvic=victim;
 for(yctr=0;yctr<h;yctr++)	{
 	for(xctr=0;xctr<w;xctr++,tptr++)	{
 		tn = *tptr;
-		if(tn >= TItot)
+		if(tn >= TItot) {
+//			printf("Invalid tile %d/%d\n", tn,TItot);
 			continue;	// Invalid, possible the selector tile from the editor
+		}
+
 		t=&TIlist[tn];
 		if(t->standfunc > 0)	{
+//			printf("Tile %d [%s] has standfunc %d\n",tn, t->name, t->standfunc);
+
 			// Got one!  Now we need to find out if anything is above it
 			o=GetObjectBase(x+xctr,y+yctr);
 			if(!o)
