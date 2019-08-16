@@ -23,7 +23,7 @@
 // variables
 
 static int pmx=0,pmy=0,path1x=0,path1y=0;
-static int BrushMode=0,ShowSolid=0,ShowEggs=0,ShowRoof=0;
+static int BrushMode=0,ShowSolid=0,ShowEggs=0,ShowRoof=0,ShowTrees=0;
 static int CN_Id,CS_Id,CE_Id,CW_Id,BR_Id;
 static char ConnNstr[]="None  ";
 static char ConnSstr[]="None  ";
@@ -112,8 +112,11 @@ IG_TextButton(516,150,__down,PanDown,NULL,NULL);     // Pan down button
 BR_Id = IG_InputButton(472,256,Brushes[BrushMode],GetBrush,NULL,NULL);
 IG_SetInText(BR_Id,Brushes[BrushMode]);
 
-temp = IG_ToggleButton(472,192,"Normal View  ",Nothing,NULL,NULL,&ShowSolid);
-IG_SetInText(temp,"Solid Objects");
+temp = IG_ToggleButton(472,192,"Solid off",Nothing,NULL,NULL,&ShowSolid);
+IG_SetInText(temp,"Solid on");
+
+temp = IG_ToggleButton(556,192,"Trees off",Nothing,NULL,NULL,&ShowTrees);
+IG_SetInText(temp,"Trees on ");
 
 temp = IG_ToggleButton(472,224,"Eggs off",Nothing,NULL,NULL,&ShowEggs);
 IG_SetInText(temp,"Eggs on ");
@@ -151,88 +154,85 @@ temp = IG_TextButton(496,416,"PathMaker",PathMaker,NULL,NULL);
 
 void OneToOne()
 {
-int temp,cx,cy,div,rx,ry,blockx,blocky,blockw,blockh;
+int temp,cx,cy,div,rx,ry,blockx,blocky,blockw,blockh,istree;
 OBJECT *ob;
 IG_BlackPanel(62,62,386,386);
 
 for(cy=0;cy<curmap->h;cy++)
-	for(cx=0;cx<curmap->w;cx++)
-		{
+	for(cx=0;cx<curmap->w;cx++) {
 		temp=ReadMap(cx,cy);
 		if(temp==RANDOM_TILE)
 			swapscreen->PutPixel(cx+64,cy+64,ITG_BLUE);
 		else
 			swapscreen->PutPixel(cx+64,cy+64,TIlist[temp].form->seq[0]->thumbcol);
-		}
+	}
 
-if(ShowSolid || ShowEggs || ShowRoof)
+if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
 	for(cy=0;cy<curmap->h;cy++)
-		for(cx=0;cx<curmap->w;cx++)
-			{
+		for(cx=0;cx<curmap->w;cx++) {
 			ob=GetRawObjectBase(cx,cy);
-			for(;ob;ob=ob->next)
-				{
-				if(ShowSolid && ob->flags&IS_SOLID)
-					{
-					if(ob->flags & IS_LARGE)
-						{
-						if(ob->curdir > CHAR_D) //(U,D,L,R) > D = L,R
-							{
+			for(;ob;ob=ob->next) {
+				if(ShowSolid && ob->flags&IS_SOLID) {
+					istree = !istricmp_fuzzy(ob->name,"tree*");
+					// Skip trees if we're not showing them
+					if(istree && !ShowTrees) {
+						continue;
+					}
+					if(!ShowSolid && !(istree && ShowTrees)) {
+						continue;
+					}
+					if(ob->flags & IS_LARGE) {
+						if(ob->curdir > CHAR_D) { //(U,D,L,R) > D = L,R
 							blockx=ob->hblock[BLK_X];
 							blocky=ob->hblock[BLK_Y];
 							blockw=ob->hblock[BLK_W];
 							blockh=ob->hblock[BLK_H];
-							}
-						else
-							{
+						} else {
 							blockx=ob->vblock[BLK_X];
 							blocky=ob->vblock[BLK_Y];
 							blockw=ob->vblock[BLK_W];
 							blockh=ob->vblock[BLK_H];
-							}
-						swapscreen->FillRect(cx+64+blockx,cy+64+blocky,64+blockx+(blockw-1),64+blocky+(blockh-1),ITG_BLUE);
 						}
-					else
-						swapscreen->PutPixel(cx+64,cy+64,ITG_BLUE);
+						swapscreen->FillRect(cx+64+blockx,cy+64+blocky,blockw,blockh,ITG_BLUE);
 					}
+				else
+					swapscreen->PutPixel(cx+64,cy+64,ITG_BLUE);
+				}
 				// Show eggs
-				if(ShowEggs)
-					{
+				if(ShowEggs) {
 					if(!istricmp_fuzzy(ob->name,"egg*"))
 						swapscreen->PutPixel(cx+64,cy+64,ITG_YELLOW);
 					if(!istricmp_fuzzy(ob->name,"PATHMARKER"))
 						swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
-					}
 				}
+			}
 			// Show roof
 			if(ShowRoof)
 				if(ReadRoof(cx,cy))
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
-			}
+		}
 
 
 div = curmap->w>>6; //div64
 rx=0;
 ry=0;
-for(cy=0;cy<64;cy++)
-	{
-	for(cx=0;cx<64;cx++)
-		{
+for(cy=0;cy<64;cy++) {
+	for(cx=0;cx<64;cx++) {
 		temp = ReadMap(rx,ry);
 		if(temp==RANDOM_TILE)
 			swapscreen->PutPixel(MicroX+cx,MicroY+cy,ITG_BLUE);
 		else
 			swapscreen->PutPixel(MicroX+cx,MicroY+cy,TIlist[temp].form->seq[0]->thumbcol);
 		rx+=div;
-		}
+	}
 	rx=0;
 	ry+=div;
-	}
+}
 }
 
 void PanMap()
 {
-int temp,cx,cy,cw,ch,div,rx,ry,blockx,blocky,blockw,blockh;
+int temp,cx,cy,cw,ch,div,rx,ry,blockx,blocky,blockw,blockh,istree;
 OBJECT *ob;
 
 if(pmx+384 > curmap->w)
@@ -252,60 +252,59 @@ if(ch>384)
 	ch=384;
 
 for(cy=0;cy<ch;cy++)
-	for(cx=0;cx<cw;cx++)
-		{
+	for(cx=0;cx<cw;cx++) {
 		temp=ReadMap(cx+pmx,cy+pmy);
 		if(temp==RANDOM_TILE)
 			swapscreen->PutPixel(cx+64,cy+64,ITG_BLUE);
 		else
 			swapscreen->PutPixel(cx+64,cy+64,TIlist[temp].form->seq[0]->thumbcol);
-		}
+	}
 
-if(ShowSolid || ShowEggs || ShowRoof)
+if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
 	for(cy=0;cy<ch;cy++)
-		for(cx=0;cx<cw;cx++)
-			{
+		for(cx=0;cx<cw;cx++) {
 			ob=GetRawObjectBase(cx+pmx,cy+pmy);
-			for(;ob;ob=ob->next)
-				{
-				if(ShowSolid && ob->flags & IS_SOLID)
-					{
-					if(ob->flags & IS_LARGE)
-						{
-						if(ob->curdir > CHAR_D) //(U,D,L,R) > D = L,R
-							{
+			for(;ob;ob=ob->next) {
+				if(ob->flags & IS_SOLID) {
+					istree = !istricmp_fuzzy(ob->name,"tree*");
+					// Skip trees if we're not showing them
+					if(istree && !ShowTrees) {
+						continue;
+					}
+					if(!ShowSolid && !(istree && ShowTrees)) {
+						continue;
+					}
+
+					if(ob->flags & IS_LARGE) {
+						if(ob->curdir > CHAR_D) { //(U,D,L,R) > D = L,R
 							blockx=ob->hblock[BLK_X];
 							blocky=ob->hblock[BLK_Y];
 							blockw=ob->hblock[BLK_W];
 							blockh=ob->hblock[BLK_H];
-							}
-						else
-							{
+						} else {
 							blockx=ob->vblock[BLK_X];
 							blocky=ob->vblock[BLK_Y];
 							blockw=ob->vblock[BLK_W];
 							blockh=ob->vblock[BLK_H];
-							}
-//						swapscreen->FillRect(cx+64+blockx,cy+64+blocky,64+blockx+(blockw-1),64+blocky+(blockh-1),ITG_BLUE);
-						swapscreen->FillRect(cx+64+blockx,cy+64+blocky,(blockw-1),(blockh-1),ITG_BLUE);
 						}
-					else
+						swapscreen->FillRect(cx+64+blockx,cy+64+blocky,blockw,blockh,ITG_BLUE);
+					} else {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_BLUE);
 					}
+				}
 				// Show eggs
-				if(ShowEggs)
-					{
+				if(ShowEggs) {
 					if(!istricmp_fuzzy(ob->name,"egg*"))
 						swapscreen->PutPixel(cx+64,cy+64,ITG_YELLOW);
 					if(!istricmp_fuzzy(ob->name,"pathmarker"))
 						swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
-					}
 				}
+			}
 			// Show roof
 			if(ShowRoof)
 				if(ReadRoof(cx+pmx,cy+pmy))
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
-			}
+		}
 
 // Path point
 
@@ -314,28 +313,25 @@ if(path1x)
 		if(path1x-pmx>0)
 			if(path1y-pmy>0)
 				if((path1x-pmx)+64<384)
-					if((path1y-pmy)+64<384)
-						{
+					if((path1y-pmy)+64<384) {
 						swapscreen->Circle((path1x-pmx)+64,(path1y-pmy)+64,3,ITG_RED);
-						}
+					}
 
 div = curmap->w>>6; // div64
 rx=0;
 ry=0;
-for(cy=0;cy<64;cy++)
-	{
-	for(cx=0;cx<64;cx++)
-		{
+for(cy=0;cy<64;cy++) {
+	for(cx=0;cx<64;cx++) {
 		temp = ReadMap(rx,ry);
 		if(temp==RANDOM_TILE)
 			swapscreen->PutPixel(MicroX+cx,MicroY+cy,ITG_BLUE);
 		else
 			swapscreen->PutPixel(MicroX+cx,MicroY+cy,TIlist[temp].form->seq[0]->thumbcol);
 		rx+=div;
-		}
+	}
 	rx=0;
 	ry+=div;
-	}
+}
 }
 
 void PanUp()
