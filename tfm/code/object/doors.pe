@@ -585,6 +585,39 @@ end
 
 
 
+##
+##  Fake tile trapdoor - open it
+##
+##  Unlike the mud trapdoor, this is basically a normal door.
+##  The mud one is intended to be chained from the teleporter
+##  code, and will literally turn the player into mud if you
+##  attempt to call it like a regular door function.  
+##
+
+function faketile_open
+
+# Open it
+change current = "faketile_open"
+set_sequence current = "faketile_opening"
+wait 250 NONBLOCKING
+move_to_bottom current
+
+end
+
+##
+##  Fake tile trapdoor - close it
+##
+
+function faketile_close
+
+change current = "faketile"
+set_sequence current = "faketile_closing"
+move_to_top current
+
+end
+
+
+
 
 
 function OpenPortculli
