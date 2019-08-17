@@ -18,6 +18,8 @@ ominously with large, red eyes and a deep, booming voice.
 [linkto="name"]
 [link="I am $PLAYER"]
 [linkto="just_name"]
+[link="I want to talk to you."]
+[linkto="talk"]
 [link="I am Jesus.  I am the Messiah!"]
 [linkto="jesus"]
 [link="I wish to enter this facility"]
@@ -45,6 +47,8 @@ You see 'Death'.
 [linkto="name"]
 [link="I am $PLAYER"]
 [linkto="just_name"]
+[link="I want to talk to you."]
+[linkto="talk"]
 [link="I am Jesus.  I am the Messiah!"]
 [linkto="jesus"]
 [link="I wish to enter this facility"]
@@ -488,8 +492,8 @@ boastful.
  die."
 
 [am_carrying mobile]
-[if true][link="I'm going to tell Commander Ransome about this."]
-[if true][linkto="violet2"]
+[if true][if met_ransome][link="I'm going to tell Commander Ransome about this."]
+[if true][if met_ransome][linkto="violet2"]
 [link="Goodbye."]
 [linkto="bye1"]
 [endpage]

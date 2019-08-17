@@ -127,6 +127,14 @@ endif
 
 let end = current.stats.owner
 if_not_exist end
+	BUG start
+	print "BROKEN LIGHT: Light at "
+	print start.x
+	print ","
+	print start.y
+	print " has no endpoint!"
+	printcr
+	BUG end
 	return
 endif
 

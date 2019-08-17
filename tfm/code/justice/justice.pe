@@ -994,9 +994,9 @@ endif
 
 if map = 2
 	# Are they in the airbase?
-	if victim.x >= 87
+	if victim.x >= 73
 	and victim.x <= 230
-	and victim.y >= 816
+	and victim.y >= 815
 	and victim.y <= 905
 		let prison_tag = 10001
 		return

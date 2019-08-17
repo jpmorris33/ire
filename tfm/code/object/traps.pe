@@ -226,3 +226,51 @@ for ctr = 1 to 16
 next ctr
 
 end
+
+
+##
+## If a sheep enters the restricted zone, Death incinerates it
+##
+
+function death_sheep_shoot
+activity
+object sheepy
+object death
+int los
+
+let death = me.stats.owner
+if_not_exists death
+	BUG start
+	print "Trap owner not set, should be the sheep-hater"
+	printcr
+	BUG end
+	return
+endif
+
+find_nearest sheepy = "sheep" nearest me
+if_not_exists sheepy
+	return
+endif
+if sheepy.stats.hp < 1
+	return
+endif
+
+get_line_of_sight los = sheepy me
+/*
+print "Sheep "
+print sheepy.name
+print " found, los = "
+print los
+printcr
+*/
+
+if los > 0
+and los < 8
+	# Kill the sheep
+	let me = death
+	let me.enemy = sheepy
+	call single_attackenemy
+	check_hurt sheepy	# "Hurt" is an understatement
+endif
+
+end
