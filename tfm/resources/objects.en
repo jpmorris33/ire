@@ -11318,6 +11318,7 @@ section: characters
 	intelligence	50
 	weight		25000
 	damage		15
+	weight		-1
 	description	"You see a skeleton."
 	short		"skeleton"
 	IfKilled	skeleton_dies
@@ -13015,6 +13016,28 @@ section: characters
 	weight -1
 	description	"You see an oscilloscope."
 	short		"oscilloscope"
+	fixed
+
+	name LIFT_DISPLAY
+	left		lift00
+	right		lift01
+	up		lift02
+	down		lift02
+	hp		200000
+	weight		-1
+	description	"You see a floor indicator."
+	short		"display"
+	fixed
+
+	name LIFT_DISPLAY2
+	left		lift0g
+	right		lift0b
+	up		lift0r
+	down		lift0s
+	hp		200000
+	weight		-1
+	description	"You see a floor indicator."
+	short		"display"
 	fixed
 
 	name RACAL

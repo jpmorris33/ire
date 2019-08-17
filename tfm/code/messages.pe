@@ -400,7 +400,7 @@ textcolour 255 255 255
 let tbuffer = passwordbuffer
 let letlogin = 1
 
-call get_password
+call get_username
 if tbuffer <> "OPERATOR"
 	# Wrong
 	let letlogin = 0
@@ -435,6 +435,7 @@ end
 
 function get_password
 integer ctr
+integer ascii
 
 set_string passwordbuffer = ""
 
@@ -442,19 +443,74 @@ redraw_text
 
 let ctr = 1
 do
-	get_key_quiet
-	if key = KEY_ENTER
+	get_key_ascii_quiet ascii
+
+	# enter
+	if ascii = 13
 		break
 	endif
 
-	if key >= KEY_A
-	and key <= KEY_Z
-		add key - KEY_A
-		add key + 'A'
+	# delete (everything because subtracting a star is hard!)
+	if ascii = 8
+		let ctr = 1
+		str_setpos passwordbuffer ctr = 0	# Null terminator
+		clearline
+		redraw_text
+		continue		
 	endif
 
-	str_setpos passwordbuffer ctr = key
+	str_setpos passwordbuffer ctr = ascii
 	print "*"
+	redraw_text
+	add ctr + 1
+	str_setpos passwordbuffer ctr = 0	# Null terminator
+while ctr < 16
+printcr
+let key = 0
+end
+
+
+##
+##  Get password with no blanking
+##
+
+function get_username
+integer ctr
+integer ascii
+string charstr
+string pwdstr
+
+set_string passwordbuffer = ""
+set_string tempstring = ""
+str_setpos tempstring 2 = 0
+let charstr = tempstring
+let pwdstr = passwordbuffer
+
+redraw_text
+
+let ctr = 1
+do
+	get_key_ascii_quiet ascii
+
+	# enter
+	if ascii = 13
+		break
+	endif
+
+	# delete
+	if ascii = 8
+	and ctr > 1
+		add ctr - 1
+		str_setpos passwordbuffer ctr = 0	# Null terminator
+		clearline
+		print pwdstr
+		redraw_text
+		continue		
+	endif
+
+	str_setpos passwordbuffer ctr = ascii
+	str_setpos tempstring 1 = ascii
+	print charstr
 	redraw_text
 	add ctr + 1
 	str_setpos passwordbuffer ctr = 0	# Null terminator

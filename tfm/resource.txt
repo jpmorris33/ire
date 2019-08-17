@@ -2684,6 +2684,14 @@ section: sprites
 	data06			sprites/data06.cel
 	data07			sprites/data07.cel
 
+	lift00			sprites/tech/lift00.png
+	lift01			sprites/tech/lift01.png
+	lift02			sprites/tech/lift02.png
+	lift0b			sprites/tech/lift0b.png
+	lift0g			sprites/tech/lift0g.png
+	lift0s			sprites/tech/lift0s.png
+	lift0r			sprites/tech/lift0r.png
+
 	lp_deck0		sprites/lp_deck0.cel
 	lp_deck1		sprites/lp_deck1.cel
 	oscilloscope00		sprites/tech/oscil00.cel
@@ -11131,6 +11139,14 @@ section: sequences
 		OSCILLOSCOPE05
 	end
 
+	quickname lift00
+	quickname lift01
+	quickname lift02
+	quickname lift0b
+	quickname lift0g
+	quickname lift0s
+	quickname lift0r
+
 	quickname RACAL_V RACAL00
 
 	name RACAL_V_RUNNING
@@ -12889,6 +12905,9 @@ section: rooftiles
 
 	roof/tile36.cel
 	roof/tile37.cel
+
+	sprites/walledg5.cel
+	sprites/walledg7.cel
 
 section: lightmaps
 

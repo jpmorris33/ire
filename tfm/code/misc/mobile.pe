@@ -585,3 +585,82 @@ while key <> KEY_ESC
 return
 end
 
+##
+##  Transform a keypress into ASCII
+##  This is a Terrible Idea and needs to be replaced with get_key_ascii
+##
+
+function find_ascii
+
+int sa
+int sz
+
+let sa = KEY_A or 128
+let sz = KEY_Z or 128
+
+	# Lower-case A-Z
+	if key >= KEY_A
+	and key <= KEY_Z
+		let key = key - KEY_A
+		let key = 'a' + key
+		return
+	endif
+
+	# Upper-case A-Z
+	if key >= sa
+	and key <= sz
+		let key = key - sa
+		let key = 'A' + key
+		return
+	endif
+
+	if key >= KEY_1
+	and key <= KEY_9
+		let key = key - KEY_1
+		let key = '1' + key
+		return
+	endif
+
+	# KEY_0 may be 'key 10' for some backends
+	if key = KEY_0
+		let key = '0'
+		return
+	endif
+
+	if key = KEY_COMMA
+		let key = ','
+		return
+	endif
+
+#	if key = KEY_DOT
+	if key = 73
+		let key = '.'
+		return
+	endif
+
+	if key = KEY_QUOTE
+		let key = 39
+		return
+	endif
+
+	if key = KEY_MINUS
+		let key = '-'
+		return
+	endif
+
+	if key = KEY_SPACE
+		let key = 32
+		return
+	endif
+
+	if key = KEY_COMMA
+		let key = ':'
+		return
+	endif
+
+	# No
+
+	let key = 0
+
+end
+

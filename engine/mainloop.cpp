@@ -921,7 +921,7 @@ do  {
 	if(ShowRanges)
 		DrawRanges();
 	Show();
-	IRE_WaitFor(0); // Yield timeslice
+	IRE_WaitFor(5); // Yield timeslice
 	IRE_GetMouse();
 	CheckMouseRanges();
 	if(MouseID != -1)
@@ -965,6 +965,51 @@ CheckSpecialKeys(input);
 FlushKeys();
 
 return input;
+}
+
+
+/*
+ *      get_key_ascii - Get a key from the user, animate things in the background
+ */
+
+int get_key_ascii()
+{
+int input=0, ascii=0;
+
+// If we're in STILL mode (no animation) draw once then never again
+#ifdef NO_ANIMATION
+	DrawMap(mapx,mapy);
+	Show();
+#endif
+
+do  {
+#ifndef NO_ANIMATION
+	DrawMap(mapx,mapy);
+	Show();
+	IRE_WaitFor(0); // Yield timeslice
+#endif
+	IRE_WaitFor(5); // Don't cook the GPU
+
+	input = IRE_NextKey(&ascii);
+	CheckSpecialKeys(input);
+	} while(!input);
+return ascii;
+}
+
+/*
+ *  As above, but don't draw the game window
+ */
+
+int get_key_ascii_quiet()
+{
+int input=0,ascii=0;
+
+do  {
+	Show();
+	IRE_WaitFor(5); // Yield timeslice
+	input = IRE_NextKey(&ascii);
+	} while(!input);
+return ascii;
 }
 
 

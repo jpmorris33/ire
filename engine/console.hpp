@@ -15,6 +15,7 @@ extern void irecon_init(int x, int y, int w, int h);
 extern void irecon_term();
 extern void irecon_update();
 extern void irecon_cls();
+extern void irecon_clearline();
 extern int irecon_font(int fnum);
 extern int irecon_getfont();
 extern int irecon_loadfont(int no);

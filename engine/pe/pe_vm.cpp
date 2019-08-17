@@ -61,6 +61,8 @@ extern void ResyncEverything(void);
 extern int Restart(void);
 extern int get_key_debounced();
 extern int get_key_debounced_quiet();
+extern int get_key_ascii();
+extern int get_key_ascii_quiet();
 extern int AddToParty(OBJECT *new_member);
 extern void object_sound(char *a, OBJECT *b);
 extern int FindPath(OBJECT *start, OBJECT *end, int diagonal);
@@ -131,6 +133,7 @@ static void PV_Printstr();
 static void PV_Printint();
 static void PV_PrintXint();
 static void PV_PrintCR();
+static void PV_ClearScreen();
 static void PV_ClearLine();
 static void PV_Callfunc();
 static void PV_CallfuncS();
@@ -245,6 +248,8 @@ static void PV_While2();
 static void PV_Break();
 static void PV_GetKey();
 static void PV_GetKey_quiet();
+static void PV_GetKeyAscii();
+static void PV_GetKeyAscii_quiet();
 static void PV_DoAct();
 static void PV_DoActS();
 static void PV_DoActTo();
@@ -1157,6 +1162,7 @@ VMOP(Printint);
 VMOP(Printstr);
 VMOP(PrintXint);
 VMOP(PrintCR);
+VMOP(ClearScreen);
 VMOP(ClearLine);
 VMOP(Callfunc);
 VMOP(CallfuncS);
@@ -1271,6 +1277,8 @@ VMOP(While2);
 VMOP(Break);
 VMOP(GetKey);
 VMOP(GetKey_quiet);
+VMOP(GetKeyAscii);
+VMOP(GetKeyAscii_quiet);
 VMOP(DoAct);
 VMOP(DoActS);
 VMOP(DoActTo);
@@ -1969,9 +1977,14 @@ if(DebugVM || printlogging)
 	ilog_quiet("\n");
 }
 
-void PV_ClearLine()
+void PV_ClearScreen()
 {
 irecon_cls();
+}
+
+void PV_ClearLine()
+{
+irecon_clearline();
 }
 
 void PV_Callfunc()
@@ -4038,6 +4051,27 @@ void PV_GetKey_quiet()
 {
 irekey=get_key_debounced_quiet();
 }
+
+// Wait for a key to be pressed
+
+void PV_GetKeyAscii()
+{
+VMINT *k;
+k = GET_INT();
+CHECK_POINTER(k);
+*k = (VMINT)get_key_ascii();
+}
+
+// Wait for a key to be pressed
+
+void PV_GetKeyAscii_quiet()
+{
+VMINT *k;
+k = GET_INT();
+CHECK_POINTER(k);
+*k = (VMINT)get_key_ascii_quiet();
+}
+
 
 
 // Set Object's current activity
