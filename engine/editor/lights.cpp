@@ -377,31 +377,40 @@ switch(lightdepth)
 DrawMap(mapx,mapy,s_proj,0,1);
 }
 
-void LT_up()
-{
-mapy--;
+void LT_up() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        mapy-=8;
+else
+	mapy--;
 clipmap();
 DrawMap(mapx,mapy,s_proj,0,1);
 }
 
-void LT_down()
-{
-mapy++;
+void LT_down() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        mapy+=8;
+else
+	mapy++;
 clipmap();
 DrawMap(mapx,mapy,s_proj,0,1);
 }
 
 
-void LT_left()
-{
-mapx--;
+void LT_left() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        mapx-=8;
+else
+	mapx--;
+
 clipmap();
 DrawMap(mapx,mapy,s_proj,0,1);
 }
 
-void LT_right()
-{
-mapx++;
+void LT_right() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        mapx+=8;
+else
+	mapx++;
 clipmap();
 DrawMap(mapx,mapy,s_proj,0,1);
 }

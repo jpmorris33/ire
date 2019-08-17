@@ -4127,7 +4127,7 @@ section: characters
 	description	"Sheep spawn spot"
 	short		"egg"
 	OnInit		egg_check
-	IfUsed		egg_night
+	IfUsed		egg_spawn
 	hidden
 	fixed
 	spikeproof

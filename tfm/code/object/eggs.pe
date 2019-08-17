@@ -61,6 +61,7 @@ if_onscreen me
 	return
 else
 	if me.user.user1 < me.stats.karma
+#		print "try to hatch egg|"
 		call egg_willhatch
 		if eggspawn = 1
 			# Is the egg clear?
@@ -393,7 +394,7 @@ let eggspawn = 0
 random rnd between 0 100
 
 # If it falls within the range
-if me.stats.str <= rnd
+if me.stats.str >= rnd
 	# Allow the egg to hatch
 	let eggspawn = 1
 endif

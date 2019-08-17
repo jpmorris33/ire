@@ -334,27 +334,35 @@ for(cy=0;cy<64;cy++) {
 }
 }
 
-void PanUp()
-{
-pmy-=16;
+void PanUp() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        pmy-=32;
+else
+	pmy-=16;
 PanMap();
 }
 
-void PanDown()
-{
-pmy+=16;
+void PanDown() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        pmy+=32;
+else
+	pmy+=16;
 PanMap();
 }
 
-void PanLeft()
-{
-pmx-=16;
+void PanLeft() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        pmx-=32;
+else
+	pmx-=16;
 PanMap();
 }
 
-void PanRight()
-{
-pmx+=16;
+void PanRight() {
+if(IRE_TestShift(IRESHIFT_SHIFT))
+        pmx+=32;
+else
+	pmx+=16;
 PanMap();
 }
 

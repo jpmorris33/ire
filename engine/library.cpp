@@ -1562,8 +1562,10 @@ for(y=miy;y<may;y++)
                                 }
                             }
                         else
-                        if(temp->stats->owner.objptr == NULL)    // next best case, public
+                        if(temp->stats->owner.objptr == NULL ||
+			   ((temp->stats->npcflags & STRIPNPC) & IS_SPAWNED))
                             {
+			    // next best case, public (spawned from an egg counts too)
                             if(steps<public_st)
                                 {
                                 public_st = steps;
