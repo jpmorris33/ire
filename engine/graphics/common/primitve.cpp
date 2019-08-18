@@ -167,42 +167,96 @@ void ITGcirclefill(int x,int y,int r,IRECOLOUR *colour,IREBITMAP *dest)
 	dx = 0;
 	dy = TwoRsquared * r;
 
-	while (dx<dy)
-	{
-	dest->HLine(x-zx,y+zy,zx+zx,colour);
-	dest->HLine(x-zx,y-zy,zx+zx,colour);
+	while (dx<dy) {
+		dest->HLine(x-zx,y+zy,zx+zx,colour);
+		if(y+zy != y-zy) {
+			// Prevent overdraw (e.g. on additive blender)
+			dest->HLine(x-zx,y-zy,zx+zx,colour);
+		}
 
-	  if (d > 0L)
-	  {
-	    --zy;
-	    dy -= TwoRsquared;
-	    d -= dy;
-	  }
+		if (d > 0L) {
+			--zy;
+			dy -= TwoRsquared;
+		d -= dy;
+	  	}
 
-	  ++zx;
-	  dx += TwoRsquared;
-	  d += Rsquared + dx;
+		++zx;
+		dx += TwoRsquared;
+		d += Rsquared + dx;
 	}
 
 
 	d += (3L*(Rsquared-Rsquared)/2L - (dx+dy)) / 2L;
 
-	while (zy>=0)
-	{
-	dest->HLine(x-zx,y+zy,zx+zx,colour);
-	dest->HLine(x-zx,y-zy,zx+zx,colour);
+	while (zy>=0) {
+		dest->HLine(x-zx,y+zy,zx+zx,colour);
+		if(y+zy != y-zy) {
+			// Prevent overdraw (e.g. on additive blender)
+			dest->HLine(x-zx,y-zy,zx+zx,colour);
+		}
 
-	  if (d < 0L)
-	  {
-	    ++zx;
-	    dx += TwoRsquared;
-	    d += dx;
-	  }
+		if (d < 0L) {
+			++zx;
+			dx += TwoRsquared;
+			d += dx;
+		}
 
-	  --zy;
-	  dy -= TwoRsquared;
-	  d += Rsquared - dy;
+		--zy;
+		dy -= TwoRsquared;
+		d += Rsquared - dy;
 	}
 }
 
+//
+//  This looks kind of pretty actually
+//
+#if 0
+void ITGborkedcirclefill(int x,int y,int r,IRECOLOUR *colour,IREBITMAP *dest)
+	int	zx = 0;
+	int	zy = r;
 
+	int	Rsquared = r * r;		// initialize values outside
+	int	TwoRsquared = 2 * Rsquared;	//  of loops
+
+	int	d;
+	int	dx,dy;
+
+
+	d = Rsquared - Rsquared*r + Rsquared/4L;
+	dx = 0;
+	dy = TwoRsquared * r;
+
+	while (dx<dy) {
+		dest->HLine(x-zx,y+zy,zx+zx,colour);
+		dest->HLine(x-zx,y-zy,zx+zx,colour);
+
+		if (d > 0L) {
+			--zy;
+			dy -= TwoRsquared;
+		d -= dy;
+	  	}
+
+		++zx;
+		dx += TwoRsquared;
+		d += Rsquared + dx;
+	}
+
+
+	d += (3L*(Rsquared-Rsquared)/2L - (dx+dy)) / 2L;
+
+	while (zy>=0) {
+		dest->HLine(x-zx,y+zy,zx+zx,colour);
+		dest->HLine(x-zx,y-zy,zx+zx,colour);
+
+		if (d < 0L) {
+			++zx;
+			dx += TwoRsquared;
+			d += dx;
+		}
+
+		--zy;
+		dy -= TwoRsquared;
+		d += Rsquared - dy;
+	}
+}
+#endif
