@@ -525,6 +525,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 
 [link="You're going to make me into Jesus?"]
 [linkto="sacrfice4"]
+[if_female][link="But I'm a woman!"]
+[if_female][linkto="sacrfice4b"]
 [link="Oh my God."]
 [linkto="sacrfice5"]
 [link="Cool.  Can we start now?"]
@@ -540,6 +542,8 @@ Suddenly the LORD appears in a Holy Vision before you.
  Cardinal Umbring here will remove your brain.
  After that, you'll be dead and Jesus will be alive."
 
+[if_female][link="But I'm a woman!"]
+[if_female][linkto="sacrfice4b"]
 [link="Oh my God."]
 [linkto="sacrfice5"]
 [link="Cool.  Can we start now?"]
@@ -557,6 +561,33 @@ Suddenly the LORD appears in a Holy Vision before you.
  keep it in suspension until we can create a more
  suitable body for you."
 
+[if_female][link="But I'm a woman!"]
+[if_female][linkto="sacrfice4c"]
+[link="It is an honour to serve you in this way."]
+[linkto="sacrfice8"]
+[link="Cool.  Can we start now?"]
+[linkto="sacrfice9"]
+[endpage]
+
+[page="sacrfice4b"]
+[image="lord.jpg"]
+
+"That is easily fixed."
+
+[link="You're going to make me into Jesus?"]
+[linkto="sacrfice4"]
+[link="Oh my God."]
+[linkto="sacrfice5"]
+[link="Cool.  Can we start now?"]
+[linkto="sacrfice9"]
+[endpage]
+
+
+[page="sacrfice4c"]
+[image="lord.jpg"]
+
+"That is easily fixed."
+
 [link="It is an honour to serve you in this way."]
 [linkto="sacrfice8"]
 [link="Cool.  Can we start now?"]
@@ -566,9 +597,7 @@ Suddenly the LORD appears in a Holy Vision before you.
 
 TODO: If the player has been doing a lot of pro-church stuff,
     They keep the brain alive in a jar rather than throwing it away.
-    This needs to be wired into the conversation, and we should also
-    display a little jar on the map in the transformation scene in
-    this scenario.
+    This check still needs to be wired into the conversation.
 
 
 [page="sacrfice5"]

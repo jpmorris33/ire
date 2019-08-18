@@ -10,7 +10,7 @@
 [if_not MetUmbring][goto="umbring"]
 [if_not MetUmbring][goto="umbring"]
 [if pledged][goto="crusade"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [journal jrn_Crucifix]
 [colour="#808080"]
 As you stare at the Crucifix, its face begins to shimmer
@@ -40,7 +40,7 @@ in a penetrating and disturbing manner.
 
 
 [page="who"]
-[image="crucifix.jpg"]
+[image="crucifix2.png"]
 [colour="#808080"]
 The Crucifix smiles.
 [colour="#ffffff"]
@@ -60,7 +60,7 @@ The Crucifix smiles.
 
 
 [page="acid"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shows no emotion.
 [colour="#ffffff"]
@@ -79,7 +79,7 @@ The Crucifix shows no emotion.
 
 
 [page="who1"]
-[image="crucifix.jpg"]
+[image="crucifix2.png"]
 [colour="#808080"]
 The Crucifix smiles in a charming fashion.
 [colour="#ffffff"]
@@ -97,7 +97,7 @@ The Crucifix smiles in a charming fashion.
 
 
 [page="who2"]
-[image="crucifix.jpg"]
+[image="crucifix2.png"]
 [colour="#808080"]
 The Crucifix smiles.
 [colour="#ffffff"]
@@ -114,7 +114,7 @@ The Crucifix smiles.
 
 
 [page="who3"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix looks puzzled.
 [colour="#ffffff"]
@@ -137,7 +137,7 @@ The Crucifix looks puzzled.
 
 
 [page="who3a"]
-[image="crucifix.jpg"]
+[image="crucifix2.png"]
 [colour="#808080"]
 The Crucifix smiles knowingly.
 [colour="#ffffff"]
@@ -152,7 +152,7 @@ The Crucifix smiles knowingly.
 
 
 [page="who3b"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "The Lord still exists whatever you believe, and He will
  punish you with great vengance if you do not obey.
 
@@ -173,7 +173,7 @@ The Crucifix smiles knowingly.
 
 
 [page="who3c"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 In a state of apparent confusion, the Crucifix opens and
 closes its mouth soundlessly for a few seconds.
@@ -200,7 +200,7 @@ closes its mouth soundlessly for a few seconds.
 
 
 [page="who3d"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 [colour="#808080"]
 An expression of fury fills the wooden face.
 [colour="#ffffff"]
@@ -221,7 +221,7 @@ An expression of fury fills the wooden face.
 
 
 [page="who3y"]
-[image="crucifix.jpg"]
+[image="crucifix2.png"]
 [colour="#808080"]
 The Crucifix smiles in a relaxing manner and you feel your
 troubles melt away.
@@ -246,7 +246,7 @@ The Crucifix flickers slightly and becomes wood once more.
 
 
 [page="fiction"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix remains silent for a long time, then quotes
 fragments of litany.
@@ -272,7 +272,7 @@ fragments of litany.
 
 
 [page="fiction2"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The crucifix assumes a neutral expression.
 [colour="#ffffff"]
@@ -293,7 +293,7 @@ The crucifix assumes a neutral expression.
 
 
 [page="fiction3"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 [colour="#808080"]
 The Crucifix stares at you menacingly.
 [colour="#ffffff"]
@@ -318,7 +318,7 @@ The Crucifix stares at you menacingly.
 
 
 [page="whatwant"]
-[image="crucifix.jpg"]
+[image="crucifix2.png"]
 [colour="#808080"]
 The Crucifix smiles.
 [colour="#ffffff"]
@@ -340,7 +340,7 @@ The Crucifix smiles.
 [page="bye"]
 [if heretic][goto="bye_bad"]
 [if_not pledged][goto="bye_bad"]
-[image="crucifix.jpg"]
+[image="crucifix0.png"]
 "Fare you well, my $Son."
 
 [colour="#808080"]
@@ -355,7 +355,7 @@ positions and the shimmering aura fades away.
 [page="bye2"]
 [if heretic][goto="bye_bad"]
 [if_not pledged][goto="bye_bad"]
-[image="crucifix.jpg"]
+[image="crucifix0.png"]
 "Put your faith in the Trinity."
 
 [colour="#808080"]
@@ -369,7 +369,7 @@ positions and the shimmering fades away.
 
 
 [page="bye_bad"]
-[image="crucifix.jpg"]
+[image="crucifix0.png"]
 "If you do not accept the way of the Trinity you shall
  surely die."
 
@@ -383,7 +383,7 @@ positions and the shimmering aura fades away.
 
 
 [page="kill"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 [set heretic]
 [colour="#808080"]
 The Crucifix shimmers, and a wild expression forms in the
@@ -399,7 +399,7 @@ wooden face!
 
 
 [page="kill2"]
-[image="crucifix.jpg"]
+[image="crucifix4.png"]
 [set heretic]
 [colour="#808080"]
 The Crucifix shimmers, grinning with malevolence!
@@ -416,7 +416,7 @@ The Crucifix shimmers, grinning with malevolence!
 
 
 [page="kill3"]
-[image="crucifix.jpg"]
+[image="crucifix4.png"]
 [set heretic]
 [colour="#808080"]
 The Crucifix shimmers, and an expression of pure evil
@@ -432,7 +432,7 @@ appears on its features.
 
 
 [page="call_off"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [clear heretic]
 [colour="#808080"]
 The Crucifix shimmers, and a neutral expression forms on
@@ -449,7 +449,7 @@ its face.
 
 
 [page="returned"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 [colour="#808080"]
 The Crucifix shimmers, and a vicious expression forms on
 the painted face.
@@ -470,8 +470,8 @@ the painted face.
 
 
 [page="returned2"]
-[image="crucifix.jpg"]
-"Then think quickly!
+[image="crucifix3.png"]
+"Then choose quickly!
 
  What happened to Lot's wife can happen to you, too!"
 
@@ -480,7 +480,7 @@ the painted face.
 
 
 [page="desecrate"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 [clear desecrate]
 [set heretic]  # simplifies things
 
@@ -508,7 +508,7 @@ the painted man's face.
 
 [page="final_sin"]
 [esc="exit"]
-[image="crucifix.jpg"]
+[image="crucifix4.png"]
 [colour="#808080"]
 The Crucifix shimmers, and grins in a most unholy way.
 [colour="#ffffff"]
@@ -529,7 +529,7 @@ The Crucifix shimmers, and grins in a most unholy way.
 [if_not CrickladeAbbey][goto="mission_cricklade"]
 [if_not CrickladeAbbey2][goto="mission_cricklade2"]
 [if_not CrickladeAbbey3][goto="mission_cricklade3"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "At this time we have no quest for you.
 
  Work, however, progresses upon my Second Coming."
@@ -546,7 +546,7 @@ The Crucifix shimmers, and grins in a most unholy way.
 
 
 [page="2ndcoming"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "The time is not yet ripe for my return, but I shall tell
  of what will come to pass.
 
@@ -570,7 +570,7 @@ The Crucifix shimmers, and grins in a most unholy way.
 
 
 [page="umbring"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
 [colour="#ffffff"]
@@ -589,7 +589,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 [endpage]
 
 [page="umbring2"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "This must wait.  Do not return until you have spoken to
  Cardinal Umbring."
 
@@ -598,7 +598,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="mission_cricklade"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
 [colour="#ffffff"]
@@ -620,7 +620,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="mission_cricklade2"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
 [colour="#ffffff"]
@@ -640,7 +640,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 [page="mission_cricklade3"]
 [set CrickladeAbbey3]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
 [colour="#ffffff"]
@@ -662,7 +662,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="mission_sceptre"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
 [colour="#ffffff"]
@@ -679,7 +679,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="question"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "Ask and you may be told, my $Son."
 
 [link="Who exactly are you?"]
@@ -698,7 +698,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="waarg"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "They are the.. the Dominie Canes.. The LORD's Dogs.
  It is not forbidden to enter their realm but it is not
  considered wholesome.  The LORD disapproves of it.
@@ -723,7 +723,7 @@ latin since arriving, and the Crucifix stuttered over it.
 
 
 [page="waarg_war"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "It was not a war.  It was a test of faith.  A test of
  mankind's faith and a test of the faith of the Waarg.
 
@@ -743,7 +743,7 @@ latin since arriving, and the Crucifix stuttered over it.
 
 [page="pay_tithes"]
 [esc="disabled"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
 [colour="#ffffff"]
@@ -770,7 +770,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="pay_tithes1"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 "Good.  The LORD will be pleased with you.
 
  You may pay the gold to any Cardinal, or deposit the
@@ -785,7 +785,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="pay_tithes2"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 "Then you must find the money soon!  The LORD grows
  impatient and it would not do to keep Him waiting.
 
@@ -801,7 +801,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 
 
 [page="pay_tithes3"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 [colour="#808080"]
 The Crucifix assumes a very stern expression.
 [colour="#ffffff"]
@@ -820,7 +820,7 @@ Hear Truth
 
 [page="HT_start"]
 [clear hear_truth]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers and speaks to you in a flat,
 toneless voice.
@@ -840,7 +840,7 @@ toneless voice.
 
 
 [page="HT_name"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "I have been given the name 'Jesus Christ' to further
  Xy'lan's plan."
@@ -859,7 +859,7 @@ toneless voice.
 
 
 [page="HT_what"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "I am a personality construct based upon the central
  figure from the human religion.
@@ -884,7 +884,7 @@ toneless voice.
 
 
 [page="HT_plan"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "I can not reveal Xy'lan's plans until after the Second
  Coming has taken place."
@@ -901,7 +901,7 @@ toneless voice.
 
 
 [page="HT_2nd"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "The Second Coming will see me upgraded to Drakaan-level
  intelligence and equipped with a fully functional body
@@ -910,6 +910,8 @@ toneless voice.
 
  A donor human body will be required for this operation."
 
+[link="What is a Drakaan."]
+[linkto="HT_drakaan"]
 [link="Tell me about Xy'lan."]
 [linkto="HT_xylan"]
 [link="Tell me what happens to the tithes."]
@@ -919,8 +921,24 @@ toneless voice.
 [endpage]
 
 
+[page="HT_drakaan"]
+[image="crucifix1.png"]
+
+"The Drakaan race created Xy-"
+
+[colour="#808080"]
+The Crucifix's mouth opens and closes soundlessly and the
+shimmering projection suddenly blinks out of existence,
+leaving the wooden idol's face to stare blankly at the
+floor.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
 [page="HT_tithes"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "Fifteen percent of the tithings are used to purchase
  decorative items and supplies for the Church.
@@ -929,7 +947,7 @@ toneless voice.
 
  Seven percent is used to pay Church staff.
 
- Between one and two percent is embezzled by the Clergy.
+ Between one and five percent is embezzled by the Clergy.
 
  What remains is stored beneath the Cathedral at New
  Avignon.  The Pope enjoys looking at it.
@@ -940,7 +958,7 @@ toneless voice.
 
 
 [page="HT_tithes2"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "Xy'lan and the Pope are both motivated by a desire to
  obtain more gold.  It is called 'greed'.
@@ -964,7 +982,7 @@ toneless voice.
 
 
 [page="HT_xylan"]
-[image="crucifix.jpg"]
+[image="crucifix0.png"]
 
 "Xy'lan is an intelligent control system residing in
  the data network of the research starship 'Maxima'.
@@ -975,7 +993,7 @@ toneless voice.
 The Crucifix's mouth opens and closes soundlessly and the
 shimmering projection suddenly blinks out of existence,
 leaving the wooden idol's face to stare blankly at the
-ceiling.
+floor.
 [colour="#ffffff"]
 
 [nextpage="exit"]
@@ -983,7 +1001,7 @@ ceiling.
 
 
 [page="HT_bye"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "Good bye Master."
 
@@ -995,7 +1013,7 @@ This should probably have him no longer on the cross
 
 [page="sacrifice"]
 [esc="disabled"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 "The Second Coming is complete.
  I am now fully operational.
