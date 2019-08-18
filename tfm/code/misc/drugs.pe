@@ -77,14 +77,23 @@ end
 
 function take_drugs
 
-int ctr
-int rnd1
-int rnd2
-
 if player.user.user0 = 0
 	print "Ohh.. the drugs are really working!"
 	printcr
 endif
+
+call take_drugs_quiet
+end
+
+##
+##  Core function
+##
+
+function take_drugs_quiet
+
+int ctr
+int rnd1
+int rnd2
 
 add player.user.user0 + 50		# Set the length of the Trip
 overfx player does fx_orbitdrugs	# add the pretty lights

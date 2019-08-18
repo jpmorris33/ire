@@ -6,8 +6,6 @@
 
 local
 integer delaytimer = 0
-object brain
-object braintarget
 endlocal
 
 ##
@@ -33,6 +31,8 @@ end
 function plot_sacrifice
 object jesus
 object cardinal
+object brain
+object braintarget
 integer i
 
 # Check the entire cast is here
@@ -87,9 +87,16 @@ endif
 # Hurt the player
 start_action cardinal does start_attack to player
 let player.user.oldhp = 100
-let player.stats.hp = 90
+let player.stats.hp = 1
 check_hurt player
 
+find_tag brain = "jar_brain" -60
+find_tag braintarget = "target" 60
+if_exists brain
+	if_exists braintarget
+		transfer_object brain to braintarget.x braintarget.y
+	endif
+endif
 
 # Start the plasma from Jesus
 fx_getxy player.user.user14 player.user.user15 = jesus
@@ -182,17 +189,6 @@ if fx_srcy = fx_desty
 		set_sequence player = "jesus_tiedup"
 		# fade the plasma away again
 		overfx player does fx_sacrfice3
-
-		find_tag brain = "jar_brain" -60
-		find_tag braintarget = "target" 60
-		if_exists brain
-			if_exists braintarget
-				transfer_object brain to braintarget.x braintarget.y
-			endif
-		endif
-
-object brain
-object braintarget
 	endif
 endif
 

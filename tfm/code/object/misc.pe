@@ -586,3 +586,22 @@ if_exists printer
 	transfer_object printout to printer.x y
 endif
 end
+
+##
+##  If you read forbidden lore...
+##
+
+function necronomicon
+	call take_drugs_quiet
+	add player.stats.hp - 10
+	check_hurt player
+end
+
+##
+##  De Vermis Mysteriis
+##
+
+function necronomicon2
+	let player.user.user18 = 100
+	overfx player does fx_deathorbit
+end

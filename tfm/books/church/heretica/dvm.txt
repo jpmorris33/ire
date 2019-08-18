@@ -1,0 +1,24 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+
+ De Vermis Mysteriis
+
+ Ludwig Prinn
+
+
+[nextpage="you_had_your_chance"]
+[endpage]
+
+[page="you_had_your_chance"]
+[at_exit_call="necronomicon2"]
+[backing="paper.pcx"]
+[font 3]
+
+Tibi, magnum Innominandum,
+signa stellarum nigrarum
+et bufoniformis Sadoquae sigillum...
+
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,434 @@
+The Other Tailor
+
+[page="start"]
+[iftime 0800-0914][goto="inchurch"]
+
+"Hello, $MILORD.  Do you come to buy clothing?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="I would like to buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime 0800-0914][goto="inchurch"]
+
+[colour="#808080"]
+You see $NAME the tailor.
+[colour="#ffffff"]
+
+"Hello again, $MILORD.  Are you come to buy clothing?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="I would like to buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="inchurch"]
+"Quiet!  The sermon is in progress!"
+[nextpage="exit"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+"I am $NAME, the tailor of this town.  I make garments
+ for those who can pay.
+
+ With the increase of the Tithes I get less trade, but
+ people will always need clothing made or mended."
+
+[link="Tell me about the Tithes."]
+[linkto="tithes"]
+[link="I would buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I have jackets and cloaks I can sell you immediately,
+ if you are prepared to wait, I can make other clothings
+ for special purposes.
+
+ I sell jackets for 50 gold coins and cloaks for 70.
+ A special piece of clothing will be 150 gold coins, plus
+ the cost of the material."
+
+[if need_purple][link="Can you make a purple jacket for me?"]
+[if need_purple][linkto="buy_purple"]
+[link="I'd like a cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like a jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="buy_cloak"]
+[take 70 gold_coins]
+[if false][goto="nomoney"]
+[create 1 clothing01]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[if need_purple][link="Can you make a purple jacket for me?"]
+[if need_purple][linkto="buy_purple"]
+[link="I'd like to buy another cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like a jacket as well."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_jacket"]
+[take 50 gold_coins]
+[if false][goto="nomoney"]
+[create 1 clothing00]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[if need_purple][link="Can you make a purple jacket for me?"]
+[if need_purple][linkto="buy_purple"]
+[link="I'd like to buy another jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like a cloak as well."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_purple"]
+[am_carrying "cloth04"]
+[if true][goto="buy_purple2"]
+
+"Alas, I have no purple cloth left.  It is rare and
+ much sought-after by the Church.  Occasionally traders
+ do bring it from the unholy realms near the eastern
+ desert, but they have not been seen for some time, and
+ I fear they may have been waylaid by fell thieves."
+
+"If you can lawfully and piously obtain three sheets of
+ such cloth, then I shall gladly make for you a jacket."
+
+[link="I'd like to buy a cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to buy an ordinary jacket then."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_purple2"]
+[take 3 "cloth04"]
+[if true][goto="buy_purple3"]
+
+"I fear you have not enough cloth for me to make a whole
+ jacket.  I need three sheets of the fabric."
+
+[link="I'd like to buy a cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to buy an ordinary jacket then."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_purple3"]
+[take 150 "gold_coins"]
+[if true][goto="buy_purple4"]
+[give 3 "cloth04"]		Undo the taking of the cloth
+[goto="nomoney"]
+[endpage]
+
+
+[page="buy_purple4"]
+[call="money_sound"]
+[create 1 "clothing02"]
+[colour="#808080"]
+The tailor is skilled at her craft and quickly produces
+a jacket from the purple cloth.
+[colour="#ffffff"]
+
+"Here is your fine jacket, $MILORD.  It has been a
+ pleasure doing business with you."
+
+[link="I'd like to buy another jacket."]
+[linkto="buy_jacket"]
+[always]
+[link="I'd like a cloak as well."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I'm afraid you can't afford that, $MILORD."
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sell"]
+
+"I am ever short of cloth.  If you have any, I would pay
+ you 5 gold coins for each sheet.  If you have any purple
+ cloth, I would pay you 30 gold coins, for it is rare.
+
+ If you have old clothes, I would pay you 20 gold coins
+ for a jacket, and 40 gold coins for a cloak."
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling some purple cloth."]
+[linkto="sell_purple"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_jacket"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="sell_cloak"]
+[take 1 clothing01]
+[if false][goto="nogoods"]
+[create 40 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling some purple cloth."]
+[linkto="sell_purple"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling another cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_jacket"]
+[take 1 clothing00]
+[if false][goto="nogoods"]
+[create 20 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling some purple cloth."]
+[linkto="sell_purple"]
+[always]
+[link="I'm selling another jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_cloth"]
+[take 1 cloth00]
+[if false][take 1 cloth01]
+[if false][take 1 cloth02]
+[if false][take 1 cloth03]
+[if false][goto="nogoods"]
+[create 5 gold_coins]
+[call="money_sound"]
+
+"Here you go.  A pleasure doing business, $MILORD."
+
+[link="I'm selling some more cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling some purple cloth."]
+[linkto="sell_purple"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_purple"]
+[take 1 cloth04]
+[if false][goto="nogoods"]
+[create 30 gold_coins]
+[call="money_sound"]
+
+"Yes, this is fine indeed.  A pleasure doing business
+ with you, $MILORD."
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling some more purple cloth."]
+[linkto="sell_purple"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling a cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="nogoods"]
+
+"I fear you have mislaid that item, $MILORD.
+ Is there anything else you would sell?"
+
+[link="I'm selling some cloth."]
+[linkto="sell_cloth"]
+[always]
+[link="I'm selling some purple cloth."]
+[linkto="sell_purple"]
+[always]
+[link="I'm selling a jacket."]
+[linkto="sell_jacket"]
+[always]
+[link="I'm selling another cloak."]
+[linkto="sell_cloak"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes"]
+
+"The tithes are a rent that we must pay to live upon
+ this world.  Once it was but a tenth of our earnings,
+ but now we must pay a third of all our wealth to
+ the LORD or else face damnation at His hand."
+
+[link="I would buy some clothes."]
+[linkto="buy"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Farewell, $MILORD."
+
+[nextpage="exit"]
+[endpage]

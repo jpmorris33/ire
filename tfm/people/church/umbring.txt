@@ -268,7 +268,7 @@ He hands you the key and a rough piece of paper.
 [image="priest4.pcx"]
 [journal jrn_Umbring13c]
 
-"In the year of our LORD, 1325 Anno Domini.
+"In the year of our LORD, 1325.
  It is unfortunate, but it cannot be helped for it is the
  Will of the LORD, that we are in the last days of the
  Earth.
@@ -1492,7 +1492,7 @@ sucking noise.
 
 
 [page="bye3"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 [colour="#808080"]
  This is much, much too creepy.

@@ -1,0 +1,17 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+
+ The Necronomicon
+
+ Abdul Alhazred
+
+
+[nextpage="you_had_your_chance"]
+[endpage]
+
+[page="you_had_your_chance"]
+[at_exit_call="necronomicon"]
+[goto="exit"]
+[endpage]

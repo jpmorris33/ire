@@ -265,6 +265,10 @@ asciitab[IREKEY_ESC] = 27;
 asciitab[IREKEY_SPACE] = ' ';
 asciitab[IREKEY_MINUS] = '-';
 asciitab[IREKEY_EQUALS] = '=';
+asciitab[IREKEY_SLASH] = '/';
+asciitab[IREKEY_SLASH_PAD] = '/';
+asciitab[IREKEY_BACKSLASH] = '\\';
+asciitab[IREKEY_BACKSLASH2] = '\\';
 
 shiftascii['0']=')';
 shiftascii['1']='!';

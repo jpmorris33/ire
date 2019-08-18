@@ -1,3 +1,6 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
 
 
 Alas, for not only has my eldest daughter been slain by
@@ -9,3 +12,5 @@ Alas, for my only daughter has been turned into a woolf
 by a sinister huntsman!
 
 
+[nextpage="exit"]
+[endpage]
