@@ -2902,13 +2902,14 @@ section: sprites
 	honeycomb_v2		backings/hnycomb4.cel
 	honeycomb_v3		backings/hnycomb5.cel
 	honey00			sprites/honey00.cel
-	jar00			sprites/jar00.cel
-	jar01			sprites/jar01.cel
-	jar02			sprites/jar02.cel
-	jar03			sprites/jar03.cel
-	jar04			sprites/jar04.cel
-	jar05			sprites/jar05.cel
-	jar06			sprites/jar06.cel
+	jar00			sprites/jar00.png
+	jar01			sprites/jar01.png
+	jar02			sprites/jar02.png
+	jar03			sprites/jar03.png
+	jar04			sprites/jar04.png
+	jar05			sprites/jar05.png
+	jar06			sprites/jar06.png
+	jar07			sprites/jar07.png
 	fish00			sprites/fish00.cel
 
 	teleporter00		sprites/telep00.cel
@@ -11489,6 +11490,7 @@ section: sequences
 	quickname jar04 jar04
 	quickname jar05 jar05
 	quickname jar06 jar06
+	quickname jar07 jar07
 	quickname fish00 fish00
 
 	name teleporter0

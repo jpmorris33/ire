@@ -966,7 +966,7 @@ toneless voice.
 [page="HT_xylan"]
 [image="crucifix.jpg"]
 
-"Xy'lan is an intelligent control system who resides in
+"Xy'lan is an intelligent control system residing in
  the data network of the research starship 'Maxima'.
 
  He i-"
@@ -991,13 +991,16 @@ ceiling.
 [endpage]
 
 
+This should probably have him no longer on the cross
+
 [page="sacrifice"]
+[esc="disabled"]
 [image="crucifix.jpg"]
 
 "The Second Coming is complete.
  I am now fully operational.
 
- The might of the Holy Trinity shall kill all sinners.
+ The might of the Holy Trinity shall destroy all sinners.
 
  This world and the Earth shall belong to the Holy
  Trinity for ever."

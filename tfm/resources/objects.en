@@ -14131,6 +14131,18 @@ section: characters
 	IfKilled	smashjar
 	fragile
 
+	name JAR_BRAIN
+	left		JAR07
+	right		JAR07
+	up		JAR07
+	down		JAR07
+	hp		1
+	weight		1800
+	description	"You see a brain in a jar."
+	short		"brain in a jar"
+	IfKilled	smashjar
+	fragile
+
 	name FISH00
 	left		FISH00
 	right		FISH00

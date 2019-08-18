@@ -547,6 +547,30 @@ Suddenly the LORD appears in a Holy Vision before you.
 [endpage]
 
 
+[page="sacrfice4a"]
+[image="lord.jpg"]
+
+"To be honest, Jesus only needs your body.
+ Cardinal Umbring here will remove your brain.
+
+ As you have done so much for Our cause, I shall
+ keep it in suspension until we can create a more
+ suitable body for you."
+
+[link="It is an honour to serve you in this way."]
+[linkto="sacrfice8"]
+[link="Cool.  Can we start now?"]
+[linkto="sacrfice9"]
+[endpage]
+
+
+TODO: If the player has been doing a lot of pro-church stuff,
+    They keep the brain alive in a jar rather than throwing it away.
+    This needs to be wired into the conversation, and we should also
+    display a little jar on the map in the transformation scene in
+    this scenario.
+
+
 [page="sacrfice5"]
 [image="lord.jpg"]
 
