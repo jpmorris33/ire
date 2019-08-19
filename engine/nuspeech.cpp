@@ -1702,6 +1702,27 @@ if(!istricmp(line2,"journal_done")) {
     return 32;
 }
 
+if(!istricmp(line2,"if_race") || !istricmp(line2,"if_race=")) {
+    strcpy(temp,strgetword(line1,2));
+    strstrip(temp);
+//	printf("Check player race '%s'%s'\n", temp, player->labels->race);
+    if(!istricmp_fuzzy(player->labels->race, temp)) {
+        pos=strchr(line,']');
+        if(!pos) {
+            Bug("Missing ] in %s:%d\n",curfile,curline);
+            return 33;
+        }
+        pos++;
+
+        if(pos[0]=='[')
+            return(NPC_ParseCode(pos,reader));
+        else
+            irecon_printxy(0,y+=fh,pos);
+    }
+    return 33;
+}
+
+
 ilog_quiet("Parse error in file '%s':\n>>%s\n",curfile,line);
 return 0;
 }
