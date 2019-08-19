@@ -244,8 +244,12 @@ if bx = 0
 	strgetpos bx = playername 1
 	if bx = 0
 		# No, they didn't
-		setstr playername = "Carlos Villani"
-		let PlayerMF = 1
+		if PlayerMF < 0
+			setstr playername = "Carla Villani"
+		else
+			setstr playername = "Carlos Villani"
+		endif
+#		let PlayerMF = 1
 	endif
 
 	let splayername = playername
@@ -259,17 +263,19 @@ if bx = 0
 		set_leader player player_action follower_action
 	endif
 
-	# Set the player's name
-	set_personalname player = splayername
-
-	# And sex
+	# Set the player's sex (we don't currently support NB, but nor did the medieval church)
 	if PlayerMF < 0
+		replace player = "playerf"
 		set_flag player IS_FEMALE = 1
 	endif
 	if PlayerMF > 0
 		set_flag player IS_FEMALE = 0
 	endif
 	set_user_flag "first_time" = 1
+
+	# Set the player's name
+	set_personalname player = splayername
+
 endif
 
 end

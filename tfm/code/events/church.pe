@@ -33,6 +33,7 @@ object jesus
 object cardinal
 object brain
 object braintarget
+string seq
 integer i
 
 # Check the entire cast is here
@@ -64,7 +65,16 @@ fade_out
 
 transfer_object player to me.x me.y
 move_to_top player
-set_sequence player = "player_tiedup"
+
+# Player might be female (or NB or a jaguar or something)
+get_data seq where player_tiedup = player.name
+if_exists seq
+	set_sequence player = seq
+else
+	set_sequence player = "player_tiedup"
+endif
+
+
 start_action player does sleeping	# You not move!
 centre around player
 

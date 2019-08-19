@@ -1013,7 +1013,7 @@ This should probably have him no longer on the cross
 
 [page="sacrifice"]
 [esc="disabled"]
-[image="crucifix1.png"]
+[image="crucifix4.png"]
 
 "The Second Coming is complete.
  I am now fully operational.

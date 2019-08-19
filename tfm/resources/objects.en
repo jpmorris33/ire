@@ -473,6 +473,39 @@ section: characters
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
 
+	name PLAYERF
+	left		REDWOMAN_LEFT
+	right		REDWOMAN_RIGHT
+	up		REDWOMAN_UP
+	down		REDWOMAN_DOWN
+	hp		100
+	dexterity	10
+	strength	15000
+	intelligence	140
+	weight		60000
+	damage		6
+	level		8
+	description	"You see Ms. Smith"
+	short		"person"
+	attack		close_attack
+	IfKilled	Player_Dies
+	IfHurt		Player_Hurt
+	behaviour	 player_action
+	resurrect_as	playerf
+	solid
+	person
+	female
+	know_name
+	is_hero
+	biological
+	horrific
+	race		human
+	rank		hero
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 1
+	setActiveArea	H 0 0 1 1
+
 
 	name PLAYERp
 	left		PANTHER_L

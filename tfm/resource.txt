@@ -283,6 +283,26 @@ section: sprites
 	redman13		sprites/people/man02lie.pcx
 	jesusliedown		sprites/people/jesuslie.cel
 
+	redwoman00		sprites/people/womp_n0.png
+	redwoman01		sprites/people/womp_n1.png
+	redwoman02		sprites/people/womp_n2.png
+	redwoman03		sprites/people/womp_s0.png
+	redwoman04		sprites/people/womp_s1.png
+	redwoman05		sprites/people/womp_s2.png
+	redwoman06		sprites/people/womp_w0.png
+	redwoman07		sprites/people/womp_w1.png
+	redwoman08		sprites/people/womp_w2.png
+	redwoman09		sprites/people/womp_e0.png
+	redwoman10		sprites/people/womp_e1.png
+	redwoman11		sprites/people/womp_e2.png
+	redwoman12		sprites/people/womp___.png
+	redwomansit_u		sprites/people/womp_ns.png
+	redwomansit_d		sprites/people/womp_ss.png
+	redwomansit_l		sprites/people/womp_ws.png
+	redwomansit_r		sprites/people/womp_es.png
+	redwoman13		sprites/people/womp_lie.png
+
+
 	peasant00		sprites/people/mm1-n0.png
 	peasant01		sprites/people/mm1-n1.png
 	peasant02		sprites/people/mm1-n2.png
@@ -5320,6 +5340,70 @@ section: sequences
 
 	quickname player_tiedup redman13
 	quickname jesus_tiedup jesusliedown
+
+
+	name REDWOMAN_UP
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		REDWOMAN01
+		REDWOMAN00
+		REDWOMAN02
+	end
+
+	name REDWOMAN_DOWN
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		REDWOMAN04
+		REDWOMAN03
+		REDWOMAN05
+	end
+
+	name REDWOMAN_LEFT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		REDWOMAN07
+		REDWOMAN06
+		REDWOMAN08
+	end
+
+	name REDWOMAN_RIGHT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		REDWOMAN10
+		REDWOMAN09
+		REDWOMAN11
+	end
+
+	name REDWOMAN_DEAD
+	speed 1
+	overlay BLOOD_OVERLAY
+	framelist:
+	#1 frames
+		REDWOMAN12
+	end
+
+	quickname REDWOMANSIT_L
+	quickname REDWOMANSIT_R
+	quickname REDWOMANSIT_U
+	quickname REDWOMANSIT_D
+
+	quickname playerf_tiedup redwoman13
 
 
 	name PEASANT_U
@@ -13057,6 +13141,7 @@ section: tables
 		man_boy flsit_u 
 		guard guardsit_u 
 		player redmansit_u 
+		playerf redwomansit_u 
 		woman_generic WOMAN1SIT_U
 		king kingsit_u
 		prince kingsit_u
@@ -13079,7 +13164,7 @@ section: tables
 		man_old oldmansit_d 
 		man_boy flsit_d
 		guard guardsit_d
-		player redmansit_d
+		playerf redwomansit_d
 		woman_generic WOMAN1SIT_D
 		king kingsit_d
 		prince kingsit_d
@@ -13103,6 +13188,7 @@ section: tables
 		man_boy flsit_l 
 		guard guardsit_l 
 		player redmansit_l 
+		playerf redwomansit_l
 		woman_generic WOMAN1SIT_L
 		king kingsit_l
 		prince kingsit_l
@@ -13126,6 +13212,7 @@ section: tables
 		man_boy flsit_r 
 		guard guardsit_r 
 		player redmansit_r
+		playerf redwomansit_r
 		woman_generic WOMAN1SIT_R
 		king kingsit_r
 		prince kingsit_r
@@ -13368,6 +13455,15 @@ section: tables
 		candle1 candle1unlit
 		candlestk candlestkunlit
 		firestones_lit firestones
+	end
+
+	name player_tiedup
+	key=string
+	data=string
+	list:
+		player player_tiedup
+		playerf playerf_tiedup
+		playerp panther_u
 	end
 
 section: tilelink

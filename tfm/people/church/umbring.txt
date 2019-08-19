@@ -77,7 +77,7 @@ He hands you the key and a rough piece of paper.
 [if malcolm_ascended][if malcolm_saint][link="Tell me about Malcolm's disappearance."]
 [if malcolm_ascended][if malcolm_saint][linkto="malcolm2"]
 [always]
-[link="Jesus was a dead jew on a stick."]
+[link="Jesus was a dead guy on a stick."]
 [linkto="blasphemy"]
 [always]
 [link="Goodbye."]
