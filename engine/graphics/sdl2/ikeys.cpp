@@ -269,6 +269,7 @@ asciitab[IREKEY_SLASH] = '/';
 asciitab[IREKEY_SLASH_PAD] = '/';
 asciitab[IREKEY_BACKSLASH] = '\\';
 asciitab[IREKEY_BACKSLASH2] = '\\';
+asciitab[IREKEY_COLON] = ';';
 
 shiftascii['0']=')';
 shiftascii['1']='!';
