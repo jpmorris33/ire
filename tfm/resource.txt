@@ -3414,37 +3414,21 @@ section: sprites
 	keyring_empty		sprites/keyring.png
 	keyring_full		sprites/keyring2.png
 
-	panther_r1		sprites/tech/panthr1.cel
-	panther_r2		sprites/tech/panthr2.cel
-	panther_r3		sprites/tech/panthr3.cel
-	panther_l1		sprites/tech/panthl1.cel
-	panther_l2		sprites/tech/panthl2.cel
-	panther_l3		sprites/tech/panthl3.cel
-	panther_d1		sprites/tech/panthd1.cel
-	panther_d2		sprites/tech/panthd2.cel
-	panther_d3		sprites/tech/panthd3.cel
-	panther_u1		sprites/tech/panthu1.cel
-	panther_u2		sprites/tech/panthu2.cel
-	panther_u3		sprites/tech/panthu3.cel
-	panther_dead		sprites/tech/panthdd.cel
-	panther_head		sprites/tech/panthhd.cel
-	panthersuit		sprites/tech/panthfur.cel
-
-#	panther_r1		sprites/tech/panthr1.png
-#	panther_r2		sprites/tech/panthr2.png
-#	panther_r3		sprites/tech/panthr3.png
-#	panther_l1		sprites/tech/panthl1.png
-#	panther_l2		sprites/tech/panthl2.png
-#	panther_l3		sprites/tech/panthl3.png
-#	panther_d1		sprites/tech/panthd1.png
-#	panther_d2		sprites/tech/panthd2.png
-#	panther_d3		sprites/tech/panthd3.png
-#	panther_u1		sprites/tech/panthu1.png
-#	panther_u2		sprites/tech/panthu2.png
-#	panther_u3		sprites/tech/panthu3.png
-#	panther_dead		sprites/tech/panthdd.cel
-#	panther_head		sprites/tech/panthhd.cel
-#	panthersuit		sprites/tech/panthfur.cel
+	panther_r1		sprites/tech/panthr1.png
+	panther_r2		sprites/tech/panthr2.png
+	panther_r3		sprites/tech/panthr3.png
+	panther_l1		sprites/tech/panthl1.png
+	panther_l2		sprites/tech/panthl2.png
+	panther_l3		sprites/tech/panthl3.png
+	panther_d1		sprites/tech/panthd1.png
+	panther_d2		sprites/tech/panthd2.png
+	panther_d3		sprites/tech/panthd3.png
+	panther_u1		sprites/tech/panthu1.png
+	panther_u2		sprites/tech/panthu2.png
+	panther_u3		sprites/tech/panthu3.png
+	panther_dead		sprites/tech/panthdd.png
+	panther_head		sprites/tech/panthhd.png
+	panthersuit		sprites/tech/panthfur.png
 
 	comms00			sprites/tech/comms00.cel
 	comms01			sprites/tech/comms01.cel

@@ -414,3 +414,11 @@ spill current
 replace current = "food15_dead"
 
 end
+
+##
+##  Some objects cannot be respawned as they lose critical state
+##
+
+function reset_health
+let current.stats.hp = current.maxstats.hp
+end

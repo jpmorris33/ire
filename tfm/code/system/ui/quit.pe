@@ -41,9 +41,6 @@ do
 		let mouseclick = -1
 	endif
 
-	gotoxy 10 10
-	printxy key
-
 	if key = KEY_Y
 		# Tell the game we're ending
 		status 7
