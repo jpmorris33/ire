@@ -193,9 +193,9 @@ You see $NAME, ex-dairy farmer's son, now adventurer.
  care for the beeves on my father's farm.
 
  If we pass by, might it be possible to stop for a while
- near Eastshire?  It is said to be a base for many
- wandering adventurers, and there is so much for me to
- learn!"
+ near Avis, in Eastshire?  It is said to be a base for
+ many wandering adventurers, and there is so much for
+ me to learn!"
 
 [link="Bye."]
 [linkto="j_bye"]

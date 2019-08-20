@@ -11,17 +11,13 @@ endif
 end
 
 function respawn
-/*
-bug start
-print "respawning "
-print current.name
-printcr
-bug end
-*/
+int tag
 
+let tag = current.tag
 change current = current.name
 let current.stats.hp = current.maxstats.hp
 let current.user.oldhp = current.stats.hp
+let current.tag = tag
 end
 
 

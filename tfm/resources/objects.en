@@ -9320,8 +9320,8 @@ section: characters
 	weight		-1
 	description	"You see a lever."
 	short		"lever"
-	IfKilled	RESPAWN
 	fixed
+	IfKilled	RESET_HEALTH
 	spikeproof
 	solid
 
@@ -9335,7 +9335,7 @@ section: characters
 	weight		-1
 	description	"You see a lever."
 	short		"lever"
-	IfKilled	RESPAWN
+	IfKilled	RESET_HEALTH
 	fixed
 	spikeproof
 
@@ -9349,7 +9349,7 @@ section: characters
 	weight		-1
 	description	"You see a lever."
 	short		"lever"
-	IfKilled	RESPAWN
+	IfKilled	RESET_HEALTH
 	fixed
 	spikeproof
 
@@ -11760,12 +11760,12 @@ section: characters
 	right		BUNNY_R
 	up		BUNNY_U
 	down		BUNNY_D
-	hp		100
+	hp		500
 	intelligence	90
 	speed		90
 	weight		2000
 	dexterity	8
-	damage		5
+	damage		33
 	description	"That's one scary rabbit."
 	short		"rabbit"
 	IfKilled	bunny_dies
