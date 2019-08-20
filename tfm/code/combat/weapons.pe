@@ -75,11 +75,13 @@ let new_y = attacker.enemy.y
 
 call fudge_thrown  # Cause them to miss, perhaps
 
-# Zap the enemy
-let attacker.target = attacker.enemy
-overfx attacker does attacker.funcs.user1
-wait 1000 NONBLOCKING
-stop_fx attacker
+# Zap the enemy (but only if visible)
+if_onscreen attacker.enemy
+	let attacker.target = attacker.enemy
+	overfx attacker does attacker.funcs.user1
+	wait 1000 NONBLOCKING
+	stop_fx attacker
+endif
 
 # reset the attacker's frame
 set_direction attacker = attacker.curdir

@@ -2,6 +2,7 @@ Death - One of the Four Horsemen.  On guard duty.
 
 [page="start"]
 [if hear_truth][goto="HT_start"]
+[if_race="panther"][goto="playerp"]
 [call="check_purpleclearance"]
 [if true][goto="purple"]
 [image="f16v.pcx"]
@@ -33,6 +34,7 @@ ominously with large, red eyes and a deep, booming voice.
 
 [page="startname"]
 [if hear_truth][goto="HT_start"]
+[if_race="panther"][goto="playerp"]
 [call="check_purpleclearance"]
 [if true][goto="purple"]
 [image="f16v.pcx"]
@@ -57,6 +59,21 @@ You see 'Death'.
 [linkto="what"]
 [link="I'm just leaving."]
 [linkto="leaving"]
+[endpage]
+
+
+[page="playerp"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+You see a polished black aircraft staring at you
+ominously with large, red eyes and a deep, booming voice.
+[colour="#ffffff"]
+
+"Panther!  What are you doing outside you base?
+ Return to duty at once!"
+
+[nextpage="exit"]
 [endpage]
 
 

@@ -1,6 +1,73 @@
 
 Ulric the Yellow
 
+[page="start"]
+
+[colour="#808080"]
+You see an adventurer.
+[colour="#ffffff"]
+
+"Well met, stranger."
+
+[link="How's the adventuring going?"]
+[linkto="adv"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+
+[colour="#808080"]
+You see Ulric the Yellow.
+[colour="#ffffff"]
+
+"Well met, friend."
+
+[link="Tell me about the dragon."]
+[linkto="dragon"]
+[link="Tell me about the treasure."]
+[linkto="treasure"]
+[link="Tell me about the liche."]
+[linkto="liche"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare thee well!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="adv"]
+[learn_name]
+
+"Not well, truth be told.  My recent quests have
+ failed and I was forced to flee.  Men have taken
+ to calling me "Ulric the Yellow".
+
+ I have been on three quests lately, and all have
+ ended terribly.  I have fought a dragon, gone in
+ quest of treasure, and attempted to slay the foul
+ liche in the nearby tower."
+
+[link="Tell me about the dragon."]
+[linkto="dragon"]
+[link="Tell me about the treasure."]
+[linkto="treasure"]
+[link="Tell me about the liche."]
+[linkto="liche"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="dragon"]
 [colour="#808080"]
 The man pales.
 [colour="#ffffff"]
@@ -17,11 +84,35 @@ The man pales.
  Only by feigning death did I manage to escape the beast
  with my life."
 
-> why did you take on the dragon?
+[link="Tell me about the treasure."]
+[linkto="treasure"]
+[link="Tell me about the liche."]
+[linkto="liche"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
-I went to try and slay it, to prove myself.
-It was a foolish deed.  Since then I have stuck with smaller prey.
 
+
+Why did you attack the dragon?
+
+[page="dragon2"]
+
+"I went to try and slay it, to prove myself.
+ It was a foolish deed.
+ Since then I have stuck with smaller prey."
+
+[link="Tell me about the treasure."]
+[linkto="treasure"]
+[link="Tell me about the liche."]
+[linkto="liche"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="treasure"]
 
 "In the depths of the forest, there is an area of dense
  woodland, that some call the Forbidden Forest.
@@ -30,25 +121,99 @@ It was a foolish deed.  Since then I have stuck with smaller prey.
 
  This treasure is guarded by five great Hell-Cats, with
  eyes like coals and claws like razors.  It is said that
- they will slay any man who comes too close to their prize.
+ they will slay any man who comes too close to their prize."
 
- I journeyed to this spot, with twelve other men.
+[nextpage="treasure2"]
+[endpage]
+
+[page="treasure2"]
+
+"I journeyed to this spot, with twelve other men.
  We thought that by our numbers we could conquer the
  beasts, but it was not to be.  The largest cat rose as
- we approached and snarled, as if to warn us off.
+ we approached and spoke to us in a harsh voice,
+ warning us to leave immediately.
 
- Our leader ignored it, and we attacked.  Within ten
- seconds, everyone else was dead, their throats torn out.
+ Our leader ignored it, and we attacked.
+ Our swords failed us, glancing off their gleaming hides,
+ indeed, sword did even shatter on impact.  The hell-cats
+ did become angry, and Within ten seconds, everyone else
+ was dead, their throats torn out."
 
- I alone survived, for the beasts did not give chase when
+[nextpage="treasure3"]
+[endpage]
+
+[page="treasure3"]
+
+"I alone survived, for the beasts did not give chase when
  I threw down my sword and fled."
 
-"As adventurers go, I seem to have more than my fair share
- of bad luck." he says glumly.
+ "As adventurers go, I seem to have more than my fair share
+  of bad luck," he adds glumly.
 
-> But you're still alive.  They aren't.
+[link="They are dead, but you are not."]
+[linkto="treasure4"]
+[link="Tell me about the dragon."]
+[linkto="dragon"]
+[link="Tell me about the liche."]
+[linkto="liche"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="treasure4"]
+
+"Hmm, I suppose this is true!"
+
+[link="Tell me about the dragon."]
+[linkto="dragon"]
+[link="Tell me about the liche."]
+[linkto="liche"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
 
+[page="liche"]
+
+"In the northeast, there lies a fell tower.  Some say
+ that it is home to an evil wizard, or even a daemon.
+ Tales, there are, of a liche that guards a hoard of
+ most fabulous treasure.
+ But no-one knows for sure what evil lurks within,
+ for the tower is guarded by deadly rabbits."
+
+[link="Did you say rabbits?"]
+[linkto="rabbits"]
+[link="What do they do, nibble your bum?"]
+[linkto="rabbits"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="rabbits"]
+"Do not jest!  It is horrible!  When an intruder
+ approaches the tower, the bunnies do swarm from their
+ holes and attack every living thing.  They will
+ overpower a man by sheer weight of numbers.
+
+ Many moons ago I did journey there with four heroes,
+ in quest to slay the beast that lurks within the tower
+ and claim its treasures for our own.
+ I saw them all die, the flesh stripped from their bones
+ by the gnawing teeth.
+
+ I alone survived by sacrificing my own feet, that the
+ rest of me could escape.  It is fortunate indeed that
+ Avis has an excellent healer."
+
+[link="Tell me about the dragon."]
+[linkto="dragon"]
+[link="Tell me about the treasure."]
+[linkto="treasure"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
  
 

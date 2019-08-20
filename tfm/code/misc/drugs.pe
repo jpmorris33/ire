@@ -77,6 +77,13 @@ end
 
 function take_drugs
 
+# Technically the panthers can eat, but drugs won't work
+if_flag player CANT_EAT
+	print msg_DoesntWork
+        printcr
+        return
+endif
+
 if player.user.user0 = 0
 	print "Ohh.. the drugs are really working!"
 	printcr

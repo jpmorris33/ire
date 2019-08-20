@@ -4,6 +4,7 @@
 [endpage]
 
 [page="start"]
+[if_race="panther"][goto="start_panther"]
 [image="panth5d.pcx"]
 [colour="#808080"]
 You see a large, black panther with red glowing eyes and
@@ -18,6 +19,25 @@ a metallic sheen over its body.
 [linkto="base"]
 [link="Who are you?"]
 [linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="start_panther"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a large, black panther with red glowing eyes and
+a metallic sheen over its body.
+[colour="#ffffff"]
+
+"Brother, please leave.  I do not wish to harm another of
+ our kind, but none may approach the treasure."
+
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="basep"]
+[link="Who are you?"]
+[linkto="whop"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -53,6 +73,24 @@ a metallic sheen over its body.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+[page="whop"]
+[image="panth5d.pcx"]
+[learn_name]
+
+"I am $NAME.
+ Our Master ordered us to guard the treasure until he
+ returns, and this we will do.  Anyone who approaches
+ the treasure must be slain."
+
+[link="It looks like you have been busy."]
+[linkto="gravesp"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="basep"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 [page="what"]
 [image="panth5d.pcx"]
@@ -93,6 +131,20 @@ a metallic sheen over its body.
 [linkto="eat"]
 [link="What would you do if the treasure was stolen?"]
 [linkto="stolen"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gravesp"]
+[image="panth5d.pcx"]
+
+"Many humans came to steal our treasure.
+
+ We ate them and planted the carcasses in the earth to
+ keep them out of the way.  It is what the Master told us
+ we should do."
+
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -250,6 +302,18 @@ a metallic sheen over its body.
 [linkto="stolen"]
 [link="What is the treasure for?"]
 [linkto="treasure2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="basep"]
+[image="panth5d.pcx"]
+
+"That would be nice.
+ Unfortunately our orders were very strict, and we must
+ guard the shiny treasure until the Master returns."
+
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]

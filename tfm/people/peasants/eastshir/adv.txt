@@ -23,7 +23,7 @@ You see an adventurer.
 [page="startname"]
 
 [colour="#808080"]
-You Dunhelm the adventurer.
+You see Dirk the adventurer.
 [colour="#ffffff"]
 
 "Well met again, my friend.

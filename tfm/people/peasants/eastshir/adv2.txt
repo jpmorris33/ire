@@ -1,26 +1,47 @@
+[page="start"]
+
+[colour="#808080"]
+You see an adventurer.
+[colour="#ffffff"]
+
+"Hail, stranger."
+
+[link="Are you on a quest?"]
+[linkto="adv"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
-"In the northeast, there lies a fell tower.  Some say
- that it is home to an evil wizard, or even a daemon.
- Tales, there are, of a liche that guards a hoard of
- most fabulous treasure.
- But no-one knows for sure what evil lurks within,
- for the tower is guarded by deadly rabbits."
+[page="bye"]
+[nextpage="exit"]
 
-[link="Did you say rabbits?"]
-[linkto="rabbits"]
-[link="What do they do, nibble your bum?"]
-[linkto="rabbits"]
+"Fare thee well!"
 
-"Do not jest!  It is horrible!  When an intruder
- approaches the tower, the bunnies do swarm from their
- holes and attack every living thing.  They will
- overpower a man by sheer weight of numbers.
+[endpage]
 
- Many moons ago I did journey there with four heroes,
- in quest to slay the beast that lurks within the tower
- and claim its treasures for our own.
- I saw them all die, the flesh stripped from their bones
- by the gnawing teeth.  I alone survived by sacrificing
- my own feet, that the rest of me could escape."
 
+[page="adv"]
+
+"Aye!  I seek the dark tower in the northeast.
+ There, it is said, a man who is stout of heart may
+ win a fabulous prize by slaying the fell beast within.
+
+ Indeed, it is said that whosoever shall slay the monster
+ within shall be granted the gift of immortality, and a
+ place at God's side!"
+
+[link="What's the catch?"]
+[linkto="catch"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="catch"
+
+"It is said that the guardians of the tower are fierce.
+ Few have returned... but I shall find a way!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
