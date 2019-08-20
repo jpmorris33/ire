@@ -18,7 +18,7 @@
 
 // Defines
 
-#define STACKSLOTS 256
+#define STACKSLOTS 512 // 256 was too small taking party members to the liche
 #define NODESLOTS 1024
 
 #define MAPSIZE 64
