@@ -102,6 +102,7 @@ static void InsertObject(int x, int y);
 static void PadOut(char *buf, int maxlen);
 extern void (*EdUpdateFunc)(void);
 extern void ResetStr32(char *str32);
+static void SetOwnerRecursively(OBJECT *obj, OBJECT *owner);
 
 void OB_up();           // Panning functions
 void OB_down();
@@ -2515,7 +2516,7 @@ IG_WaitForRelease();
 
 void OBO_MakePublic()
 {
-objsel->stats->owner.objptr = NULL;
+SetOwnerRecursively(objsel, NULL);
 OB_GoFocal();
 IG_WaitForRelease();
 }
@@ -2621,7 +2622,7 @@ M_free(mlist);
 
 if(!stricmp(name,"-"))
     {
-    objsel->stats->owner.objptr = NULL;
+    SetOwnerRecursively(objsel, NULL);
     OB_GoFocal();
     IG_WaitForRelease();
     return;
@@ -2636,7 +2637,7 @@ for(x=0;x<curmap->w;x++)
             if(a->personalname && a->flags&IS_PERSON)
                 if(!stricmp(name,a->personalname))
                     {
-                    objsel->stats->owner.objptr = a;
+		    SetOwnerRecursively(objsel, a);
                     OB_GoFocal();
                     return;
                     }
@@ -2645,7 +2646,7 @@ for(x=0;x<curmap->w;x++)
 // Set it to be public to avoid nasty accident
 
 Notify(-1,-1,"Oh bugger!",NULL);
-objsel->stats->owner.objptr = NULL;
+SetOwnerRecursively(objsel, NULL);
 OB_GoFocal();
 IG_WaitForRelease();
 }
@@ -2666,20 +2667,19 @@ click_y = ((y-VIEWY)>>5)+(mapy); // click_y = (mouse_y_pos/32) + map_y_pos
 
 SelectObj(click_x,click_y);      // Go fish
 
-if(objsel)                       // If an object was selected
-    {
+if(objsel) {                       // If an object was selected
     last_dir = objsel->curdir;
     objsel->form=NULL; // Force direction to change
     OB_SetDir(objsel,objsel->curdir,1);
 
-    if(!objsel->personalname)
-        {
-        if(Confirm(-1,-1,"The chosen object doesn't have an individual name!","Are you sure you want to do this?"))
-           a->stats->owner.objptr = objsel;
+    if(!objsel->personalname) {
+        if(Confirm(-1,-1,"The chosen object doesn't have an individual name!","Are you sure you want to do this?")) {
+	   SetOwnerRecursively(a,objsel);
         }
-    else
-        a->stats->owner.objptr = objsel;
+    } else {
+	SetOwnerRecursively(a,objsel);
     }
+}
 
 objsel = a;
 
@@ -2767,14 +2767,16 @@ for(x=0;x<curmap->w;x++)
 
 // Now set the owners
 
-for(y=0;y<VSH;y++)
-	{
+for(y=0;y<VSH;y++) {
 //	DrawScreenMeter(VIEWX+66,VIEWY+96,VIEWX+190,VIEWY+112,(float)cy/(float)VSH);
-	for(x=0;x<VSW;x++)
-		for(a=GetRawObjectBase(x+mapx,y+mapy);a;a=a->next)
-			if(a)
-				a->stats->owner.objptr=owner;
+	for(x=0;x<VSW;x++) {
+		for(a=GetRawObjectBase(x+mapx,y+mapy);a;a=a->next) {
+			if(a) {
+				SetOwnerRecursively(a,owner);
+			}
+		}
 	}
+}
 
 //objsel=NULL;
 DrawMap(mapx,mapy,1,l_proj,0);
@@ -3248,4 +3250,25 @@ for(;;)		{
 *n1=v1;
 *n2=v2;
 return 1;
+}
+
+
+void SetOwnerRecursively(OBJECT *obj, OBJECT *owner)
+{
+if(!obj) {
+	return;
+}
+obj->stats->owner.objptr = owner;
+
+if(!obj->pocket.objptr) {
+	return;
+}
+
+for(obj=obj->pocket.objptr;obj;obj=obj->next) {
+	obj->stats->owner.objptr = owner;
+	if(obj->pocket.objptr) {
+		SetOwnerRecursively(obj, owner);
+	}
+}
+
 }
