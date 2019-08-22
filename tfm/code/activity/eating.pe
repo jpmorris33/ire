@@ -174,3 +174,72 @@ if_exists me.target
 endif
 end
 
+##
+##  Find place to eat
+##
+
+function eat_at_home
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does eat_own_food
+run_queue me
+
+end
+
+
+##
+##  At home, person eats their own food
+##
+
+function eat_own_food
+object o
+let current = me
+call get_ahead
+get_object o at new_x new_y
+
+if_not_exists o
+	# Nothing to eat
+	return
+endif
+
+# Does it look like food?
+if o is called "food*"
+
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+	# Yes.  Eat it and set the delay.
+	random me.user.user1 = 10 30
+	let current = o
+	call current.funcs.ucache
+	return
+endif
+
+# Is it an empty plate?
+if o is called "plate"
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+
+	call create_food
+	# Create the food and align it with the plate
+	move_object current to o.x o.y
+	set_direction current faces o.curdir
+	# Cause trouble if the player steals it
+	let current.stats.owner = me
+	random me.user.user1 = 3 7
+	return
+endif
+
+# Did it get smashed?
+if o is called "plate_broken"
+	change o = "plate"
+	return
+endif
+
+end
