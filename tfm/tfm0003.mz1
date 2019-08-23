@@ -206,7 +206,7 @@ iMZ1r00
 		curdir 2
 
 	object 100663337
-		type segfault
+		type SEGFAULT
 		at 317 75
 		curdir 0
 
@@ -836,7 +836,7 @@ iMZ1r00
 		curdir 1
 
 	object 100663470
-		type meat00
+		type MEAT00
 		inside 100663471
 		curdir 0
 
@@ -1917,7 +1917,7 @@ iMZ1r00
 		curdir 3
 
 	object 100663736
-		type meat04
+		type MEAT04
 		at 338 95
 		curdir 2
 
@@ -4619,7 +4619,7 @@ iMZ1r00
 		funcs->talk people/osprey/x36.txt
 
 	object 100664617
-		type rubics_cube
+		type RUBICS_CUBE
 		at 523 126
 		curdir 2
 
@@ -4933,7 +4933,7 @@ iMZ1r00
 		curdir 2
 
 	object 100664711
-		type meat02
+		type MEAT02
 		at 484 133
 		curdir 2
 		stats->owner 100664798
@@ -4944,7 +4944,7 @@ iMZ1r00
 		curdir 0
 
 	object 100664713
-		type meat01
+		type MEAT01
 		at 485 133
 		curdir 2
 		stats->owner 100664798
@@ -4955,7 +4955,7 @@ iMZ1r00
 		curdir 3
 
 	object 100664715
-		type meat00
+		type MEAT00
 		at 486 133
 		curdir 2
 		stats->owner 100664798
@@ -5099,7 +5099,7 @@ iMZ1r00
 		curdir 2
 
 	object 100664758
-		type meat05
+		type MEAT05
 		at 485 136
 		curdir 0
 		stats->owner 100664798
@@ -5110,13 +5110,13 @@ iMZ1r00
 		curdir 0
 
 	object 100664760
-		type meat04
+		type MEAT04
 		at 486 136
 		curdir 2
 		stats->owner 100664798
 
 	object 100664761
-		type meat03
+		type MEAT03
 		at 486 136
 		curdir 2
 		stats->owner 100664798
@@ -8211,6 +8211,13 @@ iMZ1r00
 		curdir 0
 		name You!
 
+	object 100712094
+		type GRAVESTONE
+		at 465 187
+		curdir 0
+		name You!
+		funcs->look PLAYERGRAVE
+
 	object 100665764
 		type STAINEDGLASS00
 		at 468 187
@@ -8292,6 +8299,17 @@ iMZ1r00
 		type GRAVE
 		at 463 188
 		curdir 0
+
+	object 100712095
+		type GRAVE
+		at 465 188
+		curdir 0
+
+	object 100712093
+		type TARGET
+		at 465 188
+		curdir 0
+		tag 667
 
 	object 100665790
 		type STAINEDGLASS00
@@ -16230,7 +16248,7 @@ iMZ1r00
 		curdir 3
 
 	object 100669266
-		type rubics_cube
+		type RUBICS_CUBE
 		at 670 307
 		curdir 2
 
@@ -20556,7 +20574,7 @@ iMZ1r00
 		curdir 2
 
 	object 100670766
-		type meat03
+		type MEAT03
 		at 890 346
 		curdir 3
 
@@ -20648,7 +20666,7 @@ iMZ1r00
 		curdir 2
 
 	object 100670790
-		type meat04
+		type MEAT04
 		at 891 347
 		curdir 2
 
@@ -20782,12 +20800,12 @@ iMZ1r00
 		curdir 2
 
 	object 100670827
-		type meat05
+		type MEAT05
 		at 890 349
 		curdir 2
 
 	object 100670828
-		type meat01
+		type MEAT01
 		at 890 349
 		curdir 2
 
@@ -23283,7 +23301,7 @@ iMZ1r00
 		name 101 Practical Satanic Rituals
 
 	object 100671434
-		type BOOK_witches
+		type BOOK_WITCHES
 		at 864 388
 		curdir 3
 		name The Discovery of Witchcraft
@@ -24864,12 +24882,12 @@ iMZ1r00
 		curdir 1
 
 	object 100671850
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 573 421
 		curdir 0
 
 	object 100671851
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 574 421
 		curdir 3
 
@@ -24897,37 +24915,37 @@ iMZ1r00
 		curdir 2
 
 	object 100671859
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 573 422
 		curdir 2
 
 	object 100671860
-		type swamp_corner
+		type SWAMP_CORNER
 		at 574 422
 		curdir 3
 
 	object 100671861
-		type swamp_corner
+		type SWAMP_CORNER
 		at 574 422
 		curdir 2
 
 	object 100671862
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 575 422
 		curdir 3
 
 	object 100671863
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 579 422
 		curdir 0
 
 	object 100671864
-		type swamp_edge
+		type SWAMP_EDGE
 		at 580 422
 		curdir 0
 
 	object 100671865
-		type swamp_edge
+		type SWAMP_EDGE
 		at 581 422
 		curdir 0
 
@@ -24946,37 +24964,37 @@ iMZ1r00
 		curdir 3
 
 	object 100671870
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 574 423
 		curdir 2
 
 	object 100671871
-		type swamp_corner
+		type SWAMP_CORNER
 		at 575 423
 		curdir 3
 
 	object 100671872
-		type swamp_corner
+		type SWAMP_CORNER
 		at 575 423
 		curdir 2
 
 	object 100671873
-		type swamp_corner
+		type SWAMP_CORNER
 		at 576 423
 		curdir 0
 
 	object 100671874
-		type swamp_corner
+		type SWAMP_CORNER
 		at 577 423
 		curdir 3
 
 	object 100671875
-		type swamp_edge
+		type SWAMP_EDGE
 		at 578 423
 		curdir 0
 
 	object 100671876
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 423
 		curdir 0
 
@@ -24999,27 +25017,27 @@ iMZ1r00
 		curdir 3
 
 	object 100671883
-		type swamp_edge
+		type SWAMP_EDGE
 		at 575 424
 		curdir 2
 
 	object 100671884
-		type swamp_corner
+		type SWAMP_CORNER
 		at 576 424
 		curdir 1
 
 	object 100671885
-		type swamp_edge
+		type SWAMP_EDGE
 		at 577 424
 		curdir 1
 
 	object 100671886
-		type swamp_edge
+		type SWAMP_EDGE
 		at 578 424
 		curdir 1
 
 	object 100671887
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 424
 		curdir 2
 
@@ -25034,37 +25052,37 @@ iMZ1r00
 		curdir 3
 
 	object 100671890
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 574 425
 		curdir 0
 
 	object 100671891
-		type swamp_corner
+		type SWAMP_CORNER
 		at 575 425
 		curdir 0
 
 	object 100671892
-		type swamp_edge
+		type SWAMP_EDGE
 		at 576 425
 		curdir 3
 
 	object 100671893
-		type swamp_edge
+		type SWAMP_EDGE
 		at 579 425
 		curdir 2
 
 	object 100671894
-		type swamp_corner
+		type SWAMP_CORNER
 		at 580 425
 		curdir 1
 
 	object 100671895
-		type swamp_edge
+		type SWAMP_EDGE
 		at 581 425
 		curdir 1
 
 	object 100671896
-		type swamp_corner
+		type SWAMP_CORNER
 		at 582 425
 		curdir 2
 
@@ -25083,62 +25101,62 @@ iMZ1r00
 		curdir 3
 
 	object 100671901
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 572 426
 		curdir 0
 
 	object 100671902
-		type swamp_edge
+		type SWAMP_EDGE
 		at 573 426
 		curdir 0
 
 	object 100671903
-		type swamp_corner
+		type SWAMP_CORNER
 		at 574 426
 		curdir 1
 
 	object 100671904
-		type swamp_corner
+		type SWAMP_CORNER
 		at 574 426
 		curdir 0
 
 	object 100671905
-		type swamp_edge
+		type SWAMP_EDGE
 		at 575 426
 		curdir 1
 
 	object 100671906
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 576 426
 		curdir 1
 
 	object 100671907
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 578 426
 		curdir 0
 
 	object 100671908
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 426
 		curdir 0
 
 	object 100671909
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 426
 		curdir 1
 
 	object 100671910
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 580 426
 		curdir 1
 
 	object 100671911
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 582 426
 		curdir 2
 
 	object 100671912
-		type swamp_corner
+		type SWAMP_CORNER
 		at 583 426
 		curdir 2
 
@@ -25155,42 +25173,42 @@ iMZ1r00
 		curdir 3
 
 	object 100671916
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 572 427
 		curdir 2
 
 	object 100671917
-		type swamp_edge
+		type SWAMP_EDGE
 		at 573 427
 		curdir 1
 
 	object 100671918
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 574 427
 		curdir 1
 
 	object 100671919
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 577 427
 		curdir 0
 
 	object 100671920
-		type swamp_corner
+		type SWAMP_CORNER
 		at 578 427
 		curdir 0
 
 	object 100671921
-		type swamp_edge
+		type SWAMP_EDGE
 		at 579 427
 		curdir 3
 
 	object 100671922
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 583 427
 		curdir 2
 
 	object 100671923
-		type swamp_edge
+		type SWAMP_EDGE
 		at 584 427
 		curdir 1
 
@@ -25205,37 +25223,37 @@ iMZ1r00
 		curdir 3
 
 	object 100671926
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 576 428
 		curdir 0
 
 	object 100671927
-		type swamp_corner
+		type SWAMP_CORNER
 		at 577 428
 		curdir 0
 
 	object 100671928
-		type swamp_corner
+		type SWAMP_CORNER
 		at 577 428
 		curdir 1
 
 	object 100671929
-		type swamp_edge
+		type SWAMP_EDGE
 		at 578 428
 		curdir 1
 
 	object 100671930
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 428
 		curdir 2
 
 	object 100671931
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 428
 		curdir 3
 
 	object 100671932
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 580 428
 		curdir 3
 
@@ -25255,27 +25273,27 @@ iMZ1r00
 		curdir 3
 
 	object 100671936
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 576 429
 		curdir 2
 
 	object 100671937
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 577 429
 		curdir 1
 
 	object 100671938
-		type swamp_edge
+		type SWAMP_EDGE
 		at 579 429
 		curdir 2
 
 	object 100671939
-		type swamp_corner
+		type SWAMP_CORNER
 		at 580 429
 		curdir 3
 
 	object 100671940
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 581 429
 		curdir 3
 
@@ -25305,22 +25323,22 @@ iMZ1r00
 		curdir 3
 
 	object 100671946
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 430
 		curdir 2
 
 	object 100671947
-		type swamp_corner
+		type SWAMP_CORNER
 		at 579 430
 		curdir 0
 
 	object 100671948
-		type swamp_corner
+		type SWAMP_CORNER
 		at 580 430
 		curdir 1
 
 	object 100671949
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 581 430
 		curdir 1
 
@@ -25341,12 +25359,12 @@ iMZ1r00
 		curdir 3
 
 	object 100671953
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 579 431
 		curdir 2
 
 	object 100671954
-		type swamp_inside
+		type SWAMP_INSIDE
 		at 580 431
 		curdir 1
 
@@ -41767,7 +41785,7 @@ iMZ1r00
 		type MIRROR2
 		at 764 610
 		curdir 1
-		activity mirror2
+		activity MIRROR2
 
 	object 100679447
 		type BASIN
@@ -43014,7 +43032,7 @@ iMZ1r00
 		funcs->look BOOK_COVER
 
 	object 100679976
-		type hangar_sign
+		type HANGAR_SIGN
 		at 700 618
 		curdir 1
 
@@ -45392,7 +45410,7 @@ iMZ1r00
 		curdir 0
 
 	object 100680902
-		type hangar_sign
+		type HANGAR_SIGN
 		at 700 630
 		curdir 1
 
@@ -45624,7 +45642,7 @@ iMZ1r00
 		curdir 2
 
 	object 100680971
-		type who_tape
+		type WHO_TAPE
 		at 686 631
 		curdir 0
 		name Breaking The Ice
@@ -49767,7 +49785,7 @@ iMZ1r00
 		type PLAYER
 		at 991 657
 		curdir 0
-		activity player_action
+		activity PLAYER_ACTION
 
 	decorative TREE03 at 593 658
 
@@ -66577,6 +66595,11 @@ iMZ1r00
 		at 832 781
 		curdir 0
 
+	object 100712096
+		type GRAVESTONE
+		at 835 781
+		curdir 0
+
 	decorative TREE02 at 896 781
 
 	decorative TREE02 at 898 781
@@ -66740,6 +66763,17 @@ iMZ1r00
 		type STONE_ARCHWAY
 		at 831 782
 		curdir 3
+
+	object 100712097
+		type GRAVE
+		at 835 782
+		curdir 0
+
+	object 100712098
+		type TARGET
+		at 835 782
+		curdir 1
+		tag 666
 
 	decorative TREE01 at 896 782
 
@@ -67508,7 +67542,7 @@ iMZ1r00
 		curdir 0
 
 	object 100691081
-		type meat02
+		type MEAT02
 		at 549 789
 		curdir 2
 
@@ -67627,7 +67661,7 @@ iMZ1r00
 		curdir 2
 
 	object 100691134
-		type meat04
+		type MEAT04
 		at 549 790
 		curdir 0
 
@@ -67785,7 +67819,7 @@ iMZ1r00
 	decorative MOUNT02 at 543 791
 
 	object 100691188
-		type meat00
+		type MEAT00
 		at 549 791
 		curdir 2
 
@@ -68058,7 +68092,7 @@ iMZ1r00
 	decorative MOUNT02 at 545 792
 
 	object 100691275
-		type meat01
+		type MEAT01
 		at 552 792
 		curdir 2
 
@@ -69837,7 +69871,7 @@ iMZ1r00
 		curdir 3
 
 	object 100691889
-		type BOOK_fowl
+		type BOOK_FOWL
 		at 821 801
 		curdir 1
 		stats->owner 100691942
@@ -85508,7 +85542,7 @@ iMZ1r00
 		curdir 3
 
 	object 100699025
-		type BOOK_beasts
+		type BOOK_BEASTS
 		at 698 914
 		curdir 2
 		name Chorley's Bestiary
@@ -87199,14 +87233,14 @@ iMZ1r00
 		curdir 2
 
 	object 100699706
-		type BOOK_alchemy
+		type BOOK_ALCHEMY
 		at 702 922
 		curdir 2
 		name Treatise on Alchemy
 		stats->owner 100699458
 
 	object 100699707
-		type BOOK_notr
+		type BOOK_NOTR
 		at 702 922
 		curdir 1
 		name The Name of the Rose
@@ -87421,7 +87455,7 @@ iMZ1r00
 		curdir 1
 
 	object 100699795
-		type BOOK_witches
+		type BOOK_WITCHES
 		at 702 923
 		curdir 2
 		name The Discoverie of Witchcraft
@@ -95104,7 +95138,7 @@ iMZ1r00
 		type RADIATION
 		at 604 972
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object 100703448
 		type MAGICBOLT
@@ -95718,7 +95752,7 @@ iMZ1r00
 		type RADIATION
 		at 604 975
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object 100703708
 		type MAGICBOLT

@@ -1,0 +1,82 @@
+##
+## Someone is jailed
+##
+
+local
+int prison_tag
+endlocal
+
+
+function arrest_victim
+object target
+
+# Mark the victim of the arrest, so everyone else stops trying to arrest them
+let arrested = victim
+
+if_exists victim
+	# Reset the crime flag
+	let victim.user.user19 = CRIME_NONE
+endif
+
+if victim = player
+	call find_prison
+
+	# Lock the door again
+
+	find_tag target = "stonedoor5_*" prison_tag
+	if_exists target
+		change target = "stonedoor5_lock"
+		let target.user.oldhp = target.stats.hp
+	endif
+
+	# No door?  Well 'Ard.
+
+	find_tag target = "stonedoorway*" prison_tag
+	if_exists target
+		change target = "stonedoor5_lock"
+		let target.user.oldhp = target.stats.hp
+	endif
+
+	# Chuck the player into their cell
+
+	find_tag target = "target" prison_tag # Find the player's cell
+	if_exist target
+#		cls
+		print "~You are under arrest!~"
+		printcr
+		redraw_text
+		fade_out
+		push_object victim to target.x target.y
+		if party_mode = 1
+			move_party_to target
+			spill target
+			set_leader player player_action follower_action
+		endif
+		fade_in
+	else
+#		print "No target: cannot arrest"
+		print "Did not find cell for tag "
+		print prison_tag
+		printcr
+	endif
+
+
+endif
+
+end
+
+##
+##  Find a suitable prison for the territory the player is in
+##
+
+function find_prison
+
+let current = victim
+call get_map_area
+
+get_data prison_tag WHERE jail_tag_lookup = map_area
+if err <> 0
+	let prison_tag = -10000
+endif
+
+end

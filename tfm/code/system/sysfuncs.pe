@@ -287,6 +287,7 @@ object target
 object grave
 int rx
 int ry
+int targetid = 666
 
 let SoundFixed = 0	# If we opened the Ark of Testimony, set SFX to normal
 
@@ -299,11 +300,6 @@ call unfreak
 cls
 
 # stop_music
-
-find_tag target = "target" 666			# Find a spawn-spot
-if spawn_override <> 0
-	find_tag target = "target" spawn_override
-endif
 
 find_tag temp = "dead*" 666		# Is it there?  We must know
 
@@ -360,6 +356,20 @@ redraw_text
 wait 2000 BLOCKING
 
 # Where are you going to appear?
+
+let current = temp
+call get_map_area
+get_data targetid WHERE respawn_tag_lookup = map_area
+if err <> 0
+	let targetid = 666
+endif
+
+
+find_tag target = "target" targetid	# Find a spawn-spot
+if spawn_override <> 0
+	find_tag target = "target" spawn_override
+endif
+
 
 if_not_exist target
 	let rx = temp.x

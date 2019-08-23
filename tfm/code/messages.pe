@@ -76,6 +76,22 @@ if deathcount > 0
 endif
 end
 
+##
+##  Waarg grave for player
+##
+
+function playergravew
+
+if_not_exists current
+	return
+endif
+
+if deathcount > 0
+	print "It reads 'The human stranger'."
+	printcr
+endif
+end
+
 
 function please_insert_card
 textcolour 0 200 0

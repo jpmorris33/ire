@@ -13053,6 +13053,7 @@ section: scripts
 	code/events/music.pe
 	code/events/randolph.pe
 	code/justice/justice.pe
+	code/justice/jail.pe
 	code/messages.pe
 	code/misc/bed.pe
 	code/misc/cheat.pe
@@ -13069,6 +13070,7 @@ section: scripts
 	code/misc/pwrplant.pe
 	code/misc/spelbook.pe
 	code/misc/spells.pe
+	code/misc/maparea.pe
 	code/object/arkohpoo.pe
 	code/object/bag.pe
 	code/object/bellows.pe
@@ -13448,6 +13450,47 @@ section: tables
 		player player_tiedup
 		playerf playerf_tiedup
 		playerp panther_u
+	end
+
+	name jail_tag_lookup
+	key=string
+	data=integer
+	list:
+		FAIRFORD_BASE	10001
+		HOLYLAND 	-1		# Special: the dungeon is in another map - or we could frig it and add a holding cell
+		HIGHWORTH 	10000		# Otherwise, it's New Highworth jail for you
+		
+		PANAVIUS_BASE	10001
+		AVIS		10000
+		WAARG		10002		# Also the dam, but if they can get arrested there, that's their problem
+		MAP2		10003		# Default: Have them wake up in the middle of nowhere
+
+		WILDLIFE_BASE	10001
+		SSHELTER	10002
+		OSPREY_LAKE	10003
+		DRAGON		10004
+		MAP3		10000		# Otherwise assume Church territory
+	end
+
+	name respawn_tag_lookup
+	key=string
+	data=integer
+	list:
+		FAIRFORD_BASE	10001
+		HOLYLAND 	667
+		HIGHWORTH 	666
+		CRICKLADE	668
+		
+		PANAVIUS_BASE	10001
+		AVIS		666
+		WAARG		667		# Also the dam, but if they can get arrested there, that's their problem
+		MAP2		10003		# Default: Have them wake up in the middle of nowhere
+
+		WILDLIFE_BASE	10001
+		SSHELTER	10002
+		OSPREY_LAKE	667
+		DRAGON		667
+		MAP3		666		# Otherwise assume Church territory
 	end
 
 section: tilelink

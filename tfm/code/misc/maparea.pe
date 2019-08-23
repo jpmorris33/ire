@@ -1,0 +1,112 @@
+##
+##  Find the map area the player is in, to decide where they're jailed or resurrected
+##
+
+string map_area
+
+function get_map_area
+int map
+get_mapno map
+
+let map_area = "-"
+
+if map = 1
+	# Are they in the airbase
+	if current.x >= 780
+	and current.x <= 1024
+	and current.y >= 719
+	and current.y <= 1024
+		let map_area = "FAIRFORD_BASE"
+		return
+	endif
+
+	# Are they in the Holy Land?
+	if current.x >= 425
+	and current.x <= 779
+	and current.y >= 653
+	and current.y <= 1024
+		let map_area = "HOLYLAND"
+		return
+	endif
+
+	# Otherwise, it's New Highworth jail for you
+	let map_area = "HIGHWORTH"
+	return	
+endif
+
+
+if map = 2
+	# Are they in the airbase?
+	if current.x >= 73
+	and current.x <= 230
+	and current.y >= 815
+	and current.y <= 905
+		let map_area = "PANAVIUS_BASE"
+		return
+	endif
+
+	# Are they in Avis?
+	if current.x >= 0
+	and current.x <= 290
+	and current.y >= 0
+	and current.y <= 1024
+		let map_area = "AVIS"
+		return
+	endif
+
+	# Waarg territory?
+	# (Also the dam, split this off later)
+	if current.x >= 608
+		let map_area = "WAARG"
+		return
+	endif
+
+	# Have them wake up in the middle of nowhere
+	let map_area = "MAP2"
+	return	
+endif
+
+
+if map = 3
+	# Are they in the airbase?
+	if current.x >= 655
+	and current.x <= 790
+	and current.y >= 528
+	and current.y <= 643
+		let map_area = "WILDLIFE_BASE"
+		return
+	endif
+
+	# Are they in the survival shelter?
+	if current.x >= 533
+	and current.x <= 608
+	and current.y >= 874
+	and current.y <= 995
+		let map_area = "SSHELTER"
+		return
+	endif
+
+	# Are they in the osprey village?
+	if current.x >= 618
+	and current.x <= 696
+	and current.y >= 283
+	and current.y <= 324
+		let map_area = "OSPREY_LAKE"
+		return
+	endif
+
+	# Are they in the dragon castle?
+	if current.x >= 283
+	and current.x <= 405
+	and current.y >= 51
+	and current.y <= 136
+		let map_area = "DRAGON"
+		return
+	endif
+
+	# Otherwise, assume Church territory
+	let map_area = "MAP3"
+	
+endif
+
+end
