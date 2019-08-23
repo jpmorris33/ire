@@ -13041,6 +13041,7 @@ section: scripts
 	code/creature/guard.pe
 	code/creature/hawk.pe
 	code/creature/king.pe
+	code/creature/nobles.pe
 	code/creature/monk.pe
 	code/creature/old_man.pe
 	code/creature/peasants.pe

@@ -605,8 +605,8 @@ section: characters
 	description	"You see a nobleman."
 	short		"man"
 	attack		close_attack
-	IfKilled	Noble_Dies
-	IfHurt		Noble_Hurt
+	IfKilled	Nobleman_Dies
+	IfHurt		Nobleman_Hurt
 	ifhorrified	Follower_Horror
 	biological
 	solid
@@ -1177,6 +1177,23 @@ section: characters
 	hp		100
 	weight		60000
 	description	"You see a dead woman."
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+	horrific
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 1
+	setActiveArea	H 0 0 1 1
+
+	name DEADNOBLEWOMAN
+	left		WOMAN1_DEAD
+	right		WOMAN1_DEAD
+	up		WOMAN1_DEAD
+	down		WOMAN1_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead noblewoman."
 	short		"body"
 	IfLookedAt	SearchContainer
 	container
@@ -4433,6 +4450,31 @@ section: characters
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
+
+	name WOMAN_NOBLE
+	left		WOMAN1_LEFT
+	right		WOMAN1_RIGHT
+	up		WOMAN1_UP
+	down		WOMAN1_DOWN
+	hp		100
+	dexterity	8
+	strength	9000
+	intelligence	150
+	weight		60000
+	damage		6
+	description	"You see a noblewoman."
+	short		"man"
+	attack		close_attack
+	IfKilled	Noblewoman_Dies
+	IfHurt		Noblewoman_Hurt
+	ifhorrified	Follower_Horror
+	biological
+	solid
+	person
+	female
+	fragile
+	race		human
+	rank		nobleman
 
 	name WALL_EDGE
 	left		WALL_EDGE_BL

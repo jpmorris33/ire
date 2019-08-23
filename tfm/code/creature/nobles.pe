@@ -1,0 +1,76 @@
+##
+## Peasants
+##
+
+
+##
+## Peasant Hurt
+##
+
+function nobleman_hurt
+
+# Say 'uh!'
+object_sound "uh!" current
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+# Hunt down the enemy
+if_not_flag current IS_PARTY
+	let suspect = current.enemy
+	let victim = current
+	call justice_assault
+endif
+
+end
+
+##
+## Dies
+##
+
+function nobleman_dies
+
+change current = "deadnobleman"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 40
+endif
+end
+
+##
+## Woman Hurt
+##
+
+function noblewoman_hurt
+
+# Say 'uh!'
+
+object_sound "uh2!" current
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# Hunt down the enemy
+if_not_flag current IS_PARTY
+	let suspect = current.enemy
+	let victim = current
+	call justice_assault
+endif
+
+end
+
+##
+## Woman Dies
+##
+
+function noblewoman_dies
+
+change current = "deadnoblewoman"
+object_sound "man2_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 40
+endif
+end

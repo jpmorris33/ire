@@ -290,7 +290,7 @@ if(!projectname[0])
 ifile_prefix=&projectdir[0];
 
 
-ilog_printf("IRE Editor, Copyright (C) 2012 IT-HE Software\n");
+ilog_printf("IRE Editor, Copyright (C) 2019 IT-HE Software\n");
 ilog_printf("=============================================\n");
 ilog_printf("\n");
 ilog_printf("IRE Kernel version %s%s\n",IKV,SVNREVISION);
