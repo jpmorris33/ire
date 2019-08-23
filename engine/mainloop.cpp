@@ -590,6 +590,11 @@ irecon_printf("%s does %s to %s\n",active->ptr->name,active->ptr->schedule[vx].v
 		if(show_vrm_calls)
 			ilog_quiet(">> all fall down\n");
 		CallVM("all_dead");
+
+		if(!player) {
+			Bug("Script 'all_dead' failed to create a new player!  Halting engine!\n");
+			ithe_panic("Script error: Player is NULL after processing player death.  Cannot continue.", "(damage/death tracking)");
+		}
 	}
 
 	pending_delete=1;	// Force garbage collection
