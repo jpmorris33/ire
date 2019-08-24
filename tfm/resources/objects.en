@@ -5251,6 +5251,7 @@ section: characters
 	frame		GUILLOTINE_S_UP
 	up		GUILLOTINE_S_UP
 	down		GUILLOTINE_S_DOWN
+	left		GUILLOTINE_S_DOWN
 	hp		1000000
 	weight		-1
 	description	"You see a guillotine."
@@ -5266,6 +5267,7 @@ section: characters
 	frame		GUILLOTINE_S_UP_BLOODY
 	up		GUILLOTINE_S_UP_BLOODY
 	down		GUILLOTINE_S_DOWN_BLOODY
+	left		GUILLOTINE_S_DOWN_BLOODY
 	hp		1000000
 	weight		-1
 	description	"You see a guillotine.  It has been used recently."
@@ -5299,6 +5301,7 @@ section: characters
 	frame		GUILLOTINE_W_UP
 	up		GUILLOTINE_W_UP
 	down		GUILLOTINE_W_DOWN
+	left		GUILLOTINE_W_DOWN
 	hp		1000000
 	weight		-1
 	description	"You see a guillotine."
@@ -5314,6 +5317,7 @@ section: characters
 	frame		GUILLOTINE_W_UP_BLOODY
 	up		GUILLOTINE_W_UP_BLOODY
 	down		GUILLOTINE_W_DOWN_BLOODY
+	left		GUILLOTINE_W_DOWN_BLOODY
 	hp		1000000
 	weight		-1
 	description	"You see a guillotine.  It has been used recently."

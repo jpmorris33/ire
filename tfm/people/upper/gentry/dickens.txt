@@ -1,3 +1,173 @@
-[page="start"]
 
+[page="start"]
+[learn_name]
+
+"Well met.  I am Dickens, mayor of Avis.
+ I bid you welcome to our town."
+
+[link="Tell me about Avis."]
+[linkto="avis"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
 [endpage]
+
+
+[page="startname"]
+
+"Ah, welcome back.
+
+ How can I assist you?"
+
+[if_got_heads][link="I have some bandits to turn in."]
+[if_got_heads][linkto="bandit_heads"]
+[link="Tell me about Avis."]
+[linkto="avis"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+
+"I rule Avis, reporting to his majesty, King Edwyg.
+ We are but a small farming community, so there is usually
+ little trouble.
+
+ However, the town is popular with adventurers come to seek
+ their fortune.  Some do cause trouble and must be dealt with."
+
+[link="Tell me about Avis."]
+[linkto="avis"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="avis"]
+
+"We are a small farming community.  Lately monsters have been coming from
+ the caves in the north, devouring our livestock and sometimes our citizens.
+ Bandits attacks have been increasing of late, possibly because the tithings
+ have increased again."
+
+
+[link="Tell me about the monsters."]
+[linkto="monsters"]
+[link="Tell me about the bandits."]
+[linkto="bandits"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="tithes"]
+
+"The tithes are a fee which we must pay the LORD and his assistants
+ on this world.  He has done so much for us, it is only fair that we
+ show Him our appreciation in this way.
+
+ However, it does cause problems for those who are less able to pay."
+
+[link="Tell me about the monsters."]
+[linkto="monsters"]
+[link="Tell me about the bandits."]
+[linkto="bandits"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bandits"]
+
+"There are a number of fell thieves in the woods, stealing sheep and
+ waylaying travellers.  Several traders have gone missing, and we
+ suspect foul murder.
+
+"To this end, the King has authorised a bounty for their execution.
+ If you bring to me their heads as proof, I shall pay you 250 gold coins
+ for each bandit slain."
+
+[link="Tell me about the monsters."]
+[linkto="monsters"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="monsters"]
+
+"They come from the mountains to the north, slaying our animals and
+ sometimes our men.
+
+ It may be that we can find a mage to seal off the cave by our fields,
+ for that should reduce their number such that our adventurers can
+ see off the rest.  Though the Church does not approve of such things."
+
+[link="Tell me about the bandits."]
+[linkto="bandits"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bandit_heads"]
+[]
+
+Player has brought some severed heads.  Take the ones which are bandits.
+
+"Aye, this rogue is known to us.  Thank you for bringing them to justice."
+
+
+[link="Tell me about the monsters."]
+[linkto="monsters"]
+[link="Tell me about the tithes."]
+[linkto="tithes"]
+[link="Tell me about your job."]
+[linkto="job"]
+[link="Bye."]
+[linkto="bye"]
+[endpage]
+
+
+Player has decapitated someone else and brought their head
+
+[page="bandit_heads2"]
+[colour="#808080"]
+The mayor stares at the head in shock and disbelief.
+[colour="#ffffff"]
+
+"By the LORD!  This is no bandit!  MURDER!"
+
+[nextpage="hang_player"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare you well!"
+
+[nextpage="exit"]
+[endpage]
+
