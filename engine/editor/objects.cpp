@@ -66,6 +66,7 @@ extern OBJECT *cutbag;
 static char last_sprite[256];  // Type of the Last sprite that was created
 static int  last_dir=0;
 static OBJECT *pocsel=NULL;
+static OBJECT *lastOwner=NULL;
 int DirU_Id=-1,DirD_Id=-1,DirL_Id=-1,DirR_Id=-1;
 int obj_xId=-1,obj_yId=-1,obj_name_Id=-1,obj_pname_Id=-1,obj_oname_Id=-1,obj_loc_Id=-1;
 static char **UserList;
@@ -204,6 +205,7 @@ static void SetOwner();
 static void OBO_MakePublic();
 static void OBO_FromList();
 static void OBO_MakeOwner();
+static void OBO_LastOwner();
 //static void FG_Animate(); unused function
 static void OB_SetLocation();
 static void MassSetOwner();
@@ -489,8 +491,7 @@ if(objsel->flags & IS_QUANTITY)
  *                    (kind of drive-thru object creation)
  */
 
-void OB_QuickInsert()
-{
+void OB_QuickInsert() {
 int click_x,click_y,char_id;
 OBJECT *obtemplate;
 OBJECT *a;
@@ -498,11 +499,10 @@ OBJECT *a;
 obtemplate=objsel;
 
 char_id = getnum4char(last_sprite);
-if(char_id == -1)     // Is it valid?
-	{
+if(char_id == -1) {     // Is it valid?
 	OB_SlowInsert();                    // No, do it the slow way
 	return;
-	}
+}
 
 // First do a quick bounds check, to prevent the creation of sprites
 // where the user can't actually see.
@@ -536,23 +536,24 @@ OB_Init(objsel,last_sprite);    // Re-evaluate the character
 ShrinkDecor(objsel);			// Save memory if possible
 
 // If we're decorative, skip the rest of the doings
-if(objsel->user->edecor)
-	{
+if(objsel->user->edecor) {
 	DrawMap(mapx,mapy,1,l_proj,0);
 	return;
-	}
+}
 
 Deal_With_Contents(objsel);     // Create/destroy any contents
 OB_Dir(last_dir);               // Set the direction
 
-if(obtemplate)
-	{
+if(obtemplate) {
 	a = objsel->stats->owner.objptr;   // Preserve pointers
 	strcpy(objsel->personalname,obtemplate->personalname);
 	memcpy(objsel->funcs,obtemplate->funcs,sizeof(FUNCS));
 	memcpy(objsel->stats,obtemplate->stats,sizeof(STATS));
 	objsel->stats->owner.objptr=a;     // Restore pointers
+	if(obtemplate->labels->location) {
+		SetLocation(objsel,obtemplate->labels->location);
 	}
+}
 
 OB_Update();                    // Sort out the direction display
 
@@ -651,6 +652,10 @@ if(!objsel)
 //	Notify(-1,-1,"No sprite has been selected.","You must pick a sprite before you can delete it.");
 	return;
 	}
+
+if(objsel==lastOwner) {
+	lastOwner = NULL;
+}
 
 if(objsel==curmap->object)                       // This can't happen
 	{
@@ -2506,8 +2511,20 @@ IG_TextButton(300,300,"Make Public Property",OBO_MakePublic,NULL,NULL);
 
 IG_TextButton(300,332," Choose from a list ",OBO_FromList,NULL,NULL);
 
-IG_TextButton(300,364,"  Cancel and Abort  ",OB_GoFocal,NULL,NULL);
+IG_TextButton(300,364,"  Reuse last owner  ",OBO_LastOwner,NULL,NULL);
+IG_AddKey(IREKEY_R,OBO_LastOwner);
+
+IG_TextButton(300,396,"  Cancel and Abort  ",OB_GoFocal,NULL,NULL);
 IG_AddKey(IREKEY_ESC,OB_GoFocal);
+
+IG_Text(VIEWX+4,356,"Previous owner:",ITG_WHITE);
+IG_BlackPanel(VIEWX,368,256,16);
+if(lastOwner) {
+	IG_Text(VIEWX+4,372,lastOwner->personalname,ITG_WHITE);
+} else {
+	IG_Text(VIEWX+4,372,"No previous owner",ITG_WHITE);
+}
+
 
 edit_mode = 1;
 
@@ -2516,7 +2533,15 @@ IG_WaitForRelease();
 
 void OBO_MakePublic()
 {
+lastOwner = NULL;
 SetOwnerRecursively(objsel, NULL);
+OB_GoFocal();
+IG_WaitForRelease();
+}
+
+void OBO_LastOwner()
+{
+SetOwnerRecursively(objsel, lastOwner);
 OB_GoFocal();
 IG_WaitForRelease();
 }
@@ -2622,6 +2647,7 @@ M_free(mlist);
 
 if(!stricmp(name,"-"))
     {
+    lastOwner = NULL;
     SetOwnerRecursively(objsel, NULL);
     OB_GoFocal();
     IG_WaitForRelease();
@@ -2637,6 +2663,7 @@ for(x=0;x<curmap->w;x++)
             if(a->personalname && a->flags&IS_PERSON)
                 if(!stricmp(name,a->personalname))
                     {
+		    lastOwner = objsel;
 		    SetOwnerRecursively(objsel, a);
                     OB_GoFocal();
                     return;
@@ -2646,6 +2673,7 @@ for(x=0;x<curmap->w;x++)
 // Set it to be public to avoid nasty accident
 
 Notify(-1,-1,"Oh bugger!",NULL);
+lastOwner = NULL;
 SetOwnerRecursively(objsel, NULL);
 OB_GoFocal();
 IG_WaitForRelease();
@@ -2674,9 +2702,11 @@ if(objsel) {                       // If an object was selected
 
     if(!objsel->personalname) {
         if(Confirm(-1,-1,"The chosen object doesn't have an individual name!","Are you sure you want to do this?")) {
+	   lastOwner = objsel;
 	   SetOwnerRecursively(a,objsel);
         }
     } else {
+	lastOwner = objsel;
 	SetOwnerRecursively(a,objsel);
     }
 }
@@ -2762,6 +2792,7 @@ for(x=0;x<curmap->w;x++)
 				if(!stricmp(name,a->personalname))
 					{
 					owner = a;
+					lastOwner = a;
 					break;
 					}
 
