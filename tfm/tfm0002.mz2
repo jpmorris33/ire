@@ -1918,6 +1918,14 @@ iMZ2r01
 	roof 38 at 522 41
 	roof 38 at 523 41
 	roof 38 at 524 41
+	roof 38 at 526 41
+	roof 38 at 527 41
+	roof 38 at 528 41
+	roof 38 at 529 41
+	roof 38 at 530 41
+	roof 38 at 531 41
+	roof 38 at 532 41
+	roof 38 at 533 41
 	roof 38 at 498 42
 	roof 38 at 499 42
 	roof 38 at 500 42
@@ -1943,6 +1951,14 @@ iMZ2r01
 	roof 38 at 522 42
 	roof 38 at 523 42
 	roof 38 at 524 42
+	roof 38 at 526 42
+	roof 38 at 527 42
+	roof 38 at 528 42
+	roof 38 at 529 42
+	roof 38 at 530 42
+	roof 38 at 531 42
+	roof 38 at 532 42
+	roof 38 at 533 42
 	roof 38 at 498 43
 	roof 38 at 499 43
 	roof 38 at 500 43
@@ -1968,6 +1984,14 @@ iMZ2r01
 	roof 38 at 522 43
 	roof 38 at 523 43
 	roof 38 at 524 43
+	roof 38 at 526 43
+	roof 38 at 527 43
+	roof 38 at 528 43
+	roof 38 at 529 43
+	roof 38 at 530 43
+	roof 38 at 531 43
+	roof 38 at 532 43
+	roof 38 at 533 43
 	roof 38 at 498 44
 	roof 38 at 499 44
 	roof 38 at 500 44
@@ -1993,6 +2017,14 @@ iMZ2r01
 	roof 38 at 522 44
 	roof 38 at 523 44
 	roof 38 at 524 44
+	roof 38 at 526 44
+	roof 38 at 527 44
+	roof 38 at 528 44
+	roof 38 at 529 44
+	roof 38 at 530 44
+	roof 38 at 531 44
+	roof 38 at 532 44
+	roof 38 at 533 44
 	roof 38 at 498 45
 	roof 38 at 499 45
 	roof 38 at 500 45
@@ -2020,6 +2052,14 @@ iMZ2r01
 	roof 38 at 522 45
 	roof 38 at 523 45
 	roof 38 at 524 45
+	roof 38 at 526 45
+	roof 38 at 527 45
+	roof 38 at 528 45
+	roof 38 at 529 45
+	roof 38 at 530 45
+	roof 38 at 531 45
+	roof 38 at 532 45
+	roof 38 at 533 45
 	roof 38 at 498 46
 	roof 38 at 499 46
 	roof 38 at 500 46
@@ -2047,6 +2087,14 @@ iMZ2r01
 	roof 38 at 522 46
 	roof 38 at 523 46
 	roof 38 at 524 46
+	roof 38 at 526 46
+	roof 38 at 527 46
+	roof 38 at 528 46
+	roof 38 at 529 46
+	roof 38 at 530 46
+	roof 38 at 531 46
+	roof 38 at 532 46
+	roof 38 at 533 46
 	roof 38 at 498 47
 	roof 38 at 499 47
 	roof 38 at 500 47
@@ -2074,6 +2122,14 @@ iMZ2r01
 	roof 38 at 522 47
 	roof 38 at 523 47
 	roof 38 at 524 47
+	roof 38 at 526 47
+	roof 38 at 527 47
+	roof 38 at 528 47
+	roof 38 at 529 47
+	roof 38 at 530 47
+	roof 38 at 531 47
+	roof 38 at 532 47
+	roof 38 at 533 47
 	roof 38 at 498 48
 	roof 38 at 499 48
 	roof 38 at 500 48
@@ -2101,6 +2157,14 @@ iMZ2r01
 	roof 38 at 522 48
 	roof 38 at 523 48
 	roof 38 at 524 48
+	roof 38 at 526 48
+	roof 38 at 527 48
+	roof 38 at 528 48
+	roof 38 at 529 48
+	roof 38 at 530 48
+	roof 38 at 531 48
+	roof 38 at 532 48
+	roof 38 at 533 48
 	roof 38 at 498 49
 	roof 38 at 499 49
 	roof 38 at 500 49
@@ -10980,9 +11044,7 @@ iMZ2r01
 	roof 62 at 175 635
 	roof 63 at 176 635
 	roof 64 at 177 635
-	roof 63 at 178 635
-	roof 64 at 179 635
-	roof 63 at 180 635
+	roof 126 at 178 635
 	roof 64 at 181 635
 	roof 63 at 182 635
 	roof 64 at 183 635
