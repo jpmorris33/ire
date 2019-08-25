@@ -85,7 +85,7 @@ if_exists current
 		    let dest = null
 		endif
 
-		if_not_flag current IS_PARTY
+		if_not_flag current IN_PARTY
 			print "~AAAAAAAAAAAAAAAAH!~"
 			printcr
 			let suspect = player

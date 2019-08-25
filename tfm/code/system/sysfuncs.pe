@@ -387,7 +387,7 @@ check_hurt temp				# Keep it in sync
 
 let temp.user.user0 = 0			# Take the drugs away
 add_member temp
-set_flag temp IS_PARTY = 1
+set_flag temp IN_PARTY = 1
 set_leader temp player_action follower_action
 
 # if the player isn't first in the party, swap with the new first member

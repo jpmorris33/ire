@@ -17,7 +17,7 @@ let splatvictim = current
 call splat_blood
 
 # Hunt down the enemy
-if_not_flag current IS_PARTY
+if_not_flag current IN_PARTY
 	let suspect = current.enemy
 	let victim = current
 	call justice_assault
@@ -54,7 +54,7 @@ let splatvictim = current
 call splat_blood
 
 # Hunt down the enemy
-if_not_flag current IS_PARTY
+if_not_flag current IN_PARTY
 	let suspect = current.enemy
 	let victim = current
 	call justice_assault

@@ -17,7 +17,7 @@ int weight2
 object oldbag
 
 # Only a party member
-if_not_flag me IS_PARTY
+if_not_flag me IN_PARTY
 	return
 endif
 

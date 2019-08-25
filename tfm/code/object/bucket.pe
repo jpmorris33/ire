@@ -47,7 +47,7 @@ if bucket is called "bucket_water"
 	# Pour it on something/someone
 	
 	if_exist current
-		if_flag current IS_PARTY
+		if_flag current IN_PARTY
 			if me = player
 				print "(slurp)"
 			endif
@@ -140,7 +140,7 @@ if bucket is called "bucket_milk"
 	# Pour it on something/someone
 	
 	if_exist current
-		if_flag current IS_PARTY
+		if_flag current IN_PARTY
 			if me = player
 				print "(slurp) ~Luvvly!~"
 			endif
@@ -215,7 +215,7 @@ if bucket is called "bucket_blood"
 	# Pour it on something/someone
 	
 	if_exist current
-		if_flag current IS_PARTY
+		if_flag current IN_PARTY
 			if me = player
 				# get vampirical
 				print "(slurp) ~Muahahahaha!~"

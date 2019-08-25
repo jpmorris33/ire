@@ -13632,7 +13632,6 @@ section: characters
 	ifwielded	toggle_forcefield
 	fixed
 	invisible
-#	system		# This will stop the user seeing it
 
 	name MAGIC_BARRIER
 	left		BLUE
@@ -13648,7 +13647,8 @@ section: characters
 	oninit		start_barrier
 	IfKilled	respawn
 	ifwielded	toggle_barrier
-	invisible
+#	invisible
+	semivisible
 	solid
 	fixed
 

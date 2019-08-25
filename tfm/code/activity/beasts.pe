@@ -338,7 +338,7 @@ object bunny
 find_tag rick = "man_boy" -616
 if_exists rick
 	if_onscreen rick
-		if_flag rick IS_PARTY
+		if_flag rick IN_PARTY
 			print "~BUNNY!~"
 			printcr
 		endif

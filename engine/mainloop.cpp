@@ -183,7 +183,7 @@ if(!player)
 if(!party[0])	{
 	party[0] = player;      // Init party
 	strcpy(partyname[0],BestName(player));
-	player->flags |= IS_PARTY;  // Make sure
+	player->stats->npcflags |= IN_PARTY;  // Make sure
 }
 
 ilog_quiet("Player =%x\n",player);
@@ -527,7 +527,7 @@ do {
 			if(active->ptr->stats->hp>0 && (active->ptr->stats->npcflags & NO_SCHEDULE) == 0)	{
 				// Are any schedules due?
 				if(active->ptr->schedule)
-					if((active->ptr->flags & IS_ON) && (active->ptr->flags & IS_PARTY) == 0)
+					if((active->ptr->flags & IS_ON) && ((active->ptr->stats->npcflags & STRIPNPC) & IN_PARTY) == 0)
 						for(vx=0;vx<24;vx++)	{
 							if(!active->ptr->schedule[vx].active)
 								continue;
@@ -1224,7 +1224,7 @@ for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 	}
 party[0]=player;
 strcpy(partyname[0],BestName(player));
-player->flags |= IS_PARTY;
+player->stats->npcflags |= IN_PARTY;
 
 return 1;
 }
@@ -1311,11 +1311,10 @@ if((o->flags & IS_ON) == 0)
 	return;
 	}
 
-if(o->flags & IS_PARTY)
-	{
+if((o->stats->npcflags&STRIPNPC) & IN_PARTY) {
 	DEBUG_RESACT_PRINT("%s is of the party\n",BestName(o));
 	return;
-	}
+}
 
 if(o->stats->hp<=0)
 	{

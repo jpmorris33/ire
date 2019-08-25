@@ -22,7 +22,7 @@ call splat_blood
 
 # If the attacker is an intelligent creature
 
-if_not_flag current IS_PARTY
+if_not_flag current IN_PARTY
 	if_exist current.enemy
 		if_flag current.enemy IS_PERSON
 			let victim = current

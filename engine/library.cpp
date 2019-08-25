@@ -198,7 +198,6 @@ char speech[128];
 char user1[128];
 char user2[128];
 int tcache;
-int partie;     // Must preserve this for dead party members
 
 CHECK_OBJECT(obj);
 
@@ -209,7 +208,6 @@ if(obj && name)
 	if(obj->flags & IS_SYSTEM)	// Mustn't change a system object, that's bad
 		return;
 
-	partie = obj->flags & IS_PARTY;
 	memcpy(&ostats,obj->stats,sizeof(STATS));
 	strcpy(resname,obj->funcs->resurrect);
 	strcpy(speech,obj->funcs->talk);
@@ -224,7 +222,6 @@ if(obj && name)
 	strcpy(obj->funcs->talk,speech);
 	strcpy(obj->funcs->user1,user1);
 	strcpy(obj->funcs->user2,user2);
-	obj->flags |= partie;
 	obj->funcs->tcache = tcache;
 	AL_Add(&ActiveList,obj); // Make active (if it can be)
 	}

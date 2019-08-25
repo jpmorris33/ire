@@ -23,7 +23,7 @@ let splatvictim = current
 call splat_blood
 
 # If the attacker is an intelligent creature
-if_not_flag current IS_PARTY
+if_not_flag current IN_PARTY
 	if_exist current.enemy
 		if_flag current.enemy IS_PERSON
 #			call drive_away
@@ -50,7 +50,7 @@ call splat_blood
 
 # If the attacker is an intelligent creature
 
-if_not_flag current IS_PARTY
+if_not_flag current IN_PARTY
 	if_exist current.enemy
 		if_flag current.enemy IS_PERSON
 			call justice_Htreason
@@ -93,7 +93,7 @@ set_user_flag "warg_regicide" = 1
 # If the attacker is an intelligent creature
 
 /*
-if_not_flag current IS_PARTY
+if_not_flag current IN_PARTY
 	if_exist current.enemy
 		if_flag current.enemy IS_PERSON
 			call justice_HTreason

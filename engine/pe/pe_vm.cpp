@@ -3227,7 +3227,7 @@ if(!*obj)
 	return;
 	}
 
-partie = (*obj)->flags & IS_PARTY;
+//partie = (*obj)->flags & IS_PARTY; // This is in stats now
 memcpy(&ostats,(*obj)->stats,sizeof(STATS));
 strcpy(resname,(*obj)->funcs->resurrect);
 strcpy(speech,(*obj)->funcs->talk);
@@ -3242,8 +3242,8 @@ strcpy((*obj)->personalname,pname);
 strcpy((*obj)->funcs->talk,speech);
 strcpy((*obj)->funcs->user1,user1);
 strcpy((*obj)->funcs->user2,user2);
-(*obj)->flags &= ~IS_PARTY;
-(*obj)->flags |= partie;
+//(*obj)->flags &= ~IS_PARTY;
+//(*obj)->flags |= partie;
 
 (*obj)->funcs->tcache = tcache;
 AL_Add(&ActiveList,*obj); // Make active (if it can be)
@@ -3278,7 +3278,7 @@ if(type == -1)
 	return;
 	}
 
-partie = (*obj)->flags & IS_PARTY;
+//partie = (*obj)->flags & IS_PARTY;
 memcpy(&ostats,(*obj)->stats,sizeof(STATS));
 strcpy(resname,(*obj)->funcs->resurrect);
 strcpy(speech,(*obj)->funcs->talk);
@@ -3289,8 +3289,8 @@ memcpy((*obj)->stats,&ostats,sizeof(STATS));
 strcpy((*obj)->funcs->resurrect,resname);
 strcpy((*obj)->personalname,pname);
 strcpy((*obj)->funcs->talk,speech);
-(*obj)->flags &= ~IS_PARTY;
-(*obj)->flags |= partie;
+//(*obj)->flags &= ~IS_PARTY;
+//(*obj)->flags |= partie;
 (*obj)->funcs->tcache = tcache;
 AL_Add(&ActiveList,*obj); // Make active (if it can be)
 }

@@ -712,7 +712,7 @@ if_not_flag current IS_PERSON
 endif
 
 # Definitely not
-if_flag current IS_PARTY
+if_flag current IN_PARTY
 	return
 endif
 
@@ -1275,7 +1275,7 @@ for ctr = 1 to 1000
 		let ok = 1
 
 		# Do we want it broken?
-		if_flag list[ctr] IS_PARTY
+		if_flag list[ctr] IN_PARTY
 			let ok = 0
 		endif
 
@@ -1653,7 +1653,7 @@ let spelltarget.user.user16 = TINT_CYAN	# guess
 overfx spelltarget does fx_bouncecorona
 
 # Start the stuff
-if_flag spelltarget IS_PARTY
+if_flag spelltarget IN_PARTY
 	add_member spelltarget
 endif
 reset_flag spelltarget IS_CRITICAL
@@ -2124,7 +2124,7 @@ if_exists stone.parent
 	let stonebag = stone.parent
 
 	# If the player is holding the destination stone..
-	if_flag stonebag IS_PARTY
+	if_flag stonebag IN_PARTY
 		goto crucify
 	endif
 

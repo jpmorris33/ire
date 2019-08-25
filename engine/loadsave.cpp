@@ -40,6 +40,7 @@ static IFILE *ofp;
 static unsigned int fastfind_id_num=0;
 static OBJECT **fastfind_id_list=NULL;
 static USEDATA empty;
+static int save_version=1;
 
 // Functions
 
@@ -904,23 +905,29 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// flags <num>
-	if(!istricmp(first,"flags"))
-		{
+	if(!istricmp(first,"flags")) {
 		sscanf(strfirst(strrest(l)),"%x",&num);
 		if(!num)
 			Bug("load_mz1: flags = 0 in file %s at line %d\n",filename,ctr);
 		// Cram the flags in place
 
 		// Do we want to load the flags in? (Are we doing a total restore?)
-		if(fullrestore)
-			{
+		if(fullrestore)	{
+			if(save_version == 0) {
+				if(num & IS_SEMIVISIBLE) {
+					ilog_quiet("load_mz1: Old-format savegame, workaround for flag loading\n");
+				}
+				// Strip out the semi-visible flag (was IS_PARTY)
+				num &= ~IS_SEMIVISIBLE;
+			}
 			temp->flags = num;
 			// Make it active
-			if(!ML_InList(&ActiveList,temp))
+			if(!ML_InList(&ActiveList,temp)) {
 				AL_Add(&ActiveList,temp);
 			}
-		continue;
 		}
+		continue;
+	}
 
 	// Do we care about Width and Height? (Only if restoring a savegame)
 	if(fullrestore)
@@ -1902,7 +1909,7 @@ for(ctr=0;ctr<MAX_MEMBERS;ctr++)
 		if(ok)
 			{
 			party[slot]=o;
-			party[slot]->flags |= IS_PARTY;
+			party[slot]->stats->npcflags |= IN_PARTY;
 			slot++;
 			}
 		}
@@ -2304,42 +2311,37 @@ if(!GetWadEntry(ifp,"NPCWIELD"))
 	
 num = igetl_i(ifp);
 ctr2 = igetl_i(ifp);
-for(ctr=0;ctr<num;ctr++)
-	{
+for(ctr=0;ctr<num;ctr++) {
 	saveid = igetl_i(ifp);
 	o = find_id(saveid);
 	if(!o)
 		ithe_panic("Load_miscellaneous_state (wieldtab): Can't find object","Savegame corrupted");
 
-	if(fullrestore || !(o->flags & IS_PARTY))
-		{
+	if(fullrestore || !((o->stats->npcflags&STRIPNPC) & IN_PARTY)) {
 		memset(o->wield,0,sizeof(WIELD)); // Default to blank, unless a party member changing map
-		}
+	}
 
-	for(ctr3=0;ctr3<ctr2;ctr3++)
-		{
+	for(ctr3=0;ctr3<ctr2;ctr3++) {
 		saveid = igetl_i(ifp);
-		if(saveid != SAVEID_INVALID)
-			{
+		if(saveid != SAVEID_INVALID) {
 			o2 = find_id(saveid);
-			if(!o2)
-				{
+			if(!o2) {
 				ilog_quiet("Did not find id %ld\n",saveid);
 				ilog_quiet("WARNING: Did not find object in wieldtab(2) while loading map \n");
 				if(fullrestore)
 					ithe_panic("Load_miscellaneous_state (wieldtab2): Can't find object","Savegame corrupted");
-				}
+			}
 
 			// Don't actually do it if the map is changing and it's a party member being done
 			// Otherwise, the objects they're wielding will change from one map to the other
-			if(fullrestore || !(o->flags & IS_PARTY))
-				{
-				if(o2)
+			if(fullrestore || !((o->stats->npcflags & STRIPNPC) & IN_PARTY))	{
+				if(o2) {
 					SetWielded(o,ctr3,o2);
 				}
 			}
 		}
 	}
+}
 
 // Load Global Integers (old format for backwards compatibility only)
 if(fullrestore)	// Not for changing map
@@ -3118,6 +3120,11 @@ if(strncmp(sigtemp,COOKIE_SAVEFILE,4))	{
 	iseek(fp,40,SEEK_SET);
 }
 
+save_version = 1;
+if(!strncmp(&sigtemp[4],BINCOOKIE_R00,4)) {
+	save_version = 0; // Workaround for party flag change
+}
+
 title=strLocalBuf(); // Allocate a 'local' buffer
 
 // Get world number
@@ -3147,7 +3154,7 @@ SAFE_STRCPY(stemp,fname);
 fp=iopen_write(fname);
 // Write magic cookie
 iwrite((unsigned char *)COOKIE_SAVEFILE,4,fp);
-iwrite((unsigned char *)BINCOOKIE_R00,4,fp);
+iwrite((unsigned char *)BINCOOKIE_R01,4,fp);
 
 // Write current map number
 iputl_i(world,fp);

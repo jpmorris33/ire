@@ -265,7 +265,7 @@ if_exists current.enemy
 	# Give experience
 	add current.enemy.user.experience + current.maxstats.hp
 /*
-	if_flag current.enemy IS_PARTY
+	if_flag current.enemy IN_PARTY
 		print_bestname current.enemy
 		print " gains experience "
 		print current.enemy.name

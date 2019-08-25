@@ -47,7 +47,8 @@ long blanking_off=0;	   // Display everything, visible or no?
 long change_map=0,change_map_x,change_map_y,change_map_tag=0;
 
 // Global vars, intended for use with the conversation engine
-long pe_usernum1,pe_usernum2,pe_usernum3,pe_usernum4,pe_usernum5;
+VMINT pe_usernum1,pe_usernum2,pe_usernum3,pe_usernum4,pe_usernum5;
+char *pe_userstr1=NULL, *pe_userstr2=NULL, *pe_userstr3=NULL, *pe_userstr4=NULL, *pe_userstr5=NULL;
 
 // Map window info
 

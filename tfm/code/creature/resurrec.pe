@@ -70,7 +70,7 @@ if victim.funcs.resurrect <> ""
 		let victim.user.oldhp = 10
 
 		# If it's a dead follower...
-		if_flag victim IS_PARTY
+		if_flag victim IN_PARTY
 			add_member victim
 			call check_playerisfirst
 			start_action victim does "follower_action"
@@ -163,7 +163,7 @@ let spelltarget.user.user16 = TINT_CYAN	# guess
 overfx spelltarget does fx_bouncecorona
 
 # If it's a dead follower...
-if_flag spelltarget IS_PARTY
+if_flag spelltarget IN_PARTY
 	add_member spelltarget
 	call check_playerisfirst
 	start_action spelltarget does "follower_action"

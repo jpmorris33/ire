@@ -706,7 +706,7 @@ if_not_exists prey
 endif
 
 # Don't eat a party member
-if_flag prey IS_PARTY
+if_flag prey IN_PARTY
 	let me.enemy = null
 	let me.target = null
 	resume_activity me

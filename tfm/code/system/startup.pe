@@ -259,7 +259,7 @@ if bx = 0
 		replace player = "playerp"
 		let splayername = "Pidge"
 		let PlayerMF = 1
-		set_flag player IS_PARTY = 1
+		set_flag player IN_PARTY = 1
 		set_leader player player_action follower_action
 	endif
 

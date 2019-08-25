@@ -637,7 +637,7 @@ if(isSolid(x,y))
 		swap=0;
 
 		// The player wants to stand where a member is
-		if(temp->flags & IS_PARTY)
+		if((temp->stats->npcflags & STRIPNPC) & IN_PARTY)
 			if(object==player)
 				swap=1;
 
@@ -1791,7 +1791,7 @@ for(ctr=0;ctr<MAX_MEMBERS;ctr++)
 //ilog_quiet("addtoparty (%d)\n",follower);
 		SubAction_Wipe(new_member);
 		ActivityNum(new_member,Sysfunc_follower,NULL);
-		new_member->flags |= IS_PARTY;
+		new_member->stats->npcflags |= IN_PARTY;
 		return ctr;
 		}
 return -1;
@@ -1821,7 +1821,7 @@ if(pos == -1)
 
 if(member->stats->hp>0)
 	{
-	member->flags &= ~IS_PARTY;
+	member->stats->npcflags &= ~IN_PARTY;
 	ResumeSchedule(member);
     }
 else

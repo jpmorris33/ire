@@ -49,7 +49,8 @@ extern long blanking_off;
 extern long change_map,change_map_x,change_map_y,change_map_tag;
 
 // Global vars, intended for use with the conversation engine
-extern long pe_usernum1,pe_usernum2,pe_usernum3,pe_usernum4,pe_usernum5;
+extern VMINT pe_usernum1,pe_usernum2,pe_usernum3,pe_usernum4,pe_usernum5;
+extern char *pe_userstr1,*pe_userstr2,*pe_userstr3,*pe_userstr4,*pe_userstr5;
 
 
 extern OBJECT *largemap[LMSIZE][LMSIZE];  // Large Object caches

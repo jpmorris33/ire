@@ -592,7 +592,7 @@ for(vy=starty;vy<VSH;vy++)
 
 				if(ok || temp->form->flags & SEQFLAG_WALL) // walls sprites
 					{
-					if(!(temp->flags & IS_INVISIBLE) || show_invisible)
+					if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible)
 						{
 						cx=vx+x;
 						cy=vy+y;
@@ -693,7 +693,7 @@ SEQ_POOL *project;
 // Now we plot the object with the CLIP method
 // <<5 multiplies by 32, converting the map coordinates into pixels.
 
-if(!(temp->flags & IS_INVISIBLE) || show_invisible)
+if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible)
 	{
 	// Project the sprite
 	project = temp->form;

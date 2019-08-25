@@ -54,7 +54,7 @@ if me.user.vigilante <> 0
 endif
 
 # Seen a dead body
-if_flag current IS_PARTY
+if_flag current IN_PARTY
 	start_action me does attack_party to current
 	# attacking, ignore any further 'horrors'
 	let me.user.vigilante = 1
@@ -105,7 +105,7 @@ endif
 #object_sound "uh!" current
 
 # Bring on the Guards
-if_not_flag current IS_PARTY		# This shouldn't happen anyway
+if_not_flag current IN_PARTY		# This shouldn't happen anyway
 	if_exist current.enemy
 		if_flag current.enemy IS_PERSON
 			let victim = current
@@ -176,7 +176,7 @@ endif
 let splatvictim = current
 call splat_spark
 
-if_flag current IS_PARTY
+if_flag current IN_PARTY
 	return
 endif
 
@@ -226,7 +226,7 @@ if_exists head
 	let head.stats.weight = 25000	# head was 1kg, now 25 with body
 
 	# If they were of the party, make sure they still are
-	if_flag head IS_PARTY
+	if_flag head IN_PARTY
 		add_member head
 		call check_playerisfirst
 		start_action head does "follower_action"

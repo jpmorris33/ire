@@ -138,7 +138,7 @@ if key = KEY_L
 				print "You see yourself"
 				printcr
 			else
-				if_flag current KNOW_NAME #IS_PARTY
+				if_flag current KNOW_NAME #IN_PARTY
 					print "You see "
 					print_bestname current
 					printcr

@@ -562,7 +562,7 @@ function wield_wargweapon
 # Ye are a Warg, right?
 
 if me.label.race <> "waarg"
-	if_flag me IS_PARTY
+	if_flag me IN_PARTY
 		print "This weapon isn't suitable for "
 		print_best_name me
 		print "."
@@ -646,7 +646,7 @@ end
 function wield_panther
 
 if me.label.race <> "panther"
-	if_flag me IS_PARTY
+	if_flag me IN_PARTY
 		print "It won't fit!"
 		printcr
 	endif

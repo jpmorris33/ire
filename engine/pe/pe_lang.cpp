@@ -3446,6 +3446,11 @@ add_symbol_ptr("usernum2",'i',&pe_usernum2);
 add_symbol_ptr("usernum3",'i',&pe_usernum3);
 add_symbol_ptr("usernum4",'i',&pe_usernum4);
 add_symbol_ptr("usernum5",'i',&pe_usernum5);
+add_symbol_ptr("userstr1",'s',&pe_userstr1); 
+add_symbol_ptr("userstr2",'s',&pe_userstr2);
+add_symbol_ptr("userstr3",'s',&pe_userstr3);
+add_symbol_ptr("userstr4",'s',&pe_userstr4);
+add_symbol_ptr("userstr5",'s',&pe_userstr5);
 
 // These are the supported math operators
 
@@ -3515,7 +3520,7 @@ ADD_CONST(IS_SOLID);
 ADD_CONST(IS_FRAGILE);
 ADD_CONST(IS_TRIGGER);
 ADD_CONST(IS_INVISIBLE);
-ADD_CONST(IS_PARTY);
+ADD_CONST(IS_SEMIVISIBLE);
 ADD_CONST(IS_FIXED);
 ADD_CONST(IS_CONTAINER);
 ADD_CONST(IS_TRANSLUCENT);
@@ -3563,6 +3568,7 @@ ADD_CONST(NO_SCHEDULE);
 ADD_CONST(IS_OVERDUE);
 ADD_CONST(IS_WIELDED);
 ADD_CONST(IS_ROBOT);
+ADD_CONST(IN_PARTY);
 
 // Keys
 

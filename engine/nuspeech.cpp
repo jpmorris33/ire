@@ -94,8 +94,6 @@ extern int IsOnscreen(char *pname);
 extern int SumObjects(OBJECT *cont, char *name, int total);
 extern void CheckSpecialKeys(int k);
 
-extern long pe_usernum1,pe_usernum2,pe_usernum3,pe_usernum4,pe_usernum5;
-
 //
 //  This is the structure of the links[] array.
 //  There are ten links.  Each link has five 256-byte arrays attached to it.
@@ -123,8 +121,8 @@ int NPC_Converse(const char *file,const char *startpage)
 {
 int k,lines,talking,ctr,jumpline,ready,ret;
 char msg[5];
-char buffer[256];
-char temp[256];
+char buffer[1024];
+char temp[1024];
 char *linkpage;
 OBJREGS oldvars;
 char *playername;
@@ -2183,6 +2181,66 @@ if(!strcmp(token,"USERNUM5"))
 	strcat(temp,punctuation);
 	strcat(temp,strrest((a+1)));
 	strcpy(string,temp);
+	return 1;
+	}
+
+if(!strcmp(token,"USERSTR1"))
+	{
+	temp[0]=0;
+	if(pe_userstr1) {
+		SAFE_STRCPY(temp, pe_userstr1);
+	}
+	strcat(temp,punctuation);
+	strcat(temp,strrest((a+1)));
+	SAFE_STRCPY(string,temp);
+	return 1;
+	}
+
+if(!strcmp(token,"USERSTR2"))
+	{
+	temp[0]=0;
+	if(pe_userstr2) {
+		SAFE_STRCPY(temp, pe_userstr2);
+	}
+	strcat(temp,punctuation);
+	strcat(temp,strrest((a+1)));
+	SAFE_STRCPY(string,temp);
+	return 1;
+	}
+
+if(!strcmp(token,"USERSTR3"))
+	{
+	temp[0]=0;
+	if(pe_userstr3) {
+		SAFE_STRCPY(temp, pe_userstr3);
+	}
+	strcat(temp,punctuation);
+	strcat(temp,strrest((a+1)));
+	SAFE_STRCPY(string,temp);
+	return 1;
+	}
+
+if(!strcmp(token,"USERSTR4"))
+	{
+	temp[0]=0;
+	if(pe_userstr4) {
+		SAFE_STRCPY(temp, pe_userstr4);
+	}
+	strcat(temp,punctuation);
+	strcat(temp,strrest((a+1)));
+	SAFE_STRCPY(string,temp);
+	return 1;
+	}
+
+if(!strcmp(token,"USERSTR5"))
+	{
+	temp[0]=0;
+	if(pe_userstr5) {
+		SAFE_STRCPY(temp, pe_userstr5);
+	}
+	strcat(temp,punctuation);
+	strcat(temp,strrest((a+1)));
+	SAFE_STRCPY(string,temp);
 	return 1;
 	}
 

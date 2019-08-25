@@ -75,7 +75,7 @@ and me.user.user0 = 1				# Was I locked originally?
 	return
 endif
 
-if_flag me IS_PARTY
+if_flag me IN_PARTY
 	# I don't think you want to do that
 	let LockDoorAs = ""
 	return
@@ -395,7 +395,7 @@ endif
 #endif
 
 # The party
-if_flag victim IS_PARTY
+if_flag victim IN_PARTY
 	return
 endif
 
@@ -852,7 +852,7 @@ end
 function use_htdoor
 activity
 
-if_flag me IS_PARTY
+if_flag me IN_PARTY
 	# Player needs to use the cardreader
 	return
 endif

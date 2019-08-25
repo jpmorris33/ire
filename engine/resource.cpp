@@ -1874,6 +1874,11 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
+		if(!istricmp(Rptr,"semivisible")) { // Player can see even if invisible
+			CHlist[pos].flags |= IS_SEMIVISIBLE;
+			continue;
+		}
+
 		if(!istricmp(Rptr,"system"))               // Is it a system object?
 			{
 			CHlist[pos].flags |= IS_SYSTEM;

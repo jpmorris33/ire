@@ -270,7 +270,7 @@ if hit_damage >= 0
 
 		# Mark that you assaulted them and Justify it
 		if_flag attacker.enemy IS_PERSON	# is a creature
-			if_not_flag attacker.enemy IS_PARTY	# not one of us
+			if_not_flag attacker.enemy IN_PARTY	# not one of us
 				let suspect = attacker
 				let victim = attacker.enemy
 				call justice_assault

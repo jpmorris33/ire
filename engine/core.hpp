@@ -73,6 +73,7 @@
 #define IS_OVERDUE      0x80002000
 #define IS_WIELDED      0x80004000
 #define IS_ROBOT        0x80008000
+#define IN_PARTY        0x80010000	// Party members aren't always considered solid
 
 /*
 typedef struct NPC_FLAGS
@@ -311,7 +312,7 @@ typedef struct ST_ITEM
 #define IS_FRAGILE      0x00000010	// Will it break if dropped?
 #define IS_TRIGGER      0x00000020	// Is it a trigger?
 #define IS_INVISIBLE    0x00000040	// Only appears in the editor?
-#define IS_PARTY        0x00000080	// Party members aren't always considered solid
+#define IS_SEMIVISIBLE 	0x00000080	// Player can still see even though invisible
 #define IS_FIXED        0x00000100	// Is it nailed to the ground?
 #define IS_CONTAINER    0x00000200	// Is it a container?
 #define IS_TRANSLUCENT  0x00000400	// Is it translucent?
