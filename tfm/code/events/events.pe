@@ -5,7 +5,7 @@
 #########################
 
 # See also:
-# 	randolph.pe - Harrier subplot and treasure island transfer
+# randolph.pe - Harrier subplot and treasure island transfer
 
 
 ##
@@ -545,12 +545,17 @@ end
 ##
 
 function set_respawn
-integer spawn
 
-if_exists current
-	let spawn = 0 - current.tag
-	let spawn_override = spawn
-endif
+# This is now deprecated since we have the map_area system
+# But I'm keeping the mechanism around in case we need
+# to do this conditionally or something
+
+#integer spawn
+#
+#if_exists current
+#	let spawn = 0 - current.tag
+#	let spawn_override = spawn
+#endif
 
 end
 

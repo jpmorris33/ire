@@ -29,6 +29,24 @@ if map = 1
 		return
 	endif
 
+	# Are they on bee island?
+	if current.x >= 24
+	and current.x <= 241
+	and current.y >= 185
+	and current.y <= 379
+		let map_area = "BEE_ISLAND"
+		return
+	endif
+
+	# Are they on treasure island?
+	if current.x >= 140
+	and current.x <= 285
+	and current.y >= 430
+	and current.y <= 647
+		let map_area = "TREASURE_ISLAND"
+		return
+	endif
+
 	# Otherwise, it's New Highworth jail for you
 	let map_area = "HIGHWORTH"
 	return	
@@ -106,6 +124,30 @@ if map = 3
 
 	# Otherwise, assume Church territory
 	let map_area = "MAP3"
+	
+endif
+
+if map = 4
+	# Are they in the ship's entrance?
+	if current.x >= 344
+	and current.x <= 351
+	and current.y >= 271
+	and current.y <= 305
+		let map_area = "MAXIMA_ENTRANCE"
+		return
+	endif
+
+	# Are they in the rest of the ship?
+	if current.x >= 204
+	and current.x <= 412
+	and current.y >= 88
+	and current.y <= 319
+		let map_area = "MAXIMA"
+		return
+	endif
+
+	# Otherwise, assume they're in the Church dungeons
+	let map_area = "MAP4"
 	
 endif
 

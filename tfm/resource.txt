@@ -1920,6 +1920,10 @@ section: sprites
 	plaque_stone_h		sprites/plaque1.cel
 	plaque_brass_v		sprites/plaque2.cel
 	plaque_brass_h		sprites/plaque3.cel
+	plaque_stone2_v		sprites/plaque4.png
+	plaque_stone2_h		sprites/plaque5.png
+	plaque_brass2_v		sprites/plaque6.png
+	plaque_brass2_h		sprites/plaque7.png
 	rubble00		sprites/rubble00.cel
 	rubble01		sprites/rubble01.cel
 	rubble02		sprites/rubble02.cel
@@ -8788,10 +8792,14 @@ section: sequences
 	quickname KIDDIE-DRAWING-3 KIDDIE-DRAWING-3
 	quickname KIDDIE-DRAWING-3L KIDDIE-DRAWING-3L
 	quickname KIDDIE-DRAWING-3R KIDDIE-DRAWING-3R
-	quickname PLAQUE_STONE_V PLAQUE_STONE_V
-	quickname PLAQUE_STONE_H PLAQUE_STONE_H
-	quickname PLAQUE_BRASS_V PLAQUE_BRASS_V
-	quickname PLAQUE_BRASS_H PLAQUE_BRASS_H
+	quickname PLAQUE_STONE_V
+	quickname PLAQUE_STONE_H
+	quickname PLAQUE_BRASS_V
+	quickname PLAQUE_BRASS_H
+	quickname PLAQUE_STONE2_V
+	quickname PLAQUE_STONE2_H
+	quickname PLAQUE_BRASS2_V
+	quickname PLAQUE_BRASS2_H
 	quickname RUBBLE00 RUBBLE00
 	quickname RUBBLE01 RUBBLE01
 	quickname RUBBLE02 RUBBLE02
@@ -13458,8 +13466,10 @@ section: tables
 	data=integer
 	list:
 		FAIRFORD_BASE	10001
-		HOLYLAND 	-1		# Special: the dungeon is in another map - or we could frig it and add a holding cell
-		HIGHWORTH 	10000		# Otherwise, it's New Highworth jail for you
+		HOLYLAND	-1		# Special: the dungeon is in another map - or we could frig it and add a holding cell
+		HIGHWORTH	10000		# Otherwise, it's New Highworth jail for you
+		BEE_ISLAND	666001		# Should never happen!
+		TREASURE_ISLAND	10000
 		
 		PANAVIUS_BASE	10001
 		AVIS		10000
@@ -13478,9 +13488,11 @@ section: tables
 	data=integer
 	list:
 		FAIRFORD_BASE	10001
-		HOLYLAND 	667
-		HIGHWORTH 	666
+		HOLYLAND	667
+		HIGHWORTH	666
 		CRICKLADE	668
+		BEE_ISLAND	666001
+		TREASURE_ISLAND	666
 		
 		PANAVIUS_BASE	10001
 		AVIS		666
@@ -13492,6 +13504,11 @@ section: tables
 		OSPREY_LAKE	667
 		DRAGON		667
 		MAP3		666		# Otherwise assume Church territory
+
+		MAXIMA_ENTRANCE	666001
+		MAXIMA		666002
+		MAP4		666
+
 	end
 
 section: tilelink

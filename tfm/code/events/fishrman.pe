@@ -132,14 +132,12 @@ endif
 # Spill the passengers
 spill current to x y
 
-# Set respawn override, as applicable
+# Set conversation options to go to and from the island
 if target = HOME_TAG
-	let spawn_override = 0
 	set_user_flag "munrick_at_island" = 0
 endif
 
 if target = ISLAND_TAG
-	let spawn_override = 666001
 	set_user_flag "munrick_at_island" = 1
 endif
 

@@ -5526,6 +5526,17 @@ section: characters
 	schedule 21:45 LIGHT02
 	schedule 22:00 LIGHT01
 
+	name LIGHT_CONTROL_UNDERGROUND
+	frame		CRAP_SUN
+	hp		16
+	max_hp		16
+	weight		-1
+	description	"You don't notice anything unusual.|Which is a total lie."
+	short		"GET LOST!"
+	fixed
+	spikeproof
+	shadow
+	schedule 04:15 LIGHT01
 
 	name CORPSE_CONTROL
 	frame		CRAP_SUN
@@ -8762,6 +8773,32 @@ section: characters
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
+
+	name PLAQUE_STONE2
+	left		PLAQUE_STONE2_H
+	right		PLAQUE_STONE2_H
+	up		PLAQUE_STONE2_V
+	down		PLAQUE_STONE2_V
+	hp		10000
+	weight		-1
+	description	"You see a stone plaque."
+	short		"plaque"
+	IfLookedAt	door_sign
+	fixed
+	spikeproof
+
+	name PLAQUE_BRASS2
+	left		PLAQUE_BRASS2_H
+	right		PLAQUE_BRASS2_H
+	up		PLAQUE_BRASS2_V
+	down		PLAQUE_BRASS2_V
+	hp		10000
+	weight		-1
+	description	"You see a brass plaque."
+	short		"plaque"
+	IfLookedAt	door_sign
+	fixed
+	spikeproof
 
 	name RUBBLE_00
 	left		RUBBLE00

@@ -5464,36 +5464,36 @@ iMZ3r01
 	light 4 at 951 806
 	light 5 at 952 806
 	light 6 at 953 806
-	light 5 at 577 807
-	light 5 at 578 807
-	light 5 at 579 807
-	light 5 at 580 807
-	light 5 at 581 807
-	light 5 at 582 807
-	light 5 at 583 807
-	light 5 at 584 807
-	light 5 at 585 807
-	light 5 at 586 807
-	light 5 at 587 807
-	light 5 at 588 807
-	light 5 at 589 807
+	light 1 at 577 807
+	light 2 at 578 807
+	light 2 at 579 807
+	light 2 at 580 807
+	light 2 at 581 807
+	light 2 at 582 807
+	light 2 at 583 807
+	light 1 at 584 807
+	light 2 at 585 807
+	light 2 at 586 807
+	light 1 at 587 807
+	light 2 at 588 807
+	light 2 at 589 807
 	light 4 at 791 807
 	light 5 at 792 807
 	light 6 at 793 807
 	light 4 at 951 807
 	light 5 at 952 807
 	light 6 at 953 807
-	light 5 at 577 808
+	light 4 at 577 808
 	light 5 at 578 808
 	light 5 at 579 808
 	light 5 at 580 808
 	light 5 at 581 808
 	light 5 at 582 808
 	light 5 at 583 808
-	light 5 at 584 808
+	light 4 at 584 808
 	light 5 at 585 808
 	light 5 at 586 808
-	light 5 at 587 808
+	light 4 at 587 808
 	light 5 at 588 808
 	light 5 at 589 808
 	light 1 at 790 808
@@ -5506,17 +5506,17 @@ iMZ3r01
 	light 5 at 952 808
 	light 12 at 953 808
 	light 3 at 954 808
-	light 5 at 577 809
+	light 4 at 577 809
 	light 5 at 578 809
 	light 5 at 579 809
 	light 5 at 580 809
 	light 5 at 581 809
 	light 5 at 582 809
 	light 5 at 583 809
-	light 5 at 584 809
-	light 5 at 585 809
-	light 5 at 586 809
-	light 5 at 587 809
+	light 1 at 584 809
+	light 2 at 585 809
+	light 2 at 586 809
+	light 13 at 587 809
 	light 5 at 588 809
 	light 5 at 589 809
 	light 4 at 790 809
@@ -5529,14 +5529,14 @@ iMZ3r01
 	light 5 at 952 809
 	light 5 at 953 809
 	light 6 at 954 809
-	light 5 at 577 810
+	light 4 at 577 810
 	light 5 at 578 810
 	light 5 at 579 810
 	light 5 at 580 810
 	light 5 at 581 810
 	light 5 at 582 810
 	light 5 at 583 810
-	light 5 at 584 810
+	light 4 at 584 810
 	light 5 at 585 810
 	light 5 at 586 810
 	light 5 at 587 810
@@ -5552,14 +5552,14 @@ iMZ3r01
 	light 5 at 952 810
 	light 5 at 953 810
 	light 6 at 954 810
-	light 5 at 577 811
+	light 4 at 577 811
 	light 5 at 578 811
 	light 5 at 579 811
 	light 5 at 580 811
 	light 5 at 581 811
 	light 5 at 582 811
 	light 5 at 583 811
-	light 5 at 584 811
+	light 4 at 584 811
 	light 5 at 585 811
 	light 5 at 586 811
 	light 5 at 587 811

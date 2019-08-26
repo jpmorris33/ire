@@ -74,7 +74,7 @@ and penetrating, hawk-like eyes.
  leniency for sins which have seen others beheaded.
 
  All this was done that you may serve His will.
- It is for this reason that the LORD hasspared you, and
+ It is for this reason that the LORD has spared you, and
  He expects to be repaid for this act of mercy.
  Ignore His wishes at your peril."
 
@@ -411,6 +411,8 @@ air of distaste.
  However the LORD is merciful, and so I shall try not to
  hold this against you."
 
+[nextpage="bye"]
+[endpage]
 
 
 
@@ -575,8 +577,8 @@ air of distaste.
 [image="pope.pcx"]
 
 [colour="#808080"]
- You decide to quietly slip out.  The Pope looks at you
- gravely, but says nothing.
+ You decide to quietly slip out.  The Pope glances at
+ you briefly, but says nothing.
 [colour="#ffffff"]
 
 [nextpage="exit"]
