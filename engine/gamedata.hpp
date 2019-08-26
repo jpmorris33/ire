@@ -2,6 +2,10 @@
  *      Game state information
  */
 
+#ifndef __IRE_GAMEDATA__
+#define __IRE_GAMEDATA__
+
+
 #define LMSIZE 32
 #define VIEWDIST 10 // was 4
 
@@ -122,3 +126,20 @@ extern void VM_RestoreRegs(OBJREGS *o);
 extern void VM_SaveRegs(OBJREGS *o);
 
 
+inline int GetNPCFlag(OBJECT *o, unsigned int flag) {
+flag &= STRIPNPC;
+return o->stats->npcflags & flag;
+}
+
+inline void SetNPCFlag(OBJECT *o, unsigned int flag) {
+flag &= STRIPNPC;
+o->stats->npcflags |= flag;
+}
+
+inline void ClearNPCFlag(OBJECT *o, unsigned int flag) {
+flag &= STRIPNPC;
+o->stats->npcflags &= ~flag;
+}
+
+
+#endif

@@ -184,6 +184,11 @@ if me.stats.hp < 1
 	return
 endif
 
+if me.name = "PLAYER"
+	print "It thinks the player is a robot again"
+	printcr
+endif
+
 # Self-healing
 if me.stats.hp < me.maxstats.hp
 	add me.stats.hp + 1

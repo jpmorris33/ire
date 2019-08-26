@@ -200,6 +200,8 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
 				}
 				// Show eggs
 				if(ShowEggs) {
+					if(ob->flags & IS_INVISIBLE)
+						swapscreen->PutPixel(cx+64,cy+64,ITG_WHITE);
 					if(!istricmp_fuzzy(ob->name,"egg*"))
 						swapscreen->PutPixel(cx+64,cy+64,ITG_YELLOW);
 					if(!istricmp_fuzzy(ob->name,"PATHMARKER"))
@@ -294,6 +296,8 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
 				}
 				// Show eggs
 				if(ShowEggs) {
+					if(ob->flags & IS_INVISIBLE)
+						swapscreen->PutPixel(cx+64,cy+64,ITG_WHITE);
 					if(!istricmp_fuzzy(ob->name,"egg*"))
 						swapscreen->PutPixel(cx+64,cy+64,ITG_YELLOW);
 					if(!istricmp_fuzzy(ob->name,"pathmarker"))

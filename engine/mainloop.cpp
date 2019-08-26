@@ -183,7 +183,7 @@ if(!player)
 if(!party[0])	{
 	party[0] = player;      // Init party
 	strcpy(partyname[0],BestName(player));
-	player->stats->npcflags |= IN_PARTY;  // Make sure
+	SetNPCFlag(player, IN_PARTY); // Make sure
 }
 
 ilog_quiet("Player =%x\n",player);
@@ -284,12 +284,12 @@ do {
 				current_object = NULL;//player;   // Set up parameters for the VRM
 				person = player;           // Who am I?
 
-				if(player->stats->npcflags & IS_BIOLOGICAL)	{
+				if(GetNPCFlag(player,IS_BIOLOGICAL))	{
 					pevm_context="player bio-update";
 					CallVMnum(Sysfunc_updatelife);		// Only for carbon-based life
 				}
 
-				if(player->stats->npcflags & IS_ROBOT)	{
+				if(GetNPCFlag(player,IS_ROBOT))	{
 					pevm_context="player cyber-update";
 					CallVMnum(Sysfunc_updaterobot);		// Only for robots
 				}
@@ -303,13 +303,13 @@ do {
 		person = player;           // Who am I?
 
 		// Call bio-systems update (if player IS a biological lifeform)
-		if(player->stats->npcflags & IS_BIOLOGICAL)	{
+		if(GetNPCFlag(player,IS_BIOLOGICAL))	{
 			pevm_context="player bio-update";
 			CallVMnum(Sysfunc_updatelife);		// Only for carbon-based life
 		}
 
 		// Call cybersystems update (if player is robotic)
-		if(player->stats->npcflags & IS_ROBOT)	{
+		if(GetNPCFlag(player,IS_ROBOT))	{
 			pevm_context="player cyber-update";
 			CallVMnum(Sysfunc_updaterobot);		// Only for robots
 		}
@@ -432,15 +432,15 @@ do {
 					aptr->flags |= DID_UPDATE; // Mark object as moved
 
 					// If it is biological, call biosystems update
-					if(aptr->stats->npcflags & IS_BIOLOGICAL)
+					if(GetNPCFlag(aptr,IS_BIOLOGICAL))
 						if(aptr->stats->hp > 0)	// Must be alive
 							{
 							pevm_context="creature bio-update";
 							CallVMnum(Sysfunc_updatelife);		// Only for carbon-based life
 							}
 
-					// If it is biological, call biosystems update
-					if(aptr->stats->npcflags & IS_ROBOT)
+					// If it is robotic, call cybersystems update
+					if(GetNPCFlag(aptr,IS_ROBOT))
 						if(aptr->stats->hp > 0)	{// Must be alive
 							pevm_context="creature cyber-update";
 							CallVMnum(Sysfunc_updaterobot);		// Only for carbon-based life
@@ -524,10 +524,10 @@ do {
 		// Start any schedules, and handle egg lockout timer
 
 		for(active=MasterList;active;active=active->next)
-			if(active->ptr->stats->hp>0 && (active->ptr->stats->npcflags & NO_SCHEDULE) == 0)	{
+			if(active->ptr->stats->hp>0 && (!GetNPCFlag(active->ptr,NO_SCHEDULE)))	{
 				// Are any schedules due?
 				if(active->ptr->schedule)
-					if((active->ptr->flags & IS_ON) && ((active->ptr->stats->npcflags & STRIPNPC) & IN_PARTY) == 0)
+					if((active->ptr->flags & IS_ON) && (!GetNPCFlag(active->ptr,IN_PARTY)))
 						for(vx=0;vx<24;vx++)	{
 							if(!active->ptr->schedule[vx].active)
 								continue;
@@ -559,7 +559,7 @@ irecon_printf("%s does %s to %s\n",active->ptr->name,active->ptr->schedule[vx].v
 
 	// Check for horrible things
 	for(active=MasterList;active;active=active->next)
-		if(active->ptr->stats->hp>0 && (active->ptr->stats->npcflags & NO_SCHEDULE)==0)	{
+		if(active->ptr->stats->hp>0 && (!GetNPCFlag(active->ptr,NO_SCHEDULE)))	{
 			// And check for horrible things, if applicable
 			if(active->ptr->stats->intel >= 40) // is alive
 				if(active->ptr->funcs->hrcache > 0) // can be horrified
@@ -1224,7 +1224,7 @@ for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 	}
 party[0]=player;
 strcpy(partyname[0],BestName(player));
-player->stats->npcflags |= IN_PARTY;
+SetNPCFlag(player, IN_PARTY);
 
 return 1;
 }
@@ -1311,7 +1311,7 @@ if((o->flags & IS_ON) == 0)
 	return;
 	}
 
-if((o->stats->npcflags&STRIPNPC) & IN_PARTY) {
+if(GetNPCFlag(o,IN_PARTY)) {
 	DEBUG_RESACT_PRINT("%s is of the party\n",BestName(o));
 	return;
 }
@@ -1354,7 +1354,7 @@ if(o->user->actlist[0]>0)
 	return;
 	}
 
-if(o->stats->npcflags & NO_SCHEDULE)
+if(GetNPCFlag(o,NO_SCHEDULE))
 	{
 	DEBUG_RESACT_PRINT("%s is not accepting new schedules\n",BestName(o));
 	return;
@@ -1480,10 +1480,10 @@ if(active)
 					current_object = NULL;//active->ptr;   // Set up parameters for the VRM
 					person = active->ptr;           // Who am I?
 					active->ptr->flags |= DID_UPDATE; // Mark object as moved
-					if(active->ptr->stats->npcflags & IS_BIOLOGICAL)
+					if(GetNPCFlag(active->ptr,IS_BIOLOGICAL))
 						if(active->ptr->stats->hp > 0)	// Must be alive
 							CallVMnum(Sysfunc_updatelife);		// Only for carbon-based life
-					if(active->ptr->stats->npcflags & IS_ROBOT)
+					if(GetNPCFlag(active->ptr,IS_ROBOT))
 						if(active->ptr->stats->hp > 0)	// Must be alive
 							CallVMnum(Sysfunc_updaterobot);		// Only for robotic life
 					CallVMnum(active->ptr->activity);
@@ -1615,13 +1615,13 @@ for(ptr=MasterList;ptr;ptr=ptr->next)
 		}
 		
 #ifdef WIELD_PARANOID
-	if(ptr->ptr->stats && ptr->ptr->stats->npcflags & IS_WIELDED)
+	if(ptr->ptr->stats && GetNPCFlag(ptr->ptr,IS_WIELDED))
 		{
 //		printf("Check wield for %s\n",ptr->ptr->name);
 		if(!FindWieldPoint(ptr->ptr,NULL))
 			{
 			printf("!!! semi-wielded object %s found!\n",ptr->ptr->name);
-			ptr->ptr->stats->npcflags &= ~IS_WIELDED;
+			ClearNPCFlag(ptr->ptr, IS_WIELDED);
 			}
 		}
 #endif		
@@ -2050,7 +2050,7 @@ for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 
 for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 	if(party[ctr])
-		if(party[ctr]->stats->npcflags & IS_HERO)
+		if(GetNPCFlag(party[ctr],IS_HERO))
 			if(party[ctr]->stats->hp > 0)
 				{
 				if(!player)

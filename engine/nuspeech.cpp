@@ -143,7 +143,7 @@ toph = 8*(fh/8);
 
 if(current_object)
 	{
-	if(current_object->stats->npcflags & IS_SYMLINK && current_object->stats->owner.objptr)
+	if(GetNPCFlag(current_object,IS_SYMLINK) && current_object->stats->owner.objptr)
 		npc=current_object->stats->owner.objptr;
 	else
 		npc=current_object;
@@ -219,7 +219,7 @@ if(start == -1)
 	start=NPC_GetPage("start",1,playername);
 	// If we know the NPC's name, see if there's a StartName page
 	if(npc)
-		if(npc->stats->npcflags & KNOW_NAME)
+		if(GetNPCFlag(npc,KNOW_NAME))
 			{
 			ctr=NPC_GetPage("startname",0,playername);
 			if(ctr>=0)
@@ -1514,14 +1514,14 @@ ilog_quiet("stop\n");
 if(!istricmp(line2,"knowname") || !istricmp(line2,"know_name")
 || !istricmp(line2,"learnname") || !istricmp(line2,"learn_name"))
     {
-    npc->stats->npcflags |= (KNOW_NAME & STRIPNPC); // Learn their name
+    SetNPCFlag(npc, KNOW_NAME);  // Learn their name
     return 26;
     }
 
 if(!istricmp(line2,"ifknowname") || !istricmp(line2,"if_know_name")
 || !istricmp(line2,"if_knowname"))
     {
-    if(npc->stats->npcflags & KNOW_NAME)
+    if(GetNPCFlag(npc,KNOW_NAME))
         {
         pos=strchr(line,']');
         if(!pos)
@@ -1542,7 +1542,7 @@ if(!istricmp(line2,"ifknowname") || !istricmp(line2,"if_know_name")
 if(!istricmp(line2,"ifnknowname") || !istricmp(line2,"if_not_know_name")
 || !istricmp(line2,"if_not_knowname") || !istricmp(line2,"if_nknowname"))
     {
-    if(!(npc->stats->npcflags&KNOW_NAME))
+    if(!GetNPCFlag(npc, KNOW_NAME))
         {
         pos=strchr(line,']');
         if(!pos)
@@ -1563,7 +1563,7 @@ if(!istricmp(line2,"ifnknowname") || !istricmp(line2,"if_not_know_name")
 if(!istricmp(line2,"ifplayermale") || !istricmp(line2,"if_player_male")
 || !istricmp(line2,"if_male"))
     {
-    if(!(player->stats->npcflags & IS_FEMALE))
+    if(!GetNPCFlag(player,IS_FEMALE))
         {
         pos=strchr(line,']');
         if(!pos)
@@ -1584,7 +1584,7 @@ if(!istricmp(line2,"ifplayermale") || !istricmp(line2,"if_player_male")
 if(!istricmp(line2,"ifplayerfemale") || !istricmp(line2,"if_player_female")
 || !istricmp(line2,"if_female"))
     {
-    if(player->stats->npcflags & IS_FEMALE)
+    if(GetNPCFlag(player,IS_FEMALE))
         {
         pos=strchr(line,']');
         if(!pos)
@@ -1605,7 +1605,7 @@ if(!istricmp(line2,"ifplayerfemale") || !istricmp(line2,"if_player_female")
 if(!istricmp(line2,"ifplayerhero") || !istricmp(line2,"if_player_hero")
 || !istricmp(line2,"if_hero"))
     {
-    if(player->stats->npcflags & IS_HERO)
+    if(GetNPCFlag(player,IS_HERO))
         {
         pos=strchr(line,']');
         if(!pos)
@@ -1626,7 +1626,7 @@ if(!istricmp(line2,"ifplayerhero") || !istricmp(line2,"if_player_hero")
 if(!istricmp(line2,"ifnplayerhero") || !istricmp(line2,"if_not_player_hero")
 || !istricmp(line2,"if_not_hero"))
     {
-    if(!(player->stats->npcflags & IS_HERO))
+    if(!GetNPCFlag(player,IS_HERO))
         {
         pos=strchr(line,']');
         if(!pos)
@@ -2247,7 +2247,7 @@ if(!strcmp(token,"USERSTR5"))
 // Look for gender-sensitive tokens in the data tables
 
 replacement=NULL;
-if(player->stats->npcflags & IS_FEMALE)
+if(GetNPCFlag(player,IS_FEMALE))
 	replacement=GetTableCase("FemaleWords",token);
 else
 	replacement=GetTableCase("MaleWords",token);

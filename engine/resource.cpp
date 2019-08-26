@@ -2015,55 +2015,55 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"male"))           // Is it male? (default)
 			{
-			CHlist[pos].stats->npcflags &= ~IS_FEMALE;
+			ClearNPCFlag(&CHlist[pos], IS_FEMALE);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"female"))           // Is it female?
 			{
-			CHlist[pos].stats->npcflags |= (IS_FEMALE & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_FEMALE);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"know_name"))      // Player know their name
 			{
-			CHlist[pos].stats->npcflags |= (KNOW_NAME & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], KNOW_NAME);
 			continue;
 			}
 
-		if(!istricmp(Rptr,"is_hero"))      // Player know their name
+		if(!istricmp(Rptr,"is_hero"))      // Is it the main character?
 			{
-			CHlist[pos].stats->npcflags |= (IS_HERO & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_HERO);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"cant_eat"))      // Can't eat or drink
 			{
-			CHlist[pos].stats->npcflags |= (CANT_EAT & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], CANT_EAT);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"cant_drink"))    // Can't eat or drink
 			{
-			CHlist[pos].stats->npcflags |= (CANT_EAT & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], CANT_EAT);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"wont_shut_doors")) // Can't shut doors
 			{
-			CHlist[pos].stats->npcflags |= (NOT_CLOSE_DOOR & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], NOT_CLOSE_DOOR);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"wont_open_doors")) // Can't open doors
 			{
-			CHlist[pos].stats->npcflags |= (NOT_OPEN_DOOR & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], NOT_OPEN_DOOR);
 			continue;
 			}
 
-		if(!istricmp(Rptr,"no_schedule")) // Can't open doors
+		if(!istricmp(Rptr,"no_schedule")) // Ignore scheduled tasks
 			{
-			CHlist[pos].stats->npcflags |= (NO_SCHEDULE & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], NO_SCHEDULE);
 			continue;
 			}
 
@@ -2072,13 +2072,13 @@ for(ctr=start;ctr<=finish;ctr++)
 		|| !istricmp(Rptr,"link_to_another_npc")
 		|| !istricmp(Rptr,"symlink"))
 			{
-			CHlist[pos].stats->npcflags |= (IS_SYMLINK & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_SYMLINK);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"biological")) // Flesh and blood
 			{
-			CHlist[pos].stats->npcflags |= (IS_BIOLOGICAL & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_BIOLOGICAL);
 			continue;
 			}
 
@@ -2087,19 +2087,19 @@ for(ctr=start;ctr<=finish;ctr++)
 		|| !istricmp(Rptr,"is_robot")
 		|| !istricmp(Rptr,"is_robotic"))
 			{
-			CHlist[pos].stats->npcflags |= (IS_ROBOT & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_ROBOT);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"guard")) // It's the cops!
 			{
-			CHlist[pos].stats->npcflags |= (IS_GUARD & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_GUARD);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"spawned"))
 			{
-			CHlist[pos].stats->npcflags |= (IS_SPAWNED & STRIPNPC);
+			SetNPCFlag(&CHlist[pos], IS_SPAWNED);
 			continue;
 			}
 

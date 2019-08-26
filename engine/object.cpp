@@ -637,7 +637,7 @@ if(isSolid(x,y))
 		swap=0;
 
 		// The player wants to stand where a member is
-		if((temp->stats->npcflags & STRIPNPC) & IN_PARTY)
+		if(GetNPCFlag(temp,IN_PARTY))
 			if(object==player)
 				swap=1;
 
@@ -1791,7 +1791,7 @@ for(ctr=0;ctr<MAX_MEMBERS;ctr++)
 //ilog_quiet("addtoparty (%d)\n",follower);
 		SubAction_Wipe(new_member);
 		ActivityNum(new_member,Sysfunc_follower,NULL);
-		new_member->stats->npcflags |= IN_PARTY;
+		SetNPCFlag(new_member,IN_PARTY);
 		return ctr;
 		}
 return -1;
@@ -1821,7 +1821,7 @@ if(pos == -1)
 
 if(member->stats->hp>0)
 	{
-	member->stats->npcflags &= ~IN_PARTY;
+	ClearNPCFlag(member, IN_PARTY);
 	ResumeSchedule(member);
     }
 else
@@ -2343,7 +2343,7 @@ for(int ictr=0;ictr<objsel->funcs->contents;ictr++)
 		OB_SetDir(temp,CHAR_D,FORCE_SHAPE);
 		MoveToPocket(temp,objsel);
 		// Prevent a living creature inside an egg from being active
-		if(temp->stats->npcflags & IS_BIOLOGICAL)
+		if(GetNPCFlag(temp,IS_BIOLOGICAL))
 			AL_Del(&ActiveList,temp);
 		}
 
@@ -2664,7 +2664,7 @@ if(!o)
 if(debug_act)
 	ilog_quiet("%s does %s to %s\n",o->name,PElist[activity].name,target?target->name:"Nothing");
 
-if(o->stats->npcflags & IN_BED)
+if(GetNPCFlag(o,IN_BED))
 	{
 	VM_SaveRegs(&objvars);
 	person = o;
@@ -2678,7 +2678,7 @@ o->target.objptr = target;
 o->user->vigilante=0; // Reset vigilante flag
 
 // Activate the object if it is not a creature inside an egg
-if(!(o->parent.objptr && o->stats->npcflags & IS_BIOLOGICAL))
+if(!(o->parent.objptr && GetNPCFlag(o, IS_BIOLOGICAL)))
 	if(!ML_InList(&ActiveList,o))
 		{
 		AL_Add(&ActiveList,o);
@@ -2712,7 +2712,7 @@ o->target.objptr = target;
 o->user->vigilante=0; // Reset vigilante flag
 
 // Activate the object if it is not a creature inside an egg
-if(!(o->parent.objptr && o->stats->npcflags & IS_BIOLOGICAL))
+if(!(o->parent.objptr && GetNPCFlag(o, IS_BIOLOGICAL)))
 	if(!ML_InList(&ActiveList,o))
 		{
 		AL_Add(&ActiveList,o);
@@ -3218,7 +3218,7 @@ if(!o)
 
 if(o->personalname)
 	if(o->personalname[0] != '\0')
-		if(o->stats->npcflags & KNOW_NAME)
+		if(GetNPCFlag(o, KNOW_NAME))
 			if(istricmp(o->personalname,"-"))
 				return o->personalname;
 
@@ -3253,7 +3253,7 @@ for(int ctr=0;ctr<WIELDMAX;ctr++)
 	temp=GetWielded(t,ctr);
 	if(temp)
 		{
-		temp->stats->npcflags &= ~IS_WIELDED;
+		ClearNPCFlag(temp, IS_WIELDED);
 		temp->flags &= ~IS_INVISIBLE; // Make absolutely sure - may be true for old savegames
 		// IS_WIELDED and IS_INVISIBLE were at one point the same flag.
 		SetWielded(t,ctr,NULL);
@@ -3284,7 +3284,7 @@ for(int ctr=0;ctr<WIELDMAX;ctr++)
 	if(temp)
 		if(temp == dest || !dest)
 			{
-			temp->stats->npcflags &= ~IS_WIELDED;
+			ClearNPCFlag(temp, IS_WIELDED);
 			temp->flags &= ~IS_INVISIBLE;	// Make absolutely sure, e.g. for old savegames
 			SetWielded(container,ctr,NULL);
 			}

@@ -2663,7 +2663,7 @@ for(x=0;x<curmap->w;x++)
             if(a->personalname && a->flags&IS_PERSON)
                 if(!stricmp(name,a->personalname))
                     {
-		    lastOwner = objsel;
+		    lastOwner = a;
 		    SetOwnerRecursively(objsel, a);
                     OB_GoFocal();
                     return;

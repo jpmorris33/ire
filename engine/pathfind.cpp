@@ -373,7 +373,7 @@ for(cx=MAPSIZE-1;cx>0;cx--)
 
 				// If it can be opened, punch out the Active Area
 
-				if(temp->flags & CAN_OPEN && (!(start->stats->npcflags & NOT_OPEN_DOORS)))
+				if(temp->flags & CAN_OPEN && (!GetNPCFlag(start,NOT_OPEN_DOORS)))
 					{
 					if(temp->curdir>CHAR_D)
 						{
@@ -403,7 +403,7 @@ for(cx=MAPSIZE-1;cx>0;cx--)
 					}
 				}
 			else
-				if(!(temp->flags & CAN_OPEN) || start->stats->npcflags & NOT_OPEN_DOORS)
+				if(!(temp->flags & CAN_OPEN) || GetNPCFlag(start,NOT_OPEN_DOORS))
 					{
 					pfmap[cx][cy] = PF_WALL;    // It's just a small one
 					}

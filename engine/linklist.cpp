@@ -776,7 +776,7 @@ void AL_Add(OBJLIST **a,OBJECT *o)
 {
 // If it has an action, or any of these properties, allow it to be active.
 if	(o->activity > 0
-	|| o->stats->npcflags & IS_BIOLOGICAL
+	|| GetNPCFlag(o,IS_BIOLOGICAL)
 	|| o->stats->radius > 0)
 		{
 		ML_Add(a,o);
@@ -790,7 +790,7 @@ void AL_Del(OBJLIST **a,OBJECT *o)
 {
 // If it has an action, or any of these properties, don't disable it
 if	(o->activity > 0
-	|| o->stats->npcflags & IS_BIOLOGICAL
+	|| GetNPCFlag(o,IS_BIOLOGICAL)
 	|| o->stats->radius > 0)
 		{
 		return;

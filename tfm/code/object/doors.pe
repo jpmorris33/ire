@@ -762,25 +762,25 @@ function pphatch_open
 
 if current is called "powerplant_hatch_open"
 	change current = "powerplant_hatch"
-	object_sound "open_door" current
+	object_sound "shut_door" current
 	return
 endif
 
 if current is called "powerplant_hatch"
 	change current = "powerplant_hatch_open"
-	object_sound "close_door" current
+	object_sound "open_door" current
 	return
 endif
 
 if current is called "powerplant_hatch_brk_open"
 	change current = "powerplant_hatch_brk"
-	object_sound "open_door" current
+	object_sound "shut_door" current
 	return
 endif
 
 if current is called "powerplant_hatch_brk"
 	change current = "powerplant_hatch_brk_open"
-	object_sound "close_door" current
+	object_sound "open_door" current
 	return
 endif
 

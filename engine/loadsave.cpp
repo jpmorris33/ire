@@ -1360,7 +1360,7 @@ while(temp)
 //		ilog_quiet("putting %s (%d) into Parent %s (%d)\n",temp->name,temp.save_id,parent->name,parent.save_id);
 		MoveToPocketEnd(temp,parent);
 		// Objects inside eggs should become dormant to save CPU
-		if(temp->stats->npcflags & IS_BIOLOGICAL)
+		if(GetNPCFlag(temp,IS_BIOLOGICAL))
 			ML_Del(&ActiveList,temp);
 		}
 	else
@@ -1909,7 +1909,7 @@ for(ctr=0;ctr<MAX_MEMBERS;ctr++)
 		if(ok)
 			{
 			party[slot]=o;
-			party[slot]->stats->npcflags |= IN_PARTY;
+			SetNPCFlag(party[slot],IN_PARTY);
 			slot++;
 			}
 		}
@@ -2317,7 +2317,7 @@ for(ctr=0;ctr<num;ctr++) {
 	if(!o)
 		ithe_panic("Load_miscellaneous_state (wieldtab): Can't find object","Savegame corrupted");
 
-	if(fullrestore || !((o->stats->npcflags&STRIPNPC) & IN_PARTY)) {
+	if(fullrestore || !GetNPCFlag(o,IN_PARTY)) {
 		memset(o->wield,0,sizeof(WIELD)); // Default to blank, unless a party member changing map
 	}
 
@@ -2334,7 +2334,7 @@ for(ctr=0;ctr<num;ctr++) {
 
 			// Don't actually do it if the map is changing and it's a party member being done
 			// Otherwise, the objects they're wielding will change from one map to the other
-			if(fullrestore || !((o->stats->npcflags & STRIPNPC) & IN_PARTY))	{
+			if(fullrestore || !GetNPCFlag(o,IN_PARTY))	{
 				if(o2) {
 					SetWielded(o,ctr3,o2);
 				}

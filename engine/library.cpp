@@ -860,14 +860,10 @@ CHECK_OBJECT(target);
 
 if(flag & IS_NPCFLAG)
 	{
-	// Okay, strip the NPCflag bit  (we do not want this set or it will confuse reading things back)
-	flag &= STRIPNPC;
-
 	if(value)
-		target->stats->npcflags |= flag;
+		SetNPCFlag(target,flag);
 	else
-		target->stats->npcflags &= ~flag;
-
+		ClearNPCFlag(target,flag);
 	return;
 	}
 
@@ -938,15 +934,15 @@ if(flag & IS_NPCFLAG)
 	flag &= STRIPNPC;
 
 	// Protection:  if there's nothing to link to, fail
-	if(flag & IS_SYMLINK)
+	if(flag & (IS_SYMLINK & STRIPNPC))
 		{
-		if(target->stats->owner.objptr && (target->stats->npcflags & IS_SYMLINK))
+		if(target->stats->owner.objptr && GetNPCFlag(target, IS_SYMLINK))
 			return 1;
 		return 0;
 		}
 
 	// int may be smaller than long, so convert to a boolean
-	if(target->stats->npcflags & flag)
+	if(GetNPCFlag(target,flag))
 		return 1;
 	return 0;
 	}
@@ -1559,8 +1555,7 @@ for(y=miy;y<may;y++)
                                 }
                             }
                         else
-                        if(temp->stats->owner.objptr == NULL ||
-			   ((temp->stats->npcflags & STRIPNPC) & IS_SPAWNED))
+                        if(temp->stats->owner.objptr == NULL || GetNPCFlag(temp, IS_SPAWNED))
                             {
 			    // next best case, public (spawned from an egg counts too)
                             if(steps<public_st)
