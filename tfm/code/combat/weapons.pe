@@ -1,6 +1,6 @@
 ############################################
 #                                          #
-#  Visual effects when a weapon is used    #
+#  Special effects when a weapon is used   #
 #  Firebolts are thrown, chairs break etc  #
 #                                          #
 ############################################
@@ -272,7 +272,7 @@ object ore
 end
 
 ##
-##  Mining
+##  Resurrection axe
 ##
 
 function axe_rd_weapon
@@ -287,9 +287,88 @@ endif
 
 end
 
+##
+##  Decapitate
+##
+
+function decap_attack
+	integer decap_threshold
+	object enemy
+
+	let enemy = attacker.enemy
+	let decap_threshold = attackweapon.stats.damage / 2
+
+	# Only for fleshy things
+	if_not_flag enemy IS_BIOLOGICAL
+		return
+	endif
+
+	# Need to see how this works out with specials like the Pope
+	# May need some adjustment later
+
+	if enemy.stats.hp < decap_threshold
+	and enemy.stats.hp > 0
+	
+		# Off with their heads!
+		let enemy.stats.hp = -50
+		check_hurt enemy
+
+		# Ignore the rest of the attack phase
+		let hit_damage = 0
+	endif
+
+	# If they're dead, hack the head off
+	if enemy.stats.hp < 1
+		call decap_attack_corpse
+		return
+	endif
+
+end
 
 
+function decap_attack_corpse
 
+	string headobject
+#	string bodyobject
+	object enemy
+	object head
+
+	let enemy = attacker.enemy
+
+	# Only for fleshy things
+	if_not_flag enemy IS_BIOLOGICAL
+		return
+	endif
+
+	# They must be dead
+	if enemy.stats.hp > 0
+		return
+	endif
+
+	# See if we can do this
+	get_data headobject where heads_table = enemy.name
+	if_exists headobject
+		create head = headobject
+		transfer_object head to enemy.x enemy.y
+		set_personalname head = enemy.personalname
+	else
+		# Crap
+		return
+	endif
+
+/*
+	# Now find a suitable corpse shape
+	get_data bodyobject where headless_table = enemy.name
+	if_exists bodyobject
+		change enemy = bodyobject
+	else
+		# Crap, tidy up
+		destroy head
+		return
+	endif
+*/
+
+end
 
 
 

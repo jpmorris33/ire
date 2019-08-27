@@ -426,6 +426,17 @@ section: sprites
 	magesit_u		sprites/people/magesn.cel
 	magesit_d		sprites/people/magess.cel
 
+	head_player		sprites/people/head00.png
+	head_peasant		sprites/people/head01.png
+	head_guard		sprites/people/head02.png
+	head_man01		sprites/people/head03.png
+	head_noble		sprites/people/head04.png
+	head_woman		sprites/people/head05.png
+	head_oldman		sprites/people/head06.png
+	head_cardinal		sprites/people/head07.png
+	head_pope		sprites/people/head08.png
+	head_king		sprites/people/head09.png
+
 	stone_door1s_vert	sprites/stdoor00.cel
 	stone_door1l_vert	sprites/stdoor01.cel
 	stone_door2s_vert	sprites/stdoor02.cel
@@ -12749,6 +12760,16 @@ section: sequences
 		DOORTOOL3
 	end
 
+	quickname	head_player
+	quickname	head_peasant
+	quickname	head_guard
+	quickname	head_man01
+	quickname	head_noble
+	quickname	head_woman
+	quickname	head_oldman
+	quickname	head_cardinal
+	quickname	head_pope
+	quickname	head_king
 
 !include resources/objects.txt
 
@@ -13056,6 +13077,7 @@ section: scripts
 	code/creature/player.pe
 	code/creature/undead.pe
 	code/creature/waarg.pe
+	code/creature/bandit.pe
 	code/events/church.pe
 	code/events/events.pe
 	code/events/fishrman.pe
@@ -13510,6 +13532,34 @@ section: tables
 		MAP4		666
 
 	end
+
+
+	name heads_table
+	key=string
+	data=string
+	list:
+		DEADPLAYER 	PLAYER_HEAD
+		DEADPLAYERf 	PLAYER_HEAD
+		DEADKING	KING_HEAD
+		DEADPRINCE	KING_HEAD
+		MAN_POPE	POPE_HEAD	# Pope has no corpse!
+		DEADFOLLOWER	CARDINAL_HEAD
+		DEADPEASANT	PEASANT_HEAD
+		DEADNOBLEMAN	NOBLE_HEAD
+		DEADGUARD	GUARD_HEAD
+		DEADOLDMAN	OLDMAN_HEAD
+		DEADMONK	PEASANT_HEAD
+		DEADPILGRIM	PEASANT_HEAD
+		DEADPILGRIM	PEASANT_HEAD
+		DEADCARDINAL	CARDINAL_HEAD
+		DEADWOMAN	WOMAN_HEAD
+		DEADNOBLEWOMAN	WOMAN_HEAD
+		DEADOUTLAW	OUTLAW_HEAD
+		
+
+	end
+
+
 
 section: tilelink
 

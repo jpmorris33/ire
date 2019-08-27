@@ -1,0 +1,37 @@
+##
+##  Outlaws and bandits don't get to call for help
+##  Also, murdering them doesn't deduct karma
+##
+
+
+##
+## Hurt
+##
+
+function outlaw_hurt
+
+# Say 'uh!'
+object_sound "uh!" current
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+insert_action current does enemy_attack to current.enemy
+
+end
+
+##
+## Dies
+##
+
+function outlaw_dies
+
+change current = "deadoutlaw"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma + 5
+	add current.enemy.user.experience + 75
+endif
+end
+

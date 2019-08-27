@@ -682,8 +682,8 @@ section: characters
 	description	"You see a man."
 	short		"man"
 	attack		close_attack
-	IfKilled	Follower_Dies
-	IfHurt		Follower_Hurt
+	IfKilled	Outlaw_Dies
+	IfHurt		Outlaw_Hurt
 	biological
 	solid
 	person
@@ -1036,6 +1036,18 @@ section: characters
 	IfLookedAt	SearchContainer
 	container
 
+	name DEADPLAYERf
+	left		REDWOMAN_DEAD
+	right		REDWOMAN_DEAD
+	up		REDWOMAN_DEAD
+	down		REDWOMAN_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead person"
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+
 	name DEADKING
 	left		KING_DEAD
 	right		KING_DEAD
@@ -1063,6 +1075,19 @@ section: characters
 	horrific
 
 	name DEADFOLLOWER
+	left		F_DEAD
+	right		F_DEAD
+	up		F_DEAD
+	down		F_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead person."
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+	horrific
+
+	name DEADOUTLAW
 	left		F_DEAD
 	right		F_DEAD
 	up		F_DEAD
@@ -1835,6 +1860,7 @@ section: characters
 	short		"cutlass"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack_corpse
 	wielded
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
@@ -1853,6 +1879,7 @@ section: characters
 	short		"sword"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack_corpse
 	wielded
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
@@ -1871,6 +1898,7 @@ section: characters
 	short		"sword"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack
 	wielded
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
@@ -1890,6 +1918,7 @@ section: characters
 	short		"magic sword"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack
 	wielded
 
 	name SWORD04
@@ -1904,6 +1933,7 @@ section: characters
 	short		"dagger"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack_corpse
 	wielded
 
 	name SWORD05
@@ -1918,6 +1948,7 @@ section: characters
 	short		"dagger"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack_corpse
 	wielded
 
 	name STAFF00
@@ -1976,6 +2007,7 @@ section: characters
 	short		"halberd"
 	IfWielded	wield_weapon
 	Attack		close_attack
+	user2		decap_attack
 	wielded
 
 	name KEY
@@ -16755,10 +16787,102 @@ section: characters
 	frame		warp_antenna
 	hp		1000000
 	weight		-1
-	description	"You see some industrial equipment"
+	description	"You see some industrial equipment."
 	short		"equipment"
 #	solid
 	fixed
+
+
+
+
+	name		PLAYER_HEAD
+	frame		head_player
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		PEASANT_HEAD
+	frame		head_peasant
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		GUARD_HEAD
+	frame		head_guard
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		MAN_HEAD
+	frame		head_man01
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		NOBLE_HEAD
+	frame		head_noble
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		WOMAN_HEAD
+	frame		head_woman
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		OLDMAN_HEAD
+	frame		head_oldman
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		CARDINAL_HEAD
+	frame		head_cardinal
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		POPE_HEAD
+	frame		head_pope
+	hp		-1
+	weight		1500
+	description	"You see a severed head.  This will not end well."
+	short		"head"
+	horrific
+
+	name		KING_HEAD
+	frame		head_king
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
+	name		OUTLAW_HEAD
+	frame		head_cardinal
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+
 
 section: tiles
 
