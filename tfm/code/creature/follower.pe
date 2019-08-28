@@ -82,7 +82,7 @@ if current is called "DEAD*"
 endif
 
 if_exists current
-	if current.label.race = "bodyhorror"
+	if current.label.race = "headless"
 		let victim = current
 		set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
 		let suspect = victim.enemy

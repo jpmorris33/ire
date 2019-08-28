@@ -11517,12 +11517,12 @@ section: characters
 	down		SKELETON_D
 	hp		100
 	intelligence	50
-	weight		25000
+	weight		50000
 	damage		15
 	weight		-1
 	description	"You see a headless zombie."
 	short		"zombie"
-	IfKilled	skeleton_dies
+	IfKilled	headless_dies
 	IfHurt		start_attack
 	behaviour	attack_party
 	Attack		close_attack
@@ -11531,6 +11531,19 @@ section: characters
 	solid
 	wont_shut_doors
 	wont_open_doors
+
+	name HEADLESS_DEAD
+	left		SKELETON_DEAD
+	right		SKELETON_DEAD
+	up		SKELETON_DEAD
+	down		SKELETON_DEAD
+	hp		100
+	intelligence	30
+	max_intelligence	30
+	weight		50000
+	damage		5
+	description	"You see a destroyed zombie."
+	short		"corpse"
 
 	name DEVIL
 	left		DEVIL_LEFT
@@ -16842,7 +16855,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		PEASANT_HEAD
 	frame		head_peasant
@@ -16851,7 +16864,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		GUARD_HEAD
 	frame		head_guard
@@ -16860,7 +16873,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		MAN_HEAD
 	frame		head_man01
@@ -16869,7 +16882,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		NOBLE_HEAD
 	frame		head_noble
@@ -16878,7 +16891,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		WOMAN_HEAD
 	frame		head_woman
@@ -16887,7 +16900,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		OLDMAN_HEAD
 	frame		head_oldman
@@ -16896,7 +16909,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		CARDINAL_HEAD
 	frame		head_cardinal
@@ -16905,7 +16918,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		POPE_HEAD
 	frame		head_pope
@@ -16914,7 +16927,7 @@ section: characters
 	description	"You see a severed head.  This will not end well."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		KING_HEAD
 	frame		head_king
@@ -16923,7 +16936,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name		OUTLAW_HEAD
 	frame		head_cardinal
@@ -16932,208 +16945,260 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
 	name PLAYER_BODY
 	frame		body_player
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name PLAYERF_BODY
 	frame		body_playerf
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name KING_BODY
 	frame		body_king
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead king."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name PRINCE_BODY
 	frame		body_king
 	hp		-1
 	weight		50000
+	damage		15
+	alignment	-10
 	description	"You see a very dead prince."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name FOLLOWER_BODY
 	frame		body_follower
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name OUTLAW_BODY
 	frame		body_follower
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead bandit."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
+	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
 	name PEASANT_BODY
 	frame		body_peasant
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name NOBLEMAN_BODY
 	frame		body_noble
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name GUARD_BODY
 	frame		body_guard
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead guard."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name OLDMAN_BODY
 	frame		body_oldman
 	hp		-1
 	weight		55000
+	damage		15
+	alignment	-10
 	description	"You see a very dead old man."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name MONK_BODY
 	frame		body_monk
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead monk."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name PILGRIM_BODY
 	frame		body_monk
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name CARDINAL_BODY
 	frame		body_cardinal
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead cardinal."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	# Normally we'd disable the schedule but since this isn't supposed to happen at all...
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name WOMAN1_BODY
 	frame		body_woman1
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name WOMAN2_BODY
 	frame		body_woman2
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name POPE_BODY
 	frame		body_pope
 	hp		-1
 	weight		60000
+	damage		15
 	description	"You see the Pope.  He is unquestionably dead, and you will soon follow."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
+	# Normally we'd disable the schedule but since this isn't supposed to happen at all...
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 	name MAGE_BODY
 	frame		body_mage
 	hp		-1
 	weight		60000
+	damage		15
+	alignment	-10
 	description	"You see a very dead person."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
 	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
 	container
 	horrific
-	race		bodyhorror
+	race		headless
 
 
 section: tiles

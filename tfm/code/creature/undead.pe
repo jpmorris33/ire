@@ -34,6 +34,20 @@ end
 
 
 ##
+##  Headless dies
+##
+
+function headless_dies
+
+change current = "headless_dead"
+
+# Inform the creating egg
+call egg_killed
+
+end
+
+
+##
 ##  Spook dies
 ##
 

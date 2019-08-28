@@ -121,6 +121,14 @@ if spelltarget is called "bones*"
 	return
 endif
 
+if spelltarget.label.race = "headless"
+	if me = player
+		print "That's rather... optimistic."
+		printcr
+	endif
+	return
+endif
+
 if spelltarget.stats.hp > 0
 	if me = player
 		print "Didn't work."
