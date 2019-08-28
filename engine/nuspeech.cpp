@@ -2186,61 +2186,56 @@ if(!strcmp(token,"USERNUM5"))
 
 if(!strcmp(token,"USERSTR1"))
 	{
-	temp[0]=0;
 	if(pe_userstr1) {
-		SAFE_STRCPY(temp, pe_userstr1);
+		strcat(temp,pe_userstr1);
 	}
 	strcat(temp,punctuation);
 	strcat(temp,strrest((a+1)));
-	SAFE_STRCPY(string,temp);
+	strcpy(string,temp);
 	return 1;
 	}
 
 if(!strcmp(token,"USERSTR2"))
 	{
-	temp[0]=0;
 	if(pe_userstr2) {
-		SAFE_STRCPY(temp, pe_userstr2);
+		strcat(temp, pe_userstr2);
 	}
 	strcat(temp,punctuation);
 	strcat(temp,strrest((a+1)));
-	SAFE_STRCPY(string,temp);
+	strcpy(string,temp);
 	return 1;
 	}
 
 if(!strcmp(token,"USERSTR3"))
 	{
-	temp[0]=0;
 	if(pe_userstr3) {
-		SAFE_STRCPY(temp, pe_userstr3);
+		strcat(temp, pe_userstr3);
 	}
 	strcat(temp,punctuation);
 	strcat(temp,strrest((a+1)));
-	SAFE_STRCPY(string,temp);
+	strcpy(string,temp);
 	return 1;
 	}
 
 if(!strcmp(token,"USERSTR4"))
 	{
-	temp[0]=0;
 	if(pe_userstr4) {
-		SAFE_STRCPY(temp, pe_userstr4);
+		strcat(temp, pe_userstr4);
 	}
 	strcat(temp,punctuation);
 	strcat(temp,strrest((a+1)));
-	SAFE_STRCPY(string,temp);
+	strcpy(string,temp);
 	return 1;
 	}
 
 if(!strcmp(token,"USERSTR5"))
 	{
-	temp[0]=0;
 	if(pe_userstr5) {
-		SAFE_STRCPY(temp, pe_userstr5);
+		strcat(temp, pe_userstr5);
 	}
 	strcat(temp,punctuation);
 	strcat(temp,strrest((a+1)));
-	SAFE_STRCPY(string,temp);
+	strcpy(string,temp);
 	return 1;
 	}
 
