@@ -5,6 +5,9 @@
 ##############################
 
 #int Tithes = 0
+local
+object bandit_head
+endlocal
 
 ##
 ## Look for the bits of the sceptre thief
@@ -392,4 +395,109 @@ if player.stats.karma < 0
 	set_user_flag "evil" = 1
 endif
 
+end
+
+##
+##
+
+function check_bandit_heads
+int ctr
+string_array bandit[3]
+string_array bad[5]
+string lookfor
+object head
+
+let bandit[1] = "outlaw_head";
+let bandit[2] = "outlaw2_head";
+let bandit[3] = "outlaw2_head";
+
+let bad[1] = "PLAYER_HEAD";
+let bad[2] = "PEASANT_HEAD";
+let bad[3] = "WOMAN_HEAD";
+let bad[4] = "NOBLE_HEAD";
+let bad[5] = "OLDMAN_HEAD";
+
+set_user_flag "got_heads" = 0
+set_user_flag "bandit_head_ok" = 0
+set_user_flag "bandit_head_clergy" = 0
+set_user_flag "bandit_head_guard" = 0
+set_user_flag "bandit_head_king" = 0
+set_user_flag "bandit_head_pope" = 0
+
+let bandit_head = null
+
+# First check for atrocities
+
+find head = "GUARD_HEAD" inside player
+if_exists head
+	set_user_flag "got_heads" = 1
+	set_user_flag "bandit_head_ok" = 0
+	set_user_flag "bandit_head_guard" = 1
+	let userstr1 = ""
+	return
+endif
+
+find head = "CARDINAL_HEAD" inside player
+if_exists head
+	set_user_flag "got_heads" = 1
+	set_user_flag "bandit_head_ok" = 0
+	set_user_flag "bandit_head_clergy" = 1
+	let userstr1 = head.personalname
+	return
+endif
+
+find head = "KING_HEAD" inside player
+if_exists head
+	set_user_flag "got_heads" = 1
+	set_user_flag "bandit_head_ok" = 0
+	set_user_flag "bandit_head_king" = 1
+	let userstr1 = head.personalname
+	return
+endif
+
+find head = "POPE_HEAD" inside player
+if_exists head
+	set_user_flag "got_heads" = 1
+	set_user_flag "bandit_head_ok" = 0
+	set_user_flag "bandit_head_pope" = 1
+	return
+endif
+
+# Then check for the player killing some rando
+for ctr = 1 to 5
+	let lookfor = bad[ctr]
+	find head = lookfor inside player
+	if_exists head
+		set_user_flag "got_heads" = 1
+		set_user_flag "bandit_head_ok" = 0
+		let userstr1 = head.personalname
+		return
+	endif
+next
+
+# Check for proper bandit heads
+for ctr = 1 to 3
+	let lookfor = bandit[ctr]
+	find head = lookfor inside player
+	if_exists head
+		set_user_flag "got_heads" = 1
+		set_user_flag "bandit_head_ok" = 1
+		let bandit_head = head
+		return
+	endif
+next
+
+end
+
+##
+##  Remove the head
+##
+
+function take_bandit_head
+if_exists bandit_head
+	destroy bandit_head
+	let bandit_head = null
+	add player.stats.karma + 5
+	add player.user.experience + 150
+endif
 end

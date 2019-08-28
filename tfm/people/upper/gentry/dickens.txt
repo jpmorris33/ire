@@ -15,13 +15,14 @@
 
 
 [page="startname"]
+[call="check_bandit_heads"]
 
 "Ah, welcome back.
 
  How can I assist you?"
 
-[if_got_heads][link="I have some bandits to turn in."]
-[if_got_heads][linkto="bandit_heads"]
+[if got_heads][link="I have some bandits to turn in."]
+[if got_heads][linkto="bandit_heads"]
 [link="Tell me about Avis."]
 [linkto="avis"]
 [link="Tell me about your job."]
@@ -132,12 +133,22 @@
 
 
 [page="bandit_heads"]
-[]
+[call="check_bandit_heads"]
+[if bandit_head_ok][goto="bandit_head1"]
+[if bandit_head_guard][goto="bandit_head_guard"]
+[if bandit_head_clergy][goto="bandit_head_clergy"]
+[if bandit_head_king][goto="bandit_head_king"]
+[if bandit_head_pope][goto="bandit_head_pope"]
+[goto="bandit_head2"]
+[endpage]
 
-Player has brought some severed heads.  Take the ones which are bandits.
+[page="bandit_head1"]
+[call="take_bandit_head"]
+[create 250 gold_coins]
+[call="money_sound"]
 
-"Aye, this rogue is known to us.  Thank you for bringing them to justice."
-
+"Aye, this rogue is known to us.  Thank you for bringing
+ them to justice!"
 
 [link="Tell me about the monsters."]
 [linkto="monsters"]
@@ -152,14 +163,81 @@ Player has brought some severed heads.  Take the ones which are bandits.
 
 Player has decapitated someone else and brought their head
 
-[page="bandit_heads2"]
+[page="bandit_head2"]
 [colour="#808080"]
 The mayor stares at the head in shock and disbelief.
 [colour="#ffffff"]
 
-"By the LORD!  This is no bandit!  MURDER!"
+"By the LORD!  This is no bandit!
+ This is $USERSTR1!
 
-[nextpage="hang_player"]
+ MURDER!  MURDER!"
+
+[call_at_exit="hang_player"]
+[nextpage="exit"]
+[endpage]
+
+[page="bandit_head_guard"]
+[colour="#808080"]
+The mayor stares at the head in shock and disbelief.
+[colour="#ffffff"]
+
+"By the LORD!  This is no bandit!  This is a guard!
+
+ MURDER!  MURDER!"
+
+[call_at_exit="hang_player"]
+[nextpage="exit"]
+[endpage]
+
+
+The player should probably be beheaded for this
+
+[page="bandit_head_clergy"]
+[colour="#808080"]
+The mayor stares at the head in shock and disbelief.
+[colour="#ffffff"]
+
+"Sacrilege!  Murder!  Blasphemy!
+ You have beheaded one of the LORD's servants!
+
+ MURDER!  MURDER!"
+
+[call_at_exit="guillotine_player"]
+[nextpage="exit"]
+[endpage]
+
+
+The player should probably be beheaded for this
+
+[page="bandit_head_king"]
+[colour="#808080"]
+The mayor stares at the head in shock and disbelief.
+[colour="#ffffff"]
+
+"No!  My liege... NO!  You shall be avenged!
+
+ MURDER!  MURDER!"
+
+[call_at_exit="guillotine_player"]
+[nextpage="exit"]
+[endpage]
+
+
+The player should definitely be beheaded for this
+
+[page="bandit_head_pope"]
+[colour="#808080"]
+The mayor takes in the Pope's head and suffers a
+heart attack.
+
+Shortly afterwards, his men escort you to the
+guillotine.  In your last moments, you reflect
+that maybe this wasn't such a good idea.
+[colour="#ffffff"]
+
+[call_at_exit="guillotine_player"]
+[nextpage="exit"]
 [endpage]
 
 

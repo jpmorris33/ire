@@ -437,6 +437,22 @@ section: sprites
 	head_pope		sprites/people/head08.png
 	head_king		sprites/people/head09.png
 
+	body_player		sprites/people/man02_hl.png
+	body_playerf		sprites/people/womp_hl.png
+	body_peasant		sprites/people/mm1-hl.png
+	body_monk		sprites/people/monk3_hl.png
+	body_guard		sprites/people/guard-hl.png
+	body_man		sprites/people/man01_hl.png
+	body_noble		sprites/people/mm2-hl.png
+	body_woman1		sprites/people/wom01_hl.png
+	body_woman2		sprites/people/wom02_hl.png
+	body_oldman		sprites/people/oldman17.png
+	body_cardinal		sprites/people/av21.png
+	body_follower		sprites/people/fo13.png
+	body_pope		sprites/people/pope13.png
+	body_king		sprites/people/king13.png
+	body_mage		sprites/people/mage13.png
+
 	stone_door1s_vert	sprites/stdoor00.cel
 	stone_door1l_vert	sprites/stdoor01.cel
 	stone_door2s_vert	sprites/stdoor02.cel
@@ -12771,6 +12787,23 @@ section: sequences
 	quickname	head_pope
 	quickname	head_king
 
+	quickname	body_player
+	quickname	body_playerf
+	quickname	body_peasant
+	quickname	body_monk
+	quickname	body_guard
+	quickname	body_man
+	quickname	body_noble
+	quickname	body_woman1
+	quickname	body_woman2
+	quickname	body_oldman
+	quickname	body_cardinal
+	quickname	body_pope
+	quickname	body_king
+	quickname	body_mage
+	quickname	body_follower
+
+
 !include resources/objects.txt
 
 
@@ -13538,11 +13571,11 @@ section: tables
 	key=string
 	data=string
 	list:
-		DEADPLAYER 	PLAYER_HEAD
-		DEADPLAYERf 	PLAYER_HEAD
+		DEADPLAYER	PLAYER_HEAD
+		DEADPLAYERf	PLAYER_HEAD
 		DEADKING	KING_HEAD
 		DEADPRINCE	KING_HEAD
-		MAN_POPE	POPE_HEAD	# Pope has no corpse!
+		MAN_POPE	POPE_HEAD
 		DEADFOLLOWER	CARDINAL_HEAD
 		DEADPEASANT	PEASANT_HEAD
 		DEADNOBLEMAN	NOBLE_HEAD
@@ -13550,15 +13583,36 @@ section: tables
 		DEADOLDMAN	OLDMAN_HEAD
 		DEADMONK	PEASANT_HEAD
 		DEADPILGRIM	PEASANT_HEAD
-		DEADPILGRIM	PEASANT_HEAD
 		DEADCARDINAL	CARDINAL_HEAD
 		DEADWOMAN	WOMAN_HEAD
 		DEADNOBLEWOMAN	WOMAN_HEAD
 		DEADOUTLAW	OUTLAW_HEAD
-		
-
+		DEADMAGE	OLDMAN_HEAD
 	end
 
+
+	name bodies_table
+	key=string
+	data=string
+	list:
+		DEADPLAYER	PLAYER_BODY
+		DEADPLAYERf	PLAYERF_BODY
+		DEADKING	KING_BODY
+		DEADPRINCE	PRINCE_BODY
+		MAN_POPE	POPE_BODY
+		DEADFOLLOWER	FOLLOWER_BODY
+		DEADPEASANT	PEASANT_BODY
+		DEADNOBLEMAN	NOBLE_BODY
+		DEADGUARD	GUARD_BODY
+		DEADOLDMAN	OLDMAN_BODY
+		DEADMONK	MONK_BODY
+		DEADPILGRIM	PILGRIM_BODY
+		DEADCARDINAL	CARDINAL_BODY
+		DEADWOMAN	WOMAN1_BODY
+		DEADNOBLEWOMAN	WOMAN2_BODY
+		DEADOUTLAW	OUTLAW_BODY
+		DEADMAGE	MAGE_BODY
+	end
 
 
 section: tilelink

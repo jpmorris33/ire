@@ -313,8 +313,7 @@ function decap_attack
 		let enemy.stats.hp = -50
 		check_hurt enemy
 
-		# Ignore the rest of the attack phase
-		let hit_damage = 0
+		let hit_damage = 1
 	endif
 
 	# If they're dead, hack the head off
@@ -329,7 +328,7 @@ end
 function decap_attack_corpse
 
 	string headobject
-#	string bodyobject
+	string bodyobject
 	object enemy
 	object head
 
@@ -351,22 +350,27 @@ function decap_attack_corpse
 		create head = headobject
 		transfer_object head to enemy.x enemy.y
 		set_personalname head = enemy.personalname
+		let head.enemy = attacker
+		# Ensure justice is carried out
+		let head.stats.intel = 100
 	else
 		# Crap
 		return
 	endif
 
-/*
 	# Now find a suitable corpse shape
-	get_data bodyobject where headless_table = enemy.name
+	get_data bodyobject where bodies_table = enemy.name
 	if_exists bodyobject
-		change enemy = bodyobject
+		replace enemy = bodyobject
+		# Subtract the weight of the head
+		add enemy.stats.weight - head.stats.weight
+		# Ensure justice is carried out
+		let enemy.stats.intel = 100
 	else
 		# Crap, tidy up
 		destroy head
 		return
 	endif
-*/
 
 end
 

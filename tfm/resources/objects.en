@@ -684,6 +684,7 @@ section: characters
 	attack		close_attack
 	IfKilled	Outlaw_Dies
 	IfHurt		Outlaw_Hurt
+	behaviour	attack_party
 	biological
 	solid
 	person
@@ -1243,6 +1244,8 @@ section: characters
 	horrific
 	resurrect_as	HAWK
 	user1		benji_resurrected
+
+
 
 	name BEE
 	left		BEE_L
@@ -1949,6 +1952,21 @@ section: characters
 	IfWielded	wield_weapon
 	Attack		close_attack
 	user2		decap_attack_corpse
+	wielded
+
+	name SWORD06
+	left		SWORD02
+	right		SWORD02
+	up		SWORD02
+	down		SWORD02
+	hp		200
+	weight		1200
+	damage		250
+	description	"You see the +200 longsword of Fish."
+	short		"sword"
+	IfWielded	wield_weapon
+	Attack		close_attack
+	user2		decap_attack
 	wielded
 
 	name STAFF00
@@ -11492,6 +11510,28 @@ section: characters
 	description	"You see a broken skeleton."
 	short		"bits"
 
+	name HEADLESS
+	left		SKELETON_L
+	right		SKELETON_R
+	up		SKELETON_U
+	down		SKELETON_D
+	hp		100
+	intelligence	50
+	weight		25000
+	damage		15
+	weight		-1
+	description	"You see a headless zombie."
+	short		"zombie"
+	IfKilled	skeleton_dies
+	IfHurt		start_attack
+	behaviour	attack_party
+	Attack		close_attack
+	horrific
+	alignment	-10
+	solid
+	wont_shut_doors
+	wont_open_doors
+
 	name DEVIL
 	left		DEVIL_LEFT
 	right		DEVIL_RIGHT
@@ -16802,6 +16842,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		PEASANT_HEAD
 	frame		head_peasant
@@ -16810,6 +16851,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		GUARD_HEAD
 	frame		head_guard
@@ -16818,6 +16860,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		MAN_HEAD
 	frame		head_man01
@@ -16826,6 +16869,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		NOBLE_HEAD
 	frame		head_noble
@@ -16834,6 +16878,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		WOMAN_HEAD
 	frame		head_woman
@@ -16842,6 +16887,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		OLDMAN_HEAD
 	frame		head_oldman
@@ -16850,6 +16896,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		CARDINAL_HEAD
 	frame		head_cardinal
@@ -16858,6 +16905,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		POPE_HEAD
 	frame		head_pope
@@ -16866,6 +16914,7 @@ section: characters
 	description	"You see a severed head.  This will not end well."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		KING_HEAD
 	frame		head_king
@@ -16874,6 +16923,7 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+	race		bodyhorror
 
 	name		OUTLAW_HEAD
 	frame		head_cardinal
@@ -16882,6 +16932,208 @@ section: characters
 	description	"You see a severed head."
 	short		"head"
 	horrific
+
+	name PLAYER_BODY
+	frame		body_player
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name PLAYERF_BODY
+	frame		body_playerf
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name KING_BODY
+	frame		body_king
+	hp		-1
+	weight		60000
+	description	"You see a very dead king."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name PRINCE_BODY
+	frame		body_king
+	hp		-1
+	weight		50000
+	description	"You see a very dead prince."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name FOLLOWER_BODY
+	frame		body_follower
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name OUTLAW_BODY
+	frame		body_follower
+	hp		-1
+	weight		60000
+	description	"You see a very dead bandit."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+
+	name PEASANT_BODY
+	frame		body_peasant
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name NOBLEMAN_BODY
+	frame		body_noble
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name GUARD_BODY
+	frame		body_guard
+	hp		-1
+	weight		60000
+	description	"You see a very dead guard."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name OLDMAN_BODY
+	frame		body_oldman
+	hp		-1
+	weight		55000
+	description	"You see a very dead old man."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name MONK_BODY
+	frame		body_monk
+	hp		-1
+	weight		60000
+	description	"You see a very dead monk."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name PILGRIM_BODY
+	frame		body_monk
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name CARDINAL_BODY
+	frame		body_cardinal
+	hp		-1
+	weight		60000
+	description	"You see a very dead cardinal."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name WOMAN1_BODY
+	frame		body_woman1
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name WOMAN2_BODY
+	frame		body_woman2
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
+
+	name POPE_BODY
+	frame		body_pope
+	hp		-1
+	weight		60000
+	description	"You see the Pope.  He is unquestionably dead, and you will soon follow."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	container
+	horrific
+	race		bodyhorror
+
+	name MAGE_BODY
+	frame		body_mage
+	hp		-1
+	weight		60000
+	description	"You see a very dead person."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	container
+	horrific
+	race		bodyhorror
 
 
 section: tiles

@@ -81,5 +81,14 @@ if current is called "DEAD*"
 	return
 endif
 
+if_exists current
+	if current.label.race = "bodyhorror"
+		let victim = current
+		set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
+		let suspect = victim.enemy
+		call justice_assault
+	endif
+endif
+
 end
 
