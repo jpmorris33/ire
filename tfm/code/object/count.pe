@@ -121,3 +121,35 @@ endif
 
 set_sequence current "shells04"
 end
+
+##
+##  Handle tranq dart quantities (actually strength, not quantity)
+##
+
+function count_darts
+
+#let current.stats.weight = current.stats.quantity * current.maxstats.weight
+
+# Check for silliness
+if current.stats.strength < 1
+	destroy current
+	return
+endif
+
+if current.stats.strength = 1
+	set_sequence current "darts07"
+	return
+endif
+
+if current.stats.strength = 2
+	set_sequence current "darts06"
+	return
+endif
+
+if current.stats.strength = 3
+	set_sequence current "darts05"
+	return
+endif
+
+set_sequence current "darts04"
+end

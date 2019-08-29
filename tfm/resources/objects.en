@@ -679,7 +679,7 @@ section: characters
 	intelligence	140
 	weight		60000
 	damage		6
-	description	"You see a man."
+	description	"You see a bandit."
 	short		"man"
 	attack		close_attack
 	IfKilled	Outlaw_Dies
@@ -692,6 +692,59 @@ section: characters
 	fragile
 	race		outlaw		# Not human..
 	rank		peasant
+
+	name MAN_OUTLAW2
+	left		MAGE_LEFT
+	right		MAGE_RIGHT
+	up		MAGE_UP
+	down		MAGE_DOWN
+	hp		150
+	dexterity	10
+	strength	20000
+	intelligence	190
+	weight		60000
+	damage		10
+	range		11
+	level		8
+	description	"You see a bandit."
+	short		"mage"
+	attack		magic_attack
+	IfKilled	Mage_Dies
+	IfHurt		Mage_Hurt
+	behaviour	attack_party
+	biological
+	solid
+	person
+	male
+	race		outlaw		# Not human..
+	rank		mage
+
+	name MAN_OUTLAW3
+	left		PEASANT_L
+	right		PEASANT_R
+	up		PEASANT_U
+	down		PEASANT_D
+	hp		100
+	dexterity	10
+	strength	10000
+	intelligence	120
+	weight		60000
+	damage		6
+	description	"You see a bandit."
+	short		"man"
+	attack		close_attack
+	IfKilled	Peasant_Dies
+	IfHurt		Peasant_Hurt
+	ifhorrified	Follower_Horror
+	behaviour	attack_party
+	biological
+	solid
+	person
+	male
+	fragile
+	race		outlaw
+	rank		peasant
+
 
 	name MAN_PRIEST
 	left		F_LEFT
@@ -4921,6 +4974,36 @@ section: characters
 	weight		1
 	damage		100
 	description	"You see a clip of rifle shells."
+	short		"shells"
+	IfUsed		LOAD_GUN
+	IfLookedAt	CHECK_AMMO
+	user1		count_shells
+
+	name TRANQ_RIFLE
+	frame		RIFLE
+	hp		250
+	weight		250
+	description	"You see a tranquiliser rifle"
+	short		"tranquiliser"
+	IfLookedAt	check_ammo
+	IfWielded	wield_weapon
+	Attack		ammo_attack
+	user1		TRANQ_DARTS
+	user2		gun_attack
+	range		16
+	wielded
+
+	name TRANQ_DARTS
+	left		DARTS00
+	right		DARTS03
+	up		DARTS02
+	down		DARTS01
+	hp		10
+	strength	4
+	max_strength	4
+	weight		1
+	damage		1
+	description	"You see a clip of tranquiliser darts."
 	short		"shells"
 	IfUsed		LOAD_GUN
 	IfLookedAt	CHECK_AMMO

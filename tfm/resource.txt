@@ -1122,6 +1122,14 @@ section: sprites
 	shells05		sprites/tech/shells05.cel
 	shells06		sprites/tech/shells06.cel
 	shells07		sprites/tech/shells07.cel
+	darts00			sprites/tech/darts00.png
+	darts01			sprites/tech/darts01.png
+	darts02			sprites/tech/darts02.png
+	darts03			sprites/tech/darts03.png
+	darts04			sprites/tech/darts04.png
+	darts05			sprites/tech/darts05.png
+	darts06			sprites/tech/darts06.png
+	darts07			sprites/tech/darts07.png
 	sand00			backings/sand00.cel
 	sand01			backings/sand01.cel
 	sand02			backings/sand02.cel
@@ -2711,12 +2719,12 @@ section: sprites
 	xbow_bolt_spent		sprites/xbolt-f.cel
 	xbow			sprites/xbow.cel
 
-	glass00			sprites/glass00.cel
-	glass01			sprites/glass01.cel
-	glass02			sprites/glass02.cel
-	glass03			sprites/glass03.cel
-	glass04			sprites/glass04.cel
-	glass05			sprites/glass05.cel
+	glass00			sprites/glass00.png
+	glass01			sprites/glass01.png
+	glass02			sprites/glass02.png
+	glass03			sprites/glass03.png
+	glass04			sprites/glass04.png
+	glass05			sprites/glass05.png
 	glass06			sprites/glass06.cel
 	glass07			sprites/glass07.cel
 	glass08			sprites/glass08.cel
@@ -6832,6 +6840,14 @@ section: sequences
 	quickname SHELLS05 SHELLS05
 	quickname SHELLS06 SHELLS06
 	quickname SHELLS07 SHELLS07
+	quickname DARTS00 DARTS00
+	quickname DARTS01 DARTS01
+	quickname DARTS02 DARTS02
+	quickname DARTS03 DARTS03
+	quickname DARTS04 DARTS04
+	quickname DARTS05 DARTS05
+	quickname DARTS06 DARTS06
+	quickname DARTS07 DARTS07
 	quickname SAND00 SAND00
 	quickname SAND01 SAND01
 	quickname SAND02 SAND02
