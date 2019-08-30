@@ -2116,40 +2116,47 @@ for(ctr=0;ctr<num;ctr++)
 	}
 
 // Load secondary goal data (sub-tasks or subactions)
-if(!GetWadEntry(ifp,"SUBTASKS"))
-	ithe_panic("Savegame corrupted","SUBTASKS not found");
 
-num = igetl_i(ifp);
-for(ctr=0;ctr<num;ctr++)
-	{
-	saveid = igetl_i(ifp);
-	o = find_id(saveid);
-	if(!o)
-		Bug("SubTasks: Cannot find object number %d\n",saveid);
+// 'SUBTASKS' is the old format, but is entirely dependent on the PElist remaining the same, which it won't.
+// We can import old savegames by simply ignoring it
 
-	for(ctr2=0;ctr2<ACT_STACK;ctr2++)
-		{
-		act = igetl_i(ifp);
+// Load secondary goal data (sub-tasks or subactions)
+if(!GetWadEntry(ifp,"SUBTASK2")) {
+	num = igetl_i(ifp);
+	for(ctr=0;ctr<num;ctr++) {
 		saveid = igetl_i(ifp);
+		o = find_id(saveid);
+		if(!o) {
+			Bug("SubTasks: Cannot find object number %d\n",saveid);
+		}
 
-		if(act != -1)
-			{
-			if(saveid == SAVEID_INVALID)
-				{
-				SubAction_Push(o,act,NULL);
-//				ilog_quiet("restore queue: %s does %s\n",o->name,PElist[act].name);
+		for(ctr2=0;ctr2<ACT_STACK;ctr2++) {
+			iread((unsigned char *)buf,32,ifp);
+			saveid = igetl_i(ifp);
+
+			if(!strcmp(buf,"-")) {
+				continue;
+			}
+
+			act=getnum4PE(buf);
+			if(act != -1) {
+				if(saveid == SAVEID_INVALID) {
+					SubAction_Push(o,act,NULL);
+//					ilog_quiet("restore queue: %s does %s\n",o->name,PElist[act].name);
+				} else {
+					o2 = find_id(saveid);
+					if(!o2) {
+						Bug("Subtask: Cannot find target object number %d\n",saveid);
+					}
+//					ilog_quiet("restore queue: %s does %s to %s\n",o->name,PElist[act].name,o2->name);
+					SubAction_Push(o,act,o2);
 				}
-			else
-				{
-				o2 = find_id(saveid);
-				if(!o2)
-					Bug("Subtask: Cannot find target object number %d\n",saveid);
-//				ilog_quiet("restore queue: %s does %s to %s\n",o->name,PElist[act].name,o2->name);
-				SubAction_Push(o,act,o2);
-				}
+			} else {
+				Bug("Subtask: did not find function '%s'\n", buf);
 			}
 		}
 	}
+}
 
 // load record of what we've said to NPCs (OLD FORMAT!)
 if(GetWadEntry(ifp,"NPCTALKS"))
@@ -2482,6 +2489,7 @@ void save_ms(char *filename)
 long i;
 unsigned int ctr2,ctr3,ok;
 WadEntry entry[32];
+char buf[256];
 int Entry=0;
 
 OBJLIST	*o;
@@ -2689,63 +2697,71 @@ for(o=MasterList;o;o=o->next)
 
 
 // Save the sub-tasks
-entry[Entry].name="SUBTASKS";
+entry[Entry].name="SUBTASK2";
 entry[Entry++].start = itell(ofp);
 
 // First count how many objects have subtasks
 i=0;
-for(o=ActiveList;o;o=o->next)
-	if(o->ptr->activity >= 0)
-		if(o->ptr->save_id > 0)
-			{
+for(o=ActiveList;o;o=o->next) {
+	if(o->ptr->activity >= 0) {
+		if(o->ptr->save_id > 0) {
 			// Does it have any tasks?
 			ok=0;
-			for(ctr=0;ctr<ACT_STACK;ctr++)
-				if(o->ptr->user->actlist[ctr]>0)
+			for(ctr=0;ctr<ACT_STACK;ctr++) {
+				if(o->ptr->user->actlist[ctr]>0) {
 					ok=1;
+				}
+			}
 			// Yes
-			if(ok)
+			if(ok) {
 				i++;
 			}
+		}
+	}
+}
 
 iputl_i(i,ofp);
-for(o=ActiveList;o;o=o->next)
-	if(o->ptr->activity >= 0)
-		if(o->ptr->save_id > 0)
-			{
+for(o=ActiveList;o;o=o->next) {
+	if(o->ptr->activity >= 0) {
+		if(o->ptr->save_id > 0) {
 			ok=0;
-			for(ctr=0;ctr<ACT_STACK;ctr++)
-				if(o->ptr->user->actlist[ctr]>0)
+			for(ctr=0;ctr<ACT_STACK;ctr++) {
+				if(o->ptr->user->actlist[ctr]>0) {
 					ok=1;
-			if(ok)
-				{
+				}
+			}
+			if(ok) {
 				// Write the object ID
 				iputl_i(o->ptr->save_id,ofp);
 				// Write the tasks
-				for(ctr=0;ctr<ACT_STACK;ctr++)
-					{
-					if(o->ptr->user->actlist[ctr]<=0)
-						{
-						iputl_i(-1,ofp);
+				for(ctr=0;ctr<ACT_STACK;ctr++) {
+					if(o->ptr->user->actlist[ctr]<=0) {
+						memset(buf,0,32);
+						buf[0]='-';
+						iwrite((unsigned char *)buf,32,ofp);
 						iputl_i(SAVEID_INVALID,ofp);
-						}
-					else
-						{
+					} else {
 #ifdef DEBUG_SAVE
-						if(o->ptr->target.objptr)
+						if(o->ptr->target.objptr) {
 							ilog_quiet("subtask %d: %s '%s' does %s to %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name,o->ptr->target.objptr->name);
-						else
+						} else {
 							ilog_quiet("subtask %d: %s '%s' does %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name);
+						}
 #endif
-						iputl_i(o->ptr->user->actlist[ctr],ofp);
-						if(o->ptr->user->acttarget[ctr])
+						iwrite((unsigned char *)PElist[o->ptr->user->actlist[ctr]].name,32,ofp);
+
+						if(o->ptr->user->acttarget[ctr]) {
 							iputl_i(o->ptr->user->acttarget[ctr]->save_id,ofp);
-						else
+						} else {
 							iputl_i(SAVEID_INVALID,ofp); // No target
 						}
 					}
 				}
 			}
+		}
+
+	}
+}
 
 
 // Write NPC conversation log
