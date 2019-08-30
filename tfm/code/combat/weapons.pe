@@ -295,6 +295,11 @@ function decap_attack
 	integer decap_threshold
 	object enemy
 
+	# Prevent the guards beheading someone they're supposed to arrest
+	if arrest_only
+		return
+	endif
+
 	let enemy = attacker.enemy
 	let decap_threshold = attackweapon.stats.damage / 2
 

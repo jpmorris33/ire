@@ -11634,10 +11634,10 @@ section: characters
 	short		"bits"
 
 	name HEADLESS
-	left		SKELETON_L
-	right		SKELETON_R
-	up		SKELETON_U
-	down		SKELETON_D
+	left		HEADLESS_L
+	right		HEADLESS_R
+	up		HEADLESS_U
+	down		HEADLESS_D
 	hp		100
 	intelligence	50
 	weight		50000
@@ -11656,16 +11656,16 @@ section: characters
 	wont_open_doors
 
 	name HEADLESS_DEAD
-	left		SKELETON_DEAD
-	right		SKELETON_DEAD
-	up		SKELETON_DEAD
-	down		SKELETON_DEAD
+	left		HEADLESS_DEAD
+	right		HEADLESS_DEAD
+	up		HEADLESS_DEAD
+	down		HEADLESS_DEAD
 	hp		100
 	intelligence	30
 	max_intelligence	30
 	weight		50000
 	damage		5
-	description	"You see a destroyed zombie."
+	description	"You see a headless corpse."
 	short		"corpse"
 
 	name DEVIL

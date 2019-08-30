@@ -2367,6 +2367,24 @@ section: sprites
 	skel11			sprites/wildlife/skel11.cel
 	skel12			sprites/wildlife/skel12.cel
 
+	headless00		sprites/people/headless_n0.png
+	headless01		sprites/people/headless_n1.png
+	headless02		sprites/people/headless_n2.png
+	headless03		sprites/people/headless_s0.png
+	headless04		sprites/people/headless_s1.png
+	headless05		sprites/people/headless_s2.png
+	headless06		sprites/people/headless_w0.png
+	headless07		sprites/people/headless_w1.png
+	headless08		sprites/people/headless_w2.png
+	headless09		sprites/people/headless_e0.png
+	headless10		sprites/people/headless_e1.png
+	headless11		sprites/people/headless_e2.png
+	headless12		sprites/people/headless___.png
+	headlesssit_u		sprites/people/headless_ns.png
+	headlesssit_d		sprites/people/headless_ss.png
+	headlesssit_l		sprites/people/headless_ws.png
+	headlesssit_r		sprites/people/headless_es.png
+
 	tode00			sprites/wildlife/tode00.cel
 	tode01			sprites/wildlife/tode01.cel
 	tode02			sprites/wildlife/tode02.cel
@@ -10002,6 +10020,56 @@ section: sequences
 	end
 
 	quickname SKELETON_DEAD SKEL12
+
+	name HEADLESS_U
+	pingpong
+	loop
+	stepped
+	speed 8
+	framelist:
+	#3 frames
+		HEADLESS01
+		HEADLESS00
+		HEADLESS02
+	end
+
+	name HEADLESS_D
+	pingpong
+	loop
+	stepped
+	speed 8
+	framelist:
+	#3 frames
+		HEADLESS04
+		HEADLESS03
+		HEADLESS05
+	end
+
+	name HEADLESS_L
+	pingpong
+	loop
+	stepped
+	speed 8
+	framelist:
+	#3 frames
+		HEADLESS07
+		HEADLESS06
+		HEADLESS08
+	end
+
+	name HEADLESS_R
+	pingpong
+	loop
+	stepped
+	speed 8
+	framelist:
+	#3 frames
+		HEADLESS10
+		HEADLESS09
+		HEADLESS11
+	end
+
+	quickname HEADLESS_DEAD HEADLESS12
 
 	name DRAGON_U
 	overlay DRAG00
