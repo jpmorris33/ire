@@ -31,15 +31,6 @@ printcr
 end
 
 
-function lie_down
-/*
-BUG START
-print "lie_down not supported|"
-BUG END
-*/
-end
-
-
 function do_nothing
 no_operation
 end

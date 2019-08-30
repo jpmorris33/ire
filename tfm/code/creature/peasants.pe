@@ -74,3 +74,38 @@ if_exists current.enemy
 	add current.enemy.stats.karma - 20
 endif
 end
+
+##
+## Mage Hurt
+##
+
+function mage_hurt
+
+# Say 'uh!'
+object_sound "uh!" current
+
+# Show the blood
+let splatvictim = current
+call splat_blood
+
+# Hunt down the enemy
+if_not_flag current IN_PARTY
+	let suspect = current.enemy
+	let victim = current
+	call justice_assault
+endif
+
+end
+
+##
+## Dies
+##
+
+function mage_dies
+
+change current = "deadmage"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 20
+endif
+end

@@ -344,8 +344,21 @@ endif
 
 # It's alive, make it sleep
 call lie_down
-let current.user.unconscious = 9999
-start_action current does sleeping
+if current = player
+	fade_out
+	add game_hour + 2
+	let game_minute = 0
+	check_time
+
+	# Wait 1/4 sec for each hour (2)
+	wait 500 BLOCKING
+
+	resync_everything
+	fade_in
+else
+	let current.user.unconscious = 60	# Sleep one hour if you're not the player
+	start_action current does sleeping
+endif
 
 # Success
 let spell_failed = 0

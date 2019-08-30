@@ -1154,6 +1154,32 @@ section: characters
 	container
 	horrific
 
+	name DEADOUTLAW2
+	left		MAGE_DEAD
+	right		MAGE_DEAD
+	up		MAGE_DEAD
+	down		MAGE_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead person."
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+	horrific
+
+	name DEADOUTLAW3
+	left		PEASANT_DEAD
+	right		PEASANT_DEAD
+	up		PEASANT_DEAD
+	down		PEASANT_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead person."
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+	horrific
+
 	name DEADPEASANT
 	left		PEASANT_DEAD
 	right		PEASANT_DEAD
@@ -1214,6 +1240,20 @@ section: characters
 	hp		100
 	weight		60000
 	description	"You see a dead monk."
+	short		"body"
+	IfLookedAt	SearchContainer
+	IfKilled	respawn
+	container
+	horrific
+
+	name DEADMAGE
+	left		MAGE_DEAD
+	right		MAGE_DEAD
+	up		MAGE_DEAD
+	down		MAGE_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead mage."
 	short		"body"
 	IfLookedAt	SearchContainer
 	IfKilled	respawn
@@ -4895,7 +4935,7 @@ section: characters
 	IfWielded	wield_weapon
 	Attack		ammo_attack
 	user1		rounds-*
-	user2		gun_attack
+#	user2		gun_attack
 	range		8
 	wielded
 	setsolid	V 0 0 1 1
@@ -4959,7 +4999,7 @@ section: characters
 	IfWielded	wield_weapon
 	Attack		ammo_attack
 	user1		shells
-	user2		gun_attack
+#	user2		gun_attack
 	range		16
 	wielded
 
@@ -4989,7 +5029,7 @@ section: characters
 	IfWielded	wield_weapon
 	Attack		ammo_attack
 	user1		TRANQ_DARTS
-	user2		gun_attack
+	user2		tranq_attack
 	range		16
 	wielded
 
@@ -5007,7 +5047,7 @@ section: characters
 	short		"shells"
 	IfUsed		LOAD_GUN
 	IfLookedAt	CHECK_AMMO
-	user1		count_shells
+	user1		count_darts
 
 	name LAPTOP
 	left		LAPTOP_LEFT
@@ -17030,6 +17070,24 @@ section: characters
 	horrific
 	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
+	name		OUTLAW2_HEAD
+	frame		head_oldman
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
+
+	name		OUTLAW3_HEAD
+	frame		head_peasant
+	hp		-1
+	weight		1500
+	description	"You see a severed head."
+	short		"head"
+	horrific
+	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
+
 	name PLAYER_BODY
 	frame		body_player
 	hp		-1
@@ -17107,6 +17165,36 @@ section: characters
 
 	name OUTLAW_BODY
 	frame		body_follower
+	hp		-1
+	weight		60000
+	damage		15
+	alignment	-10
+	description	"You see a very dead bandit."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
+	container
+	horrific
+	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
+
+	name OUTLAW2_BODY
+	frame		body_mage
+	hp		-1
+	weight		60000
+	damage		15
+	alignment	-10
+	description	"You see a very dead bandit."
+	short		"headless corpse"
+	IfLookedAt	SearchContainer
+	resurrect_as	HEADLESS
+	no_schedule	# Stop them resuming their lives a'la DMFA
+	container
+	horrific
+	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
+
+	name OUTLAW3_BODY
+	frame		body_peasant
 	hp		-1
 	weight		60000
 	damage		15

@@ -161,3 +161,17 @@ if dir = RIGHT
 endif
 
 end
+
+##
+##  lie down
+##
+
+function lie_down
+
+	string seq
+	get_data seq where lying_down = current.name
+	if_exists seq
+		set_sequence current seq
+	endif
+
+end

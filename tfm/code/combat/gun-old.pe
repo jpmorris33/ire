@@ -1,0 +1,134 @@
+###
+###	Not currently used but may be useful later
+###
+
+
+##
+##  gun_attack - distant attack with a gun
+##
+
+/*
+	Loadable weapons have the following properties:
+
+	stats->str = number of shots left
+	maxstats->str = number of shots when full (not needed here)
+	stats->damage = damage done by weapon, can be set when you load
+			a specific type of ammo to vary this.
+*/
+
+function gun_attack
+/*
+if_not_exist attacker
+	return
+endif
+
+if attacker = player
+	print "Attack with "
+	print attackweapon.shortdesc
+	print " "
+	redraw_text
+
+	let current = player	# Orient around player
+	call get_far
+
+	if_exist current
+		print current.shortdesc
+		printcr
+
+		let attacker = player
+		let attacker.enemy = current
+		call attack_it_gun
+	else
+	        print "nothing."
+		printcr
+	endif
+else		# If not the player, just whack it
+#	let enemy = attacker.enemy
+	call attack_it_gun
+endif
+*/
+end
+
+
+##
+## attack_it_gun - Calculate damage, do the actual violence
+##
+/*
+function attack_it_gun
+
+int damage
+#int div
+int rnd
+int r
+
+get_line_of_sight r = attacker attacker.enemy
+if r > attackweapon.stats.range
+or r = 0
+	if attacker == player
+		print "Out of range!"
+		printcr
+	else
+		move_towards attacker attacker.enemy
+	endif
+	return
+endif
+
+# Make sure there is ammo in the weapon
+
+if attackweapon.stats.str < 1
+	if attacker == player
+		print "Out of ammo!"
+		printcr
+	else
+		let current = attacker
+		call find_best_weapon
+	endif
+	return
+endif
+
+# Shoot with the ammo
+let damage = attackweapon.stats.damage
+
+if attacker <> attacker.enemy			# Self-injury can't miss
+	if_flag attacker.enemy IS_SHADOW
+		random rnd between 0 3
+		if rnd <> 0	# If opponent invisible, only 1/4 chance of hitting
+			let damage = 0
+		endif
+	else
+		# Give the guy a 3/4 chance of hitting you.
+		# Later this will depend on dexterity
+		random rnd between 0 3
+		if rnd == 0
+			let damage = 0
+			print "Missed!"
+			printcr
+		endif
+	endif
+endif
+
+# Take away a round
+add attackweapon.stats.str - 1
+
+let splatvictim = attacker.enemy
+
+object_sound attackweapon.name attacker
+
+if damage > 0
+	add attacker.enemy.stats.hp - damage	# Hit the enemy
+	let attacker.enemy.enemy = attacker	# I am my enemies' enemy
+	check_hurt attacker.enemy		# Play sounds etc
+
+	# Mark that you assaulted them
+
+	if_flag attacker.enemy IS_PERSON		# is a creature
+		if_not_flag attacker.enemy IN_PARTY	# not one of us
+			let suspect = attacker
+			let victim = attacker.enemy
+			call justice_assault
+		endif
+	endif
+endif
+end
+*/
+
