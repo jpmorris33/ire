@@ -72,6 +72,7 @@ int imapx=384,imapy=240;
 int ig_min,ig_hour,ig_day,ig_month,ig_year,ig_dow;
 int turns_min=0,min_hour=60,hour_day=24,day_week=7,day_month=30,month_year=12;
 VMINT speechfont=0;
+int torch_bonus=0; // If lightsources are onscreen, remove total darkness
 char DebugVM=0;
 char in_editor; // Which program we are in (some modules are shared)
 char use_hw_video=0;
@@ -332,8 +333,14 @@ if(cpt>=0)
     }
 
 cpt = find("speechfont");
-if(cpt>=0)
+if(cpt>=0) {
 	speechfont = atol(ArgV[cpt+1]);
+}
+
+cpt = find("torch_bonus");
+if(cpt>=0) {
+	torch_bonus = atol(ArgV[cpt+1]);
+}
 
 cpt=find("loadfont");
 if(cpt>=0)

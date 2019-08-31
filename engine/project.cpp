@@ -57,6 +57,7 @@ static IREBITMAP *scalebmp;
 static int darklevel=128;
 VMINT dark_mix=0;
 VMINT show_invisible=0;	// This is expose to the script engine now
+extern int torch_bonus;
 static int masterclock=0;
 static IRECOLOUR blanker(0,0,0);
 
@@ -122,6 +123,8 @@ static void vis_punch(int x, int y);
 int isBlanked(int x, int y);
 extern void CallVMnum(int func);
 extern IRELIGHTMAP *load_lightmap(char *filename);
+static int scale_torches(int torchcount);
+
 
 // Code
 
@@ -1072,8 +1075,7 @@ for(x=0;x<=lmw;x++)
  *      render the lighting
  */
 
-void render_lighting(int x, int y)
-{
+void render_lighting(int x, int y) {
 int cx,cy,ex,ey,ctr,nx,ny;
 int startx,starty;
 OBJECT *temp;
@@ -1081,13 +1083,8 @@ LTAB light[256];
 int lights;
 unsigned char *lptr;
 int offset,id;
-int darkness=0;
+int darkness=0,got_light=0,got_dark=0;
 
-darkness = darklevel + dark_mix;
-if(darkness>255)
-	darkness=255;
-
-darkmap->Clear(darkness);
 memset(&blmap[0][0],0,(sizeof(char)*(LMSIZE*LMSIZE)));
 
 // Find all lightsources
@@ -1102,40 +1099,66 @@ ex = x+VSW+3;
 startx = x-3;
 starty = y-3;
 
-if(startx<0) startx=0;
-if(starty<0) starty=0;
-if(ex>=curmap->w)
-    ex=curmap->w;
-if(ey>=curmap->h)
-    ey=curmap->h;
+if(startx<0) {
+	startx=0;
+}
+if(starty<0) {
+	starty=0;
+}
+if(ex>=curmap->w) {
+	ex=curmap->w;
+}
+if(ey>=curmap->h) {
+	ey=curmap->h;
+}
 
-for(cy=starty;cy<ey;cy++)
-for(cx=startx;cx<ex;cx++)
-    {
-    temp = GetRawObjectBase(cx,cy);
-    for(;temp;temp=temp->next)              // Traverse the list
-        if(temp->flags & IS_ON && lights<255)
-            if(temp->light)
-                {
-                // if the object is in the screen region
-                if((cx+lmw >= x) && (cx-lmw < ex))
-                    if((cy+lmh >= y) && (cy <= ey))
-                        {
-                        nx = cx-x;
-                        ny = cy-y;
-                        if(nx+lmw>0 && ny+lmh>0)
-                            if(nx-lmw2<VSW && ny-lmh2<VSH)
-                                {
-                                light[lights].light=temp->light;
-                                light[lights].x=nx;
-                                light[lights].y=ny;
-                                lights++;
-                                }
-                        }
-                }
-    }
+for(cy=starty;cy<ey;cy++) {
+	for(cx=startx;cx<ex;cx++) {
+		temp = GetRawObjectBase(cx,cy);
+		for(;temp;temp=temp->next) { // Traverse the list
+			if(temp->flags & IS_ON && lights<255) {
+				if(temp->light) {
+			                // if the object is in the screen region
+			                if((cx+lmw >= x) && (cx-lmw < ex)) {
+						if((cy+lmh >= y) && (cy <= ey)) {
+							nx = cx-x;
+							ny = cy-y;
+							if(nx+lmw>0 && ny+lmh>0) {
+								if(nx-lmw2<VSW && ny-lmh2<VSH) {
+									light[lights].light=temp->light;
+									light[lights].x=nx;
+									light[lights].y=ny;
+									lights++;
+									if(temp->light > 0) {
+										got_light++;
+									}
+									if(temp->light < 0) {
+										got_dark++;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
-// Ok, we're ready.  Preserve the default colourmap
+// Ok, we're ready, figure out darkness level and start rendering.
+
+darkness = darklevel + dark_mix;
+darkness -= scale_torches(got_light);
+darkness += scale_torches(got_dark);
+
+if(darkness>255) {
+	darkness=255;
+}
+if(darkness < 0) {
+	darkness=0;
+}
+
+darkmap->Clear(darkness);
 
 // First project any static lighting
 
@@ -1143,34 +1166,36 @@ offset = curmap->w-VSW;
 lptr = &curmap->lightst[(y*curmap->w)+x];
 
 nx=0;ny=0;
-for(cy=0;cy<VSH;cy++)
-	{
-	for(cx=0;cx<VSW;cx++)
-		{
-		if(*lptr++)
-			{
+for(cy=0;cy<VSH;cy++) {
+	for(cx=0;cx<VSW;cx++) {
+		if(*lptr++) {
 			id=curmap->light[((cy+y)*curmap->w)+cx+x];
-			if(id && id < LTtot)
+			if(id && id < LTtot) {
 				LTlist[id].image->DrawLight(darkmap,nx,ny);
 			}
-		nx+=32;
 		}
+		nx+=32;
+	}
 	lptr+=offset;
 	nx=0;
 	ny+=32;
-	}
+}
 
 // Project darksources first
 
-for(ctr=0;ctr<lights;ctr++)
-	if(light[ctr].light<0)
+for(ctr=0;ctr<lights;ctr++) {
+	if(light[ctr].light<0) {
 		proj_light(light[ctr].x,light[ctr].y,0);
+	}
+}
 
 // Then project lightsources
 
-for(ctr=0;ctr<lights;ctr++)
-	if(light[ctr].light>0)
+for(ctr=0;ctr<lights;ctr++) {
+	if(light[ctr].light>0) {
 		proj_light(light[ctr].x,light[ctr].y,1);
+	}
+}
 
 // Now use the darkness map to shade the game window
 darkmap->Render(gamewin);
@@ -1349,3 +1374,28 @@ if(frndpos > 511)
 	}
 return rndtab[findex][frndpos];
 }
+
+//
+//  Add torches together without overdoing it
+//
+
+int scale_torches(int torchcount) {
+int result=0;
+if(!torch_bonus || torchcount < 1) {
+	return 0; // Don't waste time
+}
+// Start with one
+result = torch_bonus;
+if(torchcount < 2) {
+	return result;
+}
+torchcount--;
+if(torchcount > 4) {
+	torchcount = 4;
+}
+
+result += (torch_bonus/3) * torchcount;
+return result;
+}
+
+
