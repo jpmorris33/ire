@@ -1388,16 +1388,17 @@ if(!anchor_small)                  // No small objects here
 
 // Find the last object
 prev = NULL;
-for(temp=anchor_and_large;temp->next;temp=temp->next)
-	{
-	if(temp->flags & IS_ON)                          // Store last real object
+for(temp=anchor_and_large;temp->next;temp=temp->next) {
+	if(temp->flags & IS_ON) {  // Store last real object
 		prev=temp;
-	};    // Just seek
+	}    // Just seek
+}
 
 // If the candidate is not real regress
 
-if(!(temp->flags & IS_ON))
+if(!(temp->flags & IS_ON)) {
 	temp = prev;
+}
 
 return temp;
 }
@@ -1422,19 +1423,18 @@ anchor_and_large=GetObjectBase(x,y);
 anchor_small=GetRawObjectBase(x,y);
 
 // If the small object is hidden, we'll need to find something more suitable
-if(IsHidden(anchor_small))
-	{
+if(IsHidden(anchor_small)) {
 	// Find the first 'real' object
 	prev = NULL;
-	for(temp=anchor_small;temp;temp=temp->next)
-		if(!IsHidden(temp))
-			{
+	for(temp=anchor_small;temp;temp=temp->next) {
+		if(!IsHidden(temp)) {
 			prev=temp; // Got one
 			break;
-			}
+		}
+	}
 	// Use this instead (or use nothing)
 	anchor_small=prev;
-	}
+}
 
 // If this square's list is empty, say so
 
@@ -1451,28 +1451,28 @@ CHECK_OBJECT(anchor_small);
 // JM: 07/01/2006: now searching the small object list. why were we
 // searching the large object list which is usually a different square?!?
 prev = NULL;
-for(temp=anchor_small;temp->next;temp=temp->next)
-	{
-	if(!IsHidden(temp))
+for(temp=anchor_small;temp->next;temp=temp->next) {
+	if(!IsHidden(temp)) {
 		prev=temp;                         // Store last real object
-	};    // Just seek
+	}    // Just seek
+}
 
 // If the candidate is not real, regress
 
 CHECK_OBJECT(temp);
 
 // If candidate is hidden or invisible, regress
-if(IsHidden(temp))
+if(IsHidden(temp)) {
 	temp = prev;
+}
 
 // Only choose the decor as a last resort
-if(temp)
-	if(temp->flags & IS_DECOR)
-		{
-		// If there's nothing else, keep the decor and don't regress
-		if(prev)
-			temp = prev;
-		}
+if(temp && temp->flags & IS_DECOR) {
+	// If there's nothing else, keep the decor and don't regress
+	if(prev) {
+		temp = prev;
+	}
+}
 
 CHECK_OBJECT(temp);
 return temp;
@@ -1495,57 +1495,73 @@ OBJECT *anchor_small;
 // This is tricker than GameGetObject.. we have to find the solid ones
 
 temp=GetObjectBase(x,y);
-for(anchor_and_large=NULL;temp;temp=temp->next)
-	if(temp->flags & IS_SOLID)
-		{
+for(anchor_and_large=NULL;temp;temp=temp->next) {
+	if(temp->flags & IS_SOLID) {
 		anchor_and_large=temp;
 		break;
-		}
+	}
+}
 anchor_small=GetRawSolidObject(x,y,NULL);
 
 // If this square's list is empty, say so
 
-if(!anchor_and_large)              // No large or small objects found
-	return anchor_and_large;       // NULL might already be in EAX
+if(!anchor_and_large) {			// No large or small objects found
+	return anchor_and_large;	// NULL might already be in EAX
+}
 
-if(!anchor_small)                  // No small objects here
-	{
-	if(LargeIntersect(anchor_and_large,x,y))
+if(!anchor_small) {			// No small objects here
+	if(LargeIntersect(anchor_and_large,x,y)) {
 		return anchor_and_large;       // Return any large object
 	}
+}
 
 CHECK_OBJECT(anchor_and_large);
 CHECK_OBJECT(anchor_small);
 
 // Find the last object
 prev = NULL;
-for(temp=anchor_and_large;temp->next;temp=temp->next)
-	{
+for(temp=anchor_and_large;temp->next;temp=temp->next) {
 	if(temp->flags & IS_ON && !(temp->flags & IS_SYSTEM) && temp->flags & IS_SOLID
-	&& ((temp->flags & IS_INVISSHADOW) != IS_INVISSHADOW))
+	&& ((temp->flags & IS_INVISSHADOW) != IS_INVISSHADOW)) {
 		prev=temp;                         // Store last real object
-	};    // Just seek
-
+	}    // Just seek
+}
 // If the candidate is not real, regress
 
 CHECK_OBJECT(temp);
 
-if(!(temp->flags & IS_ON))
+if(!(temp->flags & IS_ON)) {
 	temp = prev;
+}
+if(!temp) {
+	return temp;
+}
 
 // If candidate is invisible, regress
 
-if(temp->flags & IS_SYSTEM || ((temp->flags&IS_INVISSHADOW) ==IS_INVISSHADOW))
+if(temp->flags & IS_SYSTEM || ((temp->flags&IS_INVISSHADOW) ==IS_INVISSHADOW)) {
 	temp = prev;
+}
+
+if(!temp) {
+	return temp;
+}
+
 
 // If candidate isn't solid, regress
 
-if(!(temp->flags & IS_SOLID))
+if(!(temp->flags & IS_SOLID)) {
 	temp = prev;
+}
+
+if(!temp) {
+	return temp;
+}
 
 // If candidate isn't solid in this region, regress..
-if(!LargeIntersect(temp,x,y))
+if(!LargeIntersect(temp,x,y)) {
 	temp = prev;
+}
 
 CHECK_OBJECT(temp);
 
@@ -1564,15 +1580,22 @@ OBJECT *temp;
 
 temp=GetRawObjectBase(x,y);
 
-if(!temp)
+if(!temp) {
     return temp;
+}
 
-for(;temp;temp=temp->next)
-	if(temp->flags & IS_SOLID)
-		if(temp->flags & IS_ON)
-			if(!(temp->flags & IS_SYSTEM) && (temp->flags&IS_INVISSHADOW) !=IS_INVISSHADOW)
-				if(temp != except)		// Is it The-One-We-Don't-Want?
+for(;temp;temp=temp->next) {
+	if(temp->flags & IS_SOLID) {
+		if(temp->flags & IS_ON) {
+			if(!(temp->flags & IS_SYSTEM) && (temp->flags&IS_INVISSHADOW) !=IS_INVISSHADOW) {
+				if(temp != except) {		// Is it The-One-We-Don't-Want?
 					return temp;
+				}
+			}
+		}
+	}
+}
+
 return NULL;
 }
 
@@ -1718,13 +1741,14 @@ complain=0;
 
 // Okay, do the thing
 
-for(temp = list;temp;temp=temp->next)
-    if(temp->flags & IS_ON)
-        {
-        w+=temp->stats->weight;
-        if(temp->pocket.objptr)
-            w+=WeighObjectR(temp->pocket.objptr);
-        }
+for(temp = list;temp;temp=temp->next) {
+	if(temp->flags & IS_ON) {
+		w+=temp->stats->weight;
+		if(temp->pocket.objptr) {
+			w+=WeighObjectR(temp->pocket.objptr);
+		}
+	}
+}
 return w;
 }
 

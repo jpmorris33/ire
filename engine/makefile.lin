@@ -24,7 +24,8 @@ INI_FILES = $/etc/ire
 # Debugging and profiling
 #PROF += -pg
 ifneq ($(DEBUG),)
-	DBG += -g -O2
+#	DBG += -g -O2
+	DBG += -g
 endif
 
 # Optimisation
