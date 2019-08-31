@@ -105,10 +105,18 @@ Steeljaw looks at you sadly.
 
 "I'm not sure this was the answer.  Now we are
  entirely without a King, unless Swiftrunner should
- return from exile."
+ return from exile.
+
+ Since your activities have left us in this sorry
+ situation, it falls to you to remedy it.  Find
+ SwiftRunner, and tell him that his exile is ended."
 
 [nextpage="exit"]
 [endpage]
+
+"I'm not sure this was the answer.  Now we are
+ entirely without a King, unless Swiftrunner should
+ return from exile."
 
 
 
@@ -546,8 +554,9 @@ human yourself.
  for Aa'Ruuff is still against us at this time.
 
  There are also restrictions on what can be traded,
- chiefly metals and ore from our mines.. this is all done
- openly.
+ chiefly metals and ore from our mines.. and the fine
+ purple cloth which the humans pay such high prices for.
+ All this is done openly.
 
  What worries me is that someone appears to be trading in
  secret.. why would they do that unless they have

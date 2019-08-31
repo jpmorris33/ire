@@ -245,7 +245,7 @@ You see a large, grey wolf-like creature.
 [set met_grey]
 [colour="#808080"]
 You see an emaciated wolf-creature in a cell.
-$USER1 sees the prisoner and crawls before them in a
+$USERSTR1 sees the prisoner and crawls before them in a
 submissive action of amazement and reverence.
 [colour="#ffffff"]
 
@@ -536,7 +536,7 @@ You see a regal-looking wolf-creature.
  
 "Centuries ago, our people were visited by a God that we
  call Aa'Ruuff.  He taught us many things, such as how to
- manipulate objects and build houses.
+ manipulate objects by thought alone, and build houses.
 
  Aa'Ruuff would answer our prayers and show Himself
  before us from time to time.  We worshipped Him for five

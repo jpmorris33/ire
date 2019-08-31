@@ -1,0 +1,143 @@
+
+Lay Priest
+
+[page="start"]
+[colour="#808080"]
+You see a downcast man in tattered priest's robes.
+[colour="#ffffff"]
+
+"You... you are free!  Can you persuade them
+ to release me?"
+
+[link="What is your name?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see Father Alan.
+[colour="#ffffff"]
+
+"Yes, my $Son?"
+
+[am_carrying "paper_gunpowder1"]
+[if true][link="I found this scroll beneath the temple of Aa'Ruuff."]
+[if true][linkto="gunpowder"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am Father Alan.  I came here from Avis to spread
+ the Word.  Now I am imprisoned!"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"I am a priest of the Trinity.  Oft the Saviour has
+ preached of the evil woolves to the East, and warned
+ men not to stray there.
+ 
+ Yet we are forbidden to slay them, for the LORD is
+ merciful and looks to their ultimate redemption
+ in His sight.
+
+ So I did go in a sacred quest to convince these
+ furry heathens of their error, and to set aside
+ their evil ways.
+
+ It did not end well."
+
+[link="Can you pray your way out?"]
+[linkto="pray"]
+[link="Tell me about the Church."]
+[linkto="church"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pray"]
+
+"There is some baleful influence here, and the LORD
+ is not hearing my pleas!"
+
+[link="Tell me about the Church."]
+[linkto="church"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pray"]
+
+"There is some baleful influence here, and the LORD
+ is not hearing my pleas!  It may be the work of
+ their evil false god, Aa-Ruuff!"
+
+[link="Tell me about the Church."]
+[linkto="church"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gunpowder"]
+
+"This... makes no sense!  Why would the Church of
+ the Trinity trade with forbidden heretics?"
+
+[link="Tell me about the Church."]
+[linkto="church"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="church"]
+
+"The Church exists to separate the people from the 
+ searing might and majesty of the LORD, before Whose gaze
+ men would whither and die.
+
+ We carry out the LORD's wishes on Earth and so please
+ Him.
+
+ Were we not to please Him, He would be angered and raze
+ the Land in His mercy, as has happened in the past, and
+ also more recently in lands where people held their God
+ in contempt.
+
+ They are dead now, as a warning to all."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="I must go now."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"May the Trinity bless you, my $Son."
+
+[nextpage="exit"]
+[endpage]
