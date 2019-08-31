@@ -398,6 +398,11 @@ set_leader temp player_action follower_action
 # if the player isn't first in the party, swap with the new first member
 call check_player
 
+# If the player dies in the Waarg land the favour comes off their neck
+# and this may prompt the guards to attack you.  This is annoying so
+# put the thing back on automatically.
+call check_favour
+
 create temp = "TARGET"
 move_party_to temp
 move_party_from temp to rx ry
@@ -495,5 +500,19 @@ for ctr = 1 to MAX_MEMBERS
 		return
 	endif
 next ctr
+
+end
+
+##
+## Put the Favour back around the player's neck
+##
+
+function check_favour
+
+object favour
+find favour = "W_FAVOUR" inside player
+if_exists favour
+	let player.wield.neck = favour
+endif
 
 end

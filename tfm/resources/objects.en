@@ -9898,6 +9898,7 @@ section: characters
 	IfUsed		EAT_FOOD
 	no_resurrect
 	quantity
+	race		rabbit
 
 	name FOODP01
 	left		FOODP06

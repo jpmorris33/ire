@@ -11,7 +11,7 @@ SteelJaw, Captain of the guards
 [if warg_regicide][goto="regicide2"]
 [call="check_collar"]
 [if false][goto="nocollar2"]
-[if captain_redtooth][iftime "2000-2300"][goto="quest"]
+[if captain_redtooth][iftime "2000-2359"][goto="quest"]
 [goto="back_again"]
 [endpage]
 
@@ -258,7 +258,7 @@ You see SteelJaw, the leader of the guards.
 [page="grey_start"]
 [is_onscreen redtooth]
 [if true][goto="grey_rt"]
-[if_know_name][iftime "2000-2300"][goto="grey"]
+[if_know_name][iftime "2000-2359"][goto="grey"]
 [image="steelj1.png"]
 
 [colour="#808080"]
@@ -657,8 +657,8 @@ human yourself.
 "I would never be able to return.
 
  And it is not just my life on the line.. I have a mate
- and cub.  King Redtooth would surely have them executed
- were I to abandon his service in such a manner."
+ and cub.  King Redtooth would have them beheaded were
+ I to abandon his service in such a manner."
 
 [link="It sounds like you're proposing treason."]
 [linkto="treason"]
@@ -680,7 +680,7 @@ human yourself.
 [if true][link="I found this human scroll beneath the temple."]
 [if true][linkto="quest_gunpowder1"]
 [am_carrying "paper_gunpowder2"]
-[if true][link="I found this Waarg scroll in the Holy Land."]
+[if true][link="I found this Waarg scroll in a Cardinal's things."]
 [if true][linkto="quest_gunpowder2"]
 [if grey_alive][link="King Grey is alive and a prisoner of the Church."]
 [if grey_alive][linkto="quest_greyalive"]
@@ -816,7 +816,8 @@ Grey back to the Waarg city and overthrow the King directly)
 [image="steelj1.png"]
 
 [colour="#808080"]
-In the background, the King stiffens momentarily.
+In the background, the King's ears prick up, and his
+body stiffens momentarily.
 [colour="#ffffff"]
 
 "He was, some say, the best king we have ever had, and
