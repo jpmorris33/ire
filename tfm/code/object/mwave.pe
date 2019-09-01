@@ -44,9 +44,9 @@ if_exists current.pocket
 else	# Was it empty?
 
 	# Ooops
-	replace current = "microwave_broken"
-	print "The microwave was empty!"
-	printcr
+#	replace current = "microwave_broken"
+#	print "The microwave was empty!"
+#	printcr
 endif
 
 # Stop cooking

@@ -16625,7 +16625,8 @@ section: characters
 	weight		-1
 	description	"You see a microwave oven."
 	short		"microwave"
-	IfLookedAt	SPILL_FWD
+#	IfLookedAt	SPILL_FWD
+	IfLookedAt	SearchContainer
 	ifused		microwave
 	container
 	fixed
