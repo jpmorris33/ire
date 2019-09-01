@@ -1604,9 +1604,7 @@ do {
 	if(cutbag->pocket.objptr)
 		{
 		temp=cutbag->pocket.objptr;
-		LL_Remove(&cutbag->pocket.objptr,temp);
-		FreePockets(temp);
-		LL_Kill(temp);
+		DestroyObject(temp);
 		}
 	} while(cutbag->pocket.objptr);
 
@@ -1772,7 +1770,7 @@ if(!objsel)
 if(objsel->flags & IS_SYSTEM)
 	return;
 
-LL_Remove(&objsel->pocket.objptr,pocsel);
+DestroyObject(pocsel);
 pocsel=NULL;
 inPocket(POCKET_X,POCKET_Y,POCKET_H);
 IG_WaitForRelease();
