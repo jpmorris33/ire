@@ -1079,10 +1079,7 @@ section: characters
 	rank		mage
 
 	name DEADPLAYER
-	left		REDMAN_DEAD
-	right		REDMAN_DEAD
-	up		REDMAN_DEAD
-	down		REDMAN_DEAD
+	frame		REDMAN_DEAD
 	hp		100
 	weight		60000
 	description	"You see a dead person"
@@ -1090,23 +1087,11 @@ section: characters
 	IfLookedAt	SearchContainer
 	container
 
-	name DEADPLAYERf
-	left		REDWOMAN_DEAD
-	right		REDWOMAN_DEAD
-	up		REDWOMAN_DEAD
-	down		REDWOMAN_DEAD
-	hp		100
-	weight		60000
-	description	"You see a dead person"
-	short		"body"
-	IfLookedAt	SearchContainer
-	container
+	alias DEADPLAYERf = DEADPLAYER
+	frame		REDWOMAN_DEAD
 
 	name DEADKING
-	left		KING_DEAD
-	right		KING_DEAD
-	up		KING_DEAD
-	down		KING_DEAD
+	frame		KING_DEAD
 	hp		100
 	weight		60000
 	description	"You see a dead king."
@@ -1115,24 +1100,12 @@ section: characters
 	container
 	horrific
 
-	name DEADPRINCE
-	left		KING_DEAD
-	right		KING_DEAD
-	up		KING_DEAD
-	down		KING_DEAD
-	hp		100
+	alias DEADPRINCE = DEADKING
 	weight		50000
 	description	"You see a dead prince."
-	short		"body"
-	IfLookedAt	SearchContainer
-	container
-	horrific
 
 	name DEADFOLLOWER
-	left		F_DEAD
-	right		F_DEAD
-	up		F_DEAD
-	down		F_DEAD
+	frame		F_DEAD
 	hp		100
 	weight		60000
 	description	"You see a dead person."
@@ -1141,50 +1114,17 @@ section: characters
 	container
 	horrific
 
-	name DEADOUTLAW
-	left		F_DEAD
-	right		F_DEAD
-	up		F_DEAD
-	down		F_DEAD
-	hp		100
-	weight		60000
-	description	"You see a dead person."
-	short		"body"
-	IfLookedAt	SearchContainer
-	container
-	horrific
+	alias DEADOUTLAW = DEADFOLLOWER
+	frame		F_DEAD
 
-	name DEADOUTLAW2
-	left		MAGE_DEAD
-	right		MAGE_DEAD
-	up		MAGE_DEAD
-	down		MAGE_DEAD
-	hp		100
-	weight		60000
-	description	"You see a dead person."
-	short		"body"
-	IfLookedAt	SearchContainer
-	container
-	horrific
+	alias DEADOUTLAW2 = DEADOUTLAW
+	frame		MAGE_DEAD
 
-	name DEADOUTLAW3
-	left		PEASANT_DEAD
-	right		PEASANT_DEAD
-	up		PEASANT_DEAD
-	down		PEASANT_DEAD
-	hp		100
-	weight		60000
-	description	"You see a dead person."
-	short		"body"
-	IfLookedAt	SearchContainer
-	container
-	horrific
+	alias DEADOUTLAW3 = DEADOUTLAW
+	frame		PEASANT_DEAD
 
 	name DEADPEASANT
-	left		PEASANT_DEAD
-	right		PEASANT_DEAD
-	up		PEASANT_DEAD
-	down		PEASANT_DEAD
+	frame		PEASANT_DEAD
 	hp		100
 	weight		60000
 	description	"You see a dead peasant."
@@ -8947,37 +8887,20 @@ section: characters
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
 
-	name PLAQUE_STONE2
+	alias PLAQUE_STONE2 = PLAQUE_STONE
 	left		PLAQUE_STONE2_H
 	right		PLAQUE_STONE2_H
 	up		PLAQUE_STONE2_V
 	down		PLAQUE_STONE2_V
-	hp		10000
-	weight		-1
-	description	"You see a stone plaque."
-	short		"plaque"
-	IfLookedAt	door_sign
-	fixed
-	spikeproof
 
-	name PLAQUE_BRASS2
+	alias PLAQUE_BRASS2 = PLAQUE_BRASS
 	left		PLAQUE_BRASS2_H
 	right		PLAQUE_BRASS2_H
 	up		PLAQUE_BRASS2_V
 	down		PLAQUE_BRASS2_V
-	hp		10000
-	weight		-1
-	description	"You see a brass plaque."
-	short		"plaque"
-	IfLookedAt	door_sign
-	fixed
-	spikeproof
 
 	name RUBBLE_00
-	left		RUBBLE00
-	right		RUBBLE00
-	up		RUBBLE00
-	down		RUBBLE00
+	frame		RUBBLE00
 	hp		2000000000
 	weight		-1
 	description	"You see some demolished walls."
@@ -8988,65 +8911,17 @@ section: characters
 	spikeproof
 	decorative
 
-	name RUBBLE_01
-	left		RUBBLE01
-	right		RUBBLE01
-	up		RUBBLE01
-	down		RUBBLE01
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_01 = RUBBLE_00
+	frame		RUBBLE01
 
-	name RUBBLE_02
-	left		RUBBLE02
-	right		RUBBLE02
-	up		RUBBLE02
-	down		RUBBLE02
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_02 = RUBBLE_00
+	frame		RUBBLE02
 
-	name RUBBLE_03
-	left		RUBBLE03
-	right		RUBBLE03
-	up		RUBBLE03
-	down		RUBBLE03
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_03 = RUBBLE_00
+	frame		RUBBLE03
 
-	name RUBBLE_04
-	left		RUBBLE04
-	right		RUBBLE04
-	up		RUBBLE04
-	down		RUBBLE04
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_04 = RUBBLE_00
+	frame		RUBBLE04
 
 	name RUBBLE_05060717
 	left		RUBBLE17
@@ -9074,271 +8949,59 @@ section: characters
 	IfKilled	RESPAWN
 	spikeproof
 
-	name RUBBLE_11
-	left		RUBBLE11
-	right		RUBBLE11
-	up		RUBBLE11
-	down		RUBBLE11
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_11 = RUBBLE_00
+	frame		RUBBLE11
 	setsolid	V 0 0 2 1
 	setsolid	H 0 0 2 1
 	setActiveArea	V 0 0 2 1
 	setActiveArea	H 0 0 2 1
 
-	name RUBBLE_12
-	left		RUBBLE12
-	right		RUBBLE12
-	up		RUBBLE12
-	down		RUBBLE12
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_12 = RUBBLE_00
+	frame		RUBBLE12
 	setsolid	V 0 0 2 1
 	setsolid	H 0 0 1 2
 	setActiveArea	V 0 0 2 1
 	setActiveArea	H 0 0 1 2
 
-	name RUBBLE_13
-	left		RUBBLE13
-	right		RUBBLE13
-	up		RUBBLE13
-	down		RUBBLE13
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_13 = RUBBLE_12
+	frame		RUBBLE13
 
-	name RUBBLE_14
-	left		RUBBLE14
-	right		RUBBLE14
-	up		RUBBLE14
-	down		RUBBLE14
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_14 = RUBBLE_12
+	frame		RUBBLE14
 
-	name RUBBLE_15
-	left		RUBBLE15
-	right		RUBBLE15
-	up		RUBBLE15
-	down		RUBBLE15
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_15 = RUBBLE_12
+	frame		RUBBLE15
 
-	name RUBBLE_16
-	left		RUBBLE16
-	right		RUBBLE16
-	up		RUBBLE16
-	down		RUBBLE16
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_16 = RUBBLE_12
+	frame		RUBBLE16
 
-	name RUBBLE_18
-	left		RUBBLE18
-	right		RUBBLE18
-	up		RUBBLE18
-	down		RUBBLE18
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias RUBBLE_18 = RUBBLE_00
+	frame		RUBBLE18
 	setsolid	V 0 0 1 2
 	setsolid	H 0 0 1 2
 	setActiveArea	V 0 0 1 2
 	setActiveArea	H 0 0 1 2
 
-	name RUBBLE_19
-	left		RUBBLE19
-	right		RUBBLE19
-	up		RUBBLE19
-	down		RUBBLE19
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_19 = RUBBLE_12
+	frame		RUBBLE19
 
-	name RUBBLE_20
-	left		RUBBLE20
-	right		RUBBLE20
-	up		RUBBLE20
-	down		RUBBLE20
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_20 = RUBBLE_12
+	frame		RUBBLE20
 
-	name RUBBLE_21
-	left		RUBBLE21
-	right		RUBBLE21
-	up		RUBBLE21
-	down		RUBBLE21
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_21 = RUBBLE_12
+	frame		RUBBLE21
 
-	name RUBBLE_22
-	left		RUBBLE22
-	right		RUBBLE22
-	up		RUBBLE22
-	down		RUBBLE22
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_22 = RUBBLE_12
+	frame		RUBBLE22
 
-	name RUBBLE_23
-	left		RUBBLE23
-	right		RUBBLE23
-	up		RUBBLE23
-	down		RUBBLE23
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_23 = RUBBLE_12
+	frame		RUBBLE23
 
-	name RUBBLE_24
-	left		RUBBLE24
-	right		RUBBLE24
-	up		RUBBLE24
-	down		RUBBLE24
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_24 = RUBBLE_12
+	frame		RUBBLE24
 
-	name RUBBLE_25
-	left		RUBBLE25
-	right		RUBBLE25
-	up		RUBBLE25
-	down		RUBBLE25
-	hp		2000000000
-	weight		-1
-	description	"You see some demolished walls."
-	short		"rubble"
-	IfKilled	RESPAWN
-	solid
-	fixed
-	spikeproof
-	decorative
-	setsolid	V 0 0 2 1
-	setsolid	H 0 0 1 2
-	setActiveArea	V 0 0 2 1
-	setActiveArea	H 0 0 1 2
+	alias RUBBLE_25 = RUBBLE_12
+	frame		RUBBLE25
 
 	name RUBBLE_FAKE
 	left		RUBBLE03
@@ -12314,16 +11977,8 @@ section: characters
 	description	"You see 'The Last Supper' by Giotto Francini."
 	short		"painting"
 
-	name PAINTING04
-	left		PAINTING14
-	right		PAINTING14
-	up		PAINTING14
-	down		PAINTING14
-	hp		100000
-	weight		-1
-	description	"You see 'The Last Supper' by Giotto Francini."
-	short		"painting"
-
+	alias PAINTING04 = PAINTING03
+	frame		PAINTING14
 
 	name CROP-1-0
 	left		CROP1-03
@@ -13267,35 +12922,17 @@ section: characters
 	fixed
 	tabletop
 
-	name GLASS_COUNTER2
+	alias GLASS_COUNTER2 = GLASS_COUNTER
 	left		GLASS10
 	right		GLASS10
 	up		GLASS09
 	down		GLASS11
-	hp		5
-	weight		-1
-	description	"You see a glass countertop."
-	short		"countertop"
-	fragile
-	translucent
-	IfKilled	smash_countertop
-	fixed
-	tabletop
 
-	name GLASS_COUNTER3
+	alias GLASS_COUNTER3 = GLASS_COUNTER
 	left		GLASS13
 	right		GLASS05
 	up		GLASS12
 	down		GLASS05
-	hp		5
-	weight		-1
-	description	"You see a glass countertop."
-	short		"countertop"
-	fragile
-	translucent
-	IfKilled	smash_countertop
-	fixed
-	tabletop
 
 	name DATAPANEL
 	up		data00
@@ -13309,17 +12946,11 @@ section: characters
 	fixed
 	IfUsed		BOOK_USE
 
-	name DATAPANEL2
+	alias DATAPANEL2 = DATAPANEL
 	up		data05
 	down		data06
 	left		data04
 	right		data07
-	hp 1000
-	weight -1
-	description	"You see a wall-mounted data display."
-	short		"display"
-	fixed
-	IfUsed		BOOK_USE
 
 	name LP_DECK
 	up		lp_deck1
@@ -13354,16 +12985,11 @@ section: characters
 	short		"display"
 	fixed
 
-	name LIFT_DISPLAY2
+	alias LIFT_DISPLAY2 = LIFT_DISPLAY
 	left		lift0g
 	right		lift0b
 	up		lift0r
 	down		lift0s
-	hp		200000
-	weight		-1
-	description	"You see a floor indicator."
-	short		"display"
-	fixed
 
 	name RACAL
 	up		RACAL_V
@@ -16982,86 +16608,33 @@ section: characters
 	horrific
 	race		headless
 
-	name		PEASANT_HEAD
+	alias		PEASANT_HEAD = PLAYER_HEAD
 	frame		head_peasant
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		GUARD_HEAD
+	alias		GUARD_HEAD = PLAYER_HEAD
 	frame		head_guard
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		MAN_HEAD
+	alias		MAN_HEAD = PLAYER_HEAD
 	frame		head_man01
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		NOBLE_HEAD
+	alias		NOBLE_HEAD = PLAYER_HEAD
 	frame		head_noble
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		WOMAN_HEAD
+	alias		WOMAN_HEAD = PLAYER_HEAD
 	frame		head_woman
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		OLDMAN_HEAD
+	alias		OLDMAN_HEAD = PLAYER_HEAD
 	frame		head_oldman
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		CARDINAL_HEAD
+	alias		CARDINAL_HEAD = PLAYER_HEAD
 	frame		head_cardinal
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
-	name		POPE_HEAD
+	alias		POPE_HEAD = PLAYER_HEAD
 	frame		head_pope
-	hp		-1
-	weight		1500
 	description	"You see a severed head.  This will not end well."
-	short		"head"
-	horrific
-	race		headless
 
-	name		KING_HEAD
+	alias		KING_HEAD = PLAYER_HEAD
 	frame		head_king
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	race		headless
 
 	name		OUTLAW_HEAD
 	frame		head_cardinal
@@ -17072,23 +16645,12 @@ section: characters
 	horrific
 	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
-	name		OUTLAW2_HEAD
+	alias		OUTLAW2_HEAD = OUTLAW_HEAD
 	frame		head_oldman
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
-	name		OUTLAW3_HEAD
+	alias		OUTLAW3_HEAD = OUTLAW_HEAD
 	frame		head_peasant
-	hp		-1
-	weight		1500
-	description	"You see a severed head."
-	short		"head"
-	horrific
-	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
+
 
 	name PLAYER_BODY
 	frame		body_player
@@ -17105,65 +16667,20 @@ section: characters
 	horrific
 	race		headless
 
-	name PLAYERF_BODY
+	alias PLAYERF_BODY = PLAYER_BODY
 	frame		body_playerf
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name KING_BODY
+	alias KING_BODY = PLAYER_BODY
 	frame		body_king
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
 	description	"You see a very dead king."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name PRINCE_BODY
+	alias PRINCE_BODY = PLAYER_BODY
 	frame		body_king
-	hp		-1
 	weight		50000
-	damage		15
-	alignment	-10
 	description	"You see a very dead prince."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name FOLLOWER_BODY
+	alias FOLLOWER_BODY = PLAYER_BODY
 	frame		body_follower
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
 	name OUTLAW_BODY
 	frame		body_follower
@@ -17180,132 +16697,36 @@ section: characters
 	horrific
 	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
-	name OUTLAW2_BODY
+	alias OUTLAW2_BODY = OUTLAW_BODY
 	frame		body_mage
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead bandit."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
-	name OUTLAW3_BODY
+	alias OUTLAW3_BODY = OUTLAW_BODY
 	frame		body_peasant
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead bandit."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	# Outlaws are not of race 'headless' because dead bandits should not get you arrested
 
-	name PEASANT_BODY
+	alias PEASANT_BODY = PLAYER_BODY
 	frame		body_peasant
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name NOBLEMAN_BODY
+	alias NOBLEMAN_BODY = PLAYER_BODY
 	frame		body_noble
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name GUARD_BODY
+	alias GUARD_BODY = PLAYER_BODY
 	frame		body_guard
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
 	description	"You see a very dead guard."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name OLDMAN_BODY
+	alias OLDMAN_BODY = PLAYER_BODY
 	frame		body_oldman
-	hp		-1
 	weight		55000
-	damage		15
-	alignment	-10
 	description	"You see a very dead old man."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name MONK_BODY
+	alias MONK_BODY = PLAYER_BODY
 	frame		body_monk
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
 	description	"You see a very dead monk."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name PILGRIM_BODY
+	alias PILGRIM_BODY = PLAYER_BODY
 	frame		body_monk
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
 	name CARDINAL_BODY
 	frame		body_cardinal
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
 	description	"You see a very dead cardinal."
 	short		"headless corpse"
 	IfLookedAt	SearchContainer
@@ -17315,63 +16736,18 @@ section: characters
 	horrific
 	race		headless
 
-	name WOMAN1_BODY
+	alias WOMAN1_BODY = PLAYER_BODY
 	frame		body_woman1
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name WOMAN2_BODY
+	alias WOMAN2_BODY = PLAYER_BODY
 	frame		body_woman2
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
-	name POPE_BODY
+	alias POPE_BODY = CARDINAL_BODY
 	frame		body_pope
-	hp		-1
-	weight		60000
-	damage		15
 	description	"You see the Pope.  He is unquestionably dead, and you will soon follow."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	# Normally we'd disable the schedule but since this isn't supposed to happen at all...
-	container
-	horrific
-	race		headless
 
-	name MAGE_BODY
+	alias MAGE_BODY = PLAYER_BODY
 	frame		body_mage
-	hp		-1
-	weight		60000
-	damage		15
-	alignment	-10
-	description	"You see a very dead person."
-	short		"headless corpse"
-	IfLookedAt	SearchContainer
-	resurrect_as	HEADLESS
-	no_schedule	# Stop them resuming their lives a'la DMFA
-	container
-	horrific
-	race		headless
 
 
 section: tiles

@@ -15,7 +15,7 @@
    Sentence:  Eight years
 
    Name:     Roberto
-   Crime:     Guilty of sins against the Lord, could not pay the
+   Crime:     Guilty of sins against the LORD, could not pay the
              fines demanded by the Church.  Guilty of poverty.
    Sentence:  Twenty years, eleven remaining
              
@@ -51,7 +51,7 @@
   Executions
 
    Name:     Isaiah
-   Crime:     Falsely claiming to be a prophet of the Lord
+   Crime:     Falsely claiming to be a prophet of the LORD
    Justice:    Hanged and burned
 
    Name:     Giotto Franccini
