@@ -3914,6 +3914,10 @@ void PEP_newfunc(char **line)
 {
 KEYWORD *ptr;
 
+if(strlen(line[1]) > 31) {
+    PeDump(srcline,"Function name too long",line[1]);
+}
+
 ptr = add_keyword(line[1],'f',NULL);
 if(!ptr)
 	PeDump(srcline,"Duplicate function",line[1]);

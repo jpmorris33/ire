@@ -74,6 +74,10 @@ KEYWORD **newlist;
 static int idno=0;
 int kl,ctr;
 
+if(strlen(name) > 31) {
+	ithe_panic("Internal compiler error: Keyword too long", name);
+	return NULL;
+}
 
 if(FastLookup)
 	{

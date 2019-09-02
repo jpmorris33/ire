@@ -959,6 +959,7 @@ void pre_characters(long start,long finish)
 int ctr,pos;
 char *line;
 const char *Rptr;
+OBJECT *character = NULL;
 
 // Values for SETSOLID
 
@@ -999,11 +1000,12 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(Rptr!=NOTHING)           // Make sure its there
 				{
 				pos ++;                             // Pre-increment
-				CHlist[pos].name = (char *)strrest(line);      // Get name label
-				strstrip(CHlist[pos].name);         // Kill whitespace
-				if(strlen(CHlist[pos].name) > 31)   // Check name length
+				character = &CHlist[pos];
+				character->name = (char *)strrest(line);      // Get name label
+				strstrip(character->name);         // Kill whitespace
+				if(strlen(character->name) > 31)   // Check name length
 					if(istricmp(strfirst(line),"alias"))	// Ignore if it's an alias
-						Dump(ctr,"This name exceeds 31 letters",CHlist[pos].name);
+						Dump(ctr,"This name exceeds 31 letters",character->name);
 				}
 			}
 		}
@@ -1022,6 +1024,7 @@ const char *Rptr;
 char *ptr;
 unsigned char polarity,blockx,blocky,blockw,blockh;
 int hour,minute;
+OBJECT *character = NULL;
 // Values for SETSOLID
 
 if(bookview[0]) // Not needed for the book viewer
@@ -1049,52 +1052,53 @@ for(ctr=start;ctr<=finish;ctr++)
 
 				Plot(0);
 				pos ++;                             // Pre-increment
-				CHlist[pos].personalname= (char *)M_get(32,1);
-				CHlist[pos].maxstats = (STATS *)M_get(sizeof(STATS),1);
-				CHlist[pos].stats = (STATS *)M_get(sizeof(STATS),1);
-				CHlist[pos].funcs = (FUNCS *)M_get(sizeof(FUNCS),1);
-				CHlist[pos].user = (USEDATA *)M_get(sizeof(USEDATA),1);
-				CHlist[pos].labels = (CHAR_LABELS *)M_get(1,sizeof(CHAR_LABELS));
-				CHlist[pos].labels->rank=NOTHING;
-				CHlist[pos].labels->race=NOTHING;
-				CHlist[pos].labels->party=NOTHING;
-				CHlist[pos].labels->location=NOTHING;
+				character = &CHlist[pos];
+				character->personalname= (char *)M_get(32,1);
+				character->maxstats = (STATS *)M_get(sizeof(STATS),1);
+				character->stats = (STATS *)M_get(sizeof(STATS),1);
+				character->funcs = (FUNCS *)M_get(sizeof(FUNCS),1);
+				character->user = (USEDATA *)M_get(sizeof(USEDATA),1);
+				character->labels = (CHAR_LABELS *)M_get(1,sizeof(CHAR_LABELS));
+				character->labels->rank=NOTHING;
+				character->labels->race=NOTHING;
+				character->labels->party=NOTHING;
+				character->labels->location=NOTHING;
 
-				CHlist[pos].funcs->ucache=-1;
-				CHlist[pos].funcs->tcache=-1;
-				CHlist[pos].funcs->kcache=-1;
-				CHlist[pos].funcs->lcache=-1;
-				CHlist[pos].funcs->scache=-1;
-				CHlist[pos].funcs->hcache=-1;
-				CHlist[pos].funcs->icache=-1;
-				CHlist[pos].funcs->wcache=-1;
-				CHlist[pos].funcs->hrcache=-1;
-				CHlist[pos].funcs->qcache=-1;
-				CHlist[pos].funcs->gcache=-1;
+				character->funcs->ucache=-1;
+				character->funcs->tcache=-1;
+				character->funcs->kcache=-1;
+				character->funcs->lcache=-1;
+				character->funcs->scache=-1;
+				character->funcs->hcache=-1;
+				character->funcs->icache=-1;
+				character->funcs->wcache=-1;
+				character->funcs->hrcache=-1;
+				character->funcs->qcache=-1;
+				character->funcs->gcache=-1;
 
-				CHlist[pos].vblock[BLK_X]=0;   // Partly-solid object
-				CHlist[pos].vblock[BLK_Y]=0;   // Solidity offset
-				CHlist[pos].vblock[BLK_W]=0;   // and size
-				CHlist[pos].vblock[BLK_H]=0;
-				CHlist[pos].hblock[BLK_X]=0;   // Partly-solid object
-				CHlist[pos].hblock[BLK_Y]=0;   // Solidity offset
-				CHlist[pos].hblock[BLK_W]=0;   // and size
-				CHlist[pos].hblock[BLK_H]=0;
-//				CHlist[pos].behave = -1;            // No behaviour
-//				CHlist[pos].stats->oldbehave = -1;  // No behaviour
-				CHlist[pos].stats->tick=0;
-				CHlist[pos].stats->owner.objptr=NULL;
-				CHlist[pos].user->npctalk=NULL;
-				CHlist[pos].target.objptr=NULL;
-				CHlist[pos].activity=-1;
+				character->vblock[BLK_X]=0;   // Partly-solid object
+				character->vblock[BLK_Y]=0;   // Solidity offset
+				character->vblock[BLK_W]=0;   // and size
+				character->vblock[BLK_H]=0;
+				character->hblock[BLK_X]=0;   // Partly-solid object
+				character->hblock[BLK_Y]=0;   // Solidity offset
+				character->hblock[BLK_W]=0;   // and size
+				character->hblock[BLK_H]=0;
+//				character->behave = -1;            // No behaviour
+//				character->stats->oldbehave = -1;  // No behaviour
+				character->stats->tick=0;
+				character->stats->owner.objptr=NULL;
+				character->user->npctalk=NULL;
+				character->target.objptr=NULL;
+				character->activity=-1;
 
-				strcpy(CHlist[pos].personalname,"-");
-				CHlist[pos].desc = "No description";
-				CHlist[pos].shortdesc = CHlist[pos].desc;
+				strcpy(character->personalname,"-");
+				character->desc = "No description";
+				character->shortdesc = character->desc;
 				// By default the thing is resurrected to be itself
-				strcpy(CHlist[pos].funcs->resurrect,CHlist[pos].name);
+				strcpy(character->funcs->resurrect,character->name);
 
-				OB_Funcs(&CHlist[pos]);				// Set up the strings
+				OB_Funcs(character);				// Set up the strings
 				continue;
 				}
 			else
@@ -1128,34 +1132,58 @@ for(ctr=start;ctr<=finish;ctr++)
 			Plot(0);
 			pos ++;                             // Pre-increment
 
-			memcpy(&CHlist[pos],src,sizeof(CHlist[pos]));
+			character = &CHlist[pos];
+			memcpy(character,src,sizeof(CHlist[pos]));
 			// Now cut up the line so we can get just the first term
 			char *cutptr = (char *)strrest(line); // Dodgy, but safe in this case
 			strstrip(cutptr);
-			CHlist[pos].name = hardfirst(cutptr);	// Truncates original string
-			strstrip(CHlist[pos].name);
+			character->name = hardfirst(cutptr);	// Truncates original string
+			strstrip(character->name);
 
 			// Now redo the pointers
-			CHlist[pos].personalname= (char *)M_get(32,1);
-			CHlist[pos].maxstats = (STATS *)M_get(sizeof(STATS),1);
-			CHlist[pos].stats = (STATS *)M_get(sizeof(STATS),1);
-			CHlist[pos].funcs = (FUNCS *)M_get(sizeof(FUNCS),1);
-			CHlist[pos].user = (USEDATA *)M_get(sizeof(USEDATA),1);
-			CHlist[pos].labels = (CHAR_LABELS *)M_get(1,sizeof(CHAR_LABELS));
+			character->personalname= (char *)M_get(32,1);
+			character->maxstats = (STATS *)M_get(sizeof(STATS),1);
+			character->stats = (STATS *)M_get(sizeof(STATS),1);
+			character->funcs = (FUNCS *)M_get(sizeof(FUNCS),1);
+			character->user = (USEDATA *)M_get(sizeof(USEDATA),1);
+			character->labels = (CHAR_LABELS *)M_get(1,sizeof(CHAR_LABELS));
 
-			strcpy(CHlist[pos].personalname,src->personalname);
-			memcpy(CHlist[pos].maxstats,src->maxstats,sizeof(STATS));
-			memcpy(CHlist[pos].stats,src->stats,sizeof(STATS));
-			memcpy(CHlist[pos].funcs,src->funcs,sizeof(FUNCS));
-			memcpy(CHlist[pos].user,src->user,sizeof(USEDATA));
-			memcpy(CHlist[pos].labels,src->labels,sizeof(CHAR_LABELS));
+			strcpy(character->personalname,src->personalname);
+			memcpy(character->maxstats,src->maxstats,sizeof(STATS));
+			memcpy(character->stats,src->stats,sizeof(STATS));
+			memcpy(character->funcs,src->funcs,sizeof(FUNCS));
+			memcpy(character->user,src->user,sizeof(USEDATA));
+			memcpy(character->labels,src->labels,sizeof(CHAR_LABELS));
 
-			OB_Funcs(&CHlist[pos]);				// Set up the strings
+			OB_Funcs(character);				// Set up the strings
 			continue;
 			}
 
+		if(!istricmp(Rptr,"override"))  {      // Modify an existing character after the fact (for translation)
+			Rptr=strfirst(strrest(line));     // Get second term
+			if(Rptr!=NOTHING) {           // Make sure its there
+				// Find the source object
+				OBJECT *src=NULL;
+				for(int i=0;i<=pos;i++) {
+					if(!stricmp(CHlist[i].name,Rptr)) {
+						src=&CHlist[i];
+						break;
+					}
+				}
+
+				if(!src) {
+					Dump(ctr,"NA: Didn't find character to override:",Rptr);
+				}
+
+				character = src;
+				continue;
+			} else {
+				Dump(ctr,"NA: Override keyword needs a name",NULL);
+			}
+		}
+
         // Sanity Check
-		if(pos == -1)
+		if(!character || pos == -1)
 			Dump(ctr,"NA: The character's name must come first",NULL);
 
         // Get the vital statistics
@@ -1166,8 +1194,8 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's health must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->hp=tmp;
-//			CHlist[pos].stats->oldhp=tmp;
+			character->stats->hp=tmp;
+//			character->stats->oldhp=tmp;
 			continue;
 			}
 
@@ -1177,7 +1205,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum health must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->hp=tmp;
+			character->maxstats->hp=tmp;
 			continue;
 			}
 
@@ -1187,7 +1215,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's dexterity must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->dex=tmp;
+			character->stats->dex=tmp;
 			continue;
 			}
 
@@ -1197,7 +1225,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum dexterity must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->dex=tmp;
+			character->maxstats->dex=tmp;
 			continue;
 			}
 
@@ -1207,7 +1235,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's strength must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->str=tmp;
+			character->stats->str=tmp;
 			continue;
 			}
 
@@ -1217,7 +1245,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum strength must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->str=tmp;
+			character->maxstats->str=tmp;
 			continue;
 			}
 
@@ -1227,7 +1255,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's intelligence must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->intel=tmp;
+			character->stats->intel=tmp;
 			continue;
 			}
 
@@ -1237,7 +1265,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum intelligence must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->intel=tmp;
+			character->maxstats->intel=tmp;
 			continue;
 			}
 
@@ -1247,7 +1275,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's weight must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->weight=tmp;
+			character->stats->weight=tmp;
 			continue;
 			}
 
@@ -1257,7 +1285,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's unit weight must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->weight=tmp;
+			character->maxstats->weight=tmp;
 			continue;
 			}
 
@@ -1267,7 +1295,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The damage it causes must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->damage=tmp;
+			character->stats->damage=tmp;
 			continue;
 			}
 
@@ -1277,7 +1305,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The armour value must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->armour=tmp;
+			character->stats->armour=tmp;
 			continue;
 			}
 
@@ -1287,7 +1315,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The maximum damage it causes must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->damage=tmp;
+			character->maxstats->damage=tmp;
 			continue;
 			}
 
@@ -1298,7 +1326,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The maximum damage it causes must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->armour=tmp;
+			character->maxstats->armour=tmp;
 			continue;
 			}
 
@@ -1308,7 +1336,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The karma it adds/subtracts must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->karma=tmp;
+			character->stats->karma=tmp;
 			continue;
 			}
 
@@ -1318,7 +1346,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's bulk must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->bulk=tmp;
+			character->stats->bulk=tmp;
 			continue;
 			}
 
@@ -1328,7 +1356,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's bulk capacity must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->bulk=tmp;
+			character->maxstats->bulk=tmp;
 			continue;
 			}
 
@@ -1338,7 +1366,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The weapon's range must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->range=tmp;
+			character->stats->range=tmp;
 			continue;
 			}
 
@@ -1348,7 +1376,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The weapon's range must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->range=tmp;
+			character->maxstats->range=tmp;
 			continue;
 			}
 
@@ -1358,7 +1386,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's speed must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].maxstats->speed=tmp; // Speed
+			character->maxstats->speed=tmp; // Speed
 			continue;
 			}
 
@@ -1368,14 +1396,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's level must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->level=tmp; // Speed
+			character->stats->level=tmp; // Speed
 			continue;
 			}
 
 		if(!istricmp(Rptr,"proximity"))
 			{
 			// Set default egg distance
-			CHlist[pos].stats->radius = EggDistance;
+			character->stats->radius = EggDistance;
 			continue;
 			}
 
@@ -1385,7 +1413,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's radius must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->radius = tmp;
+			character->stats->radius = tmp;
 			continue;
 			}
 
@@ -1395,7 +1423,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's alignment should be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			CHlist[pos].stats->alignment=tmp;
+			character->stats->alignment=tmp;
 			continue;
 			}
 
@@ -1405,10 +1433,10 @@ for(ctr=start;ctr<=finish;ctr++)
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
-			CHlist[pos].dir[CHAR_L]=tmp;
-			CHlist[pos].dir[CHAR_R]=tmp;
-			CHlist[pos].dir[CHAR_U]=tmp;
-			CHlist[pos].dir[CHAR_D]=tmp;
+			character->dir[CHAR_L]=tmp;
+			character->dir[CHAR_R]=tmp;
+			character->dir[CHAR_U]=tmp;
+			character->dir[CHAR_D]=tmp;
 			continue;
 			}
 
@@ -1418,7 +1446,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
-			CHlist[pos].dir[CHAR_L]=tmp;
+			character->dir[CHAR_L]=tmp;
 			continue;
 			}
 
@@ -1428,7 +1456,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
-			CHlist[pos].dir[CHAR_R]=tmp;
+			character->dir[CHAR_R]=tmp;
 			continue;
 			}
 
@@ -1438,7 +1466,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
-			CHlist[pos].dir[CHAR_U]=tmp;
+			character->dir[CHAR_U]=tmp;
 			continue;
 			}
 
@@ -1448,7 +1476,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
-			CHlist[pos].dir[CHAR_D]=tmp;
+			character->dir[CHAR_D]=tmp;
 			continue;
 			}
 
@@ -1460,8 +1488,8 @@ for(ctr=start;ctr<=finish;ctr++)
 
 			if(Rbuffer[0] == '\"')  // Quoted text is direct
 				{
-				CHlist[pos].desc = strchr(line,'\"'); // start
-				CHlist[pos].desc++;            // skip the quote
+				character->desc = strchr(line,'\"'); // start
+				character->desc++;            // skip the quote
 				ptr = strrchr(line,'\"');     // Find last quote
 				if(ptr)
 					*ptr = 0;                 // blow quote away
@@ -1478,8 +1506,8 @@ for(ctr=start;ctr<=finish;ctr++)
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text is direct
 				{
-				CHlist[pos].shortdesc = strchr(line,'\"'); // start
-				CHlist[pos].shortdesc++;       // skip the quote
+				character->shortdesc = strchr(line,'\"'); // start
+				character->shortdesc++;       // skip the quote
 				ptr = strrchr(line,'\"');     // Find last quote
 				if(ptr)
 					*ptr = 0;                 // blow quote away
@@ -1494,14 +1522,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
-				CHlist[pos].labels->race = strchr(line,'\"'); // start
-				CHlist[pos].labels->race++;       // skip the quote
+				character->labels->race = strchr(line,'\"'); // start
+				character->labels->race++;       // skip the quote
 				ptr = strrchr(line,'\"');     // Find last quote
 				if(ptr)
 					*ptr = 0;                 // blow quote away
 				}
 			else                    // unquoted text
-				CHlist[pos].labels->race = (char *)strrest(line);
+				character->labels->race = (char *)strrest(line);
 			continue;
 			}
 
@@ -1510,14 +1538,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
-				CHlist[pos].labels->rank = strchr(line,'\"'); // start
-				CHlist[pos].labels->rank++;       // skip the quote
+				character->labels->rank = strchr(line,'\"'); // start
+				character->labels->rank++;       // skip the quote
 				ptr = strrchr(line,'\"');     // Find last quote
 				if(ptr)
 					*ptr = 0;                 // blow quote away
 				}
 			else                    // unquoted text
-				CHlist[pos].labels->rank = (char *)strrest(line);
+				character->labels->rank = (char *)strrest(line);
 			continue;
 			}
 
@@ -1526,14 +1554,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
-				CHlist[pos].labels->party = strchr(line,'\"'); // start
-				CHlist[pos].labels->party++;       // skip the quote
+				character->labels->party = strchr(line,'\"'); // start
+				character->labels->party++;       // skip the quote
 				ptr = strrchr(line,'\"');     // Find last quote
 				if(ptr)
 					*ptr = 0;                 // blow quote away
 				}
 			else                    // unquoted text
-				CHlist[pos].labels->party = (char *)strrest(line);
+				character->labels->party = (char *)strrest(line);
 			continue;
 			}
 
@@ -1542,14 +1570,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
-				CHlist[pos].labels->location = strchr(line,'\"'); // start
-				CHlist[pos].labels->location++;       // skip the quote
+				character->labels->location = strchr(line,'\"'); // start
+				character->labels->location++;       // skip the quote
 				ptr = strrchr(line,'\"');     // Find last quote
 				if(ptr)
 					*ptr = 0;                 // blow quote away
 				}
 			else                    // unquoted text
-				CHlist[pos].labels->location = (char *)strrest(line);
+				character->labels->location = (char *)strrest(line);
 			continue;
 			}
 
@@ -1557,7 +1585,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfUsed"))
 			{
-			strcpy(CHlist[pos].funcs->use,strfirst(strrest(line)));
+			strcpy(character->funcs->use,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1568,10 +1596,10 @@ for(ctr=start;ctr<=finish;ctr++)
 			{
 			// If we have a behaviour already, reject the second one
 			// unless it is the dummy one to make ifTriggered work
-			if(CHlist[pos].activity != -1)
+			if(character->activity != -1)
 				Dump(ctr,"Multiple initial behaviours not supported",NULL);
-			CHlist[pos].activity = getnum4PE(strfirst(strrest(line)));
-			if(CHlist[pos].activity == -1)
+			character->activity = getnum4PE(strfirst(strrest(line)));
+			if(character->activity == -1)
 				Dump(ctr,"Cannot find script function",strfirst(strrest(line)));
 			continue;
 			}
@@ -1580,8 +1608,8 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfTriggered"))
 			{
-			strcpy(CHlist[pos].funcs->stand,strfirst(strrest(line)));
-			CHlist[pos].flags |= IS_TRIGGER;
+			strcpy(character->funcs->stand,strfirst(strrest(line)));
+			character->flags |= IS_TRIGGER;
 			continue;
 			}
 
@@ -1589,7 +1617,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfKilled") || !istricmp(Rptr,"IfDead"))
 			{
-			strcpy(CHlist[pos].funcs->kill,strfirst(strrest(line)));
+			strcpy(character->funcs->kill,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1598,7 +1626,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"IfLooked") || !istricmp(Rptr,"IfLookedAt")
 		||!istricmp(Rptr,"IfLook"))
 			{
-			strcpy(CHlist[pos].funcs->look,strfirst(strrest(line)));
+			strcpy(character->funcs->look,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1606,7 +1634,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfHurt") || !istricmp(Rptr,"IfDamaged"))
 			{
-			strcpy(CHlist[pos].funcs->hurt,strfirst(strrest(line)));
+			strcpy(character->funcs->hurt,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1614,7 +1642,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"Init") || !istricmp(Rptr,"OnInit"))
 			{
-			strcpy(CHlist[pos].funcs->init,strfirst(strrest(line)));
+			strcpy(character->funcs->init,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1622,7 +1650,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfWield") || !istricmp(Rptr,"IfWielded"))
 			{
-			strcpy(CHlist[pos].funcs->wield,strfirst(strrest(line)));
+			strcpy(character->funcs->wield,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1630,7 +1658,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfHorrified"))
 			{
-			strcpy(CHlist[pos].funcs->horror,strfirst(strrest(line)));
+			strcpy(character->funcs->horror,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1638,7 +1666,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"qchange") || !istricmp(Rptr,"QuantityChange"))
 			{
-			strcpy(CHlist[pos].funcs->quantity,strfirst(strrest(line)));
+			strcpy(character->funcs->quantity,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1647,7 +1675,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"IfGet") || !istricmp(Rptr,"IfGot")
 		||!istricmp(Rptr,"IfTaken"))
 			{
-			strcpy(CHlist[pos].funcs->get,strfirst(strrest(line)));
+			strcpy(character->funcs->get,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1656,13 +1684,13 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"resurrect") || !istricmp(Rptr,"resurrect_to")
 		|| !istricmp(Rptr,"resurrect_as"))
 			{
-			strcpy(CHlist[pos].funcs->resurrect,strfirst(strrest(line)));
+			strcpy(character->funcs->resurrect,strfirst(strrest(line)));
 			continue;
 			}
 
 		if(!istricmp(Rptr,"no_resurrect"))
 			{
-			strcpy(CHlist[pos].funcs->resurrect,"-");
+			strcpy(character->funcs->resurrect,"-");
 			continue;
 			}
 
@@ -1670,19 +1698,19 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"Attack"))
 			{
-			strcpy(CHlist[pos].funcs->attack,strfirst(strrest(line)));
+			strcpy(character->funcs->attack,strfirst(strrest(line)));
 			continue;
 			}
 
 		if(!istricmp(Rptr,"user1"))
 			{
-			strcpy(CHlist[pos].funcs->user1,strfirst(strrest(line)));
+			strcpy(character->funcs->user1,strfirst(strrest(line)));
 			continue;
 			}
 
 		if(!istricmp(Rptr,"user2"))
 			{
-			strcpy(CHlist[pos].funcs->user2,strfirst(strrest(line)));
+			strcpy(character->funcs->user2,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1691,7 +1719,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"light"))
 			{
-			CHlist[pos].light = strgetnumber(strfirst(strrest(line)));
+			character->light = strgetnumber(strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1701,7 +1729,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"setsolid")
 		||!istricmp(Rptr,"subsolid"))
 			{
-//                        CHlist[pos].flags.solid = 1;  // Make sure it's solid
+//                        character->flags.solid = 1;  // Make sure it's solid
 			polarity=0;
 			strcpy(Rbuffer,strgetword(line,2));
 			if(!istricmp(Rbuffer,"H"))
@@ -1732,17 +1760,17 @@ for(ctr=start;ctr<=finish;ctr++)
 
 			if(polarity == 1)
 				{
-				CHlist[pos].hblock[BLK_X] = blockx;
-				CHlist[pos].hblock[BLK_Y] = blocky;
-				CHlist[pos].hblock[BLK_W] = blockw;
-				CHlist[pos].hblock[BLK_H] = blockh;
+				character->hblock[BLK_X] = blockx;
+				character->hblock[BLK_Y] = blocky;
+				character->hblock[BLK_W] = blockw;
+				character->hblock[BLK_H] = blockh;
 				}
 			else
 				{
-				CHlist[pos].vblock[BLK_X] = blockx;
-				CHlist[pos].vblock[BLK_Y] = blocky;
-				CHlist[pos].vblock[BLK_W] = blockw;
-				CHlist[pos].vblock[BLK_H] = blockh;
+				character->vblock[BLK_X] = blockx;
+				character->vblock[BLK_Y] = blocky;
+				character->vblock[BLK_W] = blockw;
+				character->vblock[BLK_H] = blockh;
 				}
 			continue;
 			}
@@ -1785,17 +1813,17 @@ for(ctr=start;ctr<=finish;ctr++)
 
 			if(polarity == 1)
 				{
-				CHlist[pos].harea[BLK_X] = blockx;
-				CHlist[pos].harea[BLK_Y] = blocky;
-				CHlist[pos].harea[BLK_W] = blockw;
-				CHlist[pos].harea[BLK_H] = blockh;
+				character->harea[BLK_X] = blockx;
+				character->harea[BLK_Y] = blocky;
+				character->harea[BLK_W] = blockw;
+				character->harea[BLK_H] = blockh;
 				}
 			else
 				{
-				CHlist[pos].varea[BLK_X] = blockx;
-				CHlist[pos].varea[BLK_Y] = blocky;
-				CHlist[pos].varea[BLK_W] = blockw;
-				CHlist[pos].varea[BLK_H] = blockh;
+				character->varea[BLK_X] = blockx;
+				character->varea[BLK_Y] = blocky;
+				character->varea[BLK_W] = blockw;
+				character->varea[BLK_H] = blockh;
 				}
 			continue;
 			}
@@ -1807,14 +1835,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			SCHEDULE *sched;
 			if(in_editor == 1)  // Not in the world editor or they will accrue
 				continue;
-			if(!CHlist[pos].schedule)
+			if(!character->schedule)
 				{
 				// Initialise schedule if necessary
-				CHlist[pos].schedule = (SCHEDULE *)M_get(24,sizeof(SCHEDULE));
+				character->schedule = (SCHEDULE *)M_get(24,sizeof(SCHEDULE));
 				}
 
 			// This makes things less annoying 
-			sched = CHlist[pos].schedule;
+			sched = character->schedule;
 
 			// Get time
 			strcpy(Rbuffer,strfirst(strrest(line)));
@@ -1851,49 +1879,49 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"solid"))             // Is it solid?
 			{
-			CHlist[pos].flags |= IS_SOLID;
+			character->flags |= IS_SOLID;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"will_open"))         // Isn't always solid
 			{
-			CHlist[pos].flags |= CAN_OPEN;
+			character->flags |= CAN_OPEN;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"blocklight") ||
 		!istricmp(Rptr,"blockslight"))        //Is it solid?
 			{
-			CHlist[pos].flags |= DOES_BLOCKLIGHT;
+			character->flags |= DOES_BLOCKLIGHT;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"invisible"))             // Is it invisible?
 			{
-			CHlist[pos].flags |= IS_INVISIBLE;
+			character->flags |= IS_INVISIBLE;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"semivisible")) { // Player can see even if invisible
-			CHlist[pos].flags |= IS_SEMIVISIBLE;
+			character->flags |= IS_SEMIVISIBLE;
 			continue;
 		}
 
 		if(!istricmp(Rptr,"system"))               // Is it a system object?
 			{
-			CHlist[pos].flags |= IS_SYSTEM;
+			character->flags |= IS_SYSTEM;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"hidden"))             // Is it Hidden?
 			{
-			CHlist[pos].flags |= IS_SHADOW|IS_INVISIBLE;
+			character->flags |= IS_SHADOW|IS_INVISIBLE;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"translucent"))           // Is it translucent?
 			{
-			CHlist[pos].flags |= IS_TRANSLUCENT;
+			character->flags |= IS_TRANSLUCENT;
 			continue;
 			}
 
@@ -1902,67 +1930,67 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"window"))           // Is it a window?
 			{
-			CHlist[pos].flags |= IS_WINDOW|DOES_BLOCKLIGHT;
+			character->flags |= IS_WINDOW|DOES_BLOCKLIGHT;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"fixed"))             // Can't move/get it?
 			{
-			CHlist[pos].flags |= IS_FIXED;
+			character->flags |= IS_FIXED;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"container"))         // Is a bag or chest?
 			{
-			CHlist[pos].flags |= IS_CONTAINER;
+			character->flags |= IS_CONTAINER;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"wielded"))           // Can it be wielded?
 			{
-			CHlist[pos].flags |= CAN_WIELD;
+			character->flags |= CAN_WIELD;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"tabletop"))           // Can you drop things
 			{                                   // On this solid object
-			CHlist[pos].flags |= IS_TABLETOP|IS_SOLID;
+			character->flags |= IS_TABLETOP|IS_SOLID;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"spikeproof"))         // unaffected by triggers
 			{
-			CHlist[pos].flags |= IS_SPIKEPROOF;
+			character->flags |= IS_SPIKEPROOF;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"person"))          // can't be stuffed in sacks etc
 			{
-			CHlist[pos].flags |= IS_PERSON;
+			character->flags |= IS_PERSON;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"quantity"))        // Can it be a pile?
 			{
-			CHlist[pos].flags |= IS_QUANTITY;
+			character->flags |= IS_QUANTITY;
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			tmp=strgetnumber(Rbuffer);
 			if(strisnumber(Rbuffer))
-				CHlist[pos].stats->quantity=tmp;
+				character->stats->quantity=tmp;
 			else
-				CHlist[pos].stats->quantity=1;
+				character->stats->quantity=1;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"boat"))            // Is it a boat?
 			{
-			CHlist[pos].flags |= IS_WATER;
+			character->flags |= IS_WATER;
 			continue;
 			}
 
 		if(!istricmp(Rptr,"shadow"))           // Is it like a shadow?
 			{
-			CHlist[pos].flags |= IS_SHADOW;
+			character->flags |= IS_SHADOW;
 			continue;
 			}
 
@@ -1970,14 +1998,14 @@ for(ctr=start;ctr<=finish;ctr++)
 			{
 			// For the world editor, pretend it is NOT a decor object.
 			if(in_editor != 1)
-				CHlist[pos].flags |= IS_DECOR;
-			CHlist[pos].user->edecor=1; // Mark as decorative for editor
+				character->flags |= IS_DECOR;
+			character->user->edecor=1; // Mark as decorative for editor
 			continue;
 			}
 
 		if(!istricmp(Rptr,"horrific"))   // Does it makes NPCs shit themselves?
 			{
-			CHlist[pos].flags |= IS_HORRIBLE;
+			character->flags |= IS_HORRIBLE;
 			continue;
 			}
 
@@ -1985,8 +2013,8 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"Conversation"))
 			{
-			strcpy(CHlist[pos].funcs->talk,strfirst(strrest(line)));
-			CHlist[pos].funcs->tcache=1;
+			strcpy(character->funcs->talk,strfirst(strrest(line)));
+			character->funcs->tcache=1;
 			continue;
 			}
 
@@ -1994,8 +2022,8 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"contains"))
 			{
-			if(CHlist[pos].funcs->contents<8)
-				strcpy(CHlist[pos].funcs->contains[CHlist[pos].funcs->contents++],strfirst(strrest(line)));
+			if(character->funcs->contents<8)
+				strcpy(character->funcs->contains[character->funcs->contents++],strfirst(strrest(line)));
 			else
 				Dump(ctr,"This character has more than 8 initial items",Rbuffer);
 			continue;
@@ -2003,7 +2031,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"fragile"))             // Is it fragile?
 			{
-			CHlist[pos].flags |= IS_FRAGILE;
+			character->flags |= IS_FRAGILE;
 			continue;
 			}
 
@@ -2015,55 +2043,55 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"male"))           // Is it male? (default)
 			{
-			ClearNPCFlag(&CHlist[pos], IS_FEMALE);
+			ClearNPCFlag(character, IS_FEMALE);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"female"))           // Is it female?
 			{
-			SetNPCFlag(&CHlist[pos], IS_FEMALE);
+			SetNPCFlag(character, IS_FEMALE);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"know_name"))      // Player know their name
 			{
-			SetNPCFlag(&CHlist[pos], KNOW_NAME);
+			SetNPCFlag(character, KNOW_NAME);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"is_hero"))      // Is it the main character?
 			{
-			SetNPCFlag(&CHlist[pos], IS_HERO);
+			SetNPCFlag(character, IS_HERO);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"cant_eat"))      // Can't eat or drink
 			{
-			SetNPCFlag(&CHlist[pos], CANT_EAT);
+			SetNPCFlag(character, CANT_EAT);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"cant_drink"))    // Can't eat or drink
 			{
-			SetNPCFlag(&CHlist[pos], CANT_EAT);
+			SetNPCFlag(character, CANT_EAT);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"wont_shut_doors")) // Can't shut doors
 			{
-			SetNPCFlag(&CHlist[pos], NOT_CLOSE_DOOR);
+			SetNPCFlag(character, NOT_CLOSE_DOOR);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"wont_open_doors")) // Can't open doors
 			{
-			SetNPCFlag(&CHlist[pos], NOT_OPEN_DOOR);
+			SetNPCFlag(character, NOT_OPEN_DOOR);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"no_schedule")) // Ignore scheduled tasks
 			{
-			SetNPCFlag(&CHlist[pos], NO_SCHEDULE);
+			SetNPCFlag(character, NO_SCHEDULE);
 			continue;
 			}
 
@@ -2072,13 +2100,13 @@ for(ctr=start;ctr<=finish;ctr++)
 		|| !istricmp(Rptr,"link_to_another_npc")
 		|| !istricmp(Rptr,"symlink"))
 			{
-			SetNPCFlag(&CHlist[pos], IS_SYMLINK);
+			SetNPCFlag(character, IS_SYMLINK);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"biological")) // Flesh and blood
 			{
-			SetNPCFlag(&CHlist[pos], IS_BIOLOGICAL);
+			SetNPCFlag(character, IS_BIOLOGICAL);
 			continue;
 			}
 
@@ -2087,19 +2115,19 @@ for(ctr=start;ctr<=finish;ctr++)
 		|| !istricmp(Rptr,"is_robot")
 		|| !istricmp(Rptr,"is_robotic"))
 			{
-			SetNPCFlag(&CHlist[pos], IS_ROBOT);
+			SetNPCFlag(character, IS_ROBOT);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"guard")) // It's the cops!
 			{
-			SetNPCFlag(&CHlist[pos], IS_GUARD);
+			SetNPCFlag(character, IS_GUARD);
 			continue;
 			}
 
 		if(!istricmp(Rptr,"spawned"))
 			{
-			SetNPCFlag(&CHlist[pos], IS_SPAWNED);
+			SetNPCFlag(character, IS_SPAWNED);
 			continue;
 			}
 
