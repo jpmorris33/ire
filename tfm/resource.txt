@@ -3607,6 +3607,23 @@ section: sprites
 	datacrystal_core	sprites/tech/dataxtal.cel
 	datacrystal_edge	sprites/tech/dataxtl2.cel
 
+	keypad_human		sprites/tech/keypad_human.png
+	keypad_blank		sprites/tech/keypad_blank.png
+	keypad_error		sprites/tech/keypad_error.png
+	keypad_denied		sprites/tech/keypad_denied.png
+	keypad_0		sprites/tech/keypad_0.png
+	keypad_1		sprites/tech/keypad_1.png
+	keypad_2		sprites/tech/keypad_2.png
+	keypad_3		sprites/tech/keypad_3.png
+	keypad_4		sprites/tech/keypad_4.png
+	keypad_5		sprites/tech/keypad_5.png
+	keypad_6		sprites/tech/keypad_6.png
+	keypad_7		sprites/tech/keypad_7.png
+	keypad_8		sprites/tech/keypad_8.png
+	keypad_9		sprites/tech/keypad_9.png
+
+
+
 section: sequences
 
 	quickname ?UNKNOWN ?UNKNOWN
@@ -12914,6 +12931,21 @@ section: sequences
 	quickname	body_mage
 	quickname	body_follower
 
+	quickname	keypad_human
+	quickname	keypad_blank
+	quickname	keypad_error
+	quickname	keypad_denied
+	quickname	keypad_0
+	quickname	keypad_1
+	quickname	keypad_2
+	quickname	keypad_3
+	quickname	keypad_4
+	quickname	keypad_5
+	quickname	keypad_6
+	quickname	keypad_7
+	quickname	keypad_8
+	quickname	keypad_9
+
 
 !include resources/objects.txt
 
@@ -12991,6 +13023,8 @@ section: sounds
 	cow_thecow_pain		sound/cow2-22.wav
 	cow_thecow_dies		sound/cow3-22.wav
 	crisps			sound/crisps.wav
+	keycode_beep		sound/keycode_beep.wav
+	keycode_denied		sound/keycode_denied.wav
 
 section: music
 
@@ -13237,6 +13271,7 @@ section: scripts
 	code/misc/effects.pe
 	code/misc/endgame.pe
 	code/misc/keypad_d.pe
+	code/misc/keypad_h.pe
 	code/misc/lightsw.pe
 	code/misc/magic.pe
 	code/misc/mobile.pe
@@ -13325,6 +13360,7 @@ section: tables
 		man_old oldmansit_d 
 		man_boy flsit_d
 		guard guardsit_d
+		player redmansit_d
 		playerf redwomansit_d
 		woman_generic WOMAN1SIT_D
 		king kingsit_d

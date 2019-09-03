@@ -50344,6 +50344,7 @@ iMZ1r00
 		type PLAYER
 		at 991 657
 		curdir 0
+		tag 666
 		activity player_action
 
 	decorative TREE03 at 593 658

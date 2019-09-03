@@ -31,6 +31,10 @@ object	karmometer
 object  spellbook_img
 object  phone_img
 object  drak_keypad
+object  human_keypad
+object  human_keypad_blank
+object  human_keypad_error
+object  human_keypad_denied
 object	dlp_display
 
 # Game status variables

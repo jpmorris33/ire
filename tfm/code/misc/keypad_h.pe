@@ -1,0 +1,203 @@
+##################
+#                #
+#  Human keypad  #
+#                #
+##################
+
+
+const KPH_X = 160
+const KPH_Y = 120
+
+integer_array keypad_h_x[6]
+object_array keypad_h_icon[10]
+userstring kp_input_h 6	# user input
+
+##
+##  Entry point
+##
+
+function use_keypad_human
+
+int x
+int y
+int ptr = 1
+int pkey = 0
+string entered
+int lockout = 0
+
+set_string kp_input_h = "000000"
+let entered = kp_input_h
+
+if_not_exists keypad_h_icon[1]
+	let keypad_h_x[1] = 38
+	let keypad_h_x[2] = 51
+	let keypad_h_x[3] = 64
+	let keypad_h_x[4] = 77
+	let keypad_h_x[5] = 90
+	let keypad_h_x[6] = 103
+
+	create keypad_h_icon[1] = "HUMAN_KEYPAD0"
+	create keypad_h_icon[2] = "HUMAN_KEYPAD1"
+	create keypad_h_icon[3] = "HUMAN_KEYPAD2"
+	create keypad_h_icon[4] = "HUMAN_KEYPAD3"
+	create keypad_h_icon[5] = "HUMAN_KEYPAD4"
+	create keypad_h_icon[6] = "HUMAN_KEYPAD5"
+	create keypad_h_icon[7] = "HUMAN_KEYPAD6"
+	create keypad_h_icon[8] = "HUMAN_KEYPAD7"
+	create keypad_h_icon[9] = "HUMAN_KEYPAD8"
+	create keypad_h_icon[10] = "HUMAN_KEYPAD9"
+	create human_keypad = "HUMAN_KEYPAD"
+	create human_keypad_blank = "HUMAN_KEYPAD_BLANK"
+	create human_keypad_error = "HUMAN_KEYPAD_ERROR"
+	create human_keypad_denied = "HUMAN_KEYPAD_DENIED"
+endif
+
+save_screen
+
+# Set up mouse grid
+
+let x = KPH_X + 40
+let y = KPH_Y + 75
+mouse_range KEY_7 = x y 23 23
+range_pointer KEY_7 = 1
+add x + 25
+
+mouse_range KEY_8 = x y 23 23
+range_pointer KEY_8 = 1
+add x + 25
+
+mouse_range KEY_9 = x y 23 23
+range_pointer KEY_9 = 1
+
+let x = KPH_X + 40
+add y + 25
+
+mouse_range KEY_4 = x y 23 23
+range_pointer KEY_4 = 1
+add x + 25
+
+mouse_range KEY_5 = x y 23 23
+range_pointer KEY_5 = 1
+add x + 25
+
+mouse_range KEY_6 = x y 23 23
+range_pointer KEY_6 = 1
+
+let x = KPH_X + 40
+add y + 25
+
+mouse_range KEY_1 = x y 23 23
+range_pointer KEY_1 = 1
+add x + 25
+
+mouse_range KEY_2 = x y 23 23
+range_pointer KEY_2 = 1
+add x + 25
+
+mouse_range KEY_3 = x y 23 23
+range_pointer KEY_3 = 1
+
+let x = KPH_X + 40
+add y + 25
+
+mouse_range KEY_0 = x y 48 23
+range_pointer KEY_0 = 1
+add x + 50
+
+mouse_range KEY_ESC = x y 23 23
+range_pointer KEY_ESC = 1
+
+
+draw_object human_keypad at KPH_X KPH_Y
+
+# Start the loop
+
+do
+
+	getkey_quiet
+
+	# Mouse click?
+	if key = KEY_MOUSE
+		# Fake spell shortcut
+		let key = mouseclick
+		flush_mouse BLOCKING
+	endif
+
+	# Enter a number
+	let pkey = -1
+	if key = KEY_0
+		let pkey = 1
+	endif
+	if key >= KEY_1
+		if key <= KEY_9
+			let pkey = key - KEY_1
+			add pkey + 2
+		endif
+	endif
+
+	if key = KEY_0_PAD
+		let pkey = 1
+	endif
+	if key >= KEY_1_PAD
+		if key <= KEY_9_PAD
+			let pkey = key - KEY_1_PAD
+			add pkey + 2
+		endif
+	endif
+
+	if pkey > 0
+		if pkey <= 10
+			# Quit
+			if lockout = 1
+				load_screen
+				flush_mouse NONBLOCKING
+				let key = 0
+				return
+			endif
+
+			if ptr < 7
+				let x = keypad_h_x[ptr] + KPH_X
+				let y = 24 + KPH_Y
+				draw_object keypad_h_icon[pkey] at x y
+				add pkey + '/'		# '0' -1 to offset array 1 index
+				strsetpos kp_input_h ptr = pkey	# Poke into string
+				add ptr + 1
+				strsetpos kp_input_h ptr = 0	# Terminate
+				play_sound "keycode_beep"
+			endif
+			let key = 0
+		endif
+	endif
+
+	# Enter
+	if ptr = 7
+
+		if entered = current.funcs.user1
+			# Call wield function
+			call current.funcs.wield
+
+			# Exit
+			load_screen
+			flush_mouse NONBLOCKING
+			let key = 0
+			return
+		endif
+
+		# Wrong
+		let ptr = 1
+		draw_object human_keypad at KPH_X KPH_Y
+		let x = KPH_X + 35
+		let y = KPH_Y + 21
+		draw_object human_keypad_denied at x y
+		let lockout = 1
+		play_sound "keycode_denied"
+	endif
+
+while key <> KEY_ESC
+
+load_screen
+let key = 0
+
+return
+end
+

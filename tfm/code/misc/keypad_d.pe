@@ -4,13 +4,12 @@
 #                   #
 #####################
 
-const KP_X = 160
-const KP_Y = 120
+const KPD_X = 160
+const KPD_Y = 120
 
-integer_array keypad_x[6]
-object_array keypad_icon[8]
-userstring kp_input 6	# user input
-
+integer_array keypad_d_x[6]
+object_array keypad_d_icon[8]
+userstring kp_input_d 6	# user input
 
 ##
 ##  Entry point
@@ -24,25 +23,25 @@ int ptr = 1
 int pkey = 0
 string entered
 
-set_string kp_input = "000000"
-let entered = kp_input
+set_string kp_input_d = "000000"
+let entered = kp_input_d
 
-if_not_exists keypad_icon[1]
-	let keypad_x[1] = 60
-	let keypad_x[2] = 91
-	let keypad_x[3] = 122
-	let keypad_x[4] = 153
-	let keypad_x[5] = 184
-	let keypad_x[6] = 215
+if_not_exists keypad_d_icon[1]
+	let keypad_d_x[1] = 60
+	let keypad_d_x[2] = 91
+	let keypad_d_x[3] = 122
+	let keypad_d_x[4] = 153
+	let keypad_d_x[5] = 184
+	let keypad_d_x[6] = 215
 
-	create keypad_icon[1] = "DRAK_KEYPAD0"
-	create keypad_icon[2] = "DRAK_KEYPAD1"
-	create keypad_icon[3] = "DRAK_KEYPAD2"
-	create keypad_icon[4] = "DRAK_KEYPAD3"
-	create keypad_icon[5] = "DRAK_KEYPAD4"
-	create keypad_icon[6] = "DRAK_KEYPAD5"
-	create keypad_icon[7] = "DRAK_KEYPAD6"
-	create keypad_icon[8] = "DRAK_KEYPAD7"
+	create keypad_d_icon[1] = "DRAK_KEYPAD0"
+	create keypad_d_icon[2] = "DRAK_KEYPAD1"
+	create keypad_d_icon[3] = "DRAK_KEYPAD2"
+	create keypad_d_icon[4] = "DRAK_KEYPAD3"
+	create keypad_d_icon[5] = "DRAK_KEYPAD4"
+	create keypad_d_icon[6] = "DRAK_KEYPAD5"
+	create keypad_d_icon[7] = "DRAK_KEYPAD6"
+	create keypad_d_icon[8] = "DRAK_KEYPAD7"
 	create drak_keypad = "DRAK_KEYPAD"
 endif
 
@@ -50,8 +49,8 @@ save_screen
 
 # Set up mouse grid
 
-let x = KP_X + 51
-let y = KP_Y + 96
+let x = KPD_X + 51
+let y = KPD_Y + 96
 mouse_range KEY_A = x y 33 33
 range_pointer KEY_A = 1
 add x + 34
@@ -67,7 +66,7 @@ add x + 34
 mouse_range KEY_D = x y 33 33
 range_pointer KEY_D = 1
 
-let x = KP_X + 51
+let x = KPD_X + 51
 add y + 34
 
 mouse_range KEY_E = x y 33 33
@@ -85,16 +84,16 @@ add x + 34
 mouse_range KEY_H = x y 33 33
 range_pointer KEY_H = 1
 
-let x = KP_X + 226
-let y = KP_Y + 96
+let x = KPD_X + 226
+let y = KPD_Y + 96
 mouse_range KEY_ENTER = x y 33 33
 range_pointer KEY_ENTER = 1
 
-let y = KP_Y + 131
+let y = KPD_Y + 131
 mouse_range KEY_ESC = x y 33 33
 range_pointer KEY_ESC = 1
 
-draw_object drak_keypad at KP_X KP_Y
+draw_object drak_keypad at KPD_X KPD_Y
 
 # Start the loop
 
@@ -115,13 +114,13 @@ do
 			if ptr < 7
 				let pkey = key - KEY_A
 				add pkey + 1			# Correct it
-				let x = keypad_x[ptr] + KP_X
-				let y = 27 + KP_Y
-				draw_object keypad_icon[pkey] at x y
+				let x = keypad_d_x[ptr] + KPD_X
+				let y = 27 + KPD_Y
+				draw_object keypad_d_icon[pkey] at x y
 				add pkey + '0'
-				strsetpos kp_input ptr = pkey	# Poke into string
+				strsetpos kp_input_d ptr = pkey	# Poke into string
 				add ptr + 1
-				strsetpos kp_input ptr = 0	# Terminate
+				strsetpos kp_input_d ptr = 0	# Terminate
 			endif
 			let key = 0
 		endif
@@ -130,7 +129,7 @@ do
 	# Quit (was reset)
 	if key = KEY_ESC
 		let ptr = 1
-		draw_object drak_keypad at KP_X KP_Y
+		draw_object drak_keypad at KPD_X KPD_Y
 	endif
 
 	# Enter
@@ -149,7 +148,7 @@ do
 
 		# Wrong
 		let ptr = 1
-		draw_object drak_keypad at KP_X KP_Y
+		draw_object drak_keypad at KPD_X KPD_Y
 	endif
 
 while key <> KEY_ESC

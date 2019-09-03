@@ -128,89 +128,27 @@ section: characters
 	description	""
 	short		"nothing"
 
-	name DRAK_KEYPAD1
-	left		drak_keypad1
-	right		drak_keypad1
-	up		drak_keypad1
-	down		drak_keypad1
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD1 = DRAK_KEYPAD0
+	frame		drak_keypad1
 
-	name DRAK_KEYPAD2
-	left		drak_keypad2
-	right		drak_keypad2
-	up		drak_keypad2
-	down		drak_keypad2
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD2 = DRAK_KEYPAD0
+	frame		drak_keypad1
 
-	name DRAK_KEYPAD3
-	left		drak_keypad3
-	right		drak_keypad3
-	up		drak_keypad3
-	down		drak_keypad3
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD3 = DRAK_KEYPAD0
+	frame		drak_keypad1
 
-	name DRAK_KEYPAD4
-	left		drak_keypad4
-	right		drak_keypad4
-	up		drak_keypad4
-	down		drak_keypad4
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD4 = DRAK_KEYPAD0
+	frame		drak_keypad1
 
-	name DRAK_KEYPAD5
-	left		drak_keypad5
-	right		drak_keypad5
-	up		drak_keypad5
-	down		drak_keypad5
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD5 = DRAK_KEYPAD0
+	frame		drak_keypad1
 
-	name DRAK_KEYPAD6
-	left		drak_keypad6
-	right		drak_keypad6
-	up		drak_keypad6
-	down		drak_keypad6
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD6 = DRAK_KEYPAD0
+	frame		drak_keypad1
 
-	name DRAK_KEYPAD7
-	left		drak_keypad7
-	right		drak_keypad7
-	up		drak_keypad7
-	down		drak_keypad7
-	hp		1
-	weight		1
-	system
-	invisible
-	description	""
-	short		"nothing"
+	alias DRAK_KEYPAD7 = DRAK_KEYPAD0
+	frame		drak_keypad1
+
 
 	name PHONE_PANEL
 	left		PHONE_PANEL
@@ -16295,7 +16233,7 @@ section: characters
 	description	"You see a toilet."
 	short		"toilet"
 	IfUsed		flush_bog
-	IfTriggered	sit_down
+	IfTriggered	sit_down_human
 	fixed
 
 	name BASIN
@@ -16748,6 +16686,51 @@ section: characters
 
 	alias MAGE_BODY = PLAYER_BODY
 	frame		body_mage
+
+
+#
+
+	alias HUMAN_KEYPAD = DRAK_KEYPAD0
+	frame		keypad_human
+
+	alias HUMAN_KEYPAD_BLANK = DRAK_KEYPAD0
+	frame		keypad_blank
+
+	alias HUMAN_KEYPAD_ERROR = DRAK_KEYPAD0
+	frame		keypad_error
+
+	alias HUMAN_KEYPAD_DENIED = DRAK_KEYPAD0
+	frame		keypad_denied
+
+	alias HUMAN_KEYPAD0 = DRAK_KEYPAD0
+	frame		keypad_0
+
+	alias HUMAN_KEYPAD1 = DRAK_KEYPAD0
+	frame		keypad_1
+
+	alias HUMAN_KEYPAD2 = DRAK_KEYPAD0
+	frame		keypad_2
+
+	alias HUMAN_KEYPAD3 = DRAK_KEYPAD0
+	frame		keypad_3
+
+	alias HUMAN_KEYPAD4 = DRAK_KEYPAD0
+	frame		keypad_4
+
+	alias HUMAN_KEYPAD5 = DRAK_KEYPAD0
+	frame		keypad_5
+
+	alias HUMAN_KEYPAD6 = DRAK_KEYPAD0
+	frame		keypad_6
+
+	alias HUMAN_KEYPAD7 = DRAK_KEYPAD0
+	frame		keypad_7
+
+	alias HUMAN_KEYPAD8 = DRAK_KEYPAD0
+	frame		keypad_8
+
+	alias HUMAN_KEYPAD9 = DRAK_KEYPAD0
+	frame		keypad_9
 
 
 section: tiles
