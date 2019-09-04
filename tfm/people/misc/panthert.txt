@@ -1,0 +1,72 @@
+[page="start"]
+[call="leinad_check_treasure"]
+[if false][goto="gone"]
+[if_race="panther"][goto="start_panther"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a large, black panther with red glowing eyes and
+a metallic sheen over its body.
+[colour="#ffffff"]
+
+"Stay away from the treasure, intruder!"
+
+[link="Who are you?"]
+[linkto="leinad"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="start_panther"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a large, black panther with red glowing eyes and
+a metallic sheen over its body.
+[colour="#ffffff"]
+
+"Stay away from our treasure, friend!
+ Even a brother panther cannot be permitted near it."
+
+[link="Who are you?"]
+[linkto="leinad"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"This treasure is not for you!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="leinad"]
+[image="panth5d.pcx"]
+
+"I guard the treasure.  Speak to Leinad if you
+ would know more about us.""
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="gone"]
+[call="leinad_kill_player"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+The panther notices that the treasure is gone, and makes
+a horrified yell, which quickly turns into a snarl filled
+with sheer menace.
+[colour="#ffffff"]
+
+"Brothers!  The treasure is GONE!
+ The intruder must have done this!"
+
+[nextpage="exit"]
+[endpage]
+

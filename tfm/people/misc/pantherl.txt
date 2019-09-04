@@ -4,6 +4,8 @@
 [endpage]
 
 [page="start"]
+[call="leinad_check_treasure"]
+[if false][goto="gone"]
 [if_race="panther"][goto="start_panther"]
 [image="panth5d.pcx"]
 [colour="#808080"]
@@ -14,6 +16,29 @@ a metallic sheen over its body.
 "Who dares enter the forbidden forest?"
 
 [link="I dare."]
+[linkto="dare"]
+[link="Aren't you supposed to be guarding a base or something?"]
+[linkto="base"]
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[call="leinad_check_treasure"]
+[if false][goto="gone"]
+[if_race="panther"][goto="start_panther"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a large, black panther with red glowing eyes and
+a metallic sheen over its body.
+[colour="#ffffff"]
+
+"You again!  This place is forbidden.  Leave immediately!"
+
+[link="No."]
 [linkto="dare"]
 [link="Aren't you supposed to be guarding a base or something?"]
 [linkto="base"]
@@ -310,8 +335,8 @@ a metallic sheen over its body.
 [page="basep"]
 [image="panth5d.pcx"]
 
-"That would be nice.
- Unfortunately our orders were very strict, and we must
+"I could ask the same of you.
+ Regardless, our orders were very strict, and we must
  guard the shiny treasure until the Master returns."
 
 [link="Goodbye."]
@@ -396,6 +421,7 @@ nicely.
 
 
 [page="gone"]
+[call="leinad_kill_player"]
 [image="panth5d.pcx"]
 
 [colour="#808080"]

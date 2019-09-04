@@ -1,0 +1,87 @@
+
+[page="start"]
+[learn_name]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see some kind of robot panther.  The creature's eyes
+contract to points.
+[colour="#ffffff"]
+
+"AAAAAAHHHH!  NO!  DON'T... PLEASE...
+
+ Wait...!  I am alive again!"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Tell me what happened."]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see a robot panther.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYERNAME.  I am in your debt."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Tell me what happened."]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"Goodbye, $SIR.  Thank you for saving my life!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="what"]
+[image="panth5d.pcx"]
+
+"I was on a mission in the deadlands power plant.
+ We sent a number of humans to try and fix the
+ problems with the generators.
+
+ None of the humans returned and I was sent
+ to investigate.
+
+ I found several bodies, but before I could
+ identify the remains, a ball of plasma
+ appeared in the centre of the room.
+
+ It... it SPOKE to me!  It demanded I leave, but
+ before I could, it killed me!"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="panth5d.pcx"]
+
+"I am $NAME.  I am one of the guard panthers protecting
+ the security base in the eastlands.
+
+ Thank you for saving my life."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+

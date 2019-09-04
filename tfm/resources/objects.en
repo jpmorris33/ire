@@ -7421,10 +7421,11 @@ section: characters
 	right		PANTHER_HEAD
 	up		PANTHER_HEAD
 	down		PANTHER_HEAD
-	hp		100
+	hp		-10
 	weight		1000
 	description	"You see a robot panther's head."
 	short		"head"
+	resurrect_as	GUARD_PANTHER
 
 	name JAILBARS-H
 	left		JAILBARS1H
@@ -11888,7 +11889,7 @@ section: characters
 	down		PAINTING03
 	hp		100000
 	weight		-1
-	description	"You see 'The Creation' by Giotto Francini."
+	description	"You see 'The Creation' by Giotto Franccini."
 	short		"painting"
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
@@ -11902,7 +11903,7 @@ section: characters
 	down		PAINTING06
 	hp		100000
 	weight		-1
-	description	"You see 'The Creation' by Giotto Francini."
+	description	"You see 'The Creation' by Giotto Franccini."
 	short		"painting"
 
 	name PAINTING02
@@ -11912,7 +11913,7 @@ section: characters
 	down		PAINTING09
 	hp		100000
 	weight		-1
-	description	"You see Francini's painting of Jesus casting the first stone."
+	description	"You see Franccini's painting of Jesus casting the first stone."
 	short		"painting"
 
 	name PAINTING03
@@ -11922,7 +11923,7 @@ section: characters
 	down		PAINTING13
 	hp		100000
 	weight		-1
-	description	"You see 'The Last Supper' by Giotto Francini."
+	description	"You see 'The Last Supper' by Giotto Franccini."
 	short		"painting"
 
 	alias PAINTING04 = PAINTING03

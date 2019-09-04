@@ -269,9 +269,9 @@ if victim.user.potion0 > 0
 	return
 endif
 
-if current.user.user10 <> 0
-	return			# The player is allowed to enter
-endif
+#if current.user.user10 <> 0
+#	return			# The player is allowed to enter
+#endif
 
 let suspect = victim
 call justice_intruder_deadly	# Kill the intruder!
