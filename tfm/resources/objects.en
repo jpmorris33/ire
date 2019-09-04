@@ -10162,6 +10162,16 @@ section: characters
 	IfWielded	wield_armour
 	wielded
 
+	name GORGET
+	frame		GORGET
+	hp		100
+	weight		100
+	armour		15
+	description	"You see a steel gorget."
+	short		"gorget"
+	IfWielded	wield_neck
+	wielded
+
 	name SHIELD00
 	left		SHIELD00
 	right		SHIELD00

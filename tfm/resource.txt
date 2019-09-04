@@ -2113,6 +2113,7 @@ section: sprites
 	armour02		sprites/armour02.cel
 	armour03		sprites/armour03.cel
 	armour04		sprites/armour04.cel
+	gorget			sprites/gorget.png
 	shield00		sprites/shield00.cel
 	shield01		sprites/shield01.cel
 	shield02		sprites/shield02.cel
@@ -9035,6 +9036,7 @@ section: sequences
 	quickname ARMOUR02 ARMOUR02
 	quickname ARMOUR03 ARMOUR03
 	quickname ARMOUR04 ARMOUR04
+	quickname gorget gorget
 	quickname SHIELD00 SHIELD00
 	quickname SHIELD01 SHIELD01
 	quickname SHIELD02 SHIELD02
@@ -13025,6 +13027,7 @@ section: sounds
 	crisps			sound/crisps.wav
 	keycode_beep		sound/keycode_beep.wav
 	keycode_denied		sound/keycode_denied.wav
+	keycode_access		sound/keycode_access.wav
 
 section: music
 

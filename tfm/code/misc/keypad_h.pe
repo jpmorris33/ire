@@ -173,6 +173,9 @@ do
 	if ptr = 7
 
 		if entered = current.funcs.user1
+
+			play_sound "keycode_access"
+
 			# Call wield function
 			call current.funcs.wield
 

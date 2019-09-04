@@ -161,7 +161,7 @@ let new_y = attacker.enemy.y
 call fudge_thrown  # Cause them to miss, perhaps
 
 let drop_quiet = 1	# Drop without comments
-let drop_nodamage = 1	# Prevent interial damage from thrown objects
+let drop_nodamage = 1	# Prevent internal damage from thrown objects
 call do_drop
 
 # reset the attacker's frame
@@ -293,6 +293,8 @@ end
 
 function decap_attack
 	integer decap_threshold
+	integer decap_chance = 100 # Definite to begin with
+	integer chance
 	object enemy
 
 	# Prevent the guards beheading someone they're supposed to arrest
@@ -301,24 +303,50 @@ function decap_attack
 	endif
 
 	let enemy = attacker.enemy
-	let decap_threshold = attackweapon.stats.damage / 2
 
 	# Only for fleshy things
 	if_not_flag enemy IS_BIOLOGICAL
 		return
 	endif
 
+	let decap_threshold = attackweapon.stats.damage / 2
+
+	# Armour may make decapitation less likely
+
+	if_exists enemy.wield.neck
+		if enemy.wield.neck is called "GORGET*"
+			add decap_chance / 3
+		endif
+	endif
+
+	if_exists enemy.wield.body
+		if enemy.wield.body is called "ARMOUR03"
+		or enemy.wield.body is called "ARMOUR04"
+		or enemy.wield.body is called "ARMOUR05"
+			add decap_chance / 3
+		endif
+	endif
+
+	random chance between 0 99
+
 	# Need to see how this works out with specials like the Pope
 	# May need some adjustment later
 
 	if enemy.stats.hp < decap_threshold
 	and enemy.stats.hp > 0
-	
-		# Off with their heads!
-		let enemy.stats.hp = -50
-		check_hurt enemy
 
-		let hit_damage = 1
+		print "chance = "
+		print chance
+		print ", dc = "
+		print decap_chance
+		printcr
+
+		if chance < decap_chance
+			# Off with their heads!
+			let enemy.stats.hp = -50
+			check_hurt enemy
+			let hit_damage = 1
+		endif
 	endif
 
 	# If they're dead, hack the head off
