@@ -516,7 +516,7 @@ if(Confirm(-1,-1,"Are you sure you want to quit?",NULL))
 
 void Snap()
 {
-BMPshot(swapscreen);
+Screenshot(swapscreen);
 }
 
 

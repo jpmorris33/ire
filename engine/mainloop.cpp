@@ -2096,7 +2096,7 @@ void Cheat_setflag()	{
 
 void CheckSpecialKeys(int k)	{
 if(k == IREKEY_F10)
-	BMPshot(swapscreen);
+	Screenshot(swapscreen);
 //if(k == IREKEY_F10 | IREKEY_CTRLMOD)
 //	CRASH();
 if(k == (IREKEY_F10 | IREKEY_CTRLMOD))

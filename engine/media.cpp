@@ -39,6 +39,9 @@ extern void RFS_getescape();
 extern void CheckSpecialKeys(int k);
 
 static int rmbuf();
+static void BMPshot(IREBITMAP *savescreen);
+static void PNGshot(IREBITMAP *savescreen);
+
 
 // Code
 
@@ -403,6 +406,12 @@ if(ctr>mpos)
 }
 
 
+void Screenshot(IREBITMAP *savescreen) {
+// PNG support is a pain in the butt, but this will help later
+BMPshot(savescreen);
+}
+
+
 /*
  *      BMPShot - Take a screenshot in .BMP format
  */
@@ -433,6 +442,37 @@ do
 savescreen->SaveBMP(name);
 }
 
+#if 0
+/*
+ *      PNGShot - Take a screenshot in .PNG format
+ */
+
+void PNGshot(IREBITMAP *savescreen)
+{
+char name[1024];
+char home[1024];
+int ctr=0;
+FILE *fp;
+ihome(home);
+
+if(!savescreen)
+	return;
+
+if(!home[0])
+	strcpy(home,".");
+
+do
+	{
+	sprintf(name,"%s/ire%05d.png",home,ctr++);
+	fp=fopen(name,"rb");
+	if(fp)
+		fclose(fp);  // Check residual value in loop
+	} while(fp);
+
+// Create file or bail out
+savescreen->SavePNG(name);
+}
+#endif
 
 
 /*

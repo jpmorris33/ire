@@ -18,7 +18,7 @@ extern int WaitForKey();
 extern unsigned char WaitForAscii();
 extern void FlushKeys();
 extern void Plot(int max);
-extern void BMPshot(IREBITMAP *savescreen);
+extern void Screenshot(IREBITMAP *savescreen);
 extern int GetStringInput(char *ptr,int len);
 
 extern IREBITMAP *swapscreen;

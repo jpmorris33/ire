@@ -7367,7 +7367,7 @@ switch(*num)
 		// Screenshot
 		CentreMap(player);
 		Show();
-		BMPshot(swapscreen);
+		Screenshot(swapscreen);
 	break;
 	
 	case 14:
