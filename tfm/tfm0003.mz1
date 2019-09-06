@@ -69574,7 +69574,7 @@ iMZ1r00
 		name Lord O'Beth
 		funcs->talk people/upper/gentry/obeth.txt
 		funcs->kill JET_DIES
-		funcs->hurt ENEMY_ATTACK
+		funcs->hurt DO_NOTHING
 		schedule 22 0 GO_TO_SLEEP 100691725
 		schedule 9 0 SIT_AT_LOCATION 100691720
 		schedule 12 0 EAT_AT_LOCATION 100692169

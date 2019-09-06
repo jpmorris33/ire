@@ -92,3 +92,30 @@ endif
 
 end
 
+
+##
+## Rick's bunny blast
+##
+
+function rick_horror
+
+if current is called "BUNNY*"
+	if me.tag = -616
+		if_flag me IN_PARTY
+			print "~BUNNY!~"
+			printcr
+		endif
+
+		object_sound "bunny_squish" current
+		let current.stats.hp = -50
+		check_hurt current
+		lightning 2
+		return
+	endif
+endif
+
+call follower_horror
+
+
+end
+

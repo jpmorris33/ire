@@ -319,9 +319,9 @@ integer rand
 call bird_wander
 
 random rand between 1 8
-if rand = 1
-	call bunny_blast
-endif
+#if rand = 1
+#	call bunny_blast
+#endif
 end
 
 ##
@@ -348,10 +348,12 @@ if_exists rick
 		for ctr = 1 to 64
 			let bunny = list[ctr]
 			if_exists bunny
-				object_sound "bunny_squish" bunny
-				let bunny.stats.hp = -50
-				check_hurt bunny
-				lightning 2
+				if_not_in_pocket bunny
+					object_sound "bunny_squish" bunny
+					let bunny.stats.hp = -50
+					check_hurt bunny
+					lightning 2
+				endif
 			endif
 		next
 	endif

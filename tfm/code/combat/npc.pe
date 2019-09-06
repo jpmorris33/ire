@@ -21,7 +21,6 @@
 function enemy_attack
 
 object atk
-integer r
 
 let atk = me
 
@@ -74,14 +73,6 @@ if atk.enemy
 	if atk.enemy.stats.hp < 1	# Murder completed.  return to duty.
 		let atk.enemy = null
 		resume_activity atk
-	endif
-endif
-
-# Hook for the bunny blaster
-if atk is called "bunny*"
-	random r between 1 8
-	if r = 1
-		call bunny_blast
 	endif
 endif
 
