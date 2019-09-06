@@ -65,6 +65,13 @@ end
 ##
 
 function attack_laseralways
+int dist
+
+get_distance dist = attacker attacker.enemy
+if dist > 15
+	# OK, forget it (avoid killing player on other side of map)
+	return
+endif
 
 # Set a suitable attack frame if we have one
 let current = attacker

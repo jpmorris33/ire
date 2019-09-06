@@ -379,8 +379,6 @@ end
 ##
 
 function get_hitrange
-integer tx
-integer ty
 
 if_not_exist attacker
 	return
@@ -390,21 +388,7 @@ if_not_exist attacker.enemy
 	return
 endif
 
-let tx = attacker.x - attacker.enemy.x
-let ty = attacker.y - attacker.enemy.y
-
-if tx < 0
-	let tx = 0 - tx
-endif
-if ty < 0
-	let ty = 0 - ty
-endif
-
-if ty > tx
-	let tx = ty
-endif
-
-let hit_range = tx
+get_distance hit_range = attacker attacker.enemy
 end
 
 

@@ -237,8 +237,6 @@ let hawk = current
 integer nx
 integer ny
 integer oldroof
-integer dx
-integer dy
 integer range
 integer lockout
 
@@ -300,19 +298,7 @@ do
 	endif
 
 	# Range check
-	let dx = nx - hawk.stats.owner.x
-	let dy = ny - hawk.stats.owner.y
-	if dx < 0
-		let dx = 0 - dx
-	endif
-	if dy < 0
-		let dy = 0 - dy
-	endif
-
-	let range = dx
-	if dy > dx
-		let range = dy
-	endif
+	get_distance range = hawk hawk.stats.owner
 
 	if range > HAWK_LOSINGIT
 		if lockout = 0

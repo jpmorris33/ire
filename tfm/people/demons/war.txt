@@ -13,7 +13,7 @@ eyes.  Finally he speaks in a soft, quiet voice.
 "Hello there, human.  Welcome to the Security base.
 
  I'm one of the Four Horsemen of the Apocalypse, I just
- happen to be the one called 'Pestillence'.  Don't let
+ happen to be the one called 'War'.  Don't let
  the name put you off."
 
 [link="What are you?"]

@@ -105,6 +105,12 @@ if me.label.race = "waarg"
 	return
 endif
 
+# Stop aircraft from arresting people as this goes horribly wrong
+if me.label.race = "cyber"
+	# Maybe they should call the panthers
+	return
+endif
+
 
 # Have we got someone to attack?
 if_not_exist atk.enemy
@@ -237,8 +243,7 @@ end
 function enemy_arrestnow
 
 object atk
-int tx
-int ty
+int dist
 
 let atk = me
 
@@ -292,17 +297,8 @@ endif
 
 move_towards atk atk.enemy
 
-let tx = atk.x - atk.enemy.x
-let ty = atk.y - atk.enemy.y
-if tx < 0
-	let tx = 0 - tx
-endif
-if ty < 0
-	let ty = 0 - ty
-endif
-
-if tx < 2
-and ty < 2
+get_distance dist = atk atk.enemy
+if dist < 2
 	let victim = atk.enemy
 	call arrest_victim
 	resume_activity atk

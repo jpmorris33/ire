@@ -489,6 +489,7 @@ section: characters
 	intelligence	120
 	weight		60000
 	damage		6
+	level		2
 	description	"You see a peasant."
 	short		"man"
 	attack		close_attack
@@ -3841,6 +3842,7 @@ section: characters
 	fixed
 	radius		1
 
+	# Panthers and other airbase followers use this to go home
 	name TARGET_BASE
 	left		TARGET
 	right		TARGET

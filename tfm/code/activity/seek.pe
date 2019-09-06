@@ -559,8 +559,7 @@ end
 integer close_to
 
 function close_to
-integer a
-integer b
+integer dist
 
 # Sanity check
 if_not_exist me.target
@@ -570,24 +569,12 @@ endif
 
 # Get distances
 
-let a = me.x - me.target.x
-let b = me.y - me.target.y
-
-# Get absolute value
-
-if a < 0
-	let a = 0 - a
-endif
-if b < 0
-	let b = 0 - b
-endif
-
+get_distance dist = me me.target
 # Decide
 
 let close_to = 11101
 
-if a > 1
-or b > 1
+if dist > 1
 	let close_to = 0
 endif
 end
