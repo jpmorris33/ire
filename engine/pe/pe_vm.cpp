@@ -220,6 +220,7 @@ static void PV_FadeIn();
 static void PV_MoveToTop();
 static void PV_MoveToFloor();
 static void PV_GetLOS();
+static void PV_GetDistance();
 static void PV_CheckHurt();
 static void PV_IfSolid();
 static void PV_IfVisible();
@@ -1247,6 +1248,7 @@ VMOP(FadeIn);
 VMOP(MoveToTop);
 VMOP(MoveToFloor);
 VMOP(GetLOS);
+VMOP(GetDistance);
 VMOP(CheckHurt);
 VMOP(IfSolid);
 VMOP(IfVisible);
@@ -3548,8 +3550,7 @@ MoveToFloor(*obj);
 
 // Get line-of-sight between two objects, return number of steps
 
-void PV_GetLOS()
-{
+void PV_GetLOS() {
 VMINT *x;
 OBJECT **obj1,**obj2;
 
@@ -3560,24 +3561,67 @@ CHECK_POINTER(obj1);
 obj2 = GET_OBJECT();
 CHECK_POINTER(obj2);
 
-if(!*obj1)
-	{
-	Bug("If_line_of_sight: Object1 has not been initialised!\n");
+if(!*obj1) {
+	Bug("get_line_of_sight: Object1 has not been initialised!\n");
 	DumpVM(1);
 	VMbug();
 	return; // Leave quickly
-	}
-if(!*obj2)
-	{
-	Bug("If_line_of_sight: Object2 has not been initialised!\n");
+}
+if(!*obj2) {
+	Bug("get_line_of_sight: Object2 has not been initialised!\n");
 	DumpVM(1);
 	VMbug();
 	return; // Leave quickly
-	}
+}
 
 // Ok, do it
 
 *x=line_of_sight((*obj1)->x,(*obj1)->y,(*obj2)->x,(*obj2)->y);
+}
+
+// Get crude distance between two objects
+
+void PV_GetDistance() {
+VMINT *dist;
+OBJECT **obj1,**obj2;
+int dx,dy;
+
+dist = GET_INT();
+CHECK_POINTER(dist);
+obj1 = GET_OBJECT();
+CHECK_POINTER(obj1);
+obj2 = GET_OBJECT();
+CHECK_POINTER(obj2);
+
+if(!*obj1) {
+	Bug("get_distance: Object1 has not been initialised!\n");
+	DumpVM(1);
+	VMbug();
+	return; // Leave quickly
+}
+if(!*obj2) {
+	Bug("get_distance: Object2 has not been initialised!\n");
+	DumpVM(1);
+	VMbug();
+	return; // Leave quickly
+}
+
+// Ok, do it
+dx=(*obj1)->x - (*obj2)->x;
+dy=(*obj1)->y - (*obj2)->y;
+if(dx<0) {
+	dx=-dx;
+}
+if(dy<0) {
+	dy=-dy;
+}
+
+if(dx > dy) {
+	*dist=dx;
+} else {
+	*dist=dy;
+}
+
 }
 
 // Check if an object has been hurt

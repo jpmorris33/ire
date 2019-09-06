@@ -103,6 +103,7 @@ enum {
 	PEVM_MoveToTop,
 	PEVM_MoveToFloor,
 	PEVM_GetLOS,
+	PEVM_GetDistance,
 	PEVM_CheckHurt,
 	PEVM_IfSolid,
 	PEVM_IfVisible,
