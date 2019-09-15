@@ -72,9 +72,29 @@ if map = 2
 		return
 	endif
 
-	# Waarg territory?
-	# (Also the dam, split this off later)
-	if current.x >= 608
+	# Second coming area
+	if current.x >= 861
+	and current.x <= 966
+	and current.y >= 889
+	and current.y <= 996
+		let map_area = "MAP2"
+		return
+	endif
+
+	# Dam
+	if current.x >= 629
+	and current.x <= 669
+	and current.y >= 941
+	and current.y <= 1006
+		let map_area = "DAM"
+		return
+	endif
+
+	# Misc waarg territory?
+	if current.x >= 657
+	and current.x <= 804
+	and current.y >= 445
+	and current.y <= 735
 		let map_area = "WAARG"
 		return
 	endif

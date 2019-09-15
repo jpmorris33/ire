@@ -3643,7 +3643,8 @@ section: sprites
 	keypad_8		sprites/tech/keypad_8.png
 	keypad_9		sprites/tech/keypad_9.png
 
-
+	dart_trap_v		sprites/dart_trap1.png
+	dart_trap_h		sprites/dart_trap2.png
 
 section: sequences
 
@@ -13037,6 +13038,8 @@ section: sequences
 	quickname	keypad_8
 	quickname	keypad_9
 
+	quickname	dart_trap_v
+	quickname	dart_trap_h
 
 !include resources/objects.txt
 
@@ -13392,6 +13395,7 @@ section: scripts
 	code/object/gates.pe
 	code/object/key.pe
 	code/object/laser.pe
+	code/object/darts.pe
 	code/object/levers.pe
 	code/object/mill.pe
 	code/object/mirror.pe
@@ -13769,6 +13773,7 @@ section: tables
 		PANAVIUS_BASE	10001
 		AVIS		10000
 		WAARG		10002		# Also the dam, but if they can get arrested there, that's their problem
+		DAM		10002
 		MAP2		10003		# Default: Have them wake up in the middle of nowhere
 
 		WILDLIFE_BASE	10001
@@ -13791,7 +13796,8 @@ section: tables
 		
 		PANAVIUS_BASE	10001
 		AVIS		666
-		WAARG		667		# Also the dam, but if they can get arrested there, that's their problem
+		WAARG		667
+		DAM		668
 		MAP2		10003		# Default: Have them wake up in the middle of nowhere
 
 		WILDLIFE_BASE	10001

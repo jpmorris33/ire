@@ -16813,6 +16813,18 @@ section: characters
 	alias HUMAN_KEYPAD9 = DRAK_KEYPAD0
 	frame		keypad_9
 
+	name dart_trap
+	up		dart_trap_v
+	down		dart_trap_v
+	left		dart_trap_h
+	right		dart_trap_h
+	hp		10000000
+	weight		-1
+	description	"You see a small hole."
+	short		"hole"
+	fixed
+	ifwielded	dart_trap
+	attack		dart_attack
 
 section: tiles
 

@@ -176,6 +176,24 @@ next ctr
 end
 
 ##
+##	Call owner's wield function
+##
+
+function callwield_owner
+
+if_not_exists current.stats.owner
+	BUG start
+	print "Trap has no owner to call wieldfunc for|"
+	BUG end
+	return
+endif
+
+let current = current.stats.owner
+call current.funcs.wcache
+
+end
+
+##
 ##	Player breaks jail
 ##
 
