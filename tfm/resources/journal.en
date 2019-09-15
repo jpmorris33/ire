@@ -195,3 +195,11 @@ title Learn the password to the osprey village
 start:
 I must find an osprey who observes the humans in the nearby settlement.  They will decide if I can enter the osprey village.
 end
+
+name jrn_SaxiisCode
+tag task
+title Find the dragons' den
+start:
+I have met the dragon Saxiis, who has suggested I seek her fellow dragons.
+The dragon Saxiis has given me a password, '631824', which I will need to enter their domain.
+end

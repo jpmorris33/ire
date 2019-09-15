@@ -100,6 +100,7 @@ Saxiis, a Drakaan who has gone native.
 
 [page="doorbell"]
 [if Saxiis_allowed_in][goto="doorbell2"]
+[if_know_name][goto="doorbell4"]
 [image="saxiis1.pcx"]
 
 "No milk today, please..
@@ -137,7 +138,26 @@ Saxiis, a Drakaan who has gone native.
 "Sure.  But wipe your feet first, okay?"
 
 [set Saxiis_allowed_in]
+[set Saxiis_allow_in]
 [nextpage="fakeexit"]
+[endpage]
+
+
+[page="doorbell4"]
+[image="saxiis1.pcx"]
+
+"No milk today, please..
+
+ Oh!  It's you again."
+
+[link="I'm here to rescue the fair maiden."]
+[linkto="maid"]
+[if find_ross][link="I'm looking for Ross."]
+[if find_ross][linkto="ross"]
+[link="Who are you, again?"]
+[linkto="name"]
+[link="Sorry, wrong house."]
+[linkto="bye"]
 [endpage]
 
 
@@ -742,6 +762,7 @@ The creature looks at you knowingly.
 
 [page="ross"]
 [set Saxiis_allowed_in]
+[set Saxiis_allow_in]
 [image="saxiis2.pcx"]
 
 "I suppose you'd better come in then."
@@ -752,6 +773,7 @@ The creature looks at you knowingly.
 
 [page="brothers"]
 [image="saxiis2.pcx"]
+[journal jrn_SaxiisCode]
 
 "I'm not sure I can tell you that.  The conditioning that
  prevents Xy'lan from harming us is being stretched very

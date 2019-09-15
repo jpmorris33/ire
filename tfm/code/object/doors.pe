@@ -645,7 +645,7 @@ for ctr = 1 to 32
 next
 
 if_exists done
-	object_sound "portcullis_open" done
+	object_sound "portcullis_close" done
 else
 	if me = player
 		print "It doesn't seem to have worked."
@@ -680,7 +680,7 @@ for ctr = 1 to 32
 next
 
 if_exists done
-	object_sound "portcullis_close" done
+	object_sound "portcullis_open" done
 else
 	if me = player
 		print "It doesn't seem to have worked."
@@ -695,11 +695,11 @@ function UsePortculli
 
 if current.curdir = UP
 	set_direction current = LEFT
-	object_sound "clunk" current
+	object_sound "portcullis_clunk" current
 	call OpenPortculli
 else
 	set_direction current = UP
-	object_sound "clunk" current
+	object_sound "portcullis_clunk" current
 	call ClosePortculli
 endif
 
