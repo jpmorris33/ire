@@ -453,6 +453,26 @@ section: sprites
 	body_king		sprites/people/king13.png
 	body_mage		sprites/people/mage13.png
 
+	cyberwolf00		sprites/tech/cyberwolf_n0.png
+	cyberwolf01		sprites/tech/cyberwolf_n1.png
+	cyberwolf02		sprites/tech/cyberwolf_n2.png
+	cyberwolf03		sprites/tech/cyberwolf_s0.png
+	cyberwolf04		sprites/tech/cyberwolf_s1.png
+	cyberwolf05		sprites/tech/cyberwolf_s2.png
+	cyberwolf06		sprites/tech/cyberwolf_w0.png
+	cyberwolf07		sprites/tech/cyberwolf_w1.png
+	cyberwolf08		sprites/tech/cyberwolf_w2.png
+	cyberwolf09		sprites/tech/cyberwolf_e0.png
+	cyberwolf10		sprites/tech/cyberwolf_e1.png
+	cyberwolf11		sprites/tech/cyberwolf_e2.png
+	cyberwolf12		sprites/tech/cyberwolf___.png
+	cyberwolf13		sprites/tech/cyberwolf_ld.png
+	cyberwolfsit_u		sprites/tech/cyberwolf_ns.png
+	cyberwolfsit_d		sprites/tech/cyberwolf_ss.png
+	cyberwolfsit_l		sprites/tech/cyberwolf_ws.png
+	cyberwolfsit_r		sprites/tech/cyberwolf_es.png
+	cyberwolfhead		sprites/tech/cyberwolf_hd.png
+
 	stone_door1s_vert	sprites/stdoor00.cel
 	stone_door1l_vert	sprites/stdoor01.cel
 	stone_door2s_vert	sprites/stdoor02.cel
@@ -6210,6 +6230,75 @@ section: sequences
 	end
 
 	quickname MONK_SLEEPING MONK12
+
+
+	name CYBERWOLF_UP
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CYBERWOLF00
+		CYBERWOLF01
+		CYBERWOLF00
+		CYBERWOLF02
+	end
+
+	name CYBERWOLF_DOWN
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CYBERWOLF03
+		CYBERWOLF04
+		CYBERWOLF03
+		CYBERWOLF05
+	end
+
+	name CYBERWOLF_LEFT
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CYBERWOLF06
+		CYBERWOLF07
+		CYBERWOLF06
+		CYBERWOLF08
+	end
+
+	name CYBERWOLF_RIGHT
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CYBERWOLF09
+		CYBERWOLF10
+		CYBERWOLF09
+		CYBERWOLF11
+	end
+
+	quickname CYBERWOLFSIT_L CYBERWOLFSIT_L
+	quickname CYBERWOLFSIT_R CYBERWOLFSIT_R
+	quickname CYBERWOLFSIT_U CYBERWOLFSIT_U
+	quickname CYBERWOLFSIT_D CYBERWOLFSIT_D
+
+	name CYBERWOLF_DEAD
+	speed 1
+#	overlay BLOOD_OVERLAY
+	framelist:
+	#1 frames
+		CYBERWOLF12
+	end
+
+# Can they sleep?
+	quickname CYBERWOLF_SLEEPING CYBERWOLF13
+
+	quickname CYBERWOLF_HEAD CYBERWOLFHEAD
+	quickname CYBERWOLF_BODY CYBERWOLF12
+
 
 	name TORCH
 	loop
@@ -13299,6 +13388,7 @@ section: scripts
 	code/object/eggs.pe
 	code/object/fishrod.pe
 	code/object/food.pe
+	code/object/potions.pe
 	code/object/gates.pe
 	code/object/key.pe
 	code/object/laser.pe

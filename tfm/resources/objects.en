@@ -132,22 +132,22 @@ section: characters
 	frame		drak_keypad1
 
 	alias DRAK_KEYPAD2 = DRAK_KEYPAD0
-	frame		drak_keypad1
+	frame		drak_keypad2
 
 	alias DRAK_KEYPAD3 = DRAK_KEYPAD0
-	frame		drak_keypad1
+	frame		drak_keypad3
 
 	alias DRAK_KEYPAD4 = DRAK_KEYPAD0
-	frame		drak_keypad1
+	frame		drak_keypad4
 
 	alias DRAK_KEYPAD5 = DRAK_KEYPAD0
-	frame		drak_keypad1
+	frame		drak_keypad5
 
 	alias DRAK_KEYPAD6 = DRAK_KEYPAD0
-	frame		drak_keypad1
+	frame		drak_keypad6
 
 	alias DRAK_KEYPAD7 = DRAK_KEYPAD0
-	frame		drak_keypad1
+	frame		drak_keypad7
 
 
 	name PHONE_PANEL
@@ -476,6 +476,34 @@ section: characters
 	setsolid	H 0 0 2 1
 	setActiveArea	V 0 0 1 2
 	setActiveArea	H 0 0 2 1
+
+	name PLAYERacw
+	left		CYBERWOLF_LEFT
+	right		CYBERWOLF_RIGHT
+	up		CYBERWOLF_UP
+	down		CYBERWOLF_DOWN
+	hp		1000
+	dexterity	10
+	strength	20000
+	intelligence	120
+	weight		25000
+	damage		150
+	level		8
+	description	"You see a wolf android."
+	short		"robot wolf"
+	IfKilled	Cyberwolf_Dies
+	IfHurt		Cyberwolf_Hurt
+	attack		close_attack
+	conversation	people/guards/pantherj.txt
+	resurrect_as	playeracw
+	solid
+	person
+	male
+	is_hero
+	is_robot
+	cant_eat
+	race		panther
+	rank		hero
 
 
 	name MAN_GENERIC
@@ -7407,10 +7435,7 @@ section: characters
 	setActiveArea	H 0 0 2 1
 
 	name DEADPANTHER
-	left		PANTHER_DEAD
-	right		PANTHER_DEAD
-	up		PANTHER_DEAD
-	down		PANTHER_DEAD
+	frame		PANTHER_DEAD
 	hp		100
 	weight		24000
 	description	"You see a dead robot panther."
@@ -7419,15 +7444,58 @@ section: characters
 	container
 
 	name DEADPANTHER_HEAD
-	left		PANTHER_HEAD
-	right		PANTHER_HEAD
-	up		PANTHER_HEAD
-	down		PANTHER_HEAD
+	frame		PANTHER_HEAD
 	hp		-10
 	weight		1000
 	description	"You see a robot panther's head."
 	short		"head"
 	resurrect_as	GUARD_PANTHER
+
+	name CYBERWOLF
+	left		CYBERWOLF_LEFT
+	right		CYBERWOLF_RIGHT
+	up		CYBERWOLF_UP
+	down		CYBERWOLF_DOWN
+	hp		1200
+	dexterity	10
+	strength	20000
+	intelligence	120
+	weight		55000
+	damage		125
+	level 		6
+	description	"You see a wolf android."
+	short		"cyberwolf"
+	IfKilled	Cyberwolf_Dies
+	IfHurt		Cyberwolf_Hurt
+	ifhorrified	ModernGuard_Horror
+	attack		close_attack
+	conversation	people/guards/cyberwolf.txt
+	solid
+	person
+	male
+	guard
+	cant_eat
+	is_robot
+	horrific
+	race		panther
+	rank		guard
+
+	name DEADCYBERWOLF
+	frame		CYBERWOLF_DEAD
+	hp		100
+	weight		50000
+	description	"You see a dead wolf android."
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+
+	name DEADCYBERWOLF_HEAD
+	frame		CYBERWOLF_HEAD
+	hp		-10
+	weight		1000
+	description	"You see a wolf android's head."
+	short		"head"
+	resurrect_as	CYBERWOLF
 
 	name JAILBARS-H
 	left		JAILBARS1H

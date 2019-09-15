@@ -1947,380 +1947,247 @@ iMZ3r01
 	light 4 at 207 896
 	light 5 at 208 896
 	light 6 at 209 896
-	light 1 at 72 897
-	light 13 at 73 897
+	light 4 at 73 897
 	light 5 at 74 897
-	light 12 at 75 897
-	light 3 at 76 897
-	light 1 at 79 897
-	light 2 at 80 897
-	light 2 at 81 897
-	light 2 at 82 897
-	light 3 at 83 897
-	light 1 at 86 897
-	light 2 at 87 897
-	light 2 at 88 897
-	light 2 at 89 897
-	light 3 at 90 897
-	light 1 at 93 897
-	light 2 at 94 897
-	light 2 at 95 897
-	light 2 at 96 897
-	light 3 at 97 897
-	light 1 at 100 897
-	light 2 at 101 897
-	light 2 at 102 897
-	light 2 at 103 897
-	light 3 at 104 897
-	light 1 at 107 897
-	light 2 at 108 897
-	light 2 at 109 897
-	light 2 at 110 897
-	light 3 at 111 897
-	light 1 at 114 897
-	light 2 at 115 897
-	light 2 at 116 897
-	light 2 at 117 897
-	light 3 at 118 897
-	light 1 at 121 897
-	light 2 at 122 897
-	light 2 at 123 897
-	light 2 at 124 897
-	light 3 at 125 897
-	light 1 at 128 897
-	light 2 at 129 897
-	light 2 at 130 897
-	light 2 at 131 897
-	light 3 at 132 897
-	light 1 at 135 897
-	light 2 at 136 897
-	light 2 at 137 897
-	light 2 at 138 897
-	light 3 at 139 897
-	light 1 at 142 897
-	light 2 at 143 897
-	light 2 at 144 897
-	light 2 at 145 897
-	light 3 at 146 897
-	light 1 at 149 897
-	light 2 at 150 897
-	light 2 at 151 897
-	light 2 at 152 897
-	light 3 at 153 897
-	light 1 at 156 897
-	light 2 at 157 897
-	light 2 at 158 897
-	light 2 at 159 897
-	light 3 at 160 897
-	light 1 at 163 897
-	light 2 at 164 897
-	light 2 at 165 897
-	light 2 at 166 897
-	light 3 at 167 897
-	light 1 at 170 897
-	light 2 at 171 897
-	light 2 at 172 897
-	light 2 at 173 897
-	light 3 at 174 897
-	light 1 at 177 897
-	light 2 at 178 897
-	light 2 at 179 897
-	light 2 at 180 897
-	light 3 at 181 897
-	light 1 at 184 897
-	light 2 at 185 897
-	light 2 at 186 897
-	light 2 at 187 897
-	light 3 at 188 897
-	light 1 at 191 897
-	light 2 at 192 897
-	light 2 at 193 897
-	light 2 at 194 897
-	light 3 at 195 897
-	light 1 at 198 897
-	light 2 at 199 897
-	light 2 at 200 897
-	light 2 at 201 897
-	light 3 at 202 897
-	light 1 at 206 897
-	light 13 at 207 897
+	light 6 at 75 897
+	light 4 at 207 897
 	light 5 at 208 897
-	light 12 at 209 897
-	light 3 at 210 897
-	light 4 at 72 898
-	light 5 at 73 898
+	light 6 at 209 897
+	light 1 at 72 898
+	light 13 at 73 898
 	light 5 at 74 898
-	light 5 at 75 898
-	light 12 at 76 898
-	light 2 at 77 898
-	light 2 at 78 898
-	light 13 at 79 898
-	light 5 at 80 898
-	light 5 at 81 898
-	light 5 at 82 898
-	light 12 at 83 898
-	light 2 at 84 898
-	light 2 at 85 898
-	light 13 at 86 898
-	light 5 at 87 898
-	light 5 at 88 898
-	light 5 at 89 898
-	light 12 at 90 898
-	light 2 at 91 898
-	light 2 at 92 898
-	light 13 at 93 898
-	light 5 at 94 898
-	light 5 at 95 898
-	light 5 at 96 898
-	light 12 at 97 898
-	light 2 at 98 898
-	light 2 at 99 898
-	light 13 at 100 898
-	light 5 at 101 898
-	light 5 at 102 898
-	light 5 at 103 898
-	light 12 at 104 898
-	light 2 at 105 898
-	light 2 at 106 898
-	light 13 at 107 898
-	light 5 at 108 898
-	light 5 at 109 898
-	light 5 at 110 898
-	light 12 at 111 898
-	light 2 at 112 898
-	light 2 at 113 898
-	light 13 at 114 898
-	light 5 at 115 898
-	light 5 at 116 898
-	light 5 at 117 898
-	light 12 at 118 898
-	light 2 at 119 898
-	light 2 at 120 898
-	light 13 at 121 898
-	light 5 at 122 898
-	light 5 at 123 898
-	light 5 at 124 898
-	light 12 at 125 898
-	light 2 at 126 898
-	light 2 at 127 898
-	light 13 at 128 898
-	light 5 at 129 898
-	light 5 at 130 898
-	light 5 at 131 898
-	light 12 at 132 898
-	light 2 at 133 898
-	light 2 at 134 898
-	light 13 at 135 898
-	light 5 at 136 898
-	light 5 at 137 898
-	light 5 at 138 898
-	light 12 at 139 898
-	light 2 at 140 898
-	light 2 at 141 898
-	light 13 at 142 898
-	light 5 at 143 898
-	light 5 at 144 898
-	light 5 at 145 898
-	light 12 at 146 898
-	light 2 at 147 898
-	light 2 at 148 898
-	light 13 at 149 898
-	light 5 at 150 898
-	light 5 at 151 898
-	light 5 at 152 898
-	light 12 at 153 898
-	light 2 at 154 898
-	light 2 at 155 898
-	light 13 at 156 898
-	light 5 at 157 898
-	light 5 at 158 898
-	light 5 at 159 898
-	light 12 at 160 898
-	light 2 at 161 898
-	light 2 at 162 898
-	light 13 at 163 898
-	light 5 at 164 898
-	light 5 at 165 898
-	light 5 at 166 898
-	light 12 at 167 898
-	light 2 at 168 898
-	light 2 at 169 898
-	light 13 at 170 898
-	light 5 at 171 898
-	light 5 at 172 898
-	light 5 at 173 898
-	light 12 at 174 898
-	light 2 at 175 898
-	light 2 at 176 898
-	light 13 at 177 898
-	light 5 at 178 898
-	light 5 at 179 898
-	light 5 at 180 898
-	light 12 at 181 898
-	light 2 at 182 898
-	light 2 at 183 898
-	light 13 at 184 898
-	light 5 at 185 898
-	light 5 at 186 898
-	light 5 at 187 898
-	light 12 at 188 898
-	light 2 at 189 898
-	light 2 at 190 898
-	light 13 at 191 898
-	light 5 at 192 898
-	light 5 at 193 898
-	light 5 at 194 898
-	light 12 at 195 898
-	light 2 at 196 898
-	light 2 at 197 898
-	light 13 at 198 898
-	light 5 at 199 898
-	light 5 at 200 898
-	light 5 at 201 898
-	light 12 at 202 898
-	light 2 at 203 898
-	light 2 at 204 898
-	light 2 at 205 898
-	light 13 at 206 898
-	light 5 at 207 898
+	light 12 at 75 898
+	light 3 at 76 898
+	light 1 at 79 898
+	light 2 at 80 898
+	light 2 at 81 898
+	light 2 at 82 898
+	light 3 at 83 898
+	light 1 at 86 898
+	light 2 at 87 898
+	light 2 at 88 898
+	light 2 at 89 898
+	light 3 at 90 898
+	light 1 at 93 898
+	light 2 at 94 898
+	light 2 at 95 898
+	light 2 at 96 898
+	light 3 at 97 898
+	light 1 at 100 898
+	light 2 at 101 898
+	light 2 at 102 898
+	light 2 at 103 898
+	light 3 at 104 898
+	light 1 at 107 898
+	light 2 at 108 898
+	light 2 at 109 898
+	light 2 at 110 898
+	light 3 at 111 898
+	light 1 at 114 898
+	light 2 at 115 898
+	light 2 at 116 898
+	light 2 at 117 898
+	light 3 at 118 898
+	light 1 at 121 898
+	light 2 at 122 898
+	light 2 at 123 898
+	light 2 at 124 898
+	light 3 at 125 898
+	light 1 at 128 898
+	light 2 at 129 898
+	light 2 at 130 898
+	light 2 at 131 898
+	light 3 at 132 898
+	light 1 at 135 898
+	light 2 at 136 898
+	light 2 at 137 898
+	light 2 at 138 898
+	light 3 at 139 898
+	light 1 at 142 898
+	light 2 at 143 898
+	light 2 at 144 898
+	light 2 at 145 898
+	light 3 at 146 898
+	light 1 at 149 898
+	light 2 at 150 898
+	light 2 at 151 898
+	light 2 at 152 898
+	light 3 at 153 898
+	light 1 at 156 898
+	light 2 at 157 898
+	light 2 at 158 898
+	light 2 at 159 898
+	light 3 at 160 898
+	light 1 at 163 898
+	light 2 at 164 898
+	light 2 at 165 898
+	light 2 at 166 898
+	light 3 at 167 898
+	light 1 at 170 898
+	light 2 at 171 898
+	light 2 at 172 898
+	light 2 at 173 898
+	light 3 at 174 898
+	light 1 at 177 898
+	light 2 at 178 898
+	light 2 at 179 898
+	light 2 at 180 898
+	light 3 at 181 898
+	light 1 at 184 898
+	light 2 at 185 898
+	light 2 at 186 898
+	light 2 at 187 898
+	light 3 at 188 898
+	light 1 at 191 898
+	light 2 at 192 898
+	light 2 at 193 898
+	light 2 at 194 898
+	light 3 at 195 898
+	light 1 at 198 898
+	light 2 at 199 898
+	light 2 at 200 898
+	light 2 at 201 898
+	light 3 at 202 898
+	light 1 at 206 898
+	light 13 at 207 898
 	light 5 at 208 898
-	light 5 at 209 898
-	light 6 at 210 898
+	light 12 at 209 898
+	light 3 at 210 898
 	light 4 at 72 899
 	light 5 at 73 899
 	light 5 at 74 899
 	light 5 at 75 899
-	light 5 at 76 899
-	light 5 at 77 899
-	light 5 at 78 899
-	light 5 at 79 899
+	light 12 at 76 899
+	light 2 at 77 899
+	light 2 at 78 899
+	light 13 at 79 899
 	light 5 at 80 899
 	light 5 at 81 899
 	light 5 at 82 899
-	light 5 at 83 899
-	light 5 at 84 899
-	light 5 at 85 899
-	light 5 at 86 899
+	light 12 at 83 899
+	light 2 at 84 899
+	light 2 at 85 899
+	light 13 at 86 899
 	light 5 at 87 899
 	light 5 at 88 899
 	light 5 at 89 899
-	light 5 at 90 899
-	light 5 at 91 899
-	light 5 at 92 899
-	light 5 at 93 899
+	light 12 at 90 899
+	light 2 at 91 899
+	light 2 at 92 899
+	light 13 at 93 899
 	light 5 at 94 899
 	light 5 at 95 899
 	light 5 at 96 899
-	light 5 at 97 899
-	light 5 at 98 899
-	light 5 at 99 899
-	light 5 at 100 899
+	light 12 at 97 899
+	light 2 at 98 899
+	light 2 at 99 899
+	light 13 at 100 899
 	light 5 at 101 899
 	light 5 at 102 899
 	light 5 at 103 899
-	light 5 at 104 899
-	light 5 at 105 899
-	light 5 at 106 899
-	light 5 at 107 899
+	light 12 at 104 899
+	light 2 at 105 899
+	light 2 at 106 899
+	light 13 at 107 899
 	light 5 at 108 899
 	light 5 at 109 899
 	light 5 at 110 899
-	light 5 at 111 899
-	light 5 at 112 899
-	light 5 at 113 899
-	light 5 at 114 899
+	light 12 at 111 899
+	light 2 at 112 899
+	light 2 at 113 899
+	light 13 at 114 899
 	light 5 at 115 899
 	light 5 at 116 899
 	light 5 at 117 899
-	light 5 at 118 899
-	light 5 at 119 899
-	light 5 at 120 899
-	light 5 at 121 899
+	light 12 at 118 899
+	light 2 at 119 899
+	light 2 at 120 899
+	light 13 at 121 899
 	light 5 at 122 899
 	light 5 at 123 899
 	light 5 at 124 899
-	light 5 at 125 899
-	light 5 at 126 899
-	light 5 at 127 899
-	light 5 at 128 899
+	light 12 at 125 899
+	light 2 at 126 899
+	light 2 at 127 899
+	light 13 at 128 899
 	light 5 at 129 899
 	light 5 at 130 899
 	light 5 at 131 899
-	light 5 at 132 899
-	light 5 at 133 899
-	light 5 at 134 899
-	light 5 at 135 899
+	light 12 at 132 899
+	light 2 at 133 899
+	light 2 at 134 899
+	light 13 at 135 899
 	light 5 at 136 899
 	light 5 at 137 899
 	light 5 at 138 899
-	light 5 at 139 899
-	light 5 at 140 899
-	light 5 at 141 899
-	light 5 at 142 899
+	light 12 at 139 899
+	light 2 at 140 899
+	light 2 at 141 899
+	light 13 at 142 899
 	light 5 at 143 899
 	light 5 at 144 899
 	light 5 at 145 899
-	light 5 at 146 899
-	light 5 at 147 899
-	light 5 at 148 899
-	light 5 at 149 899
+	light 12 at 146 899
+	light 2 at 147 899
+	light 2 at 148 899
+	light 13 at 149 899
 	light 5 at 150 899
 	light 5 at 151 899
 	light 5 at 152 899
-	light 5 at 153 899
-	light 5 at 154 899
-	light 5 at 155 899
-	light 5 at 156 899
+	light 12 at 153 899
+	light 2 at 154 899
+	light 2 at 155 899
+	light 13 at 156 899
 	light 5 at 157 899
 	light 5 at 158 899
 	light 5 at 159 899
-	light 5 at 160 899
-	light 5 at 161 899
-	light 5 at 162 899
-	light 5 at 163 899
+	light 12 at 160 899
+	light 2 at 161 899
+	light 2 at 162 899
+	light 13 at 163 899
 	light 5 at 164 899
 	light 5 at 165 899
 	light 5 at 166 899
-	light 5 at 167 899
-	light 5 at 168 899
-	light 5 at 169 899
-	light 5 at 170 899
+	light 12 at 167 899
+	light 2 at 168 899
+	light 2 at 169 899
+	light 13 at 170 899
 	light 5 at 171 899
 	light 5 at 172 899
 	light 5 at 173 899
-	light 5 at 174 899
-	light 5 at 175 899
-	light 5 at 176 899
-	light 5 at 177 899
+	light 12 at 174 899
+	light 2 at 175 899
+	light 2 at 176 899
+	light 13 at 177 899
 	light 5 at 178 899
 	light 5 at 179 899
 	light 5 at 180 899
-	light 5 at 181 899
-	light 5 at 182 899
-	light 5 at 183 899
-	light 5 at 184 899
+	light 12 at 181 899
+	light 2 at 182 899
+	light 2 at 183 899
+	light 13 at 184 899
 	light 5 at 185 899
 	light 5 at 186 899
 	light 5 at 187 899
-	light 5 at 188 899
-	light 5 at 189 899
-	light 5 at 190 899
-	light 5 at 191 899
+	light 12 at 188 899
+	light 2 at 189 899
+	light 2 at 190 899
+	light 13 at 191 899
 	light 5 at 192 899
 	light 5 at 193 899
 	light 5 at 194 899
-	light 5 at 195 899
-	light 5 at 196 899
-	light 5 at 197 899
-	light 5 at 198 899
+	light 12 at 195 899
+	light 2 at 196 899
+	light 2 at 197 899
+	light 13 at 198 899
 	light 5 at 199 899
 	light 5 at 200 899
 	light 5 at 201 899
-	light 5 at 202 899
-	light 5 at 203 899
-	light 5 at 204 899
-	light 5 at 205 899
-	light 5 at 206 899
+	light 12 at 202 899
+	light 2 at 203 899
+	light 2 at 204 899
+	light 2 at 205 899
+	light 13 at 206 899
 	light 5 at 207 899
 	light 5 at 208 899
 	light 5 at 209 899
@@ -2329,238 +2196,377 @@ iMZ3r01
 	light 5 at 73 900
 	light 5 at 74 900
 	light 5 at 75 900
-	light 10 at 76 900
-	light 8 at 77 900
-	light 8 at 78 900
-	light 11 at 79 900
+	light 5 at 76 900
+	light 5 at 77 900
+	light 5 at 78 900
+	light 5 at 79 900
 	light 5 at 80 900
 	light 5 at 81 900
 	light 5 at 82 900
-	light 10 at 83 900
-	light 8 at 84 900
-	light 8 at 85 900
-	light 11 at 86 900
+	light 5 at 83 900
+	light 5 at 84 900
+	light 5 at 85 900
+	light 5 at 86 900
 	light 5 at 87 900
 	light 5 at 88 900
 	light 5 at 89 900
-	light 10 at 90 900
-	light 8 at 91 900
-	light 8 at 92 900
-	light 11 at 93 900
+	light 5 at 90 900
+	light 5 at 91 900
+	light 5 at 92 900
+	light 5 at 93 900
 	light 5 at 94 900
 	light 5 at 95 900
 	light 5 at 96 900
-	light 10 at 97 900
-	light 8 at 98 900
-	light 8 at 99 900
-	light 11 at 100 900
+	light 5 at 97 900
+	light 5 at 98 900
+	light 5 at 99 900
+	light 5 at 100 900
 	light 5 at 101 900
 	light 5 at 102 900
 	light 5 at 103 900
-	light 10 at 104 900
-	light 8 at 105 900
-	light 8 at 106 900
-	light 11 at 107 900
+	light 5 at 104 900
+	light 5 at 105 900
+	light 5 at 106 900
+	light 5 at 107 900
 	light 5 at 108 900
 	light 5 at 109 900
 	light 5 at 110 900
-	light 10 at 111 900
-	light 8 at 112 900
-	light 8 at 113 900
-	light 11 at 114 900
+	light 5 at 111 900
+	light 5 at 112 900
+	light 5 at 113 900
+	light 5 at 114 900
 	light 5 at 115 900
 	light 5 at 116 900
 	light 5 at 117 900
-	light 10 at 118 900
-	light 8 at 119 900
-	light 8 at 120 900
-	light 11 at 121 900
+	light 5 at 118 900
+	light 5 at 119 900
+	light 5 at 120 900
+	light 5 at 121 900
 	light 5 at 122 900
 	light 5 at 123 900
 	light 5 at 124 900
-	light 10 at 125 900
-	light 8 at 126 900
-	light 8 at 127 900
-	light 11 at 128 900
+	light 5 at 125 900
+	light 5 at 126 900
+	light 5 at 127 900
+	light 5 at 128 900
 	light 5 at 129 900
 	light 5 at 130 900
 	light 5 at 131 900
-	light 10 at 132 900
-	light 8 at 133 900
-	light 8 at 134 900
-	light 11 at 135 900
+	light 5 at 132 900
+	light 5 at 133 900
+	light 5 at 134 900
+	light 5 at 135 900
 	light 5 at 136 900
 	light 5 at 137 900
 	light 5 at 138 900
-	light 10 at 139 900
-	light 8 at 140 900
-	light 8 at 141 900
-	light 11 at 142 900
+	light 5 at 139 900
+	light 5 at 140 900
+	light 5 at 141 900
+	light 5 at 142 900
 	light 5 at 143 900
 	light 5 at 144 900
 	light 5 at 145 900
-	light 10 at 146 900
-	light 8 at 147 900
-	light 8 at 148 900
-	light 11 at 149 900
+	light 5 at 146 900
+	light 5 at 147 900
+	light 5 at 148 900
+	light 5 at 149 900
 	light 5 at 150 900
 	light 5 at 151 900
 	light 5 at 152 900
-	light 10 at 153 900
-	light 8 at 154 900
-	light 8 at 155 900
-	light 11 at 156 900
+	light 5 at 153 900
+	light 5 at 154 900
+	light 5 at 155 900
+	light 5 at 156 900
 	light 5 at 157 900
 	light 5 at 158 900
 	light 5 at 159 900
-	light 10 at 160 900
-	light 8 at 161 900
-	light 8 at 162 900
-	light 11 at 163 900
+	light 5 at 160 900
+	light 5 at 161 900
+	light 5 at 162 900
+	light 5 at 163 900
 	light 5 at 164 900
 	light 5 at 165 900
 	light 5 at 166 900
-	light 10 at 167 900
-	light 8 at 168 900
-	light 8 at 169 900
-	light 11 at 170 900
+	light 5 at 167 900
+	light 5 at 168 900
+	light 5 at 169 900
+	light 5 at 170 900
 	light 5 at 171 900
 	light 5 at 172 900
 	light 5 at 173 900
-	light 10 at 174 900
-	light 8 at 175 900
-	light 8 at 176 900
-	light 11 at 177 900
+	light 5 at 174 900
+	light 5 at 175 900
+	light 5 at 176 900
+	light 5 at 177 900
 	light 5 at 178 900
 	light 5 at 179 900
 	light 5 at 180 900
-	light 10 at 181 900
-	light 8 at 182 900
-	light 8 at 183 900
-	light 11 at 184 900
+	light 5 at 181 900
+	light 5 at 182 900
+	light 5 at 183 900
+	light 5 at 184 900
 	light 5 at 185 900
 	light 5 at 186 900
 	light 5 at 187 900
-	light 10 at 188 900
-	light 8 at 189 900
-	light 8 at 190 900
-	light 11 at 191 900
+	light 5 at 188 900
+	light 5 at 189 900
+	light 5 at 190 900
+	light 5 at 191 900
 	light 5 at 192 900
 	light 5 at 193 900
 	light 5 at 194 900
-	light 10 at 195 900
-	light 8 at 196 900
-	light 8 at 197 900
-	light 11 at 198 900
+	light 5 at 195 900
+	light 5 at 196 900
+	light 5 at 197 900
+	light 5 at 198 900
 	light 5 at 199 900
 	light 5 at 200 900
 	light 5 at 201 900
-	light 10 at 202 900
-	light 8 at 203 900
-	light 8 at 204 900
-	light 8 at 205 900
-	light 11 at 206 900
+	light 5 at 202 900
+	light 5 at 203 900
+	light 5 at 204 900
+	light 5 at 205 900
+	light 5 at 206 900
 	light 5 at 207 900
 	light 5 at 208 900
 	light 5 at 209 900
 	light 6 at 210 900
-	light 7 at 72 901
-	light 8 at 73 901
-	light 8 at 74 901
-	light 8 at 75 901
-	light 9 at 76 901
-	light 7 at 79 901
-	light 8 at 80 901
-	light 8 at 81 901
-	light 8 at 82 901
-	light 9 at 83 901
-	light 7 at 86 901
-	light 8 at 87 901
-	light 8 at 88 901
-	light 8 at 89 901
-	light 9 at 90 901
-	light 7 at 93 901
-	light 8 at 94 901
-	light 8 at 95 901
-	light 8 at 96 901
-	light 9 at 97 901
-	light 7 at 100 901
-	light 8 at 101 901
-	light 8 at 102 901
-	light 8 at 103 901
-	light 9 at 104 901
-	light 7 at 107 901
-	light 8 at 108 901
-	light 8 at 109 901
-	light 8 at 110 901
-	light 9 at 111 901
-	light 7 at 114 901
-	light 8 at 115 901
-	light 8 at 116 901
-	light 8 at 117 901
-	light 9 at 118 901
-	light 7 at 121 901
-	light 8 at 122 901
-	light 8 at 123 901
-	light 8 at 124 901
-	light 9 at 125 901
-	light 7 at 128 901
-	light 8 at 129 901
-	light 8 at 130 901
-	light 8 at 131 901
-	light 9 at 132 901
-	light 7 at 135 901
-	light 8 at 136 901
-	light 8 at 137 901
-	light 8 at 138 901
-	light 9 at 139 901
-	light 7 at 142 901
-	light 8 at 143 901
-	light 8 at 144 901
-	light 8 at 145 901
-	light 9 at 146 901
-	light 7 at 149 901
-	light 8 at 150 901
-	light 8 at 151 901
-	light 8 at 152 901
-	light 9 at 153 901
-	light 7 at 156 901
-	light 8 at 157 901
-	light 8 at 158 901
-	light 8 at 159 901
-	light 9 at 160 901
-	light 7 at 163 901
-	light 8 at 164 901
-	light 8 at 165 901
-	light 8 at 166 901
-	light 9 at 167 901
-	light 7 at 170 901
-	light 8 at 171 901
-	light 8 at 172 901
-	light 8 at 173 901
-	light 9 at 174 901
-	light 7 at 177 901
-	light 8 at 178 901
-	light 8 at 179 901
-	light 8 at 180 901
-	light 9 at 181 901
-	light 7 at 184 901
-	light 8 at 185 901
-	light 8 at 186 901
-	light 8 at 187 901
-	light 9 at 188 901
-	light 7 at 191 901
-	light 8 at 192 901
-	light 8 at 193 901
-	light 8 at 194 901
-	light 9 at 195 901
-	light 7 at 198 901
-	light 8 at 199 901
-	light 8 at 200 901
-	light 8 at 201 901
-	light 9 at 202 901
-	light 7 at 206 901
-	light 8 at 207 901
-	light 8 at 208 901
-	light 8 at 209 901
-	light 9 at 210 901
+	light 4 at 72 901
+	light 5 at 73 901
+	light 5 at 74 901
+	light 5 at 75 901
+	light 10 at 76 901
+	light 8 at 77 901
+	light 8 at 78 901
+	light 11 at 79 901
+	light 5 at 80 901
+	light 5 at 81 901
+	light 5 at 82 901
+	light 10 at 83 901
+	light 8 at 84 901
+	light 8 at 85 901
+	light 11 at 86 901
+	light 5 at 87 901
+	light 5 at 88 901
+	light 5 at 89 901
+	light 10 at 90 901
+	light 8 at 91 901
+	light 8 at 92 901
+	light 11 at 93 901
+	light 5 at 94 901
+	light 5 at 95 901
+	light 5 at 96 901
+	light 10 at 97 901
+	light 8 at 98 901
+	light 8 at 99 901
+	light 11 at 100 901
+	light 5 at 101 901
+	light 5 at 102 901
+	light 5 at 103 901
+	light 10 at 104 901
+	light 8 at 105 901
+	light 8 at 106 901
+	light 11 at 107 901
+	light 5 at 108 901
+	light 5 at 109 901
+	light 5 at 110 901
+	light 10 at 111 901
+	light 8 at 112 901
+	light 8 at 113 901
+	light 11 at 114 901
+	light 5 at 115 901
+	light 5 at 116 901
+	light 5 at 117 901
+	light 10 at 118 901
+	light 8 at 119 901
+	light 8 at 120 901
+	light 11 at 121 901
+	light 5 at 122 901
+	light 5 at 123 901
+	light 5 at 124 901
+	light 10 at 125 901
+	light 8 at 126 901
+	light 8 at 127 901
+	light 11 at 128 901
+	light 5 at 129 901
+	light 5 at 130 901
+	light 5 at 131 901
+	light 10 at 132 901
+	light 8 at 133 901
+	light 8 at 134 901
+	light 11 at 135 901
+	light 5 at 136 901
+	light 5 at 137 901
+	light 5 at 138 901
+	light 10 at 139 901
+	light 8 at 140 901
+	light 8 at 141 901
+	light 11 at 142 901
+	light 5 at 143 901
+	light 5 at 144 901
+	light 5 at 145 901
+	light 10 at 146 901
+	light 8 at 147 901
+	light 8 at 148 901
+	light 11 at 149 901
+	light 5 at 150 901
+	light 5 at 151 901
+	light 5 at 152 901
+	light 10 at 153 901
+	light 8 at 154 901
+	light 8 at 155 901
+	light 11 at 156 901
+	light 5 at 157 901
+	light 5 at 158 901
+	light 5 at 159 901
+	light 10 at 160 901
+	light 8 at 161 901
+	light 8 at 162 901
+	light 11 at 163 901
+	light 5 at 164 901
+	light 5 at 165 901
+	light 5 at 166 901
+	light 10 at 167 901
+	light 8 at 168 901
+	light 8 at 169 901
+	light 11 at 170 901
+	light 5 at 171 901
+	light 5 at 172 901
+	light 5 at 173 901
+	light 10 at 174 901
+	light 8 at 175 901
+	light 8 at 176 901
+	light 11 at 177 901
+	light 5 at 178 901
+	light 5 at 179 901
+	light 5 at 180 901
+	light 10 at 181 901
+	light 8 at 182 901
+	light 8 at 183 901
+	light 11 at 184 901
+	light 5 at 185 901
+	light 5 at 186 901
+	light 5 at 187 901
+	light 10 at 188 901
+	light 8 at 189 901
+	light 8 at 190 901
+	light 11 at 191 901
+	light 5 at 192 901
+	light 5 at 193 901
+	light 5 at 194 901
+	light 10 at 195 901
+	light 8 at 196 901
+	light 8 at 197 901
+	light 11 at 198 901
+	light 5 at 199 901
+	light 5 at 200 901
+	light 5 at 201 901
+	light 10 at 202 901
+	light 8 at 203 901
+	light 8 at 204 901
+	light 8 at 205 901
+	light 11 at 206 901
+	light 5 at 207 901
+	light 5 at 208 901
+	light 5 at 209 901
+	light 6 at 210 901
+	light 7 at 72 902
+	light 8 at 73 902
+	light 8 at 74 902
+	light 8 at 75 902
+	light 9 at 76 902
+	light 7 at 79 902
+	light 8 at 80 902
+	light 8 at 81 902
+	light 8 at 82 902
+	light 9 at 83 902
+	light 7 at 86 902
+	light 8 at 87 902
+	light 8 at 88 902
+	light 8 at 89 902
+	light 9 at 90 902
+	light 7 at 93 902
+	light 8 at 94 902
+	light 8 at 95 902
+	light 8 at 96 902
+	light 9 at 97 902
+	light 7 at 100 902
+	light 8 at 101 902
+	light 8 at 102 902
+	light 8 at 103 902
+	light 9 at 104 902
+	light 7 at 107 902
+	light 8 at 108 902
+	light 8 at 109 902
+	light 8 at 110 902
+	light 9 at 111 902
+	light 7 at 114 902
+	light 8 at 115 902
+	light 8 at 116 902
+	light 8 at 117 902
+	light 9 at 118 902
+	light 7 at 121 902
+	light 8 at 122 902
+	light 8 at 123 902
+	light 8 at 124 902
+	light 9 at 125 902
+	light 7 at 128 902
+	light 8 at 129 902
+	light 8 at 130 902
+	light 8 at 131 902
+	light 9 at 132 902
+	light 7 at 135 902
+	light 8 at 136 902
+	light 8 at 137 902
+	light 8 at 138 902
+	light 9 at 139 902
+	light 7 at 142 902
+	light 8 at 143 902
+	light 8 at 144 902
+	light 8 at 145 902
+	light 9 at 146 902
+	light 7 at 149 902
+	light 8 at 150 902
+	light 8 at 151 902
+	light 8 at 152 902
+	light 9 at 153 902
+	light 7 at 156 902
+	light 8 at 157 902
+	light 8 at 158 902
+	light 8 at 159 902
+	light 9 at 160 902
+	light 7 at 163 902
+	light 8 at 164 902
+	light 8 at 165 902
+	light 8 at 166 902
+	light 9 at 167 902
+	light 7 at 170 902
+	light 8 at 171 902
+	light 8 at 172 902
+	light 8 at 173 902
+	light 9 at 174 902
+	light 7 at 177 902
+	light 8 at 178 902
+	light 8 at 179 902
+	light 8 at 180 902
+	light 9 at 181 902
+	light 7 at 184 902
+	light 8 at 185 902
+	light 8 at 186 902
+	light 8 at 187 902
+	light 9 at 188 902
+	light 7 at 191 902
+	light 8 at 192 902
+	light 8 at 193 902
+	light 8 at 194 902
+	light 9 at 195 902
+	light 7 at 198 902
+	light 8 at 199 902
+	light 8 at 200 902
+	light 8 at 201 902
+	light 9 at 202 902
+	light 7 at 206 902
+	light 8 at 207 902
+	light 8 at 208 902
+	light 8 at 209 902
+	light 9 at 210 902
