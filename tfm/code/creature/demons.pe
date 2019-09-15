@@ -197,6 +197,7 @@ for ctr = 1 to MAX_MEMBERS
 #	or party[ctr] is called "playerp"		# crashes parser
 	if_exists party[ctr]
 		if party[ctr].label.race = "panther"
+		or party[ctr].label.race = "cyberwolf"
 			let party[ctr].stats.hp = party[ctr].maxstats.hp
 			check_hurt party[ctr]
 			set_user_flag "false" = 0
@@ -208,7 +209,12 @@ end
 
 function panther_resurrect
 object head
-find head = "deadpanther_head" inside me
+
+# Wolves take priority
+find head = "deadcyberwolf_head" inside me
+if_not_exists head
+	find head = "deadpanther_head" inside me
+endif
 
 set_user_flag "false" = 1
 set_user_flag "true" = 0
@@ -254,3 +260,66 @@ else
 endif
 
 end
+
+
+#
+# Same as the panthers, the cyberwolf head detaches
+#
+
+function cyberwolf_dies
+object body
+
+create body = "deadcyberwolf"
+transfer_object body to current.x current.y
+change current = "deadcyberwolf_head"
+let current.stats.weight = 1000		# The head is 1kg, not 50
+move_to_top current
+
+# Move the contents out of the head and into the body, but only if the cyberwolf
+# is a party member and not the hero themselves (cheat mode)
+if_not_flag current IS_HERO
+	do
+		if_exists current.pocket
+			transfer_to_pocket current.pocket to body
+		endif
+	while current.pocket <> null
+endif
+
+#object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 5
+endif
+
+# Need black blood for the panther
+#call make_blood
+call egg_killed
+
+end
+
+
+#
+# Hurt
+#
+
+function cyberwolf_hurt
+
+# Safety check
+if_not_exists current
+	return
+endif
+
+# Show the blood
+let splatvictim = current
+call splat_spark
+
+if_flag current IN_PARTY
+	return
+endif
+
+# Was it the player?
+let suspect = current.enemy
+let victim = current
+call hit_panther
+end
+
+

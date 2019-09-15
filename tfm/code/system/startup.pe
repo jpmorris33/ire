@@ -263,6 +263,14 @@ if bx = 0
 		set_leader player player_action follower_action
 	endif
 
+	if splayername = "R-ALF"
+		replace player = "playeracw"
+		let splayername = "R-ALF"
+		let PlayerMF = 1
+		set_flag player IN_PARTY = 1
+		set_leader player player_action follower_action
+	endif
+
 	# Set the player's sex (we don't currently support NB, but nor did the medieval church)
 	if PlayerMF < 0
 		replace player = "playerf"
