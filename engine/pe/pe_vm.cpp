@@ -251,6 +251,7 @@ static void PV_GetKey();
 static void PV_GetKey_quiet();
 static void PV_GetKeyAscii();
 static void PV_GetKeyAscii_quiet();
+static void PV_FlushKeys();
 static void PV_DoAct();
 static void PV_DoActS();
 static void PV_DoActTo();
@@ -1281,6 +1282,7 @@ VMOP(GetKey);
 VMOP(GetKey_quiet);
 VMOP(GetKeyAscii);
 VMOP(GetKeyAscii_quiet);
+VMOP(FlushKeys);
 VMOP(DoAct);
 VMOP(DoActS);
 VMOP(DoActTo);
@@ -4114,6 +4116,11 @@ VMINT *k;
 k = GET_INT();
 CHECK_POINTER(k);
 *k = (VMINT)get_key_ascii_quiet();
+}
+
+void PV_FlushKeys()
+{
+FlushKeys();
 }
 
 

@@ -106,14 +106,16 @@ if(im & shift)
 return 0;
 }
 
-#define REPEATMAX 700
+#define REPEATMAX 75
+#define  BUFFERREPEAT 10
 
 int IRE_NextKey(int *ascii)
 {
 int a;
 while(!lastkey)	{
 	IRE_GetKeys();
-	usleep(500);
+	SDL_Delay(1);
+//	usleep(500);
 }
 
 if(ascii)
@@ -126,7 +128,7 @@ for(int ctr=0;ctr<REPEATMAX;ctr++)	{
 		break;
 		}
 	IRE_GetKeys();
-	usleep(150); // Was 50
+	SDL_Delay(1);
 	}
 
 return a;
@@ -144,13 +146,15 @@ memset(keymap,0,sizeof(keymap));
 lastkey=lastascii=0;
 }
 
-// Buffered keyboard input
+// Buffered keyboard input (Player movement etc)
 
 
 int IRE_GetBufferedKeycode()
 {
 static int overrun=0;
 int a;
+
+//return IRE_ReadKeyBuffer();
 
 a=IRE_KeyPressed();
 if(!a) {
@@ -163,14 +167,15 @@ if(IRE_TestShift(IRESHIFT_SHIFT))
 if(IRE_TestShift(IRESHIFT_CONTROL))
 	a|=IREKEY_CTRLMOD;
 
-for(int ctr=0;ctr<REPEATMAX;ctr++)	{
+for(int ctr=0;ctr<BUFFERREPEAT;ctr++)	{
 	if(!IRE_KeyPressed())	{
 		IRE_ClearKeyBuf();
 		overrun=0; // Key released
 //	printf(">> SDL2: return key %d\n", a);
 		return a;
 		}
-	usleep(50);
+//	usleep(50);
+	SDL_Delay(1);
 	}
 
 // If the player is holding keys down, stall them for a bit to try and prevent
@@ -189,6 +194,8 @@ return a;
 
 void IRE_FlushBufferedKeycodes()
 {
+//IRE_FlushKeyBuffer();
+lastkey = 0;
 }
 
 //

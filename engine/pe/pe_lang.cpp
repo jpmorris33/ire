@@ -1374,6 +1374,10 @@ OPCODE vmspec[] =
                     {"get_key_ascii",PEVM_GetKeyAscii,"i",PE_generic,NULL,0},
                     {"get_key_ascii_quiet",PEVM_GetKeyAscii_quiet,"i",PE_generic,NULL,0},
                     {"getkey_ascii_quiet",PEVM_GetKeyAscii_quiet,"i",PE_generic,NULL,0},
+                    {"flushkeys",PEVM_FlushKeys,"",PE_generic,NULL,0},
+                    {"flush_keys",PEVM_FlushKeys,"",PE_generic,NULL,0},
+
+
                     {"start_action",PEVM_DoAct,"o?f",PE_generic,NULL,2},
                     {"start_action",PEVM_DoAct,"O?f",PE_generic,NULL,2},
                     {"start_action",PEVM_DoAct,"c?f",PE_generic,NULL,2},

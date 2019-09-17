@@ -32,6 +32,7 @@ mouse_range KEY_N = vx vy 68 38
 range_pointer KEY_N = 1
 
 flush_mouse BLOCKING
+flush_keys
 
 do
 	get_key_quiet

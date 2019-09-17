@@ -130,6 +130,7 @@ enum {
 	PEVM_GetKey_quiet,
 	PEVM_GetKeyAscii,
 	PEVM_GetKeyAscii_quiet,
+	PEVM_FlushKeys,
 	PEVM_DoAct,
 	PEVM_DoActS,
 	PEVM_DoActTo,

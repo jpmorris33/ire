@@ -900,17 +900,14 @@ do  {
 
 	IRE_GetMouse();
 	CheckMouseRanges();
-	if(MouseID != -1)
-		{
+	if(MouseID != -1) {
 		waitredraw(MouseWait);
 		input=IREKEY_MOUSE; // Not a valid key, a mouse click
-		}
-	else
-		{
+	} else	{
 		input = GetKey();
 		CheckSpecialKeys(input);
-		}
-	} while(!input);
+	}
+} while(!input);
 return input;
 }
 
@@ -923,21 +920,21 @@ int get_key_quiet()
 int input=0;
 
 do  {
-	if(ShowRanges)
+	if(ShowRanges) {
 		DrawRanges();
+	}
 	Show();
 	IRE_WaitFor(5); // Yield timeslice
 	IRE_GetMouse();
 	CheckMouseRanges();
-	if(MouseID != -1)
-		{
+	if(MouseID != -1) {
 //		rest_callback(100,poll_mouse);
 		IRE_WaitFor(MouseWait);
 		input=IREKEY_MOUSE; // Not a valid key, a mouse click
-		}
-	else
+	} else {
 		input = GetKey();
-	} while(!input);
+	}
+} while(!input);
 return input;
 }
 
@@ -991,13 +988,20 @@ do  {
 #ifndef NO_ANIMATION
 	DrawMap(mapx,mapy);
 	Show();
-	IRE_WaitFor(0); // Yield timeslice
 #endif
 	IRE_WaitFor(5); // Don't cook the GPU
 
-	input = IRE_NextKey(&ascii);
-	CheckSpecialKeys(input);
-	} while(!input);
+	IRE_GetMouse();
+	CheckMouseRanges();
+	if(MouseID != -1) {
+		waitredraw(MouseWait);
+		input=IREKEY_MOUSE; // Not a valid key, a mouse click
+		ascii=IREKEY_MOUSE;
+	} else {
+		input = IRE_NextKey(&ascii);
+		CheckSpecialKeys(input);
+	}
+} while(!input);
 return ascii;
 }
 
@@ -1012,8 +1016,16 @@ int input=0,ascii=0;
 do  {
 	Show();
 	IRE_WaitFor(5); // Yield timeslice
-	input = IRE_NextKey(&ascii);
-	} while(!input);
+	IRE_GetMouse();
+	CheckMouseRanges();
+	if(MouseID != -1) {
+		waitredraw(MouseWait);
+		input=IREKEY_MOUSE; // Not a valid key, a mouse click
+		ascii=IREKEY_MOUSE;
+	} else {
+		input = IRE_NextKey(&ascii);
+	}
+} while(!input);
 return ascii;
 }
 
