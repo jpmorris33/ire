@@ -487,6 +487,16 @@ for ctr = 1 to 3
 	endif
 next
 
+# And just for fun
+find head = "MEAT01" inside player
+if_exists head
+	set_user_flag "got_heads" = 1
+	set_user_flag "bandit_head_ok" = 0
+	set_user_flag "bandit_head_cow" = 1
+	let bandit_head = head
+endif
+
+
 end
 
 ##

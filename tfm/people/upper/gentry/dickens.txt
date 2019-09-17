@@ -139,6 +139,7 @@
 [if bandit_head_clergy][goto="bandit_head_clergy"]
 [if bandit_head_king][goto="bandit_head_king"]
 [if bandit_head_pope][goto="bandit_head_pope"]
+[if bandit_head_cow][goto="bandit_head_cow"]
 [goto="bandit_head2"]
 [endpage]
 
@@ -146,10 +147,14 @@
 [call="take_bandit_head"]
 [create 250 gold_coins]
 [call="money_sound"]
+[call="check_bandit_heads"]
 
 "Aye, this rogue is known to us.  Thank you for bringing
  them to justice!"
 
+[if got_heads][link="I have another bandit to turn in."]
+[if got_heads][linkto="bandit_heads"]
+[if got_heads][always]
 [link="Tell me about the monsters."]
 [linkto="monsters"]
 [link="Tell me about the tithes."]
@@ -176,6 +181,19 @@ The mayor stares at the head in shock and disbelief.
 [call_at_exit="hang_player"]
 [nextpage="exit"]
 [endpage]
+
+
+[page="bandit_head_cow"]
+[colour="#808080"]
+The mayor stares at the head with disdain.
+[colour="#ffffff"]
+
+"This is a cow, as well you know.
+ Be off with you, fool, cease wasting my time!"
+
+[nextpage="exit"]
+[endpage]
+
 
 [page="bandit_head_guard"]
 [colour="#808080"]
