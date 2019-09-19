@@ -214,6 +214,7 @@ do
 	endif
 
 	if key = KEY_TAB
+		flush_keys
 		call hide_cursor
 		call choose_object
 
@@ -408,6 +409,7 @@ do
 	# If they press TAB, go to the object browser
 
 	if key = KEY_TAB
+		flush_keys
 		call hide_dircursor
 		call choose_object
 
@@ -561,6 +563,7 @@ do
 	endif
 
 	if key = KEY_TAB
+		flush_keys
 		let current = null
 		let cancel = CANCEL_POCKET
 		let finished = 1
@@ -707,6 +710,7 @@ do
 	# TAB and ESC quit the browser
 
 	if key = KEY_TAB
+		flush_keys
 		let current = null
 		let finished = 1
 		let cancel = CANCEL_POCKET

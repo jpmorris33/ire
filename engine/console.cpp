@@ -497,6 +497,7 @@ do  {
 	if(IRE_KeyPressed())
 		{
 		input = IRE_NextKey(&ascii);
+		FlushKeys();
 		if(isprint(ascii)) // If printable
 			{
 			if(bufpos<maxlen)

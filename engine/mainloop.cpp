@@ -1076,6 +1076,7 @@ do  {
 		{
 		input = IRE_NextKey(&ascii);
 		CheckSpecialKeys(input);
+		FlushKeys();
 		if(ascii >= '0' && ascii <= '9')
 			{
 			if(bufpos<conwid)

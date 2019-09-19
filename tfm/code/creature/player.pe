@@ -519,6 +519,7 @@ call input
 # Object selector
 
 if key = KEY_TAB
+	flush_keys
 	let current_bag = player
 	call browse_pockets
 endif
@@ -603,6 +604,7 @@ call input
 # Object selector
 
 if key = KEY_TAB
+	flush_keys
 	let current_bag = player
 	call browse_pockets
 endif
@@ -1039,6 +1041,7 @@ do
 	# If they press TAB, go to the object browser
 
 	if key = KEY_TAB
+		flush_keys
 		call hide_dircursor
 		call choose_object
 
@@ -1177,6 +1180,7 @@ call input
 # Object selector
 
 if key = KEY_TAB
+	flush_keys
 	let current_bag = player
 	call browse_pockets
 	let key = 0
