@@ -725,6 +725,113 @@ let spell_failed = 0
 
 end
 
+##
+##	Turn undead
+##
+
+function spell_turnundead
+
+# Check spell can be cast
+let spell_level = 5
+call spell_check
+if spell_failed
+	return
+endif
+
+if me = player
+	print "~NOOO!!!~"
+	printcr
+endif
+
+change me = "UNDEAD_SKELETON"
+start_activity me does turnundead_action to me
+
+let spell_failed = 0
+
+end
+
+##
+##  Player beats themselves to death
+##
+
+function turnundead_action
+
+add me.stats.hp / 3
+if me.stats.hp < 2
+	let me.stats.hp = -10
+endif
+check_hurt me
+
+end
+
+
+##
+##	Repel undead
+##
+
+
+function spell_repelundead
+
+# Check spell can be cast
+let spell_level = 6
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "repel undead"
+
+let spell_failed = 1
+for_all_onscreen repel_undead
+if spell_failed = 0
+	# Add a corona effect
+	let me.user.user18 = 0		# Initial size
+	let me.user.user17 = +18	# Speed
+	let me.user.user16 = TINT_GREEN	# guess
+	overfx me does fx_bouncecorona
+
+	if me = player
+		print "Success!"
+		printcr
+	endif
+else
+	call spell_failed
+endif
+
+
+end
+
+##
+##  Callback to make it work
+##
+
+function repel_undead
+
+# Not -that- dead
+if current.stats.hp < 1
+	return
+endif
+
+if current.label.race <> "UNDEAD*"
+	return
+endif
+
+# Definitely not
+if_flag current IN_PARTY
+	return
+endif
+
+set_flag current IS_CRITICAL = 1
+set_flag current NOT_CLOSE_DOORS = 1
+stop_activity current
+start_activity current does enemy_flee
+
+# Success
+let spell_failed = 0
+
+end
+
+
 
 
 ##
@@ -2483,10 +2590,28 @@ endif
 set_local spellbook "spell_confusion" = 1
 end
 
+# 5.6: Turn Undead
+function learn_turnundead
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
 
-# 5.6
+set_local spellbook "spell_turnundead" = 1
+end
 
-# 6.1
+
+# 6.1: Repel undead
+function learn_repelundead
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_repelundead" = 1
+end
+
+
 # 6.2
 # 6.3
 # 6.4
@@ -2662,10 +2787,10 @@ call learn_kill
 call learn_commandanimal
 call learn_greatheal
 call learn_ensorcellment
-#call learn_5.5
+call learn_turnundead
 #call learn_5.6
 
-#call learn_6.1
+call learn_repelundead
 #call learn_6.2
 #call learn_6.3
 #call learn_6.4
@@ -2724,9 +2849,9 @@ end
 5-3	"spell_greatheal"
 5-4	"spell_ensorcellment"
 5-5	"spell_confusion"
-5-6
+5-6	"spell_turnundead"
 
-6-1
+6-1	"spell_repelundead"
 6-2
 6-3	Lightning?
 6-4

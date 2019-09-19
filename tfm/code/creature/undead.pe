@@ -64,6 +64,24 @@ call egg_killed
 
 end
 
+##
+##  Give some feedback for attacks
+##
+
+function undead_hurt
+
+let splatvictim = current
+call splat_spark
+
+if_flag current IN_PARTY
+        return
+endif
+
+call start_attack
+
+end
+
+
 
 ##
 ##  Juicy Jelly Monster dies

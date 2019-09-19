@@ -1292,7 +1292,7 @@ section: characters
 	description	"You see one of the Little People."
 	short		"leprechaun"
 	IfKilled	Leprechaun_Dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	attack_party
 	attack		range_attack
 	user2		attack_firebolt
@@ -1336,7 +1336,7 @@ section: characters
 	description	"You see a dwarf."
 	short		"dwarf"
 	IfKilled	Leprechaun_Dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	attack		close_attack
 	biological
 	solid
@@ -6875,7 +6875,7 @@ section: characters
 	description	"You see a huge snail."
 	short		"snail"
 	IfKilled	snail_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	attack_party
 	attack		range_attack
 	user2		attack_firebolt
@@ -6912,7 +6912,7 @@ section: characters
 	description	"You see a huge spider."
 	short		"spider"
 	IfKilled	spider_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	Attack		close_attack
 	user2		poison_enemy
 	behaviour	 attack_party
@@ -11094,7 +11094,7 @@ section: characters
 	description	"You see a snake."
 	short		"snake"
 	IfKilled	snake_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	Attack		close_attack
 	user2		poison_enemy
 	behaviour	 attack_party
@@ -11138,7 +11138,7 @@ section: characters
 	description	"You see a wild pig."
 	short		"pig"
 	IfKilled	pig_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	attack_party
 	Attack		close_attack
 	user2		all
@@ -11187,7 +11187,7 @@ section: characters
 	description	"You see a tame pig."
 	short		"pig"
 	IfKilled	pig_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	bird_wander
 	Attack		close_attack
 	solid
@@ -11212,7 +11212,7 @@ section: characters
 	description	"You see a golem."
 	short		"golem"
 	IfKilled	golem_dies
-	IfHurt		start_attack
+	IfHurt		undead_hurt
 	behaviour	attack_party
 	Attack		close_attack
 	horrific
@@ -11255,12 +11255,13 @@ section: characters
 	description	"You see a spook."
 	short		"spectre"
 	IfKilled	spook_dies
-	IfHurt		start_attack
+	IfHurt		undead_hurt
 	behaviour	 attack_party
 	Attack		close_attack
 	translucent
 	wont_shut_doors
 	wont_open_doors
+	race		undead
 
 	name JUICYJELLYMONSTER
 	left		JJM
@@ -11274,7 +11275,7 @@ section: characters
 	description	"You see a Juicy Jelly Monster."
 	short		"jelly monster"
 	IfKilled	jjm_dies
-	IfHurt		start_attack
+	IfHurt		undead_hurt
 	behaviour	 attack_party
 	Attack		close_attack
 	translucent
@@ -11294,7 +11295,7 @@ section: characters
 	description	"You see a skeleton."
 	short		"skeleton"
 	IfKilled	skeleton_dies
-	IfHurt		start_attack
+	IfHurt		undead_hurt
 	behaviour	attack_party
 	Attack		close_attack
 	horrific
@@ -11302,6 +11303,7 @@ section: characters
 	solid
 	wont_shut_doors
 	wont_open_doors
+	race		undead
 
 	name UNDEAD_SKELETON_DEAD
 	left		SKELETON_DEAD
@@ -11329,7 +11331,7 @@ section: characters
 	description	"You see a headless zombie."
 	short		"zombie"
 	IfKilled	headless_dies
-	IfHurt		start_attack
+	IfHurt		undead_hurt
 	behaviour	attack_party
 	Attack		close_attack
 	horrific
@@ -11337,6 +11339,7 @@ section: characters
 	solid
 	wont_shut_doors
 	wont_open_doors
+	race		undead
 
 	name HEADLESS_DEAD
 	left		HEADLESS_DEAD
@@ -11363,7 +11366,7 @@ section: characters
 	description	"You see a demon."
 	short		"devil"
 	IfKilled	devil_dies
-	IfHurt		start_attack
+	IfHurt		undead_hurt
 	behaviour	attack_party
 	Attack		close_attack
 	solid
@@ -11627,7 +11630,7 @@ section: characters
 	description	"You see a large toad."
 	short		"tode"
 	IfKilled	tode_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	attack_party
 	attack		range_attack
 	user2		attack_firebolt
@@ -11715,7 +11718,7 @@ section: characters
 	description	"That's one scary rabbit."
 	short		"rabbit"
 	IfKilled	bunny_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	bunny_wander
 	attack		close_attack
 	solid
@@ -11743,7 +11746,7 @@ section: characters
 	description	"That's one scary rabbit."
 	short		"rabbit"
 	IfKilled	bunny_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	attack_party
 	attack		close_attack
 	solid
@@ -11789,7 +11792,7 @@ section: characters
 	description	"You see a rat."
 	short		"rat"
 	IfKilled	rat_dies
-	IfHurt		start_attack
+	IfHurt		hurt_wild
 	behaviour	bird_wander
 	Attack		close_attack
 	speed		80

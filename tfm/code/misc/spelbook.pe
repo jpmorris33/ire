@@ -466,9 +466,9 @@ private
 	endif
 	printxycr
 
-	if_local spellbook "BLANK"
-		printxy "5. "
-		let spell[5] = "spell_"
+	if_local spellbook "spell_turnundead"
+		printxy "5. Turn Undead"
+		let spell[5] = "spell_turnundead"
 	endif
 	printxycr
 
@@ -483,9 +483,9 @@ private
 	printxycr
 	printxycr
 
-	if_local spellbook "spell_BLANK"
-		printxy "1. "
-		let spell[1] = "spell_"
+	if_local spellbook "spell_repelundead"
+		printxy "1. Repel Undead"
+		let spell[1] = "spell_repelundead"
 	endif
 	printxycr
 
@@ -713,10 +713,10 @@ end
 5-2	"spell_commandanimal"
 5-3	"spell_greatheal"
 5-4	"spell_ensorcelment"
-5-5	""
+5-5	"spell_turnundead"
 5-6
 
-6-1
+6-1	"spell_repelundead"
 6-2
 6-3	Lightning?
 6-4
