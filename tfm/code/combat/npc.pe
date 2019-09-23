@@ -458,7 +458,6 @@ end
 ##
 
 function attack_party
-activity
 object us
 
 # Decide who we are, first.
