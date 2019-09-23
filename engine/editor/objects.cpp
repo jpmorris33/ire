@@ -1,4 +1,3 @@
-
 /*
  *  - Objects menu tab
  */
@@ -15,6 +14,7 @@
 #include "../loadfile.hpp"
 #include "../object.hpp"
 #include "../gamedata.hpp"
+#include "../media.hpp"
 
 #include "menusys.h"
 
@@ -104,6 +104,7 @@ static void PadOut(char *buf, int maxlen);
 extern void (*EdUpdateFunc)(void);
 extern void ResetStr32(char *str32);
 static void SetOwnerRecursively(OBJECT *obj, OBJECT *owner);
+static void SelectThisObject(OBJECT *ptr);
 
 void OB_up();           // Panning functions
 void OB_down();
@@ -497,6 +498,8 @@ OBJECT *obtemplate;
 OBJECT *a;
 
 obtemplate=objsel;
+
+FlushKeys();
 
 char_id = getnum4char(last_sprite);
 if(char_id == -1) {     // Is it valid?
@@ -1367,19 +1370,18 @@ void OB_debug()
 {
 char good=1;
 int vx,vy,yoff;
-OBJECT *temp;
-int objects=0,large=0;
+OBJECT *temp,*problem;
+int objects=0,large=0, gotDecor;
 char string1[128];
 char string2[128];
+problem = NULL;
 
-for(vy=0;vy<curmap->h;vy++)
-    {
+for(vy=0;vy<curmap->h;vy++) {
     yoff=ytab[vy];
-    for(vx=0;vx<curmap->w;vx++)
-        {
-        for(temp=curmap->objmap[yoff+vx];temp;temp=temp->next)
-            if(temp)                            // Safety check
-                {
+    for(vx=0;vx<curmap->w;vx++) {
+        gotDecor=0;
+        for(temp=curmap->objmap[yoff+vx];temp;temp=temp->next) {
+            if(temp) {                           // Safety check
                 objects++;
                 if(temp->x != vx)
                     good=0;
@@ -1387,9 +1389,25 @@ for(vy=0;vy<curmap->h;vy++)
                     good=0;
                 if(temp->flags&IS_LARGE)
                     large++;
+                if(temp->user->edecor) {
+                    if(gotDecor) {
+                        problem = temp;
+                        break;
+                    }
+                   gotDecor=1;
                 }
+            }
         }
     }
+}
+
+if(problem) {
+    sprintf(string1,"Stacked decorative at %d,%d\n",problem->x,problem->y);
+    Notify(-1,-1,"Decorative object error",string1);
+    SelectThisObject(problem);
+    return;
+}
+
 if(good)
     Notify(-1,-1,"Map OK.","All object locations consistent.");
 else
@@ -1412,10 +1430,14 @@ void OB_calcdist()
 char string1[128];
 int tx,ty;
 
-if(!objsel)
+if(!objsel) {
+	Notify(-1,-1,"F8 will measure the distance between an object,","and its owner, if it has one.");
 	return;
-if(!objsel->stats->owner.objptr)
+}
+if(!objsel->stats->owner.objptr) {
+	Notify(-1,-1,"Object has no owner.", NULL);
 	return;
+}
 
 tx=objsel->x-objsel->stats->owner.objptr->x;
 ty=objsel->y-objsel->stats->owner.objptr->y;
@@ -1478,8 +1500,8 @@ for(cy=0;cy<curmap->h;cy++)
 		{
 		if(curmap->physmap[MAP_POS(cx,cy)] == RANDOM_TILE)
 			{
+			temp=GetRawObjectBase(cx,cy);
 			do	{
-				temp=GetRawObjectBase(cx,cy);
 				if(temp)
 					{
 					temp->flags &= ~IS_ON; // Mark for erasure
@@ -3300,4 +3322,19 @@ for(obj=obj->pocket.objptr;obj;obj=obj->next) {
 	}
 }
 
+}
+
+void SelectThisObject(OBJECT *ptr) {
+if(!ptr || ptr->x<0 || ptr->y<0) {
+	return;
+}
+
+objsel=ptr;
+mapx=ptr->x-(VSW/2);
+mapy=ptr->y-(VSH/2);
+if(mapx<0) mapx=0;
+if(mapy<0) mapy=0;
+objsel=ptr;
+OB_Update();
+DrawMap(mapx,mapy,1,l_proj,0);
 }
