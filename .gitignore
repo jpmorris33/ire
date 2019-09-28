@@ -1,2 +1,8 @@
 *.o
+*.a
+*.bak
+tools/
+ire-ed
+ire-engine
+prefab.dat
 svnrevision.h

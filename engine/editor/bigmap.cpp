@@ -23,7 +23,7 @@
 // variables
 
 static int pmx=0,pmy=0,path1x=0,path1y=0;
-static int BrushMode=0,ShowSolid=0,ShowEggs=0,ShowRoof=0,ShowTrees=0;
+static int BrushMode=0,ShowSolid=0,ShowEggs=0,ShowRoof=0,ShowTrees=0,ShowLights=0;
 static int CN_Id,CS_Id,CE_Id,CW_Id,BR_Id;
 static char ConnNstr[]="None  ";
 static char ConnSstr[]="None  ";
@@ -59,6 +59,7 @@ extern int l_proj;      // Flag, are layers being displayed?
 extern void WriteRoof(int x,int y,int tile);
 extern int ReadRoof(int x,int y);
 extern int ReadMap(int x,int y);
+extern int ReadLight(int x,int y);
 extern void WriteMap(int x,int y, int tile);
 extern void Toolbar();
 extern void (*EdUpdateFunc)(void);
@@ -112,17 +113,20 @@ IG_TextButton(516,150,__down,PanDown,NULL,NULL);     // Pan down button
 BR_Id = IG_InputButton(472,256,Brushes[BrushMode],GetBrush,NULL,NULL);
 IG_SetInText(BR_Id,Brushes[BrushMode]);
 
-temp = IG_ToggleButton(472,192,"Solid off",Nothing,NULL,NULL,&ShowSolid);
+temp = IG_ToggleButton(556,96,"Solid off",Nothing,NULL,NULL,&ShowSolid);
 IG_SetInText(temp,"Solid on");
 
-temp = IG_ToggleButton(556,192,"Trees off",Nothing,NULL,NULL,&ShowTrees);
+temp = IG_ToggleButton(556,128,"Trees off",Nothing,NULL,NULL,&ShowTrees);
 IG_SetInText(temp,"Trees on ");
 
-temp = IG_ToggleButton(472,224,"Eggs off",Nothing,NULL,NULL,&ShowEggs);
-IG_SetInText(temp,"Eggs on ");
+temp = IG_ToggleButton(556,160,"Eggs off ",Nothing,NULL,NULL,&ShowEggs);
+IG_SetInText(temp,"Eggs on  ");
 
-temp = IG_ToggleButton(556,224,"Roof off",Nothing,NULL,NULL,&ShowRoof);
-IG_SetInText(temp,"Roof on ");
+temp = IG_ToggleButton(556,192,"Roof off ",Nothing,NULL,NULL,&ShowRoof);
+IG_SetInText(temp,"Roof on  ");
+
+temp = IG_ToggleButton(556,224,"Light off",Nothing,NULL,NULL,&ShowLights);
+IG_SetInText(temp,"Light on ");
 
 // Set up Map windows
 
@@ -167,7 +171,7 @@ for(cy=0;cy<curmap->h;cy++)
 			swapscreen->PutPixel(cx+64,cy+64,TIlist[temp].form->seq[0]->thumbcol);
 	}
 
-if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
+if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
 	for(cy=0;cy<curmap->h;cy++)
 		for(cx=0;cx<curmap->w;cx++) {
 			ob=GetRawObjectBase(cx,cy);
@@ -211,6 +215,10 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
 			// Show roof
 			if(ShowRoof)
 				if(ReadRoof(cx,cy))
+					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+			// Show lights
+			if(ShowLights)
+				if(ReadLight(cx,cy))
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
 		}
 
@@ -262,7 +270,7 @@ for(cy=0;cy<ch;cy++)
 			swapscreen->PutPixel(cx+64,cy+64,TIlist[temp].form->seq[0]->thumbcol);
 	}
 
-if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
+if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
 	for(cy=0;cy<ch;cy++)
 		for(cx=0;cx<cw;cx++) {
 			ob=GetRawObjectBase(cx+pmx,cy+pmy);
@@ -307,6 +315,10 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees)
 			// Show roof
 			if(ShowRoof)
 				if(ReadRoof(cx+pmx,cy+pmy))
+					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+			// Show lights
+			if(ShowLights)
+				if(ReadLight(cx+pmx,cy+pmy))
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
 		}
 
