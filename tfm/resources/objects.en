@@ -12878,7 +12878,7 @@ section: characters
 	up		XBOW_BOLT_U
 	down		XBOW_BOLT_D
 	hp		100
-	strength	60
+	strength	12
 	max_strength	12
 	weight		2
 	damage		20
