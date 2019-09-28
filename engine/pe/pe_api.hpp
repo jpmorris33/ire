@@ -124,6 +124,7 @@ extern int read_ifstack();
 extern int explore_ifstack(int offset);
 extern void push_ifstack(int id);
 extern void pop_ifstack();
+extern STRUCTURE *pe_getstruct(const char *input);
 
 extern OPCODE *vmp;
 extern KEYWORD *labelpending;

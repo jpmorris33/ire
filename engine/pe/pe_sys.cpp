@@ -1313,6 +1313,81 @@ do	{
 return 0;
 }
 
+// Walk the structure and return the terminus, e.g. so we can check access rights
+
+STRUCTURE *pe_getstruct(const char *input) {
+char temp[1024];
+char term[1024];
+char base[1024];
+char *ptr;
+int ctr,ok;
+STRUCTURE *mystruct;
+KEYWORD *k;
+
+strcpy(temp,input);
+if(!strchr(temp,'.')) {
+	return NULL;
+}
+
+ptr=strchr(temp,'.');
+*ptr=0; // Remove the separator
+strcpy(base,temp);
+overlapped_strcpy(temp,&ptr[1]);
+
+// If it's an array, get the base object
+
+ptr = strchr(temp,'[');
+if(ptr)
+	*ptr=0;
+ptr = strchr(base,'[');
+if(ptr)
+	*ptr=0;
+
+// Make sure the variable which is being used as a struct is one
+
+k = find_datatype_local(base,curfunc);
+if(!k) {
+	k = find_datatype_global(base,NULL);
+	if(!k) {
+		return NULL;
+	}
+}
+
+mystruct=pe_datatype;
+
+do	{
+	strcpy(term,temp);
+	ptr=strchr(term,'.');
+	if(ptr)
+		*ptr=0;
+	ok=0;
+	for(ctr=1;mystruct[ctr].name;ctr++) {
+		if(!istricmp(mystruct[ctr].name,term)) {
+			if(mystruct[ctr].type == '>') {
+				if(strchr(temp,'.')) {	// Check we're not the terminus
+					ok=1;
+					mystruct=(STRUCTURE *)mystruct[ctr].newspec;
+					break;
+				}
+			} else {
+				return &mystruct[ctr];
+			}
+		}
+	}
+
+	if(!ok)
+		return NULL;
+
+	ptr=strchr(temp,'.');
+	if(ptr)
+		*ptr=0; // Remove the separator
+	overlapped_strcpy(temp,&ptr[1]);
+} while(ptr);
+
+return NULL;
+}
+
+
 
 // Build the structure dereference chain
 
