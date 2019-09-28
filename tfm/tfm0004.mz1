@@ -34,7 +34,7 @@ iMZ1r00
 		at 464 92
 		curdir 2
 		tag 45
-		activity move_forward_action
+		activity MOVE_FORWARD_ACTION
 		funcs->wield ROTATE_R
 
 	object 134217735
@@ -67,7 +67,7 @@ iMZ1r00
 		type LIGHT_ALWAYS
 		at 211 95
 		curdir 0
-		stats->owner 134220347
+		stats->owner 134220351
 
 	object 134217741
 		type JAILBARS-V
@@ -3051,47 +3051,47 @@ iMZ1r00
 		curdir 2
 
 	object 134218294
-		type DATALINE
+		type dataline
 		at 307 123
 		curdir 2
 
 	object 134218295
-		type DATALINE
+		type dataline
 		at 308 123
 		curdir 0
 
 	object 134218296
-		type DATALINE
+		type dataline
 		at 309 123
 		curdir 0
 
 	object 134218297
-		type DATALINE
+		type dataline
 		at 310 123
 		curdir 0
 
 	object 134218298
-		type DATALINE
+		type dataline
 		at 311 123
 		curdir 0
 
 	object 134218299
-		type CODEC
+		type codec
 		at 312 123
 		curdir 0
 
 	object 134218300
-		type DATALINE
+		type dataline
 		at 313 123
 		curdir 0
 
 	object 134218301
-		type DATALINE
+		type dataline
 		at 314 123
 		curdir 0
 
 	object 134218302
-		type DATALINE
+		type dataline
 		at 315 123
 		curdir 0
 
@@ -3213,7 +3213,7 @@ iMZ1r00
 		funcs->talk people/dragons/comms.txt
 
 	object 134218325
-		type TERMINAL
+		type terminal
 		at 312 125
 		curdir 3
 		funcs->use USE_CODECTERMINAL
@@ -4704,14 +4704,14 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 309 143
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->owner 134218608
 
 	object 134218608
 		type DEFENCE_POST_UP
 		at 314 143
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->owner 134218607
 
 	object 134218609
@@ -4843,14 +4843,14 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 309 146
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->owner 134218634
 
 	object 134218634
 		type DEFENCE_POST_UP
 		at 314 146
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->owner 134218633
 
 	object 134218635
@@ -5048,7 +5048,7 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 320 148
 		curdir 1
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner 134218717
 
@@ -5117,7 +5117,7 @@ iMZ1r00
 		at 298 150
 		curdir 0
 		name Strobe Controller
-		activity powerplant_strobe
+		activity POWERPLANT_STROBE
 
 	object 134218680
 		type PIPES_01
@@ -5329,7 +5329,7 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 320 153
 		curdir 1
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner 134218666
 
@@ -5604,7 +5604,7 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 339 158
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner 134218854
 
@@ -5832,7 +5832,7 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 299 161
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner 134218851
 
@@ -6026,7 +6026,7 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 299 163
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner 134218814
 
@@ -6044,7 +6044,7 @@ iMZ1r00
 		type DEFENCE_POST_UP
 		at 339 163
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner 134218771
 
@@ -8360,7 +8360,7 @@ iMZ1r00
 		at 403 224
 		curdir 1
 		labels->location core1
-		stats->owner 134219482
+		stats->owner 134219486
 
 	object 134219298
 		type PIPES_05
@@ -8451,594 +8451,619 @@ iMZ1r00
 		curdir 2
 
 	object 134219315
-		type WALL_METAL_D09
-		at 324 226
-		curdir 2
+		type LIGHT_START
+		at 293 226
+		curdir 0
+		name Faulty light
+		activity LIGHT_FLICKER
+		stats->owner 134219357
+		schedule 0 1 LIGHT_FLICKER 134219315
 
 	object 134219316
 		type WALL_METAL_D09
 		at 324 226
-		curdir 0
+		curdir 2
 
 	object 134219317
+		type WALL_METAL_D09
+		at 324 226
+		curdir 0
+
+	object 134219318
 		type WALL_METAL_D07
 		at 325 226
 		curdir 0
 
-	object 134219318
+	object 134219319
 		type WALL_METAL_D08
 		at 326 226
 		curdir 2
 
-	object 134219319
+	object 134219320
 		type WALL_METAL_D08
 		at 326 226
 		curdir 1
 
-	object 134219320
+	object 134219321
 		type WALL_METAL_D08
 		at 330 226
 		curdir 2
 
-	object 134219321
+	object 134219322
 		type WALL_METAL_D08
 		at 333 226
 		curdir 1
-
-	object 134219322
-		type WALL_METAL_D09
-		at 333 226
-		curdir 3
 
 	object 134219323
 		type WALL_METAL_D09
 		at 333 226
-		curdir 2
+		curdir 3
 
 	object 134219324
+		type WALL_METAL_D09
+		at 333 226
+		curdir 2
+
+	object 134219325
 		type WALL_METAL_D08
 		at 337 226
 		curdir 2
 
-	object 134219325
+	object 134219326
 		type WALL_METAL_D02
 		at 367 226
 		curdir 2
 
-	object 134219326
+	object 134219327
 		type PIPES_01
 		at 385 226
 		curdir 2
 
-	object 134219327
+	object 134219328
 		type PIPES_01
 		at 388 226
 		curdir 2
 
-	object 134219328
+	object 134219329
 		type PIPES_01
 		at 234 227
 		curdir 2
 
-	object 134219329
+	object 134219330
 		type PIPES_01
 		at 237 227
 		curdir 2
 
-	object 134219330
+	object 134219331
+		type WALL3_EDGE
+		at 293 227
+		curdir 0
+
+	object 134219332
 		type VALVE
 		at 296 227
 		curdir 2
 
-	object 134219331
+	object 134219333
 		type VALVE
 		at 297 227
 		curdir 2
 
-	object 134219332
+	object 134219334
 		type VALVE
 		at 298 227
 		curdir 2
 
-	object 134219333
+	object 134219335
 		type VALVE
 		at 299 227
 		curdir 2
 
-	object 134219334
+	object 134219336
 		type WALL_METAL_D02
 		at 323 227
 		curdir 3
 
-	object 134219335
+	object 134219337
 		type WALL_METAL_D03
 		at 323 227
 		curdir 3
 
-	object 134219336
+	object 134219338
 		type WALL_METAL_D00
 		at 323 227
 		curdir 0
 
-	object 134219337
+	object 134219339
 		type WALL3_EDGE
 		at 328 227
 		curdir 0
 
-	object 134219338
+	object 134219340
 		type PIPES_01
 		at 385 227
 		curdir 2
 
-	object 134219339
+	object 134219341
 		type PIPES_01
 		at 388 227
 		curdir 2
 
-	object 134219340
+	object 134219342
 		type VALVE
 		at 299 228
 		curdir 2
 
-	object 134219341
+	object 134219343
 		type WALL_METAL_D01
 		at 323 228
 		curdir 0
 
-	object 134219342
+	object 134219344
 		type WALL_METAL_D02
 		at 344 228
 		curdir 2
 
-	object 134219343
+	object 134219345
 		type POWERLINK
 		at 297 229
 		curdir 0
 
-	object 134219344
+	object 134219346
 		type VALVE
 		at 299 229
 		curdir 2
 
-	object 134219345
+	object 134219347
 		type WALL_METAL_D00
 		at 323 229
 		curdir 1
 
-	object 134219346
+	object 134219348
 		type TARGET
 		at 325 229
 		curdir 3
 		name Healing bay
 		tag 666002
 
-	object 134219347
-		type WALL_METAL_D00
-		at 323 230
-		curdir 2
-
-	object 134219348
-		type WALL_METAL_D02
-		at 323 230
-		curdir 1
-
 	object 134219349
-		type WALL_METAL_D03
+		type WALL_METAL_D00
 		at 323 230
 		curdir 2
 
 	object 134219350
 		type WALL_METAL_D02
+		at 323 230
+		curdir 1
+
+	object 134219351
+		type WALL_METAL_D03
+		at 323 230
+		curdir 2
+
+	object 134219352
+		type WALL_METAL_D02
 		at 367 230
 		curdir 2
 
-	object 134219351
+	object 134219353
 		type WALL_METAL_D02
 		at 399 230
 		curdir 2
 
-	object 134219352
+	object 134219354
 		type WALL_METAL_D01
 		at 323 231
 		curdir 0
 
-	object 134219353
+	object 134219355
+		type WALL3_EDGE
+		at 293 232
+		curdir 3
+
+	object 134219356
 		type VENT_SHUT
 		at 297 232
 		curdir 0
 
-	object 134219354
+	object 134219357
+		type LIGHT_END
+		at 299 232
+		curdir 0
+		stats->owner 134219315
+
+	object 134219358
 		type WALL_METAL_D00
 		at 323 232
 		curdir 3
 
-	object 134219355
+	object 134219359
 		type VENT_SHUT
 		at 325 232
 		curdir 0
 
-	object 134219356
+	object 134219360
 		type WALL3_EDGE
 		at 328 232
 		curdir 3
 
-	object 134219357
+	object 134219361
 		type WALL_METAL_D02
 		at 344 232
 		curdir 0
 
-	object 134219358
+	object 134219362
 		type WALL_METAL_D04
 		at 367 232
 		curdir 1
 
-	object 134219359
+	object 134219363
 		type WALL_METAL_D04
 		at 399 232
 		curdir 1
 
-	object 134219360
+	object 134219364
 		type WALL_METAL_D03
 		at 344 233
 		curdir 0
 
-	object 134219361
+	object 134219365
 		type WALL_METAL_D02
 		at 367 234
 		curdir 2
 
-	object 134219362
+	object 134219366
 		type WALL_METAL_D02
 		at 399 234
 		curdir 2
 
-	object 134219363
+	object 134219367
 		type WALL_METAL_D00
 		at 332 235
 		curdir 1
 
-	object 134219364
+	object 134219368
 		type PIPES_01
 		at 234 236
 		curdir 2
 
-	object 134219365
+	object 134219369
 		type WALL_METAL_D11
 		at 235 236
 		curdir 2
 		tag -51
 		funcs->use LEVER_CALLWIELD_TAGS
 
-	object 134219366
+	object 134219370
 		type PIPES_01
 		at 237 236
 		curdir 2
 
-	object 134219367
+	object 134219371
 		type VENT_SHUT
 		at 297 236
 		curdir 0
 
-	object 134219368
+	object 134219372
 		type VENT_SHUT
 		at 311 236
 		curdir 0
 
-	object 134219369
+	object 134219373
 		type VENT_SHUT
 		at 325 236
 		curdir 0
 
-	object 134219370
+	object 134219374
 		type WALL_METAL_D02
 		at 344 236
 		curdir 2
 
-	object 134219371
+	object 134219375
 		type PIPES_01
 		at 385 236
 		curdir 2
 
-	object 134219372
+	object 134219376
 		type WALL_METAL_D11
 		at 386 236
 		curdir 2
 		tag -53
 		funcs->use LEVER_CALLWIELD_TAGS
 
-	object 134219373
+	object 134219377
 		type PIPES_01
 		at 388 236
 		curdir 2
 
-	object 134219374
+	object 134219378
 		type WALL_METAL_D04
 		at 399 236
 		curdir 2
 
-	object 134219375
+	object 134219379
 		type WALL_METAL_D02
 		at 231 237
 		curdir 2
 
-	object 134219376
+	object 134219380
 		type PIPES_01
 		at 234 237
 		curdir 2
 
-	object 134219377
+	object 134219381
 		type PIPES_01
 		at 237 237
 		curdir 2
 
-	object 134219378
+	object 134219382
 		type WALL_METAL_D02
 		at 332 237
 		curdir 2
 
-	object 134219379
+	object 134219383
 		type WALL_METAL_D08
 		at 340 237
 		curdir 1
 
-	object 134219380
+	object 134219384
 		type WALL_METAL_D08
 		at 342 237
 		curdir 2
 
-	object 134219381
+	object 134219385
 		type PIPES_01
 		at 385 237
 		curdir 2
 
-	object 134219382
+	object 134219386
 		type PIPES_01
 		at 388 237
 		curdir 2
 
-	object 134219383
+	object 134219387
 		type FENCE_CORNER
 		at 234 238
 		curdir 2
 
-	object 134219384
+	object 134219388
 		type PIPES_01
 		at 234 238
 		curdir 2
 
-	object 134219385
+	object 134219389
 		type FENCE
 		at 235 238
 		curdir 0
 
-	object 134219386
+	object 134219390
 		type FENCE
 		at 236 238
 		curdir 0
 
-	object 134219387
+	object 134219391
 		type FENCE_CORNER
 		at 237 238
 		curdir 3
 
-	object 134219388
+	object 134219392
 		type PIPES_01
 		at 237 238
 		curdir 2
 
-	object 134219389
+	object 134219393
 		type WALL_METAL_D04
 		at 296 238
 		curdir 1
 
-	object 134219390
+	object 134219394
 		type WALL_METAL_D01
 		at 296 238
 		curdir 0
 
-	object 134219391
+	object 134219395
 		type FENCE_CORNER
 		at 385 238
 		curdir 2
 
-	object 134219392
+	object 134219396
 		type PIPES_01
 		at 385 238
 		curdir 2
 
-	object 134219393
+	object 134219397
 		type FENCE
 		at 386 238
 		curdir 0
 
-	object 134219394
+	object 134219398
 		type FENCE
 		at 387 238
 		curdir 0
 
-	object 134219395
+	object 134219399
 		type FENCE_CORNER
 		at 388 238
 		curdir 3
 
-	object 134219396
+	object 134219400
 		type PIPES_01
 		at 388 238
 		curdir 2
 
-	object 134219397
+	object 134219401
 		type WALL_METAL_D02
 		at 399 238
 		curdir 2
 
-	object 134219398
+	object 134219402
 		type FENCE
 		at 234 239
 		curdir 2
 
-	object 134219399
+	object 134219403
 		type PIPES_01
 		at 234 239
 		curdir 2
 
-	object 134219400
+	object 134219404
 		type FORCEFIELD_OFF
 		at 235 239
 		curdir 2
 		tag 36
 
-	object 134219401
+	object 134219405
 		type FORCEFIELD_OFF
 		at 236 239
 		curdir 2
 		tag 36
 
-	object 134219402
+	object 134219406
 		type FENCE
 		at 237 239
 		curdir 2
 
-	object 134219403
+	object 134219407
 		type FORCEFIELD_OFF
 		at 237 239
 		curdir 2
 		tag 36
 
-	object 134219404
+	object 134219408
 		type PIPES_01
 		at 237 239
 		curdir 2
 
-	object 134219405
+	object 134219409
 		type WALL_METAL_D02
 		at 296 239
 		curdir 2
 
-	object 134219406
+	object 134219410
 		type WALL_METAL_D03
 		at 296 239
 		curdir 0
 
-	object 134219407
+	object 134219411
 		type WALL_METAL_D00
 		at 332 239
 		curdir 0
 
-	object 134219408
+	object 134219412
 		type WALL_METAL_D00
 		at 332 239
 		curdir 3
 
-	object 134219409
+	object 134219413
 		type WALL_METAL_D02
 		at 382 239
 		curdir 2
 
-	object 134219410
+	object 134219414
 		type FENCE
 		at 385 239
 		curdir 2
 
-	object 134219411
+	object 134219415
 		type PIPES_01
 		at 385 239
 		curdir 2
 
-	object 134219412
+	object 134219416
 		type FORCEFIELD_ON
 		at 386 239
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219413
+	object 134219417
 		type FORCEFIELD_ON
 		at 387 239
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219414
+	object 134219418
 		type FORCEFIELD_ON
 		at 388 239
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219415
+	object 134219419
 		type FENCE
 		at 388 239
 		curdir 2
 
-	object 134219416
+	object 134219420
 		type PIPES_01
 		at 388 239
 		curdir 2
 
-	object 134219417
+	object 134219421
 		type MAINTENANCE_HATCH_SHUT
 		at 222 240
 		curdir 2
 
-	object 134219418
+	object 134219422
 		type FENCE
 		at 234 240
 		curdir 2
-
-	object 134219419
-		type PIPES_05
-		at 234 240
-		curdir 3
-
-	object 134219420
-		type PIPES_01
-		at 234 240
-		curdir 2
-
-	object 134219421
-		type FORCEFIELD_OFF
-		at 235 240
-		curdir 2
-		tag 36
-
-	object 134219422
-		type PIPES_00
-		at 235 240
-		curdir 3
 
 	object 134219423
+		type PIPES_05
+		at 234 240
+		curdir 3
+
+	object 134219424
+		type PIPES_01
+		at 234 240
+		curdir 2
+
+	object 134219425
+		type FORCEFIELD_OFF
+		at 235 240
+		curdir 2
+		tag 36
+
+	object 134219426
+		type PIPES_00
+		at 235 240
+		curdir 3
+
+	object 134219427
 		type FORCEFIELD_OFF
 		at 236 240
 		curdir 2
 		tag 36
 
-	object 134219424
+	object 134219428
 		type PIPES_00
 		at 236 240
 		curdir 3
 
-	object 134219425
+	object 134219429
 		type FENCE
 		at 237 240
 		curdir 2
 
-	object 134219426
+	object 134219430
 		type FORCEFIELD_OFF
 		at 237 240
 		curdir 2
 		tag 36
 
-	object 134219427
+	object 134219431
 		type PIPES_05
 		at 237 240
 		curdir 2
 
-	object 134219428
+	object 134219432
 		type PIPES_01
 		at 237 240
 		curdir 2
 
-	object 134219429
+	object 134219433
 		type TRAP_PHONE
 		at 252 240
 		curdir 0
@@ -9046,141 +9071,141 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134219430
+	object 134219434
 		type WALL_METAL_D00
 		at 296 240
 		curdir 0
 
-	object 134219431
+	object 134219435
 		type PATHMARKER
 		at 370 240
 		curdir 0
 		labels->location core1
 		stats->owner 134219293
 
-	object 134219432
+	object 134219436
 		type SERVITOR
-		inside 134219433
+		inside 134219437
 		curdir 3
-		schedule 0 1 SIT_AT_LOCATION 134219431
+		schedule 0 1 SIT_AT_LOCATION 134219435
 
-	object 134219433
+	object 134219437
 		type EGG_ALWAYS
 		at 371 240
 		curdir 0
 		name Servitor Patrols
 		funcs->init EGG_PATROL_INIT
 
-	object 134219434
+	object 134219438
 		type FENCE
 		at 385 240
 		curdir 2
 
-	object 134219435
+	object 134219439
 		type PIPES_01
 		at 385 240
 		curdir 2
 
-	object 134219436
+	object 134219440
 		type PIPES_05
 		at 385 240
 		curdir 3
 
-	object 134219437
-		type FORCEFIELD_ON
-		at 386 240
-		curdir 2
-		tag 37
-		funcs->init START_GENERATORFX
-
-	object 134219438
-		type PIPES_00
-		at 386 240
-		curdir 3
-
-	object 134219439
-		type FORCEFIELD_ON
-		at 387 240
-		curdir 2
-		tag 37
-		funcs->init START_GENERATORFX
-
-	object 134219440
-		type PIPES_00
-		at 387 240
-		curdir 3
-
 	object 134219441
 		type FORCEFIELD_ON
-		at 388 240
+		at 386 240
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
 	object 134219442
-		type FENCE
-		at 388 240
-		curdir 2
+		type PIPES_00
+		at 386 240
+		curdir 3
 
 	object 134219443
-		type PIPES_01
-		at 388 240
+		type FORCEFIELD_ON
+		at 387 240
 		curdir 2
+		tag 37
+		funcs->init START_GENERATORFX
 
 	object 134219444
-		type PIPES_05
-		at 388 240
-		curdir 2
+		type PIPES_00
+		at 387 240
+		curdir 3
 
 	object 134219445
-		type MAINTENANCE_HATCH_SHUT
-		at 398 240
+		type FORCEFIELD_ON
+		at 388 240
 		curdir 2
+		tag 37
+		funcs->init START_GENERATORFX
 
 	object 134219446
 		type FENCE
-		at 234 241
+		at 388 240
 		curdir 2
 
 	object 134219447
 		type PIPES_01
-		at 234 241
+		at 388 240
 		curdir 2
 
 	object 134219448
+		type PIPES_05
+		at 388 240
+		curdir 2
+
+	object 134219449
+		type MAINTENANCE_HATCH_SHUT
+		at 398 240
+		curdir 2
+
+	object 134219450
+		type FENCE
+		at 234 241
+		curdir 2
+
+	object 134219451
+		type PIPES_01
+		at 234 241
+		curdir 2
+
+	object 134219452
 		type FORCEFIELD_OFF
 		at 235 241
 		curdir 2
 		tag 36
 
-	object 134219449
+	object 134219453
 		type FORCEFIELD_OFF
 		at 236 241
 		curdir 2
 		tag 36
 
-	object 134219450
+	object 134219454
 		type FENCE
 		at 237 241
 		curdir 2
 
-	object 134219451
+	object 134219455
 		type FORCEFIELD_OFF
 		at 237 241
 		curdir 2
 		tag 36
 
-	object 134219452
+	object 134219456
 		type PIPES_01
 		at 237 241
 		curdir 2
 
-	object 134219453
+	object 134219457
 		type WALL_METAL_D00
 		at 296 241
 		curdir 3
 
-	object 134219454
+	object 134219458
 		type TRAP_PHONE
 		at 370 241
 		curdir 0
@@ -9188,1073 +9213,1073 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134219455
+	object 134219459
 		type FENCE
 		at 385 241
 		curdir 2
 
-	object 134219456
+	object 134219460
 		type PIPES_01
 		at 385 241
 		curdir 2
 
-	object 134219457
+	object 134219461
 		type FORCEFIELD_ON
 		at 386 241
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219458
+	object 134219462
 		type FORCEFIELD_ON
 		at 387 241
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219459
+	object 134219463
 		type FORCEFIELD_ON
 		at 388 241
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219460
-		type FENCE
-		at 388 241
-		curdir 2
-
-	object 134219461
-		type PIPES_01
-		at 388 241
-		curdir 2
-
-	object 134219462
-		type FENCE
-		at 234 242
-		curdir 2
-
-	object 134219463
-		type PIPES_01
-		at 234 242
-		curdir 2
-
 	object 134219464
+		type FENCE
+		at 388 241
+		curdir 2
+
+	object 134219465
+		type PIPES_01
+		at 388 241
+		curdir 2
+
+	object 134219466
+		type FENCE
+		at 234 242
+		curdir 2
+
+	object 134219467
+		type PIPES_01
+		at 234 242
+		curdir 2
+
+	object 134219468
 		type FORCEFIELD_OFF
 		at 235 242
 		curdir 2
 		tag 36
 
-	object 134219465
+	object 134219469
 		type FORCEFIELD_OFF
 		at 236 242
 		curdir 2
 		tag 36
 
-	object 134219466
+	object 134219470
 		type FENCE
 		at 237 242
 		curdir 2
 
-	object 134219467
+	object 134219471
 		type FORCEFIELD_OFF
 		at 237 242
 		curdir 2
 		tag 36
 
-	object 134219468
+	object 134219472
 		type PIPES_01
 		at 237 242
 		curdir 2
 
-	object 134219469
+	object 134219473
 		type WALL_METAL_D02
 		at 296 242
 		curdir 1
 
-	object 134219470
+	object 134219474
 		type WALL_METAL_D00
 		at 296 242
 		curdir 2
 
-	object 134219471
+	object 134219475
 		type WALL_METAL_D02
 		at 332 242
 		curdir 2
 
-	object 134219472
+	object 134219476
 		type FENCE
 		at 385 242
 		curdir 2
 
-	object 134219473
+	object 134219477
 		type PIPES_01
 		at 385 242
 		curdir 2
 
-	object 134219474
+	object 134219478
 		type FORCEFIELD_ON
 		at 386 242
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219475
+	object 134219479
 		type FORCEFIELD_ON
 		at 387 242
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219476
+	object 134219480
 		type FORCEFIELD_ON
 		at 388 242
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134219477
+	object 134219481
 		type FENCE
 		at 388 242
 		curdir 2
 
-	object 134219478
+	object 134219482
 		type PIPES_01
 		at 388 242
 		curdir 2
 
-	object 134219479
+	object 134219483
 		type WALL_METAL_D04
 		at 399 242
 		curdir 0
 
-	object 134219480
+	object 134219484
 		type SERVITOR
-		inside 134219481
+		inside 134219485
 		curdir 0
-		schedule 0 1 SIT_AT_LOCATION 134219482
+		schedule 0 1 SIT_AT_LOCATION 134219486
 
-	object 134219481
+	object 134219485
 		type EGG_ALWAYS
 		at 402 242
 		curdir 0
 		name Servitor Patrols
 		funcs->init EGG_PATROL_INIT
 
-	object 134219482
+	object 134219486
 		type PATHMARKER
 		at 403 242
 		curdir 1
 		labels->location core1
-		stats->owner 134219674
+		stats->owner 134219678
 
-	object 134219483
+	object 134219487
 		type WALL_METAL_D02
 		at 231 243
 		curdir 2
 
-	object 134219484
+	object 134219488
 		type FENCE_CORNER
 		at 234 243
 		curdir 0
 
-	object 134219485
+	object 134219489
 		type PIPES_01
 		at 234 243
 		curdir 2
 
-	object 134219486
+	object 134219490
 		type FENCE
 		at 235 243
 		curdir 0
 
-	object 134219487
+	object 134219491
 		type FENCE
 		at 236 243
 		curdir 0
 
-	object 134219488
+	object 134219492
 		type FENCE_CORNER
 		at 237 243
 		curdir 1
 
-	object 134219489
+	object 134219493
 		type PIPES_01
 		at 237 243
 		curdir 2
 
-	object 134219490
+	object 134219494
 		type WALL_METAL_D00
 		at 296 243
 		curdir 0
 
-	object 134219491
+	object 134219495
 		type WALL_METAL_D00
 		at 296 243
 		curdir 1
 
-	object 134219492
+	object 134219496
 		type PIPES_04
 		at 299 243
 		curdir 0
 
-	object 134219493
+	object 134219497
 		type PIPES_00
 		at 300 243
 		curdir 3
 
-	object 134219494
+	object 134219498
 		type PIPES_00
 		at 301 243
 		curdir 3
 
-	object 134219495
+	object 134219499
 		type PIPES_00
 		at 302 243
 		curdir 3
 
-	object 134219496
+	object 134219500
 		type PIPES_00
 		at 303 243
 		curdir 3
 
-	object 134219497
+	object 134219501
 		type PIPES_00
 		at 304 243
 		curdir 3
 
-	object 134219498
+	object 134219502
 		type PIPES_00
 		at 305 243
 		curdir 3
 
-	object 134219499
+	object 134219503
 		type PIPES_00
 		at 306 243
 		curdir 3
 
-	object 134219500
+	object 134219504
 		type PIPES_00
 		at 307 243
 		curdir 3
 
-	object 134219501
+	object 134219505
 		type PIPES_00
 		at 308 243
 		curdir 3
 
-	object 134219502
+	object 134219506
 		type PIPES_00
 		at 309 243
 		curdir 3
 
-	object 134219503
+	object 134219507
 		type PIPES_00
 		at 310 243
 		curdir 3
 
-	object 134219504
+	object 134219508
 		type PIPES_05
 		at 311 243
 		curdir 0
 
-	object 134219505
+	object 134219509
 		type PIPES_00
 		at 312 243
 		curdir 3
 
-	object 134219506
+	object 134219510
 		type PIPES_00
 		at 313 243
 		curdir 3
 
-	object 134219507
+	object 134219511
 		type PIPES_00
 		at 314 243
 		curdir 3
 
-	object 134219508
+	object 134219512
 		type PIPES_00
 		at 315 243
 		curdir 3
 
-	object 134219509
+	object 134219513
 		type PIPES_00
 		at 316 243
 		curdir 3
 
-	object 134219510
+	object 134219514
 		type PIPES_00
 		at 317 243
 		curdir 3
 
-	object 134219511
+	object 134219515
 		type PIPES_00
 		at 318 243
 		curdir 3
 
-	object 134219512
+	object 134219516
 		type PIPES_00
 		at 319 243
 		curdir 3
 
-	object 134219513
+	object 134219517
 		type PIPES_00
 		at 320 243
 		curdir 3
 
-	object 134219514
+	object 134219518
 		type PIPES_00
 		at 321 243
 		curdir 3
 
-	object 134219515
+	object 134219519
 		type PIPES_05
 		at 322 243
 		curdir 0
 
-	object 134219516
+	object 134219520
 		type PIPES_00
 		at 323 243
 		curdir 3
 
-	object 134219517
+	object 134219521
 		type PIPES_00
 		at 324 243
 		curdir 3
 
-	object 134219518
+	object 134219522
 		type PIPES_00
 		at 325 243
 		curdir 3
 
-	object 134219519
+	object 134219523
 		type PIPES_00
 		at 326 243
 		curdir 3
 
-	object 134219520
+	object 134219524
 		type WALL_METAL_D02
 		at 382 243
 		curdir 2
 
-	object 134219521
+	object 134219525
 		type FENCE_CORNER
 		at 385 243
 		curdir 0
 
-	object 134219522
+	object 134219526
 		type PIPES_01
 		at 385 243
 		curdir 2
 
-	object 134219523
+	object 134219527
 		type FENCE
 		at 386 243
 		curdir 0
 
-	object 134219524
+	object 134219528
 		type FENCE
 		at 387 243
 		curdir 0
 
-	object 134219525
+	object 134219529
 		type FENCE_CORNER
 		at 388 243
 		curdir 1
 
-	object 134219526
+	object 134219530
 		type PIPES_01
 		at 388 243
 		curdir 2
 
-	object 134219527
+	object 134219531
 		type PIPES_01
 		at 391 243
 		curdir 2
 
-	object 134219528
+	object 134219532
 		type PIPES_01
 		at 234 244
 		curdir 2
 
-	object 134219529
+	object 134219533
 		type PIPES_01
 		at 237 244
 		curdir 2
 
-	object 134219530
+	object 134219534
 		type WALL2_EDGE
 		at 299 244
 		curdir 2
 
-	object 134219531
+	object 134219535
 		type PIPES_00
 		at 299 244
 		curdir 0
 
-	object 134219532
+	object 134219536
 		type PIPES_00
 		at 311 244
 		curdir 0
 
-	object 134219533
+	object 134219537
 		type PIPES_00
 		at 322 244
 		curdir 0
 
-	object 134219534
+	object 134219538
 		type PIPES_01
 		at 385 244
 		curdir 2
 
-	object 134219535
+	object 134219539
 		type PIPES_01
 		at 388 244
 		curdir 2
 
-	object 134219536
+	object 134219540
 		type PIPES_03
 		at 272 245
 		curdir 0
 
-	object 134219537
+	object 134219541
 		type PIPES_00
 		at 299 245
 		curdir 0
 
-	object 134219538
+	object 134219542
 		type PIPES_00
 		at 311 245
 		curdir 0
 
-	object 134219539
+	object 134219543
 		type PIPES_00
 		at 322 245
 		curdir 0
 
-	object 134219540
+	object 134219544
 		type PIPES_03
 		at 344 245
 		curdir 0
 
-	object 134219541
+	object 134219545
 		type WALL_METAL_D02
 		at 367 245
 		curdir 0
 
-	object 134219542
+	object 134219546
 		type WALL_METAL_D02
 		at 399 245
 		curdir 2
 
-	object 134219543
+	object 134219547
 		type PIPES_04
 		at 272 246
 		curdir 2
 
-	object 134219544
+	object 134219548
 		type PIPES_00
 		at 273 246
 		curdir 2
 
-	object 134219545
+	object 134219549
 		type PIPES_00
 		at 274 246
 		curdir 2
 
-	object 134219546
+	object 134219550
 		type PIPES_04
 		at 275 246
 		curdir 3
 
-	object 134219547
+	object 134219551
 		type WALL_METAL_D02
 		at 296 246
 		curdir 1
 
-	object 134219548
+	object 134219552
 		type PIPES_00
 		at 299 246
 		curdir 0
 
-	object 134219549
+	object 134219553
 		type PIPES_00
 		at 311 246
 		curdir 0
 
-	object 134219550
+	object 134219554
 		type PIPES_00
 		at 322 246
 		curdir 0
 
-	object 134219551
+	object 134219555
 		type PIPES_04
 		at 344 246
 		curdir 2
 
-	object 134219552
+	object 134219556
 		type PIPES_00
 		at 345 246
 		curdir 2
 
-	object 134219553
+	object 134219557
 		type PIPES_00
 		at 346 246
 		curdir 2
 
-	object 134219554
+	object 134219558
 		type PIPES_04
 		at 347 246
 		curdir 3
 
-	object 134219555
+	object 134219559
 		type WALL_METAL_D03
 		at 367 246
 		curdir 0
 
-	object 134219556
+	object 134219560
 		type WALL_METAL_D02
 		at 272 247
 		curdir 1
 
-	object 134219557
+	object 134219561
 		type PIPES_00
 		at 275 247
 		curdir 0
 
-	object 134219558
+	object 134219562
 		type PIPES_00
 		at 299 247
 		curdir 0
 
-	object 134219559
+	object 134219563
 		type PIPES_00
 		at 311 247
 		curdir 0
 
-	object 134219560
+	object 134219564
 		type PIPES_00
 		at 322 247
 		curdir 0
 
-	object 134219561
+	object 134219565
 		type WALL_METAL_D02
 		at 344 247
 		curdir 1
 
-	object 134219562
+	object 134219566
 		type PIPES_00
 		at 347 247
 		curdir 0
 
-	object 134219563
+	object 134219567
 		type WALL_METAL_D02
 		at 367 247
 		curdir 3
 
-	object 134219564
+	object 134219568
 		type WALL_METAL_D04
 		at 399 247
 		curdir 2
 
-	object 134219565
+	object 134219569
 		type WALL_METAL_D04
 		at 272 248
 		curdir 1
 
-	object 134219566
+	object 134219570
 		type WALL_METAL_D04
 		at 272 248
 		curdir 2
 
-	object 134219567
+	object 134219571
 		type PIPES_04
 		at 275 248
 		curdir 2
 
-	object 134219568
+	object 134219572
 		type PIPES_04
 		at 276 248
 		curdir 3
 
-	object 134219569
+	object 134219573
 		type PIPES_04
 		at 299 248
 		curdir 2
 
-	object 134219570
+	object 134219574
 		type PIPES_00
 		at 300 248
 		curdir 3
 
-	object 134219571
+	object 134219575
 		type PIPES_00
 		at 301 248
 		curdir 3
 
-	object 134219572
+	object 134219576
 		type PIPES_00
 		at 302 248
 		curdir 3
 
-	object 134219573
+	object 134219577
 		type PIPES_00
 		at 303 248
 		curdir 3
 
-	object 134219574
+	object 134219578
 		type PIPES_00
 		at 304 248
 		curdir 3
 
-	object 134219575
+	object 134219579
 		type PIPES_00
 		at 305 248
 		curdir 3
 
-	object 134219576
+	object 134219580
 		type PIPES_00
 		at 306 248
 		curdir 3
 
-	object 134219577
+	object 134219581
 		type PIPES_00
 		at 307 248
 		curdir 3
 
-	object 134219578
+	object 134219582
 		type PIPES_00
 		at 308 248
 		curdir 3
 
-	object 134219579
+	object 134219583
 		type PIPES_00
 		at 309 248
 		curdir 3
 
-	object 134219580
+	object 134219584
 		type PIPES_00
 		at 310 248
 		curdir 3
 
-	object 134219581
+	object 134219585
 		type PIPES_05
 		at 311 248
 		curdir 1
 
-	object 134219582
+	object 134219586
 		type PIPES_00
 		at 312 248
 		curdir 3
 
-	object 134219583
+	object 134219587
 		type PIPES_00
 		at 313 248
 		curdir 3
 
-	object 134219584
+	object 134219588
 		type PIPES_00
 		at 314 248
 		curdir 3
 
-	object 134219585
+	object 134219589
 		type PIPES_00
 		at 315 248
 		curdir 3
 
-	object 134219586
+	object 134219590
 		type PIPES_00
 		at 316 248
 		curdir 3
 
-	object 134219587
+	object 134219591
 		type PIPES_00
 		at 317 248
 		curdir 3
 
-	object 134219588
+	object 134219592
 		type PIPES_00
 		at 318 248
 		curdir 3
 
-	object 134219589
+	object 134219593
 		type PIPES_00
 		at 319 248
 		curdir 3
 
-	object 134219590
+	object 134219594
 		type PIPES_00
 		at 320 248
 		curdir 3
 
-	object 134219591
+	object 134219595
 		type PIPES_00
 		at 321 248
 		curdir 3
 
-	object 134219592
+	object 134219596
 		type PIPES_05
 		at 322 248
 		curdir 1
 
-	object 134219593
+	object 134219597
 		type PIPES_00
 		at 323 248
 		curdir 3
 
-	object 134219594
+	object 134219598
 		type PIPES_00
 		at 324 248
 		curdir 3
 
-	object 134219595
+	object 134219599
 		type PIPES_00
 		at 325 248
 		curdir 3
 
-	object 134219596
+	object 134219600
 		type PIPES_00
 		at 326 248
 		curdir 3
 
-	object 134219597
+	object 134219601
 		type WALL_METAL_D04
 		at 344 248
 		curdir 1
 
-	object 134219598
+	object 134219602
 		type WALL_METAL_D04
 		at 344 248
 		curdir 2
 
-	object 134219599
+	object 134219603
 		type PIPES_04
 		at 347 248
 		curdir 2
 
-	object 134219600
+	object 134219604
 		type PIPES_04
 		at 348 248
 		curdir 3
 
-	object 134219601
+	object 134219605
 		type WALL_METAL_D02
 		at 367 248
 		curdir 2
 
-	object 134219602
+	object 134219606
 		type PIPES_02
 		at 272 249
 		curdir 0
 
-	object 134219603
+	object 134219607
 		type PIPES_00
 		at 276 249
 		curdir 0
 
-	object 134219604
+	object 134219608
 		type WALL_METAL_D02
 		at 296 249
 		curdir 2
 
-	object 134219605
+	object 134219609
 		type WALL2_EDGE
 		at 299 249
 		curdir 2
 
-	object 134219606
+	object 134219610
 		type PIPES_02
 		at 344 249
 		curdir 0
 
-	object 134219607
+	object 134219611
 		type PIPES_00
 		at 348 249
 		curdir 0
 
-	object 134219608
+	object 134219612
 		type WALL_METAL_D02
 		at 399 249
 		curdir 2
 
-	object 134219609
+	object 134219613
 		type PIPES_04
 		at 272 250
 		curdir 0
 
-	object 134219610
+	object 134219614
 		type PIPES_01
 		at 272 250
 		curdir 0
 
-	object 134219611
+	object 134219615
 		type PIPES_00
 		at 273 250
 		curdir 3
 
-	object 134219612
+	object 134219616
 		type PIPES_00
 		at 274 250
 		curdir 3
 
-	object 134219613
+	object 134219617
 		type PIPES_00
 		at 275 250
 		curdir 3
 
-	object 134219614
+	object 134219618
 		type PIPES_05
 		at 276 250
 		curdir 1
 
-	object 134219615
+	object 134219619
 		type PIPES_00
 		at 277 250
 		curdir 3
 
-	object 134219616
+	object 134219620
 		type PIPES_00
 		at 278 250
 		curdir 3
 
-	object 134219617
+	object 134219621
 		type PIPES_01
 		at 344 250
 		curdir 0
 
-	object 134219618
+	object 134219622
 		type PIPES_04
 		at 344 250
 		curdir 0
 
-	object 134219619
+	object 134219623
 		type PIPES_00
 		at 345 250
 		curdir 3
 
-	object 134219620
+	object 134219624
 		type PIPES_00
 		at 346 250
 		curdir 3
 
-	object 134219621
+	object 134219625
 		type PIPES_00
 		at 347 250
 		curdir 3
 
-	object 134219622
+	object 134219626
 		type PIPES_05
 		at 348 250
 		curdir 1
 
-	object 134219623
+	object 134219627
 		type PIPES_00
 		at 349 250
 		curdir 3
 
-	object 134219624
+	object 134219628
 		type PIPES_00
 		at 350 250
 		curdir 3
 
-	object 134219625
+	object 134219629
 		type WALL_METAL_D02
 		at 367 250
 		curdir 3
 
-	object 134219626
+	object 134219630
 		type PIPES_01
 		at 272 251
 		curdir 1
 
-	object 134219627
+	object 134219631
 		type WALL_METAL_D02
 		at 296 251
 		curdir 1
 
-	object 134219628
+	object 134219632
 		type PIPES_01
 		at 344 251
 		curdir 1
 
-	object 134219629
+	object 134219633
 		type WALL_METAL_D04
 		at 399 251
 		curdir 1
 
-	object 134219630
-		type WALL_METAL_D02
-		at 272 252
-		curdir 2
-
-	object 134219631
-		type PIPES_03
-		at 272 252
-		curdir 1
-
-	object 134219632
-		type WALL_METAL_D02
-		at 344 252
-		curdir 2
-
-	object 134219633
-		type PIPES_03
-		at 344 252
-		curdir 1
-
 	object 134219634
+		type WALL_METAL_D02
+		at 272 252
+		curdir 2
+
+	object 134219635
+		type PIPES_03
+		at 272 252
+		curdir 1
+
+	object 134219636
+		type WALL_METAL_D02
+		at 344 252
+		curdir 2
+
+	object 134219637
+		type PIPES_03
+		at 344 252
+		curdir 1
+
+	object 134219638
 		type WALL_METAL_D02
 		at 367 252
 		curdir 2
 
-	object 134219635
+	object 134219639
 		type WALL_METAL_D02
 		at 399 252
 		curdir 2
 
-	object 134219636
+	object 134219640
 		type PIPES_01
 		at 234 253
 		curdir 2
 
-	object 134219637
+	object 134219641
 		type PIPES_01
 		at 237 253
 		curdir 2
 
-	object 134219638
+	object 134219642
 		type PIPES_01
 		at 385 253
 		curdir 2
 
-	object 134219639
+	object 134219643
 		type PIPES_01
 		at 388 253
 		curdir 2
 
-	object 134219640
+	object 134219644
 		type PIPES_01
 		at 234 254
 		curdir 2
 
-	object 134219641
+	object 134219645
 		type PIPES_01
 		at 237 254
 		curdir 2
 
-	object 134219642
+	object 134219646
 		type WALL_METAL_D02
 		at 367 254
 		curdir 0
 
-	object 134219643
+	object 134219647
 		type PIPES_01
 		at 385 254
 		curdir 2
 
-	object 134219644
+	object 134219648
 		type PIPES_01
 		at 388 254
 		curdir 2
 
-	object 134219645
+	object 134219649
 		type PIPES_01
 		at 234 255
 		curdir 2
 
-	object 134219646
+	object 134219650
 		type PIPES_01
 		at 237 255
 		curdir 2
 
-	object 134219647
+	object 134219651
 		type WALL_METAL_D02
 		at 272 255
 		curdir 3
 
-	object 134219648
+	object 134219652
 		type PIPES_01
 		at 385 255
 		curdir 2
 
-	object 134219649
+	object 134219653
 		type PIPES_01
 		at 388 255
 		curdir 2
 
-	object 134219650
+	object 134219654
 		type PIPES_01
 		at 234 256
 		curdir 2
 
-	object 134219651
+	object 134219655
 		type PIPES_01
 		at 237 256
 		curdir 2
 
-	object 134219652
+	object 134219656
 		type WALL_METAL_D02
 		at 272 256
 		curdir 0
 
-	object 134219653
+	object 134219657
 		type WALL_METAL_D01
 		at 272 256
 		curdir 0
 
-	object 134219654
+	object 134219658
 		type SERVITOR
 		at 349 256
 		curdir 2
-		activity guard_patrol
+		activity GUARD_PATROL
 
-	object 134219655
+	object 134219659
 		type WALL_METAL_D02
 		at 367 256
 		curdir 2
 
-	object 134219656
+	object 134219660
 		type PIPES_01
 		at 385 256
 		curdir 2
 
-	object 134219657
+	object 134219661
 		type PIPES_01
 		at 388 256
 		curdir 2
 
-	object 134219658
+	object 134219662
 		type PIPES_05
 		at 234 257
 		curdir 3
 
-	object 134219659
+	object 134219663
 		type PIPES_01
 		at 234 257
 		curdir 2
 
-	object 134219660
+	object 134219664
 		type PIPES_00
 		at 235 257
 		curdir 3
 
-	object 134219661
+	object 134219665
 		type PIPES_00
 		at 236 257
 		curdir 3
 
-	object 134219662
+	object 134219666
 		type PIPES_05
 		at 237 257
 		curdir 2
 
-	object 134219663
+	object 134219667
 		type PIPES_01
 		at 237 257
 		curdir 2
 
-	object 134219664
+	object 134219668
 		type TRAP_PHONE
 		at 299 257
 		curdir 0
@@ -10262,7 +10287,7 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134219665
+	object 134219669
 		type TRAP_PHONE
 		at 324 257
 		curdir 0
@@ -10270,621 +10295,621 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134219666
+	object 134219670
 		type PATHMARKER
 		at 370 257
 		curdir 0
 		labels->location core1
-		stats->owner 134219431
+		stats->owner 134219435
 
-	object 134219667
+	object 134219671
 		type PATHMARKER
 		at 384 257
 		curdir 2
 		labels->location core1
-		stats->owner 134219666
-
-	object 134219668
-		type PIPES_01
-		at 385 257
-		curdir 2
-
-	object 134219669
-		type PIPES_05
-		at 385 257
-		curdir 3
-
-	object 134219670
-		type PIPES_00
-		at 386 257
-		curdir 3
-
-	object 134219671
-		type PIPES_00
-		at 387 257
-		curdir 3
+		stats->owner 134219670
 
 	object 134219672
 		type PIPES_01
-		at 388 257
+		at 385 257
 		curdir 2
 
 	object 134219673
 		type PIPES_05
+		at 385 257
+		curdir 3
+
+	object 134219674
+		type PIPES_00
+		at 386 257
+		curdir 3
+
+	object 134219675
+		type PIPES_00
+		at 387 257
+		curdir 3
+
+	object 134219676
+		type PIPES_01
 		at 388 257
 		curdir 2
 
-	object 134219674
+	object 134219677
+		type PIPES_05
+		at 388 257
+		curdir 2
+
+	object 134219678
 		type PATHMARKER
 		at 403 257
 		curdir 2
 		labels->location core1
-		stats->owner 134219667
+		stats->owner 134219671
 
-	object 134219675
+	object 134219679
 		type PIPES_01
 		at 234 258
 		curdir 2
 
-	object 134219676
+	object 134219680
 		type PIPES_01
 		at 237 258
 		curdir 2
 
-	object 134219677
+	object 134219681
 		type SERVITOR
-		inside 134219678
+		inside 134219682
 		curdir 3
-		schedule 0 1 SIT_AT_LOCATION 134219667
+		schedule 0 1 SIT_AT_LOCATION 134219671
 
-	object 134219678
+	object 134219682
 		type EGG_ALWAYS
 		at 384 258
 		curdir 0
 		name Servitor Patrols
 		funcs->init EGG_PATROL_INIT
 
-	object 134219679
+	object 134219683
 		type PIPES_01
 		at 385 258
 		curdir 2
 
-	object 134219680
+	object 134219684
 		type PIPES_01
 		at 388 258
 		curdir 2
 
-	object 134219681
+	object 134219685
 		type VENT_SHUT
 		at 232 259
 		curdir 0
 
-	object 134219682
+	object 134219686
 		type PIPES_01
 		at 234 259
 		curdir 2
 
-	object 134219683
+	object 134219687
 		type MAINTENANCE_HATCH_SHUT
 		at 235 259
 		curdir 1
 
-	object 134219684
+	object 134219688
 		type PIPES_01
 		at 237 259
 		curdir 2
 
-	object 134219685
+	object 134219689
 		type VENT_SHUT
 		at 238 259
 		curdir 0
 
-	object 134219686
+	object 134219690
 		type WALL_METAL_D04
 		at 272 259
 		curdir 2
 
-	object 134219687
+	object 134219691
 		type WALL_METAL_D02
 		at 367 259
 		curdir 1
 
-	object 134219688
+	object 134219692
 		type VENT_SHUT
 		at 383 259
 		curdir 0
 
-	object 134219689
+	object 134219693
 		type PIPES_01
 		at 385 259
 		curdir 2
 
-	object 134219690
+	object 134219694
 		type MAINTENANCE_HATCH_SHUT
 		at 386 259
 		curdir 0
 
-	object 134219691
+	object 134219695
 		type PIPES_01
 		at 388 259
 		curdir 2
 
-	object 134219692
+	object 134219696
 		type VENT_SHUT
 		at 389 259
 		curdir 0
 
-	object 134219693
+	object 134219697
 		type WALL_METAL_D03
 		at 272 260
 		curdir 3
 
-	object 134219694
+	object 134219698
 		type WALL_METAL_D00
 		at 272 260
 		curdir 1
 
-	object 134219695
+	object 134219699
 		type WALL_METAL_D04
 		at 344 260
 		curdir 2
 
-	object 134219696
+	object 134219700
 		type FENCE_CORNER
 		at 300 261
 		curdir 2
 
-	object 134219697
+	object 134219701
 		type FENCE
 		at 301 261
 		curdir 0
 
-	object 134219698
+	object 134219702
 		type FENCE
 		at 302 261
 		curdir 0
 
-	object 134219699
+	object 134219703
 		type FENCE
 		at 303 261
 		curdir 0
 
-	object 134219700
+	object 134219704
 		type FENCE
 		at 304 261
 		curdir 0
 
-	object 134219701
+	object 134219705
 		type FENCE
 		at 305 261
 		curdir 0
 
-	object 134219702
+	object 134219706
 		type FENCE
 		at 306 261
 		curdir 0
 
-	object 134219703
+	object 134219707
 		type FENCE
 		at 307 261
 		curdir 0
 
-	object 134219704
+	object 134219708
 		type FENCE
 		at 308 261
 		curdir 0
 
-	object 134219705
+	object 134219709
 		type FENCE
 		at 309 261
 		curdir 0
 
-	object 134219706
+	object 134219710
 		type FENCE
 		at 310 261
 		curdir 0
 
-	object 134219707
+	object 134219711
 		type FENCE
 		at 311 261
 		curdir 0
 
-	object 134219708
+	object 134219712
 		type FENCE
 		at 312 261
 		curdir 0
 
-	object 134219709
+	object 134219713
 		type FENCE
 		at 313 261
 		curdir 0
 
-	object 134219710
+	object 134219714
 		type FENCE
 		at 314 261
 		curdir 0
 
-	object 134219711
+	object 134219715
 		type FENCE
 		at 315 261
 		curdir 0
 
-	object 134219712
+	object 134219716
 		type FENCE
 		at 316 261
 		curdir 0
 
-	object 134219713
+	object 134219717
 		type FENCE
 		at 317 261
 		curdir 0
 
-	object 134219714
+	object 134219718
 		type FENCE
 		at 318 261
 		curdir 0
 
-	object 134219715
+	object 134219719
 		type FENCE
 		at 319 261
 		curdir 0
 
-	object 134219716
+	object 134219720
 		type FENCE
 		at 320 261
 		curdir 0
 
-	object 134219717
+	object 134219721
 		type FENCE
 		at 321 261
 		curdir 0
 
-	object 134219718
+	object 134219722
 		type FENCE
 		at 322 261
 		curdir 0
 
-	object 134219719
+	object 134219723
 		type FENCE_CORNER
 		at 323 261
 		curdir 3
 
-	object 134219720
+	object 134219724
 		type WALL_METAL_D00
 		at 344 261
 		curdir 1
 
-	object 134219721
+	object 134219725
 		type WALL_METAL_D03
 		at 344 261
 		curdir 3
 
-	object 134219722
+	object 134219726
 		type WALL_METAL_D02
 		at 272 262
 		curdir 2
 
-	object 134219723
+	object 134219727
 		type WALL_METAL_D02
 		at 272 262
 		curdir 0
 
-	object 134219724
+	object 134219728
 		type PIPES_02
 		at 296 262
 		curdir 0
 
-	object 134219725
+	object 134219729
 		type FENCE
 		at 300 262
 		curdir 2
 
-	object 134219726
+	object 134219730
 		type FENCE
 		at 323 262
 		curdir 2
 
-	object 134219727
+	object 134219731
 		type WALL_METAL_D01
 		at 272 263
 		curdir 3
 
-	object 134219728
+	object 134219732
 		type WALL_METAL_D04
 		at 272 263
 		curdir 3
 
-	object 134219729
+	object 134219733
 		type WALL_METAL_D02
 		at 272 263
 		curdir 1
 
-	object 134219730
+	object 134219734
 		type PIPES_02
 		at 296 263
 		curdir 1
 
-	object 134219731
+	object 134219735
 		type FENCE
 		at 300 263
 		curdir 2
 
-	object 134219732
-		type SWAMP_CORNER
-		at 305 263
-		curdir 0
-
-	object 134219733
-		type SWAMP_CORNER
-		at 305 263
-		curdir 3
-
-	object 134219734
-		type SWAMP_CORNER
-		at 305 263
-		curdir 2
-
-	object 134219735
-		type SWAMP_INSIDE
-		at 306 263
-		curdir 3
-
 	object 134219736
-		type SWAMP_INSIDE
-		at 315 263
+		type swamp_corner
+		at 305 263
 		curdir 0
 
 	object 134219737
-		type SWAMP_INSIDE
-		at 316 263
+		type swamp_corner
+		at 305 263
 		curdir 3
 
 	object 134219738
-		type FENCE
-		at 323 263
+		type swamp_corner
+		at 305 263
 		curdir 2
 
 	object 134219739
-		type WALL_METAL_D02
-		at 344 263
-		curdir 0
+		type swamp_inside
+		at 306 263
+		curdir 3
 
 	object 134219740
-		type WALL_METAL_D02
-		at 344 263
-		curdir 2
+		type swamp_inside
+		at 315 263
+		curdir 0
 
 	object 134219741
-		type WALL_METAL_D03
-		at 272 264
+		type swamp_inside
+		at 316 263
 		curdir 3
 
 	object 134219742
 		type FENCE
-		at 300 264
+		at 323 263
 		curdir 2
 
 	object 134219743
-		type SWAMP_EDGE
-		at 305 264
-		curdir 2
+		type WALL_METAL_D02
+		at 344 263
+		curdir 0
 
 	object 134219744
-		type SWAMP_CORNER
-		at 305 264
-		curdir 3
+		type WALL_METAL_D02
+		at 344 263
+		curdir 2
 
 	object 134219745
-		type SWAMP_CORNER
-		at 306 264
+		type WALL_METAL_D03
+		at 272 264
 		curdir 3
 
 	object 134219746
-		type SWAMP_CORNER
-		at 306 264
+		type FENCE
+		at 300 264
 		curdir 2
 
 	object 134219747
-		type SWAMP_CORNER
-		at 306 264
-		curdir 0
+		type swamp_edge
+		at 305 264
+		curdir 2
 
 	object 134219748
-		type SWAMP_INSIDE
-		at 307 264
+		type swamp_corner
+		at 305 264
 		curdir 3
 
 	object 134219749
+		type swamp_corner
+		at 306 264
+		curdir 3
+
+	object 134219750
+		type swamp_corner
+		at 306 264
+		curdir 2
+
+	object 134219751
+		type swamp_corner
+		at 306 264
+		curdir 0
+
+	object 134219752
+		type swamp_inside
+		at 307 264
+		curdir 3
+
+	object 134219753
 		type PIPES_04
 		at 308 264
 		curdir 0
 
-	object 134219750
+	object 134219754
 		type PIPES_00
 		at 309 264
 		curdir 3
 
-	object 134219751
+	object 134219755
 		type PIPES_00
 		at 310 264
 		curdir 3
 
-	object 134219752
+	object 134219756
 		type PIPES_00
 		at 311 264
 		curdir 3
 
-	object 134219753
+	object 134219757
 		type PIPES_05
 		at 312 264
 		curdir 0
 
-	object 134219754
+	object 134219758
 		type PIPES_00
 		at 313 264
 		curdir 3
 
-	object 134219755
-		type SWAMP_INSIDE
-		at 314 264
-		curdir 0
-
-	object 134219756
-		type PIPES_00
-		at 314 264
-		curdir 3
-
-	object 134219757
-		type SWAMP_CORNER
-		at 315 264
-		curdir 1
-
-	object 134219758
-		type SWAMP_CORNER
-		at 315 264
-		curdir 0
-
 	object 134219759
-		type PIPES_00
-		at 315 264
-		curdir 3
+		type swamp_inside
+		at 314 264
+		curdir 0
 
 	object 134219760
-		type SWAMP_INSIDE
+		type PIPES_00
+		at 314 264
+		curdir 3
+
+	object 134219761
+		type swamp_corner
+		at 315 264
+		curdir 1
+
+	object 134219762
+		type swamp_corner
+		at 315 264
+		curdir 0
+
+	object 134219763
+		type PIPES_00
+		at 315 264
+		curdir 3
+
+	object 134219764
+		type swamp_inside
 		at 316 264
 		curdir 1
 
-	object 134219761
+	object 134219765
 		type PIPES_00
 		at 316 264
 		curdir 3
 
-	object 134219762
+	object 134219766
 		type PIPES_00
 		at 317 264
 		curdir 3
 
-	object 134219763
+	object 134219767
 		type PIPES_04
 		at 318 264
 		curdir 3
 
-	object 134219764
+	object 134219768
 		type FENCE
 		at 323 264
 		curdir 2
 
-	object 134219765
+	object 134219769
 		type WALL_METAL_D02
 		at 344 264
 		curdir 1
 
-	object 134219766
+	object 134219770
 		type WALL_METAL_D04
 		at 344 264
 		curdir 3
 
-	object 134219767
+	object 134219771
 		type WALL_METAL_D01
 		at 344 264
 		curdir 3
 
-	object 134219768
+	object 134219772
 		type FENCE
 		at 300 265
 		curdir 2
 
-	object 134219769
-		type SWAMP_INSIDE
+	object 134219773
+		type swamp_inside
 		at 305 265
 		curdir 2
 
-	object 134219770
-		type SWAMP_EDGE
+	object 134219774
+		type swamp_edge
 		at 306 265
 		curdir 1
 
-	object 134219771
-		type SWAMP_CORNER
+	object 134219775
+		type swamp_corner
 		at 306 265
 		curdir 3
 
-	object 134219772
-		type SWAMP_INSIDE
+	object 134219776
+		type swamp_inside
 		at 307 265
 		curdir 1
 
-	object 134219773
+	object 134219777
 		type PIPES_00
 		at 308 265
 		curdir 0
 
-	object 134219774
+	object 134219778
 		type PIPES_00
 		at 312 265
 		curdir 0
 
-	object 134219775
-		type SWAMP_INSIDE
+	object 134219779
+		type swamp_inside
 		at 314 265
 		curdir 2
 
-	object 134219776
-		type SWAMP_CORNER
+	object 134219780
+		type swamp_corner
 		at 315 265
 		curdir 3
 
-	object 134219777
-		type SWAMP_CORNER
+	object 134219781
+		type swamp_corner
 		at 315 265
 		curdir 2
 
-	object 134219778
-		type SWAMP_INSIDE
+	object 134219782
+		type swamp_inside
 		at 316 265
 		curdir 3
 
-	object 134219779
-		type SWAMP_INSIDE
+	object 134219783
+		type swamp_inside
 		at 318 265
 		curdir 0
 
-	object 134219780
+	object 134219784
 		type PIPES_00
 		at 318 265
 		curdir 0
 
-	object 134219781
-		type SWAMP_EDGE
+	object 134219785
+		type swamp_edge
 		at 319 265
 		curdir 0
 
-	object 134219782
-		type SWAMP_CORNER
+	object 134219786
+		type swamp_corner
 		at 319 265
 		curdir 1
 
-	object 134219783
-		type SWAMP_INSIDE
+	object 134219787
+		type swamp_inside
 		at 320 265
 		curdir 3
 
-	object 134219784
-		type SWAMP_CORNER
+	object 134219788
+		type swamp_corner
 		at 320 265
 		curdir 2
 
-	object 134219785
+	object 134219789
 		type FENCE
 		at 323 265
 		curdir 2
 
-	object 134219786
+	object 134219790
 		type WALL_METAL_D03
 		at 344 265
 		curdir 3
 
-	object 134219787
+	object 134219791
 		type WALL_METAL_WIREPANEL1
 		at 272 266
 		curdir 1
@@ -10892,72 +10917,72 @@ iMZ1r00
 		funcs->wield AWAKEN_CURRENT
 		funcs->user1 DEFPOST_WIRECUT
 
-	object 134219788
+	object 134219792
 		type FENCE
 		at 300 266
 		curdir 2
 
-	object 134219789
+	object 134219793
 		type PIPES_00
 		at 308 266
 		curdir 0
 
-	object 134219790
+	object 134219794
 		type PIPES_00
 		at 312 266
 		curdir 0
 
-	object 134219791
-		type SWAMP_INSIDE
+	object 134219795
+		type swamp_inside
 		at 315 266
 		curdir 2
 
-	object 134219792
-		type SWAMP_INSIDE
+	object 134219796
+		type swamp_inside
 		at 316 266
 		curdir 1
 
-	object 134219793
-		type SWAMP_INSIDE
+	object 134219797
+		type swamp_inside
 		at 318 266
 		curdir 2
 
-	object 134219794
+	object 134219798
 		type PIPES_00
 		at 318 266
 		curdir 0
 
-	object 134219795
-		type SWAMP_CORNER
+	object 134219799
+		type swamp_corner
 		at 319 266
 		curdir 2
 
-	object 134219796
-		type SWAMP_CORNER
+	object 134219800
+		type swamp_corner
 		at 319 266
 		curdir 3
 
-	object 134219797
-		type SWAMP_CORNER
+	object 134219801
+		type swamp_corner
 		at 320 266
 		curdir 3
 
-	object 134219798
-		type SWAMP_CORNER
+	object 134219802
+		type swamp_corner
 		at 320 266
 		curdir 0
 
-	object 134219799
-		type SWAMP_INSIDE
+	object 134219803
+		type swamp_inside
 		at 321 266
 		curdir 3
 
-	object 134219800
+	object 134219804
 		type FENCE
 		at 323 266
 		curdir 2
 
-	object 134219801
+	object 134219805
 		type WALL_METAL_WIREPANEL1
 		at 344 266
 		curdir 1
@@ -10965,644 +10990,644 @@ iMZ1r00
 		funcs->wield AWAKEN_CURRENT
 		funcs->user1 DEFPOST_WIRECUT
 
-	object 134219802
+	object 134219806
 		type TRAP_RADIUS
 		at 348 266
 		curdir 0
 		tag -1
 		funcs->use CALLWIELD_TAGS
 
-	object 134219803
+	object 134219807
 		type WALL_METAL_D03
 		at 272 267
 		curdir 2
 
-	object 134219804
+	object 134219808
 		type WALL_METAL_D03
 		at 272 267
 		curdir 0
 
-	object 134219805
+	object 134219809
 		type PIPES_04
 		at 296 267
 		curdir 0
 
-	object 134219806
+	object 134219810
 		type PIPES_00
 		at 297 267
 		curdir 3
 
-	object 134219807
+	object 134219811
 		type PIPES_00
 		at 298 267
 		curdir 3
 
-	object 134219808
+	object 134219812
 		type PIPES_00
 		at 299 267
 		curdir 3
 
-	object 134219809
+	object 134219813
 		type FENCE
 		at 300 267
 		curdir 2
 
-	object 134219810
+	object 134219814
 		type PIPES_00
 		at 300 267
 		curdir 3
 
-	object 134219811
+	object 134219815
 		type PIPES_00
 		at 301 267
 		curdir 3
 
-	object 134219812
-		type PIPES_00
-		at 302 267
-		curdir 3
-
-	object 134219813
-		type SWAMP_INSIDE
-		at 302 267
-		curdir 0
-
-	object 134219814
-		type PIPES_00
-		at 303 267
-		curdir 3
-
-	object 134219815
-		type SWAMP_EDGE
-		at 303 267
-		curdir 0
-
 	object 134219816
-		type SWAMP_CORNER
-		at 303 267
-		curdir 1
+		type PIPES_00
+		at 302 267
+		curdir 3
 
 	object 134219817
-		type PIPES_00
-		at 304 267
-		curdir 3
+		type swamp_inside
+		at 302 267
+		curdir 0
 
 	object 134219818
-		type SWAMP_INSIDE
-		at 304 267
+		type PIPES_00
+		at 303 267
 		curdir 3
 
 	object 134219819
-		type SWAMP_CORNER
+		type swamp_edge
+		at 303 267
+		curdir 0
+
+	object 134219820
+		type swamp_corner
+		at 303 267
+		curdir 1
+
+	object 134219821
+		type PIPES_00
+		at 304 267
+		curdir 3
+
+	object 134219822
+		type swamp_inside
+		at 304 267
+		curdir 3
+
+	object 134219823
+		type swamp_corner
 		at 304 267
 		curdir 2
 
-	object 134219820
+	object 134219824
 		type PIPES_00
 		at 305 267
 		curdir 3
 
-	object 134219821
+	object 134219825
 		type PIPES_00
 		at 306 267
 		curdir 3
 
-	object 134219822
+	object 134219826
 		type PIPES_05
 		at 307 267
 		curdir 0
 
-	object 134219823
+	object 134219827
 		type PIPES_05
 		at 308 267
 		curdir 1
 
-	object 134219824
+	object 134219828
 		type PIPES_00
 		at 309 267
 		curdir 3
 
-	object 134219825
-		type SWAMP_CORNER
+	object 134219829
+		type swamp_corner
 		at 309 267
 		curdir 2
 
-	object 134219826
-		type SWAMP_INSIDE
+	object 134219830
+		type swamp_inside
 		at 309 267
 		curdir 0
 
-	object 134219827
+	object 134219831
 		type PIPES_00
 		at 310 267
 		curdir 3
 
-	object 134219828
-		type SWAMP_CORNER
+	object 134219832
+		type swamp_corner
 		at 310 267
 		curdir 1
 
-	object 134219829
-		type SWAMP_EDGE
+	object 134219833
+		type swamp_edge
 		at 310 267
 		curdir 0
 
-	object 134219830
+	object 134219834
 		type PIPES_00
 		at 311 267
 		curdir 3
 
-	object 134219831
-		type SWAMP_INSIDE
+	object 134219835
+		type swamp_inside
 		at 311 267
 		curdir 2
 
-	object 134219832
+	object 134219836
 		type PIPES_05
 		at 312 267
 		curdir 1
 
-	object 134219833
+	object 134219837
 		type PIPES_00
 		at 313 267
 		curdir 3
 
-	object 134219834
+	object 134219838
 		type PIPES_00
 		at 314 267
 		curdir 3
 
-	object 134219835
+	object 134219839
 		type PIPES_00
 		at 315 267
 		curdir 3
 
-	object 134219836
+	object 134219840
 		type PIPES_00
 		at 316 267
 		curdir 3
 
-	object 134219837
+	object 134219841
 		type PIPES_05
 		at 317 267
 		curdir 0
 
-	object 134219838
+	object 134219842
 		type PIPES_00
 		at 318 267
 		curdir 3
 
-	object 134219839
+	object 134219843
 		type PIPES_05
 		at 318 267
 		curdir 1
 
-	object 134219840
+	object 134219844
 		type PIPES_00
 		at 319 267
 		curdir 3
 
-	object 134219841
-		type SWAMP_CORNER
+	object 134219845
+		type swamp_corner
 		at 319 267
 		curdir 0
 
-	object 134219842
-		type SWAMP_CORNER
+	object 134219846
+		type swamp_corner
 		at 319 267
 		curdir 1
 
-	object 134219843
-		type PIPES_00
-		at 320 267
-		curdir 3
-
-	object 134219844
-		type SWAMP_CORNER
-		at 320 267
-		curdir 2
-
-	object 134219845
-		type PIPES_00
-		at 321 267
-		curdir 3
-
-	object 134219846
-		type SWAMP_CORNER
-		at 321 267
-		curdir 1
-
 	object 134219847
-		type SWAMP_CORNER
-		at 321 267
+		type PIPES_00
+		at 320 267
 		curdir 3
 
 	object 134219848
-		type PIPES_00
-		at 322 267
-		curdir 3
-
-	object 134219849
-		type FENCE
-		at 323 267
+		type swamp_corner
+		at 320 267
 		curdir 2
 
-	object 134219850
+	object 134219849
 		type PIPES_00
-		at 323 267
+		at 321 267
 		curdir 3
 
+	object 134219850
+		type swamp_corner
+		at 321 267
+		curdir 1
+
 	object 134219851
-		type PIPES_00
-		at 324 267
+		type swamp_corner
+		at 321 267
 		curdir 3
 
 	object 134219852
 		type PIPES_00
-		at 325 267
+		at 322 267
 		curdir 3
 
 	object 134219853
+		type FENCE
+		at 323 267
+		curdir 2
+
+	object 134219854
+		type PIPES_00
+		at 323 267
+		curdir 3
+
+	object 134219855
+		type PIPES_00
+		at 324 267
+		curdir 3
+
+	object 134219856
+		type PIPES_00
+		at 325 267
+		curdir 3
+
+	object 134219857
 		type PIPES_00
 		at 326 267
 		curdir 3
 
-	object 134219854
+	object 134219858
 		type WALL_METAL_D03
 		at 344 267
 		curdir 0
 
-	object 134219855
+	object 134219859
 		type WALL_METAL_D03
 		at 344 267
 		curdir 2
 
-	object 134219856
+	object 134219860
 		type WALL_METAL_D00
 		at 272 268
 		curdir 2
 
-	object 134219857
+	object 134219861
 		type PIPES_00
 		at 296 268
 		curdir 1
 
-	object 134219858
+	object 134219862
 		type PIPES_02
 		at 296 268
 		curdir 0
 
-	object 134219859
+	object 134219863
 		type FENCE
 		at 300 268
 		curdir 2
 
-	object 134219860
-		type SWAMP_INSIDE
+	object 134219864
+		type swamp_inside
 		at 302 268
 		curdir 2
 
-	object 134219861
-		type SWAMP_CORNER
+	object 134219865
+		type swamp_corner
 		at 303 268
 		curdir 2
 
-	object 134219862
-		type SWAMP_CORNER
+	object 134219866
+		type swamp_corner
 		at 303 268
 		curdir 3
 
-	object 134219863
-		type SWAMP_INSIDE
+	object 134219867
+		type swamp_inside
 		at 304 268
 		curdir 1
 
-	object 134219864
-		type SWAMP_CORNER
+	object 134219868
+		type swamp_corner
 		at 304 268
 		curdir 0
 
-	object 134219865
+	object 134219869
 		type PIPES_00
 		at 307 268
 		curdir 0
 
-	object 134219866
-		type SWAMP_INSIDE
+	object 134219870
+		type swamp_inside
 		at 308 268
 		curdir 0
 
-	object 134219867
-		type SWAMP_CORNER
+	object 134219871
+		type swamp_corner
 		at 309 268
 		curdir 0
 
-	object 134219868
-		type SWAMP_CORNER
+	object 134219872
+		type swamp_corner
 		at 309 268
 		curdir 1
 
-	object 134219869
-		type SWAMP_EDGE
+	object 134219873
+		type swamp_edge
 		at 310 268
 		curdir 1
 
-	object 134219870
-		type SWAMP_CORNER
+	object 134219874
+		type swamp_corner
 		at 310 268
 		curdir 3
 
-	object 134219871
-		type SWAMP_CORNER
+	object 134219875
+		type swamp_corner
 		at 311 268
 		curdir 2
 
-	object 134219872
-		type SWAMP_CORNER
+	object 134219876
+		type swamp_corner
 		at 311 268
 		curdir 0
 
-	object 134219873
-		type SWAMP_CORNER
+	object 134219877
+		type swamp_corner
 		at 311 268
 		curdir 3
 
-	object 134219874
+	object 134219878
 		type PIPES_00
 		at 317 268
 		curdir 0
 
-	object 134219875
-		type SWAMP_INSIDE
+	object 134219879
+		type swamp_inside
 		at 318 268
 		curdir 2
 
-	object 134219876
-		type SWAMP_CORNER
+	object 134219880
+		type swamp_corner
 		at 319 268
 		curdir 2
 
-	object 134219877
-		type SWAMP_CORNER
+	object 134219881
+		type swamp_corner
 		at 319 268
 		curdir 3
 
-	object 134219878
-		type SWAMP_CORNER
+	object 134219882
+		type swamp_corner
 		at 320 268
 		curdir 1
 
-	object 134219879
-		type SWAMP_CORNER
+	object 134219883
+		type swamp_corner
 		at 320 268
 		curdir 0
 
-	object 134219880
-		type SWAMP_INSIDE
+	object 134219884
+		type swamp_inside
 		at 321 268
 		curdir 1
 
-	object 134219881
+	object 134219885
 		type FENCE
 		at 323 268
 		curdir 2
 
-	object 134219882
+	object 134219886
 		type WALL_METAL_D00
 		at 344 268
 		curdir 2
 
-	object 134219883
+	object 134219887
 		type WALL_METAL_D00
 		at 272 269
 		curdir 1
 
-	object 134219884
+	object 134219888
 		type PIPES_01
 		at 296 269
 		curdir 2
 
-	object 134219885
+	object 134219889
 		type FENCE
 		at 300 269
 		curdir 2
 
-	object 134219886
-		type SWAMP_EDGE
+	object 134219890
+		type swamp_edge
 		at 303 269
 		curdir 2
 
-	object 134219887
-		type SWAMP_EDGE
+	object 134219891
+		type swamp_edge
 		at 304 269
 		curdir 3
 
-	object 134219888
+	object 134219892
 		type PIPES_04
 		at 307 269
 		curdir 2
 
-	object 134219889
-		type SWAMP_INSIDE
+	object 134219893
+		type swamp_inside
 		at 308 269
 		curdir 2
 
-	object 134219890
+	object 134219894
 		type PIPES_00
 		at 308 269
 		curdir 3
 
-	object 134219891
-		type SWAMP_INSIDE
+	object 134219895
+		type swamp_inside
 		at 309 269
 		curdir 3
 
-	object 134219892
+	object 134219896
 		type PIPES_00
 		at 309 269
 		curdir 3
 
-	object 134219893
-		type SWAMP_INSIDE
+	object 134219897
+		type swamp_inside
 		at 310 269
 		curdir 0
 
-	object 134219894
+	object 134219898
 		type PIPES_00
 		at 310 269
 		curdir 3
 
-	object 134219895
-		type SWAMP_CORNER
+	object 134219899
+		type swamp_corner
 		at 311 269
 		curdir 0
 
-	object 134219896
-		type SWAMP_CORNER
+	object 134219900
+		type swamp_corner
 		at 311 269
 		curdir 1
 
-	object 134219897
+	object 134219901
 		type PIPES_00
 		at 311 269
 		curdir 3
 
-	object 134219898
+	object 134219902
 		type PIPES_05
 		at 312 269
 		curdir 0
 
-	object 134219899
+	object 134219903
 		type PIPES_00
 		at 313 269
 		curdir 3
 
-	object 134219900
+	object 134219904
 		type PIPES_00
 		at 314 269
 		curdir 3
 
-	object 134219901
+	object 134219905
 		type PIPES_00
 		at 315 269
 		curdir 3
 
-	object 134219902
+	object 134219906
 		type PIPES_00
 		at 316 269
 		curdir 3
 
-	object 134219903
+	object 134219907
 		type PIPES_04
 		at 317 269
 		curdir 1
 
-	object 134219904
-		type SWAMP_INSIDE
+	object 134219908
+		type swamp_inside
 		at 319 269
 		curdir 2
 
-	object 134219905
-		type SWAMP_INSIDE
+	object 134219909
+		type swamp_inside
 		at 320 269
 		curdir 1
 
-	object 134219906
+	object 134219910
 		type FENCE
 		at 323 269
 		curdir 2
 
-	object 134219907
+	object 134219911
 		type WALL_METAL_D00
 		at 344 269
 		curdir 1
 
-	object 134219908
+	object 134219912
 		type WALL_METAL_D04
 		at 272 270
 		curdir 3
 
-	object 134219909
+	object 134219913
 		type WALL_METAL_D04
 		at 272 270
 		curdir 1
 
-	object 134219910
+	object 134219914
 		type WALL_METAL_D02
 		at 272 270
 		curdir 2
 
-	object 134219911
+	object 134219915
 		type PIPES_01
 		at 296 270
 		curdir 3
 
-	object 134219912
+	object 134219916
 		type FENCE
 		at 300 270
 		curdir 2
 
-	object 134219913
-		type SWAMP_INSIDE
+	object 134219917
+		type swamp_inside
 		at 302 270
 		curdir 0
 
-	object 134219914
-		type SWAMP_INSIDE
+	object 134219918
+		type swamp_inside
 		at 303 270
 		curdir 1
 
-	object 134219915
-		type SWAMP_CORNER
-		at 306 270
-		curdir 0
-
-	object 134219916
-		type SWAMP_CORNER
-		at 306 270
-		curdir 1
-
-	object 134219917
-		type SWAMP_CORNER
-		at 307 270
-		curdir 3
-
-	object 134219918
-		type SWAMP_CORNER
-		at 307 270
-		curdir 2
-
 	object 134219919
-		type SWAMP_CORNER
-		at 307 270
+		type swamp_corner
+		at 306 270
 		curdir 0
 
 	object 134219920
-		type SWAMP_CORNER
-		at 309 270
-		curdir 2
+		type swamp_corner
+		at 306 270
+		curdir 1
 
 	object 134219921
-		type SWAMP_CORNER
-		at 309 270
+		type swamp_corner
+		at 307 270
 		curdir 3
 
 	object 134219922
-		type SWAMP_CORNER
-		at 310 270
-		curdir 1
+		type swamp_corner
+		at 307 270
+		curdir 2
 
 	object 134219923
-		type SWAMP_CORNER
-		at 310 270
+		type swamp_corner
+		at 307 270
 		curdir 0
 
 	object 134219924
+		type swamp_corner
+		at 309 270
+		curdir 2
+
+	object 134219925
+		type swamp_corner
+		at 309 270
+		curdir 3
+
+	object 134219926
+		type swamp_corner
+		at 310 270
+		curdir 1
+
+	object 134219927
+		type swamp_corner
+		at 310 270
+		curdir 0
+
+	object 134219928
 		type PIPES_00
 		at 312 270
 		curdir 0
 
-	object 134219925
+	object 134219929
 		type FENCE
 		at 323 270
 		curdir 2
 
-	object 134219926
+	object 134219930
 		type WALL_METAL_D02
 		at 344 270
 		curdir 2
 
-	object 134219927
+	object 134219931
 		type WALL_METAL_D04
 		at 344 270
 		curdir 1
 
-	object 134219928
+	object 134219932
 		type WALL_METAL_D04
 		at 344 270
 		curdir 3
 
-	object 134219929
+	object 134219933
 		type TRAP_PHONE
 		at 347 270
 		curdir 0
@@ -11610,538 +11635,538 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134219930
+	object 134219934
 		type DEFENCE_POST_DOWN
 		at 273 271
 		curdir 0
 		tag 56
 
-	object 134219931
+	object 134219935
 		type DEFENCE_POST_DOWN
 		at 278 271
 		curdir 0
 		tag 56
 		stats->damage 1000
-		stats->owner 134219930
+		stats->owner 134219934
 		funcs->wield DEFPOST_RISE
 		funcs->user1 defpost_start_hv
 
-	object 134219932
+	object 134219936
 		type WALL_METAL_D02
 		at 296 271
 		curdir 2
 
-	object 134219933
+	object 134219937
 		type PIPES_01
 		at 296 271
 		curdir 1
 
-	object 134219934
+	object 134219938
 		type FENCE
 		at 300 271
 		curdir 2
 
-	object 134219935
-		type SWAMP_CORNER
+	object 134219939
+		type swamp_corner
 		at 306 271
 		curdir 2
 
-	object 134219936
-		type SWAMP_CORNER
+	object 134219940
+		type swamp_corner
 		at 306 271
 		curdir 3
 
-	object 134219937
-		type SWAMP_CORNER
+	object 134219941
+		type swamp_corner
 		at 307 271
 		curdir 1
 
-	object 134219938
-		type SWAMP_EDGE
+	object 134219942
+		type swamp_edge
 		at 307 271
 		curdir 0
 
-	object 134219939
+	object 134219943
 		type PIPES_00
 		at 312 271
 		curdir 0
 
-	object 134219940
+	object 134219944
 		type FENCE
 		at 323 271
 		curdir 2
 
-	object 134219941
+	object 134219945
 		type DEFENCE_POST_DOWN
 		at 345 271
 		curdir 0
 		tag 1
 		stats->damage 1000
-		stats->owner 134219942
+		stats->owner 134219946
 		funcs->wield DEFPOST_RISE
 		funcs->user1 defpost_start_hv
 
-	object 134219942
+	object 134219946
 		type DEFENCE_POST_DOWN
 		at 350 271
 		curdir 0
 		tag 1
 		stats->damage 1000
-		stats->owner 134219941
+		stats->owner 134219945
 		funcs->wield DEFPOST_RISE
 		funcs->user1 defpost_start_hv
 
-	object 134219943
+	object 134219947
 		type PIPES_03
 		at 385 271
 		curdir 0
 
-	object 134219944
+	object 134219948
 		type POWERLINK
 		at 390 271
 		curdir 0
 
-	object 134219945
+	object 134219949
 		type PIPES_00
 		at 233 272
 		curdir 0
 
-	object 134219946
+	object 134219950
 		type PIPES_00
 		at 234 272
 		curdir 0
 
-	object 134219947
+	object 134219951
 		type PIPES_00
 		at 237 272
 		curdir 0
 
-	object 134219948
+	object 134219952
 		type PIPES_00
 		at 238 272
 		curdir 0
 
-	object 134219949
+	object 134219953
 		type WALL_METAL_D03
 		at 272 272
 		curdir 2
 
-	object 134219950
+	object 134219954
 		type WALL_METAL_D02
 		at 272 272
 		curdir 0
 
-	object 134219951
+	object 134219955
 		type PIPES_04
 		at 296 272
 		curdir 1
 
-	object 134219952
+	object 134219956
 		type FENCE_CORNER
 		at 300 272
 		curdir 0
 
-	object 134219953
+	object 134219957
 		type FENCE
 		at 301 272
 		curdir 0
 
-	object 134219954
+	object 134219958
 		type FENCE
 		at 302 272
 		curdir 0
 
-	object 134219955
+	object 134219959
 		type FENCE
 		at 303 272
 		curdir 0
 
-	object 134219956
+	object 134219960
 		type FENCE
 		at 304 272
 		curdir 0
 
-	object 134219957
+	object 134219961
 		type FENCE
 		at 305 272
 		curdir 0
 
-	object 134219958
+	object 134219962
 		type FENCE
 		at 306 272
 		curdir 0
 
-	object 134219959
+	object 134219963
 		type FENCE
 		at 307 272
 		curdir 0
 
-	object 134219960
+	object 134219964
 		type FENCE
 		at 308 272
 		curdir 0
 
-	object 134219961
+	object 134219965
 		type FENCE
 		at 309 272
 		curdir 0
 
-	object 134219962
+	object 134219966
 		type FENCE
 		at 310 272
 		curdir 0
 
-	object 134219963
+	object 134219967
 		type FENCE
 		at 311 272
 		curdir 0
 
-	object 134219964
-		type FENCE
-		at 312 272
-		curdir 0
-
-	object 134219965
-		type PIPES_00
-		at 312 272
-		curdir 0
-
-	object 134219966
-		type FENCE
-		at 313 272
-		curdir 0
-
-	object 134219967
-		type FENCE
-		at 314 272
-		curdir 0
-
 	object 134219968
 		type FENCE
-		at 315 272
+		at 312 272
 		curdir 0
 
 	object 134219969
-		type FENCE
-		at 316 272
+		type PIPES_00
+		at 312 272
 		curdir 0
 
 	object 134219970
 		type FENCE
-		at 317 272
+		at 313 272
 		curdir 0
 
 	object 134219971
 		type FENCE
-		at 318 272
+		at 314 272
 		curdir 0
 
 	object 134219972
 		type FENCE
-		at 319 272
+		at 315 272
 		curdir 0
 
 	object 134219973
 		type FENCE
-		at 320 272
+		at 316 272
 		curdir 0
 
 	object 134219974
 		type FENCE
-		at 321 272
+		at 317 272
 		curdir 0
 
 	object 134219975
 		type FENCE
-		at 322 272
+		at 318 272
 		curdir 0
 
 	object 134219976
+		type FENCE
+		at 319 272
+		curdir 0
+
+	object 134219977
+		type FENCE
+		at 320 272
+		curdir 0
+
+	object 134219978
+		type FENCE
+		at 321 272
+		curdir 0
+
+	object 134219979
+		type FENCE
+		at 322 272
+		curdir 0
+
+	object 134219980
 		type FENCE_CORNER
 		at 323 272
 		curdir 1
 
-	object 134219977
+	object 134219981
 		type WALL_METAL_D02
 		at 344 272
 		curdir 0
 
-	object 134219978
+	object 134219982
 		type WALL_METAL_D03
 		at 344 272
 		curdir 2
 
-	object 134219979
+	object 134219983
 		type PIPES_00
 		at 384 272
 		curdir 0
 
-	object 134219980
+	object 134219984
 		type PIPES_00
 		at 385 272
 		curdir 0
 
-	object 134219981
+	object 134219985
 		type PIPES_00
 		at 388 272
 		curdir 0
 
-	object 134219982
+	object 134219986
 		type PIPES_00
 		at 389 272
 		curdir 0
 
-	object 134219983
+	object 134219987
 		type PIPES_00
 		at 233 273
 		curdir 0
 
-	object 134219984
+	object 134219988
 		type PIPES_00
 		at 234 273
 		curdir 0
 
-	object 134219985
+	object 134219989
 		type PIPES_00
 		at 237 273
 		curdir 0
 
-	object 134219986
+	object 134219990
 		type PIPES_00
 		at 238 273
 		curdir 0
 
-	object 134219987
+	object 134219991
 		type WALL_METAL_D03
 		at 272 273
 		curdir 0
 
-	object 134219988
+	object 134219992
 		type WALL_METAL_D02
 		at 272 273
 		curdir 2
 
-	object 134219989
+	object 134219993
 		type PIPES_00
 		at 312 273
 		curdir 0
 
-	object 134219990
+	object 134219994
 		type WALL_METAL_D02
 		at 344 273
 		curdir 2
 
-	object 134219991
+	object 134219995
 		type WALL_METAL_D03
 		at 344 273
 		curdir 0
 
-	object 134219992
+	object 134219996
 		type PIPES_00
 		at 384 273
 		curdir 0
 
-	object 134219993
+	object 134219997
 		type PIPES_00
 		at 385 273
 		curdir 0
 
-	object 134219994
+	object 134219998
 		type PIPES_00
 		at 388 273
 		curdir 0
 
-	object 134219995
+	object 134219999
 		type PIPES_00
 		at 389 273
 		curdir 0
 
-	object 134219996
+	object 134220000
 		type PIPES_04
 		at 231 274
 		curdir 0
 
-	object 134219997
+	object 134220001
 		type PIPES_00
 		at 232 274
 		curdir 2
 
-	object 134219998
+	object 134220002
 		type PIPES_04
 		at 233 274
 		curdir 1
 
-	object 134219999
+	object 134220003
 		type PIPES_00
 		at 234 274
 		curdir 0
 
-	object 134220000
+	object 134220004
 		type PIPES_00
 		at 237 274
 		curdir 0
 
-	object 134220001
+	object 134220005
 		type PIPES_04
 		at 238 274
 		curdir 2
 
-	object 134220002
+	object 134220006
 		type PIPES_00
 		at 239 274
 		curdir 2
 
-	object 134220003
+	object 134220007
 		type PIPES_04
 		at 240 274
 		curdir 3
 
-	object 134220004
+	object 134220008
 		type PIPES_00
 		at 272 274
 		curdir 2
 
-	object 134220005
+	object 134220009
 		type PIPES_00
 		at 273 274
 		curdir 2
 
-	object 134220006
+	object 134220010
 		type PIPES_00
 		at 274 274
 		curdir 2
 
-	object 134220007
+	object 134220011
 		type PIPES_00
 		at 275 274
 		curdir 2
 
-	object 134220008
+	object 134220012
 		type PIPES_05
 		at 276 274
 		curdir 0
 
-	object 134220009
+	object 134220013
 		type PIPES_00
 		at 277 274
 		curdir 2
 
-	object 134220010
+	object 134220014
 		type PIPES_00
 		at 278 274
 		curdir 2
 
-	object 134220011
+	object 134220015
 		type PIPES_00
 		at 279 274
 		curdir 2
 
-	object 134220012
+	object 134220016
 		type WALL_METAL_D00
 		at 296 274
 		curdir 1
 
-	object 134220013
+	object 134220017
 		type PIPES_00
 		at 312 274
 		curdir 0
 
-	object 134220014
+	object 134220018
 		type PIPES_00
 		at 344 274
 		curdir 2
 
-	object 134220015
+	object 134220019
 		type PIPES_00
 		at 345 274
 		curdir 2
 
-	object 134220016
+	object 134220020
 		type PIPES_00
 		at 346 274
 		curdir 2
 
-	object 134220017
+	object 134220021
 		type PIPES_00
 		at 347 274
 		curdir 2
 
-	object 134220018
+	object 134220022
 		type PIPES_05
 		at 348 274
 		curdir 0
 
-	object 134220019
+	object 134220023
 		type PIPES_00
 		at 349 274
 		curdir 2
 
-	object 134220020
+	object 134220024
 		type PIPES_00
 		at 350 274
 		curdir 2
 
-	object 134220021
+	object 134220025
 		type PIPES_00
 		at 351 274
 		curdir 2
 
-	object 134220022
+	object 134220026
 		type PIPES_04
 		at 382 274
 		curdir 0
 
-	object 134220023
+	object 134220027
 		type PIPES_00
 		at 383 274
 		curdir 2
 
-	object 134220024
+	object 134220028
 		type PIPES_04
 		at 384 274
 		curdir 1
 
-	object 134220025
+	object 134220029
 		type PIPES_00
 		at 385 274
 		curdir 0
 
-	object 134220026
+	object 134220030
 		type PIPES_00
 		at 388 274
 		curdir 0
 
-	object 134220027
+	object 134220031
 		type PIPES_04
 		at 389 274
 		curdir 2
 
-	object 134220028
+	object 134220032
 		type PIPES_00
 		at 390 274
 		curdir 2
 
-	object 134220029
+	object 134220033
 		type PIPES_04
 		at 391 274
 		curdir 3
 
-	object 134220030
+	object 134220034
 		type PIPES_00
 		at 231 275
 		curdir 0
 
-	object 134220031
+	object 134220035
 		type PIPES_04
 		at 233 275
 		curdir 0
 
-	object 134220032
+	object 134220036
 		type PIPES_04
 		at 234 275
 		curdir 1
 
-	object 134220033
+	object 134220037
 		type TRAP_PHONE
 		at 236 275
 		curdir 0
@@ -12150,82 +12175,82 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134220034
+	object 134220038
 		type PIPES_04
 		at 237 275
 		curdir 2
 
-	object 134220035
+	object 134220039
 		type PIPES_04
 		at 238 275
 		curdir 3
 
-	object 134220036
+	object 134220040
 		type PIPES_00
 		at 240 275
 		curdir 0
 
-	object 134220037
+	object 134220041
 		type WALL_METAL_D04
 		at 272 275
 		curdir 0
 
-	object 134220038
+	object 134220042
 		type WALL_METAL_D04
 		at 272 275
 		curdir 1
 
-	object 134220039
+	object 134220043
 		type WALL_METAL_D00
 		at 272 275
 		curdir 3
 
-	object 134220040
+	object 134220044
 		type PIPES_00
 		at 276 275
 		curdir 1
 
-	object 134220041
+	object 134220045
 		type PIPES_00
 		at 312 275
 		curdir 0
 
-	object 134220042
+	object 134220046
 		type WALL_METAL_D00
 		at 344 275
 		curdir 3
 
-	object 134220043
+	object 134220047
 		type WALL_METAL_D04
 		at 344 275
 		curdir 1
 
-	object 134220044
+	object 134220048
 		type WALL_METAL_D04
 		at 344 275
 		curdir 0
 
-	object 134220045
+	object 134220049
 		type PIPES_00
 		at 348 275
 		curdir 1
 
-	object 134220046
+	object 134220050
 		type PIPES_00
 		at 382 275
 		curdir 0
 
-	object 134220047
+	object 134220051
 		type PIPES_04
 		at 384 275
 		curdir 0
 
-	object 134220048
+	object 134220052
 		type PIPES_04
 		at 385 275
 		curdir 1
 
-	object 134220049
+	object 134220053
 		type TRAP_PHONE
 		at 387 275
 		curdir 0
@@ -12234,124 +12259,124 @@ iMZ1r00
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object 134220050
+	object 134220054
 		type PIPES_04
 		at 388 275
 		curdir 2
 
-	object 134220051
+	object 134220055
 		type PIPES_04
 		at 389 275
 		curdir 3
 
-	object 134220052
+	object 134220056
 		type PIPES_00
 		at 391 275
 		curdir 0
 
-	object 134220053
+	object 134220057
 		type WALL_METAL_D00
 		at 272 276
 		curdir 2
 
-	object 134220054
+	object 134220058
 		type WALL_METAL_D00
 		at 272 276
 		curdir 1
 
-	object 134220055
+	object 134220059
 		type PIPES_00
 		at 276 276
 		curdir 1
 
-	object 134220056
+	object 134220060
 		type WALL_METAL_D00
 		at 344 276
 		curdir 1
 
-	object 134220057
+	object 134220061
 		type WALL_METAL_D00
 		at 344 276
 		curdir 2
 
-	object 134220058
+	object 134220062
 		type PIPES_00
 		at 348 276
 		curdir 1
 
-	object 134220059
+	object 134220063
 		type FORCEFIELD_OFF
 		at 234 277
 		curdir 2
 		tag 36
 
-	object 134220060
+	object 134220064
 		type FORCEFIELD_OFF
 		at 235 277
 		curdir 2
 		tag 36
 
-	object 134220061
+	object 134220065
 		type FORCEFIELD_OFF
 		at 236 277
 		curdir 2
 		tag 36
 
-	object 134220062
+	object 134220066
 		type PIPES_00
 		at 276 277
 		curdir 1
 
-	object 134220063
+	object 134220067
 		type PIPES_00
 		at 348 277
 		curdir 1
 
-	object 134220064
+	object 134220068
 		type FORCEFIELD_ON
 		at 385 277
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220065
+	object 134220069
 		type FORCEFIELD_ON
 		at 386 277
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220066
+	object 134220070
 		type FORCEFIELD_ON
 		at 387 277
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220067
+	object 134220071
 		type FORCEFIELD_OFF
 		at 234 278
 		curdir 2
 		tag 36
 
-	object 134220068
+	object 134220072
 		type FORCEFIELD_OFF
 		at 235 278
 		curdir 2
 		tag 36
 
-	object 134220069
+	object 134220073
 		type FORCEFIELD_OFF
 		at 236 278
 		curdir 2
 		tag 36
 
-	object 134220070
+	object 134220074
 		type WALL_METAL_D02
 		at 272 278
 		curdir 0
 
-	object 134220071
+	object 134220075
 		type WALL_METAL_WIREPANEL1
 		at 272 278
 		curdir 1
@@ -12359,17 +12384,17 @@ iMZ1r00
 		funcs->wield AWAKEN_CURRENT
 		funcs->user1 DEFPOST_WIRECUT
 
-	object 134220072
+	object 134220076
 		type PIPES_00
 		at 276 278
 		curdir 1
 
-	object 134220073
+	object 134220077
 		type WALL_METAL_D02
 		at 344 278
 		curdir 0
 
-	object 134220074
+	object 134220078
 		type WALL_METAL_WIREPANEL1
 		at 344 278
 		curdir 1
@@ -12377,736 +12402,736 @@ iMZ1r00
 		funcs->wield AWAKEN_CURRENT
 		funcs->user1 DEFPOST_WIRECUT
 
-	object 134220075
+	object 134220079
 		type PIPES_00
 		at 348 278
 		curdir 1
 
-	object 134220076
+	object 134220080
 		type FORCEFIELD_ON
 		at 385 278
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220077
+	object 134220081
 		type FORCEFIELD_ON
 		at 386 278
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220078
+	object 134220082
 		type FORCEFIELD_ON
 		at 387 278
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220079
+	object 134220083
 		type FORCEFIELD_OFF
 		at 234 279
 		curdir 2
 		tag 36
 
-	object 134220080
+	object 134220084
 		type FORCEFIELD_OFF
 		at 235 279
 		curdir 2
 		tag 36
 
-	object 134220081
+	object 134220085
 		type FORCEFIELD_OFF
 		at 236 279
 		curdir 2
 		tag 36
 
-	object 134220082
+	object 134220086
 		type WALL_METAL_D01
 		at 272 279
 		curdir 3
 
-	object 134220083
+	object 134220087
 		type WALL_METAL_D02
 		at 272 279
 		curdir 1
 
-	object 134220084
+	object 134220088
 		type PIPES_04
 		at 276 279
 		curdir 2
 
-	object 134220085
+	object 134220089
 		type PIPES_00
 		at 277 279
 		curdir 2
 
-	object 134220086
+	object 134220090
 		type PIPES_05
 		at 278 279
 		curdir 0
 
-	object 134220087
+	object 134220091
 		type PIPES_00
 		at 279 279
 		curdir 2
 
-	object 134220088
+	object 134220092
 		type WALL_METAL_D02
 		at 344 279
 		curdir 1
 
-	object 134220089
+	object 134220093
 		type WALL_METAL_D01
 		at 344 279
 		curdir 3
 
-	object 134220090
+	object 134220094
 		type ORB
 		at 347 279
 		curdir 2
 		tag 2
 
-	object 134220091
+	object 134220095
 		type PIPES_04
 		at 348 279
 		curdir 2
 
-	object 134220092
+	object 134220096
 		type PIPES_00
 		at 349 279
 		curdir 2
 
-	object 134220093
+	object 134220097
 		type PIPES_05
 		at 350 279
 		curdir 0
 
-	object 134220094
+	object 134220098
 		type PIPES_00
 		at 351 279
 		curdir 2
 
-	object 134220095
+	object 134220099
 		type FORCEFIELD_ON
 		at 385 279
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220096
+	object 134220100
 		type FORCEFIELD_ON
 		at 386 279
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220097
+	object 134220101
 		type FORCEFIELD_ON
 		at 387 279
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220098
+	object 134220102
 		type FORCEFIELD_OFF
 		at 234 280
 		curdir 2
 		tag 36
 
-	object 134220099
+	object 134220103
 		type FORCEFIELD_OFF
 		at 235 280
 		curdir 2
 		tag 36
 
-	object 134220100
+	object 134220104
 		type FORCEFIELD_OFF
 		at 236 280
 		curdir 2
 		tag 36
 
-	object 134220101
+	object 134220105
 		type PIPES_00
 		at 278 280
 		curdir 1
 
-	object 134220102
+	object 134220106
 		type PIPES_00
 		at 350 280
 		curdir 1
 
-	object 134220103
+	object 134220107
 		type FORCEFIELD_ON
 		at 385 280
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220104
+	object 134220108
 		type FORCEFIELD_ON
 		at 386 280
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220105
+	object 134220109
 		type FORCEFIELD_ON
 		at 387 280
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220106
+	object 134220110
 		type FORCEFIELD_OFF
 		at 234 281
 		curdir 2
 		tag 36
 
-	object 134220107
+	object 134220111
 		type FORCEFIELD_OFF
 		at 235 281
 		curdir 2
 		tag 36
 
-	object 134220108
+	object 134220112
 		type FORCEFIELD_OFF
 		at 236 281
 		curdir 2
 		tag 36
 
-	object 134220109
+	object 134220113
 		type PIPES_02
 		at 272 281
 		curdir 0
 
-	object 134220110
+	object 134220114
 		type PIPES_00
 		at 278 281
 		curdir 1
 
-	object 134220111
+	object 134220115
 		type PIPES_04
 		at 279 281
 		curdir 0
 
-	object 134220112
+	object 134220116
 		type PIPES_02
 		at 344 281
 		curdir 0
 
-	object 134220113
+	object 134220117
 		type PIPES_00
 		at 350 281
 		curdir 1
 
-	object 134220114
+	object 134220118
 		type PIPES_04
 		at 351 281
 		curdir 0
 
-	object 134220115
+	object 134220119
 		type FORCEFIELD_ON
 		at 385 281
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220116
+	object 134220120
 		type FORCEFIELD_ON
 		at 386 281
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220117
+	object 134220121
 		type FORCEFIELD_ON
 		at 387 281
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220118
+	object 134220122
 		type FORCEFIELD_OFF
 		at 234 282
 		curdir 2
 		tag 36
 
-	object 134220119
+	object 134220123
 		type FORCEFIELD_OFF
 		at 235 282
 		curdir 2
 		tag 36
 
-	object 134220120
+	object 134220124
 		type FORCEFIELD_OFF
 		at 236 282
 		curdir 2
 		tag 36
 
-	object 134220121
+	object 134220125
 		type PIPES_01
 		at 272 282
 		curdir 0
 
-	object 134220122
+	object 134220126
 		type WALL_METAL_D02
 		at 272 282
 		curdir 2
 
-	object 134220123
+	object 134220127
 		type PIPES_04
 		at 278 282
 		curdir 2
 
-	object 134220124
+	object 134220128
 		type PIPES_05
 		at 279 282
 		curdir 2
 
-	object 134220125
+	object 134220129
 		type WALL_METAL_D02
 		at 344 282
 		curdir 2
 
-	object 134220126
+	object 134220130
 		type PIPES_01
 		at 344 282
 		curdir 0
 
-	object 134220127
+	object 134220131
 		type PIPES_04
 		at 350 282
 		curdir 2
 
-	object 134220128
+	object 134220132
 		type PIPES_05
 		at 351 282
 		curdir 2
 
-	object 134220129
+	object 134220133
 		type FORCEFIELD_ON
 		at 385 282
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220130
+	object 134220134
 		type FORCEFIELD_ON
 		at 386 282
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220131
+	object 134220135
 		type FORCEFIELD_ON
 		at 387 282
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220132
+	object 134220136
 		type PIPES_06
 		at 232 283
 		curdir 0
 
-	object 134220133
+	object 134220137
 		type PIPES_06
 		at 239 283
 		curdir 0
 
-	object 134220134
+	object 134220138
 		type PIPES_02
 		at 272 283
 		curdir 1
 
-	object 134220135
+	object 134220139
 		type PIPES_04
 		at 279 283
 		curdir 2
 
-	object 134220136
+	object 134220140
 		type PIPES_02
 		at 344 283
 		curdir 1
 
-	object 134220137
+	object 134220141
 		type PIPES_04
 		at 351 283
 		curdir 2
 
-	object 134220138
+	object 134220142
 		type PIPES_06
 		at 383 283
 		curdir 0
 
-	object 134220139
+	object 134220143
 		type PIPES_06
 		at 390 283
 		curdir 0
 
-	object 134220140
+	object 134220144
 		type PIPES_06
 		at 232 284
 		curdir 2
 
-	object 134220141
+	object 134220145
 		type PIPES_06
 		at 239 284
 		curdir 2
 
-	object 134220142
+	object 134220146
 		type WALL_METAL_D03
 		at 272 284
 		curdir 0
 
-	object 134220143
+	object 134220147
 		type WALL_METAL_D03
 		at 344 284
 		curdir 0
 
-	object 134220144
+	object 134220148
 		type PIPES_06
 		at 383 284
 		curdir 1
 
-	object 134220145
+	object 134220149
 		type PIPES_06
 		at 390 284
 		curdir 1
 
-	object 134220146
+	object 134220150
 		type PIPES_06
 		at 232 285
 		curdir 1
 
-	object 134220147
+	object 134220151
 		type PIPES_06
 		at 239 285
 		curdir 1
 
-	object 134220148
-		type WALL_METAL_D02
-		at 272 285
-		curdir 0
-
-	object 134220149
-		type WALL_METAL_D02
-		at 272 285
-		curdir 3
-
-	object 134220150
-		type WALL_METAL_D02
-		at 344 285
-		curdir 3
-
-	object 134220151
-		type WALL_METAL_D02
-		at 344 285
-		curdir 0
-
 	object 134220152
+		type WALL_METAL_D02
+		at 272 285
+		curdir 0
+
+	object 134220153
+		type WALL_METAL_D02
+		at 272 285
+		curdir 3
+
+	object 134220154
+		type WALL_METAL_D02
+		at 344 285
+		curdir 3
+
+	object 134220155
+		type WALL_METAL_D02
+		at 344 285
+		curdir 0
+
+	object 134220156
 		type PIPES_06
 		at 383 285
 		curdir 2
 
-	object 134220153
+	object 134220157
 		type PIPES_06
 		at 390 285
 		curdir 2
 
-	object 134220154
+	object 134220158
 		type DRIVESHELL_OFF
 		at 231 286
 		curdir 2
 		tag 36
 
-	object 134220155
+	object 134220159
 		type DRIVESHELL_OFF
 		at 238 286
 		curdir 0
 		tag 36
 
-	object 134220156
+	object 134220160
 		type PIPES_03
 		at 272 286
 		curdir 0
 
-	object 134220157
+	object 134220161
 		type PIPES_03
 		at 344 286
 		curdir 0
 
-	object 134220158
+	object 134220162
 		type MUSIC
 		at 348 286
 		curdir 0
 
-	object 134220159
+	object 134220163
 		type DRIVESHELL
 		at 382 286
 		curdir 2
 		tag 37
 
-	object 134220160
+	object 134220164
 		type DRIVESHELL
 		at 389 286
 		curdir 2
 		tag 37
 
-	object 134220161
+	object 134220165
 		type PIPES_00
 		at 272 287
 		curdir 1
-
-	object 134220162
-		type WALL_METAL_D00
-		at 272 287
-		curdir 0
-
-	object 134220163
-		type WALL_METAL_D00
-		at 272 287
-		curdir 1
-
-	object 134220164
-		type WALL_METAL_D00
-		at 344 287
-		curdir 1
-
-	object 134220165
-		type WALL_METAL_D00
-		at 344 287
-		curdir 0
 
 	object 134220166
-		type PIPES_00
-		at 344 287
-		curdir 1
+		type WALL_METAL_D00
+		at 272 287
+		curdir 0
 
 	object 134220167
-		type WALL_METAL_D04
-		at 272 288
+		type WALL_METAL_D00
+		at 272 287
 		curdir 1
 
 	object 134220168
+		type WALL_METAL_D00
+		at 344 287
+		curdir 1
+
+	object 134220169
+		type WALL_METAL_D00
+		at 344 287
+		curdir 0
+
+	object 134220170
+		type PIPES_00
+		at 344 287
+		curdir 1
+
+	object 134220171
+		type WALL_METAL_D04
+		at 272 288
+		curdir 1
+
+	object 134220172
 		type PIPES_00
 		at 272 288
 		curdir 1
 
-	object 134220169
+	object 134220173
 		type PIPES_00
 		at 344 288
 		curdir 1
 
-	object 134220170
+	object 134220174
 		type WALL_METAL_D04
 		at 344 288
 		curdir 1
 
-	object 134220171
+	object 134220175
 		type PIPES_03
 		at 272 289
 		curdir 1
 
-	object 134220172
+	object 134220176
 		type PIPES_04
 		at 279 289
 		curdir 0
 
-	object 134220173
+	object 134220177
 		type PIPES_03
 		at 344 289
 		curdir 1
 
-	object 134220174
+	object 134220178
 		type PIPES_04
 		at 351 289
 		curdir 0
 
-	object 134220175
+	object 134220179
 		type DRIVESHELL_OFF
 		at 231 290
 		curdir 2
 		tag 36
 
-	object 134220176
+	object 134220180
 		type DRIVESHELL_OFF
 		at 238 290
 		curdir 2
 		tag 36
 
-	object 134220177
+	object 134220181
 		type WALL_METAL_D02
 		at 272 290
 		curdir 2
 
-	object 134220178
+	object 134220182
 		type PIPES_00
 		at 279 290
 		curdir 1
 
-	object 134220179
+	object 134220183
 		type WALL_METAL_D02
 		at 344 290
 		curdir 2
 
-	object 134220180
+	object 134220184
 		type PIPES_00
 		at 351 290
 		curdir 1
 
-	object 134220181
+	object 134220185
 		type DRIVESHELL
 		at 382 290
 		curdir 2
 		tag 37
 
-	object 134220182
+	object 134220186
 		type DRIVESHELL
 		at 389 290
 		curdir 2
 		tag 37
 
-	object 134220183
+	object 134220187
 		type WALL_METAL_D03
 		at 272 291
 		curdir 2
 
-	object 134220184
+	object 134220188
 		type PIPES_00
 		at 279 291
 		curdir 1
 
-	object 134220185
+	object 134220189
 		type WALL_METAL_D03
 		at 344 291
 		curdir 2
 
-	object 134220186
+	object 134220190
 		type PIPES_00
 		at 351 291
 		curdir 1
 
-	object 134220187
+	object 134220191
 		type PIPES_04
 		at 279 292
 		curdir 2
 
-	object 134220188
+	object 134220192
 		type PIPES_04
 		at 351 292
 		curdir 2
 
-	object 134220189
+	object 134220193
 		type WALL_METAL_D04
 		at 272 293
 		curdir 0
 
-	object 134220190
+	object 134220194
 		type WALL_METAL_D04
 		at 344 293
 		curdir 0
 
-	object 134220191
+	object 134220195
 		type DRIVESHELL_OFF
 		at 231 294
 		curdir 0
 		tag 36
 
-	object 134220192
+	object 134220196
 		type DRIVESHELL_OFF
 		at 238 294
 		curdir 0
 		tag 36
 
-	object 134220193
+	object 134220197
 		type DRIVESHELL
 		at 382 294
 		curdir 0
 		tag 37
 
-	object 134220194
+	object 134220198
 		type DRIVESHELL
 		at 389 294
 		curdir 0
 		tag 37
 
-	object 134220195
-		type WALL_METAL_D02
-		at 272 296
-		curdir 1
-
-	object 134220196
-		type WALL_METAL_D04
-		at 272 296
-		curdir 3
-
-	object 134220197
-		type WALL_METAL_D04
-		at 344 296
-		curdir 3
-
-	object 134220198
-		type WALL_METAL_D02
-		at 344 296
-		curdir 1
-
 	object 134220199
 		type WALL_METAL_D02
-		at 272 297
-		curdir 2
+		at 272 296
+		curdir 1
 
 	object 134220200
-		type WALL_METAL_D02
-		at 272 297
-		curdir 0
+		type WALL_METAL_D04
+		at 272 296
+		curdir 3
 
 	object 134220201
-		type WALL_METAL_D02
-		at 344 297
-		curdir 2
+		type WALL_METAL_D04
+		at 344 296
+		curdir 3
 
 	object 134220202
 		type WALL_METAL_D02
+		at 344 296
+		curdir 1
+
+	object 134220203
+		type WALL_METAL_D02
+		at 272 297
+		curdir 2
+
+	object 134220204
+		type WALL_METAL_D02
+		at 272 297
+		curdir 0
+
+	object 134220205
+		type WALL_METAL_D02
+		at 344 297
+		curdir 2
+
+	object 134220206
+		type WALL_METAL_D02
 		at 344 297
 		curdir 0
 
-	object 134220203
+	object 134220207
 		type PIPES_06
 		at 232 298
 		curdir 0
 
-	object 134220204
+	object 134220208
 		type PIPES_06
 		at 239 298
 		curdir 0
 
-	object 134220205
+	object 134220209
 		type WALL_METAL_D05
 		at 272 298
 		curdir 0
 		tag 54
 		funcs->use USE_AIRLOCK
 
-	object 134220206
+	object 134220210
 		type WALL_METAL_D05
 		at 344 298
 		curdir 0
 		tag 55
 		funcs->use USE_AIRLOCK
 
-	object 134220207
+	object 134220211
 		type PIPES_06
 		at 383 298
 		curdir 0
 
-	object 134220208
+	object 134220212
 		type PIPES_06
 		at 390 298
 		curdir 0
 
-	object 134220209
+	object 134220213
 		type STAIRS_UP
 		at 460 298
 		curdir 3
@@ -13114,161 +13139,161 @@ iMZ1r00
 		stats->karma 1
 		funcs->use TELEPORT_NEWMAP
 
-	object 134220210
+	object 134220214
 		type PIPES_06
 		at 232 299
 		curdir 2
 
-	object 134220211
+	object 134220215
 		type PIPES_06
 		at 239 299
 		curdir 2
 
-	object 134220212
+	object 134220216
 		type AIRLOCK_DOOR
 		at 273 299
 		curdir 3
 		tag 54
-		stats->owner 134220213
+		stats->owner 134220217
 
-	object 134220213
+	object 134220217
 		type AIRLOCK_TOP
 		at 273 299
 		curdir 2
 
-	object 134220214
-		type AIRLOCK_DOOR
-		at 274 299
-		curdir 3
-		tag 54
-
-	object 134220215
-		type AIRLOCK_TOP
-		at 274 299
-		curdir 0
-
-	object 134220216
-		type AIRLOCK_DOOR
-		at 275 299
-		curdir 3
-		tag 54
-
-	object 134220217
-		type AIRLOCK_TOP
-		at 275 299
-		curdir 0
-
 	object 134220218
 		type AIRLOCK_DOOR
-		at 276 299
+		at 274 299
 		curdir 3
 		tag 54
 
 	object 134220219
 		type AIRLOCK_TOP
-		at 276 299
+		at 274 299
 		curdir 0
 
 	object 134220220
 		type AIRLOCK_DOOR
-		at 277 299
+		at 275 299
 		curdir 3
 		tag 54
 
 	object 134220221
 		type AIRLOCK_TOP
-		at 277 299
+		at 275 299
 		curdir 0
 
 	object 134220222
 		type AIRLOCK_DOOR
-		at 278 299
+		at 276 299
 		curdir 3
 		tag 54
 
 	object 134220223
 		type AIRLOCK_TOP
-		at 278 299
-		curdir 3
+		at 276 299
+		curdir 0
 
 	object 134220224
 		type AIRLOCK_DOOR
-		at 345 299
-		curdir 2
-		tag 55
-		stats->owner 134220225
+		at 277 299
+		curdir 3
+		tag 54
 
 	object 134220225
 		type AIRLOCK_TOP
-		at 345 299
-		curdir 2
+		at 277 299
+		curdir 0
 
 	object 134220226
 		type AIRLOCK_DOOR
-		at 346 299
-		curdir 2
-		tag 55
+		at 278 299
+		curdir 3
+		tag 54
 
 	object 134220227
 		type AIRLOCK_TOP
-		at 346 299
-		curdir 0
+		at 278 299
+		curdir 3
 
 	object 134220228
 		type AIRLOCK_DOOR
-		at 347 299
+		at 345 299
 		curdir 2
 		tag 55
+		stats->owner 134220229
 
 	object 134220229
 		type AIRLOCK_TOP
-		at 347 299
-		curdir 0
+		at 345 299
+		curdir 2
 
 	object 134220230
 		type AIRLOCK_DOOR
-		at 348 299
+		at 346 299
 		curdir 2
 		tag 55
 
 	object 134220231
 		type AIRLOCK_TOP
-		at 348 299
+		at 346 299
 		curdir 0
 
 	object 134220232
 		type AIRLOCK_DOOR
-		at 349 299
+		at 347 299
 		curdir 2
 		tag 55
 
 	object 134220233
 		type AIRLOCK_TOP
-		at 349 299
+		at 347 299
 		curdir 0
 
 	object 134220234
 		type AIRLOCK_DOOR
-		at 350 299
+		at 348 299
 		curdir 2
 		tag 55
 
 	object 134220235
 		type AIRLOCK_TOP
+		at 348 299
+		curdir 0
+
+	object 134220236
+		type AIRLOCK_DOOR
+		at 349 299
+		curdir 2
+		tag 55
+
+	object 134220237
+		type AIRLOCK_TOP
+		at 349 299
+		curdir 0
+
+	object 134220238
+		type AIRLOCK_DOOR
+		at 350 299
+		curdir 2
+		tag 55
+
+	object 134220239
+		type AIRLOCK_TOP
 		at 350 299
 		curdir 3
 
-	object 134220236
+	object 134220240
 		type PIPES_06
 		at 383 299
 		curdir 1
 
-	object 134220237
+	object 134220241
 		type PIPES_06
 		at 390 299
 		curdir 1
 
-	object 134220238
+	object 134220242
 		type STAIRS_UP
 		at 460 299
 		curdir 1
@@ -13276,97 +13301,97 @@ iMZ1r00
 		stats->karma 1
 		funcs->use TELEPORT_FAKEMUD
 
-	object 134220239
+	object 134220243
 		type PIPES_06
 		at 232 300
 		curdir 1
 
-	object 134220240
+	object 134220244
 		type PIPES_06
 		at 239 300
 		curdir 1
 
-	object 134220241
+	object 134220245
 		type WALL_METAL_D05
 		at 272 300
 		curdir 0
 		tag 54
 		funcs->use USE_AIRLOCK
 
-	object 134220242
+	object 134220246
 		type WALL_METAL_D05
 		at 344 300
 		curdir 0
 		tag 55
 		funcs->use USE_AIRLOCK
 
-	object 134220243
+	object 134220247
 		type PIPES_06
 		at 383 300
 		curdir 2
 
-	object 134220244
+	object 134220248
 		type GOLD_BAR
 		at 386 300
 		curdir 0
 
-	object 134220245
+	object 134220249
 		type PIPES_06
 		at 390 300
 		curdir 2
 
-	object 134220246
+	object 134220250
 		type TARGET
 		at 460 300
 		curdir 3
 		tag 99
 
-	object 134220247
+	object 134220251
 		type PIPES_06
 		at 232 301
 		curdir 2
 
-	object 134220248
+	object 134220252
 		type PIPES_06
 		at 239 301
 		curdir 2
 
-	object 134220249
+	object 134220253
 		type PIPES_06
 		at 383 301
 		curdir 1
 
-	object 134220250
+	object 134220254
 		type PIPES_06
 		at 390 301
 		curdir 1
 
-	object 134220251
+	object 134220255
 		type FENCE_CORNER
 		at 233 302
 		curdir 0
 
-	object 134220252
+	object 134220256
 		type FENCE
 		at 234 302
 		curdir 0
 
-	object 134220253
+	object 134220257
 		type FENCE
 		at 235 302
 		curdir 0
 
-	object 134220254
+	object 134220258
 		type FENCE
 		at 236 302
 		curdir 0
 
-	object 134220255
+	object 134220259
 		type FENCE
 		at 237 302
 		curdir 0
 
-	object 134220256
+	object 134220260
 		type LADDER_UP
 		at 275 302
 		curdir 0
@@ -13374,1346 +13399,1346 @@ iMZ1r00
 		stats->karma 1
 		funcs->use USE_BLOCKED_DOOR
 
-	object 134220257
+	object 134220261
 		type LADDER_UP
 		at 347 302
 		curdir 0
 		tag 35
 		stats->karma 1
 
-	object 134220258
+	object 134220262
 		type FENCE_CORNER
 		at 384 302
 		curdir 0
 
-	object 134220259
+	object 134220263
 		type FENCE
 		at 385 302
 		curdir 0
 
-	object 134220260
+	object 134220264
 		type FENCE
 		at 386 302
 		curdir 0
 
-	object 134220261
+	object 134220265
 		type FENCE
 		at 387 302
 		curdir 0
 
-	object 134220262
+	object 134220266
 		type FENCE
 		at 388 302
 		curdir 0
 
-	object 134220263
+	object 134220267
 		type FORCEFIELD_OFF
 		at 233 303
 		curdir 2
 		tag 36
 
-	object 134220264
+	object 134220268
 		type FORCEFIELD_OFF
 		at 234 303
 		curdir 2
 		tag 36
 
-	object 134220265
+	object 134220269
 		type FORCEFIELD_OFF
 		at 235 303
 		curdir 2
 		tag 36
 
-	object 134220266
+	object 134220270
 		type FORCEFIELD_OFF
 		at 236 303
 		curdir 2
 		tag 36
 
-	object 134220267
+	object 134220271
 		type FORCEFIELD_OFF
 		at 237 303
 		curdir 2
 		tag 36
 
-	object 134220268
+	object 134220272
 		type WALL_METAL_D02
 		at 272 303
 		curdir 3
 
-	object 134220269
+	object 134220273
 		type WALL_METAL_D02
 		at 344 303
 		curdir 3
 
-	object 134220270
+	object 134220274
 		type TARGET
 		at 347 303
 		curdir 0
 		tag 666001
 
-	object 134220271
+	object 134220275
 		type TARGET
 		at 348 303
 		curdir 0
 		tag 34
 
-	object 134220272
+	object 134220276
 		type FORCEFIELD_ON
 		at 384 303
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220273
+	object 134220277
 		type FORCEFIELD_ON
 		at 385 303
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220274
+	object 134220278
 		type FORCEFIELD_ON
 		at 386 303
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220275
+	object 134220279
 		type FORCEFIELD_ON
 		at 387 303
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220276
+	object 134220280
 		type FORCEFIELD_ON
 		at 388 303
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220277
+	object 134220281
 		type FORCEFIELD_OFF
 		at 233 304
 		curdir 2
 		tag 36
 
-	object 134220278
+	object 134220282
 		type FORCEFIELD_OFF
 		at 234 304
 		curdir 2
 		tag 36
 
-	object 134220279
+	object 134220283
 		type FORCEFIELD_OFF
 		at 235 304
 		curdir 2
 		tag 36
 
-	object 134220280
+	object 134220284
 		type FORCEFIELD_OFF
 		at 236 304
 		curdir 2
 		tag 36
 
-	object 134220281
+	object 134220285
 		type FORCEFIELD_OFF
 		at 237 304
 		curdir 2
 		tag 36
 
-	object 134220282
+	object 134220286
 		type FORCEFIELD_ON
 		at 384 304
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220283
+	object 134220287
 		type FORCEFIELD_ON
 		at 385 304
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220284
+	object 134220288
 		type FORCEFIELD_ON
 		at 386 304
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220285
+	object 134220289
 		type FORCEFIELD_ON
 		at 387 304
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220286
+	object 134220290
 		type FORCEFIELD_ON
 		at 388 304
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220287
+	object 134220291
 		type FORCEFIELD_OFF
 		at 233 305
 		curdir 2
 		tag 36
 
-	object 134220288
+	object 134220292
 		type FORCEFIELD_OFF
 		at 234 305
 		curdir 2
 		tag 36
 
-	object 134220289
+	object 134220293
 		type FORCEFIELD_OFF
 		at 235 305
 		curdir 2
 		tag 36
 
-	object 134220290
+	object 134220294
 		type FORCEFIELD_OFF
 		at 236 305
 		curdir 2
 		tag 36
 
-	object 134220291
+	object 134220295
 		type FORCEFIELD_OFF
 		at 237 305
 		curdir 2
 		tag 36
 
-	object 134220292
+	object 134220296
 		type FORCEFIELD_ON
 		at 384 305
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220293
+	object 134220297
 		type FORCEFIELD_ON
 		at 385 305
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220294
+	object 134220298
 		type FORCEFIELD_ON
 		at 386 305
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220295
+	object 134220299
 		type FORCEFIELD_ON
 		at 387 305
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220296
+	object 134220300
 		type FORCEFIELD_ON
 		at 388 305
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220297
+	object 134220301
 		type FORCEFIELD_OFF
 		at 233 306
 		curdir 2
 		tag 36
 
-	object 134220298
+	object 134220302
 		type FORCEFIELD_OFF
 		at 234 306
 		curdir 2
 		tag 36
 
-	object 134220299
+	object 134220303
 		type FORCEFIELD_OFF
 		at 235 306
 		curdir 2
 		tag 36
 
-	object 134220300
+	object 134220304
 		type FORCEFIELD_OFF
 		at 236 306
 		curdir 2
 		tag 36
 
-	object 134220301
+	object 134220305
 		type FORCEFIELD_OFF
 		at 237 306
 		curdir 2
 		tag 36
 
-	object 134220302
+	object 134220306
 		type FORCEFIELD_ON
 		at 384 306
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220303
+	object 134220307
 		type FORCEFIELD_ON
 		at 385 306
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220304
+	object 134220308
 		type FORCEFIELD_ON
 		at 386 306
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220305
+	object 134220309
 		type FORCEFIELD_ON
 		at 387 306
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220306
+	object 134220310
 		type FORCEFIELD_ON
 		at 388 306
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220307
+	object 134220311
 		type FORCEFIELD_OFF
 		at 233 307
 		curdir 2
 		tag 36
 
-	object 134220308
+	object 134220312
 		type FORCEFIELD_OFF
 		at 234 307
 		curdir 2
 		tag 36
 
-	object 134220309
+	object 134220313
 		type FORCEFIELD_OFF
 		at 235 307
 		curdir 2
 		tag 36
 
-	object 134220310
+	object 134220314
 		type FORCEFIELD_OFF
 		at 236 307
 		curdir 2
 		tag 36
 
-	object 134220311
+	object 134220315
 		type FORCEFIELD_OFF
 		at 237 307
 		curdir 2
 		tag 36
 
-	object 134220312
+	object 134220316
 		type FORCEFIELD_ON
 		at 384 307
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220313
+	object 134220317
 		type FORCEFIELD_ON
 		at 385 307
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220314
+	object 134220318
 		type FORCEFIELD_ON
 		at 386 307
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220315
+	object 134220319
 		type FORCEFIELD_ON
 		at 387 307
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220316
+	object 134220320
 		type FORCEFIELD_ON
 		at 388 307
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220317
+	object 134220321
 		type FORCEFIELD_OFF
 		at 233 308
 		curdir 2
 		tag 36
 
-	object 134220318
+	object 134220322
 		type FORCEFIELD_OFF
 		at 234 308
 		curdir 2
 		tag 36
 
-	object 134220319
+	object 134220323
 		type FORCEFIELD_OFF
 		at 235 308
 		curdir 2
 		tag 36
 
-	object 134220320
+	object 134220324
 		type FORCEFIELD_OFF
 		at 236 308
 		curdir 2
 		tag 36
 
-	object 134220321
+	object 134220325
 		type FORCEFIELD_OFF
 		at 237 308
 		curdir 2
 		tag 36
 
-	object 134220322
+	object 134220326
 		type FORCEFIELD_ON
 		at 384 308
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220323
+	object 134220327
 		type FORCEFIELD_ON
 		at 385 308
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220324
+	object 134220328
 		type FORCEFIELD_ON
 		at 386 308
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220325
+	object 134220329
 		type FORCEFIELD_ON
 		at 387 308
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220326
+	object 134220330
 		type FORCEFIELD_ON
 		at 388 308
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
 
-	object 134220327
+	object 134220331
 		type FENCE_CORNER
 		at 233 309
 		curdir 2
 
-	object 134220328
+	object 134220332
 		type FENCE
 		at 234 309
 		curdir 0
 
-	object 134220329
+	object 134220333
 		type FENCE
 		at 235 309
 		curdir 0
 
-	object 134220330
+	object 134220334
 		type FENCE
 		at 236 309
 		curdir 0
 
-	object 134220331
+	object 134220335
 		type FENCE
 		at 237 309
 		curdir 0
 
-	object 134220332
+	object 134220336
 		type FENCE_CORNER
 		at 238 309
 		curdir 3
 
-	object 134220333
+	object 134220337
 		type FENCE_CORNER
 		at 384 309
 		curdir 2
 
-	object 134220334
+	object 134220338
 		type FENCE
 		at 385 309
 		curdir 0
 
-	object 134220335
+	object 134220339
 		type FENCE
 		at 386 309
 		curdir 0
 
-	object 134220336
+	object 134220340
 		type FENCE
 		at 387 309
 		curdir 0
 
-	object 134220337
+	object 134220341
 		type FENCE
 		at 388 309
 		curdir 0
 
-	object 134220338
+	object 134220342
 		type FENCE_CORNER
 		at 389 309
 		curdir 3
 
-	object 134220339
+	object 134220343
 		type FENCE
 		at 233 310
 		curdir 2
 
-	object 134220340
+	object 134220344
 		type FENCE
 		at 238 310
 		curdir 2
 
-	object 134220341
+	object 134220345
 		type FENCE
 		at 384 310
 		curdir 2
 
-	object 134220342
+	object 134220346
 		type FENCE
 		at 389 310
 		curdir 2
 
-	object 134220343
-		type FENCE_CORNER
-		at 233 311
-		curdir 1
-
-	object 134220344
-		type WALL3_EDGE
-		at 233 311
-		curdir 3
-
-	object 134220345
-		type FENCE_CORNER
-		at 384 311
-		curdir 1
-
-	object 134220346
-		type WALL3_EDGE
-		at 384 311
-		curdir 3
-
 	object 134220347
+		type FENCE_CORNER
+		at 233 311
+		curdir 1
+
+	object 134220348
+		type WALL3_EDGE
+		at 233 311
+		curdir 3
+
+	object 134220349
+		type FENCE_CORNER
+		at 384 311
+		curdir 1
+
+	object 134220350
+		type WALL3_EDGE
+		at 384 311
+		curdir 3
+
+	object 134220351
 		type LIGHT_END
 		at 414 318
 		curdir 0
 		stats->owner 134217740
 
-	object 134220348
+	object 134220352
 		type LIGHT_START
 		at 144 396
 		curdir 0
 		tag 57
-		stats->owner 134220764
+		stats->owner 134220770
 
-	object 134220349
+	object 134220353
 		type WALL3_EDGE
 		at 156 397
 		curdir 3
 
-	object 134220350
+	object 134220354
 		type TORCH
 		at 295 397
 		curdir 0
 
-	object 134220351
+	object 134220355
 		type TORCH
 		at 300 397
 		curdir 0
 
-	object 134220352
+	object 134220356
 		type TORCH
 		at 304 397
 		curdir 0
 
-	object 134220353
+	object 134220357
 		type BOOKSHELF00
 		at 145 398
 		curdir 3
 
-	object 134220354
+	object 134220358
 		type PLANT1
 		at 146 398
 		curdir 3
 
-	object 134220355
+	object 134220359
 		type TABLE6-H
 		at 147 398
 		curdir 2
 
-	object 134220356
+	object 134220360
 		type RACAL
 		at 147 398
 		curdir 3
 
-	object 134220357
+	object 134220361
 		type TABLE6-H
 		at 148 398
 		curdir 0
 
-	object 134220358
+	object 134220362
 		type PRINTER
 		at 148 398
 		curdir 3
 
-	object 134220359
+	object 134220363
 		type TABLE6-H
 		at 149 398
 		curdir 1
 
-	object 134220360
+	object 134220364
 		type TAPE
 		at 149 398
 		curdir 2
 
-	object 134220361
+	object 134220365
 		type TAPE
 		at 149 398
 		curdir 1
 
-	object 134220362
+	object 134220366
 		type TABLE6-H
 		at 150 398
 		curdir 3
 
-	object 134220363
+	object 134220367
 		type TAPEDECK
 		at 150 398
 		curdir 3
 
-	object 134220364
+	object 134220368
 		type WALL3_EDGE
 		at 152 398
 		curdir 2
 
-	object 134220365
+	object 134220369
 		type WALL_METAL_TOP
 		at 153 398
 		curdir 1
 
-	object 134220366
+	object 134220370
 		type WALL_METAL_D09
 		at 153 398
 		curdir 0
 
-	object 134220367
+	object 134220371
 		type WALL_METAL_D07
 		at 153 398
 		curdir 0
 
-	object 134220368
+	object 134220372
 		type WALL_METAL_TOP
 		at 154 398
 		curdir 1
 
-	object 134220369
+	object 134220373
 		type WALL_METAL_D06
 		at 154 398
 		curdir 1
 
-	object 134220370
+	object 134220374
 		type WALL_METAL_D06
 		at 154 398
 		curdir 2
 
-	object 134220371
+	object 134220375
 		type WALL_METAL_D08
 		at 154 398
 		curdir 1
 
-	object 134220372
+	object 134220376
 		type WALL_METAL_TOP
 		at 155 398
 		curdir 0
 
-	object 134220373
+	object 134220377
 		type WALL_METAL_D10
 		at 155 398
 		curdir 1
 
-	object 134220374
+	object 134220378
 		type WALL_METAL_D08
 		at 155 398
 		curdir 2
 
-	object 134220375
+	object 134220379
 		type WALL_METAL_D06
 		at 156 398
 		curdir 3
 
-	object 134220376
+	object 134220380
 		type WALL_METAL_D08
 		at 156 398
 		curdir 1
 
-	object 134220377
+	object 134220381
 		type PLANT1
 		at 157 398
 		curdir 3
 
-	object 134220378
+	object 134220382
 		type DIRT1
 		at 293 398
 		curdir 3
 
-	object 134220379
+	object 134220383
 		type DIRT1
 		at 304 398
 		curdir 0
 
-	object 134220380
+	object 134220384
 		type LEVER2
 		at 404 398
 		curdir 2
 		tag -58
-		stats->owner 134220423
+		stats->owner 134220427
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134220381
+	object 134220385
 		type GOLD_COINS
-		inside 134220382
+		inside 134220386
 		curdir 2
 		stats->quantity 150
 
-	object 134220382
+	object 134220386
 		type BAG_POUCH
 		at 145 399
 		curdir 2
 
-	object 134220383
+	object 134220387
 		type TABLE-SHADOW2
 		at 147 399
 		curdir 1
 
-	object 134220384
+	object 134220388
 		type TABLE5-LEGS
 		at 147 399
 		curdir 1
 
-	object 134220385
+	object 134220389
 		type TABLE-SHADOW1
 		at 148 399
 		curdir 0
 
-	object 134220386
+	object 134220390
 		type TABLE-SHADOW1
 		at 149 399
 		curdir 0
 
-	object 134220387
+	object 134220391
 		type TABLE-SHADOW1
 		at 150 399
 		curdir 0
 
-	object 134220388
+	object 134220392
 		type TABLE5-LEGS
 		at 150 399
 		curdir 1
 
-	object 134220389
+	object 134220393
 		type TABLE-SHADOW3
 		at 151 399
 		curdir 3
 
-	object 134220390
+	object 134220394
 		type TABLE6-H
 		at 294 399
 		curdir 2
 
-	object 134220391
+	object 134220395
 		type BLOOD06
 		at 294 399
 		curdir 2
 
-	object 134220392
+	object 134220396
 		type TOOLS03
 		at 294 399
 		curdir 0
 
-	object 134220393
+	object 134220397
 		type TABLE6-H
 		at 295 399
 		curdir 0
 
-	object 134220394
+	object 134220398
 		type BONES0
 		at 295 399
 		curdir 0
 
-	object 134220395
+	object 134220399
 		type TABLE6-H
 		at 296 399
 		curdir 1
 
-	object 134220396
+	object 134220400
 		type BLOOD05
 		at 296 399
 		curdir 2
 
-	object 134220397
+	object 134220401
 		type TOOLS05
 		at 296 399
 		curdir 3
 
-	object 134220398
+	object 134220402
 		type TABLE6-H
 		at 297 399
 		curdir 3
 
-	object 134220399
-		type MEAT03
+	object 134220403
+		type meat03
 		at 297 399
 		curdir 3
 
-	object 134220400
+	object 134220404
 		type TABLE-SHADOW2
 		at 298 399
 		curdir 3
 
-	object 134220401
-		type MEAT05
+	object 134220405
+		type meat05
 		at 300 399
 		curdir 2
 
-	object 134220402
+	object 134220406
 		type BONES0
 		at 300 399
 		curdir 2
 
-	object 134220403
+	object 134220407
 		type BONES0
 		at 300 399
 		curdir 0
 
-	object 134220404
+	object 134220408
 		type TABLE6-V
 		at 302 399
 		curdir 0
 
-	object 134220405
+	object 134220409
 		type TABLE-SHADOW2
 		at 303 399
 		curdir 3
 
-	object 134220406
+	object 134220410
 		type TABLE5-LEGS
 		at 303 399
 		curdir 3
 
-	object 134220407
+	object 134220411
 		type TABLE7
 		at 148 400
 		curdir 1
 
-	object 134220408
+	object 134220412
 		type PRINTOUT01
 		at 148 400
 		curdir 3
 
-	object 134220409
+	object 134220413
 		type TORCH
 		at 292 400
 		curdir 0
 
-	object 134220410
+	object 134220414
 		type TABLE-SHADOW2
 		at 294 400
 		curdir 1
 
-	object 134220411
+	object 134220415
 		type TABLE5-LEGS
 		at 294 400
 		curdir 1
 
-	object 134220412
+	object 134220416
 		type TABLE-SHADOW1
 		at 295 400
 		curdir 0
 
-	object 134220413
+	object 134220417
 		type TABLE-SHADOW1
 		at 296 400
 		curdir 0
 
-	object 134220414
+	object 134220418
 		type TABLE-SHADOW1
 		at 297 400
 		curdir 0
 
-	object 134220415
+	object 134220419
 		type TABLE5-LEGS
 		at 297 400
 		curdir 1
 
-	object 134220416
+	object 134220420
 		type TABLE-SHADOW3
 		at 298 400
 		curdir 3
 
-	object 134220417
+	object 134220421
 		type TABLE6-V
 		at 302 400
 		curdir 2
 
-	object 134220418
+	object 134220422
 		type BLOOD04
 		at 302 400
 		curdir 2
 
-	object 134220419
+	object 134220423
 		type BLOOD02
 		at 302 400
 		curdir 0
 
-	object 134220420
+	object 134220424
 		type BLOOD03
 		at 302 400
 		curdir 0
 
-	object 134220421
+	object 134220425
 		type BONES0
 		at 302 400
 		curdir 3
 
-	object 134220422
+	object 134220426
 		type TABLE-SHADOW1
 		at 303 400
 		curdir 2
 
-	object 134220423
+	object 134220427
 		type SECRETDOOR2_SHUT
 		at 406 400
 		curdir 1
 		tag 58
 
-	object 134220424
+	object 134220428
 		type TABLE8-L
 		at 156 401
 		curdir 0
 
-	object 134220425
+	object 134220429
 		type PRINTOUT00
 		at 156 401
 		curdir 3
 		funcs->talk books/church/lord.txt
 		funcs->user1 4
 
-	object 134220426
+	object 134220430
 		type TABLE8-R
 		at 157 401
 		curdir 0
 
-	object 134220427
+	object 134220431
 		type PRINTOUT00
 		at 157 401
 		curdir 0
 		funcs->talk books/church/lord.txt
 
-	object 134220428
+	object 134220432
 		type FORGE
 		at 295 401
 		curdir 2
 
-	object 134220429
+	object 134220433
 		type TABLE6-V
 		at 299 401
 		curdir 0
 
-	object 134220430
+	object 134220434
 		type BONES2
 		at 299 401
 		curdir 1
 
-	object 134220431
+	object 134220435
 		type BONES0
 		at 299 401
 		curdir 1
 
-	object 134220432
+	object 134220436
 		type TABLE-SHADOW2
 		at 300 401
 		curdir 3
 
-	object 134220433
+	object 134220437
 		type TABLE5-LEGS
 		at 300 401
 		curdir 3
 
-	object 134220434
+	object 134220438
 		type TABLE6-V
 		at 302 401
 		curdir 1
 
-	object 134220435
+	object 134220439
 		type SWORD05
 		at 302 401
 		curdir 3
 
-	object 134220436
+	object 134220440
 		type TABLE-SHADOW1
 		at 303 401
 		curdir 2
 
-	object 134220437
+	object 134220441
 		type TABLE5-LEGS
 		at 303 401
 		curdir 3
 
-	object 134220438
+	object 134220442
 		type CHAIR
 		at 146 402
 		curdir 1
 
-	object 134220439
+	object 134220443
 		type CHAIR
 		at 149 402
 		curdir 1
 
-	object 134220440
+	object 134220444
 		type CHAIR
 		at 155 402
 		curdir 3
 
-	object 134220441
+	object 134220445
 		type TABLE8-L
 		at 156 402
 		curdir 2
 
-	object 134220442
+	object 134220446
 		type TABLE8-R
 		at 157 402
 		curdir 3
 
-	object 134220443
+	object 134220447
 		type PRINTOUT01
 		at 157 402
 		curdir 2
 
-	object 134220444
+	object 134220448
 		type BLOOD01
 		at 295 402
 		curdir 1
 
-	object 134220445
+	object 134220449
 		type BLOOD0
 		at 295 402
 		curdir 0
 
-	object 134220446
+	object 134220450
 		type BONES0
 		at 295 402
 		curdir 2
 
-	object 134220447
+	object 134220451
 		type TABLE6-V
 		at 299 402
 		curdir 1
 
-	object 134220448
+	object 134220452
 		type BLOOD05
 		at 299 402
 		curdir 0
 
-	object 134220449
+	object 134220453
 		type BLOOD07
 		at 299 402
 		curdir 0
 
-	object 134220450
+	object 134220454
 		type BONES0
 		at 299 402
 		curdir 0
 
-	object 134220451
+	object 134220455
 		type BONES1
 		at 299 402
 		curdir 2
 
-	object 134220452
+	object 134220456
 		type TABLE-SHADOW1
 		at 300 402
 		curdir 2
 
-	object 134220453
+	object 134220457
 		type TABLE5-LEGS
 		at 300 402
 		curdir 3
 
-	object 134220454
+	object 134220458
 		type TABLE-SHADOW2
 		at 302 402
 		curdir 1
 
-	object 134220455
+	object 134220459
 		type TABLE-SHADOW3
 		at 303 402
 		curdir 3
 
-	object 134220456
+	object 134220460
 		type TABLE1-CORNERS
 		at 146 403
 		curdir 0
 
-	object 134220457
+	object 134220461
 		type PRINTOUT01
 		at 146 403
 		curdir 1
 		funcs->talk books/church/lord.txt
 		funcs->user1 3
 
-	object 134220458
+	object 134220462
 		type TABLE1-EDGES
 		at 147 403
 		curdir 0
 
-	object 134220459
+	object 134220463
 		type TABLE1-EDGES
 		at 148 403
 		curdir 0
 
-	object 134220460
+	object 134220464
 		type PRINTOUT00
 		at 148 403
 		curdir 1
 		funcs->talk books/church/lord.txt
 		funcs->user1 2
 
-	object 134220461
+	object 134220465
 		type TABLE1-CORNERS
 		at 149 403
 		curdir 3
 
-	object 134220462
+	object 134220466
 		type TABLE-SHADOW2
 		at 150 403
 		curdir 3
 
-	object 134220463
+	object 134220467
 		type TABLE8-L
 		at 156 403
 		curdir 1
 
-	object 134220464
+	object 134220468
 		type TABLE8-R
 		at 157 403
 		curdir 1
 
-	object 134220465
+	object 134220469
 		type DIRT0
 		at 293 403
 		curdir 1
 
-	object 134220466
+	object 134220470
 		type DIRT0
 		at 297 403
 		curdir 1
 
-	object 134220467
+	object 134220471
 		type TABLE-SHADOW2
 		at 299 403
 		curdir 1
 
-	object 134220468
+	object 134220472
 		type BOWL_EMPTY
 		at 299 403
 		curdir 1
 
-	object 134220469
+	object 134220473
 		type BLOOD03
 		at 299 403
 		curdir 0
 
-	object 134220470
+	object 134220474
 		type BONES2
 		at 299 403
 		curdir 3
 
-	object 134220471
+	object 134220475
 		type TABLE-SHADOW3
 		at 300 403
 		curdir 3
 
-	object 134220472
+	object 134220476
 		type TABLE1-CORNERS
 		at 146 404
 		curdir 2
 
-	object 134220473
+	object 134220477
 		type INKWELL
 		at 146 404
 		curdir 1
 
-	object 134220474
+	object 134220478
 		type TABLE1-EDGES
 		at 147 404
 		curdir 1
 
-	object 134220475
+	object 134220479
 		type BOOK_OPEN
 		at 147 404
 		curdir 1
 		name Notes on the Second Coming
 		funcs->talk books/church/holy/no_body.txt
 
-	object 134220476
+	object 134220480
 		type TABLE1-EDGES
 		at 148 404
 		curdir 1
 
-	object 134220477
+	object 134220481
 		type TABLE-SHADOW3
 		at 149 404
 		curdir 2
 
-	object 134220478
+	object 134220482
 		type TABLE1-CORNERS
 		at 149 404
 		curdir 1
 
-	object 134220479
+	object 134220483
 		type PRINTOUT00
 		at 149 404
 		curdir 3
 		funcs->talk books/church/lord.txt
 
-	object 134220480
+	object 134220484
 		type TABLE-SHADOW1
 		at 150 404
 		curdir 2
 
-	object 134220481
+	object 134220485
 		type TABLE-SHADOW2
 		at 156 404
 		curdir 1
 
-	object 134220482
+	object 134220486
 		type TABLE5-LEGS
 		at 156 404
 		curdir 1
 
-	object 134220483
+	object 134220487
 		type TABLE-SHADOW1
 		at 157 404
 		curdir 0
 
-	object 134220484
+	object 134220488
 		type TABLE5-LEGS
 		at 157 404
 		curdir 1
 
-	object 134220485
+	object 134220489
 		type PRINTOUT01
 		at 157 404
 		curdir 3
 
-	object 134220486
+	object 134220490
 		type TORCH
 		at 292 404
 		curdir 0
 
-	object 134220487
+	object 134220491
 		type BONES0
 		at 296 404
 		curdir 1
 
-	object 134220488
+	object 134220492
 		type BRAZIER
 		at 303 404
 		curdir 0
 
-	object 134220489
+	object 134220493
 		type TOOLS04
 		at 303 404
 		curdir 0
 
-	object 134220490
+	object 134220494
 		type TABLE-SHADOW2
 		at 146 405
 		curdir 1
 
-	object 134220491
+	object 134220495
 		type TABLE5-LEGS
 		at 146 405
 		curdir 0
 
-	object 134220492
+	object 134220496
 		type PLANT1
 		at 146 405
 		curdir 3
 
-	object 134220493
+	object 134220497
 		type TABLE-SHADOW1
 		at 147 405
 		curdir 0
 
-	object 134220494
+	object 134220498
 		type CHAIR
 		at 147 405
 		curdir 0
 
-	object 134220495
+	object 134220499
 		type TABLE-SHADOW1
 		at 148 405
 		curdir 0
 
-	object 134220496
+	object 134220500
 		type TABLE-SHADOW1
 		at 149 405
 		curdir 0
 
-	object 134220497
+	object 134220501
 		type TABLE5-LEGS
 		at 149 405
 		curdir 0
 
-	object 134220498
+	object 134220502
 		type TABLE-SHADOW3
 		at 150 405
 		curdir 0
 
-	object 134220499
+	object 134220503
 		type TRAP_HTDOOR
 		at 151 405
 		curdir 0
-		stats->owner 134220528
+		stats->owner 134220532
 
-	object 134220500
+	object 134220504
 		type TRAP_HTDOOR
 		at 152 405
 		curdir 0
-		stats->owner 134220528
+		stats->owner 134220532
 
-	object 134220501
+	object 134220505
 		type PLANT1
 		at 157 405
 		curdir 3
 
-	object 134220502
+	object 134220506
 		type TRAP_RADIUS
 		at 207 405
 		curdir 0
@@ -14721,138 +14746,138 @@ iMZ1r00
 		stats->radius 3
 		funcs->use SET_RESPAWN
 
-	object 134220503
+	object 134220507
 		type TABLE6-H
 		at 293 405
 		curdir 2
 
-	object 134220504
-		type TABLE6-H
-		at 294 405
-		curdir 0
-
-	object 134220505
-		type BLOOD02
-		at 294 405
-		curdir 0
-
-	object 134220506
-		type BLOOD05
-		at 294 405
-		curdir 0
-
-	object 134220507
-		type BLOOD06
-		at 294 405
-		curdir 0
-
 	object 134220508
-		type BLOOD07
+		type TABLE6-H
 		at 294 405
 		curdir 0
 
 	object 134220509
-		type BLOOD08
+		type BLOOD02
 		at 294 405
 		curdir 0
 
 	object 134220510
-		type BLOOD09
+		type BLOOD05
 		at 294 405
 		curdir 0
 
 	object 134220511
+		type BLOOD06
+		at 294 405
+		curdir 0
+
+	object 134220512
+		type BLOOD07
+		at 294 405
+		curdir 0
+
+	object 134220513
+		type BLOOD08
+		at 294 405
+		curdir 0
+
+	object 134220514
+		type BLOOD09
+		at 294 405
+		curdir 0
+
+	object 134220515
 		type BONES0
 		at 294 405
 		curdir 1
 
-	object 134220512
+	object 134220516
 		type BONES1
 		at 294 405
 		curdir 2
 
-	object 134220513
+	object 134220517
 		type BONES2
 		at 294 405
 		curdir 1
 
-	object 134220514
+	object 134220518
 		type BONES2
 		at 294 405
 		curdir 3
 
-	object 134220515
+	object 134220519
 		type TABLE6-H
 		at 295 405
 		curdir 3
 
-	object 134220516
+	object 134220520
 		type TABLE-SHADOW2
 		at 296 405
 		curdir 3
 
-	object 134220517
+	object 134220521
 		type TABLE6-H
 		at 301 405
 		curdir 2
 
-	object 134220518
+	object 134220522
 		type TABLE6-H
 		at 302 405
 		curdir 0
 
-	object 134220519
+	object 134220523
 		type BLOOD0
 		at 302 405
 		curdir 3
 
-	object 134220520
+	object 134220524
 		type BONES0
 		at 302 405
 		curdir 0
 
-	object 134220521
+	object 134220525
 		type SWORD01
 		at 302 405
 		curdir 0
 
-	object 134220522
+	object 134220526
 		type BONES0
 		at 302 405
 		curdir 2
 
-	object 134220523
+	object 134220527
 		type TABLE6-H
 		at 303 405
 		curdir 3
 
-	object 134220524
+	object 134220528
 		type TABLE-SHADOW2
 		at 304 405
 		curdir 3
 
-	object 134220525
+	object 134220529
 		type SECRETDOOR2_SHUT
 		at 386 405
 		curdir 0
 
-	object 134220526
+	object 134220530
 		type WALL_EDGE
 		at 404 405
 		curdir 0
 
-	object 134220527
+	object 134220531
 		type WALL_EDGE
 		at 149 406
 		curdir 0
 
-	object 134220528
+	object 134220532
 		type HITECH_DOOR_CLOSED
 		at 150 406
 		curdir 0
 		tag -40
 
-	object 134220529
+	object 134220533
 		type CARDREADER
 		at 153 406
 		curdir 1
@@ -14860,889 +14885,889 @@ iMZ1r00
 		funcs->wield CALLWIELD_TAGS
 		funcs->user1 pass_card2
 
-	object 134220530
+	object 134220534
 		type WALL_EDGE
 		at 154 406
 		curdir 0
 
-	object 134220531
+	object 134220535
 		type SIGN05
 		at 206 406
 		curdir 0
 		name No admittance on pain of death
 
-	object 134220532
+	object 134220536
 		type TABLE-SHADOW2
 		at 293 406
 		curdir 1
 
-	object 134220533
+	object 134220537
 		type TABLE5-LEGS
 		at 293 406
 		curdir 1
 
-	object 134220534
+	object 134220538
 		type TABLE-SHADOW1
 		at 294 406
 		curdir 0
 
-	object 134220535
+	object 134220539
 		type TABLE-SHADOW1
 		at 295 406
 		curdir 0
 
-	object 134220536
+	object 134220540
 		type TABLE5-LEGS
 		at 295 406
 		curdir 1
 
-	object 134220537
+	object 134220541
 		type TABLE-SHADOW3
 		at 296 406
 		curdir 3
 
-	object 134220538
+	object 134220542
 		type TABLE-SHADOW2
 		at 301 406
 		curdir 1
 
-	object 134220539
+	object 134220543
 		type TABLE5-LEGS
 		at 301 406
 		curdir 1
 
-	object 134220540
+	object 134220544
 		type TABLE-SHADOW1
 		at 302 406
 		curdir 0
 
-	object 134220541
+	object 134220545
 		type TABLE-SHADOW1
 		at 303 406
 		curdir 0
 
-	object 134220542
+	object 134220546
 		type TABLE5-LEGS
 		at 303 406
 		curdir 1
 
-	object 134220543
+	object 134220547
 		type TABLE-SHADOW3
 		at 304 406
 		curdir 3
 
-	object 134220544
+	object 134220548
 		type STAIRS_DOWN
 		at 206 407
 		curdir 1
 		tag 34
 
-	object 134220545
+	object 134220549
 		type TARGET
 		at 207 407
 		curdir 1
 		tag 35
 
-	object 134220546
+	object 134220550
 		type STONEDOOR4_SHUT
 		at 207 408
 		curdir 0
 		tag 43
 
-	object 134220547
+	object 134220551
 		type TORCH
 		at 296 409
 		curdir 0
 
-	object 134220548
+	object 134220552
 		type STONEDOOR2_LOCK
 		at 151 410
 		curdir 1
 		name Machine Room - Keep Locked Shut
 		tag 810000
 
-	object 134220549
+	object 134220553
 		type RINGSTONE
 		at 207 410
 		curdir 2
 		tag 43
-		stats->owner 134220546
+		stats->owner 134220550
 		funcs->wield OPENDOORS4_TAG
 
-	object 134220550
+	object 134220554
 		type SIGN05
 		at 206 412
 		curdir 0
 		name No admittance on pain of death
 
-	object 134220551
+	object 134220555
 		type STONEDOOR5_LOCK
 		at 207 412
 		curdir 0
 		tag 10950
 		stats->hp 2500
 
-	object 134220552
+	object 134220556
 		type SIGN05
 		at 209 412
 		curdir 0
 		name No admittance on pain of death
 
-	object 134220553
+	object 134220557
 		type TORCH
 		at 239 413
 		curdir 0
 
-	object 134220554
+	object 134220558
 		type TORCH
 		at 260 413
 		curdir 0
 
-	object 134220555
+	object 134220559
 		type TORCH
 		at 280 413
 		curdir 0
 
-	object 134220556
+	object 134220560
 		type TORCH
 		at 312 413
 		curdir 0
 
-	object 134220557
+	object 134220561
 		type TORCH
 		at 315 413
 		curdir 0
 
-	object 134220558
+	object 134220562
 		type TORCH
 		at 318 413
 		curdir 0
 
-	object 134220559
+	object 134220563
 		type TORCH
 		at 296 414
 		curdir 0
 
-	object 134220560
+	object 134220564
 		type BRIDGE_END_N
 		at 311 414
 		curdir 2
 
-	object 134220561
+	object 134220565
 		type BRIDGE_END_N
 		at 312 414
 		curdir 0
 
-	object 134220562
+	object 134220566
 		type BRIDGE_END_N
 		at 313 414
 		curdir 3
 
-	object 134220563
+	object 134220567
 		type BRIDGE_END_N
 		at 314 414
 		curdir 2
 
-	object 134220564
+	object 134220568
 		type BRIDGE_END_N
 		at 315 414
 		curdir 0
 
-	object 134220565
+	object 134220569
 		type BRIDGE_END_N
 		at 316 414
 		curdir 3
 
-	object 134220566
+	object 134220570
 		type BRIDGE_END_N
 		at 317 414
 		curdir 2
 
-	object 134220567
+	object 134220571
 		type BRIDGE_END_N
 		at 318 414
 		curdir 0
 
-	object 134220568
+	object 134220572
 		type BRIDGE_END_N
 		at 319 414
 		curdir 3
 
-	object 134220569
+	object 134220573
 		type BRIDGE_POLE
 		at 311 415
 		curdir 2
 
-	object 134220570
+	object 134220574
 		type BLOOD01
 		at 312 415
 		curdir 3
 
-	object 134220571
+	object 134220575
 		type DEADFOLLOWER
 		at 312 415
 		curdir 0
 
-	object 134220572
+	object 134220576
 		type HATCH_GALLOWS_OPENED
 		at 312 415
 		curdir 3
 		tag 8000
 
-	object 134220573
+	object 134220577
 		type BRIDGE_POLE
 		at 313 415
 		curdir 3
 
-	object 134220574
+	object 134220578
 		type BRIDGE_POLE
 		at 314 415
 		curdir 2
 
-	object 134220575
+	object 134220579
 		type BLOOD01
 		at 315 415
 		curdir 3
 
-	object 134220576
+	object 134220580
 		type HATCH_GALLOWS_OPENED
 		at 315 415
 		curdir 3
 		tag 8001
 
-	object 134220577
+	object 134220581
 		type BRIDGE_POLE
 		at 316 415
 		curdir 3
 
-	object 134220578
+	object 134220582
 		type BRIDGE_POLE
 		at 317 415
 		curdir 2
 
-	object 134220579
+	object 134220583
 		type BLOOD01
 		at 318 415
 		curdir 3
 
-	object 134220580
-		type MEAT04
+	object 134220584
+		type meat04
 		at 318 415
 		curdir 0
 
-	object 134220581
+	object 134220585
 		type HATCH_GALLOWS_OPENED
 		at 318 415
 		curdir 3
 		tag 8002
 
-	object 134220582
+	object 134220586
 		type BRIDGE_POLE
 		at 319 415
 		curdir 3
 
-	object 134220583
+	object 134220587
 		type TORCH
 		at 227 416
 		curdir 0
 
-	object 134220584
+	object 134220588
 		type TORCH
 		at 232 416
 		curdir 0
 
-	object 134221327
+	object 134220589
 		type GUILLOTINE
 		at 236 416
 		curdir 1
 
-	object 134220585
+	object 134220590
 		type BRIDGE_END_N
 		at 237 416
 		curdir 2
 
-	object 134220586
+	object 134220591
 		type BRIDGE_END_N
 		at 238 416
 		curdir 0
 
-	object 134220588
+	object 134220592
 		type BRIDGE_END_N
 		at 239 416
 		curdir 0
 
-	object 134220587
+	object 134220593
 		type GALLOWS
 		at 239 416
 		curdir 3
 
-	object 134220589
+	object 134220594
 		type BRIDGE_END_N
 		at 240 416
 		curdir 0
 
-	object 134220590
+	object 134220595
 		type BRIDGE_END_N
 		at 241 416
 		curdir 0
 
-	object 134220591
+	object 134220596
 		type BRIDGE_END_N
 		at 242 416
 		curdir 3
 
-	object 134220592
+	object 134220597
 		type TORCH
 		at 248 416
 		curdir 0
 
-	object 134220593
+	object 134220598
 		type STONEDOOR4_SHUT
 		at 259 416
 		curdir 0
 		tag 8013
 
-	object 134220594
+	object 134220599
 		type TORCH
 		at 269 416
 		curdir 0
 
-	object 134220595
+	object 134220600
 		type STONEDOOR4_SHUT
 		at 279 416
 		curdir 0
 		tag 8014
 
-	object 134220596
+	object 134220601
 		type TORCH
 		at 289 416
 		curdir 0
 
-	object 134220597
+	object 134220602
 		type TORCH
 		at 304 416
 		curdir 0
 
-	object 134220598
+	object 134220603
 		type TORCH
 		at 308 416
 		curdir 0
 
-	object 134220599
+	object 134220604
 		type BRIDGE_STEPS_S
 		at 311 416
 		curdir 2
 
-	object 134220600
+	object 134220605
 		type BRIDGE_STEPS_S
 		at 312 416
 		curdir 1
 
-	object 134220601
+	object 134220606
 		type BRIDGE_STEPS_S
 		at 313 416
 		curdir 3
 
-	object 134220602
+	object 134220607
 		type BRIDGE_STEPS_S
 		at 314 416
 		curdir 2
 
-	object 134220603
+	object 134220608
 		type BRIDGE_STEPS_S
 		at 315 416
 		curdir 1
 
-	object 134220604
+	object 134220609
 		type BRIDGE_STEPS_S
 		at 316 416
 		curdir 3
 
-	object 134220605
+	object 134220610
 		type BRIDGE_STEPS_S
 		at 317 416
 		curdir 2
 
-	object 134220606
+	object 134220611
 		type BRIDGE_STEPS_S
 		at 318 416
 		curdir 1
 
-	object 134220607
+	object 134220612
 		type BRIDGE_STEPS_S
 		at 319 416
 		curdir 3
 
-	object 134220608
+	object 134220613
 		type TORCH
 		at 322 416
 		curdir 0
 
-	object 134220609
+	object 134220614
 		type TORCH
 		at 326 416
 		curdir 0
 
-	object 134220610
+	object 134220615
 		type BRIDGE_POLE
 		at 237 417
 		curdir 2
 
-	object 134220611
+	object 134220616
 		type LEVER
 		at 241 417
 		curdir 0
 		tag 8006
-		stats->owner 134220621
+		stats->owner 134220627
 		funcs->use LEVER_GALLOWS
 
-	object 134220612
+	object 134220617
 		type BRIDGE_POLE
 		at 242 417
 		curdir 3
 
-	object 134220613
+	object 134220618
 		type PLATE
 		at 258 417
 		curdir 1
 
-	object 134220614
+	object 134220619
 		type PLATE
 		at 278 417
 		curdir 1
 
-	object 134220615
+	object 134220620
 		type LEVER
 		at 313 417
 		curdir 0
 		tag 8000
 		funcs->use LEVER_GALLOWS
 
-	object 134220616
+	object 134220621
 		type LEVER
 		at 316 417
 		curdir 0
 		tag 8001
 		funcs->use LEVER_GALLOWS
 
-	object 134220617
+	object 134220622
 		type LEVER
 		at 319 417
 		curdir 0
 		tag 8002
 		funcs->use LEVER_GALLOWS
 
-	object 134220618
+	object 134220623
 		type ORB
 		at 207 418
 		curdir 2
 		tag 3
 
-	object 134220619
+	object 134220624
 		type BRIDGE_CORE3
 		at 237 418
 		curdir 2
 
-	object 134221328
+	object 134220625
 		type BLOOD01
 		at 238 418
 		curdir 3
 
-	object 134220620
+	object 134220626
 		type BLOOD04
 		at 240 418
 		curdir 3
 
-	object 134220621
+	object 134220627
 		type HATCH_GALLOWS_OPENED
 		at 240 418
 		curdir 3
 		tag 8006
 
-	object 134220622
+	object 134220628
 		type BRIDGE_CORE3
 		at 242 418
 		curdir 3
 
-	object 134220623
+	object 134220629
 		type WAARG_MALE
 		at 259 418
 		curdir 0
 		name King Grey
 		funcs->talk people/warg/grey.txt
 
-	object 134220624
+	object 134220630
 		type BONES0
 		at 280 418
 		curdir 3
 
-	object 134220625
-		type DEFENCE_POST_UP
-		at 381 418
-		curdir 2
-
-	object 134220626
-		type LASER_DPOST
-		at 381 418
-		curdir 3
-		tag 76453
-		activity toggle_lasers
-
-	object 134220627
-		type LASER_DPOST
-		at 381 418
-		curdir 0
-		tag 34856
-		activity toggle_lasers
-
-	object 134220628
-		type DEFENCE_POST_UP
-		at 383 418
-		curdir 2
-
-	object 134220629
-		type LASER_DPOST
-		at 383 418
-		curdir 3
-		tag 238645
-		activity toggle_lasers
-
-	object 134220630
-		type LASER_DPOST
-		at 383 418
-		curdir 0
-		tag 34565
-		activity toggle_lasers
-
 	object 134220631
 		type DEFENCE_POST_UP
-		at 385 418
+		at 381 418
 		curdir 2
 
 	object 134220632
 		type LASER_DPOST
-		at 385 418
+		at 381 418
 		curdir 3
-		tag 34525
-		activity toggle_lasers
+		tag 76453
+		activity TOGGLE_LASERS
 
 	object 134220633
 		type LASER_DPOST
-		at 385 418
+		at 381 418
 		curdir 0
-		tag 48376
-		activity toggle_lasers
+		tag 34856
+		activity TOGGLE_LASERS
 
 	object 134220634
 		type DEFENCE_POST_UP
-		at 387 418
+		at 383 418
 		curdir 2
 
 	object 134220635
 		type LASER_DPOST
-		at 387 418
+		at 383 418
 		curdir 3
-		tag 43986
-		activity toggle_lasers
+		tag 238645
+		activity TOGGLE_LASERS
 
 	object 134220636
 		type LASER_DPOST
-		at 387 418
+		at 383 418
 		curdir 0
-		tag 86234
-		activity toggle_lasers
+		tag 34565
+		activity TOGGLE_LASERS
 
 	object 134220637
 		type DEFENCE_POST_UP
-		at 389 418
+		at 385 418
 		curdir 2
 
 	object 134220638
 		type LASER_DPOST
-		at 389 418
+		at 385 418
 		curdir 3
-		tag 53643
-		activity toggle_lasers
+		tag 34525
+		activity TOGGLE_LASERS
 
 	object 134220639
 		type LASER_DPOST
-		at 389 418
+		at 385 418
 		curdir 0
-		tag 54263
-		activity toggle_lasers
+		tag 48376
+		activity TOGGLE_LASERS
 
 	object 134220640
 		type DEFENCE_POST_UP
-		at 391 418
+		at 387 418
 		curdir 2
 
 	object 134220641
 		type LASER_DPOST
+		at 387 418
+		curdir 3
+		tag 43986
+		activity TOGGLE_LASERS
+
+	object 134220642
+		type LASER_DPOST
+		at 387 418
+		curdir 0
+		tag 86234
+		activity TOGGLE_LASERS
+
+	object 134220643
+		type DEFENCE_POST_UP
+		at 389 418
+		curdir 2
+
+	object 134220644
+		type LASER_DPOST
+		at 389 418
+		curdir 3
+		tag 53643
+		activity TOGGLE_LASERS
+
+	object 134220645
+		type LASER_DPOST
+		at 389 418
+		curdir 0
+		tag 54263
+		activity TOGGLE_LASERS
+
+	object 134220646
+		type DEFENCE_POST_UP
+		at 391 418
+		curdir 2
+
+	object 134220647
+		type LASER_DPOST
 		at 391 418
 		curdir 0
 		tag 86342
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
-	object 134220642
+	object 134220648
 		type LIGHT_SWITCH
 		at 192 419
 		curdir 0
 		tag 57
 
-	object 134220643
+	object 134220649
 		type TORCH
 		at 224 419
 		curdir 0
 
-	object 134220644
+	object 134220650
 		type BRIDGE_POLE
 		at 237 419
 		curdir 2
 
-	object 134220645
+	object 134220651
 		type BRIDGE_POLE
 		at 242 419
 		curdir 3
 
-	object 134220646
+	object 134220652
 		type BED2
 		at 259 419
 		curdir 0
 
-	object 134220647
+	object 134220653
 		type COBWEB0
 		at 278 419
 		curdir 0
 
-	object 134220648
+	object 134220654
 		type BED2
 		at 279 419
 		curdir 0
 
-	object 134220649
+	object 134220655
 		type DIRT1
 		at 281 419
 		curdir 3
 
-	object 134220650
+	object 134220656
 		type DIRT0
 		at 281 419
 		curdir 1
 
-	object 134220651
+	object 134220657
 		type LEVER
 		at 313 419
 		curdir 0
 		tag 8003
 		funcs->use LEVER_GALLOWS
 
-	object 134220652
+	object 134220658
 		type LEVER
 		at 316 419
 		curdir 0
 		tag 8004
 		funcs->use LEVER_GALLOWS
 
-	object 134220653
+	object 134220659
 		type LEVER
 		at 319 419
 		curdir 0
 		tag 8005
 		funcs->use LEVER_GALLOWS
 
-	object 134220654
+	object 134220660
 		type BRIDGE_END_S
 		at 237 420
 		curdir 2
 
-	object 134220655
+	object 134220661
 		type BRIDGE_STEPS_S
 		at 238 420
 		curdir 2
 
-	object 134220656
+	object 134220662
 		type BRIDGE_END_S
 		at 238 420
 		curdir 1
 
-	object 134220657
+	object 134220663
 		type BRIDGE_STEPS_S
 		at 239 420
 		curdir 1
 
-	object 134220658
+	object 134220664
 		type BRIDGE_STEPS_S
 		at 240 420
 		curdir 1
 
-	object 134220659
+	object 134220665
 		type BRIDGE_STEPS_S
 		at 241 420
 		curdir 3
 
-	object 134220660
+	object 134220666
 		type BRIDGE_END_S
 		at 241 420
 		curdir 1
 
-	object 134220661
+	object 134220667
 		type BRIDGE_END_S
 		at 242 420
 		curdir 3
 
-	object 134220662
+	object 134220668
 		type BRIDGE_STEPS_N
 		at 311 420
 		curdir 2
 
-	object 134220663
+	object 134220669
 		type BRIDGE_STEPS_N
 		at 312 420
 		curdir 0
 
-	object 134220664
+	object 134220670
 		type BRIDGE_STEPS_N
 		at 313 420
 		curdir 3
 
-	object 134220665
+	object 134220671
 		type BRIDGE_STEPS_N
 		at 314 420
 		curdir 2
 
-	object 134220666
+	object 134220672
 		type BRIDGE_STEPS_N
 		at 315 420
 		curdir 0
 
-	object 134220667
+	object 134220673
 		type BRIDGE_STEPS_N
 		at 316 420
 		curdir 3
 
-	object 134220668
+	object 134220674
 		type BRIDGE_STEPS_N
 		at 317 420
 		curdir 2
 
-	object 134220669
+	object 134220675
 		type BRIDGE_STEPS_N
 		at 318 420
 		curdir 0
 
-	object 134220670
+	object 134220676
 		type BRIDGE_STEPS_N
 		at 319 420
 		curdir 3
 
-	object 134220671
-		type DEFENCE_POST_UP
-		at 381 420
-		curdir 2
-
-	object 134220672
-		type LASER_DPOST
-		at 381 420
-		curdir 3
-		tag 32497
-		activity toggle_lasers
-
-	object 134220673
-		type LASER_DPOST
-		at 381 420
-		curdir 0
-		tag 87364
-		activity toggle_lasers
-
-	object 134220674
-		type DEFENCE_POST_UP
-		at 383 420
-		curdir 2
-
-	object 134220675
-		type LASER_DPOST
-		at 383 420
-		curdir 3
-		tag 28734
-		activity toggle_lasers
-
-	object 134220676
-		type LASER_DPOST
-		at 383 420
-		curdir 0
-		tag 83939
-		activity toggle_lasers
-
 	object 134220677
 		type DEFENCE_POST_UP
-		at 385 420
+		at 381 420
 		curdir 2
 
 	object 134220678
 		type LASER_DPOST
-		at 385 420
+		at 381 420
 		curdir 3
-		tag 34563
-		activity toggle_lasers
+		tag 32497
+		activity TOGGLE_LASERS
 
 	object 134220679
 		type LASER_DPOST
-		at 385 420
+		at 381 420
 		curdir 0
-		tag 26631
-		activity toggle_lasers
+		tag 87364
+		activity TOGGLE_LASERS
 
 	object 134220680
 		type DEFENCE_POST_UP
-		at 387 420
+		at 383 420
 		curdir 2
 
 	object 134220681
 		type LASER_DPOST
-		at 387 420
+		at 383 420
 		curdir 3
-		tag 32472
-		activity toggle_lasers
+		tag 28734
+		activity TOGGLE_LASERS
 
 	object 134220682
 		type LASER_DPOST
-		at 387 420
+		at 383 420
 		curdir 0
-		tag 823746
-		activity toggle_lasers
+		tag 83939
+		activity TOGGLE_LASERS
 
 	object 134220683
 		type DEFENCE_POST_UP
-		at 389 420
+		at 385 420
 		curdir 2
 
 	object 134220684
 		type LASER_DPOST
-		at 389 420
+		at 385 420
 		curdir 3
-		tag 863424
-		activity toggle_lasers
+		tag 34563
+		activity TOGGLE_LASERS
 
 	object 134220685
 		type LASER_DPOST
-		at 389 420
+		at 385 420
 		curdir 0
-		tag 39847
-		activity toggle_lasers
+		tag 26631
+		activity TOGGLE_LASERS
 
 	object 134220686
 		type DEFENCE_POST_UP
-		at 391 420
+		at 387 420
 		curdir 2
 
 	object 134220687
 		type LASER_DPOST
+		at 387 420
+		curdir 3
+		tag 32472
+		activity TOGGLE_LASERS
+
+	object 134220688
+		type LASER_DPOST
+		at 387 420
+		curdir 0
+		tag 823746
+		activity TOGGLE_LASERS
+
+	object 134220689
+		type DEFENCE_POST_UP
+		at 389 420
+		curdir 2
+
+	object 134220690
+		type LASER_DPOST
+		at 389 420
+		curdir 3
+		tag 863424
+		activity TOGGLE_LASERS
+
+	object 134220691
+		type LASER_DPOST
+		at 389 420
+		curdir 0
+		tag 39847
+		activity TOGGLE_LASERS
+
+	object 134220692
+		type DEFENCE_POST_UP
+		at 391 420
+		curdir 2
+
+	object 134220693
+		type LASER_DPOST
 		at 391 420
 		curdir 0
 		tag 43543
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
-	object 134220688
+	object 134220694
 		type STAIRS_UP
 		at 192 421
 		curdir 3
@@ -15750,86 +15775,86 @@ iMZ1r00
 		stats->karma 1
 		funcs->use TELEPORT_NEWMAP
 
-	object 134220689
+	object 134220695
 		type TARGET
 		at 194 421
 		curdir 0
 		tag 47
 
-	object 134220690
+	object 134220696
 		type BRIDGE_POLE
 		at 311 421
 		curdir 2
 
-	object 134220691
+	object 134220697
 		type BLOOD01
 		at 312 421
 		curdir 1
 
-	object 134220692
-		type MEAT03
+	object 134220698
+		type meat03
 		at 312 421
 		curdir 3
 
-	object 134220693
+	object 134220699
 		type HATCH_GALLOWS_CLOSED
 		at 312 421
 		curdir 3
 		tag 8003
 
-	object 134220694
+	object 134220700
 		type BRIDGE_POLE
 		at 313 421
 		curdir 3
 
-	object 134220695
+	object 134220701
 		type BRIDGE_POLE
 		at 314 421
 		curdir 2
 
-	object 134220696
+	object 134220702
 		type BONES0
 		at 315 421
 		curdir 3
 
-	object 134220697
+	object 134220703
 		type HATCH_GALLOWS_CLOSED
 		at 315 421
 		curdir 3
 		tag 8004
 
-	object 134220698
+	object 134220704
 		type BRIDGE_POLE
 		at 316 421
 		curdir 3
 
-	object 134220699
+	object 134220705
 		type BRIDGE_POLE
 		at 317 421
 		curdir 2
 
-	object 134220700
+	object 134220706
 		type BLOOD01
 		at 318 421
 		curdir 3
 
-	object 134220701
-		type MEAT05
+	object 134220707
+		type meat05
 		at 318 421
 		curdir 3
 
-	object 134220702
+	object 134220708
 		type HATCH_GALLOWS_CLOSED
 		at 318 421
 		curdir 3
 		tag 8005
 
-	object 134220703
+	object 134220709
 		type BRIDGE_POLE
 		at 319 421
 		curdir 3
 
-	object 134220704
+	object 134220710
 		type STAIRS_UP
 		at 192 422
 		curdir 0
@@ -15837,3229 +15862,3229 @@ iMZ1r00
 		stats->karma 1
 		funcs->use TELEPORT_NEWMAP
 
-	object 134220705
+	object 134220711
 		type BRIDGE_END_S
 		at 311 422
 		curdir 2
 
-	object 134220706
+	object 134220712
 		type BRIDGE_END_S
 		at 312 422
 		curdir 0
 
-	object 134220707
+	object 134220713
 		type BRIDGE_END_S
 		at 313 422
 		curdir 3
 
-	object 134220708
+	object 134220714
 		type BRIDGE_END_S
 		at 314 422
 		curdir 2
 
-	object 134220709
+	object 134220715
 		type BRIDGE_END_S
 		at 315 422
 		curdir 0
 
-	object 134220710
+	object 134220716
 		type BRIDGE_END_S
 		at 316 422
 		curdir 3
 
-	object 134220711
+	object 134220717
 		type BRIDGE_END_S
 		at 317 422
 		curdir 2
 
-	object 134220712
+	object 134220718
 		type BRIDGE_END_S
 		at 318 422
 		curdir 0
 
-	object 134220713
+	object 134220719
 		type BRIDGE_END_S
 		at 319 422
 		curdir 3
 
-	object 134220714
-		type DEFENCE_POST_UP
-		at 381 422
-		curdir 2
-
-	object 134220715
-		type LASER_DPOST
-		at 381 422
-		curdir 3
-		tag 34522
-		activity toggle_lasers
-
-	object 134220716
-		type LASER_DPOST
-		at 381 422
-		curdir 0
-		tag 12482
-		activity toggle_lasers
-
-	object 134220717
-		type DEFENCE_POST_UP
-		at 383 422
-		curdir 2
-
-	object 134220718
-		type LASER_DPOST
-		at 383 422
-		curdir 3
-		tag 89753
-		activity toggle_lasers
-
-	object 134220719
-		type LASER_DPOST
-		at 383 422
-		curdir 0
-		tag 23657
-		activity toggle_lasers
-
 	object 134220720
 		type DEFENCE_POST_UP
-		at 385 422
+		at 381 422
 		curdir 2
 
 	object 134220721
 		type LASER_DPOST
-		at 385 422
+		at 381 422
 		curdir 3
-		tag 65535
-		activity toggle_lasers
+		tag 34522
+		activity TOGGLE_LASERS
 
 	object 134220722
 		type LASER_DPOST
-		at 385 422
+		at 381 422
 		curdir 0
-		tag 89432
-		activity toggle_lasers
+		tag 12482
+		activity TOGGLE_LASERS
 
 	object 134220723
 		type DEFENCE_POST_UP
-		at 387 422
+		at 383 422
 		curdir 2
 
 	object 134220724
 		type LASER_DPOST
-		at 387 422
+		at 383 422
 		curdir 3
-		tag 76235
-		activity toggle_lasers
+		tag 89753
+		activity TOGGLE_LASERS
 
 	object 134220725
 		type LASER_DPOST
-		at 387 422
+		at 383 422
 		curdir 0
-		tag 9823
-		activity toggle_lasers
+		tag 23657
+		activity TOGGLE_LASERS
 
 	object 134220726
 		type DEFENCE_POST_UP
-		at 389 422
+		at 385 422
 		curdir 2
 
 	object 134220727
 		type LASER_DPOST
-		at 389 422
+		at 385 422
 		curdir 3
-		tag 73948
-		activity toggle_lasers
+		tag 65535
+		activity TOGGLE_LASERS
 
 	object 134220728
 		type LASER_DPOST
-		at 389 422
+		at 385 422
 		curdir 0
-		tag 42387
-		activity toggle_lasers
+		tag 89432
+		activity TOGGLE_LASERS
 
 	object 134220729
 		type DEFENCE_POST_UP
-		at 391 422
+		at 387 422
 		curdir 2
 
 	object 134220730
 		type LASER_DPOST
+		at 387 422
+		curdir 3
+		tag 76235
+		activity TOGGLE_LASERS
+
+	object 134220731
+		type LASER_DPOST
+		at 387 422
+		curdir 0
+		tag 9823
+		activity TOGGLE_LASERS
+
+	object 134220732
+		type DEFENCE_POST_UP
+		at 389 422
+		curdir 2
+
+	object 134220733
+		type LASER_DPOST
+		at 389 422
+		curdir 3
+		tag 73948
+		activity TOGGLE_LASERS
+
+	object 134220734
+		type LASER_DPOST
+		at 389 422
+		curdir 0
+		tag 42387
+		activity TOGGLE_LASERS
+
+	object 134220735
+		type DEFENCE_POST_UP
+		at 391 422
+		curdir 2
+
+	object 134220736
+		type LASER_DPOST
 		at 391 422
 		curdir 0
 		tag 34534
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
-	object 134220731
+	object 134220737
 		type SECRETDOOR1_SHUT
 		at 240 423
 		curdir 0
 
-	object 134220732
+	object 134220738
 		type SECRETDOOR1_SHUT
 		at 260 423
 		curdir 0
 
-	object 134220733
+	object 134220739
 		type SECRETDOOR1_SHUT
 		at 280 423
 		curdir 0
 
-	object 134220734
+	object 134220740
 		type SPELL_SUMMON
 		at 386 423
 		curdir 2
 
-	object 134220735
+	object 134220741
 		type SPELL_RESURRECT
 		at 386 423
 		curdir 2
 
-	object 134220736
+	object 134220742
 		type SPELL_HEARTRUTH
 		at 386 423
 		curdir 2
 
-	object 134220737
+	object 134220743
 		type SPELL_SLEEP
 		at 386 423
 		curdir 2
 
-	object 134220738
+	object 134220744
 		type TOADSTONE
-		inside 134220739
+		inside 134220745
 		curdir 2
 		stats->quantity 50
 
-	object 134220739
+	object 134220745
 		type BAG_POUCH
 		at 386 423
 		curdir 2
 
-	object 134220740
+	object 134220746
 		type LEVER
 		at 260 424
 		curdir 0
 		tag -8013
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134220741
+	object 134220747
 		type LEVER
 		at 280 424
 		curdir 0
 		tag -8014
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134220742
-		type DEFENCE_POST_UP
-		at 381 424
-		curdir 2
-
-	object 134220743
-		type LASER_DPOST
-		at 381 424
-		curdir 3
-		tag 32462
-		activity toggle_lasers
-
-	object 134220744
-		type LASER_DPOST
-		at 381 424
-		curdir 0
-		tag 73442
-		activity toggle_lasers
-
-	object 134220745
-		type DEFENCE_POST_UP
-		at 383 424
-		curdir 2
-
-	object 134220746
-		type LASER_DPOST
-		at 383 424
-		curdir 3
-		tag 23424
-		activity toggle_lasers
-
-	object 134220747
-		type LASER_DPOST
-		at 383 424
-		curdir 0
-		tag 987534
-		activity toggle_lasers
-
 	object 134220748
 		type DEFENCE_POST_UP
-		at 385 424
+		at 381 424
 		curdir 2
 
 	object 134220749
 		type LASER_DPOST
-		at 385 424
+		at 381 424
 		curdir 3
-		tag 52322
-		activity toggle_lasers
+		tag 32462
+		activity TOGGLE_LASERS
 
 	object 134220750
 		type LASER_DPOST
-		at 385 424
+		at 381 424
 		curdir 0
-		tag 65535
-		activity toggle_lasers
+		tag 73442
+		activity TOGGLE_LASERS
 
 	object 134220751
 		type DEFENCE_POST_UP
-		at 387 424
+		at 383 424
 		curdir 2
 
 	object 134220752
 		type LASER_DPOST
-		at 387 424
+		at 383 424
 		curdir 3
-		tag 22222
-		activity toggle_lasers
+		tag 23424
+		activity TOGGLE_LASERS
 
 	object 134220753
 		type LASER_DPOST
-		at 387 424
+		at 383 424
 		curdir 0
-		tag 987234
-		activity toggle_lasers
+		tag 987534
+		activity TOGGLE_LASERS
 
 	object 134220754
 		type DEFENCE_POST_UP
-		at 389 424
+		at 385 424
 		curdir 2
 
 	object 134220755
 		type LASER_DPOST
-		at 389 424
+		at 385 424
 		curdir 3
-		tag 98372
-		activity toggle_lasers
+		tag 52322
+		activity TOGGLE_LASERS
 
 	object 134220756
 		type LASER_DPOST
-		at 389 424
+		at 385 424
 		curdir 0
 		tag 65535
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object 134220757
 		type DEFENCE_POST_UP
-		at 391 424
+		at 387 424
 		curdir 2
 
 	object 134220758
 		type LASER_DPOST
+		at 387 424
+		curdir 3
+		tag 22222
+		activity TOGGLE_LASERS
+
+	object 134220759
+		type LASER_DPOST
+		at 387 424
+		curdir 0
+		tag 987234
+		activity TOGGLE_LASERS
+
+	object 134220760
+		type DEFENCE_POST_UP
+		at 389 424
+		curdir 2
+
+	object 134220761
+		type LASER_DPOST
+		at 389 424
+		curdir 3
+		tag 98372
+		activity TOGGLE_LASERS
+
+	object 134220762
+		type LASER_DPOST
+		at 389 424
+		curdir 0
+		tag 65535
+		activity TOGGLE_LASERS
+
+	object 134220763
+		type DEFENCE_POST_UP
+		at 391 424
+		curdir 2
+
+	object 134220764
+		type LASER_DPOST
 		at 391 424
 		curdir 0
 		tag 53528
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
-	object 134220759
+	object 134220765
 		type TORCH
 		at 224 425
 		curdir 0
 
-	object 134220760
+	object 134220766
 		type STONE_ARCHWAY
 		at 190 426
 		curdir 2
 
-	object 134220761
+	object 134220767
 		type WALL_EDGE
 		at 190 426
 		curdir 0
 
-	object 134220762
+	object 134220768
 		type STONE_ARCHWAY2
 		at 191 426
 		curdir 0
 
-	object 134220763
+	object 134220769
 		type STONE_ARCHWAY
 		at 192 426
 		curdir 3
 
-	object 134220764
+	object 134220770
 		type LIGHT_END
 		at 211 426
 		curdir 1
 		tag 57
-		stats->owner 134220348
+		stats->owner 134220352
 
-	object 134220765
+	object 134220771
 		type TORCH
 		at 240 426
 		curdir 0
 
-	object 134220766
+	object 134220772
 		type TORCH
 		at 260 426
 		curdir 0
 
-	object 134220767
+	object 134220773
 		type TORCH
 		at 280 426
 		curdir 0
 
-	object 134220768
-		type DEFENCE_POST_UP
-		at 381 426
-		curdir 2
-
-	object 134220769
-		type LASER_DPOST
-		at 381 426
-		curdir 3
-		tag 23563
-		activity toggle_lasers
-
-	object 134220770
-		type LASER_DPOST
-		at 381 426
-		curdir 0
-		tag 36292
-		activity toggle_lasers
-
-	object 134220771
-		type DEFENCE_POST_UP
-		at 383 426
-		curdir 2
-
-	object 134220772
-		type LASER_DPOST
-		at 383 426
-		curdir 3
-		tag 27273
-		activity toggle_lasers
-
-	object 134220773
-		type LASER_DPOST
-		at 383 426
-		curdir 0
-		tag 38982
-		activity toggle_lasers
-
 	object 134220774
 		type DEFENCE_POST_UP
-		at 385 426
+		at 381 426
 		curdir 2
 
 	object 134220775
 		type LASER_DPOST
-		at 385 426
+		at 381 426
 		curdir 3
-		tag 65535
-		activity toggle_lasers
+		tag 23563
+		activity TOGGLE_LASERS
 
 	object 134220776
 		type LASER_DPOST
-		at 385 426
+		at 381 426
 		curdir 0
-		tag 23479
-		activity toggle_lasers
+		tag 36292
+		activity TOGGLE_LASERS
 
 	object 134220777
 		type DEFENCE_POST_UP
-		at 387 426
+		at 383 426
 		curdir 2
 
 	object 134220778
 		type LASER_DPOST
-		at 387 426
+		at 383 426
 		curdir 3
-		tag 65535
-		activity toggle_lasers
+		tag 27273
+		activity TOGGLE_LASERS
 
 	object 134220779
 		type LASER_DPOST
-		at 387 426
+		at 383 426
 		curdir 0
-		tag 12627
-		activity toggle_lasers
+		tag 38982
+		activity TOGGLE_LASERS
 
 	object 134220780
 		type DEFENCE_POST_UP
-		at 389 426
+		at 385 426
 		curdir 2
 
 	object 134220781
 		type LASER_DPOST
-		at 389 426
+		at 385 426
 		curdir 3
-		tag 78346
-		activity toggle_lasers
+		tag 65535
+		activity TOGGLE_LASERS
 
 	object 134220782
 		type LASER_DPOST
-		at 389 426
+		at 385 426
 		curdir 0
-		tag 62783
-		activity toggle_lasers
+		tag 23479
+		activity TOGGLE_LASERS
 
 	object 134220783
 		type DEFENCE_POST_UP
-		at 391 426
+		at 387 426
 		curdir 2
 
 	object 134220784
 		type LASER_DPOST
+		at 387 426
+		curdir 3
+		tag 65535
+		activity TOGGLE_LASERS
+
+	object 134220785
+		type LASER_DPOST
+		at 387 426
+		curdir 0
+		tag 12627
+		activity TOGGLE_LASERS
+
+	object 134220786
+		type DEFENCE_POST_UP
+		at 389 426
+		curdir 2
+
+	object 134220787
+		type LASER_DPOST
+		at 389 426
+		curdir 3
+		tag 78346
+		activity TOGGLE_LASERS
+
+	object 134220788
+		type LASER_DPOST
+		at 389 426
+		curdir 0
+		tag 62783
+		activity TOGGLE_LASERS
+
+	object 134220789
+		type DEFENCE_POST_UP
+		at 391 426
+		curdir 2
+
+	object 134220790
+		type LASER_DPOST
 		at 391 426
 		curdir 0
 		tag 23762
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
-	object 134220785
+	object 134220791
 		type MAGIC_BARRIER
 		at 191 427
 		curdir 0
 		tag 39
 
-	object 134220786
+	object 134220792
 		type MAGIC_BARRIER
 		at 192 427
 		curdir 0
 		tag 39
 
-	object 134220787
+	object 134220793
 		type MAGIC_BARRIER
 		at 191 428
 		curdir 0
 		tag 39
 
-	object 134220788
+	object 134220794
 		type MAGIC_BARRIER
 		at 192 428
 		curdir 0
 		tag 39
 
-	object 134220789
-		type DEFENCE_POST_UP
-		at 381 428
-		curdir 2
-
-	object 134220790
-		type LASER_DPOST
-		at 381 428
-		curdir 3
-		tag 12564
-		activity toggle_lasers
-
-	object 134220791
-		type DEFENCE_POST_UP
-		at 383 428
-		curdir 2
-
-	object 134220792
-		type LASER_DPOST
-		at 383 428
-		curdir 3
-		tag 42831
-		activity toggle_lasers
-
-	object 134220793
-		type DEFENCE_POST_UP
-		at 385 428
-		curdir 2
-
-	object 134220794
-		type LASER_DPOST
-		at 385 428
-		curdir 3
-		tag 62612
-		activity toggle_lasers
-
 	object 134220795
 		type DEFENCE_POST_UP
-		at 387 428
+		at 381 428
 		curdir 2
 
 	object 134220796
 		type LASER_DPOST
-		at 387 428
+		at 381 428
 		curdir 3
-		tag 72628
-		activity toggle_lasers
+		tag 12564
+		activity TOGGLE_LASERS
 
 	object 134220797
 		type DEFENCE_POST_UP
-		at 389 428
+		at 383 428
 		curdir 2
 
 	object 134220798
 		type LASER_DPOST
+		at 383 428
+		curdir 3
+		tag 42831
+		activity TOGGLE_LASERS
+
+	object 134220799
+		type DEFENCE_POST_UP
+		at 385 428
+		curdir 2
+
+	object 134220800
+		type LASER_DPOST
+		at 385 428
+		curdir 3
+		tag 62612
+		activity TOGGLE_LASERS
+
+	object 134220801
+		type DEFENCE_POST_UP
+		at 387 428
+		curdir 2
+
+	object 134220802
+		type LASER_DPOST
+		at 387 428
+		curdir 3
+		tag 72628
+		activity TOGGLE_LASERS
+
+	object 134220803
+		type DEFENCE_POST_UP
+		at 389 428
+		curdir 2
+
+	object 134220804
+		type LASER_DPOST
 		at 389 428
 		curdir 3
 		tag 27362
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
-	object 134220799
+	object 134220805
 		type DEFENCE_POST_UP
 		at 391 428
 		curdir 2
 
-	object 134220800
+	object 134220806
 		type MAGIC_BARRIER
 		at 191 429
 		curdir 0
 		tag 39
 
-	object 134220801
+	object 134220807
 		type MAGIC_BARRIER
 		at 192 429
 		curdir 0
 		tag 39
 
-	object 134220802
+	object 134220808
 		type TORCH
 		at 232 429
 		curdir 0
 
-	object 134220803
+	object 134220809
 		type STONEDOOR4_SHUT
 		at 239 429
 		curdir 0
 		tag 8012
 
-	object 134220804
+	object 134220810
 		type TORCH
 		at 249 429
 		curdir 0
 
-	object 134220805
+	object 134220811
 		type STONEDOOR4_SHUT
 		at 259 429
 		curdir 0
 		tag 8011
 
-	object 134220806
+	object 134220812
 		type TORCH
 		at 269 429
 		curdir 0
 
-	object 134220807
+	object 134220813
 		type STONEDOOR4_SHUT
 		at 279 429
 		curdir 0
 		tag 8010
 
-	object 134220808
+	object 134220814
 		type TORCH
 		at 289 429
 		curdir 0
 
-	object 134220809
+	object 134220815
 		type TORCH
 		at 296 429
 		curdir 0
 
-	object 134220810
+	object 134220816
 		type TORCH
 		at 304 429
 		curdir 0
 
-	object 134220811
+	object 134220817
 		type TORCH
 		at 310 429
 		curdir 0
 
-	object 134220812
+	object 134220818
 		type TORCH
 		at 315 429
 		curdir 0
 
-	object 134220813
+	object 134220819
 		type TORCH
 		at 322 429
 		curdir 0
 
-	object 134220814
+	object 134220820
 		type TORCH
 		at 326 429
 		curdir 0
 
-	object 134220815
+	object 134220821
 		type TORCH
 		at 330 429
 		curdir 0
 
-	object 134220816
+	object 134220822
 		type TORCH
 		at 338 429
 		curdir 0
 
-	object 134220817
+	object 134220823
 		type TORCH
 		at 345 429
 		curdir 0
 
-	object 134220818
+	object 134220824
 		type TORCH
 		at 352 429
 		curdir 0
 
-	object 134220819
+	object 134220825
 		type TORCH
 		at 359 429
 		curdir 0
 
-	object 134220820
+	object 134220826
 		type TORCH
 		at 363 429
 		curdir 0
 
-	object 134220821
+	object 134220827
 		type MAGIC_BARRIER
 		at 191 430
 		curdir 0
 		tag 39
 
-	object 134220822
+	object 134220828
 		type MAGIC_BARRIER
 		at 192 430
 		curdir 0
 		tag 39
 
-	object 134220823
+	object 134220829
 		type BED2
 		at 238 430
 		curdir 0
 
-	object 134220824
+	object 134220830
 		type COBWEB0
 		at 258 430
 		curdir 1
 
-	object 134220825
+	object 134220831
 		type DIRT0
 		at 261 430
 		curdir 1
 
-	object 134220826
+	object 134220832
 		type MAGIC_BARRIER
 		at 191 431
 		curdir 0
 		tag 39
 
-	object 134220827
+	object 134220833
 		type MAGIC_BARRIER
 		at 192 431
 		curdir 0
 		tag 39
 
-	object 134220828
+	object 134220834
 		type TORCH
 		at 224 431
 		curdir 0
 
-	object 134220829
+	object 134220835
 		type MAGIC_BARRIER
 		at 191 432
 		curdir 0
 		tag 39
 
-	object 134220830
+	object 134220836
 		type MAGIC_BARRIER
 		at 192 432
 		curdir 0
 		tag 39
 
-	object 134220831
+	object 134220837
 		type COBWEB0
 		at 238 432
 		curdir 0
 
-	object 134220832
+	object 134220838
 		type DIRT0
 		at 241 432
 		curdir 0
 
-	object 134220833
+	object 134220839
 		type DIRT1
 		at 258 432
 		curdir 2
 
-	object 134220834
+	object 134220840
 		type BED2
 		at 260 432
 		curdir 0
 
-	object 134220835
+	object 134220841
 		type COBWEB0
 		at 278 432
 		curdir 0
 
-	object 134220836
+	object 134220842
 		type BED2
 		at 279 432
 		curdir 0
 
-	object 134220837
+	object 134220843
 		type DIRT0
 		at 281 432
 		curdir 1
 
-	object 134220838
+	object 134220844
 		type MAGIC_BARRIER
 		at 191 433
 		curdir 0
 		tag 39
 
-	object 134220839
+	object 134220845
 		type MAGIC_BARRIER
 		at 192 433
 		curdir 0
 		tag 39
 
-	object 134220840
+	object 134220846
 		type TORCH
 		at 260 433
 		curdir 0
 
-	object 134220841
+	object 134220847
 		type TORCH
 		at 280 433
 		curdir 0
 
-	object 134220842
+	object 134220848
 		type MAGIC_BARRIER
 		at 191 434
 		curdir 0
 		tag 39
 
-	object 134220843
+	object 134220849
 		type MAGIC_BARRIER
 		at 192 434
 		curdir 0
 		tag 39
 
-	object 134220844
+	object 134220850
 		type WALL_EDGE
 		at 294 434
 		curdir 0
 
-	object 134220845
+	object 134220851
 		type WALL_EDGE
 		at 363 434
 		curdir 0
 
-	object 134220846
+	object 134220852
 		type MAGIC_BARRIER
 		at 191 435
 		curdir 0
 		tag 39
 
-	object 134220847
+	object 134220853
 		type MAGIC_BARRIER
 		at 192 435
 		curdir 0
 		tag 39
 
-	object 134220848
+	object 134220854
 		type MAGIC_BARRIER
 		at 191 436
 		curdir 0
 		tag 39
 
-	object 134220849
+	object 134220855
 		type MAGIC_BARRIER
 		at 192 436
 		curdir 0
 		tag 39
 
-	object 134220850
+	object 134220856
 		type SECRETDOOR1_SHUT
 		at 240 436
 		curdir 0
 
-	object 134220851
+	object 134220857
 		type SECRETDOOR1_SHUT
 		at 260 436
 		curdir 0
 
-	object 134220852
+	object 134220858
 		type SECRETDOOR1_SHUT
 		at 280 436
 		curdir 0
 
-	object 134220853
+	object 134220859
 		type TORCH
 		at 294 436
 		curdir 0
 
-	object 134220854
+	object 134220860
 		type MAGIC_BARRIER
 		at 191 437
 		curdir 0
 		tag 39
 
-	object 134220855
+	object 134220861
 		type MAGIC_BARRIER
 		at 192 437
 		curdir 0
 		tag 39
 
-	object 134220856
+	object 134220862
 		type LEVER
 		at 240 437
 		curdir 0
 		tag -8012
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134220857
+	object 134220863
 		type LEVER
 		at 260 437
 		curdir 0
 		tag -8011
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134220858
+	object 134220864
 		type LEVER
 		at 280 437
 		curdir 0
 		tag -8010
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134220859
+	object 134220865
 		type TARGET
 		at 386 437
 		curdir 0
 		tag 48
 
-	object 134220860
+	object 134220866
 		type MAGIC_BARRIER
 		at 191 438
 		curdir 0
 		tag 39
 
-	object 134220861
+	object 134220867
 		type MAGIC_BARRIER
 		at 192 438
 		curdir 0
 		tag 39
 
-	object 134220862
+	object 134220868
 		type TORCH
 		at 311 438
 		curdir 0
 
-	object 134220863
+	object 134220869
 		type TORCH
 		at 316 438
 		curdir 0
 
-	object 134220864
+	object 134220870
 		type TORCH
 		at 321 438
 		curdir 0
 
-	object 134220865
+	object 134220871
 		type MAGIC_BARRIER
 		at 191 439
 		curdir 0
 		tag 39
 
-	object 134220866
+	object 134220872
 		type MAGIC_BARRIER
 		at 192 439
 		curdir 0
 		tag 39
 
-	object 134220867
+	object 134220873
 		type TREASURE_06
 		at 307 439
 		curdir 2
 
-	object 134220868
+	object 134220874
 		type TABLE2-END
 		at 307 439
 		curdir 2
 
-	object 134220869
-		type GOLD_BAR
-		at 307 439
-		curdir 0
-
-	object 134220870
-		type GOLD_BAR
-		at 307 439
-		curdir 0
-
-	object 134220871
-		type GOLD_BAR
-		at 307 439
-		curdir 0
-
-	object 134220872
-		type GOLD_BAR
-		at 307 439
-		curdir 0
-
-	object 134220873
-		type GOLD_BAR
-		at 307 439
-		curdir 0
-
-	object 134220874
-		type GOLD_BAR
-		at 307 439
-		curdir 0
-
 	object 134220875
-		type TABLE2-EDGES
-		at 308 439
+		type GOLD_BAR
+		at 307 439
 		curdir 0
 
 	object 134220876
 		type GOLD_BAR
-		at 308 439
+		at 307 439
 		curdir 0
 
 	object 134220877
 		type GOLD_BAR
-		at 308 439
+		at 307 439
 		curdir 0
 
 	object 134220878
 		type GOLD_BAR
-		at 308 439
+		at 307 439
 		curdir 0
 
 	object 134220879
 		type GOLD_BAR
-		at 308 439
+		at 307 439
 		curdir 0
 
 	object 134220880
 		type GOLD_BAR
-		at 308 439
+		at 307 439
 		curdir 0
 
 	object 134220881
-		type GOLD_BAR
+		type TABLE2-EDGES
 		at 308 439
 		curdir 0
 
 	object 134220882
-		type TABLE2-EDGES
-		at 309 439
+		type GOLD_BAR
+		at 308 439
 		curdir 0
 
 	object 134220883
 		type GOLD_BAR
-		at 309 439
+		at 308 439
 		curdir 0
 
 	object 134220884
 		type GOLD_BAR
-		at 309 439
+		at 308 439
 		curdir 0
 
 	object 134220885
 		type GOLD_BAR
-		at 309 439
+		at 308 439
 		curdir 0
 
 	object 134220886
 		type GOLD_BAR
-		at 309 439
+		at 308 439
 		curdir 0
 
 	object 134220887
 		type GOLD_BAR
-		at 309 439
+		at 308 439
 		curdir 0
 
 	object 134220888
-		type GOLD_BAR
+		type TABLE2-EDGES
 		at 309 439
 		curdir 0
 
 	object 134220889
-		type TABLE-SHADOW3
-		at 310 439
-		curdir 2
+		type GOLD_BAR
+		at 309 439
+		curdir 0
 
 	object 134220890
-		type TABLE2-END
-		at 310 439
-		curdir 3
+		type GOLD_BAR
+		at 309 439
+		curdir 0
 
 	object 134220891
 		type GOLD_BAR
-		at 310 439
+		at 309 439
 		curdir 0
 
 	object 134220892
 		type GOLD_BAR
-		at 310 439
+		at 309 439
 		curdir 0
 
 	object 134220893
 		type GOLD_BAR
-		at 310 439
+		at 309 439
 		curdir 0
 
 	object 134220894
 		type GOLD_BAR
-		at 310 439
+		at 309 439
 		curdir 0
 
 	object 134220895
-		type GOLD_BAR
+		type TABLE-SHADOW3
 		at 310 439
-		curdir 0
+		curdir 2
 
 	object 134220896
+		type TABLE2-END
+		at 310 439
+		curdir 3
+
+	object 134220897
 		type GOLD_BAR
 		at 310 439
 		curdir 0
 
-	object 134220897
-		type TREASURE_06
-		at 311 439
-		curdir 2
-
 	object 134220898
-		type TABLE-SHADOW2
-		at 311 439
-		curdir 2
+		type GOLD_BAR
+		at 310 439
+		curdir 0
 
 	object 134220899
-		type TABLE2-END
-		at 312 439
-		curdir 2
+		type GOLD_BAR
+		at 310 439
+		curdir 0
 
 	object 134220900
 		type GOLD_BAR
-		at 312 439
+		at 310 439
 		curdir 0
 
 	object 134220901
 		type GOLD_BAR
-		at 312 439
+		at 310 439
 		curdir 0
 
 	object 134220902
 		type GOLD_BAR
-		at 312 439
+		at 310 439
 		curdir 0
 
 	object 134220903
-		type GOLD_BAR
-		at 312 439
-		curdir 0
+		type TREASURE_06
+		at 311 439
+		curdir 2
 
 	object 134220904
-		type GOLD_BAR
-		at 312 439
-		curdir 0
+		type TABLE-SHADOW2
+		at 311 439
+		curdir 2
 
 	object 134220905
-		type GOLD_BAR
+		type TABLE2-END
 		at 312 439
-		curdir 0
+		curdir 2
 
 	object 134220906
-		type TABLE2-EDGES
-		at 313 439
+		type GOLD_BAR
+		at 312 439
 		curdir 0
 
 	object 134220907
 		type GOLD_BAR
-		at 313 439
+		at 312 439
 		curdir 0
 
 	object 134220908
 		type GOLD_BAR
-		at 313 439
+		at 312 439
 		curdir 0
 
 	object 134220909
 		type GOLD_BAR
-		at 313 439
+		at 312 439
 		curdir 0
 
 	object 134220910
 		type GOLD_BAR
-		at 313 439
+		at 312 439
 		curdir 0
 
 	object 134220911
 		type GOLD_BAR
-		at 313 439
+		at 312 439
 		curdir 0
 
 	object 134220912
-		type GOLD_BAR
+		type TABLE2-EDGES
 		at 313 439
 		curdir 0
 
 	object 134220913
-		type TREASURE_06
-		at 314 439
-		curdir 2
+		type GOLD_BAR
+		at 313 439
+		curdir 0
 
 	object 134220914
-		type TABLE2-EDGES
-		at 314 439
+		type GOLD_BAR
+		at 313 439
 		curdir 0
 
 	object 134220915
 		type GOLD_BAR
-		at 314 439
+		at 313 439
 		curdir 0
 
 	object 134220916
 		type GOLD_BAR
-		at 314 439
+		at 313 439
 		curdir 0
 
 	object 134220917
 		type GOLD_BAR
-		at 314 439
+		at 313 439
 		curdir 0
 
 	object 134220918
 		type GOLD_BAR
-		at 314 439
+		at 313 439
 		curdir 0
 
 	object 134220919
-		type GOLD_BAR
+		type TREASURE_06
 		at 314 439
-		curdir 0
+		curdir 2
 
 	object 134220920
-		type GOLD_BAR
+		type TABLE2-EDGES
 		at 314 439
 		curdir 0
 
 	object 134220921
-		type TABLE-SHADOW3
-		at 315 439
-		curdir 2
+		type GOLD_BAR
+		at 314 439
+		curdir 0
 
 	object 134220922
-		type TABLE2-END
-		at 315 439
-		curdir 3
+		type GOLD_BAR
+		at 314 439
+		curdir 0
 
 	object 134220923
 		type GOLD_BAR
-		at 315 439
+		at 314 439
 		curdir 0
 
 	object 134220924
 		type GOLD_BAR
-		at 315 439
+		at 314 439
 		curdir 0
 
 	object 134220925
 		type GOLD_BAR
-		at 315 439
+		at 314 439
 		curdir 0
 
 	object 134220926
 		type GOLD_BAR
-		at 315 439
+		at 314 439
 		curdir 0
 
 	object 134220927
-		type GOLD_BAR
+		type TABLE-SHADOW3
 		at 315 439
-		curdir 0
+		curdir 2
 
 	object 134220928
+		type TABLE2-END
+		at 315 439
+		curdir 3
+
+	object 134220929
 		type GOLD_BAR
 		at 315 439
 		curdir 0
 
-	object 134220929
-		type TABLE-SHADOW2
-		at 316 439
-		curdir 2
-
 	object 134220930
-		type TABLE2-END
-		at 317 439
-		curdir 2
+		type GOLD_BAR
+		at 315 439
+		curdir 0
 
 	object 134220931
 		type GOLD_BAR
-		at 317 439
+		at 315 439
 		curdir 0
 
 	object 134220932
 		type GOLD_BAR
-		at 317 439
+		at 315 439
 		curdir 0
 
 	object 134220933
 		type GOLD_BAR
-		at 317 439
+		at 315 439
 		curdir 0
 
 	object 134220934
 		type GOLD_BAR
-		at 317 439
+		at 315 439
 		curdir 0
 
 	object 134220935
-		type GOLD_BAR
-		at 317 439
-		curdir 0
+		type TABLE-SHADOW2
+		at 316 439
+		curdir 2
 
 	object 134220936
-		type GOLD_BAR
+		type TABLE2-END
 		at 317 439
-		curdir 0
+		curdir 2
 
 	object 134220937
-		type TABLE2-EDGES
-		at 318 439
+		type GOLD_BAR
+		at 317 439
 		curdir 0
 
 	object 134220938
 		type GOLD_BAR
-		at 318 439
+		at 317 439
 		curdir 0
 
 	object 134220939
 		type GOLD_BAR
-		at 318 439
+		at 317 439
 		curdir 0
 
 	object 134220940
 		type GOLD_BAR
-		at 318 439
+		at 317 439
 		curdir 0
 
 	object 134220941
 		type GOLD_BAR
-		at 318 439
+		at 317 439
 		curdir 0
 
 	object 134220942
 		type GOLD_BAR
-		at 318 439
+		at 317 439
 		curdir 0
 
 	object 134220943
-		type GOLD_BAR
+		type TABLE2-EDGES
 		at 318 439
 		curdir 0
 
 	object 134220944
-		type TABLE2-EDGES
-		at 319 439
+		type GOLD_BAR
+		at 318 439
 		curdir 0
 
 	object 134220945
 		type GOLD_BAR
-		at 319 439
+		at 318 439
 		curdir 0
 
 	object 134220946
 		type GOLD_BAR
-		at 319 439
+		at 318 439
 		curdir 0
 
 	object 134220947
 		type GOLD_BAR
-		at 319 439
+		at 318 439
 		curdir 0
 
 	object 134220948
 		type GOLD_BAR
-		at 319 439
+		at 318 439
 		curdir 0
 
 	object 134220949
 		type GOLD_BAR
-		at 319 439
+		at 318 439
 		curdir 0
 
 	object 134220950
-		type GOLD_BAR
+		type TABLE2-EDGES
 		at 319 439
 		curdir 0
 
 	object 134220951
-		type TABLE-SHADOW3
-		at 320 439
-		curdir 2
+		type GOLD_BAR
+		at 319 439
+		curdir 0
 
 	object 134220952
-		type TABLE2-END
-		at 320 439
-		curdir 3
+		type GOLD_BAR
+		at 319 439
+		curdir 0
 
 	object 134220953
 		type GOLD_BAR
-		at 320 439
+		at 319 439
 		curdir 0
 
 	object 134220954
 		type GOLD_BAR
-		at 320 439
+		at 319 439
 		curdir 0
 
 	object 134220955
 		type GOLD_BAR
-		at 320 439
+		at 319 439
 		curdir 0
 
 	object 134220956
 		type GOLD_BAR
-		at 320 439
+		at 319 439
 		curdir 0
 
 	object 134220957
-		type GOLD_BAR
+		type TABLE-SHADOW3
 		at 320 439
-		curdir 0
+		curdir 2
 
 	object 134220958
+		type TABLE2-END
+		at 320 439
+		curdir 3
+
+	object 134220959
 		type GOLD_BAR
 		at 320 439
 		curdir 0
 
-	object 134220959
+	object 134220960
+		type GOLD_BAR
+		at 320 439
+		curdir 0
+
+	object 134220961
+		type GOLD_BAR
+		at 320 439
+		curdir 0
+
+	object 134220962
+		type GOLD_BAR
+		at 320 439
+		curdir 0
+
+	object 134220963
+		type GOLD_BAR
+		at 320 439
+		curdir 0
+
+	object 134220964
+		type GOLD_BAR
+		at 320 439
+		curdir 0
+
+	object 134220965
 		type TABLE-SHADOW2
 		at 321 439
 		curdir 2
 
-	object 134220960
+	object 134220966
 		type GOLD_NUGGET
 		at 321 439
 		curdir 1
 
-	object 134220961
+	object 134220967
 		type WALL_EDGE
 		at 368 439
 		curdir 2
 
-	object 134220962
+	object 134220968
 		type SECRETDOOR2_SHUT
 		at 386 439
 		curdir 0
 
-	object 134220963
+	object 134220969
 		type MAGIC_BARRIER
 		at 191 440
 		curdir 0
 		tag 39
 
-	object 134220964
+	object 134220970
 		type MAGIC_BARRIER
 		at 192 440
 		curdir 0
 		tag 39
 
-	object 134220965
+	object 134220971
 		type TABLE-SHADOW2
 		at 307 440
 		curdir 0
 
-	object 134220966
+	object 134220972
 		type TABLE5-LEGS
 		at 307 440
 		curdir 0
 
-	object 134220967
+	object 134220973
 		type TABLE-SHADOW1
 		at 308 440
 		curdir 0
 
-	object 134220968
+	object 134220974
 		type GOLD_NUGGET
 		at 308 440
 		curdir 1
 
-	object 134220969
+	object 134220975
 		type TABLE-SHADOW1
 		at 309 440
 		curdir 0
 
-	object 134220970
+	object 134220976
 		type TABLE-SHADOW1
 		at 310 440
 		curdir 0
 
-	object 134220971
+	object 134220977
 		type TABLE5-LEGS
 		at 310 440
 		curdir 0
 
-	object 134220972
+	object 134220978
 		type TABLE-SHADOW3
 		at 311 440
 		curdir 0
 
-	object 134220973
+	object 134220979
 		type TABLE-SHADOW2
 		at 312 440
 		curdir 0
 
-	object 134220974
+	object 134220980
 		type TABLE5-LEGS
 		at 312 440
 		curdir 0
 
-	object 134220975
+	object 134220981
 		type TABLE-SHADOW1
 		at 313 440
 		curdir 0
 
-	object 134220976
+	object 134220982
 		type TABLE-SHADOW1
 		at 314 440
 		curdir 0
 
-	object 134220977
+	object 134220983
 		type TABLE-SHADOW1
 		at 315 440
 		curdir 0
 
-	object 134220978
+	object 134220984
 		type TABLE5-LEGS
 		at 315 440
 		curdir 0
 
-	object 134220979
+	object 134220985
 		type TABLE-SHADOW3
 		at 316 440
 		curdir 0
 
-	object 134220980
+	object 134220986
 		type TABLE-SHADOW2
 		at 317 440
 		curdir 0
 
-	object 134220981
+	object 134220987
 		type TABLE5-LEGS
 		at 317 440
 		curdir 0
 
-	object 134220982
+	object 134220988
 		type TABLE-SHADOW1
 		at 318 440
 		curdir 0
 
-	object 134220983
+	object 134220989
 		type TABLE-SHADOW1
 		at 319 440
 		curdir 0
 
-	object 134220984
+	object 134220990
 		type TABLE-SHADOW1
 		at 320 440
 		curdir 0
 
-	object 134220985
+	object 134220991
 		type TABLE5-LEGS
 		at 320 440
 		curdir 0
 
-	object 134220986
+	object 134220992
 		type TABLE-SHADOW3
 		at 321 440
 		curdir 0
 
-	object 134220987
+	object 134220993
 		type MAGIC_BARRIER
 		at 191 441
 		curdir 0
 		tag 39
 
-	object 134220988
+	object 134220994
 		type MAGIC_BARRIER
 		at 192 441
 		curdir 0
 		tag 39
 
-	object 134220989
+	object 134220995
 		type TREASURE_06
 		at 309 441
 		curdir 2
 
-	object 134220990
+	object 134220996
 		type GOLD_NUGGET
 		at 312 441
 		curdir 1
 
-	object 134220991
+	object 134220997
 		type TREASURE_04
 		at 313 441
 		curdir 2
 
-	object 134220992
+	object 134220998
 		type TREASURE_06
 		at 316 441
 		curdir 2
 
-	object 134220993
+	object 134220999
 		type GOLD_NUGGET
 		at 317 441
 		curdir 1
 
-	object 134220994
+	object 134221000
 		type TREASURE_04
 		at 322 441
 		curdir 2
 
-	object 134220995
+	object 134221001
 		type MAGIC_BARRIER
 		at 191 442
 		curdir 0
 		tag 39
 
-	object 134220996
+	object 134221002
 		type MAGIC_BARRIER
 		at 192 442
 		curdir 0
 		tag 39
 
-	object 134220997
+	object 134221003
 		type TORCH
 		at 306 442
 		curdir 0
 
-	object 134220998
+	object 134221004
 		type GOLD_NUGGET
 		at 307 442
 		curdir 1
 
-	object 134220999
+	object 134221005
 		type TREASURE_05
 		at 310 442
 		curdir 2
 
-	object 134221000
+	object 134221006
 		type TREASURE_06
 		at 313 442
 		curdir 2
 
-	object 134221001
+	object 134221007
 		type TREASURE_04
 		at 316 442
 		curdir 2
 
-	object 134221002
+	object 134221008
 		type GOLD_NUGGET
 		at 321 442
 		curdir 1
 
-	object 134221003
+	object 134221009
 		type TORCH
 		at 363 442
 		curdir 0
 
-	object 134221004
+	object 134221010
 		type MAGIC_BARRIER
 		at 191 443
 		curdir 0
 		tag 39
 
-	object 134221005
+	object 134221011
 		type MAGIC_BARRIER
 		at 192 443
 		curdir 0
 		tag 39
 
-	object 134221006
+	object 134221012
 		type TREASURE_06
 		at 310 443
 		curdir 2
 
-	object 134221007
+	object 134221013
 		type GOLD_NUGGET
 		at 312 443
 		curdir 1
 
-	object 134221008
+	object 134221014
 		type TREASURE_05
 		at 315 443
 		curdir 2
 
-	object 134221009
+	object 134221015
 		type TREASURE_04
 		at 320 443
 		curdir 2
 
-	object 134221010
+	object 134221016
 		type STONEDOORWAY
 		at 139 444
 		curdir 0
 
-	object 134221011
+	object 134221017
 		type STONEDOORWAY
 		at 158 444
 		curdir 0
 
-	object 134221012
+	object 134221018
 		type MAGIC_BARRIER
 		at 191 444
 		curdir 0
 		tag 39
 
-	object 134221013
+	object 134221019
 		type MAGIC_BARRIER
 		at 192 444
 		curdir 0
 		tag 39
 
-	object 134221014
+	object 134221020
 		type TORCH
 		at 294 444
 		curdir 0
 
-	object 134221015
+	object 134221021
 		type TREASURE_02
 		at 310 444
 		curdir 0
 
-	object 134221016
+	object 134221022
 		type TREASURE_03
 		at 313 444
 		curdir 1
 
-	object 134221017
+	object 134221023
 		type GOLD_NUGGET
 		at 314 444
 		curdir 1
 
-	object 134221018
+	object 134221024
 		type TREASURE_06
 		at 316 444
 		curdir 2
 
-	object 134221019
+	object 134221025
 		type GOLD_NUGGET
 		at 316 444
 		curdir 1
 
-	object 134221020
+	object 134221026
 		type TEST
 		at 317 444
 		curdir 0
 		funcs->use DO_NOTHING
 
-	object 134221021
+	object 134221027
 		type TREASURE_06
 		at 317 444
 		curdir 2
 
-	object 134221022
+	object 134221028
 		type MAGIC_BARRIER
 		at 191 445
 		curdir 0
 		tag 39
 
-	object 134221023
+	object 134221029
 		type MAGIC_BARRIER
 		at 192 445
 		curdir 0
 		tag 39
 
-	object 134221024
+	object 134221030
 		type TORCH
 		at 226 445
 		curdir 0
 
-	object 134221025
+	object 134221031
 		type TORCH
 		at 234 445
 		curdir 0
 
-	object 134221026
+	object 134221032
 		type TORCH
 		at 242 445
 		curdir 0
 
-	object 134221027
+	object 134221033
 		type TORCH
 		at 250 445
 		curdir 0
 
-	object 134221028
+	object 134221034
 		type TORCH
 		at 258 445
 		curdir 0
 
-	object 134221029
+	object 134221035
 		type TORCH
 		at 266 445
 		curdir 0
 
-	object 134221030
+	object 134221036
 		type TORCH
 		at 274 445
 		curdir 0
 
-	object 134221031
+	object 134221037
 		type TORCH
 		at 282 445
 		curdir 0
 
-	object 134221032
+	object 134221038
 		type TORCH
 		at 290 445
 		curdir 0
 
-	object 134221033
+	object 134221039
 		type WALL_EDGE
 		at 299 445
 		curdir 2
 
-	object 134221034
+	object 134221040
 		type TORCH
 		at 302 445
 		curdir 0
 
-	object 134221035
+	object 134221041
 		type GOLD_NUGGET
 		at 309 445
 		curdir 1
 
-	object 134221036
+	object 134221042
 		type TREASURE_04
 		at 312 445
 		curdir 2
 
-	object 134221037
+	object 134221043
 		type TREASURE_06
 		at 312 445
 		curdir 2
 
-	object 134221038
+	object 134221044
 		type TREASURE_06
 		at 314 445
 		curdir 2
 
-	object 134221039
+	object 134221045
 		type GOLD_NUGGET
 		at 318 445
 		curdir 1
 
-	object 134221040
+	object 134221046
 		type TREASURE_02
 		at 321 445
 		curdir 2
 
-	object 134221041
+	object 134221047
 		type MAGIC_BARRIER
 		at 191 446
 		curdir 0
 		tag 39
 
-	object 134221042
+	object 134221048
 		type MAGIC_BARRIER
 		at 192 446
 		curdir 0
 		tag 39
 
-	object 134221043
+	object 134221049
 		type TREASURE_06
 		at 309 446
 		curdir 2
 
-	object 134221044
+	object 134221050
 		type TREASURE_05
 		at 313 446
 		curdir 2
 
-	object 134221045
+	object 134221051
 		type GOLD_NUGGET
 		at 315 446
 		curdir 1
 
-	object 134221046
+	object 134221052
 		type TREASURE_02
 		at 319 446
 		curdir 1
 
-	object 134221047
+	object 134221053
 		type STONEDOORWAY
 		at 149 447
 		curdir 0
 
-	object 134221048
+	object 134221054
 		type MAGIC_BARRIER
 		at 191 447
 		curdir 0
 		tag 39
 
-	object 134221049
+	object 134221055
 		type MAGIC_BARRIER
 		at 192 447
 		curdir 0
 		tag 39
 
-	object 134221050
+	object 134221056
 		type STONEDOOR4_SHUT
 		at 306 447
 		curdir 2
 		tag 41
 
-	object 134221051
+	object 134221057
 		type TREASURE_06
 		at 311 447
 		curdir 2
 
-	object 134221052
+	object 134221058
 		type GOLD_NUGGET
 		at 313 447
 		curdir 1
 
-	object 134221053
+	object 134221059
 		type TREASURE_05
 		at 314 447
 		curdir 2
 
-	object 134221054
+	object 134221060
 		type GOLD_NUGGET
 		at 320 447
 		curdir 1
 
-	object 134221055
+	object 134221061
 		type MAGIC_BARRIER
 		at 191 448
 		curdir 0
 		tag 39
 
-	object 134221056
+	object 134221062
 		type MAGIC_BARRIER
 		at 192 448
 		curdir 0
 		tag 39
 
-	object 134221057
+	object 134221063
 		type TREASURE_06
 		at 308 448
 		curdir 2
 
-	object 134221058
+	object 134221064
 		type TREASURE_03
 		at 312 448
 		curdir 2
 
-	object 134221059
+	object 134221065
 		type TREASURE_06
 		at 314 448
 		curdir 2
 
-	object 134221060
+	object 134221066
 		type TREASURE_06
 		at 316 448
 		curdir 2
 
-	object 134221061
+	object 134221067
 		type GOLD_NUGGET
 		at 316 448
 		curdir 1
 
-	object 134221062
+	object 134221068
 		type TREASURE_05
 		at 316 448
 		curdir 2
 
-	object 134221063
+	object 134221069
 		type TREASURE_04
 		at 317 448
 		curdir 2
 
-	object 134221064
+	object 134221070
 		type STONEDOORWAY
 		at 159 449
 		curdir 2
 
-	object 134221065
+	object 134221071
 		type MAGIC_BARRIER
 		at 191 449
 		curdir 0
 		tag 39
 
-	object 134221066
+	object 134221072
 		type MAGIC_BARRIER
 		at 192 449
 		curdir 0
 		tag 39
 
-	object 134221067
+	object 134221073
 		type TREASURE_03
 		at 308 449
 		curdir 3
 
-	object 134221068
+	object 134221074
 		type TREASURE_01
 		at 312 449
 		curdir 1
 
-	object 134221069
+	object 134221075
 		type GOLD_NUGGET
 		at 314 449
 		curdir 1
 
-	object 134221070
+	object 134221076
 		type TREASURE_06
 		at 315 449
 		curdir 2
 
-	object 134221071
+	object 134221077
 		type TREASURE_04
 		at 316 449
 		curdir 2
 
-	object 134221072
+	object 134221078
 		type RING_RUBY
 		at 318 449
 		curdir 3
 
-	object 134221073
+	object 134221079
 		type TREASURE_04
 		at 319 449
 		curdir 2
 
-	object 134221074
+	object 134221080
 		type STONEDOORWAY
 		at 143 450
 		curdir 0
 
-	object 134221075
+	object 134221081
 		type STONEDOORWAY
 		at 151 450
 		curdir 0
 
-	object 134221076
+	object 134221082
 		type MAGIC_BARRIER
 		at 191 450
 		curdir 0
 		tag 39
 
-	object 134221077
+	object 134221083
 		type MAGIC_BARRIER
 		at 192 450
 		curdir 0
 		tag 39
 
-	object 134221078
+	object 134221084
 		type WALL_EDGE
 		at 244 450
 		curdir 0
 
-	object 134221079
+	object 134221085
 		type WALL_EDGE
 		at 266 450
 		curdir 0
 
-	object 134221080
+	object 134221086
 		type WALL_EDGE
 		at 294 450
 		curdir 0
 
-	object 134221081
+	object 134221087
 		type TREASURE_06
 		at 308 450
 		curdir 2
 
-	object 134221082
+	object 134221088
 		type TREASURE_03
 		at 308 450
 		curdir 0
 
-	object 134221083
+	object 134221089
 		type TREASURE_06
 		at 312 450
 		curdir 2
 
-	object 134221084
+	object 134221090
 		type GOLD_NUGGET
 		at 313 450
 		curdir 1
 
-	object 134221085
+	object 134221091
 		type GOLD_NUGGET
 		at 317 450
 		curdir 1
 
-	object 134221086
+	object 134221092
 		type GOLD_NUGGET
 		at 322 450
 		curdir 1
 
-	object 134221087
+	object 134221093
 		type MAGIC_BARRIER
 		at 191 451
 		curdir 0
 		tag 39
 
-	object 134221088
+	object 134221094
 		type MAGIC_BARRIER
 		at 192 451
 		curdir 0
 		tag 39
 
-	object 134221089
+	object 134221095
 		type TORCH
 		at 222 451
 		curdir 0
 
-	object 134221090
+	object 134221096
 		type TORCH
 		at 244 451
 		curdir 0
 
-	object 134221091
+	object 134221097
 		type TORCH
 		at 266 451
 		curdir 0
 
-	object 134221092
+	object 134221098
 		type TORCH
 		at 294 451
 		curdir 0
 
-	object 134221093
+	object 134221099
 		type TREASURE_00
 		at 307 451
 		curdir 2
 
-	object 134221094
+	object 134221100
 		type TREASURE_04
 		at 312 451
 		curdir 2
 
-	object 134221095
+	object 134221101
 		type GOLD_NUGGET
 		at 315 451
 		curdir 1
 
-	object 134221096
+	object 134221102
 		type TREASURE_05
 		at 317 451
 		curdir 2
 
-	object 134221097
+	object 134221103
 		type TREASURE_04
 		at 320 451
 		curdir 2
 
-	object 134221098
+	object 134221104
 		type MAGIC_BARRIER
 		at 191 452
 		curdir 0
 		tag 39
 
-	object 134221099
+	object 134221105
 		type MAGIC_BARRIER
 		at 192 452
 		curdir 0
 		tag 39
 
-	object 134221100
+	object 134221106
 		type TORCH
 		at 306 452
 		curdir 0
 
-	object 134221101
+	object 134221107
 		type GOLD_NUGGET
 		at 310 452
 		curdir 1
 
-	object 134221102
+	object 134221108
 		type TREASURE_04
 		at 315 452
 		curdir 2
 
-	object 134221103
+	object 134221109
 		type TREASURE_00
 		at 319 452
 		curdir 0
 
-	object 134221104
+	object 134221110
 		type TREASURE_00
 		at 321 452
 		curdir 1
 
-	object 134221105
+	object 134221111
 		type STONEDOORWAY
 		at 139 453
 		curdir 0
 
-	object 134221106
+	object 134221112
 		type STONEDOORWAY
 		at 159 453
 		curdir 2
 
-	object 134221107
+	object 134221113
 		type MAGIC_BARRIER
 		at 191 453
 		curdir 0
 		tag 39
 
-	object 134221108
+	object 134221114
 		type MAGIC_BARRIER
 		at 192 453
 		curdir 0
 		tag 39
 
-	object 134221109
+	object 134221115
 		type STONEDOOR5_LOCK
 		at 222 453
 		curdir 3
 
-	object 134221110
+	object 134221116
 		type STONEDOOR5_LOCK
 		at 227 453
 		curdir 3
 
-	object 134221111
+	object 134221117
 		type STONEDOOR5_LOCK
 		at 244 453
 		curdir 3
 
-	object 134221112
+	object 134221118
 		type STONEDOOR5_LOCK
 		at 249 453
 		curdir 3
 
-	object 134221113
+	object 134221119
 		type STONEDOOR5_LOCK
 		at 266 453
 		curdir 3
 
-	object 134221114
+	object 134221120
 		type STONEDOOR5_LOCK
 		at 271 453
 		curdir 3
 
-	object 134221115
+	object 134221121
 		type GOLD_NUGGET
 		at 311 453
 		curdir 1
 
-	object 134221116
+	object 134221122
 		type TREASURE_05
 		at 313 453
 		curdir 2
 
-	object 134221117
+	object 134221123
 		type TREASURE_01
 		at 317 453
 		curdir 1
 
-	object 134221118
+	object 134221124
 		type STONE_ARCHWAY
 		at 190 454
 		curdir 2
 
-	object 134221119
+	object 134221125
 		type STONE_ARCHWAY2
 		at 191 454
 		curdir 0
 
-	object 134221120
+	object 134221126
 		type STONE_ARCHWAY
 		at 192 454
 		curdir 3
 
-	object 134221121
+	object 134221127
 		type TREASURE_05
 		at 310 454
 		curdir 2
 
-	object 134221122
+	object 134221128
 		type TREASURE_02
 		at 315 454
 		curdir 3
 
-	object 134221123
+	object 134221129
 		type TREASURE_04
 		at 318 454
 		curdir 2
 
-	object 134221124
+	object 134221130
 		type JAILBARS-V
 		at 222 455
 		curdir 0
 
-	object 134221125
+	object 134221131
 		type JAILBARS-V
 		at 227 455
 		curdir 0
 
-	object 134221126
+	object 134221132
 		type JAILBARS-V
 		at 244 455
 		curdir 0
 
-	object 134221127
+	object 134221133
 		type JAILBARS-V
 		at 249 455
 		curdir 0
 
-	object 134221128
+	object 134221134
 		type JAILBARS-V
 		at 266 455
 		curdir 0
 
-	object 134221129
+	object 134221135
 		type JAILBARS-V
 		at 271 455
 		curdir 0
 
-	object 134221130
+	object 134221136
 		type TORCH
 		at 306 455
 		curdir 0
 
-	object 134221131
+	object 134221137
 		type GOLD_NUGGET
 		at 322 455
 		curdir 1
 
-	object 134221132
+	object 134221138
 		type STONEDOORWAY
 		at 162 456
 		curdir 2
 
-	object 134221133
+	object 134221139
 		type LEVER
 		at 190 456
 		curdir 2
 		tag 38
 		funcs->use USEPORTCULLI
 
-	object 134221134
+	object 134221140
 		type JAILBARS-V
 		at 222 456
 		curdir 2
 
-	object 134221135
+	object 134221141
 		type JAILBARS-V
 		at 227 456
 		curdir 2
 
-	object 134221136
+	object 134221142
 		type JAILBARS-V
 		at 244 456
 		curdir 2
 
-	object 134221137
+	object 134221143
 		type JAILBARS-V
 		at 249 456
 		curdir 2
 
-	object 134221138
+	object 134221144
 		type JAILBARS-V
 		at 266 456
 		curdir 2
 
-	object 134221139
+	object 134221145
 		type JAILBARS-V
 		at 271 456
 		curdir 2
 
-	object 134221140
+	object 134221146
 		type TORCH
 		at 294 456
 		curdir 0
 
-	object 134221141
+	object 134221147
 		type TREASURE_01
 		at 313 456
 		curdir 1
 
-	object 134221142
+	object 134221148
 		type GOLD_NUGGET
 		at 319 456
 		curdir 1
 
-	object 134221143
+	object 134221149
 		type JAILBARS-V
 		at 222 457
 		curdir 1
 
-	object 134221144
+	object 134221150
 		type JAILBARS-V
 		at 227 457
 		curdir 1
 
-	object 134221145
+	object 134221151
 		type JAILBARS-V
 		at 244 457
 		curdir 1
 
-	object 134221146
+	object 134221152
 		type JAILBARS-V
 		at 249 457
 		curdir 1
 
-	object 134221147
+	object 134221153
 		type JAILBARS-V
 		at 266 457
 		curdir 1
 
-	object 134221148
+	object 134221154
 		type JAILBARS-V
 		at 271 457
 		curdir 1
 
-	object 134221149
+	object 134221155
 		type LEVER
 		at 102 458
 		curdir 0
 		tag -41
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 134221150
+	object 134221156
 		type STONE_ARCHWAY_P
 		at 190 458
 		curdir 2
 		tag 38
 
-	object 134221151
+	object 134221157
 		type STONE_ARCHWAY2_P
 		at 191 458
 		curdir 0
 		tag 38
 
-	object 134221152
+	object 134221158
 		type STONE_ARCHWAY2_P
 		at 192 458
 		curdir 0
 		tag 38
 
-	object 134221153
+	object 134221159
 		type STONE_ARCHWAY_P
 		at 193 458
 		curdir 3
 		tag 38
 
-	object 134221154
+	object 134221160
 		type STONEDOORWAY
 		at 136 459
 		curdir 0
 
-	object 134221155
+	object 134221161
 		type TORCH
 		at 293 459
 		curdir 0
 
-	object 134221156
+	object 134221162
 		type STONE_ARCHWAY
 		at 295 459
 		curdir 2
 
-	object 134221157
+	object 134221163
 		type STONE_ARCHWAY2
 		at 296 459
 		curdir 0
 
-	object 134221158
+	object 134221164
 		type STONE_ARCHWAY2
 		at 297 459
 		curdir 0
 
-	object 134221159
+	object 134221165
 		type STONE_ARCHWAY
 		at 298 459
 		curdir 3
 
-	object 134221160
+	object 134221166
 		type TORCH
 		at 300 459
 		curdir 0
 
-	object 134221161
+	object 134221167
 		type MEMO
 		at 96 460
 		curdir 3
 		name Lever puzzle to disable f.field
 
-	object 134221162
+	object 134221168
 		type LEVER
 		at 190 460
 		curdir 2
 		tag 38
 		funcs->use USEPORTCULLI
 
-	object 134221163
+	object 134221169
 		type TORCH
 		at 222 460
 		curdir 0
 
-	object 134221164
+	object 134221170
 		type TORCH
 		at 244 460
 		curdir 0
 
-	object 134221165
+	object 134221171
 		type TORCH
 		at 266 460
 		curdir 0
 
-	object 134221166
+	object 134221172
 		type BED
 		at 287 460
 		curdir 0
 
-	object 134221167
+	object 134221173
 		type BED
 		at 289 460
 		curdir 0
 
-	object 134221168
+	object 134221174
 		type STONEDOOR5_LOCK
 		at 291 460
 		curdir 3
 
-	object 134221169
+	object 134221175
 		type STONEDOOR5_LOCK
 		at 302 460
 		curdir 3
 
-	object 134221170
+	object 134221176
 		type BED
 		at 304 460
 		curdir 0
 
-	object 134221171
+	object 134221177
 		type BED
 		at 306 460
 		curdir 0
 
-	object 134221172
+	object 134221178
 		type LEVER
 		at 98 461
 		curdir 0
 		tag -39
 		funcs->use LEVER_CALLWIELD_TAGS
 
-	object 134221173
+	object 134221179
 		type STONEDOOR5_LOCK
 		at 222 462
 		curdir 3
 
-	object 134221174
+	object 134221180
 		type STONEDOOR5_LOCK
 		at 227 462
 		curdir 3
 
-	object 134221175
+	object 134221181
 		type STONEDOOR5_LOCK
 		at 244 462
 		curdir 3
 
-	object 134221176
+	object 134221182
 		type STONEDOOR5_LOCK
 		at 249 462
 		curdir 3
 
-	object 134221177
+	object 134221183
 		type STONEDOOR5_LOCK
 		at 266 462
 		curdir 3
 
-	object 134221178
+	object 134221184
 		type STONEDOOR5_LOCK
 		at 271 462
 		curdir 3
 
-	object 134221179
+	object 134221185
 		type STONEDOORWAY
 		at 144 463
 		curdir 2
 
-	object 134221180
+	object 134221186
 		type TORCH
 		at 166 463
 		curdir 0
 
-	object 134221181
+	object 134221187
 		type TORCH
 		at 173 463
 		curdir 0
 
-	object 134221182
+	object 134221188
 		type TORCH
 		at 180 463
 		curdir 0
 
-	object 134221183
+	object 134221189
 		type TORCH
 		at 188 463
 		curdir 0
 
-	object 134221184
+	object 134221190
 		type WALL_EDGE
 		at 194 463
 		curdir 2
 
-	object 134221185
+	object 134221191
 		type TORCH
 		at 195 463
 		curdir 0
 
-	object 134221186
+	object 134221192
 		type TORCH
 		at 202 463
 		curdir 0
 
-	object 134221187
+	object 134221193
 		type TORCH
 		at 209 463
 		curdir 0
 
-	object 134221188
+	object 134221194
 		type JAILBARS-V
 		at 222 464
 		curdir 0
 
-	object 134221189
+	object 134221195
 		type JAILBARS-V
 		at 227 464
 		curdir 0
 
-	object 134221190
+	object 134221196
 		type JAILBARS-V
 		at 244 464
 		curdir 0
 
-	object 134221191
+	object 134221197
 		type JAILBARS-V
 		at 249 464
 		curdir 0
 
-	object 134221192
+	object 134221198
 		type JAILBARS-V
 		at 266 464
 		curdir 0
 
-	object 134221193
+	object 134221199
 		type JAILBARS-V
 		at 271 464
 		curdir 0
 
-	object 134221194
+	object 134221200
 		type BED
 		at 287 464
 		curdir 0
 
-	object 134221195
+	object 134221201
 		type BED
 		at 289 464
 		curdir 0
 
-	object 134221196
+	object 134221202
 		type STONEDOOR5_LOCK
 		at 299 464
 		curdir 3
 
-	object 134221197
+	object 134221203
 		type BED
 		at 304 464
 		curdir 0
 
-	object 134221198
+	object 134221204
 		type BED
 		at 306 464
 		curdir 0
 
-	object 134221199
+	object 134221205
 		type JAILBARS-V
 		at 222 465
 		curdir 2
 
-	object 134221200
+	object 134221206
 		type JAILBARS-V
 		at 227 465
 		curdir 2
 
-	object 134221201
+	object 134221207
 		type JAILBARS-V
 		at 244 465
 		curdir 2
 
-	object 134221202
+	object 134221208
 		type JAILBARS-V
 		at 249 465
 		curdir 2
 
-	object 134221203
+	object 134221209
 		type JAILBARS-V
 		at 266 465
 		curdir 2
 
-	object 134221204
+	object 134221210
 		type JAILBARS-V
 		at 271 465
 		curdir 2
 
-	object 134221205
+	object 134221211
 		type STONEDOORWAY
 		at 134 466
 		curdir 2
 
-	object 134221206
+	object 134221212
 		type STONEDOORWAY
 		at 159 466
 		curdir 2
 
-	object 134221207
+	object 134221213
 		type JAILBARS-V
 		at 222 466
 		curdir 1
 
-	object 134221208
+	object 134221214
 		type JAILBARS-V
 		at 227 466
 		curdir 1
 
-	object 134221209
+	object 134221215
 		type JAILBARS-V
 		at 244 466
 		curdir 1
 
-	object 134221210
+	object 134221216
 		type JAILBARS-V
 		at 249 466
 		curdir 1
 
-	object 134221211
+	object 134221217
 		type JAILBARS-V
 		at 266 466
 		curdir 1
 
-	object 134221212
+	object 134221218
 		type JAILBARS-V
 		at 271 466
 		curdir 1
 
-	object 134221213
+	object 134221219
 		type TORCH
 		at 291 466
 		curdir 0
 
-	object 134221214
+	object 134221220
 		type TABLE7
 		at 139 467
 		curdir 3
 
-	object 134221215
+	object 134221221
 		type KEY_1
 		at 139 467
 		curdir 2
 		tag 10950
 
-	object 134221216
+	object 134221222
 		type STONEDOORWAY
 		at 141 467
 		curdir 2
 
-	object 134221217
+	object 134221223
 		type BED
 		at 287 467
 		curdir 0
 
-	object 134221218
+	object 134221224
 		type BED
 		at 289 467
 		curdir 0
 
-	object 134221219
+	object 134221225
 		type STONEDOOR5_LOCK
 		at 291 467
 		curdir 3
 
-	object 134221220
+	object 134221226
 		type TORCH
 		at 299 467
 		curdir 0
 
-	object 134221221
+	object 134221227
 		type STONEDOOR5_LOCK
 		at 302 467
 		curdir 3
 
-	object 134221222
+	object 134221228
 		type BED
 		at 304 467
 		curdir 0
 
-	object 134221223
+	object 134221229
 		type BED
 		at 306 467
 		curdir 0
 
-	object 134221224
+	object 134221230
 		type STONEDOORWAY
 		at 122 468
 		curdir 2
 
-	object 134221225
+	object 134221231
 		type STONEDOORWAY
 		at 150 468
 		curdir 2
 
-	object 134221226
+	object 134221232
 		type WALL_EDGE
 		at 205 468
 		curdir 0
 
-	object 134221227
+	object 134221233
 		type TORCH
 		at 205 469
 		curdir 0
 
-	object 134221228
+	object 134221234
 		type TORCH
 		at 222 469
 		curdir 0
 
-	object 134221229
+	object 134221235
 		type TORCH
 		at 244 469
 		curdir 0
 
-	object 134221230
+	object 134221236
 		type TORCH
 		at 266 469
 		curdir 0
 
-	object 134221231
+	object 134221237
 		type STONEDOOR5_LOCK
 		at 299 469
 		curdir 3
 
-	object 134221232
+	object 134221238
 		type STONEDOOR5_LOCK
 		at 222 471
 		curdir 3
 
-	object 134221233
+	object 134221239
 		type STONEDOOR5_LOCK
 		at 227 471
 		curdir 3
 
-	object 134221234
+	object 134221240
 		type STONEDOOR5_LOCK
 		at 244 471
 		curdir 3
 
-	object 134221235
+	object 134221241
 		type STONEDOOR5_LOCK
 		at 249 471
 		curdir 3
 
-	object 134221236
+	object 134221242
 		type CANDLESTK
 		at 260 471
 		curdir 3
 
-	object 134221237
+	object 134221243
 		type STONEDOOR5_LOCK
 		at 266 471
 		curdir 3
 
-	object 134221238
+	object 134221244
 		type STONEDOOR5_LOCK
 		at 271 471
 		curdir 3
 
-	object 134221239
+	object 134221245
 		type BED
 		at 287 471
 		curdir 0
 
-	object 134221240
+	object 134221246
 		type BED
 		at 289 471
 		curdir 0
 
-	object 134221241
+	object 134221247
 		type BED
 		at 304 471
 		curdir 0
 
-	object 134221242
+	object 134221248
 		type BED
 		at 306 471
 		curdir 0
 
-	object 134221243
+	object 134221249
 		type STONEDOORWAY
 		at 131 472
 		curdir 2
 
-	object 134221244
+	object 134221250
 		type STONEDOORWAY
 		at 138 472
 		curdir 0
 
-	object 134221245
+	object 134221251
 		type TORCH
 		at 299 472
 		curdir 0
 
-	object 134221246
+	object 134221252
 		type TORCH
 		at 205 473
 		curdir 0
 
-	object 134221247
+	object 134221253
 		type JAILBARS-V
 		at 222 473
 		curdir 0
 
-	object 134221248
+	object 134221254
 		type JAILBARS-V
 		at 227 473
 		curdir 0
 
-	object 134221249
+	object 134221255
 		type MAN_PRIEST
 		at 241 473
 		curdir 0
 		name Prisoner of the Church
 
-	object 134221250
+	object 134221256
 		type JAILBARS-V
 		at 244 473
 		curdir 0
 
-	object 134221251
+	object 134221257
 		type JAILBARS-V
 		at 249 473
 		curdir 0
 
-	object 134221252
+	object 134221258
 		type JAILBARS-V
 		at 266 473
 		curdir 0
 
-	object 134221253
+	object 134221259
 		type JAILBARS-V
 		at 271 473
 		curdir 0
 
-	object 134221254
+	object 134221260
 		type TORCH
 		at 291 473
 		curdir 0
 
-	object 134221255
+	object 134221261
 		type TABLE2-END
 		at 295 473
 		curdir 2
 
-	object 134221256
+	object 134221262
 		type SWORD01
 		at 295 473
 		curdir 2
 
-	object 134221257
+	object 134221263
 		type TABLE2-EDGES
 		at 296 473
 		curdir 0
 
-	object 134221258
+	object 134221264
 		type HALBERD
 		at 296 473
 		curdir 2
 
-	object 134221259
+	object 134221265
 		type TABLE2-EDGES
 		at 297 473
 		curdir 0
 
-	object 134221260
+	object 134221266
 		type SWORD02
 		at 297 473
 		curdir 1
 
-	object 134221261
+	object 134221267
 		type TABLE-SHADOW3
 		at 298 473
 		curdir 2
 
-	object 134221262
+	object 134221268
 		type TABLE2-END
 		at 298 473
 		curdir 3
 
-	object 134221263
+	object 134221269
 		type JAILBARS-V
 		at 222 474
 		curdir 2
 
-	object 134221264
+	object 134221270
 		type JAILBARS-V
 		at 227 474
 		curdir 2
 
-	object 134221265
+	object 134221271
 		type JAILBARS-V
 		at 244 474
 		curdir 2
 
-	object 134221266
+	object 134221272
 		type JAILBARS-V
 		at 249 474
 		curdir 2
 
-	object 134221267
+	object 134221273
 		type TARGET
 		at 262 474
 		curdir 3
 		tag 666
 
-	object 134221268
+	object 134221274
 		type JAILBARS-V
 		at 266 474
 		curdir 2
 
-	object 134221269
+	object 134221275
 		type JAILBARS-V
 		at 271 474
 		curdir 2
 
-	object 134221270
+	object 134221276
 		type BED
 		at 287 474
 		curdir 0
 
-	object 134221271
+	object 134221277
 		type BED
 		at 289 474
 		curdir 0
 
-	object 134221272
+	object 134221278
 		type STONEDOOR5_LOCK
 		at 291 474
 		curdir 3
 
-	object 134221273
+	object 134221279
 		type TABLE-SHADOW2
 		at 295 474
 		curdir 0
 
-	object 134221274
+	object 134221280
 		type TABLE5-LEGS
 		at 295 474
 		curdir 0
 
-	object 134221275
+	object 134221281
 		type TABLE-SHADOW1
 		at 296 474
 		curdir 0
 
-	object 134221276
+	object 134221282
 		type TABLE-SHADOW1
 		at 297 474
 		curdir 0
 
-	object 134221277
+	object 134221283
 		type TABLE-SHADOW1
 		at 298 474
 		curdir 0
 
-	object 134221278
+	object 134221284
 		type TABLE5-LEGS
 		at 298 474
 		curdir 0
 
-	object 134221279
+	object 134221285
 		type STONEDOOR5_LOCK
 		at 299 474
 		curdir 3
 
-	object 134221280
+	object 134221286
 		type STONEDOOR5_LOCK
 		at 302 474
 		curdir 3
 
-	object 134221281
+	object 134221287
 		type BED
 		at 304 474
 		curdir 0
 
-	object 134221282
+	object 134221288
 		type BED
 		at 306 474
 		curdir 0
 
-	object 134221283
+	object 134221289
 		type STONEDOORWAY
 		at 144 475
 		curdir 0
 
-	object 134221284
+	object 134221290
 		type STONEDOORWAY
 		at 162 475
 		curdir 2
 
-	object 134221285
+	object 134221291
 		type JAILBARS-V
 		at 222 475
 		curdir 1
 
-	object 134221286
+	object 134221292
 		type JAILBARS-V
 		at 227 475
 		curdir 1
 
-	object 134221287
+	object 134221293
 		type BED
 		at 242 475
 		curdir 3
 
-	object 134221288
+	object 134221294
 		type JAILBARS-V
 		at 244 475
 		curdir 1
 
-	object 134221289
+	object 134221295
 		type JAILBARS-V
 		at 249 475
 		curdir 1
 
-	object 134221290
+	object 134221296
 		type JAILBARS-V
 		at 266 475
 		curdir 1
 
-	object 134221291
+	object 134221297
 		type JAILBARS-V
 		at 271 475
 		curdir 1
 
-	object 134221292
+	object 134221298
 		type BLOOD02
 		at 295 476
 		curdir 1
 
-	object 134221293
+	object 134221299
 		type TORCH
 		at 297 477
 		curdir 0
 
-	object 134221294
+	object 134221300
 		type TORCH
 		at 222 478
 		curdir 0
 
-	object 134221295
+	object 134221301
 		type TORCH
 		at 244 478
 		curdir 0
 
-	object 134221296
+	object 134221302
 		type TORCH
 		at 266 478
 		curdir 0
 
-	object 134221297
+	object 134221303
 		type BED
 		at 287 478
 		curdir 0
 
-	object 134221298
+	object 134221304
 		type BED
 		at 289 478
 		curdir 0
 
-	object 134221299
+	object 134221305
 		type BED
 		at 304 478
 		curdir 0
 
-	object 134221300
+	object 134221306
 		type BED
 		at 306 478
 		curdir 0
 
-	object 134221301
+	object 134221307
 		type TORCH
 		at 205 479
 		curdir 0
 
-	object 134221302
+	object 134221308
 		type DIRT0
 		at 246 480
 		curdir 0
 
-	object 134221303
+	object 134221309
 		type STONEDOORWAY
 		at 116 482
 		curdir 3
 
-	object 134221304
+	object 134221310
 		type TORCH
 		at 266 482
 		curdir 0
 
-	object 134221305
+	object 134221311
 		type TORCH
 		at 222 483
 		curdir 0
 
-	object 134221306
+	object 134221312
 		type TORCH
 		at 205 484
 		curdir 0
 
-	object 134221307
+	object 134221313
 		type TORCH
 		at 244 484
 		curdir 0
 
-	object 134221308
+	object 134221314
 		type TORCH
 		at 241 485
 		curdir 0
 
-	object 134221309
+	object 134221315
 		type WALL_EDGE
 		at 210 486
 		curdir 2
 
-	object 134221310
+	object 134221316
 		type TORCH
 		at 211 486
 		curdir 0
 
-	object 134221311
+	object 134221317
 		type TORCH
 		at 216 486
 		curdir 0
 
-	object 134221312
+	object 134221318
 		type TORCH
 		at 221 486
 		curdir 0
 
-	object 134221313
+	object 134221319
 		type STONEDOORWAY
 		at 134 487
 		curdir 0
 
-	object 134221314
+	object 134221320
 		type STONE_ARCHWAY
 		at 244 487
 		curdir 0
 
-	object 134221315
+	object 134221321
 		type MUSIC
 		at 217 488
 		curdir 0
 		stats->radius 2
 		funcs->use MUSIC_CHURCHDUNGEONS
 
-	object 134221316
+	object 134221322
 		type STAIRS_UP
 		at 241 488
 		curdir 2
@@ -19067,29 +19092,29 @@ iMZ1r00
 		stats->karma 1
 		funcs->use TELEPORT_NEWMAP
 
-	object 134221317
+	object 134221323
 		type STONE_ARCHWAY2
 		at 244 488
 		curdir 2
 
-	object 134221318
+	object 134221324
 		type MUSIC
 		at 245 488
 		curdir 0
 		stats->radius 3
 		funcs->use MUSIC_CHURCHDUNGEONS
 
-	object 134221319
+	object 134221325
 		type TORCH
 		at 205 489
 		curdir 0
 
-	object 134221320
+	object 134221326
 		type TORCH
 		at 237 489
 		curdir 0
 
-	object 134221321
+	object 134221327
 		type STAIRS_UP
 		at 241 489
 		curdir 0
@@ -19097,29 +19122,29 @@ iMZ1r00
 		stats->karma 1
 		funcs->use TELEPORT_NEWMAP
 
-	object 134221322
+	object 134221328
 		type STONE_ARCHWAY2
 		at 244 489
 		curdir 2
 
-	object 134221323
+	object 134221329
 		type STONEDOORWAY
 		at 147 490
 		curdir 1
 
-	object 134221324
+	object 134221330
 		type ORB
 		at 240 490
 		curdir 2
 		tag 1
 
-	object 134221325
+	object 134221331
 		type TARGET
 		at 241 490
 		curdir 0
 		tag 23
 
-	object 134221326
+	object 134221332
 		type STONE_ARCHWAY
 		at 244 490
 		curdir 1

@@ -2,7 +2,6 @@
 #	General light switch code
 #
 
-
 ##
 ##	Toggle
 ##
@@ -142,3 +141,67 @@ endif
 
 set_light start to end = 1
 end
+
+
+##
+##  Lights flicker
+##
+
+function light_flicker
+activity
+
+object start
+object end
+
+# Find start and end objects
+
+let start = me
+let end = me.stats.owner
+if_not_exist end
+	BUG start
+	print "BROKEN LIGHT: Light at "
+	print start.x
+	print ","
+	print start.y
+	print " has no endpoint!"
+	printcr
+	BUG end
+	return
+endif
+
+if start.user.fx_func = 0
+	start_fx start does light_flicker_fx
+endif
+
+# Set the lights
+
+#set_light start to end = 1
+end
+
+
+function light_flicker_fx
+private
+integer x
+
+add current.user.user18 + 1
+if current.user.user18 < 5
+	return
+endif
+let current.user.user18 = 0
+
+fx_random x = 100
+# Only change it sometimes
+if x < 80
+	return
+endif
+
+if x >= 90
+	set_light current to current.stats.owner = 0
+else
+	set_light current to current.stats.owner = 1
+endif
+
+end
+  
+
+
