@@ -1538,14 +1538,19 @@ OBJECT *temp;
 
 // Clear the Cut+Paste buffer
 
-// Previously we did something complex to try and handle the
-// dependencies, but that no longer works.
-// Instead, mark all the top-level objects as deleted and force a purge
-// This will handle the dependencies much more quickly and cleanly
-for(temp=cutbag->pocket.objptr;temp;temp=temp->next)
-	if(temp)
-		temp->flags &= ~IS_ON;
-MassCheckDepend();
+// Previously we were marking everything in the cutbag as 'OFF' and forcing a cleanup
+// to try and fix some bug involving dependencies, but this didn't actually seem to
+// empty the cutbag properly, causing weird artifacts when you did a PASTE,
+// if you switched between CUT and COPY
+
+do {
+	if(cutbag->pocket.objptr)
+		{
+		temp=cutbag->pocket.objptr;
+		DestroyObject(temp);
+		}
+	} while(cutbag->pocket.objptr);
+
 
 cutbag->tag=0; // Cut
 
