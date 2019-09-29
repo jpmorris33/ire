@@ -27,8 +27,6 @@ int vp=0;
 #include <unistd.h>
 #endif
 
-//#define Preserve();	blit(swapscreen,_copybitmapdata,0,0,0,0,swapscreen->w,swapscreen->h);
-//#define Restore();  blit(_copybitmapdata,swapscreen,0,0,0,0,swapscreen->w,swapscreen->h);
 #define Preserve();	_copybitmapdata->Get(swapscreen,0,0);
 #define Restore();  _copybitmapdata->DrawSolid(swapscreen,0,0);
 #define INVALID -2147483647
@@ -65,6 +63,7 @@ int GfxReadkey()
 {
 int s,a;
 s=IRE_NextKey(&a);
+IRE_ClearKeyBuf();
 return ((s&0xfff) << 8) + (a&0xff);
 }
 

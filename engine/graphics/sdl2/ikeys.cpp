@@ -183,7 +183,7 @@ for(int ctr=0;ctr<BUFFERREPEAT;ctr++)	{
 	
 overrun++;
 
-if(overrun > 1)
+if(overrun > 2)
 	overrun=0;
 
 if(overrun)
@@ -277,6 +277,9 @@ asciitab[IREKEY_SLASH_PAD] = '/';
 asciitab[IREKEY_BACKSLASH] = '\\';
 asciitab[IREKEY_BACKSLASH2] = '\\';
 asciitab[IREKEY_COLON] = ';';
+asciitab[IREKEY_DOT] = '.';
+asciitab[IREKEY_COMMA] = ',';
+asciitab[IREKEY_QUOTE] = '\'';
 
 shiftascii['0']=')';
 shiftascii['1']='!';
@@ -296,6 +299,7 @@ shiftascii['/']='?';
 shiftascii['[']='{';
 shiftascii[']']='}';
 shiftascii[';']=':';
+shiftascii['\'']='@';
 
 for(int ctr='a';ctr<='z';ctr++) {
 	shiftascii[ctr]=ctr-32;
