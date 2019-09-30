@@ -373,7 +373,7 @@ if do_it
 	# Swap current back
 	let current = o
 	
-	stop_action me
+#	stop_action me
 	resume_action me
 endif
 

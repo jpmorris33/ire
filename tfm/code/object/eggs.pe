@@ -247,19 +247,13 @@ end
 
 
 ##
-##	A creature has died.  If an egg spawned it, adjust balance.
+##	A creature has died.  Adjust balance with the egg and
+##	award experience to the killer etc
 ##
 
 function egg_killed
 
-# Was it hatched from an egg?
-if_exists current.stats.owner
-	# If we haven't gone overboard (e.g. creature resurrected?)
-	if current.stats.owner.user.user1 > 0
-		# Splash one lizard
-		add current.stats.owner.user.user1 - 1
-	endif
-endif
+call egg_despawned
 
 if_exists current.enemy
 	# Give experience
@@ -272,6 +266,25 @@ if_exists current.enemy
 		printcr
 	endif
 */
+endif
+
+end
+
+##
+##	A creature has died.  If an egg spawned it, adjust balance.
+##	This is called by egg_killed, but may also be called directly
+##	e.g. for guards self-destructing
+##
+
+function egg_despawned
+
+# Was it hatched from an egg?
+if_exists current.stats.owner
+	# If we haven't gone overboard (e.g. creature resurrected?)
+	if current.stats.owner.user.user1 > 0
+		# Splash one lizard
+		add current.stats.owner.user.user1 - 1
+	endif
 endif
 
 end

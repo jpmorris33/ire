@@ -13317,6 +13317,7 @@ section: scripts
 	code/system/ui/drop.pe
 	code/system/ui/volume.pe
 	code/system/ui/quit.pe
+	code/activity/misc.pe
 	code/activity/beasts.pe
 	code/activity/blkmass.pe
 	code/activity/crops.pe
@@ -13357,6 +13358,7 @@ section: scripts
 	code/events/music.pe
 	code/events/randolph.pe
 	code/justice/justice.pe
+	code/justice/execution.pe
 	code/justice/jail.pe
 	code/messages.pe
 	code/misc/bed.pe
