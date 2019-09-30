@@ -3,6 +3,7 @@
  *
  *      A lot of this code will need checking/fixing on 64-bit architectures
  *      to prevent 64-bit pointers being truncated by 32-bit pointer math
+ *      (EDIT: Well, it works on 64-bit linux and win32, win64 may need work)
  */
 
 // Controls

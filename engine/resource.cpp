@@ -709,37 +709,34 @@ for(ctr=start;ctr<=finish;ctr++)
         // ..and are therefore much easier for things like map tiles
         // which do not usually have a second frame.
 
-				if(!istricmp(Rptr,"quickname")) // Got the first one
-					{
+				if(!istricmp(Rptr,"quickname")) { // Got the first one
 					// For a Quick sequence there is just one frame.
 					SQlist[pos].frames=1;
 					SQlist[pos].seq = (S_POOL **)M_get(sizeof(S_POOL *),SQlist[pos].frames+1);
 						
 					// Now we've allocated the frame, find the sprite
-					Rptr=strfirst(strrest(strrest(line)));     // Get Third term
-					if(Rptr!=NOTHING)                 // Make sure its there
-						{
+					Rptr=strfirst(strrest(strrest(line)));	// Get Third term
+					if(Rptr!=NOTHING) {			// Make sure its there
 						SQlist[pos].seq[0] = find_spr(Rptr);
 
 						// Did it work?
-						if(!SQlist[pos].seq[0])
+						if(!SQlist[pos].seq[0]) {
 							Dump(ctr,"QN: Could not find this sprite",Rptr);
 						}
-					else
-						{
+					} else {
 						// If there's only one argument, the sprite and sequence are the same name
-						Rptr=strfirst(strrest(line));     // Get Second term
-						if(Rptr!=NOTHING)                 // Make sure its there
-							{
+						Rptr=strfirst(strrest(line));		// Get Second term
+						if(Rptr!=NOTHING) {			// Make sure its there
 							SQlist[pos].seq[0] = find_spr(Rptr);
 
 							// Did it work?
-							if(!SQlist[pos].seq[0])
+							if(!SQlist[pos].seq[0]) {
 								Dump(ctr,"QN: Could not find this sprite",Rptr);
 							}
-						else
+						} else {
 							Dump(ctr,"QN: QuickName sequences must be defined as:\r\n QUICKNAME [sequence_name] sprite_name",NULL);
 						}
+					}
 
 					SQlist[pos].speed=0;
 					SQlist[pos].flags=0;
@@ -751,32 +748,48 @@ for(ctr=start;ctr<=finish;ctr++)
 					pos++;
 					Plot(0);
 					Rptr=NOTHING;
-					}
+				}
 
         // OverSprite is like quickname, but sprite is always-on-top
 
-				if(!istricmp(Rptr,"oversprite")) // Got the first one
-					{
-					Rptr=strfirst(strrest(strrest(line)));     // Get Third term
-					if(Rptr!=NOTHING)                 // Make sure its there
-						{
-						// For a Quick sequence there is just one frame.
-						SQlist[pos].frames=1;
-						SQlist[pos].seq = (S_POOL **)M_get(sizeof(S_POOL *),SQlist[pos].frames+1);
+				if(!istricmp(Rptr,"oversprite")) { // Got the first one
+					// For a Quick sequence there is just one frame.
+					SQlist[pos].frames=1;
+					SQlist[pos].seq = (S_POOL **)M_get(sizeof(S_POOL *),SQlist[pos].frames+1);
 
+					Rptr=strfirst(strrest(strrest(line)));		// Get Third term
+					if(Rptr!=NOTHING) {				// Make sure its there
 						// Now we've allocated the frame, find the sprite
 						SQlist[pos].seq[0] = find_spr(Rptr);
 						// Set the overlay the same
 						SQlist[pos].overlay = find_spr(Rptr);
-						if(!SQlist[pos].overlay)
-							Dump(ctr,"OSP: Could not find this sprite",Rptr);
-
-						// Did it work?
-						if(!SQlist[pos].seq[0])
+						if(!SQlist[pos].overlay) {
 							Dump(ctr,"OSP: Could not find this sprite",Rptr);
 						}
-					else
-						Dump(ctr,"OSP: OverSprite sequences must be defined as:\r\n OVERSPRITE sequence_name sprite_name",NULL);
+
+						// Did it work?
+						if(!SQlist[pos].seq[0]) {
+							Dump(ctr,"OSP: Could not find this sprite",Rptr);
+						}
+					} else {
+						// If there's only one argument, the sprite and sequence are the same name
+						Rptr=strfirst(strrest(line));		// Get Second term
+						if(Rptr!=NOTHING) {			// Make sure its there
+							SQlist[pos].seq[0] = find_spr(Rptr);
+
+							SQlist[pos].overlay = find_spr(Rptr);
+							if(!SQlist[pos].overlay) {
+								Dump(ctr,"OSP: Could not find this sprite",Rptr);
+							}
+
+							// Did it work?
+							if(!SQlist[pos].seq[0]) {
+								Dump(ctr,"OSP: Could not find this sprite",Rptr);
+							}
+						} else {
+							Dump(ctr,"OSP: OverSprite sequences must be defined as:\r\n OVERSPRITE [sequence_name] sprite_name",NULL);
+						}
+					}
 
 					SQlist[pos].speed=0;
 					SQlist[pos].flags=SEQFLAG_POSTOVERLAY;
@@ -789,7 +802,7 @@ for(ctr=start;ctr<=finish;ctr++)
 					pos++;
 					Plot(0);
 					Rptr=NOTHING;
-					}
+				}
 
         // Flags
 
