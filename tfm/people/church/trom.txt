@@ -71,7 +71,7 @@ Cardinal Trom
  congregation, who begin to cower.
 [colour="#ffffff"]
 
-"Brothers, as you have now witnessed, the fate of Sodom
+"Children... as you have now witnessed, the fate of Sodom
  and Gomorrah has fallen upon the unrepentant.
  The sinners who did dwell in the village of New Leuchars
  have been put to justice by the Holy Trinity.
@@ -91,7 +91,7 @@ Cardinal Trom
 [page="inchurch2"]
 
 "It would be just for the LORD Himself to appear and
- claim that penalty upon you this very day, yet He has
+ claim that penalty from you this very day, yet He has
  decided in His wisdom and mercy to spare your worthless
  lives in the hopes that the sight of His anger delivered
  unto others may turn you back to the path of the
@@ -138,8 +138,8 @@ The Cardinal looks mildly surprised, and snaps his
 fingers once.
 [colour="#ffffff"]
 
-[if_player_male]"Hang this man."
-[if_player_female]"Hang this woman."
+[if_player_male]"Guards: Hang this man."
+[if_player_female]"Guards: Hang this woman."
 
 [call_at_exit="hang_player"]
 [nextpage="exit"]
@@ -187,7 +187,7 @@ will be similarly damned.
 
 "You desecrate the house of the LORD by using that name!
 
- It is one of the names of the False One, Ba'al-Zebub
+ It is one of the names of the False One, Ba'al-Zebub,
  the Lord of Lies and Prince of Darkness!
 
  You must have been dealing with the hounds of Hell to
@@ -237,7 +237,7 @@ will be similarly damned.
 
  What shall its punishment be?"
 
-[nextpage="aaruuff4"]
+[nextpage="aaruuff3a"]
 [endpage]
 
 

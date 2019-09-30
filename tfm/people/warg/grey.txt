@@ -514,9 +514,9 @@ You see a regal-looking wolf-creature.
  me to be killed, and then He had resurrected me with
  His power so that I could be questioned.
 
- Aa'Ruuff has been questioning me ever since.  He wants
- to know just one thing.. the access code that He
- revealed to me all those years ago!
+ Aa'Ruuff's lackeys have been questioning me ever since.
+ He wants to know just one thing.. the access code that
+ He revealed to me all those years ago!
 
  But I shall never tell Him!"
 
@@ -572,7 +572,7 @@ You see a regal-looking wolf-creature.
 
 [page="aaruuf3"]
 
-"The humans concentrated mostly on destroying our temples
+"The humans concentrated on destroying our temples
  and our homes, and when this was done we were largely
  left alone, apart from occasional raiding parties,
  bandits and zealots come to destroy the 'Infidel', or

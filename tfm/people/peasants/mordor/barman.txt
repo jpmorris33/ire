@@ -1,13 +1,41 @@
 
 
 [page="start"]
+[iftime 0800-0900][goto="inchurch"]
+[learn_name]
 
 [colour="#808080"]
 You see an innkeeper.
 [colour="#ffffff"]
 
 "Welcome to the Yawning Woolf, traveller.
+ I am $NAME.
 
+ Do you need food, drink or shelter?"
+
+[link="What do you have?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Why is it called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+
+[link="Have you any news?"]
+[linkto="news"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+[page="startname"]
+[iftime 0800-0900][goto="inchurch"]
+
+[colour="#808080"]
+You see $NAME, the innkeeper.
+[colour="#ffffff"]
+
+"Welcome back to the Yawning Woolf, traveller.
  Do you need food, drink or shelter?"
 
 [link="What do you have?"]
