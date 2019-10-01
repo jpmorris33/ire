@@ -326,13 +326,12 @@ int sx=0,sy=0,id;
 
 object->next=NULL; // It will be put onto the end of the list
 
-if(x<0 || x>=curmap->w || y<0 || y>=curmap->h)
-	{
+if(x<0 || x>=curmap->w || y<0 || y>=curmap->h) {
 	// Terminate melodramatically
 	//   sprintf(str,"DropObject(%d,%d,%s) Attempted to put outside map boundary",x,y,object->name);
 	//   panic(cfa,str,"Ai! ai!  A Balrog!  A Balrog is come!  'Tis Durin's Bane!");
 	return 0;
-	}
+}
 
 UnWield(object->parent.objptr,object);	// Make sure it isn't wielded
 
@@ -343,39 +342,42 @@ anchor=GetObjectBase(x,y);
 
 // If there's a bag, drop it inside
 temp=anchor;
-if(temp)
-	for(;temp;temp=temp->next)
-		if(temp->flags & IS_CONTAINER)
-			{
+if(temp) {
+	for(;temp;temp=temp->next) {
+		if(temp->flags & IS_CONTAINER) {
 			FindEmptySquare(&sx,&sy);           // Find scratch space
 			curmap->objmap[MAP_POS(sx,sy)]=object;  // Dump the object there
 			TakeObject(sx,sy,temp);             // Shift it into the bag
 			return 1;
-			}
+		}
+	}
+}
 
 // Modify the object's X,Y coords to sync with the matrix
 
 object->x=x;
 object->y=y;
 
-id = getnum4char(object->name);
-if(id != -1)
-	{
-	object->flags &= ~IS_FIXED;
-	object->flags |= (CHlist[id].flags&IS_FIXED);
+// If the object isn't decorative, reset the FIXED flag, which may have been disabled to prevent the object moving inside a pocket.
+// With decoratives, the object IS the template so &= will clear the FIXED bit forever, resulting in 'moveable' trees that break the pathfinder logic
+if(!(object->flags & IS_DECOR)) {
+	id = getnum4char(object->name);
+	if(id != -1) {
+		object->flags &= ~IS_FIXED;
+		object->flags |= (CHlist[id].flags&IS_FIXED);
 	}
+}
+
 object->parent.objptr = NULL;
-if(isDecor(x,y))
+if(isDecor(x,y)) {
 	LL_Add2(&curmap->objmap[MAP_POS(x,y)],object);
-else
-	{
+} else {
 	LL_Add(&curmap->objmap[MAP_POS(x,y)],object);
 
 	// Are we treading on anyone's toes?
-//	temp=GetRawObjectBase(x,y); // GetObjectBase is better but slower
 	temp=IsTrigger(x,y);
 	IfTriggered(temp);
-	}
+}
 
 gen_largemap();
 return 1;
@@ -391,11 +393,13 @@ void ForceDropObject(int x,int y, OBJECT *object)
 int id;
 OBJECT *temp;
 
-if(!object)
+if(!object) {
 	return;
+}
 
-if(x<0 || x>=curmap->w || y<0 || y>=curmap->h)
+if(x<0 || x>=curmap->w || y<0 || y>=curmap->h) {
 	return;
+}
 
 UnWield(object->parent.objptr,object);	// Make sure it isn't wielded
 
@@ -404,29 +408,30 @@ UnWield(object->parent.objptr,object);	// Make sure it isn't wielded
 object->x=x;
 object->y=y;
 
-id = getnum4char(object->name);
-if(id != -1)
-	{
-	object->flags &= ~IS_FIXED;
-	object->flags |= (CHlist[id].flags&IS_FIXED);
+// If the object isn't decorative, reset the FIXED flag, which may have been disabled to prevent the object moving inside a pocket.
+// With decoratives, the object IS the template so &= will clear the FIXED bit forever, resulting in 'moveable' trees that break the pathfinder logic
+if(!(object->flags & IS_DECOR)) {
+	id = getnum4char(object->name);
+	if(id != -1) {
+		object->flags &= ~IS_FIXED;
+		object->flags |= (CHlist[id].flags&IS_FIXED);
 	}
+}
 object->parent.objptr = NULL;
 
-if(isDecor(x,y))
-	{
-	if(object->flags & IS_DECOR)
+if(isDecor(x,y)) {
+	if(object->flags & IS_DECOR) {
 		Bug("Can't have two decor objects on one square at %d,%d\n",x,y);
-	else
+	} else {
 		LL_Add2(&curmap->objmap[MAP_POS(x,y)],object);
 	}
-else
-	{
+} else {
 	LL_Add(&curmap->objmap[MAP_POS(x,y)],object);
 	// Are we treading on anyone's toes?
 //	temp=GetRawObjectBase(x,y); // GetObjectBase is better but slower
 	temp=IsTrigger(x,y);
 	IfTriggered(temp);
-	}
+}
 gen_largemap();
 }
 
