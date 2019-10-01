@@ -98,6 +98,8 @@ if_exists me.target
 		# Face the same direction as the target object
 		force_direction me faces me.target.curdir
 
+		# !! This only seems to work if the object in front is solid?
+
 		# Get object in front
 		let current = me
 		call get_ahead

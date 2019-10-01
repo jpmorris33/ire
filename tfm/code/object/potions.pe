@@ -345,7 +345,7 @@ object oldpotion
 if current.curdir = UP
 or current.curdir = DOWN
 	# It's empty, refill it
-	set_direction current = LEFT
+	force_direction current faces LEFT
 	return
 endif
 
@@ -355,6 +355,9 @@ get_object bottle = x current.y
 if_exists bottle
 	if bottle is called "potion_empty"
 		call use_alembic_core
+		if_exists bottle
+			let bottle.stats.owner = me
+		endif
 		return
 	endif
 endif
@@ -379,6 +382,7 @@ endif
 
 # OK, there wasn't a potion bottle there.  Create an empty one
 create bottle = "potion_empty"
+let bottle.stats.owner = me
 transfer_object bottle = x current.y
 let bottle = null
 
@@ -397,6 +401,7 @@ string newpotion
 
 if current.curdir = UP
 or current.curdir = DOWN
+	let bottle = null
 	return
 endif
 
@@ -416,6 +421,7 @@ if len < 1
 	print "Alembic has no potions assigned in USER1 property!"
 	printcr
 	BUG END
+	let bottle = null
 	return
 endif
 random rand between 1 len
@@ -451,6 +457,6 @@ endif
 replace bottle = newpotion
 
 # Empty the alembic
-set_direction current = LEFT
+force_direction current faces UP
 
 end
