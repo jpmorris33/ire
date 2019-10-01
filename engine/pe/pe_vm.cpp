@@ -349,8 +349,10 @@ static void PV_addstr();
 static void PV_addstrn();
 static void PV_setstr();
 static void PV_strlen();
+static void PV_strlen2();
 static void PV_strsetpos();
 static void PV_strgetpos();
+static void PV_strgetpos2();
 static void PV_strgetval();
 static void PV_dofx();
 static void PV_dofxS();
@@ -1381,8 +1383,10 @@ VMOP(addstr);
 VMOP(addstrn);
 VMOP(setstr);
 VMOP(strlen);
+VMOP(strlen2);
 VMOP(strsetpos);
 VMOP(strgetpos);
+VMOP(strgetpos2);
 VMOP(strgetval);
 VMOP(dofx);
 VMOP(dofxS);
@@ -6452,6 +6456,22 @@ CHECK_POINTER(b);
 *a = strlen((*b)->ptr);
 }
 
+// strlen <len> = len <userstring>
+
+void PV_strlen2()
+{
+VMINT *a;
+char *b;
+
+a = (VMINT *)GET_INT();
+CHECK_POINTER(a);
+
+b = GET_STRING();
+CHECK_POINTER(b);
+
+*a = strlen(b);
+}
+
 
 // set <userstring> <position> = <integer>
 
@@ -6506,6 +6526,34 @@ if(vpos < 0 || vpos >= (*str)->len)
 
 // Do it
 *intvar = (int)((*str)->ptr[vpos]);
+}
+
+// set <integer> = <string> <position>
+
+void PV_strgetpos2()
+{
+char *str;
+VMINT *pos,vpos;
+VMINT *intvar;
+
+intvar = (VMINT *)GET_INT();
+CHECK_POINTER(intvar);
+
+str = GET_STRING();
+CHECK_POINTER(str);
+
+pos = (VMINT *)GET_INT();
+CHECK_POINTER(pos);
+
+vpos = (*pos)-1; // Convert from 1-base to 0-base
+if(vpos < 0 || vpos >= strlen(str))
+	{
+	*intvar = 0;
+	return; // out of range don't do it
+	}
+
+// Do it
+*intvar = (int)str[vpos];
 }
 
 

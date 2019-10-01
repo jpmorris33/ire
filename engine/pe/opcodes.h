@@ -272,7 +272,9 @@ enum {
 	PEVM_addstr,
 	PEVM_addstrn,
 	PEVM_strlen,
+	PEVM_strlen2,
 	PEVM_strgetpos,
+	PEVM_strgetpos2,
 	PEVM_strsetpos,
 	PEVM_strgetval,
 
