@@ -1,14 +1,17 @@
 ##
-##	Loiter - randomly go between points and wait there
+##	Alchemy, based on loitering
+##
+##	If the target has an alembic in front of it, use it
+##	Otherwise assume it's in front of a table, so add/remove potions
 ##
 
 
 #
-#  Loitering, part I
+#  Main entrypoint
 #  Pick something interesting to look at
 #
 
-function loiter
+function do_alchemy
 activity
 
 integer num
@@ -21,7 +24,7 @@ if me.user.user2 = 0	# Are we running or waiting to be primed?
 
 	if_not_exist me.target
 		BUG START
-		print "Error in loiter code for NPC "
+		print "Error in alchemy code for NPC "
 		set_flag me KNOW_NAME = 1
 		print_bestname me
 		printcr
@@ -66,23 +69,25 @@ endif
 
 # Prepare the next stages
 
-queue_action me does loiter_2 to o
-queue_action me does loiter_3
+queue_action me does alchemy_2 to o
+queue_action me does alchemy_3
 run_queue me
 
 end
 
 
 #
-#	Loitering, part II
+#	Alchemy, part II
 #	Go to the desired target
 #
 
 
-function loiter_2
+function alchemy_2
 private
 integer randwait
 integer maxrw
+object potion
+object alembic
 
 if_exists me.target
 	# Try to move there
@@ -92,6 +97,31 @@ if_exists me.target
 	if err <> PATH_WAITING
 		# Face the same direction as the target object
 		force_direction me faces me.target.curdir
+
+		# Get object in front
+		let current = me
+		call get_ahead
+
+		get_object alembic at new_x new_y
+		if_exists alembic
+			if alembic is called "ALEMBIC"
+				let current = alembic
+				call alembic.funcs.ucache
+			endif
+
+			if alembic is called "potion_*"
+				transfer_to_pocket alembic into me
+			endif
+
+			if alembic is called "table*"
+				find potion = "potion_*" inside me
+				if_exists potion
+					transfer_object potion to alembic.x alembic.y
+					move_to_top potion
+				endif
+			endif
+
+		endif
 
 		# Wait for 7 turns plus a random factor
 		let me.user.user1 = 7
@@ -112,7 +142,7 @@ end
 #  Wait for a while, then go to part I again
 #
 
-function loiter_3
+function alchemy_3
 private
 
 add me.user.user1 - 1
@@ -131,117 +161,11 @@ end
 ##  Working
 ##
 
-function loiter_atwork
+function alchemy_at_location
 activity
 
 queue_action me does go_to_location to me.target
-queue_action me does loiter to me.target
-run_queue me
-
-end
-
-
-
-##
-##  Random wandering (taken from bird_wander)
-##
-
-function man_wander
-activity
-
-int x
-int y
-int max
-int may
-int mix
-int miy
-int rnd
-int overcount
-
-# Not if you're inside an egg
-
-if_in_pocket me
-	return
-endif
-
-
-# Store XY state if not stored
-if me.user.user2 = 0
-	let me.user.user2 = me.x
-	let me.user.user3 = me.y
-endif
-
-# Establish boundaries (bigger than the bird boundary)
-let max = me.user.user2 + 8
-let mix = me.user.user2 - 8
-let may = me.user.user3 + 8
-let miy = me.user.user3 - 8
-
-let overcount = 0
-
-# Get current X/Y
-label retry
-
-let x = me.x
-let y = me.y
-
-random rnd between 0 7
-
-if rnd = 1
-	set_direction me = LEFT
-	let x = x - 1
-endif
-
-if rnd = 2
-	set_direction me = RIGHT
-	let x = x + 1
-endif
-
-if rnd = 3
-	set_direction me = UP
-	let y = y - 1
-endif
-
-if rnd = 4
-	set_direction me = DOWN
-	let y = y + 1
-endif
-
-# retry and bail out if necessary
-add overcount + 1
-if overcount > 10
-	goto stop
-endif
-
-# Clip and re-throw if necessary
-if x > max
-or y > may
-	goto retry
-endif
-
-if x < mix
-or y < miy
-	goto retry
-endif
-
-# Otherwise, stop
-label stop
-
-centre around me # Make sure collision detection window is up to date
-move_object me to x y
-
-end
-
-
-##
-##  Wander_at_location
-##
-
-function wander_at_location
-activity
-
-queue_action me does go_to_location to me.target
-queue_action me does man_wander
+queue_action me does do_alchemy to me.target
 run_queue me
 
 end

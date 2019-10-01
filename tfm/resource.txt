@@ -2749,6 +2749,14 @@ section: sprites
 	cauldron06		sprites/cauldrn6.cel
 	cauldron07		sprites/cauldrn7.cel
 	cauldron08		sprites/cauldrn8.cel
+	# Oops, there isn't a cauldron 9
+	cauldron10		sprites/cauldrn10.png
+	cauldron11		sprites/cauldrn11.png
+	cauldron12		sprites/cauldrn12.png
+	cauldron13		sprites/cauldrn13.png
+	alembic1		sprites/alembic1.png
+	alembic2		sprites/alembic2.png
+
 	telescope		sprites/scope00.cel
 
 	xbow_bolt_u		sprites/xbolt00.cel
@@ -11217,6 +11225,20 @@ section: sequences
 		CAULDRON07
 		CAULDRON08
 	end
+
+	name CAULDRON_POTION
+	loop
+	speed 9
+	framelist:
+	#4 frames
+		CAULDRON10
+		CAULDRON11
+		CAULDRON12
+		CAULDRON13
+	end
+
+	oversprite alembic1
+	oversprite alembic2
 	
 	quickname telescope telescope
 
@@ -13325,6 +13347,7 @@ section: scripts
 	code/activity/eating.pe
 	code/activity/location.pe
 	code/activity/loiter.pe
+	code/activity/alchemy.pe
 	code/activity/seek.pe
 	code/activity/smith.pe
 	code/activity/stdonald.pe

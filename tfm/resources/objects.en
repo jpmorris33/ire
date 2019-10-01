@@ -12768,10 +12768,7 @@ section: characters
 	setActiveArea	H 0 0 1 3
 
 	name CAULDRON_EMPTY
-	left		CAULDRON_EMPTY
-	right		CAULDRON_EMPTY
-	up		CAULDRON_EMPTY
-	down		CAULDRON_EMPTY
+	frame		CAULDRON_EMPTY
 	hp		9000
 	weight		20000
 	description	"You see a large iron cauldron."
@@ -12779,10 +12776,7 @@ section: characters
 	solid
 
 	name CAULDRON_BROTH
-	left		CAULDRON_BROTH
-	right		CAULDRON_BROTH
-	up		CAULDRON_BROTH
-	down		CAULDRON_BROTH
+	frame		CAULDRON_BROTH
 	hp		900
 	weight		80000
 	description	"You see a large cauldron of broth."
@@ -12790,11 +12784,17 @@ section: characters
 	solid
 	ifused		eat_horrible
 
+	name CAULDRON_POTION
+	frame		CAULDRON_POTION
+	hp		900
+	weight		80000
+	description	"You see a large cauldron of potion."
+	short		"potion"
+	solid
+	IfUsed		slap_person
+
 	name BRAZIER
-	left		CAULDRON_BRAZIER
-	right		CAULDRON_BRAZIER
-	up		CAULDRON_BRAZIER
-	down		CAULDRON_BRAZIER
+	frame		CAULDRON_BRAZIER
 	hp		900
 	weight		-1
 	description	"You see a flaming brazier."
@@ -12802,6 +12802,27 @@ section: characters
 	IfUsed		slap_person
 	solid
 	light 1
+
+	name ALEMBIC
+	up		ALEMBIC1
+	down		ALEMBIC1
+	left		ALEMBIC2
+	right		ALEMBIC2
+	hp		100
+	weight		-1
+	solid
+	fixed
+	description	"You see an alembic"
+	short		"alembic"
+	IfUsed		use_alembic
+	IfKilled	SMASH
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 1
+	setActiveArea	H 0 0 1 1
+	# supported potion colours, remove K for the Waarg
+	# Also add M and P for Magenta and Purple when those actually have effects
+	user1		RGBYK
 
 	name TELESCOPE
 	left		TELESCOPE

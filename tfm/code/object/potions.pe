@@ -4,6 +4,10 @@
 #                                                    #
 ######################################################
 
+local
+object bottle
+endlocal
+
 
 ##
 ##	Drink
@@ -136,6 +140,8 @@ if p is called "potion_blue"
 	start_action current does sleeping
 	check_hurt current
 endif
+
+# Purple and Magenta?
 
 # empty
 if p is called "potion_empty"
@@ -280,5 +286,171 @@ if score > 1
 	endif
 
 endif
+
+end
+
+##
+##  Main entrypoint for usage
+##
+
+function use_alembic
+
+let bottle = null
+if me = player
+	call use_alembic_player
+else
+	call use_alembic_npc
+endif
+
+end
+
+##
+##  If it's the player
+##
+
+function use_alembic_player
+private
+int x
+
+if current.curdir = UP
+or current.curdir = DOWN
+	print "It's empty."
+	printcr
+	return
+endif
+
+let x = current.x + 1
+get_object bottle = x current.y
+if_exists bottle
+	if bottle is called "potion_empty"
+		call use_alembic_core
+		return
+	endif
+endif
+
+print "You need an empty potion bottle under the alembic."
+printcr
+
+end
+
+##
+##  If it's an NPC (assumed to be the alchemist)
+##
+
+function use_alembic_npc
+private
+int x
+object oldpotion
+
+if current.curdir = UP
+or current.curdir = DOWN
+	# It's empty, refill it
+	set_direction current = LEFT
+	return
+endif
+
+# Is there a bottle?
+let x = current.x + 1
+get_object bottle = x current.y
+if_exists bottle
+	if bottle is called "potion_empty"
+		call use_alembic_core
+		return
+	endif
+endif
+
+# Is it a non-empty potion bottle?
+if bottle is called "potion_*"
+	# Have we already got one?
+	find oldpotion = bottle.name inside me
+	if_exists oldpotion
+		# OK, we don't want to fill them with potions,
+		# destroy the new one and pretend they took it
+		destroy bottle
+		let bottle = null
+		return
+	endif
+
+	# Otherwise, take it
+	transfer_to_pocket bottle to me
+	let bottle = null
+	return
+endif
+
+# OK, there wasn't a potion bottle there.  Create an empty one
+create bottle = "potion_empty"
+transfer_object bottle = x current.y
+let bottle = null
+
+end
+
+##
+##  Main systems
+##
+
+function use_alembic_core
+private
+int len
+int char
+int rand
+string newpotion
+
+if current.curdir = UP
+or current.curdir = DOWN
+	return
+endif
+
+if_not_exists bottle
+	return
+endif
+
+set_direction current = UP
+
+# Default to no effect
+let newpotion = "potion_empty"
+
+# Figure out which potions are allowed and pick one at random
+strlen len = current.funcs.user1
+if len < 1
+	BUG START
+	print "Alembic has no potions assigned in USER1 property!"
+	printcr
+	BUG END
+	return
+endif
+random rand between 1 len
+strgetpos char = current.funcs.user1 rand
+
+
+if char = 'R'
+	let newpotion = "potion_red"
+endif
+if char = 'G'
+	let newpotion = "potion_green"
+endif
+if char = 'B'
+	let newpotion = "potion_blue"
+endif
+if char = 'Y'
+	let newpotion = "potion_yellow"
+endif
+if char = 'W'
+	let newpotion = "potion_white"
+endif
+if char = 'K'
+	let newpotion = "potion_black"
+endif
+# These aren't currently used but do exist
+if char = 'P'
+	let newpotion = "potion_purple"
+endif
+if char = 'M'
+	let newpotion = "potion_magenta"
+endif
+
+replace bottle = newpotion
+
+# Empty the alembic
+set_direction current = LEFT
 
 end

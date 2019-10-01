@@ -29,7 +29,7 @@ iMZ1r00
 		type COW
 		inside 100663303
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663303
 		type EGG_ALWAYS
@@ -116,7 +116,7 @@ iMZ1r00
 		type COW
 		inside 100663322
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663320
 		type FOOD05
@@ -137,7 +137,7 @@ iMZ1r00
 		type COW
 		inside 100663326
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663324
 		type FOOD05
@@ -158,7 +158,7 @@ iMZ1r00
 		type COW
 		inside 100663330
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663328
 		type FOOD05
@@ -219,7 +219,7 @@ iMZ1r00
 		type COW
 		inside 100663342
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663340
 		type FOOD05
@@ -252,7 +252,7 @@ iMZ1r00
 		type COW
 		inside 100663349
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663347
 		type FOOD05
@@ -275,7 +275,7 @@ iMZ1r00
 		type COW
 		inside 100663354
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663352
 		type FOOD05
@@ -377,7 +377,7 @@ iMZ1r00
 		type COW
 		inside 100663374
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663372
 		type FOOD05
@@ -398,7 +398,7 @@ iMZ1r00
 		type COW
 		inside 100663378
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663376
 		type FOOD05
@@ -443,7 +443,7 @@ iMZ1r00
 		type COW
 		inside 100663394
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663392
 		type FOOD05
@@ -742,7 +742,7 @@ iMZ1r00
 		type COW
 		inside 100663452
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663450
 		type FOOD05
@@ -771,7 +771,7 @@ iMZ1r00
 		type COW
 		inside 100663460
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663458
 		type FOOD05
@@ -1106,7 +1106,7 @@ iMZ1r00
 		type COW
 		inside 100663535
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663533
 		type FOOD05
@@ -1289,7 +1289,7 @@ iMZ1r00
 		type COW
 		inside 100663582
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663580
 		type FOOD05
@@ -2083,7 +2083,7 @@ iMZ1r00
 		type COW
 		inside 100663786
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100663784
 		type FOOD05
@@ -2886,7 +2886,7 @@ iMZ1r00
 		type COW
 		at 349 101
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100664014
 		type FORCEFIELD_ON
@@ -3207,7 +3207,7 @@ iMZ1r00
 		type COW
 		inside 100664094
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100664092
 		type FOOD05
@@ -4715,7 +4715,7 @@ iMZ1r00
 		type OSPREY
 		at 522 126
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 		funcs->talk people/osprey/x36.txt
 
 	object 100664667
@@ -15038,7 +15038,7 @@ iMZ1r00
 		at 660 297
 		curdir 1
 		name X42
-		activity bird_wander
+		activity BIRD_WANDER
 		funcs->talk people/osprey/x42.txt
 
 	object 100668864
@@ -16233,7 +16233,7 @@ iMZ1r00
 		type OSPREY
 		at 638 305
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100669369
 		type PERCH
@@ -16281,7 +16281,7 @@ iMZ1r00
 		at 669 305
 		curdir 1
 		name Kee-Kee-Kee-Chee
-		activity bird_wander
+		activity BIRD_WANDER
 		funcs->talk people/osprey/x63.txt
 
 	decorative HUT03 at 671 305
@@ -16916,7 +16916,7 @@ iMZ1r00
 		at 652 308
 		curdir 3
 		name guard
-		activity bird_wander
+		activity BIRD_WANDER
 		schedule 0 1 SIT_AT_LOCATION 100669579
 
 	object 100669581
@@ -17163,7 +17163,7 @@ iMZ1r00
 		type OSPREY
 		at 640 309
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	decorative HUT03 at 641 309
 
@@ -18460,7 +18460,7 @@ iMZ1r00
 		type OSPREY
 		at 674 316
 		curdir 2
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100670081
 		type JAR_FISH
@@ -19696,7 +19696,7 @@ iMZ1r00
 		at 627 324
 		curdir 3
 		name X24
-		activity bird_wander
+		activity BIRD_WANDER
 		stats->hp 400000
 		funcs->talk people/osprey/x24.txt
 		schedule 7 0 SIT_AT_LOCATION 100670487
@@ -22722,7 +22722,7 @@ iMZ1r00
 		type BUNNY
 		inside 100671409
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object 100671409
 		type EGG_OBJECT(BUNNY)
@@ -22821,7 +22821,7 @@ iMZ1r00
 		type WOLF
 		inside 100671437
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 6 0 PREDATOR 0
 		schedule 10 0 GO_TO_SLEEP 100671429
 		schedule 14 0 PREDATOR 0
@@ -22845,7 +22845,7 @@ iMZ1r00
 		type WOLF_F
 		inside 100671440
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 6 0 PREDATOR 0
 		schedule 10 0 GO_TO_SLEEP 100671430
 		schedule 14 0 PREDATOR 0
@@ -22961,7 +22961,7 @@ iMZ1r00
 		type BUNNY
 		inside 100671470
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object 100671470
 		type EGG_OBJECT(BUNNY)
@@ -23556,7 +23556,7 @@ iMZ1r00
 		type BUNNY
 		inside 100671629
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object 100671629
 		type EGG_OBJECT(BUNNY)
@@ -24677,7 +24677,7 @@ iMZ1r00
 		type COW
 		inside 100671931
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object 100671929
 		type FOOD05
@@ -24927,7 +24927,7 @@ iMZ1r00
 		type PIG_TAME
 		inside 100671999
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100671998
 		type FOOD06
@@ -66986,7 +66986,7 @@ iMZ1r00
 		type SNAKE
 		inside 100690803
 		curdir 0
-		activity predator
+		activity PREDATOR
 
 	object 100690803
 		type EGG_OBJECT
@@ -69698,7 +69698,7 @@ iMZ1r00
 		type COW
 		inside 100691806
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object 100691804
 		type FOOD05
@@ -69913,7 +69913,7 @@ iMZ1r00
 		type PIG_TAME
 		inside 100691878
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100691877
 		type FOOD06
@@ -70467,7 +70467,7 @@ iMZ1r00
 		type COW
 		inside 100692073
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object 100692071
 		type FOOD05
@@ -70693,7 +70693,7 @@ iMZ1r00
 		type COW
 		inside 100692146
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object 100692146
 		type EGG_ALWAYS
@@ -71311,7 +71311,7 @@ iMZ1r00
 		type PIG_TAME
 		inside 100692344
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100692343
 		type FOOD06
@@ -71474,7 +71474,7 @@ iMZ1r00
 		type COW
 		inside 100692401
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object 100692399
 		type FOOD05
@@ -71709,7 +71709,7 @@ iMZ1r00
 		type PIG_TAME
 		inside 100692469
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100692468
 		type FOOD06
@@ -72012,14 +72012,14 @@ iMZ1r00
 		at 800 806
 		curdir 1
 		labels->location Apothecary
-		stats->owner 100693266
+		stats->owner 100693277
 
 	object 100692591
 		type PATHMARKER
 		at 801 806
 		curdir 1
 		labels->location JonsHouse
-		stats->owner 100693267
+		stats->owner 100693278
 
 	object 100692592
 		type PATHMARKER
@@ -72191,7 +72191,7 @@ iMZ1r00
 		type COW
 		inside 100692661
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object 100692661
 		type EGG_ALWAYS
@@ -72336,7 +72336,7 @@ iMZ1r00
 		type PIG_TAME
 		inside 100692726
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100692725
 		type FOOD06
@@ -72467,7 +72467,7 @@ iMZ1r00
 		type RAT
 		inside 100692784
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object 100692784
 		type EGG_OBJECT(RAT)
@@ -72731,13 +72731,13 @@ iMZ1r00
 		type PLATE
 		at 819 811
 		curdir 1
-		stats->owner 100693146
+		stats->owner 100693155
 
 	object 100692902
 		type FOODP07
 		at 819 811
 		curdir 1
-		stats->owner 100693146
+		stats->owner 100693155
 
 	object 100692903
 		type TABLE6-H
@@ -72918,53 +72918,53 @@ iMZ1r00
 
 	decorative MOUNT02 at 645 812
 
-	object 100712477
+	object 100692964
 		type STOVE
 		at 805 812
 		curdir 0
 
-	object 100692964
+	object 100692965
 		type STONEWINDOW1
 		at 815 812
 		curdir 2
 
-	object 100692965
+	object 100692966
 		type TABLE-SHADOW2
 		at 818 812
 		curdir 1
 
-	object 100692966
+	object 100692967
 		type TABLE5-LEGS
 		at 818 812
 		curdir 1
 
-	object 100692967
+	object 100692968
 		type TABLE-SHADOW1
 		at 819 812
 		curdir 0
 
-	object 100692968
+	object 100692969
 		type TARGET
 		at 819 812
 		curdir 0
 		labels->location JonsHouse
 
-	object 100692969
+	object 100692970
 		type TABLE-SHADOW1
 		at 820 812
 		curdir 0
 
-	object 100692970
+	object 100692971
 		type TABLE5-LEGS
 		at 820 812
 		curdir 1
 
-	object 100692971
+	object 100692972
 		type TABLE-SHADOW3
 		at 821 812
 		curdir 3
 
-	object 100692972
+	object 100692973
 		type STONEWINDOW1
 		at 821 812
 		curdir 2
@@ -73061,102 +73061,102 @@ iMZ1r00
 
 	decorative MOUNT04 at 645 813
 
-	object 100693019
+	object 100693020
 		type TABLE6-H
 		at 806 813
 		curdir 2
 
-	object 100712474
-		type MEMO
-		at 806 813
-		curdir 0
-		name Probably want some aparatus
-
 	object 100693021
-		type TABLE6-H
-		at 807 813
-		curdir 0
+		type ALEMBIC
+		at 806 813
+		curdir 2
+		stats->owner 100693155
 
 	object 100693022
+		type TABLE6-H
+		at 807 813
+		curdir 0
+
+	object 100693023
 		type POTION_BLACK
 		at 807 813
 		curdir 0
-		stats->owner 100693146
-
-	object 100693023
-		type TABLE6-H
-		at 808 813
-		curdir 1
-
-	object 100693020
-		type POTION_BLACK
-		at 808 813
-		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
 	object 100693024
 		type TABLE6-H
+		at 808 813
+		curdir 1
+
+	object 100693025
+		type POTION_BLACK
+		at 808 813
+		curdir 0
+		stats->owner 100693155
+
+	object 100693026
+		type TABLE6-H
 		at 809 813
 		curdir 0
 
-	object 100693025
+	object 100693027
 		type POTION_YELLOW
 		at 809 813
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693026
+	object 100693028
 		type TABLE6-H
 		at 810 813
 		curdir 1
 
-	object 100693027
+	object 100693029
 		type POTION_RED
 		at 810 813
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693028
+	object 100693030
 		type TABLE6-H
 		at 811 813
 		curdir 3
 
-	object 100693029
+	object 100693031
 		type POTION_GREEN
 		at 811 813
 		curdir 3
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693030
+	object 100693032
 		type TABLE-SHADOW2
 		at 812 813
 		curdir 3
 
-	object 100693031
+	object 100693033
 		type BED
 		at 816 813
 		curdir 3
 		labels->location JonsHouse
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693032
+	object 100693034
 		type CHAIR
 		at 819 813
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693033
+	object 100693035
 		type GOLD_COINS
-		inside 100693034
+		inside 100693036
 		curdir 0
 		stats->quantity 900
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693034
+	object 100693036
 		type CHEST
 		at 820 813
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
 	decorative TREE02 at 898 813
 
@@ -73262,100 +73262,93 @@ iMZ1r00
 
 	decorative MOUNT07 at 645 814
 
-	object 100712470
+	object 100693089
 		type STONEWINDOW1
 		at 804 814
 		curdir 2
 
-	object 100712466
-		type TARGET
-		at 805 814
-		curdir 0
-		tag 80021
-		labels->location Apothecary
-
-	object 100693087
+	object 100693091
 		type TABLE-SHADOW2
 		at 806 814
 		curdir 1
 
-	object 100693088
+	object 100693092
 		type TABLE5-LEGS
 		at 806 814
 		curdir 1
 
-	object 100712478
+	object 100693093
 		type TARGET
 		at 806 814
 		curdir 0
 		tag 80024
 		labels->location Apothecary
 
-	object 100693089
+	object 100693094
 		type TABLE-SHADOW1
 		at 807 814
 		curdir 0
 
-	object 100693090
+	object 100693095
 		type TABLE-SHADOW1
 		at 808 814
 		curdir 0
 
-	object 100693091
+	object 100693096
 		type TABLE5-LEGS
 		at 808 814
 		curdir 1
 
-	object 100693092
+	object 100693097
 		type TARGET
 		at 808 814
 		curdir 0
 		tag 80020
 		labels->location Apothecary
 
-	object 100693093
+	object 100693098
 		type TABLE-SHADOW1
 		at 809 814
 		curdir 0
 
-	object 100693094
+	object 100693099
 		type TABLE-SHADOW1
 		at 810 814
 		curdir 0
 
-	object 100693095
+	object 100693090
+		type TARGET
+		at 810 814
+		curdir 0
+		tag 80021
+		labels->location Apothecary
+
+	object 100693100
 		type TABLE-SHADOW1
 		at 811 814
 		curdir 0
 
-	object 100693096
+	object 100693101
 		type TABLE5-LEGS
 		at 811 814
 		curdir 1
 
-	object 100712467
-		type TARGET
-		at 811 814
-		curdir 0
-		tag 80022
-		labels->location Apothecary
-
-	object 100712468
+	object 100693103
 		type CHAIR
 		at 811 814
 		curdir 1
 
-	object 100693097
+	object 100693104
 		type TABLE-SHADOW3
 		at 812 814
 		curdir 3
 
-	object 100712471
+	object 100693105
 		type STONEWINDOW1
 		at 812 814
 		curdir 2
 
-	object 100693098
+	object 100693106
 		type STONEDOOR1_SHUT
 		at 817 814
 		curdir 0
@@ -73452,43 +73445,69 @@ iMZ1r00
 
 	decorative MOUNT02 at 645 815
 
-	object 100693146
+	object 100693153
+		type FIRESTONES_LIT
+		at 805 815
+		curdir 0
+
+	object 100693154
+		type CAULDRON_POTION
+		at 805 815
+		curdir 0
+		stats->owner 100693155
+
+	object 100712482
+		type POTION_YELLOW
+		inside 100693155
+		curdir 0
+
+	object 100712481
+		type POTION_EMPTY
+		inside 100693155
+		curdir 0
+
+	object 100712480
+		type POTION_EMPTY
+		inside 100693155
+		curdir 0
+
+	object 100693155
 		type MAN_GENERIC
 		at 808 815
 		curdir 0
 		name Jon
 		schedule 8 0 SIT_AT_LOCATION 100690942
-		schedule 9 0 LOITER_ATWORK 100693092
+		schedule 9 0 ALCHEMY_AT_LOCATION 100693097
 		schedule 12 0 EAT_AT_LOCATION 100691235
-		schedule 13 0 LOITER_ATWORK 100693092
+		schedule 13 0 ALCHEMY_AT_LOCATION 100693097
 		schedule 16 0 SIT_AT_LOCATION 100690942
-		schedule 17 0 LOITER_ATWORK 100693092
-		schedule 19 0 EAT_AT_HOME 100692968
-		schedule 20 0 GO_TO_SLEEP 100693031
+		schedule 17 0 ALCHEMY_AT_LOCATION 100693097
+		schedule 19 0 EAT_AT_HOME 100692969
+		schedule 20 0 GO_TO_SLEEP 100693033
 
-	object 100693147
+	object 100693156
 		type TABLE6-H
 		at 810 815
 		curdir 2
 
-	object 100693145
+	object 100693157
 		type POTION_BLACK
 		at 810 815
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693148
+	object 100693158
 		type TABLE6-H
 		at 811 815
 		curdir 3
 
-	object 100693149
+	object 100693159
 		type POTION_EMPTY
 		at 811 815
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693150
+	object 100693160
 		type TABLE-SHADOW2
 		at 812 815
 		curdir 3
@@ -73595,59 +73614,61 @@ iMZ1r00
 
 	decorative TREE00 at 729 816
 
-	object 100712476
-		type CAULDRON_EMPTY
+	object 100693212
+		type TARGET
 		at 805 816
 		curdir 0
-
-	object 100712469
-		type TARGET
-		at 806 816
-		curdir 1
 		tag 80023
 		labels->location Apothecary
 
-	object 100693202
+	object 100693213
 		type TABLE-SHADOW2
 		at 810 816
 		curdir 1
 
-	object 100693203
+	object 100693214
 		type TABLE5-LEGS
 		at 810 816
 		curdir 1
 
-	object 100693204
+	object 100693102
+		type TARGET
+		at 810 816
+		curdir 1
+		tag 80022
+		labels->location Apothecary
+
+	object 100693215
 		type TABLE-SHADOW1
 		at 811 816
 		curdir 0
 
-	object 100693205
+	object 100693216
 		type TABLE5-LEGS
 		at 811 816
 		curdir 1
 
-	object 100693206
+	object 100693217
 		type TABLE-SHADOW3
 		at 812 816
 		curdir 3
 
-	object 100693207
+	object 100693218
 		type TABLE7
 		at 836 816
 		curdir 1
 
-	object 100693208
+	object 100693219
 		type SWORD05
 		at 836 816
 		curdir 1
 
-	object 100693209
+	object 100693220
 		type BED2_BLOODY
 		at 837 816
 		curdir 2
 
-	object 100693210
+	object 100693221
 		type BED2
 		at 839 816
 		curdir 2
@@ -73762,93 +73783,93 @@ iMZ1r00
 
 	decorative TREE01 at 729 817
 
-	object 100693266
+	object 100693277
 		type PATHMARKER
 		at 800 817
 		curdir 1
 		labels->location Apothecary
-		stats->owner 100693092
+		stats->owner 100693097
 
-	object 100693267
+	object 100693278
 		type PATHMARKER
 		at 801 817
 		curdir 1
 		labels->location JonsHouse
-		stats->owner 100693431
+		stats->owner 100693445
 
-	object 100693268
+	object 100693279
 		type PATHMARKER
 		at 802 817
 		curdir 0
 		labels->location YawningWolf
 		stats->owner 100692592
 
-	object 100693269
+	object 100693280
 		type PATHMARKER
 		at 803 817
 		curdir 0
 		labels->location MordorChurch
 		stats->owner 100692593
 
-	object 100693270
+	object 100693281
 		type TABLE6-H
 		at 805 817
 		curdir 2
 
-	object 100693271
+	object 100693282
 		type POTION_BLACK
 		at 805 817
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693272
+	object 100693283
 		type TABLE6-H
 		at 806 817
 		curdir 3
 
-	object 100712475
+	object 100693284
 		type POTION_EMPTY
 		at 806 817
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693273
+	object 100693285
 		type TABLE-SHADOW2
 		at 807 817
 		curdir 3
 
-	object 100693274
+	object 100693286
 		type TABLE6-H
 		at 810 817
 		curdir 2
 
-	object 100693275
+	object 100693287
 		type TABLE6-H
 		at 811 817
 		curdir 3
 
-	object 100693276
+	object 100693288
 		type POTION_YELLOW
 		at 811 817
 		curdir 0
-		stats->owner 100693146
+		stats->owner 100693155
 
-	object 100693277
+	object 100693289
 		type TABLE-SHADOW2
 		at 812 817
 		curdir 3
 
-	object 100693278
+	object 100693290
 		type SPAWN_GUARDS
 		at 815 817
 		curdir 1
 
-	object 100693279
+	object 100693291
 		type BLOOD07
 		at 836 817
 		curdir 1
 
-	object 100693280
+	object 100693292
 		type TARGET
 		at 838 817
 		curdir 2
@@ -73882,23 +73903,23 @@ iMZ1r00
 
 	decorative MOUNT04 at 544 818
 
-	object 100693295
+	object 100693307
 		type COW_EVIL
-		inside 100693298
+		inside 100693310
 		curdir 0
 		activity attack_party
 
-	object 100693296
+	object 100693308
 		type FOOD05
-		inside 100693295
+		inside 100693307
 		curdir 1
 
-	object 100693297
+	object 100693309
 		type TOADSTONE
-		inside 100693295
+		inside 100693307
 		curdir 1
 
-	object 100693298
+	object 100693310
 		type EGG_ALWAYS
 		at 552 818
 		curdir 0
@@ -73955,23 +73976,23 @@ iMZ1r00
 
 	decorative TREE01 at 725 818
 
-	object 100712473
+	object 100693337
 		type STONEWINDOW1
 		at 806 818
 		curdir 1
 
-	object 100693325
+	object 100693338
 		type STONEDOOR2_SHUT
 		at 807 818
 		curdir 1
 		name Jon the Apothecar
 
-	object 100712472
+	object 100693339
 		type STONEWINDOW1
 		at 810 818
 		curdir 1
 
-	object 100693326
+	object 100693340
 		type TABLE-SHADOW3
 		at 812 818
 		curdir 3
@@ -74012,23 +74033,23 @@ iMZ1r00
 
 	decorative MOUNT07 at 544 819
 
-	object 100693345
+	object 100693359
 		type COW_EVIL
-		inside 100693348
+		inside 100693362
 		curdir 0
 		activity attack_party
 
-	object 100693346
+	object 100693360
 		type FOOD05
-		inside 100693345
+		inside 100693359
 		curdir 1
 
-	object 100693347
+	object 100693361
 		type TOADSTONE
-		inside 100693345
+		inside 100693359
 		curdir 1
 
-	object 100693348
+	object 100693362
 		type EGG_ALWAYS
 		at 548 819
 		curdir 0
@@ -74075,32 +74096,32 @@ iMZ1r00
 
 	decorative TREE02 at 727 819
 
-	object 100693370
+	object 100693384
 		type STOVE_UNLIT
 		at 792 819
 		curdir 2
 
-	object 100693371
+	object 100693385
 		type JAILBARS-H
 		at 836 819
 		curdir 2
 
-	object 100693372
+	object 100693386
 		type JAILBARS-H
 		at 837 819
 		curdir 0
 
-	object 100693373
+	object 100693387
 		type JAILBARS-H
 		at 838 819
 		curdir 0
 
-	object 100693374
+	object 100693388
 		type JAILBARS-H
 		at 839 819
 		curdir 3
 
-	object 100693375
+	object 100693389
 		type STONEDOOR5_LOCK
 		at 840 819
 		curdir 0
@@ -74208,73 +74229,73 @@ iMZ1r00
 
 	decorative TREE01 at 727 820
 
-	object 100693427
+	object 100693441
 		type TABLE6-V
 		at 791 820
 		curdir 0
 
-	object 100693428
+	object 100693442
 		type TABLE-SHADOW2
 		at 792 820
 		curdir 3
 
-	object 100693429
+	object 100693443
 		type TABLE5-LEGS
 		at 792 820
 		curdir 3
 
-	object 100693430
+	object 100693444
 		type SPAWN_GUARDS
 		at 806 820
 		curdir 1
 
-	object 100693431
+	object 100693445
 		type PATHMARKER
 		at 814 820
 		curdir 3
 		labels->location JonsHouse
-		stats->owner 100692968
+		stats->owner 100692969
 
-	object 100693432
+	object 100693446
 		type WELL
 		at 817 820
 		curdir 0
 
-	object 100693433
+	object 100693447
 		type GUARD
-		inside 100693435
+		inside 100693449
 		curdir 1
-		activity guard_patrol
-		schedule 0 1 SEEK_TARGET_SIT 100693436
+		activity GUARD_PATROL
+		schedule 0 1 SEEK_TARGET_SIT 100693450
 
-	object 100693434
+	object 100693448
 		type HALBERD
-		inside 100693433
+		inside 100693447
 		curdir 1
 
-	object 100693435
+	object 100693449
 		type EGG_SCHEDULE
 		at 839 820
 		curdir 0
 
-	object 100693436
+	object 100693450
 		type TARGET
 		at 840 820
 		curdir 1
 
-	object 100693437
+	object 100693451
 		type TARGET
 		at 842 820
 		curdir 1
 
-	object 100693438
+	object 100693452
 		type GUARD
-		inside 100693439
+		inside 100693453
 		curdir 1
-		activity guard_patrol
-		schedule 0 1 SEEK_TARGET_SIT 100693437
+		activity GUARD_PATROL
+		schedule 0 1 SEEK_TARGET_SIT 100693451
 
-	object 100693439
+	object 100693453
 		type EGG_SCHEDULE
 		at 843 820
 		curdir 0
@@ -74377,50 +74398,50 @@ iMZ1r00
 
 	decorative TREE02 at 727 821
 
-	object 100693489
+	object 100693503
 		type TABLE6-V
 		at 791 821
 		curdir 1
 
-	object 100693490
+	object 100693504
 		type TABLE-SHADOW1
 		at 792 821
 		curdir 2
 
-	object 100693491
+	object 100693505
 		type TABLE5-LEGS
 		at 792 821
 		curdir 3
 
-	object 100693492
+	object 100693506
 		type BRIDGE_END_N
 		at 836 821
 		curdir 2
 
-	object 100693493
+	object 100693507
 		type GALLOWS
 		at 836 821
 		curdir 2
 		tag 10000
 
-	object 100693494
+	object 100693508
 		type BRIDGE_END_N
 		at 837 821
 		curdir 0
 
-	object 100693495
+	object 100693509
 		type BRIDGE_END_N
 		at 838 821
 		curdir 0
 
-	object 100693496
+	object 100693510
 		type LEVER
 		at 838 821
 		curdir 0
 		tag 25
 		funcs->use LEVER_GALLOWS
 
-	object 100693497
+	object 100693511
 		type BRIDGE_END_N
 		at 839 821
 		curdir 3
@@ -74463,7 +74484,7 @@ iMZ1r00
 
 	decorative MOUNT02 at 548 822
 
-	object 100693517
+	object 100693531
 		type EGG_ALWAYS
 		at 552 822
 		curdir 0
@@ -74498,27 +74519,27 @@ iMZ1r00
 
 	decorative TREE03 at 718 822
 
-	object 100693533
+	object 100693547
 		type TABLE-SHADOW2
 		at 791 822
 		curdir 1
 
-	object 100693534
+	object 100693548
 		type TABLE-SHADOW3
 		at 792 822
 		curdir 1
 
-	object 100693535
+	object 100693549
 		type STONEDOOR1_SHUT
 		at 796 822
 		curdir 3
 
-	object 100693536
+	object 100693550
 		type BRIDGE_POLE
 		at 836 822
 		curdir 2
 
-	object 100693537
+	object 100693551
 		type BRIDGE_POLE
 		at 839 822
 		curdir 3
@@ -74561,24 +74582,24 @@ iMZ1r00
 
 	decorative MOUNT02 at 550 823
 
-	object 100693557
+	object 100693571
 		type COW_EVIL
-		inside 100693558
+		inside 100693572
 		curdir 0
 		activity attack_party
 
-	object 100693558
+	object 100693572
 		type EGG_ALWAYS
 		at 555 823
 		curdir 0
 
-	object 100693559
+	object 100693573
 		type RAT
-		inside 100693560
+		inside 100693574
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
-	object 100693560
+	object 100693574
 		type EGG_OBJECT(RAT)
 		at 567 823
 		curdir 0
@@ -74613,19 +74634,19 @@ iMZ1r00
 
 	decorative TREE01 at 715 823
 
-	object 100693576
+	object 100693590
 		type BRIDGE_POLE
 		at 836 823
 		curdir 2
 
-	object 100693577
+	object 100693591
 		type HATCH_GALLOWS_CLOSED
 		at 837 823
 		curdir 2
 		tag 25
-		stats->owner 100693496
+		stats->owner 100693510
 
-	object 100693578
+	object 100693592
 		type BRIDGE_POLE
 		at 839 823
 		curdir 3
@@ -74698,7 +74719,7 @@ iMZ1r00
 
 	decorative MOUNT08 at 592 824
 
-	object 100693613
+	object 100693627
 		type STONEFLOOR14
 		at 593 824
 		curdir 3
@@ -74739,27 +74760,27 @@ iMZ1r00
 
 	decorative TREE03 at 724 824
 
-	object 100693632
+	object 100693646
 		type BRIDGE_STEPS_S
 		at 836 824
 		curdir 2
 
-	object 100693633
+	object 100693647
 		type BRIDGE_STEPS_S
 		at 837 824
 		curdir 1
 
-	object 100693634
+	object 100693648
 		type BRIDGE_STEPS_S
 		at 838 824
 		curdir 1
 
-	object 100693635
+	object 100693649
 		type BRIDGE_CORE3
 		at 839 824
 		curdir 3
 
-	object 100693636
+	object 100693650
 		type BRIDGE_STEPS_S
 		at 839 824
 		curdir 3
@@ -74824,14 +74845,14 @@ iMZ1r00
 
 	decorative MOUNT06 at 591 825
 
-	object 100693667
+	object 100693681
 		type STONEFLOOR18
 		at 592 825
 		curdir 3
 
 	decorative MOUNT07 at 592 825
 
-	object 100693669
+	object 100693683
 		type STONEFLOOR18
 		at 593 825
 		curdir 2
@@ -74866,32 +74887,32 @@ iMZ1r00
 
 	decorative TREE01 at 723 825
 
-	object 100693685
+	object 100693699
 		type TABLE6-H
 		at 791 825
 		curdir 2
 
-	object 100693686
+	object 100693700
 		type TABLE6-H
 		at 792 825
 		curdir 0
 
-	object 100693687
+	object 100693701
 		type TABLE6-H
 		at 793 825
 		curdir 1
 
-	object 100693688
+	object 100693702
 		type TABLE6-H
 		at 794 825
 		curdir 0
 
-	object 100693689
+	object 100693703
 		type TABLE6-H
 		at 795 825
 		curdir 3
 
-	object 100693690
+	object 100693704
 		type SPAWN_GUARDS
 		at 798 825
 		curdir 1
@@ -74954,7 +74975,7 @@ iMZ1r00
 
 	decorative MOUNT06 at 587 826
 
-	object 100693720
+	object 100693734
 		type STONEFLOOR18
 		at 588 826
 		curdir 2
@@ -74963,22 +74984,22 @@ iMZ1r00
 
 	decorative MOUNT07 at 589 826
 
-	object 100693723
+	object 100693737
 		type STONEFLOOR14
 		at 591 826
 		curdir 0
 
-	object 100693724
+	object 100693738
 		type STONEFLOOR10
 		at 592 826
 		curdir 1
 
-	object 100693725
+	object 100693739
 		type STONEFLOOR10
 		at 593 826
 		curdir 2
 
-	object 100693726
+	object 100693740
 		type STONEFLOOR14
 		at 594 826
 		curdir 3
@@ -75071,24 +75092,24 @@ iMZ1r00
 
 	decorative MOUNT06 at 585 827
 
-	object 100693771
+	object 100693785
 		type STONEFLOOR18
 		at 586 827
 		curdir 3
 
 	decorative MOUNT07 at 586 827
 
-	object 100693773
+	object 100693787
 		type STONEFLOOR18
 		at 588 827
 		curdir 2
 
-	object 100693774
+	object 100693788
 		type STONEFLOOR18
 		at 591 827
 		curdir 3
 
-	object 100693775
+	object 100693789
 		type STONEFLOOR18
 		at 594 827
 		curdir 2
@@ -75125,14 +75146,14 @@ iMZ1r00
 
 	decorative TREE02 at 718 827
 
-	object 100693792
+	object 100693806
 		type TRAP_RADIUS
 		at 794 827
 		curdir 0
 		stats->radius 10
 		funcs->use PLOT_NEWBEDEVERE
 
-	object 100693793
+	object 100693807
 		type SPAWN_GUARDS
 		at 799 827
 		curdir 1
@@ -75183,32 +75204,32 @@ iMZ1r00
 
 	decorative MOUNT07 at 579 828
 
-	object 100693817
+	object 100693831
 		type STONEFLOOR18
 		at 586 828
 		curdir 3
 
-	object 100693818
+	object 100693832
 		type STONEFLOOR18
 		at 588 828
 		curdir 2
 
-	object 100693819
+	object 100693833
 		type STONEFLOOR14
 		at 591 828
 		curdir 2
 
-	object 100693820
+	object 100693834
 		type STONEFLOOR10
 		at 592 828
 		curdir 3
 
-	object 100693821
+	object 100693835
 		type STONEFLOOR10
 		at 593 828
 		curdir 0
 
-	object 100693822
+	object 100693836
 		type STONEFLOOR14
 		at 594 828
 		curdir 1
@@ -75313,12 +75334,12 @@ iMZ1r00
 
 	decorative MOUNT04 at 570 829
 
-	object 100693873
+	object 100693887
 		type STONEFLOOR18
 		at 586 829
 		curdir 3
 
-	object 100693874
+	object 100693888
 		type STONEFLOOR18
 		at 588 829
 		curdir 2
@@ -75329,12 +75350,12 @@ iMZ1r00
 
 	decorative MOUNT02 at 590 829
 
-	object 100693878
+	object 100693892
 		type STONEFLOOR14
 		at 592 829
 		curdir 2
 
-	object 100693879
+	object 100693893
 		type STONEFLOOR14
 		at 593 829
 		curdir 1
@@ -75361,12 +75382,12 @@ iMZ1r00
 
 	decorative TREE01 at 714 829
 
-	object 100693891
+	object 100693905
 		type CHIMNEY1
 		at 792 829
 		curdir 0
 
-	object 100693892
+	object 100693906
 		type STONE_ARCHWAY
 		at 797 829
 		curdir 0
@@ -75423,18 +75444,18 @@ iMZ1r00
 
 	decorative MOUNT04 at 570 830
 
-	object 100693919
+	object 100693933
 		type RAT
-		inside 100693920
+		inside 100693934
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
-	object 100693920
+	object 100693934
 		type EGG_OBJECT(RAT)
 		at 581 830
 		curdir 0
 
-	object 100693921
+	object 100693935
 		type STONEFLOOR18
 		at 586 830
 		curdir 3
@@ -75471,15 +75492,21 @@ iMZ1r00
 
 	decorative TREE03 at 713 830
 
-	object 100693938
+	object 100693952
 		type FORGE_COLD
 		at 793 830
 		curdir 3
 
-	object 100693939
+	object 100693953
 		type STONE_ARCHWAY2
 		at 797 830
 		curdir 2
+
+	object 100712483
+		type MEMO
+		at 799 830
+		curdir 1
+		name Really he should be in Lakeside
 
 	decorative TREE00 at 895 830
 
@@ -75555,7 +75582,7 @@ iMZ1r00
 
 	decorative MOUNT01 at 585 831
 
-	object 100693977
+	object 100693991
 		type STONEFLOOR18
 		at 586 831
 		curdir 3
@@ -75594,10 +75621,16 @@ iMZ1r00
 
 	decorative TREE02 at 714 831
 
-	object 100693995
+	object 100694009
 		type STONE_ARCHWAY2
 		at 797 831
 		curdir 2
+
+	object 100712484
+		type MEMO
+		at 799 831
+		curdir 1
+		name Since he's on the lam from the
 
 	decorative TREE02 at 892 831
 
@@ -75719,10 +75752,16 @@ iMZ1r00
 
 	decorative TREE02 at 708 832
 
-	object 100694056
+	object 100694070
 		type STONE_ARCHWAY
 		at 797 832
 		curdir 1
+
+	object 100712485
+		type MEMO
+		at 799 832
+		curdir 1
+		name Church and Cardinal Trom is
 
 	decorative TREE01 at 900 832
 
@@ -75819,6 +75858,12 @@ iMZ1r00
 	decorative TREE00 at 707 833
 
 	decorative TREE00 at 709 833
+
+	object 100712486
+		type MEMO
+		at 799 833
+		curdir 1
+		name Not the most merciful cardinal
 
 	decorative TREE00 at 894 833
 
@@ -76120,7 +76165,7 @@ iMZ1r00
 
 	decorative MOUNT08 at 525 837
 
-	object 100694255
+	object 100694269
 		type STONEFLOOR18
 		at 526 837
 		curdir 2
@@ -76139,7 +76184,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 582 837
 
-	object 100694263
+	object 100694277
 		type MUSIC
 		at 583 837
 		curdir 0
@@ -76225,7 +76270,7 @@ iMZ1r00
 
 	decorative MOUNT07 at 525 838
 
-	object 100694304
+	object 100694318
 		type STONEFLOOR14
 		at 527 838
 		curdir 3
@@ -76334,7 +76379,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 523 839
 
-	object 100694357
+	object 100694371
 		type STONEFLOOR18
 		at 527 839
 		curdir 2
@@ -76391,7 +76436,7 @@ iMZ1r00
 
 	decorative TREE03 at 706 839
 
-	object 100694384
+	object 100694398
 		type MUSIC
 		at 816 839
 		curdir 0
@@ -76439,17 +76484,17 @@ iMZ1r00
 
 	decorative MOUNT07 at 523 840
 
-	object 100694406
+	object 100694420
 		type STONEFLOOR10
 		at 527 840
 		curdir 2
 
-	object 100694407
+	object 100694421
 		type STONEFLOOR18
 		at 528 840
 		curdir 1
 
-	object 100694408
+	object 100694422
 		type STONEFLOOR14
 		at 529 840
 		curdir 3
@@ -76532,7 +76577,7 @@ iMZ1r00
 
 	decorative MOUNT07 at 521 841
 
-	object 100694448
+	object 100694462
 		type STONEFLOOR18
 		at 529 841
 		curdir 2
@@ -76641,7 +76686,7 @@ iMZ1r00
 
 	decorative MOUNT07 at 520 842
 
-	object 100694501
+	object 100694515
 		type STONEFLOOR18
 		at 529 842
 		curdir 2
@@ -76766,12 +76811,12 @@ iMZ1r00
 
 	decorative MOUNT07 at 518 843
 
-	object 100694562
+	object 100694576
 		type STONEFLOOR10
 		at 529 843
 		curdir 2
 
-	object 100694563
+	object 100694577
 		type STONEFLOOR14
 		at 530 843
 		curdir 3
@@ -76912,7 +76957,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 516 844
 
-	object 100694632
+	object 100694646
 		type STONEFLOOR18
 		at 530 844
 		curdir 2
@@ -77035,27 +77080,27 @@ iMZ1r00
 
 	decorative MOUNT07 at 516 845
 
-	object 100694692
+	object 100694706
 		type STONEFLOOR10
 		at 521 845
 		curdir 0
 
-	object 100694693
+	object 100694707
 		type STONEFLOOR18
 		at 522 845
 		curdir 0
 
-	object 100694694
+	object 100694708
 		type STONEFLOOR10
 		at 523 845
 		curdir 3
 
-	object 100694695
+	object 100694709
 		type STONEFLOOR10
 		at 530 845
 		curdir 2
 
-	object 100694696
+	object 100694710
 		type STONEFLOOR14
 		at 531 845
 		curdir 3
@@ -77076,13 +77121,13 @@ iMZ1r00
 
 	decorative MOUNT04 at 572 845
 
-	object 100694705
+	object 100694719
 		type RAT
-		inside 100694706
+		inside 100694720
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
-	object 100694706
+	object 100694720
 		type EGG_OBJECT(RAT)
 		at 580 845
 		curdir 0
@@ -77091,13 +77136,13 @@ iMZ1r00
 
 	decorative MOUNT04 at 598 845
 
-	object 100694709
+	object 100694723
 		type BEE
-		inside 100694710
+		inside 100694724
 		curdir 1
 		activity attack_party
 
-	object 100694710
+	object 100694724
 		type EGG_OBJECT(BEE)
 		at 599 845
 		curdir 0
@@ -77168,27 +77213,27 @@ iMZ1r00
 
 	decorative MOUNT07 at 515 846
 
-	object 100694744
+	object 100694758
 		type STONEFLOOR10
 		at 519 846
 		curdir 0
 
-	object 100694745
+	object 100694759
 		type STONEFLOOR18
 		at 520 846
 		curdir 0
 
-	object 100694746
+	object 100694760
 		type STONEFLOOR14
 		at 521 846
 		curdir 1
 
-	object 100694747
+	object 100694761
 		type STONEFLOOR18
 		at 523 846
 		curdir 3
 
-	object 100694748
+	object 100694762
 		type STONEFLOOR18
 		at 531 846
 		curdir 2
@@ -77309,37 +77354,37 @@ iMZ1r00
 
 	decorative MOUNT04 at 514 847
 
-	object 100694807
+	object 100694821
 		type STONEFLOOR18
 		at 519 847
 		curdir 2
 
-	object 100694808
+	object 100694822
 		type GLASS_SHARDS
-		inside 100694809
+		inside 100694823
 		curdir 1
 
-	object 100694809
+	object 100694823
 		type BOTTLE_EMPTY
 		at 521 847
 		curdir 3
 
-	object 100694810
+	object 100694824
 		type STONEFLOOR14
 		at 523 847
 		curdir 2
 
-	object 100694811
+	object 100694825
 		type STONEFLOOR10
 		at 524 847
 		curdir 3
 
-	object 100694812
+	object 100694826
 		type STONEFLOOR10
 		at 531 847
 		curdir 2
 
-	object 100694813
+	object 100694827
 		type STONEFLOOR14
 		at 532 847
 		curdir 3
@@ -77448,42 +77493,42 @@ iMZ1r00
 
 	decorative MOUNT02 at 515 848
 
-	object 100694866
+	object 100694880
 		type STONEFLOOR10
 		at 518 848
 		curdir 0
 
-	object 100694867
+	object 100694881
 		type STONEFLOOR14
 		at 519 848
 		curdir 1
 
-	object 100694868
+	object 100694882
 		type BONES0
 		at 521 848
 		curdir 3
 
-	object 100694869
+	object 100694883
 		type STONEFLOOR18
 		at 524 848
 		curdir 3
 
-	object 100694870
+	object 100694884
 		type STONEFLOOR10
 		at 532 848
 		curdir 2
 
-	object 100694871
+	object 100694885
 		type STONEFLOOR18
 		at 533 848
 		curdir 1
 
-	object 100694872
+	object 100694886
 		type STONEFLOOR18
 		at 534 848
 		curdir 1
 
-	object 100694873
+	object 100694887
 		type STONEFLOOR18
 		at 535 848
 		curdir 1
@@ -77600,27 +77645,27 @@ iMZ1r00
 
 	decorative MOUNT04 at 515 849
 
-	object 100694930
+	object 100694944
 		type STONEFLOOR18
 		at 518 849
 		curdir 2
 
-	object 100694931
+	object 100694945
 		type CRYSTAL_SWORD_BITS
-		inside 100694932
+		inside 100694946
 		curdir 1
 
-	object 100694932
+	object 100694946
 		type CRYSTAL_SWORD
 		at 520 849
 		curdir 3
 
-	object 100694933
+	object 100694947
 		type STONEFLOOR14
 		at 524 849
 		curdir 2
 
-	object 100694934
+	object 100694948
 		type STONEFLOOR10
 		at 525 849
 		curdir 3
@@ -77643,13 +77688,13 @@ iMZ1r00
 
 	decorative MOUNT02 at 600 849
 
-	object 100694944
+	object 100694958
 		type BEE
-		inside 100694945
+		inside 100694959
 		curdir 1
 		activity attack_party
 
-	object 100694945
+	object 100694959
 		type EGG_OBJECT(BEE)
 		at 602 849
 		curdir 0
@@ -77742,52 +77787,52 @@ iMZ1r00
 
 	decorative MOUNT07 at 515 850
 
-	object 100694990
+	object 100695004
 		type STONEFLOOR10
 		at 518 850
 		curdir 2
 
-	object 100694991
+	object 100695005
 		type STONEFLOOR14
 		at 519 850
 		curdir 3
 
-	object 100694992
+	object 100695006
 		type GLASS_SHARDS
-		inside 100694993
+		inside 100695007
 		curdir 1
 
-	object 100694993
+	object 100695007
 		type BOTTLE_EMPTY
 		at 523 850
 		curdir 3
 
-	object 100694994
+	object 100695008
 		type STONEFLOOR14
 		at 524 850
 		curdir 0
 
-	object 100694995
+	object 100695009
 		type STONEFLOOR10
 		at 525 850
 		curdir 1
 
-	object 100694996
+	object 100695010
 		type STONEFLOOR10
 		at 532 850
 		curdir 0
 
-	object 100694997
+	object 100695011
 		type STONEFLOOR18
 		at 533 850
 		curdir 0
 
-	object 100694998
+	object 100695012
 		type STONEFLOOR18
 		at 534 850
 		curdir 0
 
-	object 100694999
+	object 100695013
 		type STONEFLOOR18
 		at 535 850
 		curdir 0
@@ -77902,32 +77947,32 @@ iMZ1r00
 
 	decorative MOUNT04 at 514 851
 
-	object 100695055
+	object 100695069
 		type STONEFLOOR10
 		at 519 851
 		curdir 2
 
-	object 100695056
+	object 100695070
 		type STONEFLOOR14
 		at 520 851
 		curdir 3
 
-	object 100695057
+	object 100695071
 		type BOTTLE_BROKEN
 		at 521 851
 		curdir 3
 
-	object 100695058
+	object 100695072
 		type STONEFLOOR14
 		at 523 851
 		curdir 0
 
-	object 100695059
+	object 100695073
 		type STONEFLOOR10
 		at 524 851
 		curdir 1
 
-	object 100695060
+	object 100695074
 		type STONEFLOOR18
 		at 532 851
 		curdir 2
@@ -78034,32 +78079,32 @@ iMZ1r00
 
 	decorative MOUNT02 at 515 852
 
-	object 100695112
+	object 100695126
 		type STONEFLOOR10
 		at 520 852
 		curdir 2
 
-	object 100695113
+	object 100695127
 		type STONEFLOOR18
 		at 521 852
 		curdir 1
 
-	object 100695114
+	object 100695128
 		type STONEFLOOR18
 		at 522 852
 		curdir 1
 
-	object 100695115
+	object 100695129
 		type STONEFLOOR10
 		at 523 852
 		curdir 1
 
-	object 100695116
+	object 100695130
 		type STONEFLOOR10
 		at 531 852
 		curdir 0
 
-	object 100695117
+	object 100695131
 		type STONEFLOOR14
 		at 532 852
 		curdir 1
@@ -78154,7 +78199,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 515 853
 
-	object 100695163
+	object 100695177
 		type STONEFLOOR18
 		at 531 853
 		curdir 2
@@ -78273,12 +78318,12 @@ iMZ1r00
 
 	decorative MOUNT02 at 516 854
 
-	object 100695221
+	object 100695235
 		type STONEFLOOR10
 		at 530 854
 		curdir 0
 
-	object 100695222
+	object 100695236
 		type STONEFLOOR14
 		at 531 854
 		curdir 1
@@ -78305,13 +78350,13 @@ iMZ1r00
 
 	decorative MOUNT07 at 599 854
 
-	object 100695234
+	object 100695248
 		type BEE
-		inside 100695235
+		inside 100695249
 		curdir 1
 		activity attack_party
 
-	object 100695235
+	object 100695249
 		type EGG_OBJECT(BEE)
 		at 600 854
 		curdir 0
@@ -78394,7 +78439,7 @@ iMZ1r00
 
 	decorative MOUNT02 at 518 855
 
-	object 100695275
+	object 100695289
 		type STONEFLOOR18
 		at 530 855
 		curdir 2
@@ -78421,13 +78466,13 @@ iMZ1r00
 
 	decorative MOUNT04 at 598 855
 
-	object 100695287
+	object 100695301
 		type BEE
-		inside 100695288
+		inside 100695302
 		curdir 1
 		activity attack_party
 
-	object 100695288
+	object 100695302
 		type EGG_OBJECT(BEE)
 		at 601 855
 		curdir 0
@@ -78504,7 +78549,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 518 856
 
-	object 100695325
+	object 100695339
 		type STONEFLOOR18
 		at 530 856
 		curdir 2
@@ -78627,7 +78672,7 @@ iMZ1r00
 
 	decorative MOUNT02 at 520 857
 
-	object 100695385
+	object 100695399
 		type STONEFLOOR18
 		at 530 857
 		curdir 2
@@ -78738,7 +78783,7 @@ iMZ1r00
 
 	decorative MOUNT00 at 529 858
 
-	object 100695439
+	object 100695453
 		type STONEFLOOR18
 		at 530 858
 		curdir 2
@@ -78883,13 +78928,13 @@ iMZ1r00
 
 	decorative MOUNT02 at 585 859
 
-	object 100695510
+	object 100695524
 		type RAT
-		inside 100695511
+		inside 100695525
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
-	object 100695511
+	object 100695525
 		type EGG_OBJECT(RAT)
 		at 587 859
 		curdir 0
@@ -81924,7 +81969,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 567 882
 
-	object 100697027
+	object 100697041
 		type ORB
 		at 570 882
 		curdir 2
@@ -82366,7 +82411,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 568 885
 
-	object 100697246
+	object 100697260
 		type TARGET
 		at 571 885
 		curdir 1
@@ -82738,7 +82783,7 @@ iMZ1r00
 
 	decorative MOUNT04 at 567 887
 
-	object 100697430
+	object 100697444
 		type WALL3_EDGE
 		at 567 887
 		curdir 3
@@ -82887,15 +82932,15 @@ iMZ1r00
 
 	decorative TREE01 at 976 887
 
-	object 100697503
+	object 100697517
 		type KEYPAD
 		at 567 888
 		curdir 3
-		stats->owner 100697575
+		stats->owner 100697589
 		funcs->wield CALL_OWNER_WIELD
 		funcs->user1 631824
 
-	object 100697504
+	object 100697518
 		type TARGET
 		at 570 888
 		curdir 1
@@ -83039,13 +83084,13 @@ iMZ1r00
 
 	decorative TREE01 at 965 888
 
-	object 100697574
+	object 100697588
 		type LIGHT_ALWAYS
 		at 550 889
 		curdir 0
-		stats->owner 100702965
+		stats->owner 100702979
 
-	object 100697575
+	object 100697589
 		type KEYPAD
 		at 551 889
 		curdir 2
@@ -83053,47 +83098,47 @@ iMZ1r00
 		funcs->use LEVER_CALLWIELD_TAGS
 		funcs->wield LEVER_CALLWIELD_TAGS
 
-	object 100697576
+	object 100697590
 		type WALL3_EDGE
 		at 568 889
 		curdir 1
 
-	object 100697577
+	object 100697591
 		type FORCEFIELD_ON
 		at 568 889
 		curdir 0
 		tag 19
 
-	object 100697578
+	object 100697592
 		type FORCEFIELD_ON
 		at 569 889
 		curdir 0
 		tag 19
 
-	object 100697579
+	object 100697593
 		type FORCEFIELD_ON
 		at 570 889
 		curdir 0
 		tag 19
 
-	object 100697580
+	object 100697594
 		type FORCEFIELD_ON
 		at 571 889
 		curdir 0
 		tag 19
 
-	object 100697581
+	object 100697595
 		type FORCEFIELD_ON
 		at 572 889
 		curdir 0
 		tag 19
 
-	object 100697582
+	object 100697596
 		type WALL3_EDGE
 		at 573 889
 		curdir 2
 
-	object 100697583
+	object 100697597
 		type FORCEFIELD_ON
 		at 573 889
 		curdir 0
@@ -83241,13 +83286,13 @@ iMZ1r00
 
 	decorative TREE00 at 969 889
 
-	object 100697655
+	object 100697669
 		type CORPSE_CONTROL
 		at 549 890
 		curdir 2
 		name I eat corpses
 
-	object 100697656
+	object 100697670
 		type LIGHT_CONTROL
 		at 550 890
 		curdir 2
@@ -83897,7 +83942,7 @@ iMZ1r00
 
 	decorative TREE00 at 974 893
 
-	object 100697979
+	object 100697993
 		type DRAGON_CLOTHED
 		at 568 894
 		curdir 2
@@ -84207,12 +84252,12 @@ iMZ1r00
 
 	decorative TREE02 at 971 895
 
-	object 100698131
+	object 100698145
 		type TRAP_GUARDHALT_ONCE
 		at 571 896
 		curdir 2
 		tag -21
-		stats->owner 100697979
+		stats->owner 100697993
 		stats->radius 4
 
 	decorative MOUNT04 at 601 896
@@ -86255,23 +86300,23 @@ iMZ1r00
 
 	decorative TREE01 at 692 911
 
-	object 100699152
+	object 100699166
 		type BOOKSHELF00
 		at 697 911
 		curdir 1
 
-	object 100699153
+	object 100699167
 		type JAR_EMPTY
 		at 698 911
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699154
+	object 100699168
 		type STOVE
 		at 700 911
 		curdir 2
 
-	object 100699155
+	object 100699169
 		type STONEWINDOW1
 		at 701 911
 		curdir 0
@@ -86416,78 +86461,78 @@ iMZ1r00
 
 	decorative TREE01 at 691 912
 
-	object 100699226
+	object 100699240
 		type GOLD_NUGGET
-		inside 100699231
+		inside 100699245
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699227
+	object 100699241
 		type GOLD_NUGGET
-		inside 100699231
+		inside 100699245
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699228
+	object 100699242
 		type GOLD_NUGGET
-		inside 100699231
+		inside 100699245
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699229
+	object 100699243
 		type GOLD_NUGGET
-		inside 100699231
+		inside 100699245
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699230
+	object 100699244
 		type GOLD_COINS
-		inside 100699231
+		inside 100699245
 		curdir 0
 		stats->quantity 1321
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699231
+	object 100699245
 		type DRAWERS
 		at 696 912
 		curdir 2
 
-	object 100699232
+	object 100699246
 		type TABLE2-END
 		at 701 912
 		curdir 2
 
-	object 100699233
+	object 100699247
 		type PLATE
 		at 701 912
 		curdir 1
 
-	object 100699234
+	object 100699248
 		type FOODP06
 		at 701 912
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699235
+	object 100699249
 		type TABLE-SHADOW3
 		at 702 912
 		curdir 2
 
-	object 100699236
+	object 100699250
 		type TABLE2-END
 		at 702 912
 		curdir 3
 
-	object 100699237
+	object 100699251
 		type TRAY_FOOD
 		at 702 912
 		curdir 0
 
-	object 100699238
+	object 100699252
 		type FOOD05
 		at 702 912
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
 	decorative TREE03 at 717 912
 
@@ -86631,39 +86676,39 @@ iMZ1r00
 
 	decorative TREE03 at 685 913
 
-	object 100699310
+	object 100699324
 		type CHAIR
 		at 698 913
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699311
+	object 100699325
 		type TABLE-SHADOW2
 		at 701 913
 		curdir 0
 
-	object 100699312
+	object 100699326
 		type TABLE5-LEGS
 		at 701 913
 		curdir 0
 
-	object 100699313
+	object 100699327
 		type CHAIR
 		at 701 913
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699314
+	object 100699328
 		type TABLE-SHADOW1
 		at 702 913
 		curdir 0
 
-	object 100699315
+	object 100699329
 		type TABLE5-LEGS
 		at 702 913
 		curdir 0
 
-	object 100699316
+	object 100699330
 		type STONEWINDOW1
 		at 703 913
 		curdir 2
@@ -86776,33 +86821,33 @@ iMZ1r00
 
 	decorative TREE03 at 961 913
 
-	object 100699371
+	object 100699385
 		type BOOKSHELF00
 		at 557 914
 		curdir 1
 
-	object 100699372
+	object 100699386
 		type DATAPANEL2
 		at 585 914
 		curdir 2
 		funcs->talk books/tech/ddatadsp.txt
 		funcs->user1 2
 
-	object 100699373
+	object 100699387
 		type DATAPANEL2
 		at 586 914
 		curdir 0
 		funcs->talk books/tech/ddatadsp.txt
 		funcs->user1 2
 
-	object 100699374
+	object 100699388
 		type DATAPANEL2
 		at 587 914
 		curdir 1
 		funcs->talk books/tech/ddatadsp.txt
 		funcs->user1 2
 
-	object 100699375
+	object 100699389
 		type DATAPANEL2
 		at 588 914
 		curdir 3
@@ -86839,58 +86884,58 @@ iMZ1r00
 
 	decorative TREE01 at 683 914
 
-	object 100699391
+	object 100699405
 		type TABLE2-END
 		at 697 914
 		curdir 2
 
-	object 100699392
+	object 100699406
 		type PAPER_BLANK
 		at 697 914
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699393
+	object 100699407
 		type INKWELL
 		at 697 914
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699394
+	object 100699408
 		type TABLE-SHADOW3
 		at 698 914
 		curdir 2
 
-	object 100699395
+	object 100699409
 		type TABLE2-END
 		at 698 914
 		curdir 3
 
-	object 100699396
+	object 100699410
 		type BOOK_BEASTS
 		at 698 914
 		curdir 2
 		name Chorley's Bestiary
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699397
+	object 100699411
 		type TABLE-SHADOW2
 		at 699 914
 		curdir 2
 
-	object 100699398
+	object 100699412
 		type LEVER
 		at 701 914
 		curdir 2
 		tag -37
-		stats->owner 100700343
+		stats->owner 100700357
 		funcs->use LEVER_CALLWIELD_TAG
 
-	object 100699399
+	object 100699413
 		type BED
 		at 701 914
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
 	decorative TREE00 at 704 914
 
@@ -87052,7 +87097,7 @@ iMZ1r00
 
 	decorative TREE02 at 691 915
 
-	object 100699480
+	object 100699494
 		type STONEDOOR1_SHUT
 		at 699 915
 		curdir 1
@@ -87183,19 +87228,19 @@ iMZ1r00
 
 	decorative TREE03 at 962 915
 
-	object 100699544
+	object 100699558
 		type DRAGON_CLOTHED
 		at 554 916
 		curdir 1
 		name Librarian Rulyz
 		funcs->talk people/dragons/rulyz.txt
 
-	object 100699545
+	object 100699559
 		type WALL3_EDGE
 		at 567 916
 		curdir 0
 
-	object 100699546
+	object 100699560
 		type WALL3_EDGE
 		at 574 916
 		curdir 0
@@ -87232,77 +87277,77 @@ iMZ1r00
 
 	decorative TREE03 at 693 916
 
-	object 100699563
+	object 100699577
 		type TABLE6-H
 		at 697 916
 		curdir 2
 
-	object 100699564
+	object 100699578
 		type BOWL_SALT
 		at 697 916
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699565
+	object 100699579
 		type TABLE6-H
 		at 698 916
 		curdir 3
 
-	object 100699566
+	object 100699580
 		type BOWL_PEPPER
 		at 698 916
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699567
+	object 100699581
 		type TABLE-SHADOW2
 		at 699 916
 		curdir 3
 
-	object 100699568
+	object 100699582
 		type TABLE5-LEGS
 		at 699 916
 		curdir 3
 
-	object 100699569
+	object 100699583
 		type TABLE6-H
 		at 701 916
 		curdir 2
 
-	object 100699570
+	object 100699584
 		type PLATE
 		at 701 916
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699571
+	object 100699585
 		type PLATE
 		at 701 916
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699572
+	object 100699586
 		type PLATE
 		at 701 916
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699573
+	object 100699587
 		type PLATE
 		at 701 916
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699574
+	object 100699588
 		type TABLE6-V
 		at 702 916
 		curdir 0
 
-	object 100699575
+	object 100699589
 		type PICKAXE
 		at 702 916
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
 	decorative TREE02 at 735 916
 
@@ -87438,61 +87483,61 @@ iMZ1r00
 
 	decorative TREE03 at 686 917
 
-	object 100699643
+	object 100699657
 		type TABLE6-V
 		at 697 917
 		curdir 2
 
-	object 100699644
+	object 100699658
 		type BOWL_EMPTY
 		at 697 917
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699645
+	object 100699659
 		type TABLE-SHADOW1
 		at 698 917
 		curdir 2
 
-	object 100699646
+	object 100699660
 		type TABLE-SHADOW1
 		at 698 917
 		curdir 0
 
-	object 100699647
+	object 100699661
 		type TABLE-SHADOW3
 		at 699 917
 		curdir 1
 
-	object 100699648
+	object 100699662
 		type TABLE-SHADOW2
 		at 701 917
 		curdir 1
 
-	object 100699649
+	object 100699663
 		type TABLE6-V
 		at 702 917
 		curdir 1
 
-	object 100699650
+	object 100699664
 		type ROCK02
 		at 702 917
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699651
+	object 100699665
 		type ROCK02
 		at 702 917
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699652
+	object 100699666
 		type ROCK02
 		at 702 917
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699653
+	object 100699667
 		type STONEWINDOW1
 		at 703 917
 		curdir 2
@@ -87649,88 +87694,88 @@ iMZ1r00
 
 	decorative TREE00 at 692 918
 
-	object 100699730
+	object 100699744
 		type STONEWINDOW1
 		at 696 918
 		curdir 2
 
-	object 100699731
+	object 100699745
 		type TABLE6-V
 		at 697 918
 		curdir 2
 
-	object 100699732
+	object 100699746
 		type MUG
 		at 697 918
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699733
+	object 100699747
 		type TABLE-SHADOW1
 		at 698 918
 		curdir 2
 
-	object 100699734
+	object 100699748
 		type TABLE5-LEGS
 		at 698 918
 		curdir 3
 
-	object 100699735
+	object 100699749
 		type TABLE8-L
 		at 699 918
 		curdir 0
 
-	object 100699736
+	object 100699750
 		type CLOTH00
 		at 699 918
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699737
+	object 100699751
 		type CLOTH00
 		at 699 918
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699738
+	object 100699752
 		type CLOTH00
 		at 699 918
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699739
+	object 100699753
 		type TABLE8-R
 		at 700 918
 		curdir 0
 
-	object 100699740
+	object 100699754
 		type SKINS01
 		at 700 918
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699741
+	object 100699755
 		type SKINS01
 		at 700 918
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699742
+	object 100699756
 		type TABLE-SHADOW2
 		at 701 918
 		curdir 3
 
-	object 100699743
+	object 100699757
 		type TABLE5-LEGS
 		at 701 918
 		curdir 3
 
-	object 100699744
+	object 100699758
 		type TABLE-SHADOW2
 		at 702 918
 		curdir 1
 
-	object 100699745
+	object 100699759
 		type SIGN03
 		at 703 918
 		curdir 2
@@ -87893,74 +87938,74 @@ iMZ1r00
 
 	decorative TREE00 at 693 919
 
-	object 100699825
+	object 100699839
 		type TABLE6-V
 		at 697 919
 		curdir 3
 
-	object 100699826
+	object 100699840
 		type WINEGLASS
 		at 697 919
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699827
+	object 100699841
 		type WINEGLASS
 		at 697 919
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699828
+	object 100699842
 		type TABLE-SHADOW1
 		at 698 919
 		curdir 2
 
-	object 100699829
+	object 100699843
 		type MAN_GENERIC
 		at 698 919
 		curdir 3
 		name Shopkeeper
 
-	object 100699830
+	object 100699844
 		type TABLE8-L
 		at 699 919
 		curdir 2
 
-	object 100699831
+	object 100699845
 		type THREAD00
 		at 699 919
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699832
+	object 100699846
 		type THREAD01
 		at 699 919
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699833
+	object 100699847
 		type THREAD00
 		at 699 919
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699834
+	object 100699848
 		type TABLE8-R
 		at 700 919
 		curdir 3
 
-	object 100699835
+	object 100699849
 		type SKINS00
 		at 700 919
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699836
+	object 100699850
 		type TABLE-SHADOW1
 		at 701 919
 		curdir 2
 
-	object 100699837
+	object 100699851
 		type STONEDOOR2_SHUT
 		at 703 919
 		curdir 3
@@ -88104,64 +88149,64 @@ iMZ1r00
 
 	decorative TREE01 at 690 920
 
-	object 100699907
+	object 100699921
 		type TABLE6-V
 		at 697 920
 		curdir 2
 
-	object 100699908
+	object 100699922
 		type TOADSTONE
 		at 697 920
 		curdir 1
 		stats->quantity 10
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699909
+	object 100699923
 		type TRAY_FOOD
 		at 697 920
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699910
+	object 100699924
 		type FOOD04
 		at 697 920
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699911
+	object 100699925
 		type FOOD04
 		at 697 920
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699912
+	object 100699926
 		type TABLE-SHADOW1
 		at 698 920
 		curdir 2
 
-	object 100699913
+	object 100699927
 		type TABLE8-L
 		at 699 920
 		curdir 3
 
-	object 100699914
+	object 100699928
 		type CLOTH02
 		at 699 920
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699915
+	object 100699929
 		type TABLE8-R
 		at 700 920
 		curdir 2
 
-	object 100699916
+	object 100699930
 		type SKINS03
 		at 700 920
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699917
+	object 100699931
 		type TABLE-SHADOW1
 		at 701 920
 		curdir 2
@@ -88296,84 +88341,84 @@ iMZ1r00
 
 	decorative TREE00 at 692 921
 
-	object 100699983
+	object 100699997
 		type STONEWINDOW1
 		at 696 921
 		curdir 2
 
-	object 100699984
+	object 100699998
 		type TABLE6-V
 		at 697 921
 		curdir 3
 
-	object 100699985
+	object 100699999
 		type FOOD01
 		at 697 921
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699986
+	object 100700000
 		type TABLE-SHADOW1
 		at 698 921
 		curdir 2
 
-	object 100699987
+	object 100700001
 		type TABLE5-LEGS
 		at 698 921
 		curdir 3
 
-	object 100699988
+	object 100700002
 		type TABLE8-L
 		at 699 921
 		curdir 1
 
-	object 100699989
+	object 100700003
 		type CLOTHING01
 		at 699 921
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699990
+	object 100700004
 		type TABLE8-R
 		at 700 921
 		curdir 1
 
-	object 100699991
+	object 100700005
 		type CLOTHING00
 		at 700 921
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100699992
+	object 100700006
 		type TABLE-SHADOW1
 		at 701 921
 		curdir 2
 
-	object 100699993
+	object 100700007
 		type TABLE5-LEGS
 		at 701 921
 		curdir 3
 
-	object 100699994
+	object 100700008
 		type TABLE6-V
 		at 702 921
 		curdir 0
 
-	object 100699995
+	object 100700009
 		type PAPER
 		at 702 921
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 		funcs->talk books/church/other/world.txt
 
-	object 100699996
+	object 100700010
 		type PAPER
 		at 702 921
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 		funcs->talk books/misc/map-1.txt
 
-	object 100699997
+	object 100700011
 		type STONEWINDOW1
 		at 703 921
 		curdir 2
@@ -88522,54 +88567,54 @@ iMZ1r00
 
 	decorative TREE03 at 692 922
 
-	object 100700070
+	object 100700084
 		type TABLE6-V
 		at 697 922
 		curdir 2
 
-	object 100700071
+	object 100700085
 		type JAR_HONEY
 		at 697 922
 		curdir 2
 
-	object 100700072
+	object 100700086
 		type TABLE-SHADOW1
 		at 698 922
 		curdir 2
 
-	object 100700073
+	object 100700087
 		type TABLE-SHADOW2
 		at 699 922
 		curdir 1
 
-	object 100700074
+	object 100700088
 		type TABLE-SHADOW1
 		at 700 922
 		curdir 0
 
-	object 100700075
+	object 100700089
 		type TABLE-SHADOW3
 		at 701 922
 		curdir 1
 
-	object 100700076
+	object 100700090
 		type TABLE6-V
 		at 702 922
 		curdir 2
 
-	object 100700077
+	object 100700091
 		type BOOK_ALCHEMY
 		at 702 922
 		curdir 2
 		name Treatise on Alchemy
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700078
+	object 100700092
 		type BOOK_NOTR
 		at 702 922
 		curdir 1
 		name The Name of the Rose
-		stats->owner 100699829
+		stats->owner 100699843
 
 	decorative TREE00 at 721 922
 
@@ -88725,66 +88770,66 @@ iMZ1r00
 
 	decorative TREE00 at 690 923
 
-	object 100700156
+	object 100700170
 		type TABLE6-H
 		at 697 923
 		curdir 2
 
-	object 100700157
+	object 100700171
 		type GRAPES
 		at 697 923
 		curdir 1
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700158
+	object 100700172
 		type TABLE6-H
 		at 698 923
 		curdir 0
 
-	object 100700159
+	object 100700173
 		type FOOD06
 		at 698 923
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700160
+	object 100700174
 		type FOOD05
 		at 698 923
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700161
+	object 100700175
 		type TABLE6-H
 		at 699 923
 		curdir 3
 
-	object 100700162
+	object 100700176
 		type FOOD07
 		at 699 923
 		curdir 3
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700163
+	object 100700177
 		type TABLE-SHADOW2
 		at 700 923
 		curdir 3
 
-	object 100700164
+	object 100700178
 		type TABLE5-LEGS
 		at 700 923
 		curdir 3
 
-	object 100700165
+	object 100700179
 		type TABLE6-V
 		at 702 923
 		curdir 1
 
-	object 100700166
+	object 100700180
 		type BOOK_WITCHES
 		at 702 923
 		curdir 2
 		name The Discoverie of Witchcraft
-		stats->owner 100699829
+		stats->owner 100699843
 
 	decorative TREE00 at 712 923
 
@@ -88956,7 +89001,7 @@ iMZ1r00
 
 	decorative TREE02 at 687 924
 
-	object 100700252
+	object 100700266
 		type STONEDOOR5_LOCK
 		at 700 924
 		curdir 0
@@ -89105,42 +89150,42 @@ iMZ1r00
 
 	decorative TREE01 at 657 925
 
-	object 100700325
+	object 100700339
 		type BONES0
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700326
+	object 100700340
 		type POTION_RED
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700327
+	object 100700341
 		type POTION_YELLOW
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700328
+	object 100700342
 		type GOLD_NUGGET
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700329
+	object 100700343
 		type POTION_RED
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700330
+	object 100700344
 		type POTION_YELLOW
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700331
+	object 100700345
 		type GOLD_NUGGET
-		inside 100700332
+		inside 100700346
 		curdir 2
 
-	object 100700332
+	object 100700346
 		type CHEST
 		at 660 925
 		curdir 2
@@ -89157,37 +89202,37 @@ iMZ1r00
 
 	decorative TREE01 at 686 925
 
-	object 100700339
+	object 100700353
 		type GOLD_BAR
 		at 697 925
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700340
+	object 100700354
 		type GOLD_BAR
 		at 697 925
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700341
+	object 100700355
 		type GOLD_BAR
 		at 697 925
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700342
+	object 100700356
 		type GOLD_BAR
 		at 697 925
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700343
+	object 100700357
 		type STONEDOOR4_SHUT
 		at 699 925
 		curdir 2
 		tag 37
 
-	object 100700344
+	object 100700358
 		type ANVIL
 		at 702 925
 		curdir 2
@@ -89316,114 +89361,114 @@ iMZ1r00
 
 	decorative TREE01 at 689 926
 
-	object 100700407
+	object 100700421
 		type GOLD_COINS
-		inside 100700408
+		inside 100700422
 		curdir 2
 		stats->quantity 2542
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700408
+	object 100700422
 		type CHEST
 		at 697 926
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700409
+	object 100700423
 		type TREASURE_03
 		at 698 926
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700410
+	object 100700424
 		type TREASURE_02
 		at 698 926
 		curdir 0
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700411
+	object 100700425
 		type TREASURE_03
 		at 698 926
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700412
+	object 100700426
 		type TREASURE_02
 		at 698 926
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700413
+	object 100700427
 		type TREASURE_04
 		at 698 926
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700414
+	object 100700428
 		type TREASURE_05
 		at 698 926
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700415
+	object 100700429
 		type CHAIR
 		at 700 926
 		curdir 1
 
-	object 100700416
+	object 100700430
 		type SPELLCARD_WRAPPER
-		inside 100700422
+		inside 100700436
 		curdir 2
 		name Made in New Albion
 		funcs->look BOOK_COVER
 
-	object 100700417
+	object 100700431
 		type SPELLCARD_WRAPPER
-		inside 100700422
+		inside 100700436
 		curdir 2
 		name Made in New Albion
 		funcs->look BOOK_COVER
 
-	object 100700418
+	object 100700432
 		type SPELLCARD_WRAPPER
-		inside 100700422
+		inside 100700436
 		curdir 2
 		name Made in New Albion
 		funcs->look BOOK_COVER
 
-	object 100700419
+	object 100700433
 		type SPELLCARD_WRAPPER
-		inside 100700422
+		inside 100700436
 		curdir 2
 		name Made in New Albion
 		funcs->look BOOK_COVER
 
-	object 100700420
+	object 100700434
 		type SPELLCARD_WRAPPER
-		inside 100700422
+		inside 100700436
 		curdir 2
 		name Made in New Albion
 		funcs->look BOOK_COVER
 
-	object 100700421
+	object 100700435
 		type SPELLCARD_WRAPPER
-		inside 100700422
+		inside 100700436
 		curdir 2
 		name Made in New Albion
 		funcs->look BOOK_COVER
 
-	object 100700422
+	object 100700436
 		type BAG
 		at 700 926
 		curdir 2
-		stats->owner 100699829
+		stats->owner 100699843
 
-	object 100700423
+	object 100700437
 		type CANDLESTKUNLIT
 		at 701 926
 		curdir 3
 
-	object 100700424
+	object 100700438
 		type GRAIN_SACK
 		at 702 926
 		curdir 2
@@ -90302,19 +90347,19 @@ iMZ1r00
 
 	decorative TREE03 at 971 931
 
-	object 100700862
+	object 100700876
 		type DRAGON_CLOTHED
 		at 553 932
 		curdir 3
 		name Engineer Naavris
 		funcs->talk people/dragons/naavris.txt
 
-	object 100700863
+	object 100700877
 		type WALL3_EDGE
 		at 567 932
 		curdir 0
 
-	object 100700864
+	object 100700878
 		type WALL3_EDGE
 		at 574 932
 		curdir 0
@@ -90469,14 +90514,14 @@ iMZ1r00
 
 	decorative TREE00 at 977 932
 
-	object 100700940
+	object 100700954
 		type KEY
-		inside 100700941
+		inside 100700955
 		curdir 1
 		tag 54321
-		stats->owner 100700941
+		stats->owner 100700955
 
-	object 100700941
+	object 100700955
 		type DRAGON_CLOTHED
 		at 585 933
 		curdir 2
@@ -92403,7 +92448,7 @@ iMZ1r00
 
 	decorative TREE02 at 974 945
 
-	object 100701902
+	object 100701916
 		type BOOKSHELF01
 		at 579 946
 		curdir 0
@@ -92550,47 +92595,47 @@ iMZ1r00
 
 	decorative TREE02 at 981 946
 
-	object 100701974
+	object 100701988
 		type VALVE
 		at 575 947
 		curdir 0
 
-	object 100701975
+	object 100701989
 		type VALVE
 		at 577 947
 		curdir 0
 
-	object 100701976
+	object 100701990
 		type STAFF00
 		at 584 947
 		curdir 1
 
-	object 100701977
+	object 100701991
 		type CRATE_EDGES
 		at 585 947
 		curdir 3
 
-	object 100701978
+	object 100701992
 		type GOLD_BAR
-		inside 100701979
+		inside 100701993
 		curdir 1
 
-	object 100701979
+	object 100701993
 		type LOCKER_V_OPEN
 		at 585 947
 		curdir 0
 
-	object 100701980
+	object 100701994
 		type DIRT0
 		at 587 947
 		curdir 1
 
-	object 100701981
+	object 100701995
 		type METAL00
 		at 587 947
 		curdir 2
 
-	object 100701982
+	object 100701996
 		type VALVE
 		at 589 947
 		curdir 0
@@ -92769,33 +92814,33 @@ iMZ1r00
 
 	decorative TREE00 at 982 947
 
-	object 100702070
+	object 100702084
 		type WALL3_EDGE
 		at 567 948
 		curdir 0
 
-	object 100702071
+	object 100702085
 		type WALL3_EDGE
 		at 574 948
 		curdir 0
 
-	object 100702072
+	object 100702086
 		type SPELL_ABOLISH
-		inside 100702073
+		inside 100702087
 		curdir 0
 
-	object 100702073
+	object 100702087
 		type LOCKER_V_LOCKED
 		at 585 948
 		curdir 1
 		tag 54321
 
-	object 100702074
+	object 100702088
 		type CIRCUITBOARD
 		at 588 948
 		curdir 1
 
-	object 100702075
+	object 100702089
 		type CHESTLOCKED
 		at 588 948
 		curdir 1
@@ -92954,22 +92999,22 @@ iMZ1r00
 
 	decorative TREE01 at 982 948
 
-	object 100702153
+	object 100702167
 		type VALVE
 		at 580 949
 		curdir 0
 
-	object 100702154
+	object 100702168
 		type CRATE_EDGES
 		at 582 949
 		curdir 2
 
-	object 100702155
+	object 100702169
 		type VALVE_BROKEN
 		at 586 949
 		curdir 2
 
-	object 100702156
+	object 100702170
 		type VALVE
 		at 589 949
 		curdir 0
@@ -93130,7 +93175,7 @@ iMZ1r00
 
 	decorative TREE00 at 971 949
 
-	object 100702235
+	object 100702249
 		type PAPER_BLANK
 		at 588 950
 		curdir 2
@@ -93285,7 +93330,7 @@ iMZ1r00
 
 	decorative TREE03 at 983 950
 
-	object 100702311
+	object 100702325
 		type VALVE
 		at 589 951
 		curdir 0
@@ -93430,27 +93475,27 @@ iMZ1r00
 
 	decorative TREE01 at 981 951
 
-	object 100702382
+	object 100702396
 		type COBWEB0
 		at 575 952
 		curdir 1
 
-	object 100702383
+	object 100702397
 		type VALVE_BROKEN
 		at 578 952
 		curdir 2
 
-	object 100702384
+	object 100702398
 		type VALVE
 		at 580 952
 		curdir 0
 
-	object 100702385
+	object 100702399
 		type VALVE
 		at 588 952
 		curdir 0
 
-	object 100702386
+	object 100702400
 		type PLASMATUBE_OFF
 		at 589 952
 		curdir 1
@@ -94611,11 +94656,11 @@ iMZ1r00
 
 	decorative TREE00 at 980 960
 
-	object 100702965
+	object 100702979
 		type LIGHT_END
 		at 593 961
 		curdir 0
-		stats->owner 100697574
+		stats->owner 100697588
 
 	decorative TREE02 at 647 961
 
@@ -94755,13 +94800,13 @@ iMZ1r00
 
 	decorative TREE02 at 984 961
 
-	object 100703035
+	object 100703049
 		type LIGHT_ALWAYS
 		at 566 962
 		curdir 0
-		stats->owner 100704623
+		stats->owner 100704637
 
-	object 100703036
+	object 100703050
 		type FENCE_CORNER
 		at 602 962
 		curdir 3
@@ -94906,7 +94951,7 @@ iMZ1r00
 
 	decorative TREE01 at 982 962
 
-	object 100703107
+	object 100703121
 		type FENCE
 		at 602 963
 		curdir 2
@@ -95075,17 +95120,17 @@ iMZ1r00
 
 	decorative TREE03 at 982 963
 
-	object 100703190
+	object 100703204
 		type FENCE
 		at 602 964
 		curdir 2
 
-	object 100703191
+	object 100703205
 		type VALVE_SOCKET
 		at 604 964
 		curdir 0
 
-	object 100703192
+	object 100703206
 		type VALVE_WORKING
 		at 604 964
 		curdir 0
@@ -95240,7 +95285,7 @@ iMZ1r00
 
 	decorative TREE02 at 981 964
 
-	object 100703268
+	object 100703282
 		type FENCE
 		at 602 965
 		curdir 2
@@ -95393,17 +95438,17 @@ iMZ1r00
 
 	decorative TREE03 at 973 965
 
-	object 100703343
+	object 100703357
 		type FENCE
 		at 602 966
 		curdir 2
 
-	object 100703344
+	object 100703358
 		type VALVE_SOCKET
 		at 604 966
 		curdir 0
 
-	object 100703345
+	object 100703359
 		type VALVE_WORKING
 		at 604 966
 		curdir 0
@@ -95564,7 +95609,7 @@ iMZ1r00
 
 	decorative TREE01 at 975 966
 
-	object 100703424
+	object 100703438
 		type FENCE
 		at 602 967
 		curdir 2
@@ -95697,17 +95742,17 @@ iMZ1r00
 
 	decorative TREE00 at 983 967
 
-	object 100703489
+	object 100703503
 		type FENCE
 		at 602 968
 		curdir 2
 
-	object 100703490
+	object 100703504
 		type VALVE_SOCKET
 		at 604 968
 		curdir 0
 
-	object 100703491
+	object 100703505
 		type VALVE_WORKING
 		at 604 968
 		curdir 0
@@ -95860,7 +95905,7 @@ iMZ1r00
 
 	decorative TREE02 at 979 968
 
-	object 100703566
+	object 100703580
 		type FENCE
 		at 602 969
 		curdir 2
@@ -96005,47 +96050,47 @@ iMZ1r00
 
 	decorative TREE03 at 977 969
 
-	object 100703637
+	object 100703651
 		type PIPES_02
 		at 582 970
 		curdir 0
 
-	object 100703638
+	object 100703652
 		type WALL_METAL_TOP
 		at 596 970
 		curdir 1
 
-	object 100703639
+	object 100703653
 		type WALL_METAL_D04
 		at 599 970
 		curdir 3
 
-	object 100703640
+	object 100703654
 		type FENCE_CORNER
 		at 602 970
 		curdir 2
 
-	object 100703641
+	object 100703655
 		type PLASMATUBE
 		at 602 970
 		curdir 0
 
-	object 100703642
+	object 100703656
 		type FENCE
 		at 603 970
 		curdir 0
 
-	object 100703643
+	object 100703657
 		type FENCE
 		at 604 970
 		curdir 0
 
-	object 100703644
+	object 100703658
 		type FENCE
 		at 605 970
 		curdir 0
 
-	object 100703645
+	object 100703659
 		type PLASMATUBE
 		at 605 970
 		curdir 0
@@ -96192,62 +96237,62 @@ iMZ1r00
 
 	decorative TREE00 at 981 970
 
-	object 100703717
+	object 100703731
 		type WALL3_EDGE
 		at 566 971
 		curdir 2
 
-	object 100703718
+	object 100703732
 		type PIPES_03
 		at 582 971
 		curdir 2
 
-	object 100703719
+	object 100703733
 		type PIPES_01
 		at 582 971
 		curdir 0
 
-	object 100703720
+	object 100703734
 		type WALL_METAL_TOP
 		at 595 971
 		curdir 2
 
-	object 100703721
+	object 100703735
 		type VALVE_WORKING
 		at 595 971
 		curdir 0
 
-	object 100703722
+	object 100703736
 		type WALL_METAL_TOP
 		at 596 971
 		curdir 2
 
-	object 100703723
+	object 100703737
 		type WALL_METAL_TOP
 		at 597 971
 		curdir 2
 
-	object 100703724
+	object 100703738
 		type VALVE_WORKING
 		at 597 971
 		curdir 0
 
-	object 100703725
+	object 100703739
 		type WALL_METAL_TOP
 		at 598 971
 		curdir 2
 
-	object 100703726
+	object 100703740
 		type WALL_METAL_D04
 		at 599 971
 		curdir 1
 
-	object 100703727
+	object 100703741
 		type WALL_METAL_D03
 		at 599 971
 		curdir 2
 
-	object 100703728
+	object 100703742
 		type FENCE
 		at 602 971
 		curdir 2
@@ -96276,13 +96321,13 @@ iMZ1r00
 
 	decorative TREE00 at 682 971
 
-	object 100703741
+	object 100703755
 		type ORB
 		at 695 971
 		curdir 2
 		tag 2
 
-	object 100703742
+	object 100703756
 		type TOADSTONE
 		at 697 971
 		curdir 2
@@ -96422,63 +96467,63 @@ iMZ1r00
 
 	decorative MOUNT04 at 567 972
 
-	object 100703810
+	object 100703824
 		type PIPES_01
 		at 582 972
 		curdir 1
 
-	object 100703811
+	object 100703825
 		type WALL_METAL_TOP
 		at 594 972
 		curdir 1
 
-	object 100703812
+	object 100703826
 		type WALL_METAL_TOP
 		at 595 972
 		curdir 2
 
-	object 100703813
+	object 100703827
 		type WALL_METAL_TOP
 		at 596 972
 		curdir 2
 
-	object 100703814
+	object 100703828
 		type VALVE_WORKING
 		at 596 972
 		curdir 0
 
-	object 100703815
+	object 100703829
 		type WALL_METAL_TOP
 		at 597 972
 		curdir 2
 
-	object 100703816
+	object 100703830
 		type WALL_METAL_TOP
 		at 598 972
 		curdir 2
 
-	object 100703817
+	object 100703831
 		type WALL3_EDGE
 		at 599 972
 		curdir 3
 
-	object 100703818
+	object 100703832
 		type WALL3_EDGE
 		at 599 972
 		curdir 0
 
-	object 100703819
+	object 100703833
 		type FENCE
 		at 602 972
 		curdir 2
 
-	object 100703820
+	object 100703834
 		type RADIATION
 		at 604 972
 		curdir 2
 		activity radiation_damage
 
-	object 100703821
+	object 100703835
 		type MAGICBOLT
 		at 604 972
 		curdir 0
@@ -96633,67 +96678,67 @@ iMZ1r00
 
 	decorative MOUNT04 at 567 973
 
-	object 100703897
+	object 100703911
 		type PIPES_05
 		at 582 973
 		curdir 3
 
-	object 100703898
+	object 100703912
 		type PIPES_00
 		at 583 973
 		curdir 2
 
-	object 100703899
+	object 100703913
 		type PIPES_00
 		at 584 973
 		curdir 2
 
-	object 100703900
+	object 100703914
 		type PIPES_00
 		at 585 973
 		curdir 2
 
-	object 100703901
+	object 100703915
 		type PIPES_00
 		at 586 973
 		curdir 2
 
-	object 100703902
+	object 100703916
 		type PIPES_00
 		at 587 973
 		curdir 2
 
-	object 100703903
+	object 100703917
 		type PIPES_00
 		at 588 973
 		curdir 2
 
-	object 100703904
+	object 100703918
 		type WALL_METAL_TOP
 		at 595 973
 		curdir 2
 
-	object 100703905
+	object 100703919
 		type WALL_METAL_TOP
 		at 596 973
 		curdir 2
 
-	object 100703906
+	object 100703920
 		type WALL_METAL_TOP
 		at 597 973
 		curdir 2
 
-	object 100703907
+	object 100703921
 		type WALL_METAL_TOP
 		at 598 973
 		curdir 2
 
-	object 100703908
+	object 100703922
 		type WALL_METAL_D02
 		at 599 973
 		curdir 2
 
-	object 100703909
+	object 100703923
 		type FENCE
 		at 602 973
 		curdir 2
@@ -96838,42 +96883,42 @@ iMZ1r00
 
 	decorative MOUNT07 at 567 974
 
-	object 100703980
+	object 100703994
 		type PIPES_03
 		at 582 974
 		curdir 1
 
-	object 100703981
+	object 100703995
 		type WALL_METAL_D09
 		at 595 974
 		curdir 0
 
-	object 100703982
+	object 100703996
 		type WALL_METAL_D07
 		at 595 974
 		curdir 0
 
-	object 100703983
+	object 100703997
 		type WALL_METAL_TOP
 		at 596 974
 		curdir 0
 
-	object 100703984
+	object 100703998
 		type WALL_METAL_D06
 		at 596 974
 		curdir 1
 
-	object 100703985
+	object 100703999
 		type WALL_METAL_D09
 		at 597 974
 		curdir 3
 
-	object 100703986
+	object 100704000
 		type WALL_METAL_D08
 		at 598 974
 		curdir 1
 
-	object 100703987
+	object 100704001
 		type FENCE
 		at 602 974
 		curdir 2
@@ -97046,53 +97091,53 @@ iMZ1r00
 
 	decorative MOUNT07 at 566 975
 
-	object 100704072
+	object 100704086
 		type WALL_METAL_D08
 		at 574 975
 		curdir 2
 
-	object 100704073
+	object 100704087
 		type WALL_METAL_D07
 		at 575 975
 		curdir 0
 
-	object 100704074
+	object 100704088
 		type WALL_METAL_D08
 		at 577 975
 		curdir 1
 
-	object 100704075
+	object 100704089
 		type WALL_METAL_D06
 		at 577 975
 		curdir 3
 
-	object 100704076
+	object 100704090
 		type WALL_METAL_D06
 		at 578 975
 		curdir 2
 
-	object 100704077
+	object 100704091
 		type WALL_METAL_D06
 		at 579 975
 		curdir 1
 
-	object 100704078
+	object 100704092
 		type WALL_METAL_D06
 		at 579 975
 		curdir 0
 
-	object 100704079
+	object 100704093
 		type FENCE
 		at 602 975
 		curdir 2
 
-	object 100704080
+	object 100704094
 		type RADIATION
 		at 604 975
 		curdir 2
 		activity radiation_damage
 
-	object 100704081
+	object 100704095
 		type MAGICBOLT
 		at 604 975
 		curdir 0
@@ -97275,27 +97320,27 @@ iMZ1r00
 
 	decorative MOUNT07 at 558 976
 
-	object 100704171
+	object 100704185
 		type FENCE_CORNER
 		at 573 976
 		curdir 2
 
-	object 100704172
+	object 100704186
 		type WALL3_EDGE
 		at 573 976
 		curdir 0
 
-	object 100704173
+	object 100704187
 		type FENCE
 		at 602 976
 		curdir 2
 
-	object 100704174
+	object 100704188
 		type PLASMATUBE
 		at 602 976
 		curdir 0
 
-	object 100704175
+	object 100704189
 		type PLASMATUBE
 		at 605 976
 		curdir 0
@@ -97430,7 +97475,7 @@ iMZ1r00
 
 	decorative TREE01 at 972 976
 
-	object 100704241
+	object 100704255
 		type FENCE
 		at 573 977
 		curdir 2
@@ -97561,7 +97606,7 @@ iMZ1r00
 
 	decorative TREE02 at 977 977
 
-	object 100704305
+	object 100704319
 		type FENCE
 		at 573 978
 		curdir 2
@@ -97700,7 +97745,7 @@ iMZ1r00
 
 	decorative MOUNT02 at 560 979
 
-	object 100704373
+	object 100704387
 		type FENCE
 		at 573 979
 		curdir 2
@@ -97883,12 +97928,12 @@ iMZ1r00
 
 	decorative MOUNT02 at 563 980
 
-	object 100704463
+	object 100704477
 		type FENCE
 		at 573 980
 		curdir 2
 
-	object 100704464
+	object 100704478
 		type WALL3_EDGE
 		at 573 980
 		curdir 3
@@ -98045,7 +98090,7 @@ iMZ1r00
 
 	decorative MOUNT02 at 567 981
 
-	object 100704541
+	object 100704555
 		type PIPES_02
 		at 573 981
 		curdir 0
@@ -98212,11 +98257,11 @@ iMZ1r00
 
 	decorative MOUNT04 at 567 982
 
-	object 100704623
+	object 100704637
 		type LIGHT_END
 		at 607 982
 		curdir 0
-		stats->owner 100703035
+		stats->owner 100703049
 
 	decorative TREE03 at 650 982
 
@@ -98652,7 +98697,7 @@ iMZ1r00
 
 	decorative TREE02 at 965 984
 
-	object 100704841
+	object 100704855
 		type WALL3_EDGE
 		at 566 985
 		curdir 2
