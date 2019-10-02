@@ -53,24 +53,25 @@ You see $NAME, the glassmaker.
 
 
 [page="buy_blurb"]
+[set sells_csword]
 
 "I make glassware.  Since I am in your debt, I shall sell
  you these items much less than I would normally charge.
 
- I can sell you wineglasses for 3 gold each, and jars
- for 2 gold.  These are sundry items.
+ I can sell you wineglasses for 3 gold each, jars for 2
+ gold, and potion flasks for 10.  These are sundry items.
 
  I also make glass orbs, which many find useful for the
  mystical arts that the LORD allows men to practice.
  These orbs are not easy to craft, but I can still offer
- one to you for 50 gold."
+ one to you for 250 gold."
 
 [colour="#808080"]
  His voice drops to a conspiratorial whisper.
 [colour="#ffffff"]
 
 "Also, because I owe you my life, I can forge for you
- a secret weapon, the crystal sword.  I must ask 750
+ a secret weapon, the crystal sword.  I must ask 1500
  golds, and I will need two todestones to make it.
 
  This is a magical weapon, and most deadly, but the
@@ -89,8 +90,10 @@ You see $NAME, the glassmaker.
 "What do you wish to purchase?
 
  My wineglasses are 3 gold each, and jars are 2 gold.
- I sell glass orbs for 50 gold, and the 'other item'
- would be 750 gold coins."
+ Potion flasks are 10 gold coins.  I also sell glass
+ orbs for 250 gold."
+
+[if sells_csword]"The 'other item' would be 1500 gold coins."
 
 [link="I would like to buy a wineglass."]
 [linkto="buy_wineglass"]
@@ -98,12 +101,15 @@ You see $NAME, the glassmaker.
 [link="I would like to buy a jar."]
 [linkto="buy_jar"]
 [always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
 [link="I would like to buy a glass orb."]
 [linkto="buy_orb"]
 [always]
-[link="I would like to buy the sword."]
-[linkto="buy_sword"]
-[always]
+[if sells_csword][link="I would like to buy the sword."]
+[if sells_csword][linkto="buy_sword"]
+[if sells_csword][always]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -123,12 +129,15 @@ You see $NAME, the glassmaker.
 [link="I would like to buy a jar."]
 [linkto="buy_jar"]
 [always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
 [link="I would like to buy a glass orb."]
 [linkto="buy_orb"]
 [always]
-[link="I would like to buy the sword."]
-[linkto="buy_sword"]
-[always]
+[if sells_csword][link="I would like to buy the sword."]
+[if sells_csword][linkto="buy_sword"]
+[if sells_csword][always]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -148,19 +157,50 @@ You see $NAME, the glassmaker.
 [link="I would like to buy another jar."]
 [linkto="buy_jar"]
 [always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
 [link="I would like to buy a glass orb."]
 [linkto="buy_orb"]
 [always]
-[link="I would like to buy the sword."]
-[linkto="buy_sword"]
+[if sells_csword][link="I would like to buy the sword."]
+[if sells_csword][linkto="buy_sword"]
+[if sells_csword][always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_potion"]
+[take 10 gold_coins]
+[if false][goto="no_money"]
+[create 1 potion_empty]
+
+"Thankyou, friend.  Here is your item.
+ Do you require anything else?"
+
+[link="I would like to buy a wineglass."]
+[linkto="buy_wineglass"]
 [always]
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy another potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy a glass orb."]
+[linkto="buy_orb"]
+[always]
+[if sells_csword][link="I would like to buy the sword."]
+[if sells_csword][linkto="buy_sword"]
+[if sells_csword][always]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
 
 
 [page="buy_orb"]
-[take 50 gold_coins]
+[take 250 gold_coins]
 [if false][goto="no_money"]
 [create 1 orb]
 
@@ -173,19 +213,22 @@ You see $NAME, the glassmaker.
 [link="I would like to buy a jar."]
 [linkto="buy_jar"]
 [always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
 [link="I would like to buy another glass orb."]
 [linkto="buy_orb"]
 [always]
-[link="I would like to buy the sword."]
-[linkto="buy_sword"]
-[always]
+[if sells_csword][link="I would like to buy the sword."]
+[if sells_csword][linkto="buy_sword"]
+[if sells_csword][always]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
 
 
 [page="buy_sword"]
-[take 750 gold_coins]
+[take 1500 gold_coins]
 [if true][goto="buy_sword2"]
 [goto="no_money"]
 [endpage]
@@ -193,7 +236,7 @@ You see $NAME, the glassmaker.
 [page="buy_sword2"]
 [take 2 todestone]
 [if true][goto="buy_sword3"]
-[give 750 gold_coins]
+[give 1500 gold_coins]
 
 "I fear you do not have the two todestones.  I need these
  for they will give the sword its power, else it shall be
@@ -208,6 +251,9 @@ You see $NAME, the glassmaker.
 [always]
 [link="I would like to buy a jar."]
 [linkto="buy_jar"]
+[always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
 [always]
 [link="I would like to buy a glass orb."]
 [linkto="buy_orb"]
@@ -226,13 +272,16 @@ You see $NAME, the glassmaker.
  Firstly, by using the weapon, it will be destroyed.
  Set it aside, use it only in dire need.
 
- And secondly, you did not get the item from me.."
+ And secondly, you did not get the item from me!"
 
 [link="I would like to buy a wineglass."]
 [linkto="buy_wineglass"]
 [always]
 [link="I would like to buy a jar."]
 [linkto="buy_jar"]
+[always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
 [always]
 [link="I would like to buy a glass orb."]
 [linkto="buy_orb"]
@@ -256,7 +305,10 @@ You see $NAME, the glassmaker.
 [link="I would like to buy a jar."]
 [linkto="buy_jar"]
 [always]
-[link="I would like to buy another glass orb."]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy a glass orb."]
 [linkto="buy_orb"]
 [always]
 [link="Goodbye."]
