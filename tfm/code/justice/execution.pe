@@ -42,6 +42,9 @@ if victim = player
 
 	# Find the trapdoor and ensure it is shut
 	get_first_object hatch = x y
+	# There might be other things in the way (e.g. blood)
+	find_next hatch = "HATCH_GALLOWS_*" in hatch
+	
 	if hatch is called "HATCH_GALLOWS_OPENED"
 		let me = hatch.stats.owner
 		let current = hatch.stats.owner
@@ -49,6 +52,19 @@ if victim = player
 			call current.funcs.use
 		else
 			print "Error: cannot close gallows (hatch has no parent)|"
+			fade_in
+			return
+		endif
+	else
+		if hatch is called "HATCH_*"
+			#We're OK, carry on
+		else
+			print "Error: did not find gallows hatch!|"
+			printx hatch
+			printcr
+			print ": "
+			print hatch.name
+			printcr
 			fade_in
 			return
 		endif
