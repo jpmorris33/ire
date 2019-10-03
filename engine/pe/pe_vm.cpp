@@ -293,6 +293,7 @@ static void PV_FindNearby();
 static void PV_FindTag();
 static void PV_FastTag();
 static void PV_MakeTagList();
+static void PV_FindNext();
 static void PV_SetLight();
 static void PV_SetLight_single();
 static void PV_LastOp();
@@ -1326,6 +1327,7 @@ VMOP(FindNearby);
 VMOP(FindTag);
 VMOP(FastTag);
 VMOP(MakeTagList);
+VMOP(FindNext);
 VMOP(SetLight);
 VMOP(SetLight_single);
 VMOP(Printaddr);
@@ -5303,6 +5305,46 @@ for(t=MasterList;t;t=t->next)
 		}
 
 // *obj = NULL;
+}
+
+// Find the next occurence of an object in a list
+
+void PV_FindNext()
+{
+OBJLIST *t;
+OBJECT **obj;
+const char *str;
+OBJECT **list;
+OBJECT *ptr;
+
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+str = GET_STRING();
+CHECK_POINTER(str);
+list = GET_OBJECT();
+CHECK_POINTER(list);
+
+// Theoretically we could set *obj to NULL here as an optimsation,
+// but that will cause merry hell if it's also the list, e.g. get_next X = "hatch*" after X
+
+// Nothing to search in, so return nothing
+if(!(*list)) {
+	*obj = NULL;
+	return;
+}
+
+// If it has empty string, it'll return the first object
+if(!str[0]) {
+	str="*";
+}
+
+for(ptr = *list;ptr;ptr=ptr->next) {
+	if(!str || (!istricmp_fuzzy(str,ptr->name))) {
+		*obj = ptr;
+		return;
+	}
+}
+*obj = NULL;
 }
 
 // Set light state for a region between two control objects.

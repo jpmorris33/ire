@@ -170,6 +170,7 @@ enum {
 	PEVM_FindTag,
 	PEVM_FastTag,
 	PEVM_MakeTagList,
+	PEVM_FindNext,
 	PEVM_SetLight,
 	PEVM_SetLight_single,
 	PEVM_MoveTag,
