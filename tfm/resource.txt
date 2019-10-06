@@ -13927,6 +13927,9 @@ section: tables
 		mage			MAGE_SLEEPING
 	end
 
+##
+##  Tile connections for the 'Tile Router' button in the editor
+##
 
 section: tilelink
 
@@ -14026,7 +14029,8 @@ section: tilelink
 		s grass03
 
 	name shore_north_nw
-		tile shore_north_nw
+#		tile shore_north_nw
+		tile shore_northeast_nw
 		n grass00
 		n grass01
 		n grass02
@@ -14043,7 +14047,8 @@ section: tilelink
 		s shore_north_se2
 
 	name shore_north_ne
-		tile shore_north_ne
+#		tile shore_north_ne
+		tile shore_northwest_ne
 		n grass00
 		n grass01
 		n grass02
@@ -14060,7 +14065,8 @@ section: tilelink
 		s shore_north_sw2
 
 	name shore_north_sw
-		tile shore_north_sw
+#		tile shore_north_sw
+		tile shore_northwest_sw
 		n shore_north_n
 		n shore_north_nw
 		n shore_north_ne2
@@ -14077,7 +14083,8 @@ section: tilelink
 		s grass03
 
 	name shore_north_se
-		tile shore_north_se
+#		tile shore_north_se
+		tile shore_northeast_se
 		n shore_north_e
 		n shore_north_ne
 		n shore_north_nw2
@@ -14094,7 +14101,8 @@ section: tilelink
 		e grass03
 
 	name shore_north_nw2
-		tile shore_north_nw2
+#		tile shore_north_nw2
+		tile shore_northeast_nw2
 		n water_n
 		e shore_north_s
 		e shore_north_se
@@ -14105,7 +14113,8 @@ section: tilelink
 		s shore_north_sw2
 
 	name shore_north_ne2
-		tile shore_north_ne2
+#		tile shore_north_ne2
+		tile shore_northwest_ne2
 		n water_n
 		e water_n
 		w shore_north_s
@@ -14116,7 +14125,8 @@ section: tilelink
 		s shore_north_se2
 
 	name shore_north_sw2
-		tile shore_north_sw2
+#		tile shore_north_sw2
+		tile shore_northwest_sw2
 		n shore_north_e
 		n shore_north_ne
 		n shore_north_nw2
@@ -14127,7 +14137,8 @@ section: tilelink
 		s water_n
 
 	name shore_north_se2
-		tile shore_north_se2
+#		tile shore_north_se2
+		tile shore_northeast_se2
 		n shore_north_w
 		n shore_north_nw
 		n shore_north_ne2
@@ -14202,7 +14213,8 @@ section: tilelink
 		s grass03
 
 	name shore_south_nw
-		tile shore_south_nw
+#		tile shore_south_nw
+		tile shore_southwest_nw
 		n grass00
 		n grass01
 		n grass02
@@ -14219,7 +14231,8 @@ section: tilelink
 		s shore_south_se2
 
 	name shore_south_ne
-		tile shore_south_ne
+#		tile shore_south_ne
+		tile shore_southeast_ne
 		n grass00
 		n grass01
 		n grass02
@@ -14236,7 +14249,8 @@ section: tilelink
 		s shore_south_sw2
 
 	name shore_south_sw
-		tile shore_south_sw
+#		tile shore_south_sw
+		tile shore_southeast_sw
 		n shore_south_n
 		n shore_south_nw
 		n shore_south_ne2
@@ -14253,7 +14267,8 @@ section: tilelink
 		s grass03
 
 	name shore_south_se
-		tile shore_south_se
+#		tile shore_south_se
+		tile shore_southwest_se
 		n shore_south_e
 		n shore_south_ne
 		n shore_south_nw2
@@ -14270,7 +14285,8 @@ section: tilelink
 		e grass03
 
 	name shore_south_nw2
-		tile shore_south_nw2
+#		tile shore_south_nw2
+		tile shore_southwest_nw2
 		n water_s
 		e shore_south_s
 		e shore_south_se
@@ -14281,7 +14297,8 @@ section: tilelink
 		s shore_south_sw2
 
 	name shore_south_ne2
-		tile shore_south_ne2
+#		tile shore_south_ne2
+		tile shore_southeast_ne2
 		n water_s
 		e water_s
 		w shore_south_s
@@ -14292,7 +14309,8 @@ section: tilelink
 		s shore_south_se2
 
 	name shore_south_sw2
-		tile shore_south_sw2
+#		tile shore_south_sw2
+		tile shore_southeast_sw2
 		n shore_south_e
 		n shore_south_ne
 		n shore_south_nw2
@@ -14303,7 +14321,8 @@ section: tilelink
 		s water_s
 
 	name shore_south_se2
-		tile shore_south_se2
+#		tile shore_south_se2
+		tile shore_southwest_se2
 		n shore_south_w
 		n shore_south_nw
 		n shore_south_ne2
@@ -14378,7 +14397,8 @@ section: tilelink
 		s grass03
 
 	name shore_east_nw
-		tile shore_east_nw
+#		tile shore_east_nw
+		tile shore_northeast_nw
 		n grass00
 		n grass01
 		n grass02
@@ -14395,7 +14415,8 @@ section: tilelink
 		s shore_east_se2
 
 	name shore_east_ne
-		tile shore_east_ne
+#		tile shore_east_ne
+		tile shore_southeast_ne
 		n grass00
 		n grass01
 		n grass02
@@ -14412,7 +14433,8 @@ section: tilelink
 		s shore_east_sw2
 
 	name shore_east_sw
-		tile shore_east_sw
+#		tile shore_east_sw
+		tile shore_southeast_sw
 		n shore_east_n
 		n shore_east_nw
 		n shore_east_ne2
@@ -14429,7 +14451,8 @@ section: tilelink
 		s grass03
 
 	name shore_east_se
-		tile shore_east_se
+#		tile shore_east_se
+		tile shore_northeast_se
 		n shore_east_e
 		n shore_east_ne
 		n shore_east_nw2
@@ -14446,7 +14469,8 @@ section: tilelink
 		e grass03
 
 	name shore_east_nw2
-		tile shore_east_nw2
+#		tile shore_east_nw2
+		tile shore_northeast_nw2
 		n water_e
 		e shore_east_s
 		e shore_east_se
@@ -14457,7 +14481,8 @@ section: tilelink
 		s shore_east_sw2
 
 	name shore_east_ne2
-		tile shore_east_ne2
+#		tile shore_east_ne2
+		tile shore_southeast_ne2
 		n water_e
 		e water_e
 		w shore_east_s
@@ -14468,7 +14493,8 @@ section: tilelink
 		s shore_east_se2
 
 	name shore_east_sw2
-		tile shore_east_sw2
+#		tile shore_east_sw2
+		tile shore_southeast_sw2
 		n shore_east_e
 		n shore_east_ne
 		n shore_east_nw2
@@ -14479,7 +14505,8 @@ section: tilelink
 		s water_e
 
 	name shore_east_se2
-		tile shore_east_se2
+#		tile shore_east_se2
+		tile shore_northeast_se2
 		n shore_east_w
 		n shore_east_nw
 		n shore_east_ne2
@@ -14554,7 +14581,8 @@ section: tilelink
 		s grass03
 
 	name shore_west_nw
-		tile shore_west_nw
+#		tile shore_west_nw
+		tile shore_southwest_nw
 		n grass00
 		n grass01
 		n grass02
@@ -14571,7 +14599,8 @@ section: tilelink
 		s shore_west_se2
 
 	name shore_west_ne
-		tile shore_west_ne
+#		tile shore_west_ne
+		tile shore_northwest_ne
 		n grass00
 		n grass01
 		n grass02
@@ -14588,7 +14617,8 @@ section: tilelink
 		s shore_west_sw2
 
 	name shore_west_sw
-		tile shore_west_sw
+#		tile shore_west_sw
+		tile shore_northwest_sw
 		n shore_west_n
 		n shore_west_nw
 		n shore_west_ne2
@@ -14605,7 +14635,8 @@ section: tilelink
 		s grass03
 
 	name shore_west_se
-		tile shore_west_se
+#		tile shore_west_se
+		tile shore_southwest_se
 		n shore_west_e
 		n shore_west_ne
 		n shore_west_nw2
@@ -14622,7 +14653,8 @@ section: tilelink
 		e grass03
 
 	name shore_west_nw2
-		tile shore_west_nw2
+#		tile shore_west_nw2
+		tile shore_southwest_nw2
 		n water_w
 		e shore_west_s
 		e shore_west_se
@@ -14633,7 +14665,8 @@ section: tilelink
 		s shore_west_sw2
 
 	name shore_west_ne2
-		tile shore_west_ne2
+#		tile shore_west_ne2
+		tile shore_northwest_ne2
 		n water_w
 		e water_w
 		w shore_west_s
@@ -14644,7 +14677,8 @@ section: tilelink
 		s shore_west_se2
 
 	name shore_west_sw2
-		tile shore_west_sw2
+#		tile shore_west_sw2
+		tile shore_northwest_sw2
 		n shore_west_e
 		n shore_west_ne
 		n shore_west_nw2
@@ -14655,7 +14689,8 @@ section: tilelink
 		s water_w
 
 	name shore_west_se2
-		tile shore_west_se2
+#		tile shore_west_se2
+		tile shore_southwest_se2
 		n shore_west_w
 		n shore_west_nw
 		n shore_west_ne2
