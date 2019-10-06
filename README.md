@@ -4,7 +4,6 @@ An Ultima-style CRPG
 ## SDL2 backend TODOs:
 * Key debouncing is still erratic and sometimes eats keypresses
 * Text input is kludgy and assumes a US/UK keyboard, ideally needs a rewrite
-* Text input is glitchy for uppercase characters, rewrite should fix this
 
 ## Gameplay TODOs:
 * Make combat system suck less
@@ -16,5 +15,7 @@ An Ultima-style CRPG
 * Establish extent of plot, find gaps, write (or find notes on) material to bridge gaps
 
 ## Quest TODOs:
-* Add NPCs to lead to Liche quest
-* Need to allow the player to get the special protective armour for dam quest
+* Osprey quest not yet completable AFAIK
+* Comms quest grinds to a halt
+* Need to allow the player to get the special protective armour for dam quest (King Duncan)
+* King Grey quest has a lot of loose ends (dialogue esp. but also if you take him back to his kingdom)
