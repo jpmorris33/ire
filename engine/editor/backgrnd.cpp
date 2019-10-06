@@ -348,13 +348,19 @@ int l;
 char string[10];
 
 // If shift is pressed, grab tile instead of drawing
-if(IRE_TestShift(IRESHIFT_SHIFT))
-	{
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
 	l=Get_Background();
-	if(l>=TItot)
+	if(l == RANDOM_TILE) {
+		GetEyesoreL();
+		return;
+	}
+
+	if(l>=TItot) {
 		l=TItot-1;
-	if(l != -1)
+	}
+	if(l != -1) {
 		L=l;
+	}
 	L_bgtile=L; // Grab these too
 	cycleptr=L;
 	// Draw L icon
@@ -368,7 +374,7 @@ if(IRE_TestShift(IRESHIFT_SHIFT))
 	DrawScreenText(400,232,string);
 	DrawScreenText(384,240,TIlist[L].name);
 	return;
-	}
+}
 
 // Write tile
 Set_Background(L);
@@ -380,13 +386,19 @@ int r;
 char string[10];
 
 // If shift is pressed, grab tile instead of drawing
-if(IRE_TestShift(IRESHIFT_SHIFT))
-	{
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
 	r=Get_Background();
-	if(r>=TItot)
+	if(r == RANDOM_TILE) {
+		GetEyesoreR();
+		return;
+	}
+
+	if(r>=TItot) {
 		r=TItot-1;
-	if(r != -1)
+	}
+	if(r != -1) {
 		R=r;
+	}
 	// Draw R icon
 //	draw_rle_sprite(swapscreen,TIlist[R].form->seq[0]->image,448,192);
 	TIlist[R].form->seq[0]->image->Draw(swapscreen,448,192);
@@ -398,7 +410,7 @@ if(IRE_TestShift(IRESHIFT_SHIFT))
 	DrawScreenText(450,232,string);
 	DrawScreenText(384,240,TIlist[R].name);
 	return;
-	}
+}
 
 // Write tile
 Set_Background(R);
