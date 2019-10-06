@@ -1409,7 +1409,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's level must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
-			character->stats->level=tmp; // Speed
+			character->stats->level=tmp; // Level
 			continue;
 			}
 
@@ -1980,6 +1980,9 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"person"))          // can't be stuffed in sacks etc
 			{
 			character->flags |= IS_PERSON;
+			if(character->stats->level < 1) {
+				character->stats->level = 2;
+			}
 			continue;
 			}
 
