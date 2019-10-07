@@ -1,6 +1,7 @@
 
 
 [page="start"]
+[iftime 0800-0900][goto="inchurch"]
 [learn_name]
 [image="pope.pcx"]
 [esc=disabled]
@@ -100,6 +101,7 @@ and penetrating, hawk-like eyes.
 
 
 [page="startname"]
+[iftime 0800-0900][goto="inchurch"]
 [image="pope.pcx"]
 
 [colour="#808080"]

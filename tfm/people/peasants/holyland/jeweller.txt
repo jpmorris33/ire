@@ -1,6 +1,6 @@
 
 [page="start"]
-[!iftime 0800-0914][goto="inchurch"]
+[iftime 0800-0900][goto="inchurch"]
 [ifntime 0915-1800][goto="out-of-hours"]
 [colour="#808080"]
 You see a well-rounded man with the unmistakable aura of
