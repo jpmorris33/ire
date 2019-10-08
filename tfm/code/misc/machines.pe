@@ -126,8 +126,9 @@ move 1 "stdonalds_burger*" from me to plate
 
 if_exists plate.pocket
 	let burger = plate.pocket
-	replace burger = "stdonalds_burger_cold" # Cleaner collects these
+	replace burger = "stdonalds_burger_cold"
 	force_from_pocket burger from plate to plate.x plate.y
+	start_action burger does burger_cooling # When it's stale the cleaner gets it
 	return
 endif
 

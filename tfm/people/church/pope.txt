@@ -2,6 +2,7 @@
 
 [page="start"]
 [iftime 0800-0900][goto="inchurch"]
+[iftime 1600-1700][goto="inchurch"]
 [learn_name]
 [image="pope.pcx"]
 [esc=disabled]
@@ -102,6 +103,7 @@ and penetrating, hawk-like eyes.
 
 [page="startname"]
 [iftime 0800-0900][goto="inchurch"]
+[iftime 1600-1700][goto="inchurch"]
 [image="pope.pcx"]
 
 [colour="#808080"]
@@ -248,7 +250,7 @@ The Holy Father gives an exasperated sigh.
  
  Know that if any other had asked that question, they
  would be eviscerated slowly for the amusement of the
- LORD's Faithful.
+ LORD and His faithful.
  Probe not into the LORD's personal life, my friend,
  for His patience is not boundless, not even for the
  Promised One."
@@ -504,7 +506,7 @@ air of distaste.
 
 [page="inchurch4"]
 [esc="bye3"]
-[image="crucifix.jpg"]
+[image="crucifix1.png"]
 
 [colour="#808080"]
  The shimmering, transparent crucifix addresses the
@@ -529,7 +531,7 @@ air of distaste.
 [endpage]
 
 [page="inchurch5"]
-[image="crucifix.jpg"]
+[image="crucifix3.png"]
 
 "This defiance angers the LORD your God.  It angers the
  Holy Ghost, and it angers Me!
@@ -546,7 +548,7 @@ air of distaste.
 
 
 [page="inchurch6"]
-[image="crucifix.jpg"]
+[image="crucifix4.png"]
 
 "These Demons cannot be slain by mortal hand.  Their fate
  shall be judged by the LORD God alone.
@@ -561,7 +563,7 @@ air of distaste.
 [endpage]
 
 [page="inchurch7"]
-[image="crucifix.jpg"]
+[image="crucifix0.png"]
 [esc="exit"]
 [colour="#808080"]
  The crucifix floats back down to its normal place,

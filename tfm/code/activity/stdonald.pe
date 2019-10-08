@@ -98,8 +98,8 @@ if me.user.user5 > 0
 endif
 
 if_not_exists me.target
-	print "eat burger: no target!"
-	printcr
+#	print "eat burger: no target!"
+#	printcr
 	stop_action me
 	return
 endif
@@ -301,14 +301,14 @@ integer run = 0
 # Top priority, find any litter
 find_nearest o = "stdonalds_litter" near me
 if_exists o
-	queue_action me does seek_target_get to o
+	queue_action me does waiter_get_litter to o
 	let run = 1
 endif
 
-# Now look for cold burgers
-find_nearest o = "stdonalds_burger_cold" near me
+# Now look for stale burgers
+find_nearest o = "stdonalds_burger_stale" near me
 if_exists o
-	queue_action me does seek_target_get to o
+	queue_action me does waiter_get_litter to o
 	let run = 1
 endif
 
@@ -341,4 +341,34 @@ take 10 "kfs_litter" from me
 take 10 "stdonalds_*" from me
 
 resume_action me
+end
+
+
+##
+##  The litter may sometimes be destroyed in-flight
+##
+
+function waiter_get_litter
+private
+
+# If the object doesn't exist anymore
+if_not_exists me.target
+	# Turn the waiter off and on again
+	stop_action me
+	resume_action me
+	return
+endif
+
+call seek_target_get
+end
+
+##
+##  This is a lockout to prevent the sanitation guy stealing fresh burgers
+##
+
+function burger_cooling
+add me.user.user2 + 1
+if me.user.user2 > 15
+	replace me = "stdonalds_burger_stale"
+endif
 end

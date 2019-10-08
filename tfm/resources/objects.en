@@ -13791,6 +13791,10 @@ section: characters
 
 	alias STDONALDS_BURGER_COLD = STDONALDS_BURGER
 
+	alias STDONALDS_BURGER_STALE = STDONALDS_BURGER
+	description	"You see a St. Donald's Crucified Chicken burger.  It has gone stale."
+	short		"stale takeaway"
+
 	name STDONALDS_LITTER
 	left		kfs_takeaway2
 	right		kfs_takeaway2
