@@ -105,6 +105,7 @@ extern void (*EdUpdateFunc)(void);
 extern void ResetStr32(char *str32);
 static void SetOwnerRecursively(OBJECT *obj, OBJECT *owner);
 static void SelectThisObject(OBJECT *ptr);
+static int CMPsched(const void *a, const void *b);
 
 void OB_up();           // Panning functions
 void OB_down();
@@ -165,6 +166,7 @@ static void SetSVrm();
 static void SetSObject();
 static void SC_MakeTarget();
 static void SC_NoTarget();
+static void OB_SortSchedule();
 
 static void ResetObject();
 
@@ -386,6 +388,7 @@ OB_Update();
 EdUpdateFunc=NULL;
 //EdUpdateFunc=FG_Animate;
 
+FlushKeys(); // Stop it from trying to quiet when leaving a dialog
 waitabit();
 waitabit();
 }
@@ -1938,21 +1941,13 @@ setschedule=-1;
 inSchedule(POCKET_X,POCKET_Y,24);
 IG_Region(POCKET_X,POCKET_Y,192,288,OB_SetSchedule,NULL,NULL);
 IG_TextButton(384,POCKET_Y+32,"Finish",OB_GoFocal,NULL,NULL);
-
-/*
-STime_Id=IG_InputButton(128,392,STime_str,SetSTime,NULL,NULL);
-SPri_Id=IG_InputButton(200,392,SPri_str,SetSPriority,NULL,NULL);
-SVrm_Id=IG_InputButton(248,392,SVrm_str,SetSVrm,NULL,NULL);
-SObj_Id=IG_InputButton(384,392,SObj_str,SetSObject,NULL,NULL);
-*/
+IG_TextButton(480,POCKET_Y+32,"Sort",OB_SortSchedule,NULL,NULL);
 
 DrawSunkBox3D(368,POCKET_Y+80,520,POCKET_Y+280);
 IG_TextButton(376,POCKET_Y+88,"Clear entry",SReset,NULL,NULL);
 IG_Text(376,POCKET_Y+120,"Time:",ITG_WHITE);
 STime_Id=IG_InputButton(376,POCKET_Y+128,STime_str,SetSTime,NULL,NULL);
-//IG_Text(376,POCKET_Y+200,"VRM called:",ITG_WHITE);
-//SVrm_Id=IG_InputButton(376,POCKET_Y+208,SVrm_str,SetSVrm,NULL,NULL);
-IG_Text(376,POCKET_Y+160,"VRM called:",ITG_WHITE);
+IG_Text(376,POCKET_Y+160,"Action:",ITG_WHITE);
 SVrm_Id=IG_InputButton(376,POCKET_Y+168,SVrm_str,SetSVrm,NULL,NULL);
 IG_Text(376,POCKET_Y+200,"Target:",ITG_WHITE);
 SObj_Id=IG_InputButton(376,POCKET_Y+208,SObj_str,SetSObject,NULL,NULL);
@@ -1977,20 +1972,20 @@ if(!objsel)
 
 DrawScreenBoxHollow(x,y,x+(24*8)+16,y+(lines*12)+16);
 
-for(ctr=0;ctr<24;ctr++)
-	{
+for(ctr=0;ctr<24;ctr++) {
 	if(ctr == setschedule)
 		col = ITG_RED;
-	else
-		col = ITG_WHITE;
+	else {
+		col = objsel->schedule[ctr].active?ITG_WHITE:ITG_DARKGRAY;
+	}
 
 	if(!objsel->schedule[ctr].active)
 		IG_Text(x+8,y+8,"-",col);
 	else
 		{
-		snprintf(str,31,"%2d:%2d %8s",objsel->schedule[ctr].hour,objsel->schedule[ctr].minute,objsel->schedule[ctr].vrm);
+		snprintf(str,31,"%02d:%02d %8s",objsel->schedule[ctr].hour,objsel->schedule[ctr].minute,objsel->schedule[ctr].vrm);
 		str[31]=0;
-		ilog_quiet("%x:%s\n",objsel,objsel->name);
+//		ilog_quiet("%x:%s\n",objsel,objsel->name);
 		IG_Text(x+8,y+8,str,col);
 		}
 	y+=12;
@@ -2070,8 +2065,6 @@ int h,m;
 if(setschedule < 0)
 	return;
 
-if(!objsel->schedule[setschedule].active)
-	objsel->schedule[setschedule].hour=0;
 sprintf(timestr,"%02d:%02d",objsel->schedule[setschedule].hour,objsel->schedule[setschedule].minute);
 InputString(-1,-1,"Enter the time (HH:MM)",6,timestr);
 sscanf(timestr,"%02d:%02d",&h,&m);
@@ -2101,6 +2094,36 @@ objsel->schedule[setschedule].call = x;
 inSchedule(POCKET_X,POCKET_Y,24);
 IG_WaitForRelease();
 }
+
+static int CMPsched(const void *a, const void *b) {
+SCHEDULE *s1=(SCHEDULE *)a;
+SCHEDULE *s2=(SCHEDULE *)b;
+int hash1,hash2;
+
+// Inactive ones sink to the end
+if(!s1->active) {
+	return -1;
+}
+if(!s2->active) {
+	return -1;
+}
+// Rather than faff around comparing individual hours and minutes...
+hash1 = (s1->hour << 6)+s1->minute;
+hash2 = (s2->hour << 6)+s2->minute;
+return hash1-hash2;
+}
+
+void OB_SortSchedule()
+{
+char timestr[16];
+int h,m;
+setschedule = -1;
+
+qsort(objsel->schedule,24, sizeof(SCHEDULE),CMPsched);
+inSchedule(POCKET_X,POCKET_Y,24);
+IG_WaitForRelease();
+}
+
 
 /*
  *
