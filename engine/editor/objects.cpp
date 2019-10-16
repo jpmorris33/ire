@@ -1923,14 +1923,15 @@ IG_WaitForRelease();
 void OB_Schedule()
 {
 schsel=NULL;
-if(!objsel)
-    {
-    Notify(-1,-1,"No sprite has been selected.","You must pick a sprite before you can modify it.");
-    return;
-    }
-
-if(objsel->flags & IS_SYSTEM)
+if(!objsel) {
+	Notify(-1,-1,"No sprite has been selected.","You must pick a sprite before you can modify it.");
 	return;
+}
+
+if(!objsel->schedule || (objsel->flags & IS_SYSTEM)) {
+	Notify(-1,-1,"This type of object can't have a schedule.", NULL);
+	return;
+}
 
 focus=0;
 IG_KillAll();
@@ -1967,8 +1968,9 @@ char str[32];
 int ctr;
 IRECOLOUR *col = ITG_WHITE;
 
-if(!objsel)
-    return;
+if(!objsel || !objsel->schedule) {
+	return;
+}
 
 DrawScreenBoxHollow(x,y,x+(24*8)+16,y+(lines*12)+16);
 
@@ -1981,15 +1983,14 @@ for(ctr=0;ctr<24;ctr++) {
 
 	if(!objsel->schedule[ctr].active)
 		IG_Text(x+8,y+8,"-",col);
-	else
-		{
+	else {
 		snprintf(str,31,"%02d:%02d %8s",objsel->schedule[ctr].hour,objsel->schedule[ctr].minute,objsel->schedule[ctr].vrm);
 		str[31]=0;
 //		ilog_quiet("%x:%s\n",objsel,objsel->name);
 		IG_Text(x+8,y+8,str,col);
-		}
-	y+=12;
 	}
+	y+=12;
+}
 
 if(setschedule < 0)
 	return;
