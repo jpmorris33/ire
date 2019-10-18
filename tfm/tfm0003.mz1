@@ -543,6 +543,17 @@ iMZ1r00
 
 	decorative TREE02 at 370 81
 
+	object 100712641
+		type TODE
+		inside 100712640
+		curdir 1
+		activity attack_party
+
+	object 100712640
+		type EGG_OBJECT(TODE)
+		at 550 81
+		curdir 3
+
 	object 100663411
 		type STONEWINDOW1
 		at 314 82
@@ -1943,6 +1954,17 @@ iMZ1r00
 
 	decorative MOUNT04 at 410 95
 
+	object 100712639
+		type TODE
+		inside 100712638
+		curdir 1
+		activity attack_party
+
+	object 100712638
+		type EGG_OBJECT(TODE)
+		at 552 95
+		curdir 3
+
 	decorative MOUNT08 at 959 95
 
 	decorative MOUNT06 at 960 95
@@ -2325,6 +2347,17 @@ iMZ1r00
 	decorative TREE01 at 387 97
 
 	decorative MOUNT04 at 409 97
+
+	object 100712637
+		type TODE
+		inside 100712636
+		curdir 1
+		activity attack_party
+
+	object 100712636
+		type EGG_OBJECT(TODE)
+		at 563 97
+		curdir 3
 
 	decorative MOUNT08 at 958 97
 
@@ -3522,6 +3555,17 @@ iMZ1r00
 
 	decorative TREE01 at 401 107
 
+	object 100712635
+		type TODE
+		inside 100712634
+		curdir 1
+		activity attack_party
+
+	object 100712634
+		type EGG_OBJECT(TODE)
+		at 559 107
+		curdir 3
+
 	decorative MOUNT04 at 951 107
 
 	decorative MOUNT00 at 955 107
@@ -3629,6 +3673,17 @@ iMZ1r00
 	decorative TREE01 at 394 110
 
 	decorative TREE00 at 399 110
+
+	object 100712643
+		type TODE
+		inside 100712642
+		curdir 1
+		activity attack_party
+
+	object 100712642
+		type EGG_OBJECT(TODE)
+		at 546 110
+		curdir 3
 
 	decorative MOUNT00 at 873 110
 
@@ -4532,6 +4587,17 @@ iMZ1r00
 
 	decorative TREE00 at 397 123
 
+	object 100712633
+		type TODE
+		inside 100712632
+		curdir 1
+		activity attack_party
+
+	object 100712632
+		type EGG_OBJECT(TODE)
+		at 548 123
+		curdir 3
+
 	decorative MOUNT08 at 924 123
 
 	decorative MOUNT06 at 925 123
@@ -4882,6 +4948,17 @@ iMZ1r00
 		curdir 2
 		tag 30
 		stats->owner 100664690
+
+	object 100712625
+		type TODE
+		inside 100712624
+		curdir 1
+		activity attack_party
+
+	object 100712624
+		type EGG_OBJECT(TODE)
+		at 560 129
+		curdir 3
 
 	decorative MOUNT08 at 912 129
 
@@ -5586,6 +5663,17 @@ iMZ1r00
 		curdir 2
 		tag 3
 
+	object 100712623
+		type TODE
+		inside 100712622
+		curdir 1
+		activity attack_party
+
+	object 100712622
+		type EGG_OBJECT(TODE)
+		at 575 140
+		curdir 3
+
 	decorative HUT03 at 693 140
 
 	object 100664939
@@ -6249,6 +6337,17 @@ iMZ1r00
 		type STONEDOOR1_SHUT
 		at 516 153
 		curdir 1
+
+	object 100712621
+		type TODE
+		inside 100712620
+		curdir 1
+		activity attack_party
+
+	object 100712620
+		type EGG_OBJECT(TODE)
+		at 581 153
+		curdir 3
 
 	decorative MOUNT08 at 838 153
 
@@ -7277,6 +7376,17 @@ iMZ1r00
 		at 528 166
 		curdir 2
 
+	object 100712619
+		type TODE
+		inside 100712618
+		curdir 1
+		activity attack_party
+
+	object 100712618
+		type EGG_OBJECT(TODE)
+		at 581 166
+		curdir 3
+
 	decorative MOUNT08 at 812 166
 
 	decorative MOUNT07 at 813 166
@@ -8234,6 +8344,17 @@ iMZ1r00
 		curdir 2
 		stats->owner 100665585
 
+	object 100712617
+		type TODE
+		inside 100712616
+		curdir 1
+		activity attack_party
+
+	object 100712616
+		type EGG_OBJECT(TODE)
+		at 574 175
+		curdir 3
+
 	decorative MOUNT08 at 802 175
 
 	decorative MOUNT06 at 803 175
@@ -8442,6 +8563,17 @@ iMZ1r00
 
 	decorative MOUNT09 at 986 178
 
+	object 100712631
+		type TODE
+		inside 100712630
+		curdir 1
+		activity attack_party
+
+	object 100712630
+		type EGG_OBJECT(TODE)
+		at 555 179
+		curdir 3
+
 	decorative MOUNT08 at 799 179
 
 	decorative MOUNT07 at 800 179
@@ -8497,6 +8629,17 @@ iMZ1r00
 	decorative MOUNT00 at 985 180
 
 	decorative MOUNT11 at 986 180
+
+	object 100712629
+		type TODE
+		inside 100712628
+		curdir 1
+		activity attack_party
+
+	object 100712628
+		type EGG_OBJECT(TODE)
+		at 569 181
+		curdir 3
 
 	decorative MOUNT04 at 798 181
 
@@ -8878,6 +9021,17 @@ iMZ1r00
 		type STAINEDGLASS00
 		at 475 187
 		curdir 1
+
+	object 100712615
+		type TODE
+		inside 100712614
+		curdir 1
+		activity attack_party
+
+	object 100712614
+		type EGG_OBJECT(TODE)
+		at 577 187
+		curdir 3
 
 	decorative MOUNT04 at 794 187
 
@@ -9349,6 +9503,17 @@ iMZ1r00
 
 	decorative MOUNT09 at 841 195
 
+	object 100712627
+		type TODE
+		inside 100712626
+		curdir 1
+		activity attack_party
+
+	object 100712626
+		type EGG_OBJECT(TODE)
+		at 572 196
+		curdir 3
+
 	object 100666217
 		type WALL_EDGE
 		at 796 196
@@ -9618,6 +9783,17 @@ iMZ1r00
 
 	decorative MOUNT11 at 841 205
 
+	object 100712613
+		type TODE
+		inside 100712612
+		curdir 1
+		activity attack_party
+
+	object 100712612
+		type EGG_OBJECT(TODE)
+		at 579 206
+		curdir 3
+
 	decorative MOUNT10 at 807 206
 
 	decorative MOUNT02 at 808 206
@@ -9776,6 +9952,17 @@ iMZ1r00
 
 	decorative MOUNT03 at 835 216
 
+	object 100712611
+		type TODE
+		inside 100712610
+		curdir 1
+		activity attack_party
+
+	object 100712610
+		type EGG_OBJECT(TODE)
+		at 572 217
+		curdir 3
+
 	decorative MOUNT10 at 816 217
 
 	decorative MOUNT01 at 817 217
@@ -9924,6 +10111,17 @@ iMZ1r00
 
 	decorative MOUNT09 at 874 227
 
+	object 100712609
+		type TODE
+		inside 100712608
+		curdir 1
+		activity attack_party
+
+	object 100712608
+		type EGG_OBJECT(TODE)
+		at 586 228
+		curdir 3
+
 	decorative MOUNT04 at 818 228
 
 	decorative MOUNT00 at 828 228
@@ -10037,6 +10235,17 @@ iMZ1r00
 	decorative MOUNT05 at 877 231
 
 	decorative MOUNT09 at 878 231
+
+	object 100712605
+		type TODE
+		inside 100712604
+		curdir 1
+		activity attack_party
+
+	object 100712604
+		type EGG_OBJECT(TODE)
+		at 611 232
+		curdir 3
 
 	decorative MOUNT04 at 815 232
 
@@ -10233,6 +10442,17 @@ iMZ1r00
 
 	decorative MOUNT09 at 882 236
 
+	object 100712607
+		type TODE
+		inside 100712606
+		curdir 1
+		activity attack_party
+
+	object 100712606
+		type EGG_OBJECT(TODE)
+		at 596 237
+		curdir 3
+
 	decorative MOUNT08 at 814 237
 
 	decorative MOUNT07 at 815 237
@@ -10420,6 +10640,17 @@ iMZ1r00
 
 	decorative MOUNT03 at 886 241
 
+	object 100712601
+		type TODE
+		inside 100712600
+		curdir 1
+		activity attack_party
+
+	object 100712600
+		type EGG_OBJECT(TODE)
+		at 639 242
+		curdir 3
+
 	decorative MOUNT10 at 816 242
 
 	decorative MOUNT02 at 817 242
@@ -10537,6 +10768,17 @@ iMZ1r00
 	decorative TREE03 at 590 245
 
 	decorative TREE00 at 594 245
+
+	object 100712603
+		type TODE
+		inside 100712602
+		curdir 1
+		activity attack_party
+
+	object 100712602
+		type EGG_OBJECT(TODE)
+		at 623 245
+		curdir 3
 
 	decorative MOUNT04 at 816 245
 
@@ -11262,6 +11504,17 @@ iMZ1r00
 
 	decorative TREE01 at 615 256
 
+	object 100712599
+		type TODE
+		inside 100712598
+		curdir 1
+		activity attack_party
+
+	object 100712598
+		type EGG_OBJECT(TODE)
+		at 640 256
+		curdir 3
+
 	decorative MOUNT04 at 816 256
 
 	decorative MOUNT03 at 819 256
@@ -11916,6 +12169,17 @@ iMZ1r00
 
 	decorative TREE03 at 612 266
 
+	object 100712645
+		type TODE
+		inside 100712644
+		curdir 1
+		activity attack_party
+
+	object 100712644
+		type EGG_OBJECT(TODE)
+		at 626 266
+		curdir 3
+
 	decorative MOUNT08 at 818 266
 
 	decorative MOUNT07 at 819 266
@@ -12378,6 +12642,17 @@ iMZ1r00
 
 	decorative TREE01 at 606 271
 
+	object 100712597
+		type TODE
+		inside 100712596
+		curdir 1
+		activity attack_party
+
+	object 100712596
+		type EGG_OBJECT(TODE)
+		at 635 271
+		curdir 3
+
 	decorative MOUNT10 at 820 271
 
 	decorative MOUNT02 at 821 271
@@ -12642,6 +12917,17 @@ iMZ1r00
 
 	decorative TREE00 at 598 274
 
+	object 100712647
+		type TODE
+		inside 100712646
+		curdir 1
+		activity attack_party
+
+	object 100712646
+		type EGG_OBJECT(TODE)
+		at 612 274
+		curdir 3
+
 	decorative MOUNT10 at 821 274
 
 	decorative MOUNT02 at 822 274
@@ -12831,6 +13117,17 @@ iMZ1r00
 	decorative TREE03 at 595 276
 
 	decorative TREE03 at 598 276
+
+	object 100712595
+		type TODE
+		inside 100712594
+		curdir 1
+		activity attack_party
+
+	object 100712594
+		type EGG_OBJECT(TODE)
+		at 649 276
+		curdir 3
 
 	decorative MOUNT10 at 822 276
 
@@ -13097,6 +13394,17 @@ iMZ1r00
 	decorative TREE02 at 597 279
 
 	decorative TREE03 at 599 279
+
+	object 100712593
+		type TODE
+		inside 100712592
+		curdir 1
+		activity attack_party
+
+	object 100712592
+		type EGG_OBJECT(TODE)
+		at 662 279
+		curdir 3
 
 	decorative MOUNT10 at 823 279
 
@@ -13379,6 +13687,17 @@ iMZ1r00
 	decorative TREE02 at 591 281
 
 	decorative TREE01 at 595 281
+
+	object 100712591
+		type TODE
+		inside 100712590
+		curdir 1
+		activity attack_party
+
+	object 100712590
+		type EGG_OBJECT(TODE)
+		at 675 281
+		curdir 3
 
 	decorative MOUNT04 at 826 281
 
@@ -14108,6 +14427,28 @@ iMZ1r00
 
 	decorative TREE02 at 590 287
 
+	object 100712649
+		type TODE
+		inside 100712648
+		curdir 1
+		activity attack_party
+
+	object 100712648
+		type EGG_OBJECT(TODE)
+		at 603 287
+		curdir 3
+
+	object 100712589
+		type TODE
+		inside 100712588
+		curdir 1
+		activity attack_party
+
+	object 100712588
+		type EGG_OBJECT(TODE)
+		at 685 287
+		curdir 3
+
 	decorative MOUNT10 at 828 287
 
 	decorative MOUNT02 at 829 287
@@ -14757,6 +15098,17 @@ iMZ1r00
 	decorative TREE02 at 592 294
 
 	decorative TREE00 at 594 294
+
+	object 100712587
+		type TODE
+		inside 100712586
+		curdir 1
+		activity attack_party
+
+	object 100712586
+		type EGG_OBJECT(TODE)
+		at 692 294
+		curdir 3
 
 	decorative MOUNT10 at 832 294
 
@@ -15913,6 +16265,17 @@ iMZ1r00
 
 	decorative TREE01 at 591 303
 
+	object 100712651
+		type TODE
+		inside 100712650
+		curdir 1
+		activity attack_party
+
+	object 100712650
+		type EGG_OBJECT(TODE)
+		at 606 303
+		curdir 3
+
 	object 100669230
 		type BRIDGE_END_N
 		at 634 303
@@ -15956,6 +16319,17 @@ iMZ1r00
 	object 100669238
 		type BRIDGE_END_N
 		at 642 303
+		curdir 3
+
+	object 100712585
+		type TODE
+		inside 100712584
+		curdir 1
+		activity attack_party
+
+	object 100712584
+		type EGG_OBJECT(TODE)
+		at 698 303
 		curdir 3
 
 	decorative MOUNT04 at 844 303
@@ -18028,6 +18402,17 @@ iMZ1r00
 
 	decorative TREE03 at 588 314
 
+	object 100712653
+		type TODE
+		inside 100712652
+		curdir 1
+		activity attack_party
+
+	object 100712652
+		type EGG_OBJECT(TODE)
+		at 609 314
+		curdir 3
+
 	object 100669949
 		type BRIDGE_END_W
 		at 645 314
@@ -18602,6 +18987,17 @@ iMZ1r00
 	object 100670108
 		type BRIDGE_CORE3
 		at 677 316
+		curdir 3
+
+	object 100712583
+		type TODE
+		inside 100712582
+		curdir 1
+		activity attack_party
+
+	object 100712582
+		type EGG_OBJECT(TODE)
+		at 698 316
 		curdir 3
 
 	decorative MOUNT10 at 857 316
@@ -19864,6 +20260,17 @@ iMZ1r00
 		at 642 324
 		curdir 1
 
+	object 100712581
+		type TODE
+		inside 100712580
+		curdir 1
+		activity attack_party
+
+	object 100712580
+		type EGG_OBJECT(TODE)
+		at 695 324
+		curdir 3
+
 	decorative MOUNT10 at 903 324
 
 	decorative MOUNT02 at 904 324
@@ -19953,6 +20360,17 @@ iMZ1r00
 	decorative TREE02 at 598 326
 
 	decorative TREE00 at 601 326
+
+	object 100712655
+		type TODE
+		inside 100712654
+		curdir 1
+		activity attack_party
+
+	object 100712654
+		type EGG_OBJECT(TODE)
+		at 616 326
+		curdir 3
 
 	decorative MOUNT08 at 903 326
 
@@ -20046,6 +20464,17 @@ iMZ1r00
 
 	decorative TREE03 at 605 328
 
+	object 100712579
+		type TODE
+		inside 100712578
+		curdir 1
+		activity attack_party
+
+	object 100712578
+		type EGG_OBJECT(TODE)
+		at 686 328
+		curdir 3
+
 	decorative MOUNT10 at 903 328
 
 	decorative MOUNT01 at 904 328
@@ -20138,6 +20567,17 @@ iMZ1r00
 	object 100670637
 		type EGG_OBJECT(TODE)
 		at 641 330
+		curdir 3
+
+	object 100712577
+		type TODE
+		inside 100712576
+		curdir 1
+		activity attack_party
+
+	object 100712576
+		type EGG_OBJECT(TODE)
+		at 669 330
 		curdir 3
 
 	object 100670638
@@ -20240,6 +20680,17 @@ iMZ1r00
 	decorative MOUNT04 at 907 331
 
 	decorative MOUNT03 at 913 331
+
+	object 100712701
+		type TODE
+		inside 100712700
+		curdir 1
+		activity attack_party
+
+	object 100712700
+		type EGG_OBJECT(TODE)
+		at 935 331
+		curdir 3
 
 	decorative TREE03 at 546 332
 
@@ -20352,6 +20803,17 @@ iMZ1r00
 	decorative TREE00 at 618 333
 
 	decorative TREE00 at 621 333
+
+	object 100712575
+		type TODE
+		inside 100712574
+		curdir 1
+		activity attack_party
+
+	object 100712574
+		type EGG_OBJECT(TODE)
+		at 656 333
+		curdir 3
 
 	decorative MOUNT04 at 909 333
 
@@ -20773,6 +21235,28 @@ iMZ1r00
 	decorative TREE00 at 646 340
 
 	decorative TREE01 at 647 340
+
+	object 100712657
+		type TODE
+		inside 100712656
+		curdir 1
+		activity attack_party
+
+	object 100712656
+		type EGG_OBJECT(TODE)
+		at 661 340
+		curdir 3
+
+	object 100712699
+		type TODE
+		inside 100712698
+		curdir 1
+		activity attack_party
+
+	object 100712698
+		type EGG_OBJECT(TODE)
+		at 942 340
+		curdir 3
 
 	decorative TREE00 at 545 341
 
@@ -21310,6 +21794,17 @@ iMZ1r00
 	decorative TREE01 at 644 348
 
 	decorative TREE03 at 646 348
+
+	object 100712659
+		type TODE
+		inside 100712658
+		curdir 1
+		activity attack_party
+
+	object 100712658
+		type EGG_OBJECT(TODE)
+		at 654 348
+		curdir 3
 
 	object 100671079
 		type TABLE6-V
@@ -21874,6 +22369,17 @@ iMZ1r00
 		at 880 354
 		curdir 1
 
+	object 100712697
+		type TODE
+		inside 100712696
+		curdir 1
+		activity attack_party
+
+	object 100712696
+		type EGG_OBJECT(TODE)
+		at 930 354
+		curdir 3
+
 	object 100671213
 		type STONE_MASK3
 		at 447 355
@@ -22091,6 +22597,17 @@ iMZ1r00
 		type TABLE-SHADOW1
 		at 876 358
 		curdir 2
+
+	object 100712661
+		type TODE
+		inside 100712660
+		curdir 1
+		activity attack_party
+
+	object 100712660
+		type EGG_OBJECT(TODE)
+		at 659 359
+		curdir 3
 
 	object 100671264
 		type TABLE8-L
@@ -22348,6 +22865,17 @@ iMZ1r00
 		at 920 365
 		curdir 0
 		tag 29
+
+	object 100712695
+		type TODE
+		inside 100712694
+		curdir 1
+		activity attack_party
+
+	object 100712694
+		type EGG_OBJECT(TODE)
+		at 945 365
+		curdir 3
 
 	object 100671309
 		type FOOD08
@@ -22716,6 +23244,17 @@ iMZ1r00
 
 	decorative RUBBLE_16 at 613 371
 
+	object 100712663
+		type TODE
+		inside 100712662
+		curdir 1
+		activity attack_party
+
+	object 100712662
+		type EGG_OBJECT(TODE)
+		at 656 371
+		curdir 3
+
 	object 100671394
 		type EGG_OBJECT(BUNNY)
 		at 969 371
@@ -23071,6 +23610,17 @@ iMZ1r00
 	decorative MOUNT06 at 827 380
 
 	decorative MOUNT09 at 828 380
+
+	object 100712693
+		type TODE
+		inside 100712692
+		curdir 1
+		activity attack_party
+
+	object 100712692
+		type EGG_OBJECT(TODE)
+		at 941 380
+		curdir 3
 
 	object 100671491
 		type BUNNY
@@ -23978,6 +24528,17 @@ iMZ1r00
 
 	decorative RUBBLE_12 at 583 389
 
+	object 100712665
+		type TODE
+		inside 100712664
+		curdir 1
+		activity attack_party
+
+	object 100712664
+		type EGG_OBJECT(TODE)
+		at 657 389
+		curdir 3
+
 	decorative MOUNT08 at 812 389
 
 	decorative MOUNT07 at 813 389
@@ -24450,6 +25011,17 @@ iMZ1r00
 
 	decorative MOUNT04 at 871 394
 
+	object 100712667
+		type TODE
+		inside 100712666
+		curdir 1
+		activity attack_party
+
+	object 100712666
+		type EGG_OBJECT(TODE)
+		at 646 395
+		curdir 3
+
 	decorative MOUNT10 at 811 395
 
 	decorative MOUNT02 at 812 395
@@ -24524,6 +25096,17 @@ iMZ1r00
 	decorative MOUNT09 at 865 395
 
 	decorative MOUNT10 at 871 395
+
+	object 100712691
+		type TODE
+		inside 100712690
+		curdir 1
+		activity attack_party
+
+	object 100712690
+		type EGG_OBJECT(TODE)
+		at 949 395
+		curdir 3
 
 	object 100671874
 		type STONEWINDOW1
@@ -24924,6 +25507,17 @@ iMZ1r00
 
 	decorative MOUNT11 at 818 407
 
+	object 100712689
+		type TODE
+		inside 100712688
+		curdir 1
+		activity attack_party
+
+	object 100712688
+		type EGG_OBJECT(TODE)
+		at 943 407
+		curdir 3
+
 	object 100671995
 		type WALL_EDGE
 		at 410 408
@@ -24974,6 +25568,17 @@ iMZ1r00
 	object 100672004
 		type EGG_OBJECT(TODE)
 		at 578 409
+		curdir 3
+
+	object 100712669
+		type TODE
+		inside 100712668
+		curdir 1
+		activity attack_party
+
+	object 100712668
+		type EGG_OBJECT(TODE)
+		at 646 409
 		curdir 3
 
 	object 100672005
@@ -25413,6 +26018,17 @@ iMZ1r00
 
 	decorative TREE02 at 598 420
 
+	object 100712671
+		type TODE
+		inside 100712670
+		curdir 1
+		activity attack_party
+
+	object 100712670
+		type EGG_OBJECT(TODE)
+		at 637 420
+		curdir 3
+
 	object 100672110
 		type BRIDGE_CORE6
 		at 357 421
@@ -25525,6 +26141,17 @@ iMZ1r00
 	decorative TREE02 at 595 421
 
 	decorative TREE02 at 602 421
+
+	object 100712687
+		type TODE
+		inside 100712686
+		curdir 1
+		activity attack_party
+
+	object 100712686
+		type EGG_OBJECT(TODE)
+		at 951 421
+		curdir 3
 
 	object 100672135
 		type BRIDGE_CORE4
@@ -26016,6 +26643,28 @@ iMZ1r00
 		at 580 435
 		curdir 3
 
+	object 100712673
+		type TODE
+		inside 100712672
+		curdir 1
+		activity attack_party
+
+	object 100712672
+		type EGG_OBJECT(TODE)
+		at 639 435
+		curdir 3
+
+	object 100712685
+		type TODE
+		inside 100712684
+		curdir 1
+		activity attack_party
+
+	object 100712684
+		type EGG_OBJECT(TODE)
+		at 945 435
+		curdir 3
+
 	decorative TREE02 at 587 436
 
 	decorative TREE02 at 590 436
@@ -26038,6 +26687,17 @@ iMZ1r00
 	decorative TREE02 at 590 438
 
 	decorative TREE03 at 597 438
+
+	object 100712723
+		type TODE
+		inside 100712722
+		curdir 1
+		activity attack_party
+
+	object 100712722
+		type EGG_OBJECT(TODE)
+		at 940 438
+		curdir 3
 
 	decorative TREE02 at 587 439
 
@@ -26159,6 +26819,17 @@ iMZ1r00
 
 	decorative TREE03 at 600 450
 
+	object 100712675
+		type TODE
+		inside 100712674
+		curdir 1
+		activity attack_party
+
+	object 100712674
+		type EGG_OBJECT(TODE)
+		at 639 450
+		curdir 3
+
 	decorative TREE01 at 589 451
 
 	decorative TREE01 at 605 451
@@ -26214,6 +26885,17 @@ iMZ1r00
 
 	decorative TREE03 at 605 456
 
+	object 100712721
+		type TODE
+		inside 100712720
+		curdir 1
+		activity attack_party
+
+	object 100712720
+		type EGG_OBJECT(TODE)
+		at 931 456
+		curdir 3
+
 	decorative TREE02 at 588 457
 
 	decorative TREE03 at 586 458
@@ -26253,6 +26935,17 @@ iMZ1r00
 
 	decorative TREE02 at 603 459
 
+	object 100712715
+		type TODE
+		inside 100712714
+		curdir 1
+		activity attack_party
+
+	object 100712714
+		type EGG_OBJECT(TODE)
+		at 884 459
+		curdir 3
+
 	decorative TREE02 at 583 460
 
 	decorative TREE01 at 588 460
@@ -26268,6 +26961,28 @@ iMZ1r00
 	decorative TREE02 at 594 461
 
 	decorative TREE03 at 599 461
+
+	object 100712677
+		type TODE
+		inside 100712676
+		curdir 1
+		activity attack_party
+
+	object 100712676
+		type EGG_OBJECT(TODE)
+		at 640 461
+		curdir 3
+
+	object 100712717
+		type TODE
+		inside 100712716
+		curdir 1
+		activity attack_party
+
+	object 100712716
+		type EGG_OBJECT(TODE)
+		at 901 461
+		curdir 3
 
 	object 100672343
 		type TODE
@@ -26378,6 +27093,17 @@ iMZ1r00
 
 	decorative TREE02 at 747 466
 
+	object 100712725
+		type TODE
+		inside 100712724
+		curdir 1
+		activity attack_party
+
+	object 100712724
+		type EGG_OBJECT(TODE)
+		at 964 466
+		curdir 3
+
 	decorative TREE02 at 577 467
 
 	decorative TREE03 at 580 467
@@ -26466,6 +27192,28 @@ iMZ1r00
 
 	decorative TREE03 at 754 468
 
+	object 100712713
+		type TODE
+		inside 100712712
+		curdir 1
+		activity attack_party
+
+	object 100712712
+		type EGG_OBJECT(TODE)
+		at 865 468
+		curdir 3
+
+	object 100712719
+		type TODE
+		inside 100712718
+		curdir 1
+		activity attack_party
+
+	object 100712718
+		type EGG_OBJECT(TODE)
+		at 914 468
+		curdir 3
+
 	decorative TREE01 at 569 469
 
 	decorative TREE02 at 572 469
@@ -26515,6 +27263,17 @@ iMZ1r00
 	decorative TREE01 at 598 470
 
 	decorative TREE03 at 604 470
+
+	object 100712679
+		type TODE
+		inside 100712678
+		curdir 1
+		activity attack_party
+
+	object 100712678
+		type EGG_OBJECT(TODE)
+		at 636 470
+		curdir 3
 
 	decorative TREE01 at 693 470
 
@@ -27592,6 +28351,17 @@ iMZ1r00
 	decorative TREE03 at 619 485
 
 	decorative TREE00 at 623 485
+
+	object 100712681
+		type TODE
+		inside 100712680
+		curdir 1
+		activity attack_party
+
+	object 100712680
+		type EGG_OBJECT(TODE)
+		at 652 485
+		curdir 3
 
 	decorative TREE01 at 655 485
 
@@ -29798,6 +30568,17 @@ iMZ1r00
 	decorative TREE00 at 648 503
 
 	decorative TREE02 at 649 503
+
+	object 100712683
+		type TODE
+		inside 100712682
+		curdir 1
+		activity attack_party
+
+	object 100712682
+		type EGG_OBJECT(TODE)
+		at 653 503
+		curdir 3
 
 	decorative TREE01 at 655 503
 
@@ -35314,6 +36095,17 @@ iMZ1r00
 		at 899 535
 		curdir 3
 
+	object 100712711
+		type TODE
+		inside 100712710
+		curdir 1
+		activity attack_party
+
+	object 100712710
+		type EGG_OBJECT(TODE)
+		at 907 535
+		curdir 3
+
 	decorative MOUNT03 at 956 535
 
 	decorative TREE01 at 623 536
@@ -35917,6 +36709,17 @@ iMZ1r00
 
 	decorative TREE00 at 893 545
 
+	object 100712703
+		type TODE
+		inside 100712702
+		curdir 1
+		activity attack_party
+
+	object 100712702
+		type EGG_OBJECT(TODE)
+		at 957 545
+		curdir 3
+
 	object 100676839
 		type FENCE
 		at 657 546
@@ -36211,6 +37014,17 @@ iMZ1r00
 
 	decorative TREE01 at 907 549
 
+	object 100712709
+		type TODE
+		inside 100712708
+		curdir 1
+		activity attack_party
+
+	object 100712708
+		type EGG_OBJECT(TODE)
+		at 911 549
+		curdir 3
+
 	decorative TREE03 at 960 549
 
 	object 100676975
@@ -36382,6 +37196,17 @@ iMZ1r00
 	decorative TREE03 at 900 551
 
 	decorative TREE01 at 910 551
+
+	object 100712705
+		type TODE
+		inside 100712704
+		curdir 1
+		activity attack_party
+
+	object 100712704
+		type EGG_OBJECT(TODE)
+		at 945 551
+		curdir 3
 
 	decorative TREE02 at 950 551
 
@@ -36636,6 +37461,17 @@ iMZ1r00
 	decorative TREE03 at 911 554
 
 	decorative TREE03 at 915 554
+
+	object 100712707
+		type TODE
+		inside 100712706
+		curdir 1
+		activity attack_party
+
+	object 100712706
+		type EGG_OBJECT(TODE)
+		at 925 554
+		curdir 3
 
 	decorative TREE02 at 949 554
 
@@ -55764,6 +56600,17 @@ iMZ1r00
 
 	decorative TREE03 at 947 692
 
+	object 100712543
+		type TODE
+		inside 100712542
+		curdir 1
+		activity attack_party
+
+	object 100712542
+		type EGG_OBJECT(TODE)
+		at 962 692
+		curdir 3
+
 	decorative MOUNT05 at 965 692
 
 	decorative MOUNT06 at 966 692
@@ -56726,6 +57573,17 @@ iMZ1r00
 
 	decorative TREE01 at 946 698
 
+	object 100712545
+		type TODE
+		inside 100712544
+		curdir 1
+		activity attack_party
+
+	object 100712544
+		type EGG_OBJECT(TODE)
+		at 967 698
+		curdir 3
+
 	decorative TREE03 at 595 699
 
 	decorative TREE02 at 597 699
@@ -57468,6 +58326,17 @@ iMZ1r00
 
 	decorative TREE02 at 942 703
 
+	object 100712541
+		type TODE
+		inside 100712540
+		curdir 1
+		activity attack_party
+
+	object 100712540
+		type EGG_OBJECT(TODE)
+		at 960 703
+		curdir 3
+
 	decorative TREE01 at 961 703
 
 	decorative TREE00 at 962 703
@@ -57759,6 +58628,17 @@ iMZ1r00
 	decorative TREE02 at 943 705
 
 	decorative TREE02 at 944 705
+
+	object 100712539
+		type TODE
+		inside 100712538
+		curdir 1
+		activity attack_party
+
+	object 100712538
+		type EGG_OBJECT(TODE)
+		at 951 705
+		curdir 3
 
 	decorative TREE03 at 594 706
 
@@ -58319,6 +59199,17 @@ iMZ1r00
 	decorative TREE02 at 816 709
 
 	decorative TREE02 at 818 709
+
+	object 100712521
+		type TODE
+		inside 100712520
+		curdir 1
+		activity attack_party
+
+	object 100712520
+		type EGG_OBJECT(TODE)
+		at 831 709
+		curdir 3
 
 	decorative TREE01 at 834 709
 
@@ -59206,6 +60097,17 @@ iMZ1r00
 
 	decorative TREE01 at 931 715
 
+	object 100712537
+		type TODE
+		inside 100712536
+		curdir 1
+		activity attack_party
+
+	object 100712536
+		type EGG_OBJECT(TODE)
+		at 949 715
+		curdir 3
+
 	decorative TREE03 at 953 715
 
 	decorative TREE00 at 957 715
@@ -59335,6 +60237,17 @@ iMZ1r00
 	decorative TREE02 at 879 716
 
 	decorative TREE00 at 889 716
+
+	object 100712529
+		type TODE
+		inside 100712528
+		curdir 1
+		activity attack_party
+
+	object 100712528
+		type EGG_OBJECT(TODE)
+		at 894 716
+		curdir 3
 
 	decorative TREE00 at 913 716
 
@@ -59578,6 +60491,17 @@ iMZ1r00
 
 	decorative TREE00 at 734 718
 
+	object 100712509
+		type TODE
+		inside 100712508
+		curdir 1
+		activity attack_party
+
+	object 100712508
+		type EGG_OBJECT(TODE)
+		at 746 718
+		curdir 3
+
 	decorative TREE01 at 774 718
 
 	decorative TREE01 at 788 718
@@ -59585,6 +60509,17 @@ iMZ1r00
 	decorative TREE02 at 791 718
 
 	decorative TREE02 at 800 718
+
+	object 100712519
+		type TODE
+		inside 100712518
+		curdir 1
+		activity attack_party
+
+	object 100712518
+		type EGG_OBJECT(TODE)
+		at 816 718
+		curdir 3
 
 	decorative TREE01 at 817 718
 
@@ -59748,6 +60683,17 @@ iMZ1r00
 		at 910 719
 		curdir 3
 
+	object 100712535
+		type TODE
+		inside 100712534
+		curdir 1
+		activity attack_party
+
+	object 100712534
+		type EGG_OBJECT(TODE)
+		at 934 719
+		curdir 3
+
 	decorative TREE03 at 944 719
 
 	decorative TREE00 at 946 719
@@ -59827,6 +60773,17 @@ iMZ1r00
 	decorative TREE00 at 797 720
 
 	decorative TREE00 at 801 720
+
+	object 100712517
+		type TODE
+		inside 100712516
+		curdir 1
+		activity attack_party
+
+	object 100712516
+		type EGG_OBJECT(TODE)
+		at 803 720
+		curdir 3
 
 	decorative TREE02 at 829 720
 
@@ -59949,6 +60906,17 @@ iMZ1r00
 
 	decorative TREE02 at 720 721
 
+	object 100712513
+		type TODE
+		inside 100712512
+		curdir 1
+		activity attack_party
+
+	object 100712512
+		type EGG_OBJECT(TODE)
+		at 773 721
+		curdir 3
+
 	decorative TREE01 at 781 721
 
 	decorative TREE02 at 786 721
@@ -60050,6 +61018,17 @@ iMZ1r00
 	decorative TREE02 at 718 722
 
 	decorative TREE02 at 725 722
+
+	object 100712511
+		type TODE
+		inside 100712510
+		curdir 1
+		activity attack_party
+
+	object 100712510
+		type EGG_OBJECT(TODE)
+		at 759 722
+		curdir 3
 
 	decorative TREE01 at 787 722
 
@@ -60206,6 +61185,17 @@ iMZ1r00
 	decorative TREE00 at 898 723
 
 	decorative TREE01 at 903 723
+
+	object 100712531
+		type TODE
+		inside 100712530
+		curdir 1
+		activity attack_party
+
+	object 100712530
+		type EGG_OBJECT(TODE)
+		at 906 723
+		curdir 3
 
 	decorative TREE01 at 911 723
 
@@ -60431,6 +61421,17 @@ iMZ1r00
 
 	decorative TREE00 at 918 725
 
+	object 100712533
+		type TODE
+		inside 100712532
+		curdir 1
+		activity attack_party
+
+	object 100712532
+		type EGG_OBJECT(TODE)
+		at 922 725
+		curdir 3
+
 	decorative TREE01 at 924 725
 
 	decorative TREE01 at 926 725
@@ -60506,6 +61507,17 @@ iMZ1r00
 	decorative TREE00 at 706 726
 
 	decorative TREE01 at 717 726
+
+	object 100712505
+		type TODE
+		inside 100712504
+		curdir 1
+		activity attack_party
+
+	object 100712504
+		type EGG_OBJECT(TODE)
+		at 722 726
+		curdir 3
 
 	decorative TREE00 at 739 726
 
@@ -60642,6 +61654,17 @@ iMZ1r00
 
 	decorative TREE02 at 733 727
 
+	object 100712507
+		type TODE
+		inside 100712506
+		curdir 1
+		activity attack_party
+
+	object 100712506
+		type EGG_OBJECT(TODE)
+		at 733 727
+		curdir 3
+
 	decorative TREE03 at 735 727
 
 	decorative TREE01 at 743 727
@@ -60667,6 +61690,17 @@ iMZ1r00
 	decorative TREE01 at 836 727
 
 	decorative TREE01 at 837 727
+
+	object 100712525
+		type TODE
+		inside 100712524
+		curdir 1
+		activity attack_party
+
+	object 100712524
+		type EGG_OBJECT(TODE)
+		at 857 727
+		curdir 3
 
 	decorative TREE03 at 882 727
 
@@ -60951,6 +61985,17 @@ iMZ1r00
 
 	decorative TREE00 at 878 729
 
+	object 100712527
+		type TODE
+		inside 100712526
+		curdir 1
+		activity attack_party
+
+	object 100712526
+		type EGG_OBJECT(TODE)
+		at 881 729
+		curdir 3
+
 	decorative TREE02 at 883 729
 
 	decorative TREE00 at 885 729
@@ -61049,6 +62094,17 @@ iMZ1r00
 
 	decorative TREE01 at 782 730
 
+	object 100712515
+		type TODE
+		inside 100712514
+		curdir 1
+		activity attack_party
+
+	object 100712514
+		type EGG_OBJECT(TODE)
+		at 786 730
+		curdir 3
+
 	decorative TREE03 at 791 730
 
 	decorative TREE03 at 793 730
@@ -61074,6 +62130,17 @@ iMZ1r00
 	decorative TREE01 at 831 730
 
 	decorative TREE00 at 836 730
+
+	object 100712523
+		type TODE
+		inside 100712522
+		curdir 1
+		activity attack_party
+
+	object 100712522
+		type EGG_OBJECT(TODE)
+		at 840 730
+		curdir 3
 
 	decorative TREE02 at 876 730
 
@@ -62835,7 +63902,29 @@ iMZ1r00
 
 	decorative TREE00 at 667 742
 
+	object 100712565
+		type TODE
+		inside 100712564
+		curdir 1
+		activity attack_party
+
+	object 100712564
+		type EGG_OBJECT(TODE)
+		at 676 742
+		curdir 3
+
 	decorative TREE02 at 690 742
+
+	object 100712503
+		type TODE
+		inside 100712502
+		curdir 1
+		activity attack_party
+
+	object 100712502
+		type EGG_OBJECT(TODE)
+		at 713 742
+		curdir 3
 
 	decorative TREE01 at 717 742
 
@@ -63085,6 +64174,17 @@ iMZ1r00
 
 	decorative TREE00 at 690 744
 
+	object 100712501
+		type TODE
+		inside 100712500
+		curdir 1
+		activity attack_party
+
+	object 100712500
+		type EGG_OBJECT(TODE)
+		at 699 744
+		curdir 3
+
 	decorative TREE02 at 725 744
 
 	decorative TREE02 at 728 744
@@ -63210,6 +64310,17 @@ iMZ1r00
 	decorative TREE01 at 642 745
 
 	decorative TREE01 at 653 745
+
+	object 100712567
+		type TODE
+		inside 100712566
+		curdir 1
+		activity attack_party
+
+	object 100712566
+		type EGG_OBJECT(TODE)
+		at 663 745
+		curdir 3
 
 	decorative TREE00 at 691 745
 
@@ -63944,6 +65055,17 @@ iMZ1r00
 
 	decorative TREE01 at 648 749
 
+	object 100712563
+		type TODE
+		inside 100712562
+		curdir 1
+		activity attack_party
+
+	object 100712562
+		type EGG_OBJECT(TODE)
+		at 684 749
+		curdir 3
+
 	decorative TREE01 at 703 749
 
 	decorative TREE00 at 705 749
@@ -64183,6 +65305,17 @@ iMZ1r00
 	decorative TREE03 at 642 751
 
 	decorative TREE03 at 645 751
+
+	object 100712569
+		type TODE
+		inside 100712568
+		curdir 1
+		activity attack_party
+
+	object 100712568
+		type EGG_OBJECT(TODE)
+		at 651 751
+		curdir 3
 
 	decorative TREE03 at 697 751
 
@@ -64452,6 +65585,17 @@ iMZ1r00
 	decorative TREE02 at 640 753
 
 	decorative TREE00 at 645 753
+
+	object 100712561
+		type TODE
+		inside 100712560
+		curdir 1
+		activity attack_party
+
+	object 100712560
+		type EGG_OBJECT(TODE)
+		at 689 753
+		curdir 3
 
 	decorative TREE02 at 694 753
 
@@ -65014,6 +66158,17 @@ iMZ1r00
 	decorative MOUNT05 at 600 758
 
 	decorative MOUNT09 at 601 758
+
+	object 100712571
+		type TODE
+		inside 100712570
+		curdir 1
+		activity attack_party
+
+	object 100712570
+		type EGG_OBJECT(TODE)
+		at 643 758
+		curdir 3
 
 	decorative TREE00 at 694 758
 
@@ -65600,6 +66755,17 @@ iMZ1r00
 	decorative MOUNT02 at 602 765
 
 	decorative MOUNT03 at 610 765
+
+	object 100712559
+		type TODE
+		inside 100712558
+		curdir 1
+		activity attack_party
+
+	object 100712558
+		type EGG_OBJECT(TODE)
+		at 695 765
+		curdir 3
 
 	decorative TREE01 at 697 765
 
@@ -66482,6 +67648,17 @@ iMZ1r00
 	decorative MOUNT05 at 617 773
 
 	decorative MOUNT09 at 618 773
+
+	object 100712573
+		type TODE
+		inside 100712572
+		curdir 1
+		activity attack_party
+
+	object 100712572
+		type EGG_OBJECT(TODE)
+		at 641 773
+		curdir 3
 
 	decorative TREE02 at 699 773
 
@@ -67562,6 +68739,17 @@ iMZ1r00
 	decorative MOUNT10 at 639 780
 
 	decorative MOUNT02 at 640 780
+
+	object 100712557
+		type TODE
+		inside 100712556
+		curdir 1
+		activity attack_party
+
+	object 100712556
+		type EGG_OBJECT(TODE)
+		at 698 780
+		curdir 3
 
 	decorative TREE02 at 705 780
 
@@ -70310,6 +71498,17 @@ iMZ1r00
 
 	decorative MOUNT07 at 645 797
 
+	object 100712555
+		type TODE
+		inside 100712554
+		curdir 1
+		activity attack_party
+
+	object 100712554
+		type EGG_OBJECT(TODE)
+		at 703 797
+		curdir 3
+
 	decorative TREE00 at 714 797
 
 	object 100692011
@@ -72826,6 +74025,17 @@ iMZ1r00
 
 	decorative MOUNT04 at 644 811
 
+	object 100712553
+		type TODE
+		inside 100712552
+		curdir 1
+		activity attack_party
+
+	object 100712552
+		type EGG_OBJECT(TODE)
+		at 702 811
+		curdir 3
+
 	object 100692918
 		type TABLE6-H
 		at 818 811
@@ -74622,6 +75832,17 @@ iMZ1r00
 
 	decorative MOUNT11 at 630 822
 
+	object 100712551
+		type TODE
+		inside 100712550
+		curdir 1
+		activity attack_party
+
+	object 100712550
+		type EGG_OBJECT(TODE)
+		at 696 822
+		curdir 3
+
 	decorative TREE02 at 711 822
 
 	decorative TREE01 at 712 822
@@ -75126,6 +76347,17 @@ iMZ1r00
 
 	decorative MOUNT09 at 630 826
 
+	object 100712549
+		type TODE
+		inside 100712548
+		curdir 1
+		activity attack_party
+
+	object 100712548
+		type EGG_OBJECT(TODE)
+		at 686 826
+		curdir 3
+
 	decorative TREE01 at 710 826
 
 	decorative TREE00 at 714 826
@@ -75358,6 +76590,17 @@ iMZ1r00
 	decorative MOUNT04 at 625 828
 
 	decorative MOUNT03 at 630 828
+
+	object 100712547
+		type TODE
+		inside 100712546
+		curdir 1
+		activity attack_party
+
+	object 100712546
+		type EGG_OBJECT(TODE)
+		at 668 828
+		curdir 3
 
 	decorative TREE01 at 708 828
 
