@@ -3203,19 +3203,22 @@ else
  *      IsOnscreen() - is an NPC on screen?
  */
 
-int IsOnscreen(char *pname)
-{
+int IsOnscreen(char *pname) {
 OBJECT *temp;
 
-for(int y=0;y<VSH;y++)
-    for(int x=0;x<VSW;x++)
-        for(temp = GetObjectBase(x+mapx,y+mapy);temp;temp=temp->next)
-            if(temp->personalname)
-		{
-//		ilog_quiet("is_onscreen: found '%s', seeking '%s'\n",temp->personalname,pname);
-                if(!istricmp(temp->personalname,pname))
-                    return 1;
+for(int y=0;y<VSH;y++) {
+	for(int x=0;x<VSW;x++) {
+		for(temp = GetObjectBase(x+mapx,y+mapy);temp;temp=temp->next) {
+			if(temp->personalname) {
+//				ilog_quiet("is_onscreen: found '%s', seeking '%s'\n",temp->personalname,pname);
+				if(!istricmp_fuzzy(temp->personalname,pname)) {
+					ilog_quiet("FOUND IT\n");
+					return 1;
+				}
+			}
 		}
+	}
+}
 return 0;
 }
 
