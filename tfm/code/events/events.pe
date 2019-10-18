@@ -668,6 +668,7 @@ int f
 let found_obj = 0
 search_inside player calling look_for_jug
 if found_obj = 1
+	talk_to "people/church/lord.txt" "hell3"
 	return
 endif
 

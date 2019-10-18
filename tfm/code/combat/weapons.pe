@@ -52,6 +52,10 @@ set_direction attacker = attacker.curdir
 # Apply the damage
 if new_x = attacker.enemy.x
 and new_y = attacker.enemy.y
+	# Attribute blame
+	if_not_exists attacker.enemy.enemy
+		let attacker.enemy.enemy = attacker
+	endif
 	# Hurt me
 	add attacker.enemy.stats.hp - attacker.stats.damage
 	check_hurt attacker.enemy
@@ -96,6 +100,10 @@ set_direction attacker = attacker.curdir
 # Apply the damage
 if new_x = attacker.enemy.x
 and new_y = attacker.enemy.y
+	# Attribute blame
+	if_not_exists attacker.enemy.enemy
+		let attacker.enemy.enemy = attacker
+	endif
 	# Hurt me
 	add attacker.enemy.stats.hp - attacker.stats.damage
 	check_hurt attacker.enemy

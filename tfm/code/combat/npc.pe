@@ -540,6 +540,57 @@ end
 
 
 ##
+##  Jesus turns on the Pope
+##
+
+function single_attackpope
+activity
+object pope
+
+find_nearest pope = "man_pope" near me
+
+# They did order this
+let pope.enemy = player
+
+if_exists current
+	let current.enemy = pope
+else
+	if_exists me
+		let me.enemy = pope
+	endif
+endif
+
+let pope.stats.hp = 10
+call single_attackenemy
+end
+
+
+##
+##  Jesus turns on the Cardinal
+##
+
+function single_attackcardinal
+activity
+object cardinal
+
+find_nearest cardinal = "man_cardinal" near me
+# They did order this
+let cardinal.enemy = player
+
+
+if_exists current
+	let current.enemy = cardinal
+else
+	if_exists me
+		let me.enemy = cardinal
+	endif
+endif
+
+call single_attackenemy
+end
+
+
+##
 ##  Attack the enemy once
 ##
 

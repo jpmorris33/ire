@@ -653,6 +653,12 @@ end
 ##  Cook the player
 ##
 
+function fry_player
+let current = player
+let current.enemy = player
+call fry_current
+end
+
 function fry_current
 object oldme
 

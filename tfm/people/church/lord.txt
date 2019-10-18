@@ -677,3 +677,22 @@ A glowing ball of fire appears before you.
 [delay 3]
 [nextpage="exit"]
 [endpage]
+
+
+[page="hell3"]
+[esc="disabled"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+A glowing ball of fire appears before you.
+[colour="#ffffff"]
+
+"Okay, okay.  Maybe I underestimated you.
+ But consider the alternatives to what you're doing!
+
+ You can transcend your mortality... I can make you
+ into a god as well!  Would you throw that away?"
+
+[delay 3]
+[nextpage="exit"]
+[endpage]
