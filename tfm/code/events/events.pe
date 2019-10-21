@@ -665,11 +665,16 @@ end
 function go_to_hell
 int f
 
+get_user_flag f = "hell_proofed"
+
 let found_obj = 0
 search_inside player calling look_for_jug
 if found_obj = 1
-	talk_to "people/church/lord.txt" "hell3"
-	return
+	if f = 0
+		talk_to "people/church/lord.txt" "hell3"
+		set_user_flag "hell_proofed" = 1
+		return
+	endif
 endif
 
 get_user_flag f = "been_to_hell"
@@ -691,12 +696,8 @@ end
 ##
 
 function jug_of_insanity
+play_sound "electricjug"
 
-# Maybe play a sample of some electric jug instead
-if me = player
-	print "~Bblplpl!~"
-	printcr
-endif
 change_map 2 tag 616
 end
 

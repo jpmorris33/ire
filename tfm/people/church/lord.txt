@@ -672,7 +672,11 @@ A glowing ball of fire appears before you.
 A glowing ball of fire appears before you.
 [colour="#ffffff"]
 
-"I didn't say you could leave.  Back you go!"
+[if hell_proofed]"Not so high and mighty now, are we?
+[if hell_proofed] Back to hell with you!"
+[if_not hell_proofed]"I didn't say you could leave.
+[if_not hell_proofed] Back you go!"
+
 
 [delay 3]
 [nextpage="exit"]

@@ -12987,6 +12987,7 @@ section: characters
 	description	"You see a wall-mounted data display."
 	short		"display"
 	fixed
+	solid
 	IfUsed		BOOK_USE
 
 	alias DATAPANEL2 = DATAPANEL
