@@ -1,0 +1,14 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+Sinners, know that there is but one way to escape
+the lake of fire!
+
+Seek, therefore,  the jug that forgives all sins,
+the Jug of Salvation, for verily it is known that
+any who drink from its sweet waters shall receive
+thereof, though he be in the pits of hell itself.
+
+[nextpage="exit"]
+[endpage]
