@@ -30,24 +30,36 @@ static char ConnSstr[]="None  ";
 static char ConnWstr[]="None  ";
 static char ConnEstr[]="None  ";
 
-static char *Brushes[]=	{
-						"-             ",
-						"BRUSH  1X1    ",
-						"BRUSH  2X2    ",
-						"BRUSH  4X4    ",
-						"BRUSH  8X8    ",
-						"BRUSH 16X16   ",
-						"BRUSH 32X32   ",
-						"ROOF  8X8     ",
-						"ROOF 32X32    ",
-						"SPRAYCAN      ",
-						NULL,
-						};
+#define BRUSH_NONE	0
+#define BRUSH_MAP	1
+#define BRUSH_LIGHT	2
+#define BRUSH_ROOF	3
+#define BRUSH_SPRAY	4
 
-static int BrushType[]={0,1,2,4,8,16,32,-8,-32,-1};	// MUST MATCH Brushes[]
+struct BRUSH {
+	char *name;
+	char mode;
+	char size;
+};
+
+static BRUSH Brushes[] = {
+	{	"-             ",	BRUSH_NONE,	0},
+	{	"BRUSH  1X1    ",	BRUSH_MAP,	1},
+	{	"BRUSH  2X2    ",	BRUSH_MAP,	2},
+	{	"BRUSH  4X4    ",	BRUSH_MAP,	4},
+	{	"BRUSH  8X8    ",	BRUSH_MAP,	8},
+	{	"BRUSH 16X16   ",	BRUSH_MAP,	16},
+	{	"BRUSH 32X32   ",	BRUSH_MAP,	32},
+	{	"LIGHT 16X16   ",	BRUSH_LIGHT,	16},
+	{	"LIGHT 32X32   ",	BRUSH_LIGHT,	32},
+	{	"ROOF   8X8    ",	BRUSH_ROOF,	8},
+	{	"ROOF  32X32   ",	BRUSH_ROOF,	32},
+	{	"SPRAYCAN      ",	BRUSH_SPRAY,	32},
+	{	NULL,			BRUSH_NONE,	0}
+};
 
 extern int focus,BM_Id;
-extern int L_bgtile,L_rooftile;
+extern int L_bgtile,L_rooftile,L_lighttile;
 //static int PathMode=0;
 
 extern long M_core;     // Total amount of core, from memory.cc
@@ -59,6 +71,7 @@ extern int l_proj;      // Flag, are layers being displayed?
 extern void WriteRoof(int x,int y,int tile);
 extern int ReadRoof(int x,int y);
 extern int ReadMap(int x,int y);
+extern void WriteLight(int x,int y,int tile);
 extern int ReadLight(int x,int y);
 extern void WriteMap(int x,int y, int tile);
 extern void Toolbar();
@@ -73,7 +86,8 @@ static void PanLeft();
 static void PanRight();
 static void SetL();
 static void Spray();
-static void SetRoofL(int WIDF);
+static void SetRoofL(int brushsize);
+static void SetLightL(int brushsize);
 static void GoMap();
 static void GetBrush();
 static void Nothing();
@@ -110,8 +124,8 @@ IG_TextButton(500,128,__left,PanLeft,NULL,NULL);     // Pan left button
 IG_TextButton(532,128,__right,PanRight,NULL,NULL);   // Pan right button
 IG_TextButton(516,150,__down,PanDown,NULL,NULL);     // Pan down button
 
-BR_Id = IG_InputButton(472,256,Brushes[BrushMode],GetBrush,NULL,NULL);
-IG_SetInText(BR_Id,Brushes[BrushMode]);
+BR_Id = IG_InputButton(472,256,Brushes[BrushMode].name,GetBrush,NULL,NULL);
+IG_SetInText(BR_Id,Brushes[BrushMode].name);
 
 temp = IG_ToggleButton(556,96,"Solid off",Nothing,NULL,NULL,&ShowSolid);
 IG_SetInText(temp,"Solid on");
@@ -387,25 +401,29 @@ void SetL()
 int hx,hy,xx,yy,nodraw=0,div;
 static int lastx=666,lasty=666;
 IRECOLOUR *col;
-int WIDF;
+int brushsize, mode;
 
 if(!BrushMode)
 	return;
 
-WIDF=BrushType[BrushMode]; // Width of the brush
+brushsize=Brushes[BrushMode].size; // Width of the brush
+mode = Brushes[BrushMode].mode;
 
-if(WIDF < 1) // Is it a special brush?
-	{
-	if(WIDF == -1)
-		{
-		Spray();
-		return;
-		}
-
-	// If it isn't the spraycan, it's probably a roof paint job
-	SetRoofL(-WIDF);
-	return;
+if(mode != BRUSH_MAP) { // Is it a special brush?
+	switch(mode) {
+		case BRUSH_SPRAY:
+			Spray();
+			return;
+		case BRUSH_LIGHT:
+			SetLightL(brushsize);
+			return;
+		case BRUSH_ROOF:
+			SetRoofL(brushsize);
+			return;
+		default:
+			return;
 	}
+}
 
 
 hx = (x-64)+pmx;
@@ -421,18 +439,19 @@ if(L_bgtile==RANDOM_TILE)
 else
 	col=TIlist[L_bgtile].form->seq[0]->thumbcol;
 
-if(hx>(curmap->w-WIDF))
-	hx=(curmap->w-WIDF);
-if(hy>(curmap->h-WIDF))
-	hy=(curmap->h-WIDF);
+if(hx>(curmap->w-brushsize))
+	hx=(curmap->w-brushsize);
+if(hy>(curmap->h-brushsize))
+	hy=(curmap->h-brushsize);
 
-for(xx=0;xx<WIDF;xx++)
-	for(yy=0;yy<WIDF;yy++)
-		{
+for(xx=0;xx<brushsize;xx++) {
+	for(yy=0;yy<brushsize;yy++) {
 		WriteMap(hx+xx,hy+yy,L_bgtile);
-		if(x+xx<448 && y+yy<448)
+		if(x+xx<448 && y+yy<448) {
 			swapscreen->PutPixel(x+xx,y+yy,col);
 		}
+	}
+}
 div=curmap->w>>6; // divide by 64
 swapscreen->PutPixel(MicroX+(hx/div),MicroY+(hy/div),col);
 }
@@ -481,7 +500,7 @@ for(xx=0;xx<8;xx++)
 //putpixel(swapscreen,MicroX+(hx/div),MicroY+(hy/div),col);
 }
 
-void SetRoofL(int WIDF)
+void SetRoofL(int brushsize)
 {
 int hx,hy,xx,yy,nodraw=0,temp;
 static int lastx=666,lasty=666;
@@ -494,32 +513,69 @@ if(hx==lastx && hy==lasty)
 	nodraw=1;
 lastx=hx;lasty=hy;
 
-if(hx>(curmap->w-WIDF))
-	hx=(curmap->w-WIDF);
-if(hy>(curmap->h-WIDF))
-	hy=(curmap->h-WIDF);
+if(hx>(curmap->w-brushsize))
+	hx=(curmap->w-brushsize);
+if(hy>(curmap->h-brushsize))
+	hy=(curmap->h-brushsize);
 
-for(xx=0;xx<WIDF;xx++)
-	for(yy=0;yy<WIDF;yy++)
-		{
+for(xx=0;xx<brushsize;xx++) {
+	for(yy=0;yy<brushsize;yy++) {
 		WriteRoof(hx+xx,hy+yy,L_rooftile);
-		if(x+xx<448 && y+yy<448)
-			{
-			if(L_rooftile)
-				swapscreen->PutPixel(x+xx,y+yy,ITG_RED);
-			else
-				{
+		if(x+xx<448 && y+yy<448) {
+			if(L_rooftile) {
+				swapscreen->PutPixel(x+xx,y+yy,ITG_RED);	
+			} else {
+				// Erase
 				temp = ReadMap(hx+xx,hy+yy);
-				if(temp==RANDOM_TILE)
+				if(temp==RANDOM_TILE) {
 					swapscreen->PutPixel(x+xx,y+y,ITG_BLUE);
-				else
+				} else {
 					swapscreen->PutPixel(x+xx,y+yy,TIlist[temp].form->seq[0]->thumbcol);
 				}
 			}
 		}
-//div=curmap->w>>6; // divide by 64
-//putpixel(swapscreen,MicroX+(hx/div),MicroY+(hy/div),col);
+	}
 }
+}
+
+void SetLightL(int brushsize)
+{
+int hx,hy,xx,yy,nodraw=0,temp;
+static int lastx=666,lasty=666;
+
+hx = (x-64)+pmx;
+hy = (y-64)+pmy;
+
+nodraw=0;
+if(hx==lastx && hy==lasty)
+	nodraw=1;
+lastx=hx;lasty=hy;
+
+if(hx>(curmap->w-brushsize))
+	hx=(curmap->w-brushsize);
+if(hy>(curmap->h-brushsize))
+	hy=(curmap->h-brushsize);
+
+for(xx=0;xx<brushsize;xx++) {
+	for(yy=0;yy<brushsize;yy++) {
+		WriteLight(hx+xx,hy+yy,L_lighttile);
+		if(x+xx<448 && y+yy<448) {
+			if(L_lighttile) {
+				swapscreen->PutPixel(x+xx,y+yy,ITG_RED);	
+			} else {
+				// Erase
+				temp = ReadMap(hx+xx,hy+yy);
+				if(temp==RANDOM_TILE) {
+					swapscreen->PutPixel(x+xx,y+y,ITG_BLUE);
+				} else {
+					swapscreen->PutPixel(x+xx,y+yy,TIlist[temp].form->seq[0]->thumbcol);
+				}
+			}
+ 		}
+	}
+}
+}
+
 
 void Nothing()
 {
@@ -670,17 +726,23 @@ void GetBrush()
 {
 int ctr;
 char brush[256];
+char *brushnames[32];
 
-for(ctr=0;Brushes[ctr];ctr++);
+for(ctr=0;Brushes[ctr].name;ctr++) {
+	if(ctr>31) {
+		break;
+	}
+	brushnames[ctr]=Brushes[ctr].name;
+}
 
-strcpy(brush,Brushes[BrushMode]);
-InputNameFromList(-1,-1, "Choose a brush type:", ctr, Brushes, brush);
+strcpy(brush,Brushes[BrushMode].name);
+InputNameFromList(-1,-1, "Choose a brush type:", ctr, brushnames, brush);
 
-for(ctr=0;Brushes[ctr];ctr++)
-	if(!strcmp(brush,Brushes[ctr]))
+for(ctr=0;Brushes[ctr].name;ctr++)
+	if(!strcmp(brush,Brushes[ctr].name))
 		{
 		BrushMode=ctr;
-		IG_UpdateText(BR_Id,Brushes[BrushMode]);
+		IG_UpdateText(BR_Id,Brushes[BrushMode].name);
 		return;
 		}
 }

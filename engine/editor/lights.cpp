@@ -30,6 +30,7 @@ extern IREBITMAP *lighticon;
 
 static int curoff=0;    // Current position on the tile list at the bottom
 static int L=0,R=0;     // Current tile for each button, Lclick and Rclick
+int L_lighttile=0;
 static int Xl00_Id,Xl50_Id,Xl99_Id,XlPr_Id;
 
 // functions
@@ -242,6 +243,7 @@ for(int ctr=0;ctr<co;ctr++)
 	if(x>33+(34*ctr) && x<65+(34*ctr))
 		{
 		L=ctr+curoff;
+		L_lighttile = L; // For big-map painting
                 if(!L)
                     fbox2(448,192,32,32,0,swapscreen);
                 else
