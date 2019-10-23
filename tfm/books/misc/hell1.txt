@@ -1,14 +1,16 @@
 [page="start"]
+[journal "jrn_JugSalvation"]
 [backing="paper.pcx"]
 [font 3]
+                The Tome of Elucidation
 
-Sinners, know that there is but one way to escape
-the lake of fire!
+    Sinners, know that there is but one way to escape
+    the lake of fire!
 
-Seek, therefore,  the jug that forgives all sins,
-the Jug of Salvation, for verily it is known that
-any who drink from its sweet waters shall receive
-thereof, though he be in the pits of hell itself.
+    Seek, therefore, the jug that forgives all sins,
+    the Jug of Salvation, for verily it is known that
+    any who drink from its sweet waters shall receive
+    thereof, though he be in the pits of Hell itself.
 
 [nextpage="exit"]
 [endpage]

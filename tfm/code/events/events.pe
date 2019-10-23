@@ -673,8 +673,8 @@ if found_obj = 1
 	if f = 0
 		talk_to "people/church/lord.txt" "hell3"
 		set_user_flag "hell_proofed" = 1
-		return
 	endif
+	return
 endif
 
 get_user_flag f = "been_to_hell"
@@ -691,15 +691,6 @@ set_user_flag "been_to_hell" = 1
 change_map 6 tag 1
 end
 
-##
-## The jug lets you escape from Hell, or other places
-##
-
-function jug_of_insanity
-play_sound "electricjug"
-
-change_map 2 tag 616
-end
 
 ##
 ##  Give the player experience

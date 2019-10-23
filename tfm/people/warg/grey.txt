@@ -326,14 +326,14 @@ You see King Grey, leader of the Waarg.
 "Well met, $PLAYER."
 
 [link="What are the Waarg?"]
-[altlink="Tell me again about the Waarg."]
 [linkto="waarg"]
+[altlink="Tell me again about the Waarg."]
 [link="Why are you called 'Grey'?"]
-[altlink="Tell me again why you are called 'Grey'."]
 [linkto="grey"]
+[altlink="Tell me again why you are called 'Grey'."]
 [link="Tell me about Aa'Ruuff and the code."]
-[altlink="Tell me again about Aa'Ruuff and the code."]
 [linkto="code"]
+[altlink="Tell me again about Aa'Ruuff and the code."]
 [endpage]
 
 

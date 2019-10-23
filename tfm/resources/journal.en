@@ -203,3 +203,15 @@ start:
 I have met the dragon Saxiis, who has suggested I seek her fellow dragons.
 Saxiis has given me a password, '631824', which I will need to enter her brothers' domain.
 end
+
+name jrn_JugSalvation
+tag task
+title Find the Jug of Salvation
+start:
+I've found a cryptic note hinting at an artifact called the 'Jug of Salvation', that may offer a way out of this hellish landscape.
+end
+
+name jrn_JugSalvation2
+start:
+I've found a jug and somehow used it to escape Hell.
+end

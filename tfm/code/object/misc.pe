@@ -605,3 +605,39 @@ function necronomicon2
 	let player.user.user18 = 100
 	overfx player does fx_deathorbit
 end
+
+
+##
+## The jug lets you escape from Hell, or other places
+##
+
+function jug_of_insanity
+
+finish_journal "jrn_JugSalvation"
+journal "jrn_JugSalvation2"
+play_sound "electricjug"
+
+change_map 2 tag 616
+end
+
+
+
+##
+##  Use function for a special lever
+##
+
+function free_grey
+object door
+
+find_tag door = "StoneDoor4_Shut" current.tag
+if_exists door
+	replace door = "StoneDoor4_Open"
+	object_sound "portcullis_open" door
+	set_user_flag "freed_grey" = 1
+	let door.tag = 0 # Stop the player locking him up again
+else
+	# Nothing happens
+	object_sound "portcullis_clunk" current
+endif
+
+end
