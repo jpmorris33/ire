@@ -241,6 +241,7 @@ enum {
 	PEVM_FindTitle,
 	PEVM_AddJournal,
 	PEVM_AddJournal2,
+	PEVM_EndJournal,
 	PEVM_DrawJournal,
 	PEVM_DrawJournalDay,
 	PEVM_DrawJournalTasks,

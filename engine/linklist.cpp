@@ -845,12 +845,17 @@ if(Journal->id == ID && ID >=0)
 	return NULL;
 	}
 
-for(ptr = Journal;ptr->next;ptr=ptr->next)
-	{
+for(ptr = Journal;ptr->next;ptr=ptr->next) {
 //	printf("Entry %d is present\n",ptr->id);
-	if(ptr->id >= 0 && ptr->id == ID)
+	if(ptr->id >= 0 && ptr->id == ID) {
 		return NULL;  // Not Permitted
 	}
+}
+
+// Check the one at the end
+if(ptr->id >= 0 && ptr->id == ID) {
+	return NULL;  // Not Permitted
+}
 
 //printf("Entry not alread present\n");
 
@@ -928,7 +933,7 @@ JOURNALENTRY *J_Find(const char *name) {
 		return Journal;
 	}
 
-	for(ptr = Journal;ptr->next;ptr=ptr->next) {
+	for(ptr = Journal;ptr;ptr=ptr->next) {
 		if(!stricmp(ptr->name, name)) {
 			return ptr;
 		}

@@ -374,6 +374,7 @@ static void PV_FindString();
 static void PV_FindTitle();
 static void PV_AddJournal();
 static void PV_AddJournal2();
+static void PV_EndJournal();
 static void PV_DrawJournal();
 static void PV_DrawJournalDay();
 static void PV_DrawJournalTasks();
@@ -1412,6 +1413,7 @@ VMOP(FindString);
 VMOP(FindTitle);
 VMOP(AddJournal);
 VMOP(AddJournal2);
+VMOP(EndJournal);
 VMOP(DrawJournal);
 VMOP(DrawJournalDay);
 VMOP(DrawJournalTasks);
@@ -6983,7 +6985,7 @@ make_journaldate(date);
 
 if(name)
 	{
-	id=getnum4string(name);
+	id=getnum4stringname(name);
 	if(id < 0)
 		Bug("ERROR:  Journal entry not found for string '%s'\n",name);
 	else
@@ -7011,6 +7013,23 @@ if(entry)
 	 entry->title = stradd(NULL,title);
 	 entry->text = stradd(NULL,data);
 	 }
+}
+
+void PV_EndJournal()
+{
+char *name;
+int id;
+name = GET_STRING();
+CHECK_POINTER(name);
+
+JOURNALENTRY *journal = J_Find(name);
+if(!journal) {
+	pevm_err=1;
+	return;
+}
+pevm_err=0;
+printf(">found\n<");
+journal->status = 100;
 }
 
 
