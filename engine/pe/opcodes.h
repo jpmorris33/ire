@@ -83,6 +83,7 @@ enum {
 	PEVM_GetFirstObject,
 	PEVM_GetTile,
 	PEVM_GetObjectBelow,
+	PEVM_GetBridge,
 	PEVM_ChangeObject,
 	PEVM_ChangeObjectS,
 	PEVM_ReplaceObject,

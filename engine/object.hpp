@@ -37,7 +37,7 @@ extern OBJECT *GetObject(int x,int y);
 extern OBJECT *GetObjectBase(int x,int y);
 extern OBJECT *GameGetObject(int x,int y);
 extern OBJECT *GetRawObjectBase(int x,int y);
-extern int IsBridge(int x,int y);
+extern OBJECT *GetBridge(int x,int y);
 extern void ForceDropObject(int x,int y, OBJECT *object);
 extern void DestroyObject(OBJECT *obj);
 extern void DelDecor(int x,int y, OBJECT *o);

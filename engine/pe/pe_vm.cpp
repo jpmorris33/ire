@@ -201,6 +201,7 @@ static void PV_GetSolidObject();
 static void PV_GetFirstObject();
 static void PV_GetTile();
 static void PV_GetObjectBelow();
+static void PV_GetBridge();
 static void PV_ChangeObject();
 static void PV_ChangeObjectS();
 static void PV_ReplaceObject();
@@ -1233,6 +1234,7 @@ VMOP(GetSolidObject);
 VMOP(GetFirstObject);
 VMOP(GetTile);
 VMOP(GetObjectBelow);
+VMOP(GetBridge);
 VMOP(ChangeObject);
 VMOP(ChangeObjectS);
 VMOP(ReplaceObject);
@@ -3206,6 +3208,20 @@ obj2 = GET_OBJECT();
 CHECK_POINTER(obj2);
 
 *obj1 = get_object_below(*obj2);
+}
+
+void PV_GetBridge()
+{
+OBJECT **obj;
+VMINT *x,*y;
+obj = (OBJECT **)GET_INT(); // Hack: get pointer without final NULL check
+CHECK_POINTER(obj);
+x = GET_INT();
+CHECK_POINTER(x);
+y = GET_INT();
+CHECK_POINTER(y);
+
+*obj = GetBridge(*x,*y);
 }
 
 void PV_ChangeObject()

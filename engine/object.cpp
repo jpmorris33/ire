@@ -580,7 +580,7 @@ if(object->flags & IS_LARGE)
 				// If there is a boat over water, allow anything to rest on it
 				// Also drives the shore and bridges
 				if(tile->flags & IS_WATER)
-					if(IsBridge(sx+x+blockx,sy+y+blocky))
+					if(GetBridge(sx+x+blockx,sy+y+blocky))
 						{
 //						ilog_printf("Bridge allow\n");
 						allow=1;
@@ -847,7 +847,7 @@ for(;src;src=src->next)
 
 // If the new tile is water, then say so.
 if(desttile->flags & IS_WATER)
-	if(!IsBridge(x,y))	// No bridge?
+	if(!GetBridge(x,y))	// No bridge?
 		destwater=1;
  // If the object is going to rest on a boat, then say it isn't water
 for(;dest;dest=dest->next)
@@ -1607,15 +1607,14 @@ return NULL;
 
 
 /*
- *    IsBridge(int x,int y)  -  return true if square contains a bridge
+ *    GetBridge(int x,int y)  -  return bridge object if square contains a bridge
  */
 
-int IsBridge(int x,int y)
-{
+OBJECT *GetBridge(int x,int y) {
 OBJECT *anchor,*a2;
 
 if(x<0 || x>=curmap->w || y<0 || y>=curmap->h)
-	return 0;
+	return NULL;
 
 // Find the list
 
@@ -1623,20 +1622,24 @@ anchor=curmap->objmap[ytab[y]+x];
 a2=NULL;
 
 // Find it in the Large Object list if possible
-if(x>=mapx && x<=(mapx+VSW))
-	if(y>=mapy && y<=(mapy+VSH))
-		{
+if(x>=mapx && x<=(mapx+VSW)) {
+	if(y>=mapy && y<=(mapy+VSH)) {
 		a2=bridgemap[VIEWDIST+x-mapx][VIEWDIST+y-mapy];
-		if(a2 && a2->flags & IS_ON)
-			return 1;
+		if(a2 && a2->flags & IS_ON) {
+			return a2;
 		}
+	}
+}
 
-for(;anchor;anchor=anchor->next)
-	if(anchor->flags & IS_WATER)
-		if(anchor->flags & IS_ON)
-			return 1;
+for(;anchor;anchor=anchor->next) {
+	if(anchor->flags & IS_WATER) {
+		if(anchor->flags & IS_ON) {
+			return anchor;
+		}
+	}
+}
 
-return 0;
+return NULL;
 }
 
 

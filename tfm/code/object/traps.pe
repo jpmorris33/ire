@@ -110,9 +110,16 @@ end
 
 
 function lava_incinerate
+object bridge
 
 # If it goes under minus a million it's probably not meant to be destroyed
 if victim.stats.hp < -1000000
+	return
+endif
+
+get_bridge bridge at victim.x victim.y
+if_exists bridge
+	# Ah.
 	return
 endif
 
