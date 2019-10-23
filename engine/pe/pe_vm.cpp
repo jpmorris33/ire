@@ -6983,9 +6983,16 @@ char date[64];
 
 make_journaldate(date);
 
-if(name)
-	{
-	id=getnum4stringname(name);
+// This may be a raw string ('s' or 'S') or a string pointer ('P')
+// But we need to treat those differently
+if(name) {
+	// First try the string pointer
+	id=getnum4string(name);
+	if(id < 0) {
+		// Then try a raw string
+		id=getnum4stringname(name);
+	}
+
 	if(id < 0)
 		Bug("ERROR:  Journal entry not found for string '%s'\n",name);
 	else
@@ -7028,7 +7035,6 @@ if(!journal) {
 	return;
 }
 pevm_err=0;
-printf(">found\n<");
 journal->status = 100;
 }
 
