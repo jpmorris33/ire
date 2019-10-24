@@ -272,12 +272,13 @@ co=17;
 if(TItot<17)
     co=TItot;
 IG_BlackPanel(31,399,578,34);
-for(int ctr=0;ctr<co;ctr++)
-	{
+for(int ctr=0;ctr<co;ctr++) {
 	TIlist[ctr+curoff].form->seq[editor_tip[ctr+curoff]]->image->Draw(swapscreen,33+(34*ctr),401);
-//	draw_rle_sprite(swapscreen,TIlist[ctr+curoff].form->seq[editor_tip[ctr+curoff]]->image,33+(34*ctr),401);
-//	TIlist[ctr+curoff].form->seq[0]->image.block_put_sprite(33+(34*ctr),401,swapscreen);
+	if(TIlist[ctr+curoff].form->overlay) {
+		TIlist[ctr+curoff].form->overlay->image->Draw(swapscreen,33+(34*ctr),401);
 	}
+}
+
 }
 
 void GetL()
@@ -287,14 +288,15 @@ char string[10];
 
 co=17;
 if(TItot<17) co=TItot;
-for(int ctr=0;ctr<co;ctr++)
-	if(x>33+(34*ctr) && x<65+(34*ctr))
-		{
+for(int ctr=0;ctr<co;ctr++) {
+	if(x>33+(34*ctr) && x<65+(34*ctr)) {
 		L=ctr+curoff;
 		L_bgtile=L;
 //		TIlist[L].form->seq[0]->image.block_put_sprite(400,192,swapscreen);
 		TIlist[L].form->seq[0]->image->Draw(swapscreen,400,192);
-//		draw_rle_sprite(swapscreen,TIlist[L].form->seq[0]->image,400,192);
+		if(TIlist[L].form->overlay) {
+			TIlist[L].form->overlay->image->Draw(swapscreen,400,192);
+		}
 		itoa(L,string,10);
 		SetColor(ITG_LIGHTGRAY);
 		DrawScreenBox(400,232,432,240);
@@ -308,7 +310,8 @@ for(int ctr=0;ctr<co;ctr++)
 		lastx=-666; // force a lastx,y reset
 
 		return;
-		}
+	}
+}
 }
 
 void GetR()
@@ -318,13 +321,13 @@ char string[10];
 co=17;
 if(TItot<17)
      co=TItot;
-for(int ctr=0;ctr<co;ctr++)
-	if(x>33+(34*ctr) && x<65+(34*ctr))
-		{
+for(int ctr=0;ctr<co;ctr++) {
+	if(x>33+(34*ctr) && x<65+(34*ctr)) {
 		R=ctr+curoff;
-//		TIlist[R].form->seq[0]->image.block_put_sprite(448,192,swapscreen);
-//		draw_rle_sprite(swapscreen,TIlist[R].form->seq[0]->image,448,192);
 		TIlist[R].form->seq[0]->image->Draw(swapscreen,448,192);
+		if(TIlist[R].form->overlay) {
+			TIlist[R].form->overlay->image->Draw(swapscreen,448,192);
+		}
 		itoa(R,string,10);
 		SetColor(ITG_LIGHTGRAY);
 		DrawScreenBox(450,232,480,240);
@@ -339,7 +342,8 @@ for(int ctr=0;ctr<co;ctr++)
 				cycleptr=R;
 
 		return;
-		}
+	}
+}
 }
 
 void SetL()
@@ -366,6 +370,9 @@ if(IRE_TestShift(IRESHIFT_SHIFT)) {
 	// Draw L icon
 //	draw_rle_sprite(swapscreen,TIlist[L].form->seq[0]->image,400,192);
 	TIlist[L].form->seq[0]->image->Draw(swapscreen,400,192);
+	if(TIlist[L].form->overlay) {
+		TIlist[L].form->overlay->image->Draw(swapscreen,400,192);
+	}
 	itoa(L,string,10);
 	SetColor(ITG_LIGHTGRAY);
 	DrawScreenBox(400,232,432,240);
@@ -400,8 +407,10 @@ if(IRE_TestShift(IRESHIFT_SHIFT)) {
 		R=r;
 	}
 	// Draw R icon
-//	draw_rle_sprite(swapscreen,TIlist[R].form->seq[0]->image,448,192);
 	TIlist[R].form->seq[0]->image->Draw(swapscreen,448,192);
+	if(TIlist[R].form->overlay) {
+		TIlist[R].form->overlay->image->Draw(swapscreen,448,192);
+	}
 	itoa(R,string,10);
 	SetColor(ITG_LIGHTGRAY);
 	DrawScreenBox(450,232,480,240);

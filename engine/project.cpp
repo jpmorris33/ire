@@ -371,42 +371,37 @@ if(temp->sdir == 512)
  *      Project_Map - Display the map on screen
  */
 
-void Project_Map(int x,int y)
-{
+void Project_Map(int x,int y) {
 int xctr=0,altcode;
 int yctr=0,ptr,bit,t,ctr,ctr2;
 
 // Tile animation controller
 
 // For each tile...
-	for(ctr=0;ctr<TItot;ctr++)
-		{
-		// If it animates, update the tiles clock and frame when necessary
-		if(TIlist[ctr].form->frames)
-			{
-			TIlist[ctr].tick++;
-			if(TIlist[ctr].tick>=TIlist[ctr].form->speed)
-				{
-				tip[ctr]+=TIlist[ctr].sdir;
-				if(tip[ctr]>=TIlist[ctr].form->frames)
-					tip[ctr]=0;
-				TIlist[ctr].tick=0;
-				}
-			}
-
-		// If it scrolls, duplicate the tile in an offscreen buffer and grab
-		// it at the appropriate offset to make it appear to scroll
-		if(TIlist[ctr].sdx || TIlist[ctr].sdy)
-			{
-			TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,0,0);
-			TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,0,32);
-			TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,32,0);
-			TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,32,32);
-			tsb[ctr]->Get(tsbscreen,32-TIlist[ctr].sx,32-TIlist[ctr].sy);
-			TIlist[ctr].sx = (TIlist[ctr].sx + TIlist[ctr].sdx)&31;
-			TIlist[ctr].sy = (TIlist[ctr].sy + TIlist[ctr].sdy)&31;
-			}
+for(ctr=0;ctr<TItot;ctr++) {
+	// If it animates, update the tiles clock and frame when necessary
+	if(TIlist[ctr].form->frames) {
+		TIlist[ctr].tick++;
+		if(TIlist[ctr].tick>=TIlist[ctr].form->speed) {
+			tip[ctr]+=TIlist[ctr].sdir;
+			if(tip[ctr]>=TIlist[ctr].form->frames)
+				tip[ctr]=0;
+			TIlist[ctr].tick=0;
 		}
+	}
+
+	// If it scrolls, duplicate the tile in an offscreen buffer and grab
+	// it at the appropriate offset to make it appear to scroll
+	if(TIlist[ctr].sdx || TIlist[ctr].sdy) {
+		TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,0,0);
+		TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,0,32);
+		TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,32,0);
+		TIlist[ctr].form->seq[tip[ctr]]->image->Draw(tsbscreen,32,32);
+		tsb[ctr]->Get(tsbscreen,32-TIlist[ctr].sx,32-TIlist[ctr].sy);
+		TIlist[ctr].sx = (TIlist[ctr].sx + TIlist[ctr].sdx)&31;
+		TIlist[ctr].sy = (TIlist[ctr].sy + TIlist[ctr].sdy)&31;
+	}
+}
 
 
 // Now draw the map
@@ -417,25 +412,19 @@ ptr=y*curmap->w;
 ptr+=x;
 bit=curmap->w - VSW;
 
-for(ctr=0;ctr<VSH;ctr++)
-	{
-	for(ctr2=0;ctr2<VSW;ctr2++)
-		{
+for(ctr=0;ctr<VSH;ctr++) {
+	for(ctr2=0;ctr2<VSW;ctr2++) {
 		t = curmap->physmap[ptr];
-		if(t == RANDOM_TILE)
+		if(t == RANDOM_TILE) {
 			warning->Draw(gamewin,xctr,yctr);
-		else
-			{
-			if(TIlist[t].sdx || TIlist[t].sdy)
+		} else {
+			if(TIlist[t].sdx || TIlist[t].sdy) {
 				tsb[t]->Draw(gamewin,xctr,yctr);
-			else
-				{
+			} else {
 				// Transform a tile into another shape if it is on the edge
 				// of the blackness, and there is a rule to handle it.
 
-				if(TIlist[t].alternate)
-					{
-
+				if(TIlist[t].alternate) {
 					// The shape of the alternate tile is in an array of
 					// sixteen image pointers.
 					// There are sixteen possible combinations of adjacent
@@ -459,8 +448,9 @@ for(ctr=0;ctr<VSH;ctr++)
 					altcode^=0xf; // invert it all
 
 					// Blank the sprites behind the wall
-					if(altcode&10) // If Down OR Right
+					if(altcode&10) { // If Down OR Right
 						vismap[ctr2+1][ctr+1] |= 4; // mark bad (no sprites)
+                                        }
 
 /*
 					// Easier-to-read
@@ -470,41 +460,45 @@ for(ctr=0;ctr<VSH;ctr++)
 					// Vismap has +1,+1 added to it for the outer rim
 					altcode=0;
 					if(!(vismap[ctr2][ctr+1]&1)) altcode|=1; // L
-					if(!(vismap[ctr2+2][ctr+1]&1))
-						{
+					if(!(vismap[ctr2+2][ctr+1]&1)) {
 						altcode|=2; // R
 						vismap[ctr2+1][ctr+1] |= 4; // mark bad (no sprites)
-						}
+					}
 					if(!(vismap[ctr2+1][ctr]&1)) altcode|=4; // U
-					if(!(vismap[ctr2+1][ctr+2]&1))
-						{
+					if(!(vismap[ctr2+1][ctr+2]&1)) {
 						altcode|=8; // D
 						vismap[ctr2+1][ctr+1] |= 4; // mark bad (no sprites)
-						}
+					}
 */
 
 					TIlist[t].alternate[altcode]->seq[0]->image->Draw(gamewin,xctr,yctr);
-					}
-				else
+				} else {
 					TIlist[t].form->seq[tip[t]]->image->Draw(gamewin,xctr,yctr);
 				}
-			}
 #ifdef SHOW_BLOCKLIGHTMAP
-		if(blmap[ctr2][ctr])
-			rectfill(gamewin,xctr,yctr,xctr+33,yctr+16,makecol(128,255,127));
+				if(blmap[ctr2][ctr]) {
+					rectfill(gamewin,xctr,yctr,xctr+33,yctr+16,makecol(128,255,127));
+				}
 #endif
+                        }
 #ifdef SHOW_VISLIGHTMAP
-		int lll;
-		lll = vismap[ctr2+1][ctr+1] * 63; // four levels
-		rectfill(gamewin,xctr,yctr,xctr+32,yctr+32,makecol(lll,lll,lll));
+			int lll;
+			lll = vismap[ctr2+1][ctr+1] * 63; // four levels
+			rectfill(gamewin,xctr,yctr,xctr+32,yctr+32,makecol(lll,lll,lll));
 #endif
-		xctr+=32;
-		ptr++;
+			if(TIlist[t].form->overlay) {
+				TIlist[t].form->overlay->image->Draw(gamewin,xctr+TIlist[t].form->ox,yctr+TIlist[t].form->oy);
+			}
+
+			xctr+=32;
+			ptr++;
 		}
+	}
 	xctr=0;
 	yctr+=32;
 	ptr+=bit;
-	}
+}
+
 }
 
 

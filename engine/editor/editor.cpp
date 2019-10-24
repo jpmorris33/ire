@@ -566,48 +566,29 @@ if(Animate)
 bit=curmap->w - VSW;
 xctr=0;
 
-for(ctr=0;ctr<VSH;ctr++)
-	{
-	for(ctr2=0;ctr2<VSW;ctr2++)
-		{
+for(ctr=0;ctr<VSH;ctr++) {
+	for(ctr2=0;ctr2<VSW;ctr2++) {
 		t = curmap->physmap[ptr];
-		if(t == RANDOM_TILE)
+		if(t == RANDOM_TILE) {
 			eyesore->Draw(gamewin,xctr,yctr);
-		else
-			if(t>=TItot)
+		} else {
+			if(t>=TItot) {
 				warning->Draw(gamewin,xctr,yctr);
-			else
+			} else {
 				TIlist[t].form->seq[editor_tip[t]]->image->Draw(gamewin,xctr,yctr);
+				if(TIlist[t].form->overlay) {
+					TIlist[t].form->overlay->image->Draw(gamewin,xctr,yctr);
+				}
+			}
+		}
+
 		xctr+=32;
 		ptr++;
-		}
+	}
 	xctr=0;
 	yctr+=32;
 	ptr+=bit;
-	}
-
-/*
-bit=curmap->w - VSW;
-xctr=0;
-for(ctr=0;ctr<VSH;ctr++)
-	{
-	for(ctr2=0;ctr2<VSW;ctr2++)
-		{
-                if(curmap->physmap[ptr] == RANDOM_TILE)
-                    draw_sprite(gamewin,eyesore,xctr,xctr2);
-                else
-                if(curmap->physmap[ptr]>=TItot)
-                    draw_sprite(gamewin,warning,xctr,xctr2);
-                else
-                    draw_rle_sprite(gamewin,TIlist[curmap->physmap[ptr]].form->seq[0]->image,xctr,xctr2);
-		xctr+=32;
-		ptr++;
-		}
-	xctr=0;
-	xctr2+=32;
-	ptr+=bit;
-	}
-*/
+}
 
 //gen_largemap();
 
