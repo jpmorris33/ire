@@ -5317,6 +5317,31 @@ section: sequences
 	quickname lava02
 	quickname lava03
 
+	name lava02_northshore
+	overlay STONEFLOOR18
+	framelist:
+		lava02
+	end
+
+	name lava02_southshore
+	overlay STONEFLOOR19
+	framelist:
+		lava02
+	end
+
+	name lava02_eastshore
+	overlay STONEFLOOR21
+	framelist:
+		lava02
+	end
+
+	name lava02_westshore
+	overlay STONEFLOOR20
+	framelist:
+		lava02
+	end
+
+
 	name fakemud_opening
 	speed 2
 	framelist:

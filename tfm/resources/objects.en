@@ -19253,3 +19253,38 @@ section: tiles
 	description	"You see some sand."
 	cost 128
 	function desert_sand
+
+# Lava with overlay
+
+	name LAVA_N_NORTHSHORE
+	sequence	LAVA02_NORTHSHORE
+	description	"You see some lava."
+	scroll 0 -1
+	cost 128
+	water
+	function lava_incinerate
+
+	name LAVA_N_SOUTHSHORE
+	sequence	LAVA02_SOUTHSHORE
+	description	"You see some lava."
+	scroll 0 -1
+	cost 128
+	water
+	function lava_incinerate
+
+	name LAVA_N_WESTSHORE
+	sequence	LAVA02_WESTSHORE
+	description	"You see some lava."
+	scroll 0 -1
+	cost 128
+	water
+	function lava_incinerate
+
+	name LAVA_N_EASTSHORE
+	sequence	LAVA02_EASTSHORE
+	description	"You see some lava."
+	scroll 0 -1
+	cost 128
+	water
+	function lava_incinerate
+
