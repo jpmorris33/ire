@@ -41,6 +41,7 @@ extern void Toolbar();
 extern void DrawMap(int x,int y,char s_proj,char l_proj,char f_proj);
 extern void WriteMap(int x,int y,int tile);
 extern int ReadMap(int x,int y);
+extern int GetClickXY(int mx, int my, int *xout, int *yout);
 
 
 extern int FindTilelinkNS(int n, int s);
@@ -475,27 +476,10 @@ DrawMap(mapx,mapy,s_proj,l_proj,0);
 
 int Get_Background()
 {
-int t,xx,yy,yyy,xxx;
-
-yyy=-1;
-xxx=-1;
-for(xx=0;xx<VSW;xx++)
-	{
-	t=32*xx+(VIEWX-1);
-	if(x>=t &&x<(t+32))
-		xxx=xx;
-	}
-
-for(yy=0;yy<VSH;yy++)
-	{
-	t=32*yy+(VIEWY-1);
-	if(y>=t && y<(t+32))
-		yyy=yy;
-	}
-
-if(xxx!=-1 && yyy!=-1)
-	return ReadMap(mapx+xxx,mapy+yyy);
-
+int xpos,ypos;
+if(GetClickXY(x,y,&xpos,&ypos)) {
+	return ReadMap(xpos,ypos);
+}
 return -1;
 }
 

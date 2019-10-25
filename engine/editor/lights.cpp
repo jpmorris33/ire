@@ -39,9 +39,12 @@ extern void Toolbar();
 extern void DrawMap(int x,int y,char s_proj,char l_proj,char f_proj);
 extern void WriteLight(int x,int y,int tile);
 extern int ReadLight(int x,int y);
+extern int GetClickXY(int mx, int my, int *xout, int *yout);
+
 
 static void Nothing();
 static void clipmap();
+static int Get_Light();
 
 void LTBl();
 void LTBll();
@@ -245,7 +248,7 @@ for(int ctr=0;ctr<co;ctr++)
 		L=ctr+curoff;
 		L_lighttile = L; // For big-map painting
                 if(!L)
-                    fbox2(448,192,32,32,0,swapscreen);
+                    fbox2(400,192,32,32,0,swapscreen);
                 else
 			{
 			LTlist[L].image->RenderRaw(lighticon);
@@ -278,11 +281,49 @@ for(int ctr=0;ctr<co;ctr++)
 
 void SetL()
 {
+int l;
+
+// If shift is pressed, grab tile instead of drawing
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
+	l=Get_Light();
+	if(l>=LTtot) {
+		l=LTtot-1;
+	}
+	if(l != -1) {
+		L=l;
+	}
+	IG_BlackPanel(400,192,32,32);
+	if(L) {
+		LTlist[L].image->RenderRaw(lighticon);
+		lighticon->Draw(swapscreen,400,192);
+	}
+	return;
+}
+
 Set_Light(L);
 }
 
 void SetR()
 {
+int r;
+
+// If shift is pressed, grab tile instead of drawing
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
+	r=Get_Light();
+	if(r>=LTtot) {
+		r=LTtot-1;
+	}
+	if(r != -1) {
+		R=r;
+	}
+	IG_BlackPanel(448,192,32,32);
+	if(R) {
+		LTlist[R].image->RenderRaw(lighticon);
+		lighticon->Draw(swapscreen,448,192);
+	}
+	return;
+}
+
 Set_Light(R);
 }
 
@@ -482,4 +523,16 @@ for(int cy=0;cy<VSH;cy++)
                 WriteLight(mapx+cx,mapy+cy,prefab[cx][cy]);
 DrawMap(mapx,mapy,s_proj,0,1);
 }
+
+
+int Get_Light()
+{
+int xpos,ypos;
+if(GetClickXY(x,y,&xpos,&ypos)) {
+	return ReadLight(xpos,ypos);
+}
+return -1;
+}
+
+
 

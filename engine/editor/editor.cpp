@@ -996,3 +996,35 @@ void RFS_getescape()
 while(IRE_NextKey(NULL) != IREKEY_ESC);
 }
 
+
+int GetClickXY(int mx, int my, int *xout, int *yout)
+{
+int t,pos,gotx,goty;
+
+*xout=*yout=0;
+gotx=goty=-1;
+
+for(pos=0;pos<VSW;pos++) {
+	t=32*pos+(VIEWX-1);
+	if(mx>=t && mx<(t+32)) {
+		gotx=pos;
+		break;
+	}
+}
+
+for(pos=0;pos<VSH;pos++) {
+	t=32*pos+(VIEWY-1);
+	if(my>=t && my<(t+32)) {
+		goty=pos;
+		break;
+	}
+}
+
+if(gotx!=-1 && goty!=-1) {
+	*xout = mapx+gotx;
+	*yout = mapy+goty;
+	return 1;
+}
+
+return 0;
+}
