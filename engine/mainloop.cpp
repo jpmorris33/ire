@@ -97,6 +97,8 @@ void ResumeSchedule(OBJECT *o);
 void ForceUpdateTag(int tag);
 static void CheckRoof();
 static void CheckTiles(int x, int y, int w, int h, int border);
+static void CheckTile(int x, int y);
+static void CheckTileCore(int x, int y, TILE *t);
 static void DarkRoof();
 static void GameBusy();
 int DisallowMap();
@@ -370,7 +372,7 @@ do {
 			ML_Del(&ActiveList,active->ptr); // remove dead object
 			active=ActiveList;
 		}
-		active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
+		active->ptr->engineflags &= ~(ENGINE_DIDUPDATE|ENGINE_DIDACTIVETILE);
 	}
 
 #ifdef CHECK_MASTERLIST
@@ -380,19 +382,6 @@ do {
 			ML_Del(&MasterList,active->ptr);
 			active=MasterList;
 		}
-/*
-		// If this happens we are badly ____ed (or SEER is broken again)
-		if(active->ptr == (OBJECT *)0xdeadbeef)		{
-			Bug("MasterList: DEAD BEEF detected\n");
-			ML_Del(&MasterList,active->ptr);
-			active=MasterList;
-		}
-		if(active->ptr == (OBJECT *)0xbeefdead)		{
-			Bug("MasterList: BEEF DEAD detected\n");
-			ML_Del(&MasterList,active->ptr);
-			active=MasterList;
-		}
-*/
 	}
 #endif
 
@@ -513,6 +502,11 @@ do {
 	// resulting in the player being able to walk on lava
 	// This may potentially have regressions for edge cases where we
 	// focus on a non-player object, e.g. for spells or cutscenes
+
+	// TODO: Rewrite this so that we check for active tiles when updating Active objects, and flag them as ENGINE_DIDACTIVETILE
+	// Then we can call CheckTiles here with the smaller, 4-tile border to mop up the inanimate objects near the player
+	// NOTE: This may require modifications to ForceUpdate() as well
+
 	CentreMap(player);
 	gen_largemap();
 
@@ -829,30 +823,8 @@ for(yctr=0;yctr<h;yctr++)	{
 //			printf("Invalid tile %d/%d\n", tn,TItot);
 			continue;	// Invalid, possible the selector tile from the editor
 		}
-
 		t=&TIlist[tn];
-		if(t->standfunc > 0)	{
-//			printf("Tile %d [%s] has standfunc %d\n",tn, t->name, t->standfunc);
-
-			// Got one!  Now we need to find out if anything is above it
-			o=GetObjectBase(x+xctr,y+yctr);
-			if(!o)
-				continue;	// Nothing there
-				
-			// Affect all the objects above it.  We will probably need a flag to toggle this behaviour in the tile.  Lava needs it, others may not want it at all
-				
-			for(;o;o=o->next)	{
-				if((o->flags & IS_ON) && (!(o->flags & IS_SYSTEM)) && (!(o->flags & IS_DECOR)))	{
-					victim=o;
-					
-//					printf("run at %d,%d do func %s on %s\n",x+xctr,y+yctr,PElist[t->standfunc].name,o->name);
-					
-					pevm_context="Active Tile";
-					CallVMnum(t->standfunc);
-					victim=NULL;
-				}
-			}
-		}
+		CheckTileCore(x+xctr,y+yctr, t);
 	}
 	tptr += bit;
 }
@@ -860,6 +832,37 @@ for(yctr=0;yctr<h;yctr++)	{
 victim=oldvic;
 }
 
+void CheckTile(int x, int y) {
+OBJECT *oldvic = victim;
+TILE *t = GetTile(x,y);
+CheckTileCore(x,y,t);
+victim = oldvic;
+}
+
+void CheckTileCore(int x, int y, TILE *t) {
+OBJECT *o;
+if(t->standfunc > 0) {
+//			printf("Tile %s has standfunc %d\n", t->name, t->standfunc);
+
+	// Got one!  Now we need to find out if anything is above it
+	o=GetObjectBase(x,y);
+	if(!o) {
+		return;		// Nothing there
+	}
+
+	// Affect all the objects above it.  We will probably need a flag to toggle this behaviour in the tile.  Lava needs it, others may not want it at all
+	for(;o;o=o->next) {
+		if((o->flags & IS_ON) && (!(o->flags & IS_SYSTEM)) && (!(o->flags & IS_DECOR)) && (!(o->engineflags & ENGINE_DIDACTIVETILE)))	{
+			victim=o;
+//			printf("run at %d,%d do func %s on %s\n",x,y,PElist[t->standfunc].name,o->name);
+			pevm_context="Active Tile";
+			CallVMnum(t->standfunc);
+			victim=NULL;
+		}
+	}
+}
+
+}
 
 
 /*
