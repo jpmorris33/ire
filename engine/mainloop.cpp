@@ -507,7 +507,17 @@ do {
 	// Now, we'd better check the tiles and see if any of them have code associated
 	if(show_vrm_calls)
 		ilog_quiet(">> Check active tiles\n");
-	CheckTiles(mapx,mapy,VSW,VSH,4);	// 4 tile border around the edge
+
+	// Re-centre around the player and regenerate the largemap
+	// before checking the tiles, otherwise NPCs elsewhere would move it
+	// resulting in the player being able to walk on lava
+	// This may potentially have regressions for edge cases where we
+	// focus on a non-player object, e.g. for spells or cutscenes
+	CentreMap(player);
+	gen_largemap();
+
+	CheckTiles(mapx,mapy,VSW,VSH,32);	// 32 tile border around the edge
+//	CheckTiles(mapx,mapy,VSW,VSH,4);	// 4 tile border around the edge
 
 	if(show_vrm_calls)
 		ilog_quiet(">> Update clock..\n");
