@@ -598,10 +598,10 @@ for(vy=starty;vy<VSH;vy++)
 
 						if(temp->form->flags&SEQFLAG_STEPPED)
 							{
-							if(temp->flags & DID_STEPUPDATE)              // if updating
+							if(temp->engineflags & ENGINE_STEPUPDATED)              // if updating
 								{
 								animate[temp->form->flags&SEQFLAG_ANIMCODE](temp);
-								temp->flags &= ~DID_STEPUPDATE;           // Clear flag
+								temp->engineflags &= ~ENGINE_STEPUPDATED;           // Clear flag
 								}
 							}
 						else

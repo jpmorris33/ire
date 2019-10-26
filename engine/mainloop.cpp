@@ -370,7 +370,7 @@ do {
 			ML_Del(&ActiveList,active->ptr); // remove dead object
 			active=ActiveList;
 		}
-		active->ptr->flags &= ~DID_UPDATE;
+		active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
 	}
 
 #ifdef CHECK_MASTERLIST
@@ -396,11 +396,11 @@ do {
 	}
 #endif
 
-	player->flags |= DID_UPDATE; // Player can't move twice in one go, nor can the rest of the party if we're in combat mode
+	player->engineflags |= ENGINE_DIDUPDATE; // Player can't move twice in one go, nor can the rest of the party if we're in combat mode
 	if(combat_mode)
 		for(ctr=0;ctr<MAX_MEMBERS;ctr++)
 			if(party[ctr])
-				party[ctr]->flags |= DID_UPDATE;
+				party[ctr]->engineflags |= ENGINE_DIDUPDATE;
   
 
 	if(!ire_running)	// If the player quit
@@ -424,12 +424,12 @@ do {
 
 			next = active->next;
 			if(aptr->flags & IS_ON)
-				if(!(aptr->flags & DID_UPDATE))	{	// Don't do this one again if we need to restart the update
+				if(!(aptr->engineflags & ENGINE_DIDUPDATE))	{	// Don't do this one again if we need to restart the update
 					aptr->user->oldhp = aptr->stats->hp;
 					AL_dirty=0;                     // Mark list as clean
 					current_object = NULL;   // Set up parameters for the script
 					person = aptr;           // Who am I?
-					aptr->flags |= DID_UPDATE; // Mark object as moved
+					aptr->engineflags |= ENGINE_DIDUPDATE; // Mark object as moved
 
 					// If it is biological, call biosystems update
 					if(GetNPCFlag(aptr,IS_BIOLOGICAL))
@@ -1487,7 +1487,7 @@ OBJLIST *active,*next;
 // Reset update flag
 
 for(active=ActiveList;active;active=active->next)
-	active->ptr->flags &= ~DID_UPDATE;
+	active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
 
 // Move all objects with this tag
 active=ActiveList;
@@ -1496,13 +1496,13 @@ if(active)
 		next = active->next;
 		if(active->ptr->flags & IS_ON)
 			if(active->ptr->tag == tag)
-				if(!(active->ptr->flags & DID_UPDATE)) // Don't do this one again if we need
+				if(!(active->ptr->engineflags & ENGINE_DIDUPDATE)) // Don't do this one again if we need
 					{                               // to restart the update
 					active->ptr->user->oldhp = active->ptr->stats->hp;
 					AL_dirty=0;                     // Mark list as clean
 					current_object = NULL;//active->ptr;   // Set up parameters for the VRM
 					person = active->ptr;           // Who am I?
-					active->ptr->flags |= DID_UPDATE; // Mark object as moved
+					active->ptr->engineflags |= ENGINE_DIDUPDATE; // Mark object as moved
 					if(GetNPCFlag(active->ptr,IS_BIOLOGICAL))
 						if(active->ptr->stats->hp > 0)	// Must be alive
 							CallVMnum(Sysfunc_updatelife);		// Only for carbon-based life

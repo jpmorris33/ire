@@ -823,7 +823,7 @@ object->y=y;       // Very important!
 UpdatePocketCoords(object,x,y); // Update coordinates of all objects inside
 
 // Update the animation frame, if it's stepped
-object->flags |= DID_STEPUPDATE;
+object->engineflags |= ENGINE_STEPUPDATED;
 
 // Add to the target list
 if(decor)

@@ -1243,10 +1243,10 @@ olddir=objsel->curdir;  // In case we need to revert
 objsel->curdir = dir;
 
 // If object has been changed to another shape with SetSequence, force change
-if(objsel->flags & DID_SETSEQUENCE)
+if(objsel->engineflags & ENGINE_DIDSETSEQUENCE)
 	{
 	nochange=0;
-	objsel->flags &= ~DID_SETSEQUENCE;
+	objsel->engineflags &= ~ENGINE_DIDSETSEQUENCE;
 	}
 
 // If it's a large object, find out if the new shape would actually fit
@@ -1418,7 +1418,7 @@ objsel->sptr = 0;
 
 // We've just done setsequence, we need to take this into account when
 // we next do setdir()
-objsel->flags |= DID_SETSEQUENCE;
+objsel->engineflags |= ENGINE_DIDSETSEQUENCE;
 
 }
 

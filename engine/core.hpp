@@ -319,16 +319,16 @@ typedef struct ST_ITEM
 #define IS_LARGE        0x00000800	// Bigger than one tile?
 #define IS_SPIKEPROOF   0x00001000	// Doesn't set off triggers
 #define CAN_WIELD       0x00002000	// Can it be wielded?
-#define DID_STEPUPDATE  0x00004000	// Was just updated (used by stepping code
-#define DID_SETSEQUENCE 0x00008000	// Has setsequence just been used?
+//#define SPARE		0x00004000	
+//#define SPARE		0x00008000	
 #define DOES_BLOCKLIGHT 0x00010000	// Does it block light?
 #define IS_TABLETOP     0x00020000	// Can you drop things on it even though it's solid?
 #define DID_INIT        0x00040000	// Have we run the INIT code?
-#define DID_UPDATE      0x00080000	// Have we just moved (avoids runaway)
+//#define SPARE         0x00080000	
 #define IS_PERSON       0x00100000	// Is it sentient?
 #define IS_HORRIBLE     0x00200000	// Will the very sight of it upset NPCs?
-#define IS_HORROR       0x00200000
-#define IS_SHOCKING     0x00200000
+#define IS_HORROR       0x00200000	// (As above)
+#define IS_SHOCKING     0x00200000	// (As above)
 #define IS_QUANTITY     0x00400000	// Is it stackable?
 #define IS_BOAT         0x00800000	// Can it travel on water?
 #define IS_WATER        0x00800000	// Is it water?
@@ -339,6 +339,15 @@ typedef struct ST_ITEM
 #define IS_NPCFLAG      0x80000000	// RESERVED
 
 #define IS_INVISSHADOW  0x01000040	// Combination flag
+
+//
+//  Engine internal state flags (transient, not exposed, probably don't need to be saved either)
+//
+
+#define ENGINE_STEPUPDATED	0x00000001	// Was just animated (used by per-turn animation code)
+#define ENGINE_DIDSETSEQUENCE	0x00000002	// Has setsequence just been used?
+#define ENGINE_DIDUPDATE	0x00000004	// Have we just moved (avoids runaway)
+#define ENGINE_DIDACTIVETILE	0x00000008	// Going to use this to improve lava handling for offscreen NPCs
 	
 
 typedef struct FUNCS            // This is called when you...
@@ -484,6 +493,7 @@ typedef struct OBJECT
 {
 char *name;
 VMUINT flags;
+VMUINT engineflags;
 VMINT w,h,mw,mh;
 VMINT x,y,z;
 char *personalname;

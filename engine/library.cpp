@@ -1100,7 +1100,7 @@ if(!a)
     return 0;
 CHECK_OBJECT(a);
 
-a->flags |= DID_STEPUPDATE; // Force animation
+a->engineflags |= ENGINE_STEPUPDATED; // Force animation
 
 if(a->curdir == CHAR_U)
     return MoveObject(a,a->x,a->y-1,0);
@@ -1119,7 +1119,7 @@ if(!a)
     return 0;
 CHECK_OBJECT(a);
 
-a->flags |= DID_STEPUPDATE; // Force animation
+a->engineflags |= ENGINE_STEPUPDATED; // Force animation
 
 if(a->curdir == CHAR_U)
     return MoveObject(a,a->x,a->y+1,0);
@@ -1348,7 +1348,7 @@ if(object->user->dx<0)
 if(object->user->dx>0)
     OB_SetDir(object,CHAR_R,FORCE_SHAPE);
 MoveObject(object,object->x+object->user->dx,object->y+object->user->dy,0);
-object->flags |= DID_STEPUPDATE; // Force animation
+object->engineflags |= ENGINE_STEPUPDATED; // Force animation
 return 1;
 }
 
