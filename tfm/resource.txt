@@ -2225,6 +2225,8 @@ section: sprites
 	guillotine_w_dn_b	sprites/guiltn09.png
 	guillotine_w_up_ovl	sprites/guiltn10.png
 	guillotine_w_dn_ovl	sprites/guiltn11.png
+	pike			sprites/pike1.png
+	pike_bloodied		sprites/pike2.png
 
 	machinery_00		sprites/machin00.cel
 	machinery_01		sprites/machin01.cel
@@ -9412,6 +9414,8 @@ section: sequences
 		GUILLOTINE_W_DN_B
 	end
 
+	quickname pike
+	quickname pike_bloodied
 
 	name MACHINERY_GRINDSTONE_RIGHT
 	loop
