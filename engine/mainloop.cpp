@@ -444,6 +444,13 @@ do {
 						pevm_context="object activity";
 						CallVMnum(aptr->activity);
 					}
+
+					// Check for lava etc
+					CheckTile(aptr->x,aptr->y);
+					if(!(aptr->engineflags & ENGINE_DIDACTIVETILE)) {
+						CheckTile(aptr->x, aptr->y);
+						aptr->engineflags |= ENGINE_DIDACTIVETILE;
+					}
 							
 					// If it is distance-triggered..
 					if(aptr->stats->radius>0)	{
@@ -481,6 +488,7 @@ do {
 					}
 						
 					// We were doing the move last of all, but that caused problems with lava, swamps and so forth
+					// (NB: This may no longer be an issue since the active tiles refactor)
 
 					if(AL_dirty)                    // If list is dirty we need to
 						next=ActiveList;            // start over.
@@ -503,15 +511,10 @@ do {
 	// This may potentially have regressions for edge cases where we
 	// focus on a non-player object, e.g. for spells or cutscenes
 
-	// TODO: Rewrite this so that we check for active tiles when updating Active objects, and flag them as ENGINE_DIDACTIVETILE
-	// Then we can call CheckTiles here with the smaller, 4-tile border to mop up the inanimate objects near the player
-	// NOTE: This may require modifications to ForceUpdate() as well
-
 	CentreMap(player);
 	gen_largemap();
 
-	CheckTiles(mapx,mapy,VSW,VSH,32);	// 32 tile border around the edge
-//	CheckTiles(mapx,mapy,VSW,VSH,4);	// 4 tile border around the edge
+	CheckTiles(mapx,mapy,VSW,VSH,4);	// 4 tile border around the edge
 
 	if(show_vrm_calls)
 		ilog_quiet(">> Update clock..\n");
@@ -1513,6 +1516,10 @@ if(active)
 						if(active->ptr->stats->hp > 0)	// Must be alive
 							CallVMnum(Sysfunc_updaterobot);		// Only for robotic life
 					CallVMnum(active->ptr->activity);
+					if(!(active->ptr->engineflags & ENGINE_DIDACTIVETILE)) {
+						CheckTile(active->ptr->x, active->ptr->y);
+						active->ptr->engineflags |= ENGINE_DIDACTIVETILE;
+					}
 					if(AL_dirty)                    // If list is dirty we need to
 						next=ActiveList;            // start over.
 					}
