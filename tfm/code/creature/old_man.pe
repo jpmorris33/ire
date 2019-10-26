@@ -49,6 +49,8 @@ if_exists current.enemy
 	add current.enemy.stats.karma - 20
 endif
 
+call egg_killed  # Just in case
+
 end
 
 #

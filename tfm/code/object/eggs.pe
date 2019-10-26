@@ -38,6 +38,7 @@ end
 ##
 
 function egg_patrol_init
+activity
 call egg_check
 
 # If the check failed, we have a problem

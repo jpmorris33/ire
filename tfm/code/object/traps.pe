@@ -119,8 +119,11 @@ endif
 
 get_bridge bridge at victim.x victim.y
 if_exists bridge
-	# Ah.
-	return
+	if_flag bridge IS_FIXED
+		# Stop the person on the bridge dying
+		return
+	endif
+	# If it's not fixed, it's probably a boat so we kill it
 endif
 
 # This is going to hurt.  A lot

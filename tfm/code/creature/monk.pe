@@ -73,6 +73,8 @@ if_exists current.enemy
 	endif
 endif
 
+call egg_killed
+
 end
 
 ##
@@ -249,6 +251,8 @@ end
 ##
 
 function pilgrim_dies
+
+call egg_killed
 
 change current = "deadpilgrim"
 object_sound "man_dying" current

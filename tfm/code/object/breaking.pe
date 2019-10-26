@@ -286,7 +286,7 @@ end
 
 function burst_boat
 
-object_sound "pop_dinghy" me
+object_sound "pop_dinghy" current
 replace current = "boat1_dead"
 
 if_exists current.pocket

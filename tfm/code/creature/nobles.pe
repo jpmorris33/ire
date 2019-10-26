@@ -36,6 +36,9 @@ object_sound "man_dying" current
 if_exists current.enemy
 	add current.enemy.stats.karma - 40
 endif
+
+call egg_killed		# Stranger things have happened
+
 end
 
 ##
@@ -73,4 +76,7 @@ object_sound "man2_dying" current
 if_exists current.enemy
 	add current.enemy.stats.karma - 40
 endif
+
+call egg_killed
+
 end

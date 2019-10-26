@@ -30,12 +30,13 @@ end
 ##
 
 function peasant_dies
-
 change current = "deadpeasant"
 object_sound "man_dying" current
 if_exists current.enemy
 	add current.enemy.stats.karma - 20
 endif
+
+call egg_killed    # Sometimes this happens
 end
 
 ##
@@ -45,11 +46,9 @@ end
 function woman_hurt
 
 # Say 'uh!'
-
 object_sound "uh2!" current
 
 # Show the blood
-
 let splatvictim = current
 call splat_blood
 
@@ -73,6 +72,9 @@ object_sound "man2_dying" current
 if_exists current.enemy
 	add current.enemy.stats.karma - 20
 endif
+
+call egg_killed    # Sometimes this happens
+
 end
 
 ##
@@ -108,4 +110,7 @@ object_sound "man_dying" current
 if_exists current.enemy
 	add current.enemy.stats.karma - 20
 endif
+
+call egg_killed
+
 end

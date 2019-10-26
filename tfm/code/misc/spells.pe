@@ -1663,7 +1663,7 @@ if spell_failed
 	return
 endif
 
-print "MagicServer version "
+print "OpenXevrox system 9 MagicServer release 4972 maint "
 print IRE_VERSION
 printcr
 print "Copyright (C)9862 SzyLurbG Labs.  All rights reserved."
