@@ -49,6 +49,11 @@ stop_fx attacker
 # reset the attacker's frame
 set_direction attacker = attacker.curdir
 
+if throw_missed
+	let hit_damage = -1
+	return
+endif
+
 # Apply the damage
 if new_x = attacker.enemy.x
 and new_y = attacker.enemy.y
@@ -84,7 +89,7 @@ call attack_frame
 let new_x = attacker.enemy.x
 let new_y = attacker.enemy.y
 
-call fudge_thrown  # Cause them to miss, perhaps
+#call fudge_thrown  # Cause them to miss, perhaps
 
 # Zap the enemy (but only if visible)
 if_onscreen attacker.enemy
@@ -174,6 +179,10 @@ let new_x = attacker.enemy.x
 let new_y = attacker.enemy.y
 
 call fudge_thrown  # Cause them to miss, perhaps
+if throw_missed
+	let ammo.enemy = null
+	let hit_damage = -1
+endif
 
 let drop_quiet = 1	# Drop without comments
 let drop_nodamage = 1	# Prevent internal damage from thrown objects
@@ -214,6 +223,10 @@ let new_x = attacker.enemy.x
 let new_y = attacker.enemy.y
 
 call fudge_thrown  # Cause them to miss, perhaps
+if throw_missed
+	let ammo.enemy = null
+	let hit_damage = -1
+endif
 
 let drop_quiet = 1	# Drop without comments
 let drop_nodamage = 1	# Prevent internal damage from thrown objects

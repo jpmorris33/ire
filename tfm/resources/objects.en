@@ -1253,7 +1253,7 @@ section: characters
 	up		BEE_U
 	down		BEE_D
 	hp		100
-	dexterity	10
+	dexterity	50
 	strength	100
 	intelligence	41
 	weight		-1
@@ -5522,10 +5522,6 @@ section: characters
 	weight		1
 	description	"You see a pile of ash."
 	short		"ash"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 	ifused		eat_food
 	ifkilled	erase_it
 
@@ -6704,7 +6700,7 @@ section: characters
 	down		WOLFA_DOWN
 	hp		100
 	max_hp		100
-	dexterity	25
+	dexterity	33
 	max_dexterity	1000
 	strength	15000
 	max_strength	30000
@@ -6732,7 +6728,7 @@ section: characters
 	down		WOLFA_DOWN
 	hp		100
 	max_hp		100
-	dexterity	25
+	dexterity	33
 	max_dexterity	1000
 	strength	15000
 	max_strength	30000
@@ -6797,7 +6793,7 @@ section: characters
 	down		WOLFA_KING_DOWN
 	hp		250
 	max_hp		250
-	dexterity	25
+	dexterity	33
 	max_dexterity	1000
 	strength	15000
 	max_strength	30000
@@ -6824,7 +6820,7 @@ section: characters
 	down		WOLFA_SOLDIER_DOWN
 	hp		200
 	max_hp		200
-	dexterity	25
+	dexterity	33
 	max_dexterity	1000
 	strength	15000
 	max_strength	30000
@@ -6853,7 +6849,7 @@ section: characters
 	down		WOLFA_SOLDIER_DOWN
 	hp		200
 	max_hp		200
-	dexterity	25
+	dexterity	33
 	max_dexterity	1000
 	strength	15000
 	max_strength	30000
@@ -11646,6 +11642,7 @@ section: characters
 	intelligence	50
 	weight		1000
 	damage		5
+	dexterity	50
 	description	"You see a large toad."
 	short		"tode"
 	IfKilled	tode_dies
@@ -11760,7 +11757,7 @@ section: characters
 	intelligence	90
 	speed		90
 	weight		2000
-	dexterity	8
+	dexterity	66
 	damage		33
 	description	"That's one scary rabbit."
 	short		"rabbit"

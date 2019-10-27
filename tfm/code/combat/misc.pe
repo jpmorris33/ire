@@ -55,8 +55,8 @@ function firebolt_attack
 if_exists current.enemy
 	# Enemy will have taken damage in the throwing so use it
 	check_hurt current.enemy
-	destroy current
 endif
+destroy current
 
 end
 

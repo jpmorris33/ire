@@ -27,6 +27,7 @@ These special effect functions are in combat/weapons.pe
 
 integer hit_damage
 integer hit_range
+integer throw_missed 
 integer arrest_only = 0
 integer attack_user2 = 0
 
@@ -299,6 +300,8 @@ int minor
 int points
 int r
 
+let throw_missed = 0
+
 # Can they miss?
 
 if attacker.stats.dex > 100
@@ -329,11 +332,19 @@ random r between 0 2
 add r - 1
 add new_x + r
 
+if r <> 0
+	let throw_missed = 1
+endif
+
 # Jiggle the Y coordinate
 
 random r between 0 2
 add r - 1
 add new_y + r
+
+if r <> 0
+	let throw_missed = 1
+endif
 
 end
 
