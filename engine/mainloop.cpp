@@ -372,18 +372,20 @@ do {
 			ML_Del(&ActiveList,active->ptr); // remove dead object
 			active=ActiveList;
 		}
-		active->ptr->engineflags &= ~(ENGINE_DIDUPDATE|ENGINE_DIDACTIVETILE);
+		active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
 	}
 
+	// Need to reset the active tile flags for everything
+	for(active=MasterList;active;active=active->next) {
 #ifdef CHECK_MASTERLIST
-	for(active=MasterList;active;active=active->next)	{
 		if(!active->ptr)	{
 			Bug("MasterList: NULL detected\n");
 			ML_Del(&MasterList,active->ptr);
 			active=MasterList;
 		}
-	}
 #endif
+		active->ptr->engineflags &= ~ENGINE_DIDACTIVETILE;
+	}
 
 	player->engineflags |= ENGINE_DIDUPDATE; // Player can't move twice in one go, nor can the rest of the party if we're in combat mode
 	if(combat_mode)
@@ -861,6 +863,8 @@ if(t->standfunc > 0) {
 			pevm_context="Active Tile";
 			CallVMnum(t->standfunc);
 			victim=NULL;
+//		} else {
+//			printf("Object %s did not count (flags %x, engine %x)\n", o->name, o->flags, o->engineflags);
 		}
 	}
 }
