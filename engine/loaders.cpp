@@ -774,6 +774,10 @@ if(MZ1_SavingGame)
 IF_CHANGED(z)
 	fprintf(fp,"\t\tz %ld\n",o->z);
 
+// cost
+IF_CHANGED(cost)
+	fprintf(fp,"\t\tcost %ld\n",o->cost);
+
 // Personal Name
 if(o->personalname)
 	if(stricmp(o->personalname,"-"))

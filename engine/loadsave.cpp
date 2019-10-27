@@ -968,6 +968,12 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		continue;
 		}
 
+	// cost <num>
+	if(!istricmp(first,"cost")) {
+		temp->cost = atoi(strfirst(strrest(l)));
+		continue;
+	}
+
 	// name <personalname>
 	if(!istricmp(first,"name"))
 		{

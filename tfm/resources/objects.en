@@ -3048,6 +3048,7 @@ section: characters
 	hp		10000
 	weight		50
 	damage		2
+	cost		5
 	description	"You see some small pieces of broken glass."
 	short		"glass"
 	IfTriggered	spikes
@@ -3061,6 +3062,7 @@ section: characters
 	hp		10000
 	weight		-1
 	damage		10
+	cost		10
 	description	"You see a bed of sharp spikes."
 	short		"spikes"
 	IfTriggered	spikes
@@ -3221,6 +3223,7 @@ section: characters
 	hp		1000
 	weight		500
 	damage		1
+	cost		5
 	description	"You see a smashed plate."
 	short		"smashed plate"
 	IfTriggered	spikes
@@ -3237,6 +3240,7 @@ section: characters
 	hp		1000
 	weight		500
 	damage		1
+	cost		5
 	description	"You see a smashed plate."
 	short		"smashed plate"
 	IfTriggered	spikes
@@ -3268,6 +3272,7 @@ section: characters
 	hp		1000
 	weight		500
 	damage		1
+	cost		5
 	description	"You see a smashed bowl."
 	short		"bits of china"
 	IfTriggered	spikes
@@ -3360,6 +3365,7 @@ section: characters
 	hp		1000
 	weight		300
 	damage		1
+	cost		5
 	description	"You see a smashed jug"
 	short		"smashed jug"
 	IfTriggered	spikes
@@ -3376,6 +3382,7 @@ section: characters
 	hp		1000
 	weight		150
 	damage		1
+	cost		5
 	description	"You see a smashed mug"
 	short		"broken mug"
 	IfTriggered	spikes
@@ -3886,10 +3893,7 @@ section: characters
 
 
 	name EGG_OBJECT
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
+	frame		EGG_SPRITE
 	hp		10000
 	karma		2
 	weight		-1
@@ -5514,7 +5518,7 @@ section: characters
 	right		ASH01
 	up		ASH02
 	down		ASH03
-	hp		0
+	hp		1
 	weight		1
 	description	"You see a pile of ash."
 	short		"ash"
@@ -5523,6 +5527,7 @@ section: characters
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
 	ifused		eat_food
+	ifkilled	erase_it
 
 	name BOAT1
 	left		BOAT1_LEFT
@@ -5941,6 +5946,7 @@ section: characters
 	hp		10000
 	weight		50
 	damage		2
+	cost		5
 	description	"You see some small pieces of broken crystal."
 	short		"crystal fragments"
 	IfTriggered	spikes
@@ -9301,6 +9307,7 @@ section: characters
 	hp		2000000000
 	weight		-1
 	damage		10
+	cost		5
 	light		1
 	description	"You see fire"
 	short		"fire"
@@ -12944,6 +12951,7 @@ section: characters
 	hp		100
 	weight		60
 	damage		1
+	cost		5
 	description	"You see a broken wineglass."
 	translucent
 	short		"bits"
@@ -13530,10 +13538,7 @@ section: characters
 	setActiveArea	H 0 0 1 1
 
 	name FORCEFIELD_ON
-	left		RED
-	right		RED
-	up		RED
-	down		RED
+	frame		RED
 	hp		10000000
 	weight		-1
 	light		1
@@ -13548,10 +13553,7 @@ section: characters
 	fixed
 
 	name FORCEFIELD_OFF
-	left		GREEN
-	right		GREEN
-	up		GREEN
-	down		GREEN
+	frame		GREEN
 	hp		10000000
 	weight		-1
 	strength	1
@@ -13562,10 +13564,7 @@ section: characters
 	invisible
 
 	name MAGIC_BARRIER
-	left		BLUE
-	right		BLUE
-	up		BLUE
-	down		BLUE
+	frame		BLUE
 	hp		10000000
 	weight		-1
 	light		1
@@ -13581,10 +13580,7 @@ section: characters
 	fixed
 
 	name MAGIC_BARRIER_OFF
-	left		BLUE
-	right		BLUE
-	up		BLUE
-	down		BLUE
+	frame		BLUE
 	hp		10000000
 	weight		-1
 	strength	1
@@ -13596,10 +13592,7 @@ section: characters
 	fixed
 
 	name BARRIER
-	left		RED
-	right		RED
-	up		RED
-	down		RED
+	frame		RED
 	hp		10000000
 	weight		-1
 	strength	1
@@ -13609,6 +13602,18 @@ section: characters
 	invisible
 	hidden
 	solid
+	fixed
+
+	name BARRIER_NOENTRY
+	frame		NOENTRY_SPRITE
+	hp		10000000
+	weight		-1
+	strength	1
+	description	""
+	short		""
+	invisible
+	hidden
+	cost		-1
 	fixed
 
 	name kfs_sign
@@ -14109,6 +14114,7 @@ section: characters
 	hp		1000
 	weight		600
 	damage		3
+	cost		5
 	description	"You see a smashed jar."
 	short		"glass"
 	IfUsed		use_jar

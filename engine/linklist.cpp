@@ -985,6 +985,8 @@ strcpy(objsel->personalname,"");
 memcpy(objsel->stats,CHlist[ctr].stats,sizeof(STATS));
 objsel->user->oldhp = objsel->stats->hp; // Keep these in step
 
+objsel->cost = CHlist[ctr].cost;
+
 // If it is a system object, we only want to initialise the stats.
 if(objsel->flags & IS_SYSTEM)
 	{

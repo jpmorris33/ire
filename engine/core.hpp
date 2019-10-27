@@ -518,6 +518,7 @@ unsigned char varea[4]; // xywh
 VMINT hotx,hoty;          // attack hotspot
 unsigned int save_id;     // Assigned object number (during saving and loading)
 VMINT light;        // Light it casts
+VMINT cost;	    // movement cost (for barriers and traps)
 CHAR_LABELS *labels;    // Tags and labels for the object that don't change.
 OBJECTID enemy;
 //struct OBJECT **wield;	// Christ, Joe, what were you thinking!?

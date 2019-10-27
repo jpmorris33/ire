@@ -1696,6 +1696,7 @@ section: sprites
 	pillar2			sprites/pillar2.cel
 	cushion1		sprites/cushn.cel
 	egg_sprite		sprites/egg0.cel
+	noentry_sprite		sprites/noentry.png
 	rabbithole		sprites/rabbhole.cel
 	rabbithole1		sprites/rabbhol1.cel
 	rabbithole2		sprites/rabbhol2.cel
@@ -8008,7 +8009,8 @@ section: sequences
 	quickname PILLAR1 PILLAR1
 	quickname PILLAR2 PILLAR2
 	quickname CUSHION1 CUSHION1
-	quickname EGG_SPRITE EGG_SPRITE
+	quickname EGG_SPRITE
+	quickname NOENTRY_SPRITE
 	quickname RABBITHOLE RABBITHOLE
 	quickname RABBITHOLE1 RABBITHOLE1
 	quickname RABBITHOLE2 RABBITHOLE2

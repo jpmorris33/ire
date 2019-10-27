@@ -3286,6 +3286,7 @@ STRUCTURE objspec[] =
 					{"x",			'i',"RW",&obj_template.x,NULL},	// We do kind of need x and y for the 'focus' spell
 					{"y",			'i',"RW",&obj_template.y,NULL},
 					{"z",			'i',"R",&obj_template.z,NULL},
+					{"cost",		'i',"R",&obj_template.cost,NULL},
 					{"personalname",'s',"R",&obj_template.personalname,NULL},
 					{"schedule",	' ',"",&obj_template.schedule,NULL},
 					{"form",		' ',"",&obj_template.form,NULL},

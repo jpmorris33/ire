@@ -243,27 +243,40 @@ int GetTileCost(int x,int y)
 {
 TILE *t;
 OBJECT *temp;
+int cost = 0;
+int bridge = 0;
 
 if(x>=curmap->w)
 	return -1; // Wall
 if(y>=curmap->h)
 	return -1; // Wall
 
-// Examine the tile.  If it's water, look for a bridge over it
+// Examine the tile.
 t = GetTile(x,y);
-if(t->flags & IS_WATER)
-	{
-	for(temp=GetObject(x,y);temp;temp=temp->next)
-		if(temp->flags & IS_WATER)
-			return t->cost;
+cost = t->cost;
+// If it's water, look for a bridge over it, and add any object costs to the mix
+for(temp=GetObject(x,y);temp;temp=temp->next) {
+	cost += temp->cost;
+	if(temp->flags & IS_WATER) {
+		bridge=1;
 	}
+	// Negative costs are impassable
+	if(temp->cost < 0) {
+		return -1;
+	}
+}
+
+if((t->flags & IS_WATER) && bridge) {
+	return cost;
+}
+
 
 // Is it solid?
 if(t->flags & IS_SOLID)
 	return -1;
 
 // Otherwise..
-return t->cost;
+return cost;
 }
 
 

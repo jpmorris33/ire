@@ -1440,6 +1440,15 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
+		if(!istricmp(Rptr,"cost")) {
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			if(!strisnumber(Rbuffer))
+				Dump(ctr,"The movement cost must be a number.",NULL);
+			tmp=strgetnumber(Rbuffer);
+			character->cost=tmp;
+			continue;
+		}
+
 		if(!istricmp(Rptr,"frame"))
 			{
 			strcpy(Rbuffer,strfirst(strrest(line)));
