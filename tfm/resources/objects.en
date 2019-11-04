@@ -2800,6 +2800,7 @@ section: characters
 	fixed
 	spikeproof
 	light 		-1
+	IfKilled	respawn
 
 	name LIGHTSOURCE
 	left		CANDLESTK
@@ -2814,6 +2815,7 @@ section: characters
 	fixed
 	spikeproof
 	light 		1
+	IfKilled	respawn
 
 
 	name STUFF

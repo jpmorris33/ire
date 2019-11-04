@@ -12,9 +12,9 @@ iMZ1r00
 
 	object 201326595
 		type LIGHT_ALWAYS
-		at 154 9
+		at 117 5
 		curdir 0
-		stats->owner 201326911
+		stats->owner 201327091
 
 	object 201326596
 		type STONEFLOOR10
@@ -381,6 +381,126 @@ iMZ1r00
 		name Test teleport
 		tag 2
 
+	object 201327136
+		type STONEFLOOR10
+		at 193 191
+		curdir 0
+
+	object 201327135
+		type STONEFLOOR10
+		at 195 191
+		curdir 3
+
+	object 201327131
+		type STONEFLOOR10
+		at 199 191
+		curdir 0
+
+	object 201327130
+		type STONEFLOOR10
+		at 202 191
+		curdir 3
+
+	object 201327137
+		type STONEFLOOR10
+		at 190 192
+		curdir 0
+
+	object 201327100
+		type STONEFLOOR14
+		at 193 192
+		curdir 1
+
+	object 201327101
+		type STONEFLOOR14
+		at 195 192
+		curdir 2
+
+	object 201327134
+		type STONEFLOOR10
+		at 196 192
+		curdir 3
+
+	object 201327132
+		type STONEFLOOR10
+		at 197 192
+		curdir 0
+
+	object 201327105
+		type STONEFLOOR14
+		at 199 192
+		curdir 1
+
+	object 201327106
+		type STONEFLOOR14
+		at 202 192
+		curdir 2
+
+	object 201327129
+		type STONEFLOOR10
+		at 205 192
+		curdir 3
+
+	object 201327138
+		type STONEFLOOR10
+		at 188 193
+		curdir 0
+
+	object 201327099
+		type STONEFLOOR14
+		at 190 193
+		curdir 1
+
+	object 201327103
+		type STONEFLOOR14
+		at 195 193
+		curdir 0
+
+	object 201327133
+		type STONEFLOOR10
+		at 196 193
+		curdir 1
+
+	object 201327107
+		type STONEFLOOR14
+		at 205 193
+		curdir 2
+
+	object 201327128
+		type STONEFLOOR10
+		at 207 193
+		curdir 3
+
+	object 201327139
+		type STONEFLOOR10
+		at 187 194
+		curdir 0
+
+	object 201327098
+		type STONEFLOOR14
+		at 188 194
+		curdir 1
+
+	object 201327104
+		type STONEFLOOR14
+		at 195 194
+		curdir 2
+
+	object 201327102
+		type STONEFLOOR14
+		at 197 194
+		curdir 1
+
+	object 201327108
+		type STONEFLOOR14
+		at 207 195
+		curdir 2
+
+	object 201327127
+		type STONEFLOOR10
+		at 209 195
+		curdir 3
+
 	object 201326666
 		type WARG_BRIDGE00
 		at 233 195
@@ -441,6 +561,16 @@ iMZ1r00
 		at 199 196
 		curdir 3
 
+	object 201327109
+		type STONEFLOOR14
+		at 209 196
+		curdir 2
+
+	object 201327126
+		type STONEFLOOR10
+		at 210 196
+		curdir 3
+
 	object 201326678
 		type BRIDGE_POLE
 		at 191 197
@@ -450,6 +580,11 @@ iMZ1r00
 		type BRIDGE_POLE
 		at 194 197
 		curdir 3
+
+	object 201327155
+		type FIRESTONES_LIT
+		at 195 197
+		curdir 1
 
 	object 201326680
 		type BRIDGE_POLE
@@ -476,10 +611,35 @@ iMZ1r00
 		at 199 197
 		curdir 3
 
+	object 201327156
+		type FIRESTONES_LIT
+		at 200 197
+		curdir 1
+
+	object 201327143
+		type STONEFLOOR14
+		at 210 197
+		curdir 2
+
+	object 201327125
+		type STONEFLOOR10
+		at 211 197
+		curdir 3
+
 	object 201326685
 		type WARG_BRIDGE00
 		at 233 197
 		curdir 0
+
+	object 201327140
+		type STONEFLOOR10
+		at 187 198
+		curdir 2
+
+	object 201327097
+		type STONEFLOOR14
+		at 188 198
+		curdir 3
 
 	object 201326686
 		type BRIDGE_POLE
@@ -541,20 +701,65 @@ iMZ1r00
 		at 199 199
 		curdir 3
 
+	object 201327145
+		type STONEFLOOR14
+		at 211 199
+		curdir 2
+
+	object 201327124
+		type STONEFLOOR10
+		at 212 199
+		curdir 3
+
 	object 201326698
 		type WARG_BRIDGE00
 		at 233 199
 		curdir 0
+
+	object 201327141
+		type STONEFLOOR10
+		at 188 200
+		curdir 2
+
+	object 201327096
+		type STONEFLOOR14
+		at 189 200
+		curdir 3
 
 	object 201326699
 		type GUILLOTINE_BLOODY
 		at 192 201
 		curdir 1
 
+	object 201327144
+		type STONEFLOOR14
+		at 211 201
+		curdir 0
+
+	object 201327123
+		type STONEFLOOR10
+		at 212 201
+		curdir 1
+
+	object 201327142
+		type STONEFLOOR10
+		at 188 202
+		curdir 0
+
+	object 201327095
+		type STONEFLOOR14
+		at 189 202
+		curdir 1
+
 	object 201326700
 		type GUILLOTINE_VICTIM_BLOODY
 		at 194 202
 		curdir 0
+
+	object 201327154
+		type FIRESTONES_LIT
+		at 196 202
+		curdir 1
 
 	object 201326701
 		type PIKE
@@ -595,6 +800,18 @@ iMZ1r00
 		type STONEFLOOR10
 		at 217 202
 		curdir 3
+
+	object 201327157
+		type MEMO
+		at 205 203
+		curdir 1
+		name Can we light some of the heads
+
+	object 201327158
+		type MEMO
+		at 206 203
+		curdir 1
+		name On fire?
 
 	object 201326709
 		type WARG_BRIDGE00
@@ -681,6 +898,16 @@ iMZ1r00
 		at 187 205
 		curdir 2
 
+	object 201327110
+		type STONEFLOOR14
+		at 210 205
+		curdir 0
+
+	object 201327122
+		type STONEFLOOR10
+		at 211 205
+		curdir 1
+
 	object 201326726
 		type STONEFLOOR10
 		at 180 206
@@ -736,6 +963,36 @@ iMZ1r00
 		at 181 207
 		curdir 0
 
+	object 201327115
+		type STONEFLOOR10
+		at 188 207
+		curdir 2
+
+	object 201327094
+		type STONEFLOOR14
+		at 190 207
+		curdir 3
+
+	object 201327093
+		type STONEFLOOR14
+		at 195 207
+		curdir 0
+
+	object 201327092
+		type STONEFLOOR14
+		at 197 207
+		curdir 3
+
+	object 201327111
+		type STONEFLOOR14
+		at 209 207
+		curdir 0
+
+	object 201327121
+		type STONEFLOOR10
+		at 210 207
+		curdir 1
+
 	decorative HUT00 at 240 207
 
 	decorative HUT01 at 241 207
@@ -770,6 +1027,46 @@ iMZ1r00
 		at 182 208
 		curdir 3
 
+	object 201327116
+		type STONEFLOOR10
+		at 190 208
+		curdir 2
+
+	object 201327150
+		type STONEFLOOR14
+		at 192 208
+		curdir 3
+
+	object 201327151
+		type STONEFLOOR14
+		at 194 208
+		curdir 0
+
+	object 201327146
+		type STONEFLOOR10
+		at 195 208
+		curdir 1
+
+	object 201327113
+		type STONEFLOOR14
+		at 202 208
+		curdir 0
+
+	object 201327114
+		type STONEFLOOR14
+		at 204 208
+		curdir 3
+
+	object 201327112
+		type STONEFLOOR14
+		at 206 208
+		curdir 0
+
+	object 201327120
+		type STONEFLOOR10
+		at 209 208
+		curdir 1
+
 	decorative HUT03 at 240 208
 
 	object 201326749
@@ -793,6 +1090,36 @@ iMZ1r00
 		type WARG_BRIDGE00
 		at 179 209
 		curdir 3
+
+	object 201327152
+		type STONEFLOOR10
+		at 192 209
+		curdir 2
+
+	object 201327153
+		type STONEFLOOR10
+		at 194 209
+		curdir 1
+
+	object 201327117
+		type STONEFLOOR10
+		at 197 209
+		curdir 2
+
+	object 201327149
+		type STONEFLOOR14
+		at 199 209
+		curdir 3
+
+	object 201327118
+		type STONEFLOOR10
+		at 204 209
+		curdir 2
+
+	object 201327119
+		type STONEFLOOR10
+		at 206 209
+		curdir 1
 
 	decorative HUT03 at 240 209
 
@@ -823,6 +1150,16 @@ iMZ1r00
 		at 182 210
 		curdir 1
 
+	object 201327148
+		type STONEFLOOR10
+		at 199 210
+		curdir 2
+
+	object 201327147
+		type STONEFLOOR10
+		at 202 210
+		curdir 1
+
 	decorative HUT03 at 240 210
 
 	decorative HUT03 at 246 210
@@ -834,48 +1171,60 @@ iMZ1r00
 
 	decorative HUT03 at 240 211
 
-	decorative HUT03 at 246 211
+	object 201326765
+		type MEMO
+		at 244 211
+		curdir 0
+		name Have a puzzle that needs ash
 
 	object 201326766
+		type MEMO
+		at 245 211
+		curdir 0
+		name From the noblemen/peasants
+
+	decorative HUT03 at 246 211
+
+	object 201326768
 		type STONEFLOOR10
 		at 172 212
 		curdir 0
 
-	object 201326767
+	object 201326769
 		type STONEFLOOR10
 		at 174 212
 		curdir 3
 
-	object 201326768
+	object 201326770
 		type STONEFLOOR10
 		at 176 212
 		curdir 0
 
-	object 201326769
+	object 201326771
 		type STONEFLOOR10
 		at 178 212
 		curdir 3
 
 	decorative HUT03 at 240 212
 
-	object 201326771
+	object 201326773
 		type HUT_DOOR_SHUT
 		at 242 212
 		curdir 0
 
 	decorative HUT03 at 246 212
 
-	object 201326773
+	object 201326775
 		type WARG_BRIDGE00
 		at 173 213
 		curdir 0
 
-	object 201326774
+	object 201326776
 		type WARG_BRIDGE00
 		at 173 213
 		curdir 3
 
-	object 201326775
+	object 201326777
 		type WARG_BRIDGE00
 		at 175 213
 		curdir 3
@@ -890,164 +1239,354 @@ iMZ1r00
 
 	decorative HUT06 at 246 213
 
-	object 201326781
+	object 201326783
+		type STONEFLOOR10
+		at 152 214
+		curdir 0
+
+	object 201326784
+		type STONEFLOOR10
+		at 158 214
+		curdir 3
+
+	object 201326785
 		type STONEFLOOR10
 		at 172 214
 		curdir 2
 
-	object 201326782
+	object 201326786
 		type STONEFLOOR10
 		at 174 214
 		curdir 1
 
-	object 201326783
+	object 201326787
 		type STONEFLOOR10
 		at 176 214
 		curdir 2
 
-	object 201326784
+	object 201326788
 		type STONEFLOOR10
 		at 178 214
 		curdir 1
 
-	object 201326785
+	object 201326789
+		type STONEFLOOR10
+		at 149 215
+		curdir 0
+
+	object 201326790
+		type STONEFLOOR14
+		at 152 215
+		curdir 1
+
+	object 201326791
+		type STONEFLOOR14
+		at 158 215
+		curdir 2
+
+	object 201326792
+		type STONEFLOOR10
+		at 164 215
+		curdir 3
+
+	object 201326793
 		type WARG_BRIDGE00
 		at 173 215
 		curdir 0
 
-	object 201326786
+	object 201326794
+		type STONEFLOOR10
+		at 146 216
+		curdir 0
+
+	object 201326795
+		type STONEFLOOR14
+		at 149 216
+		curdir 1
+
+	object 201326796
+		type STONEFLOOR14
+		at 164 216
+		curdir 2
+
+	object 201326797
+		type STONEFLOOR10
+		at 166 216
+		curdir 3
+
+	object 201326798
 		type STONEFLOOR10
 		at 172 216
 		curdir 0
 
-	object 201326787
+	object 201326799
 		type STONEFLOOR10
 		at 174 216
 		curdir 3
 
-	object 201326788
+	object 201326800
+		type STONEFLOOR14
+		at 166 217
+		curdir 2
+
+	object 201326801
+		type STONEFLOOR10
+		at 169 217
+		curdir 3
+
+	object 201326802
 		type WARG_BRIDGE00
 		at 173 217
 		curdir 0
 
-	object 201326789
+	object 201326803
+		type STONEFLOOR10
+		at 141 218
+		curdir 0
+
+	object 201326804
+		type STONEFLOOR14
+		at 146 218
+		curdir 1
+
+	object 201326805
 		type STONEFLOOR10
 		at 172 218
 		curdir 2
 
-	object 201326790
+	object 201326806
 		type STONEFLOOR10
 		at 174 218
 		curdir 1
 
-	object 201326791
+	object 201326807
+		type STONEFLOOR10
+		at 139 219
+		curdir 0
+
+	object 201326808
+		type STONEFLOOR14
+		at 141 219
+		curdir 1
+
+	object 201326809
+		type STONEFLOOR14
+		at 169 219
+		curdir 2
+
+	object 201326810
+		type STONEFLOOR10
+		at 171 219
+		curdir 3
+
+	object 201326811
 		type WARG_BRIDGE00
 		at 173 219
 		curdir 0
 
-	object 201326792
+	object 201326812
 		type STONEFLOOR14
 		at 149 220
 		curdir 0
 
-	object 201326793
+	object 201326813
 		type STONEFLOOR14
 		at 152 220
 		curdir 3
 
-	object 201326794
+	object 201326814
+		type STONEFLOOR14
+		at 171 220
+		curdir 2
+
+	object 201326815
+		type STONEFLOOR10
+		at 175 220
+		curdir 3
+
+	object 201326816
+		type STONEFLOOR10
+		at 138 221
+		curdir 0
+
+	object 201326817
+		type STONEFLOOR14
+		at 139 221
+		curdir 1
+
+	object 201326818
 		type STONEFLOOR14
 		at 148 221
 		curdir 0
 
-	object 201326795
+	object 201326819
 		type STONEFLOOR10
 		at 149 221
 		curdir 1
 
-	object 201326796
+	object 201326820
 		type STONEFLOOR10
 		at 152 221
 		curdir 2
 
-	object 201326797
+	object 201326821
 		type STONEFLOOR14
 		at 153 221
 		curdir 3
 
-	object 201326798
+	object 201326822
+		type STONEFLOOR14
+		at 175 221
+		curdir 2
+
+	object 201326823
+		type STONEFLOOR10
+		at 177 221
+		curdir 3
+
+	object 201326824
+		type LIGHTSOURCE
+		at 150 222
+		curdir 1
+
+	object 201326825
+		type LIGHTSOURCE
+		at 151 222
+		curdir 1
+
+	object 201326826
 		type MAN_NOBLE
-		inside 201326799
+		inside 201326827
 		curdir 2
 		schedule 0 0 GUARD_PATROL 0
 
-	object 201326799
+	object 201326827
 		type EGG_ALWAYS
 		at 160 222
 		curdir 2
 		name Victim spawn
 		activity egg_patrol_init
 
-	object 201326800
+	object 201326828
 		type DEVIL
-		inside 201326801
+		inside 201326829
 		curdir 0
 		activity attack_party
 
-	object 201326801
+	object 201326829
 		type EGG_ALWAYS
 		at 171 222
 		curdir 0
 		name Devil
 
-	object 201326802
+	object 201326830
+		type STONEFLOOR14
+		at 177 222
+		curdir 2
+
+	object 201326831
+		type STONEFLOOR10
+		at 178 222
+		curdir 3
+
+	object 201326832
+		type STONEFLOOR10
+		at 137 223
+		curdir 0
+
+	object 201326833
+		type STONEFLOOR14
+		at 138 223
+		curdir 1
+
+	object 201326834
 		type STONEFLOOR14
 		at 148 223
 		curdir 2
 
-	object 201326803
+	object 201326835
 		type STONEFLOOR10
 		at 149 223
 		curdir 3
 
-	object 201326804
+	object 201326836
 		type STONEFLOOR10
 		at 152 223
 		curdir 0
 
-	object 201326805
+	object 201326837
 		type STONEFLOOR14
 		at 153 223
 		curdir 1
 
-	object 201326806
+	object 201326838
 		type STONEFLOOR14
 		at 149 224
 		curdir 2
 
-	object 201326807
+	object 201326839
 		type STONEFLOOR14
 		at 152 224
 		curdir 1
 
-	object 201326808
+	object 201326840
+		type STONEFLOOR14
+		at 178 224
+		curdir 2
+
+	object 201326841
+		type STONEFLOOR10
+		at 179 224
+		curdir 3
+
+	object 201326842
 		type UNDEAD_SKELETON
-		inside 201326809
+		inside 201326843
 		curdir 1
 		activity attack_party
 
-	object 201326809
+	object 201326843
 		type EGG_OBJECT(SKELETON)
 		at 164 225
 		curdir 0
 
-	object 201326810
+	object 201326844
+		type STONEFLOOR10
+		at 136 226
+		curdir 0
+
+	object 201326845
+		type STONEFLOOR14
+		at 137 226
+		curdir 1
+
+	object 201326846
+		type STONEFLOOR14
+		at 178 227
+		curdir 0
+
+	object 201326847
+		type STONEFLOOR10
+		at 179 227
+		curdir 1
+
+	object 201326848
+		type STONEFLOOR10
+		at 136 229
+		curdir 2
+
+	object 201326849
+		type STONEFLOOR14
+		at 137 229
+		curdir 3
+
+	object 201326850
 		type UNDEAD_SKELETON
-		inside 201326811
+		inside 201326851
 		curdir 1
 		activity attack_party
 
-	object 201326811
+	object 201326851
 		type EGG_OBJECT(SKELETON)
 		at 152 229
 		curdir 0
@@ -1076,9 +1615,19 @@ iMZ1r00
 
 	decorative RUBBLE_04 at 176 229
 
-	object 201326824
+	object 201326864
+		type STONEFLOOR14
+		at 177 229
+		curdir 0
+
+	object 201326865
+		type STONEFLOOR10
+		at 178 229
+		curdir 1
+
+	object 201326866
 		type HEADLESS
-		inside 201326825
+		inside 201326867
 		curdir 0
 		name Headless
 		activity attack_party
@@ -1095,173 +1644,263 @@ iMZ1r00
 		funcs->resurrect EGG_ALWAYS
 		funcs->attack 
 
-	object 201326825
+	object 201326867
 		type EGG_ALWAYS
 		at 167 231
 		curdir 0
 		name Headless
 
-	object 201326826
+	object 201326868
+		type STONEFLOOR14
+		at 176 231
+		curdir 0
+
+	object 201326869
+		type STONEFLOOR10
+		at 177 231
+		curdir 1
+
+	object 201326870
+		type STONEFLOOR10
+		at 137 232
+		curdir 2
+
+	object 201326871
+		type STONEFLOOR14
+		at 138 232
+		curdir 3
+
+	object 201326872
 		type LIGHTSOURCE
 		at 161 232
 		curdir 0
 
-	object 201326827
+	object 201326873
 		type LECTERN
 		at 161 232
 		curdir 0
 
-	object 201326828
+	object 201326874
 		type BOOK_OPEN
 		at 161 232
 		curdir 0
 		name The Tome of Elucidation
 		funcs->talk /books/misc/hell1.txt
 
-	object 201326829
+	object 201326875
 		type MAN_GENERIC
-		inside 201326830
+		inside 201326876
 		curdir 2
 		schedule 0 0 GUARD_PATROL 0
 
-	object 201326830
+	object 201326876
 		type EGG_ALWAYS
 		at 151 233
 		curdir 0
 		name Victim spawn
 		activity egg_patrol_init
 
-	object 201326831
+	object 201326877
+		type STONEFLOOR14
+		at 175 233
+		curdir 0
+
+	object 201326878
+		type STONEFLOOR10
+		at 176 233
+		curdir 1
+
+	object 201326879
+		type STONEFLOOR14
+		at 174 234
+		curdir 0
+
+	object 201326880
+		type STONEFLOOR10
+		at 175 234
+		curdir 1
+
+	object 201326881
+		type STONEFLOOR14
+		at 173 235
+		curdir 0
+
+	object 201326882
+		type STONEFLOOR10
+		at 174 235
+		curdir 1
+
+	object 201326883
+		type STONEFLOOR10
+		at 138 236
+		curdir 2
+
+	object 201326884
+		type STONEFLOOR14
+		at 139 236
+		curdir 3
+
+	object 201326885
 		type UNDEAD_SKELETON
-		inside 201326832
+		inside 201326886
 		curdir 1
 		activity attack_party
 
-	object 201326832
+	object 201326886
 		type EGG_OBJECT(SKELETON)
 		at 153 236
 		curdir 0
 
-	object 201326833
+	object 201326887
 		type STONEFLOOR10
 		at 175 236
 		curdir 0
 
-	object 201326834
+	object 201326888
 		type STONEFLOOR10
 		at 177 236
 		curdir 3
 
-	object 201326835
+	object 201326889
 		type WARG_BRIDGE00
 		at 172 237
 		curdir 2
 
-	object 201326836
+	object 201326890
 		type WARG_BRIDGE00
 		at 174 237
 		curdir 2
 
-	object 201326837
+	object 201326891
 		type WARG_BRIDGE00
 		at 176 237
 		curdir 0
 
-	object 201326838
+	object 201326892
 		type HEADLESS
-		inside 201326839
+		inside 201326893
 		curdir 0
 		activity attack_party
 
-	object 201326839
+	object 201326893
 		type EGG_ALWAYS
 		at 156 238
 		curdir 0
 		name Headless
 
-	object 201326840
+	object 201326894
 		type STONEFLOOR10
 		at 175 238
 		curdir 2
 
-	object 201326841
+	object 201326895
 		type STONEFLOOR10
 		at 177 238
 		curdir 1
 
-	object 201326842
+	object 201326896
 		type STONEFLOOR10
 		at 180 238
 		curdir 0
 
-	object 201326913
+	object 201326897
 		type BARRIER_NOENTRY
 		at 180 238
 		curdir 0
 
-	object 201326912
+	object 201326898
 		type BARRIER_NOENTRY
 		at 181 238
 		curdir 0
 
-	object 201326843
+	object 201326899
 		type STONEFLOOR10
 		at 182 238
 		curdir 3
 
-	object 201326918
+	object 201326900
 		type BARRIER_NOENTRY
 		at 182 238
 		curdir 0
 
-	object 201326844
+	object 201326901
+		type STONEFLOOR10
+		at 139 239
+		curdir 2
+
+	object 201326902
+		type STONEFLOOR14
+		at 140 239
+		curdir 3
+
+	object 201326903
+		type STONEFLOOR14
+		at 171 239
+		curdir 0
+
+	object 201326904
+		type STONEFLOOR10
+		at 173 239
+		curdir 1
+
+	object 201326905
 		type WARG_BRIDGE00
 		at 176 239
 		curdir 0
 
-	object 201326914
+	object 201326906
 		type BARRIER_NOENTRY
 		at 180 239
 		curdir 0
 
-	object 201326845
+	object 201326907
 		type TODE
-		inside 201326847
+		inside 201326909
 		curdir 0
 		activity attack_party
 
-	object 201326846
+	object 201326908
 		type TOADSTONE
-		inside 201326845
+		inside 201326907
 		curdir 1
 
-	object 201326847
+	object 201326909
 		type EGG_ALWAYS
 		at 181 239
 		curdir 1
 		name Tode
 
-	object 201326919
+	object 201326910
 		type BARRIER_NOENTRY
 		at 182 239
 		curdir 0
 
-	object 201326848
+	object 201326911
+		type STONEFLOOR14
+		at 168 240
+		curdir 0
+
+	object 201326912
+		type STONEFLOOR10
+		at 171 240
+		curdir 1
+
+	object 201326913
 		type STONEFLOOR10
 		at 180 240
 		curdir 2
 
-	object 201326915
+	object 201326914
 		type BARRIER_NOENTRY
 		at 180 240
 		curdir 0
 
-	object 201326916
+	object 201326915
 		type BARRIER_NOENTRY
 		at 181 240
 		curdir 0
 
-	object 201326849
+	object 201326916
 		type STONEFLOOR10
 		at 182 240
 		curdir 1
@@ -1271,356 +1910,876 @@ iMZ1r00
 		at 182 240
 		curdir 0
 
-	object 201326850
+	object 201326918
+		type STONEFLOOR10
+		at 140 241
+		curdir 2
+
+	object 201326919
+		type STONEFLOOR14
+		at 141 241
+		curdir 3
+
+	object 201326920
 		type WARG_BRIDGE00
 		at 176 241
 		curdir 0
 
-	object 201326851
+	object 201326921
+		type STONEFLOOR10
+		at 141 242
+		curdir 2
+
+	object 201326922
+		type STONEFLOOR14
+		at 142 242
+		curdir 3
+
+	object 201326923
+		type STONEFLOOR14
+		at 159 242
+		curdir 0
+
+	object 201326924
+		type STONEFLOOR14
+		at 162 242
+		curdir 3
+
+	object 201326925
+		type STONEFLOOR14
+		at 164 242
+		curdir 0
+
+	object 201326926
+		type STONEFLOOR10
+		at 168 242
+		curdir 1
+
+	object 201326927
 		type STONEFLOOR10
 		at 175 242
 		curdir 0
 
-	object 201326852
+	object 201326928
 		type STONEFLOOR10
 		at 177 242
 		curdir 3
 
-	object 201326853
+	object 201326929
 		type STONEFLOOR10
 		at 179 242
 		curdir 0
 
-	object 201326854
+	object 201326930
 		type STONEFLOOR10
 		at 181 242
 		curdir 3
 
-	object 201326855
+	object 201326931
+		type STONEFLOOR10
+		at 142 243
+		curdir 2
+
+	object 201326932
+		type STONEFLOOR14
+		at 144 243
+		curdir 3
+
+	object 201326933
+		type STONEFLOOR14
+		at 158 243
+		curdir 0
+
+	object 201326934
+		type STONEFLOOR10
+		at 159 243
+		curdir 1
+
+	object 201326935
+		type STONEFLOOR10
+		at 162 243
+		curdir 2
+
+	object 201326936
+		type STONEFLOOR10
+		at 164 243
+		curdir 1
+
+	object 201326937
 		type WARG_BRIDGE00
 		at 176 243
 		curdir 2
 
-	object 201326856
+	object 201326938
 		type WARG_BRIDGE00
 		at 178 243
 		curdir 2
 
-	object 201326857
+	object 201326939
 		type WARG_BRIDGE00
 		at 180 243
 		curdir 0
 
-	object 201326858
+	object 201326940
 		type STONEFLOOR10
 		at 184 243
 		curdir 0
 
-	object 201326925
+	object 201326941
 		type BARRIER_NOENTRY
 		at 184 243
 		curdir 0
 
-	object 201326924
+	object 201326942
 		type BARRIER_NOENTRY
 		at 185 243
 		curdir 0
 
-	object 201326859
+	object 201326943
 		type STONEFLOOR10
 		at 186 243
 		curdir 3
 
-	object 201326923
+	object 201326944
 		type BARRIER_NOENTRY
 		at 186 243
 		curdir 0
 
-	object 201326860
+	object 201326945
+		type STONEFLOOR10
+		at 144 244
+		curdir 2
+
+	object 201326946
+		type STONEFLOOR14
+		at 147 244
+		curdir 3
+
+	object 201326947
+		type STONEFLOOR14
+		at 154 244
+		curdir 0
+
+	object 201326948
+		type STONEFLOOR10
+		at 158 244
+		curdir 1
+
+	object 201326949
 		type STONEFLOOR10
 		at 175 244
 		curdir 2
 
-	object 201326861
+	object 201326950
 		type STONEFLOOR10
 		at 177 244
 		curdir 1
 
-	object 201326862
+	object 201326951
 		type STONEFLOOR10
 		at 179 244
 		curdir 2
 
-	object 201326863
+	object 201326952
 		type STONEFLOOR10
 		at 181 244
 		curdir 1
 
-	object 201326926
+	object 201326953
 		type BARRIER_NOENTRY
 		at 184 244
 		curdir 0
 
-	object 201326864
+	object 201326954
 		type TODE
-		inside 201326866
+		inside 201326956
 		curdir 0
 		activity attack_party
 
-	object 201326865
+	object 201326955
 		type TOADSTONE
-		inside 201326864
+		inside 201326954
 		curdir 1
 
-	object 201326866
+	object 201326956
 		type EGG_ALWAYS
 		at 185 244
 		curdir 1
 		name Tode
 
-	object 201326922
+	object 201326957
 		type BARRIER_NOENTRY
 		at 186 244
 		curdir 0
 
-	object 201326867
+	object 201326958
+		type STONEFLOOR10
+		at 147 245
+		curdir 2
+
+	object 201326959
+		type STONEFLOOR14
+		at 149 245
+		curdir 3
+
+	object 201326960
+		type STONEFLOOR14
+		at 152 245
+		curdir 0
+
+	object 201326961
+		type STONEFLOOR10
+		at 154 245
+		curdir 1
+
+	object 201326962
 		type WARG_BRIDGE00
 		at 180 245
 		curdir 0
 
-	object 201326868
+	object 201326963
 		type STONEFLOOR10
 		at 184 245
 		curdir 2
 
-	object 201326920
+	object 201326964
 		type BARRIER_NOENTRY
 		at 184 245
 		curdir 0
 
-	object 201326927
+	object 201326965
 		type BARRIER_NOENTRY
 		at 185 245
 		curdir 0
 
-	object 201326869
+	object 201326966
 		type STONEFLOOR10
 		at 186 245
 		curdir 1
 
-	object 201326921
+	object 201326967
 		type BARRIER_NOENTRY
 		at 186 245
 		curdir 0
 
-	object 201326870
+	object 201326968
+		type STONEFLOOR10
+		at 190 245
+		curdir 0
+
+	object 201326969
+		type STONEFLOOR10
+		at 196 245
+		curdir 3
+
+	object 201326970
+		type STONEFLOOR10
+		at 149 246
+		curdir 2
+
+	object 201326971
+		type STONEFLOOR10
+		at 152 246
+		curdir 1
+
+	object 201326972
+		type STONEFLOOR10
+		at 188 246
+		curdir 0
+
+	object 201326973
+		type STONEFLOOR14
+		at 190 246
+		curdir 1
+
+	object 201326974
+		type STONEFLOOR14
+		at 196 246
+		curdir 2
+
+	object 201326975
+		type STONEFLOOR10
+		at 199 246
+		curdir 3
+
+	object 201326976
 		type WARG_BRIDGE00
 		at 180 247
 		curdir 0
 
-	object 201326871
-		type STONEFLOOR18
-		at 193 286
+	object 201326977
+		type STONEFLOOR10
+		at 183 247
+		curdir 0
+
+	object 201326978
+		type STONEFLOOR14
+		at 188 247
+		curdir 1
+
+	object 201326979
+		type STONEFLOOR14
+		at 199 247
+		curdir 2
+
+	object 201326980
+		type STONEFLOOR10
+		at 204 247
 		curdir 3
 
-	object 201326872
-		type STONEFLOOR18
-		at 193 287
+	object 201326981
+		type STONEFLOOR10
+		at 179 248
+		curdir 0
+
+	object 201326982
+		type STONEFLOOR14
+		at 183 248
+		curdir 1
+
+	object 201326983
+		type STONEFLOOR14
+		at 204 248
+		curdir 2
+
+	object 201326984
+		type STONEFLOOR10
+		at 206 248
 		curdir 3
 
-	object 201326873
+	object 201326985
+		type STONEFLOOR10
+		at 178 249
+		curdir 0
+
+	object 201326986
+		type STONEFLOOR14
+		at 179 249
+		curdir 1
+
+	object 201326987
+		type STONEFLOOR14
+		at 206 249
+		curdir 2
+
+	object 201326988
+		type STONEFLOOR10
+		at 207 249
+		curdir 3
+
+	object 201326989
+		type STONEFLOOR10
+		at 177 250
+		curdir 0
+
+	object 201326990
+		type STONEFLOOR14
+		at 178 250
+		curdir 1
+
+	object 201326991
+		type STONEFLOOR14
+		at 207 250
+		curdir 2
+
+	object 201326992
+		type STONEFLOOR10
+		at 212 250
+		curdir 3
+
+	object 201326993
+		type STONEFLOOR10
+		at 175 251
+		curdir 0
+
+	object 201326994
+		type STONEFLOOR14
+		at 177 251
+		curdir 1
+
+	object 201326995
+		type STONEFLOOR14
+		at 212 251
+		curdir 2
+
+	object 201326996
+		type STONEFLOOR10
+		at 213 251
+		curdir 3
+
+	object 201326997
+		type STONEFLOOR14
+		at 213 253
+		curdir 2
+
+	object 201326998
+		type STONEFLOOR10
+		at 214 253
+		curdir 3
+
+	object 201326999
+		type STONEFLOOR10
+		at 174 254
+		curdir 0
+
+	object 201327000
+		type STONEFLOOR14
+		at 175 254
+		curdir 1
+
+	object 201327001
+		type STONEFLOOR14
+		at 214 255
+		curdir 2
+
+	object 201327002
+		type STONEFLOOR10
+		at 215 255
+		curdir 3
+
+	object 201327003
+		type STONEFLOOR14
+		at 215 257
+		curdir 2
+
+	object 201327004
+		type STONEFLOOR10
+		at 216 257
+		curdir 3
+
+	object 201327005
+		type STONEFLOOR10
+		at 173 258
+		curdir 0
+
+	object 201327006
+		type STONEFLOOR14
+		at 174 258
+		curdir 1
+
+	object 201327007
+		type STONEFLOOR14
+		at 216 258
+		curdir 2
+
+	object 201327008
+		type STONEFLOOR10
+		at 217 258
+		curdir 3
+
+	object 201327009
+		type STONEFLOOR10
+		at 173 262
+		curdir 2
+
+	object 201327010
+		type STONEFLOOR14
+		at 174 262
+		curdir 3
+
+	object 201327011
+		type STONEFLOOR14
+		at 216 262
+		curdir 0
+
+	object 201327012
+		type STONEFLOOR10
+		at 217 262
+		curdir 1
+
+	object 201327013
+		type STONEFLOOR10
+		at 174 264
+		curdir 2
+
+	object 201327014
+		type STONEFLOOR14
+		at 175 264
+		curdir 3
+
+	object 201327015
+		type STONEFLOOR10
+		at 175 265
+		curdir 2
+
+	object 201327016
+		type STONEFLOOR14
+		at 177 265
+		curdir 3
+
+	object 201327017
+		type STONEFLOOR14
+		at 215 265
+		curdir 0
+
+	object 201327018
+		type STONEFLOOR10
+		at 216 265
+		curdir 1
+
+	object 201327019
+		type STONEFLOOR10
+		at 177 267
+		curdir 2
+
+	object 201327020
+		type STONEFLOOR14
+		at 178 267
+		curdir 3
+
+	object 201327021
+		type STONEFLOOR14
+		at 214 267
+		curdir 0
+
+	object 201327022
+		type STONEFLOOR10
+		at 215 267
+		curdir 1
+
+	object 201327023
+		type STONEFLOOR10
+		at 178 268
+		curdir 2
+
+	object 201327024
+		type STONEFLOOR14
+		at 182 268
+		curdir 3
+
+	object 201327025
+		type STONEFLOOR14
+		at 210 268
+		curdir 0
+
+	object 201327026
+		type STONEFLOOR10
+		at 214 268
+		curdir 1
+
+	object 201327027
+		type STONEFLOOR14
+		at 208 269
+		curdir 0
+
+	object 201327028
+		type STONEFLOOR10
+		at 210 269
+		curdir 1
+
+	object 201327029
+		type STONEFLOOR10
+		at 182 270
+		curdir 2
+
+	object 201327030
+		type STONEFLOOR14
+		at 186 270
+		curdir 3
+
+	object 201327031
+		type STONEFLOOR14
+		at 202 270
+		curdir 0
+
+	object 201327032
+		type STONEFLOOR14
+		at 205 270
+		curdir 3
+
+	object 201327033
+		type STONEFLOOR10
+		at 186 271
+		curdir 2
+
+	object 201327034
+		type STONEFLOOR14
+		at 189 271
+		curdir 3
+
+	object 201327035
+		type STONEFLOOR14
+		at 199 271
+		curdir 0
+
+	object 201327036
+		type STONEFLOOR10
+		at 202 271
+		curdir 1
+
+	object 201327037
+		type STONEFLOOR10
+		at 205 271
+		curdir 2
+
+	object 201327038
+		type STONEFLOOR10
+		at 208 271
+		curdir 1
+
+	object 201327039
+		type STONEFLOOR10
+		at 189 272
+		curdir 2
+
+	object 201327040
+		type STONEFLOOR14
+		at 190 272
+		curdir 3
+
+	object 201327041
+		type STONEFLOOR14
+		at 197 272
+		curdir 0
+
+	object 201327042
+		type STONEFLOOR10
+		at 199 272
+		curdir 1
+
+	object 201327043
+		type STONEFLOOR14
+		at 196 273
+		curdir 0
+
+	object 201327044
+		type STONEFLOOR10
+		at 197 273
+		curdir 1
+
+	object 201327045
+		type STONEFLOOR10
+		at 189 274
+		curdir 0
+
+	object 201327046
+		type STONEFLOOR14
+		at 190 274
+		curdir 1
+
+	object 201327047
+		type STONEFLOOR14
+		at 195 275
+		curdir 0
+
+	object 201327048
+		type STONEFLOOR10
+		at 196 275
+		curdir 1
+
+	object 201327049
+		type STONEFLOOR10
+		at 188 276
+		curdir 0
+
+	object 201327050
+		type STONEFLOOR14
+		at 189 276
+		curdir 1
+
+	object 201327051
+		type STONEFLOOR14
+		at 194 277
+		curdir 0
+
+	object 201327052
+		type STONEFLOOR10
+		at 195 277
+		curdir 1
+
+	object 201327053
+		type STONEFLOOR10
+		at 187 281
+		curdir 0
+
+	object 201327054
+		type STONEFLOOR14
+		at 188 281
+		curdir 1
+
+	object 201327055
+		type STONEFLOOR14
+		at 193 281
+		curdir 0
+
+	object 201327056
+		type STONEFLOOR10
+		at 194 281
+		curdir 1
+
+	object 201327057
+		type STONEFLOOR10
+		at 187 286
+		curdir 2
+
+	object 201327058
+		type STONEFLOOR14
+		at 188 286
+		curdir 3
+
+	object 201327059
 		type STONEFLOOR14
 		at 193 288
 		curdir 2
 
-	object 201326874
+	object 201327060
 		type STONEFLOOR10
 		at 194 288
 		curdir 3
 
-	object 201326875
-		type STONEFLOOR18
-		at 194 289
+	object 201327061
+		type STONEFLOOR10
+		at 188 289
+		curdir 2
+
+	object 201327062
+		type STONEFLOOR14
+		at 189 289
 		curdir 3
 
-	object 201326876
-		type STONEFLOOR18
-		at 194 290
+	object 201327063
+		type STONEFLOOR10
+		at 189 290
+		curdir 2
+
+	object 201327064
+		type STONEFLOOR14
+		at 190 290
 		curdir 3
 
-	object 201326877
-		type STONEFLOOR18
-		at 194 291
-		curdir 3
-
-	object 201326878
-		type STONEFLOOR18
-		at 194 292
-		curdir 3
-
-	object 201326879
-		type STONEFLOOR18
-		at 194 293
-		curdir 3
-
-	object 201326880
-		type STONEFLOOR18
-		at 194 294
-		curdir 3
-
-	object 201326881
-		type STONEFLOOR18
-		at 194 295
-		curdir 3
-
-	object 201326882
-		type STONEFLOOR18
-		at 194 296
-		curdir 3
-
-	object 201326883
-		type STONEFLOOR18
-		at 194 297
-		curdir 3
-
-	object 201326884
-		type STONEFLOOR18
-		at 194 298
-		curdir 3
-
-	object 201326885
+	object 201327065
 		type STONEFLOOR10
 		at 189 299
 		curdir 0
 
-	object 201326886
+	object 201327066
 		type STONEFLOOR14
 		at 190 299
 		curdir 1
 
-	object 201326887
+	object 201327067
 		type STONEFLOOR18
 		at 194 299
 		curdir 3
 
-	object 201326888
+	object 201327068
 		type STONEFLOOR10
 		at 188 300
 		curdir 0
 
-	object 201326889
+	object 201327069
 		type STONEFLOOR14
 		at 189 300
 		curdir 1
 
-	object 201326890
+	object 201327070
 		type STONEFLOOR14
 		at 194 300
 		curdir 2
 
-	object 201326891
+	object 201327071
 		type STONEFLOOR10
 		at 195 300
 		curdir 3
 
-	object 201326892
+	object 201327072
 		type STONEFLOOR18
 		at 188 301
 		curdir 2
 
-	object 201326893
+	object 201327073
 		type STONEFLOOR18
 		at 195 301
 		curdir 3
 
-	object 201326894
+	object 201327074
 		type STONEFLOOR10
 		at 188 302
 		curdir 2
 
-	object 201326895
+	object 201327075
 		type STONEFLOOR14
 		at 189 302
 		curdir 3
 
-	object 201326896
+	object 201327076
 		type TARGET
 		at 191 302
 		curdir 0
 		tag 1
 
-	object 201326897
+	object 201327077
 		type STONEFLOOR18
 		at 195 302
 		curdir 3
 
-	object 201326898
+	object 201327078
 		type STONEFLOOR18
 		at 189 303
 		curdir 2
 
-	object 201326899
+	object 201327079
 		type TARGET
 		at 191 303
 		curdir 0
 		tag 666
 
-	object 201326900
+	object 201327080
 		type STONEFLOOR14
 		at 194 303
 		curdir 0
 
-	object 201326901
+	object 201327081
 		type STONEFLOOR10
 		at 195 303
 		curdir 1
 
-	object 201326902
+	object 201327082
 		type BOAT1
 		at 195 303
 		curdir 3
 
-	object 201326903
+	object 201327083
 		type STONEFLOOR10
 		at 189 304
 		curdir 2
 
-	object 201326904
+	object 201327084
 		type STONEFLOOR14
 		at 190 304
 		curdir 3
 
-	object 201326905
+	object 201327085
 		type STONEFLOOR14
 		at 192 304
 		curdir 0
 
-	object 201326906
+	object 201327086
 		type STONEFLOOR18
 		at 193 304
 		curdir 1
 
-	object 201326907
+	object 201327087
 		type STONEFLOOR10
 		at 194 304
 		curdir 1
 
-	object 201326908
+	object 201327088
 		type STONEFLOOR10
 		at 190 305
 		curdir 2
 
-	object 201326909
+	object 201327089
 		type STONEFLOOR18
 		at 191 305
 		curdir 1
 
-	object 201326910
+	object 201327090
 		type STONEFLOOR10
 		at 192 305
 		curdir 1
 
-	object 201326911
+	object 201327091
 		type LIGHT_END
 		at 316 335
 		curdir 0
