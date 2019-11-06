@@ -2228,6 +2228,10 @@ section: sprites
 	guillotine_w_dn_ovl	sprites/guiltn11.png
 	pike			sprites/pike1.png
 	pike_bloodied		sprites/pike2.png
+	pikefire1		sprites/pikefire1.png
+	pikefire2		sprites/pikefire2.png
+	pikefire3		sprites/pikefire3.png
+	pikefire4		sprites/pikefire4.png
 
 	machinery_00		sprites/machin00.cel
 	machinery_01		sprites/machin01.cel
@@ -6339,7 +6343,7 @@ section: sequences
 
 	name TORCH
 	loop
-	speed 1
+	speed 3
 	framelist:
 	#4 frames
 		TORCH0
@@ -9418,6 +9422,18 @@ section: sequences
 
 	quickname pike
 	quickname pike_bloodied
+
+	name PIKE_FIRE
+	loop
+	speed 3
+	x -32
+	y -32
+	framelist:
+		pikefire1
+		pikefire2
+		pikefire3
+		pikefire4
+	end
 
 	name MACHINERY_GRINDSTONE_RIGHT
 	loop

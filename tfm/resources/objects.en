@@ -5428,6 +5428,16 @@ section: characters
 	fixed
 	solid
 
+	name PIKE_FIRE
+	frame		pike_fire
+	hp		1000000
+	weight		-1
+	fixed
+	system		# Make it visible but intangible
+	person		# Hack because people have a higher z-order in rendering
+	description	"Pikefire"
+	short		"Pikefire"
+
 	name WOOD_MASK
 	left		WOODMASK_L
 	right		WOODMASK_L
