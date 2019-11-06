@@ -121,6 +121,7 @@ void pe_buildstruct(const char *input, char type);
 void PeDump(long lineno,const char *error,const char *help);
 extern int count_quotes(const char *line);
 extern int srcline;
+ bool pe_marktransient;
 
 static struct TF_S script;
 char *compilename="(sweet f-a)"; // You know what that stands for
@@ -245,6 +246,7 @@ char **line;
 pe_numfuncs=0;
 pe_lineid=0;
 pe_localfile=NULL;
+pe_marktransient=false;
 
 lines = script.lines;
 for(lineno=0;lineno<lines;lineno++)
@@ -287,6 +289,8 @@ for(lineno=0;lineno<lines;lineno++)
 
 if(pe_localfile != NULL)
 	PeDump(lineno,"Missing endlocal statement in file",NULL);
+if(pe_marktransient)
+	PeDump(lineno,"Missing endtransient statement in file",NULL);
 
 return pe_numfuncs;
 }
@@ -2597,6 +2601,7 @@ for(kctr=0;_keylist[kctr];kctr++)
 					{
 					SAFE_STRCPY(pe_globalptr[gptr].name,k->name);
 					pe_globalptr[gptr].ptr = &pe_global[k->id];
+					pe_globalptr[gptr].transient = k->transient;
 					gptr++;
 					}
 
@@ -2607,6 +2612,7 @@ for(kctr=0;_keylist[kctr];kctr++)
 					pe_globalint[iptr].ptr = (VMINT *)&pe_global[k->id];
 					// Store default value
 					pe_globalint[iptr].defaultintval = *pe_globalint[iptr].ptr;
+					pe_globalint[iptr].transient = k->transient;
 //					ilog_quiet("setdefault int variable %s = %d\n",k->name,pe_globalint[iptr].defaultintval);
 					iptr++;
 					}
@@ -2619,6 +2625,7 @@ for(kctr=0;_keylist[kctr];kctr++)
 						{
 						snprintf(pe_globalptr[gptr].name,47,"%s[%d]",k->name,ctr);
 						pe_globalptr[gptr].ptr = &pe_global[k->id+ctr];
+						pe_globalptr[gptr].transient = k->transient;
 						gptr++;
 						}
 					}
@@ -2631,6 +2638,7 @@ for(kctr=0;_keylist[kctr];kctr++)
 						{
 						snprintf(pe_globalint[iptr].name,47,"%s[%d]",k->name,ctr);
 						pe_globalint[iptr].ptr = (VMINT *)&pe_global[k->id+ctr];
+						pe_globalint[iptr].transient = k->transient;
 						// Globals don't have default values, leave it as 0
 						iptr++;
 						}

@@ -11,6 +11,9 @@ integer_array keypad_d_x[6]
 object_array keypad_d_icon[8]
 userstring kp_input_d 6	# user input
 
+transient keypad_d_x
+transient keypad_d_icon
+
 ##
 ##  Entry point
 ##

@@ -19,52 +19,56 @@ constant BAG_GRID = 908
 
 #120
 
-# Interface Widgets
+start_transient		# Don't reload these from savegames
 
-object	cursor
-object	splat
-object  back_icon
-object	directioncursor
-object	objectpanel
-object	statuspanel
-object	karmometer
-object  spellbook_img
-object  phone_img
-object  drak_keypad
-object  human_keypad
-object  human_keypad_blank
-object  human_keypad_error
-object  human_keypad_denied
-object	dlp_display
+	# Interface Widgets
 
-# Game status variables
+	object	cursor
+	object	splat
+	object  back_icon
+	object	directioncursor
+	object	objectpanel
+	object	statuspanel
+	object	karmometer
+	object  spellbook_img
+	object  phone_img
+	object  drak_keypad
+	object  human_keypad
+	object  human_keypad_blank
+	object  human_keypad_error
+	object  human_keypad_denied
+	object	dlp_display
 
-object	splatvictim
-object	defaultenemy
-object	current_bag
-object	bankaccount
-object	usercard
-object  thrown
-object  attacker
-object  attackweapon
-object  suspect
+	# Game status variables
 
-# integers
+	object	splatvictim
+	object	defaultenemy
+	object	current_bag
+	object	bankaccount
+	object	usercard
+	object  thrown
+	object  attacker
+	object  attackweapon
+	object  suspect
 
-int player_load
-int player_strength
+	# integers
 
-# Object browser
-int show_cursor = 0
-int cursor_x
-int cursor_y
-int quit_browser
-int drop_ok
-int deathcount = 0	# How many times has the player died?
+	int player_load
+	int player_strength
 
-int party_mode
-int spawn_override = 0	# Use a different respawn spot after death (islands etc)
-int light_magic = 0
+	# Object browser
+	int show_cursor = 0
+	int cursor_x
+	int cursor_y
+	int quit_browser
+	int drop_ok
+	int deathcount = 0	# How many times has the player died?
+
+	int party_mode
+	int spawn_override = 0	# Use a different respawn spot after death (islands etc)
+	int light_magic = 0
+
+end_transient
 
 # NPC classes
 

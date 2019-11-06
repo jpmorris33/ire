@@ -49,6 +49,8 @@ static void PE_checkaccess(char **);
 static void PE_newfunc(char **a);	static void PEP_newfunc(char **a);
 static void PE_endfunc(char **a);	static void PEP_endfunc(char **a);
 static void PEP_StartLocal(char **a);static void PEP_EndLocal(char **a);
+static void PEP_StartTransient(char **a);static void PEP_EndTransient(char **a);
+static void PEP_Transient(char **a);
 static void PE_classAct(char **a);
 static void PE_classPrv(char **a);
 static void PE_declare(char **a);	static void PEP_const(char **a);
@@ -187,6 +189,11 @@ OPCODE vmspec[] =
                     {"end",0,"",PE_endfunc,PEP_endfunc,0},
                     {"local",0,"",PE_declare,PEP_StartLocal},
                     {"endlocal",0,"",PE_declare,PEP_EndLocal},
+                    {"transient",0,"l",PE_declare,PEP_Transient},
+                    {"start_transient",0,"",PE_declare,PEP_StartTransient},
+                    {"end_transient",0,"",PE_declare,PEP_EndTransient},
+                    {"starttransient",0,"",PE_declare,PEP_StartTransient},
+                    {"endtransient",0,"",PE_declare,PEP_EndTransient},
                     {"activity",0,"",PE_classAct,NULL,0},
                     {"private",0,"",PE_classPrv,NULL,0},
                     {"const",0,"l=n",PE_declare,PEP_const,0},
@@ -4127,7 +4134,7 @@ if(curfunc)
 
 ptr = find_keyword(line[1],'f',NULL);
 if(!ptr)
-    PeDump(srcline,"Internal error, transient function in PE_newfunc",line[0]);
+    PeDump(srcline,"Internal error, invalid function in PE_newfunc",line[0]);
 curfunc = ptr->name;
 
 pe_output->name = ptr->name;
@@ -4188,6 +4195,35 @@ void PEP_EndLocal(char **line)
 pe_localfile=NULL;
 }
 
+void PEP_Transient(char **line)
+{
+// If we're not doing a full compile, forget it
+if(PE_FastBuild)
+	return;
+
+if(!line[1]) {
+	PeDump(srcline,"no variable specified",NULL);
+}
+
+KEYWORD *k=find_keyword(line[1],'?',curfunc);
+if(!k) {
+	PeDump(srcline,"Unknown variable",line[1]);
+}
+if(curfunc) {
+	PeDump(srcline,"Transient can only be used on globals", NULL);
+}
+k->transient = true;
+}
+
+void PEP_StartTransient(char **line)
+{
+pe_marktransient=true;
+}
+
+void PEP_EndTransient(char **line)
+{
+pe_marktransient=false;
+}
 
 // Mark this function as being an Activity (used as a label for the Editor)
 void PE_classAct(char **line)

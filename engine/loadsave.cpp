@@ -2416,7 +2416,7 @@ if(fullrestore)	// Not for changing map
 			ctr2 = igetl_i(ifp);
 		
 			globalint = FindGlobalInt(name48);
-			if(globalint && globalint->ptr)
+			if(globalint && globalint->ptr && (!globalint->transient))
 				{
 //				ilog_quiet("Globali2: Setting %s to %d\n",name48,ctr2);
 				*globalint->ptr = ctr2;
@@ -2425,7 +2425,7 @@ if(fullrestore)	// Not for changing map
 		}
 	}
 
-// Load Global Objects (old format!)
+// Load Global Objects
 if(GetWadEntry(ifp,"GLOBALO2"))
 	{
 	num = igetl_i(ifp);
@@ -2436,9 +2436,9 @@ if(GetWadEntry(ifp,"GLOBALO2"))
 		o = find_id(ctr2);
 
 		globalptr = FindGlobalPtr(name48);
-		if(globalptr && globalptr->ptr)
+		if(globalptr && globalptr->ptr && (!globalptr->transient))
 			{
-//			ilog_quiet("Globalo2: Setting %s to %p\n",name48,o);
+			ilog_quiet("Globalo2: Setting %s to %p\n",name48,o);
 			*(OBJECT **)(globalptr->ptr) = o;
 			}
 		}

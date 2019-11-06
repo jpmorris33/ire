@@ -40,6 +40,7 @@ char *localfile; // File it's local to (if any)
 int index;	// Base Index within array (used for fast searching)
 int keywordid;
 bool preconfigured; // Constants can be overridden on the commandline
+bool transient;	    // If it's a global it's not saved in the savegame
 KEYWORD *next;
 };
 
@@ -71,12 +72,14 @@ struct GLOBALINT
 	char name[48];
 	VMINT *ptr;
 	VMINT defaultintval;
+	bool transient;
 	};
 
 struct GLOBALPTR
 	{
 	char name[48];
 	void *ptr;
+	bool transient;
 	};
 	
 
@@ -85,6 +88,7 @@ extern STRUCTURE *pe_datatypes[];
 extern char pe_vartypes[];
 extern char *pe_parm;
 extern char *pe_localfile;
+extern bool pe_marktransient;
 extern OBJCODE *pe_output;
 extern int PE_FastBuild;
 

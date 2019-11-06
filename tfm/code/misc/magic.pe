@@ -15,6 +15,9 @@ object spellbook
 int spell_level
 int spell_failed
 
+transient spellbook
+transient spelltarget
+
 ##
 ##  Get target
 ##

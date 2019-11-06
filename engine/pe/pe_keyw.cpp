@@ -79,32 +79,33 @@ if(strlen(name) > 31) {
 	return NULL;
 }
 
-if(FastLookup)
-	{
+if(FastLookup) {
 	// Error, the list is already set in stone
 	#ifndef _WIN32
 	// I don't have bloody time to babysit MSVC
 	CRASH();
 	#endif
 	return NULL;
-	}
+}
 
 // Get list representing character
 kl=tolower(name[0]);
 
 // Check for pre-existence
-if(klist[kl])
-	for(ctr=0;ctr<klistlen[kl];ctr++)
-		{
+if(klist[kl]) {
+	for(ctr=0;ctr<klistlen[kl];ctr++) {
 		k=klist[kl][ctr];
 		if(!k)
 			break;
-		if(k->local == func)
-			if(type == k->type || type == '?' || k->type == '?')
-				if(!istricmp(k->name,name))
+		if(k->local == func) {
+			if(type == k->type || type == '?' || k->type == '?') {
+				if(!istricmp(k->name,name)) {
 					return NULL; // Duplicate entry!
-//		idno++;
+				}
+			}
 		}
+	}
+}
 
 // Add to list
 klistlen[kl]++;
@@ -121,12 +122,20 @@ k->value = (void *)idno;
 k->type = type;
 k->preconfigured = false;
 
-if(func)
-	{
+if(func) {
 	k->local = func;
 	k->refcount=0; // Check for unused stuff corrupting the localtab
-	}
+}
 k->localfile=pe_localfile;
+
+if(pe_marktransient) {
+	if(func) {
+		ilog_printf("Error: Cannot make local variables transient\n");
+		return NULL;
+	}
+	k->transient = true;
+}
+
 return k;
 }
 
