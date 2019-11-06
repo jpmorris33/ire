@@ -1748,7 +1748,7 @@ for(entry = firstentry;entry<=lastentry;entry++)
 ilog_quiet("\nGuessing type for input:\n");
 numcheckfatal=0;
 ilog_quiet("%s ",line[1]);
-for(ctr=0;ctr<16;ctr++)
+for(ctr=0;ctr<15;ctr++)
 	{
 	buf=line[ctr+1];
 	if(buf != NULL)
@@ -1765,7 +1765,7 @@ for(ctr=0;ctr<16;ctr++)
 
 // Do it again, and see if we can deduce reason for failure
 
-for(ctr=0;ctr<16;ctr++)
+for(ctr=0;ctr<15;ctr++)
 	{
 	buf=line[ctr+1];
 	if(buf != NULL)
