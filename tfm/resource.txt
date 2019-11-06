@@ -13407,6 +13407,7 @@ section: scripts
 	code/creature/undead.pe
 	code/creature/waarg.pe
 	code/creature/bandit.pe
+	code/events/agnar.pe
 	code/events/church.pe
 	code/events/events.pe
 	code/events/fishrman.pe

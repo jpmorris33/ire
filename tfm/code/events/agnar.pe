@@ -1,0 +1,149 @@
+
+##
+##  The lost princes of Agnar
+##
+
+function agnar_mainprince
+object dest
+object prince
+
+set_user_flag "agnar_running" = 1
+
+find_tag prince = "prince" 13
+find_tag dest = "target" 13
+
+if_exists prince
+	start_action prince does seek_target to dest
+else
+	print "Can't find Prince|"
+endif
+end
+
+##
+##  The bizarre events of Agnar reach their catastrophic climax
+##
+
+function agnar_princes
+object prince1
+object prince2
+object prince3
+object prince4
+object prince5
+object ptrap2
+object ptrap3
+object ptrap4
+object ptrap5
+
+# Find the princes
+find_tag prince1 = "prince" 13
+find_tag prince2 = "prince" 14
+find_tag prince3 = "prince" 15
+find_tag prince4 = "prince" 16
+find_tag prince5 = "prince" 17
+
+# Find their places
+find_tag ptrap2 = "target" 14
+find_tag ptrap3 = "target" 15
+find_tag ptrap4 = "target" 16
+find_tag ptrap5 = "target" 17
+
+# Move them into place
+transfer_object prince2 to ptrap2.x ptrap2.y
+transfer_object prince3 to ptrap3.x ptrap3.y
+transfer_object prince4 to ptrap4.x ptrap4.y
+transfer_object prince5 to ptrap5.x ptrap5.y
+
+# Give them their orders
+queue_action prince2 does enemy_attack to prince1
+queue_action prince2 does enemy_attack to prince3
+queue_action prince2 does enemy_attack to prince4
+queue_action prince2 does enemy_attack to prince5
+queue_action prince2 does enemy_attack to prince2 # Kill yourself last
+run_queue prince2
+
+queue_action prince3 does enemy_attack to prince1
+queue_action prince3 does enemy_attack to prince2
+queue_action prince3 does enemy_attack to prince4
+queue_action prince3 does enemy_attack to prince5
+queue_action prince3 does enemy_attack to prince3 # Kill yourself last
+run_queue prince3
+
+queue_action prince4 does enemy_attack to prince1
+queue_action prince4 does enemy_attack to prince2
+queue_action prince4 does enemy_attack to prince3
+queue_action prince4 does enemy_attack to prince5
+queue_action prince4 does enemy_attack to prince4 # Kill yourself last
+run_queue prince4
+
+queue_action prince5 does enemy_attack to prince1
+queue_action prince5 does enemy_attack to prince2
+queue_action prince5 does enemy_attack to prince3
+queue_action prince5 does enemy_attack to prince4
+queue_action prince5 does enemy_attack to prince5 # Kill yourself last
+run_queue prince5
+
+# Make them all vigilante
+let prince1.user.vigilante = 30
+let prince2.user.vigilante = 30
+let prince3.user.vigilante = 30
+let prince4.user.vigilante = 30
+let prince5.user.vigilante = 30
+let prince1.user.user19 = CRIME_HIGHTREASON
+let prince2.user.user19 = CRIME_HIGHTREASON
+let prince3.user.user19 = CRIME_HIGHTREASON
+let prince4.user.user19 = CRIME_HIGHTREASON
+let prince5.user.user19 = CRIME_HIGHTREASON
+
+# Tell the player what the hell is going on
+print "~I AM THE TRUE PRINCE!~"
+printcr
+print "~NO!  I AM THE PRINCE!  YOU ARE IMPOSTORS!~"
+printcr
+print "~TREASON!  DEATH TO THE FALSE PRINCES!~"
+printcr
+
+# Watch, and wait
+destroy me
+end
+
+##
+##  Block the tunnel
+##
+
+function agnar_earthquake
+object_array prince[10]
+object cp
+integer princectr
+
+set_user_flag "agnar_done" = 1
+earthquake 12
+move_tag current.tag by 0 -10
+
+# Kill any surviving princes of agnar
+find_nearby prince[1] = "prince" near player
+for princectr = 1 to 10
+	let cp = prince[princectr]
+	if_exists cp
+		if cp.tag <> 0
+			let cp.stats.hp = -1
+			check_hurt cp
+		endif
+	endif
+next
+
+# Stop
+destroy current
+end
+
+
+function agnar_runprince
+object prince
+object ptrap
+
+find_tag prince = "prince" 13
+find_tag ptrap = "trap_radius" -11
+
+# March onwards!
+start_action prince does seek_target to ptrap
+end
+
