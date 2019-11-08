@@ -226,7 +226,7 @@ ResyncEverything();
 
 ilog_quiet("Calling PE: mainproc\n");
 pevm_context="Engine initialisation";
-CallVM("mainproc");
+CallVM("sys_mainproc");
 
 S_MusicVolume(mu_volume);
 
@@ -598,10 +598,10 @@ irecon_printf("%s does %s to %s\n",active->ptr->name,active->ptr->schedule[vx].v
 		DrawMap(mapx,mapy);
 		if(show_vrm_calls)
 			ilog_quiet(">> all fall down\n");
-		CallVM("all_dead");
+		CallVM("sys_alldead");
 
 		if(!player) {
-			Bug("Script 'all_dead' failed to create a new player!  Halting engine!\n");
+			Bug("Script 'sys_alldead' failed to create a new player!  Halting engine!\n");
 			ithe_panic("Script error: Player is NULL after processing player death.  Cannot continue.", "(damage/death tracking)");
 		}
 	}
@@ -1247,8 +1247,8 @@ reset_globals();
 
 ResyncEverything();
 
-CallVM("mainproc");
-CallVM("loadproc");
+CallVM("sys_mainproc");
+CallVM("sys_loadproc");
 
 for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 	{
@@ -1258,6 +1258,8 @@ for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 party[0]=player;
 strcpy(partyname[0],BestName(player));
 SetNPCFlag(player, IN_PARTY);
+
+CallVM("sys_restarted");
 
 return 1;
 }
@@ -1664,7 +1666,7 @@ for(ptr=MasterList;ptr;ptr=ptr->next)
 #endif		
 	}
 
-CallVM("loadproc");
+CallVM("sys_loadproc");
 
 ResyncEverything();
 
@@ -1959,8 +1961,8 @@ if(savegame_no > 0)
 		copysavegamedir(savegame_no,9999);
 
 		fullrestore = 0;
-		CallVM("mainproc");
-		CallVM("loadproc");
+		CallVM("sys_mainproc");
+		CallVM("sys_loadproc");
 
 		// Ensure the light, rooftops etc are probably recalced
 		CheckRoof();

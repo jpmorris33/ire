@@ -23,7 +23,7 @@ const WST_Y = 234
 ##  Tread carefully, gentlemen, or I'll turn you all into toads.
 ##
 
-function initproc
+function sys_initproc
 
 ## This is a stub to debug DOFUS
 /*
@@ -202,7 +202,7 @@ end
 ##  Game start
 ##
 
-function mainproc
+function sys_mainproc
 int bx
 object o
 
@@ -225,7 +225,7 @@ let defaultenemy = player
 let current_bag = player
 let splatvictim = player
 
-call loadproc
+call sys_loadproc
 
 # Set up lights etc. if the game is beginning
 # This is a hack and will be dealt with in a proper way eventually
@@ -293,7 +293,7 @@ end
 ##  Function called when reload or restart happens
 ##
 
-function loadproc
+function sys_loadproc
 int bx
 int by
 
@@ -403,6 +403,14 @@ mouse_grid INVENTORY = 32 32
 button INV_ARROW_U = 624 18  "bag_Arrow_u1" "bag_Arrow_u2"
 button INV_ARROW_D = 624 128 "bag_Arrow_d1" "bag_Arrow_d2"
 
+end
+
+##
+##  Post-restart hook for fading in since restart_game stops the script
+##
+
+function sys_restarted
+fade_in
 end
 
 ##

@@ -353,21 +353,21 @@ return NULL;
 
 void Init_PE(int pos)
 {
-if(!istricmp(PElist[pos].name,"status"))
+if(!istricmp(PElist[pos].name,"sys_status"))
 	Sysfunc_status = pos;
-if(!istricmp(PElist[pos].name,"erase"))
+if(!istricmp(PElist[pos].name,"sys_erase"))
 	Sysfunc_erase = pos;
-if(!istricmp(PElist[pos].name,"splash"))
+if(!istricmp(PElist[pos].name,"sys_splash"))
 	Sysfunc_splash = pos;
-if(!istricmp(PElist[pos].name,"scheduler"))
+if(!istricmp(PElist[pos].name,"sys_scheduler"))
 	Sysfunc_scheduler = pos;
-if(!istricmp(PElist[pos].name,"update_life"))
+if(!istricmp(PElist[pos].name,"sys_update_life"))
 	Sysfunc_updatelife = pos;
-if(!istricmp(PElist[pos].name,"trackstop"))
+if(!istricmp(PElist[pos].name,"sys_trackstop"))
 	Sysfunc_trackstop = pos;
-if(!istricmp(PElist[pos].name,"wakeup"))
+if(!istricmp(PElist[pos].name,"sys_wakeup"))
 	Sysfunc_wakeup = pos;
-if(!istricmp(PElist[pos].name,"update_robot"))
+if(!istricmp(PElist[pos].name,"sys_update_robot"))
 	Sysfunc_updaterobot = pos;
 }
 

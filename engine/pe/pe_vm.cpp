@@ -452,6 +452,7 @@ void InitVM();
 void CallVM(char *function);
 void CallVMnum(int pos);
 void DumpVM(int force);
+static void DumpVMtoconsole();
 static void VMbug();
 static VMTYPE *VMget(int bytes);
 static void VMfree(VMTYPE *ptr);
@@ -1905,6 +1906,111 @@ curvm->ip = oldip;
 
 }
 
+
+void DumpVMtoconsole()
+{
+int ctr,len;
+unsigned int proglen;
+int data;
+char *func;
+unsigned int opcode,op;
+VMTYPE *oldip;
+
+if(!curvm)
+	{
+	printf("DumpVM: Not running.\n");
+	return;
+	}
+
+if(!curvm->code)
+	return;
+
+printf("(%s)\n",curvm->name);
+printf("(%lx-%lx)\n",(VMUINT)curvm->code,(VMUINT)curvm->code+(VMUINT)curvm->size);
+
+oldip = curvm->ip;
+curvm->ip = curvm->code;
+proglen = (VMUINT)curvm->codelen + (VMUINT)curvm->ip;
+
+for(;(VMUINT)curvm->ip<proglen;)
+	{
+	if(curvm->ip == lastip)
+		printf("-> ");
+	else
+		printf("   ");
+	// Calculate address
+	printf("%04x ",(curvm->ip-curvm->code)*sizeof(VMTYPE));
+	opcode = (*curvm->ip++).u32; // Fetch
+	func=pe_get_function(opcode);
+	printf(" [%02x] %s ",opcode,&func[1]); // Skip first byte (no of operands)
+	len = func[0];
+	for(ctr=0;ctr<len;ctr++)
+		{
+		M_chk(curvm->ip);
+		op=GET_BYTE();
+		UNGET_BYTE();
+		switch(op)
+			{
+			case ACC_IMMEDIATE:
+			data=GET_DWORD();
+			// Hack to get a function name if applicable
+			if(opcode== PEVM_Callfunc && data>0 && data<PEtot)
+				printf("'%s' ",PElist[data].name);
+			else
+				printf("%d ",data);
+			break;
+
+			case ACC_INDIRECT:
+			printf("[%x] ",GET_DWORD());
+			break;
+
+			case ACC_MEMBER:
+			printf("[%x] ",SAFE_INT());
+			break;
+
+			case ACC_ARRAY:
+			printf("[%x] ",SAFE_INT());
+			break;
+
+			case ACC_ARRAY | ACC_MEMBER:
+			printf("[%x] ",SAFE_INT());
+			break;
+
+			case ACC_IMMSTR:
+			printf("\"%s\" ",GET_STRING());
+			break;
+
+			case ACC_JUMP:
+			printf(" jmp->%x ",GET_DWORD());
+			break;
+
+			case ACC_OPERATOR|1:
+			GET_BYTE();
+			break;
+
+			default:
+			if(op & ACC_OPERATOR)
+				{
+				printf("%s ",oplist[op&OPMASK]);
+				GET_BYTE();
+				}
+			else
+				printf("??%x?? ",op);
+			};
+		}
+	if(len == -1)
+		{
+		printf("%d ",GET_PTR());
+		printf("[%p] ",GET_PTR());
+		}
+	printf("\n");
+	}
+
+curvm->ip = oldip;
+
+}
+
+
 // Helper functions for VM opcodes
 
 void SI_RecursiveLoop(OBJECT *obj, int funccall)
@@ -2622,6 +2728,8 @@ OBJECT **obj;
 
 obj = GET_OBJECT();
 CHECK_POINTER(obj);
+
+// DumpVMtoconsole();
 
 if(*obj == player)
 	{
@@ -3978,6 +4086,7 @@ if(getYN(str))
 void PV_Restart()
 {
 Restart();
+DelVM(); // Restart() will invalidate any object pointers, so quit the script immediately
 }
 
 // scroll_tile <num> <x> <y>

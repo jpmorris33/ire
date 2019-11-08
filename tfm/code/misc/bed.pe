@@ -4,7 +4,6 @@
 #                                        #
 ##########################################
 
-# Waking up core (WakeUp) is moved to sysfuncs.pe
 
 
 ##
@@ -261,7 +260,7 @@ do
 	else
 		# Me should be correct for this
 		let current = temp
-		call wakeup
+		call wake_up
 		# Force a reset, because WakeUp will make him
 		# do the last activity, which is invariably 'go to bed'
 		stop_action me
@@ -293,7 +292,7 @@ if current.stats.hp > 0
 	if current.stats.intel > 40
 		let oldme = me
 		let me = current
-		call wakeup
+		call wake_up
 		let me = oldme
 		let spell_failed = 0
 		return
@@ -310,7 +309,7 @@ do
 				let oldme = me
 				let me = temp
 				spill me
-				call wakeup
+				call wake_up
 				let me = oldme
 				let spell_failed = 0
 				return
@@ -387,7 +386,7 @@ if me.user.unconscious < 1
 	set_direction me facing me.curdir	# Stand up!
 	stop_action me				# Force a halt
 	let current = me
-	call wakeup				# Wake up properly
+	call wake_up				# Wake up properly
 	resume_action me			# Go and do something
 	return
 endif

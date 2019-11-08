@@ -397,7 +397,7 @@ ilog_break=0;	//disable ESC, now the engine is officially running
 if(!SkipInit)
 	{
 	// Call the init procedure
-	CallVM("initproc");
+	CallVM("sys_initproc");
 	}
 else
 	{

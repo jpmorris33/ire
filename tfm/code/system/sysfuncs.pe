@@ -5,31 +5,46 @@
 #
 #
 
+
+
+############################
+#                          #
+# sys_status - draw the ui #
+#                          #
+############################
+
+function sys_status
+
+call status
+
+end
+
+
 ########################################
 #                                      #
-# Splash - when an object enters water #
+# sys_splash - an object enters water  #
 #                                      #
 ########################################
 
-function splash
+function sys_splash
 
 object_sound "plop" current
 
 end
 
 
-####################################################################
-#                                                                  #
-# erase - An object has taken too much damage and must be deleted. #
-#                                                                  #
-####################################################################
+########################################################################
+#                                                                      #
+# sys_erase - An object has taken too much damage and must be deleted. #
+#                                                                      #
+########################################################################
 
 #
 # If it's the player, we must take care not to delete their object
 # otherwise the game engine will sulk
 #
 
-function erase
+function sys_erase
 
 if_not_exist current
 	return
@@ -61,13 +76,13 @@ move_to_floor current
 end
 
 
-####################################
-#                                  #
-# Schedule - Each turn of the game #
-#                                  #
-####################################
+#########################################
+#                                       #
+# sys_scheduler - Each turn of the game #
+#                                       #
+#########################################
 
-function scheduler
+function sys_scheduler
 integer temp
 
 # If player extinguishes candle or torch, make sure he goes out too
@@ -117,13 +132,13 @@ let light_magic = 0
 end
 
 
-#############################################################
-#                                                           #
-# Update_Life - Each turn of the game for all bio-organisms #
-#                                                           #
-#############################################################
+#################################################################
+#                                                               #
+# sys_update_Life - Each turn of the game for all bio-organisms #
+#                                                               #
+#################################################################
 
-function update_life
+function sys_update_life
 integer poison
 
 # It is ALIVE, right?
@@ -173,11 +188,11 @@ end
 
 #############################################################
 #                                                           #
-# Update_Robot - Each turn of the game for panthers etc     #
+# sys_update_Robot - Each turn of the game for panthers etc #
 #                                                           #
 #############################################################
 
-function update_robot
+function sys_update_robot
 
 # It is ALIVE, right?
 if me.stats.hp < 1
@@ -200,7 +215,7 @@ end
 
 ###################################################################
 #                                                                 #
-# TrackStop - Obstruction encountered while following A-star path #
+# sys_trackStop - Obstruction encountered following A-star path   #
 #                                                                 #
 #             current           Object or person moving           #
 #             victim            Destination object                #
@@ -208,7 +223,7 @@ end
 ###################################################################
 
 
-function trackstop
+function sys_trackstop
 
 object temp
 
@@ -261,11 +276,11 @@ endif
 end
 
 
-###############################################################
-#                                                             #
-# all_dead - Everyone in the party has died.  What can we do? #
-#                                                             #
-###############################################################
+##################################################################
+#                                                                #
+# sys_alldead - Everyone in the party has died.  What can we do? #
+#                                                                #
+##################################################################
 
 ##		   
 ##	It is IMPERATIVE that the system variable 'player' is set to
@@ -280,7 +295,7 @@ end
 
 constant DEAD = 1000 # Number of lives
 
-function all_dead
+function sys_alldead
 
 object temp
 object target
@@ -422,21 +437,20 @@ let deathcount = 0
 print "Restarting.."
 printcr
 redraw_text
-restart_game
 destroy grave
-fade_in
+restart_game  # This stops the script as the objects are invalid
 return
 
 end
 
 
-#################################
-#                               #
-# Wake Up - Get 'me' out of bed #
-#                               #
-#################################
+####################################
+#                                  #
+# sys_Wakeup - Get 'me' out of bed #
+#                                  #
+####################################
 
-function wakeup
+function sys_wakeup
 # This is in misc/bed.pe
 call wake_up
 end
@@ -447,7 +461,7 @@ end
 #                              #
 ################################
 
-function PlayerBroken
+function sys_PlayerBroken
 # Call function to parse function keys, restart game etc
 call input
 end
@@ -459,7 +473,7 @@ end
 #                                                    #
 ######################################################
 
-function delprop_callback
+function sys_delprop_callback
 
 # erase_property deletes all the objects belonging to the specified object.
 # Typically this is used by creature eggs to mop up all their creations.
