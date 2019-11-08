@@ -335,28 +335,35 @@ if bucket is called "bucket"
 			if current is called "meat01"
 				print "No, you cannot milk the cow's head."
 				printcr
-				return	# Stop it falling through
+				return
 			endif
 			if current is called "meat02"
 				print "You aren't playing Ultima Six."
 				printcr
-				return	# Stop it falling through
-			endif
-			if current is called "meat*"
-				print "Sick!"
-				printcr
-				replace bucket = "bucket_blood"
+				return
 			endif
 			if current is called "cow_dead"
 				print "It's a bit late for that."
 				printcr
+				return
 			endif
 
 			if current is called "churn"
 				print "Unleavened bread is bread made without any ingredients."
 				printcr
+				return
 			endif
 		endif
+
+		# Deal with other kinds of meat
+		if current is called "meat*"
+			replace bucket = "bucket_blood"
+			if me = player
+				print "Sick!"
+				printcr
+			endif
+		endif
+
 
 	endif
 	return
