@@ -661,14 +661,15 @@ section: sprites
 	med_sitl		sprites/med_sl.cel
 	med_sitr		sprites/med_sr.cel
 	med_situ		sprites/med_su.cel
-	album_00		sprites/album_00.cel
-	album_02		sprites/album_02.pcx
-	album_01		sprites/album_01.cel
-	album_03		sprites/album_03.pcx
-	album_04		sprites/album_04.pcx
-	album_05		sprites/album_05.pcx
-	album_06		sprites/album_06.pcx
-	album_07		sprites/album_07.pcx
+	album_00		sprites/album_00.png
+	album_02		sprites/album_02.png
+	album_01		sprites/album_01.png
+	album_03		sprites/album_03.png
+	album_04		sprites/album_04.png
+	album_05		sprites/album_05.png
+	album_06		sprites/album_06.png
+	album_07		sprites/album_07.png
+	album_08		sprites/album_08.png
 	plant1_ok		sprites/plant1a.cel
 	plant1_broke		sprites/plant1b.cel
 	plant1_pulp		sprites/plant1c.cel
@@ -6855,6 +6856,7 @@ section: sequences
 	quickname ALBUM_NIRVANA ALBUM_05
 	quickname ALBUM_REM ALBUM_06
 	quickname ALBUM_RADIOHEAD ALBUM_07
+	quickname ALBUM_13TH ALBUM_08
 	quickname PLANT1_OK PLANT1_OK
 	quickname PLANT1_BROKEN PLANT1_BROKE
 	quickname PLANT1_PULPED PLANT1_PULP

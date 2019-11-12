@@ -3443,102 +3443,60 @@ section: characters
 	setActiveArea	H 0 0 1 1
 
 	name ALBUM_FLOYD
-	left		ALBUM_FLOYD
-	right		ALBUM_FLOYD
-	up		ALBUM_FLOYD
-	down		ALBUM_FLOYD
+	frame		ALBUM_FLOYD
 	hp		30
 	weight		100
 	description	"You see The Dark Side Of The Moon by Pink Floyd"
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ALBUM_RUSH
-	left		ALBUM_RUSH
-	right		ALBUM_RUSH
-	up		ALBUM_RUSH
-	down		ALBUM_RUSH
+	frame		ALBUM_RUSH
 	hp		30
 	weight		100
 	description	"You see 2112 by RUSH"
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ALBUM_MANICS
-	left		ALBUM_MANICS
-	right		ALBUM_MANICS
-	up		ALBUM_MANICS
-	down		ALBUM_MANICS
+	frame		ALBUM_MANICS
 	hp		30
 	weight		100
 	description	"You see Generation Terrorists by the Manic Street Preachers"
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ALBUM_MASSIVEATTACK
-	left		ALBUM_MASSIVEATTACK
-	right		ALBUM_MASSIVEATTACK
-	up		ALBUM_MASSIVEATTACK
-	down		ALBUM_MASSIVEATTACK
+	frame		ALBUM_MASSIVEATTACK
 	hp		30
 	weight		100
 	description	"You see Blue Lines by Massive Attack"
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ALBUM_NIRVANA
-	left		ALBUM_NIRVANA
-	right		ALBUM_NIRVANA
-	up		ALBUM_NIRVANA
-	down		ALBUM_NIRVANA
+	frame		ALBUM_NIRVANA
 	hp		30
 	weight		100
 	description	"You see In Utero by Nirvana"
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ALBUM_REM
-	left		ALBUM_REM
-	right		ALBUM_REM
-	up		ALBUM_REM
-	down		ALBUM_REM
+	frame		ALBUM_REM
 	hp		30
 	weight		100
 	description	"You see Up by R.E.M."
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ALBUM_RADIOHEAD
-	left		ALBUM_RADIOHEAD
-	right		ALBUM_RADIOHEAD
-	up		ALBUM_RADIOHEAD
-	down		ALBUM_RADIOHEAD
+	frame		ALBUM_RADIOHEAD
 	hp		30
 	weight		100
 	description	"You see The Bends by Radiohead"
 	short		"LP"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	name ALBUM_13TH
+	frame		ALBUM_13TH
+	hp		30
+	weight		100
+	description	"You see The Psychedelic Sounds of the 13th Floor Elevators."
+	short		"LP"
 
 	name PLANT1
 	left		PLANT1_OK
