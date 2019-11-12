@@ -252,8 +252,8 @@ if_exists victim
 				let victim = null
 				return
 			endif
-			print "matched, run infighting"
-			printcr
+#			print "matched, run infighting"
+#			printcr
 		endif
 
 		# Is it weaker?

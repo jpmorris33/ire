@@ -5,7 +5,9 @@
 #                                          #
 ############################################
 
-
+local
+string enemyname
+endlocal
 
 ##
 ##  Attack engine for energy weapons
@@ -331,11 +333,19 @@ function decap_attack
 	endif
 
 	let enemy = attacker.enemy
+	let enemyname = ""
 
 	# Only for fleshy things
 	if_not_flag enemy IS_BIOLOGICAL
 		return
 	endif
+
+	if_flag enemy KNOW_NAME
+		set_string tempstring = enemy.personalname
+	else
+		set_string tempstring = enemy.shortdesc
+	endif
+
 
 	let decap_threshold = attackweapon.stats.damage / 2
 
@@ -363,17 +373,19 @@ function decap_attack
 	if enemy.stats.hp < decap_threshold
 	and enemy.stats.hp > 0
 
-		print "chance = "
-		print chance
-		print ", dc = "
-		print decap_chance
-		printcr
+#		print "chance = "
+#		print chance
+#		print ", dc = "
+#		print decap_chance
+#		printcr
 
 		if chance < decap_chance
 			# Off with their heads!
+			let enemyname = tempstring
 			let enemy.stats.hp = -50
 			check_hurt enemy
 			let hit_damage = 1
+
 		endif
 	endif
 
@@ -405,6 +417,8 @@ function decap_attack_corpse
 		return
 	endif
 
+	# Back up the name since we're able to transmute them into a corpse
+
 	# See if we can do this
 	get_data headobject where heads_table = enemy.name
 	if_exists headobject
@@ -422,6 +436,13 @@ function decap_attack_corpse
 	# Now find a suitable corpse shape
 	get_data bodyobject where bodies_table = enemy.name
 	if_exists bodyobject
+
+		if enemyname <> ""
+			print enemyname
+			print " is decapitated!"
+			printcr
+		endif
+
 		replace enemy = bodyobject
 		# Subtract the weight of the head
 		add enemy.stats.weight - head.stats.weight
@@ -432,6 +453,8 @@ function decap_attack_corpse
 		destroy head
 		return
 	endif
+
+	print 
 
 end
 
