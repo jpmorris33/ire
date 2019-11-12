@@ -28,7 +28,20 @@ end
 
 function sys_splash
 
-object_sound "plop" current
+# Recent builds should set this when calling sys_splash
+if_exists curtile
+	if curtile.name = "WATER*"
+		object_sound "plop" current
+		return
+	endif
+
+	if curtile.name = "LAVA*"
+		# FIXME: Get better foley
+		object_sound "beer" current
+		return
+	endif
+
+endif
 
 end
 

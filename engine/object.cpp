@@ -878,6 +878,7 @@ if(!srcwater && destwater)
 
 		temp = current_object;
 		current_object = object;
+		current_tile = desttile;
 		CallVMnum(Sysfunc_splash);
 		current_object = temp;
 		}
