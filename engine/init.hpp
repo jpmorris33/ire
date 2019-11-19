@@ -70,8 +70,14 @@ extern int qrand();
 
 // Data Table queries
 
-DT_ITEM *GetTableName_s(const char *tablename,const char *name);
-DT_ITEM *GetTableNum_s(int table,const char *name);
-DT_ITEM *GetTableNum_i(int table,long num);
-DT_ITEM *GetTableName_i(const char *tablename,long num);
-DT_ITEM *GetTableCase(const char *tablename,const char *name);
+extern DT_ITEM *GetTableName_s(const char *tablename,const char *name);
+extern DT_ITEM *GetTableNum_s(int table,const char *name);
+extern DT_ITEM *GetTableNum_i(int table,long num);
+extern DT_ITEM *GetTableName_i(const char *tablename,long num);
+extern DT_ITEM *GetTableCase(const char *tablename,const char *name);
+
+extern void GetTableNameKeys_s(const char *tablename,char **dest, VMINT length);
+extern void GetTableNumKeys_s(int table,char **dest, VMINT length);
+extern void GetTableNameKeys_i(const char *tablename,VMINT *dest, VMINT length);
+extern void GetTableNumKeys_i(int table,VMINT *dest, VMINT length);
+

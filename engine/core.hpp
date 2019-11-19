@@ -291,6 +291,7 @@ typedef struct DATATABLE
 	char listtype;
 
 	DT_ITEM *list;
+	DT_ITEM **unsorted;
 	} DATATABLE;
 
 typedef struct ST_ITEM

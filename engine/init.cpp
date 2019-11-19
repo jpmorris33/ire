@@ -1334,6 +1334,96 @@ for(ctr=0;ctr<DTlist[table].entries;ctr++)
 return NULL;
 }
 
+/*
+ *      Fetch all the table keys into an array
+ */
+
+void GetTableNumKeys_i(int table, VMINT *dest, VMINT length)
+{
+int reallength,ctr;
+if(DTtot<1)
+	return;
+DATATABLE *tab = &DTlist[table];
+
+// First, clear the whole destination list
+for(ctr=0;ctr<length;ctr++)
+	dest[ctr]=0;
+// Now adjust things if the destination is bigger than the result set
+reallength = length;
+if(reallength > tab->entries) {
+	reallength = tab->entries;
+}
+for(ctr=0;ctr<reallength;ctr++) {
+	dest[ctr] = tab->unsorted[ctr]->ki;
+}
+}
+
+void GetTableNumKeys_s(int table, char **dest, VMINT length)
+{
+int reallength,ctr;
+if(DTtot<1)
+	return;
+DATATABLE *tab = &DTlist[table];
+
+// First, clear the whole destination list
+for(ctr=0;ctr<length;ctr++)
+	dest[ctr]="";
+
+// Now adjust things if the destination is bigger than the result set
+reallength = length;
+if(reallength > tab->entries) {
+	reallength = tab->entries;
+}
+for(ctr=0;ctr<reallength;ctr++) {
+	dest[ctr] = tab->unsorted[ctr]->ks;
+}
+
+}
+
+
+void GetTableNameKeys_i(const char *tablename, VMINT *dest, VMINT length)
+{
+int reallength,ctr, table;
+table = getnum4table(tablename);
+if(table == -1)
+	return;
+
+DATATABLE *tab = &DTlist[table];
+
+// First, clear the whole destination list
+for(ctr=0;ctr<length;ctr++)
+	dest[ctr]=0;
+// Now adjust things if the destination is bigger than the result set
+reallength = length;
+if(reallength > tab->entries) {
+	reallength = tab->entries;
+}
+for(ctr=0;ctr<reallength;ctr++) {
+	dest[ctr] = tab->unsorted[ctr]->ki;
+}
+}
+
+void GetTableNameKeys_s(const char *tablename, char **dest, VMINT length)
+{
+int reallength,ctr, table;
+table = getnum4table(tablename);
+if(table == -1)
+	return;
+DATATABLE *tab = &DTlist[table];
+
+// First, clear the whole destination list
+for(ctr=0;ctr<length;ctr++)
+	dest[ctr]=NOTHING;
+// Now adjust things if the destination is bigger than the result set
+reallength = length;
+if(reallength > tab->entries) {
+	reallength = tab->entries;
+}
+for(ctr=0;ctr<reallength;ctr++) {
+	dest[ctr] = tab->unsorted[ctr]->ks;
+}
+}
+
 
 /*
  *    Get quick random number

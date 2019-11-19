@@ -46,6 +46,7 @@ static int pe_gptrs=0;		// List of globals for Garbage Collection
 static int pe_gints=0;		// List of integers to preserve
 static GLOBALINT *pe_globalint;
 static GLOBALPTR *pe_globalptr;
+static bool pe_preprocessor=false;
 
 OBJCODE *pe_output;
 
@@ -247,6 +248,7 @@ pe_numfuncs=0;
 pe_lineid=0;
 pe_localfile=NULL;
 pe_marktransient=false;
+pe_preprocessor=true;
 
 lines = script.lines;
 for(lineno=0;lineno<lines;lineno++)
@@ -292,6 +294,8 @@ if(pe_localfile != NULL)
 if(pe_marktransient)
 	PeDump(lineno,"Missing endtransient statement in file",NULL);
 
+pe_preprocessor=false;
+
 return pe_numfuncs;
 }
 
@@ -304,6 +308,7 @@ char **line;
 
 pe_output = pe;
 pe_lineid=0;
+pe_preprocessor=false;
 
 pe_resolve_globals();	// only needs to be called once, but makes API cleaner
 
@@ -904,7 +909,6 @@ if(!ptr)
 	}
 *ptr=0;
 
-
 k_local = find_datatype_local(temp,curfunc);
 k_global = find_datatype_global(temp,curfunc);
 
@@ -912,7 +916,7 @@ k_global = find_datatype_global(temp,curfunc);
 
 if(!k_local && !k_global)
 	{
-	sprintf(msg,"Can't find base variable '%s' in array",temp);
+	sprintf(msg,"Can't find base variable '%s' in array in function '%s'",temp,curfunc);
 	return msg;
 	}
 
@@ -960,6 +964,50 @@ switch(var->type)
 	};
 
 return NULL;
+}
+
+
+// Check the availability of the specified type for given keyword
+
+int pe_checkarray_type(const char *input, char type)
+{
+char temp[1024];
+char term[1024];
+
+char *ptr;
+KEYWORD *k;
+
+if(pe_preprocessor) {
+	return 1;
+}
+
+strcpy(temp,input);
+if(!strchr(temp,'['))
+	ithe_panic("Parser fault at <1> in pe_checkarray_type",input);
+
+ptr=strchr(temp,'[');
+*ptr=0; // Remove the separator
+
+// If it's a variable, try to find it
+k = find_datatype_local(temp,curfunc);
+if(!k) {
+	k = find_datatype_global(temp,curfunc);
+}
+if(!k) {
+	k = find_datatype_global(temp,NULL);
+}
+if(!k) {
+//	printf(">> variable '%s' not found!\n", temp);
+	return 0;
+}
+
+if(k->type == type) {
+	return 1;
+}
+
+//printf("!!! Wanted '%c' but got '%c'\n", type,k->type);
+
+return 0;
 }
 
 
@@ -1289,21 +1337,20 @@ do	{
 	if(ptr)
 		*ptr=0;
 	ok=0;
-	for(ctr=1;mystruct[ctr].name;ctr++)
-		{
-		if(!istricmp(mystruct[ctr].name,term))
-			{
-			if(mystruct[ctr].type == type)
+	for(ctr=1;mystruct[ctr].name;ctr++) {
+		if(!istricmp(mystruct[ctr].name,term)) {
+			if(mystruct[ctr].type == type) {
 				return 1; // Found exact match
-			if(mystruct[ctr].type == '>')
-				if(strchr(temp,'.'))	// Check we're not the terminus
-					{
+			}
+			if(mystruct[ctr].type == '>') {
+				if(strchr(temp,'.')) {	// Check we're not the terminus
 					ok=1;
 					mystruct=(STRUCTURE *)mystruct[ctr].newspec;
 					break;
-					}
+				}
 			}
 		}
+	}
 
 	if(!ok)
 		return 0;
@@ -1312,7 +1359,7 @@ do	{
 	if(ptr)
 		*ptr=0; // Remove the separator
 	overlapped_strcpy(temp,&ptr[1]);
-	} while(ptr);
+} while(ptr);
 
 return 0;
 }
@@ -1952,23 +1999,20 @@ for(ctr=0;ctr<len;ctr++)
         case 'O':
         case 'S':
 		// It claims to be a member of a structure, so look for '.'
-		if(!strchr(buffer,'.'))
-            {
-            return 0;
-            }
+		if(!strchr(buffer,'.')) {
+            		return 0;
+            	}
 
 		errbuf = pe_checkstruct(buffer);
 		//  Quit if we get this kind of error
-		if(errbuf)
-			{
+		if(errbuf) {
 			PeDump(srcline,errbuf,NULL);
-			}
+		}
 		//  Make sure it's the right type
-		if(!pe_checkstruct_type(buffer,tolower(vmspec[entry].parm[ctr])))
-			{
+		if(!pe_checkstruct_type(buffer,tolower(vmspec[entry].parm[ctr]))) {
 			pe_datatype=NULL; // prevent subtle errors
 			return 0;
-			}
+		}
 		pe_datatype=NULL;
 /*
 		// OK, make sure the base structure is known
@@ -1987,14 +2031,27 @@ for(ctr=0;ctr<len;ctr++)
         case 'b':
         case 'c':
 		// It claims to be an array.  Look for the brackets
-		if(!strchr(buffer,'['))
-            {
-            return 0;
-            }
-		if(!strchr(buffer,']'))
-            {
-            return 0;
-            }
+		if(!strchr(buffer,'[')) {
+			return 0;
+		}
+		if(!strchr(buffer,']')) {
+			return 0;
+		}
+
+//		errbuf = pe_checkarray(buffer);
+//		if(errbuf) {
+//			PeDump(srcline,errbuf,NULL);
+//		}
+
+		// If the opcode is 0 it's a declaration and we can't do the full check
+		// (Technically RETURN is also opcode 0 but that won't need the check anyway)
+		if(vmspec[entry].opcode) {
+			//  Make sure it's the right type for overloading
+			if(!pe_checkarray_type(buffer,vmspec[entry].parm[ctr])) {
+				return 0;
+			}
+		}
+
         break;
 
         case '0':
@@ -2008,7 +2065,7 @@ for(ctr=0;ctr<len;ctr++)
         break;
 
         default:
-        ilog_quiet("Failed on parameter type '%c' from '%s'\n",vmspec[entry].parm[ctr],vmspec[entry].parm);
+        ilog_quiet("check_parm: Failed on parameter type '%c' from '%s'\n",vmspec[entry].parm[ctr],vmspec[entry].parm);
         PeDump(srcline,"Internal error, unknown parameter type for command",buffer);
         break;
         }
@@ -2159,15 +2216,23 @@ switch(type)
 	break;
 
 	case '.':
-	ilog_quiet("Failed on parameter type '%c' from '%s'\n",type,name);
+	ilog_quiet("diagnose_keyword: Failed on parameter type '%c' from '%s'\n",type,name);
 	msg=pe_checkstruct(buffer);
 	if(msg)
 		PeDump(srcline,msg,buffer);
 	PeDump(srcline,"Invalid structure access",buffer);
 	break;
 
+	case ']':
+	ilog_quiet("diagnose_keyword: array error with '%s'\n",name);
+	msg=pe_checkarray(buffer);
+	if(msg)
+		PeDump(srcline,msg,buffer);
+	PeDump(srcline,"Invalid array access",buffer);
+	break;
+
 	default:
-	ilog_quiet("Failed on parameter type '%c' for keyword '%s'\n",type,name);
+	ilog_quiet("diagnose_keyword: Failed on parameter type '%c' for keyword '%s'\n",type,name);
 	PeDump(srcline,"Internal error, unknown parameter type for command",buffer);
 	break;
 	}

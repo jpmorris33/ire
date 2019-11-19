@@ -310,6 +310,10 @@ static void PV_GetDataISS();
 static void PV_GetDataISI();
 static void PV_GetDataIIS();
 static void PV_GetDataIII();
+static void PV_GetDataKeysII();
+static void PV_GetDataKeysIS();
+static void PV_GetDataKeysSI();
+static void PV_GetDataKeysSS();
 static void PV_GetDecor();
 static void PV_DelDecor();
 static void PV_SearchContainer();
@@ -1118,7 +1122,7 @@ if(flags == ACC_INDIRECT)
 	return *str;
 	}
 if(flags == ACC_ARRAY)
-	return (char *)GET_ARRAY();
+	return *(char* *)GET_ARRAY();
 if(flags == ACC_MEMBER)
 	{
 	str = (char **)GET_MEMBER_PTR();
@@ -1348,6 +1352,10 @@ VMOP(GetDataISS);
 VMOP(GetDataISI);
 VMOP(GetDataIIS);
 VMOP(GetDataIII);
+VMOP(GetDataKeysII);
+VMOP(GetDataKeysIS);
+VMOP(GetDataKeysSI);
+VMOP(GetDataKeysSS);
 VMOP(GetDecor);
 VMOP(DelDecor);
 VMOP(SearchContainer);
@@ -5851,6 +5859,87 @@ if(!p)
 
 *var = p->ii;
 }
+
+// Get all (integer) keys into I[] for table I
+
+void PV_GetDataKeysII()
+{
+VMINT *table;
+OBJECT **o2;
+OBJECT *array;
+VMINT size,idx;
+
+GET_ARRAY_INFO((void **)&array,&size,&idx); // Get size of array at IP
+
+GET_INT();  // Skip array target (first param), use array instead
+
+// Get table ID
+table = GET_INT();
+CHECK_POINTER(table);
+
+GetTableNumKeys_i(*table, (VMINT *)array, size);
+}
+
+
+// Get all (integer) keys into I[] for table S
+
+void PV_GetDataKeysIS()
+{
+char *table;
+OBJECT **o2;
+OBJECT *array;
+VMINT size,idx;
+
+GET_ARRAY_INFO((void **)&array,&size,&idx); // Get size of array at IP
+
+GET_INT();  // Skip array target (first param), use array instead
+
+table = GET_STRING();
+CHECK_POINTER(table);
+
+GetTableNameKeys_i(table, (VMINT *)array, size);
+}
+
+// Get all (string) keys into S[] for table I
+
+void PV_GetDataKeysSI()
+{
+VMINT *table;
+OBJECT **o2;
+OBJECT *array;
+VMINT size,idx;
+
+GET_ARRAY_INFO((void **)&array,&size,&idx); // Get size of array at IP
+
+GET_STRING(); // Skip string array
+
+// Get table ID
+table = GET_INT();
+CHECK_POINTER(table);
+
+GetTableNumKeys_s(*table, (char **)array, size);
+}
+
+// Get all (string) keys into S[] for table S
+
+void PV_GetDataKeysSS()
+{
+char *table;
+OBJECT **o2;
+OBJECT *array;
+VMINT size,idx;
+
+GET_ARRAY_INFO((void **)&array,&size,&idx); // Get size of array at IP
+
+GET_STRING(); // Skip string array
+
+// Get table
+table = GET_STRING();
+CHECK_POINTER(table);
+
+GetTableNameKeys_s(table, (char **)array, size);
+}
+
 
 
 // Delete a Decorative object

@@ -155,6 +155,7 @@ OPCODE vmspec[] =
                     {"print",PEVM_Printstr,"s",PE_generic,NULL,1},
                     {"print",PEVM_Printstr,"S",PE_generic,NULL,1},
                     {"print",PEVM_Printstr,"P",PE_generic,NULL,1},
+                    {"print",PEVM_Printstr,"b",PE_generic,NULL,1},
                     {"print",PEVM_Printint,"n",PE_generic,NULL,1},
                     {"print",PEVM_Printint,"i",PE_generic,NULL,1},
                     {"print",PEVM_Printint,"I",PE_generic,NULL,1},
@@ -229,6 +230,7 @@ OPCODE vmspec[] =
                     {"let",PEVM_Let_iei,"O=o",PE_checkaccess,NULL,2},
                     {"let",PEVM_Let_iei,"O=O",PE_checkaccess,NULL,2},
                     {"let",PEVM_Let_iei,"O=c",PE_checkaccess,NULL,2},
+                    {"let",PEVM_Let_iei,"c=0",PE_checkaccess,NULL,2},
                     {"let",PEVM_Let_iei,"c=o",PE_checkaccess,NULL,2},
                     {"let",PEVM_Let_iei,"c=O",PE_checkaccess,NULL,2},
                     {"let",PEVM_Let_iei,"c=c",PE_checkaccess,NULL,2},
@@ -769,9 +771,11 @@ OPCODE vmspec[] =
                     {"printxy",PEVM_PrintXYs,"s",PE_generic,NULL,1},
                     {"printxy",PEVM_PrintXYs,"S",PE_generic,NULL,1},
                     {"printxy",PEVM_PrintXYs,"P",PE_generic,NULL,1},
+                    {"printxy",PEVM_PrintXYs,"b",PE_generic,NULL,1},
                     {"printxy",PEVM_PrintXYi,"n",PE_generic,NULL,1},
                     {"printxy",PEVM_PrintXYi,"i",PE_generic,NULL,1},
                     {"printxy",PEVM_PrintXYi,"I",PE_generic,NULL,1},
+                    {"printxy",PEVM_PrintXYi,"a",PE_generic,NULL,1},
                     {"printxy",PEVM_PrintXYcr,"",PE_generic,NULL,0},
                     {"printxycr",PEVM_PrintXYcr,"",PE_generic,NULL,0},
                     {"printxyx",PEVM_PrintXYx,"n",PE_generic,NULL,1},
@@ -2395,6 +2399,24 @@ OPCODE vmspec[] =
                     {"get_data",PEVM_GetDataIII,"I?T=i",PE_checkaccess,NULL,3},
                     {"get_data",PEVM_GetDataIII,"I?T=I",PE_checkaccess,NULL,3},
 
+                    {"get_datakeys",PEVM_GetDataKeysII,"a=T",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysIS,"a=s",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysIS,"a=S",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysIS,"a=P",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysSI,"b=T",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysSS,"b=s",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysSS,"b=S",PE_checkaccess,NULL,2},
+                    {"get_datakeys",PEVM_GetDataKeysSS,"b=P",PE_checkaccess,NULL,2},
+/*
+                    {"get_datavalues",PEVM_GetDataValsII,"a=T",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsIS,"a=s",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsIS,"a=S",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsIS,"a=P",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsSI,"b=T",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsSS,"b=s",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsSS,"b=S",PE_checkaccess,NULL,2},
+                    {"get_datavalues",PEVM_GetDataValsSS,"b=P",PE_checkaccess,NULL,2},
+*/
                     {"get_decor",PEVM_GetDecor,"iio",PE_checkaccess,NULL,3},
                     {"get_decor",PEVM_GetDecor,"iIo",PE_checkaccess,NULL,3},
                     {"get_decor",PEVM_GetDecor,"Iio",PE_checkaccess,NULL,3},
@@ -3080,6 +3102,9 @@ OPCODE vmspec[] =
                     {"strlen",PEVM_strlen2,"i=P",PE_generic,NULL,2},
                     {"strlen",PEVM_strlen2,"I=P",PE_generic,NULL,2},
                     {"strlen",PEVM_strlen2,"a=P",PE_generic,NULL,2},
+                    {"strlen",PEVM_strlen2,"i=b",PE_generic,NULL,2},
+                    {"strlen",PEVM_strlen2,"I=b",PE_generic,NULL,2},
+                    {"strlen",PEVM_strlen2,"a=b",PE_generic,NULL,2},
                     {"strsetpos",PEVM_strsetpos,"Un=n",PE_generic,NULL,3},
                     {"strsetpos",PEVM_strsetpos,"Un=i",PE_generic,NULL,3},
                     {"strsetpos",PEVM_strsetpos,"Un=I",PE_generic,NULL,3},
@@ -3332,6 +3357,18 @@ STRUCTURE objspec[] =
 					{NULL,			0,NULL,NULL,NULL},
 					};
 
+STRUCTURE intarrayhack[] =
+					{
+					{"integer",		'a',"",NULL,NULL},
+					{NULL,			0,NULL,NULL,NULL},
+					};
+
+STRUCTURE strarrayhack[] =
+					{
+					{"string",		'b',"",NULL,NULL},
+					{NULL,			0,NULL,NULL,NULL},
+					};
+
 STRUCTURE objarrayhack[] =
 					{
 					{"object",		'c',"",&obj_template,NULL},
@@ -3560,6 +3597,8 @@ STRUCTURE *pe_datatypes[] =
 					&objspec[0],
 					&tilespec[0],
 					&objarrayhack[0],
+					&strarrayhack[0],
+					&intarrayhack[0],
 					NULL
 					};
 

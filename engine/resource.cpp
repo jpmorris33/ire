@@ -2991,17 +2991,14 @@ ilog_printf("    User Lookup Tables");
 Plot(DTtot);
 pos = 0;
 
-for(ctr=start;ctr<=finish;ctr++)
-	{
+for(ctr=start;ctr<=finish;ctr++) {
 	line = script.line[ctr];
 	Rptr=strfirst(line);                    // Get first term
-	if(Rptr!=NOTHING)                       // Main parsing is here
-		{
+	if(Rptr!=NOTHING) {                      // Main parsing is here
 
 		// The 'NAME' clause.  Big.
 
-		if(!istricmp(Rptr,"name"))       // Got the first one
-			{
+		if(!istricmp(Rptr,"name")) {       // Got the first one
 			Rptr=strgetword(line,2);        // Get second term
 			if(Rptr==NOTHING)           // Make sure its there
 				Dump(ctr,"NA: This table has no name",NULL);
@@ -3017,8 +3014,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			listend=0;
 
 			list = ctr+1;  // Skip the NAME: line
-			do
-				{
+			do {
 				Rptr = strfirst(script.line[list]);
 				if(!liststart)                  // Don't have start
 					if(!istricmp(Rptr,"list:"))
@@ -3048,7 +3044,7 @@ for(ctr=start;ctr<=finish;ctr++)
 					list = -1;                  // Reached the end
 
 				list++;
-				} while(list>0);                // list = 0 on exit
+			} while(list>0);                // list = 0 on exit
 
 			// Now we should have the boundaries.
 
@@ -3060,12 +3056,11 @@ for(ctr=start;ctr<=finish;ctr++)
 
 			// Good.  Now, we'll count the entries
 
-			for(list = liststart;list<=listend;list++)
-				{
+			for(list = liststart;list<=listend;list++) {
 				Rptr = strfirst(script.line[list]);
 				if(Rptr != NOTHING)
 					DTlist[pos].entries++;
-				}
+			}
 
 			if(!DTlist[pos].keytype)
 				Dump(ctr,"NA: Key type not set for this list",DTlist[pos].name);
@@ -3080,12 +3075,11 @@ for(ctr=start;ctr<=finish;ctr++)
 			DTlist[pos].list = (DT_ITEM *)M_get(sizeof(DT_ITEM),DTlist[pos].entries+1);
 
 			// Now we've allocated the space.  We're done I think
-			}
+		}
 
 		// The 'FRAMELIST' clause.
 
-		if(!istricmp(Rptr,"list:"))       // Got the first one
-			{
+		if(!istricmp(Rptr,"list:")) {      // Got the first one
 			if(!DTlist[pos].name)
 				Dump(pos,"LI: This table has no name",NULL);
 
@@ -3097,10 +3091,8 @@ for(ctr=start;ctr<=finish;ctr++)
 
 			lpos=0;
 
-			for(long list = liststart;list<=listend;list++)
-				{
-				if(strfirst(script.line[list]) != NOTHING)
-					{
+			for(long list = liststart;list<=listend;list++) {
+				if(strfirst(script.line[list]) != NOTHING) {
 					// Get the second entry first because of hardfirst
 					Rptr = strfirst(strrest(script.line[list]));
 					if(Rptr == NOTHING)
@@ -3119,14 +3111,19 @@ for(ctr=start;ctr<=finish;ctr++)
 					if(DTlist[pos].keytype == 's')
 						DTlist[pos].list[lpos].ks=hardfirst(script.line[list]);
 					lpos++;
-					}
 				}
 			}
+		}
 
 		// The 'END' clause.
 
-		if(!istricmp(Rptr,"END"))       // End of the sequence
-			{
+		if(!istricmp(Rptr,"END")) {       // End of the sequence
+			// Back up unsorted list since we may need it later
+			DTlist[pos].unsorted = (DT_ITEM **)M_get(lpos,sizeof(DT_ITEM *));
+			for(int lctr=0;lctr<lpos;lctr++) {
+				DTlist[pos].unsorted[lctr]=&DTlist[pos].list[lctr];
+			}
+
 			// Sort by key for faster lookup
 			if(DTlist[pos].keytype == 's')
 				qsort(DTlist[pos].list,lpos,sizeof(DT_ITEM),CMP_sort_DTS);
@@ -3135,11 +3132,10 @@ for(ctr=start;ctr<=finish;ctr++)
 			DTlist[pos].entries=lpos;
 			pos++;
 			Plot(0);
-			}
-
-
 		}
+
 	}
+}
 
 ilog_printf("\n");
 }
