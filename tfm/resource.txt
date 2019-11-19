@@ -7,14 +7,14 @@ section: sprites
 
 	?unknown		sprites/unknown.cel
 	blank			roof/invis.cel
-	object_panel		sprites/panel_ob.cel
+	object_panel		sprites/panel_ob.png
 	open_roof		sprites/roof_opn.cel
 	close_roof		sprites/roof_cls.cel
 	objcursor		sprites/o_cursor.cel
 	dircursor		sprites/whichway.cel
-	stats_panel		sprites/panel_st.cel
+	stats_panel		sprites/panel_st.png
 	backicon		sprites/backicon.cel
-	browse_container_panel	sprites/panel_pp.cel
+	browse_container_panel	sprites/panel_pp.png
 	quit_panel		sprites/text/panel_quit.png
 	music			sprites/music.cel
 	keypad_panel		sprites/tech/drakdisp.pcx
@@ -1135,14 +1135,14 @@ section: sprites
 	rounds-e		sprites/dethslug.cel
 	rounds-0		sprites/noslugs.cel
 	rifle			sprites/tech/rifle00.cel
-	shells00		sprites/tech/shells00.cel
-	shells01		sprites/tech/shells01.cel
-	shells02		sprites/tech/shells02.cel
-	shells03		sprites/tech/shells03.cel
-	shells04		sprites/tech/shells04.cel
-	shells05		sprites/tech/shells05.cel
-	shells06		sprites/tech/shells06.cel
-	shells07		sprites/tech/shells07.cel
+	shells00		sprites/tech/shells00.png
+	shells01		sprites/tech/shells01.png
+	shells02		sprites/tech/shells02.png
+	shells03		sprites/tech/shells03.png
+	shells04		sprites/tech/shells04.png
+	shells05		sprites/tech/shells05.png
+	shells06		sprites/tech/shells06.png
+	shells07		sprites/tech/shells07.png
 	darts00			sprites/tech/darts00.png
 	darts01			sprites/tech/darts01.png
 	darts02			sprites/tech/darts02.png
@@ -1973,10 +1973,10 @@ section: sprites
 	kiddie-drawing-3	sprites/kidpapr3.cel
 	kiddie-drawing-3l	sprites/kidpap3l.cel
 	kiddie-drawing-3r	sprites/kidpap3r.cel
-	plaque_stone_v		sprites/plaque0.cel
-	plaque_stone_h		sprites/plaque1.cel
-	plaque_brass_v		sprites/plaque2.cel
-	plaque_brass_h		sprites/plaque3.cel
+	plaque_stone_v		sprites/plaque0.png
+	plaque_stone_h		sprites/plaque1.png
+	plaque_brass_v		sprites/plaque2.png
+	plaque_brass_h		sprites/plaque3.png
 	plaque_stone2_v		sprites/plaque4.png
 	plaque_stone2_h		sprites/plaque5.png
 	plaque_brass2_v		sprites/plaque6.png
@@ -2748,15 +2748,15 @@ section: sprites
 	bookshelf05		sprites/booksh05.cel
 	bookshelf06		sprites/booksh06.cel
 	bookshelf07		sprites/booksh07.cel
-	cauldron00		sprites/cauldrn0.cel
-	cauldron01		sprites/cauldrn1.cel
-	cauldron02		sprites/cauldrn2.cel
-	cauldron03		sprites/cauldrn3.cel
-	cauldron04		sprites/cauldrn4.cel
-	cauldron05		sprites/cauldrn5.cel
-	cauldron06		sprites/cauldrn6.cel
-	cauldron07		sprites/cauldrn7.cel
-	cauldron08		sprites/cauldrn8.cel
+	cauldron00		sprites/cauldrn0.png
+	cauldron01		sprites/cauldrn1.png
+	cauldron02		sprites/cauldrn2.png
+	cauldron03		sprites/cauldrn3.png
+	cauldron04		sprites/cauldrn4.png
+	cauldron05		sprites/cauldrn5.png
+	cauldron06		sprites/cauldrn6.png
+	cauldron07		sprites/cauldrn7.png
+	cauldron08		sprites/cauldrn8.png
 	# Oops, there isn't a cauldron 9
 	cauldron10		sprites/cauldrn10.png
 	cauldron11		sprites/cauldrn11.png
