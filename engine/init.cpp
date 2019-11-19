@@ -1367,7 +1367,7 @@ DATATABLE *tab = &DTlist[table];
 
 // First, clear the whole destination list
 for(ctr=0;ctr<length;ctr++)
-	dest[ctr]="";
+	dest[ctr]=NOTHING;
 
 // Now adjust things if the destination is bigger than the result set
 reallength = length;

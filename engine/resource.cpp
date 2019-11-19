@@ -3099,8 +3099,10 @@ for(ctr=start;ctr<=finish;ctr++) {
 						Dump(ctr,"LI: No item.  Tables must be <key> <item>",DTlist[pos].name);
 					if(DTlist[pos].listtype == 'i')
 						DTlist[pos].list[lpos].ii=strgetnumber(Rptr);
-					if(DTlist[pos].listtype == 's')
-						DTlist[pos].list[lpos].is=hardfirst((char *)strrest(script.line[list]));
+					if(DTlist[pos].listtype == 's') {
+						DTlist[pos].list[lpos].is=(char *)strrest(script.line[list]);
+//						DTlist[pos].list[lpos].is=hardfirst((char *)strrest(script.line[list]));
+					}
 
 					// Get the first entry
 					Rptr = strfirst(script.line[list]);

@@ -142,6 +142,9 @@ static void PV_Let_iei();
 static void PV_Let_ieipi();
 static void PV_Let_pes();
 static void PV_Let_seU();
+static void PV_ClearArrayI();
+static void PV_ClearArrayS();
+static void PV_ClearArrayO();
 static void PV_Add();
 static void PV_Goto();
 static void PV_If_iei();
@@ -1121,8 +1124,11 @@ if(flags == ACC_INDIRECT)
 	if(!str) return NULL;
 	return *str;
 	}
-if(flags == ACC_ARRAY)
-	return *(char* *)GET_ARRAY();
+if(flags == ACC_ARRAY) {
+	str =(char**)GET_ARRAY();
+	if(!str) return NULL;
+	return *str;
+	}
 if(flags == ACC_MEMBER)
 	{
 	str = (char **)GET_MEMBER_PTR();
@@ -1183,6 +1189,9 @@ VMOP(Let_iei);
 VMOP(Let_ieipi);
 VMOP(Let_pes);
 VMOP(Let_seU);
+VMOP(ClearArrayI);
+VMOP(ClearArrayS);
+VMOP(ClearArrayO);
 VMOP(Add);
 VMOP(Goto);
 VMOP(If_iei);
@@ -2239,6 +2248,51 @@ b = GET_INT();
 CHECK_POINTER(b);
 
 *a = Operator[op&OPMASK](*a,*b);
+}
+
+// Clear Array i[]
+
+void PV_ClearArrayI()
+{
+VMINT *array;
+VMINT size,idx,ctr;
+GET_ARRAY_INFO((void **)&array, &size, &idx);
+// Skip array member
+GET_INT();
+
+for(ctr=0;ctr<size;ctr++) {
+	array[ctr]=0;
+}
+}
+
+// Clear Array s[]
+
+void PV_ClearArrayS()
+{
+char **array;
+VMINT size,idx,ctr;
+GET_ARRAY_INFO((void **)&array, &size, &idx);
+// Skip array member
+GET_STRING();
+
+for(ctr=0;ctr<size;ctr++) {
+	array[ctr]=NOTHING;
+}
+}
+
+// Clear Array o[]
+
+void PV_ClearArrayO()
+{
+OBJECT **array;
+VMINT size,idx,ctr;
+GET_ARRAY_INFO((void **)&array, &size, &idx);
+// Skip array member
+GET_OBJECT();
+
+for(ctr=0;ctr<size;ctr++) {
+	array[ctr]=NULL;
+}
 }
 
 
