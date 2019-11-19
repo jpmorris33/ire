@@ -2624,7 +2624,17 @@ end
 
 # 6.2
 # 6.3
-# 6.4
+
+# 6.4: Alchemy 
+
+function learn_alchemy
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_alchemy" = 1
+end
 
 
 # 6.5: Hear Truth
@@ -2695,19 +2705,8 @@ endif
 set_local spellbook "spell_piedpiper" = 1
 end
 
-# 7.6: alchemy
+# 7.6: resurrect
 
-function learn_alchemy
-call player_getspellbook
-if_not_exists spellbook
-	return
-endif
-
-set_local spellbook "spell_alchemy" = 1
-end
-
-
-# 8.1: Resurrect
 function learn_resurrect
 call player_getspellbook
 if_not_exists spellbook
@@ -2715,6 +2714,16 @@ if_not_exists spellbook
 endif
 
 set_local spellbook "spell_resurrect" = 1
+end
+
+# 8.1: Extreme Resurrect
+function learn_xresurrect
+call player_getspellbook
+if_not_exists spellbook
+	return
+endif
+
+set_local spellbook "spell_xresurrect" = 1
 end
 
 
@@ -2765,121 +2774,30 @@ end
 ##
 
 function learn_all_spells
-call learn_light
-call learn_awaken
-call learn_lheal
-call learn_sleep
-call learn_help
-call learn_identify
+integer levelctr
+integer spellctr
 
-call learn_ignite
-call learn_douse
-call learn_peer
-call learn_allseeingeye
-call learn_about
-call learn_poison
+if_not_exists spellbook
+	return
+endif
 
-call learn_pickpocket
-call learn_barrier
-call learn_harm
-call learn_heal
-call learn_cure
-call learn_greatlight
+for levelctr = 1 to 8
+	# Find the list of spells for the given level
+	get_data spell_leveltable WHERE spell_level_list = levelctr
 
-call learn_dispelbarrier
-call learn_mark
-call learn_recall
-call learn_explosion
-call learn_tk
-call learn_push
+	# Get the spell tags from the list we found above
+	get_datakeys spell[1] = spell_leveltable
 
-call learn_kill
-call learn_commandanimal
-call learn_greatheal
-call learn_ensorcellment
-call learn_turnundead
-#call learn_5.6
+	for spellctr = 1 to 6
+		let spellfunc = spell[spellctr]
+		if spellfunc <> ""
+			set_local spellbook spellfunc = 1
+		endif
+	next spellctr
 
-call learn_repelundead
-#call learn_6.2
-#call learn_6.3
-#call learn_6.4
-call learn_heartruth
-call learn_snake
+next levelctr
 
-call learn_greatkill
-call learn_devil
-call learn_posess
-call learn_confusion
-call learn_piedpiper
-call learn_alchemy
-
-call learn_resurrect
-call learn_abolish
-call learn_uberpeer
-call learn_destruction
-#call learn_8.5
-#call learn_8.6
 end
 
 ############################
 
-/*
-
-1-1	"spell_light"
-1-2	"spell_awaken"
-1-3	"spell_lheal"
-1-4	"spell_sleep"
-1-5	"spell_help"
-1-6	"spell_identify"
-
-2-1	"spell_ignite"
-2-2	"spell_douse"
-2-3	"spell_peer"
-2-4	"spell_allseeingeye"
-2-5	"spell_about"
-2-6	"spell_poison"
-
-3-1	"spell_pickpocket"
-3-2	"spell_barrier"
-3-3	"spell_harm"
-3-4	"spell_heal"
-3-5	"spell_cure"
-3-6	"spell_greatlight"
-
-4-1	"spell_dispelbarrier"
-4-2	"spell_mark"
-4-3	"spell_recall"
-4-4	"spell_explosion"
-4-5	"spell_tkuse"
-4-6	"spell_push"
-
-5-1	"spell_kill"
-5-2
-5-3	"spell_greatheal"
-5-4	"spell_ensorcellment"
-5-5	"spell_confusion"
-5-6	"spell_turnundead"
-
-6-1	"spell_repelundead"
-6-2
-6-3	Lightning?
-6-4
-6-5	"spell_heartruth"
-6-6	"spell_snake"
-
-7-1	"spell_greatkill"
-7-2	"spell_devil"
-7-3	"spell_posess"
-7-4
-7-5	"spell_piedpiper"
-7-6	"spell_alchemy"
-
-8-1	"spell_resurrect"
-8-2	"spell_abolish"
-8-3	"spell_uberpeer"
-8-4	"spell_destruction"
-8-5
-8-6
-
-*/

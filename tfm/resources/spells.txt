@@ -1,0 +1,136 @@
+
+	name spells_L1
+	key=string
+	data=string
+	list:
+		spell_light		Light
+		spell_awaken		Awaken
+		spell_lheal		Light Heal
+		spell_sleep		Sleep
+		spell_help		Panic
+		spell_identify		Identify
+	end
+
+	name spells_L2
+	key=string
+	data=string
+	list:
+		spell_ignite		Ignite
+		spell_douse		Douse
+		spell_peer		Peer
+		spell_allseeingeye	All-Seeing Eye
+		spell_about		About Spell
+		spell_poison		Poison
+	end
+
+	name spells_L3
+	key=string
+	data=string
+	list:
+		spell_pickpocket	Pickpocket
+		spell_barrier		Create Barrier
+		spell_harm		Harm
+		spell_heal		Heal
+		spell_cure		Cure
+		spell_greatlight	Great Light
+	end
+
+	name spells_L4
+	key=string
+	data=string
+	list:
+		spell_dispelbarrier	Dispel Barrier
+		spell_mark		Mark Orb
+		spell_recall		Recall Orb
+		spell_explosion		Explosion
+		spell_tk		Telekinesis
+		spell_push		Push
+	end
+
+	name spells_L5
+	key=string
+	data=string
+	list:
+		spell_kill		Light Murder
+		spell_commandanimal	Command Animal
+		spell_greatheal		Great Heal
+		spell_ensorcellment	Ensorcellment
+		spell_turnundead	Turn Undead
+	end
+
+	name spells_L6
+	key=string
+	data=string
+	list:
+		spell_repelundead	Repel Undead
+		spell_lightning		X-Lightning
+		spell_alchemy		Alchemy
+		spell_heartruth		Hear Truth
+		spell_snake		Snake Smasher
+	end
+
+	name spells_L7
+	key=string
+	data=string
+	list:
+		spell_greatkill		Great Kill
+		spell_devil		Summon a Devil
+		spell_posess		Posess
+		spell_confusion		Confusion Blast
+		spell_piedpiper		Pied Piper
+		spell_resurrect		Resurrect
+	end
+
+	name spells_L8
+	key=string
+	data=string
+	list:
+		spell_xresurrect	Extreme Resurrect
+		spell_abolish		Abolish
+		spell_uberpeer		Hacked Peer Spell
+		spell_destruction	Destruction
+	end
+
+	name spell_levelname
+	key=integer
+	data=string
+	list:
+		1	Apprentice
+		2	Novice
+		3	Acolyte
+		4	Priest
+		5	Master
+		6	Heirophant
+		7	Supervisor
+		8	Privileged Level
+	end
+
+	name spell_ring
+	key=integer
+	data=string
+	list:
+		1	Ring Seven
+		2	Ring Six
+		3	Ring Five
+		4	Ring Four
+		5	Ring Three
+		6	Ring Two
+		7	Ring One
+		8	Ring Zero
+	end
+
+
+	name spell_level_list
+	key=integer
+	data=string
+	list:
+		1	spells_L1
+		2	spells_L2
+		3	spells_L3
+		4	spells_L4
+		5	spells_L5
+		6	spells_L6
+		7	spells_L7
+		8	spells_L8
+	end
+

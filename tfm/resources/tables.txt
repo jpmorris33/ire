@@ -1,1 +1,2 @@
 !include resources/tables.en
+!include resources/spells.txt

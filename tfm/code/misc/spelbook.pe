@@ -9,7 +9,9 @@
 int sp_level = 1
 int sp_spell = 1
 string spellfunc
+string spell_leveltable
 string_array spell[6]
+string_array spellname[6]
 
 ##
 ##  Entry point
@@ -160,7 +162,6 @@ while key <> KEY_ESC
 load_screen
 let key = 0
 
-return
 end
 
 ##
@@ -170,55 +171,14 @@ end
 function draw_spellbook
 private
 
-# Erase the spells
-let spell[1] = ""
-let spell[2] = ""
-let spell[3] = ""
-let spell[4] = ""
-let spell[5] = ""
-let spell[6] = ""
+# Find the list of spells for the given level
+get_data spell_leveltable WHERE spell_level_list = sp_level
 
-if sp_level = 1
-	call spellbook1
-	return
-endif
+# Get the spell tags from the list we found above
+get_datakeys spell[1] = spell_leveltable
 
-if sp_level = 2
-	call spellbook2
-	return
-endif
+call spellbook_page
 
-if sp_level = 3
-	call spellbook3
-	return
-endif
-
-if sp_level = 4
-	call spellbook4
-	return
-endif
-
-if sp_level = 5
-	call spellbook5
-	return
-endif
-
-if sp_level = 6
-	call spellbook6
-	return
-endif
-
-if sp_level = 7
-	call spellbook7
-	return
-endif
-
-if sp_level = 8
-	call spellbook8
-	return
-endif
-
-call draw_spellbook0 # Bug
 end
 
 ##
@@ -238,377 +198,47 @@ end
 
 
 
-
-
-
-
-function spellbook1
+function spellbook_page
 private
+integer ctr
+string levelname
+string ring
+string spellname
+string spellfunc
+
+	# Get title data
+	get_data levelname WHERE spell_levelname = sp_level
+	get_data ring WHERE spell_ring = sp_level
 
 	gotoxy 200 128
-	printxy "Ring Seven  (Apprentice)"
+	printxy ring
+	gotoxy 308 128
+	printxy "("
+	printxy levelname
+	printxy ")"
+
+	gotoxy 200 128
 	printxycr
 	printxycr
 
-	if_local spellbook "spell_light"
-		printxy "1. Light"
-		let spell[1] = "spell_light"
+	for ctr = 1 to 6
+		let spellfunc = spell[ctr]
+		if spellfunc <> ""
+			if_local spellbook spellfunc
+				printxy ctr
+				printxy ". "
+
+				get_data spellname WHERE spell_leveltable = spellfunc
+				printxy spellname
+			endif
 		endif
-	printxycr
-
-	if_local spellbook "spell_awaken"
-		printxy "2. Awaken"
-		let spell[2] = "spell_awaken"
-	endif
-	printxycr
-
-	if_local spellbook "spell_lheal"
-		printxy "3. Light Heal"
-		let spell[3] = "spell_lheal"
-	endif
-	printxycr
-
-	if_local spellbook "spell_sleep"
-		printxy "4. Sleep"
-		let spell[4] = "spell_sleep"
-	endif
-	printxycr
-
-
-	if_local spellbook "spell_help"
-		printxy "5. Panic"
-		let spell[5] = "spell_help"
-	endif
-	printxycr
-
-	if_local spellbook "spell_identify"
-		printxy "6. Identify"
-		let spell[6] = "spell_identify"
-	endif
-	printxycr
-
+		printxycr
+	next ctr
 
 end
 
-
-function spellbook2
-private
-
-	gotoxy 200 128
-	printxy "Ring Six   (Novice)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_ignite"
-		printxy "1. Ignite"
-		let spell[1] = "spell_ignite"
-	endif
-	printxycr
-
-	if_local spellbook "spell_douse"
-		printxy "2. Douse"
-		let spell[2] = "spell_douse"
-	endif
-	printxycr
-
-	if_local spellbook "spell_peer"
-		printxy "3. Peer"
-		let spell[3] = "spell_peer"
-	endif
-	printxycr
-
-	if_local spellbook "spell_allseeingeye"
-		printxy "4. All-Seeing Eye"
-		let spell[4] = "spell_allseeingeye"
-	endif
-	printxycr
-
-	if_local spellbook "spell_about"
-		printxy "5. About Spell"
-		let spell[5] = "spell_about"
-	endif
-	printxycr
-
-	if_local spellbook "spell_poison"
-		printxy "6. Poison"
-		let spell[6] = "spell_poison"
-	endif
-	printxycr
-
-end
-
-
-function spellbook3
-private
-
-	gotoxy 200 128
-	printxy "Ring Five  (Acolyte)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_pickpocket"
-		printxy "1. Pickpocket"
-		let spell[1] = "spell_pickpocket"
-	endif
-	printxycr
-
-	if_local spellbook "spell_barrier"
-		printxy "2. Create Barrier"
-		let spell[2] = "spell_barrier"
-	endif
-	printxycr
-
-	if_local spellbook "spell_harm"
-		printxy "3. Harm"
-		let spell[3] = "spell_harm"
-	endif
-	printxycr
-
-	if_local spellbook "spell_heal"
-		printxy "4. Heal"
-		let spell[4] = "spell_heal"
-	endif
-	printxycr
-
-	if_local spellbook "spell_cure"
-		printxy "5. Cure"
-		let spell[5] = "spell_cure"
-	endif
-	printxycr
-
-	if_local spellbook "spell_greatlight"
-		printxy "6. Great Light"
-		let spell[6] = "spell_greatlight"
-	endif
-	printxycr
-
-
-end
-
-
-function spellbook4
-private
-
-	gotoxy 200 128
-	printxy "Ring Four  (Priest)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_dispelbarrier"
-		printxy "1. Dispel Barrier"
-		let spell[1] = "spell_dispelbarrier"
-	endif
-	printxycr
-
-	if_local spellbook "spell_mark"
-		printxy "2. Mark Stone"
-		let spell[2] = "spell_mark"
-	endif
-	printxycr
-
-	if_local spellbook "spell_recall"
-		printxy "3. Recall Stone"
-		let spell[3] = "spell_recall"
-	endif
-	printxycr
-
-	if_local spellbook "spell_explosion"
-		printxy "4. Explosion"
-		let spell[4] = "spell_explosion"
-	endif
-	printxycr
-
-	if_local spellbook "spell_tk"
-		printxy "5. Telekinesis"
-		let spell[5] = "spell_tk"
-	endif
-	printxycr
-
-	if_local spellbook "spell_push"
-		printxy "6. Push"
-		let spell[6] = "spell_push"
-	endif
-	printxycr
-
-
-end
-
-
-function spellbook5
-private
-
-	gotoxy 200 128
-	printxy "Ring Three  (Master)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_kill"
-		printxy "1. Light Murder"
-		let spell[1] = "spell_kill"
-	endif
-	printxycr
-
-	if_local spellbook "spell_commandanimal"
-		printxy "2. Command Animal"
-		let spell[2] = "spell_commandanimal"
-	endif
-	printxycr
-
-	if_local spellbook "spell_greatheal"
-		printxy "3. Great Heal"
-		let spell[3] = "spell_greatheal"
-	endif
-	printxycr
-
-	if_local spellbook "spell_ensorcellment"
-		printxy "4. Ensorcellment"
-		let spell[4] = "spell_ensorcellment"
-	endif
-	printxycr
-
-	if_local spellbook "spell_turnundead"
-		printxy "5. Turn Undead"
-		let spell[5] = "spell_turnundead"
-	endif
-	printxycr
-
-end
-
-
-function spellbook6
-private
-
-	gotoxy 200 128
-	printxy "Ring Two  (Heirophant)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_repelundead"
-		printxy "1. Repel Undead"
-		let spell[1] = "spell_repelundead"
-	endif
-	printxycr
-
-	if_local spellbook "spell_BLANK"
-		printxy "2. "
-		let spell[2] = "spell_"
-	endif
-	printxycr
-
-	if_local spellbook "spell_lightning"
-		printxy "3. X-Lightning"
-		let spell[3] = "spell_lightning"
-	endif
-	printxycr
-
-	if_local spellbook "spell_BLANK"
-		printxy "4. "
-		let spell[4] = "spell_"
-	endif
-	printxycr
-
-	if_local spellbook "spell_heartruth"
-		printxy "5. Hear Truth"
-		let spell[5] = "spell_heartruth"
-	endif
-	printxycr
-
-	if_local spellbook "spell_snake"
-		printxy "6. Snake Smasher"
-		let spell[6] = "spell_snake"
-	endif
-	printxycr
-
-end
-
-
-function spellbook7
-private
-
-	gotoxy 200 128
-	printxy "Ring One  (Supervisor)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_greatkill"
-		printxy "1. Great Kill"
-		let spell[1] = "spell_greatkill"
-	endif
-	printxycr
-
-	if_local spellbook "spell_devil"
-		printxy "2. Summon a Devil"
-		let spell[2] = "spell_devil"
-	endif
-	printxycr
-
-	if_local spellbook "spell_posess"
-		printxy "3. Posess"
-		let spell[3] = "spell_posess"
-	endif
-	printxycr
-
-	if_local spellbook "spell_confusion"
-		printxy "5. Confusion Blast"
-		let spell[4] = "spell_confusion"
-	endif
-	printxycr
-
-	if_local spellbook "spell_piedpiper"
-		printxy "5. Pied Piper"
-		let spell[5] = "spell_piedpiper"
-	endif
-	printxycr
-
-	if_local spellbook "spell_alchemy"
-		printxy "6. Alchemy"
-		let spell[6] = "spell_alchemy"
-	endif
-
-end
-
-
-function spellbook8
-private
-
-	gotoxy 200 128
-	printxy "Ring Zero (Privileged Level)"
-	printxycr
-	printxycr
-
-	if_local spellbook "spell_resurrect"
-		printxy "1. Resurrection"
-		let spell[1] = "spell_resurrect"
-	endif
-	printxycr
-
-	if_local spellbook "spell_abolish"
-		printxy "2. Abolish"
-		let spell[2] = "spell_abolish"
-	endif
-	printxycr
-
-	if_local spellbook "spell_uberpeer"
-		printxy "3. Hacked peer spell"
-		let spell[3] = "spell_uberpeer"
-	endif
-	printxycr
-
-	if_local spellbook "spell_destruction"
-		printxy "4. Destruction"
-		let spell[4] = "spell_destruction"
-	endif
 
 /*
-	printxy "3."
-	printxycr
-
-	printxy "4. self-destruct"
-	printxycr
-*/
-end
-
-
 function draw_spellbook0
 private
 
@@ -628,7 +258,7 @@ private
 	printxy "Son and the Holy Ghost."
 	printxycr
 end
-
+*/
 
 
 function use_spellcard
@@ -719,7 +349,7 @@ end
 6-1	"spell_repelundead"
 6-2
 6-3	Lightning?
-6-4
+6-4	"spell_alchemy"
 6-5	"spell_heartruth"
 6-6	"spell_snake"
 
@@ -728,13 +358,16 @@ end
 7-3	"spell_posess"
 7-4	"spell_confusion"
 7-5	"spell_piedpiper"
-7-6	"spell_alchemy"
+7-6	"spell_resurrect"
 
-8-1	"spell_resurrect"
+8-1	"spell_xresurrect"
 8-2	"spell_abolish"
 8-3	"spell_uberpeer"
 8-4	"spell_destruction"
 8-5
 8-6
 
+
 */
+
+
