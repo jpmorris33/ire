@@ -126,7 +126,7 @@ void BITFONT::Draw(IREBITMAP *dest, int x, int y, IRECOLOUR *fg, IRECOLOUR *bg, 
 int fgcol=-1;
 int bgcol=-1;
 int w,h,woff;
-unsigned int c;
+unsigned char c;
 unsigned char *buffer;
 
 if(!dest || !string || !fontdata)
@@ -162,7 +162,7 @@ for(;*string;string++)
 	{
 	if(x+8 >= w)
 		break;
-	c = *string;
+	c = (unsigned char)*string;
 	draw_bitfont_func(buffer,fontdata + (c << 3),woff,fgcol);
 	x+=8;
 	buffer += (8 << shiftfactor);
