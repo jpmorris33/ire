@@ -149,7 +149,9 @@ do
 
 		let spellfunc = spell[sp_spell]
 		if spellfunc <> ""
-			call spellfunc
+			if_local spellbook spellfunc
+				call spellfunc
+			endif
 		endif
 
 		let key = 0

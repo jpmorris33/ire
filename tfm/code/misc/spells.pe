@@ -594,7 +594,7 @@ end
 
 function spell_ignite
 string replacement
-let spellname = "Ignite"
+let spellname = "ignite"
 
 # Check spell can be cast
 let spell_level = 2
@@ -634,7 +634,7 @@ end
 
 function spell_douse
 string replacement
-let spellname = "Douse"
+let spellname = "douse"
 
 # Check spell can be cast
 let spell_level = 2
@@ -902,7 +902,7 @@ function spell_explosion
 object bomb
 object oldme
 
-let spellname = "Explosion"
+let spellname = "explosion"
 
 # Check spell can be cast
 let spell_level = 4
@@ -1133,7 +1133,7 @@ if spell_failed
 	return
 endif
 
-let spellname = "Laserbeam"
+let spellname = "laserbeam"
 
 call get_spell_range
 if_not_flag spelltarget IS_ON
@@ -1183,7 +1183,7 @@ if spell_failed
 	return
 endif
 
-let spellname = "Magical Barrier"
+let spellname = "magical barrier"
 
 call get_spell_range
 #if key = KEY_ESC
@@ -1209,7 +1209,7 @@ if spell_failed
 	return
 endif
 
-let spellname = "Dispel Barrier"
+let spellname = "dispel barrier"
 
 call get_spell_range
 if_not_flag spelltarget IS_ON
@@ -2297,7 +2297,7 @@ if spell_failed
 	return
 endif
 
-let spellname = "Alchemy"
+let spellname = "alchemy"
 
 call get_spell_range
 if_not_flag spelltarget IS_ON
@@ -2834,6 +2834,7 @@ function learn_all_spells
 integer levelctr
 integer spellctr
 
+call player_getspellbook
 if_not_exists spellbook
 	return
 endif
