@@ -2698,12 +2698,18 @@ section: sprites
 	bellows2		sprites/bellows2.cel
 	bellows3		sprites/bellows3.cel
 	anvil			sprites/anvil.cel
-	gold0			sprites/gold0.cel
-	gold1			sprites/gold1.cel
-	gold2			sprites/gold2.cel
-	gold3			sprites/gold3.cel
-	gold4			sprites/gold4.cel
-	gold5			sprites/gold5.cel
+	gold0			sprites/gold0.png
+	gold1			sprites/gold1.png
+	gold2			sprites/gold2.png
+	gold3			sprites/gold3.png
+	gold4			sprites/gold4.png
+	gold5			sprites/gold5.png
+	lead0			sprites/lead0.png
+	lead1			sprites/lead1.png
+	lead2			sprites/lead2.png
+	lead3			sprites/lead3.png
+	lead4			sprites/lead4.png
+	lead5			sprites/lead5.png
 	treasure00		sprites/treasr00.cel
 	treasure01		sprites/treasr01.cel
 	treasure02		sprites/treasr02.cel
@@ -10853,12 +10859,18 @@ section: sequences
 		BELLOWS2
 	end
 	quickname ANVIL ANVIL
-	quickname GOLD0 GOLD0
-	quickname GOLD1 GOLD1
-	quickname GOLD2 GOLD2
-	quickname GOLD3 GOLD3
-	quickname GOLD4 GOLD4
-	quickname GOLD5 GOLD5
+	quickname GOLD0
+	quickname GOLD1
+	quickname GOLD2
+	quickname GOLD3
+	quickname GOLD4
+	quickname GOLD5
+	quickname LEAD0
+	quickname LEAD1
+	quickname LEAD2
+	quickname LEAD3
+	quickname LEAD4
+	quickname LEAD5
 	quickname TREASURE00 TREASURE00
 	quickname TREASURE01 TREASURE01
 	quickname TREASURE02 TREASURE02
@@ -13740,6 +13752,18 @@ section: tables
 		6 gold5
 	end
 
+	name leadbar_frame
+	key=integer
+	data=string
+	list:
+		1 lead0
+		2 lead1
+		3 lead2
+		4 lead3
+		5 lead4
+		6 lead5
+	end
+
 	name coin_frame
 	key=integer
 	data=string
@@ -13894,20 +13918,20 @@ section: tables
 	data=string
 	list:
 		DEADPLAYER	PLAYER_HEAD
-		DEADPLAYERf	PLAYER_HEAD
+		DEADPLAYERf	PLAYERF_HEAD
 		DEADKING	KING_HEAD
-		DEADPRINCE	KING_HEAD
+		DEADPRINCE	PRINCE_HEAD
 		MAN_POPE	POPE_HEAD
 		DEADFOLLOWER	CARDINAL_HEAD
 		DEADPEASANT	PEASANT_HEAD
 		DEADNOBLEMAN	NOBLE_HEAD
 		DEADGUARD	GUARD_HEAD
 		DEADOLDMAN	OLDMAN_HEAD
-		DEADMONK	PEASANT_HEAD
-		DEADPILGRIM	PEASANT_HEAD
+		DEADMONK	MONK_HEAD
+		DEADPILGRIM	PILGRIM_HEAD
 		DEADCARDINAL	CARDINAL_HEAD
 		DEADWOMAN	WOMAN_HEAD
-		DEADNOBLEWOMAN	WOMAN_HEAD
+		DEADNOBLEWOMAN	NOBLEWOMAN_HEAD
 		DEADOUTLAW	OUTLAW_HEAD
 		DEADMAGE	OLDMAN_HEAD
 		DEADOUTLAW2	OUTLAW2_HEAD

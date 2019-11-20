@@ -12463,6 +12463,18 @@ section: characters
 	OnInit		gold_bar_count
 	solid
 
+	name LEAD_BAR
+	left		LEAD0
+	right		LEAD0
+	up		LEAD0
+	down		LEAD0
+	hp		100000
+	weight		10000
+	description	"You see a lead ingot."
+	short		"lead bar"
+	OnInit		lead_bar_count
+	solid
+
 	name GOLD_BAR_RADIOACTIVE
 	left		GOLD1
 	right		GOLD1
@@ -16641,8 +16653,14 @@ section: characters
 	horrific
 	race		headless
 
+	alias		PLAYERF_HEAD = PLAYER_HEAD
+
 	alias		PEASANT_HEAD = PLAYER_HEAD
 	frame		head_peasant
+
+	alias		PILGRIM_HEAD = PEASANT_HEAD
+
+	alias		MONK_HEAD = PEASANT_HEAD
 
 	alias		GUARD_HEAD = PLAYER_HEAD
 	frame		head_guard
@@ -16656,6 +16674,8 @@ section: characters
 	alias		WOMAN_HEAD = PLAYER_HEAD
 	frame		head_woman
 
+	alias		NOBLEWOMAN_HEAD = WOMAN_HEAD
+	
 	alias		OLDMAN_HEAD = PLAYER_HEAD
 	frame		head_oldman
 
@@ -16664,10 +16684,12 @@ section: characters
 
 	alias		POPE_HEAD = PLAYER_HEAD
 	frame		head_pope
-	description	"You see a severed head.  This will not end well."
+	description	"You see the Pope's severed head.  This will not end well."
 
 	alias		KING_HEAD = PLAYER_HEAD
 	frame		head_king
+
+	alias		PRINCE_HEAD = KING_HEAD
 
 	name		OUTLAW_HEAD
 	frame		head_cardinal

@@ -40,6 +40,48 @@ endif
 
 end
 
+##
+##  Lead can also be stacked
+##
+
+function lead_bar_count
+
+object bar
+integer count
+string frame
+
+let cancel = 0
+let count = 0
+
+# Default bar to normal
+set_sequence current "lead0"
+
+get_first_object bar from new_x new_y
+
+do
+	if_exists bar
+
+		# If it is a lead bar, count the position and set the frame
+		if bar is called "lead_bar"
+			let count = count + 1
+			get_data frame where "leadbar_frame" = count
+			if err = 0
+				set_sequence bar frame
+			endif
+		endif
+
+		# Next object
+		let bar = bar.next
+	endif
+while bar
+
+# Too much lead, prevent any more being laid down
+if count > 6
+	let cancel = 1
+endif
+
+end
+
 
 ##
 ##  Handle coin quantities
