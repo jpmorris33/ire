@@ -284,6 +284,7 @@ Gold: 79 = 3 (Lithium)
  who had seen the glow.  If He had not done so, we would
  surely have died."
  
+[set_pflag sell_alchemy]
 [link="Tell me about magic."]
 [linkto="magic"]
 [link="Tell me about Aa'Ruuff"]
@@ -649,10 +650,10 @@ Gold: 79 = 3 (Lithium)
 [page="R2"]
 [call="check_spellR2"]
 
-"I only have one spell of that level;
-[if false] and I sense you have not yet strength to use it:
+"I know a few spells of that level.
+[if false] and I sense you have not yet strength to use them.
 
- This spell is 'Fear', which can be used to drive off
+ I can teach you 'Fear', which can be used to drive off
  bandits or wild animals.  It was also useful to us in
  the war against the humans, and while I am hesitant to
  sell it to you, I would sooner that this less violent
@@ -660,8 +661,15 @@ Gold: 79 = 3 (Lithium)
 
  I must ask cost 450 gold coins."
 
+[if_pflag sell_alchemy]"I can also each you Alchemy, which will allow you to
+[if_pflag sell_alchemy] project lead into gold, but remember that the gold will
+[if_pflag sell_alchemy] be most dangerous.  I sell it for your researches only,
+[if_pflag sell_alchemy] and you must not cast it lest you will probably die."
+
 [link="I want to learn 'Fear'."]
 [linkto="learn_fear"]
+[if_pflag sell_alchemy][link="I want to learn 'Alchemy'."]
+[if_pflag sell_alchemy][linkto="learn_alchemy"]
 [link="I'm interested in another ring."]
 [linkto="spells"]
 [always]
@@ -676,25 +684,18 @@ Gold: 79 = 3 (Lithium)
 [page="R1"]
 [call="check_spellR1"]
 
-"Yes, I can teach you some supervisor-level spells.
- But I must warn you, they can be dangerous..
-[if false] ..and you have not yet skill enough to use them.
+"Yes, I can teach you a supervisor-level spell.
+ But I must warn you, such power can be dangerous..
+[if false] ..and you have not yet skill enough to use it.
 
  I can teach you a spell called 'Pied Piper', which will
  cause people to follow you for a short time.  They come
  back to their senses eventually.
 
-[if_pflag sell_alchemy] I can also each you Alchemy, which will allow you to
-[if_pflag sell_alchemy] project lead into gold, but remember that the gold will
-[if_pflag sell_alchemy] be most dangerous.  I sell it for your researches only,
-[if_pflag sell_alchemy] and you must not cast it lest you will probably die.
-
  Spells of this ring cost 525 gold coins."
 
 [link="I want to learn 'Pied Piper'."]
 [linkto="learn_piedpiper"]
-[if_pflag sell_alchemy][link="I want to learn 'Alchemy'."]
-[if_pflag sell_alchemy][linkto="learn_alchemy"]
 [link="I'm interested in another ring."]
 [linkto="spells"]
 [always]
@@ -862,6 +863,13 @@ Gold: 79 = 3 (Lithium)
 [append="learned_spell"]
 [endpage]
 
+[page="learn_alchemy"]
+[take 450 "gold_coins"]
+[if false][goto="nomoney"]
+[call="learn_alchemy"]
+[append="learned_spell"]
+[endpage]
+
 # R1 spells
 
 [page="learn_piedpiper"]
@@ -870,14 +878,6 @@ Gold: 79 = 3 (Lithium)
 [call="learn_piedpiper"]
 [append="learned_spell"]
 [endpage]
-
-[page="learn_alchemy"]
-[take 525 "gold_coins"]
-[if false][goto="nomoney"]
-[call="learn_alchemy"]
-[append="learned_spell"]
-[endpage]
-
 
 [page="nomoney"]
 

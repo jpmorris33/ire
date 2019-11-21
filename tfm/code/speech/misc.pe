@@ -536,3 +536,65 @@ function leinad_kill_player
 let suspect = player
 call justice_intruder_deadly
 end
+
+
+##
+##  Spell level checks
+##
+
+function check_spellR7
+let spell_level = 1
+call check_spell_level
+end
+
+function check_spellR6
+let spell_level = 2
+call check_spell_level
+end
+
+function check_spellR5
+let spell_level = 3
+call check_spell_level
+end
+
+function check_spellR4
+let spell_level = 4
+call check_spell_level
+end
+
+function check_spellR3
+let spell_level = 5
+call check_spell_level
+end
+
+function check_spellR2
+let spell_level = 6
+call check_spell_level
+end
+
+function check_spellR1
+let spell_level = 7
+call check_spell_level
+end
+
+function check_spellR0
+let spell_level = 8
+call check_spell_level
+end
+
+# And the function doing all the work
+
+local
+function check_spell_level
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+if player.stats.level >= spell_level
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+endif
+end
+
+endlocal
+
+
