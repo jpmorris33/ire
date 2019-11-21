@@ -5,6 +5,14 @@
 ##	Otherwise assume it's in front of a table, so add/remove potions
 ##
 
+##
+##	NOTE: The base target marker must NOT be for useful objects
+##	      such the alembic or tables for the NPC to drop potions on
+##	      since it's used to get the NPC into the correct location in
+##	      the first place.  If you find the NPC not doing the alchemy
+##	      routine properly, this may be the reason.  It should be some
+##	      random spot where they stare into space, bookcases work well.
+##
 
 #
 #  Main entrypoint
