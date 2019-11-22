@@ -3229,6 +3229,7 @@ section: characters
 	description	"You see a smashed plate."
 	short		"smashed plate"
 	IfTriggered	spikes
+	resurrect_as	plate
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
@@ -3246,6 +3247,7 @@ section: characters
 	description	"You see a smashed plate."
 	short		"smashed plate"
 	IfTriggered	spikes
+	resurrect_as	plate_waiter
 
 
 	name BOWL
@@ -3278,6 +3280,7 @@ section: characters
 	description	"You see a smashed bowl."
 	short		"bits of china"
 	IfTriggered	spikes
+	resurrect_as	bowl
 
 	name BOWL_BROTH
 	left		PLATE04
@@ -3371,6 +3374,7 @@ section: characters
 	description	"You see a smashed jug"
 	short		"smashed jug"
 	IfTriggered	spikes
+	resurrect_as	jug
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
@@ -3388,6 +3392,7 @@ section: characters
 	description	"You see a smashed mug"
 	short		"broken mug"
 	IfTriggered	spikes
+	resurrect_as	mug
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1

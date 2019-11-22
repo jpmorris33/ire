@@ -1709,7 +1709,7 @@ end
 function spell_resurrect
 
 # Check spell can be cast
-let spell_level = 8
+let spell_level = 7
 call spell_check
 if spell_failed
 	return
@@ -1740,12 +1740,82 @@ if spelltarget.stats.hp > 0
 	return
 endif
 
+if spelltarget.stats.intel < 40
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
 # Attempt resurrection
 
 if spelltarget.funcs.resurrect = "-"
 or spelltarget.funcs.resurrect = ""
 	if me = player
 		print "That cannot be resurrected."
+		printcr
+	endif
+	return
+endif
+
+# Call a user function if the corpse has one
+if spelltarget.funcs.user1 <> ""
+	call spelltarget.funcs.user1
+endif
+
+object_sound "resurrection" spelltarget
+
+# Bring it back
+change spelltarget = spelltarget.funcs.resurrect
+let spelltarget.stats.hp = 10
+resume_action spelltarget
+
+# Add a corona effect
+let spelltarget.user.user18 = 0		# Initial size
+let spelltarget.user.user17 = +12		# Speed
+let spelltarget.user.user16 = TINT_CYAN	# guess
+overfx spelltarget does fx_bouncecorona
+
+# Start the stuff
+if_flag spelltarget IN_PARTY
+	add_member spelltarget
+endif
+reset_flag spelltarget IS_CRITICAL
+
+
+if me = player
+	print "Success!"
+	printcr
+endif
+end
+
+##
+##  Resurrect with the safeties switched off
+##
+
+function spell_xresurrect
+
+# Check spell can be cast
+let spell_level = 8
+call spell_check
+if spell_failed
+	return
+endif
+
+let spellname = "resurrect"
+
+call get_spell_range
+if_not_flag spelltarget IS_ON
+	# Tell the player it went wrong
+	call spell_failed
+	return
+endif
+
+# Attempt resurrection
+
+if spelltarget.funcs.resurrect = "-"
+or spelltarget.funcs.resurrect = ""
+	if me = player
+		print "Error: an error has occurred."
 		printcr
 	endif
 	return
