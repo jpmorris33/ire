@@ -16684,6 +16684,8 @@ section: characters
 	alias		OLDMAN_HEAD = PLAYER_HEAD
 	frame		head_oldman
 
+	alias		MAGE_HEAD = OLDMAN_HEAD
+
 	alias		CARDINAL_HEAD = PLAYER_HEAD
 	frame		head_cardinal
 

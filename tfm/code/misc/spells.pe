@@ -1708,6 +1708,8 @@ end
 
 function spell_resurrect
 
+string resurrect_as
+
 # Check spell can be cast
 let spell_level = 7
 call spell_check
@@ -1747,6 +1749,17 @@ if spelltarget.stats.intel < 40
 endif
 
 # Attempt resurrection
+
+# Is it a severed head?
+get_data resurrect_as WHERE head_resurrection = spelltarget.name
+if_exists resurrect_as
+	if me = player
+		print "That's a little... optimistic."
+		printcr
+	endif
+	return
+endif
+
 
 if spelltarget.funcs.resurrect = "-"
 or spelltarget.funcs.resurrect = ""
@@ -1794,6 +1807,8 @@ end
 
 function spell_xresurrect
 
+string resurrect_as
+
 # Check spell can be cast
 let spell_level = 8
 call spell_check
@@ -1812,8 +1827,14 @@ endif
 
 # Attempt resurrection
 
-if spelltarget.funcs.resurrect = "-"
-or spelltarget.funcs.resurrect = ""
+# Is it a severed head?
+get_data resurrect_as WHERE head_resurrection = spelltarget.name
+if_not_exists resurrect_as
+	let resurrect_as = spelltarget.funcs.resurrect
+endif
+
+if resurrect_as = "-"
+or resurrect_as = ""
 	if me = player
 		print "Error: an error has occurred."
 		printcr
@@ -1829,7 +1850,7 @@ endif
 object_sound "resurrection" spelltarget
 
 # Bring it back
-change spelltarget = spelltarget.funcs.resurrect
+change spelltarget = resurrect_as
 let spelltarget.stats.hp = 10
 resume_action spelltarget
 

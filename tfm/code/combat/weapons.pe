@@ -403,7 +403,9 @@ function decap_attack_corpse
 	string headobject
 	string bodyobject
 	object enemy
+	object body
 	object head
+	string enemyobject
 
 	let enemy = attacker.enemy
 
@@ -417,24 +419,24 @@ function decap_attack_corpse
 		return
 	endif
 
-	# Back up the name since we're able to transmute them into a corpse
+	# Back up the name since we're about to transmute them into a corpse
+	let enemyobject = enemy.name
 
 	# See if we can do this
-	get_data headobject where heads_table = enemy.name
+	get_data headobject where heads_table = enemyobject
 	if_exists headobject
-		create head = headobject
-		transfer_object head to enemy.x enemy.y
-		set_personalname head = enemy.personalname
-		let head.enemy = attacker
+		change enemy = headobject
+		let head = enemy
+		let head.stats.weight = 1500
 		# Ensure justice is carried out
 		let head.stats.intel = 100
 	else
-		# Crap
+		# Abort
 		return
 	endif
 
-	# Now find a suitable corpse shape
-	get_data bodyobject where bodies_table = enemy.name
+	# Now find a suitable corpse
+	get_data bodyobject where bodies_table = enemyobject
 	if_exists bodyobject
 
 		if enemyname <> ""
@@ -443,14 +445,22 @@ function decap_attack_corpse
 			printcr
 		endif
 
-		replace enemy = bodyobject
+		create body = bodyobject
+		transfer_object body to head.x head.y
+		move_to_top head
+
 		# Subtract the weight of the head
-		add enemy.stats.weight - head.stats.weight
+		add body.stats.weight - head.stats.weight
 		# Ensure justice is carried out
-		let enemy.stats.intel = 100
+		let body.stats.intel = 100
+
+		# Move possessions to the body
+		move_contents head to body
 	else
-		# Crap, tidy up
-		destroy head
+		print "ERROR: no body found for "
+		print enemyobject
+		printcr
+		# Crap - what do we do now?!
 		return
 	endif
 

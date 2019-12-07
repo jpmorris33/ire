@@ -689,9 +689,9 @@ else	# If not the player, check range and attack if possible
 	if_exists blockage
 		if blockage = attacker.enemy
 			# Kill the enemy
-			print "Trample on "
-			print blockage.name
-			printcr
+#			print "Trample on "
+#			print blockage.name
+#			printcr
 			add blockage.stats.hp - attacker.stats.damage
 			check_hurt blockage
 		else
@@ -707,9 +707,9 @@ else	# If not the player, check range and attack if possible
 	if_exists blockage
 		if blockage = attacker.enemy
 			# Kill the enemy
-			print "Trample on "
-			print blockage.name
-			printcr
+#			print "Trample on "
+#			print blockage.name
+#			printcr
 			add blockage.stats.hp - attacker.stats.damage
 			check_hurt blockage
 		else
