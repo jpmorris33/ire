@@ -473,7 +473,7 @@ do {
 							if(vx == aptr->stats->radius)	{
 								// Lock egg out
 								aptr->user->counter=EggLockout;
-								if(show_vrm_calls || DebugVM)	{
+								if((show_vrm_calls || DebugVM) && aptr->activity >= 0)	{
 									ilog_quiet("<Radius: calling %s at %d,%d>\n",PElist[aptr->activity].name,aptr->x,aptr->y);
 									if(aptr->pocket.objptr)
 										ilog_quiet("<radius object contains %s>\n",aptr->pocket.objptr->name);
