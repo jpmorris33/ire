@@ -101,6 +101,7 @@ enum {
 	PEVM_ForceFromPocket,
 	PEVM_Spill,
 	PEVM_SpillXY,
+	PEVM_MoveContents,
 	PEVM_Empty,
 	PEVM_FadeOut,
 	PEVM_FadeIn,

@@ -3304,6 +3304,22 @@ while(t->pocket.objptr)
 	};
 }
 
+
+/*
+ *      movecontents - Move contents from one container to another
+ */
+
+void movecontents(OBJECT *src,OBJECT *dest)
+{
+OBJECT *temp;
+if(!src || !dest)
+	return;
+
+while(src->pocket.objptr) {
+	TransferToPocket(src->pocket.objptr,dest);
+}
+}
+
 //
 //  Make the specified objects not be wielded anymore (NULL dest = unwield EVERYTHING)
 //

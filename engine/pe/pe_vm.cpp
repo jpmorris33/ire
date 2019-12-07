@@ -51,6 +51,7 @@ extern TILE *GetTile(int x,int y);
 extern void MoveToTop(OBJECT *o);
 extern void MoveToFloor(OBJECT *o);
 extern void spillcontents(OBJECT *bag,int x,int y);
+extern void movecontents(OBJECT *src, OBJECT *dest);
 extern void gen_largemap(void);
 extern void RedrawMap(void);
 extern int isSolid(int x,int y);
@@ -219,6 +220,7 @@ static void PV_MoveFromPocket();
 static void PV_ForceFromPocket();
 static void PV_Spill();
 static void PV_SpillXY();
+static void PV_MoveContents();
 static void PV_Empty();
 static void PV_FadeOut();
 static void PV_FadeIn();
@@ -1264,6 +1266,7 @@ VMOP(MoveFromPocket);
 VMOP(ForceFromPocket);
 VMOP(Spill);
 VMOP(SpillXY);
+VMOP(MoveContents);
 VMOP(Empty);
 VMOP(FadeOut);
 VMOP(FadeIn);
@@ -3692,6 +3695,22 @@ y = GET_INT();
 CHECK_POINTER(y);
 
 spillcontents(*obj,*x,*y);
+}
+
+// move contents of <object> to <object>
+
+void PV_MoveContents()
+{
+OBJECT **src;
+OBJECT **dest;
+
+src = GET_OBJECT();
+CHECK_POINTER(src);
+
+dest = GET_OBJECT();
+CHECK_POINTER(dest);
+
+movecontents(*src,*dest);
 }
 
 
