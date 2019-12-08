@@ -13204,6 +13204,7 @@ section: sounds
 	keycode_denied		sound/keycode_denied.wav
 	keycode_access		sound/keycode_access.wav
 	electricjug		sound/electricjug.wav
+	lava_plop		sound/lavahiss.wav
 
 section: music
 

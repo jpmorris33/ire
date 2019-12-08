@@ -37,7 +37,7 @@ if_exists curtile
 
 	if curtile.name = "LAVA*"
 		# FIXME: Get better foley
-		object_sound "beer" current
+		object_sound "lava_plop" current
 		return
 	endif
 
