@@ -1870,6 +1870,10 @@ reset_flag spelltarget IS_CRITICAL
 if me = player
 	print "Success!"
 	printcr
+
+#	Pay the price
+#	add player.stats.hp - 200
+#	check_hurt player
 endif
 end
 

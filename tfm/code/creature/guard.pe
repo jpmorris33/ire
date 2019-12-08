@@ -172,13 +172,11 @@ destroy me
 end
 
 
-
-
 ##
-## Horrified (medieval guards)
+##  Horrified (all guards)
 ##
 
-function guard_horror
+function mainguard_horror
 
 # Seen a dead body
 if current is called "DEAD*"
@@ -189,18 +187,38 @@ if current is called "DEAD*"
 	return
 endif
 
+if current.label.race = "headless"
+	let victim = current
+	set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
+	let suspect = victim.enemy
+	call justice_assault
+	return
+endif
+
+
 # Evil must be destroyed
 if current.stats.alignment < 0
-#	if current.stats.alignment > -10
-		# If it isn't TOTALLY evil, make it a 1-shot
-		set_flag current IS_HORRIBLE = 0
-#	endif
+	if current.stats.hp > 0
+#		if current.stats.alignment > -10
+			# If it isn't TOTALLY evil, make it a 1-shot
+			set_flag current IS_HORRIBLE = 0
+#		endif
+	endif
 
 	let suspect = current
 	call justice_beast
 	return
 endif
 
+end
+
+
+
+##
+## Horrified (medieval guards)
+##
+
+function guard_horror
 
 # Demon!
 if current is called "guard_panther"
@@ -217,6 +235,9 @@ if current is called "guard_panther"
 endif
 
 
+call mainguard_horror
+
+
 end
 
 
@@ -226,28 +247,11 @@ end
 
 function modernguard_horror
 
-# Seen a dead body
-if current is called "DEAD*"
-	let victim = current
-	set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
-	let suspect = victim.enemy
-	call justice_assault
-	return
-endif
-
-# Evil must be destroyed
-if current.stats.alignment < 0
-#	if current.stats.alignment > -10
-		# If it isn't TOTALLY evil, make it a 1-shot
-		set_flag current IS_HORRIBLE = 0
-#	endif
-
-	let suspect = current
-	call justice_beast
-	return
-endif
-
 # Modern-day guards and panthers do not go apeshit over 'demons'
 
+call mainguard_horror
+
 end
+
+
 

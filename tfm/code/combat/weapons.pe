@@ -452,7 +452,12 @@ function decap_attack_corpse
 		# Subtract the weight of the head
 		add body.stats.weight - head.stats.weight
 		# Ensure justice is carried out
+		let body.enemy = attacker
 		let body.stats.intel = 100
+
+		if_flag head IS_SPAWNED
+			set_flag body IS_SPAWNED = 1
+		endif
 
 		# Move possessions to the body
 		move_contents head to body
@@ -463,8 +468,6 @@ function decap_attack_corpse
 		# Crap - what do we do now?!
 		return
 	endif
-
-	print 
 
 end
 
