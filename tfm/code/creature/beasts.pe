@@ -592,9 +592,19 @@ if_exists current.enemy
 endif
 end
 
+##
+##
+#
+
+function snail_hurt
+object_sound "snail" current
+call hurt_wild
+end
+
+
 function snail_dies
 
 change current = "firesnail_dead"
-#object_sound "snail_dying" current
+object_sound "snail_squish" current
 call egg_killed
 end

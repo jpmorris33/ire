@@ -6864,7 +6864,7 @@ section: characters
 	description	"You see a huge snail."
 	short		"snail"
 	IfKilled	snail_dies
-	IfHurt		hurt_wild
+	IfHurt		snail_hurt
 	behaviour	attack_party
 	attack		range_attack
 	user2		attack_firebolt
@@ -6883,6 +6883,7 @@ section: characters
 	down		FIRESNAIL_DEAD
 	hp		100
 	weight		2000
+	IfLookedAt	SearchContainer
 	description	"You see a dead snail."
 	short		"dead snail"
 
