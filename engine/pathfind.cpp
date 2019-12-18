@@ -283,6 +283,8 @@ start->user->dy=0;
 
 // If the two objects are on top of each other, return code 0 (found it)
 
+// printf("st = %s, %d, %d, nd = %s T%d at %d,%d\n",start->name,start->x,start->y,end->name,end->tag,end->x,end->y);
+
 if(start->x == end->x && start->y == end->y)
 	return PATH_FINISHED;
 

@@ -145,7 +145,7 @@ LDFLAGS		  =  $(GRAPHICSLIB_L) $(PROF) $(DBG)
 
 Xopts		  = -Llibs/linux
 
-Lib_files         = -lithe -ljpeg -lpng -lstdc++ -lX11 -lXext -lsqlite3 -lm
+Lib_files         = -lithe -ljpeg -lpng -lstdc++ -lX11 -lXext -lsqlite3 -lm -luuid
 
 ifeq ($(ASM),no_asm)
 	CFLAGS	 += -DNO_ASM

@@ -59,6 +59,9 @@ void ShrinkSystem(OBJECT *o);
 extern OBJECT *GetRawSolidObject(int x,int y, OBJECT *except);
 extern TILE *GetTile(int x,int y);
 extern void NPC_ReadWipe(OBJECT *o, int wflags);
+extern void newUUID(char strout[37]);
+static void makeUID(char strout[UUID_SIZEOF], const char *name);
+
 
 extern char fullrestore;     // Be less thorough if we're only reloading
 extern void Call_VRM(int i);
@@ -164,7 +167,7 @@ temp->next=NULL;
 LL_Add(&curmap->object,temp);
 ML_Add(&MasterList,temp);
 
-
+temp->uid[0]=0;
 temp->sdir=0;
 temp->sptr=0;
 temp->tag=0;
@@ -969,6 +972,11 @@ if(ctr == -1)
 	return 0;
 	}
 objsel->name = CHlist[ctr].name;        // Update object's name from static
+
+// Generate a UID for it
+if(!objsel->uid[0]) {
+	makeUID(objsel->uid, objsel->name);
+}
 
 if(CHlist[ctr].flags & IS_DECOR)
 	ithe_panic("OB_Init: Didn't catch DECOR object!",name);
@@ -1805,4 +1813,22 @@ if(!u)
 if(u->ptr)
 	M_free(u->ptr);
 M_free(u);
+}
+
+
+
+void makeUID(char strout[UUID_SIZEOF], const char *name) {
+memset(strout,0,UUID_SIZEOF);
+strncpy(strout,name,4);
+// If the name is shorter than 4 characters, add underscores
+while(strlen(strout)<4) {
+	strcat(strout,"_");
+}
+strupr(strout); // Make the prefix uppercase
+
+newUUID(&strout[4]);  // Create the GUID
+
+if(strlen(strout) != UUID_LEN) {
+	ithe_panic("Internal error: Invalid UID", strout);
+}
 }

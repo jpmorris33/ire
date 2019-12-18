@@ -619,14 +619,16 @@ int temp;
 
 // 20 user slots
 
-for(ctr=0;ctr<USEDATA_SLOTS;ctr++)
+for(ctr=0;ctr<USEDATA_SLOTS;ctr++) {
 	u->user[ctr]=igetl_i(f);
+}
 
 u->poison = igetl_i(f);
 u->unconscious = igetl_i(f);
 
-for(ctr=0;ctr<USEDATA_POTIONS;ctr++)
+for(ctr=0;ctr<USEDATA_POTIONS;ctr++) {
 	u->potion[ctr]=igetl_i(f);
+}
 
 u->dx = igetl_i(f);
 u->dy = igetl_i(f);
@@ -637,17 +639,18 @@ u->experience = igetl_i(f);
 u->magic = igetl_i(f);
 u->archive = igetl_i(f);
 u->oldhp = igetl_i(f);
-u->arcpocket.saveid = igetl_i(f);	// Junk
-u->pathgoal.saveid = igetl_i(f);	// Junk
 
-for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++)
+ctr = igetl_i(f);	// Junk - arcpocket
+ctr = igetl_i(f);	// Junk - pathgoal
+
+for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 	u->actlist[ctr]=igetl_i(f);
+}
 
-for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++)
-	{
+for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 	u->acttarget[ctr]=NULL;
 	temp=igetl_i(f);	// Junk
-	}
+}
 
 u->actptr = igetl_i(f);
 u->actlen = igetl_i(f);
@@ -668,14 +671,16 @@ pstart = itell(f);
 
 // 20 user slots
 
-for(ctr=0;ctr<USEDATA_SLOTS;ctr++)
+for(ctr=0;ctr<USEDATA_SLOTS;ctr++) {
 	iputl_i(u->user[ctr],f);
+}
 
 iputl_i(u->poison,f);
 iputl_i(u->unconscious,f);
 
-for(ctr=0;ctr<USEDATA_POTIONS;ctr++)
+for(ctr=0;ctr<USEDATA_POTIONS;ctr++) {
 	iputl_i(u->potion[ctr],f);
+}
 
 iputl_i(u->dx,f);
 iputl_i(u->dy,f);
@@ -690,11 +695,13 @@ iputl_i(u->oldhp,f);
 iputl_i(0,f);	// ArcPocket ptr
 iputl_i(0,f);	// Pathgoal ptr
 
-for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++)
+for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 	iputl_i(u->actlist[ctr],f);
+}
 
-for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++)
+for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 	iputl_i(0,f);	// Junk for compatability
+}
 
 iputl_i(u->actptr,f);
 iputl_i(u->actlen,f);
@@ -705,11 +712,10 @@ iputl_i(0,f);	// Junk - lFlags
 
 pend = itell(f);
 
-if((pend - pstart) != USEDATA_VERSION)
-	{
+if((pend - pstart) != USEDATA_VERSION) {
 	sprintf(emsg,"%ld bytes instead of %d",pend-pstart,USEDATA_VERSION);
 	ithe_panic("USEDATA saved wrong number of bytes, change VERSION code",emsg);
-	}
+}
 
 }
 
@@ -721,17 +727,24 @@ if((pend - pstart) != USEDATA_VERSION)
 void TWriteObject(FILE *fp,OBJECT *o)
 {
 int type,ctr;
+char objectname[1024];
 
 type = getnum4char(o->name);
 
+if(!o->uid[0]) {
+	ithe_panic("No UID for object",o->name);
+}
+
 // First line (declaration)
-fprintf(fp,"\tobject %u\n",o->save_id);
+fprintf(fp,"\tobject %s\n",o->uid);
 
 // Object type
-fprintf(fp,"\t\ttype %s\n",o->name);
+SAFE_STRCPY(objectname,o->name);
+strupr(objectname);
+fprintf(fp,"\t\ttype %s\n",objectname);
 // Location (coordinates or parent object)
-if(o->parent.objptr && o->parent.objptr->save_id>0)
-	fprintf(fp,"\t\tinside %u\n",o->parent.objptr->save_id);
+if(o->parent.objptr && o->parent.objptr->uid[0])
+	fprintf(fp,"\t\tinside %s\n",o->parent.objptr->uid);
 else
 	fprintf(fp,"\t\tat %ld %ld\n",o->x,o->y);
 
@@ -786,11 +799,11 @@ if(o->personalname)
 
 // Target object
 if(o->target.objptr)
-	fprintf(fp,"\t\ttarget %u\n",o->target.objptr->save_id);
+	fprintf(fp,"\t\ttarget %s\n",o->target.objptr->uid);
 
 // Target object
 if(o->enemy.objptr)
-	fprintf(fp,"\t\tenemy %u\n",o->enemy.objptr->save_id);
+	fprintf(fp,"\t\tenemy %s\n",o->enemy.objptr->uid);
 
 // Tag
 if(o->tag)
@@ -832,7 +845,7 @@ IF_CHANGED(stats->damage)
 IF_CHANGED(stats->tick)
 	fprintf(fp,"\t\tstats->tick %ld\n",o->stats->tick);
 if(o->stats->owner.objptr)
-	fprintf(fp,"\t\tstats->owner %u\n",o->stats->owner.objptr->save_id);
+	fprintf(fp,"\t\tstats->owner %s\n",o->stats->owner.objptr->uid);
 IF_CHANGED(stats->karma)
 	fprintf(fp,"\t\tstats->karma %ld\n",o->stats->karma);
 IF_CHANGED(stats->bulk)
@@ -894,12 +907,41 @@ if(o->schedule)
 		if(o->schedule[ctr].active)
 			{
 			if(o->schedule[ctr].target.objptr)
-				fprintf(fp,"\t\tschedule %d %d %s %u\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,o->schedule[ctr].target.objptr->save_id);
+				fprintf(fp,"\t\tschedule %d %d %s %s\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,o->schedule[ctr].target.objptr->uid);
 			else
-				fprintf(fp,"\t\tschedule %d %d %s %d\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,0);
+				fprintf(fp,"\t\tschedule %d %d %s %s\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,"-");
 			}
 	}
 
 fprintf(fp,"\n");
 }
 
+
+void put_uuid(OBJECT *obj, IFILE *ofp) {
+unsigned char fakeuuid[UUID_SIZEOF];
+
+if(obj && obj->uid[0]) {
+	iwrite((unsigned char *)obj->uid,UUID_LEN,ofp);
+	return;
+}
+// If it's null, improvise
+memset(fakeuuid,0,UUID_LEN);
+fakeuuid[0]='-';
+iwrite(fakeuuid,UUID_LEN,ofp);
+}
+
+void get_uuid(char buf[UUID_SIZEOF], IFILE *ifp) {
+iread((unsigned char *)buf,UUID_LEN,ifp);
+buf[UUID_LEN]=0;
+}
+
+
+int check_uuid(const char *uuid) {
+if(!uuid) {
+	return 0;
+}
+if(uuid[0] == '-' && uuid[1] == 0) {
+	return 0;
+}
+return strlen(uuid) == UUID_LEN;
+}

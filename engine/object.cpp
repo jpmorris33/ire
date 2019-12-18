@@ -3433,6 +3433,30 @@ for(t=MasterList;t;t=t->next)
 return NULL;
 }
 
+/*
+ *      find_id - Look for an ID number on the map and return the objptr
+ */
+
+OBJECT *find_uuid(const char *uuid)
+{
+if(!uuid || (uuid[0] == '-' && uuid[1] == 0)) {
+	return NULL;
+}
+
+OBJLIST *t;
+for(t=MasterList;t;t=t->next) {
+	if(t->ptr) {
+		if(t->ptr->uid[0] == uuid[0]) {
+			if(!istricmp(uuid, t->ptr->uid)) {
+				return t->ptr;
+			}
+		}
+	}
+}
+
+return NULL;
+}
+
 
 /*
  *      FindTag - Look for a tag on the map and return the object

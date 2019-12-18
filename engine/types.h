@@ -24,12 +24,14 @@ short i16;
 char i8;
 } VMTYPE;
 
+#define UUID_LEN 40
+#define UUID_SIZEOF 41
 
 typedef union OBJECTID
 {
 struct OBJECT *objptr;
-unsigned int saveid;
+unsigned int saveid; // Old save mechanism
+char uuid[UUID_SIZEOF];       // New save mechanism
 } OBJECTID;
-
 
 #endif

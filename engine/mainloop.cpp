@@ -1565,11 +1565,11 @@ if(fname)
 	}
 
 // Write NPC usedata to file (AFTER z1 has assigned new numbers)
-fname=makemapname(mapnumber,9999,".ms");
+fname=makemapname(mapnumber,9999,".ms2");
 if(fname)
 	{
 	ilog_quiet("Write '%s'\n",fname);
-	save_ms(fname);
+	save_ms2(fname);
 	}
 
 // Get light state as well
@@ -1611,23 +1611,20 @@ load_z2(mapnumber);
 load_z3(mapnumber);
 
 // Restore usedata if it exists
-fname=makemapname(mapnumber,9999,".ms");
-if(fname && fileexists(fname))
-	{
-/*
-ilog_quiet("Dump mastlist\n");
-for(ptr=MasterList;ptr;ptr=ptr->next)
-	if(ptr->ptr)
-		ilog_quiet(">%s : %d\n",ptr->ptr->name,ptr->ptr->save_id);
-ilog_quiet("Done\n");
-*/
-	
+fname=makemapname(mapnumber,9999,".ms2");
+if(fname && fileexists(fname)) {
 	// Restore only what we need, not the time and party state
 	ilog_quiet("Restore '%s'\n",fname);
 	MZ1_SavingGame=1;
+	load_ms2(fname);
+	MZ1_SavingGame=0;
+} else {
+	fname=makemapname(mapnumber,9999,".msc");
+	ilog_quiet("Restore legacy file '%s'\n",fname);
+	MZ1_SavingGame=1;
 	load_ms(fname);
 	MZ1_SavingGame=0;
-	}
+}
 
 // Restore archived objects from limbo
 restore_objects();
@@ -1860,8 +1857,8 @@ MZ1_SavingGame=0;
 // Save light state
 save_lightstate(mapnumber,savegame_no);
 
-savegame=makemapname(0,savegame_no,".msc");
-save_ms(savegame);
+savegame=makemapname(0,savegame_no,".ms2");
+save_ms2(savegame);
 }
 
 
@@ -1951,8 +1948,16 @@ if(savegame_no > 0)
 			scroll_tile_reset(ctr);
 
 		// Now load misc state file
-		savegame=makemapname(0,savegame_no,".msc");
-		load_ms(savegame);
+		savegame=makemapname(0,savegame_no,".ms2");
+		if(iexist(savegame)) {
+			load_ms2(savegame);
+		} else {
+			// Legacy format
+			savegame=makemapname(0,savegame_no,".msc");
+			ilog_quiet("Legacy savegame, falling back to MSC file '%s'\n", savegame);
+			load_ms(savegame);
+		}
+
 
 		load_lightstate(mapno,savegame_no);
 

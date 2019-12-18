@@ -41,6 +41,7 @@ static unsigned int fastfind_id_num=0;
 static OBJECT **fastfind_id_list=NULL;
 static USEDATA empty;
 static int save_version=1;
+static int use_saveid=0;
 
 // Functions
 
@@ -61,18 +62,25 @@ static int ProcessBadObject(OBJECT **objptr, char *name, int maxlen);
 static void DeleteProtoObject(OBJECT *o);
 
 static void MoveToPocketEnd(OBJECT *object, OBJECT *container);
+static int getObjectId(OBJECTID *dest, const char *inputline);
+
 int SumObjects(OBJECT *cont, char *name, int total);
 OBJECT *GetFirstObject(OBJECT *cont, char *name);
 extern void Init_Areas(OBJECT *objsel);
 
-extern OBJECT *find_id(unsigned int id);
+extern OBJECT *find_uuid(const char *uuid);
 static void fastfind_id_start();
 static void fastfind_id_stop();
 static OBJECT *fastfind_id(unsigned int id);
-static void assign_objects(int mapnum);
+static OBJECT *fastfind_uuid(const char *uuid);
 
-static int CMP_sort(const void *a, const void *b);
-static int CMP_search(const void *a, const void *b);
+static OBJECT *resolveObject(OBJECTID *objectid);
+
+
+static int CMP_sort_id(const void *a, const void *b);
+static int CMP_search_id(const void *a, const void *b);
+static int CMP_sort_uuid(const void *a, const void *b);
+static int CMP_search_uuid(const void *a, const void *b);
 static int UsedataChanged(OBJECT *o);
 
 extern void CallVMnum(int pos);
@@ -92,6 +100,11 @@ extern void write_WORLD(WORLD *w,IFILE *f);
 void read_USEDATA(USEDATA *u,IFILE *f);
 void write_USEDATA(USEDATA *u,IFILE *f);
 extern void TWriteObject(FILE *fp,OBJECT *o);
+
+extern void put_uuid(OBJECT *obj, IFILE *ofp);
+extern void get_uuid(char uuid[UUID_SIZEOF], IFILE *ifp);
+extern int check_uuid(const char *uuid);
+
 
 // Code
 
@@ -674,10 +687,7 @@ if(!fp)
 	return;
 
 // Write the header
-fprintf(fp,"%s%s\n",COOKIE_Z1,TEXTCOOKIE_R00);
-
-// Set the object IDs
-assign_objects(mapnumber);
+fprintf(fp,"%s%s\n",COOKIE_Z1,TEXTCOOKIE_R01);
 
 // Scan entire map line by line, row by row.
 // This may seem inefficient, but it is the only way to record the decoratives
@@ -714,10 +724,14 @@ OBJLIST *ptr;
 struct TF_S z1;
 int ctr,x,y,ke,ctr2;
 unsigned int saveid,num;
+char uid[UUID_SIZEOF];
 char *str,bad,ok;
 char first[1024],filename[1024];
 char badobject[256];
 char *l;
+int known_revision=0;
+
+use_saveid=0;
 
 if(!loadfile(fname,filename))
 	{
@@ -735,15 +749,29 @@ MZ1_LoadingGame=1;
 TF_init(&z1);
 TF_load(&z1,filename);
 
-if(strncmp(z1.line[0],COOKIE_Z1,4))
-	{
-	if(strncmp(z1.line[0],OLDCOOKIE_MZ1,4))
-		{
+if(strncmp(z1.line[0],COOKIE_Z1,4)) {
+	if(strncmp(z1.line[0],OLDCOOKIE_MZ1,4)) {
 		ilog_quiet("[%s]\n",z1.line[0]);
 		ilog_quiet("[%s]\n",z1.line[1]);
 		ithe_panic("load_mz1: file does not contain the right cookie",z1.line[0]);
-		}
 	}
+}
+
+if(!strncmp(&z1.line[0][4],TEXTCOOKIE_R00,3)) {
+	use_saveid=1;
+	known_revision=1;
+}
+
+if(!strncmp(&z1.line[0][4],TEXTCOOKIE_R01,3)) {
+	use_saveid=0;
+	known_revision=1;
+}
+
+if(!known_revision) {
+	ilog_quiet("[%s]\n",z1.line[0]);
+	ilog_quiet("[%s]\n",z1.line[1]);
+	ithe_panic("load_mz1: file does not contain a known revision number!",z1.line[0]);
+}
 
 temp=NULL;
 
@@ -774,6 +802,7 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		if(temp)
 			{
 			temp->save_id=SAVEID_INVALID;
+			temp->uid[0]=0; // Decor, no UID
 			ForceDropObject(x,y,temp);
 			}
 		else
@@ -796,11 +825,23 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		{
 		temp = OB_Alloc();
 
-		saveid = atoi(strfirst(strrest(l)));
-		if(!saveid)
-			Bug("load_mz1: object saveid = 0 in file %s at line %d\n",filename,ctr);
+		if(use_saveid) {
+			// Old system
+			saveid = atoi(strfirst(strrest(l)));
+			if(!saveid)
+				Bug("load_mz1: object saveid = 0 in file %s at line %d\n",filename,ctr);
+			temp->save_id = saveid;
+		} else {
+			// New system
+			strncpy(temp->uid, strfirst(strrest(l)), UUID_LEN);  // OB_Alloc will have filled it with nulls
+			temp->save_id=0;
+			if(!temp->uid[0]) {
+				Bug("load_mz1: object has no uuid in file %s as line %d\n",filename,ctr);
+			}
 
-		temp->save_id = saveid;
+//			printf("Got uid '%s'\n", temp->uid);
+		}
+
 		temp->flags |= IS_ON; // Activate, or things will go wrong later
 		continue;
 		}
@@ -837,16 +878,12 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// inside <idnum>
-	if(!istricmp(first,"inside"))
-		{
-		num = atoi(strfirst(strrest(l)));
-		if(!num)
+	if(!istricmp(first,"inside")) {
+		if(!getObjectId(&temp->parent,l)) {
 			Bug("load_mz1: object inside Null in file %s at line %d\n",filename,ctr);
-
-		// Set the parent as an ID, not a pointer
-		temp->parent.saveid = num;
-		continue;
 		}
+		continue;
+	}
 
 	// at <x> <y>
 	if(!istricmp(first,"at"))
@@ -983,28 +1020,20 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// target <idnum>
-	if(!istricmp(first,"target"))
-		{
-		num = atoi(strfirst(strrest(l)));
-		if(!num)
+	if(!istricmp(first,"target")) {
+		if(!getObjectId(&temp->target,l)) {
 			Bug("load_mz1: object target = Null in file %s at line %d\n",filename,ctr);
-
-		// Set the field as an ID, not a pointer
-		temp->target.saveid = num;
-		continue;
 		}
+		continue;
+	}
 
 	// enemy <idnum>
-	if(!istricmp(first,"enemy"))
-		{
-		num = atoi(strfirst(strrest(l)));
-		if(!num)
+	if(!istricmp(first,"enemy")) {
+		if(!getObjectId(&temp->enemy,l)) {
 			Bug("load_mz1: object enemy = Null in file %s at line %d\n",filename,ctr);
-
-		// Set the field as an ID, not a pointer
-		temp->enemy.saveid = num;
-		continue;
 		}
+		continue;
+	}
 
 	// tag <num>
 	if(!istricmp(first,"tag"))
@@ -1118,11 +1147,10 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// stats->owner <num>
-	if(!istricmp(first,"stats->owner"))
-		{
-		temp->stats->owner.saveid = atoi(strfirst(strrest(l)));
+	if(!istricmp(first,"stats->owner")) {
+		getObjectId(&temp->stats->owner,l);
 		continue;
-		}
+	}
 
 	// stats->karma <num>
 	if(!istricmp(first,"stats->karma"))
@@ -1309,7 +1337,7 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		{
 		x = atoi(strfirst(strrest(l)));
 		y = atoi(strfirst(strrest(strrest(l))));
-		num = atoi(strfirst(strrest(strrest(strrest(strrest(l))))));
+		SAFE_STRCPY(uid, strfirst(strrest(strrest(strrest(strrest(l))))));
 		str = strfirst(strrest(strrest(strrest(l))));
 
 		// Initialise schedule if none present
@@ -1337,7 +1365,11 @@ for(ctr=1;ctr<z1.lines;ctr++)
 			temp->schedule[ke].active = 1;
 			temp->schedule[ke].hour = x;
 			temp->schedule[ke].minute = y;
-			temp->schedule[ke].target.saveid = num; // Fix up later
+			if(use_saveid) {
+				temp->schedule[ke].target.saveid = atoi(uid); // Fix up later
+			} else {
+				SAFE_STRCPY(temp->schedule[ke].target.uuid,uid); // Fix up later
+			}
 			SAFE_STRCPY(temp->schedule[ke].vrm,str);
 			temp->schedule[ke].call = getnum4PE(str);
 			}
@@ -1360,7 +1392,7 @@ temp = curmap->object->next;
 while(temp)
 	{
 	next = temp->next;
-	parent = fastfind_id(temp->parent.saveid);
+	parent = resolveObject(&temp->parent);
 	if(parent)
 		{
 //		ilog_quiet("putting %s (%d) into Parent %s (%d)\n",temp->name,temp.save_id,parent->name,parent.save_id);
@@ -1371,7 +1403,7 @@ while(temp)
 		}
 	else
 		{
-		ilog_quiet("Oh shit!  %s is orphaned.  ID = %d\n",temp->name,temp->save_id);
+		ilog_quiet("Oh shit!  %s is orphaned.  ID = %d, uid = %s\n",temp->name,temp->save_id, temp->uid);
 //		Bug("%s [%d] has an identity crisis\n",temp->name,temp->save_id);
 //		DestroyObject(temp);
 		}
@@ -1383,19 +1415,19 @@ while(temp)
 for(ptr=MasterList;ptr;ptr=ptr->next)
 	if(ptr->ptr)
 		{
-		if(ptr->ptr->target.saveid)
-			ptr->ptr->target.objptr = fastfind_id(ptr->ptr->target.saveid);
-		if(ptr->ptr->enemy.saveid)
-			ptr->ptr->enemy.objptr = fastfind_id(ptr->ptr->enemy.saveid);
-		if(ptr->ptr->stats->owner.saveid)
-			ptr->ptr->stats->owner.objptr = fastfind_id(ptr->ptr->stats->owner.saveid);
+//		if(ptr->ptr->target.saveid)
+		ptr->ptr->target.objptr = resolveObject(&ptr->ptr->target);
+//		if(ptr->ptr->enemy.saveid)
+		ptr->ptr->enemy.objptr = resolveObject(&ptr->ptr->enemy);
+//		if(ptr->ptr->stats->owner.saveid)
+		ptr->ptr->stats->owner.objptr = resolveObject(&ptr->ptr->stats->owner);
 
 		// Convert any targets
 		if(ptr->ptr->schedule)
 			{
 			for(ctr2=0;ctr2<24;ctr2++)
 				if(ptr->ptr->schedule[ctr2].active)
-					ptr->ptr->schedule[ctr2].target.objptr = fastfind_id(ptr->ptr->schedule[ctr2].target.saveid);
+					ptr->ptr->schedule[ctr2].target.objptr =resolveObject(&ptr->ptr->schedule[ctr2].target);
 			}
 
 		InitFuncsFor(ptr->ptr,0);
@@ -1829,16 +1861,18 @@ fclose(fp);
 // Miscellaneous State
 
 /*
- *      load_ms - Read miscellaneous savegame data
+ *      load_ms2 - Read miscellaneous savegame data
  */
 
-void load_ms(char *filename)
+void load_ms2(char *filename)
 {
 IFILE *ifp;
 char buf[256];
 char name48[48];
 int num,ctr,maxnum,slot,ok;
-unsigned int ut,ctr2,ctr3,ctr4,newpos,saveid,dark;
+unsigned int ut,ctr2,ctr3,ctr4,newpos,dark;
+char uuid[UUID_SIZEOF];
+char uuid2[UUID_SIZEOF];
 OBJECT *o,*o2;
 USEDATA usedata;
 GLOBALINT *globalint;
@@ -1856,23 +1890,14 @@ memset(buf,0,sizeof(buf));
 
 newpos = itell(ifp);
 iread((unsigned char *)buf,8,ifp);			 // Cookie
-if(!strncmp(COOKIE_PWAD,buf,4))
-	{
+if(!strncmp(COOKIE_PWAD,buf,4)) {
 	// Good, wind back to start
 	iseek(ifp,0,newpos);
-	}
-else
-	{
-	// Okay, it's not a straight PWAD, look for the original header instead
-	iseek(ifp,0,newpos);
-	iread((unsigned char *)buf,40,ifp);			 // Cookie
-	if(strncmp(OLDCOOKIE_MS,buf,4))
-		{
-		// Wrong
-		iclose(ifp);
-		return;
-		}
-	}
+} else {
+	// Wrong
+	iclose(ifp);
+	return;
+}
 
 if(MZ1_SavingGame)
 	goto reload_game;	// Naughty Doug
@@ -1880,10 +1905,10 @@ if(MZ1_SavingGame)
 if(!GetWadEntry(ifp,"PARTYBLK"))
 	ithe_panic("Savegame corrupted","PARTYBLK not found");
 
-saveid = igetl_i(ifp);
-player=find_id(saveid);
+get_uuid(uuid,ifp);
+player=find_uuid(uuid);
 #ifdef DEBUG_SAVE
-ilog_quiet("player id = %d\n",saveid);
+ilog_quiet("player id = %s\n",uuid);
 #endif
 if(!player)
 	ithe_panic("load_ms: Player AWOL in savegame",NULL);
@@ -1897,29 +1922,24 @@ for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
 	}
 
 // Load new party
-for(ctr=0;ctr<MAX_MEMBERS;ctr++)
-	{
-	saveid = igetl_i(ifp);
-	if(saveid)
-		{
-		o = find_id(saveid);      // ID numbers change to objptrs
-		
+for(ctr=0;ctr<MAX_MEMBERS;ctr++) {
+	get_uuid(uuid,ifp);
+	o = find_uuid(uuid);
+	if(o) {
 		ok=1;
-		for(ctr2=0;ctr2<MAX_MEMBERS;ctr2++)
-			if(party[ctr2] == o)
-				{
+		for(ctr2=0;ctr2<MAX_MEMBERS;ctr2++) {
+			if(party[ctr2] == o) {
 				ok=0;
 				break;
-				}
-			  
-		if(ok)
-			{
+			}
+		}
+		if(ok) {
 			party[slot]=o;
 			SetNPCFlag(party[slot],IN_PARTY);
 			slot++;
-			}
 		}
 	}
+}
 
 if(!GetWadEntry(ifp,"FLAGSBLK"))
 	ithe_panic("Savegame corrupted","FLAGSBLK not found");
@@ -1954,36 +1974,7 @@ if(dark >= 0 && dark < 256)	// If it's an old savegame, this will be junk
 
 ilog_quiet("game time = %02d:%02d\n",game_hour,game_minute);
 
-// Old format!
 if(GetWadEntry(ifp,"JOURNAL "))	{
-	int id,day;
-	// Load journal entries
-	J_Free();
-
-	ut=igetl_i(ifp);
-	for(ctr2=0;ctr2<ut;ctr2++) {
-		id=igetl_i(ifp);	// ID
-		day=igetl_i(ifp);	// day
-		num=igetl_i(ifp);	
-		iread((unsigned char *)buf,num,ifp); // Date
-		buf[32]=0;
-		JOURNALENTRY *j=J_Add(id,day,buf);
-		if(!j)
-			ithe_panic("Savegame error","Out of memory allocating journal entry");
-		if(id != -1) {
-			// Read title, then text
-			num=igetl_i(ifp);
-			j->title = (char *)M_get(1,num+1);
-			iread((unsigned char *)j->title,num,ifp);
-			num=igetl_i(ifp);
-			j->text = (char *)M_get(1,num+1);
-			iread((unsigned char *)j->text,num,ifp);
-		}
-	}
-}
-
-// New format
-if(GetWadEntry(ifp,"JOURNAL2"))	{
 	int id,day;
 	// Load journal entries
 	J_Free();
@@ -2043,33 +2034,26 @@ num = igetl_i(ifp);
 #ifdef DEBUG_SAVE
 ilog_quiet("%d goals\n",num);
 #endif
-for(ctr=0;ctr<num;ctr++)
-	{
-	saveid = igetl_i(ifp);
-	o = find_id(saveid);
-	if(!o)
-		{
-		Bug("Goal: Cannot find object number %d\n",saveid);
-//		ithe_panic("Oh well whatever","Never mind");
-		}
+for(ctr=0;ctr<num;ctr++) {
+	get_uuid(uuid, ifp);
+	o = find_uuid(uuid);
+	if(!o) {
+		Bug("Goal: Cannot find object uuid '%s'\n",uuid);
+	}
 	iread((unsigned char *)buf,32,ifp);
-	saveid = igetl_i(ifp);
+	get_uuid(uuid, ifp);
 	o2=NULL;
-	if(saveid != SAVEID_INVALID)
-		{
-		o2 = find_id(saveid);
-		if(!o2)
-			{
-			Bug("Goal: Cannot find target object number %d\n",saveid);
-//			ithe_panic("Oh well whatever","Never mind");
-			}
-		}
-	if(o)
-		{
-		SubAction_Wipe(o); // Erase any sub-tasks
-		ActivityName(o,buf,o2);
+	if(check_uuid(uuid)) {
+		o2 = find_uuid(uuid);
+		if(!o2) {
+			Bug("Goal: Cannot find target object uuid '%s'\n",uuid);
 		}
 	}
+	if(o) {
+		SubAction_Wipe(o); // Erase any sub-tasks
+		ActivityName(o,buf,o2);
+	}
+}
 
 // Load usedata
 if(!GetWadEntry(ifp,"USEDATA "))
@@ -2080,28 +2064,24 @@ ctr2 = igetl_i(ifp);
 #ifdef DEBUG_SAVE
 ilog_printf("Reading %d usedata entries:\n",num);
 #endif
-for(ctr=0;ctr<num;ctr++)
-	{
-	saveid = igetl_i(ifp);
-	o = find_id(saveid);
-	if(!o)
-		{
-		ilog_quiet("Load_miscellaneous_state (usedata): can't load object %d\n",saveid);
+for(ctr=0;ctr<num;ctr++) {
+	get_uuid(uuid, ifp);
+	o = find_uuid(uuid);
+	if(!o) {
+		ilog_quiet("Load_miscellaneous_state (usedata): can't load object '%s'\n",uuid);
 //		ithe_panic("Load_miscellaneous_state (usedata): Can't find object","Savegame corrupted");
-		}
+	}
 
 	if(ctr2 == USEDATA_VERSION)
 		read_USEDATA(&usedata,ifp);
-	else
-		{
+	else {
 		// Not good, but try to do it anyway:
 		newpos = itell(ifp)+ctr2;
 		read_USEDATA(&usedata,ifp);
 		iseek(ifp,newpos,SEEK_SET);
-		}
+	}
 
-	if(o)
-		{
+	if(o) {
 		NPC_RECORDING *oldn,*oldl; 	// These should be stable enough to survive
 
 		oldn=o->user->npctalk;
@@ -2118,41 +2098,36 @@ for(ctr=0;ctr<num;ctr++)
 		// Delete activity lists too
 		memset(o->user->actlist,0,sizeof(o->user->actlist));
 		memset(o->user->acttarget,0,sizeof(o->user->acttarget)); // Delete list
-		}
 	}
+}
 
 // Load secondary goal data (sub-tasks or subactions)
 
-// 'SUBTASKS' is the old format, but is entirely dependent on the PElist remaining the same, which it won't.
-// We can import old savegames by simply ignoring it
-
-// Load secondary goal data (sub-tasks or subactions)
-if(!GetWadEntry(ifp,"SUBTASK2")) {
+if(!GetWadEntry(ifp,"SUBTASKS")) {
 	num = igetl_i(ifp);
 	for(ctr=0;ctr<num;ctr++) {
-		saveid = igetl_i(ifp);
-		o = find_id(saveid);
+		get_uuid(uuid, ifp);
+		o = find_uuid(uuid);
 		if(!o) {
-			Bug("SubTasks: Cannot find object number %d\n",saveid);
+			Bug("SubTasks: Cannot find object '%s'\n",uuid);
 		}
 
 		for(ctr2=0;ctr2<ACT_STACK;ctr2++) {
 			iread((unsigned char *)buf,32,ifp);
-			saveid = igetl_i(ifp);
-
+			get_uuid(uuid, ifp);
 			if(!strcmp(buf,"-")) {
 				continue;
 			}
 
 			act=getnum4PE(buf);
 			if(act != -1) {
-				if(saveid == SAVEID_INVALID) {
+				if(!check_uuid(uuid)) {
 					SubAction_Push(o,act,NULL);
 //					ilog_quiet("restore queue: %s does %s\n",o->name,PElist[act].name);
 				} else {
-					o2 = find_id(saveid);
+					o2 = find_uuid(uuid);
 					if(!o2) {
-						Bug("Subtask: Cannot find target object number %d\n",saveid);
+						Bug("Subtask: Cannot find target object '%s'\n",uuid);
 					}
 //					ilog_quiet("restore queue: %s does %s to %s\n",o->name,PElist[act].name,o2->name);
 					SubAction_Push(o,act,o2);
@@ -2164,74 +2139,20 @@ if(!GetWadEntry(ifp,"SUBTASK2")) {
 	}
 }
 
-// load record of what we've said to NPCs (OLD FORMAT!)
-if(GetWadEntry(ifp,"NPCTALKS"))
-	{
-	num = igetl_i(ifp);
-	#ifdef DEBUG_SAVE
-	ilog_quiet("Reading %d npctalks\n",num);
-	#endif
-	for(ctr=0;ctr<num;ctr++)
-		{
-		saveid = igetl_i(ifp);
-		o = find_id(saveid);
-		if(!o)
-			{
-			ilog_quiet("looking for %d\n",saveid);
-			ilog_quiet("WARNING: Did not find object in NPCtalk(1) while loading map \n");
-			if(fullrestore)
-				ithe_panic("Load_miscellaneous_state (NPCtalk): Can't find object","Savegame corrupted");
-			}
-		ut = igetl_i(ifp); // number of entries for this NPC
-		for(ctr2=0;ctr2<ut;ctr2++)
-			{
-			ctr3=igetl_i(ifp);
-			ctr4=igetb(ifp)&0xff; // Limit to 255 for safety
-			iread((unsigned char *)buf,ctr4,ifp);
-			o2 = find_id(ctr3);
-
-	#ifdef DEBUG_SAVE
-			ilog_quiet("npc %d spoke to %d\n",saveid,ctr3);
-	#endif
-
-			if(!o2)
-				{
-				ilog_quiet("looking for %d, player's id is %d\n",ctr3,player->save_id);
-				ilog_quiet("WARNING: Did not find player in NPCtalk(2) while loading map \n");
-				if(fullrestore)
-					ithe_panic("Load_miscellaneous_state (NPCtalk): Can't find 'player'","Savegame corrupted");
-				}
-	#ifdef DEBUG_SAVE
-		ilog_quiet("BeenRead: %x,%s,%x\n",o,buf,o2);
-	#endif
-			if(o && o2)
-				{
-				char *bufname = NPC_MakeName(o2);
-				NPC_BeenRead(o,buf,bufname);
-				M_free(bufname);
-				}
-			}
-		}
-	}
-
 // load record of what we've said to NPCs
-if(GetWadEntry(ifp,"NPCTALK2"))
-	{
+if(GetWadEntry(ifp,"NPCTALK ")) {
 	num = igetl_i(ifp);
-	for(ctr=0;ctr<num;ctr++)
-		{
-		saveid = igetl_i(ifp);
-		o = find_id(saveid);
-		if(!o)
-			{
-			ilog_quiet("looking for %d\n",saveid);
+	for(ctr=0;ctr<num;ctr++) {
+		get_uuid(uuid, ifp);
+		o = find_uuid(uuid);
+		if(!o) {
+			ilog_quiet("looking for %s'\n",uuid);
 			ilog_quiet("WARNING: Did not find object in NPCtalk(1) while loading map \n");
 			if(fullrestore)
 				ithe_panic("Load_miscellaneous_state (NPCtalk): Can't find object","Savegame corrupted");
-			}
+		}
 		ut = igetl_i(ifp); // number of entries for this NPC
-		for(ctr2=0;ctr2<ut;ctr2++)
-			{
+		for(ctr2=0;ctr2<ut;ctr2++) {
 			ctr4=igetl_i(ifp);
 			char *bufname = (char *)M_get(1,ctr4+1);
 			iread((unsigned char *)bufname,ctr4,ifp);
@@ -2241,69 +2162,25 @@ if(GetWadEntry(ifp,"NPCTALK2"))
 			if(o)
 				NPC_BeenRead(o,buf,bufname);
 			M_free(bufname);
-			}
 		}
 	}
+}
 
-// load record of local NPC flags (Legacy format)
-if(GetWadEntry(ifp,"NPCLFLAG"))
-	{
-	num = igetl_i(ifp);
-	for(ctr=0;ctr<num;ctr++)
-		{
-		saveid = igetl_i(ifp);
-		o = find_id(saveid);
-		if(!o)
-			{
-			ilog_quiet("can't find object %d (0x%x)\n",saveid,saveid);
-			ilog_quiet("WARNING: Did not find object in lFlags(1) while loading map \n");
-			if(fullrestore)
-				ithe_panic("Load_miscellaneous_state (lFlags): Can't find object","Savegame corrupted");
-			}
-			
-		ut = igetl_i(ifp); // number of entries for this NPC
-		for(ctr2=0;ctr2<ut;ctr2++)
-			{
-			ctr3=igetl_i(ifp);
-			ctr4=(unsigned char)igetb(ifp);
-			iread((unsigned char *)buf,ctr4,ifp);
-			o2 = find_id(ctr3);
-			if(!o2)
-				{
-				ilog_quiet("can't find object %d (0x%x)\n",saveid,saveid);
-				ilog_quiet("WARNING: Did not find object in lFlags(2) while loading map \n");
-				if(fullrestore)
-					ithe_panic("Load_miscellaneous_state (lFlags): Can't find 'player'","Savegame corrupted");
-				}
-			if(o && o2)
-				{
-				char *bufname = NPC_MakeName(o2);
-				NPC_set_lFlag(o,buf,bufname,1);
-				M_free(bufname);
-				}
-			}
-		}
-	}
-	
 // load record of local NPC flags
-if(GetWadEntry(ifp,"NPCLFLG2"))
-	{
+if(GetWadEntry(ifp,"NPCLFLAG")) {
 	num = igetl_i(ifp);
-	for(ctr=0;ctr<num;ctr++)
-		{
-		saveid = igetl_i(ifp);
-		o = find_id(saveid);
-		if(!o)
-			{
-			ilog_quiet("can't find object %d (0x%x)\n",saveid,saveid);
+	for(ctr=0;ctr<num;ctr++) {
+		get_uuid(uuid, ifp);
+		o = find_uuid(uuid);
+		if(!o) {
+			ilog_quiet("can't find object %s\n",uuid);
 			ilog_quiet("WARNING: Did not find object in lFlags(1) while loading map \n");
 			if(fullrestore)
 				ithe_panic("Load_miscellaneous_state (lFlags): Can't find object","Savegame corrupted");
-			}
+		}
 			
 		ut = igetl_i(ifp); // number of entries for this NPC
-		for(ctr2=0;ctr2<ut;ctr2++)
-			{
+		for(ctr2=0;ctr2<ut;ctr2++) {
 			ctr4=igetl_i(ifp);
 			char *bufname = (char *)M_get(1,ctr4+1);
 			iread((unsigned char *)bufname,ctr4,ifp);
@@ -2313,9 +2190,9 @@ if(GetWadEntry(ifp,"NPCLFLG2"))
 			if(o)
 				NPC_set_lFlag(o,buf,bufname,1);
 			M_free(bufname);
-			}
 		}
 	}
+}
 	
 
 // Load wielded objects
@@ -2325,21 +2202,21 @@ if(!GetWadEntry(ifp,"NPCWIELD"))
 num = igetl_i(ifp);
 ctr2 = igetl_i(ifp);
 for(ctr=0;ctr<num;ctr++) {
-	saveid = igetl_i(ifp);
-	o = find_id(saveid);
+	get_uuid(uuid, ifp);
+	o = find_uuid(uuid);
 	if(!o)
-		ithe_panic("Load_miscellaneous_state (wieldtab): Can't find object","Savegame corrupted");
+		ithe_panic("Load_miscellaneous_state (wieldtab): Can't find object",uuid);
 
 	if(fullrestore || !GetNPCFlag(o,IN_PARTY)) {
 		memset(o->wield,0,sizeof(WIELD)); // Default to blank, unless a party member changing map
 	}
 
 	for(ctr3=0;ctr3<ctr2;ctr3++) {
-		saveid = igetl_i(ifp);
-		if(saveid != SAVEID_INVALID) {
-			o2 = find_id(saveid);
+		get_uuid(uuid, ifp);
+		if(check_uuid(uuid)) {
+			o2 = find_uuid(uuid);
 			if(!o2) {
-				ilog_quiet("Did not find id %ld\n",saveid);
+				ilog_quiet("Did not find id '%s'\n",uuid);
 				ilog_quiet("WARNING: Did not find object in wieldtab(2) while loading map \n");
 				if(fullrestore)
 					ithe_panic("Load_miscellaneous_state (wieldtab2): Can't find object","Savegame corrupted");
@@ -2356,122 +2233,63 @@ for(ctr=0;ctr<num;ctr++) {
 	}
 }
 
-// Load Global Integers (old format for backwards compatibility only)
-if(fullrestore)	// Not for changing map
-	{
-	if(GetWadEntry(ifp,"GLOBALVI"))
-		{
-		globalint = GetGlobalIntlist(&maxnum);
-		if(!globalint)
-			maxnum=0;
-
-		num= igetl_i(ifp);
-		for(ctr=0;ctr<num;ctr++)
-			{
-			ctr2 = igetl_i(ifp);
-			// Protect against array overflow while still reading in the data from disk
-			if(ctr<maxnum)
-				if(globalint[ctr].ptr)
-					{
-					//ilog_quiet("Globalvi: Setting %s to %d\n",globalint[ctr].name,ctr2);
-					*globalint[ctr].ptr = ctr2;
-					}
-			}
-		}
-	}
-
-// Load Global Objects (old format!)
-if(GetWadEntry(ifp,"GLOBALVO"))
-	{
-	globalptr = GetGlobalPtrlist(&maxnum);
-	if(!globalptr)
-		maxnum=0;
-
-	num = igetl_i(ifp);
-	for(ctr=0;ctr<num;ctr++)
-		{
-		ctr2 = igetl_i(ifp);
-		o = find_id(ctr2);
-
-		if(ctr<maxnum)
-			if(globalptr[ctr].ptr)
-				{
-//				ilog_quiet("Globalvo: Setting %s to %p\n",globalptr[ctr].name,o);
-				*(OBJECT **)globalptr[ctr].ptr = o;
-				}
-		}
-	}
-
-// Now try the new formats
-
 // Load Global Integers
-if(fullrestore)	// Not for changing map
-	{
-	if(GetWadEntry(ifp,"GLOBALI2"))
-		{
+if(fullrestore) {	// Not for changing map
+	if(GetWadEntry(ifp,"GLOBALVI")) {
 		num = igetl_i(ifp);
-		for(ctr=0;ctr<num;ctr++)
-			{
+		for(ctr=0;ctr<num;ctr++) {
 			iread((unsigned char *)name48,48,ifp);
 			ctr2 = igetl_i(ifp);
 		
 			globalint = FindGlobalInt(name48);
-			if(globalint && globalint->ptr && (!globalint->transient))
-				{
+			if(globalint && globalint->ptr && (!globalint->transient)) {
 //				ilog_quiet("Globali2: Setting %s to %d\n",name48,ctr2);
 				*globalint->ptr = ctr2;
-				}
 			}
 		}
 	}
+}
 
 // Load Global Objects
-if(GetWadEntry(ifp,"GLOBALO2"))
-	{
+if(GetWadEntry(ifp,"GLOBALVO")) {
 	num = igetl_i(ifp);
-	for(ctr=0;ctr<num;ctr++)
-		{
+	for(ctr=0;ctr<num;ctr++) {
 		iread((unsigned char *)name48,48,ifp);
-		ctr2 = igetl_i(ifp);
-		o = find_id(ctr2);
-
+		get_uuid(uuid, ifp);
+		o = find_uuid(uuid);
 		globalptr = FindGlobalPtr(name48);
-		if(globalptr && globalptr->ptr && (!globalptr->transient))
-			{
+		if(globalptr && globalptr->ptr && (!globalptr->transient)) {
 			ilog_quiet("Globalo2: Setting %s to %p\n",name48,o);
 			*(OBJECT **)(globalptr->ptr) = o;
-			}
 		}
 	}
+}
 
 // Load goal destinations
-if(GetWadEntry(ifp,"PATHGOAL"))
-	{
+if(GetWadEntry(ifp,"PATHGOAL")) {
 	num = igetl_i(ifp);
-	for(ctr=0;ctr<num;ctr++)
-		{
+	for(ctr=0;ctr<num;ctr++) {
 		// Get object to set
-		ctr2 = igetl_i(ifp);
-		o = find_id(ctr2);
+		get_uuid(uuid, ifp);
+		o = find_uuid(uuid);
 
 		// Get object in path goal (if any)
-		ctr2 = igetl_i(ifp);
-		o2 = find_id(ctr2);
+		get_uuid(uuid, ifp);
+		o2 = find_uuid(uuid);
 
 		// Set it up
-		if(o && o->user)
+		if(o && o->user) {
 			o->user->pathgoal.objptr = o2;
 		}
 	}
+}
 
 // Load tile animation states
-if(GetWadEntry(ifp,"TILEANIM"))
-	{
+if(GetWadEntry(ifp,"TILEANIM")) {
 	num = igetl_i(ifp);
 	if(num > TItot)
 		num=TItot;
-	for(ctr=0;ctr<num;ctr++)
-		{
+	for(ctr=0;ctr<num;ctr++) {
 		TIlist[ctr].sptr=igetl_i(ifp);
 		TIlist[ctr].sdir=igetl_i(ifp);
 		TIlist[ctr].tick=igetl_i(ifp);
@@ -2479,8 +2297,8 @@ if(GetWadEntry(ifp,"TILEANIM"))
 		TIlist[ctr].sdy=igetl_i(ifp);
 		TIlist[ctr].sx=igetl_i(ifp);
 		TIlist[ctr].sy=igetl_i(ifp);
-		}
 	}
+}
 
 iclose(ifp);
 }
@@ -2490,7 +2308,7 @@ iclose(ifp);
  *      save_ms - Write miscellaneous savegame data
  */
 
-void save_ms(char *filename)
+void save_ms2(char *filename)
 {
 long i;
 unsigned int ctr2,ctr3,ok;
@@ -2527,17 +2345,13 @@ StartWad(ofp);
 entry[Entry].name="PARTYBLK";
 entry[Entry++].start = itell(ofp);
 
-iputl_i(player->save_id,ofp);			// The Player
+put_uuid(player,ofp);			// The Player
 #ifdef DEBUG_SAVE
-ilog_quiet("player id = %d\n",player->save_id);
+ilog_quiet("player id = %d\n",player->uid);
 #endif
 
-for(ctr=0;ctr<MAX_MEMBERS;ctr++)
-	{
-	i=0;			// Get the member's ID without blowing up
-	if(party[ctr])		// if the member does not exist.
-		i=party[ctr]->save_id;
-	iputl_i(i,ofp);		// Write the ID number, or 0 for N/A
+for(ctr=0;ctr<MAX_MEMBERS;ctr++) {
+	put_uuid(party[ctr],ofp); // This handles the party member being NULL 
 	}
 
 
@@ -2586,7 +2400,7 @@ iputl_i(GetDarkness(),ofp);
 
 
 // Block header
-entry[Entry].name="JOURNAL2";
+entry[Entry].name="JOURNAL ";
 entry[Entry++].start = itell(ofp);
 
 num=0;
@@ -2647,27 +2461,25 @@ entry[Entry++].start = itell(ofp);
 i=0;
 for(o=ActiveList;o;o=o->next)
 	if(o->ptr->activity >= 0)
-		if(o->ptr->save_id > 0)
-			i++;
+		i++;
 
 iputl_i(i,ofp);
-for(o=ActiveList;o;o=o->next)
-	if(o->ptr->activity >= 0)
-		if(o->ptr->save_id > 0)
-			{
-			// Write the main goal
+for(o=ActiveList;o;o=o->next) {
+	if(o->ptr->activity >= 0) {
+		// Write the main goal
 #ifdef DEBUG_SAVE
-			ilog_quiet("Storing goal for ID %d 0x%x [%s at %d,%d]\n",o->ptr->save_id,o->ptr,o->ptr->name,o->ptr->x,o->ptr->y);
-			if(o->ptr->parent.objptr)
-				ilog_quiet("%d is inside %s at %d,%d",o->ptr->save_id,o->ptr->parent.objptr->name,o->ptr->parent.objptr->x,o->ptr->parent.objptr->y);
+		ilog_quiet("Storing goal for UID %s 0x%x [%s at %d,%d]\n",o->ptr->uid,o->ptr,o->ptr->name,o->ptr->x,o->ptr->y);
+		if(o->ptr->parent.objptr)
+			ilog_quiet("%s is inside %s at %d,%d",o->ptr->uid,o->ptr->parent.objptr->name,o->ptr->parent.objptr->x,o->ptr->parent.objptr->y);
 #endif
-			iputl_i(o->ptr->save_id,ofp);
-			iwrite((unsigned char *)PElist[o->ptr->activity].name,32,ofp);
-			if(!o->ptr->target.objptr)
-				iputl_i(SAVEID_INVALID,ofp);
-			else
-				iputl_i(o->ptr->target.objptr->save_id,ofp);
-			}
+		put_uuid(o->ptr,ofp);
+		iwrite((unsigned char *)PElist[o->ptr->activity].name,32,ofp);
+		if(!o->ptr->target.objptr)
+			put_uuid(NULL,ofp);
+		else
+			put_uuid(o->ptr->target.objptr,ofp);
+	}
+}
 
 // Save usedata
 
@@ -2681,47 +2493,41 @@ memset(&empty,0,sizeof(empty));
 
 i=0;
 for(o=MasterList;o;o=o->next)
-	if(o->ptr->save_id > 0)
-		if(UsedataChanged(o->ptr))
-			i++;
+	if(UsedataChanged(o->ptr))
+		i++;
 
 iputl_i(i,ofp);
 iputl_i(USEDATA_VERSION,ofp);
 
-for(o=MasterList;o;o=o->next)
-	if(o->ptr->save_id > 0)
-		if(UsedataChanged(o->ptr))
-			{
+for(o=MasterList;o;o=o->next) {
+	if(UsedataChanged(o->ptr)) {
 #ifdef DEBUG_SAVE
-			ilog_quiet("Save %d : %s\n",o->ptr->save_id,o->ptr->name);
+		ilog_quiet("Save %s : %s\n",o->ptr->uid,o->ptr->name);
 #endif
-			iputl_i(o->ptr->save_id,ofp);
-			
-			//iwrite((unsigned char *)o->ptr->user,sizeof(USEDATA),ofp);
-			write_USEDATA(o->ptr->user,ofp);
-			}
+		put_uuid(o->ptr,ofp);
+		write_USEDATA(o->ptr->user,ofp);
+	}
+}
 
 
 // Save the sub-tasks
-entry[Entry].name="SUBTASK2";
+entry[Entry].name="SUBTASKS";
 entry[Entry++].start = itell(ofp);
 
 // First count how many objects have subtasks
 i=0;
 for(o=ActiveList;o;o=o->next) {
 	if(o->ptr->activity >= 0) {
-		if(o->ptr->save_id > 0) {
-			// Does it have any tasks?
-			ok=0;
-			for(ctr=0;ctr<ACT_STACK;ctr++) {
-				if(o->ptr->user->actlist[ctr]>0) {
-					ok=1;
-				}
+		// Does it have any tasks?
+		ok=0;
+		for(ctr=0;ctr<ACT_STACK;ctr++) {
+			if(o->ptr->user->actlist[ctr]>0) {
+				ok=1;
 			}
-			// Yes
-			if(ok) {
-				i++;
-			}
+		}
+		// Yes
+		if(ok) {
+			i++;
 		}
 	}
 }
@@ -2729,49 +2535,47 @@ for(o=ActiveList;o;o=o->next) {
 iputl_i(i,ofp);
 for(o=ActiveList;o;o=o->next) {
 	if(o->ptr->activity >= 0) {
-		if(o->ptr->save_id > 0) {
-			ok=0;
-			for(ctr=0;ctr<ACT_STACK;ctr++) {
-				if(o->ptr->user->actlist[ctr]>0) {
-					ok=1;
-				}
+		ok=0;
+		for(ctr=0;ctr<ACT_STACK;ctr++) {
+			if(o->ptr->user->actlist[ctr]>0) {
+				ok=1;
 			}
-			if(ok) {
-				// Write the object ID
-				iputl_i(o->ptr->save_id,ofp);
-				// Write the tasks
-				for(ctr=0;ctr<ACT_STACK;ctr++) {
-					if(o->ptr->user->actlist[ctr]<=0) {
-						memset(buf,0,32);
-						buf[0]='-';
-						iwrite((unsigned char *)buf,32,ofp);
-						iputl_i(SAVEID_INVALID,ofp);
-					} else {
+		}
+		if(ok) {
+			// Write the object ID
+			put_uuid(o->ptr,ofp);
+			// Write the tasks
+			for(ctr=0;ctr<ACT_STACK;ctr++) {
+				if(o->ptr->user->actlist[ctr]<=0) {
+					memset(buf,0,32);
+					buf[0]='-';
+					iwrite((unsigned char *)buf,32,ofp);
+					put_uuid(NULL,ofp);
+				} else {
 #ifdef DEBUG_SAVE
-						if(o->ptr->target.objptr) {
-							ilog_quiet("subtask %d: %s '%s' does %s to %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name,o->ptr->target.objptr->name);
-						} else {
-							ilog_quiet("subtask %d: %s '%s' does %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name);
-						}
+					if(o->ptr->target.objptr) {
+						ilog_quiet("subtask %d: %s '%s' does %s to %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name,o->ptr->target.objptr->name);
+					} else {
+						ilog_quiet("subtask %d: %s '%s' does %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name);
+					}
 #endif
-						iwrite((unsigned char *)PElist[o->ptr->user->actlist[ctr]].name,32,ofp);
+					iwrite((unsigned char *)PElist[o->ptr->user->actlist[ctr]].name,32,ofp);
 
-						if(o->ptr->user->acttarget[ctr]) {
-							iputl_i(o->ptr->user->acttarget[ctr]->save_id,ofp);
-						} else {
-							iputl_i(SAVEID_INVALID,ofp); // No target
-						}
+					if(o->ptr->user->acttarget[ctr]) {
+						put_uuid(o->ptr->user->acttarget[ctr], ofp);
+					} else {
+						put_uuid(NULL,ofp);	// No target
 					}
 				}
 			}
 		}
-
 	}
+
 }
 
 
 // Write NPC conversation log
-entry[Entry].name="NPCTALK2";
+entry[Entry].name="NPCTALK ";
 entry[Entry++].start = itell(ofp);
 
 // Count number of NPC's we've spoken to.  This can become fragmented with
@@ -2804,11 +2608,11 @@ for(o=MasterList;o;o=o->next)
 			if(n->readername != NULL && n->page[0] != '\0')
 				i++;
 #ifdef DEBUG_SAVE
-		ilog_quiet("writing %d entries for NPC %d\n",i,o->ptr->save_id);
+		ilog_quiet("writing %d entries for NPC %s\n",i,o->ptr->uid);
 #endif
 		if(i>0)
 			{
-			iputl_i(o->ptr->save_id,ofp);
+			put_uuid(o->ptr,ofp);
 			iputl_i(i,ofp);
 			for(n=o->ptr->user->npctalk;n;n=n->next)
 				if(n->readername != NULL && n->page[0] != '\0')
@@ -2827,7 +2631,7 @@ for(o=MasterList;o;o=o->next)
 		}
 
 // Write NPC conversation log
-entry[Entry].name="NPCLFLG2";
+entry[Entry].name="NPCLFLAG";
 entry[Entry++].start = itell(ofp);
 
 // Count number of NPC's with lFlags
@@ -2858,7 +2662,7 @@ for(o=MasterList;o;o=o->next)
 				i++;
 		if(i>0)
 			{
-			iputl_i(o->ptr->save_id,ofp);
+			put_uuid(o->ptr,ofp);
 			iputl_i(i,ofp);
 			for(n=o->ptr->user->lFlags;n;n=n->next)
 				if(n->readername != NULL && n->page[0] != '\0')
@@ -2895,31 +2699,26 @@ iputl_i(WIELDMAX,ofp);    // 9 objects in the wieldtab in this version, maybe mo
 
 // Store the wielded objects
 
-for(o=MasterList;o;o=o->next)
-	{
+for(o=MasterList;o;o=o->next) {
 	ctr2=0;
-	for(ctr=0;ctr<WIELDMAX;ctr++)
-		if(GetWielded(o->ptr,ctr))
+	for(ctr=0;ctr<WIELDMAX;ctr++) {
+		if(GetWielded(o->ptr,ctr)) {
 			ctr2=1;
-	if(ctr2)
-		{
-		iputl_i(o->ptr->save_id,ofp);
-		for(ctr3=0;ctr3<WIELDMAX;ctr3++)
-			{
-			objtmp = GetWielded(o->ptr,ctr3);
-			if(objtmp)
-				iputl_i(objtmp->save_id,ofp);  // Store ID number
-			else
-				iputl_i(-1,ofp);    // No object here
-			}
 		}
 	}
-
+	if(ctr2) {
+		put_uuid(o->ptr,ofp);
+		for(ctr3=0;ctr3<WIELDMAX;ctr3++) {
+			objtmp = GetWielded(o->ptr,ctr3);
+			put_uuid(objtmp,ofp);
+		}
+	}
+}
 
 // Save the global variables in the script engine
 
 // Write Global Integers
-entry[Entry].name="GLOBALI2";
+entry[Entry].name="GLOBALVI";
 entry[Entry++].start = itell(ofp);
 
 num=0;
@@ -2928,71 +2727,35 @@ if(!globalint)
 	num=0;
 
 iputl_i(num,ofp);
-for(ctr=0;ctr<num;ctr++)
-	{
+for(ctr=0;ctr<num;ctr++) {
 	iwrite((unsigned char *)globalint[ctr].name,48,ofp);
-	if(globalint[ctr].ptr)
+	if(globalint[ctr].ptr) {
 		iputl_i(*globalint[ctr].ptr,ofp);
-	else
+	} else {
 		iputl_i(-1,ofp);
 	}
-
-// Write Global Integers
-entry[Entry].name="GLOBALO2";
-entry[Entry++].start = itell(ofp);
-
-num=0;
-globalptr = GetGlobalPtrlist(&num);
-iputl_i(num,ofp);
-for(ctr=0;ctr<num;ctr++)
-	{
-	iwrite((unsigned char *)globalptr[ctr].name,48,ofp);
-	temp=NULL;
-	if(globalptr[ctr].ptr)
-		temp = (OBJECT **)globalptr[ctr].ptr;
-
-	if(temp && *temp)
-		iputl_i((*temp)->save_id,ofp);
-	else
-		iputl_i(-1,ofp);
-	}
-
-/*
-// Write Global Integers
-entry[Entry].name="GLOBALVI";
-entry[Entry++].start = itell(ofp);
-
-GetGlobalInts(&intlist,&num);
-iputl_i(num,ofp);
-
-for(ctr=0;ctr<num;ctr++)
-	{
-	if(intlist[ctr])
-		iputl_i(*(int *)intlist[ctr],ofp);
-	else
-		iputl_i(-1,ofp);
-	}
+}
 
 // Write Global Objects
 entry[Entry].name="GLOBALVO";
 entry[Entry++].start = itell(ofp);
 
-GetGlobalPtrs(&objlist,&num);
+num=0;
+globalptr = GetGlobalPtrlist(&num);
 iputl_i(num,ofp);
-
-for(ctr=0;ctr<num;ctr++)
-	{
-	temp = (OBJECT **)objlist[ctr];
-	if(temp && *temp)
-		{
-		iputl_i((*temp)->save_id,ofp);
-//		ilog_quiet("Stored item %d, which was %s\n",ctr,(*temp)->name);
-		}
-	else
-		iputl_i(-1,ofp);
+for(ctr=0;ctr<num;ctr++) {
+	iwrite((unsigned char *)globalptr[ctr].name,48,ofp);
+	temp=NULL;
+	if(globalptr[ctr].ptr) {
+		temp = (OBJECT **)globalptr[ctr].ptr;
 	}
-*/
 
+	if(temp && *temp) {
+		put_uuid(*temp,ofp);
+	} else {
+		put_uuid(NULL,ofp);
+	}
+}
 // Write NPC path goals
 entry[Entry].name="PATHGOAL";
 entry[Entry++].start = itell(ofp);
@@ -3010,7 +2773,7 @@ iputl_i(i,ofp);    // Store the count
 
 for(o=MasterList;o;o=o->next)
 	if(o->ptr->user && o->ptr->user->pathgoal.objptr)
-		iputl_i(o->ptr->user->pathgoal.objptr->save_id,ofp);  // Store ID number
+		put_uuid(o->ptr->user->pathgoal.objptr,ofp);
 
 
 // Write tile animation state
@@ -3257,8 +3020,6 @@ void save_objects(int mapnum)
 int ctr;
 OBJECT *temp;
 
-assign_objects(mapnum); // Ensure even the limbo objects have SaveIDs
-
 // Get the party, handling the case where someone is in a boat etc
 
 for(ctr=0;ctr<MAX_MEMBERS;ctr++)
@@ -3398,38 +3159,6 @@ while(limbo.pocket.objptr)
 }
 
 
-// Set object IDs
-
-static void assign_objects(int mapnum)
-{
-int objtot,objctr;
-unsigned int newid;
-OBJLIST *ptr;
-// First, set each object so it has an ID of its own.
-objctr=1; // 1-based, so 0 means 'nothing'
-objtot=0;
-
-for(ptr=MasterList;ptr;ptr=ptr->next)
-	if(in_editor || ptr->ptr->save_id < 1) // Only if it doesn't have one already
-		{
-		if(!in_editor)
-			{
-			newid=0;
-			do
-				{
-				newid=MakeSaveID(mapnum,objctr++);
-				} while(find_id(newid));
-			}
-		else
-			newid=MakeSaveID(mapnum,objctr++);
-		ptr->ptr->save_id = newid;
-#ifdef DEBUG_SAVE
-		ilog_quiet("Assigned object '%s' the ID %d, from map %d\n",ptr->ptr->name,ptr->ptr->save_id,mapnumber);
-#endif
-		objtot++;
-		}
-}
-
 
 // Fast Find object ID
 
@@ -3457,7 +3186,11 @@ for(t=MasterList;t;t=t->next)
 	if(t->ptr)
 		fastfind_id_list[ctr++]=t->ptr;
 
-qsort(fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_sort);
+if(use_saveid) {
+	qsort(fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_sort_id);
+} else {
+	qsort(fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_sort_uuid);
+}
 }
 
 
@@ -3480,21 +3213,52 @@ if(!id)
 if(!fastfind_id_list)
 	ithe_panic("FastFind_ID called before FastFind_ID_start",NULL);
 
-xx=(OBJECT **)bsearch((const void *)id,fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_search);
+xx=(OBJECT **)bsearch((const void *)id,fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_search_id);
 if(xx)
 	return *xx;
 return NULL;
 }
 
-static int CMP_sort(const void *a, const void *b)
+static OBJECT *fastfind_uuid(const char *uuid) {
+OBJECT **xx;
+
+if(!uuid) {
+	return NULL;
+}
+if(uuid[0] == '-' && !uuid[1]) {
+	return NULL;
+}
+
+if(!fastfind_id_list)
+	ithe_panic("FastFind_UUID called before FastFind_ID_start",NULL);
+
+xx=(OBJECT **)bsearch((const void *)uuid,fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_search_uuid);
+if(xx)
+	return *xx;
+return NULL;
+}
+
+static int CMP_sort_id(const void *a, const void *b)
 {
 return (*(OBJECT **)a)->save_id - (*(OBJECT **)b)->save_id;
 }
 
-static int CMP_search(const void *a, const void *b)
+static int CMP_search_id(const void *a, const void *b)
 {
 return (int)((long)a - (*(OBJECT **)b)->save_id);
 }
+
+static int CMP_sort_uuid(const void *a, const void *b)
+{
+return istricmp((*(OBJECT **)a)->uid,(*(OBJECT **)b)->uid);
+}
+
+static int CMP_search_uuid(const void *a, const void *b)
+{
+return istricmp((const char *)a,(*(OBJECT **)b)->uid);
+}
+
+
 
 //
 //  Has the usedata block changed to be worth saving?
@@ -3619,21 +3383,41 @@ ML_Del(&MasterList,o);
 M_free(o);
 }
 
+
+
 //
-//  SaveID coder/decoder
+//  Get a saveid or uuid reference for an object from an MZ1 map file
 //
 
-unsigned int inline MakeSaveID(unsigned int map, unsigned int id)
-{
-return ((map<<SAVEID_IDBITS) & SAVEID_MAPMASK) | (id & SAVEID_IDMASK);
+int getObjectId(OBJECTID *dest, const char *inputline) {
+
+unsigned int num;
+const char *parameter = strfirst(strrest(inputline));
+
+// Deal with UUID first
+if(!use_saveid) {
+	memset(dest,0,sizeof(OBJECTID));
+	strncpy(dest->uuid,parameter,UUID_LEN); // Must not exceed 40 chars
+	if(!dest->uuid[0]) {
+		return 0;
+	}
+	return 1;
 }
 
-unsigned int inline GetSaveID_ID(unsigned int saveid)
-{
-return (saveid & SAVEID_IDMASK);
+// Use the old save ID mechanism.  This should be a nonzero number so just return that as the 'boolean'
+num = atoi(parameter);
+dest->saveid = num;
+return num;
 }
 
-unsigned int inline GetSaveID_Map(unsigned int saveid)
-{
-return (saveid & SAVEID_MAPMASK)>>SAVEID_IDBITS;
+//
+//  Resolve an object against a uuid or saveid
+//
+
+OBJECT *resolveObject(OBJECTID *objectid) {
+
+if(use_saveid) {
+	return fastfind_id(objectid->saveid);
+}
+return fastfind_uuid(objectid->uuid);
 }

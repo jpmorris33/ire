@@ -24,7 +24,8 @@ extern void load_z3(int mapno);
 extern void save_z3(int mapno);
 
 extern void load_ms(char *filename);
-extern void save_ms(char *filename);
+extern void load_ms2(char *filename);
+extern void save_ms2(char *filename);
 
 extern void load_lightstate(int mapno, int sgnum);
 extern void save_lightstate(int mapno, int sgnum);
@@ -44,5 +45,4 @@ extern int MZ1_SavingGame;
 extern int MZ1_LoadingGame;
 
 extern unsigned int MakeSaveID(unsigned int map, unsigned int id);
-extern unsigned int GetSaveID_ID(unsigned int saveid);
-extern unsigned int GetSaveID_Map(unsigned int saveid);
+
