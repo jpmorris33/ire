@@ -1522,7 +1522,9 @@ if(!anchor_small) {			// No small objects here
 }
 
 CHECK_OBJECT(anchor_and_large);
-CHECK_OBJECT(anchor_small);
+if(anchor_small) {
+	CHECK_OBJECT(anchor_small);
+}
 
 // Find the last object
 prev = NULL;
@@ -1569,7 +1571,9 @@ if(!LargeIntersect(temp,x,y)) {
 	temp = prev;
 }
 
-CHECK_OBJECT(temp);
+if(temp) {
+	CHECK_OBJECT(temp);
+}
 
 return temp;
 }
@@ -2711,11 +2715,9 @@ o->target.objptr = target;
 o->user->vigilante=0; // Reset vigilante flag
 
 // Activate the object if it is not a creature inside an egg
-if(!(o->parent.objptr && GetNPCFlag(o, IS_BIOLOGICAL)))
-	if(!ML_InList(&ActiveList,o))
-		{
-		AL_Add(&ActiveList,o);
-		}
+if(!(o->parent.objptr && GetNPCFlag(o, IS_BIOLOGICAL))) {
+	AL_Add(&ActiveList,o);
+}
 }
 
 /*
@@ -2745,11 +2747,9 @@ o->target.objptr = target;
 o->user->vigilante=0; // Reset vigilante flag
 
 // Activate the object if it is not a creature inside an egg
-if(!(o->parent.objptr && GetNPCFlag(o, IS_BIOLOGICAL)))
-	if(!ML_InList(&ActiveList,o))
-		{
-		AL_Add(&ActiveList,o);
-		}
+if(!(o->parent.objptr && GetNPCFlag(o, IS_BIOLOGICAL))) {
+	AL_Add(&ActiveList,o);
+}
 }
 
 /*

@@ -367,6 +367,8 @@ do {
 
 // Reset update flags
 	for(active=ActiveList;active;active=active->next)	{
+//		CHECK_OBJECT(active->ptr);
+
 		if(!(active->ptr->flags & IS_ON))	{
 //			Bug("ActiveList: %s is DEAD\n",active->ptr->name);
 			ML_Del(&ActiveList,active->ptr); // remove dead object

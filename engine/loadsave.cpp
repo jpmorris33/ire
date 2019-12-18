@@ -851,31 +851,25 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		continue;
 
 	// type <name>
-	if(!istricmp(first,"type"))
-		{
+	if(!istricmp(first,"type")) {
 		str = strfirst(strrest(l));
 		do {
 			bad=0;
-			if(!OB_Init(temp,str))
-				{
-				if(!in_editor)
+			if(!OB_Init(temp,str)) {
+				if(!in_editor) {
 					ithe_panic("Load_Z1: Could not find this object in 'section: character'!",str);
-				else
-					{
+				} else {
 					bad=ProcessBadObject(&temp,badobject,255);
 					badobject[255]=0;
 					str=badobject;
-					}
 				}
-			else
-				{
+			} else {
 				// Activate it
-				if(!ML_InList(&ActiveList,temp))
-					AL_Add(&ActiveList,temp);
-				}
-			} while(bad); // Todo: error handling not just panic
+				AL_Add(&ActiveList,temp);
+			}
+		} while(bad); // Todo: error handling not just panic
 		continue;
-		}
+	}
 
 	// inside <idnum>
 	if(!istricmp(first,"inside")) {
@@ -959,9 +953,7 @@ for(ctr=1;ctr<z1.lines;ctr++)
 			}
 			temp->flags = num;
 			// Make it active
-			if(!ML_InList(&ActiveList,temp)) {
-				AL_Add(&ActiveList,temp);
-			}
+			AL_Add(&ActiveList,temp);
 		}
 		continue;
 	}
@@ -1050,19 +1042,18 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// activity <funcname>
-	if(!istricmp(first,"activity"))
-		{
+	if(!istricmp(first,"activity")) {
 		temp->activity = getnum4PE(strfirst(strrest(l)));
 
 		// Did the function exist?
-		if(temp->activity < 0)
+		if(temp->activity < 0) {
 			continue;  // No
+		}
 
 		// Make it active
-		if(!ML_InList(&ActiveList,temp))
-			AL_Add(&ActiveList,temp);
+		AL_Add(&ActiveList,temp);
 		continue;
-		}
+	}
 
 	// labels->location <string>
 	if(!istricmp(first,"labels->location"))
@@ -1188,14 +1179,12 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// stats->radius <num>
-	if(!istricmp(first,"stats->radius"))
-		{
+	if(!istricmp(first,"stats->radius")) {
 		temp->stats->radius = atoi(strfirst(strrest(l)));
 		// Make it active
-		if(!ML_InList(&ActiveList,temp))
-			AL_Add(&ActiveList,temp);
+		AL_Add(&ActiveList,temp);
 		continue;
-		}
+	}
 
 	// stats->alignment <num>
 	if(!istricmp(first,"stats->alignment"))
@@ -1205,23 +1194,20 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// stats->npcflags <num>
-	if(!istricmp(first,"stats->npcflags"))
-		{
+	if(!istricmp(first,"stats->npcflags")) {
 //		num = atoi(strfirst(strrest(l)));
 		sscanf(strfirst(strrest(l)),"%x",&num);
 		// Cram the flags in place, if we are doing a savegame restore
 #ifdef DEBUG_SAVE
 		ilog_quiet("%s: npcf = %x, fullrest=%d\n",temp->name,num,fullrestore);
 #endif
-		if(fullrestore)
-			{
+		if(fullrestore) {
 			temp->stats->npcflags = num;
 			// Make it active
-			if(!ML_InList(&ActiveList,temp))
-				AL_Add(&ActiveList,temp);
-			}
-		continue;
+			AL_Add(&ActiveList,temp);
 		}
+		continue;
+	}
 
 //
 // Funcs
@@ -1257,14 +1243,12 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		}
 
 	// funcs->stand <string>
-	if(!istricmp(first,"funcs->stand"))
-		{
+	if(!istricmp(first,"funcs->stand")) {
 		SAFE_STRCPY(temp->funcs->stand,strfirst(strrest(l)));
 		// Make it active
-		if(!ML_InList(&ActiveList,temp))
-			AL_Add(&ActiveList,temp);
+		AL_Add(&ActiveList,temp);
 		continue;
-		}
+	}
 
 	// funcs->hurt <string>
 	if(!istricmp(first,"funcs->hurt"))
@@ -2040,6 +2024,7 @@ for(ctr=0;ctr<num;ctr++) {
 	if(!o) {
 		Bug("Goal: Cannot find object uuid '%s'\n",uuid);
 	}
+	memset(buf,0,33);
 	iread((unsigned char *)buf,32,ifp);
 	get_uuid(uuid, ifp);
 	o2=NULL;
@@ -2113,6 +2098,7 @@ if(!GetWadEntry(ifp,"SUBTASKS")) {
 		}
 
 		for(ctr2=0;ctr2<ACT_STACK;ctr2++) {
+			memset(buf,0,33);
 			iread((unsigned char *)buf,32,ifp);
 			get_uuid(uuid, ifp);
 			if(!strcmp(buf,"-")) {
@@ -2468,12 +2454,16 @@ for(o=ActiveList;o;o=o->next) {
 	if(o->ptr->activity >= 0) {
 		// Write the main goal
 #ifdef DEBUG_SAVE
-		ilog_quiet("Storing goal for UID %s 0x%x [%s at %d,%d]\n",o->ptr->uid,o->ptr,o->ptr->name,o->ptr->x,o->ptr->y);
+		ilog_quiet("Storing goal for UID %s 0x%x [%s at %d,%d] act = %d\n",o->ptr->uid,o->ptr,o->ptr->name,o->ptr->x,o->ptr->y, o->ptr->activity);
 		if(o->ptr->parent.objptr)
 			ilog_quiet("%s is inside %s at %d,%d",o->ptr->uid,o->ptr->parent.objptr->name,o->ptr->parent.objptr->x,o->ptr->parent.objptr->y);
 #endif
 		put_uuid(o->ptr,ofp);
-		iwrite((unsigned char *)PElist[o->ptr->activity].name,32,ofp);
+
+		memset(buf,0,33);
+		strncpy(buf,PElist[o->ptr->activity].name,32);
+		iwrite((unsigned char *)buf,32,ofp);
+
 		if(!o->ptr->target.objptr)
 			put_uuid(NULL,ofp);
 		else
@@ -2547,7 +2537,7 @@ for(o=ActiveList;o;o=o->next) {
 			// Write the tasks
 			for(ctr=0;ctr<ACT_STACK;ctr++) {
 				if(o->ptr->user->actlist[ctr]<=0) {
-					memset(buf,0,32);
+					memset(buf,0,33);
 					buf[0]='-';
 					iwrite((unsigned char *)buf,32,ofp);
 					put_uuid(NULL,ofp);
@@ -2559,7 +2549,10 @@ for(o=ActiveList;o;o=o->next) {
 						ilog_quiet("subtask %d: %s '%s' does %s\n",ctr,o->ptr->name,o->ptr->personalname,PElist[o->ptr->activity].name);
 					}
 #endif
-					iwrite((unsigned char *)PElist[o->ptr->user->actlist[ctr]].name,32,ofp);
+
+					memset(buf,0,33);
+					strncpy(buf,PElist[o->ptr->user->actlist[ctr]].name,32);
+					iwrite((unsigned char *)buf,32,ofp);
 
 					if(o->ptr->user->acttarget[ctr]) {
 						put_uuid(o->ptr->user->acttarget[ctr], ofp);

@@ -22,6 +22,7 @@
 
 #define ML_CACHE				// You may need to disable this for testing
 //#define CACHE_DOUBLECHECK
+//#define ML_TELLALL
 
 //#define LOG_MLADD
 //#define CHECK_MASTERLIST
@@ -89,20 +90,31 @@ int ctr;
 if(!o)
 	return 0;	// NULL
 
-for(temp=MasterList;temp;temp=temp->next)
-	if(temp->ptr == o)
-		return 1;
-
-// Oh ffuk, it's not in the masterlist.  This could be nasty
-for(ctr=0;ctr<CHtot;ctr++)
-	if(o == &CHlist[ctr])
-		{
-		Bug("%x refers to a Template\n",o);
-		return 1;
-		}
-
 if(o == syspocket)	// This is independently created but still valid
 	return 1;
+
+// Make sure it's in the masterlist
+
+for(temp=MasterList;temp;temp=temp->next) {
+	if(temp->ptr == o) {
+		return 1;
+	}
+}
+
+// Oh ffuk, it's not in the masterlist.  This could be nasty
+
+// Wait, is it a decorative?
+if(o->flags & IS_DECOR) {
+		return 1;
+}
+
+for(ctr=0;ctr<CHtot;ctr++) {
+	if(o == &CHlist[ctr]) {
+		Bug("%x refers to a Template but isn't decorative!\n",o);
+		Bug("%x is called '%s'\n",o,o->name);
+		return 1;
+	}
+}
 
 // Worst fears are confirmed..
 Bug("FOREIGN OBJECT 0x%x DETECTED\n",o);
@@ -110,23 +122,25 @@ if(lastvrmcall)
 	Bug("Was passed as a parameter from function %s\n",lastvrmcall);
 
 ctr=0;
-for(temp=ActiveList;temp;temp=temp->next)
-	if(temp->ptr == o)
+for(temp=ActiveList;temp;temp=temp->next) {
+	if(temp->ptr == o) {
 		ctr++;
+	}
+}
 
-if(ctr)
+if(ctr) {
 	Bug("PRESENT IN ACTIVELIST (%d times)\n",ctr);
-else
+} else {
 	Bug("Not present in ActiveList\n");
+}
 
-if(probeInvalidObject)
-	{
+if(probeInvalidObject) {
 	Bug("Probing object:\n");
 	Bug("o->name = %x:\n",o->name);
 	Bug("o->name = %s:\n",o->name);
 	Bug("o->personalname = %x:\n",o->personalname);
 	Bug("o->personalname = %s:\n",o->personalname);
-	}
+}
 
 return 0;
 }
@@ -510,6 +524,10 @@ if(current_object == obj)
 	current_object = NULL;
 if(victim== obj)
 	victim = NULL;
+if(person== obj)
+	person = NULL;
+
+
 
 #ifdef WITH_PREJUDICE
 memset(obj,0xff,sizeof(OBJECT)); // F--- it for good
@@ -685,6 +703,16 @@ if(temp->ptr == object)
 #ifdef ML_CACHE
 	LLcache_update(m,NULL);
 #endif
+
+#ifdef ML_TELLALL
+	if(m == &MasterList)
+		printf(">> removed first object %x from masterlist\n", object);
+	else
+		printf(">> removed first object %x from activelist\n", object);
+	if(*m)
+		printf(">> new head is %x\n", (*m)->ptr);
+#endif
+
 	return;
 	}
 
@@ -704,6 +732,15 @@ if(temp->next->ptr == object)
 #ifdef ML_CACHE
 	LLcache_update(m,NULL);
 #endif
+
+#ifdef ML_TELLALL
+	if(m == &MasterList)
+		printf(">> removed second object %x from masterlist\n", object);
+	else
+		printf(">> removed second object %x from activelist\n", object);
+	if(temp->next)
+		printf(">> replacement is %x\n", temp->next->ptr);
+#endif
 	return;
 	}
 
@@ -719,6 +756,14 @@ for(;temp->next;temp=temp->next)
 		AL_dirty = 1;
 #ifdef ML_CACHE
 		LLcache_update(m,NULL);
+#endif
+#ifdef ML_TELLALL
+		if(m == &MasterList)
+			printf(">> removed other object %x from masterlist\n", object);
+		else
+			printf(">> removed other object %x from activelist\n", object);
+		if(temp->next)
+			printf(">> replacement is %x\n", temp->next->ptr);
 #endif
 		return;
 		}
@@ -778,13 +823,16 @@ return 0;
 void AL_Add(OBJLIST **a,OBJECT *o)
 {
 // If it has an action, or any of these properties, allow it to be active.
-if	(o->activity > 0
-	|| GetNPCFlag(o,IS_BIOLOGICAL)
-	|| o->stats->radius > 0)
-		{
-		ML_Add(a,o);
-		AL_dirty = 1;
-		}
+if(o->activity > 0 || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
+
+	// Do NOT add it twice!
+	if(ML_InList(&ActiveList,o)) {
+		return;
+	}
+
+	ML_Add(a,o);
+	AL_dirty = 1;
+}
 }
 
 // Remove from active list (only if the object is NOT active)
@@ -792,12 +840,9 @@ if	(o->activity > 0
 void AL_Del(OBJLIST **a,OBJECT *o)
 {
 // If it has an action, or any of these properties, don't disable it
-if	(o->activity > 0
-	|| GetNPCFlag(o,IS_BIOLOGICAL)
-	|| o->stats->radius > 0)
-		{
-		return;
-		}
+if(o->activity > 0 || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
+	return;
+}
 
 ML_Del(a,o);
 }
