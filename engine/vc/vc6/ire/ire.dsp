@@ -54,7 +54,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
-# ADD LINK32 user32.lib fmodvc.lib ithelib.lib bgui2.lib alleg.lib zlib.lib libpng.lib libjpeg.lib sqlite.lib /nologo /subsystem:console /machine:I386 /out:"Release/ire-engine.exe" /libpath:"\fmod\api\lib" /libpath:"..\..\..\libs\win" /libpath:"\sqlite"
+# ADD LINK32 user32.lib rpcrt4.lib fmodvc.lib ithelib.lib bgui2.lib alleg.lib zlib.lib libpng.lib libjpeg.lib sqlite.lib /nologo /subsystem:console /machine:I386 /out:"Release/ire-engine.exe" /libpath:"\fmod\api\lib" /libpath:"..\..\..\libs\win" /libpath:"\sqlite"
 # SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "ire - Win32 Debug"
@@ -256,6 +256,10 @@ SOURCE=..\..\..\linklist.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\load_msc.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\loaders.cpp
 # End Source File
 # Begin Source File
@@ -321,6 +325,10 @@ SOURCE=..\..\..\slotalloc.cpp
 # Begin Source File
 
 SOURCE=..\..\..\textfile.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\uuidgen.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
