@@ -18,8 +18,8 @@
 
 // Defines
 
-#define STACKSLOTS 512 // 256 was too small taking party members to the liche
-#define NODESLOTS 1024
+#define STACKSLOTS 1024 // 256 was too small taking party members to the liche
+#define NODESLOTS 2048 // 512/1024 was too small for The Flat
 
 #define MAPSIZE 64
 #define PF_BLANK 1.0
