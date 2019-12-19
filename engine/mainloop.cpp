@@ -1622,10 +1622,12 @@ if(fname && fileexists(fname)) {
 	MZ1_SavingGame=0;
 } else {
 	fname=makemapname(mapnumber,9999,".msc");
-	ilog_quiet("Restore legacy file '%s'\n",fname);
-	MZ1_SavingGame=1;
-	load_ms(fname);
-	MZ1_SavingGame=0;
+	if(fname && fileexists(fname)) {
+		ilog_quiet("Restore legacy file '%s'\n",fname);
+		MZ1_SavingGame=1;
+		load_ms(fname);
+		MZ1_SavingGame=0;
+	}
 }
 
 // Restore archived objects from limbo
