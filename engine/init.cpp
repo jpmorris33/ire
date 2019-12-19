@@ -55,6 +55,10 @@ static search_st *scripts;
 static search_st *characters;
 static search_st *tables;
 
+// We don't use these directly but want to warn the user
+static long Sysfunc_restarted = UNDEFINED;
+static long Sysfunc_alldead = UNDEFINED;
+
 unsigned char digit[256][8];
 char stemp[128];
 
@@ -369,6 +373,10 @@ if(!istricmp(PElist[pos].name,"sys_wakeup"))
 	Sysfunc_wakeup = pos;
 if(!istricmp(PElist[pos].name,"sys_update_robot"))
 	Sysfunc_updaterobot = pos;
+if(!istricmp(PElist[pos].name,"sys_restarted"))
+	Sysfunc_restarted = pos;
+if(!istricmp(PElist[pos].name,"sys_alldead"))
+	Sysfunc_alldead = pos;
 }
 
 
@@ -384,29 +392,34 @@ int ctr;
 // Critical VRMs
 
 if(Sysfunc_trackstop == UNDEFINED)
-	ithe_panic("Could not find system function 'trackstop' in the VRM list!",NULL);
+	ithe_panic("Could not find system function 'sys_trackstop' in the VRM list!",NULL);
 
 if(Sysfunc_updatelife == UNDEFINED)
-	ithe_panic("Could not find system function 'update_life'!",NULL);
+	ithe_panic("Could not find system function 'sys_update_life'!",NULL);
 
 if(Sysfunc_erase == UNDEFINED)
-	ithe_panic("Could not find system function 'erase'!",NULL);
+	ithe_panic("Could not find system function 'sys_erase'!",NULL);
 
 if(Sysfunc_wakeup == UNDEFINED)
-	ithe_panic("Could not find system function 'wakeup'!",NULL);
+	ithe_panic("Could not find system function 'sys_wakeup'!",NULL);
+
+if(Sysfunc_alldead == UNDEFINED)
+	ithe_panic("Could not find system function 'sys_alldead'!",NULL);
 
 // Non-critical VRMs
 
 if(Sysfunc_scheduler == UNDEFINED)
-	ilog_quiet("Did not find system function 'scheduler', continuing anyway\n");
+	ilog_quiet("Did not find system function 'sys_scheduler', continuing anyway\n");
 if(Sysfunc_status == UNDEFINED)
-	ilog_quiet("Did not find system function 'status', continuing anyway\n");
+	ilog_quiet("Did not find system function 'sys_status', continuing anyway\n");
 if(Sysfunc_follower == UNDEFINED)
-	ilog_quiet("Did not find system function 'follower', continuing anyway\n");
+	ilog_quiet("Did not find system function 'sys_follower', continuing anyway\n");
 if(Sysfunc_splash == UNDEFINED)
-	ilog_quiet("Did not find system function 'splash', continuing anyway\n");
+	ilog_quiet("Did not find system function 'sys_splash', continuing anyway\n");
 if(Sysfunc_updaterobot == UNDEFINED)
-	ilog_quiet("Did not find system function 'update_robot', continuing anyway\n");
+	ilog_quiet("Did not find system function 'sys_update_robot', continuing anyway\n");
+if(Sysfunc_restarted == UNDEFINED)
+	ilog_quiet("Did not find system function 'sys_restarted', continuing anyway\n");
 
 for(ctr=0;ctr<CHtot;ctr++)
 	InitFuncsFor(&CHlist[ctr],0);

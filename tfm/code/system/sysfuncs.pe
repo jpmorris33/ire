@@ -20,6 +20,19 @@ call status
 end
 
 
+####################################
+#                                  #
+# sys_follower - follow the leader #
+#                                  #
+####################################
+
+function sys_follower
+call follower_action
+end
+
+
+
+
 ########################################
 #                                      #
 # sys_splash - an object enters water  #
