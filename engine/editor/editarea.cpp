@@ -95,6 +95,7 @@ swapscreen->ShowMouse();	// MOUSE HACK
 do
 	{
 	IG_Dispatch();
+	IRE_WaitFor(1); // Save CPU
 	} while(running);       // Loop until quit
 
 IG_Term();                      // Free the iGUI resources

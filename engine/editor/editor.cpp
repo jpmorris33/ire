@@ -437,12 +437,16 @@ do
 	IG_Dispatch();
 	if(EdUpdateFunc)
 		EdUpdateFunc();
+	IRE_WaitFor(1); // Save CPU
 
 	// Make sure at least one frame has elapsed before continuing
 	ResetIREClock(); // Reset the clock
-	while(GetIREClock()<1)
-		if(EdUpdateFunc)
+	while(GetIREClock()<1) {
+		if(EdUpdateFunc) {
 			EdUpdateFunc();
+		}
+		IRE_WaitFor(1); // Save CPU
+	};
 	
 	} while(running);       // Loop until quit
 
@@ -540,7 +544,6 @@ mapx = x;
 
 ptr=mapy*curmap->w;
 ptr+=mapx;
-
 
 // Find out if we're on schedule to animate everything
 Animate = UpdateAnim();

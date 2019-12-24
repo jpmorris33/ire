@@ -298,6 +298,7 @@ IG_AddKey(IREKEY_1_PAD,OB_DirL);
 
 IG_TextButton(300,400,"New Item",OB_SlowInsert,NULL,NULL);
 IG_AddKey(IREKEY_INSERT,OB_QuickInsert);
+IG_AddKey(IREKEY_I,OB_QuickInsert); // Hack for the Surface which has no INS key
 
 // Modify objects
 
