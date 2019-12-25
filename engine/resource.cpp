@@ -1684,6 +1684,15 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
+        // Is the trigger repeating?
+
+		if(!istricmp(Rptr,"RepeatTrigger") || !istricmp(Rptr,"RepeatingTrigger")) {
+			if(!(character->flags & IS_TRIGGER))
+				Dump(ctr,"Object is not a trigger",NULL);
+			character->flags |= IS_REPEATSPIKE;
+			continue;
+		}
+
         // Get the character's Quantity-Change function
 
 		if(!istricmp(Rptr,"qchange") || !istricmp(Rptr,"QuantityChange"))

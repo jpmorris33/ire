@@ -823,7 +823,7 @@ return 0;
 void AL_Add(OBJLIST **a,OBJECT *o)
 {
 // If it has an action, or any of these properties, allow it to be active.
-if(o->activity > 0 || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
+if(o->activity > 0 || (o->flags & IS_REPEATSPIKE) || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
 
 	// Do NOT add it twice!
 	if(ML_InList(&ActiveList,o)) {
@@ -840,7 +840,7 @@ if(o->activity > 0 || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
 void AL_Del(OBJLIST **a,OBJECT *o)
 {
 // If it has an action, or any of these properties, don't disable it
-if(o->activity > 0 || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
+if(o->activity > 0 || (o->flags & IS_REPEATSPIKE) || GetNPCFlag(o,IS_BIOLOGICAL) || o->stats->radius > 0) {
 	return;
 }
 
@@ -1124,14 +1124,16 @@ if(ML_InList(&ActiveList,objsel))  // Make sure it isn't there yet
 	ML_Del(&ActiveList,objsel);
 
 // Set up the physics
-if(!fullrestore)
-	{
+if(!fullrestore) {
 	objsel->flags = CHlist[ctr].flags;
 	objsel->stats->npcflags = CHlist[ctr].stats->npcflags;
 	SubAction_Wipe(objsel);
 	ActivityNum(objsel,CHlist[ctr].activity,NULL); // Set default action
-	NPC_ReadWipe(objsel,1);
+	NPC_ReadWipe(objsel,1);	
+	if((objsel->flags & IS_TRIGGER) && (objsel->flags & IS_REPEATSPIKE)) {
+		AL_Add(&ActiveList, objsel);
 	}
+}
 
 objsel->flags |= IS_ON; // Make sure it's on or it will get deleted
 

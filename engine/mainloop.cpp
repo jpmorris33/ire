@@ -159,6 +159,7 @@ OBJECT *temp,*oplayer;
 OBJECT *aptr;
 OBJLIST *active,*next;
 int vx,vy,ctr,turns;
+OBJREGS oldvars;
 
 turns=0;
 
@@ -375,6 +376,7 @@ do {
 			active=ActiveList;
 		}
 		active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
+		active->ptr->engineflags &= ~ENGINE_DIDSPIKE;
 	}
 
 	// Need to reset the active tile flags for everything
@@ -416,8 +418,27 @@ do {
 							    // so take a copy of the object in question
 
 			next = active->next;
-			if(aptr->flags & IS_ON)
+			if(aptr->flags & IS_ON) {
+
+				if(aptr->flags & IS_REPEATSPIKE) {
+					if(!(aptr->engineflags & ENGINE_DIDSPIKE)) {
+						if(aptr->next)	{
+							VM_SaveRegs(&oldvars);
+							OBJECT *spikes = aptr;
+							victim = spikes->next;
+							current_object = spikes;
+							if(spikes->funcs->scache)
+								CallVMnum(spikes->funcs->scache);
+							VM_RestoreRegs(&oldvars);
+							aptr->engineflags |= ENGINE_DIDSPIKE;
+						}
+					}
+					active=next;
+					continue;
+				}
+
 				if(!(aptr->engineflags & ENGINE_DIDUPDATE))	{	// Don't do this one again if we need to restart the update
+
 					aptr->user->oldhp = aptr->stats->hp;
 					AL_dirty=0;                     // Mark list as clean
 					current_object = NULL;   // Set up parameters for the script
@@ -497,6 +518,7 @@ do {
 					if(AL_dirty)                    // If list is dirty we need to
 						next=ActiveList;            // start over.
 				}
+			}
 
 			active = next;
 		} while(active);

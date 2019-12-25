@@ -2096,6 +2096,7 @@ section: characters
 	description	"No description"
 	short		"No description"
 	IfTriggered	OpenRoof
+	RepeatTrigger
 	invisible
 	fixed
 	setsolid	V 0 0 1 1

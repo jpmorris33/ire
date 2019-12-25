@@ -320,7 +320,7 @@ typedef struct ST_ITEM
 #define IS_LARGE        0x00000800	// Bigger than one tile?
 #define IS_SPIKEPROOF   0x00001000	// Doesn't set off triggers
 #define CAN_WIELD       0x00002000	// Can it be wielded?
-//#define SPARE		0x00004000	
+#define IS_REPEATSPIKE	0x00004000	// Is the trigger one-shot or repeats every turn?
 //#define SPARE		0x00008000	
 #define DOES_BLOCKLIGHT 0x00010000	// Does it block light?
 #define IS_TABLETOP     0x00020000	// Can you drop things on it even though it's solid?
@@ -349,7 +349,7 @@ typedef struct ST_ITEM
 #define ENGINE_DIDSETSEQUENCE	0x00000002	// Has setsequence just been used?
 #define ENGINE_DIDUPDATE	0x00000004	// Have we just moved (avoids runaway)
 #define ENGINE_DIDACTIVETILE	0x00000008	// Going to use this to improve lava handling for offscreen NPCs
-	
+#define ENGINE_DIDSPIKE		0x00000010	// Have we updated repeating spikes?
 
 typedef struct FUNCS            // This is called when you...
 {

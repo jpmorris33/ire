@@ -1665,13 +1665,14 @@ anchor=curmap->objmap[ytab[y]+x];
 a2=NULL;
 
 // Find it in the Large Object list if possible
-if(x>=mapx && x<=(mapx+VSW))
-	if(y>=mapy && y<=(mapy+VSH))
-		{
+if(x>=mapx && x<=(mapx+VSW)) {
+	if(y>=mapy && y<=(mapy+VSH)) {
 		a2=largemap[VIEWDIST+x-mapx][VIEWDIST+y-mapy];
-		if(a2 && a2->flags & IS_ON && a2->flags & IS_TRIGGER)
+		if(a2 && (a2->flags & IS_ON) && (a2->flags & IS_TRIGGER) && (!(a2->flags & IS_REPEATSPIKE))) {
 			return a2;
 		}
+	}
+}
 
 if(!anchor)
 	return NULL;
@@ -1680,7 +1681,7 @@ a2=NULL;
 
 while(anchor)
 	{
-	if(anchor->flags & IS_TRIGGER && anchor->flags & IS_ON)
+	if((anchor->flags & IS_TRIGGER) && (anchor->flags & IS_ON) && (!(anchor->flags & IS_REPEATSPIKE)))
 		a2=anchor;
 	anchor=anchor->next;
 	};
