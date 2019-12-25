@@ -2079,6 +2079,7 @@ section: characters
 	description	"No description"
 	short		"No description"
 	IfTriggered	CloseRoof
+	RepeatTrigger
 	invisible
 	fixed
 	setsolid	V 0 0 1 1
