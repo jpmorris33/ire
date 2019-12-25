@@ -170,12 +170,12 @@ printcr
 end
 
 function use_none
-print "You can't use that."
+print msg_CannotUseThat
 printcr
 end
 
 function carry_person
-print "You can't carry them."
+print msg_CannotCarryThen
 printcr
 end
 
@@ -197,15 +197,15 @@ end
 
 # This is too long to go in the Personal Name
 function vtape_jelly
-print "It reads: "
+print msg_ItReads
 printcr
-print "Dirk Barron and the terror of the reanimated jelly babies"
+print sign_Dirk
 printcr
 end
 
 # So is this
 function book_ring
-print "It reads: "
+print msg_ItReads
 printcr
 print "~Ash nazg durbatul–k, ash nazg gimbatul,"
 printcr
@@ -220,14 +220,20 @@ end
 
 
 function airbase_sign
-print "It reads: "
+print msg_ItReads
 printcr
 textcolour 200 0 64
-print "USE OF DEADLY FORCE IS AUTHORISED IN THIS AREA"
+print sign_DeadlyForce
 printcr
 textcolour 255 255 255
 end
 
+function hell_sign
+print msg_ItReads
+printcr
+print sign_WelcomeToHell
+printcr
+end
 
 function use_tapereel
 textcolour 200 200 0

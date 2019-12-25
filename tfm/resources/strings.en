@@ -9,8 +9,15 @@ quickname msg_DontKnowWhatToDo		Don't know what to do!
 quickname msg_DontNeedToEat		They don't need to eat.
 quickname msg_CannotDrinkThings		They cannot drink things.
 quickname msg_NoPhone			You don't have your phone.
-quickname msg_NoSpellbook 		No spellbook is wielded.
+quickname msg_NoSpellbook		No spellbook is wielded.
 quickname msg_CarryingTooMuch		You're carrying too much already.
 quickname msg_CannotMoveThat		You cannot move that.
 quickname msg_CannotPickThat		You cannot pick that up.
 quickname msg_Cancelled			cancelled
+quickname msg_ItReads			It reads:
+quickname msg_CannotUseThat		You can't use that.
+quickname msg_CannotCarryThen		You can't carry them.
+
+quickname sign_WelcomeToHell		Welcome to Hell!|Population: lots
+quickname sign_Dirk			Dirk Barron and the terror of the reanimated jelly babies
+quickname sign_DeadlyForce		USE OF DEADLY FORCE IS AUTHORISED IN THIS AREA
