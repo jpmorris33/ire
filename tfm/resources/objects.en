@@ -15371,10 +15371,11 @@ section: characters
 
 	name DED_BULL_BREAKING
 	frame		DEDBULL_BREAKING
-	hp		100000
+	hp		100
 	weight		50
 	description	"You see some bits of metal covered in sticky liquid"
 	short		"mess"
+	IfKilled	smash_can
 
 	name DED_BULL_EMPTY
 	frame		DEDBULL_EMPTY

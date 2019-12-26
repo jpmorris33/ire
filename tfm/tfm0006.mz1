@@ -1014,7 +1014,7 @@ iMZ1r01
 		type TODE
 		inside EGG_2627befd-08e2-4a6b-990c-eb94ac659fdc
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOAD4a0a5ecd-92f8-4d9a-bda2-2b901263c52f
 		type TOADSTONE
@@ -1985,7 +1985,7 @@ iMZ1r01
 		type TODE
 		inside EGG_1207590c-eb74-49c9-a48b-dc8e31492688
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOAD5d0c2be9-b1c2-4816-97f7-2ba596323c7d
 		type TOADSTONE
@@ -2264,6 +2264,17 @@ iMZ1r01
 		at 303 219
 		curdir 2
 
+	object BUNN86825505-485e-4300-9b10-d479cad9e4c3
+		type BUNNY
+		inside BUNN4e26607f-63a3-4d5d-af2d-723b6b80c551
+		curdir 0
+		activity bunny_wander
+
+	object FOODd3c70c4c-3234-4f30-80fc-8d06428158bd
+		type FOODP00
+		inside BUNN86825505-485e-4300-9b10-d479cad9e4c3
+		curdir 1
+
 	object BUNN4e26607f-63a3-4d5d-af2d-723b6b80c551
 		type EGG_OBJECT(BUNNY)
 		at 310 219
@@ -2423,7 +2434,7 @@ iMZ1r01
 		type DEVIL
 		inside EGG_8de3a969-6266-4e49-b9d4-0238ab6e1f40
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_8de3a969-6266-4e49-b9d4-0238ab6e1f40
 		type EGG_ALWAYS
@@ -2669,7 +2680,7 @@ iMZ1r01
 		type UNDEAD_SKELETON
 		inside EGG_aac3c4b3-77bf-480d-82b8-a1dde0759731
 		curdir 1
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_aac3c4b3-77bf-480d-82b8-a1dde0759731
 		type EGG_OBJECT(SKELETON)
@@ -2685,7 +2696,7 @@ iMZ1r01
 		type PLAYER
 		at 298 225
 		curdir 0
-		activity PLAYER_ACTION
+		activity player_action
 
 	object STON87b4e287-e15d-4905-9d4f-6401a13e53b2
 		type STONEFLOOR10
@@ -2806,7 +2817,7 @@ iMZ1r01
 		type UNDEAD_SKELETON
 		inside EGG_66bb069b-63b3-4539-ac8e-7d0f09ea4560
 		curdir 1
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_66bb069b-63b3-4539-ac8e-7d0f09ea4560
 		type EGG_OBJECT(SKELETON)
@@ -2890,21 +2901,8 @@ iMZ1r01
 	object HEADaa3e68e6-a928-44f3-9389-3034a2da2049
 		type HEADLESS
 		inside EGG_f60e53af-b1fa-4802-b4ed-dbb925b9590c
-		curdir 0
 		name Headless
-		activity ATTACK_PARTY
-		stats->hp 10000
-		stats->str 100
-		stats->intel 0
-		stats->damage 0
-		stats->karma 2
-		stats->radius 11
-		funcs->use egg_spawn_always
-		funcs->kill 
-		funcs->hurt 
-		funcs->init egg_check
-		funcs->resurrect EGG_ALWAYS
-		funcs->attack 
+		activity attack_party
 
 	object EGG_f60e53af-b1fa-4802-b4ed-dbb925b9590c
 		type EGG_ALWAYS
@@ -3151,7 +3149,7 @@ iMZ1r01
 		type UNDEAD_SKELETON
 		inside EGG_30a9f00f-f801-4045-96d2-3e2d884e036b
 		curdir 1
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_30a9f00f-f801-4045-96d2-3e2d884e036b
 		type EGG_OBJECT(SKELETON)
@@ -3252,7 +3250,7 @@ iMZ1r01
 		type HEADLESS
 		inside EGG_14905818-c369-4fff-9e1f-abb87a9db96e
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_14905818-c369-4fff-9e1f-abb87a9db96e
 		type EGG_ALWAYS
@@ -3349,7 +3347,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ece937f3-a2b1-4321-b1ed-da29f434091f
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOAD929f1670-14a4-493e-8da5-22ace7ac80db
 		type TOADSTONE
@@ -3826,7 +3824,7 @@ iMZ1r01
 		type TODE
 		inside EGG_8b062d2d-dbdd-43bd-b009-2e020e788cdb
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOADe8d287b5-d167-46f3-b092-1354a128a1fc
 		type TOADSTONE

@@ -207,7 +207,7 @@ if me = player
 endif
 */
 
-random rand between 1 5
+random rand between 1 8
 
 if rand = 1
 	give 1 "snack00" to me		# Crisps
@@ -224,21 +224,17 @@ if rand = 3
 	return
 endif
 
-# If we fell through, give them something weird
-
-random rand between 1 5
-
-if rand = 1
+if rand = 4
 	give 1 "pepsee" to me
 	return
 endif
 
-if rand = 2
+if rand = 5
 	give 1 "cocaine_cola" to me
 	return
 endif
 
-if rand = 3
+if rand = 6
 	give 1 "happy_drink" to me
 	return
 endif

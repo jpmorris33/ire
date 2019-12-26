@@ -168,6 +168,9 @@ endif
 if p is called "cocaine_cola"
 	object_sound "gulp" current
 	replace p = "cocaine_cola_empty"
+	if current = player
+		call take_drugs_quiet
+	endif
 	return
 endif
 
