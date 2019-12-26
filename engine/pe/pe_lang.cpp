@@ -3319,6 +3319,7 @@ OPCODE vmspec[] =
 STRUCTURE objspec[] =
 					{
 					{"object",		'o',"",&obj_template,NULL},
+					{"uid",			's',"R",&obj_template.uidptr,NULL},	// Absolutely not writable
 					{"name",		's',"R",&obj_template.name,NULL},
 					{"flags",		'i',"R",&obj_template.flags,NULL},
 					{"w",			'i',"R",&obj_template.w,NULL},

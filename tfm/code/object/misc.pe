@@ -226,7 +226,7 @@ endif
 
 # If we fell through, give them something weird
 
-random rand between 1 4
+random rand between 1 5
 
 if rand = 1
 	give 1 "pepsee" to me
@@ -243,10 +243,9 @@ if rand = 3
 	return
 endif
 
-if rand = 4
-	give 1 "ded_bull_energy_drink" to me
-	return
-endif
+give 1 "ded_bull_energy_drink" to me
+return
+
 end
 
 

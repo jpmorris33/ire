@@ -229,6 +229,7 @@ return temp;
 
 void OB_Funcs(OBJECT *temp)
 {
+temp->uidptr = &temp->uid[0];
 temp->funcs->suse = &temp->funcs->use[0];
 temp->funcs->stalk = &temp->funcs->talk[0];
 temp->funcs->skill = &temp->funcs->kill[0];

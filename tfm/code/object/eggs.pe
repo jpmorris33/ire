@@ -23,7 +23,8 @@ if_not_exist me.pocket
 	print me.x
 	print ","
 	print me.y
-	print ")"
+	print ") - uid "
+	print me.uid
 	printcr
 	BUG END
 

@@ -494,6 +494,7 @@ typedef struct OBJECT
 {
 char *name;
 char uid[41];
+char *uidptr;
 VMUINT flags;
 VMUINT engineflags;
 VMINT w,h,mw,mh;
