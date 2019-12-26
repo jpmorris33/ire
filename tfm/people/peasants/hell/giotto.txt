@@ -1,17 +1,87 @@
 
-
+[page="start"]
+[learn_name]
 "Well met, $SIR.  I am Giotto Francini.  Welcome to Hell."
 
+[link="Why is it so green and pleasant here?"]
+[linkto="pleasant"]
+[link="How did you end up in Hell?"]
+[linkto="crimes"]
+[link="Is there a way to leave Hell?"]
+[linkto="leave"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
-"In my time I was a gifted painter.  Alas, my final painting saw me burned for heresy.
+
+[page="crimes"]
+
+"In my time I was a gifted painter.  If you have seen the
+ Great Cathredral, you may have seen my renditions of the
+ Creation, the Last Supper and the Saviour attending the
+ stoning of a sinner.
+
+ Alas, my final painting saw me burned for heresy.
  It seemed like a good idea at the time.
 
- Since it seems I have an eternity ahead of me, I have taken up painting once more."
+ Since it seems I have an eternity ahead of me,
+ I have taken up painting once more."
+
+[link="Why is it so green and pleasant here?"]
+[linkto="pleasant"]
+[link="Is there a way to leave Hell?"]
+[linkto="leave"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="pleasant"]
+
+"This surprises many of the newcomers, but Hell is a
+ disputed territory.  The LORD wishes it as a place of
+ torment for those who have sinned against the Trinity.
+
+"The Devil sees it as his realm as the scriptures have
+ often said.  Those in his territory are treated well,
+ that they may serve him faithfully when the end of
+ days should come.
+
+ The Prince of Darkness was particularly taken with my
+ painting of the Conception of Christ, and has ensured
+ I have all I need here to continue my art."
+
+[link="How did you end up in Hell?"]
+[linkto="crimes"]
+[link="Is there a way to leave Hell?"]
+[linkto="leave"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
-"This surprises many of the newcomers, but Hell is disputed territory.
- The LORD wishes it as a place of torment for those who have sinned
- against the Trinity.
+[page="leave"]
 
-"The Devil sees it as his realm as the scriptures have often said.
- Those in his territory are treated well, that they may serve him faithfully when the end times come."
+"You seek to leave?  It is said there is an artifact
+ what would allow one to return to the world of men.
+ However, we would once more become mortal, and the
+ LORD and his servants would be greatly displeased.
+
+ Myself, I shall stay here.  Being burned was a most
+ painful fate, one that I wish not to endure again."
+
+[link="Why is it so green and pleasant here?"]
+[linkto="pleasant"]
+[link="How did you end up in Hell?"]
+[linkto="crimes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare thee well!"
+
+[nextpage="exit"]
+[endpage]

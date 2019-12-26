@@ -1014,7 +1014,7 @@ iMZ1r01
 		type TODE
 		inside EGG_2627befd-08e2-4a6b-990c-eb94ac659fdc
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOAD4a0a5ecd-92f8-4d9a-bda2-2b901263c52f
 		type TOADSTONE
@@ -1926,16 +1926,6 @@ iMZ1r01
 		at 291 215
 		curdir 1
 
-	object OPENb93c654f-134b-44c8-811c-7406640f00e6
-		type OPENROOF
-		at 295 215
-		curdir 2
-
-	object OPEN3c8422be-2521-4885-9a6b-47d9c96c7b48
-		type OPENROOF
-		at 300 215
-		curdir 2
-
 	object STONb15be201-91c7-4f02-bb77-ccdb2d3c1c97
 		type STONEFLOOR10
 		at 322 215
@@ -1995,7 +1985,7 @@ iMZ1r01
 		type TODE
 		inside EGG_1207590c-eb74-49c9-a48b-dc8e31492688
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOAD5d0c2be9-b1c2-4816-97f7-2ba596323c7d
 		type TOADSTONE
@@ -2018,15 +2008,40 @@ iMZ1r01
 		at 290 216
 		curdir 1
 
-	object STON88e8fef4-d779-435a-b9d9-140bd8b10598
-		type STONEWINDOW1
+	object PLAYb103db42-20ec-4f1c-867f-62db452bed93
+		type PAINTING00
+		at 294 216
+		curdir 2
+
+	object PAIN0fe3f0e0-b279-4813-b52b-982288532fdd
+		type PAINTING00
 		at 295 216
+		curdir 3
+
+	object PAINdd709005-d92b-4289-8c5e-6b062a1bdecd
+		type PAINTING00
+		at 296 216
 		curdir 0
 
-	object BED_fc36cb4e-31bb-406c-8a2d-68797e1e0877
-		type STONEWINDOW1
+	object PAINb2932e61-29cc-4e78-81af-7417b9ac4019
+		type PAINTING00
+		at 297 216
+		curdir 1
+
+	object PAINb810d1b8-62ae-4e7e-81ff-23fb8d22bc14
+		type PAINTING01
+		at 298 216
+		curdir 2
+
+	object PAIN8c411d88-d976-4216-b59b-26d2ed73356d
+		type PAINTING01
+		at 299 216
+		curdir 3
+
+	object PAIN476b7ee4-27b3-4827-8d94-3d92fbdb095b
+		type PAINTING01
 		at 300 216
-		curdir 0
+		curdir 1
 
 	object STON67b32f01-4bf0-4783-afbb-a0f8fdfa941b
 		type STONEFLOOR10
@@ -2078,11 +2093,6 @@ iMZ1r01
 		at 289 217
 		curdir 3
 
-	object STON1302e091-c5d0-4789-8f54-c5e994a544f8
-		type BED
-		at 294 217
-		curdir 2
-
 	object STON99b41303-b6f0-498a-a8e2-9091df164a32
 		type STONEFLOOR10
 		at 327 217
@@ -2116,6 +2126,31 @@ iMZ1r01
 	object STONada335b9-007e-4c1a-b1a8-99ce0c78013a
 		type STONEFLOOR18
 		at 289 218
+		curdir 3
+
+	object BED_4886bd8e-f553-4ddb-8e70-31a945f2eec2
+		type TABLE6-H
+		at 294 218
+		curdir 2
+
+	object TABL0875aa1b-8d1b-4067-b2ff-eea4e82df9fc
+		type TABLE6-H
+		at 295 218
+		curdir 0
+
+	object TABL8a9218e3-47a3-4948-ae0b-25baa4def87c
+		type TABLE6-H
+		at 296 218
+		curdir 1
+
+	object TABL833c521a-0cbb-4880-9748-56721e0a7755
+		type TABLE6-H
+		at 297 218
+		curdir 3
+
+	object TABL9af7e677-986e-4efc-9693-dd06596018eb
+		type TABLE-SHADOW2
+		at 298 218
 		curdir 3
 
 	object STONa2b134d1-221c-4ecc-9269-727d05a57589
@@ -2178,6 +2213,41 @@ iMZ1r01
 		at 293 219
 		curdir 2
 
+	object TABL115865ec-90ea-4001-8c2c-0dd59442d456
+		type TABLE-SHADOW2
+		at 294 219
+		curdir 1
+
+	object TABL8d646263-b1ff-4946-ba22-793a6a101196
+		type TABLE5-LEGS
+		at 294 219
+		curdir 1
+
+	object TABLbe5b9bb7-1484-4daf-ae0f-a0e971673360
+		type TABLE-SHADOW1
+		at 295 219
+		curdir 0
+
+	object TABL2068db36-8c6d-4a75-9281-a66e612bbc8e
+		type TABLE-SHADOW1
+		at 296 219
+		curdir 0
+
+	object TABLeb5a65a0-2e2d-4cd2-a1f4-06a13ac123a2
+		type TABLE-SHADOW1
+		at 297 219
+		curdir 0
+
+	object TABL379cc4d8-c548-4307-ba2f-d84cd5411587
+		type TABLE5-LEGS
+		at 297 219
+		curdir 1
+
+	object TABL0da2bc99-6484-4192-97aa-1562197ab88d
+		type TABLE-SHADOW3
+		at 298 219
+		curdir 1
+
 	object STONd40c6387-2206-4b3c-b225-04225812e0a2
 		type STONEWINDOW1
 		at 302 219
@@ -2232,6 +2302,13 @@ iMZ1r01
 		type STONEFLOOR18
 		at 288 220
 		curdir 3
+
+	object TABL047a329a-3ddd-48bd-ad84-4bebe4a68dff
+		type MAN_GENERIC
+		at 297 220
+		curdir 1
+		name Giotto Francini
+		funcs->talk /people/peasants/hell/giotto.txt
 
 	object STON3f977beb-aad1-4157-a65d-3dc617f37143
 		type STONEFLOOR18
@@ -2288,6 +2365,11 @@ iMZ1r01
 		at 288 221
 		curdir 1
 
+	object STON1302e091-c5d0-4789-8f54-c5e994a544f8
+		type BED
+		at 294 221
+		curdir 2
+
 	object STON753ec915-baac-461a-90ed-a495d2316b82
 		type STONEFLOOR18
 		at 329 221
@@ -2330,7 +2412,7 @@ iMZ1r01
 		type DEVIL
 		inside EGG_8de3a969-6266-4e49-b9d4-0238ab6e1f40
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_8de3a969-6266-4e49-b9d4-0238ab6e1f40
 		type EGG_ALWAYS
@@ -2554,7 +2636,7 @@ iMZ1r01
 		type UNDEAD_SKELETON
 		inside EGG_aac3c4b3-77bf-480d-82b8-a1dde0759731
 		curdir 1
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_aac3c4b3-77bf-480d-82b8-a1dde0759731
 		type EGG_OBJECT(SKELETON)
@@ -2565,6 +2647,12 @@ iMZ1r01
 		type STONEFLOOR18
 		at 286 225
 		curdir 3
+
+	object PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		type PLAYER
+		at 298 225
+		curdir 0
+		activity player_action
 
 	object STON87b4e287-e15d-4905-9d4f-6401a13e53b2
 		type STONEFLOOR10
@@ -2685,7 +2773,7 @@ iMZ1r01
 		type UNDEAD_SKELETON
 		inside EGG_66bb069b-63b3-4539-ac8e-7d0f09ea4560
 		curdir 1
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_66bb069b-63b3-4539-ac8e-7d0f09ea4560
 		type EGG_OBJECT(SKELETON)
@@ -2746,12 +2834,6 @@ iMZ1r01
 		at 285 230
 		curdir 3
 
-	object PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
-		type PLAYER
-		at 297 230
-		curdir 0
-		activity PLAYER_ACTION
-
 	object STONb2b433e8-472d-42e2-b564-e989e20ab4b2
 		type STONEFLOOR10
 		at 328 230
@@ -2777,7 +2859,7 @@ iMZ1r01
 		inside EGG_f60e53af-b1fa-4802-b4ed-dbb925b9590c
 		curdir 0
 		name Headless
-		activity ATTACK_PARTY
+		activity attack_party
 		stats->hp 10000
 		stats->str 100
 		stats->intel 0
@@ -3036,7 +3118,7 @@ iMZ1r01
 		type UNDEAD_SKELETON
 		inside EGG_30a9f00f-f801-4045-96d2-3e2d884e036b
 		curdir 1
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_30a9f00f-f801-4045-96d2-3e2d884e036b
 		type EGG_OBJECT(SKELETON)
@@ -3137,7 +3219,7 @@ iMZ1r01
 		type HEADLESS
 		inside EGG_14905818-c369-4fff-9e1f-abb87a9db96e
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object EGG_14905818-c369-4fff-9e1f-abb87a9db96e
 		type EGG_ALWAYS
@@ -3234,7 +3316,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ece937f3-a2b1-4321-b1ed-da29f434091f
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOAD929f1670-14a4-493e-8da5-22ace7ac80db
 		type TOADSTONE
@@ -3711,7 +3793,7 @@ iMZ1r01
 		type TODE
 		inside EGG_8b062d2d-dbdd-43bd-b009-2e020e788cdb
 		curdir 0
-		activity ATTACK_PARTY
+		activity attack_party
 
 	object TOADe8d287b5-d167-46f3-b092-1354a128a1fc
 		type TOADSTONE
