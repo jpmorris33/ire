@@ -282,7 +282,8 @@ end
 
 ##
 ##	Destroy the inflatable dinghy and spill its contents
-##
+#
+#
 
 function burst_boat
 
@@ -421,4 +422,68 @@ end
 
 function reset_health
 let current.stats.hp = current.maxstats.hp
+end
+
+
+##
+##	empty can
+#
+#
+
+function smash_can
+
+object_sound "beer_brk" current
+destroy current
+
+end
+
+
+##
+##	Pepsee breaking
+#
+#
+
+function smash_pepsee
+
+object_sound "beer" current
+replace current = "pepsee_fizzing"
+
+end
+
+
+##
+##	Cocaine Cola breaking
+#
+#
+
+function smash_cola
+
+object_sound "beer" current
+replace current = "cocaine_cola_fizzing"
+
+end
+
+
+##
+##	Happy Drink breaking
+#
+#
+
+function smash_happy_drink
+object_sound "beer" current
+replace current = "happy_drink_breaking"
+
+end
+
+
+##
+##	Ded Bull breaking
+#
+#
+
+function smash_dedbull
+
+object_sound "beer" current
+replace current = "ded_bull_breaking"
+
 end

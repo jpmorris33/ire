@@ -154,7 +154,6 @@ if p is called "potion_empty"
 	return
 endif
 
-/*
 # Ded Bull give you wings (little angelic ones)
 if p is called "ded_bull_energy_drink"
 	object_sound "gulp" current
@@ -188,6 +187,7 @@ if p is called "happy_drink"
 	return
 endif
 
+/*
 # Paracetamol
 if p is called "paracetamol"
 	object_sound "gulp" current

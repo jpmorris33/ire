@@ -15359,6 +15359,106 @@ section: characters
 	short		"soft drink"
 	IfUsed		eat_food
 
+	name DED_BULL_ENERGY_DRINK
+	frame		DEDBULL
+	hp		10
+	strength	1000
+	weight		500
+	description	"Ded Bull Gives You Wings!"
+	short		"Ded Bull energy drink"
+	IfUsed		drink_potion
+	IfKilled	smash_dedbull
+
+	name DED_BULL_BREAKING
+	frame		DEDBULL_BREAKING
+	hp		100000
+	weight		50
+	description	"You see some bits of metal covered in sticky liquid"
+	short		"mess"
+
+	name DED_BULL_EMPTY
+	frame		DEDBULL_EMPTY
+	hp		1
+	weight		100
+	description	"You see an empty can of Ded Bull energy drink"
+	short		"empty can"
+	IfKilled	smash_can
+
+	name COCAINE_COLA
+	frame		COLA
+	hp		10
+	weight		400
+	description	"You see a can of Cocaine Cola"
+	short		"Cocaine Cola"
+	IfUsed		drink_potion
+	IfKilled	smash_cola
+
+	name COCAINE_COLA_EMPTY
+	frame		COLA_EMPTY
+	hp		1
+	weight		90
+	description	"You see an empty can"
+	short		"empty can"
+	IfKilled	smash_can
+
+	name COCAINE_COLA_FIZZING
+	frame		COLA_BREAKING
+	hp		100
+	weight		200
+	description	"You see a damaged can of Cocaine Cola fizzing wildly"
+	short		"can"
+	IfKilled	smash_can
+
+	name PEPSEE
+	frame		PEPSEE
+	hp		10
+	weight		400
+	description	"You see a can of Pepsee"
+	short		"Pepsee"
+	IfUsed		drink_potion
+	IfKilled	smash_pepsee
+
+	name PEPSEE_EMPTY
+	frame		PEPSEE_EMPTY
+	hp		1
+	weight		90
+	description	"You see an empty can"
+	short		"empty can"
+	IfKilled	smash_can
+
+	name PEPSEE_FIZZING
+	frame		PEPSEE_BREAKING
+	hp		100
+	weight		200
+	description	"You see a damaged can of Pepsee fizzing wildly"
+	short		"can"
+	IfKilled	smash_can
+
+	name HAPPY_DRINK
+	frame		HAPPY_DRINK
+	hp		10
+	weight		400
+	description	"You see a can of Happy Drink"
+	short		"Happy Drink"
+	IfUsed		drink_potion
+	IfKilled	smash_happy_drink
+
+	name HAPPY_DRINK_EMPTY
+	frame		HAPPY_DRINK_EMPTY
+	hp		1
+	weight		90
+	description	"You see an empty can of Happy Drink"
+	short		"can"
+	IfKilled	smash_can
+
+	name HAPPY_DRINK_BREAKING
+	frame		HAPPY_DRINK_BREAKING
+	hp		10
+	weight		100
+	description	"You see a collapsed can of Happy Drink"
+	short		"can"
+	IfKilled	smash_can
+
 	name synth
 	left		synth
 	right		synth

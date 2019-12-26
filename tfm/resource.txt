@@ -12658,6 +12658,91 @@ section: sequences
 	quickname snack01 snack01
 	quickname snack02 snack02
 
+	quickname DEDBULL DEDBULL
+
+	name DEDBULL_BREAKING
+	speed 2
+	framelist:
+	#9 frames
+		DEDBULL_BREAK01
+		DEDBULL_BREAK02
+		DEDBULL_BREAK03
+		DEDBULL_BREAK04
+		DEDBULL_BREAK05
+		DEDBULL_BREAK06
+		DEDBULL_BREAK07
+		DEDBULL_BREAK08
+		DEDBULL_BREAK09
+	end
+	quickname DEDBULL_EMPTY DEDBULL_EMPTY
+	quickname COLA COLA
+
+	name COLA_BREAKING
+	speed 2
+	jump_to COLA_FIZZING
+	framelist:
+	#3 frames
+		COLA_1
+		COLA_2
+		COLA_3
+	end
+
+	name COLA_FIZZING
+	random
+	speed 2
+	framelist:
+	#4 frames
+		COLA_4
+		COLA_5
+		COLA_6
+		COLA_7
+	end
+	quickname COLA_EMPTY COLA_8
+	quickname PEPSEE PEPSEE
+
+	name PEPSEE_BREAKING
+	speed 2
+	jump_to PEPSEE_FOUNTAIN
+	framelist:
+	#5 frames
+		PEPSEE_1
+		PEPSEE_2
+		PEPSEE_3
+		PEPSEE_4
+		PEPSEE_5
+	end
+
+	name PEPSEE_FOUNTAIN
+	random
+	speed 2
+	framelist:
+	#6 frames
+		PEPSEE_6
+		PEPSEE_7
+		PEPSEE_8
+		PEPSEE_9
+		PEPSEE_10
+		PEPSEE_11
+	end
+	quickname PEPSEE_EMPTY PEPSEE_12
+	quickname HAPPY_DRINK HAPPYDRNK
+	quickname HAPPY_DRINK_EMPTY HAPPYDRNK_E
+
+	name HAPPY_DRINK_BREAKING
+	speed 2
+	framelist:
+	#8 frames
+		HAPPYDRNK
+		HAPPYDRNK_2
+		HAPPYDRNK_3
+		HAPPYDRNK_4
+		HAPPYDRNK_5
+		HAPPYDRNK_6
+		HAPPYDRNK_7
+		HAPPYDRNK_8
+	end
+
+
 	quickname shipwreck shipwreck
 	quickname synth synth
 

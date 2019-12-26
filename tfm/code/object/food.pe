@@ -314,14 +314,14 @@ if current is called "ash"
 		return
 	endif
 	if food_dest is called "FOODP08"
-		print "~The ash won't stay on!  I wish it was sticky.~"
+		print "~The ash won't stay on!  I wish it was stickier.~"
 		printcr
 		# Return success
 		let food_dest = NULL
 		return
 	endif
 	if food_dest is called "FOODP04"
-		print "~The ash won't stay on!  I wish it was sticky.~"
+		print "~The ash won't stay on!  I wish it was stickier.~"
 		printcr
 		# Return success
 		let food_dest = NULL

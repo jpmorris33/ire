@@ -190,6 +190,67 @@ give 1 "snack02" to player		# Drink
 end
 
 ##
+##  Vending machine (extended version)
+##
+
+function snackmachine_ex
+int rand
+
+/*
+if me = player
+	take 1 "gold_coins" from player
+	if err <> 0
+		print "~I don't have a gold coin.~"
+		printcr
+		return
+	endif
+endif
+*/
+
+random rand between 1 5
+
+if rand = 1
+	give 1 "snack00" to me		# Crisps
+	return
+endif
+
+if rand = 2
+	give 1 "snack01" to me		# Chocolate
+	return
+endif
+
+if rand = 3
+	give 1 "snack02" to me		# Can of Whup-Ass
+	return
+endif
+
+# If we fell through, give them something weird
+
+random rand between 1 4
+
+if rand = 1
+	give 1 "pepsee" to me
+	return
+endif
+
+if rand = 2
+	give 1 "cocaine_cola" to me
+	return
+endif
+
+if rand = 3
+	give 1 "happy_drink" to me
+	return
+endif
+
+if rand = 4
+	give 1 "ded_bull_energy_drink" to me
+	return
+endif
+end
+
+
+##
 ##  Clocks and watches
 ##
 
