@@ -137,6 +137,7 @@ Logic hole protection
 
 [page="dam"]
 [image="f18-0.pcx"]
+[journal jrn_PowerPlant]
 
 "I'll give you the high-level view.
  Ask Stevens for the full details.
