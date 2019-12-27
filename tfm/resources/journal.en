@@ -215,3 +215,17 @@ name jrn_JugSalvation2
 start:
 I've found a jug and somehow used it to escape Hell.
 end
+
+name jrn_PowerPlant
+tag task
+title Repair the power plant 
+start:
+I should visit the power plant in the mountains near the desert, so the security team can warn Earth about what has happened.
+end
+
+name jrn_PowerPlant2
+tag task
+title Enter the power plant control room 
+start:
+The LORD has threatened to kill me if I enter the power plant control room.  I should ask for advice.
+end

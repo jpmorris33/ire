@@ -3452,6 +3452,17 @@ section: sprites
 	snack01			sprites/tech/snack01.cel
 	snack02			sprites/tech/snack02.cel
 
+	whup00			sprites/tech/whup00.png
+	whup01			sprites/tech/whup01.png
+	whup02			sprites/tech/whup02.png
+	whup03			sprites/tech/whup03.png
+	whup04			sprites/tech/whup04.png
+	whup05			sprites/tech/whup05.png
+	whup06			sprites/tech/whup06.png
+	whup07			sprites/tech/whup07.png
+	whup08			sprites/tech/whup08.png
+	whup09			sprites/tech/whup09.png
+
 	shipwreck		sprites/shipwrk.pcx
 	synth			sprites/tech/synth.cel
 	clock1v			sprites/clock00.cel
@@ -12740,6 +12751,31 @@ section: sequences
 		HAPPYDRNK_6
 		HAPPYDRNK_7
 		HAPPYDRNK_8
+	end
+
+	quickname WHUP WHUP00
+	quickname WHUP_EMPTY WHUP01
+
+	name WHUP_BREAKING
+	speed 2
+	jump_to WHUP_FIZZING
+	framelist:
+	#5 frames
+		WHUP02
+		WHUP03
+		WHUP04
+		WHUP05
+		WHUP06
+	end
+
+	name WHUP_FIZZING
+	random
+	speed 2
+	framelist:
+	#3 frames
+		WHUP07
+		WHUP08
+		WHUP09
 	end
 
 

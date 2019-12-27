@@ -487,3 +487,15 @@ object_sound "beer" current
 replace current = "ded_bull_breaking"
 
 end
+
+##
+##	Whup ass breaking
+#
+#
+
+function smash_whup
+
+object_sound "beer" current
+replace current = "SNACK02_BREAKING"
+
+end

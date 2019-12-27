@@ -15349,15 +15349,29 @@ section: characters
 	IfUsed		eat_food
 
 	name SNACK02
-	left		SNACK02
-	right		SNACK02
-	up		SNACK02
-	down		SNACK02
-	hp		200
-	weight		35
+	frame		WHUP
+	hp		10
+	weight		200
 	description	"You see a can of whup-ass."
 	short		"soft drink"
-	IfUsed		eat_food
+	IfUsed		drink_potion
+	IfKilled	smash_whup
+
+	name SNACK02_EMPTY
+	frame		WHUP_EMPTY
+	hp		1
+	weight		35
+	description	"You see an empty can of whup-ass."
+	short		"empty can"
+	IfKilled	smash_can
+
+	name SNACK02_BREAKING
+	frame		WHUP_BREAKING
+	hp		100
+	weight		200
+	description	"You see a damaged can of whup-ass fizzing wildly."
+	short		"can"
+	IfKilled	smash_can
 
 	name DED_BULL_ENERGY_DRINK
 	frame		DEDBULL

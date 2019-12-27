@@ -190,6 +190,13 @@ if p is called "happy_drink"
 	return
 endif
 
+# Pepsee
+if p is called "snack02"
+	object_sound "gulp" current
+	replace p = "snack02_empty"
+	return
+endif
+
 /*
 # Paracetamol
 if p is called "paracetamol"
