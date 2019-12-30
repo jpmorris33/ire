@@ -728,11 +728,11 @@ if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible) {
 //			project->overlay->image->Draw(gamewin,((cx-x)<<5)+project->ox,((cy-y)<<5)+project->oy);
 		}
 	}
+}
 
-	if(temp->form->flags&SEQFLAG_CHIMNEY) { // It's a rooftop object
-		if(roofspr<MAX_P_OVERLAY) {
-			roofsprites[roofspr++]=temp;
-		}
+if(temp->form->flags&SEQFLAG_CHIMNEY) { // It's a rooftop object
+	if(roofspr<MAX_P_OVERLAY) {
+		roofsprites[roofspr++]=temp;
 	}
 }
 
