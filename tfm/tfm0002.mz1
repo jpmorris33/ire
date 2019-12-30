@@ -147550,10 +147550,10 @@ iMZ1r01
 		at 216 639
 		curdir 2
 
-	object FENCc4581feb-dd2d-42c4-8d96-6ff301110f78
-		type FENCE2_END
+	object FENCce2e3ad6-effd-49d2-a843-7a268f0c23cb
+		type FENCE2_GATE_SHUT
 		at 226 639
-		curdir 0
+		curdir 2
 
 	object FENCc1761491-3b63-4b49-b156-774b7dd1b3f6
 		type FENCE2
@@ -147849,11 +147849,6 @@ iMZ1r01
 		at 189 640
 		curdir 1
 		tag 80066
-
-	object FENC9828454d-8bc4-4c66-9900-d819bbacdf2d
-		type FENCE2_END
-		at 226 640
-		curdir 1
 
 	object TOAD068cd3ac-e2f0-4504-a42d-2e616efe9d48
 		type TOADSTONE
@@ -148239,9 +148234,9 @@ iMZ1r01
 		curdir 2
 
 	object FENC19d7180d-d212-470e-88f2-dc70224df3ab
-		type FENCE2
+		type FENCE2_END
 		at 226 641
-		curdir 2
+		curdir 0
 
 	object TOAD28c61417-bd14-4c83-8b43-50d1ccc40701
 		type TOADSTONE

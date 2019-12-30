@@ -8675,19 +8675,33 @@ section: sequences
 	quickname FENCE2_BL FENCE2_BL
 	quickname FENCE2_BR FENCE2_BR
 
-	quickname FENCE2_GATE_H FENCE2_GATE_H
-	quickname FENCE2_GATE_V FENCE2_GATE_V
-
-	name FENCE2_GATE_H
+	name FENCE2_GATE_V_SHUT
 	xoff 0
 	yoff 32
+	overlay FENCE2_GATE_H
 	framelist:
-		FENCE2_GATE_H
+		FENCE2_R
 	end
 
-	name FENCE2_GATE_V
+	name FENCE2_GATE_V_OPEN
+	xoff 0
+	yoff 32
+	oy -32
+	overlay FENCE2_GATE_V
 	framelist:
-		FENCE2_GATE_V
+		FENCE2_R
+	end
+
+	name FENCE2_GATE_H_SHUT
+	overlay FENCE2_GATE_V
+	framelist:
+		FENCE2_B
+	end
+
+	name FENCE2_GATE_H_OPEN
+	overlay FENCE2_GATE_H
+	framelist:
+		FENCE2_B
 	end
 	
 	name F16GRAY-D

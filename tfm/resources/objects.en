@@ -8031,10 +8031,10 @@ section: characters
 	fixed
 
 	name FENCE2_GATE_SHUT
-	left		FENCE2_GATE_V
-	right		FENCE2_GATE_V
-	up		FENCE2_GATE_H
-	down		FENCE2_GATE_H
+	left		FENCE2_GATE_H_SHUT
+	right		FENCE2_GATE_H_SHUT
+	up		FENCE2_GATE_V_SHUT
+	down		FENCE2_GATE_V_SHUT
 	hp		80
 	weight		-1
 	description	"You see a wooden gate."
@@ -8050,10 +8050,10 @@ section: characters
 	setActiveArea	H 0 0 1 2
 
 	name FENCE2_GATE_OPEN
-	left		FENCE2_GATE_H
-	right		FENCE2_GATE_H
-	up		FENCE2_GATE_V
-	down		FENCE2_GATE_V
+	left		FENCE2_GATE_H_OPEN
+	right		FENCE2_GATE_H_OPEN
+	up		FENCE2_GATE_V_OPEN
+	down		FENCE2_GATE_V_OPEN
 	hp		20000000
 	weight		-1
 	description	"You see a wooden gate."
@@ -8063,9 +8063,9 @@ section: characters
 	solid
 	fixed
 	setsolid	V 0 0 1 2
-	setsolid	H 0 1 2 1
+	setsolid	H 0 0 2 1
 	setActiveArea	V 0 0 1 2
-	setActiveArea	H 0 1 2 1
+	setActiveArea	H 0 0 2 1
 
 	name F16-GREY
 	left		F16GRAY-L
