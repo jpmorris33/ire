@@ -196,7 +196,6 @@ end
 function snackmachine_ex
 int rand
 
-/*
 if me = player
 	take 1 "gold_coins" from player
 	if err <> 0
@@ -205,7 +204,6 @@ if me = player
 		return
 	endif
 endif
-*/
 
 random rand between 1 8
 
@@ -241,6 +239,45 @@ endif
 
 give 1 "ded_bull_energy_drink" to me
 return
+
+end
+
+##
+##  Cash machine
+##
+
+function use_cash_machine
+integer packed_date
+integer temp
+
+if me = player
+	object card
+	find card = "credit_card" inside me
+	if_not_exists card
+		print "~I don't have a card!~"
+		printcr
+		return
+	endif
+
+	# YYYYMMDD
+	let packed_date = game_year * 10000
+	let temp = game_month * 100
+	add packed_date + temp
+	add packed_date + game_day
+
+	if current.user.user3 >= packed_date
+		textcolour 0 200 0
+		print "DAILY WITHDRAWAL LIMIT EXCEEDED"
+		printcr
+		textcolour
+		return
+	endif
+	let current.user.user3 = packed_date
+
+endif
+
+give 20 "gold_coins" to me
+object_sound "money" me
 
 end
 

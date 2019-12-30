@@ -1313,6 +1313,12 @@ section: sprites
 	lettuce-1		sprites/lettuce1.cel
 	grave_picture		sprites/grave.png
 	profit_picture		backings/profit.pcx
+	ATM_V			sprites/cashmac1.cel
+	ATM_V2			sprites/cashmac2.cel
+	ATM_H			sprites/cashmac3.cel
+	ATM_H2			sprites/cashmac4.cel
+	ATM_VB			sprites/cashmac5.cel
+	ATM_HB			sprites/cashmac6.cel
 	credit_card		sprites/credcard.cel
 	pass_card		sprites/tech/passcard.cel
 	seashell		sprites/seashell.cel
@@ -1884,6 +1890,9 @@ section: sprites
 	fence2_tr		sprites/fence2tr.cel
 	fence2_bl		sprites/fence2bl.cel
 	fence2_br		sprites/fence2br.cel
+
+	fence2_gate_h		sprites/fgate2_01.png
+	fence2_gate_v		sprites/fgate2_02.png
 	
 	f16-d			sprites/tech/grayf16d.pcx
 	f16-l			sprites/tech/grayf16l.pcx
@@ -7172,6 +7181,26 @@ section: sequences
 	quickname PASS_CARD PASS_CARD
 	quickname SEASHELL SEASHELL
 
+	name ATM_H
+	loop
+	speed 16
+	framelist:
+	#2 frames
+		ATM_H
+		ATM_H2
+	end
+
+	name ATM_V
+	loop
+	speed 16
+	framelist:
+	#2 frames
+		ATM_V
+		ATM_V2
+	end
+	quickname ATM_VB ATM_VB
+	quickname ATM_HB ATM_HB
+
 	name LGT_SW1
 	post_overlay
 	overlay LIGHT_SW1
@@ -7979,8 +8008,8 @@ section: sequences
 	quickname CARPET26 CARPET26
 
 	name CRUCIFIX
-	x 24
-	y 6
+	hotx 24
+	hoty 6
 	framelist:
 		CRUCIFIX
 	end
@@ -8646,6 +8675,21 @@ section: sequences
 	quickname FENCE2_BL FENCE2_BL
 	quickname FENCE2_BR FENCE2_BR
 
+	quickname FENCE2_GATE_H FENCE2_GATE_H
+	quickname FENCE2_GATE_V FENCE2_GATE_V
+
+	name FENCE2_GATE_H
+	xoff 0
+	yoff 32
+	framelist:
+		FENCE2_GATE_H
+	end
+
+	name FENCE2_GATE_V
+	framelist:
+		FENCE2_GATE_V
+	end
+	
 	name F16GRAY-D
 	post_overlay
 	overlay F16-D
@@ -8681,8 +8725,8 @@ section: sequences
 	name F16BLACK-D
 	post_overlay
 	overlay F16V-D
-	x 112
-	y 228
+	hotx 112
+	hoty 228
 	framelist:
 	#1 frames
 		F16-D-SHADOW
@@ -8691,8 +8735,8 @@ section: sequences
 	name F16BLACK-L
 	post_overlay
 	overlay F16V-L
-	x 84
-	y 112
+	hotx 84
+	hoty 112
 	framelist:
 	#1 frames
 		F16-L-SHADOW
@@ -8701,8 +8745,8 @@ section: sequences
 	name F16BLACK-R
 	post_overlay
 	overlay F16V-R
-	x 228
-	y 112
+	hotx 228
+	hoty 112
 	framelist:
 	#1 frames
 		F16-R-SHADOW
@@ -8711,8 +8755,8 @@ section: sequences
 	name F16BLACK-U
 	post_overlay
 	overlay F16V-U
-	x 112
-	y 84
+	hotx 112
+	hoty 84
 	framelist:
 	#1 frames
 		F16-U-SHADOW
@@ -9445,8 +9489,8 @@ section: sequences
 	name PIKE_FIRE
 	loop
 	speed 3
-	x -32
-	y -32
+	xoff -32
+	yoff -32
 	framelist:
 		pikefire1
 		pikefire2
@@ -11791,15 +11835,15 @@ section: sequences
 	end
 
 	name powerplant_spark1
-	x 8
-	y 5
+	hotx 8
+	hoty 5
 	framelist:
 		powerplant00
 	end
 
 	name powerplant_spark2
-	x 15
-	y 5
+	hotx 15
+	hoty 5
 	framelist:
 		powerplant01
 	end
@@ -12414,8 +12458,8 @@ section: sequences
 	quickname rope00 rope00
 
 	name plasmatube_l
-	x 4
-	y 4
+	hotx 4
+	hoty 4
 	loop
 	random
 	speed 2
@@ -12428,8 +12472,8 @@ section: sequences
 	end
 
 	name plasmatube_r
-	x 4
-	y 4
+	hotx 4
+	hoty 4
 	loop
 	random
 	speed 2
@@ -12442,8 +12486,8 @@ section: sequences
 	end
 
 	name plasmatube_u
-	x 4
-	y 4
+	hotx 4
+	hoty 4
 	loop
 	random
 	speed 2
@@ -12456,8 +12500,8 @@ section: sequences
 	end
 
 	name plasmatube_d
-	x 4
-	y 4
+	hotx 4
+	hoty 4
 	loop
 	random
 	speed 2
@@ -12470,8 +12514,8 @@ section: sequences
 	end
 
 	name plasmatube_target
-	x 4
-	y 4
+	hotx 4
+	hoty 4
 	framelist:
 		TARGET_MARKER
 	end
@@ -12873,8 +12917,8 @@ section: sequences
 	quickname keyring_full keyring_full
 
 	name panther_r
-	x 32
-	y 0
+	hotx 32
+	hoty 0
 	stepped
 	looped
 	speed 1
@@ -12886,8 +12930,8 @@ section: sequences
 	end
 
 	name panther_l
-	x 0
-	y 0
+	hotx 0
+	hoty 0
 	stepped
 	looped
 	speed 1
@@ -12899,8 +12943,8 @@ section: sequences
 	end
 
 	name panther_d
-	x 0
-	y 32
+	hotx 0
+	hoty 32
 	stepped
 	looped
 	speed 1
@@ -12912,8 +12956,8 @@ section: sequences
 	end
 
 	name panther_u
-	x 0
-	y 0
+	hotx 0
+	hoty 0
 	stepped
 	looped
 	speed 1

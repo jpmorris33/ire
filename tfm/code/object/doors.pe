@@ -472,6 +472,31 @@ object_sound "doorbreaking" current
 end
 
 ##
+##  Wooden gate
+##
+
+function CloseDoorG1
+change current = "fence2_gate_shut"
+object_sound "shut_door" current
+end
+
+
+function OpenDoorG1
+change current = "fence2_gate_open"
+object_sound "open_door" current
+end
+
+
+function DoorwayG1
+let suspect = current.enemy
+replace current = "fence2_broken"
+let victim = current
+call justice_vandalism
+object_sound "doorbreaking" current
+end
+
+
+##
 ##  Open window shutters
 ##
 

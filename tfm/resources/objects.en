@@ -5722,6 +5722,29 @@ section: characters
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
 
+	name CASH_MACHINE
+	left		ATM_H
+	right		ATM_H
+	up		ATM_V
+	down		ATM_V
+	hp		100
+	weight		-1
+	fixed
+	description	"You see a Madland Bank cash machine"
+	short		"Cash Machine"
+	IfUsed		use_cash_machine
+
+	name CASH_MACHINE_BROKEN
+	left		ATM_HB
+	right		ATM_HB
+	up		ATM_VB
+	down		ATM_VB
+	hp		100000
+	weight		-1
+	fixed
+	description	"You see a vandalised Madland Bank cash machine"
+	short		"Broken Cash Machine"
+
 	name PASS_CARD1
 	frame		PASS_CARD
 	hp		30
@@ -8006,6 +8029,43 @@ section: characters
 	IfKilled	RESPAWN
 	solid
 	fixed
+
+	name FENCE2_GATE_SHUT
+	left		FENCE2_GATE_V
+	right		FENCE2_GATE_V
+	up		FENCE2_GATE_H
+	down		FENCE2_GATE_H
+	hp		80
+	weight		-1
+	description	"You see a wooden gate."
+	short		"gate"
+	IfUsed		OpenDoorG1
+	IfKilled	DoorwayG1
+	solid
+	will_open
+	fixed
+	setsolid	V 0 1 2 1
+	setsolid	H 0 0 1 2
+	setActiveArea	V 0 1 2 1
+	setActiveArea	H 0 0 1 2
+
+	name FENCE2_GATE_OPEN
+	left		FENCE2_GATE_H
+	right		FENCE2_GATE_H
+	up		FENCE2_GATE_V
+	down		FENCE2_GATE_V
+	hp		20000000
+	weight		-1
+	description	"You see a wooden gate."
+	short		"gate"
+	IfUsed		CloseDoorG1
+	IfKilled	DoorwayG1
+	solid
+	fixed
+	setsolid	V 0 0 1 2
+	setsolid	H 0 1 2 1
+	setActiveArea	V 0 0 1 2
+	setActiveArea	H 0 1 2 1
 
 	name F16-GREY
 	left		F16GRAY-L
@@ -16435,7 +16495,8 @@ section: characters
 	weight		-1
 	description	"You see a microwave oven."
 	short		"microwave"
-	IfLookedAt	SPILL_FWD
+#	IfLookedAt	SPILL_FWD
+	IfLookedAt	SearchContainer
 	ifused		microwave_brk
 	container
 	fixed
