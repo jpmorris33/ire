@@ -749,19 +749,19 @@ if(UpdateAnim())	{
 	for(int vy=0;vy<VSW;vy++)
 		for(int vx=0;vx<VSH;vx++)
 			if(largemap[vx+VIEWDIST][vy+VIEWDIST])
-				gamewin->RectFill((vx<<5),(vy<<5)+16,(vx<<5)+32,(vy<<5)+32,255,255,255);
+				gamewin->FillRect((vx<<5),(vy<<5),32,32,255,255,255);
 	#endif
 	#ifdef DEBUG_SOLID_OBJECTS
 	for(int vy=0;vy<VSW;vy++)
 		for(int vx=0;vx<VSH;vx++)
 			if(solidmap[vx+VIEWDIST][vy+VIEWDIST])
-				gamewin->RectFill((vx<<5),(vy<<5),(vx<<5)+32,(vy<<5)+32,255,255,255);
+				gamewin->FillRect((vx<<5),(vy<<5),32,32,255,255,255);
 	#endif
 	#ifdef DEBUG_BLOCKSLIGHT
 	for(int vy=0;vy<VSW;vy++)
 		for(int vx=0;vx<VSH;vx++)
 			if(BlocksLight(vx+mapx,vy+mapy))
-				gamewin->RectFill((vx<<5),(vy<<5),(vx<<5)+32,(vy<<5)+32,255,255,255);
+				gamewin->FillRect((vx<<5),(vy<<5),32,32,255,255,255);
 	#endif
 
 	// Shake the screen for an earthquake effect

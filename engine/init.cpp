@@ -693,12 +693,27 @@ if(rebuild)
 
 void Init_Areas(OBJECT *objsel)
 {
+SEQ_POOL *seq;
 objsel->flags &= ~IS_LARGE;  // Assume it's only 1 square
 
 // First the vertical
 
-objsel->w = SQlist[objsel->dir[CHAR_D]].seq[0]->w;
-objsel->h = SQlist[objsel->dir[CHAR_D]].seq[0]->h;
+seq = &SQlist[objsel->dir[CHAR_D]];
+objsel->w = seq->seq[0]->w;
+objsel->h = seq->seq[0]->h;
+
+// Check if the overlay is bigger
+if(seq->overlay) {
+	if(seq->overlay->w > objsel->w) {
+		objsel->w = seq->overlay->w;
+	}
+	if(seq->overlay->h > objsel->h) {
+		objsel->h = seq->overlay->h;
+	}
+}
+
+// TODO: May need to take xoff,yoff into account as well, also in CalcSize
+
 
 // Set up the size in tiles
 objsel->mw = objsel->w>>5;
@@ -740,8 +755,20 @@ if(objsel->vblock[BLK_H] == 0)
 
 // Then the horizontal
 
-objsel->w = SQlist[objsel->dir[CHAR_R]].seq[0]->w;
-objsel->h = SQlist[objsel->dir[CHAR_R]].seq[0]->h;
+seq = &SQlist[objsel->dir[CHAR_R]];
+
+objsel->w = seq->seq[0]->w;
+objsel->h = seq->seq[0]->h;
+
+// Check for a larger overlay
+if(seq->overlay) {
+	if(seq->overlay->w > objsel->w) {
+		objsel->w = seq->overlay->w;
+	}
+	if(seq->overlay->h > objsel->h) {
+		objsel->h = seq->overlay->h;
+	}
+}
 
 // Set up the size in tiles
 objsel->mw = objsel->w>>5;
@@ -789,11 +816,24 @@ if(objsel->hblock[BLK_H] == 0)
 
 void CalcSize(OBJECT *objsel)
 {
+SEQ_POOL *seq;
+
 if(!(objsel->flags & IS_LARGE)) // Don't bother for small object
 	return;
 
-objsel->w = SQlist[objsel->dir[objsel->curdir]].seq[0]->w;
-objsel->h = SQlist[objsel->dir[objsel->curdir]].seq[0]->h;
+seq = &SQlist[objsel->dir[objsel->curdir]];
+objsel->w = seq->seq[0]->w;
+objsel->h = seq->seq[0]->h;
+
+// Check if the overlay is bigger
+if(seq->overlay) {
+	if(seq->overlay->w > objsel->w) {
+		objsel->w = seq->overlay->w;
+	}
+	if(seq->overlay->h > objsel->h) {
+		objsel->h = seq->overlay->h;
+	}
+}
 
 // Set up the size in tiles
 objsel->mw = objsel->w>>5;
