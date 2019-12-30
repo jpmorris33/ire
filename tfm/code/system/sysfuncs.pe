@@ -332,6 +332,8 @@ int targetid = 666
 
 let SoundFixed = 0	# If we opened the Ark of Testimony, set SFX to normal
 
+wait 4000 NONBLOCKING	# Give them a chance to see how badly they've failed
+
 # Fade to black
 
 fade_out
