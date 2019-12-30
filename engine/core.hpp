@@ -213,7 +213,6 @@ IRECOLOUR *thumbcol;
 
 VMINT w,h;
 VMUINT wxh;
-//VMINT x,y;
 unsigned char flags;
 VMINT darkness;
 } S_POOL;
@@ -234,8 +233,9 @@ char *name;
 S_POOL **seq;
 VMINT frames;
 VMUINT flags;	// See SEQ_FLAGS
-VMINT x,y;	// Control/collision hotspot
-VMINT ox,oy;	// Overlay offset
+VMINT hotx,hoty;	// Control/collision hotspot
+VMINT xoff,yoff;	// offset in pixels
+VMINT ox,oy;		// Overlay offset
 unsigned char speed;
 S_POOL *overlay;        // This is always drawn on top of the sprite
                         // but it has no physical existence

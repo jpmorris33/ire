@@ -1050,8 +1050,8 @@ if(objsel->flags & IS_SYSTEM)
 
 	// Set up the appearance
 	objsel->form = &SQlist[seq];
-	objsel->hotx = objsel->form->x;
-	objsel->hoty = objsel->form->y;
+	objsel->hotx = objsel->form->hotx;
+	objsel->hoty = objsel->form->hoty;
 	objsel->desc = CHlist[ctr].desc;                // Long text description
 	objsel->shortdesc = CHlist[ctr].shortdesc;      // Short text description
 
@@ -1114,8 +1114,8 @@ objsel->sptr = 0;
 
 // Set up the appearance
 objsel->form = &SQlist[seq];
-objsel->hotx = objsel->form->x;
-objsel->hoty = objsel->form->y;
+objsel->hotx = objsel->form->hotx;
+objsel->hoty = objsel->form->hoty;
 objsel->desc = CHlist[ctr].desc;                // Long text description
 objsel->shortdesc = CHlist[ctr].shortdesc;      // Short text description
 objsel->light = CHlist[ctr].light;
@@ -1182,8 +1182,8 @@ objsel->user->edecor = obj->user->edecor;
 // Set up the appearance
 objsel->curdir = obj->curdir;
 objsel->form = obj->form;
-objsel->hotx = objsel->form->x;
-objsel->hoty = objsel->form->y;
+objsel->hotx = objsel->form->hotx;
+objsel->hoty = objsel->form->hoty;
 objsel->sdir = 1;
 objsel->sptr = 0;
 
@@ -1252,8 +1252,8 @@ objsel->sptr = 0;
 
 // Set up the appearance
 objsel->form = &SQlist[seq];
-objsel->hotx = objsel->form->x;
-objsel->hoty = objsel->form->y;
+objsel->hotx = objsel->form->hotx;
+objsel->hoty = objsel->form->hoty;
 
 objsel->flags |= IS_ON;
 
@@ -1358,8 +1358,8 @@ if(!nochange)
 	if(objsel->sptr >= objsel->form->frames)
 		objsel->sptr = 0;
 
-	objsel->hotx = objsel->form->x;
-	objsel->hoty = objsel->form->y;
+	objsel->hotx = objsel->form->hotx;
+	objsel->hoty = objsel->form->hoty;
 	//objsel->w    = objsel->form->seq[0]->w;
 	//objsel->h    = objsel->form->seq[0]->h;
 	}
@@ -1465,8 +1465,8 @@ if(seq == -1)
 	}
 
 objsel->form = &SQlist[seq];
-objsel->hotx = objsel->form->x;
-objsel->hoty = objsel->form->y;
+objsel->hotx = objsel->form->hotx;
+objsel->hoty = objsel->form->hoty;
 objsel->w    = objsel->form->seq[0]->w;
 objsel->h    = objsel->form->seq[0]->h;
 

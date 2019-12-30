@@ -693,7 +693,7 @@ return(curmap->light[ptr]);
 void Eproject_sprites()
 {
 int x,y;
-int cx,cy,vx,vy,yoff;
+int cx,cy,vx,vy,yoff,xpos,ypos;
 int startx,starty,ctr;
 OBJECT *temp;
 SEQ_POOL *project;
@@ -727,17 +727,21 @@ for(vy=starty;vy<VSH;vy++)
 
 				// Project the sprite
 				project = temp->form;
+				xpos=((cx-x)<<5)+project->xoff;
+				ypos=((cy-y)<<5)+project->yoff;
+
+
 				if(temp->flags & IS_TRANSLUCENT)
 					{
-					project->seq[temp->sptr]->image->DrawAlpha(gamewin,((cx-x)<<5),((cy-y)<<5),project->translucency);
+					project->seq[temp->sptr]->image->DrawAlpha(gamewin,xpos,ypos,project->translucency);
 					}
 				else
 					if(temp->flags&IS_SHADOW && !(temp->flags&IS_INVISIBLE)) // Invisible is 'Hidden'
 						{
-						project->seq[temp->sptr]->image->DrawShadow(gamewin,((cx-x)<<5),((cy-y)<<5),48);
+						project->seq[temp->sptr]->image->DrawShadow(gamewin,xpos,ypos,48);
 						}
 					else
-						project->seq[temp->sptr]->image->Draw(gamewin,((cx-x)<<5),((cy-y)<<5));
+						project->seq[temp->sptr]->image->Draw(gamewin,xpos,ypos);
 
                 // If there is an overlay sprite, find out if it is for now
                 // or for later.  If it's for now, display it, else queue it
@@ -750,7 +754,7 @@ for(vy=starty;vy<VSH;vy++)
 							postoverlay[post_ovl++]=temp;
 						}
 					else
-						project->overlay->image->Draw(gamewin,((cx-x)<<5)+project->ox,((cy-y)<<5)+project->oy);
+						project->overlay->image->Draw(gamewin,xpos+project->ox,ypos+project->oy);
 					}
 
 				// If the object is the selected object, highlight it.
@@ -776,7 +780,7 @@ for(vy=starty;vy<VSH;vy++)
 					{
 					//set_invert_blender(128,128,255,255);
 					//draw_trans_rle_sprite(gamewin,project->seq[temp->sptr]->image,((cx-x)<<5),((cy-y)<<5));
-					project->seq[temp->sptr]->image->DrawInverted(gamewin,((cx-x)<<5),((cy-y)<<5));
+					project->seq[temp->sptr]->image->DrawInverted(gamewin,xpos,ypos);
 					}
 				}
 		}
@@ -786,7 +790,7 @@ for(vy=starty;vy<VSH;vy++)
 for(ctr=0;ctr<post_ovl;ctr++)
 	{
 	temp = postoverlay[ctr];
-	temp->form->overlay->image->Draw(gamewin,(temp->x-x)<<5,(temp->y-y)<<5);
+	temp->form->overlay->image->Draw(gamewin,((temp->x-x)<<5)+temp->form->xoff,((temp->y-y)<<5)+temp->form->yoff);
 	}
 
 }

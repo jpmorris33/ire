@@ -686,74 +686,70 @@ person = oldme;
 void Project_sprite(OBJECT *temp, int cx, int cy, int x, int y)
 {
 SEQ_POOL *project;
+int xpos, ypos;
+
 
 // Now we plot the object with the CLIP method
 // <<5 multiplies by 32, converting the map coordinates into pixels.
 
-if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible)
-	{
+if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible) {
 	// Project the sprite
 	project = temp->form;
-	if(temp->flags & IS_TRANSLUCENT)
-		{
-		project->seq[temp->sptr]->image->DrawAlpha(gamewin,((cx-x)<<5),((cy-y)<<5),project->translucency);
-		}
-	else
-		if(temp->flags & IS_SHADOW && !show_invisible)
-			{
-			project->seq[temp->sptr]->image->DrawShadow(gamewin,((cx-x)<<5),((cy-y)<<5),48);
-			}
-		else
-			{
+
+	xpos = ((cx-x)<<5) + project->xoff;
+	ypos = ((cy-y)<<5) + project->yoff;
+
+	if(temp->flags & IS_TRANSLUCENT) {
+		project->seq[temp->sptr]->image->DrawAlpha(gamewin,xpos,ypos,project->translucency);
+	} else {
+		if(temp->flags & IS_SHADOW && !show_invisible) {
+			project->seq[temp->sptr]->image->DrawShadow(gamewin,xpos,ypos,48);
+		} else {
 	#ifdef SHOW_GHOSTLY
-			project->seq[temp->sptr]->image->DrawAlpha(gamewin,((cx-x)<<5),((cy-y)<<5),64);
+			project->seq[temp->sptr]->image->DrawAlpha(gamewin,xpos,ypos,64);
 	#else
-			project->seq[temp->sptr]->image->Draw(gamewin,((cx-x)<<5),((cy-y)<<5));
+			project->seq[temp->sptr]->image->Draw(gamewin,xpos,ypos);
 	#endif
-			}
+		}
+	}
 
 	// If there is an overlay sprite, find out if it is for now
 	// or for later.  If it's for now, display it, else queue it
 
-	if(temp->form->overlay)
-		{
-		if(temp->form->flags&SEQFLAG_POSTOVERLAY)
-			{
-			if(post_ovl<MAX_P_OVERLAY)
-				{
-				postoverlay[post_ovl].x=(cx-x)<<5;
-				postoverlay[post_ovl].y=(cy-y)<<5;
+	if(temp->form->overlay) {
+		if(temp->form->flags&SEQFLAG_POSTOVERLAY) {
+			if(post_ovl<MAX_P_OVERLAY) {
+				postoverlay[post_ovl].x=xpos; //(cx-x)<<5;
+				postoverlay[post_ovl].y=ypos; //(cy-y)<<5;
 				postoverlay[post_ovl++].s=temp->form->overlay->image;
-				}
 			}
-		else
-			project->overlay->image->Draw(gamewin,((cx-x)<<5)+project->ox,((cy-y)<<5)+project->oy);
+		} else {
+			project->overlay->image->Draw(gamewin,xpos+project->ox,ypos+project->oy);
+//			project->overlay->image->Draw(gamewin,((cx-x)<<5)+project->ox,((cy-y)<<5)+project->oy);
 		}
 	}
-//else	// Rooftop objects are invisible
-	{
-	if(temp->form->flags&SEQFLAG_CHIMNEY) // It's a rooftop object
-		if(roofspr<MAX_P_OVERLAY)
+
+	if(temp->form->flags&SEQFLAG_CHIMNEY) { // It's a rooftop object
+		if(roofspr<MAX_P_OVERLAY) {
 			roofsprites[roofspr++]=temp;
+		}
 	}
+}
 
 // Special effects don't matter if you're visible or not
-if(temp->user)
-	{
-	if(temp->user->fx_func != 0)
-		{
-		if(temp->user->fx_func > 0)
-			{
+if(temp->user) {
+	if(temp->user->fx_func != 0) {
+		if(temp->user->fx_func > 0) {
 			person=current_object=temp;
 			CallVMnum(temp->user->fx_func);
-			}
-		else
-			{
-			if(postfx<MAX_P_OVERLAY)
+		} else {
+			if(postfx<MAX_P_OVERLAY) {
 				postfx_buf[postfx++]=temp;
 			}
 		}
 	}
+}
+
 }
 
 

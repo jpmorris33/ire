@@ -175,42 +175,39 @@ else
 form = &SQlist[CHlist[curchr].dir[Direction]];
 
 fbox2(0,0,256,256,ITG_BLUE,gamewin);
-if(Polarity == 0)
-	{
+
+form->seq[0]->image->Draw(gamewin,form->xoff,form->yoff);
+if(form->overlay) {
+	form->overlay->image->Draw(gamewin,form->xoff+form->ox,form->yoff+form->oy);
+}
+
+if(Polarity == 0) {
 	// Horizontal
-	form->seq[0]->image->Draw(gamewin,0,0);
-	if(form->overlay)
-		form->overlay->image->Draw(gamewin,0,0);
-    ClipBox(CHlist[curchr].hblock[BLK_X]*32,CHlist[curchr].hblock[BLK_Y]*32,(CHlist[curchr].hblock[BLK_W]*32),(CHlist[curchr].hblock[BLK_H]*32),ITG_WHITE,gamewin);
-    ClipBox((CHlist[curchr].harea[BLK_X]*32)+1,CHlist[curchr].harea[BLK_Y]*32+1,(CHlist[curchr].harea[BLK_W]*32)-1,(CHlist[curchr].harea[BLK_H]*32)-1,ITG_RED,gamewin);
+	ClipBox(CHlist[curchr].hblock[BLK_X]*32,CHlist[curchr].hblock[BLK_Y]*32,(CHlist[curchr].hblock[BLK_W]*32),(CHlist[curchr].hblock[BLK_H]*32),ITG_WHITE,gamewin);
+	ClipBox((CHlist[curchr].harea[BLK_X]*32)+1,CHlist[curchr].harea[BLK_Y]*32+1,(CHlist[curchr].harea[BLK_W]*32)-1,(CHlist[curchr].harea[BLK_H]*32)-1,ITG_RED,gamewin);
 
-    sprintf(sol_x_str,"%-3d",CHlist[curchr].hblock[BLK_X]);
-    sprintf(sol_y_str,"%-3d",CHlist[curchr].hblock[BLK_Y]);
-    sprintf(sol_w_str,"%-3d",CHlist[curchr].hblock[BLK_W]);
-    sprintf(sol_h_str,"%-3d",CHlist[curchr].hblock[BLK_H]);
-    sprintf(act_x_str,"%-3d",CHlist[curchr].harea[BLK_X]);
-    sprintf(act_y_str,"%-3d",CHlist[curchr].harea[BLK_Y]);
-    sprintf(act_w_str,"%-3d",CHlist[curchr].harea[BLK_W]);
-    sprintf(act_h_str,"%-3d",CHlist[curchr].harea[BLK_H]);
-    }
-else
-    {
+	sprintf(sol_x_str,"%-3d",CHlist[curchr].hblock[BLK_X]);
+	sprintf(sol_y_str,"%-3d",CHlist[curchr].hblock[BLK_Y]);
+	sprintf(sol_w_str,"%-3d",CHlist[curchr].hblock[BLK_W]);
+	sprintf(sol_h_str,"%-3d",CHlist[curchr].hblock[BLK_H]);
+	sprintf(act_x_str,"%-3d",CHlist[curchr].harea[BLK_X]);
+	sprintf(act_y_str,"%-3d",CHlist[curchr].harea[BLK_Y]);
+	sprintf(act_w_str,"%-3d",CHlist[curchr].harea[BLK_W]);
+	sprintf(act_h_str,"%-3d",CHlist[curchr].harea[BLK_H]);
+} else {
     // Vertical
-    form->seq[0]->image->Draw(gamewin,0,0);
-	if(form->overlay)
-		form->overlay->image->Draw(gamewin,0,0);
-    ClipBox(CHlist[curchr].vblock[BLK_X]*32,CHlist[curchr].vblock[BLK_Y]*32,(CHlist[curchr].vblock[BLK_W]*32),(CHlist[curchr].vblock[BLK_H]*32),ITG_WHITE,gamewin);
-    ClipBox((CHlist[curchr].varea[BLK_X]*32)+1,(CHlist[curchr].varea[BLK_Y]*32)+1,(CHlist[curchr].varea[BLK_W]*32)-1,(CHlist[curchr].varea[BLK_H]*32)-1,ITG_RED,gamewin);
+	ClipBox(CHlist[curchr].vblock[BLK_X]*32,CHlist[curchr].vblock[BLK_Y]*32,(CHlist[curchr].vblock[BLK_W]*32),(CHlist[curchr].vblock[BLK_H]*32),ITG_WHITE,gamewin);
+	ClipBox((CHlist[curchr].varea[BLK_X]*32)+1,(CHlist[curchr].varea[BLK_Y]*32)+1,(CHlist[curchr].varea[BLK_W]*32)-1,(CHlist[curchr].varea[BLK_H]*32)-1,ITG_RED,gamewin);
 
-    sprintf(sol_x_str,"%-3d",CHlist[curchr].vblock[BLK_X]);
-    sprintf(sol_y_str,"%-3d",CHlist[curchr].vblock[BLK_Y]);
-    sprintf(sol_w_str,"%-3d",CHlist[curchr].vblock[BLK_W]);
-    sprintf(sol_h_str,"%-3d",CHlist[curchr].vblock[BLK_H]);
-    sprintf(act_x_str,"%-3d",CHlist[curchr].varea[BLK_X]);
-    sprintf(act_y_str,"%-3d",CHlist[curchr].varea[BLK_Y]);
-    sprintf(act_w_str,"%-3d",CHlist[curchr].varea[BLK_W]);
-    sprintf(act_h_str,"%-3d",CHlist[curchr].varea[BLK_H]);
-    }
+	sprintf(sol_x_str,"%-3d",CHlist[curchr].vblock[BLK_X]);
+	sprintf(sol_y_str,"%-3d",CHlist[curchr].vblock[BLK_Y]);
+	sprintf(sol_w_str,"%-3d",CHlist[curchr].vblock[BLK_W]);
+	sprintf(sol_h_str,"%-3d",CHlist[curchr].vblock[BLK_H]);
+	sprintf(act_x_str,"%-3d",CHlist[curchr].varea[BLK_X]);
+	sprintf(act_y_str,"%-3d",CHlist[curchr].varea[BLK_Y]);
+	sprintf(act_w_str,"%-3d",CHlist[curchr].varea[BLK_W]);
+	sprintf(act_h_str,"%-3d",CHlist[curchr].varea[BLK_H]);
+}
 
 IG_UpdateText(sol_x_Id,sol_x_str);
 IG_UpdateText(sol_y_Id,sol_y_str);

@@ -605,8 +605,10 @@ for(ctr=start;ctr<=finish;ctr++)
                     SQlist[pos].frames=0;
 		    SQlist[pos].speed=0;
 		    SQlist[pos].flags=0;
-		    SQlist[pos].x=0;
-		    SQlist[pos].y=0;
+		    SQlist[pos].hotx=0;
+		    SQlist[pos].hoty=0;
+		    SQlist[pos].xoff=0;
+		    SQlist[pos].yoff=0;
 		    SQlist[pos].ox=0;
 		    SQlist[pos].oy=0;
 		    SQlist[pos].translucency=128;
@@ -740,10 +742,12 @@ for(ctr=start;ctr<=finish;ctr++)
 
 					SQlist[pos].speed=0;
 					SQlist[pos].flags=0;
-					SQlist[pos].x=0;
-					SQlist[pos].y=0;
+					SQlist[pos].xoff=0;
+					SQlist[pos].yoff=0;
 					SQlist[pos].ox=0;
 					SQlist[pos].oy=0;
+					SQlist[pos].hotx=0;
+					SQlist[pos].hoty=0;
 					SQlist[pos].translucency=128;
 					pos++;
 					Plot(0);
@@ -793,10 +797,12 @@ for(ctr=start;ctr<=finish;ctr++)
 
 					SQlist[pos].speed=0;
 					SQlist[pos].flags=SEQFLAG_POSTOVERLAY;
-					SQlist[pos].x=0;
-					SQlist[pos].y=0;
+					SQlist[pos].xoff=0;
+					SQlist[pos].yoff=0;
 					SQlist[pos].ox=0;
 					SQlist[pos].oy=0;
+					SQlist[pos].hotx=0;
+					SQlist[pos].hoty=0;
 					SQlist[pos].translucency=128;
 
 					pos++;
@@ -850,45 +856,75 @@ for(ctr=start;ctr<=finish;ctr++)
                 if(!istricmp(Rptr,"wall"))     // Wall
                     SQlist[pos].flags|=SEQFLAG_WALL;
 
-        // The 'X' clause.
+	// Backwards incompatibility
 
-                if(!istricmp(Rptr,"x"))       // X offset
-                    {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
-                    SQlist[pos].x=strgetnumber(Rbuffer);
-                    if(!(strisnumber(Rbuffer)))
+		if(!istricmp(Rptr,"x")) {       // X offset
+			Dump(ctr,"The 'X' clause is deprecated.  Use 'xoff' for pixel offsets, and 'hotx' for attack hotspots.",NULL);
+		}
+
+		if(!istricmp(Rptr,"y")) {       // X offset
+			Dump(ctr,"The 'Y' clause is deprecated.  Use 'yoff' for pixel offsets, and 'hoty' for attack hotspots.",NULL);
+		}
+
+        // The 'xoff' clause.
+
+		if(!istricmp(Rptr,"xoff")) {       // X offset
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].xoff=strgetnumber(Rbuffer);
+			if(!(strisnumber(Rbuffer))) {
 			Dump(ctr,"The X offset should be a number.",NULL);
-                    }
+			}
+		}
 
-        // The 'Y' clause.
+        // The 'yoff' clause.
 
-                if(!istricmp(Rptr,"y"))       // Y offset
-                    {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
-                    SQlist[pos].y=strgetnumber(Rbuffer);
-                    if(!(strisnumber(Rbuffer)))
-			Dump(ctr,"The Y offset should be a number.",NULL);
-                    }
+		if(!istricmp(Rptr,"yoff")) {       // Y offset
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].yoff=strgetnumber(Rbuffer);
+			if(!(strisnumber(Rbuffer))) {
+				Dump(ctr,"The Y offset should be a number.",NULL);
+			}
+		}
+
+        // The 'hotx' clause.
+
+		if(!istricmp(Rptr,"hotx")) {       // hotspot X offset
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].hotx=strgetnumber(Rbuffer);
+			if(!(strisnumber(Rbuffer))) {
+				Dump(ctr,"The hotspot X offset should be a number.",NULL);
+			}
+		}
+
+        // The 'yoff' clause.
+
+		if(!istricmp(Rptr,"hoty")) {       // Y offset
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].hoty=strgetnumber(Rbuffer);
+			if(!(strisnumber(Rbuffer))) {
+				Dump(ctr,"The hotspot Y offset should be a number.",NULL);
+			}
+		}
 
         // The 'OX' clause.
 
-                if(!istricmp(Rptr,"ox"))       // Overlay X offset
-                    {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
-                    SQlist[pos].ox=strgetnumber(Rbuffer);
-                    if(!(strisnumber(Rbuffer)))
-			Dump(ctr,"The X offset should be a number.",NULL);
-                    }
+		if(!istricmp(Rptr,"ox")) {       // Overlay X offset
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].ox=strgetnumber(Rbuffer);
+			if(!(strisnumber(Rbuffer))) {
+				Dump(ctr,"The X offset should be a number.",NULL);
+			}
+		}
 
         // The 'OY' clause.
 
-                if(!istricmp(Rptr,"oy"))       // Overlay Y offset
-                    {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
-                    SQlist[pos].oy=strgetnumber(Rbuffer);
-                    if(!(strisnumber(Rbuffer)))
-			Dump(ctr,"The Y offset should be a number.",NULL);
-                    }
+		if(!istricmp(Rptr,"oy")) {       // Overlay Y offset
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].oy=strgetnumber(Rbuffer);
+			if(!(strisnumber(Rbuffer))) {
+				Dump(ctr,"The Y offset should be a number.",NULL);
+			}
+		}
 
         // The 'SPEED' clause.
 
