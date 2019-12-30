@@ -192,6 +192,7 @@ static void PV_PrintXYs();
 static void PV_PrintXYcr();
 static void PV_GotoXY();
 static void PV_TextColour();
+static void PV_TextColourDefault();
 static void PV_GetTextColour();
 static void PV_TextFont();
 static void PV_GetTextFont();
@@ -1238,6 +1239,7 @@ VMOP(PrintXYi);
 VMOP(PrintXYx);
 VMOP(PrintXYcr);
 VMOP(TextColour);
+VMOP(TextColourDefault);
 VMOP(GetTextColour);
 VMOP(TextFont);
 VMOP(GetTextFont);
@@ -3222,6 +3224,11 @@ b = GET_INT();
 CHECK_POINTER(b);
 
 irecon_colour(*r,*g,*b);
+}
+
+void PV_TextColourDefault()
+{
+irecon_colour(dtext_r, dtext_g, dtext_b);
 }
 
 void PV_GetTextColour()

@@ -73,6 +73,7 @@ enum {
 	PEVM_PrintXYx,
 	PEVM_PrintXYcr,
 	PEVM_TextColour,
+	PEVM_TextColourDefault,
 	PEVM_TextFont,
 	PEVM_GetTextColour,
 	PEVM_GetTextFont,
