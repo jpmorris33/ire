@@ -363,6 +363,8 @@ if(!istricmp(PElist[pos].name,"sys_erase"))
 	Sysfunc_erase = pos;
 if(!istricmp(PElist[pos].name,"sys_splash"))
 	Sysfunc_splash = pos;
+if(!istricmp(PElist[pos].name,"sys_follower"))
+	Sysfunc_follower = pos;
 if(!istricmp(PElist[pos].name,"sys_scheduler"))
 	Sysfunc_scheduler = pos;
 if(!istricmp(PElist[pos].name,"sys_update_life"))
