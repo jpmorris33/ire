@@ -1756,6 +1756,10 @@ section: sprites
 	fence_tr		sprites/tech/fence_tr.cel
 	fence_bl		sprites/tech/fence_bl.cel
 	fence_br		sprites/tech/fence_br.cel
+	fence_el		sprites/tech/fence_el.cel
+	fence_er		sprites/tech/fence_er.cel
+	fence_et		sprites/tech/fence_et.cel
+	fence_eb		sprites/tech/fence_eb.cel
 	fence_gate_l00		sprites/tech/fgate_00.cel
 	fence_gate_l01		sprites/tech/fgate_01.cel
 	fence_gate_l02		sprites/tech/fgate_02.cel
@@ -8120,6 +8124,10 @@ section: sequences
 	quickname FENCE_TR FENCE_TR
 	quickname FENCE_BL FENCE_BL
 	quickname FENCE_BR FENCE_BR
+	quickname FENCE_EL FENCE_EL
+	quickname FENCE_ER FENCE_ER
+	quickname FENCE_ET FENCE_ET
+	quickname FENCE_EB FENCE_EB
 	quickname FENCE_LIGHT FENCE_LIGHT
 	quickname FENCE_LIGHT2 FENCE_LIGHT2
 	

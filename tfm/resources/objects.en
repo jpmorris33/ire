@@ -7965,6 +7965,19 @@ section: characters
 	fixed
 	IfKilled	RESPAWN
 
+	name FENCE_END
+	left		FENCE_EL
+	right		FENCE_ER
+	up		FENCE_ET
+	down		FENCE_EB
+	hp		20000000
+	weight		-1
+	description	"You see a wire fence."
+	short		"fence"
+	solid
+	fixed
+	IfKilled	RESPAWN
+
 	name SECURITY_LIGHT
 	left		SECURITY_LIGHT_H
 	right		SECURITY_LIGHT_H
