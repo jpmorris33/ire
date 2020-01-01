@@ -169,6 +169,7 @@ if key = KEY_UP
 		let x = x + 1
 	endif
 	let y = y - 1
+	centre around player
 	set_direction player to UP
 	move_object player to x y
 	let key = 0
@@ -182,6 +183,7 @@ if key = KEY_DOWN
 		let x = x + 1
 	endif
 	let y = y + 1
+	centre around player
 	set_direction player to DOWN
 	move_object player to x y
 	let key = 0
@@ -195,6 +197,7 @@ if key = KEY_LEFT
 		let y = y + 1
 	endif
 	let x = x - 1
+	centre around player
 	set_direction player to LEFT
 	move_object player to x y
 	let key = 0
@@ -208,6 +211,7 @@ if key = KEY_RIGHT
 		let y = y + 1
 	endif
 	let x = x + 1
+	centre around player
 	set_direction player to RIGHT
 	move_object player to x y
 	let key = 0
@@ -218,6 +222,7 @@ endif
 if key = KEY_HOME
 	let x = x - 1
 	let y = y - 1
+	centre around player
 	set_direction player to LEFT
 	move_object player to x y
 	let key = 0
@@ -226,6 +231,7 @@ endif
 if key = KEY_END
 	let x = x - 1
 	let y = y + 1
+	centre around player
 	set_direction player to LEFT
 	move_object player to x y
 	let key = 0
@@ -234,6 +240,7 @@ endif
 if key = KEY_PGUP
 	let x = x + 1
 	let y = y - 1
+	centre around player
 	set_direction player to RIGHT
 	move_object player to x y
 	let key = 0
@@ -242,6 +249,7 @@ endif
 if key = KEY_PGDN
 	let x = x + 1
 	let y = y + 1
+	centre around player
 	set_direction player to RIGHT
 	move_object player to x y
 	let key = 0

@@ -117,6 +117,7 @@ if victim.stats.hp < -1000000
 	return
 endif
 
+centre around victim
 get_bridge bridge at victim.x victim.y
 if_exists bridge
 	if_flag bridge IS_FIXED
