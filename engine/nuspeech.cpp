@@ -1720,6 +1720,42 @@ if(!istricmp(line2,"if_race") || !istricmp(line2,"if_race=")) {
     return 33;
 }
 
+if(!istricmp(line2,"ifcensored") || !istricmp(line2,"if_censored")) {
+	if(enable_censorware) {
+		pos=strchr(line,']');
+		if(!pos) {
+			Bug("Missing ] in %s:%d\n",curfile,curline);
+			return 34;
+		}
+		pos++;
+
+		if(pos[0]=='[') {
+			return(NPC_ParseCode(pos,reader));
+		} else {
+			irecon_printxy(0,y+=fh,pos);
+		}
+	}
+	return 34;
+}
+
+if(!istricmp(line2,"ifnotcensored") || !istricmp(line2,"if_not_censored")) {
+	if(!enable_censorware) {
+		pos=strchr(line,']');
+		if(!pos) {
+			Bug("Missing ] in %s:%d\n",curfile,curline);
+			return 35;
+		}
+		pos++;
+
+		if(pos[0]=='[') {
+			return(NPC_ParseCode(pos,reader));
+		} else {
+			irecon_printxy(0,y+=fh,pos);
+		}
+	}
+	return 35;
+}
+
 
 ilog_quiet("Parse error in file '%s':\n>>%s\n",curfile,line);
 return 0;
