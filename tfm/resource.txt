@@ -9473,6 +9473,9 @@ section: sequences
 	quickname GUILLOTINE_S_VICTIM1 GUILLOTINE_S_VICTIM1
 	quickname GUILLOTINE_S_VICTIM2 GUILLOTINE_S_VICTIM2
 
+	quickname GUILLOTINE_VICTIM_PLAYER GUILLOTINE_S_VICTIM1
+
+
 	name GUILLOTINE_W_UP
 	post_overlay
 	overlay GUILLOTINE_W_UP_OVL
@@ -13379,11 +13382,12 @@ section: sounds
 	duh			sound/duh.wav
 	spellbook		sound/sticker.wav
 	money			sound/money.wav
+	money_stretched		sound/money-stretched.wav
 	gameover		sound/gameover.wav
 	microwave		sound/mwave.wav
 	microwave_brk		sound/mwave2.wav
 	metal_breaking		sound/metalbrk.wav
-	cow_thecow_moo			sound/cow1-22.wav
+	cow_thecow_moo		sound/cow1-22.wav
 	cow_thecow_pain		sound/cow2-22.wav
 	cow_thecow_dies		sound/cow3-22.wav
 	crisps			sound/crisps.wav

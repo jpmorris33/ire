@@ -1460,6 +1460,10 @@ function money_sound
 play_sound "money"
 end
 
+function money_sound2
+play_sound "money_stretched"
+end
+
 
 function fx_overdrawsprite
 fx_getxy fx_srcx fx_srcy = current
