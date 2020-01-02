@@ -106,8 +106,64 @@ let victim = player
 call hang_victim
 end
 
+
 function guillotine_player
-print "GUILLOTINE_PLAYER NOT YET SUPPORTED, HANGING INSTEAD|"
-call hang_player
+
+object guillotine
+object oldvictim
+object guard
+integer x
+integer y
+
+if victim = player
+
+	find_tag guillotine = "guillotine" 10000
+	if_not_exists guillotine
+		find_tag guillotine = "guillotine_bloody" 10000
+		if_not_exists guillotine
+			print "Error: no guillotine for the player!  Using silly workaround|"
+			let current = player
+			call behead_current
+			return
+		endif
+	endif
+
+	fade_out
+
+	# Clean up if anyone still there (cathedral)
+	find_tag oldvictim = "guillotine_victim*" 10000
+	if_exists oldvictim
+		destroy oldvictim
+	endif
+
+	# In case it's bloodied
+	replace guillotine = "guillotine"
+	set_direction guillotine facing NORTH
+
+	# move player to guillotine
+	let x = guillotine.x + 2
+	let y = guillotine.y + 1
+
+	transfer_object player to x y
+	# TODO: support other player types
+	set_sequence player = "guillotine_victim_player"
+	if victim = player
+		set_leader victim nothing follower_action
+	endif
+	
+	# Create a guard and have them pull the lever
+	let y = y + 6
+	create guard = "guard"
+	transfer_object guard to x y
+	queue_action guard does seek_target_use_resume to guillotine
+	queue_action guard does guard_despawn
+	run_queue guard
+	set_flag guard IS_SPAWNED = 1	# Guard must evapourate afterwards
+
+	fade_in
+
+	# Go.. player is helpless and awaiting execution
+endif
+
 end
 

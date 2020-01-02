@@ -472,6 +472,24 @@ function decap_attack_corpse
 end
 
 ##
+##  Execute someone, no questions asked
+##
+
+function behead_current
+
+let attacker = current
+let attacker.enemy = current
+
+# Off with their heads!
+let enemyname = tempstring
+let attacker.stats.hp = -50
+check_hurt attacker
+let hit_damage = 1
+call decap_attack_corpse
+
+end
+
+##
 ##  tranquiliser rifle
 ##
 

@@ -5311,7 +5311,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
-	ifUsed		fliplever
+	ifUsed		use_guillotine
 	setsolid	V 2 0 1 2
 	setsolid	H 2 0 1 2
 
@@ -5327,7 +5327,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
-	ifUsed		fliplever
+	ifUsed		use_guillotine
 	setsolid	V 2 0 1 2
 	setsolid	H 2 0 1 2
 

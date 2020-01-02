@@ -734,3 +734,66 @@ else
 endif
 
 end
+
+
+
+
+##
+##  Guillotine
+##
+
+function use_guillotine
+
+int x
+int y
+object guillotine_victim
+string victimtype
+
+let x = current.x + 2
+let y = current.y + 1
+get_object guillotine_victim at x y
+
+
+# Prevent the guillotine guillotining itself
+if guillotine_victim = current
+	let guillotine_victim = null
+endif
+
+# Are we actually killing someone?
+
+if_exists guillotine_victim
+	if current.curdir <> DOWN
+		change current = "guillotine_bloody"
+		force_direction current faces DOWN
+
+		# TODO: support other shapes
+		let victimtype = "GUILLOTINE_VICTIM_BLOODY"
+
+		if guillotine_victim.stats.hp > 0
+			replace guillotine_victim = victimtype
+			let guillotine_victim.stats.hp = -50
+			if_flag guillotine_victim KNOW_NAME
+				print guillotine_victim.personalname
+			else
+				print guillotine_victim.shortdesc
+			endif
+			print " is decapitated!"
+			printcr
+		else
+			replace guillotine_victim = victimtype
+		endif
+		return
+	endif
+endif
+
+# Just dicking around with it
+
+if current.curdir = DOWN
+	set_direction current faces UP
+	object_sound "click" current
+else
+	set_direction current faces DOWN
+	object_sound "click" current
+endif
+end
+
