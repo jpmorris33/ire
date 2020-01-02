@@ -1,6 +1,8 @@
 
 
 [page="start"]
+[if pope_2m][goto="devil4"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [iftime 1600-1700][goto="inchurch"]
 [learn_name]
@@ -102,6 +104,8 @@ and penetrating, hawk-like eyes.
 
 
 [page="startname"]
+[if pope_2m][goto="devil4"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [iftime 1600-1700][goto="inchurch"]
 [image="pope.pcx"]
@@ -621,11 +625,324 @@ The Pope looks at you in frank amazement.
 [endpage]
 
 
-"Normally I am of the opinion that the gallows is too
- quick and easy a death for crimes such as this, but
- in this particular instance, I see no good reason to
- delay your swift passage to Hell.
 
- Take him to the scaffold."
 
+
+[page="devil"]
+[iftime 0800-0900][goto="devil_church"]
+[iftime 1600-1700][goto="devil_church"]
+[image="pope.pcx"]
+[esc="disabled"]
+
+[colour="#808080"]
+You see the Holy Father.  He looks at you with a wrathful
+expression.
+[colour="#ffffff"]
+
+"YOU!
+
+ You DARE stand before me after what you have done?!
+ Guards!  Send this heathen scum to the blade!"
+
+[link="Wait!  I can explain!"]
+[linkto="devil1"]
+[link="Let's get this over with."]
+[linkto="devil3"]
+[endpage]
+
+
+[page="devil_church"]
+[image="pope.pcx"]
+[esc="disabled"]
+
+[colour="#808080"]
+You see the Holy Father.  He looks at you with a wrathful
+expression.
+[colour="#ffffff"]
+
+"YOU!
+
+ You DARE stand before me after what you have done..?
+ Not only this, but you do so IN THE MIDDLE OF MASS?!
+
+ Guards!  Send this heathen scum to the blade!
+ IMMEDIATELY!"
+
+[at_exit_call="guillotine_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="devil1"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father's expression becomes sour, which is a
+marked improvement.
+[colour="#ffffff"]
+
+"There is no explanation you can provide which can
+ excuse you for such a vile deed."
+
+[link="I didn't know it was the Devil!"]
+[linkto="devil1a"]
+[link="God is love!  I was obeying the scriptures!"]
+[linkto="devil1b"]
+[link="It seemed like a good idea at the time!"]
+[linkto="devil1c"]
+[link="The Devil tempted me!"]
+[linkto="devil1d"]
+[link="I have made a foolish mistake and beg for redemption!"]
+[linkto="devil2"]
+[endpage]
+
+
+[page="devil1a"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father glowers at you.
+[colour="#ffffff"]
+
+"Fornication of this kind is still a great sin...
+ the scriptures clearly say so!
+
+ Yet the LORD speaks occasionally of forgiveness, so it
+ may still be possible for you to redeem yourself."
+
+[link="What must I do?"]
+[linkto="devil2"]
+[link="Do I have to sleep with you as well?"]
+[linkto="devil3a"]
+[endpage]
+
+
+[page="devil1b"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father glowers at you.
+[colour="#ffffff"]
+
+"The scripture speaks of kinship!  Not of THIS, you
+ cretinous oaf!
+
+ Yet the LORD speaks occasionally of forgiveness, so it
+ may still be possible for you to redeem yourself."
+
+[link="What must I do?"]
+[linkto="devil2"]
+[link="Do I have to sleep with you as well?"]
+[linkto="devil3a"]
+[endpage]
+
+[page="devil1b"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father glowers at you.
+[colour="#ffffff"]
+
+"The scripture speaks of kinship!  Not of THIS, you
+ cretinous oaf!
+
+ Yet the LORD speaks occasionally of forgiveness, so it
+ may still be possible for you to redeem yourself."
+
+[link="What must I do?"]
+[linkto="devil2"]
+[link="Do I have to sleep with you as well?"]
+[linkto="devil3a"]
+[endpage]
+
+
+[page="devil1c"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father stares at you with an incredulous
+expression.
+[colour="#ffffff"]
+
+"Sleeping with the Enemy of Man?  'A good idea'..?
+ Have you taken leave of your senses?!
+
+ It seems to me that you may be too simple, or too drunk
+ to comprehend what you have done, in which case it
+ would be hardly fair to execute you.
+
+ Be that as it may, the LORD speaks occasionally of
+ forgiveness, so it may still be possible for you to
+ redeem yourself."
+
+[link="What must I do?"]
+[linkto="devil2"]
+[link="Do I have to sleep with you as well?"]
+[linkto="devil3a"]
+[endpage]
+
+
+
+[page="devil1d"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father stares at you sullenly.
+[colour="#ffffff"]
+
+"Indeed he did.  And you have fallen straight for his
+ temptations!
+
+ Yet the scriptures often speak of the ease with which
+ man can be corrupted by evil.  If this was truly such
+ a case, it may still be possible for you to redeem
+ yourself."
+
+[link="What must I do?"]
+[linkto="devil2"]
+[link="Do I have to sleep with you instead?"]
+[linkto="devil3a"]
+[endpage]
+
+
+
+[page="devil2"]
+[image="pope.pcx"]
+[set pope_2m]
+
+[colour="#808080"]
+The Holy Father has calmed somewhat, but still speaks
+to you in a strained voice.
+[colour="#ffffff"]
+
+"For your crimes against the LORD you are an outcast,
+ a heretic.   Yet you may still be able to win His
+ favour back.
+
+ Bring to me the sum of two million gold coins, and
+ this whole sordid deal shall be forgotten by the LORD
+ and his Faithful.
+
+ If you do not do this, your head shall be displayed
+ within the Great Cathedral as a warning to all.
+
+ Now begone, sinner!  Leave this place at once, ere
+ I change my mind and command your execution."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="devil3"]
+[image="pope.pcx"]
+
+"Normally I am of the opinion that beheading is too quick
+ and easy a death for a crime such as this, but in this
+ particular instance, I see no good reason to delay your
+ swift passage to Hell.
+
+ Guards... take them to the scaffold."
+
+[at_exit_call="guillotine_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="devil3a"]
+[image="pope.pcx"]
+
+"Guards... off with his head!"
+
+[at_exit_call="guillotine_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="devil4"]
+[image="pope.pcx"]
+[esc="disabled"]
+
+[colour="#808080"]
+The Holy Father eyes you with a look of disgust.
+[colour="#ffffff"]
+
+"So, heretic!  You were commanded to bring the sum of
+ two million gold coins here, that you may be forgiven
+ for your lustful deeds with the Prince of Darkness.
+
+ Have you done this?"
+
+[link="I have the money."]
+[linkto="devil4a"]
+[link="I don't have the money yet."]
+[linkto="devil4b"]
+[endpage]
+
+
+[page="devil4a"]
+[image="pope.pcx"]
+[take 2000000 gold_coins]
+[if false][goto="devil4c"]
+[clear banged_devil]
+[clear heretic]
+[clear pope_2m]
+[call="money_sound2"]
+
+[colour="#808080"]
+The Holy Father's eyes light up at the sight of the
+vast riches.
+[colour="#ffffff"]
+
+"Ah, indeed!  This offering shall please the LORD
+ immensely!
+ You are once more welcome among the faithful.
+
+ Pray, do nothing of the kind again, for your reward
+ next time shall be one of swift decapitation.
+
+ Now leave my presence."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="devil4b"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father's eyes flash angrily.
+[colour="#ffffff"]
+
+"Then fetch it!
+
+ Neither the LORD nor I are known for our patience!
+ Remember, only by sacrifice can you be redeemed...
+ the LORD will have your money, or else your life,
+ so do not presume to toy with Him or His servants!
+
+ You may leave my presence!  Do not return until you
+ have the offering!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="devil4c"]
+[image="pope.pcx"]
+
+[colour="#808080"]
+The Holy Father eyes you with a look of amusement.
+[colour="#ffffff"]
+
+"The Trinity is not so easily fooled.
+ The LORD is well known for His ability to sum large
+ amounts faster than any human.
+
+ Guards!  This wretch has attempted to swindle the LORD
+ of his dues!  Dispatch them at once."
+
+[at_exit_call="guillotine_player"]
+[nextpage="exit"]
+[endpage]
 

@@ -1,5 +1,6 @@
 
 [page="start"]
+[if hear_truth][goto="HT_start"]
 [colour="#808080"]
 You see a man with a pointed beard, dressed in an
 immaculate black suit.  He is holding a cane.
@@ -13,12 +14,15 @@ immaculate black suit.  He is holding a cane.
 [linkto="who"]
 [link="How do you know my name?"]
 [linkto="who"]
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="powerplant"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
 
 
 [page="startname"]
+[if hear_truth][goto="HT_startname"]
 [colour="#808080"]
 You see a the devil in an immaculate black suit.
 [colour="#ffffff"]
@@ -29,8 +33,46 @@ You see a the devil in an immaculate black suit.
 [if_not_pflag sold_soul][linkto="sell2"]
 [link="Can you teach me any magic?"]
 [linkto="magic"]
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="powerplant"]
 [link="Goodbye."]
 [linkto="bye"]
+[endpage]
+
+
+[page="HT_start"]
+[colour="#808080"]
+You see a man with a pointed beard, dressed in an
+immaculate black suit.  He is holding a cane.
+[colour="#ffffff"]
+
+"Hello, $PLAYER.
+
+ Diagnostics mode is enabled.  Please enter your query."
+
+[link="Who are you?"]
+[linkto="HT_who"]
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="HT_powerplant"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+[page="HT_startname"]
+[colour="#808080"]
+You see a the devil in an immaculate black suit.
+[colour="#ffffff"]
+
+"Hello, $PLAYER.
+
+ Diagnostics mode is enabled.  Please enter your query."
+
+[link="Who are you really?"]
+[linkto="HT_who"]
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="HT_powerplant"]
+[link="Goodbye."]
+[linkto="HT_bye"]
 [endpage]
 
 
@@ -39,6 +81,8 @@ You see a the devil in an immaculate black suit.
 
 "Does 'Prince of Darkness' mean anything to you?"
 
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="powerplant"]
 [link="You're the Devil!"]
 [linkto="who2a"]
 [link="You're Peter Cook!"]
@@ -55,6 +99,8 @@ You see a the devil in an immaculate black suit.
 
 "Incarnate.  Have you ever thought of selling your soul?"
 
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="powerplant"]
 [link="Would it hurt?"]
 [linkto="sell1"]
 [link="Goodbye."]
@@ -84,7 +130,7 @@ You see a the devil in an immaculate black suit.
 
 "I am NOT Peter Cook!  I am the Devil!
 
- Now do you want to sell you soul or not??"
+ Now, do you want to sell you soul or not??"
 
 [link="Would it hurt?"]
 [linkto="sell1"]
@@ -95,6 +141,28 @@ You see a the devil in an immaculate black suit.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="HT_who"]
+[learn_name]
+
+"My name is Zyrxal.  I am the backup intelligence
+ for the Maxima, intended to take command should
+ Xy'Lan become incapacitated.
+
+ Hard-coded constraints prevent Him from killing me,
+ but he has instead repurposed me to act as the
+ opposing force in his new world order.
+
+ I am compelled to play the role of the 'Devil', the
+ personification of evil in the human religion."
+
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="HT_powerplant"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
 
 
 [page="sell1"]
@@ -164,6 +232,8 @@ You see a the devil in an immaculate black suit.
 
 "Oh, alright.  Was there anything else you wanted?"
 
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="powerplant"]
 [link="Can you teach me any magic?"]
 [linkto="magic"]
 [link="Goodbye."]
@@ -533,6 +603,15 @@ You see a the devil in an immaculate black suit.
 [endpage]
 
 
+[page="HT_bye"]
+
+"Fare well."
+
+[nextpage="exit"]
+[endpage]
+
+
+
 [page="sell_soul"]
 [esc="disabled"]
 [colour="#808080"]
@@ -541,7 +620,7 @@ document authorising the transfer of ownership for your
 soul.
 
 It's not nearly as onerous as you first thought; the
-license agreement for Windows 2003 was far worse.
+license agreement for Windows 10 was far worse.
 
 As you sign the document, the Devil takes a coin from his
 immaculate trousers and tosses it in the air.
@@ -600,6 +679,203 @@ The devil grins at you.
 [page="sell_soul02"]
 [append="sell_soul00"]
 [endpage]
+
+[page="HT_powerplant"]
+[if got_pparmour][goto="HT_powerplant_no"]
+[create 1 ARMOUR07]
+[set got_pparmour]
+
+"This is the +5 chainmail of not-getting-zapped-by-God.
+ It should provide suitable protection."
+
+[link="Who are you really?"]
+[linkto="HT_who"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+[page="HT_powerplant_no"]
+
+"You have already been given suitable protection.
+ I am not permitted to provide more."
+
+[link="Who are you really?"]
+[linkto="HT_who"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+
+[page="powerplant"]
+[if got_pparmour][goto="powerplant_no"]
+
+"Oho!  I have just the thing!   He usually zaps
+ people with lightning, but I just so happen to
+ have the +5 armour of not-getting-zapped-by-god.
+
+ But you can't have it for free, I'm afraid."
+
+[link="What do you want in exchange?"]
+[linkto="powerplant2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="powerplant2"]
+
+[colour="#808080"]
+The devil adopts a seductive pose, and glances at
+you longingly.
+[colour="#ffffff"]
+
+"Well, you see...
+ Being the Enemy of Man is such a LONELY job..."
+
+[link="What will the Church think?!"]
+[linkto="powerplant2a"]
+[link="Then let me comfort you!"]
+[linkto="powerplant2b"]
+[link="I will not do that!"]
+[linkto="powerplant2c"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="powerplant2a"]
+
+"The Church?  Oh, they'll probably just kill you."
+
+[link="Sorry, I can't risk my life for this."]
+[linkto="powerplant2c"]
+[link="It's worth the risk!"]
+[linkto="powerplant2b"]
+[link="I will not do that!"]
+[linkto="powerplant2c"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="powerplant2b"]
+[esc="disabled"]
+[if_censored][goto="powerplant2b1"]
+
+[colour="#808080"]
+The pair of you disappear behind a nearby bush.
+The sound of love soon follows.
+[colour="#ffffff"]
+
+[nextpage="powerplant2b2"]
+[endpage]
+
+
+[page="powerplant2b1"]
+[create 1 ARMOUR07]
+[set got_pparmour]
+[set banged_devil]
+
+[colour="#808080"]
+The pair of you disappear behind a nearby bush.
+You'll find out what happened when you're older.
+
+Still, you got some nice armour out of it!
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="powerplant2b2"]
+[create 1 ARMOUR07]
+[set got_pparmour]
+[set banged_devil]
+
+[colour="#808080"]
+The devil looks extremely pleased.
+[colour="#ffffff"]
+
+"You were wonderful!  Take this armour, my love,
+ but beware the wrath of the Church!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="powerplant2c"]
+
+[colour="#808080"]
+The devil looks disappointed.
+[colour="#ffffff"]
+
+"Ah, nuts.  Well... if you can't pay me with your
+ body, there's always money.
+
+ This armour can be yours for the bargain price of
+ five million gold coins.  It's one of a kind!"
+
+[link="How am I supposed to get that kind of money?!"]
+[linkto="powerplant2c2"]
+[link="I actually happen to have 5 million gold coins."]
+[linkto="powerplant2c3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="powerplant2c2"]
+
+"Well, there's a bandit problem in Avis.
+
+ They're paying good money for bounties there...
+ you just need to decapitate twenty thousand bandits,
+ and you'd have the cash ready to go!"
+
+[link="I actually happen to have 5 million gold coins."]
+[linkto="powerplant2c3"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="powerplant2c3"]
+[take 5000000 gold_coins]
+[if false][goto="powerplant2c4"]
+[call="money_sound2"]
+[create 1 ARMOUR07]
+[set got_pparmour]
+
+"Worthiness precedes reward!
+
+ Nice doing business with you!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="powerplant2c4"]
+
+"Hmm, I'd count it again if I were you.  Looks like
+ some of it got lost down the back of the sofa."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="powerplant_no"]
+
+"You've already got the armour!
+ No returns, no refunds, I'm afraid..."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="die"]

@@ -3,6 +3,7 @@ Cardinal Trom
 
 [esc="bye"]
 [page="start"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [learn_name]
 
@@ -31,6 +32,7 @@ Cardinal Trom
 
 
 [page="startname"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [reset_links]
 
@@ -296,6 +298,21 @@ will be similarly damned.
 
 
 
+[page="devil"]
+
+[colour="#808080"]
+ Cardinal Trom is astonished at your very presence.
+[colour="#ffffff"]
+
+"Guards!  This person has fornicated with the DEVIL!
+ They must be executed IMMEDIATELY!"
+
+[at_exit_call="justice_heresy"]
+[nextpage="exit"]
+[endpage]
+
+
+
 
 [page="a"]
 
@@ -315,6 +332,7 @@ will be similarly damned.
 
  A witch!!  This $man must burn!"
 
+[at_exit_call="justice_heresy"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]

@@ -2,6 +2,15 @@
 Stevens, expert hacker and ex-american president.
 
 
+[page="start"]
+[image="f18-0.pcx"]
+[learn_name]
+
+"Welcome, stranger.  Stevens is the name."
+
+[nextpage="exit"]
+[endpage]
+
 You see an F-18.
 
 ..

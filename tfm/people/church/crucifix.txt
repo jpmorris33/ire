@@ -2,6 +2,7 @@
 [page="start"]
 [call="check_bishop"]
 [if killed_bishop][goto="final_sin"]
+[if banged_devil][goto="kill4"]
 [if hear_truth][goto="HT_start"]
 [call="tithes_check"]
 [if true][goto="pay_tithes"]
@@ -424,6 +425,22 @@ appears on its features.
 [colour="#ffffff"]
 
 "DESTROY IT!"
+
+[nextpage="exit"]
+[at_exit_call="justice_heresy"]
+[endpage]
+
+
+[page="kill4"]
+[image="crucifix4.png"]
+[set heretic]
+[colour="#808080"]
+The Crucifix shimmers, grinning with malevolence!
+[colour="#ffffff"]
+
+"THE PROMISED ONE HAS HAD INTERCOURSE WITH THE DEVIL!
+
+ DESTROY $HIM!"
 
 [nextpage="exit"]
 [at_exit_call="justice_heresy"]

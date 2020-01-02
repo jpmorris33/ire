@@ -7,15 +7,16 @@
 
 "Welcome, stranger.  Apologies for the reception...
  We don't get many friendlies visiting these days.
- For all his faults, Death is very good at keeping out threats."
+ For all his faults, Death is very good at keeping out
+ threats."
 	 
 "I am commander Argus of the security team on Weytus.
- As you are likely aware, things have gone badly downhill
- on this world.  All our human personnel have been murdered
- by the Church, and we are isolated.
+ As you are likely aware, things have gone badly
+ downhill on this world.  All our human personnel have
+ been murdered by the Church, and we are isolated.
 	 
- As commander I wouldn't usually beg for help, but frankly,
- we are in deep shit."
+ As commander I wouldn't usually beg for help, but
+ frankly, we are in deep shit."
 
 [if_not panavius_allok][link="What's the trouble?"]
 [if_not panavius_allok][linkto="trouble"]
@@ -50,7 +51,7 @@
 
 
 [page="trouble"]
-[if panavius_damok][goto="trouble1"]
+[if dlpower_fixed][goto="trouble1"]
 [if panavius_rescueok][goto="trouble2"]
 [image="f18-0.pcx"]
 
@@ -76,7 +77,7 @@
 [if panavius_rescueok][goto="trouble3"]
 [image="f18-0.pcx"]
 
-"There are two, closely-relate problems.
+"There are two, closely-related problems.
  Firstly, the hydroelectric dam in the Deadlands.
 
  You've already fixed that, for which we're all
@@ -96,7 +97,7 @@
 
 
 [page="trouble2"]
-[if panavius_damok][goto="trouble3"]
+[if dlpower_fixed][goto="trouble3"]
 [image="f18-0.pcx"]
 
 "We have two, closely-relate problems.
@@ -136,6 +137,7 @@ Logic hole protection
 
 
 [page="dam"]
+[if dlpower_fixed][goto="dam2"]
 [image="f18-0.pcx"]
 [journal jrn_PowerPlant]
 
@@ -148,12 +150,37 @@ Logic hole protection
  but it requires a dedicated power station, and
  those generators are no longer operating correctly.
  
-"If you can check out the dam, I will be eternally grateful.
- It was designed to be robust and low-maintenance, but it was
- also intended to have skeleton staff tending it.
+"If you can check out the dam, I will be eternally
+ grateful. It was designed to be robust and
+ low-maintenance, but it was also intended to have a
+ skeleton staff tending it.
  With luck, you'll just need to reset the breakers.
- If we can get that going, we'll be able to warn the Earth,
- maybe even get reinforcements!"
+ If we can get that going, we'll be able to warn the
+ Earth, maybe even get reinforcements!"
+
+[link="Tell me about the rescue."]
+[linkto="rescue"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Tell me about yourself."]
+[linkto="argus"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="dam2"]
+[image="f18-0.pcx"]
+
+"Well, you've already fixed it, but basically, our
+ base has a transstellar communications system built
+ underneath it.
+ It's our only way to communicate with Earth,
+ but it requires a dedicated power station, and
+ those generators weren't operating correctly.
+ 
+ Now you've got that going, we'll be able to warn
+ the Earth, maybe even get reinforcements!"
 
 [link="Tell me about the rescue."]
 [linkto="rescue"]
@@ -168,21 +195,50 @@ Logic hole protection
 
 
 [page="rescue"]
+[if banged_devil][goto="rescue1"]
 [image="f18-0.pcx"]
 
 "Right.  As we started to run out of human ground crew,
  we looked to replace them with robots.  The panthers
- make good guards, but they don't have hands which makes
- them impractical for some tasks.
+ make good guards, but they don't have hands which
+ makes them impractical for some tasks.
 
  Before we were cut off, Austin at Fairford sent us two
  stealth androids.  One of them is still here, the other
- we sent to spy on the Church.  This was clearly a mistake,
- since he has apparently been captured and murdered.
+ we sent to spy on the Church.  This was clearly a
+ mistake, since he was apparently captured and murdered.
 
  From what I understand, you're not yet at outright war
- with the Church, so if you can acquire his head from them
- and bring it back, we may be able to resurrect him."
+ with the Church, so if you can acquire his head and
+ bring it back here, we may be able to resurrect him."
+
+[link="Tell me about the dam."]
+[linkto="dam"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Tell me about yourself."]
+[linkto="argus"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="rescue1"]
+[image="f18-0.pcx"]
+
+"Right.  As we started to run out of human ground crew,
+ we looked to replace them with robots.  The panthers
+ make good guards, but they don't have hands which
+ makes them impractical for some tasks.
+
+ Before we were cut off, Austin at Fairford sent us two
+ stealth androids.  One of them is still here, the other
+ we sent to spy on the Church.  This was clearly a
+ mistake, since he was apparently captured and murdered.
+
+ I appreciate you're in quite a bit of trouble with the
+ Church, but if you can acquire his head and bring it
+ back here, we may be able to resurrect him."
 
 [link="Tell me about the dam."]
 [linkto="dam"]

@@ -384,6 +384,7 @@ You see a visitation of the LORD.
 [page="powerplant2"]
 [image="lord.jpg"]
 [journal jrn_PowerPlant2]
+[set enter_pp]
 
 [colour="#808080"]
 You see a visitation of the LORD.  He sounds pissed.

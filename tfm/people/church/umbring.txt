@@ -4,6 +4,7 @@ Cardinal Umbring, first character you meet
 [esc="bye"]
 
 [page="start"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [iftime 1800-1959][goto="confession"]
 [image="priest4.pcx"]
@@ -49,6 +50,7 @@ He hands you the key and a rough piece of paper.
 
 
 [page="startname"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [iftime 1800-1959][goto="confession"]
 [call="tithes_check"]
@@ -1668,3 +1670,19 @@ The cardinal stares at you for a second, and then smiles.
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="devil"]
+
+[colour="#808080"]
+ Cardinal Umbring looks appalled.
+[colour="#ffffff"]
+
+"Guards!  Help!
+ This person has had intercourse with the DEVIL!
+ They must be destroyed for this wickedness!"
+
+[at_exit_call="justice_heresy"]
+[nextpage="exit"]
+[endpage]
+
