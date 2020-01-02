@@ -193,6 +193,7 @@ iMZ1r01
 		type GUILLOTINE
 		at 501 42
 		curdir 1
+		tag 10000
 
 	object STAI019bb091-b099-4e5a-a646-d4bc878064f8
 		type STAIRS_UP
@@ -459,6 +460,7 @@ iMZ1r01
 		type STONEDOOR5_LOCK
 		at 530 43
 		curdir 1
+		tag 71
 
 	decorative TREE01 at 370 44
 
@@ -10060,6 +10062,12 @@ iMZ1r01
 
 	decorative TREE03 at 401 116
 
+	object ORB_346b7b7d-ff71-43ab-895c-7b603aef4fb4
+		type ORB
+		at 402 116
+		curdir 2
+		tag 33
+
 	decorative TREE00 at 405 116
 
 	decorative TREE03 at 406 116
@@ -10366,12 +10374,6 @@ iMZ1r01
 		type RABBITHOLE_DEADLY
 		at 395 118
 		curdir 0
-
-	object ORB_346b7b7d-ff71-43ab-895c-7b603aef4fb4
-		type ORB
-		at 400 118
-		curdir 2
-		tag 33
 
 	decorative TREE03 at 404 118
 
@@ -75397,6 +75399,11 @@ iMZ1r01
 
 	decorative TREE02 at 581 384
 
+	object TORC23498724-f53b-4101-ae71-56ab57ec8479
+		type TORCH
+		at 706 384
+		curdir 3
+
 	decorative TREE00 at 4 385
 
 	decorative TREE02 at 8 385
@@ -75673,6 +75680,11 @@ iMZ1r01
 
 	decorative TREE00 at 584 385
 
+	object GUILb02e957b-b418-445a-85c5-25d01b1198c9
+		type GUILLOTINE_WAARG
+		at 703 385
+		curdir 2
+
 	decorative TREE00 at 3 386
 
 	decorative TREE00 at 4 386
@@ -75904,6 +75916,11 @@ iMZ1r01
 	decorative TREE03 at 578 386
 
 	decorative TREE00 at 583 386
+
+	object TORCb27fd0ee-bc59-4cac-be03-1364631e9080
+		type BUCKET
+		at 706 386
+		curdir 3
 
 	decorative MOUNT08 at 801 386
 
@@ -76174,6 +76191,16 @@ iMZ1r01
 	decorative TREE03 at 580 387
 
 	decorative TREE03 at 582 387
+
+	object GUIL38b20529-bb8a-45e8-9215-b552db121a03
+		type TORCH
+		at 702 387
+		curdir 3
+
+	object LIGHcab6ed4e-1a68-49b7-93db-07c0afff526b
+		type LIGHTSOURCE
+		at 707 387
+		curdir 3
 
 	decorative MOUNT04 at 801 387
 
@@ -76912,6 +76939,16 @@ iMZ1r01
 	decorative TREE02 at 578 390
 
 	decorative TREE01 at 580 390
+
+	object TORC1d25b2ea-58d2-4a57-b19c-8cb8d2af0b85
+		type TORCH
+		at 702 390
+		curdir 3
+
+	object LIGH9e133a0b-0531-4070-a4bf-82c081da8e79
+		type LIGHTSOURCE
+		at 707 390
+		curdir 3
 
 	decorative MOUNT08 at 799 390
 
@@ -77689,6 +77726,16 @@ iMZ1r01
 
 	decorative TREE02 at 574 393
 
+	object TORCbcd01021-2565-478a-8a2b-d065e22b4353
+		type TORCH
+		at 702 393
+		curdir 3
+
+	object LIGH73547395-d134-46cd-a346-087152d8ddde
+		type LIGHTSOURCE
+		at 707 393
+		curdir 3
+
 	decorative TREE00 at 2 394
 
 	decorative TREE03 at 7 394
@@ -78435,6 +78482,22 @@ iMZ1r01
 
 	decorative TREE01 at 577 396
 
+	object TORCbf1e1a89-422b-45da-bb93-5c0fb6703f80
+		type TORCH
+		at 702 396
+		curdir 3
+
+	object STAI883c5e1c-b64d-41bb-85fc-c53a861f29be
+		type STAIRS_UP
+		at 704 396
+		curdir 3
+		tag 75
+
+	object TORC3fe55bb3-f511-4e2f-9510-48bcc4396c81
+		type LIGHTSOURCE
+		at 708 396
+		curdir 3
+
 	decorative TREE00 at 15 397
 
 	decorative TREE01 at 17 397
@@ -78662,6 +78725,12 @@ iMZ1r01
 	decorative TREE02 at 566 397
 
 	decorative TREE02 at 569 397
+
+	object STAI64a7e11d-2644-4010-a265-9fb12bbdee55
+		type STAIRS_UP
+		at 704 397
+		curdir 1
+		tag 75
 
 	decorative TREE00 at 14 398
 
@@ -78911,6 +78980,12 @@ iMZ1r01
 
 	decorative TREE02 at 577 398
 
+	object STAI25a0f272-a855-41cc-bb60-b479769a73e0
+		type TARGET
+		at 705 398
+		curdir 1
+		tag 74
+
 	decorative TREE00 at 3 399
 
 	decorative TREE01 at 4 399
@@ -79128,6 +79203,11 @@ iMZ1r01
 	decorative TREE00 at 569 399
 
 	decorative TREE02 at 577 399
+
+	object LIGH30d74f11-0732-4856-98be-8a00e7039635
+		type LIGHTSOURCE
+		at 705 399
+		curdir 3
 
 	decorative TREE01 at 14 400
 
@@ -110437,6 +110517,7 @@ iMZ1r01
 		type STONEDOOR5_LOCK
 		at 576 513
 		curdir 1
+		tag 72
 
 	decorative TREE03 at 583 513
 
@@ -123097,6 +123178,17 @@ iMZ1r01
 
 	decorative TREE00 at 738 563
 
+	object BUNNb56e29df-a65f-4019-a7fe-d041b097556b
+		type BUNNY
+		inside EGG_ea1ab571-5d84-4101-b7fe-31aaf74f42d2
+		curdir 0
+		activity bunny_wander
+
+	object FOOD8d85d583-b6ea-4452-bf84-406cb548eeb1
+		type FOODP00
+		inside BUNNb56e29df-a65f-4019-a7fe-d041b097556b
+		curdir 1
+
 	object EGG_ea1ab571-5d84-4101-b7fe-31aaf74f42d2
 		type EGG_OBJECT(BUNNY)
 		at 742 563
@@ -129969,11 +130061,19 @@ iMZ1r01
 		type STAIRS_DOWN
 		at 791 590
 		curdir 1
+		tag 74
+
+	object STAIadcce400-4e10-4f77-aa53-3e6eab0ba623
+		type TARGET
+		at 792 590
+		curdir 3
+		tag 75
 
 	object STONa05cd505-c0b2-4c0d-8f49-d8f935f9a445
 		type STONEDOOR5_LOCK
 		at 795 590
 		curdir 2
+		tag 73
 
 	object STONe76da3e0-1792-4c7b-95d8-325bcd5db9b0
 		type STONEDOOR4_SHUT
@@ -131144,6 +131244,13 @@ iMZ1r01
 		type W_BED
 		at 793 593
 		curdir 3
+
+	object MEMOe03d2f9e-93f7-4d46-9218-4e0ef5c0461e
+		type KEY
+		inside WAAR676840d3-b64b-4f92-8f5b-35c52780c8c5
+		curdir 2
+		tag 73
+		stats->owner WAAR676840d3-b64b-4f92-8f5b-35c52780c8c5
 
 	object WARG12278eaa-0dd1-4ca0-a58c-34d8d1afb462
 		type WARG_XBOW_BOLTS
@@ -132523,6 +132630,17 @@ iMZ1r01
 
 	decorative TREE03 at 221 598
 
+	object BUNNbaefdab7-6514-4685-9fcb-535b66484d29
+		type BUNNY
+		inside EGG_0c4c56df-aebe-475b-a4b1-3e302963768a
+		curdir 0
+		activity bunny_wander
+
+	object FOOD09a658e1-266a-4eb5-8bba-26f4919d2f95
+		type FOODP00
+		inside BUNNbaefdab7-6514-4685-9fcb-535b66484d29
+		curdir 1
+
 	object EGG_0c4c56df-aebe-475b-a4b1-3e302963768a
 		type EGG_OBJECT(BUNNY)
 		at 226 598
@@ -132951,6 +133069,12 @@ iMZ1r01
 	decorative TREE03 at 457 599
 
 	decorative TREE00 at 459 599
+
+	object WOLF47856aa1-d897-439e-8724-1c68987ef1b4
+		type WOLF
+		inside EGG_98d69846-8095-49bd-a87c-0bf432b1aef7
+		curdir 0
+		activity predator
 
 	object EGG_98d69846-8095-49bd-a87c-0bf432b1aef7
 		type EGG_OBJECT(WOLF)
@@ -135009,11 +135133,6 @@ iMZ1r01
 		curdir 0
 		tag -33
 
-	object DRAWd0df9383-5caf-43ff-a0f8-c689480b5263
-		type DRAWERS
-		at 718 606
-		curdir 2
-
 	object W_BE2969995b-e3cf-432b-897d-0fb69e66f77d
 		type W_BED
 		at 723 606
@@ -135361,6 +135480,17 @@ iMZ1r01
 		type STEPS02
 		at 716 607
 		curdir 0
+
+	object STON7dd7da67-5239-4fbd-a4d0-8f365093dbd9
+		type KEY_2
+		inside DRAWd0df9383-5caf-43ff-a0f8-c689480b5263
+		curdir 1
+		tag 72
+
+	object DRAWd0df9383-5caf-43ff-a0f8-c689480b5263
+		type DRAWERS
+		at 718 607
+		curdir 2
 
 	object TARG65a0760f-8f30-491e-a87a-cb25b1727cb8
 		type TARGET
@@ -142511,6 +142641,12 @@ iMZ1r01
 
 	decorative MOUNT03 at 668 624
 
+	object SNAK88bd5c65-8826-46f1-9dc1-4fbc4fd177ba
+		type SNAKE
+		inside EGG_961e39e3-7116-4217-aa17-9b88db7f577c
+		curdir 0
+		activity attack_party
+
 	object EGG_961e39e3-7116-4217-aa17-9b88db7f577c
 		type EGG_OBJECT(SNAKE)
 		at 696 624
@@ -148164,6 +148300,13 @@ iMZ1r01
 		type TABLE5-LEGS
 		at 185 641
 		curdir 2
+
+	object BOOKcf831c6c-4099-4ba6-b2bc-0d2b6bb0a064
+		type KEY
+		inside MAN_c3ec485c-0829-4efe-a7f6-df8d70491eae
+		curdir 2
+		tag 71
+		stats->owner MAN_c3ec485c-0829-4efe-a7f6-df8d70491eae
 
 	object MAN_c3ec485c-0829-4efe-a7f6-df8d70491eae
 		type MAN_NOBLE
@@ -156313,6 +156456,13 @@ iMZ1r01
 
 	decorative HUT03 at 712 664
 
+	object CHES30eaff52-cfd4-44de-b6e7-da5a8a3a45fd
+		type KEY
+		at 714 664
+		curdir 3
+		tag 76
+		stats->owner WAARd95f4e5d-6f08-49b3-a452-3d4d56ff21e3
+
 	object BED294ebacf9-24b9-4aa9-b3a4-35a171dfc517
 		type BED2
 		at 714 664
@@ -156672,6 +156822,7 @@ iMZ1r01
 		type CHESTLOCKED
 		at 716 665
 		curdir 3
+		tag 76
 		stats->owner WAARd95f4e5d-6f08-49b3-a452-3d4d56ff21e3
 
 	decorative HUT03 at 717 665
@@ -166992,6 +167143,12 @@ iMZ1r01
 	decorative TREE01 at 338 699
 
 	decorative TREE01 at 339 699
+
+	object WOLFd2a8ecd1-f915-43de-a862-aa793331df13
+		type WOLF
+		inside EGG_5f2a9dbe-dda5-4ab2-8df7-673c26fa5ee9
+		curdir 0
+		activity predator
 
 	object EGG_5f2a9dbe-dda5-4ab2-8df7-673c26fa5ee9
 		type EGG_OBJECT(WOLF)
@@ -181065,6 +181222,18 @@ iMZ1r01
 
 	decorative TREE01 at 517 753
 
+	object PIG_c8a97003-fe0a-40c3-9ffb-6f6d984b71ba
+		type PIG
+		inside EGG_016c3d3d-58d3-4fc6-bcac-1f43e62aac2a
+		curdir 0
+		activity attack_party
+
+	object FOOD3c2b35f5-51b3-4f82-b155-6ffbefcfe074
+		type FOOD06
+		inside PIG_c8a97003-fe0a-40c3-9ffb-6f6d984b71ba
+		curdir 1
+		stats->owner PIG_c8a97003-fe0a-40c3-9ffb-6f6d984b71ba
+
 	object EGG_016c3d3d-58d3-4fc6-bcac-1f43e62aac2a
 		type EGG_OBJECT(PIG)
 		at 523 753
@@ -194200,6 +194369,12 @@ iMZ1r01
 
 	decorative TREE03 at 498 804
 
+	object SNAK3fcb0c68-e6d0-4bfb-9463-e7e641179825
+		type SNAKE
+		inside EGG_d748de99-211e-44b2-807b-d878a1f9cc0f
+		curdir 0
+		activity attack_party
+
 	object EGG_d748de99-211e-44b2-807b-d878a1f9cc0f
 		type EGG_OBJECT(SNAKE)
 		at 502 804
@@ -196177,6 +196352,24 @@ iMZ1r01
 	decorative TREE02 at 244 813
 
 	decorative TREE02 at 251 813
+
+	object SHEE7f80d255-6a05-49c6-a3bb-12c26cfe87d4
+		type SHEEP
+		inside EGG_ce253694-b315-476c-8bde-825d24ecc83a
+		curdir 0
+		activity graze
+
+	object FOODaef859ec-837a-4858-8082-496a56e9bf5a
+		type FOOD05_SHEEP
+		inside SHEE7f80d255-6a05-49c6-a3bb-12c26cfe87d4
+		curdir 1
+		stats->owner SHEE7f80d255-6a05-49c6-a3bb-12c26cfe87d4
+
+	object FOODc762a58d-c4d0-4211-a9fb-b00e9c8e9537
+		type FOOD05_SHEEP
+		inside SHEE7f80d255-6a05-49c6-a3bb-12c26cfe87d4
+		curdir 1
+		stats->owner SHEE7f80d255-6a05-49c6-a3bb-12c26cfe87d4
 
 	object EGG_ce253694-b315-476c-8bde-825d24ecc83a
 		type EGG_OBJECT(SHEEP)
@@ -198170,6 +198363,17 @@ iMZ1r01
 
 	decorative TREE01 at 251 821
 
+	object BUNNd6cd19c6-723b-4c68-828c-62c1805c8c43
+		type BUNNY
+		inside EGG_b127dff6-69db-47d0-86dc-50b6db9efcc2
+		curdir 0
+		activity bunny_wander
+
+	object FOOD0ec1d10e-b979-4969-b1f7-be3c23c9dafa
+		type FOODP00
+		inside BUNNd6cd19c6-723b-4c68-828c-62c1805c8c43
+		curdir 1
+
 	object EGG_b127dff6-69db-47d0-86dc-50b6db9efcc2
 		type EGG_OBJECT(BUNNY)
 		at 254 821
@@ -198743,6 +198947,12 @@ iMZ1r01
 
 	decorative TREE01 at 262 824
 
+	object WOLFc59f7203-e880-4bf5-b1ae-39e289cd1e3b
+		type WOLF
+		inside EGG_914fe4d4-0e2d-4f3c-9edb-675f11900dbb
+		curdir 0
+		activity predator
+
 	object EGG_914fe4d4-0e2d-4f3c-9edb-675f11900dbb
 		type EGG_OBJECT(WOLF)
 		at 269 824
@@ -199161,6 +199371,17 @@ iMZ1r01
 	decorative TREE00 at 265 826
 
 	decorative TREE01 at 267 826
+
+	object BUNN7ed80176-c258-4068-b53f-3d24dae16814
+		type BUNNY
+		inside EGG_81e0683b-3d61-4a96-9427-95bebecc0b89
+		curdir 0
+		activity bunny_wander
+
+	object FOOD0deba29a-c662-40a4-b683-89ab867972e7
+		type FOODP00
+		inside BUNN7ed80176-c258-4068-b53f-3d24dae16814
+		curdir 1
 
 	object EGG_81e0683b-3d61-4a96-9427-95bebecc0b89
 		type EGG_OBJECT(BUNNY)
@@ -199815,6 +200036,24 @@ iMZ1r01
 	decorative TREE01 at 252 829
 
 	decorative TREE03 at 269 829
+
+	object SHEE8b0d5cf9-485b-4acc-92db-d71aca3d1a5b
+		type SHEEP
+		inside EGG_b42b7858-a365-4bb9-96e5-69b3e72d4ea0
+		curdir 0
+		activity graze
+
+	object FOODd7efc497-4801-4ab0-aec0-e2e02fd360a8
+		type FOOD05_SHEEP
+		inside SHEE8b0d5cf9-485b-4acc-92db-d71aca3d1a5b
+		curdir 1
+		stats->owner SHEE8b0d5cf9-485b-4acc-92db-d71aca3d1a5b
+
+	object FOOD27190b92-fee9-446e-a078-22237b1d4fab
+		type FOOD05_SHEEP
+		inside SHEE8b0d5cf9-485b-4acc-92db-d71aca3d1a5b
+		curdir 1
+		stats->owner SHEE8b0d5cf9-485b-4acc-92db-d71aca3d1a5b
 
 	object EGG_b42b7858-a365-4bb9-96e5-69b3e72d4ea0
 		type EGG_OBJECT(SHEEP)
@@ -220139,6 +220378,17 @@ iMZ1r01
 		curdir 0
 
 	decorative TREE00 at 164 906
+
+	object BUNN3b65dc28-2794-4e5c-9236-44539f5ec570
+		type BUNNY
+		inside EGG_d76ffac5-a1da-4f38-9518-112e9a063674
+		curdir 0
+		activity bunny_wander
+
+	object FOODd4b06501-4dc1-4f4d-a969-1ba7c6d2663b
+		type FOODP00
+		inside BUNN3b65dc28-2794-4e5c-9236-44539f5ec570
+		curdir 1
 
 	object EGG_d76ffac5-a1da-4f38-9518-112e9a063674
 		type EGG_OBJECT(BUNNY)
