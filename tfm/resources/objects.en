@@ -5349,6 +5349,24 @@ section: characters
 	IfKilled	respawn
 	fixed
 
+	name GUILLOTINE_PLAYER_BLOODY
+	frame		GUILLOTINE_VICTIM_PLAYER2
+	hp		1000000
+	weight		-1
+	description	"You see a very dead man."
+	short		"victim"
+	IfKilled	respawn
+	fixed
+
+	name GUILLOTINE_PLAYERF_BLOODY
+	frame		GUILLOTINE_VICTIM_PLAYERF2
+	hp		1000000
+	weight		-1
+	description	"You see a very dead woman."
+	short		"victim"
+	IfKilled	respawn
+	fixed
+
 	name GUILLOTINE_WAARG
 	frame		GUILLOTINE_W_UP
 	up		GUILLOTINE_W_UP

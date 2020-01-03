@@ -766,8 +766,10 @@ if_exists guillotine_victim
 		change current = "guillotine_bloody"
 		force_direction current faces DOWN
 
-		# TODO: support other shapes
-		let victimtype = "GUILLOTINE_VICTIM_BLOODY"
+		get_data victimtype WHERE player_guillotined = guillotine_victim.name
+		if_not_exists victimtype
+			let victimtype = "GUILLOTINE_VICTIM_BLOODY"
+		endif
 
 		if guillotine_victim.stats.hp > 0
 			replace guillotine_victim = victimtype

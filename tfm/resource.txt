@@ -2234,6 +2234,10 @@ section: sprites
 	guillotine_s_dn_ovl	sprites/guiltn05.png
 	guillotine_s_victim1	sprites/guiltnv1.png
 	guillotine_s_victim2	sprites/guiltnv2.png
+	guillotine_s_victim3	sprites/guiltnv3.png
+	guillotine_s_victim4	sprites/guiltnv4.png
+	guillotine_s_victim5	sprites/guiltnv5.png
+	guillotine_s_victim6	sprites/guiltnv6.png
 	guillotine_w_up		sprites/guiltn06.png
 	guillotine_w_dn		sprites/guiltn07.png
 	guillotine_w_up_b	sprites/guiltn08.png
@@ -9473,8 +9477,11 @@ section: sequences
 	quickname GUILLOTINE_S_VICTIM1 GUILLOTINE_S_VICTIM1
 	quickname GUILLOTINE_S_VICTIM2 GUILLOTINE_S_VICTIM2
 
-	quickname GUILLOTINE_VICTIM_PLAYER GUILLOTINE_S_VICTIM1
+	quickname GUILLOTINE_VICTIM_PLAYER GUILLOTINE_S_VICTIM3
+	quickname GUILLOTINE_VICTIM_PLAYER2 GUILLOTINE_S_VICTIM4
 
+	quickname GUILLOTINE_VICTIM_PLAYERF GUILLOTINE_S_VICTIM5
+	quickname GUILLOTINE_VICTIM_PLAYERF2 GUILLOTINE_S_VICTIM6
 
 	name GUILLOTINE_W_UP
 	post_overlay
@@ -14052,6 +14059,26 @@ section: tables
 		player player_tiedup
 		playerf playerf_tiedup
 		playerp panther_u
+	end
+
+	# These are animation sequences for the bound player
+	name player_guillotine
+	key=string
+	data=string
+	list:
+		player GUILLOTINE_VICTIM_PLAYER
+		playerf GUILLOTINE_VICTIM_PLAYERF
+		playerp PANTHER_D
+	end
+
+	# These are objects for the beheaded player
+	name player_guillotined
+	key=string
+	data=string
+	list:
+		player GUILLOTINE_PLAYER_BLOODY
+		playerf GUILLOTINE_PLAYERF_BLOODY
+		playerp DEADPANTHER
 	end
 
 	name jail_tag_lookup

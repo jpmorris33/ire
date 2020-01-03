@@ -114,6 +114,7 @@ object oldvictim
 object guard
 integer x
 integer y
+string victimtype
 
 if victim = player
 
@@ -146,7 +147,13 @@ if victim = player
 
 	transfer_object player to x y
 	# TODO: support other player types
-	set_sequence player = "guillotine_victim_player"
+
+	get_data victimtype WHERE player_guillotine = victim.name
+	if_not_exists victimtype
+		let victimtype = "guillotine_victim_player"
+	endif
+
+	set_sequence player = victimtype
 	if victim = player
 		set_leader victim nothing follower_action
 	endif
