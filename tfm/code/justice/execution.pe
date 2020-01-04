@@ -89,7 +89,9 @@ if victim = player
 	transfer_object victim to x y
 	set_direction victim facing SOUTH
 	if victim = player
-		set_leader victim nothing follower_action
+		set_leader victim player_automatic follower_action
+		# Skip keyboard input for first cycle
+		call player_automatic
 	endif
 
 	fade_in
@@ -155,7 +157,9 @@ if victim = player
 
 	set_sequence player = victimtype
 	if victim = player
-		set_leader victim nothing follower_action
+		set_leader victim player_automatic follower_action
+		# Skip keyboard input for first cycle
+		call player_automatic
 	endif
 	
 	# Create a guard and have them pull the lever

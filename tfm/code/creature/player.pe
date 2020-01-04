@@ -836,6 +836,50 @@ check_hurt me
 
 end
 
+##
+##  Player is disabled, captured, being executed etc.
+##
+
+function player_helpless
+call status
+call input
+end
+
+
+##
+##  Cutscene
+##
+
+function player_automatic
+integer forcekey
+
+let forcekey = KEY_SPACE
+
+# Emergency override
+
+if_key KEY_ESC
+	let key = KEY_ESC
+	let forcekey = key
+endif
+
+if_key KEY_F3
+	let key = KEY_F3
+	let forcekey = key
+endif
+
+# Draw things and handle emergency override input
+
+call status
+call input
+
+wait 333 NONBLOCKING
+
+# Use undocumented syscall to override keyboard input
+let err = forcekey
+status 19
+
+end
+
 
 
 #
