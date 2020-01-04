@@ -100,6 +100,7 @@ extern VMINT do_lightning;
 extern VMINT do_earthquake;
 extern VMINT irekey;
 extern VMINT pevm_err;
+extern int ire_pushkey;
 // unused function
 //static void CheckRange(PEVM *vm, void *ptr, int ident);
 
@@ -7854,6 +7855,11 @@ switch(*num)
 
 	case 18:
 		Cheat_setflag();
+	break;
+
+	case 19:
+		ire_pushkey = pevm_err;
+		pevm_err=0;
 	break;
 	
 	default:

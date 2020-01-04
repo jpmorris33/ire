@@ -65,6 +65,7 @@ extern int destroyhp;
 VMINT do_lightning=0;
 VMINT do_earthquake=0;
 char user_input[128];
+int ire_pushkey=0;
 
 unsigned long fpsmetric=0;
 time_t startmetric, stopmetric;
@@ -259,8 +260,14 @@ do {
 	DrawMap(mapx,mapy);
 	irecon_update();
 
+	// Get key.  This can be forced via undocumented script functions
 	irekey = 0;
-	irekey = get_key();
+	if(ire_pushkey) {
+		irekey = ire_pushkey;
+		ire_pushkey = 0;
+	} else {
+		irekey = get_key();
+	}
 
 	// Wait, taking everything into account.
 	while(GetIREClock()<FRAMERATE)
