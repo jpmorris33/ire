@@ -646,9 +646,30 @@ expression.
 
 [link="Wait!  I can explain!"]
 [linkto="devil1"]
-[link="Let's get this over with."]
+[link="How did you find out about it?"]
+[linkto="devil0"]
+[link="It was the best night I ever had!"]
 [linkto="devil3"]
 [endpage]
+
+
+[page="devil0"]
+[image="pope.pcx"]
+
+"The LORD told me about it!  Obviously!
+ Did you think He would not know about your
+ fornications with the powers of darkness?!
+
+ Guards!  Execute this idiot!"
+
+[link="Wait!  I can explain!"]
+[linkto="devil1"]
+[link="It was the best night I ever had!"]
+[linkto="devil3"]
+[endpage]
+
+
+
 
 
 [page="devil_church"]
@@ -716,25 +737,6 @@ The Holy Father glowers at you.
 [linkto="devil3a"]
 [endpage]
 
-
-[page="devil1b"]
-[image="pope.pcx"]
-
-[colour="#808080"]
-The Holy Father glowers at you.
-[colour="#ffffff"]
-
-"The scripture speaks of kinship!  Not of THIS, you
- cretinous oaf!
-
- Yet the LORD speaks occasionally of forgiveness, so it
- may still be possible for you to redeem yourself."
-
-[link="What must I do?"]
-[linkto="devil2"]
-[link="Do I have to sleep with you as well?"]
-[linkto="devil3a"]
-[endpage]
 
 [page="devil1b"]
 [image="pope.pcx"]
@@ -838,7 +840,7 @@ to you in a strained voice.
 [image="pope.pcx"]
 
 "Normally I am of the opinion that beheading is too quick
- and easy a death for a crime such as this, but in this
+ and easy a death for crimes such as these, but in this
  particular instance, I see no good reason to delay your
  swift passage to Hell.
 
@@ -869,7 +871,8 @@ The Holy Father eyes you with a look of disgust.
 
 "So, heretic!  You were commanded to bring the sum of
  two million gold coins here, that you may be forgiven
- for your lustful deeds with the Prince of Darkness.
+ for your crimes of lust with the Prince of Darkness
+ and return to the fold of Christendom.
 
  Have you done this?"
 
@@ -936,8 +939,8 @@ The Holy Father eyes you with a look of amusement.
 [colour="#ffffff"]
 
 "The Trinity is not so easily fooled.
- The LORD is well known for His ability to sum large
- amounts faster than any human.
+ The LORD is well known for His ability to calculate
+ large numbers faster than any human hand or eye.
 
  Guards!  This wretch has attempted to swindle the LORD
  of his dues!  Dispatch them at once."

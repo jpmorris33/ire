@@ -813,10 +813,10 @@ section: characters
 	rank		pope
 
 	name SATAN
-	left		F_LEFT
-	right		F_RIGHT
-	up		F_UP
-	down		F_DOWN
+	left		SATAN_LEFT
+	right		SATAN_RIGHT
+	up		SATAN_UP
+	down		SATAN_DOWN
 	hp		2000
 	dexterity	10
 	strength	80000

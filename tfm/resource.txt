@@ -339,6 +339,23 @@ section: sprites
 	noblemansit_l		sprites/people/mm2-ws.png
 	noblemansit_r		sprites/people/mm2-es.png
 
+	satan00			sprites/people/satan_n0.png
+	satan01			sprites/people/satan_n1.png
+	satan02			sprites/people/satan_n2.png
+	satan03			sprites/people/satan_s0.png
+	satan04			sprites/people/satan_s1.png
+	satan05			sprites/people/satan_s2.png
+	satan06			sprites/people/satan_w0.png
+	satan07			sprites/people/satan_w1.png
+	satan08			sprites/people/satan_w2.png
+	satan09			sprites/people/satan_e0.png
+	satan10			sprites/people/satan_e1.png
+	satan11			sprites/people/satan_e2.png
+	satan12			sprites/people/satan___.png
+	satansit_u		sprites/people/satan_ns.png
+	satansit_d		sprites/people/satan_ss.png
+	satansit_l		sprites/people/satan_ws.png
+	satansit_r		sprites/people/satan_es.png
 
 	leprechaun00		sprites/people/lep00.cel
 	leprechaun01		sprites/people/lep01.cel
@@ -5752,6 +5769,61 @@ section: sequences
 	quickname WOMAN1SIT_R WOMAN1SIT_R
 	quickname WOMAN1SIT_U WOMAN1SIT_U
 	quickname WOMAN1SIT_D WOMAN1SIT_D
+
+
+	name SATAN_UP
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		SATAN01
+		SATAN00
+		SATAN02
+	end
+
+	name SATAN_DOWN
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		SATAN04
+		SATAN03
+		SATAN05
+	end
+
+	name SATAN_LEFT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		SATAN07
+		SATAN06
+		SATAN08
+	end
+
+	name SATAN_RIGHT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		SATAN10
+		SATAN09
+		SATAN11
+	end
+
+	quickname SATAN_LIEDOWN SATAN12
+	quickname SATANSIT_L SATANSIT_L
+	quickname SATANSIT_R SATANSIT_R
+	quickname SATANSIT_U SATANSIT_U
+	quickname SATANSIT_D SATANSIT_D
 
 
 	name P_UP
