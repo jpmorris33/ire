@@ -17664,13 +17664,13 @@ iMZ1r01
 		at 309 445
 		curdir 1
 
-	object TREA6493b1de-51a6-4870-a015-5fd00ae12e3f
-		type TREASURE_04
+	object TREA86182ce6-e209-4649-a4f5-29092dd614e6
+		type TREASURE_06
 		at 312 445
 		curdir 2
 
-	object TREA86182ce6-e209-4649-a4f5-29092dd614e6
-		type TREASURE_06
+	object TREA6493b1de-51a6-4870-a015-5fd00ae12e3f
+		type TREASURE_04
 		at 312 445
 		curdir 2
 
@@ -17743,6 +17743,7 @@ iMZ1r01
 		at 306 447
 		curdir 2
 		tag 41
+		stats->hp 100000
 
 	object TREAd1fc7dac-6832-465c-8dcd-c46a0ab5b392
 		type TREASURE_06

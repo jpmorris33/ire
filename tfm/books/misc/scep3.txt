@@ -20,7 +20,9 @@
   pay.  Success is imperative - or you shall explain why the
   tribute is not made to the LORD Himself, in person.
   
-  Harris
+  By order of the Holy Trinity,
+
+     Pope Harris 
 
 [set sceptre_church]
 [nextpage="exit"]

@@ -745,7 +745,8 @@ you longingly.
 
 [page="powerplant2a"]
 
-"The Church?  Oh, they'll probably just kill you."
+"The Church?  Oh, they'll probably just kill you.
+ If possible, permanently."
 
 [link="Sorry, I can't risk my life for this."]
 [linkto="powerplant2c"]

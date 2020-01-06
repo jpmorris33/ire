@@ -1,0 +1,30 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+  Ambrose,
+
+  I fear you misunderstand the situation.  While I do not fault
+  your enthusiasm, the LORD Himself is displeased by your
+  attempts to dispose of the remains and has commanded me to
+  investigate the situation.  Be grateful that this chastisement
+  comes only from me and not from Him in person!
+
+  Yes, when the head comes off a man, his life is ended - yet it
+  is not always so with demons.  This creature can yet be revived
+  by those skilled in such arts and the LORD will wish to
+  interrogate him again in future.
+
+  You will therefore disinter the head IMMEDIATELY and see that
+  it is kept safe.  It should fit inside our records cabinets, so file
+  it there until a more permanent place can be agreed upon.
+
+  Please do this with all haste, for your actions anger the LORD.
+  
+  By order of the Holy Trinity,
+
+     Pope Harris 
+
+[set sceptre_church]
+[nextpage="exit"]
+[endpage]
+

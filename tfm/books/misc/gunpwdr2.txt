@@ -1,0 +1,21 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+ Bishop Ludwig,
+
+ Find enclosed the signed contract proposed by Redtooth.
+ The LORD approves greatly of a change in king, for Grey's
+ brother has proven more shrewd than anticipated.
+
+ Naturally, copies have been retained in the archives here, both in
+ our tongue and Waargish.  These will prove useful in the event
+ that Redtooth should ever need to be replaced in his turn.
+
+ For the glory of the LORD, Amen
+
+     Pope Harris 
+
+[nextpage="exit"]
+[endpage]
+

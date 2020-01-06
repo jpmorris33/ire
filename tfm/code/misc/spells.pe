@@ -1430,7 +1430,40 @@ printcr
 print "(C)9352 SzyLurbG Labs.  Not for use on organic lifeforms."
 printcr
 
-set_user_flag "hear_truth" = 1
+# Prevent one of the followers from talking
+if me <> player
+	print "Error: permission denied"
+	printcr
+	call spell_failed
+	return
+endif
+
+let spellname = "hear truth"
+call get_spell_range
+if_not_flag spelltarget IS_ON
+
+	# Tell the player it went wrong
+	if me = player
+		print "No effect!"
+		printcr
+	endif
+	object_sound "spellfailed" me
+
+	return
+endif
+
+if spelltarget.stats.hp > 0
+	set_user_flag "hear_truth" = 1
+	let current = spelltarget
+	let talkto_quiet = 1
+	call TalkTo
+	let talkto_quiet = 0
+	set_user_flag "hear_truth" = 0
+	return
+endif
+
+call spell_failed
+
 end
 
 

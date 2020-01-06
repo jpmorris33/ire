@@ -5,6 +5,7 @@
 #		and want to break out of the selector.
 #
 
+int talkto_quiet = 0
 int safe_for_party = 0
 object lookobj
 
@@ -211,6 +212,7 @@ if key = KEY_T
 	call get_far
 
 	if_visible new_x new_y
+		let talkto_quiet = 0
 		call TalkTo
 	else
 		print "darkness"
@@ -394,18 +396,22 @@ end
 #
 
 function TalkTo
-private
 
 if current = player
-	print "yourself."
-	printcr
-	print "That's a sign of madness."
-	printcr
+	if talkto_quiet <> 1
+		print "yourself."
+		printcr
+		print "That's a sign of madness."
+		printcr
+	endif
+
 else
 	if_exists current
-	    	print current.shortdesc
-		printcr
-	    	redraw_text
+		if talkto_quiet <> 1
+		    	print current.shortdesc
+			printcr
+		    	redraw_text
+		endif
 
 		if current.user.vigilante <> 0
 			print "No reply!"
@@ -432,8 +438,10 @@ else
 			printcr
 		endif
 	else
-		print "nothing."
-		printcr
+		if talkto_quiet <> 1
+			print "nothing."
+			printcr
+		endif
 	endif
 
 label endtalk

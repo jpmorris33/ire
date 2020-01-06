@@ -3,6 +3,7 @@ Cardinal De'Ath
 
 [esc="bye"]
 [page="start"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [learn_name]
 
@@ -26,6 +27,7 @@ Cardinal De'Ath
 
 
 [page="startname"]
+[if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
 [reset_links]
 
@@ -105,7 +107,7 @@ Cardinal De'Ath
  the congregation. 
 [colour="#ffffff"]
 
-[A speech for De'Ath]
+TODO: NEED SPEECH
 
 [nextpage="exit"]
 [endpage]
@@ -150,5 +152,21 @@ Cardinal De'Ath shakes his head.
 
 [link="Goodbye."]
 [linkto="bye"]
+[endpage]
+
+
+[page="devil"]
+[colour="#808080"]
+The Cardinal looks appalled at your presence.
+[colour="#ffffff"]
+
+"The LORD has informed us of your sins, my $Son, and
+ made it clear that you are no longer welcome in
+ the House of God.
+
+ Pray, leave immediately before the LORD destroys
+ you!  I have no wish to witness His anger again!"
+
+[nextpage="exit"]
 [endpage]
 
