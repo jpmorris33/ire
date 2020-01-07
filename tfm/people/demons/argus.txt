@@ -197,6 +197,7 @@ Logic hole protection
 [page="rescue"]
 [if banged_devil][goto="rescue1"]
 [image="f18-0.pcx"]
+[journal jrn_RescueWOLF]
 
 "Right.  As we started to run out of human ground crew,
  we looked to replace them with robots.  The panthers
@@ -225,6 +226,7 @@ Logic hole protection
 
 [page="rescue1"]
 [image="f18-0.pcx"]
+[journal jrn_RescueWOLF]
 
 "Right.  As we started to run out of human ground crew,
  we looked to replace them with robots.  The panthers

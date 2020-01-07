@@ -920,6 +920,10 @@ if sw1.curdir = UP
 					if sw6.curdir = UP
 						set_user_flag "dlpower_fixed" = 1
 						set_user_flag "true" = 1
+						add me.user.experience + 150
+						finish_journal "jrn_PowerPlant"
+						finish_journal "jrn_PowerPlant2"
+						journal "jrn_PowerPlant3"
 					endif
 				endif
 			endif

@@ -229,3 +229,26 @@ title Enter the power plant control room
 start:
 The LORD has threatened to kill me if I enter the power plant control room.  I should ask for advice.
 end
+
+name jrn_PowerPlant3
+title Repaired the power plant
+start:
+I've repaired the power plant in the mountains.
+end
+
+name jrn_RescueWOLF
+tag task
+title Rescue the android from the Church
+start:
+The Church has captured an android sent by the security team.  If I can find his head, I should bring it back so he can be revived.
+end
+
+name jrn_RescueWOLF2
+title Rescued the android from the Church
+start:
+I've returned the android's head to the security team so they can revive him.
+end
+
+
+
+
