@@ -1575,6 +1575,24 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
+        // Get default personalname
+
+		if(!istricmp(Rptr,"personalname")) {
+			strcpy(Rbuffer,strrest(line));
+
+			if(Rbuffer[0] == '\"') {  // Quoted text is direct
+				ptr = strrchr(Rbuffer,'\"');     // Find last quote
+				if(ptr)
+					*ptr = 0;                 // blow quote away
+				ptr = Rbuffer+1;
+				ptr[31]=0; // Truncate if necessary
+				strcpy(character->personalname,ptr);
+			} else {                    // Look up unquoted text
+				Dump(ctr,"Invalid string",Rbuffer);
+			}
+			continue;
+		}
+
 		if(!istricmp(Rptr,"race"))
 			{
 			strcpy(Rbuffer,strfirst(strrest(line)));

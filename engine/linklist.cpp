@@ -1033,7 +1033,8 @@ if(CHlist[ctr].flags & IS_DECOR)
 objsel->activity=CHlist[ctr].activity;
 
 memcpy(objsel->dir,CHlist[ctr].dir,sizeof(CHlist[ctr].dir));
-strcpy(objsel->personalname,"");
+strcpy(objsel->personalname,CHlist[ctr].personalname);
+
 
 // Set up the stats and function systems
 memcpy(objsel->stats,CHlist[ctr].stats,sizeof(STATS));
