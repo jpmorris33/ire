@@ -1,0 +1,234 @@
+
+[page="start"]
+[learn_name]
+[colour="#808080"]
+You see some kind of wolf android.
+[colour="#ffffff"]
+
+"Greetings, human.
+ I am L-TRK, but most people call me Lautrec."
+
+[link="What are you?"]
+[linkto="what"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see Lautrec, the wolf android.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYERNAME."
+
+[if panavius_rescueok]"A thousand thanks for rescuing my brother!"
+
+[link="What are you?"]
+[linkto="what"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare well."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="what"]
+
+"I am an anthrocyberwolf.  We are experimental units
+ designed as stealth operatives, but since the
+ medieval humans have massacred our ground crew,
+ we have been drafted that role instead."
+
+[link="How many of you are there?"]
+[linkto="howmany"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"Unlike the cyberjags,I have hands rather than paws
+ and am capable of performing delicate adjustments.
+
+ This makes us valuable for maintaining the aircraft
+ and panthers in the base, after the medieval humans
+ massacred our human technicians."
+
+[link="How many of you are there?"]
+[linkto="howmany"]
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="panthers"]
+
+"The panthers are built as guard robots to patrol
+ the bases, and attack intruders.  They are very well
+ suited to this role, so I beg you take care in their
+ presence.
+
+ Some of them have been upgraded to high intelligence
+ and make good companions.
+
+ There are also some rogue units in the forest.  I have
+ been trying to encourage them to return, but without
+ success."
+
+[link="Tell me about the rogue panthers."]
+[linkto="panthers2"]
+[link="How many of you are there?"]
+[linkto="howmany"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="panthers2"]
+
+"Ah, yes.  They live in the forest, guarding a large
+ pile of coins and other valuable artifacts, and will
+ not leave it.
+
+ Owing to the temporal anomalies that have occurred
+ some years ago, they have been out there, guarding
+ their precious treasure for over three hundred
+ subjective years.
+
+ I have helped refuel them and repair their systems
+ during the anomaly."
+
+[link="300 years?!  How did they stay sane?"]
+[linkto="panthers3"]
+[link="Tell me about the temporal anomaly."]
+[linkto="anomaly"]
+[link="How many of you are there?"]
+[linkto="howmany"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="panthers3"]
+
+"I had brought them crosswords and other puzzle
+ games to try and keep them occupied during their
+ long vigil.
+
+ Truth be told, I suspect that they have NOT stayed
+ entirely sane, and that their long abandonment
+ is one of the reasons for their monomania regarding
+ the treasure."
+
+[link="Tell me about the temporal anomaly."]
+[linkto="anomaly"]
+[link="How many of you are there?"]
+[linkto="howmany"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="anomaly"]
+
+"Some kind of causal domain shear occurred.
+
+ We do not fully understand what happened, but the
+ net result is that the parts of the planet populated
+ by the medieval humans experienced a faster rate of
+ time than the rest of it.
+
+ Every day that passed for us, was experienced as one year
+ by the medieval territories.  The phenomenon persisted for
+ exactly one year, during which the planet's rotation was
+ altered to match precisely 360 days per calendar year.
+
+ Unfortunately the panthers and their treasure were
+ inside the boundary of such an anomaly."
+
+[link="How did they stay sane for 300 years?"]
+[linkto="panthers3"]
+[link="How many of you are there?"]
+[linkto="howmany"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+	   
+
+[page="howmany"]
+[if panavius_rescueok][goto="howmany2"]
+[colour="#808080"]
+The android's eyes and body language portray
+lupine despondency.
+[colour="#ffffff"]
+
+"Two of us were brought to this world.
+ I am L-TRK, and my brother is W-OLF, but he is
+ missing and presumed dead.
+ 
+ Argus sent him to spy on the humans.  Such missions
+ are the purpose we were built for, after all.  And
+ before you say that a shiny black wolf-man with
+ glowing red eyes isn't stealth, I must stress that we
+ are equipped with invisibility field generators.
+
+ However, this appears to have been insufficient as he
+ never returned and we are convinced he was captured.
+
+ Argus is hoping we can send someone to investigate...
+ If his head is returned here, we should be able to
+ reactivate him.  But I cannot go myself - without him
+ I am the last one able to repair my fellows here."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+	   
+[page="howmany2"]
+
+"Two of us were brought to this world.
+ I am L-TRK, and my brother is W-OLF.
+ 
+ Argus sent him to spy on the humans.  Such missions
+ are the purpose we were built for, after all.  And
+ before you say that a shiny black wolf-man with
+ glowing red eyes isn't stealth, I must stress that we
+ are equipped with invisibility field generators.
+
+ However, this appears to have been insufficient as he
+ was captured by the Church.  I thank you deeply for
+ rescuing him!"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the panthers."]
+[linkto="panthers"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
