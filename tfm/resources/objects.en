@@ -12551,10 +12551,7 @@ section: characters
 	spikeproof
 
 	name GOLD_BAR
-	left		GOLD0
-	right		GOLD0
-	up		GOLD0
-	down		GOLD0
+	frame		GOLD0
 	hp		100000
 	weight		10000
 	description	"You see a gold ingot."
@@ -12563,10 +12560,7 @@ section: characters
 	solid
 
 	name LEAD_BAR
-	left		LEAD0
-	right		LEAD0
-	up		LEAD0
-	down		LEAD0
+	frame		LEAD0
 	hp		100000
 	weight		10000
 	description	"You see a lead ingot."
@@ -12575,10 +12569,7 @@ section: characters
 	solid
 
 	name GOLD_BAR_RADIOACTIVE
-	left		GOLD1
-	right		GOLD1
-	up		GOLD1
-	down		GOLD1
+	frame		GOLD1
 	hp		100000
 	weight		10000
 	light		1
@@ -12605,10 +12596,7 @@ section: characters
 	wielded
 
 	name TREASURE_01
-	left		TREASURE02
-	right		TREASURE02
-	up		TREASURE02
-	down		TREASURE02
+	frame		TREASURE02
 	hp		10000
 	weight		125
 	damage		15
@@ -12639,30 +12627,21 @@ section: characters
 	short		"gem"
 
 	name TREASURE_04
-	left		TREASURE13
-	right		TREASURE13
-	up		TREASURE13
-	down		TREASURE13
+	frame		TREASURE14
 	hp		10000
 	weight		3000
 	description	"You see a red crystal ball."
 	short		"crystal ball"
 
 	name TREASURE_05
-	left		TREASURE14
-	right		TREASURE14
-	up		TREASURE14
-	down		TREASURE14
+	frame		TREASURE13
 	hp		10000
 	weight		3000
 	description	"You see a blue crystal ball."
 	short		"crystal ball"
 
 	name TREASURE_06
-	left		TREASURE18
-	right		TREASURE18
-	up		TREASURE18
-	down		TREASURE18
+	frame		TREASURE18
 	hp		1000000000
 	weight		-1
 	description	"You see a huge pile of gold coins."
@@ -12683,20 +12662,14 @@ section: characters
 	iflookedat	look_orb
 
 	name GOLD_NUGGET
-	left		TREASURE19
-	right		TREASURE19
-	up		TREASURE19
-	down		TREASURE19
+	frame		TREASURE19
 	hp		1000000000
 	weight		2000
 	description	"You see a gold nugget."
 	short		"gold nugget"
 
 	name TOADSTONE
-	left		TREASURE15
-	right		TREASURE15
-	up		TREASURE15
-	down		TREASURE15
+	frame		TREASURE15
 	hp		10000
 	weight		300
 	description	"You see a small white crystal."
@@ -12704,10 +12677,7 @@ section: characters
 	quantity
 
 	name RING_RUBY
-	left		TREASURE01
-	right		TREASURE01
-	up		TREASURE01
-	down		TREASURE01
+	frame		TREASURE01
 	hp		10000
 	weight		125
 	description	"You see a gold ring adorned with a large ruby."
@@ -12717,10 +12687,7 @@ section: characters
 	wielded
 
 	name RING_POPE
-	left		POPERING
-	right		POPERING
-	up		POPERING
-	down		POPERING
+	frame		POPERING
 	hp		10000
 	weight		125
 	description	"You see a gold ring adorned with a large amethyst seal."
@@ -12731,10 +12698,7 @@ section: characters
 	wielded
 
 	name RING_POPE_FAKE
-	left		POPERING
-	right		POPERING
-	up		POPERING
-	down		POPERING
+	frame		POPERING
 	hp		10000
 	weight		125
 	description	"You see a copy of the Pope's signet ring."
@@ -12744,10 +12708,7 @@ section: characters
 	wielded
 
 	name RING_INV
-	left		RING
-	right		RING
-	up		RING
-	down		RING
+	frame		RING
 	hp		10000
 	weight		125
 	description	"You see a plain gold ring with an inscription."
