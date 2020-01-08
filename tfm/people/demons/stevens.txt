@@ -6,39 +6,350 @@ Stevens, expert hacker and ex-american president.
 [image="f18-0.pcx"]
 [learn_name]
 
-"Welcome, stranger.  Stevens is the name."
+"Welcome, stranger... the name's Stevens.
+ Hacker, cracker and former president of the USA.
+ Pleased to meet you."
+
+[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][linkto="enter_pp"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="prez"]
+[image="f18-0.pcx"]
+
+"It was a job.  I got some good stuff done.
+ Made things fairer for a lot of people.
+
+ 'Course, the guy after me tried to tear it all down
+ again, but that's humans for you.
+
+ I've served my two terms, though.  A lot of people
+ wanted me back, but... well, you don't want to mess
+ with that kind of safeguard, especially when your
+ ruler could be a machine intelligence with an
+ indefinite lifespan.
+	  
+ Even a good ruler might turn bad in the end, being able
+ to swap them out after a while is crucially important."
+
+[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][linkto="enter_pp"]
+[link="Did you find any interesting secrets out?"]
+[linkto="toomanysecrets"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="toomanysecrets"]
+[image="f18-0.pcx"]
+
+"Not really.  The world is a lot more boring than
+ most people would like to think.
+
+ I was President of the USA for eight years, and
+ I did a lot of digging around in that time, kid.
+
+ The CIA didn't hold anything back from me, because
+ they didn't even know I was looking.  I broke into
+ many systems.
+
+ Area 51 was just an experimental facility for
+ advanced weapons.  There were never any alien ships
+ there, but it made a good cover story.
+ Strictly they were UFOs, but they were entirely
+ designed and built on Earth."
+
+[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][linkto="enter_pp"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="f18-0.pcx"]
+
+"Fly high, land well!"
 
 [nextpage="exit"]
 [endpage]
 
-You see an F-18.
 
-..
+[page="base"]
+[image="f18-0.pcx"]
 
-Do you believe in the Illuminati, kid?
+"Argus is in charge.  Kind of got his talons full
+ trying to keep everything running without the
+ human technical staff.  Bad business, that.
 
-(no)
-Good.  'cos they're a fable.
+ This base was intended to be the intelligence hub
+ for the new colony.  We also have the transstellar
+ communicator, which is our sole link with Earth."
+
+[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][linkto="enter_pp"]
+[link="Tell me about the communicator."]
+[linkto="comms"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
-(yes)
-Well they don't exist.
+[page="comms"]
+[if_not if dlpower_fixed][goto="comms_borked"]
+[image="f18-0.pcx"]
+
+"Right.  Hyperdrive technology works by warping space
+ in front of a starship, creating a portal which allows
+ instantaneous travel.
+
+ By creating a smaller portal, say a couple of
+ millimetres across, you can send a laserbeam through
+ the portal, and thereby transmit information
+ instantaneously instead.
+
+ However, the space-warp process requires a synchrotron
+ in order to operate.  And that needs a LOT of power,
+ more than we can generate locally.  The base is linked
+ to a dam in the southeast mountains.
+
+ Thanks to you, we have it all operational again, and
+ we should be able to warn Earth of the crisis here."
+
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
-(the what?)
-It doesn't matter.  Some people think they control
-the government behind the scenes.
+[page="comms_borked"]
+[image="f18-0.pcx"]
+
+"Right.  Hyperdrive technology works by warping space
+ in front of a starship, creating a portal which allows
+ instantaneous travel.
+
+ By creating a smaller portal, say a couple of
+ millimetres across, you can send a laserbeam through
+ the portal, and thereby transmit information
+ instantaneously instead.
+
+ However, the space-warp process requires a synchrotron
+ in order to operate.  And that needs a LOT of power,
+ more than we can generate locally.  The base is linked
+ to a dam in the southeast mountains.
+
+ Unfortunately, it's not working.  Argus is looking for
+ someone to try and fix it, but we don't have anyone
+ left to send."
+
+[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][linkto="enter_pp"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="enter_pp"]
+[image="f18-0.pcx"]
+
+"Well, on the plus side they still patched you up
+ after instead ofleaving you to rot.
+ Most people aren't so lucky!"
+	 
+ As for preventing it... well, some of the Churchies
+ have been talking about seeing the Devil.
+ While I'm not sure worshipping evil is a great idea in
+ a place like this, it's possible that it might know a
+ way to bypass the LORD, if only to annoy them."
+
+[nextpage="enter_pp2"]
+[endpage]
+
+[page="enter_pp2"]
+[image="f18-0.pcx"]
+	  
+"If it's any consolation, it's almost certainly NOT
+ the actual Devil.  More likely it's poor sod who's
+ been brainwashed into THINKING he is, and given
+ powers to match.
+
+ But, it's also very possible that it's the
+ incarnation of some opposing power, possibly even
+ multiple personality disorder on the part of whatever
+ it is that's behind all this.  Probably a computer."
+
+[link="Great.  How would I find the Devil?"]
+[linkto="devil"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="devil"]
+[image="f18-0.pcx"]
+
+"We managed to get some books from the humans before
+ everything went sideways.
+
+ One of them mentions that grouse worship the Evil One.
+ That was a local myth on Earth at one point in the
+ remote past, but here, it might actually be true!
+	  
+ Asking the humans where you can find the Devil is
+ unlikely to end well, but asking after the grouse might
+ work.  You could try asking in Avis, a human settlement
+ north of here."
+
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
 
-conspiracy
-I was President of the USA for eight years.
-I did a lot of digging around in that time, kid.
-The CIA didn't hold anything back from me, because
-they didn't even know I was looking.  I broke into
-many systems.
+[page="medieval"]
+[image="f18-0.pcx"]
 
-Area 51 was just an experimental facility for
-advanced weapons.  There were never any UFOs; but it
-made a good cover story.
+"Well, something has taken over the planet and
+ brainwashed most of the humans into thinking that it's
+ the middle ages and the Pope is about to lead them all
+ to the Promised Land.
+
+ Whatever it is, it's very powerful and is roleplaying
+ as God, with considerable success.
+
+ And we are stuck here in the middle."
+
+[link="What do you think is behind it?"]
+[linkto="medieval2"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="medieval2"]
+[image="f18-0.pcx"]
+
+"Ever hear of the Illuminati, kid?"
+
+[link="Yes."]
+[linkto="medieval2y"]
+[link="No."]
+[linkto="medieval2n"]
+[link="The what...?"]
+[linkto="medieval2w"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="medieval2y"]
+[image="f18-0.pcx"]
+
+"Well, they don't exist.
+
+ When I was president, I hacked enough computers to get
+ a pretty shrewed idea of what's real and what's fable."
+
+[nextpage="medieval3"]
+[endpage]
+
+
+[page="medieval2n"]
+[image="f18-0.pcx"]
+
+"Good.  'cos they're a fable.
+
+ When I was president, I hacked enough computers to get
+ a pretty shrewed idea of what's real and what isn't."
+
+[nextpage="medieval3"]
+[endpage]
+
+
+[page="medieval2w"]
+[image="f18-0.pcx"]
+
+"It doesn't matter.  Some people think they control the
+ government behind the scenes.
+
+ When I was president, I hacked enough computers to get
+ a pretty shrewed idea of what's real and what isn't."
+
+[nextpage="medieval3"]
+[endpage]
+
+
+[page="medieval3"]
+[image="f18-0.pcx"]
+
+"Whatever's doing all this is powerful, yes.  But it
+ makes mistakes, too.  Too many to make me think it's a
+ supernatural phenomenon.
+
+ Lots of science fiction stories have a god that turns
+ out to be a super-powerful alien or a supercomputer or
+ something, and since we've never encountered it before
+ landing on this planet, it's clearly been trapped here.
+
+ I'd split the difference  and lay money on it being
+ some kind of alien supercomputer."
+
+[if met_drakaan_or_something][link="It is, I've met the aliens who created it."]
+[if met_drakaan_or_something][linkto="xylan"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 

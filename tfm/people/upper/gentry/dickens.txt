@@ -36,11 +36,12 @@
 [page="job"]
 
 "I rule Avis, reporting to his majesty, King Edwyg.
- We are but a small farming community, so there is usually
- little trouble.
+ We are but a small farming community, so there is
+ usually little trouble.
 
- However, the town is popular with adventurers come to seek
- their fortune.  Some do cause trouble and must be dealt with."
+ However, the town is popular with adventurers come
+ to seek their fortune.  Some do cause trouble and
+ must be dealt with."
 
 [link="Tell me about Avis."]
 [linkto="avis"]
@@ -51,10 +52,11 @@
 
 [page="avis"]
 
-"We are a small farming community.  Lately monsters have been coming from
- the caves in the north, devouring our livestock and sometimes our citizens.
- Bandits attacks have been increasing of late, possibly because the tithings
- have increased again."
+"We are a small farming community.  Lately monsters have
+  been coming from the caves in the north, devouring our
+ livestock and sometimes our citizens.
+ Bandits attacks have been increasing of late, possibly
+ because the tithings have increased again."
 
 
 [link="Tell me about the monsters."]
@@ -72,11 +74,12 @@
 
 [page="tithes"]
 
-"The tithes are a fee which we must pay the LORD and his assistants
- on this world.  He has done so much for us, it is only fair that we
- show Him our appreciation in this way.
+"The tithes are a fee which we must pay the LORD and His
+ assistants on this world.  He has done so much for us,
+ it is only fair that we show Him our appreciation.
 
- However, it does cause problems for those who are less able to pay."
+ However, it does cause problems for those who are less
+ able to pay."
 
 [link="Tell me about the monsters."]
 [linkto="monsters"]
@@ -93,13 +96,13 @@
 
 [page="bandits"]
 
-"There are a number of fell thieves in the woods, stealing sheep and
- waylaying travellers.  Several traders have gone missing, and we
- suspect foul murder.
+"There are a number of fell thieves in the woods,
+ stealing sheep and waylaying travellers.  Several
+ traders have gone missing, and we suspect foul murder.
 
-"To this end, the King has authorised a bounty for their execution.
- If you bring to me their heads as proof, I shall pay you 250 gold coins
- for each bandit slain."
+"To this end, the King has authorised a bounty for
+ their execution.  If you bring to me their heads as
+ proof, I shall pay 250 gold coins per bandit slain."
 
 [link="Tell me about the monsters."]
 [linkto="monsters"]
@@ -114,12 +117,13 @@
 
 [page="monsters"]
 
-"They come from the mountains to the north, slaying our animals and
- sometimes our men.
+"They come from the mountains to the north, slaying
+ our animals and sometimes our men.
 
- It may be that we can find a mage to seal off the cave by our fields,
- for that should reduce their number such that our adventurers can
- see off the rest.  Though the Church does not approve of such things."
+ It may be that we can find a mage to seal off the cave
+ by our fields, for that should reduce their number such
+ that our adventurers can see off the rest.  Though the
+ Church does not approve of such things."
 
 [link="Tell me about the bandits."]
 [linkto="bandits"]
@@ -226,7 +230,7 @@ The mayor stares at the head in shock and disbelief.
 [endpage]
 
 
-The player should probably be beheaded for this
+The player should be beheaded for this
 
 [page="bandit_head_king"]
 [colour="#808080"]

@@ -1881,6 +1881,15 @@ iMZ1r01
 
 	decorative TREE03 at 434 53
 
+	object FOODcad89e83-3446-4a66-8e93-f4b3eeee22a8
+		type CYBERWOLF
+		at 503 53
+		curdir 1
+		name W-OLF
+		tag 1008
+		stats->hp 0
+		funcs->talk people/tech/w-olf.txt
+
 	decorative TREE03 at 255 54
 
 	decorative TREE02 at 265 54
@@ -200470,6 +200479,21 @@ iMZ1r01
 		at 74 831
 		curdir 2
 
+	object F18-f07ea8b5-cd16-4f62-ab1b-c601d7459afa
+		type TABLE6-V
+		at 167 831
+		curdir 0
+
+	object TABL9b2b59f0-15a0-4cd9-ba17-c78dc0ab2aa5
+		type BOOK_BEASTS
+		at 167 831
+		curdir 2
+
+	object BOOK4365d14f-8030-49ba-8186-3b85bfe453f4
+		type BOOK_WITCHES
+		at 167 831
+		curdir 1
+
 	object FENCfa9fc2df-9a11-4812-8b17-78410afed981
 		type FENCE
 		at 208 831
@@ -200681,6 +200705,16 @@ iMZ1r01
 	object FENCbd417cd9-7124-461d-b571-9d88bfe503eb
 		type FENCE
 		at 74 832
+		curdir 2
+
+	object TABLefe0c229-57c2-4789-b862-cbfd99a916b4
+		type TABLE6-V
+		at 167 832
+		curdir 2
+
+	object BOOK3eaf57fd-3267-4adc-9889-62a325c0f6bd
+		type BOOK_NOTR
+		at 167 832
 		curdir 2
 
 	object FENCa436c6a2-96ee-4d55-866b-32cd488b9dfc
@@ -200906,6 +200940,21 @@ iMZ1r01
 		type FENCE
 		at 74 833
 		curdir 2
+
+	object TABL870fc965-aa34-4b99-a197-a600255f0867
+		type TABLE6-V
+		at 167 833
+		curdir 3
+
+	object BOOK095e54d6-e620-4264-a8cd-1c2f5fbd9f36
+		type BOOK_GHOST
+		at 167 833
+		curdir 2
+
+	object BOOKc0c4e6d9-6783-4b90-9b51-228b2ff0f5d2
+		type BOOK_ASTRO
+		at 167 833
+		curdir 3
 
 	object PATHeef5d057-efe5-42b3-adee-695d246abfe2
 		type PATHMARKER
@@ -201141,6 +201190,11 @@ iMZ1r01
 		curdir 1
 		name Panther Patrol
 		stats->owner PATH8cc58557-ff3c-4346-a16b-5c3832dcfdea
+
+	object TABL5651aedc-98f5-4bc9-b8d3-6b8fe597d52b
+		type TABLE6-V
+		at 167 834
+		curdir 1
 
 	object FENC911ec3d8-ed45-4b84-b0f2-11924cbfbfd8
 		type FENCE
@@ -201390,6 +201444,16 @@ iMZ1r01
 		type SPAWN_GUARDS_PANTHER
 		at 166 835
 		curdir 0
+
+	object TABL3b9d3b71-945f-40d4-aff7-7118e0b77da9
+		type TABLE-SHADOW2
+		at 167 835
+		curdir 1
+
+	object TABL37daee22-c68f-47cb-afd3-324a8a1fee76
+		type TABLE5-LEGS
+		at 167 835
+		curdir 1
 
 	object FENC23d50f8e-bf09-49e5-a7ce-eae6c3866552
 		type FENCE
@@ -212749,7 +212813,7 @@ iMZ1r01
 		at 174 881
 		curdir 1
 		name L-UPN
-		funcs->talk people/tech/ltrk.txt
+		funcs->talk people/tech/l-upn.txt
 
 	object FENCa95b22d2-8c30-4469-8fdd-b12692dc2eca
 		type FENCE

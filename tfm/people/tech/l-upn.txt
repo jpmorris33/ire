@@ -6,7 +6,7 @@ You see some kind of wolf android.
 [colour="#ffffff"]
 
 "Greetings, human.
- I am L-TRK, but most people call me Lautrec."
+ I am L-UPN, but most people call me Lupin."
 
 [link="What are you?"]
 [linkto="what"]
@@ -19,7 +19,7 @@ You see some kind of wolf android.
 
 [page="startname"]
 [colour="#808080"]
-You see Lautrec, the wolf android.
+You see Lupin, the wolf android.
 [colour="#ffffff"]
 
 "Welcome back, $PLAYERNAME."
