@@ -4697,6 +4697,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"A treatise on the Protectorate"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/protectr.txt
@@ -4710,6 +4711,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"Chorley's Bestiary, vol.2"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/bestiary.txt
@@ -4723,6 +4725,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"An Essay on the Holy Ghost"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/ghost.txt
@@ -4736,6 +4739,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"Astrology and the Church"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/astro.txt
@@ -4749,6 +4753,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"The Discovery of Witchcraft"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/witches1.txt
@@ -4762,6 +4767,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"The Name of the Rose"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/other/namerose.txt
@@ -4775,6 +4781,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"The hunting of Fowl"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/other/hunting.txt
@@ -4788,6 +4795,7 @@ section: characters
 	weight		200
 	description	"You see a book"
 	short		"book"
+	personalname	"The Book of Abraham the Jew"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/alchemy.txt
