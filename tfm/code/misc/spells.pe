@@ -305,7 +305,9 @@ print spelltarget.shortdesc
 printcr
 
 print "Mass: "
-let w = spelltarget.stats.weight / 1000
+#let w = spelltarget.stats.weight / 1000
+get_weight w = spelltarget
+add w / 1000
 print w
 print " kg"
 printcr

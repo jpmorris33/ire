@@ -7,6 +7,7 @@
 
 function fbi_file
 string funcname
+int true_weight
 
 gotoxy 2 0
 
@@ -109,7 +110,9 @@ printxy current.stats.armour
 printxy
 
 printxy "Weight: "
-printxy current.stats.weight
+#printxy current.stats.weight
+get_weight true_weight = current
+printxy true_weight
 printxy "  Quantity: "
 printxy current.stats.quantity
 printxy "  Karma: "
