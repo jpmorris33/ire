@@ -1148,6 +1148,15 @@ memcpy(&objsel->varea,&CHlist[ctr].varea,sizeof(objsel->varea));
 Init_Areas(objsel);
 CalcSize(objsel);
 
+if(objsel->flags & IS_QUANTITY) {
+	if(objsel->stats->weight) {
+		ilog_quiet("WARNING: object '%s' has both a quantity and a weight, should probably be unit_weight\n", objsel->name);
+	}
+	if(!objsel->maxstats->weight) {
+		ilog_quiet("WARNING: object '%s' has a quantity but no unit weight!\n", objsel->name);
+	}
+}
+
 return 1;
 }
 

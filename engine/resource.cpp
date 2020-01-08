@@ -1318,21 +1318,37 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
-		if(!istricmp(Rptr,"weight"))
-			{
+		if(!istricmp(Rptr,"weight")) {
+			if(character->flags & IS_QUANTITY) {
+				Dump(ctr,"Object must have the quantity flag to have a unit weight.",NULL);
+			}
 			strcpy(Rbuffer,strfirst(strrest(line)));
-			if(!strisnumber(Rbuffer))
+			if(!strisnumber(Rbuffer)) {
 				Dump(ctr,"The character's weight must be a number.",NULL);
+			}
 			tmp=strgetnumber(Rbuffer);
 			character->stats->weight=tmp;
 			continue;
-			}
+		}
 
-		if(!istricmp(Rptr,"unit_weight") || !istricmp(Rptr,"max_weight"))
+		if(!istricmp(Rptr,"unit_weight")) {
+			if(!(character->flags & IS_QUANTITY)) {
+				Dump(ctr,"Object must have the quantity flag to have a unit weight.",NULL);
+			}
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			if(!strisnumber(Rbuffer)) {
+				Dump(ctr,"The character's unit weight must be a number.",NULL);
+			}
+			tmp=strgetnumber(Rbuffer);
+			character->maxstats->weight=tmp;
+			continue;
+		}
+
+		if(!istricmp(Rptr,"max_weight"))
 			{
 			strcpy(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
-				Dump(ctr,"The character's unit weight must be a number.",NULL);
+				Dump(ctr,"The character's maximum weight must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
 			character->maxstats->weight=tmp;
 			continue;
@@ -2069,6 +2085,11 @@ for(ctr=start;ctr<=finish;ctr++)
 				character->stats->quantity=1;
 			continue;
 			}
+
+		if(!istricmp(Rptr,"bag_of_holding")) {            // Disable weight limits for container
+			character->flags |= IS_BAGOFHOLDING;
+			continue;
+		}
 
 		if(!istricmp(Rptr,"boat"))            // Is it a boat?
 			{

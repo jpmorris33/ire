@@ -2998,6 +2998,7 @@ section: sprites
 	kfs_kebab1		sprites/tech/kfs10.cel
 	kfs_kebab2		sprites/tech/kfs11.cel
 	kfs_kebab2		sprites/tech/kfs11.cel
+	kfs_bag			sprites/tech/kfs12.png
 
 	stdonalds_sign		sprites/tech/stdonlds.cel
 	burgershelf		sprites/tech/burgersh.png
@@ -11980,6 +11981,7 @@ section: sequences
 	quickname kfs_takeaway2 kfs_takeaway2
 	quickname kfs_kebab1 kfs_kebab1
 	quickname kfs_kebab2 kfs_kebab2
+	quickname kfs_bag kfs_bag
 
 	name stdonalds_sign
 	chimney

@@ -1699,24 +1699,34 @@ return a2;
 int WeighObject(OBJECT *obj)
 {
 int w=0;
-if(!obj)
+if(!obj) {
      return 0;
-if(!(obj->flags & IS_ON))
+}
+if(!(obj->flags & IS_ON)) {
     return 0;
+}
 
-if(!obj->stats || !obj->maxstats)
+if(!obj->stats || !obj->maxstats) {
 	return 0;
+}
 
-if(obj->stats->quantity > 1)
-	if(obj->maxstats->weight > 0)
+// If it's a quantity, it can't be a container so ignore it
+if(obj->stats->quantity > 1) {
+	if(obj->maxstats->weight > 0) {
 		return obj->stats->quantity*obj->maxstats->weight;
+	}
+}
+
+// If it's a bag of holding, don't traverse it
+if(obj->flags & IS_BAGOFHOLDING) {
+	return obj->stats->weight;
+}
 
 w = obj->stats->weight;
-if(obj->pocket.objptr)
-	{
+if(obj->pocket.objptr) {
 	object_search_rec=0;
 	return w+WeighObjectR(obj->pocket.objptr);
-	}
+}
 
 return w;
 }
@@ -1730,14 +1740,6 @@ int WeighObjectR(OBJECT *list)
 OBJECT *temp;
 int w=0;
 static int complain=0;
-
-if(!list->stats || !list->maxstats)
-	return 0;
-
-if(list->stats->quantity > 1)
-	if(list->maxstats->weight > 0)
-		return list->stats->quantity*list->maxstats->weight;
-
 
 // Defence against objects inside their asses
 
@@ -1756,13 +1758,26 @@ complain=0;
 // Okay, do the thing
 
 for(temp = list;temp;temp=temp->next) {
-	if(temp->flags & IS_ON) {
-		w+=temp->stats->weight;
-		if(temp->pocket.objptr) {
-			w+=WeighObjectR(temp->pocket.objptr);
-		}
+	if(!(temp->flags & IS_ON)) {
+		continue;
+	}
+	if(temp->flags & IS_BAGOFHOLDING) {
+		continue;
+	}
+	if(!temp->stats || !temp->maxstats) {
+		continue;
+	}
+	if(temp->stats->quantity > 1 && temp->maxstats->weight > 0) {
+		w+=list->stats->quantity*list->maxstats->weight;
+		continue;
+	}
+
+	w+=temp->stats->weight;
+	if(temp->pocket.objptr) {
+		w+=WeighObjectR(temp->pocket.objptr);
 	}
 }
+
 return w;
 }
 
@@ -1778,6 +1793,11 @@ if(!obj)
      return 0;
 if(!(obj->flags & IS_ON))
     return 0;
+
+// If it's a bag of holding, don't traverse it
+if(obj->flags & IS_BAGOFHOLDING) {
+	return obj->stats->bulk;
+}
 
 w = obj->stats->bulk;
 if(obj->pocket.objptr)
@@ -1795,13 +1815,26 @@ int GetBulkR(OBJECT *list)
 OBJECT *temp;
 int w=0;
 
-for(temp = list;temp;temp=temp->next)
-    if(temp->flags & IS_ON)
-        {
+if(!list->stats) {
+	return 0;
+}
+
+if(list->flags & IS_BAGOFHOLDING) {
+	return list->stats->bulk;
+}
+
+for(temp = list;temp;temp=temp->next) {
+	if(!(temp->flags & IS_ON)) {
+		continue;
+	}
+	if(temp->flags & IS_BAGOFHOLDING) {
+		continue;
+	}
         w+=temp->stats->bulk;
-        if(temp->pocket.objptr)
-            w+=GetBulkR(temp->pocket.objptr);
+        if(temp->pocket.objptr) {
+		w+=GetBulkR(temp->pocket.objptr);
         }
+}
 return w;
 }
 

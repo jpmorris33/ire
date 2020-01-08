@@ -3565,10 +3565,10 @@ section: characters
 	up		GOLD_COINS
 	down		GOLD_COINS
 	hp		10000
-	weight		2
+	quantity
+	unit_weight	5
 	description	"You see some gold coins."
 	short		"money"
-	quantity
 	qchange		count_money
 	oninit		count_money
 
@@ -9656,12 +9656,12 @@ section: characters
 	up		FOODP00
 	down		FOODP01
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see a portion of meat."
 	short		"meat"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 	race		rabbit
 
 	name FOODP01
@@ -9670,12 +9670,12 @@ section: characters
 	up		FOODP04
 	down		FOODP05
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see a portion of grapes."
 	short		"grapes"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP02
 	left		FOODP10
@@ -9683,14 +9683,14 @@ section: characters
 	up		FOODP08
 	down		FOODP09
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see an egg."
 	short		"egg"
 	IfUsed		EAT_FOOD
 	ifkilled	erase_it
 	fragile
 	no_resurrect
-	quantity
 
 	name FOODP03
 	left		FOODP14
@@ -9698,12 +9698,12 @@ section: characters
 	up		FOODP12
 	down		FOODP13
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see a slice of cheese."
 	short		"cheese"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP04
 	left		FOODP18
@@ -9723,12 +9723,12 @@ section: characters
 	up		FOODP16
 	down		FOODP17
 	hp		2
-	weight		85
+	quantity
+	unit_weight	85
 	description	"You see a bread roll covered in honey."
 	short		"sticky roll"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP05
 	left		FOODP22
@@ -9736,12 +9736,12 @@ section: characters
 	up		FOODP20
 	down		FOODP21
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see a portion of carrots."
 	short		"carrots"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP06
 	left		FOODP26
@@ -9749,12 +9749,12 @@ section: characters
 	up		FOODP24
 	down		FOODP25
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see a cake."
 	short		"cake"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP07
 	left		FOODP30
@@ -9762,12 +9762,12 @@ section: characters
 	up		FOODP28
 	down		FOODP29
 	hp		2
-	weight		75
+	quantity
+	unit_weight	75
 	description	"You see a piece of fish."
 	short		"fish"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP08
 	left		FOODP34
@@ -9787,12 +9787,12 @@ section: characters
 	up		FOODP32
 	down		FOODP33
 	hp		2
-	weight		70
+	quantity
+	unit_weight	70
 	description	"You see an apple covered in honey."
 	short		"sticky apple"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP09
 	left		FOODP38
@@ -9800,12 +9800,12 @@ section: characters
 	up		FOODP36
 	down		FOODP37
 	hp		2
-	weight		60
+	quantity
+	unit_weight	60
 	description	"You see a pepper."
 	short		"pepper"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name FOODP10
 	left		FOODP42
@@ -9813,12 +9813,12 @@ section: characters
 	up		FOODP40
 	down		FOODP41
 	hp		2
-	weight		100
+	quantity
+	unit_weight	75
 	description	"You see a lettuce leaf."
 	short		"lettuce"
 	IfUsed		EAT_FOOD
 	no_resurrect
-	quantity
 
 	name GRAPES
 	left		GRAPES04
@@ -12679,10 +12679,10 @@ section: characters
 	name TOADSTONE
 	frame		TREASURE15
 	hp		10000
-	weight		300
+	quantity
+	unit_weight	300
 	description	"You see a small white crystal."
 	short		"todestone"
-	quantity
 
 	name RING_RUBY
 	frame		TREASURE01
@@ -13824,6 +13824,17 @@ section: characters
 	IfUsed		EAT_FOOD
 	user2		KFS_LITTER
 	no_resurrect
+
+	name KFS_BAG
+	frame		kfs_bag
+	hp		50
+	weight		50
+	description	"You see a KFS takeaway bag."
+	short		"takeaway bag"
+	iflookedat	look_sack
+#	ifUsed		use_kfs_bag
+	container
+	bag_of_holding
 
 	name stdonalds_sign
 	left		stdonalds_sign

@@ -321,7 +321,7 @@ typedef struct ST_ITEM
 #define IS_SPIKEPROOF   0x00001000	// Doesn't set off triggers
 #define CAN_WIELD       0x00002000	// Can it be wielded?
 #define IS_REPEATSPIKE	0x00004000	// Is the trigger one-shot or repeats every turn?
-//#define SPARE		0x00008000	
+#define IS_BAGOFHOLDING	0x00008000	// Don't include the weight/bulk of contents
 #define DOES_BLOCKLIGHT 0x00010000	// Does it block light?
 #define IS_TABLETOP     0x00020000	// Can you drop things on it even though it's solid?
 #define DID_INIT        0x00040000	// Have we run the INIT code?
