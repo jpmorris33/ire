@@ -343,8 +343,8 @@ CHECK_OBJECT(dest);
 
 if(src->flags & IS_QUANTITY)
 	{
-	AddQuantity(dest,src->name,src->stats->quantity);
 	TransferObject(src,0,0);	// Get it out of the pocket for linked-lists based on object->pocket
+	AddQuantity(dest,src->name,src->stats->quantity); // Now it's gone we can do this without colliding with itself
 	DeleteObject(src);
 	}
 else
@@ -361,8 +361,8 @@ CHECK_OBJECT(dest);
 
 if(src->flags & IS_QUANTITY)
 	{
-	AddQuantity(dest,src->name,src->stats->quantity);
 	TransferObject(src,0,0);	// Get it out of the pocket for linked-lists based on object->pocket
+	AddQuantity(dest,src->name,src->stats->quantity); // Now it's gone we can do this without colliding with itself
 	DeleteObject(src);
 	}
 else
