@@ -175,7 +175,7 @@ printcr
 end
 
 function carry_person
-print msg_CannotCarryThen
+print msg_CannotCarryThem
 printcr
 end
 

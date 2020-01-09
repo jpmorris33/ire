@@ -16,7 +16,8 @@ quickname msg_CannotPickThat		You cannot pick that up.
 quickname msg_Cancelled			cancelled
 quickname msg_ItReads			It reads:
 quickname msg_CannotUseThat		You can't use that.
-quickname msg_CannotCarryThen		You can't carry them.
+quickname msg_CannotCarryThem		You can't carry them.
+quickname msg_WontFit			It won't go in!
 
 quickname sign_WelcomeToHell		Welcome to Hell!|Population: lots
 quickname sign_Dirk			Dirk Barron and the terror of the reanimated jelly babies

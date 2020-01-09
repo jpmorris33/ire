@@ -63,3 +63,80 @@ end
 function spill
 spill current
 end
+
+
+##
+##	Use KFS bag
+##
+
+function use_kfs_bag
+object kfs
+let kfs = current
+
+print "Use bag on "
+redraw_text
+
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print current.shortdesc
+printcr
+
+let victim = current
+let suspect = player
+
+if current is called "TREASURE_06"
+	object_sound "money_stretched" me
+	if current.funcs.gcache > 0
+		call current.funcs.get
+	endif
+	call justice_theft
+
+	give 500000 "gold_coins" to kfs
+	destroy current
+	return
+endif
+
+if current = kfs
+	lightning 50
+	play_sound "beer_brk"
+	let player.stats.hp = -100000
+	check_hurt player
+
+	wait 2000 NONBLOCKING
+
+	# End the world, even if the player used a patsy
+	restart_game
+	return
+endif
+
+if_flag current IS_LARGE
+	print msg_WontFit
+	printcr
+	return
+endif
+
+if_flag current IS_FIXED
+	print msg_WontFit
+	printcr
+	return
+endif
+
+if_flag current IS_PERSON
+	print msg_CannotCarryThem
+	printcr
+	return
+endif
+
+if current.funcs.gcache > 0
+	call current.funcs.get
+endif
+call justice_theft
+
+move_to_pocket current to kfs
+
+end

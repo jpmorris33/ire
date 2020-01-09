@@ -13832,7 +13832,7 @@ section: characters
 	description	"You see a KFS takeaway bag."
 	short		"takeaway bag"
 	iflookedat	look_sack
-#	ifUsed		use_kfs_bag
+	ifUsed		use_kfs_bag
 	container
 	bag_of_holding
 
