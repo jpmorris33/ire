@@ -75,7 +75,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 
-
 #ifdef __DJGPP__
 #include <crt0.h>
 int _crt0_startup_flags =_CRT0_FLAG_FILL_SBRK_MEMORY | _CRT0_FLAG_FILL_DEADBEEF;
@@ -115,6 +114,7 @@ IREBITMAP *eyesore;
 IREBITMAP *warning;
 IREBITMAP *gamewin;
 //IREFONT *DefaultFont;
+double ire_sqrt[32768];
 
 OBJECT *objsel;         // Object selected in objects.cc
 OBJECT *schsel=NULL;    // Special highlight for Schedules

@@ -115,6 +115,7 @@ class IRELIGHTMAP
 		virtual void DrawLight(IRELIGHTMAP *dest, int x, int y);
 		virtual void DrawDark(IRELIGHTMAP *dest, int x, int y);
 		virtual void DrawSolid(IRELIGHTMAP *dest, int x, int y);
+		virtual void DrawCorona(int x, int y, int radius, int intensity, int falloff, bool darken);
 		virtual void Get(IRELIGHTMAP *src, int x, int y);
 		virtual unsigned char GetPixel(int x, int y);
 		virtual void PutPixel(int x, int y, unsigned char level);

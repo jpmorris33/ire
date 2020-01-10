@@ -157,6 +157,7 @@ void IRELIGHTMAP::Clear(unsigned char level) {}
 void IRELIGHTMAP::DrawLight(IRELIGHTMAP *dest, int x, int y) {}
 void IRELIGHTMAP::DrawDark(IRELIGHTMAP *dest, int x, int y) {}
 void IRELIGHTMAP::DrawSolid(IRELIGHTMAP *dest, int x, int y) {}
+void IRELIGHTMAP::DrawCorona(int x, int y, int radius, int intensity, int falloff, bool darken) {}
 void IRELIGHTMAP::Get(IRELIGHTMAP *src, int x, int y) {}
 unsigned char IRELIGHTMAP::GetPixel(int x, int y) {return 0;}
 void IRELIGHTMAP::PutPixel(int x, int y, unsigned char level) {}

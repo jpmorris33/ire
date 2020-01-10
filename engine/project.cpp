@@ -1187,6 +1187,9 @@ for(ctr=0;ctr<lights;ctr++) {
 	}
 }
 
+//darkmap->DrawCorona(100,100,64,64,200,false);
+//darkmap->DrawCorona(200,200,64,64,200,true);
+
 // Now use the darkness map to shade the game window
 darkmap->Render(gamewin);
 // And the roof (which is rendered separately to avoid contamination)

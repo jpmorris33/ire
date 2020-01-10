@@ -6698,7 +6698,6 @@ VMINT *tint;
 tint = GET_INT();
 CHECK_POINTER(tint);
 
-gamewin->SetBrushmode(ALPHA_SOLID,255);
 ProjectCorona(tfx_sx,tfx_sy,tfx_radius,tfx_intensity,tfx_falloff,*tint);
 }
 

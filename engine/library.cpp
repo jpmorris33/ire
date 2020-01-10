@@ -45,7 +45,7 @@ extern VMINT sf_volume;
 static char *nullstr="<NULL>";
 static double ire_sintab[3600];
 static double ire_costab[3600];
-static double ire_sqrt[32768];
+double ire_sqrt[32768];
 
 struct PICKLISTLIST
 	{

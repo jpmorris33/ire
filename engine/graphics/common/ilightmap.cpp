@@ -11,6 +11,7 @@ extern void darken_darksprite(int x,int y, int scrw, int scrh, unsigned char *ou
 extern void darken_lightsprite(int x,int y, int scrw, int scrh, unsigned char *out, unsigned char *in);
 extern void (*darken)(IREBITMAP *image, IRELIGHTMAP *tab);
 
+extern double ire_sqrt[32768];
 
 class CMNLIGHTMAP : public IRELIGHTMAP
 	{
@@ -21,6 +22,7 @@ class CMNLIGHTMAP : public IRELIGHTMAP
 		void DrawLight(IRELIGHTMAP *dest, int x, int y);
 		void DrawDark(IRELIGHTMAP *dest, int x, int y);
 		void DrawSolid(IRELIGHTMAP *dest, int x, int y);
+		void DrawCorona(int x, int y, int radius, int intensity, int falloff, bool darken);
 		void Get(IRELIGHTMAP *src, int x, int y);
 		unsigned char GetPixel(int x, int y);
 		void PutPixel(int x, int y, unsigned char level);
@@ -234,6 +236,55 @@ if(!image)
 	return;
 image[(y*width)+x] = level;
 }
+
+//
+//  Project a corona
+//
+
+void CMNLIGHTMAP::DrawCorona(int xc, int yc, int radius, int intensity, int falloff, bool darken) {
+int x,y,x1,y1,diam,xa,yb;
+int inc,xayb;
+int pixel;
+
+// Get diameter
+diam=radius<<1;
+
+// Calculate new top-left (from centre position)
+x1=xc-radius;
+y1=yc-radius;
+
+for(y=0;y<diam;y++)
+	for(x=0;x<diam;x++)
+		{
+		xa=radius-x;
+		yb=radius-y;
+		// Calculate the squared value and clip it for the SQRT table
+		xayb=(xa*xa)+(yb*yb);
+		if(xayb>32768)
+			xayb=32768;
+		if(xayb<0)
+			xayb=0;
+		inc=intensity-(int)(((float)falloff/100.0)*ire_sqrt[xayb]);
+		if(inc>0)
+			{
+			// Only do the pixel stuff if we need to
+			pixel=GetPixel(x+x1,y+y1);
+			if(darken) {
+				pixel += inc;
+				if(pixel > 255) {
+					pixel=255;
+				}
+			} else {
+				pixel -= inc;
+				if(pixel < 0) {
+					pixel=0;
+				}
+			}
+			PutPixel(x+x1,y+y1,pixel);
+			}
+		}
+}
+
 
 //
 //  Render as darkness

@@ -131,8 +131,8 @@ end
 
 function fx_sacrfice
 
-fx_alpha 0
-fx_alphamode ALPHA_ADD
+fx_alpha 255
+fx_alphamode ALPHA_SOLID
 
 let fx_srcx = player.user.user14
 let fx_srcy = player.user.user15
@@ -155,8 +155,8 @@ end
 
 
 function fx_sacrfice2
-fx_alpha 0
-fx_alphamode ALPHA_ADD
+fx_alpha 255
+fx_alphamode ALPHA_SOLID
 
 let fx_srcx = player.user.user14
 let fx_srcy = player.user.user15
@@ -207,8 +207,8 @@ end
 
 function fx_sacrfice3
 
-fx_alpha 0
-fx_alphamode ALPHA_ADD
+fx_alpha 255
+fx_alphamode ALPHA_SOLID
 
 let fx_srcx = player.user.user14
 let fx_srcy = player.user.user15
