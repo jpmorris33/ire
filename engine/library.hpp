@@ -144,6 +144,7 @@ extern void CalcOrbit(VMINT *angle, VMINT radius, VMINT drift, VMINT speed, VMIN
 extern void InitOrbit();
 //extern void ProjectCorona(int x,int y,int w,int h, int intensity, int falloff);
 extern void ProjectCorona(VMINT x,VMINT y,VMINT radius, VMINT intensity, VMINT falloff, VMINT tint);
+extern void ProjectBlackCorona(VMINT x,VMINT y,VMINT radius, VMINT intensity, VMINT falloff, VMINT tint);
 
 
 extern void InitConsoles();

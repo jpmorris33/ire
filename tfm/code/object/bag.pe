@@ -106,6 +106,12 @@ if current = kfs
 	play_sound "beer_brk"
 	let player.stats.hp = -100000
 	check_hurt player
+	set_flag kfs IS_INVISIBLE = 1
+
+	let kfs.user.user18 = 48
+	let kfs.user.user17 = 2
+	startfx kfs does fx_blackcorona
+	
 
 	wait 2000 NONBLOCKING
 

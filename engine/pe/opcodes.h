@@ -231,6 +231,7 @@ enum {
 	PEVM_fxOrbit,
 	PEVM_fxSprite,
 	PEVM_fxCorona,
+	PEVM_fxBlackCorona,
 	PEVM_fxAnimSprite,
 	PEVM_dofx,
 	PEVM_dofxS,

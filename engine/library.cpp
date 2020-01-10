@@ -2026,6 +2026,52 @@ for(y=0;y<diam;y++)
 }
 
 
+#define DEC_COLOUR(cl,val)  {cl-=val;	if(cl<0) cl=0;}
+
+void ProjectBlackCorona(VMINT xc,VMINT yc, VMINT radius,VMINT intensity, VMINT falloff, VMINT tint)
+{
+VMINT x,y,x1,y1,diam,xa,yb;
+VMINT r,g,b,inc,xayb;
+IRECOLOUR pixel;
+
+// Get diameter
+diam=radius<<1;
+
+// Calculate new top-left (from centre position)
+x1=xc-radius;
+y1=yc-radius;
+
+for(y=0;y<diam;y++)
+	for(x=0;x<diam;x++)
+		{
+		xa=radius-x;
+		yb=radius-y;
+		// Calculate the squared value and clip it for the SQRT table
+		xayb=(xa*xa)+(yb*yb);
+		if(xayb>32768)
+			xayb=32768;
+		if(xayb<0)
+			xayb=0;
+		inc=intensity-(int)(((float)falloff/100.0)*ire_sqrt[xayb]);
+		if(inc>0)
+			{
+			// Only do the pixel stuff if we need to
+			gamewin->GetPixel(x+x1,y+y1,&pixel);
+			r=pixel.r;
+			g=pixel.g;
+			b=pixel.b;
+			if(tint&TINT_RED)
+				DEC_COLOUR(r,inc);
+			if(tint&TINT_GREEN)
+				DEC_COLOUR(g,inc);
+			if(tint&TINT_BLUE)
+				DEC_COLOUR(b,inc);
+			gamewin->PutPixel(x+x1,y+y1,r,g,b);
+			}
+		}
+}
+
+
 
 void InitConsoles()
 {

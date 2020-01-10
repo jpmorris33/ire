@@ -357,6 +357,7 @@ static void PV_fxPoly();
 static void PV_fxOrbit();
 static void PV_fxSprite();
 static void PV_fxCorona();
+static void PV_fxBlackCorona();
 static void PV_fxAnimSprite();
 static void PV_addstr();
 static void PV_addstrn();
@@ -1407,6 +1408,7 @@ VMOP(fxPoly);
 VMOP(fxOrbit);
 VMOP(fxSprite);
 VMOP(fxCorona);
+VMOP(fxBlackCorona);
 VMOP(fxAnimSprite);
 VMOP(addstr);
 VMOP(addstrn);
@@ -6699,6 +6701,18 @@ tint = GET_INT();
 CHECK_POINTER(tint);
 
 ProjectCorona(tfx_sx,tfx_sy,tfx_radius,tfx_intensity,tfx_falloff,*tint);
+}
+
+
+// Draw a corona at sx,sy of size radius
+
+void PV_fxBlackCorona()
+{
+VMINT *tint;
+tint = GET_INT();
+CHECK_POINTER(tint);
+
+ProjectBlackCorona(tfx_sx,tfx_sy,tfx_radius,tfx_intensity,tfx_falloff,*tint);
 }
 
 
