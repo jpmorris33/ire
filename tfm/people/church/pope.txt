@@ -943,7 +943,7 @@ The Holy Father eyes you with a look of amusement.
  large numbers faster than any human hand or eye.
 
  Guards!  This wretch has attempted to swindle the LORD
- of his dues!  Dispatch them at once."
+ of His dues!  Dispatch them at once."
 
 [at_exit_call="guillotine_player"]
 [nextpage="exit"]

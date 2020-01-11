@@ -2,8 +2,7 @@
 [backing="paper.pcx"]
 [font 3]
 
-
-  Ludwig,
+  Cardinal Bas,
 
   It has been has told to me that we shall give the King until
   January to deliver the outstanding tributes to Our LORD.
@@ -28,5 +27,5 @@
 [nextpage="exit"]
 [endpage]
 
-Ludwig has been incinerated by the LORD's wrath since his
+Bás has been incinerated by the LORD's wrath since his
 agent lost the sceptre

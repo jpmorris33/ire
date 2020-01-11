@@ -82,7 +82,7 @@ Cardinal De'Ath
 
 "I was, until recently, a priest.
 
- My predecessor was Cardinal Ludwig, who until recently
+ My predecessor was Cardinal Bas, who until recently
  resided here at Avis.  However, the LORD entrusted him with
  some most sacred duty in which he had failed.  I know not
  what this task was, but he failed and the LORD, very
@@ -91,7 +91,7 @@ Cardinal De'Ath
  I happened to be nearby at the time and the LORD commanded
  me to take his place, which I try to do.
 
- Cardinal Ludwig's personal effects are in a chest in my
+ Cardinal Bas' personal effects are in a chest in my
  home, I have not yet had time to examine them."
 
 [if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]

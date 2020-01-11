@@ -2,7 +2,7 @@
 [backing="paper.pcx"]
 [font 3]
 
- Bishop Ludwig,
+ Cardinal Bas,
 
  Find enclosed the signed contract proposed by Redtooth.
  The LORD approves greatly of a change in king, for Grey's
