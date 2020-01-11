@@ -3938,7 +3938,7 @@ str = GET_STRING();
 CHECK_POINTER(str);
 jumpoffset = GET_DWORD();
 
-if(Get_tFlag(str)) {
+if(!Get_tFlag(str)) {
 	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
 }
 }
@@ -3950,7 +3950,7 @@ str = GET_STRING();
 CHECK_POINTER(str);
 jumpoffset = GET_DWORD();
 
-if(!Get_tFlag(str)) {
+if(Get_tFlag(str)) {
 	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
 }
 }
