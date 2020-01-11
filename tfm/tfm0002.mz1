@@ -21,7 +21,7 @@ iMZ1r01
 		type RAT
 		inside EGG_c31d137e-4393-4cbb-9105-4a4f5cba12a9
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_c31d137e-4393-4cbb-9105-4a4f5cba12a9
 		type EGG_OBJECT(RAT)
@@ -32,7 +32,7 @@ iMZ1r01
 		type RAT
 		inside EGG_2479e3c2-cc49-4612-8a7e-1b3df19b7921
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_2479e3c2-cc49-4612-8a7e-1b3df19b7921
 		type EGG_OBJECT(RAT)
@@ -43,7 +43,7 @@ iMZ1r01
 		type RAT
 		inside EGG_efdbd253-4ae9-4cdb-affc-eb3d3ca8af71
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_efdbd253-4ae9-4cdb-affc-eb3d3ca8af71
 		type EGG_OBJECT(RAT)
@@ -72,7 +72,7 @@ iMZ1r01
 		type RAT
 		inside EGG_45e89ebb-9545-4a63-b797-61a26e3b71b8
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_45e89ebb-9545-4a63-b797-61a26e3b71b8
 		type EGG_OBJECT(RAT)
@@ -83,7 +83,7 @@ iMZ1r01
 		type RAT
 		inside EGG_05b48783-9727-40ff-96ed-3bbb92d7df35
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_05b48783-9727-40ff-96ed-3bbb92d7df35
 		type EGG_OBJECT(RAT)
@@ -100,7 +100,7 @@ iMZ1r01
 		type RAT
 		inside EGG_2a8dce51-44cb-4d2e-8e82-05c6581d2ef1
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_2a8dce51-44cb-4d2e-8e82-05c6581d2ef1
 		type EGG_OBJECT(RAT)
@@ -111,7 +111,7 @@ iMZ1r01
 		type RAT
 		inside EGG_d155426c-f13e-4df8-850c-4d6617fe322d
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_d155426c-f13e-4df8-850c-4d6617fe322d
 		type EGG_OBJECT(RAT)
@@ -59168,7 +59168,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_4f7f3aaf-757d-4144-a879-aa03ada1b2e0
 		curdir 2
-		activity graze
+		activity GRAZE
 
 	object FOOD7ba026a5-b848-4023-8dc7-fb5e463456dd
 		type FOOD05_SHEEP
@@ -59194,7 +59194,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_499cef09-b976-4818-8eaf-237e5eddab50
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOODcf2dcb78-b832-46f5-a2e2-7b2462839885
 		type FOOD06
@@ -59210,7 +59210,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_eb0193f8-0a25-43a1-a83c-6ea1fe6be458
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD1a8ca17a-b264-4081-abf9-849ee772faf0
 		type FOOD05_SHEEP
@@ -59479,7 +59479,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_535405d0-430d-4c85-80c0-1afa7d5e3478
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD335f9e5f-50a6-4804-8431-03ed3afc4854
 		type FOOD05_SHEEP
@@ -59505,7 +59505,7 @@ iMZ1r01
 		type COW
 		inside EGG_bebb6e73-e8bb-4eb1-91e9-379afa9daed5
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODffe58fea-fc41-4328-a8dd-c0eed45491e0
 		type FOOD05
@@ -59528,7 +59528,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_ca1c41a2-43a2-493e-a873-3dbf43931107
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOOD4cf7f516-da81-4014-aa01-3122d6dd7219
 		type FOOD06
@@ -93373,7 +93373,7 @@ iMZ1r01
 		type BUNNY
 		at 328 453
 		curdir 3
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object ARMOede8bf1e-2678-498f-bf47-80e8d16fd374
 		type ARMOUR01
@@ -103789,7 +103789,7 @@ iMZ1r01
 		type WOLF_F
 		at 426 489
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 0 1 WAITER_STARTUP TARGac6668f1-bf7e-4c6d-8e60-9683e3d997b5
 
 	object TARG34ba861e-fbfc-4691-a61a-b11cd0244e8d
@@ -103801,7 +103801,7 @@ iMZ1r01
 		type WOLF
 		at 430 489
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 0 1 WAITER_STARTUP TARG34ba861e-fbfc-4691-a61a-b11cd0244e8d
 
 	decorative TREE02 at 439 489
@@ -104073,7 +104073,7 @@ iMZ1r01
 		type WOLF
 		at 428 490
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 0 1 EAT_AT_LOCATION TARGfa2eea8c-c044-4e41-8321-846eeb8fda4c
 
 	decorative TREE01 at 444 490
@@ -104666,7 +104666,7 @@ iMZ1r01
 		type SHEEP
 		at 426 492
 		curdir 3
-		activity graze
+		activity GRAZE
 		schedule 0 1 EAT_AT_LOCATION TARGe28d3eae-fc43-4af5-ac38-f525b8a0650e
 
 	object TABL0f46a4ce-9713-4698-88dc-639e3e18db56
@@ -104764,7 +104764,7 @@ iMZ1r01
 		type SHEEP
 		at 430 492
 		curdir 2
-		activity graze
+		activity GRAZE
 		schedule 0 1 EAT_AT_LOCATION TARGa04ee8f0-9c31-4361-a8c3-8ec59479c176
 
 	decorative TREE00 at 440 492
@@ -105040,7 +105040,7 @@ iMZ1r01
 		type RAT
 		inside WINE35d9cd6a-e086-42d7-8862-0e5c9dee5d52
 		curdir 2
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object WINE35d9cd6a-e086-42d7-8862-0e5c9dee5d52
 		type WINEGLASS
@@ -105066,7 +105066,7 @@ iMZ1r01
 		type RAT
 		at 428 493
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object TABL0a860665-1854-4d67-9725-5c2efd6d2796
 		type TABLE1-EDGES
@@ -105355,7 +105355,7 @@ iMZ1r01
 		type SHEEP
 		at 426 494
 		curdir 3
-		activity graze
+		activity GRAZE
 		schedule 0 1 EAT_AT_LOCATION TARG16369c50-5a3c-4bd1-95b5-de50f7c1146f
 
 	object TABLd97a0959-ca8d-4816-ae96-e7b120a2bef7
@@ -105438,7 +105438,7 @@ iMZ1r01
 		type SHEEP
 		at 430 494
 		curdir 2
-		activity graze
+		activity GRAZE
 		schedule 0 1 EAT_AT_LOCATION TARGacce0c92-5099-4faa-a92e-c53cf2150b67
 
 	decorative TREE01 at 437 494
@@ -106061,7 +106061,7 @@ iMZ1r01
 		type HAWK
 		at 428 496
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 		schedule 0 1 EAT_AT_LOCATION PERC7cefc97a-50df-4acf-a173-f706aeac5c44
 
 	object TABLf1506a5d-5c60-474a-9c59-4b7849add04a
@@ -112489,7 +112489,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_5536b08f-d610-45e4-9702-482a1a0d2236
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_5536b08f-d610-45e4-9702-482a1a0d2236
 		type EGG_OBJECT(BUNNY)
@@ -113160,7 +113160,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_e33049c6-f4a0-44bd-9487-3bf336262e02
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_e33049c6-f4a0-44bd-9487-3bf336262e02
 		type EGG_OBJECT(BUNNY)
@@ -113478,7 +113478,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_f3dfcda0-1c13-4aba-ab14-14ea9ca25ca5
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_f3dfcda0-1c13-4aba-ab14-14ea9ca25ca5
 		type EGG_OBJECT(BUNNY)
@@ -114096,7 +114096,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_4863fcc9-558f-4946-ba0e-12eec5d8a3cf
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_4863fcc9-558f-4946-ba0e-12eec5d8a3cf
 		type EGG_OBJECT(BUNNY)
@@ -114971,7 +114971,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_a0eed449-b21c-488c-bf56-44369a4b8baa
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_a0eed449-b21c-488c-bf56-44369a4b8baa
 		type EGG_OBJECT(BUNNY)
@@ -116758,7 +116758,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_559a7cf1-eefe-476c-991a-5a4649a8552a
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_559a7cf1-eefe-476c-991a-5a4649a8552a
 		type EGG_OBJECT(BUNNY)
@@ -117052,7 +117052,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_b8423c15-4179-4814-baf6-01ce1cdbef4f
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_b8423c15-4179-4814-baf6-01ce1cdbef4f
 		type EGG_OBJECT(BUNNY)
@@ -117317,7 +117317,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_aa19b302-e303-4923-a516-bde2f2e08e22
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_aa19b302-e303-4923-a516-bde2f2e08e22
 		type EGG_OBJECT(BUNNY)
@@ -117848,7 +117848,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_9bb71b00-3c93-4b09-b2d3-cd039df83551
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_9bb71b00-3c93-4b09-b2d3-cd039df83551
 		type EGG_OBJECT(BUNNY)
@@ -118139,7 +118139,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_2456014e-1162-4040-a317-07eaa84701e1
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_2456014e-1162-4040-a317-07eaa84701e1
 		type EGG_OBJECT(BUNNY)
@@ -118150,7 +118150,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_58dcdc4b-cebd-48c1-8bf4-8241091fcd19
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_58dcdc4b-cebd-48c1-8bf4-8241091fcd19
 		type EGG_OBJECT(BUNNY)
@@ -118439,7 +118439,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_0d6f8dec-8322-454a-936e-493e0d15b3f8
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_0d6f8dec-8322-454a-936e-493e0d15b3f8
 		type EGG_OBJECT(BUNNY)
@@ -118728,7 +118728,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_bdc22311-4ee7-4bb2-96ab-823abf8f5dea
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_bdc22311-4ee7-4bb2-96ab-823abf8f5dea
 		type EGG_OBJECT(BUNNY)
@@ -122573,7 +122573,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_c0630956-b169-426e-adcd-c2d598665e27
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_c0630956-b169-426e-adcd-c2d598665e27
 		type EGG_OBJECT(BUNNY)
@@ -123192,7 +123192,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_ea1ab571-5d84-4101-b7fe-31aaf74f42d2
 		curdir 0
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object FOOD8d85d583-b6ea-4452-bf84-406cb548eeb1
 		type FOODP00
@@ -123382,7 +123382,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_7eec138e-12c7-45c7-8e59-6d1144244ba2
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_7eec138e-12c7-45c7-8e59-6d1144244ba2
 		type EGG_OBJECT(BUNNY)
@@ -123797,7 +123797,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_ead443ec-2e9e-4825-a999-e4f4435aea3d
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_ead443ec-2e9e-4825-a999-e4f4435aea3d
 		type EGG_OBJECT(BUNNY)
@@ -124038,7 +124038,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_0d35256c-c28e-44c0-b103-ab9d93762888
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_0d35256c-c28e-44c0-b103-ab9d93762888
 		type EGG_OBJECT(BUNNY)
@@ -125011,7 +125011,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_4ebfd1d7-5f83-4515-accf-618c3b8451cb
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_4ebfd1d7-5f83-4515-accf-618c3b8451cb
 		type EGG_OBJECT(BUNNY)
@@ -125536,7 +125536,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_c19ca717-e6da-4e21-b4fe-c6dd79d0f07c
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_c19ca717-e6da-4e21-b4fe-c6dd79d0f07c
 		type EGG_OBJECT(BUNNY)
@@ -127143,7 +127143,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_e6c94187-2ca7-452a-824f-e348d9b3c88c
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_e6c94187-2ca7-452a-824f-e348d9b3c88c
 		type EGG_OBJECT(BUNNY)
@@ -127456,7 +127456,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_6fcf38ea-3dbd-4975-a77d-806ac594e8df
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_6fcf38ea-3dbd-4975-a77d-806ac594e8df
 		type EGG_OBJECT(BUNNY)
@@ -128289,7 +128289,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_3170e232-ff97-4462-9052-c98a8a6e3eef
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_3170e232-ff97-4462-9052-c98a8a6e3eef
 		type EGG_OBJECT(BUNNY)
@@ -128732,7 +128732,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_b4305ffc-4fef-4fce-acd6-eda47d38f54e
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_b4305ffc-4fef-4fce-acd6-eda47d38f54e
 		type EGG_OBJECT(SHEEP)
@@ -129974,7 +129974,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_2a33c5db-6545-41cd-bf00-5ddb34d04072
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_2a33c5db-6545-41cd-bf00-5ddb34d04072
 		type EGG_OBJECT(SHEEP)
@@ -130839,7 +130839,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_2a3533f2-1478-4655-a6a7-27e1a0b0a623
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_2a3533f2-1478-4655-a6a7-27e1a0b0a623
 		type EGG_OBJECT(SHEEP)
@@ -131184,7 +131184,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_9c1d45e5-c960-4eec-8ebc-75250b0a8683
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_9c1d45e5-c960-4eec-8ebc-75250b0a8683
 		type EGG_OBJECT(SHEEP)
@@ -131199,7 +131199,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_d51b5cf7-123a-4227-9a45-daa691a1f94b
 		curdir 1
-		activity predator
+		activity PREDATOR
 
 	object EGG_d51b5cf7-123a-4227-9a45-daa691a1f94b
 		type EGG_OBJECT(WOLF)
@@ -131740,7 +131740,7 @@ iMZ1r01
 		at 239 595
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object FENC654726f7-6a5e-4d68-b847-b69e85112b6f
 		type FENCE2
@@ -132069,7 +132069,7 @@ iMZ1r01
 		at 250 596
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object FENC9ef9de4f-59e7-45eb-b734-74ad08e07d1a
 		type FENCE2
@@ -132373,7 +132373,7 @@ iMZ1r01
 		at 237 597
 		curdir 1
 		tag 800
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object TOADc3076f76-c62a-4921-ac93-7aa712261901
 		type TOADSTONE
@@ -132395,7 +132395,7 @@ iMZ1r01
 		at 242 597
 		curdir 1
 		tag 800
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENCe76c1146-e6bf-4f06-ba27-57319bc1bb17
 		type FENCE2
@@ -132644,7 +132644,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_0c4c56df-aebe-475b-a4b1-3e302963768a
 		curdir 0
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object FOOD09a658e1-266a-4eb5-8bba-26f4919d2f95
 		type FOODP00
@@ -132676,7 +132676,7 @@ iMZ1r01
 		at 234 598
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object FENCaad243be-dd7f-4b37-b68a-63b8eeb86bcd
 		type FENCE2
@@ -133084,7 +133084,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_98d69846-8095-49bd-a87c-0bf432b1aef7
 		curdir 0
-		activity predator
+		activity PREDATOR
 
 	object EGG_98d69846-8095-49bd-a87c-0bf432b1aef7
 		type EGG_OBJECT(WOLF)
@@ -133240,7 +133240,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 243 600
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC3b23aed5-54fc-42bb-ac4f-23ab024481b5
 		type FENCE2
@@ -133532,7 +133532,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_a8f22814-2006-4977-94d7-c8c29e25702d
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_a8f22814-2006-4977-94d7-c8c29e25702d
 		type EGG_OBJECT(BUNNY)
@@ -133559,7 +133559,7 @@ iMZ1r01
 		at 235 601
 		curdir 1
 		tag 800
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FOODeecac051-d6fc-44a5-9971-868a18b54b55
 		type FOOD05_SHEEP
@@ -133576,7 +133576,7 @@ iMZ1r01
 		at 252 601
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object FENCb3586b02-c19c-4377-8dff-b99448cd5984
 		type FENCE2
@@ -133808,7 +133808,7 @@ iMZ1r01
 		at 238 602
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object TOAD4b372b89-a83f-4c53-a8be-c2081d6455b9
 		type TOADSTONE
@@ -133829,7 +133829,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 240 602
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object TROU1b66bd09-c52d-4450-8db4-89ada94831c9
 		type TROUGH
@@ -134108,7 +134108,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_0b7f866b-fd75-4dd1-9649-d50ec961d88e
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_0b7f866b-fd75-4dd1-9649-d50ec961d88e
 		type EGG_OBJECT(BUNNY)
@@ -134140,7 +134140,7 @@ iMZ1r01
 		at 233 603
 		curdir 1
 		tag 800
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object TARG6e21279f-6037-4c93-9f57-175e80f2f05a
 		type TARGET
@@ -134388,7 +134388,7 @@ iMZ1r01
 		at 237 604
 		curdir 1
 		tag 800
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC15ccb463-0e8e-4057-bb1e-f5e031dd1144
 		type FENCE2
@@ -134645,7 +134645,7 @@ iMZ1r01
 		at 244 605
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object TOADe1e94390-e6dd-4627-ad21-9398ad073814
 		type TOADSTONE
@@ -134667,7 +134667,7 @@ iMZ1r01
 		at 250 605
 		curdir 1
 		tag 800
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENCe02a0bff-6152-4e8a-8b32-521fca26e78e
 		type FENCE2
@@ -135285,7 +135285,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_3e694556-de27-4cce-a808-4df6f3b183bf
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_3e694556-de27-4cce-a808-4df6f3b183bf
 		type EGG_OBJECT(BUNNY)
@@ -135638,7 +135638,7 @@ iMZ1r01
 		at 234 608
 		curdir 0
 		tag 800
-		activity graze
+		activity GRAZE
 
 	object FENCa67780d0-3316-4c52-a04f-72f81fcfc591
 		type FENCE2
@@ -137322,7 +137322,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_34e3f34a-3668-4601-b7ff-10553e0f099a
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_34e3f34a-3668-4601-b7ff-10553e0f099a
 		type EGG_OBJECT(BUNNY)
@@ -137357,7 +137357,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_f5fc4118-61e1-49fa-816f-ebf202723373
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_f5fc4118-61e1-49fa-816f-ebf202723373
 		type EGG_OBJECT(BUNNY)
@@ -137579,7 +137579,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_bb674148-413c-48b6-9286-bd06909e4269
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_bb674148-413c-48b6-9286-bd06909e4269
 		type EGG_OBJECT(BUNNY)
@@ -137768,7 +137768,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_d486553a-38a9-4cde-9a95-8f3206ba4676
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_d486553a-38a9-4cde-9a95-8f3206ba4676
 		type EGG_OBJECT(BUNNY)
@@ -139543,7 +139543,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_c5ae9b89-35bd-48c9-a70d-d077840e39c6
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_c5ae9b89-35bd-48c9-a70d-d077840e39c6
 		type EGG_OBJECT(BUNNY)
@@ -139556,7 +139556,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_bc7a6daa-c18b-47c4-ac48-3ca48ebe53dc
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_bc7a6daa-c18b-47c4-ac48-3ca48ebe53dc
 		type EGG_OBJECT(BUNNY)
@@ -140570,7 +140570,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_9d98adc6-a636-4456-ac36-a82c6cd30d25
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOOD34f9809e-8eb0-417a-bd7b-afb7705115d7
 		type FOODP00
@@ -140586,7 +140586,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_c45a2a13-9732-4089-a89b-d3246de3101e
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOODc9b2fe41-2d2d-480e-912b-25dfc0b36575
 		type FOODP00
@@ -141179,7 +141179,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_45c8a267-21c5-412d-8875-077c94a0b400
 		curdir 3
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOODb77fe0a0-ff62-47bb-99cd-2ac44c6f965e
 		type FOODP00
@@ -142513,7 +142513,7 @@ iMZ1r01
 		at 261 624
 		curdir 2
 		name Snookles
-		activity bird_wander
+		activity BIRD_WANDER
 		stats->hp 400
 		stats->dex -1
 		stats->str 30000
@@ -144605,7 +144605,7 @@ iMZ1r01
 		type GUARD
 		inside EGG_144012dc-f8ee-4fae-b347-a75b2efa1619
 		curdir 0
-		activity guard_patrol
+		activity GUARD_PATROL
 
 	object HALBb1121494-94db-450e-a6ce-89fe1e9a35d3
 		type HALBERD
@@ -145262,7 +145262,7 @@ iMZ1r01
 		type GUARD
 		inside EGG_d5128ef4-4e88-46d3-bacc-f8aacb0300be
 		curdir 0
-		activity guard_patrol
+		activity GUARD_PATROL
 		schedule 0 1 SIT_AT_LOCATION PATHd3e99e21-0330-4bb4-aa78-8a95b9309157
 
 	object HALB27adb1d4-a5c3-4eb9-a451-67b3a60ff22e
@@ -146150,7 +146150,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_f93b5fa1-48d5-48a7-b6f6-881e62c2bc6b
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_f93b5fa1-48d5-48a7-b6f6-881e62c2bc6b
 		type EGG_OBJECT(BUNNY)
@@ -147860,7 +147860,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_84fad898-375f-4c99-b315-6df1328e71b6
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_84fad898-375f-4c99-b315-6df1328e71b6
 		type EGG_OBJECT(BUNNY)
@@ -148017,7 +148017,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 237 640
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC97b915d5-6536-402a-9af3-aec3152eb99a
 		type FENCE2
@@ -148413,7 +148413,7 @@ iMZ1r01
 		at 229 641
 		curdir 1
 		tag 801
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object TOAD9b00fb7d-e9a1-4155-9624-70057eefe6a5
 		type TOADSTONE
@@ -148434,7 +148434,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 241 641
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENCb247f63f-f32f-481d-88b6-d96d0b871a61
 		type FENCE2
@@ -149408,7 +149408,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 232 643
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC59fcf800-f609-450e-b563-e87b54f5679e
 		type FENCE2
@@ -150390,7 +150390,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 242 646
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC6dcf269c-b186-4d0f-b5f8-fc35a08bb59d
 		type FENCE2
@@ -151082,7 +151082,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 237 648
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENCb02cbb13-5a14-4292-828a-25d4d2b6851a
 		type FENCE2
@@ -151755,7 +151755,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_246e5bb1-a941-46b4-bda2-dedb8ee8169b
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_246e5bb1-a941-46b4-bda2-dedb8ee8169b
 		type EGG_OBJECT(BUNNY)
@@ -152045,7 +152045,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 231 651
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC7012b025-b6b3-4b62-8888-bc31122a565e
 		type FENCE2
@@ -152345,7 +152345,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_f889656c-4c13-47e8-b862-d7ac2c41d39e
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_f889656c-4c13-47e8-b862-d7ac2c41d39e
 		type EGG_OBJECT(BUNNY)
@@ -152370,7 +152370,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_def8d4d9-f55d-4394-b0a7-28882675ac68
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_def8d4d9-f55d-4394-b0a7-28882675ac68
 		type EGG_OBJECT(BUNNY)
@@ -152633,7 +152633,7 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 243 653
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object FENC6debcc8d-4c50-402e-beef-892253df7cae
 		type FENCE2
@@ -152926,13 +152926,13 @@ iMZ1r01
 		type SHEEP_EVIL
 		at 228 654
 		curdir 1
-		activity graze_attack_party
+		activity GRAZE_ATTACK_PARTY
 
 	object BUNN6866586b-80be-4cd7-8e2c-80c48c96ffe8
 		type BUNNY
 		inside EGG_bbcb0cd6-2a27-4a34-ac27-17c9d52cacf0
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_bbcb0cd6-2a27-4a34-ac27-17c9d52cacf0
 		type EGG_OBJECT(BUNNY)
@@ -153507,7 +153507,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_77816d83-53ab-43e8-a7de-82e407f74e7c
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_77816d83-53ab-43e8-a7de-82e407f74e7c
 		type EGG_OBJECT(BUNNY)
@@ -153877,7 +153877,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_bb57af16-3ddb-4b32-93cd-1e5366532a65
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_bb57af16-3ddb-4b32-93cd-1e5366532a65
 		type EGG_OBJECT(BUNNY)
@@ -164930,7 +164930,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_14753c4a-fb72-4922-b245-b9de49eb68b4
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_14753c4a-fb72-4922-b245-b9de49eb68b4
 		type EGG_OBJECT(BUNNY)
@@ -165517,7 +165517,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_c3139719-81b7-493a-811d-d4fbb656ef40
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_c3139719-81b7-493a-811d-d4fbb656ef40
 		type EGG_OBJECT(SHEEP)
@@ -166200,7 +166200,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_7463e7a3-7a7c-4619-9381-3217cd5d2019
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_7463e7a3-7a7c-4619-9381-3217cd5d2019
 		type EGG_OBJECT(SHEEP)
@@ -166319,7 +166319,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_205d65c8-188d-424a-afc1-8d616e3824c1
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_205d65c8-188d-424a-afc1-8d616e3824c1
 		type EGG_OBJECT(BUNNY)
@@ -166838,7 +166838,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_24c55bc2-072f-4678-95c7-7ec2001da880
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_24c55bc2-072f-4678-95c7-7ec2001da880
 		type EGG_OBJECT(SHEEP)
@@ -166929,7 +166929,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_a3138639-83de-41c6-a510-d89b376617b5
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_a3138639-83de-41c6-a510-d89b376617b5
 		type EGG_OBJECT(BUNNY)
@@ -166997,7 +166997,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_23525eb3-47c8-460c-8ade-81927eed2aec
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_23525eb3-47c8-460c-8ade-81927eed2aec
 		type EGG_OBJECT(BUNNY)
@@ -167160,7 +167160,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_5f2a9dbe-dda5-4ab2-8df7-673c26fa5ee9
 		curdir 0
-		activity predator
+		activity PREDATOR
 
 	object EGG_5f2a9dbe-dda5-4ab2-8df7-673c26fa5ee9
 		type EGG_OBJECT(WOLF)
@@ -167171,7 +167171,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_d38e92dc-a5ac-4261-8447-491b3e9a3241
 		curdir 1
-		activity predator
+		activity PREDATOR
 
 	object EGG_d38e92dc-a5ac-4261-8447-491b3e9a3241
 		type EGG_OBJECT(WOLF)
@@ -167730,7 +167730,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_f9eea4a7-fa51-4bdc-b0d4-58ad21fda6f5
 		curdir 1
-		activity predator
+		activity PREDATOR
 
 	object EGG_f9eea4a7-fa51-4bdc-b0d4-58ad21fda6f5
 		type EGG_OBJECT(WOLF)
@@ -167833,7 +167833,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_d7175323-bd94-46c4-8121-9330efb2918f
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_d7175323-bd94-46c4-8121-9330efb2918f
 		type EGG_OBJECT(BUNNY)
@@ -167860,7 +167860,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_934fe7e3-648b-4c59-9a9c-c4ec23406f4a
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_934fe7e3-648b-4c59-9a9c-c4ec23406f4a
 		type EGG_OBJECT(BUNNY)
@@ -168087,7 +168087,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_a59c62a0-0964-4ab7-ba09-d0853e47fd2b
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_a59c62a0-0964-4ab7-ba09-d0853e47fd2b
 		type EGG_OBJECT(BUNNY)
@@ -168122,7 +168122,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_be36e5e3-b76c-4b56-9a90-25298aa81bda
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_be36e5e3-b76c-4b56-9a90-25298aa81bda
 		type EGG_OBJECT(BUNNY)
@@ -168139,7 +168139,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_eb9983b1-c47b-474c-9b97-6ce773503336
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_eb9983b1-c47b-474c-9b97-6ce773503336
 		type EGG_OBJECT(BUNNY)
@@ -168418,7 +168418,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_8cd1f719-df82-4c76-a60a-bb779a2c3951
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_8cd1f719-df82-4c76-a60a-bb779a2c3951
 		type EGG_OBJECT(BUNNY)
@@ -168685,7 +168685,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_6c52e5ab-af58-47f6-93a2-a98a89aae108
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_6c52e5ab-af58-47f6-93a2-a98a89aae108
 		type EGG_OBJECT(BUNNY)
@@ -168708,7 +168708,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_ea37d1a7-22ad-48ee-bb41-8bc7e99afc43
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_ea37d1a7-22ad-48ee-bb41-8bc7e99afc43
 		type EGG_OBJECT(BUNNY)
@@ -169577,7 +169577,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_7f69ad8c-f5f4-4f1c-a60c-989321733dab
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_7f69ad8c-f5f4-4f1c-a60c-989321733dab
 		type EGG_OBJECT(BUNNY)
@@ -169840,7 +169840,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_65a8b293-a043-4baa-90a6-f1dd46d1965e
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_65a8b293-a043-4baa-90a6-f1dd46d1965e
 		type EGG_OBJECT(BUNNY)
@@ -170349,7 +170349,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_b4c6955a-790c-4080-ac98-5c76119dba65
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_b4c6955a-790c-4080-ac98-5c76119dba65
 		type EGG_OBJECT(BUNNY)
@@ -170372,7 +170372,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_f94b73a4-b691-4ec5-823d-712e0d69b73f
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_f94b73a4-b691-4ec5-823d-712e0d69b73f
 		type EGG_OBJECT(BUNNY)
@@ -170885,7 +170885,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_50e18f66-2e08-4f90-ab49-fbe362009203
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_50e18f66-2e08-4f90-ab49-fbe362009203
 		type EGG_OBJECT(BUNNY)
@@ -170902,7 +170902,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_1a75f4a4-b207-4df7-a3a1-118eb2f4f18f
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_1a75f4a4-b207-4df7-a3a1-118eb2f4f18f
 		type EGG_OBJECT(BUNNY)
@@ -171145,7 +171145,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_4f37cc10-15a2-4a08-9b34-ef9741cf98b1
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_4f37cc10-15a2-4a08-9b34-ef9741cf98b1
 		type EGG_OBJECT(BUNNY)
@@ -171156,7 +171156,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_56a4c477-ed02-4e1c-a727-97a98f464bd8
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_56a4c477-ed02-4e1c-a727-97a98f464bd8
 		type EGG_OBJECT(BUNNY)
@@ -171415,7 +171415,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_2bdd5797-feb5-466d-a92b-86fada8258ea
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_2bdd5797-feb5-466d-a92b-86fada8258ea
 		type EGG_OBJECT(BUNNY)
@@ -171436,7 +171436,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_6455d506-7f92-42f0-8838-6b13cc0e4bbc
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_6455d506-7f92-42f0-8838-6b13cc0e4bbc
 		type EGG_OBJECT(BUNNY)
@@ -171738,7 +171738,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_dbb67e7a-a421-43dc-a871-8e1844bc679b
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_dbb67e7a-a421-43dc-a871-8e1844bc679b
 		type EGG_OBJECT(BUNNY)
@@ -171749,7 +171749,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_4e04766f-1620-4cc6-acc9-d5a3f1f5c592
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_4e04766f-1620-4cc6-acc9-d5a3f1f5c592
 		type EGG_OBJECT(BUNNY)
@@ -172014,7 +172014,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_94bec00a-8855-4cb6-b123-8917114bc8c1
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_94bec00a-8855-4cb6-b123-8917114bc8c1
 		type EGG_OBJECT(BUNNY)
@@ -172025,7 +172025,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_15135351-3ac4-49f5-bbbf-e8bd385137dc
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_15135351-3ac4-49f5-bbbf-e8bd385137dc
 		type EGG_OBJECT(BUNNY)
@@ -172264,7 +172264,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_8b8ce1a3-54dd-4fbf-9617-a7f5082820b8
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_8b8ce1a3-54dd-4fbf-9617-a7f5082820b8
 		type EGG_OBJECT(BUNNY)
@@ -172523,7 +172523,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_3188930d-a30a-44a0-89ed-30e1b9057399
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_3188930d-a30a-44a0-89ed-30e1b9057399
 		type EGG_OBJECT(BUNNY)
@@ -172794,7 +172794,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_fb2bd7a9-a01c-4439-add3-d6b381911ef5
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_fb2bd7a9-a01c-4439-add3-d6b381911ef5
 		type EGG_OBJECT(BUNNY)
@@ -196369,7 +196369,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_ce253694-b315-476c-8bde-825d24ecc83a
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODaef859ec-837a-4858-8082-496a56e9bf5a
 		type FOOD05_SHEEP
@@ -197608,7 +197608,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_778a0303-c218-47f7-9ced-0540da8f2789
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_778a0303-c218-47f7-9ced-0540da8f2789
 		type EGG_OBJECT(BUNNY)
@@ -198379,7 +198379,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_b127dff6-69db-47d0-86dc-50b6db9efcc2
 		curdir 0
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object FOOD0ec1d10e-b979-4969-b1f7-be3c23c9dafa
 		type FOODP00
@@ -198963,7 +198963,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_914fe4d4-0e2d-4f3c-9edb-675f11900dbb
 		curdir 0
-		activity predator
+		activity PREDATOR
 
 	object EGG_914fe4d4-0e2d-4f3c-9edb-675f11900dbb
 		type EGG_OBJECT(WOLF)
@@ -199388,7 +199388,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_81e0683b-3d61-4a96-9427-95bebecc0b89
 		curdir 0
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object FOOD0deba29a-c662-40a4-b683-89ab867972e7
 		type FOODP00
@@ -199580,7 +199580,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_83e64d4b-c634-45d5-82ec-4af143ea9d05
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_83e64d4b-c634-45d5-82ec-4af143ea9d05
 		type EGG_OBJECT(SHEEP)
@@ -199593,7 +199593,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_ac475ab6-0fab-44b2-9a37-5340ba2d0705
 		curdir 1
-		activity predator
+		activity PREDATOR
 
 	object EGG_ac475ab6-0fab-44b2-9a37-5340ba2d0705
 		type EGG_OBJECT(WOLF)
@@ -199816,7 +199816,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_cd12eafc-850c-420f-b3b3-b008feaae412
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_cd12eafc-850c-420f-b3b3-b008feaae412
 		type EGG_OBJECT(BUNNY)
@@ -200053,7 +200053,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_b42b7858-a365-4bb9-96e5-69b3e72d4ea0
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODd7efc497-4801-4ab0-aec0-e2e02fd360a8
 		type FOOD05_SHEEP
@@ -200535,7 +200535,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_a9fd854c-4c0a-4188-8892-3d2e778654ec
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_a9fd854c-4c0a-4188-8892-3d2e778654ec
 		type EGG_OBJECT(BUNNY)
@@ -202030,6 +202030,10 @@ iMZ1r01
 		curdir 1
 		name War
 		funcs->talk people/demons/war.txt
+		schedule 0 0 NOTHING -
+		schedule 6 0 NOTHING -
+		schedule 12 0 NOTHING -
+		schedule 18 0 NOTHING -
 
 	object F16-e1f8475d-500a-444a-8756-149e887c25b9
 		type F16-BLACK
@@ -202037,6 +202041,10 @@ iMZ1r01
 		curdir 1
 		name Pestillence
 		funcs->talk people/demons/pestill.txt
+		schedule 0 0 NOTHING -
+		schedule 6 0 NOTHING -
+		schedule 12 0 NOTHING -
+		schedule 18 0 NOTHING -
 
 	object FENCf31b9664-916b-4689-9ebc-330301ff0df9
 		type FENCE
@@ -202771,6 +202779,10 @@ iMZ1r01
 		curdir 1
 		name Famine
 		funcs->talk people/demons/famine.txt
+		schedule 0 0 NOTHING -
+		schedule 6 0 NOTHING -
+		schedule 12 0 NOTHING -
+		schedule 18 0 NOTHING -
 
 	object FENC74ddfb05-ed4f-4d53-a380-935d217f4371
 		type FENCE
@@ -203341,7 +203353,7 @@ iMZ1r01
 		type BUNNY
 		at 511 842
 		curdir 3
-		activity bunny_wander
+		activity BUNNY_WANDER
 		schedule 0 1 SIT_AT_LOCATION PATH1126560b-b006-4809-9c9c-0d9a4675ccbe
 
 	object PATH1126560b-b006-4809-9c9c-0d9a4675ccbe
@@ -204094,7 +204106,7 @@ iMZ1r01
 		type WOLF
 		at 508 845
 		curdir 0
-		activity predator
+		activity PREDATOR
 		schedule 0 1 SIT_AT_LOCATION PATH0d92e667-c297-4e2e-9384-b661d3eaa3e8
 
 	object SPID6c637fff-9d6b-45bd-b01e-00bf645c2818
@@ -204118,7 +204130,7 @@ iMZ1r01
 		type SHEEP
 		at 514 845
 		curdir 1
-		activity graze
+		activity GRAZE
 		schedule 0 1 SIT_AT_LOCATION PATHe5b95eb0-d47e-4d8b-a689-febba6d32a16
 
 	decorative TREE01 at 517 845
@@ -204896,7 +204908,7 @@ iMZ1r01
 		type RAT
 		at 511 848
 		curdir 2
-		activity bird_wander
+		activity BIRD_WANDER
 		schedule 0 1 SIT_AT_LOCATION PATH170c11f0-b78f-486a-b455-75897d930945
 
 	object PATHe5b95eb0-d47e-4d8b-a689-febba6d32a16
@@ -206669,13 +206681,13 @@ iMZ1r01
 		type SHEEP
 		at 212 856
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object SHEEc18976be-723b-4fc6-be17-12fbcc9e8af0
 		type SHEEP
 		inside EGG_14866923-78c5-4478-9b0c-579b7b696807
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_14866923-78c5-4478-9b0c-579b7b696807
 		type EGG_OBJECT(SHEEP)
@@ -207373,6 +207385,10 @@ iMZ1r01
 		curdir 3
 		name Death
 		funcs->talk people/demons/death.txt
+		schedule 0 0 NOTHING -
+		schedule 6 0 NOTHING -
+		schedule 12 0 NOTHING -
+		schedule 18 0 NOTHING -
 
 	object BARR09568f84-0b37-4f5d-981c-95fc24ef4e47
 		type BARRIER
@@ -208105,7 +208121,7 @@ iMZ1r01
 		at 213 862
 		curdir 2
 		name sheep trap for death
-		activity death_sheep_shoot
+		activity DEATH_SHEEP_SHOOT
 		stats->owner F16-a5ad4752-2b57-49e8-b3c1-e7bfc98a912d
 
 	object SIGN3d12e2a6-7629-421f-98a1-471555415c70
@@ -209531,13 +209547,13 @@ iMZ1r01
 		type SHEEP
 		at 213 869
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object SHEEfbd98d4d-1b40-480c-9c4c-ca5682b74259
 		type SHEEP
 		inside EGG_3421c80d-4bcd-4329-a4e3-9656820dcf44
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_3421c80d-4bcd-4329-a4e3-9656820dcf44
 		type EGG_OBJECT(SHEEP)
@@ -216236,7 +216252,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_5ee3a124-f268-4d6d-96a2-e07e5b904e81
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_5ee3a124-f268-4d6d-96a2-e07e5b904e81
 		type EGG_OBJECT(BUNNY)
@@ -217643,7 +217659,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_ef359611-fc87-4e3f-81f5-e17fabbb1468
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_ef359611-fc87-4e3f-81f5-e17fabbb1468
 		type EGG_OBJECT(BUNNY)
@@ -217654,7 +217670,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_6fa65cf7-6fa8-487a-89cf-611a45baf14b
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_6fa65cf7-6fa8-487a-89cf-611a45baf14b
 		type EGG_OBJECT(BUNNY)
@@ -219462,7 +219478,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_682b2320-f901-485e-a079-9ab6fec8a303
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_682b2320-f901-485e-a079-9ab6fec8a303
 		type EGG_OBJECT(SHEEP)
@@ -219684,7 +219700,7 @@ iMZ1r01
 		type RAT
 		inside EGG_95d18ac7-3f9e-4507-b757-75951a271d0f
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_95d18ac7-3f9e-4507-b757-75951a271d0f
 		type EGG_ALWAYS
@@ -220058,7 +220074,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_0572c3f6-4b1a-45ce-bbdd-768be658927e
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_0572c3f6-4b1a-45ce-bbdd-768be658927e
 		type EGG_OBJECT(BUNNY)
@@ -220665,7 +220681,7 @@ iMZ1r01
 		type SHEEP
 		inside EGG_76da92b8-425f-4616-aefb-541cd4b25269
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_76da92b8-425f-4616-aefb-541cd4b25269
 		type EGG_OBJECT(SHEEP)
@@ -220678,7 +220694,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_d76ffac5-a1da-4f38-9518-112e9a063674
 		curdir 0
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object FOODd4b06501-4dc1-4f4d-a969-1ba7c6d2663b
 		type FOODP00
@@ -221581,7 +221597,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_0ac32e45-a621-49c6-b904-0762714ec147
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_0ac32e45-a621-49c6-b904-0762714ec147
 		type EGG_OBJECT(BUNNY)
@@ -223515,7 +223531,7 @@ iMZ1r01
 		type RAT
 		inside EGG_90c4d86a-da6b-4534-91b2-0cc8f475d2f3
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_90c4d86a-da6b-4534-91b2-0cc8f475d2f3
 		type EGG_ALWAYS
@@ -225626,7 +225642,7 @@ iMZ1r01
 		type RAT
 		inside EGG_9c76e51c-c1d8-4c03-9a7e-21a661b4d70c
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_9c76e51c-c1d8-4c03-9a7e-21a661b4d70c
 		type EGG_ALWAYS
@@ -225874,7 +225890,7 @@ iMZ1r01
 		type RAT
 		inside EGG_7539834d-70c1-4aa9-88b5-750a3023a31b
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_7539834d-70c1-4aa9-88b5-750a3023a31b
 		type EGG_ALWAYS
@@ -228313,7 +228329,7 @@ iMZ1r01
 		type RAT
 		inside EGG_14526c59-7f14-408a-911f-9937bd7623d2
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_14526c59-7f14-408a-911f-9937bd7623d2
 		type EGG_ALWAYS
