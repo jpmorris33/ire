@@ -235,6 +235,8 @@ static void PV_IfSolid();
 static void PV_IfVisible();
 static void PV_SetUFlag();
 static void PV_GetUFlag();
+static void PV_If_Uflag();
+static void PV_If_nUflag();
 static void PV_SetLocal();
 static void PV_GetLocal();
 static void PV_WeighObject();
@@ -1283,6 +1285,8 @@ VMOP(IfSolid);
 VMOP(IfVisible);
 VMOP(SetUFlag);
 VMOP(GetUFlag);
+VMOP(If_Uflag);
+VMOP(If_nUflag);
 VMOP(SetLocal);
 VMOP(GetLocal);
 VMOP(If_onLocal);
@@ -3926,6 +3930,31 @@ CHECK_POINTER(str);
 
 *var = Get_tFlag(str);
 }
+
+void PV_If_Uflag() {
+char *str;
+int val, jumpoffset;
+str = GET_STRING();
+CHECK_POINTER(str);
+jumpoffset = GET_DWORD();
+
+if(Get_tFlag(str)) {
+	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
+}
+}
+
+void PV_If_nUflag() {
+char *str;
+int val, jumpoffset;
+str = GET_STRING();
+CHECK_POINTER(str);
+jumpoffset = GET_DWORD();
+
+if(!Get_tFlag(str)) {
+	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
+}
+}
+
 
 // set_local <person> <flag> = <state>
 

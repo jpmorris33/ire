@@ -58,6 +58,8 @@ enum {
 	PEVM_GetPFlag,
 	PEVM_SetUFlag,
 	PEVM_GetUFlag,
+	PEVM_If_Uflag,
+	PEVM_If_nUflag,
 	PEVM_SetLocal,
 	PEVM_GetLocal,
 	PEVM_If_onLocal,
