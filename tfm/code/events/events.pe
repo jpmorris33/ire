@@ -550,6 +550,10 @@ function give_50_xp
 	add player.user.experience + 50
 end
 
+function give_100_xp
+	add player.user.experience + 100
+end
+
 function give_250_xp
 	add player.user.experience + 250
 end
@@ -596,3 +600,43 @@ local
 	end
 endlocal
 
+
+##
+##  Resurrect W-OLF
+##
+
+function resurrect_w_olf
+object head
+object temp
+object dest
+
+find head = "DEADCYBERWOLF_QUEST_HEAD" inside me
+set_user_flag "false" = 1
+set_user_flag "true" = 0
+
+find_tag temp = "cyberwolf" 1008
+if_not_exists temp
+	return
+endif
+
+find_tag dest = "target" 1009
+if_not_exists dest
+	return
+endif
+
+
+if_exists head
+	set_user_flag "false" = 0
+	set_user_flag "true" = 1
+
+	destroy head
+
+	# Switch the wolf on
+	let temp.stats.hp = 100
+	check_hurt temp
+
+	# Move them into position
+	transfer_object temp to dest.x dest.y
+endif
+
+end

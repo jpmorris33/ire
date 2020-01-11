@@ -35,9 +35,11 @@
 [if true][if_not base_panavius1][goto="comms_unit"]
 [image="f18-0.pcx"]
 
-"I HAVE NO GREETING!"
+"Welcome back, $PLAYERNAME.  How can I help you?"
 
-[if_not panavius_allok][link="What's the trouble?"]
+[if panavius_allok]"By the way, thanks for everything you've done!"
+
+[if_not panavius_allok][link="About the troubles you've been having."]
 [if_not panavius_allok][linkto="trouble"]
 [link="Tell me about the base."]
 [linkto="base"]
@@ -195,6 +197,7 @@ Logic hole protection
 
 
 [page="rescue"]
+[if panavius_rescueok][goto="rescue2"]
 [if banged_devil][goto="rescue1"]
 [image="f18-0.pcx"]
 [journal jrn_RescueWOLF]
@@ -213,6 +216,9 @@ Logic hole protection
  with the Church, so if you can acquire his head and
  bring it back here, we may be able to resurrect him."
 
+[am_carrying "DEADCYBERWOLF_QUEST_HEAD"]
+[if true][link="I have the android's head."]
+[if true][linkto="resurrect_wolf"]
 [link="Tell me about the dam."]
 [linkto="dam"]
 [link="Tell me about the base."]
@@ -241,6 +247,67 @@ Logic hole protection
  I appreciate you're in quite a bit of trouble with the
  Church, but if you can acquire his head and bring it
  back here, we may be able to resurrect him."
+
+[am_carrying "DEADCYBERWOLF_QUEST_HEAD"]
+[if true][link="I have the android's head."]
+[if true][linkto="resurrect_wolf"]
+[link="Tell me about the dam."]
+[linkto="dam"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Tell me about yourself."]
+[linkto="argus"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="rescue2"]
+[image="f18-0.pcx"]
+
+"Yes, thanks again for rescuing W-OLF!"
+
+[link="Tell me about the dam."]
+[linkto="dam"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Tell me about yourself."]
+[linkto="argus"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="resurrect_wolf"]
+[call="resurrect_w_olf"]
+[if true][goto="resurrect_wolf2"]
+[image="f18-1.pcx"]
+
+"No you don't!"
+
+[link="Tell me about the dam."]
+[linkto="dam"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Tell me about yourself."]
+[linkto="argus"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="resurrect_wolf2"]
+[image="f18-0.pcx"]
+[journal_done jrn_RescueWOLF]
+[journal jrn_RescuedWOLF]
+[set panavius_rescueok]
+[if dlpower_fixed][set panavius_allok]
+[call="give_250_xp"]
+
+"I am very relieved to hear that!
+ Thank you so, very much!
+
+ I'll get L-UPN to revive him at once."
 
 [link="Tell me about the dam."]
 [linkto="dam"]
@@ -281,6 +348,17 @@ transmitter and why they have a security base anyway
 [endpage]
 
 
+[page="bye"]
+[image="f18-0.pcx"]
+
+"Happy landings!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+!!! Argus should respond if L-UPN and/or W-OLF are dead
 
 
 

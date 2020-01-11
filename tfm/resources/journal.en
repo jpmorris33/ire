@@ -243,7 +243,7 @@ start:
 The Church has captured an android sent by the security team.  If I can find his head, I should bring it back so he can be revived.
 end
 
-name jrn_RescueWOLF2
+name jrn_RescuedWOLF
 title Rescued the android from the Church
 start:
 I've returned the android's head to the security team so they can revive him.

@@ -919,6 +919,9 @@ if sw1.curdir = UP
 				if sw5.curdir = UP
 					if sw6.curdir = UP
 						set_user_flag "dlpower_fixed" = 1
+						if_user_flag "panavius_rescueok"
+							set_user_flag "panavius_allok" = 1
+						endif
 						set_user_flag "true" = 1
 						add me.user.experience + 150
 						finish_journal "jrn_PowerPlant"

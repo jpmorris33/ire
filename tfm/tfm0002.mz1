@@ -143440,6 +143440,7 @@ iMZ1r01
 		type BOOK_PROTECT
 		at 131 627
 		curdir 1
+		name A treatise on the Protectorate
 		stats->owner MAN_da634be2-216f-4c52-9687-db39b9e6aa52
 
 	object TABLbe8cfb7c-3f69-4e9c-b6a5-5e7320f9098a
@@ -146885,6 +146886,7 @@ iMZ1r01
 		type BOOK_GHOST
 		at 190 637
 		curdir 1
+		name An Essay on the Holy Ghost
 		stats->owner MAN_c3ec485c-0829-4efe-a7f6-df8d70491eae
 
 	object BRID4ca48812-d60b-45ea-a507-e7020eb31e7b
@@ -200488,11 +200490,13 @@ iMZ1r01
 		type BOOK_BEASTS
 		at 167 831
 		curdir 2
+		name Chorley's Bestiary, vol.2
 
 	object BOOK4365d14f-8030-49ba-8186-3b85bfe453f4
 		type BOOK_WITCHES
 		at 167 831
 		curdir 1
+		name The Discovery of Witchcraft
 
 	object FENCfa9fc2df-9a11-4812-8b17-78410afed981
 		type FENCE
@@ -200716,6 +200720,7 @@ iMZ1r01
 		type BOOK_NOTR
 		at 167 832
 		curdir 2
+		name The Name of the Rose
 
 	object FENCa436c6a2-96ee-4d55-866b-32cd488b9dfc
 		type FENCE
@@ -200950,11 +200955,13 @@ iMZ1r01
 		type BOOK_GHOST
 		at 167 833
 		curdir 2
+		name An Essay on the Holy Ghost
 
 	object BOOKc0c4e6d9-6783-4b90-9b51-228b2ff0f5d2
 		type BOOK_ASTRO
 		at 167 833
 		curdir 3
+		name Astrology and the Church
 
 	object PATHeef5d057-efe5-42b3-adee-695d246abfe2
 		type PATHMARKER
@@ -203621,6 +203628,66 @@ iMZ1r01
 		at 74 844
 		curdir 3
 
+	object TABL38010038-6685-4e9c-8f52-e49bd40451dc
+		type TABLE6-H
+		at 177 844
+		curdir 2
+
+	object TABLa7749840-8a6b-4564-a30c-e9c9fb1317c2
+		type OSCOPE
+		at 177 844
+		curdir 2
+
+	object HITEed937fa0-adbf-41ee-b101-26ecc161757c
+		type TABLE6-H
+		at 178 844
+		curdir 1
+
+	object TOOLde90beb2-b312-45e7-9d60-87a69ba96e2d
+		type CIRCUITBOARD
+		at 178 844
+		curdir 1
+
+	object TOOLd7562746-09b8-4e07-bb4d-56af8987d4e4
+		type TOOLS08
+		at 178 844
+		curdir 1
+
+	object TABLcdf9f8ed-62d4-496e-96c8-d46ac009b623
+		type TABLE6-H
+		at 179 844
+		curdir 0
+
+	object TABLaf39f3d4-c037-4505-bc59-1c16324470a6
+		type TOOLS06
+		at 179 844
+		curdir 1
+
+	object TABL29f467c6-fbdf-48de-89de-4097d633ac20
+		type TABLE6-H
+		at 180 844
+		curdir 3
+
+	object TOOLad9fad23-9a1f-4149-9d3e-165704abf84e
+		type TOOLS07
+		at 180 844
+		curdir 1
+
+	object TABL5b2c104f-0273-4b1a-980b-3224633a6cfc
+		type TABLE-SHADOW2
+		at 181 844
+		curdir 3
+
+	object TRAPdafa2ced-5c07-40cd-b387-f56bb8f5d300
+		type BED
+		at 184 844
+		curdir 3
+
+	object BED_96285104-2fde-425f-b288-4271015011a2
+		type BED
+		at 185 844
+		curdir 0
+
 	object FENCf0927aae-d774-4241-8523-dea18bfb89ab
 		type FENCE
 		at 208 844
@@ -203844,6 +203911,61 @@ iMZ1r01
 		type FENCE
 		at 74 845
 		curdir 2
+
+	object AIRC3319d371-cfe2-46ca-be46-b633ac22b920
+		type LOCKER_V
+		at 176 845
+		curdir 0
+
+	object TABLa7d67c62-7a83-4151-977a-b7ec31fe8fde
+		type TABLE-SHADOW2
+		at 177 845
+		curdir 1
+
+	object TABL66cc6a8e-cee0-4f4e-9089-764e7e3b30f0
+		type TABLE5-LEGS
+		at 177 845
+		curdir 1
+
+	object TABL520dca9c-2362-4bb9-af8e-a72d75dc6d0c
+		type TABLE-SHADOW1
+		at 178 845
+		curdir 0
+
+	object OSCOc5579ba2-7ba5-4247-bde4-3fc71fbd488d
+		type CHAIR
+		at 178 845
+		curdir 0
+
+	object TABL77dcd3e2-b73e-41dd-8f42-94d55edd366f
+		type TABLE-SHADOW1
+		at 179 845
+		curdir 0
+
+	object TABLa3b6620d-5cbe-46da-ae87-5ac7319870b4
+		type TABLE-SHADOW1
+		at 180 845
+		curdir 0
+
+	object TABL781c5db4-9d6a-4427-a5bb-4ac340b88983
+		type TABLE5-LEGS
+		at 180 845
+		curdir 1
+
+	object TABL529cd0a3-d2ce-40a7-83ee-072641be9339
+		type TABLE-SHADOW3
+		at 181 845
+		curdir 1
+
+	object BED_e063b42c-c733-4588-8e7f-dff2c06b5b24
+		type BED
+		at 184 845
+		curdir 3
+
+	object BED_e67dd9e1-0ad0-496c-870b-3778129a2c76
+		type BED
+		at 185 845
+		curdir 0
 
 	object FENC6edd526b-d76e-4cea-89c2-366ccea66fe1
 		type FENCE
@@ -204085,6 +204207,21 @@ iMZ1r01
 		type FENCE
 		at 74 846
 		curdir 2
+
+	object LOCKcfc51183-724b-4ab2-a20a-b0621db2cb5a
+		type LOCKER_V
+		at 176 846
+		curdir 2
+
+	object BED_a3474c34-63e8-4016-a482-cbaf3c60ffd6
+		type BED
+		at 184 846
+		curdir 2
+
+	object BED_71b25192-6aa9-487f-8bc9-483d434da4ef
+		type BED
+		at 184 846
+		curdir 0
 
 	object FENC749aa04d-10bc-4171-917e-f743a80ead47
 		type FENCE
@@ -204345,6 +204482,16 @@ iMZ1r01
 	object SPAW9f78f562-9f2f-4bc2-bfe0-b5c23034d3e7
 		type SPAWN_GUARDS_PANTHER
 		at 151 847
+		curdir 0
+
+	object LOCK5eb6401d-b2e4-46f1-9c7b-6379700a12b4
+		type LOCKER_V
+		at 176 847
+		curdir 2
+
+	object BED_0b984214-8d83-4759-9f8d-d2b868b0b3fd
+		type BED
+		at 185 847
 		curdir 0
 
 	object FENCab14df59-363a-47ad-be3f-efff01762e60
@@ -204620,6 +204767,11 @@ iMZ1r01
 		at 74 848
 		curdir 2
 
+	object LOCK26cfca3e-fbc6-4a5d-9955-d74c7b510f15
+		type LOCKER_V
+		at 176 848
+		curdir 1
+
 	object FENC093a3495-6e9e-4d12-9be3-c5360045dce4
 		type FENCE
 		at 208 848
@@ -204854,6 +205006,23 @@ iMZ1r01
 		type FENCE
 		at 74 849
 		curdir 2
+
+	object AIRC64cf1fc8-9cbc-4451-ae0f-23dd7b613483
+		type AIRCRAFTPARTS_03
+		at 177 849
+		curdir 0
+
+	object AIRC3dec3f05-6b74-407b-8637-7e7985316cfd
+		type AIRCRAFTPARTS_05
+		at 184 849
+		curdir 0
+
+	object TARGc2127047-096e-445b-8078-92f444ce4de1
+		type TARGET
+		at 184 849
+		curdir 3
+		name W-OLF dest
+		tag 1009
 
 	object FENCbbf4cf42-8f94-449d-ba2d-403a498219d4
 		type FENCE
@@ -205115,6 +205284,16 @@ iMZ1r01
 		name Panther Patrol
 		stats->owner PATH606c8673-e8ab-4925-a682-e304669fd35c
 
+	object AIRC84160593-9e60-4c4f-9c62-d6da0586ba23
+		type AIRCRAFTPARTS_03
+		at 177 850
+		curdir 0
+
+	object BED_67db7ede-a0d4-4634-aa7b-b2969af7ba07
+		type BED
+		at 184 850
+		curdir 2
+
 	object FENC6bec0461-6ad0-4d91-8d61-4ace51f684d0
 		type FENCE
 		at 208 850
@@ -205370,6 +205549,39 @@ iMZ1r01
 		type FENCE
 		at 74 851
 		curdir 3
+
+	object AIRC32ec1d52-16cf-4cee-ac9a-e40255be5dd6
+		type AIRCRAFTPARTS_01
+		at 177 851
+		curdir 0
+
+	object AIRC43683eb7-ed68-41dc-81fd-e024cdaf59a1
+		type AIRCRAFTPARTS_02
+		at 178 851
+		curdir 0
+
+	object TRAPd4ebc5cc-9a3b-4d91-acae-b8ba15bb208b
+		type TRAP_HTDOOR
+		at 180 851
+		curdir 3
+		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+
+	object TRAPec6f4c67-6548-4fe4-a840-f0ca8d8dcd34
+		type TRAP_HTDOOR
+		at 181 851
+		curdir 3
+		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+
+	object TRAPb80357e5-4bda-4be5-a10d-b75e24f27590
+		type TRAP_HTDOOR
+		at 182 851
+		curdir 3
+		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+
+	object AIRC42ea64e4-0049-4f86-8641-9053279476ac
+		type AIRCRAFTPARTS_05
+		at 184 851
+		curdir 0
 
 	object FENCee5768fb-adb1-47b7-b1ff-f4217218c83e
 		type FENCE
@@ -205657,6 +205869,11 @@ iMZ1r01
 		at 164 852
 		curdir 2
 
+	object KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+		type HITECH_DOOR_CLOSED
+		at 180 852
+		curdir 1
+
 	object PATHb085259b-d6ee-4fa6-83ee-26d01157e207
 		type PATHMARKER
 		at 201 852
@@ -205844,6 +206061,18 @@ iMZ1r01
 		type FENCE
 		at 74 853
 		curdir 2
+
+	object TRAP3c003d8c-69d4-45c5-8a05-e1cc059e25ff
+		type TRAP_HTDOOR
+		at 181 853
+		curdir 3
+		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+
+	object TRAP9c40c5b8-fddc-40ee-98e5-81c704d5b054
+		type TRAP_HTDOOR
+		at 182 853
+		curdir 3
+		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 
 	object FENC89823df2-a6e8-4952-bddd-f2bf69e50aa9
 		type FENCE

@@ -142,11 +142,9 @@ end
 
 function bishop_hurt
 object oldme
-integer i
 
 # Stop this from happening during the apocalypse
-get_user_flag i = "apocalypse"
-if i <> 0
+if_user_flag "apocalypse"
 	return
 endif
 
@@ -184,10 +182,8 @@ end
 ##
 
 function pope_dies
-integer i
 
-get_user_flag i = "apocalypse"
-if i = 0
+if_not_user_flag "apocalypse"
 	play_sound "gameover"
 	talk_to "people/church/lord.txt" "popesdead"
 endif

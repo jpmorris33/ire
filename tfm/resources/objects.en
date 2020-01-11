@@ -7538,6 +7538,10 @@ section: characters
 	short		"head"
 	resurrect_as	CYBERWOLF
 
+	alias DEADCYBERWOLF_QUEST_HEAD = DEADCYBERWOLF_HEAD
+	description	"You see a wolf android's head.  It is damaged."
+	resurrect_as	-
+
 	name JAILBARS-H
 	left		JAILBARS1H
 	right		JAILBARS3H

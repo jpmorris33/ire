@@ -184,7 +184,7 @@ if me.user.poison > 0
 	endif
 endif
 
-# Poison
+# Invis
 if me.user.potion0 > 0
 	add me.user.potion0 - 1
 	if me.user.potion0 = 0
@@ -229,6 +229,14 @@ endif
 if me.stats.hp < me.maxstats.hp
 	add me.stats.hp + 1
 	check_hurt me
+endif
+
+# Invis
+if me.user.potion0 > 0
+	add me.user.potion0 - 1
+	if me.user.potion0 = 0
+		set_flag me IS_SHADOW = 0	# Not invisible anymore	
+	endif
 endif
 
 # We're abusing this to make thrown damage fairer
@@ -379,7 +387,7 @@ printcr
 redraw_text
 wait 2000 BLOCKING
 
-add deathcount + 1
+#add deathcount + 1	# Since the player can't see how many times they died, this is unfair
 if deathcount >= DEAD
 	print "A voice in the dark intones ~ENOUGH!  YOU HAVE FAILED ME.~"
 	printcr
