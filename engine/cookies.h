@@ -6,7 +6,7 @@
  */
 
 
-#define COOKIE_MapName "Hands off Vietnam\nHands off Vietnam\nHands off Vietnam\n"
+#define COOKIE_MapName "_________________\n_________________\n_________________\n"
 
 
 // After the 4-byte signature, there is another 4 bytes, e.g. "r00_"
@@ -26,9 +26,11 @@
 
 #define BINCOOKIE_R00 "r00\x1a"
 #define BINCOOKIE_R01 "r01\x1a"
+#define BINCOOKIE_R02 "r02\x1a"
 
 #define TEXTCOOKIE_R00 "r00\n"
 #define TEXTCOOKIE_R01 "r01\n"
+#define TEXTCOOKIE_R02 "r02\n"
 
 
 // Legacy codes for detecting old versions.  You just don't want to know.

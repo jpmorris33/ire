@@ -169,7 +169,7 @@ ilog_printf("\n");
 
 void load_map(int mapnum)
 {
-int yt,x,y,b,do_delete=0;
+int yt,x,y,b,do_delete=0,rev=0;
 long mem;
 char key;
 char filename[1024];
@@ -186,8 +186,7 @@ if(!fname)
 	ithe_panic("load_map: Cannot open map",NULL);
 SAFE_STRCPY(stemp,fname);
 
-if(!loadfile(fname,filename))
-	{
+if(!loadfile(fname,filename)) {
 	ilog_printf("Could not find file '%s'\n",stemp);
 	ilog_printf("Hit Y to create a new file, or any other key to exit.\n");
         key = WaitForAscii();
@@ -200,37 +199,45 @@ try_again:
 	ilog_printf("The new map will be %dx%d, and require %ldKB of memory.\n",map_W,map_H,mem);
 	ilog_printf("Is this okay? (Y/N)\n");
 	key = WaitForAscii();
-	if(key!='y' && key!='Y')
-		{
+	if(key!='y' && key!='Y') {
 		ilog_printf("No.\n");
 		ilog_printf("\n");
 		do {
-            number[0]=0;
+			number[0]=0;
 			ilog_printf("Enter the new width of the map:\n");
-			if(!irecon_getinput(number,15))
+			if(!irecon_getinput(number,15)) {
 				exit(1);
+			}
 			map_W = atoi(number);
-            } while(map_W<1);
+			if(map_W & 3) {
+				ilog_printf("Must be divisible by 8.  Try %d or %d\n",map_W&0xfffc, (map_W&0xfffc)+8);
+				map_W=0;
+			}
+		} while(map_W<1);
 
 		do {
-            number[0]=0;
+			number[0]=0;
 			ilog_printf("Enter the new height of the map:\n");
-			if(!irecon_getinput(number,15))
+			if(!irecon_getinput(number,15)) {
 				exit(1);
+			}
 			map_H = atoi(number);
-            } while(map_H<1);
+			if(map_H & 3) {
+				ilog_printf("Must be divisible by 8.  Try %d or %d\n",map_H&0xfffc, (map_H&0xfffc)+8);
+				map_H=0;
+			}
+		} while(map_H<1);
 
 		curmap->w = map_W;
 		curmap->h = map_H;
 		goto try_again;
-		}
+	}
 
 	curmap->sig=MAPSIG;
-	if(!curmap->objmap)
-		{
+	if(!curmap->objmap) {
 		curmap->object = (struct OBJECT *)M_get(1,sizeof(OBJECT));
 		curmap->object->next=NULL;
-		}
+	}
 	
 	if(!curmap->physmap)
 		curmap->physmap = (unsigned short *)M_get(curmap->w * curmap->h,sizeof(short));
@@ -244,19 +251,17 @@ try_again:
 		curmap->lightst = (unsigned char *)M_get(curmap->w * curmap->h,sizeof(char));
 
 	// Build quick-access table for object layer
-	for(yt=0;yt<curmap->h;yt++)
+	for(yt=0;yt<curmap->h;yt++) {
 		ytab[yt]=curmap->w * yt;
 	}
-else
-	{
+} else {
 	fp = iopen(filename);
 	if(!fp)
 		ithe_panic("load_map: cannot open file",stemp);
 
 	// New signatures are an 8-byte header, with a 4-byte cookie
 	iread((unsigned char *)sigtemp,8,fp);
-	if(memcmp(sigtemp,COOKIE_MAPFILE,4)) // Skip last byte (either CR or LF)
-		{
+	if(memcmp(sigtemp,COOKIE_MAPFILE,4)) { // Skip last byte (either CR or LF)
 		if(memcmp(sigtemp,OLDCOOKIE_MAP,4)) // Skip last byte (either CR or LF)
 			ithe_panic("load_map: file does not contain the right cookie",stemp);
 		// It is the old 40-byte cookie, skip it all
@@ -271,12 +276,10 @@ else
 			curmap->physmap = (unsigned short *)M_get(curmap->w * curmap->h,sizeof(short));
 		iread((unsigned char *)curmap->physmap,curmap->w*curmap->h*sizeof(short),fp);
 		iclose(fp);
-		}
-	else
-		{
+		rev=1;
+	} else {
 		// New version, check rev
-		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R00,3))
-			{
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R00,3)) {
 			// Binary version
 			read_WORLD(curmap,fp);
 			erase_curmap();		// See above for why we do this
@@ -284,15 +287,29 @@ else
 				curmap->physmap = (unsigned short *)M_get(curmap->w * curmap->h,sizeof(short));
 			iread((unsigned char *)curmap->physmap,curmap->w*curmap->h*sizeof(short),fp);
 			iclose(fp);
-			}
+			rev=2;
+		}
 
 		// It the ASCII version?
-		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R01,3))
-			{
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R01,3)) {
 			iclose(fp);
 			load_map_r01(filename);
-			}
+			rev=3;
 		}
+
+		// Does it have the blocking extensions?
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R02,3)) {
+			iclose(fp);
+			load_map_r01(filename); // The R01 loader handles both
+			rev=4;
+		}
+	}
+
+	if(!rev) {
+		memcpy(number,&sigtemp[4],4);
+		number[4]=0;
+		ithe_panic("Unhandled map format", number);
+	}
 
 	if(!curmap->object)
 		curmap->object =	(struct	OBJECT *)M_get(1,sizeof(OBJECT));
@@ -316,7 +333,7 @@ else
 		curmap->light= (unsigned char *)M_get(curmap->w * curmap->h,sizeof(char));
 	if(!curmap->lightst)
 		curmap->lightst= (unsigned char *)M_get(curmap->w * curmap->h,sizeof(char));
-	}
+}
 
 // Store current map size for script language
 map_W = curmap->w;
@@ -326,9 +343,8 @@ ilog_quiet("Check map integrity\n");
 
 // Check map state and correct if necessary
 
-for(y=0;y<curmap->h;y++)
-	for(x=0;x<curmap->w;x++)
-		{
+for(y=0;y<curmap->h;y++) {
+	for(x=0;x<curmap->w;x++) {
 /*
 		ilog_quiet("curmap = %x\n",curmap);
 		ilog_quiet("curmap->physmap = %x\n",curmap->physmap);
@@ -337,51 +353,50 @@ for(y=0;y<curmap->h;y++)
 */
 		
 		b=curmap->physmap[MAP_POS(x,y)];
-		if(b>=TItot && b != 0xffff)	// 0xffff is random and allowed
-			{
-			if(in_editor)
-				{
-				if(!do_delete)
-					{
+		if(b>=TItot && b != 0xffff) {	// 0xffff is random and allowed
+			if(in_editor) {
+				if(!do_delete) {
 					ilog_printf("Invalid tiles detected in the map.\n");
 					ilog_printf("Do you want to:\n");
 					ilog_printf("1. Set all unknown tiles to 0\n");
 					ilog_printf("2. Quit so you can add the tile to resource.txt\n");
-					do
-						{
+					do {
 						key=WaitForAscii();
 						if(key == '1')
 						    do_delete=1;
 						if(key == '2')
 						    exit(1);
-						} while(key != '1');
-					}
+					} while(key != '1');
 				}
-			else
-				{
+			} else {
 				curmap->physmap[MAP_POS(x,y)] = 0xffff; // surprise!!
 				do_delete = 2;
-				}
-			if(do_delete == 1)
+			}
+			if(do_delete == 1) {
 				curmap->physmap[MAP_POS(x,y)]=0;
 			}
 		}
-if(do_delete ==	2)
-	Bug("Invalid map tiles detected\n");
+	}
+	if(do_delete ==	2)
+		Bug("Invalid map tiles detected\n");
+}
 }
 
+// Also handles R02 since they're similar
 
 void load_map_r01(char *fname)
 {
 struct TF_S zm;
-int ctr,x,y,dmapno,runctr;
-unsigned short tile,*ptr;
+int ctr,x,y,dmapno,runctr,xrun,yrun;
+unsigned short tile,*ptr,*blockptr;
 char dir;
 const char *str;
 char first[1024];
 char *l;
 int didinit=0;
 int tiles;
+int rev=0;
+unsigned short block[64]; // 8x8 block
 
 if(!curmap)
 	return; // Ouch
@@ -389,41 +404,42 @@ if(!curmap)
 TF_init(&zm);
 TF_load(&zm,fname);
 
-if(strncmp(zm.line[0],COOKIE_MAPFILE,4))
-	if(strncmp(&zm.line[0][4],TEXTCOOKIE_R01,3))
-		{
-		ilog_quiet("[%s]\n",zm.line[0]);
-		ilog_quiet("[%s]\n",zm.line[1]);
-		ithe_panic("load_map: file does not contain the right cookie",zm.line[0]);
-		}
+if(!strncmp(zm.line[0],COOKIE_MAPFILE,4)) {
+	if(!strncmp(&zm.line[0][4],TEXTCOOKIE_R01,3)) {
+		rev=1;
+	}
+	if(!strncmp(&zm.line[0][4],TEXTCOOKIE_R02,3)) {
+		rev=2;
+	}
+}
+if(!rev) {
+	ilog_quiet("[%s]\n",zm.line[0]);
+	ilog_quiet("[%s]\n",zm.line[1]);
+	ithe_panic("load_map: file does not contain the right cookie",zm.line[0]);
+}
 
-for(ctr=1;ctr<zm.lines;ctr++)
-	{
+for(ctr=1;ctr<zm.lines;ctr++) {
 	l=zm.line[ctr];
 	SAFE_STRCPY(first,strfirst(l));
 	strstrip(first);
 
 	// map <w> <h>
-	if(!istricmp(first,"map"))
-		{
-		if(didinit)
-			{
+	if(!istricmp(first,"map")) {
+		if(didinit) {
 			sprintf(first,"at line %d",ctr+1);
 			ithe_panic("load_map: reset map size after Mapdata:",first);
-			}
+		}
 		curmap->w = atoi(strfirst(strrest(l)));
 		curmap->h = atoi(strfirst(strrest(strrest(l))));
 		continue;
-		}
+	}
 
 	// connection <DIR> <mapno>
-	if(!istricmp(first,"connection"))
-		{
+	if(!istricmp(first,"connection")) {
 		dir = *(strfirst(strrest(l)));
 		dmapno = atoi(strfirst(strrest(strrest(l))));
 	
-		switch(dir)
-			{
+		switch(dir) {
 			case 'n':
 			case 'N':
 				curmap->con_n=dmapno;
@@ -445,76 +461,131 @@ for(ctr=1;ctr<zm.lines;ctr++)
 				sprintf(first,"at line %d",ctr+1);
 				ithe_panic("load_map: unknown connection direction",first);
 				break;
-			}
-		continue;
 		}
+		continue;
+	}
 
 	// This initialises the map and allocates the space for the tiles
-	if(!istricmp(first,"Mapdata:"))
-		{
+	if(!istricmp(first,"Mapdata:")) {
 		erase_curmap();		// See above for why we do this
 		if(!curmap->physmap)
 			curmap->physmap = (unsigned short *)M_get(curmap->w * curmap->h,sizeof(short));
 		didinit=1;
-		}
+	}
 
 	// row <tilecount> at <xnum> <ynum> = <B64_datablock>
-	if(!istricmp(first,"row"))
-		{
-		if(!didinit || !curmap->physmap)
-			{
+	if(!istricmp(first,"row")) {
+		if(!didinit || !curmap->physmap) {
 			sprintf(first,"at line %d",ctr+1);
 			ithe_panic("load_map: row tag before Mapdata:",first);
-			}
+		}
 		tiles = atoi(strgetword(l,2));
 		x = atoi(strgetword(l,4));
 		y = atoi(strgetword(l,5));
 	
-		if(x+tiles > curmap->w)
-			{
+		if(x+tiles > curmap->w) {
 			sprintf(first,"at line %d (tried to write %d tiles at %d when width = %d)",ctr+1,tiles,x,curmap->w);
 			ithe_panic("load_map: block won't fit on map",first);
-			}
+		}
 	
 		// Do it this ugly way because it won't create a copy
 		str = strrest(strrest(strrest(strrest(strrest(strrest(l))))));
-		if(!str || str == NOTHING)
-			{
+		if(!str || str == NOTHING) {
 			sprintf(first,"at line %d",ctr+1);
 			ithe_panic("load_map: block missing",first);
-			}
+		}
 		strstrip((char *)str); // The original source was char* so this should be safe
 		
 		// Convert it directly into the map
 		ImportB64(str,&curmap->physmap[(y*curmap->w)+x],tiles);
 		continue;
-		}
+	}
 
 	// repeat <tilecount> at <xnum> <ynum> = <tileno>
-	if(!istricmp(first,"repeat"))
-		{
-		if(!didinit || !curmap->physmap)
-			{
+	if(!istricmp(first,"repeat")) {
+		if(!didinit || !curmap->physmap) {
 			sprintf(first,"at line %d",ctr+1);
 			ithe_panic("load_map: row tag before Mapdata:",first);
-			}
+		}
 		tiles = atoi(strgetword(l,2));
 		x = atoi(strgetword(l,4));
 		y = atoi(strgetword(l,5));
 		tile = atoi(strgetword(l,7));
 	
-		if(x+tiles > curmap->w)
-			{
+		if(x+tiles > curmap->w) {
 			sprintf(first,"at line %d (tried to write %d tiles at %d when width = %d)",ctr+1,tiles,x,curmap->w);
 			ithe_panic("load_map: block won't fit on map",first);
-			}
+		}
 	
 		ptr=&curmap->physmap[(y*curmap->w)+x];
-		for(runctr=0;runctr<tiles;runctr++)
+		for(runctr=0;runctr<tiles;runctr++) {
 			*ptr++=tile;
-		continue;
 		}
+		continue;
 	}
+
+	// R02 extensions for better diffing
+
+	// block at <xnum> <ynum> = <B64_datablock>
+	if(!istricmp(first,"block")) {
+		if(!didinit || !curmap->physmap) {
+			sprintf(first,"at line %d",ctr+1);
+			ithe_panic("load_map: row tag before Mapdata:",first);
+		}
+		x = atoi(strgetword(l,3));
+		y = atoi(strgetword(l,4));
+	
+		if(x+8 > curmap->w || y+8 > curmap->h) {
+			sprintf(first,"at line %d (tried to write 8x8 tiles at %d,%d when width = %d and height = %d)",ctr+1,x,y,curmap->w,curmap->h);
+			ithe_panic("load_map: block won't fit on map",first);
+		}
+	
+		// Do it this ugly way because it won't create a copy
+		str = strrest(strrest(strrest(strrest(strrest(l)))));
+		if(!str || str == NOTHING) {
+			sprintf(first,"at line %d",ctr+1);
+			ithe_panic("load_map: block missing",first);
+		}
+		strstrip((char *)str); // The original source was char* so this should be safe
+		
+		ImportB64(str,block,64);
+		blockptr = &block[0];
+		ptr=&curmap->physmap[(y*curmap->w)+x];
+		for(yrun=0;yrun<8;yrun++) {
+			memcpy(ptr,blockptr,8*sizeof(unsigned short));
+			ptr+=curmap->w;
+			blockptr+=8;
+		}
+
+		continue;
+	}
+
+	// tileblock at <xnum> <ynum> = <tileno>
+	if(!istricmp(first,"tileblock")) {
+		if(!didinit || !curmap->physmap) {
+			sprintf(first,"at line %d",ctr+1);
+			ithe_panic("load_map: row tag before Mapdata:",first);
+		}
+		x = atoi(strgetword(l,3));
+		y = atoi(strgetword(l,4));
+		tile = atoi(strgetword(l,6));
+	
+		if(x+8 > curmap->w || y+8 > curmap->h) {
+			sprintf(first,"at line %d (tried to write 8x8 tiles at %d,%d when width = %d and height = %d)",ctr+1,x,y,curmap->w,curmap->h);
+			ithe_panic("load_map: block won't fit on map",first);
+		}
+	
+		ptr=&curmap->physmap[(y*curmap->w)+x];
+		for(yrun=0;yrun<8;yrun++) {
+			for(xrun=0;xrun<8;xrun++) {
+				*ptr++=tile;
+			}
+			ptr+=curmap->w-8;
+		}
+		continue;
+	}
+
+}
 
 // Don't need text file open anymore
 TF_term(&zm);
@@ -525,9 +596,81 @@ TF_term(&zm);
 
 
 /*
- *  save_map - Save the tiles to disk in B64 format
+ *  save_map - Save the tiles to disk in B64 format in 8x8 blocks
  */
 
+void save_map(int mapnum)
+{
+char *fname;
+ofp=NULL;
+int runctr;
+int x,y,ret,yrun,do_run;
+unsigned short *ptr,tile,*blockptr;
+unsigned short block[64];
+char outbuffer[(MAPFILEBLOCK*3)+1];
+FILE *fp;
+
+if(!curmap)
+	return;
+
+fname=makemapname(mapnum,0,".map");
+SAFE_STRCPY(stemp,fname);
+fp=fopen(stemp,"w");
+if(!fp)
+	return;
+
+fprintf(fp,"%s%s\n",COOKIE_MAPFILE,TEXTCOOKIE_R02);
+
+fprintf(fp,"\tmap %d %d\n",curmap->w,curmap->h);
+fprintf(fp,"\tconnection N %d\n",curmap->con_n);
+fprintf(fp,"\tconnection S %d\n",curmap->con_s);
+fprintf(fp,"\tconnection E %d\n",curmap->con_e);
+fprintf(fp,"\tconnection W %d\n",curmap->con_w);
+
+fprintf(fp,"\nMapdata:\n");
+
+for(y=0;y<curmap->h;y+=8) {
+	for(x=0;x<curmap->w;x+=8) {
+		// Get a block
+		ptr=&curmap->physmap[(y*curmap->w)+x];
+
+		blockptr=&block[0];
+		for(yrun=0;yrun<8;yrun++) {
+			memcpy(blockptr,ptr,8*sizeof(unsigned short));
+			ptr+=curmap->w;
+			blockptr+=8;
+		}
+
+		// First, are they all the same?
+		blockptr=&block[0];
+		tile=*blockptr;
+		do_run=1; // Assume so
+		for(runctr=0;runctr<64;runctr++) {
+			if(*blockptr++ != tile) {
+				do_run=0; // No
+				break;
+			}
+		}
+
+		if(do_run)
+			 fprintf(fp,"\ttileblock at %d %d = %d\n",x,y,tile);
+		else {
+			ret=ExportB64(block,64,outbuffer,sizeof(outbuffer));
+			if(ret) {
+				fprintf(fp,"\tblock at %d %d = %s\n",x,y,outbuffer);
+			} else {
+				Bug("ERROR: Failed to convert map block at %d,%d\n",x,y);
+			}
+		}
+		fprintf(fp,"\n");
+	}
+}
+
+fclose(fp);
+}
+
+// R01 - row-based base64 
+/*
 void save_map(int mapnum)
 {
 char *fname;
@@ -547,7 +690,7 @@ fp=fopen(stemp,"w");
 if(!fp)
 	return;
 
-fprintf(fp,"%s%s\n",COOKIE_MAPFILE,TEXTCOOKIE_R01);
+fprintf(fp,"%s%s\n",COOKIE_MAPFILE,TEXTCOOKIE_R02);
 
 fprintf(fp,"\tmap %d %d\n",curmap->w,curmap->h);
 fprintf(fp,"\tconnection N %d\n",curmap->con_n);
@@ -595,7 +738,9 @@ for(y=0;y<curmap->h;y++)
 
 fclose(fp);
 }
+*/
 
+// R00
 /*
 void save_map(int mapnum)
 {
@@ -1554,39 +1699,37 @@ ilog_printf("  Rooftops\n");
 fname=makemapname(mapnum,0,".mz2");
 SAFE_STRCPY(stemp,fname);
 
-if(!loadfile(stemp,filename))
-	{
+if(!loadfile(stemp,filename)) {
 	irecon_cls();
 	ilog_printf("Could not find file '%s'\n",stemp);
 	irecon_printf("Hit Y to create a new file, or any other key to exit.\n");
 	key=WaitForAscii();
-	if(key!='Y'&&key!='y')
+	if(key!='Y'&&key!='y') {
 		exit(1);
 	}
-else
-	{
+} else {
 	fp=iopen(filename);
 	memset(sigtemp,0,sizeof(sigtemp));
 	iread((unsigned char *)sigtemp,8,fp);
-	if(strncmp(sigtemp,COOKIE_Z2,4))
-		{
-		if(strncmp(sigtemp,OLDCOOKIE_MZ2,4))
-			{
+	if(strncmp(sigtemp,COOKIE_Z2,4)) {
+		if(strncmp(sigtemp,OLDCOOKIE_MZ2,4)) {
 			ilog_printf("File '%s' is not a z2 map.. it does not contain the right cookie\n",stemp);
 			exit(1);
-			}
+		}
 		// It is the old version, skip 40 bytes
 		iseek(fp,40,SEEK_SET);
-		}
-	else
-		{
+	} else {
 		// New version, check rev
-		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R01,3))
-			{
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R01,3)) {
 			iclose(fp);
 			load_z2_r01(filename);
 			return;
-			}
+		}
+
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R02,3)) {
+			iclose(fp);
+			load_z2_r01(filename); // Handles R02 as well
+			return;
 		}
 
 	// Read the original binary format
@@ -1594,6 +1737,7 @@ else
 	iread((unsigned char *)curmap->roof,curmap->w*curmap->h*sizeof(unsigned char),fp);
 	iclose(fp);
 	}
+}
 }
 
 //
@@ -1603,33 +1747,40 @@ else
 void load_z2_r01(char *fname)
 {
 struct TF_S z2;
-int ctr,x,y,w,h,t;
+int ctr,x,y,w,h,yrun,t,rev=0;
 char first[1024];
+unsigned short block[32];
 char *l;
-unsigned char *map=curmap->roof;
+const char *str;
+unsigned char *map=curmap->roof,*ptr,*blockptr;
 w=curmap->w;
 h=curmap->h;
 
 TF_init(&z2);
 TF_load(&z2,fname);
 
-if(strncmp(z2.line[0],COOKIE_Z2,4))
-	if(strncmp(&z2.line[0][4],TEXTCOOKIE_R01,3))
-		{
-		ilog_quiet("[%s]\n",z2.line[0]);
-		ilog_quiet("[%s]\n",z2.line[1]);
-		ithe_panic("load_mz2: file does not contain the right cookie",z2.line[0]);
-		}
 
-for(ctr=1;ctr<z2.lines;ctr++)
-	{
+if(!strncmp(z2.line[0],COOKIE_Z2,4)) {
+	if(!strncmp(&z2.line[0][4],TEXTCOOKIE_R01,3)) {
+		rev=1;
+	}
+	if(!strncmp(&z2.line[0][4],TEXTCOOKIE_R02,3)) {
+		rev=2;
+	}
+}
+if(!rev) {
+	ilog_quiet("[%s]\n",z2.line[0]);
+	ilog_quiet("[%s]\n",z2.line[1]);
+	ithe_panic("load_z2: file does not contain the right cookie",z2.line[0]);
+}
+
+for(ctr=1;ctr<z2.lines;ctr++) {
 	l=z2.line[ctr];
 	SAFE_STRCPY(first,strfirst(l));
 	strstrip(first);
 
 	// roof <type> at <xnum> <ynum>
-	if(!istricmp(first,"roof"))
-		{
+	if(!istricmp(first,"roof")) {
 		x = atoi(strgetword(l,4));
 		y = atoi(strgetword(l,5));
 		t = atoi(strgetword(l,2));	// Tile no
@@ -1640,11 +1791,64 @@ for(ctr=1;ctr<z2.lines;ctr++)
 			continue;
 		if(y <0 || y >= h)
 			continue;
-		if(t>0)
+		if(t>0) {
 			map[(y*w)+x]=(unsigned char)t;
-		continue;
 		}
+		continue;
 	}
+
+	// R02 extensions
+
+	// block at <xnum> <ynum> = <base64>
+	if(!istricmp(first,"block")) {
+		x = atoi(strgetword(l,3));
+		y = atoi(strgetword(l,4));
+		str = strrest(strrest(strrest(strrest(strrest(l)))));
+		if(!str || str == NOTHING) {
+			sprintf(first,"at line %d",ctr+1);
+			ithe_panic("load_z2: block missing",first);
+		}
+
+		// If the coordinates are 65535, the object has been deleted
+		// by the map utilities
+		if(x <0 || x+8 >= w)
+			continue;
+		if(y <0 || y+8 >= h)
+			continue;
+
+		ImportB64(str,block,32);
+		blockptr=(unsigned char *)&block[0]; // TODO: Big-endian support since we're treating WORDs as BYTE pairs?
+		ptr=&map[(y*w)+x];
+		for(yrun=0;yrun<8;yrun++) {
+			memcpy(ptr,blockptr,8);
+			ptr += w;
+			blockptr+=8;
+		}
+		continue;
+	}
+
+	// blocktile <type> at <xnum> <ynum>
+	if(!istricmp(first,"blocktile")) {
+		t = atoi(strgetword(l,2));	// Tile no
+		x = atoi(strgetword(l,4));
+		y = atoi(strgetword(l,5));
+
+		// If the coordinates are 65535, the object has been deleted
+		// by the map utilities
+		if(x <0 || x+8 >= w)
+			continue;
+		if(y <0 || y+8 >= h)
+			continue;
+		if(t>0) {
+			ptr=&map[(y*w)+x];
+			for(yrun=0;yrun<8;yrun++) {
+				memset(ptr,t,8);
+				ptr += w;
+			}
+		}
+		continue;
+	}
+}
 
 // Don't need text file open anymore
 TF_term(&z2);
@@ -1652,6 +1856,90 @@ TF_term(&z2);
 
 
 void save_z2(int mapnum)
+{
+char *fname;
+int vx,vy,r,yrun,do_run,got_any,ret;
+unsigned char *roofptr,*blockptr,tile=0;
+unsigned char block8[64];
+unsigned short block16[32];  // For base64 conversion
+char outbuffer[(MAPFILEBLOCK*3)+1];
+FILE *fp;
+//      Objects layer 2 - rooftops
+
+fname=makemapname(mapnum,0,".mz2");
+SAFE_STRCPY(stemp,fname);
+
+// Open the file.
+fp=fopen(stemp,"w");
+if(!fp)
+	return;
+
+// Write the header
+fprintf(fp,"%s%s\n",COOKIE_Z2,TEXTCOOKIE_R02);
+
+// Scan entire map line by line, row by row and record the coordinates
+
+for(vy=0;vy<curmap->h;vy+=8) {
+	for(vx=0;vx<curmap->w;vx+=8) {
+
+		// Get a block
+		roofptr=&curmap->roof[(curmap->w*vy)+vx];
+		blockptr=&block8[0];
+		for(yrun=0;yrun<8;yrun++) {
+			memcpy(blockptr,roofptr,8);
+			roofptr += curmap->w;
+			blockptr += 8;
+		}
+
+		// Is there anything in it at all?
+		got_any=0;
+		blockptr=&block8[0];
+		for(yrun=0;yrun<64;yrun++) {
+			if(*blockptr++) {
+				got_any=1;
+				break;
+			}
+		}
+
+		// No
+		if(!got_any) {
+			continue;
+		}
+
+		// OK, we have something, is it homogenous?
+
+		do_run=1;
+		blockptr=&block8[0];
+		tile=*blockptr;
+		for(yrun=0;yrun<64;yrun++) {
+			if(*blockptr++ != tile) {
+				do_run=0;
+				break;
+			}
+		}
+
+		if(do_run) {
+			fprintf(fp,"\tblocktile %d at %d %d\n",tile,vx,vy);
+		} else {
+			memcpy(block16,block8,64); // Copy to ensure it's word-aligned
+			ret=ExportB64(block16,32,outbuffer,sizeof(outbuffer));
+			if(ret) {
+				fprintf(fp,"\tblock at %d %d = %s\n",vx,vy,outbuffer);
+			} else {
+				Bug("ERROR: Failed to convert roof block at %d,%d\n",vx,vy);
+			}
+			
+		}
+
+
+	}
+}
+
+fclose(fp);
+}
+
+/*
+void save_z2_r01(int mapnum)
 {
 char *fname;
 int vx,vy,r;
@@ -1683,7 +1971,7 @@ for(vy=0;vy<curmap->h;vy++)
 
 fclose(fp);
 }
-
+*/
 
 
 
@@ -1708,45 +1996,42 @@ int key;
 
 fname=makemapname(mapnum,0,".mz3");
 SAFE_STRCPY(stemp,fname);
-if(!loadfile(stemp,filename))
-	{
+if(!loadfile(stemp,filename)) {
 	irecon_cls();
 	ilog_printf("Could not find file '%s'\n",stemp);
 	irecon_printf("Hit Y to create a new file, or any other key to exit.\n");
 	key=WaitForAscii();
 	if(key!='Y'&&key!='y')
 		exit(1);
-	}
-else
-	{
+} else {
 	fp=iopen(filename);
 	iread((unsigned char *)sigtemp,8,fp);
-	if(strncmp(sigtemp,COOKIE_Z3,4))
-		{
-		if(strncmp(sigtemp,OLDCOOKIE_MZ3,4))
-			{
+	if(strncmp(sigtemp,COOKIE_Z3,4)) {
+		if(strncmp(sigtemp,OLDCOOKIE_MZ3,4)) {
 			ilog_printf("File '%s' is not a z3 map.. it does not contain the right cookie\n",stemp);
 			exit(1);
-			}
+		}
 		// It is the old version, skip 40 bytes
 		iseek(fp,40,SEEK_SET);
-		}
-	else
-		{
+	} else	{
 		// New version, check rev
-		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R01,3))
-			{
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R01,3)) {
 			iclose(fp);
 			load_z3_r01(filename);
 			return;
-			}
 		}
+		if(!strncmp(&sigtemp[4],TEXTCOOKIE_R02,3)) {
+			iclose(fp);
+			load_z3_r01(filename); // Handles R02 as well
+			return;
+		}
+	}
 
 	// Read the original binary format
 
 	iread((unsigned char *)curmap->light,curmap->w*curmap->h*sizeof(unsigned char),fp);
 	iclose(fp);
-	}
+}
 }
 
 //
@@ -1756,33 +2041,39 @@ else
 void load_z3_r01(char *fname)
 {
 struct TF_S z3;
-int ctr,x,y,w,h,t;
+int ctr,x,y,w,h,yrun,t,rev=0;
 char first[1024];
+unsigned short block[32];
 char *l;
-unsigned char *map=curmap->light;
+const char *str;
+unsigned char *map=curmap->light,*ptr,*blockptr;
 w=curmap->w;
 h=curmap->h;
 
 TF_init(&z3);
 TF_load(&z3,fname);
 
-if(strncmp(z3.line[0],COOKIE_Z3,4))
-	if(strncmp(&z3.line[0][4],TEXTCOOKIE_R01,3))
-		{
-		ilog_quiet("[%s]\n",z3.line[0]);
-		ilog_quiet("[%s]\n",z3.line[1]);
-		ithe_panic("load_mz3: file does not contain the right cookie",z3.line[0]);
-		}
+if(!strncmp(z3.line[0],COOKIE_Z3,4)) {
+	if(!strncmp(&z3.line[0][4],TEXTCOOKIE_R01,3)) {
+		rev=1;
+	}
+	if(!strncmp(&z3.line[0][4],TEXTCOOKIE_R02,3)) {
+		rev=2;
+	}
+}
+if(!rev) {
+	ilog_quiet("[%s]\n",z3.line[0]);
+	ilog_quiet("[%s]\n",z3.line[1]);
+	ithe_panic("load_z3: file does not contain the right cookie",z3.line[0]);
+}
 
-for(ctr=1;ctr<z3.lines;ctr++)
-	{
+for(ctr=1;ctr<z3.lines;ctr++) {
 	l=z3.line[ctr];
 	SAFE_STRCPY(first,strfirst(l));
 	strstrip(first);
 
 	// light <no> at <xnum> <ynum>
-	if(!istricmp(first,"light"))
-		{
+	if(!istricmp(first,"light")) {
 		x = atoi(strgetword(l,4));
 		y = atoi(strgetword(l,5));
 		t = atoi(strgetword(l,2));	// Tile no
@@ -1797,8 +2088,61 @@ for(ctr=1;ctr<z3.lines;ctr++)
 		if(t>0)
 			map[(y*w)+x]=(unsigned char)t;
 		continue;
-		}
 	}
+
+	// R02 extensions
+
+	// block at <xnum> <ynum> = <base64>
+	if(!istricmp(first,"block")) {
+		x = atoi(strgetword(l,3));
+		y = atoi(strgetword(l,4));
+		str = strrest(strrest(strrest(strrest(strrest(l)))));
+		if(!str || str == NOTHING) {
+			sprintf(first,"at line %d",ctr+1);
+			ithe_panic("load_z3: block missing",first);
+		}
+
+		// If the coordinates are 65535, the object has been deleted
+		// by the map utilities
+		if(x <0 || x+8 >= w)
+			continue;
+		if(y <0 || y+8 >= h)
+			continue;
+
+		ImportB64(str,block,32);
+		blockptr=(unsigned char *)&block[0]; // TODO: Big-endian support since we're treating WORDs as BYTE pairs?
+		ptr=&map[(y*w)+x];
+		for(yrun=0;yrun<8;yrun++) {
+			memcpy(ptr,blockptr,8);
+			ptr += w;
+			blockptr+=8;
+		}
+		continue;
+	}
+
+	// blocktile <type> at <xnum> <ynum>
+	if(!istricmp(first,"blocktile")) {
+		t = atoi(strgetword(l,2));	// Tile no
+		x = atoi(strgetword(l,4));
+		y = atoi(strgetword(l,5));
+
+		// If the coordinates are 65535, the object has been deleted
+		// by the map utilities
+		if(x <0 || x+8 >= w)
+			continue;
+		if(y <0 || y+8 >= h)
+			continue;
+		if(t>0) {
+			ptr=&map[(y*w)+x];
+			for(yrun=0;yrun<8;yrun++) {
+				memset(ptr,t,8);
+				ptr += w;
+			}
+		}
+		continue;
+	}
+
+}
 // Don't need text file open anymore
 TF_term(&z3);
 }
@@ -1809,6 +2153,91 @@ TF_term(&z3);
  *      save_z3 - Save the static lighting to disk
  */
 
+void save_z3(int mapnum)
+{
+char *fname;
+int vx,vy,r,yrun,do_run,got_any,ret;
+unsigned char *lightptr,*blockptr,tile=0;
+unsigned char block8[64];
+unsigned short block16[32];  // For base64 conversion
+char outbuffer[(MAPFILEBLOCK*3)+1];
+FILE *fp;
+
+//      Objects layer 3 - static lights
+
+fname=makemapname(mapnum,0,".mz3");
+SAFE_STRCPY(stemp,fname);
+
+// Open the file.
+fp=fopen(stemp,"w");
+if(!fp)
+	return;
+
+// Write the header
+fprintf(fp,"%s%s\n",COOKIE_Z3,TEXTCOOKIE_R02);
+
+// Scan entire map line by line, row by row and record the coordinates
+
+for(vy=0;vy<curmap->h;vy+=8) {
+	for(vx=0;vx<curmap->w;vx+=8) {
+
+		// Get a block
+		lightptr=&curmap->light[(curmap->w*vy)+vx];
+		blockptr=&block8[0];
+		for(yrun=0;yrun<8;yrun++) {
+			memcpy(blockptr,lightptr,8);
+			lightptr += curmap->w;
+			blockptr += 8;
+		}
+
+		// Is there anything in it at all?
+		got_any=0;
+		blockptr=&block8[0];
+		for(yrun=0;yrun<64;yrun++) {
+			if(*blockptr++) {
+				got_any=1;
+				break;
+			}
+		}
+
+		// No
+		if(!got_any) {
+			continue;
+		}
+
+		// OK, we have something, is it homogenous?
+
+		do_run=1;
+		blockptr=&block8[0];
+		tile=*blockptr;
+		for(yrun=0;yrun<64;yrun++) {
+			if(*blockptr++ != tile) {
+				do_run=0;
+				break;
+			}
+		}
+
+		if(do_run) {
+			fprintf(fp,"\tblocktile %d at %d %d\n",tile,vx,vy);
+		} else {
+			memcpy(block16,block8,64); // Copy to ensure it's word-aligned
+			ret=ExportB64(block16,32,outbuffer,sizeof(outbuffer));
+			if(ret) {
+				fprintf(fp,"\tblock at %d %d = %s\n",vx,vy,outbuffer);
+			} else {
+				Bug("ERROR: Failed to convert roof block at %d,%d\n",vx,vy);
+			}
+			
+		}
+
+
+	}
+}
+
+fclose(fp);
+}
+
+/*
 void save_z3(int mapnum)
 {
 char *fname;
@@ -1841,6 +2270,8 @@ for(vy=0;vy<curmap->h;vy++)
 
 fclose(fp);
 }
+
+*/
 
 // Miscellaneous State
 

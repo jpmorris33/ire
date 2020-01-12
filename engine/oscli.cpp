@@ -29,7 +29,7 @@
 // Variables:  These are all controlled by commandline switches
 
 // Mapfile, filename of the current map, begins with 0xff if not defined
-char projectname[]=COOKIE_MapName; // belated anti-Vietnam message
+char projectname[]=COOKIE_MapName;
 VMINT default_mapnumber=0; // default map number
 char newbootlog[256];
 char oldbootlog[256];

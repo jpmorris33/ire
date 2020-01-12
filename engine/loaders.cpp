@@ -810,8 +810,11 @@ if(o->tag)
 	fprintf(fp,"\t\ttag %ld\n",o->tag);
 
 // Current activity
-if(o->activity>0)
-	fprintf(fp,"\t\tactivity %s\n",PElist[o->activity].name);
+if(o->activity>0) {
+	SAFE_STRCPY(objectname,PElist[o->activity].name);
+	strupr(objectname);
+	fprintf(fp,"\t\tactivity %s\n",objectname);
+}
 
 // Location tag (for long range pathfinder)
 if(o->labels->location && strlen(o->labels->location)>0)
