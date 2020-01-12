@@ -29,7 +29,7 @@ iMZ1r01
 		type COW
 		inside EGG_db5068cc-919e-415d-8270-f5ca5b41773a
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object EGG_db5068cc-919e-415d-8270-f5ca5b41773a
 		type EGG_ALWAYS
@@ -116,7 +116,7 @@ iMZ1r01
 		type COW
 		inside EGG_02549e6c-1c40-4f04-b132-e49ac0e8212c
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD82b9a94f-1aa7-4a6a-adf9-32027a8b9da7
 		type FOOD05
@@ -137,7 +137,7 @@ iMZ1r01
 		type COW
 		inside EGG_110946eb-8b74-4e98-9a34-d001d044f272
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODbb9da85e-bfbb-4d02-9c57-a6db645e350c
 		type FOOD05
@@ -158,7 +158,7 @@ iMZ1r01
 		type COW
 		inside EGG_dacdcdfb-fdab-4ea1-8fba-1131b1123339
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD2d620614-df4b-456c-a626-d66b3488eba4
 		type FOOD05
@@ -219,7 +219,7 @@ iMZ1r01
 		type COW
 		inside EGG_53e93b11-1091-4b9a-830a-cd284cf6ae83
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODf28b8bd8-d353-4211-947d-f7750cdb049c
 		type FOOD05
@@ -252,7 +252,7 @@ iMZ1r01
 		type COW
 		inside EGG_c1eb4a4b-1470-4a2d-840d-3c19cf28abb8
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD4a6fcc66-6cab-422e-9894-b59a3df0b682
 		type FOOD05
@@ -275,7 +275,7 @@ iMZ1r01
 		type COW
 		inside EGG_0e380eef-bbfb-4ba0-9966-4de967c7bcd6
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD8d5af640-be8e-42ee-b187-ee54378ce2f6
 		type FOOD05
@@ -377,7 +377,7 @@ iMZ1r01
 		type COW
 		inside EGG_b9f42f58-eb36-4717-90f3-db6af79ad400
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD87e67a80-4b22-41e6-b888-d540b3f573c8
 		type FOOD05
@@ -398,7 +398,7 @@ iMZ1r01
 		type COW
 		inside EGG_add33eb8-1f61-43d2-89bb-dec13fbddd61
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD92c391af-191f-4a40-bcee-7d0c9f565a23
 		type FOOD05
@@ -443,7 +443,7 @@ iMZ1r01
 		type COW
 		inside EGG_89f88d51-8076-403f-9313-a61f3f023a34
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODd1ba6f50-0dad-41e7-ab45-50d61a1c9d6c
 		type FOOD05
@@ -547,7 +547,7 @@ iMZ1r01
 		type TODE
 		inside EGG_2c2632a1-80d9-463d-bc8d-f5fd35238556
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_2c2632a1-80d9-463d-bc8d-f5fd35238556
 		type EGG_OBJECT(TODE)
@@ -753,7 +753,7 @@ iMZ1r01
 		type COW
 		inside EGG_165f39b9-421e-43d3-9e79-90fcdf1cd1f1
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODe40f2ab4-d56c-4c0c-b906-7234591094ec
 		type FOOD05
@@ -782,7 +782,7 @@ iMZ1r01
 		type COW
 		inside EGG_9f87da92-957c-4257-8c57-741fd5c1fb21
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD2c21efbc-6ae1-464b-b4aa-e2bf854d9c41
 		type FOOD05
@@ -1117,7 +1117,7 @@ iMZ1r01
 		type COW
 		inside EGG_9e33e99f-9c3f-4b8e-8c63-ad837650bae1
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODa5efacb2-b15b-4a9d-b72c-467668ca7214
 		type FOOD05
@@ -1300,7 +1300,7 @@ iMZ1r01
 		type COW
 		inside EGG_2572ca28-bc78-4254-9571-76dfcefe0cdf
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD7be1f661-5ff6-4f0a-90f0-6cec27c6b7ed
 		type FOOD05
@@ -1958,7 +1958,7 @@ iMZ1r01
 		type TODE
 		inside EGG_45ca0828-438d-48cd-a7ab-b3560195bd6e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_45ca0828-438d-48cd-a7ab-b3560195bd6e
 		type EGG_OBJECT(TODE)
@@ -2105,7 +2105,7 @@ iMZ1r01
 		type COW
 		inside EGG_aa54fe54-50d5-4e70-949f-63126be75065
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODe529bf8c-8979-4a9b-8d65-2cc32e203a76
 		type FOOD05
@@ -2352,7 +2352,7 @@ iMZ1r01
 		type TODE
 		inside EGG_f68f56b9-a7a9-4f1c-930e-42e2df77ad70
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f68f56b9-a7a9-4f1c-930e-42e2df77ad70
 		type EGG_OBJECT(TODE)
@@ -2919,7 +2919,7 @@ iMZ1r01
 		type COW
 		at 349 101
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FORC7bc2cc04-d7bc-42a5-ad0a-33b98a331681
 		type FORCEFIELD_ON
@@ -3240,7 +3240,7 @@ iMZ1r01
 		type COW
 		inside EGG_2a9654a9-e5a4-4213-afea-191e50987429
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOODc6ef218d-fb72-4ec5-9c0a-97bfc122e365
 		type FOOD05
@@ -3559,7 +3559,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a0ce2e78-0e29-43d6-9378-408061408b07
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a0ce2e78-0e29-43d6-9378-408061408b07
 		type EGG_OBJECT(TODE)
@@ -3678,7 +3678,7 @@ iMZ1r01
 		type TODE
 		inside EGG_f7a2a703-7c38-4210-bd71-3466cf88f6df
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f7a2a703-7c38-4210-bd71-3466cf88f6df
 		type EGG_OBJECT(TODE)
@@ -4591,7 +4591,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ea40a0cc-6545-4c66-9759-7d088320bcbf
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ea40a0cc-6545-4c66-9759-7d088320bcbf
 		type EGG_OBJECT(TODE)
@@ -4781,7 +4781,7 @@ iMZ1r01
 		type OSPREY
 		at 522 126
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 		funcs->talk people/osprey/x36.txt
 		schedule 0 1 BIRD_WANDER -
 		schedule 8 0 SEEK_TARGET_USE RUBI3f4dcb65-183b-4536-a8b8-d9aa561c2f09
@@ -4953,7 +4953,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ec822370-e702-4b3a-9782-422ccc8d34ee
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ec822370-e702-4b3a-9782-422ccc8d34ee
 		type EGG_OBJECT(TODE)
@@ -5667,7 +5667,7 @@ iMZ1r01
 		type TODE
 		inside EGG_406faf38-647e-4d4e-a447-dfab07139969
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_406faf38-647e-4d4e-a447-dfab07139969
 		type EGG_OBJECT(TODE)
@@ -6342,7 +6342,7 @@ iMZ1r01
 		type TODE
 		inside EGG_843f39f8-44b3-422c-90cb-8874cfa97e88
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_843f39f8-44b3-422c-90cb-8874cfa97e88
 		type EGG_OBJECT(TODE)
@@ -7380,7 +7380,7 @@ iMZ1r01
 		type TODE
 		inside EGG_c6588120-da8e-48de-a1b9-603bdf40709f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_c6588120-da8e-48de-a1b9-603bdf40709f
 		type EGG_OBJECT(TODE)
@@ -8348,7 +8348,7 @@ iMZ1r01
 		type TODE
 		inside EGG_d6fc8828-09da-4456-869c-baac1adb391a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d6fc8828-09da-4456-869c-baac1adb391a
 		type EGG_OBJECT(TODE)
@@ -8567,7 +8567,7 @@ iMZ1r01
 		type TODE
 		inside EGG_3901d61c-13cd-4f2d-81c8-daf53307db18
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_3901d61c-13cd-4f2d-81c8-daf53307db18
 		type EGG_OBJECT(TODE)
@@ -8634,7 +8634,7 @@ iMZ1r01
 		type TODE
 		inside EGG_629cf014-6f90-4521-9aca-45589a75bfd1
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_629cf014-6f90-4521-9aca-45589a75bfd1
 		type EGG_OBJECT(TODE)
@@ -9026,7 +9026,7 @@ iMZ1r01
 		type TODE
 		inside EGG_0e02db4c-80cb-4492-837f-e47330d83b0c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_0e02db4c-80cb-4492-837f-e47330d83b0c
 		type EGG_OBJECT(TODE)
@@ -9507,7 +9507,7 @@ iMZ1r01
 		type TODE
 		inside EGG_790dd537-e63d-4a5e-93fa-418c119eee2c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_790dd537-e63d-4a5e-93fa-418c119eee2c
 		type EGG_OBJECT(TODE)
@@ -9787,7 +9787,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ae5fabaa-96c7-4656-96ab-0187b466c2f0
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ae5fabaa-96c7-4656-96ab-0187b466c2f0
 		type EGG_OBJECT(TODE)
@@ -9956,7 +9956,7 @@ iMZ1r01
 		type TODE
 		inside EGG_d935007f-706b-424a-83d9-d1215769d898
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d935007f-706b-424a-83d9-d1215769d898
 		type EGG_OBJECT(TODE)
@@ -10029,7 +10029,7 @@ iMZ1r01
 		type FIRESNAIL
 		at 828 220
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	decorative MOUNT05 at 833 220
 
@@ -10129,7 +10129,7 @@ iMZ1r01
 		type TODE
 		inside EGG_52229b0d-18d7-4497-8348-2c60430e1f79
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_52229b0d-18d7-4497-8348-2c60430e1f79
 		type EGG_OBJECT(TODE)
@@ -10254,7 +10254,7 @@ iMZ1r01
 		type TODE
 		inside EGG_583eade3-cda7-4212-b2b8-6679e04ef1f7
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_583eade3-cda7-4212-b2b8-6679e04ef1f7
 		type EGG_OBJECT(TODE)
@@ -10460,7 +10460,7 @@ iMZ1r01
 		type TODE
 		inside EGG_446ddfd9-0dd2-4e6d-bf8f-a63d0b30541b
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_446ddfd9-0dd2-4e6d-bf8f-a63d0b30541b
 		type EGG_OBJECT(TODE)
@@ -10658,7 +10658,7 @@ iMZ1r01
 		type TODE
 		inside EGG_c003e116-1d54-4e48-961f-23ab4c90d551
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_c003e116-1d54-4e48-961f-23ab4c90d551
 		type EGG_OBJECT(TODE)
@@ -10787,7 +10787,7 @@ iMZ1r01
 		type TODE
 		inside EGG_8523b9b1-b881-4459-bfbd-a9b343f265d8
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_8523b9b1-b881-4459-bfbd-a9b343f265d8
 		type EGG_OBJECT(TODE)
@@ -11522,7 +11522,7 @@ iMZ1r01
 		type TODE
 		inside EGG_2ab3a567-a2dc-4987-bf1f-0297fea90ce3
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_2ab3a567-a2dc-4987-bf1f-0297fea90ce3
 		type EGG_OBJECT(TODE)
@@ -12187,7 +12187,7 @@ iMZ1r01
 		type TODE
 		inside EGG_cab81567-b465-44eb-8746-d82e81d3226a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_cab81567-b465-44eb-8746-d82e81d3226a
 		type EGG_OBJECT(TODE)
@@ -12660,7 +12660,7 @@ iMZ1r01
 		type TODE
 		inside EGG_f151f999-45a2-408f-a74e-7b38f66b4cad
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f151f999-45a2-408f-a74e-7b38f66b4cad
 		type EGG_OBJECT(TODE)
@@ -12935,7 +12935,7 @@ iMZ1r01
 		type TODE
 		inside EGG_68bdb764-6593-4daf-bd18-bca78b047d9e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_68bdb764-6593-4daf-bd18-bca78b047d9e
 		type EGG_OBJECT(TODE)
@@ -13136,7 +13136,7 @@ iMZ1r01
 		type TODE
 		inside EGG_b45f53d0-4c6a-4136-b7a3-c62d8e59f6ed
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b45f53d0-4c6a-4136-b7a3-c62d8e59f6ed
 		type EGG_OBJECT(TODE)
@@ -13413,7 +13413,7 @@ iMZ1r01
 		type TODE
 		inside EGG_36e352d8-a70b-4a5e-8fab-22f84ebe9257
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_36e352d8-a70b-4a5e-8fab-22f84ebe9257
 		type EGG_OBJECT(TODE)
@@ -13706,7 +13706,7 @@ iMZ1r01
 		type TODE
 		inside EGG_848bf26a-c02c-4f5d-a7c9-b6d20e08cb99
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_848bf26a-c02c-4f5d-a7c9-b6d20e08cb99
 		type EGG_OBJECT(TODE)
@@ -14165,7 +14165,7 @@ iMZ1r01
 		type SPIDER
 		inside EGG_bfaee203-200f-48d0-8563-e4f936d59259
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_bfaee203-200f-48d0-8563-e4f936d59259
 		type EGG_OBJECT(SPIDER)
@@ -14445,7 +14445,7 @@ iMZ1r01
 		type TODE
 		inside EGG_5fa3016b-562b-4d59-98af-a6d1cefede1a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_5fa3016b-562b-4d59-98af-a6d1cefede1a
 		type EGG_OBJECT(TODE)
@@ -14456,7 +14456,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6dad8dfc-a684-4a9a-8ce0-f42146445b0b
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6dad8dfc-a684-4a9a-8ce0-f42146445b0b
 		type EGG_OBJECT(TODE)
@@ -15117,7 +15117,7 @@ iMZ1r01
 		type TODE
 		inside EGG_20a69ad7-82d1-40d3-b052-026fc5b5a137
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_20a69ad7-82d1-40d3-b052-026fc5b5a137
 		type EGG_OBJECT(TODE)
@@ -15519,7 +15519,7 @@ iMZ1r01
 		at 660 297
 		curdir 1
 		name X42
-		activity bird_wander
+		activity BIRD_WANDER
 		funcs->talk people/osprey/x42.txt
 
 	object BOWLd73f18db-264b-47e0-a30c-193f20b9ea11
@@ -16283,7 +16283,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4ad19f51-eef9-40b2-8e0b-c1a0048497b4
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4ad19f51-eef9-40b2-8e0b-c1a0048497b4
 		type EGG_OBJECT(TODE)
@@ -16339,7 +16339,7 @@ iMZ1r01
 		type TODE
 		inside EGG_76446e6a-2efd-40c7-920c-403157799b7e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_76446e6a-2efd-40c7-920c-403157799b7e
 		type EGG_OBJECT(TODE)
@@ -16736,7 +16736,7 @@ iMZ1r01
 		type OSPREY
 		at 638 305
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object PERCa1e0f4a7-482f-48d3-b066-b024960cd825
 		type PERCH
@@ -16784,7 +16784,7 @@ iMZ1r01
 		at 669 305
 		curdir 1
 		name Kee-Kee-Kee-Chee
-		activity bird_wander
+		activity BIRD_WANDER
 		funcs->talk people/osprey/x63.txt
 
 	decorative HUT03 at 671 305
@@ -17419,7 +17419,7 @@ iMZ1r01
 		at 652 308
 		curdir 3
 		name guard
-		activity bird_wander
+		activity BIRD_WANDER
 		schedule 0 1 SIT_AT_LOCATION TARGb9dda812-c02a-4f6b-b6f6-9f9a0f6cc08f
 
 	object BRIDfc3ef6ec-0409-4774-a184-cee2ac179e17
@@ -17666,7 +17666,7 @@ iMZ1r01
 		type OSPREY
 		at 640 309
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	decorative HUT03 at 641 309
 
@@ -18344,7 +18344,7 @@ iMZ1r01
 		type SPIDER
 		inside EGG_314cecec-2ba1-4ac3-891d-2694c6defd8d
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_314cecec-2ba1-4ac3-891d-2694c6defd8d
 		type EGG_OBJECT(SPIDER)
@@ -18420,7 +18420,7 @@ iMZ1r01
 		type TODE
 		inside EGG_b8063cc5-b3fd-4646-8203-b3fda8ff589b
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b8063cc5-b3fd-4646-8203-b3fda8ff589b
 		type EGG_OBJECT(TODE)
@@ -18974,7 +18974,7 @@ iMZ1r01
 		type OSPREY
 		at 674 316
 		curdir 2
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object JAR_01b86f70-8974-461f-9716-552200aed74b
 		type JAR_FISH
@@ -19007,7 +19007,7 @@ iMZ1r01
 		type TODE
 		inside EGG_3a7ba51b-ed98-4119-aa41-01638a26a603
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_3a7ba51b-ed98-4119-aa41-01638a26a603
 		type EGG_OBJECT(TODE)
@@ -20221,7 +20221,7 @@ iMZ1r01
 		at 627 324
 		curdir 3
 		name X24
-		activity bird_wander
+		activity BIRD_WANDER
 		stats->hp 400000
 		funcs->talk people/osprey/x24.txt
 		schedule 7 0 SIT_AT_LOCATION PERC4c55618d-b52e-4ba1-860a-632fa95c2ddc
@@ -20278,7 +20278,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6232c720-eddd-4828-a4a0-0752d2b15536
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6232c720-eddd-4828-a4a0-0752d2b15536
 		type EGG_OBJECT(TODE)
@@ -20379,7 +20379,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ebf16a56-6832-4041-b8c9-e9e788bf9f40
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ebf16a56-6832-4041-b8c9-e9e788bf9f40
 		type EGG_OBJECT(TODE)
@@ -20482,7 +20482,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6dbfbaa5-d7c3-4240-a56a-85bc0ec93bee
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6dbfbaa5-d7c3-4240-a56a-85bc0ec93bee
 		type EGG_OBJECT(TODE)
@@ -20576,7 +20576,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4ee93c3e-ddea-4010-80b1-2c68d945ccad
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4ee93c3e-ddea-4010-80b1-2c68d945ccad
 		type EGG_OBJECT(TODE)
@@ -20587,7 +20587,7 @@ iMZ1r01
 		type TODE
 		inside EGG_59c1132a-3142-42cb-b1d2-ee65c3dc7722
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_59c1132a-3142-42cb-b1d2-ee65c3dc7722
 		type EGG_OBJECT(TODE)
@@ -20699,7 +20699,7 @@ iMZ1r01
 		type TODE
 		inside EGG_b43552ab-6188-4971-a7f6-3fe5150ce574
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b43552ab-6188-4971-a7f6-3fe5150ce574
 		type EGG_OBJECT(TODE)
@@ -20822,7 +20822,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4534a12d-3d72-405b-9e52-69cd951a826c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4534a12d-3d72-405b-9e52-69cd951a826c
 		type EGG_OBJECT(TODE)
@@ -21254,7 +21254,7 @@ iMZ1r01
 		type TODE
 		inside EGG_8c932a69-546d-4e62-8f26-6523dc9ec366
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_8c932a69-546d-4e62-8f26-6523dc9ec366
 		type EGG_OBJECT(TODE)
@@ -21265,7 +21265,7 @@ iMZ1r01
 		type TODE
 		inside EGG_04f64e85-73ec-4e27-ab10-9560cd07d019
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_04f64e85-73ec-4e27-ab10-9560cd07d019
 		type EGG_OBJECT(TODE)
@@ -21813,7 +21813,7 @@ iMZ1r01
 		type TODE
 		inside EGG_88587fee-0510-4141-8319-1534fd599693
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_88587fee-0510-4141-8319-1534fd599693
 		type EGG_OBJECT(TODE)
@@ -22387,7 +22387,7 @@ iMZ1r01
 		type TODE
 		inside EGG_727e0971-e0a5-4d2e-b083-bf473cac508c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_727e0971-e0a5-4d2e-b083-bf473cac508c
 		type EGG_OBJECT(TODE)
@@ -22616,7 +22616,7 @@ iMZ1r01
 		type TODE
 		inside EGG_295f5956-e349-46e4-aed2-ee0f2ba3ecff
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_295f5956-e349-46e4-aed2-ee0f2ba3ecff
 		type EGG_OBJECT(TODE)
@@ -22807,7 +22807,7 @@ iMZ1r01
 		type TODE
 		inside EGG_11a81366-df44-4955-bd18-2f477b006442
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_11a81366-df44-4955-bd18-2f477b006442
 		type EGG_OBJECT(TODE)
@@ -22884,7 +22884,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4c0c3204-8d41-4204-b1b5-6c312f4d4f7f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4c0c3204-8d41-4204-b1b5-6c312f4d4f7f
 		type EGG_OBJECT(TODE)
@@ -22955,7 +22955,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a9a90f66-8ed3-46f3-a4ad-74f0bed72d9e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a9a90f66-8ed3-46f3-a4ad-74f0bed72d9e
 		type EGG_OBJECT(TODE)
@@ -23262,7 +23262,7 @@ iMZ1r01
 		type TODE
 		inside EGG_91419dcd-b4bb-43a5-bee3-ba9761ed0cf4
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_91419dcd-b4bb-43a5-bee3-ba9761ed0cf4
 		type EGG_OBJECT(TODE)
@@ -23390,7 +23390,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_a9b251d9-626b-4f90-b9c0-0a6068e68d2e
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_a9b251d9-626b-4f90-b9c0-0a6068e68d2e
 		type EGG_OBJECT(BUNNY)
@@ -23489,7 +23489,7 @@ iMZ1r01
 		type WOLF
 		inside EGG_1b2b1414-bfe2-44d2-8e2a-30b6ba53e0f0
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 6 0 PREDATOR -
 		schedule 10 0 GO_TO_SLEEP TARGf2047013-0e4e-4110-a47c-48b16463df79
 		schedule 14 0 PREDATOR -
@@ -23513,7 +23513,7 @@ iMZ1r01
 		type WOLF_F
 		inside EGG_aa9b48e5-928d-40f3-a586-331286c25c92
 		curdir 1
-		activity predator
+		activity PREDATOR
 		schedule 6 0 PREDATOR -
 		schedule 10 0 GO_TO_SLEEP TARG046d8157-2a96-4795-8b64-56bc87f8a9ae
 		schedule 14 0 PREDATOR -
@@ -23629,7 +23629,7 @@ iMZ1r01
 		type TODE
 		inside EGG_16eb77d2-13a0-45d8-864f-369001dee64e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_16eb77d2-13a0-45d8-864f-369001dee64e
 		type EGG_OBJECT(TODE)
@@ -23640,7 +23640,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_661c3e9c-e6da-440d-a88c-09bac11d743a
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_661c3e9c-e6da-440d-a88c-09bac11d743a
 		type EGG_OBJECT(BUNNY)
@@ -24139,7 +24139,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6b122557-2f58-405e-bf40-56014be53cf9
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6b122557-2f58-405e-bf40-56014be53cf9
 		type EGG_OBJECT(TODE)
@@ -24235,7 +24235,7 @@ iMZ1r01
 		type BUNNY
 		inside EGG_1b372283-14c8-49b5-94ce-73f373aaf2c7
 		curdir 1
-		activity bunny_wander
+		activity BUNNY_WANDER
 
 	object EGG_1b372283-14c8-49b5-94ce-73f373aaf2c7
 		type EGG_OBJECT(BUNNY)
@@ -24255,7 +24255,7 @@ iMZ1r01
 		type TODE
 		inside EGG_b8fa88ca-240d-4965-82cc-594eaa2ccfa9
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b8fa88ca-240d-4965-82cc-594eaa2ccfa9
 		type EGG_ALWAYS
@@ -24525,7 +24525,7 @@ iMZ1r01
 		type TODE
 		inside EGG_08077c71-f5b3-432f-bb09-2c0777688908
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_08077c71-f5b3-432f-bb09-2c0777688908
 		type EGG_OBJECT(TODE)
@@ -24546,7 +24546,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a5d6c9db-5550-41c5-a8c8-281d56cdf8f1
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a5d6c9db-5550-41c5-a8c8-281d56cdf8f1
 		type EGG_OBJECT(TODE)
@@ -25029,7 +25029,7 @@ iMZ1r01
 		type TODE
 		inside EGG_8817b1ee-7193-4bf4-858e-49fd55b524fb
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_8817b1ee-7193-4bf4-858e-49fd55b524fb
 		type EGG_OBJECT(TODE)
@@ -25115,7 +25115,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4b8da8eb-d5ca-402a-a1a5-61b32d416c98
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4b8da8eb-d5ca-402a-a1a5-61b32d416c98
 		type EGG_OBJECT(TODE)
@@ -25269,7 +25269,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6f6e1cf2-c3b2-4943-8f17-d68df747a112
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6f6e1cf2-c3b2-4943-8f17-d68df747a112
 		type EGG_OBJECT(TODE)
@@ -25336,7 +25336,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ba66c79e-d458-4c6d-9be7-8e618c8fa4b6
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ba66c79e-d458-4c6d-9be7-8e618c8fa4b6
 		type EGG_OBJECT(TODE)
@@ -25389,7 +25389,7 @@ iMZ1r01
 		type COW
 		inside EGG_e5c14bb2-9d50-4087-bee0-7805fb0f2cd2
 		curdir 0
-		activity graze
+		activity GRAZE
 
 	object FOOD398dd8c3-9d4b-42f9-92be-922c957bb1a2
 		type FOOD05
@@ -25525,7 +25525,7 @@ iMZ1r01
 		type TODE
 		inside EGG_26405c92-c82c-462a-8fbc-b59b7753efbb
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_26405c92-c82c-462a-8fbc-b59b7753efbb
 		type EGG_OBJECT(TODE)
@@ -25541,7 +25541,7 @@ iMZ1r01
 		type TODE
 		inside EGG_f6ab1ec3-e6bf-4954-9ce0-0e1b2e0ff224
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f6ab1ec3-e6bf-4954-9ce0-0e1b2e0ff224
 		type EGG_OBJECT(TODE)
@@ -25577,7 +25577,7 @@ iMZ1r01
 		type TODE
 		inside EGG_9ce5cb28-94d1-4aa8-bd9e-3a7381432682
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_9ce5cb28-94d1-4aa8-bd9e-3a7381432682
 		type EGG_OBJECT(TODE)
@@ -25588,7 +25588,7 @@ iMZ1r01
 		type TODE
 		inside EGG_baca40f5-3afe-45a3-ae93-86b5c60875cb
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_baca40f5-3afe-45a3-ae93-86b5c60875cb
 		type EGG_OBJECT(TODE)
@@ -25648,7 +25648,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ab56365d-01db-4848-bf0d-779d748209a1
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ab56365d-01db-4848-bf0d-779d748209a1
 		type EGG_OBJECT(TODE)
@@ -25661,7 +25661,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_26a37858-29f8-4362-8c8a-089bc5a8bb20
 		curdir 0
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOODc1016e34-41aa-4bd6-9bf9-5b97ede6c575
 		type FOOD06
@@ -25714,7 +25714,7 @@ iMZ1r01
 		type TODE
 		inside EGG_162df295-756f-4626-a4f0-0b7d7cefb510
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_162df295-756f-4626-a4f0-0b7d7cefb510
 		type EGG_OBJECT(TODE)
@@ -25867,7 +25867,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a78b0e48-e248-40a0-8a44-3ca9131d159f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a78b0e48-e248-40a0-8a44-3ca9131d159f
 		type EGG_OBJECT(TODE)
@@ -25960,7 +25960,7 @@ iMZ1r01
 		type TODE
 		inside EGG_da3423cb-3b2d-41f8-9756-d1bf642671fb
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_da3423cb-3b2d-41f8-9756-d1bf642671fb
 		type EGG_OBJECT(TODE)
@@ -26036,7 +26036,7 @@ iMZ1r01
 		type TODE
 		inside EGG_efc5c307-095f-4567-8ad0-43f79cb7b7ec
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_efc5c307-095f-4567-8ad0-43f79cb7b7ec
 		type EGG_OBJECT(TODE)
@@ -26160,7 +26160,7 @@ iMZ1r01
 		type TODE
 		inside EGG_3d5b9876-30bb-467e-ad9e-2e07369b5d1b
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_3d5b9876-30bb-467e-ad9e-2e07369b5d1b
 		type EGG_OBJECT(TODE)
@@ -26619,7 +26619,7 @@ iMZ1r01
 		type TODE
 		inside EGG_29a78863-e665-48ec-86d0-0ffd4cd2db45
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_29a78863-e665-48ec-86d0-0ffd4cd2db45
 		type EGG_OBJECT(TODE)
@@ -26650,7 +26650,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4182afdd-7b63-4768-98e3-6c8290ef8eb6
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4182afdd-7b63-4768-98e3-6c8290ef8eb6
 		type EGG_OBJECT(TODE)
@@ -26661,7 +26661,7 @@ iMZ1r01
 		type TODE
 		inside EGG_def28538-5e3a-41fb-aef9-50b61517f379
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_def28538-5e3a-41fb-aef9-50b61517f379
 		type EGG_OBJECT(TODE)
@@ -26672,7 +26672,7 @@ iMZ1r01
 		type TODE
 		inside EGG_b953f519-4127-4117-9df6-21f40faa980e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b953f519-4127-4117-9df6-21f40faa980e
 		type EGG_OBJECT(TODE)
@@ -26687,7 +26687,7 @@ iMZ1r01
 		type TODE
 		inside EGG_1a158c3a-c338-49ac-80ef-50db5359b079
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_1a158c3a-c338-49ac-80ef-50db5359b079
 		type EGG_OBJECT(TODE)
@@ -26706,7 +26706,7 @@ iMZ1r01
 		type TODE
 		inside EGG_cb888f74-a2d0-49ee-957a-b63cab3e49cc
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_cb888f74-a2d0-49ee-957a-b63cab3e49cc
 		type EGG_OBJECT(TODE)
@@ -26745,7 +26745,7 @@ iMZ1r01
 		type TODE
 		inside EGG_c90fe03f-e15f-4db1-8517-0cdeeabf03b3
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_c90fe03f-e15f-4db1-8517-0cdeeabf03b3
 		type EGG_OBJECT(TODE)
@@ -26788,7 +26788,7 @@ iMZ1r01
 		type TODE
 		inside EGG_404dea0c-eda5-44bf-ae28-f4ef6cdd6345
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_404dea0c-eda5-44bf-ae28-f4ef6cdd6345
 		type EGG_OBJECT(TODE)
@@ -26837,7 +26837,7 @@ iMZ1r01
 		type TODE
 		inside EGG_3992efb6-c247-4bf7-b150-ca7b72ee81a0
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_3992efb6-c247-4bf7-b150-ca7b72ee81a0
 		type EGG_OBJECT(TODE)
@@ -26860,7 +26860,7 @@ iMZ1r01
 		type TODE
 		inside EGG_26d7ea96-bb53-4e5f-9654-379f46dd4a09
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_26d7ea96-bb53-4e5f-9654-379f46dd4a09
 		type EGG_OBJECT(TODE)
@@ -26903,7 +26903,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6f38162d-5a82-4dd2-844c-6eef65de5df7
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6f38162d-5a82-4dd2-844c-6eef65de5df7
 		type EGG_OBJECT(TODE)
@@ -26936,7 +26936,7 @@ iMZ1r01
 		type TODE
 		inside EGG_e717b78d-4f17-406f-85c8-cbaafec8cd2e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_e717b78d-4f17-406f-85c8-cbaafec8cd2e
 		type EGG_OBJECT(TODE)
@@ -26953,7 +26953,7 @@ iMZ1r01
 		type TODE
 		inside EGG_5c7b8829-aa99-4bbb-b145-822d9c62a111
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_5c7b8829-aa99-4bbb-b145-822d9c62a111
 		type EGG_OBJECT(TODE)
@@ -26980,7 +26980,7 @@ iMZ1r01
 		type TODE
 		inside EGG_1723ff35-061f-4004-90de-9e0c32e85502
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_1723ff35-061f-4004-90de-9e0c32e85502
 		type EGG_OBJECT(TODE)
@@ -26991,7 +26991,7 @@ iMZ1r01
 		type TODE
 		inside EGG_c35eca27-4f1c-462a-b45d-d06a45941a02
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_c35eca27-4f1c-462a-b45d-d06a45941a02
 		type EGG_OBJECT(TODE)
@@ -27002,7 +27002,7 @@ iMZ1r01
 		type TODE
 		inside EGG_89ce3884-1463-4458-ad6f-4d4e1fd9506a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_89ce3884-1463-4458-ad6f-4d4e1fd9506a
 		type EGG_OBJECT(TODE)
@@ -27111,7 +27111,7 @@ iMZ1r01
 		type TODE
 		inside EGG_79548ceb-f4a9-4128-84d5-ef58ea472e86
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_79548ceb-f4a9-4128-84d5-ef58ea472e86
 		type EGG_OBJECT(TODE)
@@ -27210,7 +27210,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a168205c-6781-4d7b-994a-197d89b77e91
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a168205c-6781-4d7b-994a-197d89b77e91
 		type EGG_OBJECT(TODE)
@@ -27221,7 +27221,7 @@ iMZ1r01
 		type TODE
 		inside EGG_caf5f59e-206d-4b8a-8b78-8fa0aea92013
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_caf5f59e-206d-4b8a-8b78-8fa0aea92013
 		type EGG_OBJECT(TODE)
@@ -27282,7 +27282,7 @@ iMZ1r01
 		type TODE
 		inside EGG_04dfda06-5d9d-4a59-b90d-f79deb596183
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_04dfda06-5d9d-4a59-b90d-f79deb596183
 		type EGG_OBJECT(TODE)
@@ -28370,7 +28370,7 @@ iMZ1r01
 		type TODE
 		inside EGG_bcb9d39b-9d08-4773-a123-63677c772769
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_bcb9d39b-9d08-4773-a123-63677c772769
 		type EGG_OBJECT(TODE)
@@ -30587,7 +30587,7 @@ iMZ1r01
 		type TODE
 		inside EGG_c0bbd5ba-adfc-49bd-bf39-889c638ffb39
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_c0bbd5ba-adfc-49bd-bf39-889c638ffb39
 		type EGG_OBJECT(TODE)
@@ -32908,7 +32908,7 @@ iMZ1r01
 		type TODE
 		inside EGG_7a3f98b2-098c-4dfc-9dae-b2b8453a5c96
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_7a3f98b2-098c-4dfc-9dae-b2b8453a5c96
 		type EGG_OBJECT(TODE)
@@ -33061,7 +33061,7 @@ iMZ1r01
 		type TODE
 		inside EGG_bfea3f9b-7de4-412e-a2cd-9ba3b3d34e4c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_bfea3f9b-7de4-412e-a2cd-9ba3b3d34e4c
 		type EGG_OBJECT(TODE)
@@ -34084,7 +34084,7 @@ iMZ1r01
 		type TODE
 		inside EGG_9560db30-e968-45b1-8eb7-a575f827c602
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_9560db30-e968-45b1-8eb7-a575f827c602
 		type EGG_OBJECT(TODE)
@@ -34809,7 +34809,7 @@ iMZ1r01
 		type TODE
 		inside EGG_8df811a2-83e5-4db9-a1df-596c1c6eedc8
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_8df811a2-83e5-4db9-a1df-596c1c6eedc8
 		type EGG_OBJECT(TODE)
@@ -36102,7 +36102,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ce9289cb-8d13-4340-a3bf-9566573847dc
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ce9289cb-8d13-4340-a3bf-9566573847dc
 		type EGG_OBJECT(TODE)
@@ -36113,7 +36113,7 @@ iMZ1r01
 		type TODE
 		inside EGG_7ba152fe-0bf5-4c23-bee5-96e47b414d4c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_7ba152fe-0bf5-4c23-bee5-96e47b414d4c
 		type EGG_OBJECT(TODE)
@@ -36280,7 +36280,7 @@ iMZ1r01
 		type TODE
 		inside EGG_7d0edbc6-8bb1-4f46-8f6c-aeed64fd4c8c
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_7d0edbc6-8bb1-4f46-8f6c-aeed64fd4c8c
 		type EGG_OBJECT(TODE)
@@ -36727,7 +36727,7 @@ iMZ1r01
 		type TODE
 		inside EGG_26b9b0d3-c2ee-4c5e-9192-77f15a39d06f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_26b9b0d3-c2ee-4c5e-9192-77f15a39d06f
 		type EGG_OBJECT(TODE)
@@ -37032,7 +37032,7 @@ iMZ1r01
 		type TODE
 		inside EGG_dfe83cb9-f762-4d3a-8ee4-31e5c920e18a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_dfe83cb9-f762-4d3a-8ee4-31e5c920e18a
 		type EGG_OBJECT(TODE)
@@ -37215,7 +37215,7 @@ iMZ1r01
 		type TODE
 		inside EGG_0740c618-0d1c-4aa0-8f0b-8f7a5c2c55a0
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_0740c618-0d1c-4aa0-8f0b-8f7a5c2c55a0
 		type EGG_OBJECT(TODE)
@@ -37480,7 +37480,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a120b775-9cc7-488a-886c-8a8cbf7d13e4
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a120b775-9cc7-488a-886c-8a8cbf7d13e4
 		type EGG_OBJECT(TODE)
@@ -43405,7 +43405,7 @@ iMZ1r01
 		type MIRROR2
 		at 764 610
 		curdir 1
-		activity mirror2
+		activity MIRROR2
 
 	object BASI88d2d93d-0f45-42e4-8e69-28bd1792f816
 		type BASIN
@@ -44992,7 +44992,7 @@ iMZ1r01
 		type RADIATION
 		at 675 619
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object PIPE94acdbae-543c-494e-a27a-55ea2d50c918
 		type PIPES_05
@@ -45008,7 +45008,7 @@ iMZ1r01
 		type RADIATION
 		at 677 619
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object PIPE8ce598e2-e68b-4526-8b3d-ee63ada919ab
 		type PIPES_05
@@ -45024,7 +45024,7 @@ iMZ1r01
 		type RADIATION
 		at 679 619
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object RADScefb7ed6-d396-45d8-b756-d8e4d54f4b86
 		type RADSIGN
@@ -45312,7 +45312,7 @@ iMZ1r01
 		type RADIATION
 		at 675 620
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object PIPEffff3a72-5fe3-4c92-87d5-8b62a4a97247
 		type PIPES_05
@@ -45328,7 +45328,7 @@ iMZ1r01
 		type RADIATION
 		at 677 620
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object PIPEbb20a084-b0d9-4161-b57e-9be7967c8c41
 		type PIPES_05
@@ -45344,7 +45344,7 @@ iMZ1r01
 		type RADIATION
 		at 679 620
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object PIPEfd0ee1dc-d2fc-430b-a72d-99a4b8e09d37
 		type PIPES_07
@@ -51831,7 +51831,7 @@ iMZ1r01
 		at 991 657
 		curdir 0
 		tag 666
-		activity player_action
+		activity PLAYER_ACTION
 
 	decorative TREE03 at 593 658
 
@@ -56633,7 +56633,7 @@ iMZ1r01
 		type TODE
 		inside EGG_d1b299c3-2261-4c3c-b316-479ab977f67e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d1b299c3-2261-4c3c-b316-479ab977f67e
 		type EGG_OBJECT(TODE)
@@ -57606,7 +57606,7 @@ iMZ1r01
 		type TODE
 		inside EGG_3db5f741-bbdc-4c64-8006-8c167f9a2670
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_3db5f741-bbdc-4c64-8006-8c167f9a2670
 		type EGG_OBJECT(TODE)
@@ -58359,7 +58359,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4b770247-0240-4d65-8b1d-6fa6cc4cced6
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4b770247-0240-4d65-8b1d-6fa6cc4cced6
 		type EGG_OBJECT(TODE)
@@ -58662,7 +58662,7 @@ iMZ1r01
 		type TODE
 		inside EGG_d405813a-2fec-400d-a5d8-78cc5cb75cdd
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d405813a-2fec-400d-a5d8-78cc5cb75cdd
 		type EGG_OBJECT(TODE)
@@ -59233,7 +59233,7 @@ iMZ1r01
 		type TODE
 		inside EGG_54c38038-873a-4024-8729-1a5a9ec76592
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_54c38038-873a-4024-8729-1a5a9ec76592
 		type EGG_OBJECT(TODE)
@@ -60130,7 +60130,7 @@ iMZ1r01
 		type TODE
 		inside EGG_46ee8cd3-38ff-4f01-a5fe-d372bb8b2d24
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_46ee8cd3-38ff-4f01-a5fe-d372bb8b2d24
 		type EGG_OBJECT(TODE)
@@ -60271,7 +60271,7 @@ iMZ1r01
 		type TODE
 		inside EGG_c3f6f861-6e4f-49f2-a8d1-9086b1883366
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_c3f6f861-6e4f-49f2-a8d1-9086b1883366
 		type EGG_OBJECT(TODE)
@@ -60524,7 +60524,7 @@ iMZ1r01
 		type TODE
 		inside EGG_f60e8dd4-8bcd-4bbf-9265-0f37ac954f17
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f60e8dd4-8bcd-4bbf-9265-0f37ac954f17
 		type EGG_OBJECT(TODE)
@@ -60543,7 +60543,7 @@ iMZ1r01
 		type TODE
 		inside EGG_576667c8-14c2-4cf7-85ab-7f9a011a723d
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_576667c8-14c2-4cf7-85ab-7f9a011a723d
 		type EGG_OBJECT(TODE)
@@ -60716,7 +60716,7 @@ iMZ1r01
 		type TODE
 		inside EGG_fc3820ef-28bc-4389-85c3-b4ed117145c6
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_fc3820ef-28bc-4389-85c3-b4ed117145c6
 		type EGG_OBJECT(TODE)
@@ -60807,7 +60807,7 @@ iMZ1r01
 		type TODE
 		inside EGG_55e21819-e00c-4534-8d5d-0fe48d8f66b9
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_55e21819-e00c-4534-8d5d-0fe48d8f66b9
 		type EGG_OBJECT(TODE)
@@ -60939,7 +60939,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6208d7cc-c843-4e71-bc9f-2bc7a646d901
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6208d7cc-c843-4e71-bc9f-2bc7a646d901
 		type EGG_OBJECT(TODE)
@@ -61052,7 +61052,7 @@ iMZ1r01
 		type TODE
 		inside EGG_48916ea0-0498-473c-91a7-ac18442ca731
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_48916ea0-0498-473c-91a7-ac18442ca731
 		type EGG_OBJECT(TODE)
@@ -61219,7 +61219,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6cd3d9db-2ef7-4423-b32b-ac17c03762aa
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6cd3d9db-2ef7-4423-b32b-ac17c03762aa
 		type EGG_OBJECT(TODE)
@@ -61454,7 +61454,7 @@ iMZ1r01
 		type TODE
 		inside EGG_628d05d3-954d-4981-9a5c-a3f9d5a669d2
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_628d05d3-954d-4981-9a5c-a3f9d5a669d2
 		type EGG_OBJECT(TODE)
@@ -61541,7 +61541,7 @@ iMZ1r01
 		type TODE
 		inside EGG_fb2980c9-d2e8-4da8-8b23-d94722ab4c1e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_fb2980c9-d2e8-4da8-8b23-d94722ab4c1e
 		type EGG_OBJECT(TODE)
@@ -61687,7 +61687,7 @@ iMZ1r01
 		type TODE
 		inside EGG_d4549e6e-4b24-42b1-809e-5b3c67aa8df1
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d4549e6e-4b24-42b1-809e-5b3c67aa8df1
 		type EGG_OBJECT(TODE)
@@ -61724,7 +61724,7 @@ iMZ1r01
 		type TODE
 		inside EGG_1f2a2e07-ce44-4ce6-8fc4-7ce009cf4f5a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_1f2a2e07-ce44-4ce6-8fc4-7ce009cf4f5a
 		type EGG_OBJECT(TODE)
@@ -62018,7 +62018,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ee729576-a416-4dc1-9f00-e3f19ddd2d0a
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ee729576-a416-4dc1-9f00-e3f19ddd2d0a
 		type EGG_OBJECT(TODE)
@@ -62127,7 +62127,7 @@ iMZ1r01
 		type TODE
 		inside EGG_bfd6f04e-5dae-4d1d-aada-bc99960fd9c8
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_bfd6f04e-5dae-4d1d-aada-bc99960fd9c8
 		type EGG_OBJECT(TODE)
@@ -62164,7 +62164,7 @@ iMZ1r01
 		type TODE
 		inside EGG_1e806b64-563b-4fb0-923b-da13f3948ca1
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_1e806b64-563b-4fb0-923b-da13f3948ca1
 		type EGG_OBJECT(TODE)
@@ -63935,7 +63935,7 @@ iMZ1r01
 		type TODE
 		inside EGG_525a38a2-6749-4b16-b50d-5160fad1c1a8
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_525a38a2-6749-4b16-b50d-5160fad1c1a8
 		type EGG_OBJECT(TODE)
@@ -63948,7 +63948,7 @@ iMZ1r01
 		type TODE
 		inside EGG_6241d9cc-df4e-4a6b-88ee-c2d133309917
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_6241d9cc-df4e-4a6b-88ee-c2d133309917
 		type EGG_OBJECT(TODE)
@@ -64207,7 +64207,7 @@ iMZ1r01
 		type TODE
 		inside EGG_01eedf04-1bf3-49d2-a4ce-4ed8eedee94f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_01eedf04-1bf3-49d2-a4ce-4ed8eedee94f
 		type EGG_OBJECT(TODE)
@@ -64344,7 +64344,7 @@ iMZ1r01
 		type TODE
 		inside EGG_83218ee9-2fb7-415a-adb1-f76134229bcc
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_83218ee9-2fb7-415a-adb1-f76134229bcc
 		type EGG_OBJECT(TODE)
@@ -65088,7 +65088,7 @@ iMZ1r01
 		type TODE
 		inside EGG_70b01fce-f0cd-4d5e-8a9e-63aeac54c17e
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_70b01fce-f0cd-4d5e-8a9e-63aeac54c17e
 		type EGG_OBJECT(TODE)
@@ -65339,7 +65339,7 @@ iMZ1r01
 		type TODE
 		inside EGG_ef1671cd-2bf8-469e-bcec-0842ad169b55
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ef1671cd-2bf8-469e-bcec-0842ad169b55
 		type EGG_OBJECT(TODE)
@@ -65619,7 +65619,7 @@ iMZ1r01
 		type TODE
 		inside EGG_4b7df4d9-6523-42f7-b808-9be193dfa0b0
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_4b7df4d9-6523-42f7-b808-9be193dfa0b0
 		type EGG_OBJECT(TODE)
@@ -66192,7 +66192,7 @@ iMZ1r01
 		type TODE
 		inside EGG_70607346-4c91-4ad7-9991-34a5c0c2f95b
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_70607346-4c91-4ad7-9991-34a5c0c2f95b
 		type EGG_OBJECT(TODE)
@@ -66789,7 +66789,7 @@ iMZ1r01
 		type TODE
 		inside EGG_47dfa0a2-bb9a-4fb9-8960-da6532eb9fe4
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_47dfa0a2-bb9a-4fb9-8960-da6532eb9fe4
 		type EGG_OBJECT(TODE)
@@ -67682,7 +67682,7 @@ iMZ1r01
 		type TODE
 		inside EGG_9b7c3b97-c4f7-416c-967d-01b9b84388aa
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_9b7c3b97-c4f7-416c-967d-01b9b84388aa
 		type EGG_OBJECT(TODE)
@@ -67842,7 +67842,7 @@ iMZ1r01
 		type RAT
 		inside EGG_bc6118fb-bcac-4517-816b-124e6b3c7c0f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_bc6118fb-bcac-4517-816b-124e6b3c7c0f
 		type EGG_OBJECT(RAT)
@@ -68301,7 +68301,7 @@ iMZ1r01
 		type SNAKE
 		inside EGG_9931270a-2788-46c0-9843-64c9b47850b7
 		curdir 0
-		activity predator
+		activity PREDATOR
 
 	object EGG_9931270a-2788-46c0-9843-64c9b47850b7
 		type EGG_OBJECT
@@ -68569,7 +68569,7 @@ iMZ1r01
 		type SPIDER
 		inside EGG_45faa6bd-2118-4552-b60d-3e1dd6e92e13
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_45faa6bd-2118-4552-b60d-3e1dd6e92e13
 		type EGG_OBJECT(SPIDER)
@@ -68773,7 +68773,7 @@ iMZ1r01
 		type TODE
 		inside EGG_d15b1939-6f36-4a77-a4ac-bf71876c6b62
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d15b1939-6f36-4a77-a4ac-bf71876c6b62
 		type EGG_OBJECT(TODE)
@@ -68873,7 +68873,7 @@ iMZ1r01
 		type RAT
 		inside EGG_b40c5e57-8ff6-4517-8edb-cbf19a2f217c
 		curdir 0
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b40c5e57-8ff6-4517-8edb-cbf19a2f217c
 		type EGG_ALWAYS
@@ -70741,7 +70741,7 @@ iMZ1r01
 		type SPIDER
 		inside EGG_b96f2760-bd78-42ad-ba38-c7d556b4ed3f
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b96f2760-bd78-42ad-ba38-c7d556b4ed3f
 		type EGG_OBJECT(SPIDER)
@@ -70823,7 +70823,7 @@ iMZ1r01
 		type PIG
 		inside EGG_ab998c05-1702-494d-af15-16381b32acba
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_ab998c05-1702-494d-af15-16381b32acba
 		type EGG_OBJECT(PIG)
@@ -70909,7 +70909,7 @@ iMZ1r01
 		type SPIDER
 		inside EGG_04b1a232-0918-4ceb-863b-6237ca114337
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_04b1a232-0918-4ceb-863b-6237ca114337
 		type EGG_OBJECT(SPIDER)
@@ -70985,7 +70985,7 @@ iMZ1r01
 		type PIG
 		inside EGG_b625b842-481c-42d7-a6e7-316a0d124b83
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b625b842-481c-42d7-a6e7-316a0d124b83
 		type EGG_OBJECT(PIG)
@@ -70996,7 +70996,7 @@ iMZ1r01
 		type PIG
 		inside EGG_1fb38ef4-02ce-4bb3-ad9a-b492c20e683b
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_1fb38ef4-02ce-4bb3-ad9a-b492c20e683b
 		type EGG_OBJECT(PIG)
@@ -71024,7 +71024,7 @@ iMZ1r01
 		type COW
 		inside EGG_75751446-c754-400a-a6f0-15e32fe85d8f
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object FOOD6f5d42b0-a2e8-4064-a5a8-38133a12d09e
 		type FOOD05
@@ -71239,7 +71239,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_fa13ecba-b326-479f-9577-43c006873840
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOODb9023289-7ae0-42ca-8929-c982b3b9411b
 		type FOOD06
@@ -71531,7 +71531,7 @@ iMZ1r01
 		type TODE
 		inside EGG_b597d685-d289-4ea8-9d53-b9cba3268f12
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_b597d685-d289-4ea8-9d53-b9cba3268f12
 		type EGG_OBJECT(TODE)
@@ -71804,7 +71804,7 @@ iMZ1r01
 		type COW
 		inside EGG_20582b2c-d52d-4754-9604-02cd1f55b12e
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object FOODa3c0e218-37a7-4989-b0dc-d5385389a5d3
 		type FOOD05
@@ -72030,7 +72030,7 @@ iMZ1r01
 		type COW
 		inside EGG_f9c18bbb-b38a-447a-932b-3d762791d758
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_f9c18bbb-b38a-447a-932b-3d762791d758
 		type EGG_ALWAYS
@@ -72450,6 +72450,7 @@ iMZ1r01
 		type BOOK_FOWL
 		at 821 801
 		curdir 1
+		name The hunting of Fowl
 		stats->owner MAN_2cdb0d33-5e32-45dc-abc1-ee58319bc270
 
 	object TABLf8dc232c-ea64-4633-a9b4-a6ef5310ce98
@@ -72648,7 +72649,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_6ef0ecd1-21dc-4f78-9d9d-b69e77b632fd
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOOD5f07b32b-65a2-4b9a-a725-dc8a54841f7e
 		type FOOD06
@@ -72811,7 +72812,7 @@ iMZ1r01
 		type COW
 		inside EGG_dd48c76a-e0ef-4455-805f-ea7a7479a1cb
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object FOODe72e3217-c43f-4e76-a15b-4e8d7b7f6444
 		type FOOD05
@@ -73046,7 +73047,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_69964a9c-c4db-4aaa-b0a3-a605310074aa
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOODf9201871-6d92-4468-9d25-550a50cf0601
 		type FOOD06
@@ -73162,7 +73163,7 @@ iMZ1r01
 		type MAN_OUTLAW
 		at 621 805
 		curdir 2
-		activity attack_party
+		activity ATTACK_PARTY
 
 	decorative MOUNT03 at 622 805
 
@@ -73528,7 +73529,7 @@ iMZ1r01
 		type COW
 		inside EGG_d5247499-3b4a-47c5-8d99-aeb94e73f7e6
 		curdir 1
-		activity graze
+		activity GRAZE
 
 	object EGG_d5247499-3b4a-47c5-8d99-aeb94e73f7e6
 		type EGG_ALWAYS
@@ -73673,7 +73674,7 @@ iMZ1r01
 		type PIG_TAME
 		inside EGG_698c0e74-fd36-43ef-9c1b-f12f4d0d91c9
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object FOOD3a130206-63cb-461f-9d51-1b62aeb6eb77
 		type FOOD06
@@ -73804,7 +73805,7 @@ iMZ1r01
 		type RAT
 		inside EGG_019eb945-4690-4d00-b6f6-3003e2ae603d
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_019eb945-4690-4d00-b6f6-3003e2ae603d
 		type EGG_OBJECT(RAT)
@@ -74058,7 +74059,7 @@ iMZ1r01
 		type TODE
 		inside EGG_51acb845-e984-48b5-b7b8-599092ae3d43
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_51acb845-e984-48b5-b7b8-599092ae3d43
 		type EGG_OBJECT(TODE)
@@ -75255,7 +75256,7 @@ iMZ1r01
 		type COW_EVIL
 		inside EGG_b3ef6694-6792-42d5-972e-6f0c4eecfc89
 		curdir 0
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object FOOD3a65c47b-19b5-4aaf-acfe-1c8403fe511a
 		type FOOD05
@@ -75385,7 +75386,7 @@ iMZ1r01
 		type COW_EVIL
 		inside EGG_0455f2fa-ef7b-42fd-bc16-f320c92d3049
 		curdir 0
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object FOOD4568c4c5-4e3b-42d5-b4b8-90429a75959d
 		type FOOD05
@@ -75613,7 +75614,7 @@ iMZ1r01
 		type GUARD
 		inside EGG_710e9095-7e48-4238-93e6-e5955476b7b4
 		curdir 1
-		activity guard_patrol
+		activity GUARD_PATROL
 		schedule 0 1 SEEK_TARGET_SIT TARGfa3ba15b-3b84-437a-a555-1afa64415bc5
 
 	object HALBf1721f20-380c-4bf3-983d-9cb9fd63e8b4
@@ -75640,7 +75641,7 @@ iMZ1r01
 		type GUARD
 		inside EGG_f5c2321a-feb6-4203-9638-3d26b1935164
 		curdir 1
-		activity guard_patrol
+		activity GUARD_PATROL
 		schedule 0 1 SEEK_TARGET_SIT TARG43c47c9c-a2f6-455d-8a16-91bec0456ea4
 
 	object EGG_f5c2321a-feb6-4203-9638-3d26b1935164
@@ -75865,7 +75866,7 @@ iMZ1r01
 		type TODE
 		inside EGG_f1679f88-0a31-4e79-a7ad-1cf6646060bd
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f1679f88-0a31-4e79-a7ad-1cf6646060bd
 		type EGG_OBJECT(TODE)
@@ -75945,7 +75946,7 @@ iMZ1r01
 		type COW_EVIL
 		inside EGG_2420e975-21be-4214-b8fb-a8336dfa9cf2
 		curdir 0
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_2420e975-21be-4214-b8fb-a8336dfa9cf2
 		type EGG_ALWAYS
@@ -75956,7 +75957,7 @@ iMZ1r01
 		type RAT
 		inside EGG_149dd51d-bbd8-438c-abb1-4fba2c510b66
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_149dd51d-bbd8-438c-abb1-4fba2c510b66
 		type EGG_OBJECT(RAT)
@@ -76380,7 +76381,7 @@ iMZ1r01
 		type TODE
 		inside EGG_a6fd3869-8a4f-48f5-a1de-f62da6b5cc40
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_a6fd3869-8a4f-48f5-a1de-f62da6b5cc40
 		type EGG_OBJECT(TODE)
@@ -76624,7 +76625,7 @@ iMZ1r01
 		type TODE
 		inside EGG_26698a60-3ef5-4c53-a9cb-afc40062ca69
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_26698a60-3ef5-4c53-a9cb-afc40062ca69
 		type EGG_OBJECT(TODE)
@@ -76817,7 +76818,7 @@ iMZ1r01
 		type RAT
 		inside EGG_875cebe6-a2cc-4306-9b6b-1b6c2ac0e396
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_875cebe6-a2cc-4306-9b6b-1b6c2ac0e396
 		type EGG_OBJECT(RAT)
@@ -78470,7 +78471,7 @@ iMZ1r01
 		type RAT
 		inside EGG_3128c781-5223-4a99-9707-b9bb39a6cc17
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_3128c781-5223-4a99-9707-b9bb39a6cc17
 		type EGG_OBJECT(RAT)
@@ -78485,7 +78486,7 @@ iMZ1r01
 		type BEE
 		inside EGG_497668c2-8906-4a7d-8148-5b8cf083acd3
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_497668c2-8906-4a7d-8148-5b8cf083acd3
 		type EGG_OBJECT(BEE)
@@ -79037,7 +79038,7 @@ iMZ1r01
 		type BEE
 		inside EGG_d1f92442-23fd-45b8-839a-2314cb9e53b5
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d1f92442-23fd-45b8-839a-2314cb9e53b5
 		type EGG_OBJECT(BEE)
@@ -79699,7 +79700,7 @@ iMZ1r01
 		type BEE
 		inside EGG_f0820b08-6d4c-4f45-9621-dc6de0bbca65
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_f0820b08-6d4c-4f45-9621-dc6de0bbca65
 		type EGG_OBJECT(BEE)
@@ -79815,7 +79816,7 @@ iMZ1r01
 		type BEE
 		inside EGG_d5823207-2ecd-48c4-ae93-f5420c2c77c9
 		curdir 1
-		activity attack_party
+		activity ATTACK_PARTY
 
 	object EGG_d5823207-2ecd-48c4-ae93-f5420c2c77c9
 		type EGG_OBJECT(BEE)
@@ -80277,7 +80278,7 @@ iMZ1r01
 		type RAT
 		inside EGG_9a4324bb-25ca-4b2b-9723-2e8cd1855531
 		curdir 1
-		activity bird_wander
+		activity BIRD_WANDER
 
 	object EGG_9a4324bb-25ca-4b2b-9723-2e8cd1855531
 		type EGG_OBJECT(RAT)
@@ -97866,7 +97867,7 @@ iMZ1r01
 		type RADIATION
 		at 604 972
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object MAGI2791e7e5-2555-4ed9-906e-69c3e988b6fd
 		type MAGICBOLT
@@ -98480,7 +98481,7 @@ iMZ1r01
 		type RADIATION
 		at 604 975
 		curdir 2
-		activity radiation_damage
+		activity RADIATION_DAMAGE
 
 	object MAGIeeee20c7-e8a0-4353-9a66-3faa8e8f2b14
 		type MAGICBOLT

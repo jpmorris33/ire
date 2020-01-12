@@ -34,7 +34,7 @@ iMZ1r01
 		at 464 92
 		curdir 2
 		tag 45
-		activity move_forward_action
+		activity MOVE_FORWARD_ACTION
 		funcs->wield ROTATE_R
 
 	object PILL6b9e955a-0921-48ee-b542-a5af98a38790
@@ -4704,7 +4704,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 309 143
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFEbf858a26-aeb7-449c-97cd-1af3498e0d45
 
@@ -4712,7 +4712,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 314 143
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFE3cbb322b-65fb-4331-993d-c962e3be6789
 
@@ -4732,7 +4732,7 @@ iMZ1r01
 		at 386 143
 		curdir 0
 		tag 666
-		activity player_action
+		activity PLAYER_ACTION
 
 	object TOAD7659d930-6ee3-43b0-a032-10eaf2b31719
 		type TOADSTONE
@@ -4845,7 +4845,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 309 146
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFEdba45bb7-10ea-480a-ad62-bea5d4aaab68
 
@@ -4853,7 +4853,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 314 146
 		curdir 0
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFE0e1fa1a8-ac21-4993-b934-0dff107911b9
 
@@ -5052,7 +5052,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 320 148
 		curdir 1
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFEb4e5f66f-3e2c-4233-aaef-07718a43e0c7
 
@@ -5121,7 +5121,7 @@ iMZ1r01
 		at 298 150
 		curdir 0
 		name Strobe Controller
-		activity powerplant_strobe
+		activity POWERPLANT_STROBE
 
 	object PIPE26ab2b62-2538-4722-ba5f-783bd0901dd9
 		type PIPES_01
@@ -5333,7 +5333,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 320 153
 		curdir 1
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFE4457f6a0-11a7-49b4-93fc-94d613693008
 
@@ -5608,7 +5608,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 339 158
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFE4375213e-6d83-4513-a09f-f5a55a257d78
 
@@ -5836,7 +5836,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 299 161
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFEa7b6ce63-7595-4e27-a408-0be8db064493
 
@@ -6030,7 +6030,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 299 163
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFEf321b00e-1d3c-4e68-aedc-91a089b209b8
 
@@ -6048,7 +6048,7 @@ iMZ1r01
 		type DEFENCE_POST_UP
 		at 339 163
 		curdir 2
-		activity defpost_start_hv
+		activity DEFPOST_START_HV
 		stats->damage 1000
 		stats->owner DEFEb79837f0-8f2b-4963-871d-c00bcaa2ab2f
 
@@ -8459,7 +8459,7 @@ iMZ1r01
 		at 293 226
 		curdir 0
 		name Faulty light
-		activity light_flicker
+		activity LIGHT_FLICKER
 		stats->owner LIGH482da214-4f7a-4254-93e6-5d0e1e343ca3
 		schedule 0 1 LIGHT_FLICKER LIGH37e04505-3d39-4351-a285-26bbdc75452e
 
@@ -10236,7 +10236,7 @@ iMZ1r01
 		type SERVITOR
 		at 349 256
 		curdir 2
-		activity guard_patrol
+		activity GUARD_PATROL
 
 	object WALL67544dac-3b0e-40c5-bf6d-968daa5779a6
 		type WALL_METAL_D02
@@ -15426,14 +15426,14 @@ iMZ1r01
 		at 381 418
 		curdir 3
 		tag 76453
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEcd7505ac-db53-49b8-8f38-9f3611cafa9f
 		type LASER_DPOST
 		at 381 418
 		curdir 0
 		tag 34856
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEaa67c2da-6352-4507-97fc-68349768209e
 		type DEFENCE_POST_UP
@@ -15445,14 +15445,14 @@ iMZ1r01
 		at 383 418
 		curdir 3
 		tag 238645
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE97704d63-0f52-44dd-a67c-337d0ae90972
 		type LASER_DPOST
 		at 383 418
 		curdir 0
 		tag 34565
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE68474c33-1ab6-4008-b115-17a812c57c9a
 		type DEFENCE_POST_UP
@@ -15464,14 +15464,14 @@ iMZ1r01
 		at 385 418
 		curdir 3
 		tag 34525
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE561fbc27-11d6-4339-a625-236488297625
 		type LASER_DPOST
 		at 385 418
 		curdir 0
 		tag 48376
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEa3771a89-a410-48b0-921b-2e913a4d72ff
 		type DEFENCE_POST_UP
@@ -15483,14 +15483,14 @@ iMZ1r01
 		at 387 418
 		curdir 3
 		tag 43986
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE60aa351f-86cf-498c-b86b-f06bbfcecd01
 		type LASER_DPOST
 		at 387 418
 		curdir 0
 		tag 86234
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEc14f6f27-6dab-4681-958f-b86c14b0e0be
 		type DEFENCE_POST_UP
@@ -15502,14 +15502,14 @@ iMZ1r01
 		at 389 418
 		curdir 3
 		tag 53643
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE92779aed-3f99-47bd-9810-58937d5854e6
 		type LASER_DPOST
 		at 389 418
 		curdir 0
 		tag 54263
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEe917cea6-cbba-472f-a0d1-9120f3fcc38d
 		type DEFENCE_POST_UP
@@ -15521,7 +15521,7 @@ iMZ1r01
 		at 391 418
 		curdir 0
 		tag 86342
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LIGH0754a960-e042-4aee-b860-fa4ab62a7981
 		type LIGHT_SWITCH
@@ -15685,14 +15685,14 @@ iMZ1r01
 		at 381 420
 		curdir 3
 		tag 32497
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE27bb1cda-d435-41e5-b5f4-a79a65f1badd
 		type LASER_DPOST
 		at 381 420
 		curdir 0
 		tag 87364
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE522cf0d4-68cf-4de3-82f6-070e2f4e8ea7
 		type DEFENCE_POST_UP
@@ -15704,14 +15704,14 @@ iMZ1r01
 		at 383 420
 		curdir 3
 		tag 28734
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEef354a9d-e01a-46ac-9525-91713a8c2d00
 		type LASER_DPOST
 		at 383 420
 		curdir 0
 		tag 83939
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEf584c347-3200-4eb9-a916-ca0d865f8af2
 		type DEFENCE_POST_UP
@@ -15723,14 +15723,14 @@ iMZ1r01
 		at 385 420
 		curdir 3
 		tag 34563
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEd5d1705d-25ed-461c-89bc-b8ea91138f3a
 		type LASER_DPOST
 		at 385 420
 		curdir 0
 		tag 26631
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE4812b9ac-84ab-4ec9-980b-29c7bbca23e3
 		type DEFENCE_POST_UP
@@ -15742,14 +15742,14 @@ iMZ1r01
 		at 387 420
 		curdir 3
 		tag 32472
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE362196ba-5364-443b-8df5-c3c3da85e56d
 		type LASER_DPOST
 		at 387 420
 		curdir 0
 		tag 823746
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEf832546f-4841-4593-9131-76f49d6fcfc2
 		type DEFENCE_POST_UP
@@ -15761,14 +15761,14 @@ iMZ1r01
 		at 389 420
 		curdir 3
 		tag 863424
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE1de131af-e0e4-4946-8b6d-9f76e43183dd
 		type LASER_DPOST
 		at 389 420
 		curdir 0
 		tag 39847
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEe54c2726-ab3f-467f-8095-99a57b01308d
 		type DEFENCE_POST_UP
@@ -15780,7 +15780,7 @@ iMZ1r01
 		at 391 420
 		curdir 0
 		tag 43543
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object STAIe9b8a0f7-08b7-4b56-bd9a-af49b08239fd
 		type STAIRS_UP
@@ -15932,14 +15932,14 @@ iMZ1r01
 		at 381 422
 		curdir 3
 		tag 34522
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE40270c32-0c8a-4c92-be17-6c00988ab6a2
 		type LASER_DPOST
 		at 381 422
 		curdir 0
 		tag 12482
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEa4e9252a-5a8d-4a52-b035-e2b220065896
 		type DEFENCE_POST_UP
@@ -15951,14 +15951,14 @@ iMZ1r01
 		at 383 422
 		curdir 3
 		tag 89753
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE42f85be5-5314-4fd0-b867-6a4aeb705ee0
 		type LASER_DPOST
 		at 383 422
 		curdir 0
 		tag 23657
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEde1b947d-0613-40ae-931c-29daa0c684ba
 		type DEFENCE_POST_UP
@@ -15970,14 +15970,14 @@ iMZ1r01
 		at 385 422
 		curdir 3
 		tag 65535
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEdcf2ced4-3b39-4e16-8cf3-28767850e0d9
 		type LASER_DPOST
 		at 385 422
 		curdir 0
 		tag 89432
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE7c97bdbf-3ead-4a45-a868-496db3d8bbc9
 		type DEFENCE_POST_UP
@@ -15989,14 +15989,14 @@ iMZ1r01
 		at 387 422
 		curdir 3
 		tag 76235
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE05317bf3-3812-45d7-b031-b235bbcbc1e5
 		type LASER_DPOST
 		at 387 422
 		curdir 0
 		tag 9823
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEe154e278-790d-4f43-98fa-1dc0b64bbf11
 		type DEFENCE_POST_UP
@@ -16008,14 +16008,14 @@ iMZ1r01
 		at 389 422
 		curdir 3
 		tag 73948
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEfae462ff-0dc6-4820-9846-7ee567e6c7b7
 		type LASER_DPOST
 		at 389 422
 		curdir 0
 		tag 42387
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEbac3fe70-6e6d-4099-9415-7b8872a14968
 		type DEFENCE_POST_UP
@@ -16027,7 +16027,7 @@ iMZ1r01
 		at 391 422
 		curdir 0
 		tag 34534
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object SECR68c1481c-87f6-48d8-aa72-ce75cf5cb123
 		type SECRETDOOR1_SHUT
@@ -16099,14 +16099,14 @@ iMZ1r01
 		at 381 424
 		curdir 3
 		tag 32462
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE00f06c40-007a-47a3-930c-2de92c177eee
 		type LASER_DPOST
 		at 381 424
 		curdir 0
 		tag 73442
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE4d25af61-65fd-402a-a8b4-857065938a55
 		type DEFENCE_POST_UP
@@ -16118,14 +16118,14 @@ iMZ1r01
 		at 383 424
 		curdir 3
 		tag 23424
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEa9555b90-0fe5-4185-8f54-fe77e32d04a3
 		type LASER_DPOST
 		at 383 424
 		curdir 0
 		tag 987534
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEf93151b5-6572-4265-a9e7-8db755584e78
 		type DEFENCE_POST_UP
@@ -16137,14 +16137,14 @@ iMZ1r01
 		at 385 424
 		curdir 3
 		tag 52322
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE0c641979-89ec-4550-be77-18463538015a
 		type LASER_DPOST
 		at 385 424
 		curdir 0
 		tag 65535
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE255338c5-672c-4ed2-a90e-4bc611f67899
 		type DEFENCE_POST_UP
@@ -16156,14 +16156,14 @@ iMZ1r01
 		at 387 424
 		curdir 3
 		tag 22222
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE58aa67c2-dd5c-409f-ab47-f474dec66b6f
 		type LASER_DPOST
 		at 387 424
 		curdir 0
 		tag 987234
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEe133e005-d762-4e47-b58d-0d8df3d27762
 		type DEFENCE_POST_UP
@@ -16175,14 +16175,14 @@ iMZ1r01
 		at 389 424
 		curdir 3
 		tag 98372
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEc6581735-0599-4ab2-8fb0-2d462f6895de
 		type LASER_DPOST
 		at 389 424
 		curdir 0
 		tag 65535
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE70a738b6-7c4a-41d7-9e52-1c86bf58594b
 		type DEFENCE_POST_UP
@@ -16194,7 +16194,7 @@ iMZ1r01
 		at 391 424
 		curdir 0
 		tag 53528
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object TORCc14a9859-62ef-4668-a5b0-87b41bfba776
 		type TORCH
@@ -16253,14 +16253,14 @@ iMZ1r01
 		at 381 426
 		curdir 3
 		tag 23563
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE69a39dc4-7d33-4eaf-acba-92f94cbbd21a
 		type LASER_DPOST
 		at 381 426
 		curdir 0
 		tag 36292
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE30670be3-3b87-4a7a-8873-f1b6235feb35
 		type DEFENCE_POST_UP
@@ -16272,14 +16272,14 @@ iMZ1r01
 		at 383 426
 		curdir 3
 		tag 27273
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE53719fb3-97a9-4585-96d1-1ee9dd2b9cd0
 		type LASER_DPOST
 		at 383 426
 		curdir 0
 		tag 38982
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE915d5919-70cd-4598-8d61-9985d693baaf
 		type DEFENCE_POST_UP
@@ -16291,14 +16291,14 @@ iMZ1r01
 		at 385 426
 		curdir 3
 		tag 65535
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASEaaf2bec8-9384-487e-b88e-27b03dff3776
 		type LASER_DPOST
 		at 385 426
 		curdir 0
 		tag 23479
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE96f99343-fec1-4735-8fae-0648cc0e7a43
 		type DEFENCE_POST_UP
@@ -16310,14 +16310,14 @@ iMZ1r01
 		at 387 426
 		curdir 3
 		tag 65535
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE36843c50-cf6f-4db3-b573-bbd065255a7f
 		type LASER_DPOST
 		at 387 426
 		curdir 0
 		tag 12627
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE46326568-bbcc-49ce-b8f2-92f4eac35335
 		type DEFENCE_POST_UP
@@ -16329,14 +16329,14 @@ iMZ1r01
 		at 389 426
 		curdir 3
 		tag 78346
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object LASE5c1cf3b5-8d3b-43c9-ab48-1dfa3bd18f42
 		type LASER_DPOST
 		at 389 426
 		curdir 0
 		tag 62783
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEd4c11ba2-f846-4ee8-8172-178f69a7ebb2
 		type DEFENCE_POST_UP
@@ -16348,7 +16348,7 @@ iMZ1r01
 		at 391 426
 		curdir 0
 		tag 23762
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object MAGIe6d0f93f-f44f-4ce3-aa31-56e90da0d162
 		type MAGIC_BARRIER
@@ -16384,7 +16384,7 @@ iMZ1r01
 		at 381 428
 		curdir 3
 		tag 12564
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEce893d30-ffb3-47cf-9436-0e689ae0d1c9
 		type DEFENCE_POST_UP
@@ -16396,7 +16396,7 @@ iMZ1r01
 		at 383 428
 		curdir 3
 		tag 42831
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE77045129-cf07-4a26-9b24-b68e7eb6fd66
 		type DEFENCE_POST_UP
@@ -16408,7 +16408,7 @@ iMZ1r01
 		at 385 428
 		curdir 3
 		tag 62612
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFE0ebe47af-b687-460a-b6b0-fcf70d27f37b
 		type DEFENCE_POST_UP
@@ -16420,7 +16420,7 @@ iMZ1r01
 		at 387 428
 		curdir 3
 		tag 72628
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEfe82e765-8edf-42f6-8902-2b9e8416dd9a
 		type DEFENCE_POST_UP
@@ -16432,7 +16432,7 @@ iMZ1r01
 		at 389 428
 		curdir 3
 		tag 27362
-		activity toggle_lasers
+		activity TOGGLE_LASERS
 
 	object DEFEf92fe4d2-1552-490d-a802-28d2471b52e9
 		type DEFENCE_POST_UP
