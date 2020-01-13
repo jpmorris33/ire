@@ -14,7 +14,7 @@ void newUUID(char str[37])
     UuidCreate ( &uuid );
     unsigned char *strout;
     UuidToStringA ( &uuid, &strout );
-    strcpy(str,strout);
+    strcpy(str,(const char *)strout);
     RpcStringFreeA ( &strout );
 #else
     uuid_t uuid;
