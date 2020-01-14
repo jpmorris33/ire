@@ -106,6 +106,7 @@ extern void ResetStr32(char *str32);
 static void SetOwnerRecursively(OBJECT *obj, OBJECT *owner);
 static void SelectThisObject(OBJECT *ptr);
 static int CMPsched(const void *a, const void *b);
+static void makeUIDPrefix(char strout[16], const char *name);
 
 void OB_up();           // Panning functions
 void OB_down();
@@ -1373,13 +1374,19 @@ DrawMap(mapx,mapy,1,l_proj,0);
 
 void OB_debug()
 {
-char good=1;
+char good=1,fixuids=0;
 int vx,vy,yoff;
 OBJECT *temp,*problem;
 int objects=0,large=0, gotDecor;
 char string1[128];
 char string2[128];
+char uid[16];
 problem = NULL;
+
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
+	fixuids=1;
+}
+
 
 for(vy=0;vy<curmap->h;vy++) {
     yoff=ytab[vy];
@@ -1412,6 +1419,30 @@ if(problem) {
     SelectThisObject(problem);
     return;
 }
+
+problem=NULL;
+for(OBJLIST *o=MasterList;o;o=o->next) {
+	if(o->ptr) {
+		makeUIDPrefix(uid,o->ptr->name);
+		if(strncmp(uid,o->ptr->uid,4)) {
+			problem=o->ptr;
+			ilog_quiet("Inconsistent UID for %s : %s\n",problem->name, problem->uid);
+
+			if(fixuids) {
+				// Patch the incorrect prefix
+				memcpy(problem->uid,uid,4);
+			}
+		}
+	}
+}
+if(problem) {
+	if(!fixuids) {
+		Notify(-1,-1,"Inconsistent UID prefix detected","Log written to bootlog.txt, SHIFT-F9 to fix");
+	} else {
+		Notify(-1,-1,"Inconsistent UID prefix detected","Fixed");
+	}
+}
+
 
 if(good)
     Notify(-1,-1,"Map OK.","All object locations consistent.");
@@ -3367,4 +3398,18 @@ if(mapy<0) mapy=0;
 objsel=ptr;
 OB_Update();
 DrawMap(mapx,mapy,1,l_proj,0);
+}
+
+
+
+
+
+void makeUIDPrefix(char strout[16], const char *name) {
+memset(strout,0,16);
+strncpy(strout,name,4);
+// If the name is shorter than 4 characters, add underscores
+while(strlen(strout)<4) {
+	strcat(strout,"_");
+}
+strupr(strout); // Make the prefix uppercase
 }

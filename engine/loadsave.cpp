@@ -1811,9 +1811,9 @@ for(ctr=1;ctr<z2.lines;ctr++) {
 
 		// If the coordinates are 65535, the object has been deleted
 		// by the map utilities
-		if(x <0 || x+8 >= w)
+		if(x <0 || x+8 > w)
 			continue;
-		if(y <0 || y+8 >= h)
+		if(y <0 || y+8 > h)
 			continue;
 
 		ImportB64(str,block,32);
@@ -1835,9 +1835,9 @@ for(ctr=1;ctr<z2.lines;ctr++) {
 
 		// If the coordinates are 65535, the object has been deleted
 		// by the map utilities
-		if(x <0 || x+8 >= w)
+		if(x <0 || x+8 > w)
 			continue;
-		if(y <0 || y+8 >= h)
+		if(y <0 || y+8 > h)
 			continue;
 		if(t>0) {
 			ptr=&map[(y*w)+x];
@@ -2104,9 +2104,9 @@ for(ctr=1;ctr<z3.lines;ctr++) {
 
 		// If the coordinates are 65535, the object has been deleted
 		// by the map utilities
-		if(x <0 || x+8 >= w)
+		if(x <0 || x+8 > w)
 			continue;
-		if(y <0 || y+8 >= h)
+		if(y <0 || y+8 > h)
 			continue;
 
 		ImportB64(str,block,32);
@@ -2128,9 +2128,9 @@ for(ctr=1;ctr<z3.lines;ctr++) {
 
 		// If the coordinates are 65535, the object has been deleted
 		// by the map utilities
-		if(x <0 || x+8 >= w)
+		if(x <0 || x+8 > w)
 			continue;
-		if(y <0 || y+8 >= h)
+		if(y <0 || y+8 > h)
 			continue;
 		if(t>0) {
 			ptr=&map[(y*w)+x];
