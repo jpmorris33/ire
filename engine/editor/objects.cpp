@@ -633,6 +633,7 @@ GetOBFromList( -1,-1, "Choose a character:", CHtot-1, list, Name);
 
 if(Name[0])     // It's ok, do it
 	{
+	objsel->uid[0]=0;	// Destroy the UUID since the object is being replaced
 	OB_Init(objsel,Name);	// Re-evaluate the character
 	ShrinkDecor(objsel);	// Save memory if possible
 	Deal_With_Contents(objsel);     // Create/destroy any contents
