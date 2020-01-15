@@ -1881,7 +1881,7 @@ iMZ1r01
 
 	decorative TREE03 at 434 53
 
-	object FOODcad89e83-3446-4a66-8e93-f4b3eeee22a8
+	object CYBEcad89e83-3446-4a66-8e93-f4b3eeee22a8
 		type CYBERWOLF
 		at 503 53
 		curdir 1
@@ -1889,6 +1889,9 @@ iMZ1r01
 		tag 1008
 		stats->hp 0
 		funcs->talk people/tech/w-olf.txt
+		schedule 9 0 LOITER_ATWORK TARGd9b57871-9893-4a71-860d-5b8636ac0a44
+		schedule 11 0 LOITER_ATWORK TARGf2ca65f6-f605-48af-a808-ba02056a0faa
+		schedule 22 0 SIT_AT_LOCATION TARG1bd4bf3a-d2a3-45f0-9222-34b1eb5bcb62
 
 	decorative TREE03 at 255 54
 
@@ -75927,7 +75930,7 @@ iMZ1r01
 
 	decorative TREE00 at 583 386
 
-	object TORCb27fd0ee-bc59-4cac-be03-1364631e9080
+	object BUCKb27fd0ee-bc59-4cac-be03-1364631e9080
 		type BUCKET
 		at 706 386
 		curdir 3
@@ -76202,7 +76205,7 @@ iMZ1r01
 
 	decorative TREE03 at 582 387
 
-	object GUIL38b20529-bb8a-45e8-9215-b552db121a03
+	object TORC38b20529-bb8a-45e8-9215-b552db121a03
 		type TORCH
 		at 702 387
 		curdir 3
@@ -78503,7 +78506,7 @@ iMZ1r01
 		curdir 3
 		tag 75
 
-	object TORC3fe55bb3-f511-4e2f-9510-48bcc4396c81
+	object LIGH3fe55bb3-f511-4e2f-9510-48bcc4396c81
 		type LIGHTSOURCE
 		at 708 396
 		curdir 3
@@ -78990,7 +78993,7 @@ iMZ1r01
 
 	decorative TREE02 at 577 398
 
-	object STAI25a0f272-a855-41cc-bb60-b479769a73e0
+	object TARG25a0f272-a855-41cc-bb60-b479769a73e0
 		type TARGET
 		at 705 398
 		curdir 1
@@ -130073,7 +130076,7 @@ iMZ1r01
 		curdir 1
 		tag 74
 
-	object STAIadcce400-4e10-4f77-aa53-3e6eab0ba623
+	object TARGadcce400-4e10-4f77-aa53-3e6eab0ba623
 		type TARGET
 		at 792 590
 		curdir 3
@@ -131255,7 +131258,7 @@ iMZ1r01
 		at 793 593
 		curdir 3
 
-	object MEMOe03d2f9e-93f7-4d46-9218-4e0ef5c0461e
+	object KEY_e03d2f9e-93f7-4d46-9218-4e0ef5c0461e
 		type KEY
 		inside WAAR676840d3-b64b-4f92-8f5b-35c52780c8c5
 		curdir 2
@@ -135491,7 +135494,7 @@ iMZ1r01
 		at 716 607
 		curdir 0
 
-	object STON7dd7da67-5239-4fbd-a4d0-8f365093dbd9
+	object KEY_7dd7da67-5239-4fbd-a4d0-8f365093dbd9
 		type KEY_2
 		inside DRAWd0df9383-5caf-43ff-a0f8-c689480b5263
 		curdir 1
@@ -148313,7 +148316,7 @@ iMZ1r01
 		at 185 641
 		curdir 2
 
-	object BOOKcf831c6c-4099-4ba6-b2bc-0d2b6bb0a064
+	object KEY_cf831c6c-4099-4ba6-b2bc-0d2b6bb0a064
 		type KEY
 		inside MAN_c3ec485c-0829-4efe-a7f6-df8d70491eae
 		curdir 2
@@ -156468,7 +156471,7 @@ iMZ1r01
 
 	decorative HUT03 at 712 664
 
-	object CHES30eaff52-cfd4-44de-b6e7-da5a8a3a45fd
+	object KEY_30eaff52-cfd4-44de-b6e7-da5a8a3a45fd
 		type KEY
 		at 714 664
 		curdir 3
@@ -200481,12 +200484,12 @@ iMZ1r01
 		at 74 831
 		curdir 2
 
-	object F18-f07ea8b5-cd16-4f62-ab1b-c601d7459afa
+	object TABLf07ea8b5-cd16-4f62-ab1b-c601d7459afa
 		type TABLE6-V
 		at 167 831
 		curdir 0
 
-	object TABL9b2b59f0-15a0-4cd9-ba17-c78dc0ab2aa5
+	object BOOK9b2b59f0-15a0-4cd9-ba17-c78dc0ab2aa5
 		type BOOK_BEASTS
 		at 167 831
 		curdir 2
@@ -203445,6 +203448,26 @@ iMZ1r01
 		name Tiny
 		funcs->talk people/demons/tiny.txt
 
+	object DATAdfd84fd4-e612-48bb-b9cb-95108da29778
+		type DATAPANEL2
+		at 181 843
+		curdir 2
+
+	object DATA8ee94fc6-eacf-4465-a145-63e65e084e1f
+		type DATAPANEL2
+		at 182 843
+		curdir 0
+
+	object DATAe9de3a56-3882-42de-b2d6-60a999b8933e
+		type DATAPANEL2
+		at 183 843
+		curdir 1
+
+	object DATA39deaf0b-d0d2-43cf-aa07-38957ad713ad
+		type DATAPANEL2
+		at 184 843
+		curdir 3
+
 	object PATH42a41575-d028-4284-b76e-d3aeec5e09ef
 		type PATHMARKER
 		at 201 843
@@ -203645,17 +203668,17 @@ iMZ1r01
 		at 177 844
 		curdir 2
 
-	object TABLa7749840-8a6b-4564-a30c-e9c9fb1317c2
+	object OSCOa7749840-8a6b-4564-a30c-e9c9fb1317c2
 		type OSCOPE
 		at 177 844
 		curdir 2
 
-	object HITEed937fa0-adbf-41ee-b101-26ecc161757c
+	object TABLed937fa0-adbf-41ee-b101-26ecc161757c
 		type TABLE6-H
 		at 178 844
 		curdir 1
 
-	object TOOLde90beb2-b312-45e7-9d60-87a69ba96e2d
+	object CIRCde90beb2-b312-45e7-9d60-87a69ba96e2d
 		type CIRCUITBOARD
 		at 178 844
 		curdir 1
@@ -203670,7 +203693,7 @@ iMZ1r01
 		at 179 844
 		curdir 0
 
-	object TABLaf39f3d4-c037-4505-bc59-1c16324470a6
+	object TOOLaf39f3d4-c037-4505-bc59-1c16324470a6
 		type TOOLS06
 		at 179 844
 		curdir 1
@@ -203690,7 +203713,21 @@ iMZ1r01
 		at 181 844
 		curdir 3
 
-	object TRAPdafa2ced-5c07-40cd-b387-f56bb8f5d300
+	object TARG1bd4bf3a-d2a3-45f0-9222-34b1eb5bcb62
+		type TARGET
+		at 182 844
+		curdir 0
+		tag 80093
+		labels->location BASE_TOOLSHED
+
+	object TARGb1acd310-8714-43a9-bdee-4a15d0146f47
+		type TARGET
+		at 183 844
+		curdir 0
+		tag 80095
+		labels->location BASE_TOOLSHED
+
+	object BED_dafa2ced-5c07-40cd-b387-f56bb8f5d300
 		type BED
 		at 184 844
 		curdir 3
@@ -203924,7 +203961,7 @@ iMZ1r01
 		at 74 845
 		curdir 2
 
-	object AIRC3319d371-cfe2-46ca-be46-b633ac22b920
+	object LOCK3319d371-cfe2-46ca-be46-b633ac22b920
 		type LOCKER_V
 		at 176 845
 		curdir 0
@@ -203944,13 +203981,20 @@ iMZ1r01
 		at 178 845
 		curdir 0
 
-	object OSCOc5579ba2-7ba5-4247-bde4-3fc71fbd488d
-		type CHAIR
+	object TARGd9b57871-9893-4a71-860d-5b8636ac0a44
+		type TARGET
 		at 178 845
 		curdir 0
+		tag 80090
+		labels->location BASE_TOOLSHED
 
 	object TABL77dcd3e2-b73e-41dd-8f42-94d55edd366f
 		type TABLE-SHADOW1
+		at 179 845
+		curdir 0
+
+	object CHAIc5579ba2-7ba5-4247-bde4-3fc71fbd488d
+		type CHAIR
 		at 179 845
 		curdir 0
 
@@ -204501,6 +204545,13 @@ iMZ1r01
 		at 176 847
 		curdir 2
 
+	object TARG52100a5d-34ff-4deb-9cf9-2c59dc449c1f
+		type TARGET
+		at 178 847
+		curdir 2
+		tag 80091
+		labels->location BASE_TOOLSHED
+
 	object BED_0b984214-8d83-4759-9f8d-d2b868b0b3fd
 		type BED
 		at 185 847
@@ -205024,6 +205075,13 @@ iMZ1r01
 		at 177 849
 		curdir 0
 
+	object TARG847d9af7-f927-480e-b4a7-d33b54d64707
+		type TARGET
+		at 183 849
+		curdir 3
+		tag 80094
+		labels->location BASE_TOOLSHED
+
 	object AIRC3dec3f05-6b74-407b-8637-7e7985316cfd
 		type AIRCRAFTPARTS_05
 		at 184 849
@@ -205301,6 +205359,13 @@ iMZ1r01
 		at 177 850
 		curdir 0
 
+	object TARGa0ea8fee-75c8-43d0-97b0-9b70671a1f91
+		type TARGET
+		at 179 850
+		curdir 2
+		tag 80092
+		labels->location BASE_TOOLSHED
+
 	object BED_67db7ede-a0d4-4634-aa7b-b2969af7ba07
 		type BED
 		at 184 850
@@ -205576,19 +205641,19 @@ iMZ1r01
 		type TRAP_HTDOOR
 		at 180 851
 		curdir 3
-		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+		stats->owner HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 
 	object TRAPec6f4c67-6548-4fe4-a840-f0ca8d8dcd34
 		type TRAP_HTDOOR
 		at 181 851
 		curdir 3
-		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+		stats->owner HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 
 	object TRAPb80357e5-4bda-4be5-a10d-b75e24f27590
 		type TRAP_HTDOOR
 		at 182 851
 		curdir 3
-		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+		stats->owner HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 
 	object AIRC42ea64e4-0049-4f86-8641-9053279476ac
 		type AIRCRAFTPARTS_05
@@ -205881,7 +205946,7 @@ iMZ1r01
 		at 164 852
 		curdir 2
 
-	object KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+	object HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 		type HITECH_DOOR_CLOSED
 		at 180 852
 		curdir 1
@@ -206078,13 +206143,13 @@ iMZ1r01
 		type TRAP_HTDOOR
 		at 181 853
 		curdir 3
-		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+		stats->owner HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 
 	object TRAP9c40c5b8-fddc-40ee-98e5-81c704d5b054
 		type TRAP_HTDOOR
 		at 182 853
 		curdir 3
-		stats->owner KEYP9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+		stats->owner HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
 
 	object FENC89823df2-a6e8-4952-bddd-f2bf69e50aa9
 		type FENCE
@@ -206311,6 +206376,20 @@ iMZ1r01
 		type FENCE
 		at 74 854
 		curdir 2
+
+	object PATH1f4f0703-a4a4-45ea-ad84-1c8ee23646d5
+		type PATHMARKER
+		at 181 854
+		curdir 0
+		labels->location BASE_TOOLSHED
+		stats->owner TARGd9b57871-9893-4a71-860d-5b8636ac0a44
+
+	object PATH7470634a-cbf2-4d12-8489-58a2d6362531
+		type PATHMARKER
+		at 182 854
+		curdir 1
+		labels->location BASE_POWERROOM
+		stats->owner PATHa1ad76dd-5325-4d64-9cf8-d2d5cf53a5e7
 
 	decorative TREE00 at 219 854
 
@@ -207653,6 +207732,62 @@ iMZ1r01
 		at 74 860
 		curdir 2
 
+	object PATH63545252-ea8a-4f7b-a0a2-6fca0afb5975
+		type PATHMARKER
+		at 102 860
+		curdir 3
+		labels->location BASE_POWERROOM
+		stats->owner PATH2100013e-92e8-4c73-840b-0a10e06f3569
+
+	object PATH5b7b0173-6d45-4094-8ff1-9a045735ae5d
+		type PATHMARKER
+		at 103 860
+		curdir 3
+		labels->location BASE_TOOLSHED
+		stats->owner PATH2627081a-eb33-40bd-aff4-961ed1e0b937
+
+	object PATH2100013e-92e8-4c73-840b-0a10e06f3569
+		type PATHMARKER
+		at 116 860
+		curdir 3
+		labels->location BASE_POWERROOM
+		stats->owner PATHaff4bfe9-eaf7-4a8c-bbbd-264ea1b9cb4e
+
+	object PATH2627081a-eb33-40bd-aff4-961ed1e0b937
+		type PATHMARKER
+		at 117 860
+		curdir 3
+		labels->location BASE_TOOLSHED
+		stats->owner PATHa416acce-ee60-4308-b829-94397634a754
+
+	object PATHaff4bfe9-eaf7-4a8c-bbbd-264ea1b9cb4e
+		type PATHMARKER
+		at 133 860
+		curdir 3
+		labels->location BASE_POWERROOM
+		stats->owner PATH3295dc82-a37c-406a-bfbd-c67e91b006ce
+
+	object PATHa416acce-ee60-4308-b829-94397634a754
+		type PATHMARKER
+		at 134 860
+		curdir 3
+		labels->location BASE_TOOLSHED
+		stats->owner PATHe4affdd0-4efc-4b16-a37f-ed18f7d81ab5
+
+	object PATH3295dc82-a37c-406a-bfbd-c67e91b006ce
+		type PATHMARKER
+		at 150 860
+		curdir 3
+		labels->location BASE_POWERROOM
+		stats->owner PATHed104a40-8f28-408a-83d0-f23d4a27ad87
+
+	object PATHe4affdd0-4efc-4b16-a37f-ed18f7d81ab5
+		type PATHMARKER
+		at 151 860
+		curdir 3
+		labels->location BASE_TOOLSHED
+		stats->owner PATH6f5f85fd-33b0-4ae6-a57d-99005803ff70
+
 	object BARR244e5f47-cd4e-41da-8e4a-cae549c58e6c
 		type BARRIER
 		at 208 860
@@ -208327,6 +208462,48 @@ iMZ1r01
 		at 114 863
 		curdir 3
 		name Player landing
+
+	object PATH6f5f85fd-33b0-4ae6-a57d-99005803ff70
+		type PATHMARKER
+		at 161 863
+		curdir 3
+		labels->location BASE_TOOLSHED
+		stats->owner PATHf7468f00-ef6d-4b47-a7d4-632c85913913
+
+	object PATHed104a40-8f28-408a-83d0-f23d4a27ad87
+		type PATHMARKER
+		at 162 863
+		curdir 3
+		labels->location BASE_POWERROOM
+		stats->owner PATH8bd9b299-b305-405c-910f-eb9ed878501c
+
+	object PATHf7468f00-ef6d-4b47-a7d4-632c85913913
+		type PATHMARKER
+		at 171 863
+		curdir 3
+		labels->location BASE_TOOLSHED
+		stats->owner PATH318ce6d3-c4ff-4ba5-bafd-089a9e5f885b
+
+	object PATH8bd9b299-b305-405c-910f-eb9ed878501c
+		type PATHMARKER
+		at 172 863
+		curdir 3
+		labels->location BASE_POWERROOM
+		stats->owner PATHa1ad76dd-5325-4d64-9cf8-d2d5cf53a5e7
+
+	object PATHa1ad76dd-5325-4d64-9cf8-d2d5cf53a5e7
+		type PATHMARKER
+		at 180 863
+		curdir 1
+		labels->location BASE_POWERROOM
+		stats->owner PATH9dfa242e-157c-492f-840a-e37713ba21a2
+
+	object PATH318ce6d3-c4ff-4ba5-bafd-089a9e5f885b
+		type PATHMARKER
+		at 181 863
+		curdir 0
+		labels->location BASE_TOOLSHED
+		stats->owner PATH1f4f0703-a4a4-45ea-ad84-1c8ee23646d5
 
 	object TRAP19d0005d-ca3e-4ea9-8c5c-7a46243c3ad1
 		type TRAP_RADIUS
@@ -209954,6 +210131,13 @@ iMZ1r01
 		at 74 871
 		curdir 2
 
+	object PATH9dfa242e-157c-492f-840a-e37713ba21a2
+		type PATHMARKER
+		at 180 871
+		curdir 1
+		labels->location BASE_POWERROOM
+		stats->owner TARGf2ca65f6-f605-48af-a808-ba02056a0faa
+
 	object FENCaf85230f-15c6-4c79-8513-69c59dac86a6
 		type FENCE_CORNER
 		at 208 871
@@ -210802,11 +210986,32 @@ iMZ1r01
 		at 177 874
 		curdir 1
 
+	object PATH379a2fa9-26dd-4f59-8820-6a71497896ea
+		type PATHMARKER
+		at 180 874
+		curdir 0
+		labels->location BASE_TOOLSHED
+		stats->owner PATH318ce6d3-c4ff-4ba5-bafd-089a9e5f885b
+
 	object TARGd7947c99-33b5-42de-8b36-f236a0f8f9ab
 		type TARGET
 		at 182 874
 		curdir 1
 		tag 51
+
+	object TARGf2ca65f6-f605-48af-a808-ba02056a0faa
+		type TARGET
+		at 190 874
+		curdir 2
+		tag 80100
+		labels->location BASE_POWERROOM
+
+	object TARG30f6b1b3-8f60-428a-a602-f1757c8e1200
+		type TARGET
+		at 198 874
+		curdir 0
+		tag 80101
+		labels->location BASE_POWERROOM
 
 	object FENCba1e4676-3772-45be-9baa-6fca7c474834
 		type FENCE
@@ -213059,6 +213264,9 @@ iMZ1r01
 		curdir 1
 		name L-UPN
 		funcs->talk people/tech/l-upn.txt
+		schedule 9 0 LOITER_ATWORK TARGf2ca65f6-f605-48af-a808-ba02056a0faa
+		schedule 11 0 LOITER_ATWORK TARGd9b57871-9893-4a71-860d-5b8636ac0a44
+		schedule 22 0 SIT_AT_LOCATION TARG1bd4bf3a-d2a3-45f0-9222-34b1eb5bcb62
 
 	object FENCa95b22d2-8c30-4469-8fdd-b12692dc2eca
 		type FENCE
@@ -213400,6 +213608,13 @@ iMZ1r01
 		at 193 882
 		curdir 3
 
+	object TARG3122aeab-7cba-426d-bae5-e47f1ae637c5
+		type TARGET
+		at 194 882
+		curdir 2
+		tag 80102
+		labels->location BASE_POWERROOM
+
 	object POWE8caf0cc9-37de-4133-adff-07bbd7a6cf7a
 		type POWER_BUS2
 		at 196 882
@@ -213419,6 +213634,13 @@ iMZ1r01
 		type WALL_METAL_D00
 		at 201 882
 		curdir 3
+
+	object TARG47294169-9e2f-4323-b699-9ba7422ca2ad
+		type TARGET
+		at 202 882
+		curdir 2
+		tag 80103
+		labels->location BASE_POWERROOM
 
 	object FENCfa46591b-7a92-42cc-b4cc-5c2fe01dd170
 		type FENCE
@@ -214983,6 +215205,20 @@ iMZ1r01
 		type FENCE
 		at 186 888
 		curdir 2
+
+	object TARG004fd8a6-116c-45bf-ad65-eb7f4a40cba6
+		type TARGET
+		at 194 888
+		curdir 2
+		tag 80105
+		labels->location BASE_POWERROOM
+
+	object TARG8cdb40bb-7661-47fc-8f58-16249c33a022
+		type TARGET
+		at 202 888
+		curdir 2
+		tag 80104
+		labels->location BASE_POWERROOM
 
 	object FENCd36e6422-60b0-45c4-a53c-2f18a003b474
 		type FENCE

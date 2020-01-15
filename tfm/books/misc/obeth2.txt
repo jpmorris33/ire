@@ -1,0 +1,10 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+ Up yours, O'Beth!
+
+ Keep the place, and may the Devil feast on ye entrails!
+
+[nextpage="exit"]
+[endpage]

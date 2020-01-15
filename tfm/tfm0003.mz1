@@ -15628,6 +15628,11 @@ iMZ1r01
 
 	decorative MOUNT11 at 1004 297
 
+	object COBWa353fbbe-2abf-434c-9b71-52a2c34de312
+		type COBWEB0
+		at 464 298
+		curdir 1
+
 	decorative TREE01 at 556 298
 
 	decorative TREE01 at 560 298
@@ -15752,6 +15757,12 @@ iMZ1r01
 	decorative MOUNT00 at 1001 298
 
 	decorative MOUNT11 at 1002 298
+
+	object STAI7080cee6-6409-4d2e-8085-465d7e865372
+		type STAIRS_DOWN
+		at 465 299
+		curdir 1
+		tag 63
 
 	decorative TREE00 at 561 299
 
@@ -15880,6 +15891,12 @@ iMZ1r01
 	decorative MOUNT07 at 990 299
 
 	decorative MOUNT03 at 1001 299
+
+	object TARGe7c4678d-8846-4b5d-9435-3cf8f8289e2c
+		type TARGET
+		at 465 300
+		curdir 2
+		tag 62
 
 	decorative TREE03 at 559 300
 
@@ -16019,6 +16036,11 @@ iMZ1r01
 	decorative MOUNT01 at 1000 300
 
 	decorative MOUNT11 at 1001 300
+
+	object STONee40b93e-7bf6-4570-a49e-c4bc2b4b12f4
+		type STONEDOOR5_OPEN
+		at 464 301
+		curdir 1
 
 	decorative TREE01 at 558 301
 
@@ -22122,6 +22144,12 @@ iMZ1r01
 		curdir 0
 		stats->owner MAN_d2d96799-22e8-4350-8307-fe6913e5a538
 
+	object STAIb82e58de-052d-43f2-bca7-62c6c6a3c65f
+		type STAIRS_DOWN
+		at 445 351
+		curdir 1
+		tag 60
+
 	object STON4b796512-63c7-4e2f-918b-c56b4cab8d32
 		type STONE_MASK
 		at 447 351
@@ -22192,6 +22220,12 @@ iMZ1r01
 		curdir 2
 		stats->quantity 840
 
+	object TARG647bfb3c-666e-4324-801d-11fbe1bd15a7
+		type TARGET
+		at 445 352
+		curdir 2
+		tag 61
+
 	object STON04dcea6c-d742-471b-82b6-3a57e2713b14
 		type STONE_MASK2
 		at 447 352
@@ -22212,11 +22246,12 @@ iMZ1r01
 		at 451 352
 		curdir 3
 
-	object MEMO93663031-3c73-4ca7-946f-7f7d1e19a941
-		type MEMO
+	object PAPE5b923bf7-8b46-4cc0-a8fa-436bfa89d15e
+		type PAPER
 		at 452 352
-		curdir 3
-		name AntiZap armour in vault here?
+		curdir 2
+		name To whom it may concern
+		funcs->talk /books/misc/obeth2.txt
 
 	object CARP29a86bc6-e58b-4f37-8b34-3628248905ee
 		type CARPET2
@@ -22611,6 +22646,11 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 876 358
 		curdir 2
+
+	object AIRLaf6bc5b8-8cc3-4d54-9dd9-3a50d39c74d4
+		type AIRLOCK_DOOR
+		at 461 359
+		curdir 0
 
 	object TODE60456239-1f27-49d4-af86-48d2c3b91b42
 		type TODE
@@ -82959,6 +82999,14 @@ iMZ1r01
 
 	decorative TREE03 at 977 879
 
+	decorative MOUNT08 at 518 880
+
+	decorative MOUNT06 at 519 880
+
+	decorative MOUNT06 at 520 880
+
+	decorative MOUNT09 at 521 880
+
 	decorative MOUNT04 at 568 880
 
 	decorative MOUNT00 at 573 880
@@ -83143,6 +83191,14 @@ iMZ1r01
 
 	decorative TREE02 at 974 880
 
+	decorative MOUNT04 at 518 881
+
+	decorative MOUNT05 at 521 881
+
+	decorative MOUNT06 at 522 881
+
+	decorative MOUNT09 at 523 881
+
 	decorative MOUNT08 at 567 881
 
 	decorative MOUNT07 at 568 881
@@ -83313,6 +83369,14 @@ iMZ1r01
 
 	decorative TREE02 at 975 881
 
+	decorative MOUNT08 at 517 882
+
+	decorative MOUNT07 at 518 882
+
+	decorative MOUNT05 at 523 882
+
+	decorative MOUNT09 at 524 882
+
 	decorative MOUNT04 at 567 882
 
 	object ORB_3dd884a6-080b-4cc6-b5c8-04dc5f2e935a
@@ -83463,6 +83527,16 @@ iMZ1r01
 
 	decorative TREE02 at 976 882
 
+	decorative MOUNT04 at 517 883
+
+	object STAI899e9e20-e00b-47c7-bebc-2393ca343a11
+		type STAIRS_UP
+		at 522 883
+		curdir 3
+		tag 62
+
+	decorative MOUNT03 at 524 883
+
 	decorative MOUNT04 at 567 883
 
 	decorative MOUNT00 at 572 883
@@ -83598,6 +83672,18 @@ iMZ1r01
 	decorative TREE03 at 972 883
 
 	decorative TREE01 at 974 883
+
+	decorative MOUNT08 at 516 884
+
+	decorative MOUNT07 at 517 884
+
+	object STAI614c82a6-d60e-4c96-a3b3-02a6d89bbc49
+		type STAIRS_UP
+		at 522 884
+		curdir 1
+		tag 62
+
+	decorative MOUNT03 at 524 884
 
 	decorative MOUNT10 at 567 884
 
@@ -83754,6 +83840,16 @@ iMZ1r01
 	decorative TREE00 at 969 884
 
 	decorative TREE01 at 972 884
+
+	decorative MOUNT04 at 516 885
+
+	object TARG0415146b-f0c0-4a28-86fa-3607a71b07a2
+		type TARGET
+		at 522 885
+		curdir 2
+		tag 63
+
+	decorative MOUNT03 at 524 885
 
 	decorative MOUNT04 at 568 885
 
@@ -83941,6 +84037,14 @@ iMZ1r01
 
 	decorative TREE00 at 977 885
 
+	decorative MOUNT08 at 515 886
+
+	decorative MOUNT07 at 516 886
+
+	decorative MOUNT00 at 523 886
+
+	decorative MOUNT11 at 524 886
+
 	decorative MOUNT08 at 567 886
 
 	decorative MOUNT07 at 568 886
@@ -84127,6 +84231,10 @@ iMZ1r01
 
 	decorative TREE03 at 967 886
 
+	decorative MOUNT04 at 515 887
+
+	decorative MOUNT03 at 523 887
+
 	decorative MOUNT04 at 567 887
 
 	object WALLee0e7fed-8682-48d2-af8c-1181c33c8fdc
@@ -84277,6 +84385,12 @@ iMZ1r01
 	decorative TREE03 at 974 887
 
 	decorative TREE01 at 976 887
+
+	decorative MOUNT04 at 515 888
+
+	decorative MOUNT05 at 523 888
+
+	decorative MOUNT09 at 524 888
 
 	object KEYP45c784f5-2e12-43c7-b1d8-16d8b3a455f9
 		type KEYPAD
@@ -84429,6 +84543,14 @@ iMZ1r01
 	decorative TREE03 at 950 888
 
 	decorative TREE01 at 965 888
+
+	decorative MOUNT08 at 514 889
+
+	decorative MOUNT07 at 515 889
+
+	decorative MOUNT00 at 523 889
+
+	decorative MOUNT11 at 524 889
 
 	object LIGHef490b8d-d3f2-44ce-aef0-78c4f014d95c
 		type LIGHT_ALWAYS
@@ -84632,6 +84754,10 @@ iMZ1r01
 
 	decorative TREE00 at 969 889
 
+	decorative MOUNT04 at 514 890
+
+	decorative MOUNT03 at 523 890
+
 	object CORPa38ae9b1-2ae4-4ffc-9219-1ca2dcf2edf6
 		type CORPSE_CONTROL
 		at 549 890
@@ -84801,6 +84927,12 @@ iMZ1r01
 	decorative TREE02 at 972 890
 
 	decorative TREE00 at 977 890
+
+	decorative MOUNT10 at 514 891
+
+	decorative MOUNT02 at 515 891
+
+	decorative MOUNT03 at 523 891
 
 	decorative MOUNT08 at 603 891
 
@@ -84972,6 +85104,14 @@ iMZ1r01
 
 	decorative TREE02 at 974 891
 
+	decorative MOUNT10 at 515 892
+
+	decorative MOUNT02 at 516 892
+
+	decorative MOUNT00 at 522 892
+
+	decorative MOUNT11 at 523 892
+
 	decorative MOUNT04 at 603 892
 
 	decorative MOUNT03 at 607 892
@@ -85121,6 +85261,14 @@ iMZ1r01
 	decorative TREE02 at 964 892
 
 	decorative TREE02 at 969 892
+
+	decorative MOUNT08 at 515 893
+
+	decorative MOUNT07 at 516 893
+
+	decorative MOUNT00 at 521 893
+
+	decorative MOUNT11 at 522 893
 
 	decorative MOUNT08 at 602 893
 
@@ -85288,6 +85436,12 @@ iMZ1r01
 
 	decorative TREE00 at 974 893
 
+	decorative MOUNT04 at 515 894
+
+	decorative MOUNT05 at 521 894
+
+	decorative MOUNT09 at 522 894
+
 	object DRAG7da2f26b-85ed-4dc1-b17f-a03bfd4d27a9
 		type DRAGON_CLOTHED
 		at 568 894
@@ -85446,6 +85600,14 @@ iMZ1r01
 
 	decorative TREE02 at 965 894
 
+	decorative MOUNT08 at 514 895
+
+	decorative MOUNT07 at 515 895
+
+	decorative MOUNT00 at 521 895
+
+	decorative MOUNT11 at 522 895
+
 	decorative MOUNT04 at 601 895
 
 	decorative MOUNT00 at 605 895
@@ -85597,6 +85759,16 @@ iMZ1r01
 	decorative TREE01 at 966 895
 
 	decorative TREE02 at 971 895
+
+	decorative MOUNT04 at 514 896
+
+	decorative MOUNT00 at 518 896
+
+	decorative MOUNT01 at 519 896
+
+	decorative MOUNT01 at 520 896
+
+	decorative MOUNT11 at 521 896
 
 	object TRAPe7081f92-07f2-43ad-854f-67dfbc69e432
 		type TRAP_GUARDHALT_ONCE
@@ -85776,6 +85948,12 @@ iMZ1r01
 
 	decorative TREE01 at 972 896
 
+	decorative MOUNT08 at 513 897
+
+	decorative MOUNT07 at 514 897
+
+	decorative MOUNT03 at 518 897
+
 	decorative MOUNT08 at 600 897
 
 	decorative MOUNT07 at 601 897
@@ -85924,6 +86102,10 @@ iMZ1r01
 
 	decorative TREE01 at 973 897
 
+	decorative MOUNT04 at 513 898
+
+	decorative MOUNT03 at 518 898
+
 	decorative MOUNT04 at 600 898
 
 	decorative MOUNT03 at 604 898
@@ -86057,6 +86239,14 @@ iMZ1r01
 	decorative TREE01 at 963 898
 
 	decorative TREE02 at 965 898
+
+	decorative MOUNT08 at 512 899
+
+	decorative MOUNT07 at 513 899
+
+	decorative MOUNT00 at 517 899
+
+	decorative MOUNT11 at 518 899
 
 	decorative MOUNT04 at 600 899
 
@@ -86214,6 +86404,10 @@ iMZ1r01
 
 	decorative TREE03 at 971 899
 
+	decorative MOUNT04 at 512 900
+
+	decorative MOUNT03 at 517 900
+
 	decorative MOUNT10 at 600 900
 
 	decorative MOUNT02 at 601 900
@@ -86365,6 +86559,14 @@ iMZ1r01
 	decorative TREE03 at 965 900
 
 	decorative TREE01 at 967 900
+
+	decorative MOUNT08 at 511 901
+
+	decorative MOUNT07 at 512 901
+
+	decorative MOUNT00 at 516 901
+
+	decorative MOUNT11 at 517 901
 
 	decorative MOUNT04 at 601 901
 
@@ -86520,6 +86722,12 @@ iMZ1r01
 
 	decorative TREE03 at 972 901
 
+	decorative MOUNT04 at 511 902
+
+	decorative MOUNT00 at 515 902
+
+	decorative MOUNT11 at 516 902
+
 	decorative MOUNT04 at 601 902
 
 	decorative MOUNT05 at 605 902
@@ -86663,6 +86871,10 @@ iMZ1r01
 	decorative TREE00 at 960 902
 
 	decorative TREE02 at 969 902
+
+	decorative MOUNT04 at 511 903
+
+	decorative MOUNT03 at 515 903
 
 	decorative MOUNT10 at 601 903
 
@@ -86816,6 +87028,14 @@ iMZ1r01
 
 	decorative TREE01 at 970 903
 
+	decorative MOUNT08 at 510 904
+
+	decorative MOUNT07 at 511 904
+
+	decorative MOUNT00 at 514 904
+
+	decorative MOUNT11 at 515 904
+
 	decorative MOUNT10 at 602 904
 
 	decorative MOUNT02 at 603 904
@@ -86942,6 +87162,12 @@ iMZ1r01
 
 	decorative TREE00 at 970 904
 
+	decorative MOUNT08 at 509 905
+
+	decorative MOUNT07 at 510 905
+
+	decorative MOUNT03 at 514 905
+
 	decorative MOUNT08 at 602 905
 
 	decorative MOUNT07 at 603 905
@@ -87054,6 +87280,14 @@ iMZ1r01
 
 	decorative TREE00 at 969 905
 
+	decorative MOUNT10 at 509 906
+
+	decorative MOUNT02 at 510 906
+
+	decorative MOUNT05 at 514 906
+
+	decorative MOUNT09 at 515 906
+
 	decorative MOUNT04 at 602 906
 
 	decorative MOUNT00 at 632 906
@@ -87149,6 +87383,12 @@ iMZ1r01
 	decorative TREE00 at 964 906
 
 	decorative TREE02 at 966 906
+
+	decorative MOUNT10 at 510 907
+
+	decorative MOUNT02 at 511 907
+
+	decorative MOUNT03 at 515 907
 
 	decorative MOUNT10 at 602 907
 
@@ -87251,6 +87491,12 @@ iMZ1r01
 	decorative TREE01 at 962 907
 
 	decorative TREE02 at 967 907
+
+	decorative MOUNT08 at 510 908
+
+	decorative MOUNT07 at 511 908
+
+	decorative MOUNT03 at 515 908
 
 	decorative MOUNT10 at 604 908
 
@@ -87361,6 +87607,12 @@ iMZ1r01
 	decorative TREE03 at 961 908
 
 	decorative TREE00 at 964 908
+
+	decorative MOUNT04 at 510 909
+
+	decorative MOUNT00 at 514 909
+
+	decorative MOUNT11 at 515 909
 
 	decorative MOUNT04 at 606 909
 
@@ -87496,6 +87748,12 @@ iMZ1r01
 
 	decorative TREE03 at 966 909
 
+	decorative MOUNT08 at 509 910
+
+	decorative MOUNT07 at 510 910
+
+	decorative MOUNT03 at 514 910
+
 	decorative MOUNT04 at 606 910
 
 	decorative MOUNT00 at 613 910
@@ -87603,6 +87861,10 @@ iMZ1r01
 	decorative TREE00 at 959 910
 
 	decorative TREE00 at 962 910
+
+	decorative MOUNT04 at 509 911
+
+	decorative MOUNT03 at 514 911
 
 	decorative MOUNT08 at 605 911
 
@@ -87772,6 +88034,14 @@ iMZ1r01
 	decorative TREE03 at 962 911
 
 	decorative TREE01 at 965 911
+
+	decorative MOUNT08 at 508 912
+
+	decorative MOUNT07 at 509 912
+
+	decorative MOUNT00 at 513 912
+
+	decorative MOUNT11 at 514 912
 
 	decorative MOUNT04 at 605 912
 
@@ -87996,6 +88266,14 @@ iMZ1r01
 
 	decorative TREE03 at 962 912
 
+	decorative MOUNT08 at 507 913
+
+	decorative MOUNT07 at 508 913
+
+	decorative MOUNT00 at 512 913
+
+	decorative MOUNT11 at 513 913
+
 	decorative MOUNT10 at 605 913
 
 	decorative MOUNT02 at 606 913
@@ -88166,6 +88444,12 @@ iMZ1r01
 	decorative TREE01 at 958 913
 
 	decorative TREE03 at 961 913
+
+	decorative MOUNT04 at 507 914
+
+	decorative MOUNT00 at 511 914
+
+	decorative MOUNT11 at 512 914
 
 	object BOOK66a305cf-e3fc-4434-9df7-a4441304ebd3
 		type BOOKSHELF00
@@ -88399,6 +88683,10 @@ iMZ1r01
 
 	decorative TREE00 at 964 914
 
+	decorative MOUNT04 at 507 915
+
+	decorative MOUNT03 at 511 915
+
 	decorative MOUNT04 at 606 915
 
 	decorative MOUNT05 at 610 915
@@ -88573,6 +88861,12 @@ iMZ1r01
 	decorative TREE03 at 960 915
 
 	decorative TREE03 at 962 915
+
+	decorative MOUNT08 at 506 916
+
+	decorative MOUNT05 at 511 916
+
+	decorative MOUNT09 at 512 916
 
 	object DRAG1405cce9-9f73-427a-8e28-b705a730c481
 		type DRAGON_CLOTHED
@@ -88793,6 +89087,12 @@ iMZ1r01
 
 	decorative TREE02 at 964 916
 
+	decorative MOUNT10 at 506 917
+
+	decorative MOUNT02 at 507 917
+
+	decorative MOUNT03 at 512 917
+
 	decorative MOUNT10 at 607 917
 
 	decorative MOUNT02 at 608 917
@@ -89005,6 +89305,10 @@ iMZ1r01
 	decorative TREE02 at 962 917
 
 	decorative TREE01 at 965 917
+
+	decorative MOUNT04 at 507 918
+
+	decorative MOUNT03 at 512 918
 
 	decorative MOUNT04 at 608 918
 
@@ -89246,6 +89550,12 @@ iMZ1r01
 
 	decorative TREE00 at 960 918
 
+	decorative MOUNT04 at 507 919
+
+	decorative MOUNT00 at 511 919
+
+	decorative MOUNT11 at 512 919
+
 	decorative MOUNT10 at 608 919
 
 	decorative MOUNT02 at 609 919
@@ -89475,6 +89785,10 @@ iMZ1r01
 
 	decorative TREE00 at 965 919
 
+	decorative MOUNT04 at 507 920
+
+	decorative MOUNT03 at 511 920
+
 	decorative MOUNT04 at 609 920
 
 	decorative MOUNT03 at 613 920
@@ -89658,6 +89972,14 @@ iMZ1r01
 	decorative TREE00 at 966 920
 
 	decorative TREE03 at 970 920
+
+	decorative MOUNT08 at 506 921
+
+	decorative MOUNT07 at 507 921
+
+	decorative MOUNT00 at 510 921
+
+	decorative MOUNT11 at 511 921
 
 	decorative MOUNT10 at 609 921
 
@@ -89877,6 +90199,14 @@ iMZ1r01
 
 	decorative TREE00 at 964 921
 
+	decorative MOUNT08 at 505 922
+
+	decorative MOUNT07 at 506 922
+
+	decorative MOUNT00 at 509 922
+
+	decorative MOUNT11 at 510 922
+
 	decorative MOUNT04 at 610 922
 
 	decorative MOUNT03 at 614 922
@@ -90087,6 +90417,12 @@ iMZ1r01
 	decorative TREE03 at 953 922
 
 	decorative TREE02 at 969 922
+
+	decorative MOUNT08 at 504 923
+
+	decorative MOUNT07 at 505 923
+
+	decorative MOUNT03 at 509 923
 
 	decorative MOUNT04 at 610 923
 
@@ -90301,6 +90637,14 @@ iMZ1r01
 
 	decorative TREE01 at 970 923
 
+	decorative MOUNT10 at 504 924
+
+	decorative MOUNT02 at 505 924
+
+	decorative MOUNT05 at 509 924
+
+	decorative MOUNT09 at 510 924
+
 	decorative MOUNT10 at 610 924
 
 	decorative MOUNT02 at 611 924
@@ -90475,6 +90819,10 @@ iMZ1r01
 	decorative TREE02 at 966 924
 
 	decorative TREE01 at 971 924
+
+	decorative MOUNT04 at 505 925
+
+	decorative MOUNT03 at 510 925
 
 	decorative MOUNT10 at 611 925
 
@@ -90684,6 +91032,12 @@ iMZ1r01
 	decorative TREE00 at 967 925
 
 	decorative TREE01 at 971 925
+
+	decorative MOUNT04 at 505 926
+
+	decorative MOUNT00 at 509 926
+
+	decorative MOUNT11 at 510 926
 
 	decorative MOUNT04 at 612 926
 
@@ -90953,6 +91307,10 @@ iMZ1r01
 
 	decorative TREE03 at 973 926
 
+	decorative MOUNT04 at 505 927
+
+	decorative MOUNT03 at 509 927
+
 	decorative MOUNT10 at 612 927
 
 	decorative MOUNT01 at 613 927
@@ -91110,6 +91468,14 @@ iMZ1r01
 	decorative TREE02 at 972 927
 
 	decorative TREE03 at 973 927
+
+	decorative MOUNT08 at 504 928
+
+	decorative MOUNT07 at 505 928
+
+	decorative MOUNT00 at 508 928
+
+	decorative MOUNT11 at 509 928
 
 	decorative MOUNT10 at 614 928
 
@@ -91293,6 +91659,10 @@ iMZ1r01
 
 	decorative TREE03 at 976 928
 
+	decorative MOUNT04 at 504 929
+
+	decorative MOUNT03 at 508 929
+
 	decorative MOUNT04 at 617 929
 
 	decorative MOUNT03 at 621 929
@@ -91417,6 +91787,12 @@ iMZ1r01
 
 	decorative TREE01 at 971 929
 
+	decorative MOUNT08 at 503 930
+
+	decorative MOUNT07 at 504 930
+
+	decorative MOUNT03 at 508 930
+
 	decorative MOUNT04 at 617 930
 
 	decorative MOUNT05 at 621 930
@@ -91522,6 +91898,12 @@ iMZ1r01
 	decorative TREE03 at 961 930
 
 	decorative TREE01 at 963 930
+
+	decorative MOUNT04 at 503 931
+
+	decorative MOUNT00 at 507 931
+
+	decorative MOUNT11 at 508 931
 
 	decorative MOUNT10 at 617 931
 
@@ -91693,6 +92075,12 @@ iMZ1r01
 
 	decorative TREE03 at 971 931
 
+	decorative MOUNT08 at 502 932
+
+	decorative MOUNT07 at 503 932
+
+	decorative MOUNT03 at 507 932
+
 	object DRAGf9be0ced-2146-4914-9711-4cb4838383fc
 		type DRAGON_CLOTHED
 		at 553 932
@@ -91860,6 +92248,14 @@ iMZ1r01
 
 	decorative TREE00 at 977 932
 
+	decorative MOUNT08 at 501 933
+
+	decorative MOUNT07 at 502 933
+
+	decorative MOUNT00 at 506 933
+
+	decorative MOUNT11 at 507 933
+
 	object KEY_41b59347-cc6a-4c52-a74e-edb76adf9f95
 		type KEY
 		inside DRAG038394b6-7e4e-4ea9-aefe-82dc1be664c7
@@ -92020,6 +92416,14 @@ iMZ1r01
 
 	decorative TREE02 at 976 933
 
+	decorative MOUNT08 at 500 934
+
+	decorative MOUNT07 at 501 934
+
+	decorative MOUNT00 at 505 934
+
+	decorative MOUNT11 at 506 934
+
 	decorative MOUNT08 at 618 934
 
 	decorative MOUNT07 at 619 934
@@ -92143,6 +92547,16 @@ iMZ1r01
 	decorative TREE02 at 974 934
 
 	decorative TREE03 at 977 934
+
+	decorative MOUNT04 at 500 935
+
+	object STAI3d5392fd-cbdb-4b67-95e1-0259c604eeb0
+		type STAIRS_UP
+		at 501 935
+		curdir 3
+		tag 61
+
+	decorative MOUNT03 at 505 935
 
 	decorative MOUNT10 at 618 935
 
@@ -92314,6 +92728,18 @@ iMZ1r01
 
 	decorative TREE00 at 977 935
 
+	decorative MOUNT08 at 499 936
+
+	decorative MOUNT07 at 500 936
+
+	object STAIfa7dd8aa-de2a-4f0a-837c-b406408ee4bd
+		type STAIRS_UP
+		at 501 936
+		curdir 1
+		tag 61
+
+	decorative MOUNT03 at 505 936
+
 	decorative MOUNT04 at 620 936
 
 	decorative MOUNT05 at 626 936
@@ -92482,6 +92908,20 @@ iMZ1r01
 
 	decorative TREE03 at 977 936
 
+	decorative MOUNT10 at 499 937
+
+	decorative MOUNT02 at 500 937
+
+	object TARG9b35c692-5729-4fbb-a785-154998e8bf2b
+		type TARGET
+		at 501 937
+		curdir 3
+		tag 60
+
+	decorative MOUNT00 at 504 937
+
+	decorative MOUNT11 at 505 937
+
 	decorative MOUNT04 at 620 937
 
 	decorative MOUNT05 at 630 937
@@ -92640,6 +93080,12 @@ iMZ1r01
 
 	decorative TREE01 at 978 937
 
+	decorative MOUNT10 at 500 938
+
+	decorative MOUNT02 at 501 938
+
+	decorative MOUNT03 at 504 938
+
 	decorative MOUNT10 at 620 938
 
 	decorative MOUNT02 at 621 938
@@ -92769,6 +93215,14 @@ iMZ1r01
 	decorative TREE02 at 969 938
 
 	decorative TREE00 at 981 938
+
+	decorative MOUNT10 at 501 939
+
+	decorative MOUNT01 at 502 939
+
+	decorative MOUNT01 at 503 939
+
+	decorative MOUNT11 at 504 939
 
 	decorative MOUNT10 at 621 939
 

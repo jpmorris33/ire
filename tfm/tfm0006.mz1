@@ -2486,7 +2486,7 @@ iMZ1r01
 		at 290 216
 		curdir 1
 
-	object PLAYb103db42-20ec-4f1c-867f-62db452bed93
+	object PAINb103db42-20ec-4f1c-867f-62db452bed93
 		type PAINTING00
 		at 294 216
 		curdir 2
@@ -2648,7 +2648,7 @@ iMZ1r01
 		at 289 218
 		curdir 3
 
-	object BED_4886bd8e-f553-4ddb-8e70-31a945f2eec2
+	object TABL4886bd8e-f553-4ddb-8e70-31a945f2eec2
 		type TABLE6-H
 		at 294 218
 		curdir 2
@@ -2739,7 +2739,7 @@ iMZ1r01
 		at 289 219
 		curdir 1
 
-	object STON72ef5127-a726-45da-983e-5d5043328641
+	object OPEN72ef5127-a726-45da-983e-5d5043328641
 		type OPENROOF
 		at 292 219
 		curdir 2
@@ -2796,7 +2796,7 @@ iMZ1r01
 
 	object BUNN86825505-485e-4300-9b10-d479cad9e4c3
 		type BUNNY
-		inside BUNN4e26607f-63a3-4d5d-af2d-723b6b80c551
+		inside EGG_4e26607f-63a3-4d5d-af2d-723b6b80c551
 		curdir 0
 		activity BUNNY_WANDER
 
@@ -2805,7 +2805,7 @@ iMZ1r01
 		inside BUNN86825505-485e-4300-9b10-d479cad9e4c3
 		curdir 1
 
-	object BUNN4e26607f-63a3-4d5d-af2d-723b6b80c551
+	object EGG_4e26607f-63a3-4d5d-af2d-723b6b80c551
 		type EGG_OBJECT(BUNNY)
 		at 310 219
 		curdir 0
@@ -2875,7 +2875,7 @@ iMZ1r01
 		at 288 220
 		curdir 3
 
-	object TABL047a329a-3ddd-48bd-ad84-4bebe4a68dff
+	object MAN_047a329a-3ddd-48bd-ad84-4bebe4a68dff
 		type MAN_GENERIC
 		at 297 220
 		curdir 1
@@ -2937,7 +2937,7 @@ iMZ1r01
 		at 288 221
 		curdir 1
 
-	object STON1302e091-c5d0-4789-8f54-c5e994a544f8
+	object BED_1302e091-c5d0-4789-8f54-c5e994a544f8
 		type BED
 		at 294 221
 		curdir 2
@@ -3092,7 +3092,7 @@ iMZ1r01
 		at 258 222
 		curdir 1
 
-	object STONeed1bd1c-c528-495f-acb6-2fdfb73a1d49
+	object SIGNeed1bd1c-c528-495f-acb6-2fdfb73a1d49
 		type SIGN02
 		at 284 222
 		curdir 0
@@ -3205,13 +3205,13 @@ iMZ1r01
 		at 316 223
 		curdir 0
 
-	object EGG_b547a280-2289-4a6c-83bd-5950ab3c236b
+	object SNACb547a280-2289-4a6c-83bd-5950ab3c236b
 		type SNACKMACHINE
 		at 319 223
 		curdir 0
 		funcs->use SNACKMACHINE_EX
 
-	object SNACde810f79-c2bf-428d-a4c3-dac769aec54c
+	object WALLde810f79-c2bf-428d-a4c3-dac769aec54c
 		type WALL_EDGE
 		at 321 223
 		curdir 3
@@ -3239,11 +3239,11 @@ iMZ1r01
 
 	object PIG_92780384-2524-46de-b82d-489479bf31f2
 		type PIG
-		inside FENC831d8310-be2e-4662-a1d4-3d49c803c036
+		inside EGG_831d8310-be2e-4662-a1d4-3d49c803c036
 		curdir 1
 		activity ATTACK_PARTY
 
-	object FENC831d8310-be2e-4662-a1d4-3d49c803c036
+	object EGG_831d8310-be2e-4662-a1d4-3d49c803c036
 		type EGG_OBJECT(PIG)
 		at 417 223
 		curdir 1
@@ -4114,7 +4114,7 @@ iMZ1r01
 		at 334 231
 		curdir 1
 
-	object FENC80e922ff-508b-483e-b3ee-94860ff3d185
+	object SIGN80e922ff-508b-483e-b3ee-94860ff3d185
 		type SIGN02
 		at 418 231
 		curdir 0
@@ -4264,11 +4264,11 @@ iMZ1r01
 
 	object SHEE5fb4c3c3-4d05-4241-b834-ef446630e7c1
 		type SHEEP
-		inside FENC2dde7be2-b4a6-454d-a01e-8ece7b4cae0f
+		inside EGG_2dde7be2-b4a6-454d-a01e-8ece7b4cae0f
 		curdir 1
 		activity GRAZE
 
-	object FENC2dde7be2-b4a6-454d-a01e-8ece7b4cae0f
+	object EGG_2dde7be2-b4a6-454d-a01e-8ece7b4cae0f
 		type EGG_OBJECT(SHEEP)
 		at 307 233
 		curdir 2
@@ -4328,7 +4328,7 @@ iMZ1r01
 		at 305 234
 		curdir 2
 
-	object EGG_f002c660-127f-401c-9342-0f1b40c393ff
+	object TROUf002c660-127f-401c-9342-0f1b40c393ff
 		type TROUGH
 		at 306 234
 		curdir 2
