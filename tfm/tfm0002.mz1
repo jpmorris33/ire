@@ -1891,7 +1891,7 @@ iMZ1r01
 		funcs->talk people/tech/w-olf.txt
 		schedule 9 0 LOITER_ATWORK TARGd9b57871-9893-4a71-860d-5b8636ac0a44
 		schedule 11 0 LOITER_ATWORK TARGf2ca65f6-f605-48af-a808-ba02056a0faa
-		schedule 22 0 SIT_AT_LOCATION TARG1bd4bf3a-d2a3-45f0-9222-34b1eb5bcb62
+		schedule 22 0 SIT_AT_LOCATION TARGb1acd310-8714-43a9-bdee-4a15d0146f47
 
 	decorative TREE03 at 255 54
 
@@ -203448,6 +203448,12 @@ iMZ1r01
 		name Tiny
 		funcs->talk people/demons/tiny.txt
 
+	object LIGHc923a805-027f-4f41-b1ff-31f2b4dafcae
+		type LIGHT_ALWAYS
+		at 176 843
+		curdir 0
+		stats->owner LIGHf0918707-0de2-40e1-bb77-c1d53717284e
+
 	object DATAdfd84fd4-e612-48bb-b9cb-95108da29778
 		type DATAPANEL2
 		at 181 843
@@ -205950,6 +205956,12 @@ iMZ1r01
 		type HITECH_DOOR_CLOSED
 		at 180 852
 		curdir 1
+
+	object LIGHf0918707-0de2-40e1-bb77-c1d53717284e
+		type LIGHT_END
+		at 186 852
+		curdir 1
+		stats->owner LIGHc923a805-027f-4f41-b1ff-31f2b4dafcae
 
 	object PATHb085259b-d6ee-4fa6-83ee-26d01157e207
 		type PATHMARKER

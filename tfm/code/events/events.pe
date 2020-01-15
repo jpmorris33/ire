@@ -637,6 +637,8 @@ if_exists head
 
 	# Move them into position
 	transfer_object temp to dest.x dest.y
+	stop_action temp
+	resume_action temp
 endif
 
 end
