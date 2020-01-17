@@ -110,7 +110,7 @@ move_object me to x y
 end
 
 #
-# Dies
+# Dies (medieval)
 #
 
 function guard_dies
@@ -125,6 +125,25 @@ call make_blood
 call egg_killed
 
 end
+
+
+#
+# Dies (modern)
+#
+
+function modernguard_dies
+
+change current = "deadguard_modern"
+object_sound "man_dying" current
+if_exists current.enemy
+	add current.enemy.stats.karma - 10
+endif
+
+call make_blood
+call egg_killed
+
+end
+
 
 
 #

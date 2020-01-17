@@ -1120,7 +1120,20 @@ section: characters
 	down		GUARD_DEAD
 	hp		100
 	weight		60000
-	description	"You see a dead person."
+	description	"You see a dead guard."
+	short		"body"
+	IfLookedAt	SearchContainer
+	container
+	horrific
+
+	name DEADGUARD_MODERN
+	left		MODERNGUARD_DEAD
+	right		MODERNGUARD_DEAD
+	up		MODERNGUARD_DEAD
+	down		MODERNGUARD_DEAD
+	hp		100
+	weight		60000
+	description	"You see a dead guard."
 	short		"body"
 	IfLookedAt	SearchContainer
 	container
@@ -7408,19 +7421,19 @@ section: characters
 	setActiveArea	H 0 0 1 1
 
 	name GUARD_MODERN
-	left		GUARD_L
-	right		GUARD_R
-	up		GUARD_U
-	down		GUARD_D
+	left		MODERNGUARD_LEFT
+	right		MODERNGUARD_RIGHT
+	up		MODERNGUARD_UP
+	down		MODERNGUARD_DOWN
 	hp		100
 	dexterity	10
 	strength	20000
 	intelligence	140
 	weight		60000
 	damage		10
-	description	"You see a modern-day guard."
+	description	"You see a guard in carbon-composite armour."
 	short		"guard"
-	IfKilled	Guard_Dies
+	IfKilled	ModernGuard_Dies
 	IfHurt		Guard_Hurt
 	ifhorrified	ModernGuard_Horror
 	behaviour	 guard_patrol
@@ -7437,10 +7450,6 @@ section: characters
 	biological
 	race		human
 	rank		guard
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name GUARD_PANTHER
 	left		PANTHER_L
@@ -16864,6 +16873,8 @@ section: characters
 	alias		GUARD_HEAD = PLAYER_HEAD
 	frame		head_guard
 
+	alias		MODERNGUARD_HEAD = PLAYER_HEAD
+
 	alias		MAN_HEAD = PLAYER_HEAD
 	frame		head_man01
 
@@ -17005,6 +17016,9 @@ section: characters
 	alias MAGE_BODY = PLAYER_BODY
 	frame		body_mage
 
+	alias MODERNGUARD_BODY = PLAYER_BODY
+	frame		MODERNGUARD_BODY
+	description	"You see a guard in carbon-composite armour.  He is very dead."
 
 #
 

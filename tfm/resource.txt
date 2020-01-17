@@ -490,6 +490,26 @@ section: sprites
 	cyberwolfsit_r		sprites/tech/cyberwolf_es.png
 	cyberwolfhead		sprites/tech/cyberwolf_hd.png
 
+	modernguard00		sprites/people/modernguard_n0.png
+	modernguard01		sprites/people/modernguard_n1.png
+	modernguard02		sprites/people/modernguard_n2.png
+	modernguard03		sprites/people/modernguard_s0.png
+	modernguard04		sprites/people/modernguard_s1.png
+	modernguard05		sprites/people/modernguard_s2.png
+	modernguard06		sprites/people/modernguard_w0.png
+	modernguard07		sprites/people/modernguard_w1.png
+	modernguard08		sprites/people/modernguard_w2.png
+	modernguard09		sprites/people/modernguard_e0.png
+	modernguard10		sprites/people/modernguard_e1.png
+	modernguard11		sprites/people/modernguard_e2.png
+	modernguard12		sprites/people/modernguard___.png
+	modernguard13		sprites/people/modernguard_hl.png
+	modernguardsit_u	sprites/people/modernguard_ns.png
+	modernguardsit_d	sprites/people/modernguard_ss.png
+	modernguardsit_l	sprites/people/modernguard_ws.png
+	modernguardsit_r	sprites/people/modernguard_es.png
+#	modernguardhead		sprites/people/modernguard_hd.png
+
 	stone_door1s_vert	sprites/stdoor00.cel
 	stone_door1l_vert	sprites/stdoor01.cel
 	stone_door2s_vert	sprites/stdoor02.cel
@@ -6447,6 +6467,71 @@ section: sequences
 
 	quickname CYBERWOLF_HEAD CYBERWOLFHEAD
 	quickname CYBERWOLF_BODY CYBERWOLF12
+
+
+	name MODERNGUARD_UP
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		MODERNGUARD00
+		MODERNGUARD01
+		MODERNGUARD00
+		MODERNGUARD02
+	end
+
+	name MODERNGUARD_DOWN
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		MODERNGUARD03
+		MODERNGUARD04
+		MODERNGUARD03
+		MODERNGUARD05
+	end
+
+	name MODERNGUARD_LEFT
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		MODERNGUARD06
+		MODERNGUARD07
+		MODERNGUARD06
+		MODERNGUARD08
+	end
+
+	name MODERNGUARD_RIGHT
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		MODERNGUARD09
+		MODERNGUARD10
+		MODERNGUARD09
+		MODERNGUARD11
+	end
+
+	quickname MODERNGUARDSIT_L MODERNGUARDSIT_L
+	quickname MODERNGUARDSIT_R MODERNGUARDSIT_R
+	quickname MODERNGUARDSIT_U MODERNGUARDSIT_U
+	quickname MODERNGUARDSIT_D MODERNGUARDSIT_D
+
+	name MODERNGUARD_DEAD
+	speed 1
+	overlay BLOOD_OVERLAY
+	framelist:
+	#1 frames
+		MODERNGUARD12
+	end
+
+	quickname MODERNGUARD_SLEEPING MODERNGUARD12
+	quickname MODERNGUARD_BODY MODERNGUARD13
 
 
 	name TORCH
@@ -14212,25 +14297,26 @@ section: tables
 	key=string
 	data=string
 	list:
-		DEADPLAYER	PLAYER_HEAD
-		DEADPLAYERf	PLAYERF_HEAD
-		DEADKING	KING_HEAD
-		DEADPRINCE	PRINCE_HEAD
-		MAN_POPE	POPE_HEAD
-		DEADFOLLOWER	CARDINAL_HEAD
-		DEADPEASANT	PEASANT_HEAD
-		DEADNOBLEMAN	NOBLE_HEAD
-		DEADGUARD	GUARD_HEAD
-		DEADOLDMAN	OLDMAN_HEAD
-		DEADMONK	MONK_HEAD
-		DEADPILGRIM	PILGRIM_HEAD
-		DEADCARDINAL	CARDINAL_HEAD
-		DEADWOMAN	WOMAN_HEAD
-		DEADNOBLEWOMAN	NOBLEWOMAN_HEAD
-		DEADOUTLAW	OUTLAW_HEAD
-		DEADMAGE	MAGE_HEAD
-		DEADOUTLAW2	OUTLAW2_HEAD
-		DEADOUTLAW3	OUTLAW3_HEAD
+		DEADPLAYER		PLAYER_HEAD
+		DEADPLAYERf		PLAYERF_HEAD
+		DEADKING		KING_HEAD
+		DEADPRINCE		PRINCE_HEAD
+		MAN_POPE		POPE_HEAD
+		DEADFOLLOWER		CARDINAL_HEAD
+		DEADPEASANT		PEASANT_HEAD
+		DEADNOBLEMAN		NOBLE_HEAD
+		DEADGUARD		GUARD_HEAD
+		DEADGUARD_MODERN	MODERNGUARD_HEAD
+		DEADOLDMAN		OLDMAN_HEAD
+		DEADMONK		MONK_HEAD
+		DEADPILGRIM		PILGRIM_HEAD
+		DEADCARDINAL		CARDINAL_HEAD
+		DEADWOMAN		WOMAN_HEAD
+		DEADNOBLEWOMAN		NOBLEWOMAN_HEAD
+		DEADOUTLAW		OUTLAW_HEAD
+		DEADMAGE		MAGE_HEAD
+		DEADOUTLAW2		OUTLAW2_HEAD
+		DEADOUTLAW3		OUTLAW3_HEAD
 	end
 
 
@@ -14238,25 +14324,26 @@ section: tables
 	key=string
 	data=string
 	list:
-		DEADPLAYER	PLAYER_BODY
-		DEADPLAYERf	PLAYERF_BODY
-		DEADKING	KING_BODY
-		DEADPRINCE	PRINCE_BODY
-		MAN_POPE	POPE_BODY
-		DEADFOLLOWER	FOLLOWER_BODY
-		DEADPEASANT	PEASANT_BODY
-		DEADNOBLEMAN	NOBLEMAN_BODY
-		DEADGUARD	GUARD_BODY
-		DEADOLDMAN	OLDMAN_BODY
-		DEADMONK	MONK_BODY
-		DEADPILGRIM	PILGRIM_BODY
-		DEADCARDINAL	CARDINAL_BODY
-		DEADWOMAN	WOMAN1_BODY
-		DEADNOBLEWOMAN	WOMAN2_BODY
-		DEADOUTLAW	OUTLAW_BODY
-		DEADOUTLAW2	OUTLAW2_BODY
-		DEADOUTLAW3	OUTLAW3_BODY
-		DEADMAGE	MAGE_BODY
+		DEADPLAYER		PLAYER_BODY
+		DEADPLAYERf		PLAYERF_BODY
+		DEADKING		KING_BODY
+		DEADPRINCE		PRINCE_BODY
+		MAN_POPE		POPE_BODY
+		DEADFOLLOWER		FOLLOWER_BODY
+		DEADPEASANT		PEASANT_BODY
+		DEADNOBLEMAN		NOBLEMAN_BODY
+		DEADGUARD		GUARD_BODY
+		DEADGUARD_MODERN	MODERNGUARD_BODY
+		DEADOLDMAN		OLDMAN_BODY
+		DEADMONK		MONK_BODY
+		DEADPILGRIM		PILGRIM_BODY
+		DEADCARDINAL		CARDINAL_BODY
+		DEADWOMAN		WOMAN1_BODY
+		DEADNOBLEWOMAN		WOMAN2_BODY
+		DEADOUTLAW		OUTLAW_BODY
+		DEADOUTLAW2		OUTLAW2_BODY
+		DEADOUTLAW3		OUTLAW3_BODY
+		DEADMAGE		MAGE_BODY
 	end
 
 	name lying_down
@@ -14283,6 +14370,7 @@ section: tables
 		man_old			OLDMAN_LIEDOWN 
 		man_boy			F_LIEDOWN 
 		guard			GUARD_SLEEPING 
+		DEADGUARD_MODERN	MODERNGUARD_SLEEPING 
 		player			REDMAN_SLEEPING
 		playerf			REDWOMMAN_SLEEPING
 		woman_generic		WOMAN1_SLEEPING
@@ -14310,6 +14398,7 @@ section: tables
 		PEASANT_HEAD		MAN_GENERIC
 		NOBLE_HEAD		MAN_NOBLE
 		GUARD_HEAD		GUARD
+		MODERNGUARD_HEAD	GUARD_MODERN
 		OLDMAN_HEAD		MAN_OLD
 		MONK_HEAD		MAN_MONK
 		PILGRIM_HEAD		MAN_PILGRIM

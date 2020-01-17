@@ -5,8 +5,8 @@ The guard at the airbase
 [am_carrying "pass_card1"]
 [if true][goto="start_member"]
 [colour="#808080"]
-You see a modern-day soldier in green uniform, who eyes
-you warily.
+You see a modern-day soldier in carbon-composite
+body armour, who eyes you warily.
 [colour="#ffffff"]
 
 "State your business, please."
