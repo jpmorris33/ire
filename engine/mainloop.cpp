@@ -48,6 +48,7 @@
 #include "pe/pe_api.hpp"
 #include "loadfile.hpp"
 #include "widgets.hpp"
+#include "vismap.hpp"
 
 // defines
 
@@ -118,6 +119,9 @@ extern int choose_leader(int x);
 extern void reset_globals();
 extern void (*lightning)(IREBITMAP *img);
 void CheckSpecialKeys(int k);
+
+extern VisMap vismap;
+extern VisMap lightingmap;
 
 // code
 
@@ -703,7 +707,10 @@ if(y+VSH > curmap->h)
 	y=curmap->h-VSH;
 
 if(UpdateAnim())	{
-	Hide_Unseen_Map();
+	if(vis_blanking && !blanking_off) {
+		vismap.calculate();
+	}
+	lightingmap.calculateSimple();
 
 	Project_Map(x,y);
 
@@ -733,7 +740,7 @@ if(UpdateAnim())	{
 
 	// Block invisible tiles
 	if(vis_blanking && !blanking_off)
-		Hide_Unseen_Project();
+		vismap.project(gamewin);
 
 	// Combine the roof with the main window
 	if(show_roof || force_roof > 0)	{

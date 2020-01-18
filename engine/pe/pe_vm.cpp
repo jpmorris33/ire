@@ -25,6 +25,7 @@
 #include "../gamedata.hpp"
 #include "opcodes.h"
 #include "pe_api.hpp"
+#include "vismap.hpp"
 
 #ifdef __BEOS__
 #define _WIN32
@@ -77,7 +78,6 @@ extern void CheckTime();
 extern OBJECT *find_nearest(OBJECT *o, char *type);
 extern void find_nearby(OBJECT *o, char *type, OBJECT **list, int listsize);
 extern void set_light(int x, int y, int x2, int y2, int light);
-extern int isBlanked(int x, int y);
 extern void ForceUpdateTag(int tag);
 extern OBJECT *GetFirstObject(OBJECT *cont, char *name);
 extern OBJECT *GetFirstObjectFuzzy(OBJECT *cont, char *name);
@@ -101,6 +101,7 @@ extern VMINT do_earthquake;
 extern VMINT irekey;
 extern VMINT pevm_err;
 extern int ire_pushkey;
+extern VisMap vismap;
 // unused function
 //static void CheckRange(PEVM *vm, void *ptr, int ident);
 
@@ -3896,7 +3897,7 @@ b = (VMINT *)GET_INT();
 CHECK_POINTER(b);
 jumpoffset = GET_DWORD();
 
-if(isBlanked(*a,*b))
+if(vismap.isBlanked(*a,*b))
 	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
 
 }

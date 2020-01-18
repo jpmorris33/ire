@@ -14,6 +14,7 @@
 #include "console.hpp"
 #include "media.hpp"
 #include "oscli.hpp"
+#include "vismap.hpp"
 
 // Defines
 #define MAX_P_OVERLAY 255       // Maximum number of overlayed objects
@@ -22,6 +23,7 @@
 // Various diagnostics
 //#define SHOW_BLOCKLIGHTMAP
 //#define SHOW_VISLIGHTMAP
+//#define SHOW_LIGHTINGMAP
 //#define SHOW_GHOSTLY
 
 struct LTAB
@@ -59,7 +61,6 @@ VMINT dark_mix=0;
 VMINT show_invisible=0;	// This is expose to the script engine now
 extern int torch_bonus;
 static int masterclock=0;
-static IRECOLOUR blanker(0,0,0);
 
 void (*animate[8])(OBJECT *temp);
 static unsigned char *rndtab[256];
@@ -90,9 +91,10 @@ static int basex,basey;
 static int post_ovl=0;
 static int people_ovl=0;
 static int postfx=0;
-static char vismap[LMSIZE][LMSIZE]; // visibility state
-static char blmap[LMSIZE][LMSIZE];  // blocks light
 int gamewinsize;
+
+VisMap vismap;
+VisMap lightingmap;
 
 static OBJECT *roofsprites[MAX_P_OVERLAY]; // Objects which are on the roof
 static int roofspr;
@@ -103,7 +105,6 @@ void Init_Projector(int w, int h);
 void Project_Map(int x, int y);
 void Project_Sprites(int x, int y);
 void Project_Roof(int x, int y);
-void Hide_Unseen(int x, int y);
 void SetDarkness(int d);
 static void Project_sprite(OBJECT *temp, int cx, int cy, int x, int y);
 
@@ -118,10 +119,6 @@ void anim_none(OBJECT *temp);
 static void init_lightmap();
 static void proj_light(int x, int y, int light);
 void render_lighting(int x, int y);
-static void vis_floodfill(int x, int y);
-static void vis_punch(int x, int y);
-int isBlanked(int x, int y);
-int isSpriteBlanked(int x, int y);
 extern void CallVMnum(int func);
 extern IRELIGHTMAP *load_lightmap(char *filename);
 static int scale_torches(int torchcount);
@@ -138,23 +135,6 @@ void Init_Projector(int w, int h)
 {
 int ctr,ctr2;
 char filename[1024];
-unsigned int rr,gg,bb;
-
-// Calculate blanker colour
-if(blankercol > 0)
-	{
-	rr=(blankercol>>16)&0xff;   // get Red
-	gg=(blankercol>>8)&0xff;    // get green
-	bb=blankercol&0xff;         // get blue
-//	printf("bk = %x, r=%x, g=%x, b=%x\n",blankercol,rr,gg,bb);
-//	blankercol = makecol((unsigned int)rr,(unsigned int)gg,(unsigned int)bb);
-	blanker.Set(rr,gg,bb);
-	}
-else
-	{
-	// If no colour has been specified, assume pure black (0,0,0)
-	blanker.Set(0,0,0);
-	}
 
 animate[0] = anim_00;
 animate[1] = anim_01;
@@ -426,67 +406,28 @@ for(ctr=0;ctr<VSH;ctr++) {
 				// of the blackness, and there is a rule to handle it.
 
 				if(TIlist[t].alternate) {
-					// The shape of the alternate tile is in an array of
-					// sixteen image pointers.
-					// There are sixteen possible combinations of adjacent
-					// tiles on or off (or 'rules').
-					// To get the number of the combination, we add four
-					// bits together, taken from the state of each adjacent
-					// tile: L=1, R=2, U=4, D=8.
-					// To check the state, we look at the vismap.
-					// If a tile is blanked, the vismap entry will have bit 1
-					// clear. The vismap is 1-based, not 0-based (outer rim!)
-					// so instead of checking   -1,0 +1,0  0,-1  0,+1
-					// we have to check instead  0,1 +2,+1 +1,0 +1,+2
-					// The optimised method below just adds the bits.
-					// The unoptimised version is easier to understand.
-
-					// Optimised
-					altcode=(vismap[ctr2][ctr+1]&1);
-					altcode|=(vismap[ctr2+2][ctr+1]&1)<<1;
-					altcode|=(vismap[ctr2+1][ctr]&1)<<2;
-					altcode|=(vismap[ctr2+1][ctr+2]&1)<<3;
-					altcode^=0xf; // invert it all
-
-					// Blank the sprites behind the wall
-					if(altcode&10) { // If Down OR Right
-						vismap[ctr2+1][ctr+1] |= 4; // mark bad (no sprites)
-                                        }
-
-/*
-					// Easier-to-read
-
-					// Add up each direction, to get the rule number
-					// Check L(-1,0), R(+1,0), U(0,-1), D(0,+1)
-					// Vismap has +1,+1 added to it for the outer rim
-					altcode=0;
-					if(!(vismap[ctr2][ctr+1]&1)) altcode|=1; // L
-					if(!(vismap[ctr2+2][ctr+1]&1)) {
-						altcode|=2; // R
-						vismap[ctr2+1][ctr+1] |= 4; // mark bad (no sprites)
-					}
-					if(!(vismap[ctr2+1][ctr]&1)) altcode|=4; // U
-					if(!(vismap[ctr2+1][ctr+2]&1)) {
-						altcode|=8; // D
-						vismap[ctr2+1][ctr+1] |= 4; // mark bad (no sprites)
-					}
-*/
-
+					altcode = vismap.getAltCode(ctr2,ctr);
+					vismap.checkSprites(ctr2,ctr);
+					lightingmap.checkSprites(ctr2,ctr);
 					TIlist[t].alternate[altcode]->seq[0]->image->Draw(gamewin,xctr,yctr);
 				} else {
 					TIlist[t].form->seq[tip[t]]->image->Draw(gamewin,xctr,yctr);
 				}
 #ifdef SHOW_BLOCKLIGHTMAP
-				if(blmap[ctr2][ctr]) {
-					rectfill(gamewin,xctr,yctr,xctr+33,yctr+16,makecol(128,255,127));
+				if(vismap.getBlMap(ctr2,ctr)) {
+					IRECOLOUR xcol(128,255,127);
+					gamewin->FillRect(xctr,yctr,32,16,&xcol);
 				}
 #endif
                         }
 #ifdef SHOW_VISLIGHTMAP
 			int lll;
-			lll = vismap[ctr2+1][ctr+1] * 63; // four levels
-			rectfill(gamewin,xctr,yctr,xctr+32,yctr+32,makecol(lll,lll,lll));
+			IRECOLOUR xcol;
+			lll = vismap.get(ctr2+1,ctr+1) * 63; // four levels
+			xcol.Set(lll,lll,lll);
+			gamewin->FillRect(xctr,yctr,32,32,&xcol);
 #endif
+
 			if(TIlist[t].form->overlay) {
 				TIlist[t].form->overlay->image->Draw(gamewin,xctr+TIlist[t].form->ox,yctr+TIlist[t].form->oy);
 			}
@@ -499,6 +440,31 @@ for(ctr=0;ctr<VSH;ctr++) {
 	yctr+=32;
 	ptr+=bit;
 }
+
+
+#ifdef SHOW_LIGHTINGMAP
+
+yctr=0;
+for(ctr=0;ctr<VSH+2;ctr++) {
+	xctr=0;
+	yctr+=32;
+	for(ctr2=0;ctr2<VSW+2;ctr2++) {
+		int lll2;
+		IRECOLOUR xcol2;
+		lll2 = lightingmap.get(ctr2+1,ctr+1);
+		if(lll2 & VISMAP_IS_NOSPRITE) {
+			xcol2.Set(255,0,255);
+			gamewin->FillRect(xctr,yctr,32,32,&xcol2);
+		} else {
+			lll2 *= 63;
+			xcol2.Set(lll2,lll2,lll2);
+			gamewin->FillRect(xctr,yctr,32,32,&xcol2);
+		}
+		xctr+=32;
+	}
+}
+#endif
+
 
 }
 
@@ -548,7 +514,7 @@ for(vy=starty;vy<VSH;vy++)
 		ok=1;
 		// If there's darkness on this bit of map, don't draw the sprites
 		if(vx>=0 && vy>=0)
-			if(vismap[vx+1][vy+1]&4)
+			if(vismap.getNoSpriteDirect(vx,vy))
 				ok=0;
 
 		for(temp=curmap->objmap[yoff+x+vx];temp;temp=temp->next)
@@ -569,7 +535,7 @@ for(vy=starty;vy<VSH;vy++)
 							// Horizontal
 							for(xck=0;xck<temp->mw;xck++)
 								if(vx+xck>=0 && vy>=0)
-									if(vismap[vx+xck+1][vy+1]&4)
+									if(vismap.getNoSpriteDirect(vx+xck,vy))
 										{
 										ok=0; // Don't draw
 										break;
@@ -580,7 +546,7 @@ for(vy=starty;vy<VSH;vy++)
 							// Vertical
 							for(xck=0;xck<temp->mh;xck++)
 								if(vy+xck>=0 && vx>=0)
-									if(vismap[vx+1][vy+xck+1]&4)
+									if(vismap.getNoSpriteDirect(vx,vy+xck))
 										{
 										ok=0; // Don't draw
 										break;
@@ -879,138 +845,6 @@ for(ctr=0;ctr<h;ctr++)
 }
 */
 
-//////////////
-
-/*
- *      Hide_Unseen - Remove rooms you can't see from the view (like U6)
- *                    Map - Do the calculations
- */
-
-void Hide_Unseen_Map()
-{
-int ctr,ctr2;
-int xoff,yoff,xmax,ymax;
-OBJECT *o;
-
-xoff = mapx-1;
-yoff = mapy-1;
-xmax = VSW;
-ymax = VSH;
-
-if(player) // If there isn't a player we want to keep the old visibility map
-	{
-	// First, clear the visibility map (all blank)
-	memset(&vismap[0][0],0,(sizeof(char)*(LMSIZE*LMSIZE)));
-
-	// Mark edges as lit
-	for(ctr=VSH+2;ctr>0;ctr--)
-		vismap[0][ctr]=1;
-	for(ctr=VSW+2;ctr>0;ctr--)
-		vismap[ctr][0]=1;
-
-	// Now find the tiles that block light
-
-	for(ctr=0;ctr<=ymax;ctr++)
-		for(ctr2=0;ctr2<=xmax;ctr2++)
-			blmap[ctr2][ctr] = BlocksLight(mapx+ctr2,mapy+ctr);
-
-	// Check for windows
-	// North
-	o=GetSolidObject(player->x,player->y-1);
-	if(o)
-		if(o->flags & IS_WINDOW)
-			vis_punch(player->x-mapx,(player->y-mapy)-1);
-
-	// West
-	o=GetSolidObject(player->x-1,player->y);
-	if(o)
-		if(o->flags & IS_WINDOW)
-			vis_punch((player->x-mapx)-1,player->y-mapy);
-
-	// East
-	o=GetSolidObject(player->x+1,player->y);
-	if(o)
-		if(o->flags & IS_WINDOW)
-			vis_punch((player->x-mapx)+1,player->y-mapy);
-
-	// South
-	o=GetSolidObject(player->x,player->y+1);
-	if(o)
-		if(o->flags & IS_WINDOW)
-			vis_punch(player->x-mapx,(player->y-mapy)+1);
-
-	// General floodfill
-	vis_floodfill(player->x-mapx,player->y-mapy);
-	}
-}
-
-/*
- *      Hide_Unseen - Remove rooms you can't see from the view (like U6)
- *                    Project - Do the actual blanking
- */
-
-void Hide_Unseen_Project()
-{
-int xctr,yctr,ctr,ctr2,xmax,ymax;
-
-// Block out what we don't want to see
-
-xmax = VSW;
-ymax = VSH;
-
-yctr=0;
-xctr=0;
-for(ctr=0;ctr<ymax;ctr++)
-	{
-	for(ctr2=0;ctr2<xmax;ctr2++)
-		{
-		if(!(vismap[ctr2+1][ctr+1]&1))
-			gamewin->FillRect(xctr,yctr,31,31,&blanker);
-		xctr+=32;
-		}
-	xctr=0;
-	yctr+=32;
-	}
-}
-
-int isBlanked(int x, int y)
-{
-int vx,vy;
-
-vx = x-mapx;
-vy = y-mapy;
-
-if(vx<0 || vx>VSW)
-	return 1;
-if(vy<0 || vy>VSH)
-	return 1;
-
-if(!vismap[vx+1][vy+1]&1)
-	return 1;
-
-return 0;
-}
-
-int isSpriteBlanked(int x, int y)
-{
-int vx,vy;
-
-vx = x-mapx;
-vy = y-mapy;
-
-if(vx<0 || vx>VSW)
-	return 1;
-if(vy<0 || vy>VSH)
-	return 1;
-
-if(vismap[vx+1][vy+1]&4)
-	return 1;
-if(!vismap[vx+1][vy+1]&1)
-	return 1;
-
-return 0;
-}
-
 
 void SetDarkness(int d)
 {
@@ -1084,8 +918,6 @@ unsigned char *lptr;
 int offset,id;
 int darkness=0,got_light=0,got_dark=0;
 
-memset(&blmap[0][0],0,(sizeof(char)*(LMSIZE*LMSIZE)));
-
 // Find all lightsources
 
 lights=0;
@@ -1117,7 +949,7 @@ for(cy=starty;cy<ey;cy++) {
 		for(;temp;temp=temp->next) { // Traverse the list
 			if(temp->flags & IS_ON && lights<255) {
 				if(temp->light) {
-					if(!isSpriteBlanked(cx,cy)) {
+					if(!lightingmap.isSpriteBlanked(cx,cy)) {
 						light[lights].light=temp->light;
 						light[lights].x=cx-x;
 						light[lights].y=cy-y;
@@ -1211,10 +1043,17 @@ int xoffset,yoffset;
 xoffset = STARTX;//+(1-rnd(2));
 yoffset = STARTX;//+(1-rnd(2));
 
+cx = x+basex;
+cy = y+basey;
+
 // Light central hub square
 for(yy=0;yy<3;yy++)
 	for(xx=0;xx<3;xx++)
 		{
+		if(lightingmap.isBlanked(cx+xx,cy+yy)) {
+			continue;
+		}
+
 		lx=((x+xx-1)<<5)+xoffset;
 		ly=((y+yy-1)<<5)+yoffset;
 		if(light)
@@ -1227,16 +1066,14 @@ for(yy=0;yy<3;yy++)
 // Clear the already-lit array
 memset(dlm,0,64);
 
-cx = x+basex;
-cy = y+basey;
-
 for(ctr=0;ctr<8;ctr++)
 	{
 	// Store for faster access
 	xx = (node[ctr][0][0]);
 	yy = (node[ctr][0][1]);
 
-	if(!BlocksLight(cx+xx,cy+yy))
+//	if(!BlocksLight(cx+xx,cy+yy))
+	if(!lightingmap.isBlanked(cx+xx,cy+yy))
 		{
 		xx = (node[ctr][1][0])+2;
 		yy = (node[ctr][1][1])+2;
@@ -1279,74 +1116,6 @@ for(ctr=0;ctr<8;ctr++)
 			}
 		}
 	}
-}
-
-
-
-/*
- *  Blank rooms the player can't see
- */
-
-void vis_floodfill(int x, int y)
-{
-// Check bounds
-
-if(x<0 || x>VSW)
-	return;
-if(y<0 || y>VSH)
-	return;
-
-// Already done?
-if(vismap[x+1][y+1])
-	{
-	vismap[x+1][y+1]=3;
-	return;
-	}
-
-// If it blocks light, stop right there
-if(blmap[x][y])
-	{
-	vismap[x+1][y+1]=3; // Mark as done, and lit (was 2, walls were 'dark')
-	return;
-	}
-else
-	vismap[x+1][y+1]=3;  // was 1
-
-vis_floodfill(x-1,y-1);
-vis_floodfill(x,y-1);
-vis_floodfill(x+1,y-1);
-
-vis_floodfill(x-1,y);
-vis_floodfill(x+1,y);
-
-vis_floodfill(x-1,y+1);
-vis_floodfill(x,y+1);
-vis_floodfill(x+1,y+1);
-}
-
-/*
- *  Punch a hole in the darkness
- */
-
-void vis_punch(int x, int y)
-{
-if(x<0 || x>VSW)
-	return;
-if(y<0 || y>VSH)
-	return;
-
-vismap[x+1][y+1]=1;
-
-vis_floodfill(x-1,y-1);
-vis_floodfill(x,y-1);
-vis_floodfill(x+1,y-1);
-
-vis_floodfill(x-1,y);
-vis_floodfill(x+1,y);
-
-vis_floodfill(x-1,y+1);
-vis_floodfill(x,y+1);
-vis_floodfill(x+1,y+1);
 }
 
 //
