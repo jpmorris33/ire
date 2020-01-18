@@ -703,8 +703,7 @@ if(y+VSH > curmap->h)
 	y=curmap->h-VSH;
 
 if(UpdateAnim())	{
-	if(vis_blanking && !blanking_off)
-		Hide_Unseen_Map();
+	Hide_Unseen_Map();
 
 	Project_Map(x,y);
 

@@ -2875,55 +2875,37 @@ Plot(RTtot);
 pos = 1; // 0 is special (no roof tile)
 imagedata=0;
 
-for(ctr=start;ctr<=finish;ctr++)
-	{
-    // Assume the roof vanishes when you stand under it
-    RTlist[pos].flags=KILLROOF;
-    line = script.line[ctr];
-/*
-    Rptr=strfirst(strrest(line));
-    if(!istricmp(Rptr,"stand_under"))
-    	RTlist[pos].flags&=~KILLROOF; // oh, it doesn't
-    if(!istricmp(Rptr,"no_map"))
-    	RTlist[pos].flags|=KILLMAP; // oh, it doesn't
-
-	// It makes things dark?
-	if(!istricmp(Rptr,"dark"))
-		{
-		RTlist[pos].darkness=64;	// Default to 64
-
-		// If we have a sensible replacement, use that
-		strcpy(Rbuffer,strfirst(strrest(strrest(line))));
-		if(strisnumber(Rbuffer))
-			RTlist[pos].darkness=strgetnumber(Rbuffer);
-		}
-*/
-    Rptr=(char *)strrest(line);
+for(ctr=start;ctr<=finish;ctr++) {
+	// Assume the roof vanishes when you stand under it
+	RTlist[pos].flags=KILLROOF;
+	line = script.line[ctr];
+	Rptr=(char *)strrest(line);
 	if(FindWord(Rptr,"stand_under"))
 		RTlist[pos].flags&=~KILLROOF; // Stop it taking the roof away
 	if(FindWord(Rptr,"no_map"))
 		RTlist[pos].flags|=KILLMAP; // Stops the map from being available
+	if(FindWord(Rptr,"invisible"))
+		RTlist[pos].flags|=INVISROOF; // Only draw in editor
 
 	// It makes things dark?
 	dp=FindWord(Rptr,"dark");
-	if(dp)
-		{
+	if(dp) {
 		RTlist[pos].darkness=64;	// Default to 64
 
 		// Try and get a parameter
 		strcpy(Rbuffer,strgetword(Rptr,dp+1));
-		if(strisnumber(Rbuffer))
+		if(strisnumber(Rbuffer)) {
 			RTlist[pos].darkness=strgetnumber(Rbuffer);
 		}
+	}
 
 	Rptr=strfirst(line);                       // Get first term
-	if(Rptr!=NOTHING)                       // If it exists..
-		{
+	if(Rptr!=NOTHING) {                       // If it exists..
 		RTlist[pos].fname = hardfirst(line);     // Get filename
 		imagedata += Init_RoofTile(pos);
 		pos++;  // Go onto the next entry in the sprite list
-		}
 	}
+}
 
 ilog_quiet("Finished\n");
 ilog_printf("\n");

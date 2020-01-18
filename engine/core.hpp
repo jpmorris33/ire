@@ -37,6 +37,7 @@
 
 #define KILLROOF	1
 #define KILLMAP		2
+#define INVISROOF	4
 
 #define MAPSIG 0xf15e0005
 

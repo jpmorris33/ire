@@ -121,6 +121,7 @@ void render_lighting(int x, int y);
 static void vis_floodfill(int x, int y);
 static void vis_punch(int x, int y);
 int isBlanked(int x, int y);
+int isSpriteBlanked(int x, int y);
 extern void CallVMnum(int func);
 extern IRELIGHTMAP *load_lightmap(char *filename);
 static int scale_torches(int torchcount);
@@ -762,12 +763,12 @@ void Project_Roof(int x, int y)
 {
 int xctr=0,yctr,ptr,bit,ctr,ctr2;
 OBJECT *temp;
+int tile;
 
 xctr=0;
 yctr=0;
 
 // This must be black for framebuffer overlaying later
-//clear_to_color(roofwin,ire_black);
 roofwin->Clear(ire_black);
 
 ptr=y*curmap->w;
@@ -775,32 +776,28 @@ ptr+=x;
 
 bit=curmap->w - VSW;
 xctr=0;
-for(ctr=0;ctr<VSH;ctr++)
-	{
-	for(ctr2=0;ctr2<VSW;ctr2++)
-		{
-		if(curmap->roof[ptr])
-			if(curmap->roof[ptr]<RTtot)
-				{
-//				draw_rle_sprite(roofwin,RTlist[curmap->roof[ptr]].image,xctr,yctr);
-				RTlist[curmap->roof[ptr]].image->Draw(roofwin,xctr,yctr);
-				}
+for(ctr=0;ctr<VSH;ctr++) {
+	for(ctr2=0;ctr2<VSW;ctr2++) {
+		tile=curmap->roof[ptr];
+		if(tile) {
+			if(tile<RTtot && !(RTlist[tile].flags & INVISROOF)) {
+				RTlist[tile].image->Draw(roofwin,xctr,yctr);
+			}
 		xctr+=32;
 		ptr++;
 		}
+	}
 	xctr=0;
 	yctr+=32;
 	ptr+=bit;
-	}
+}
 
 // Now, project the rooftop sprites (chimney etc)
 
-for(ctr=0;ctr<roofspr;ctr++)
-	{
+for(ctr=0;ctr<roofspr;ctr++) {
 	temp = roofsprites[ctr];
-//	draw_rle_sprite(roofwin,temp->form->seq[0]->image,(temp->x-x)<<5,(temp->y-y)<<5);
 	temp->form->seq[0]->image->Draw(roofwin,(temp->x-x)<<5,(temp->y-y)<<5);
-	}
+}
 }
 
 //
@@ -994,6 +991,26 @@ if(!vismap[vx+1][vy+1]&1)
 return 0;
 }
 
+int isSpriteBlanked(int x, int y)
+{
+int vx,vy;
+
+vx = x-mapx;
+vy = y-mapy;
+
+if(vx<0 || vx>VSW)
+	return 1;
+if(vy<0 || vy>VSH)
+	return 1;
+
+if(vismap[vx+1][vy+1]&4)
+	return 1;
+if(!vismap[vx+1][vy+1]&1)
+	return 1;
+
+return 0;
+}
+
 
 void SetDarkness(int d)
 {
@@ -1042,23 +1059,15 @@ lmh2=lmh/2;
 
 // Break the lightmap into tiles
 
-for(x=0;x<=lmw;x++)
-    for(y=0;y<=lmh;y++)
-        {
-        lm[x][y]=MakeIRELIGHTMAP(32,32);
-	if(!lm[x][y])
-		ithe_panic("Could not create lightmap tile","Out of memory?");
-	
-	lm[x][y]->Get(darkmap,x<<5,y<<5);
-/*	
-        for(cx=0;cx<32;cx++)
-            for(cy=0;cy<32;cy++)
-                {
-			darkmap->GetPixel(cx+(x<<5),cy+(y<<5),&rcol);
-			lm[x][y]->PutPixel(cx,cy,&rcol);
-                }
-*/                
+for(x=0;x<=lmw;x++) {
+	for(y=0;y<=lmh;y++) {
+		lm[x][y]=MakeIRELIGHTMAP(32,32);
+		if(!lm[x][y]) {
+			ithe_panic("Could not create lightmap tile","Out of memory?");
+		}
+		lm[x][y]->Get(darkmap,x<<5,y<<5);
         }
+}
 }
 
 /*
@@ -1108,25 +1117,16 @@ for(cy=starty;cy<ey;cy++) {
 		for(;temp;temp=temp->next) { // Traverse the list
 			if(temp->flags & IS_ON && lights<255) {
 				if(temp->light) {
-			                // if the object is in the screen region
-			                if((cx+lmw >= x) && (cx-lmw < ex)) {
-						if((cy+lmh >= y) && (cy <= ey)) {
-							nx = cx-x;
-							ny = cy-y;
-							if(nx+lmw>0 && ny+lmh>0) {
-								if(nx-lmw2<VSW && ny-lmh2<VSH) {
-									light[lights].light=temp->light;
-									light[lights].x=nx;
-									light[lights].y=ny;
-									lights++;
-									if(temp->light > 0) {
-										got_light++;
-									}
-									if(temp->light < 0) {
-										got_dark++;
-									}
-								}
-							}
+					if(!isSpriteBlanked(cx,cy)) {
+						light[lights].light=temp->light;
+						light[lights].x=cx-x;
+						light[lights].y=cy-y;
+						lights++;
+						if(temp->light > 0) {
+							got_light++;
+						}
+						if(temp->light < 0) {
+							got_dark++;
 						}
 					}
 				}
