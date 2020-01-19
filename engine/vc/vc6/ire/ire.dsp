@@ -252,6 +252,10 @@ SOURCE=..\..\..\library.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\lightmask.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\linklist.cpp
 # End Source File
 # Begin Source File

@@ -26,5 +26,7 @@ class LightMask {
 		char map[MASK_MAXWIDTH][MASK_MAXHEIGHT];
 		void floodfill(int x, int y);
 		int blocked(int x, int y);
+		void maskLeft(int x, int y);
+		void maskUp(int x, int y);
 
 };

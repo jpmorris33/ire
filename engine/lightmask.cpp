@@ -121,7 +121,7 @@ xctr=x;
 yctr=y;
 for(ctr=0;ctr<=h;ctr++) {
 	for(ctr2=0;ctr2<=w;ctr2++) {
-		if(map[ctr2][ctr]) {
+		if(map[ctr2][ctr] == 1) {
 			tile[ctr2][ctr]->DrawLight(dest,xctr,yctr);
 		}
 		xctr+=32;
@@ -148,7 +148,7 @@ xctr=x;
 yctr=y;
 for(ctr=0;ctr<=h;ctr++) {
 	for(ctr2=0;ctr2<=w;ctr2++) {
-		if(map[ctr2][ctr]) {
+		if(map[ctr2][ctr] == 1) {
 			tile[ctr2][ctr]->DrawDark(dest,xctr,yctr);
 		}
 		xctr+=32;
@@ -181,18 +181,23 @@ if(lightingmap.isSpriteBlanked(x+xoffset,y+yoffset)) {
 map[x][y]=1;
 
 // If it blocks light, try filling right and down only
-if(BlocksLight(x+xoffset,y+yoffset)) {
-	if(!blocked(x+1,y))
-		floodfill(x+1,y);
-	if(!blocked(x,y+1))
-		floodfill(x,y+1);
-	return;
+if(x == w2 && y == h2) {
+	if(BlocksLight(x+xoffset,y+yoffset)) {
+		if(!blocked(x+1,y)) {
+			maskLeft(x,y);
+			floodfill(x+1,y);
+			}
+		if(!blocked(x,y+1)) {
+			maskUp(x,y);
+			floodfill(x,y+1);
+			}
+		return;
+	}
 }
-
-map[x][y]=1;
 
 // Otherwise just spread
 
+floodfill(x-1,y-1);
 floodfill(x,y-1);
 
 floodfill(x-1,y);
@@ -211,4 +216,22 @@ if(lightingmap.isSpriteBlanked(x+xoffset,y+yoffset)) {
 	return 1;
 }
 return 0;
+}
+
+void LightMask::maskLeft(int x, int y) {
+if(x<w2)
+	return;
+for(int yctr=0;yctr<=h;yctr++)
+	for(int xctr=0;xctr<w2;xctr++)
+		if(!map[xctr][yctr])
+			map[xctr][yctr]=-1;
+}
+
+void LightMask::maskUp(int x, int y) {
+if(y<h2)
+	return;
+for(int yctr=0;yctr<h2;yctr++)
+	for(int xctr=0;xctr<=w;xctr++)
+		if(!map[xctr][yctr])
+			map[xctr][yctr]=-1;
 }
