@@ -76,11 +76,11 @@ static int node[8][4][2]=	{
 							{ {-1,-1},{-2,-2},{-2,-1},{-1,-2}  }, // top-left
 							{ {+0,-1},{+0,-2},{-1,-2},{+1,-2}  }, // top
 							{ {+1,-1},{+2,-2},{+1,-2},{+2,-1}  }, // top-right
+							{ {-1,+0},{-2,+0},{-2,-1},{-2,+1}  },  // left
 							{ {+1,+0},{+2,+0},{+2,-1},{+2,+1}  }, // right
-							{ {+1,+1},{+2,+2},{+2,+1},{+1,+2}  }, // bottom-right
-							{ {+0,+1},{+0,+2},{-1,+2},{+1,+2}  }, // bottom
 							{ {-1,+1},{-2,+2},{-2,+1},{+1,+2}  }, // bottom-left
-							{ {-1,+0},{-2,+0},{-2,-1},{-2,+1}  }  // left
+							{ {+0,+1},{+0,+2},{-1,+2},{+1,+2}  }, // bottom
+							{ {+1,+1},{+2,+2},{+2,+1},{+1,+2}  }  // bottom-right
 							};
 
 static IRELIGHTMAP *lightmap;       // The shape of the lightmask we'll use
@@ -118,6 +118,7 @@ void anim_none(OBJECT *temp);
 
 static void init_lightmap();
 static void proj_light(int x, int y, int light);
+static void proj_light_complex(int x, int y, int light);
 void render_lighting(int x, int y);
 extern void CallVMnum(int func);
 extern IRELIGHTMAP *load_lightmap(char *filename);
@@ -1029,7 +1030,7 @@ roofwin->Darken(darkness);
 }
 
 /*
- *      Project a single light source
+ *      Project a single light source - simple case
  */
 
 void proj_light(int x, int y, int light)
@@ -1046,10 +1047,15 @@ yoffset = STARTX;//+(1-rnd(2));
 cx = x+basex;
 cy = y+basey;
 
+//if(BlocksLight(cx,cy)) {
+	proj_light_complex(x,y,light);
+	return;
+//}
+
 // Light central hub square
 for(yy=0;yy<3;yy++) {
 	for(xx=0;xx<3;xx++) {
-		if(lightingmap.isBlanked(cx+xx,cy+yy)) {
+		if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
 			continue;
 		}
 
@@ -1115,6 +1121,132 @@ for(ctr=0;ctr<8;ctr++) {
 }
 
 }
+
+
+/*
+ *      Project a single light source from a wall
+ */
+
+void proj_light_complex(int x, int y, int light)
+{
+int xx,yy,cx,cy,ctr,lx,ly;
+char dlm[8][8];
+int xoffset,yoffset;
+
+#define STARTX 0
+
+xoffset = STARTX;//+(1-rnd(2));
+yoffset = STARTX;//+(1-rnd(2));
+
+cx = x+basex;
+cy = y+basey;
+
+// Light central hub square
+if(!lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
+	xx=0;
+	yy=0;
+	lx=((x+xx)<<5)+xoffset;
+	ly=((y+yy)<<5)+yoffset;
+	if(light) {
+		lm[xx+2][yy+2]->DrawLight(darkmap,lx,ly);
+	} else {
+		lm[xx+2][yy+2]->DrawDark(darkmap,lx,ly);
+	}
+}
+
+// Clear the already-lit array
+memset(dlm,0,64);
+
+for(ctr=0;ctr<8;ctr++) {
+	// Store for faster access
+	xx = (node[ctr][0][0]);
+	yy = (node[ctr][0][1]);
+	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
+		continue;
+	}
+	xx +=2;
+	yy +=2;
+
+	if(!dlm[xx][yy]) {
+		lx=((x+xx-2)<<5)+xoffset;
+		ly=((y+yy-2)<<5)+yoffset;
+		if(light) {
+			lm[xx][yy]->DrawLight(darkmap,lx,ly);
+		} else {
+			lm[xx][yy]->DrawDark(darkmap,lx,ly);
+		}
+		dlm[xx][yy]=1;
+	}
+
+	xx = (node[ctr][1][0]);
+	yy = (node[ctr][1][1]);
+	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
+		continue;
+	}
+	if(BlocksLight(cx+xx,cy+yy)) {
+		continue;
+	}
+	xx +=2;
+	yy +=2;
+
+	if(!dlm[xx][yy]) {
+		lx=((x+xx-2)<<5)+xoffset;
+		ly=((y+yy-2)<<5)+yoffset;
+		if(light) {
+			lm[xx][yy]->DrawLight(darkmap,lx,ly);
+		} else {
+			lm[xx][yy]->DrawDark(darkmap,lx,ly);
+		}
+		dlm[xx][yy]=1;
+	}
+
+	xx = (node[ctr][2][0]);
+	yy = (node[ctr][2][1]);
+	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
+		continue;
+	}
+	if(BlocksLight(cx+xx,cy+yy)) {
+		continue;
+	}
+	xx +=2;
+	yy +=2;
+
+	if(!dlm[xx][yy]) {
+		lx=((x+xx-2)<<5)+xoffset;
+		ly=((y+yy-2)<<5)+yoffset;
+		if(light) {
+			lm[xx][yy]->DrawLight(darkmap,lx,ly);
+		} else {
+			lm[xx][yy]->DrawDark(darkmap,lx,ly);
+		}
+		dlm[xx][yy]=1;
+	}
+
+	xx = (node[ctr][3][0]);
+	yy = (node[ctr][3][1]);
+	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
+		continue;
+	}
+	if(BlocksLight(cx+xx,cy+yy)) {
+		continue;
+	}
+	xx +=2;
+	yy +=2;
+
+	if(!dlm[xx][yy]) {
+		lx=((x+xx-2)<<5)+xoffset;
+		ly=((y+yy-2)<<5)+yoffset;
+		if(light) {
+			lm[xx][yy]->DrawLight(darkmap,lx,ly);
+		} else {
+			lm[xx][yy]->DrawDark(darkmap,lx,ly);
+		}
+		dlm[xx][yy]=1;
+	}
+}
+
+}
+
 
 //
 //  General-purpose fast random function
