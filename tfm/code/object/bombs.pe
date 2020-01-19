@@ -86,27 +86,79 @@ end
 
 function explode
 
-integer x
-integer y
-
 let bomb = me
+let damage = bomb.stats.damage
 
 play_sound "boom"
+lightning 2
 
-call find_root
+call explosion_core
 
-let x = root.x
-let y = root.y
+let bomb.stats.hp = -10000		# Destroy and be Free
+check_hurt bomb
+
+if bomb <> player
+	destroy bomb
+endif
+
+call whup_objects
+
+redraw_map
+
+end
+
+##
+##
+##
+
+function explode_quiet
+
+let bomb = me
 let damage = bomb.stats.damage
 
 # He who cast the first bomb is guilty
 let suspect = bomb.stats.owner
 let attacker = bomb.stats.owner
 
-let bomb.stats.hp = -10000		# Destroy and be Free
-check_hurt bomb
+call explosion_core
 
-lightning 2
+call whup_objects
+
+redraw_map
+
+end
+
+
+##
+##  Expose the surrounding objects to radiation
+##
+
+function radiation_damage
+
+let bomb = me
+let damage = bomb.stats.damage
+
+call explosion_core
+
+call whup_organic_objects
+
+end
+
+
+
+##
+##
+##
+
+function explosion_core
+
+integer x
+integer y
+
+call find_root
+
+let x = root.x
+let y = root.y
 
 let whupctr = 1
 
@@ -171,14 +223,6 @@ call whup
 let wx = x
 let wy = y + 2
 call whup
-
-if bomb <> player
-	destroy bomb
-endif
-
-call whup_objects
-
-redraw_map
 
 end
 
@@ -266,81 +310,9 @@ while root.parent
 end
 
 
-
-
-function radiation_damage
-integer x
-integer y
-
-let bomb = me
-
-call find_root
-
-let x = root.x
-let y = root.y
-let damage = bomb.stats.damage
-
-let whupctr = 1
-
-# Expose the surrounding objects to radiation
-
-let wx = x
-let wy = y
-call whup
-
-let wx = x
-let wy = y - 2
-call whup
-
-let wx = x - 1
-let wy = y - 1
-call whup
-
-let wx = x
-let wy = y - 1
-call whup
-
-let wx = x + 1
-let wy = y - 1
-call whup
-
-let wx = x - 2
-let wy = y
-call whup
-
-let wx = x - 1
-let wy = y
-call whup
-
-let wx = x + 1
-let wy = y
-call whup
-
-let wx = x + 2
-let wy = y
-call whup
-
-let wx = x - 1
-let wy = y + 1
-call whup
-
-let wx = x
-let wy = y + 1
-call whup
-
-let wx = x + 1
-let wy = y + 1
-call whup
-
-let wx = x
-let wy = y + 2
-call whup
-
-call whup_organic_objects
-
-end
-
+##
 ## For radiation
+##
 
 function whup_organic_objects
 private

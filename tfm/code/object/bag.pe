@@ -107,6 +107,9 @@ if current = kfs
 	let player.stats.hp = -100000
 	check_hurt player
 	set_flag kfs IS_INVISIBLE = 1
+	let me = kfs
+	let me.stats.damage = 100000
+	call explode_quiet
 
 	let kfs.user.user18 = 48
 	let kfs.user.user17 = 2
