@@ -351,6 +351,7 @@ typedef struct ST_ITEM
 #define ENGINE_DIDUPDATE	0x00000004	// Have we just moved (avoids runaway)
 #define ENGINE_DIDACTIVETILE	0x00000008	// Going to use this to improve lava handling for offscreen NPCs
 #define ENGINE_DIDSPIKE		0x00000010	// Have we updated repeating spikes?
+#define ENGINE_DIDMOVESTACK	0x00000020	// Used by MoveTag
 
 typedef struct FUNCS            // This is called when you...
 {

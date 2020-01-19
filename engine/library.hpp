@@ -106,6 +106,7 @@ extern int move_towards(OBJECT *object, OBJECT *end);
 extern int move_towards_4(OBJECT *object, OBJECT *end);
 extern int move_towards_8(OBJECT *object, OBJECT *end);
 extern int move_thick(OBJECT *object, OBJECT *end);
+extern void move_stack(OBJECT *object, int x, int y);
 
 //extern  int add_to_party(OBJECT *new_member);
 extern void remove_from_party(OBJECT *member);

@@ -5746,15 +5746,21 @@ CHECK_POINTER(y);
 
 tag = -(*tag1); // Get negated tag number (e.g. 50 -> -50)
 
-// Move them all
+// Make sure they're not flagged as moved
+for(t=MasterList;t;t=t->next) {
+	t->ptr->engineflags &= ~ENGINE_DIDMOVESTACK;
+}
 
-for(t=MasterList;t;t=t->next)
-	if(t->ptr->tag == tag)
-		{
-		transfer_object(t->ptr,t->ptr->x+*x,t->ptr->y+*y);
-		MoveToFloor(t->ptr); // Prevent candles etc on table disappearing
+// Move them if applicable
+for(t=MasterList;t;t=t->next) {
+	if(t->ptr->tag == tag) {
+		if(!t->ptr->pocket.objptr) {
+			if(!(t->ptr->engineflags & ENGINE_DIDMOVESTACK)) {
+				move_stack(t->ptr,t->ptr->x+*x,t->ptr->y+*y);
+			}
 		}
-
+	}
+}
 }
 
 

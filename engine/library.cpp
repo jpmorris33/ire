@@ -413,6 +413,50 @@ CHECK_OBJECT(obj);
 TransferObject(obj,x,y);
 }
 
+// Move an entire pile of objects with a given tag (move tables for secrets etc)
+void move_stack(OBJECT *obj,int x, int y)
+{
+OBJECT *o,*next;
+if(!obj) {
+	return;
+}
+int srcx=obj->x,srcy=obj->y;
+if(srcx == x && srcy == y) {
+	return;
+}
+
+o = GetRawObjectBase(srcx,srcy);
+if(!o) {
+	return;
+}
+// Don't move the bottom objects if they've not got the tag
+// However, objects above the tagged ones should be carried along on top
+if(o->tag != obj->tag) {
+	for(;o;o=o->next) {
+		if(o->tag == obj->tag) {
+			break;
+		}
+	}
+	if(!o) {
+		return;
+	}
+}
+
+for(;o;o=next) {
+	next=o->next;
+	// If it's already moved, skip over it
+	if(o->engineflags & ENGINE_DIDMOVESTACK) {
+		o=next;
+		continue;
+	}
+
+	// Move it and mark it as moved
+	TransferObject(o,x,y);
+	o->engineflags |= ENGINE_DIDMOVESTACK;
+	o=next;
+}
+}
+
 
 void spill_contents(OBJECT *bag)
 {
