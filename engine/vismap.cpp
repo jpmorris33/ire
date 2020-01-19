@@ -1,3 +1,4 @@
+#include <string.h>
 #include "graphics/iregraph.hpp"
 #include "core.hpp"
 #include "gamedata.hpp"
@@ -181,6 +182,7 @@ vx = x-mapx;
 vy = y-mapy;
 
 if(vx<0 || vx>VSW) {
+//	printf("Out of range (%d,%d)\n",vx,vy);
 	return 1;
 }
 if(vy<0 || vy>VSH)

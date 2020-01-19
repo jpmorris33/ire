@@ -23,9 +23,9 @@
 #include "../object.hpp"
 #include "../loadsave.hpp"
 #include "../gamedata.hpp"
+#include "../vismap.hpp"
 #include "opcodes.h"
 #include "pe_api.hpp"
-#include "vismap.hpp"
 
 #ifdef __BEOS__
 #define _WIN32

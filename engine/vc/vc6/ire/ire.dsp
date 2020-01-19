@@ -330,6 +330,10 @@ SOURCE=..\..\..\textfile.c
 
 SOURCE=..\..\..\uuidgen.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=..\..\..\vismap.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
