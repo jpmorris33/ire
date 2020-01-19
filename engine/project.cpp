@@ -749,9 +749,9 @@ for(ctr=0;ctr<VSH;ctr++) {
 			if(tile<RTtot && !(RTlist[tile].flags & INVISROOF)) {
 				RTlist[tile].image->Draw(roofwin,xctr,yctr);
 			}
+		}
 		xctr+=32;
 		ptr++;
-		}
 	}
 	xctr=0;
 	yctr+=32;
@@ -1047,75 +1047,73 @@ cx = x+basex;
 cy = y+basey;
 
 // Light central hub square
-for(yy=0;yy<3;yy++)
-	for(xx=0;xx<3;xx++)
-		{
+for(yy=0;yy<3;yy++) {
+	for(xx=0;xx<3;xx++) {
 		if(lightingmap.isBlanked(cx+xx,cy+yy)) {
 			continue;
 		}
 
 		lx=((x+xx-1)<<5)+xoffset;
 		ly=((y+yy-1)<<5)+yoffset;
-		if(light)
+		if(light) {
 			lm[xx+1][yy+1]->DrawLight(darkmap,lx,ly);
-		else
+		} else {
 			lm[xx+1][yy+1]->DrawDark(darkmap,lx,ly);
-		dlm[xx+1][yy+1]=1;
 		}
+		dlm[xx+1][yy+1]=1;
+	}
+}
 
 // Clear the already-lit array
 memset(dlm,0,64);
 
-for(ctr=0;ctr<8;ctr++)
-	{
+for(ctr=0;ctr<8;ctr++) {
 	// Store for faster access
 	xx = (node[ctr][0][0]);
 	yy = (node[ctr][0][1]);
 
-//	if(!BlocksLight(cx+xx,cy+yy))
-	if(!lightingmap.isBlanked(cx+xx,cy+yy))
-		{
+	if(!lightingmap.isBlanked(cx+xx,cy+yy)) {
 		xx = (node[ctr][1][0])+2;
 		yy = (node[ctr][1][1])+2;
-	
-		if(!dlm[xx][yy])
-			{
+		if(!dlm[xx][yy]) {
 			lx=((x+xx-2)<<5)+xoffset;
 			ly=((y+yy-2)<<5)+yoffset;
-			if(light)
+			if(light) {
 				lm[xx][yy]->DrawLight(darkmap,lx,ly);
-			else
+			} else {
 				lm[xx][yy]->DrawDark(darkmap,lx,ly);
-			dlm[xx][yy]=1;
 			}
+			dlm[xx][yy]=1;
+		}
 
 		xx = (node[ctr][2][0])+2;
 		yy = (node[ctr][2][1])+2;
-		if(!dlm[xx][yy])
-			{
+		if(!dlm[xx][yy]) {
 			lx=((x+xx-2)<<5)+xoffset;
 			ly=((y+yy-2)<<5)+yoffset;
-			if(light)
+			if(light) {
 				lm[xx][yy]->DrawLight(darkmap,lx,ly);
-			else
+			} else {
 				lm[xx][yy]->DrawDark(darkmap,lx,ly);
-			dlm[xx][yy]=1;
 			}
+			dlm[xx][yy]=1;
+		}
 
 		xx = (node[ctr][3][0])+2;
 		yy = (node[ctr][3][1])+2;
-		if(!dlm[xx][yy])
-			{
+		if(!dlm[xx][yy]) {
 			lx=((x+xx-2)<<5)+xoffset;
 			ly=((y+yy-2)<<5)+yoffset;
-			if(light)
+			if(light) {
 				lm[xx][yy]->DrawLight(darkmap,lx,ly);
-			else
+			} else {
 				lm[xx][yy]->DrawDark(darkmap,lx,ly);
-			dlm[xx][yy]=1;
 			}
+			dlm[xx][yy]=1;
 		}
 	}
+}
+
 }
 
 //
