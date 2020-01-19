@@ -15,6 +15,7 @@
 #include "media.hpp"
 #include "oscli.hpp"
 #include "vismap.hpp"
+#include "lightmask.hpp"
 
 // Defines
 #define MAX_P_OVERLAY 255       // Maximum number of overlayed objects
@@ -65,28 +66,7 @@ static int masterclock=0;
 void (*animate[8])(OBJECT *temp);
 static unsigned char *rndtab[256];
 
-    // Lookup table for the possible light paths.
-    // Each node has three adjacent squares which are lit by the engine.
-    // The dark routine lights up (or darkens) each square, and marks it
-    // as being used, so that it cannot be brightened twice.
-    // This is necessary because there will be overlap between some nodes.
-    // That's necessary due to this algorithm...
-
-static int node[8][4][2]=	{
-							{ {-1,-1},{-2,-2},{-2,-1},{-1,-2}  }, // top-left
-							{ {+0,-1},{+0,-2},{-1,-2},{+1,-2}  }, // top
-							{ {+1,-1},{+2,-2},{+1,-2},{+2,-1}  }, // top-right
-							{ {-1,+0},{-2,+0},{-2,-1},{-2,+1}  },  // left
-							{ {+1,+0},{+2,+0},{+2,-1},{+2,+1}  }, // right
-							{ {-1,+1},{-2,+2},{-2,+1},{+1,+2}  }, // bottom-left
-							{ {+0,+1},{+0,+2},{-1,+2},{+1,+2}  }, // bottom
-							{ {+1,+1},{+2,+2},{+2,+1},{+1,+2}  }  // bottom-right
-							};
-
-static IRELIGHTMAP *lightmap;       // The shape of the lightmask we'll use
-static IRELIGHTMAP *lm[8][8];         // The lightmask split into tiles.
-static int lmw,lmh;            // Width and height of the lightmask in tiles.
-static int lmw2,lmh2;          // lmw and lmh respectively, but divided by two
+static LightMask lightmask;
 static int basex,basey;
 static int post_ovl=0;
 static int people_ovl=0;
@@ -116,9 +96,6 @@ void anim_random(OBJECT *temp);
 void anim_unisync(OBJECT *temp);
 void anim_none(OBJECT *temp);
 
-static void init_lightmap();
-static void proj_light(int x, int y, int light);
-static void proj_light_complex(int x, int y, int light);
 void render_lighting(int x, int y);
 extern void CallVMnum(int func);
 extern IRELIGHTMAP *load_lightmap(char *filename);
@@ -209,7 +186,7 @@ darkmap = MakeIRELIGHTMAP(VSW32,VSH32);
 if(!darkmap)
 	ithe_panic("Create DMP bitmap failed",NULL);
 
-init_lightmap();
+lightmask.init();
 SetDarkness(darklevel); // Resync darkness level
 }
 
@@ -860,51 +837,6 @@ return darklevel;
 }
 
 
-
-void init_lightmap()
-{
-int x,y;
-char filename[1024];
-IRECOLOUR rcol(0,0,0);
-// Load in the light mask
-
-if(!loadfile("sprites/lightmap.cel",filename))
-	ithe_panic("Could not find lightmask '%s'",filename);
-lightmap=load_lightmap(filename);
-
-// Put the light mask where we can get_sprite it
-
-darkmap->Clear(0);
-lightmap->DrawSolid(darkmap,0,0);
-
-// Find size of the light mask in tiles
-
-lmw = lightmap->GetW()/32;
-lmh = lightmap->GetH()/32;
-
-// Correct the value (since it rounds down)
-
-if((lmw * 32) < lightmap->GetW())
-    lmw++;
-if((lmh * 32) < lightmap->GetH())
-    lmh++;
-
-lmw2=lmw/2;
-lmh2=lmh/2;
-
-// Break the lightmap into tiles
-
-for(x=0;x<=lmw;x++) {
-	for(y=0;y<=lmh;y++) {
-		lm[x][y]=MakeIRELIGHTMAP(32,32);
-		if(!lm[x][y]) {
-			ithe_panic("Could not create lightmap tile","Out of memory?");
-		}
-		lm[x][y]->Get(darkmap,x<<5,y<<5);
-        }
-}
-}
-
 /*
  *      render the lighting
  */
@@ -1008,7 +940,8 @@ for(cy=0;cy<VSH;cy++) {
 
 for(ctr=0;ctr<lights;ctr++) {
 	if(light[ctr].light<0) {
-		proj_light(light[ctr].x,light[ctr].y,0);
+		lightmask.calculate(light[ctr].x,light[ctr].y);
+		lightmask.projectDark(light[ctr].x,light[ctr].y,darkmap);
 	}
 }
 
@@ -1016,7 +949,8 @@ for(ctr=0;ctr<lights;ctr++) {
 
 for(ctr=0;ctr<lights;ctr++) {
 	if(light[ctr].light>0) {
-		proj_light(light[ctr].x,light[ctr].y,1);
+		lightmask.calculate(light[ctr].x,light[ctr].y);
+		lightmask.projectLight(light[ctr].x,light[ctr].y,darkmap);
 	}
 }
 
@@ -1027,224 +961,6 @@ for(ctr=0;ctr<lights;ctr++) {
 darkmap->Render(gamewin);
 // And the roof (which is rendered separately to avoid contamination)
 roofwin->Darken(darkness);
-}
-
-/*
- *      Project a single light source - simple case
- */
-
-void proj_light(int x, int y, int light)
-{
-int xx,yy,cx,cy,ctr,lx,ly;
-char dlm[8][8];
-int xoffset,yoffset;
-
-#define STARTX 0
-
-xoffset = STARTX;//+(1-rnd(2));
-yoffset = STARTX;//+(1-rnd(2));
-
-cx = x+basex;
-cy = y+basey;
-
-//if(BlocksLight(cx,cy)) {
-	proj_light_complex(x,y,light);
-	return;
-//}
-
-// Light central hub square
-for(yy=0;yy<3;yy++) {
-	for(xx=0;xx<3;xx++) {
-		if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
-			continue;
-		}
-
-		lx=((x+xx-1)<<5)+xoffset;
-		ly=((y+yy-1)<<5)+yoffset;
-		if(light) {
-			lm[xx+1][yy+1]->DrawLight(darkmap,lx,ly);
-		} else {
-			lm[xx+1][yy+1]->DrawDark(darkmap,lx,ly);
-		}
-		dlm[xx+1][yy+1]=1;
-	}
-}
-
-// Clear the already-lit array
-memset(dlm,0,64);
-
-for(ctr=0;ctr<8;ctr++) {
-	// Store for faster access
-	xx = (node[ctr][0][0]);
-	yy = (node[ctr][0][1]);
-
-	if(!lightingmap.isBlanked(cx+xx,cy+yy)) {
-		xx = (node[ctr][1][0])+2;
-		yy = (node[ctr][1][1])+2;
-		if(!dlm[xx][yy]) {
-			lx=((x+xx-2)<<5)+xoffset;
-			ly=((y+yy-2)<<5)+yoffset;
-			if(light) {
-				lm[xx][yy]->DrawLight(darkmap,lx,ly);
-			} else {
-				lm[xx][yy]->DrawDark(darkmap,lx,ly);
-			}
-			dlm[xx][yy]=1;
-		}
-
-		xx = (node[ctr][2][0])+2;
-		yy = (node[ctr][2][1])+2;
-		if(!dlm[xx][yy]) {
-			lx=((x+xx-2)<<5)+xoffset;
-			ly=((y+yy-2)<<5)+yoffset;
-			if(light) {
-				lm[xx][yy]->DrawLight(darkmap,lx,ly);
-			} else {
-				lm[xx][yy]->DrawDark(darkmap,lx,ly);
-			}
-			dlm[xx][yy]=1;
-		}
-
-		xx = (node[ctr][3][0])+2;
-		yy = (node[ctr][3][1])+2;
-		if(!dlm[xx][yy]) {
-			lx=((x+xx-2)<<5)+xoffset;
-			ly=((y+yy-2)<<5)+yoffset;
-			if(light) {
-				lm[xx][yy]->DrawLight(darkmap,lx,ly);
-			} else {
-				lm[xx][yy]->DrawDark(darkmap,lx,ly);
-			}
-			dlm[xx][yy]=1;
-		}
-	}
-}
-
-}
-
-
-/*
- *      Project a single light source from a wall
- */
-
-void proj_light_complex(int x, int y, int light)
-{
-int xx,yy,cx,cy,ctr,lx,ly;
-char dlm[8][8];
-int xoffset,yoffset;
-
-#define STARTX 0
-
-xoffset = STARTX;//+(1-rnd(2));
-yoffset = STARTX;//+(1-rnd(2));
-
-cx = x+basex;
-cy = y+basey;
-
-// Light central hub square
-if(!lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
-	xx=0;
-	yy=0;
-	lx=((x+xx)<<5)+xoffset;
-	ly=((y+yy)<<5)+yoffset;
-	if(light) {
-		lm[xx+2][yy+2]->DrawLight(darkmap,lx,ly);
-	} else {
-		lm[xx+2][yy+2]->DrawDark(darkmap,lx,ly);
-	}
-}
-
-// Clear the already-lit array
-memset(dlm,0,64);
-
-for(ctr=0;ctr<8;ctr++) {
-	// Store for faster access
-	xx = (node[ctr][0][0]);
-	yy = (node[ctr][0][1]);
-	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
-		continue;
-	}
-	xx +=2;
-	yy +=2;
-
-	if(!dlm[xx][yy]) {
-		lx=((x+xx-2)<<5)+xoffset;
-		ly=((y+yy-2)<<5)+yoffset;
-		if(light) {
-			lm[xx][yy]->DrawLight(darkmap,lx,ly);
-		} else {
-			lm[xx][yy]->DrawDark(darkmap,lx,ly);
-		}
-		dlm[xx][yy]=1;
-	}
-
-	xx = (node[ctr][1][0]);
-	yy = (node[ctr][1][1]);
-	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
-		continue;
-	}
-	if(BlocksLight(cx+xx,cy+yy)) {
-		continue;
-	}
-	xx +=2;
-	yy +=2;
-
-	if(!dlm[xx][yy]) {
-		lx=((x+xx-2)<<5)+xoffset;
-		ly=((y+yy-2)<<5)+yoffset;
-		if(light) {
-			lm[xx][yy]->DrawLight(darkmap,lx,ly);
-		} else {
-			lm[xx][yy]->DrawDark(darkmap,lx,ly);
-		}
-		dlm[xx][yy]=1;
-	}
-
-	xx = (node[ctr][2][0]);
-	yy = (node[ctr][2][1]);
-	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
-		continue;
-	}
-	if(BlocksLight(cx+xx,cy+yy)) {
-		continue;
-	}
-	xx +=2;
-	yy +=2;
-
-	if(!dlm[xx][yy]) {
-		lx=((x+xx-2)<<5)+xoffset;
-		ly=((y+yy-2)<<5)+yoffset;
-		if(light) {
-			lm[xx][yy]->DrawLight(darkmap,lx,ly);
-		} else {
-			lm[xx][yy]->DrawDark(darkmap,lx,ly);
-		}
-		dlm[xx][yy]=1;
-	}
-
-	xx = (node[ctr][3][0]);
-	yy = (node[ctr][3][1]);
-	if(lightingmap.isSpriteBlanked(cx+xx,cy+yy)) {
-		continue;
-	}
-	if(BlocksLight(cx+xx,cy+yy)) {
-		continue;
-	}
-	xx +=2;
-	yy +=2;
-
-	if(!dlm[xx][yy]) {
-		lx=((x+xx-2)<<5)+xoffset;
-		ly=((y+yy-2)<<5)+yoffset;
-		if(light) {
-			lm[xx][yy]->DrawLight(darkmap,lx,ly);
-		} else {
-			lm[xx][yy]->DrawDark(darkmap,lx,ly);
-		}
-		dlm[xx][yy]=1;
-	}
-}
-
 }
 
 
@@ -1289,5 +1005,8 @@ if(torchcount > 4) {
 result += (torch_bonus/3) * torchcount;
 return result;
 }
+
+
+
 
 

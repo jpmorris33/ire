@@ -3,8 +3,8 @@
 #
 
 ire_obj = console.o database.o fortifyj.o gamedata.o\
-	 init.o ire.o library.o linklist.o loaders.o loadfile.o loadpng.o\
-	 loadsave.o load_msc.o mainloop.o map.o media.o mouse.o\
+	 init.o ire.o library.o linklist.o lightmask.o loaders.o loadfile.o\
+	 loadpng.o loadsave.o load_msc.o mainloop.o map.o media.o mouse.o\
 	 nuspeech.o object.o oscli.o pathfind.o pe/pe_lang.o pe/pe_keyw.o\
 	 pe/pe_sys.o pe/pe_vm.o project.o resource.o textfile.o slotalloc.o\
 	 uuidgen.o vismap.o

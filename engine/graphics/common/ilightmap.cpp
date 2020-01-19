@@ -188,10 +188,11 @@ for(yctr=0;yctr<height;yctr++)
 void CMNLIGHTMAP::Get(IRELIGHTMAP *src, int x, int y)
 {
 unsigned char *srcptr,*destptr;
-int sw,sh,yctr;
+int sw,sh,dh,dw,yctr;
 if(!src || !image)
 	return;
 destptr=image;
+memset(destptr,0,width*height);
 
 srcptr = src->GetFramebuffer();
 if(!srcptr)
@@ -199,16 +200,27 @@ if(!srcptr)
 sw=src->GetW();
 sh=src->GetH();
 
-if(x<0 || x+width > sw || y<0 || y+height>sh)
+if(x<0 || y<0 || x>sw || y>sh) {
 	return;
+}
+
+dw=width;
+dh=height;
+if(x+width > sw) {
+	dw=sw-x;
+//	printf("clip width from %d/%d at %d to %d\n",width,sw,x,dw);
+}
+if(y+height > sh) {
+	dh=sh-y;
+//	printf("clip height from %d/%d at %d to %d\n",height,sh,y,dh);
+}
 
 srcptr += ((sw*y)+x);
-for(yctr=0;yctr<height;yctr++)
-	  {
-	  memcpy(destptr,srcptr,width);
-	  destptr+=width;
-	  srcptr+=sw;
-	  }
+for(yctr=0;yctr<dh;yctr++) {
+	memcpy(destptr,srcptr,dw);
+	destptr+=width;
+	srcptr+=sw;
+}
 }
 
 //
