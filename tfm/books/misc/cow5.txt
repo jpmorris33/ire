@@ -1,0 +1,41 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+  The milk has spoiled again, there must surely be some way
+  to keep it fresh!  I must experiment...
+
+[right="2"]
+[endpage]
+
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+
+  Adding a little sope did keep the milk fresh for a day
+  more than the pails of milk without, yet it also did
+  prevent the milk from churning unto butter.
+
+[left="start"]
+[right="3"]
+[endpage]
+
+[page="3"]
+[backing="paper.pcx"]
+[font 3]
+
+  I have it!  The diet be the key to the riddle!
+  Grass-fed beeves give forth milk that turns blue and goes
+  sour.
+
+  Beeves fed upon mine other diet gave forth orange milk,
+  that has lasted lo these many moons, yet remains fresh
+  as the day it were milked!
+
+  'Tis a pity the feed be so hard to obtain...
+  
+[left="2"]
+[right="exit"]
+[endpage]
+

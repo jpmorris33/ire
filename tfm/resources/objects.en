@@ -3886,38 +3886,15 @@ section: characters
 	spikeproof
 	proximity
 	strength	14
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name EGG_ALWAYS
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_ALWAYS = EGG_OBJECT
 	karma		2
-	weight		-1
 	description	"Creature spawn spot"
-	short		"egg"
-	OnInit		egg_check
 	ifused		egg_spawn_always
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	100
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name SPAWN_GUARDS
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
+	frame		EGG_SPRITE
 	hp		10000
 	weight		-1
 	description	"Guard spawn spot"
@@ -3927,111 +3904,48 @@ section: characters
 	fixed
 	spikeproof
 
-	name SPAWN_GUARDS_DEADLY
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
-	weight		-1
+	alias SPAWN_GUARDS_DEADLY = SPAWN_GUARDS
 	description	"Death guard spawn spot"
-	short		"guard spawn spot"
 	IfUsed		spawn_deathguard
-	hidden
-	fixed
-	spikeproof
 
-	name SPAWN_GUARDS_PANTHER
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
-	weight		-1
+	alias SPAWN_GUARDS_PANTHER = SPAWN_GUARDS
 	description	"Panther guard spawn spot"
-	short		"guard spawn spot"
 	IfUsed		spawn_baseguard
-	hidden
-	fixed
-	spikeproof
 
-	name SPAWN_GUARDS_WAARG
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
-	weight		-1
+	alias SPAWN_GUARDS_WAARG = SPAWN_GUARDS
 	description	"Waarg guard spawn spot"
 	short		"guard spawn spot"
 	IfUsed		spawn_wolfguard
-	hidden
-	fixed
-	spikeproof
 
-	name EGG_OBJECT(BEE)
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(BEE) = EGG_OBJECT
 	karma		3
-	weight		-1
 	description	"Bee spawn spot"
-	short		"egg"
-	OnInit		egg_check
-	IfUsed		egg_spawn
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	50
 	contains	bee
 	radius		16
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name EGG_OBJECT(PIG)
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(COW) = EGG_OBJECT
 	karma		1
-	weight		-1
-	description	"Pig spawn spot"
-	short		"egg"
-	OnInit		egg_check
+	description	"Cow spawn spot"
+	strength	80
+	contains	cow
+
+	alias EGG_OBJECT(COW_EVIL) = EGG_OBJECT(COW)
+	contains	cow_evil
 	IfUsed		egg_spawn_enemy
-	hidden
-	fixed
-	spikeproof
-	proximity
+	strength	90
+
+	alias EGG_OBJECT(PIG) = EGG_OBJECT
+	karma		1
+	description	"Pig spawn spot"
+	IfUsed		egg_spawn_enemy
 	strength	14
 	contains	pig
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name EGG_OBJECT(SNAKE)
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(SNAKE) = EGG_OBJECT
 	karma		3
-	weight		-1
 	description	"Snake spawn spot"
-	short		"egg"
-	OnInit		egg_check
 	IfUsed		egg_spawn_enemy
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	14
 	radius		16
 	contains	snake
@@ -4055,89 +3969,42 @@ section: characters
 	contains	bunny
 	radius		16
 
-	name EGG_OBJECT(RAT)
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(RAT) = EGG_OBJECT
 	karma		3
-	weight		-1
 	description	"Rat spawn spot"
-	short		"egg"
-	OnInit		egg_check
 	IfUsed		egg_night
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	60
 	contains	rat
 	radius		16
 
-	name EGG_NIGHT
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_NIGHT = EGG_OBJECT
 	karma		1
-	weight		-1
 	description	"night-time spawn spot"
-	short		"egg"
 	IfUsed		egg_night
-	OnInit		egg_check
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	100
 	schedule	06:03 night_egg_cleanup
 
-	name EGG_OBJECT(TODE)
+	alias EGG_OBJECT(TODE) = EGG_OBJECT
 	left		EGG_SPRITE
 	right		EGG_SPRITE
 	up		EGG_SPRITE
 	down		EGG_SPRITE
-	hp		10000
 	karma		1
-	weight		-1
 	description	"Tode spawn spot"
-	short		"egg"
-	OnInit		egg_check
 	IfUsed		egg_spawn_enemy
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	33
 	contains	tode
 
-	name EGG_OBJECT(SKELETON)
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(SKELETON) = EGG_OBJECT
 	karma		5
-	weight		-1
 	description	"Skeleton spawn spot"
-	short		"egg"
-	OnInit		egg_check
 	IfUsed		egg_spawn_always
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	200
 	radius		8
 	contains	undead_skeleton
 
 	name EGG_SCHEDULE
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
+	frame		EGG_SPRITE
 	hp		10000
 	weight		-1
 	description	"Object spawn spot"
@@ -4147,76 +4014,35 @@ section: characters
 	spikeproof
 	strength	100
 
-	name EGG_OBJECT(SPIDER)
-	left		EGG_SPRITE
-	right		EGG_SPRITE
-	up		EGG_SPRITE
-	down		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(SPIDER) = EGG_OBJECT
 	karma		3
-	weight		-1
 	description	"Spider spawn spot"
-	short		"egg"
-	OnInit		egg_check
 	IfUsed		egg_spawn_enemy
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	14
 	radius		16
 	contains	spider
 
-	name RABBITHOLE_DEADLY
-	left		RABBITHOLE
-	right		RABBITHOLE
-	up		RABBITHOLE
-	down		RABBITHOLE
+	alias RABBITHOLE_DEADLY = EGG_OBJECT(BUNNY)
+	frame		RABBITHOLE
 	hp		10000
 	karma		3
-	weight		-1
-	description	"You see a rabbit hole."
-	short		"rabbit hole"
 	OnInit		egg_check
 	IfUsed		egg_spawn_always
-	fixed
-	spikeproof
-	proximity
 	strength	100
 	contains	bunny_psycho
-	radius		16
 
-	name EGG_OBJECT(WOLF)
-	frame		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(WOLF) = EGG_OBJECT
 	karma		3
 	weight		-1
 	description	"Wolf spawn spot"
-	short		"egg"
-	OnInit		egg_check
-	IfUsed		egg_spawn
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	50
 	radius		16
 	contains	wolf
 
 
-	name EGG_OBJECT(SHEEP)
-	frame		EGG_SPRITE
-	hp		10000
+	alias EGG_OBJECT(SHEEP) = EGG_OBJECT
 	karma		3
-	weight		-1
 	description	"Sheep spawn spot"
-	short		"egg"
-	OnInit		egg_check
-	IfUsed		egg_spawn
-	hidden
-	fixed
-	spikeproof
-	proximity
 	strength	80
 	contains	sheep
 	radius		16

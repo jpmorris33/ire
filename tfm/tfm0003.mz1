@@ -4614,6 +4614,56 @@ iMZ1r01
 
 	decorative MOUNT03 at 1013 123
 
+	object FENC14ee1e2a-8702-40a8-9a3a-2847d7aea7c6
+		type FENCE2_CORNER
+		at 482 124
+		curdir 0
+
+	object FENC92496239-8327-41f6-980f-6ac102969fff
+		type FENCE2
+		at 483 124
+		curdir 0
+
+	object FENCe64bc883-cd35-4b62-b305-a22720972751
+		type FENCE2
+		at 484 124
+		curdir 0
+
+	object FENC09892f8d-0438-4738-9a51-a52b9523790d
+		type FENCE2
+		at 485 124
+		curdir 1
+
+	object FENC9a721403-2f69-4792-b44a-7ada92863d87
+		type FENCE2
+		at 486 124
+		curdir 0
+
+	object FENC47a9bd4f-962f-4922-aa74-61f9f47f0e15
+		type FENCE2
+		at 487 124
+		curdir 0
+
+	object FENC1260e669-46b5-451a-901a-e3f164be8a0b
+		type FENCE2
+		at 488 124
+		curdir 1
+
+	object FENC36afba96-1d16-4095-b14f-68f548362b75
+		type FENCE2
+		at 489 124
+		curdir 0
+
+	object FENCd0aaa56a-4b9c-40cd-88da-839e52b5020d
+		type FENCE2
+		at 490 124
+		curdir 0
+
+	object FENC4538c8a2-8742-461d-a97f-c08b0d511e84
+		type FENCE2_CORNER
+		at 491 124
+		curdir 3
+
 	object STONa1fafd89-d210-4efc-8468-adf352473513
 		type STONEWINDOW1
 		at 516 124
@@ -4638,6 +4688,27 @@ iMZ1r01
 	decorative MOUNT03 at 1013 124
 
 	decorative MOUNT02 at 396 125
+
+	object FENC7d483756-d7f1-4a21-9dbc-57db7e2bcf13
+		type FENCE2
+		at 482 125
+		curdir 2
+
+	object COW_c119b940-3c09-4b7d-9cb6-97895d0e6f5f
+		type COW
+		inside EGG_268c44a2-9478-4b4b-a38e-dedcbdd1eda5
+		curdir 1
+		activity GRAZE
+
+	object EGG_268c44a2-9478-4b4b-a38e-dedcbdd1eda5
+		type EGG_OBJECT(COW)
+		at 484 125
+		curdir 1
+
+	object FENC5139e414-0762-4bfa-869e-fa2847f92692
+		type FENCE2
+		at 491 125
+		curdir 2
 
 	object STAI9beac3ea-f64c-4413-9c54-3804ceb1d4dd
 		type STAIRS_DOWN
@@ -4729,6 +4800,27 @@ iMZ1r01
 
 	decorative MOUNT04 at 396 126
 
+	object FENCd316ca49-4c52-4e94-b58d-2f59f459f72b
+		type FENCE2
+		at 482 126
+		curdir 3
+
+	object COW_ee93bf54-f8aa-4c09-afdc-6058e91e0f77
+		type COW
+		inside EGG_e3a4c2ad-ec97-4ed8-92d3-7eab983419d6
+		curdir 1
+		activity GRAZE
+
+	object EGG_e3a4c2ad-ec97-4ed8-92d3-7eab983419d6
+		type EGG_OBJECT(COW)
+		at 488 126
+		curdir 1
+
+	object FENCef398d9f-9e03-434c-9fe0-8195eabc6437
+		type FENCE2
+		at 491 126
+		curdir 3
+
 	object THREac2d1abb-9972-4d93-aa06-34000207b3f0
 		type THREAD01
 		at 513 126
@@ -4818,6 +4910,16 @@ iMZ1r01
 
 	decorative MOUNT07 at 396 127
 
+	object FENC0d8be699-fcf5-433c-8175-11ced9100ff6
+		type FENCE2_GATE_SHUT
+		at 482 127
+		curdir 2
+
+	object FENC13b9b606-1c4d-4ef6-9aac-2e3d73152806
+		type FENCE2
+		at 491 127
+		curdir 2
+
 	object STONfabd1565-f6b1-4f8c-954d-857e0c546bf4
 		type STONEWINDOW1
 		at 511 127
@@ -4843,6 +4945,22 @@ iMZ1r01
 	decorative MOUNT08 at 394 128
 
 	decorative MOUNT07 at 395 128
+
+	object COW_ea43952d-f4d3-4528-a2b4-9d91d274c2ad
+		type COW
+		inside EGG_47ac1425-0396-4b3d-8662-d8c0b1fe13be
+		curdir 1
+		activity GRAZE
+
+	object EGG_47ac1425-0396-4b3d-8662-d8c0b1fe13be
+		type EGG_OBJECT(COW)
+		at 485 128
+		curdir 1
+
+	object FENC03519d96-9d89-44f4-8aa7-03c797f8c025
+		type FENCE2
+		at 491 128
+		curdir 2
 
 	object STON9ed29de1-5268-4c67-9b3c-c8b87594e21d
 		type STONEDOOR1_SHUT
@@ -4897,6 +5015,27 @@ iMZ1r01
 	decorative MOUNT11 at 1014 128
 
 	decorative MOUNT04 at 394 129
+
+	object FENC1debd0d0-97e6-4cc7-93ad-fcd28feea76b
+		type FENCE2_END
+		at 482 129
+		curdir 0
+
+	object COW_90c69337-f54c-4a6c-95c4-c5b2e640094e
+		type COW
+		inside EGG_de41ed56-8303-4498-91f8-eb79042b3108
+		curdir 1
+		activity GRAZE
+
+	object EGG_de41ed56-8303-4498-91f8-eb79042b3108
+		type EGG_OBJECT(COW)
+		at 489 129
+		curdir 1
+
+	object FENC98a882f2-d8e6-4a4c-af79-4f08441fbff9
+		type FENCE2
+		at 491 129
+		curdir 2
 
 	object TABL1a5d5f2a-2376-4474-a641-8d0718c73e65
 		type TABLE6-V
@@ -4988,6 +5127,27 @@ iMZ1r01
 
 	decorative MOUNT07 at 394 130
 
+	object FENC2e5e04c2-3bcc-4c55-b2a9-8ddebd40909d
+		type FENCE2
+		at 482 130
+		curdir 3
+
+	object COW_b91b1aac-05de-4a0e-b368-22f364004cf1
+		type COW
+		inside EGG_c61e81e7-ad45-4144-8ca7-9b49125f4f92
+		curdir 1
+		activity GRAZE
+
+	object EGG_c61e81e7-ad45-4144-8ca7-9b49125f4f92
+		type EGG_OBJECT(COW)
+		at 484 130
+		curdir 1
+
+	object FENCd7076df1-6f1e-472d-b850-e33995687358
+		type FENCE2
+		at 491 130
+		curdir 3
+
 	object TABL556d980c-03b1-4999-9ba5-da40f8a40391
 		type TABLE6-V
 		at 512 130
@@ -5075,6 +5235,16 @@ iMZ1r01
 
 	decorative MOUNT07 at 393 131
 
+	object FENCbf7d3e02-9f77-41bb-a62f-564003cd4ebb
+		type FENCE2
+		at 482 131
+		curdir 2
+
+	object FENC5159f29c-ea61-4c88-879c-226f8612219e
+		type FENCE2
+		at 491 131
+		curdir 2
+
 	object STON7aa53fb4-aa4a-4bc4-afcb-007be3b4e339
 		type STONEWINDOW1
 		at 499 131
@@ -5128,6 +5298,21 @@ iMZ1r01
 	decorative MOUNT06 at 389 132
 
 	decorative MOUNT07 at 390 132
+
+	object FENC7fb21728-81be-4dd6-8dde-ee168b1cd389
+		type FENCE2_CORNER
+		at 482 132
+		curdir 2
+
+	object FENCa5746547-34f2-4a9d-9062-4b4127ad9bd9
+		type FENCE2_END
+		at 490 132
+		curdir 2
+
+	object FENCc0ed0941-8ab4-4e73-9fae-42658945a47a
+		type FENCE2_CORNER
+		at 491 132
+		curdir 1
 
 	decorative MOUNT08 at 904 132
 
@@ -51445,6 +51630,12 @@ iMZ1r01
 		at 1000 654
 		curdir 0
 
+	object SIGNcb2b781e-e5eb-4aa8-bb08-c6c70c54c54f
+		type SIGN02
+		at 1001 654
+		curdir 0
+		name Mad farmer
+
 	decorative TREE00 at 594 655
 
 	decorative TREE01 at 596 655
@@ -51694,6 +51885,12 @@ iMZ1r01
 		at 999 656
 		curdir 0
 		tag 29
+
+	object TELE445ed924-8bfb-43a6-a763-595ed8c91350
+		type TELEPORTER0
+		at 1001 656
+		curdir 0
+		tag 64
 
 	decorative TREE02 at 590 657
 
@@ -52215,6 +52412,11 @@ iMZ1r01
 	object CAND4fc32f9c-9b03-476c-ab73-351b4c41a501
 		type CANDLESTK
 		at 999 659
+		curdir 0
+
+	object CAND62bfa913-49a0-4d5f-b331-f6831857dc64
+		type CANDLESTK
+		at 1001 659
 		curdir 0
 
 	decorative TREE02 at 599 660
@@ -78730,12 +78932,6 @@ iMZ1r01
 
 	decorative TREE00 at 969 846
 
-	decorative TREE02 at 976 846
-
-	decorative TREE02 at 978 846
-
-	decorative TREE02 at 980 846
-
 	decorative TREE01 at 984 846
 
 	decorative MOUNT04 at 514 847
@@ -78867,9 +79063,10 @@ iMZ1r01
 
 	decorative TREE00 at 970 847
 
-	decorative TREE00 at 980 847
-
-	decorative TREE02 at 981 847
+	object TREE91463a38-1d42-4640-88f2-4e8b52b79e70
+		type TREE01_STUMP
+		at 977 847
+		curdir 0
 
 	decorative TREE00 at 982 847
 
@@ -79017,16 +79214,6 @@ iMZ1r01
 
 	decorative TREE03 at 959 848
 
-	decorative TREE01 at 969 848
-
-	decorative TREE01 at 970 848
-
-	decorative TREE01 at 973 848
-
-	decorative TREE01 at 980 848
-
-	decorative TREE03 at 981 848
-
 	decorative TREE02 at 983 848
 
 	decorative MOUNT04 at 515 849
@@ -79161,13 +79348,20 @@ iMZ1r01
 
 	decorative TREE01 at 950 849
 
-	decorative TREE00 at 970 849
+	object TREEd772215f-8b91-4e3d-909f-ea4c0c929349
+		type TREE01_STUMP
+		at 970 849
+		curdir 0
 
-	decorative TREE03 at 974 849
+	object STOV1fd56aaa-d886-4e58-a9db-a3fd5acd140f
+		type STOVE
+		at 974 849
+		curdir 3
 
-	decorative TREE01 at 982 849
-
-	decorative TREE03 at 985 849
+	object STONb1e892d6-3bbb-4d86-84ff-3fd6ee02c971
+		type STONEWINDOW1
+		at 977 849
+		curdir 0
 
 	decorative MOUNT08 at 514 850
 
@@ -79319,17 +79513,36 @@ iMZ1r01
 
 	decorative TREE01 at 963 850
 
-	decorative TREE00 at 971 850
+	object TABL4922f59d-6e63-4d64-b6ff-14a8dd3a69c8
+		type TABLE6-H
+		at 976 850
+		curdir 2
 
-	decorative TREE00 at 972 850
+	object TABLd597680c-c6fa-492b-903b-9dbdd58975f0
+		type TABLE6-H
+		at 977 850
+		curdir 0
 
-	decorative TREE01 at 978 850
+	object PLATf11da73f-0a02-41cb-ba6e-40c872cdb050
+		type PLATE
+		at 977 850
+		curdir 1
 
-	decorative TREE03 at 980 850
+	object TABL10a7f5a7-7c9b-40d2-b97a-825279ddcaed
+		type TABLE6-H
+		at 978 850
+		curdir 1
 
-	decorative TREE03 at 982 850
+	object TABLe9e4cd11-8088-485a-a35e-b062a7310acf
+		type TABLE6-H
+		at 979 850
+		curdir 0
 
-	decorative TREE01 at 986 850
+	object BOOK1290153d-5379-4bcb-b2fb-69b391ed42b8
+		type BOOK_OPEN
+		at 979 850
+		curdir 0
+		funcs->talk /books/misc/cow5.txt
 
 	decorative MOUNT04 at 514 851
 
@@ -79451,15 +79664,95 @@ iMZ1r01
 
 	decorative TREE02 at 960 851
 
-	decorative TREE00 at 973 851
+	object TREEdac4b95f-1dd7-4afd-8caa-e607e5f29b2d
+		type TREE01_STUMP
+		at 969 851
+		curdir 0
 
-	decorative TREE02 at 975 851
+	object STON7fa71a8a-72ef-4b41-ae55-ca7629ff810a
+		type STONEWINDOW1
+		at 973 851
+		curdir 2
 
-	decorative TREE03 at 980 851
+	object TABL5374f0c0-2122-4768-9b8d-724a211582b8
+		type TABLE-SHADOW2
+		at 976 851
+		curdir 1
 
-	decorative TREE01 at 984 851
+	object TABL9b9bf4f5-3edd-4629-bbc6-4f395ee0795f
+		type TABLE5-LEGS
+		at 976 851
+		curdir 1
 
-	decorative TREE00 at 986 851
+	object TABL5cd50eba-6823-4db1-adb2-7a68cd9bfe0b
+		type TABLE-SHADOW1
+		at 977 851
+		curdir 0
+
+	object CHAIe5d5648a-9490-422e-b784-c3186bc346a3
+		type CHAIR
+		at 977 851
+		curdir 0
+
+	object TABL0e3076f1-1119-40e6-af72-7ef95e8fe533
+		type TABLE-SHADOW1
+		at 978 851
+		curdir 0
+
+	object TABL3db32b12-8e08-49d4-b582-08e472d57a9c
+		type TABLE5-LEGS
+		at 978 851
+		curdir 1
+
+	object TABLe24833eb-bda8-47a2-ad09-ae7fcf896104
+		type TABLE-SHADOW1
+		at 979 851
+		curdir 0
+
+	object STONd74624b5-cb11-4d85-a38e-8db062a7f140
+		type STONEWINDOW1
+		at 980 851
+		curdir 2
+
+	object FENC45666d6b-48cc-4238-82a2-6546d0596eca
+		type FENCE2_CORNER
+		at 982 851
+		curdir 0
+
+	object FENC9724b83c-a5fd-4b72-8a48-3eeaafa53442
+		type FENCE2
+		at 983 851
+		curdir 0
+
+	object FENCe53cd1c5-209b-4795-b086-f11b9d662794
+		type FENCE2
+		at 984 851
+		curdir 0
+
+	object FENC55995d91-b7b1-4d0d-b31e-def90a925615
+		type FENCE2
+		at 985 851
+		curdir 0
+
+	object FENC220c7017-9b23-4b8e-b21c-6e28d956f9aa
+		type FENCE2
+		at 986 851
+		curdir 1
+
+	object FENC2df9c74e-29e4-4d4b-b671-643d946cf2cb
+		type FENCE2
+		at 987 851
+		curdir 0
+
+	object FENC3356095e-5021-4c01-9d62-23f3b9612fb6
+		type FENCE2
+		at 988 851
+		curdir 0
+
+	object FENC18518ac5-34d8-4894-8f11-fe53b4433738
+		type FENCE2_END
+		at 989 851
+		curdir 3
 
 	decorative MOUNT10 at 514 852
 
@@ -79553,8 +79846,6 @@ iMZ1r01
 
 	decorative TREE01 at 921 852
 
-	decorative TREE02 at 923 852
-
 	decorative TREE02 at 926 852
 
 	decorative TREE03 at 927 852
@@ -79575,13 +79866,28 @@ iMZ1r01
 
 	decorative TREE03 at 966 852
 
-	decorative TREE02 at 972 852
+	object KEY_93745434-bf98-4a14-bc0e-bdda63203161
+		type KEY
+		inside MAN_63f79b74-2014-43e7-ae51-7c86272c814c
+		curdir 1
+		tag 65
+		stats->owner MAN_63f79b74-2014-43e7-ae51-7c86272c814c
 
-	decorative TREE01 at 975 852
+	object MAN_63f79b74-2014-43e7-ae51-7c86272c814c
+		type MAN_GENERIC
+		at 975 852
+		curdir 1
+		name Farmer Jack
 
-	decorative TREE02 at 980 852
+	object FENC91680649-1e23-421e-a738-27b169fd9876
+		type FENCE2
+		at 982 852
+		curdir 2
 
-	decorative TREE00 at 986 852
+	object TROUedb5a131-4685-4222-a941-528289fff0a6
+		type TROUGH
+		at 985 852
+		curdir 0
 
 	decorative MOUNT04 at 515 853
 
@@ -79664,17 +79970,18 @@ iMZ1r01
 
 	decorative TREE01 at 905 853
 
-	decorative TREE01 at 922 853
+	object TREE47892110-9c20-4281-8d2b-1efd3c80019f
+		type TREE01_STUMP
+		at 924 853
+		curdir 0
 
 	decorative TREE01 at 928 853
-
-	decorative TREE02 at 932 853
 
 	decorative TREE00 at 934 853
 
 	decorative TREE02 at 936 853
 
-	decorative TREE03 at 940 853
+	decorative TREE03 at 941 853
 
 	decorative TREE01 at 945 853
 
@@ -79690,15 +79997,42 @@ iMZ1r01
 
 	decorative TREE03 at 961 853
 
-	decorative TREE01 at 969 853
+	object STON5b9e1aac-08f3-4281-b038-8b3a71001bd1
+		type STONEWINDOW1
+		at 973 853
+		curdir 2
 
-	decorative TREE02 at 973 853
+	object STONc74f6e83-2ae1-4540-9e37-4b76f3e12762
+		type STONEWINDOW1
+		at 980 853
+		curdir 2
 
-	decorative TREE03 at 976 853
+	object FENC1e534653-1cb7-403e-8658-f9ce50d804a3
+		type FENCE2
+		at 982 853
+		curdir 2
 
-	decorative TREE02 at 980 853
+	object COW_cf30c835-e4f2-421a-b3f9-b45feca7f265
+		type COW
+		inside EGG_384b9463-8244-414f-9a84-007ff5ad87b4
+		curdir 1
+		activity GRAZE
 
-	decorative TREE00 at 984 853
+	object EGG_384b9463-8244-414f-9a84-007ff5ad87b4
+		type EGG_OBJECT(COW)
+		at 986 853
+		curdir 2
+
+	object COW_4320a910-e995-48a5-9ce0-f1c476f02b1c
+		type COW
+		inside EGG_f03bada4-974b-41e1-9e80-88569c9592fe
+		curdir 1
+		activity GRAZE
+
+	object EGG_f03bada4-974b-41e1-9e80-88569c9592fe
+		type EGG_OBJECT(COW)
+		at 989 853
+		curdir 2
 
 	decorative MOUNT10 at 515 854
 
@@ -79793,31 +80127,31 @@ iMZ1r01
 
 	decorative TREE02 at 907 854
 
-	decorative TREE00 at 917 854
-
-	decorative TREE03 at 921 854
-
-	decorative TREE00 at 923 854
-
-	decorative TREE03 at 930 854
-
-	decorative TREE00 at 937 854
-
 	decorative TREE00 at 950 854
 
 	decorative TREE00 at 965 854
 
 	decorative TREE01 at 968 854
 
-	decorative TREE02 at 970 854
+	object TREEce6fb35b-65c5-49e3-8fc2-374bbb1f1519
+		type TREE01_STUMP
+		at 970 854
+		curdir 0
 
-	decorative TREE00 at 971 854
+	object DRAWaf348db9-1a7c-4a20-ad47-020e768009fd
+		type DRAWERS
+		at 973 854
+		curdir 2
 
-	decorative TREE01 at 974 854
+	object BED_10733327-2b8b-4e46-82c5-e023e2de411c
+		type BED
+		at 979 854
+		curdir 0
 
-	decorative TREE03 at 976 854
-
-	decorative TREE02 at 979 854
+	object FENC844d20bd-e40d-4b1b-a4fa-9247585a2dd8
+		type FENCE2
+		at 982 854
+		curdir 3
 
 	decorative MOUNT10 at 516 855
 
@@ -79907,31 +80241,30 @@ iMZ1r01
 
 	decorative TREE00 at 903 855
 
-	decorative TREE02 at 915 855
-
-	decorative TREE01 at 916 855
-
-	decorative TREE01 at 918 855
-
-	decorative TREE00 at 919 855
-
-	decorative TREE01 at 920 855
-
-	decorative TREE01 at 929 855
-
-	decorative TREE01 at 932 855
-
-	decorative TREE03 at 933 855
-
-	decorative TREE03 at 947 855
+	object TREEfa2d9f91-6117-4c86-b9ea-ab6c23874025
+		type TREE01_STUMP
+		at 957 855
+		curdir 0
 
 	decorative TREE01 at 963 855
 
 	decorative TREE03 at 967 855
 
-	decorative TREE01 at 972 855
+	object FENC91eae0ae-0ebc-47ad-9cf7-b471b8582dba
+		type FENCE2
+		at 982 855
+		curdir 2
 
-	decorative TREE00 at 976 855
+	object COW_79ef33a8-b564-4afa-b096-20e37e78bf40
+		type COW
+		inside EGG_8996de53-dd0a-4db8-a4b5-7cc5fdb1549e
+		curdir 1
+		activity GRAZE
+
+	object EGG_8996de53-dd0a-4db8-a4b5-7cc5fdb1549e
+		type EGG_OBJECT(COW)
+		at 989 855
+		curdir 2
 
 	decorative MOUNT04 at 518 856
 
@@ -80016,41 +80349,37 @@ iMZ1r01
 
 	decorative TREE02 at 906 856
 
-	decorative TREE00 at 915 856
+	object STONb15489f4-eb6a-4ba1-b3b1-42f75a538ef8
+		type STONEDOOR1_LOCK
+		at 976 856
+		curdir 0
 
-	decorative TREE02 at 917 856
+	object FENC17908b5b-259a-4200-bd2e-856b34571651
+		type FENCE2
+		at 982 856
+		curdir 2
 
-	decorative TREE02 at 921 856
+	object COW_3fb50b74-cfc7-4124-adf5-1adb8b75e5d2
+		type COW
+		inside EGG_7d377d84-80d4-4348-8018-cbb94469f364
+		curdir 1
+		activity GRAZE
 
-	decorative TREE03 at 922 856
+	object EGG_7d377d84-80d4-4348-8018-cbb94469f364
+		type EGG_OBJECT(COW)
+		at 985 856
+		curdir 2
 
-	decorative TREE00 at 935 856
+	object COW_e6286964-127f-4ae3-be0b-9d6a7bacb5f2
+		type COW
+		inside EGG_bd58af72-5e93-43f6-93ad-334ac613167b
+		curdir 1
+		activity GRAZE
 
-	decorative TREE02 at 938 856
-
-	decorative TREE02 at 946 856
-
-	decorative TREE02 at 949 856
-
-	decorative TREE03 at 950 856
-
-	decorative TREE01 at 964 856
-
-	decorative TREE03 at 966 856
-
-	decorative TREE01 at 969 856
-
-	decorative TREE01 at 974 856
-
-	decorative TREE01 at 977 856
-
-	decorative TREE00 at 978 856
-
-	decorative TREE01 at 979 856
-
-	decorative TREE03 at 980 856
-
-	decorative TREE03 at 982 856
+	object EGG_bd58af72-5e93-43f6-93ad-334ac613167b
+		type EGG_OBJECT(COW)
+		at 987 856
+		curdir 2
 
 	decorative MOUNT10 at 518 857
 
@@ -80145,21 +80474,10 @@ iMZ1r01
 
 	decorative TREE01 at 940 857
 
-	decorative TREE02 at 941 857
-
-	decorative TREE03 at 945 857
-
-	decorative TREE00 at 948 857
-
-	decorative TREE02 at 949 857
-
-	decorative TREE01 at 965 857
-
-	decorative TREE02 at 967 857
-
-	decorative TREE00 at 978 857
-
-	decorative TREE01 at 983 857
+	object FENC8f13b3e6-bf08-4a74-a736-67cea89cb4f1
+		type FENCE2_GATE_SHUT
+		at 982 857
+		curdir 3
 
 	decorative MOUNT04 at 520 858
 
@@ -80254,6 +80572,11 @@ iMZ1r01
 
 	decorative TREE01 at 925 858
 
+	object TREE91a19d90-d2e7-4635-ba3c-d22a82d77e87
+		type TREE01_STUMP
+		at 929 858
+		curdir 0
+
 	decorative TREE02 at 930 858
 
 	decorative TREE00 at 934 858
@@ -80274,21 +80597,10 @@ iMZ1r01
 
 	decorative TREE00 at 957 858
 
-	decorative TREE01 at 963 858
-
-	decorative TREE01 at 966 858
-
-	decorative TREE02 at 970 858
-
-	decorative TREE00 at 971 858
-
-	decorative TREE03 at 973 858
-
-	decorative TREE00 at 977 858
-
-	decorative TREE03 at 979 858
-
-	decorative TREE03 at 982 858
+	object TREEc2d411c6-cd53-47cb-a8d0-d5a236ed2748
+		type TREE01_STUMP
+		at 966 858
+		curdir 0
 
 	decorative MOUNT10 at 520 859
 
@@ -80395,6 +80707,11 @@ iMZ1r01
 
 	decorative TREE02 at 940 859
 
+	object TREE24d7a667-4ce4-4516-803a-3d9a78377980
+		type TREE01_STUMP
+		at 951 859
+		curdir 0
+
 	decorative TREE02 at 954 859
 
 	decorative TREE02 at 955 859
@@ -80403,15 +80720,26 @@ iMZ1r01
 
 	decorative TREE02 at 959 859
 
-	decorative TREE00 at 960 859
+	object FENC65cf211e-2d18-4e33-b50d-4ec262dcd17a
+		type FENCE2_END
+		at 982 859
+		curdir 0
 
-	decorative TREE03 at 962 859
+	object FENC4e412b91-b4d4-4847-b7bb-bd34aa5f4946
+		type FENCE2_GATE_SHUT
+		at 985 859
+		curdir 0
 
-	decorative TREE02 at 969 859
+	object COW_65e35c36-46b4-4f4b-b182-a3cbd16cebd9
+		type COW
+		inside EGG_11d44b05-1263-43f5-bac7-b55cf7396b10
+		curdir 1
+		activity GRAZE
 
-	decorative TREE03 at 970 859
-
-	decorative TREE01 at 979 859
+	object EGG_11d44b05-1263-43f5-bac7-b55cf7396b10
+		type EGG_OBJECT(COW)
+		at 988 859
+		curdir 2
 
 	decorative MOUNT10 at 524 860
 
@@ -80509,17 +80837,55 @@ iMZ1r01
 
 	decorative TREE02 at 961 860
 
-	decorative TREE01 at 968 860
+	object FENCf9beed97-500e-4267-ae1d-aaa344d70ba4
+		type FENCE2
+		at 982 860
+		curdir 2
 
-	decorative TREE03 at 973 860
+	object FENC3ea64bf7-3bd4-419d-aa98-bbc79f19bfbf
+		type FENCE2_CORNER
+		at 982 860
+		curdir 2
 
-	decorative TREE01 at 976 860
+	object FENC3d922eaa-0ce0-48e0-885c-f53b16cfe995
+		type FENCE2
+		at 983 860
+		curdir 0
 
-	decorative TREE00 at 979 860
+	object FENCd42782cf-f738-44f0-9f65-0b0ac26b9e1b
+		type FENCE2
+		at 984 860
+		curdir 0
 
-	decorative TREE01 at 983 860
+	object FENC438a6819-a61d-49a0-bfef-33bc1ccc0358
+		type FENCE2_END
+		at 987 860
+		curdir 2
 
-	decorative TREE00 at 985 860
+	object FENC9ea90342-f79a-48a6-b616-0bcee1a9e7eb
+		type FENCE2
+		at 988 860
+		curdir 0
+
+	object FENCf3fcdacf-4e6a-4b96-9853-aaedc2c596c3
+		type FENCE2
+		at 989 860
+		curdir 0
+
+	object FENCfb270d46-73b5-4dce-975a-9045526859d1
+		type FENCE2
+		at 990 860
+		curdir 1
+
+	object FENCf5df79ff-72e7-4375-b27b-c8cf40b2b8f8
+		type FENCE2
+		at 991 860
+		curdir 0
+
+	object FENC36e163b2-444b-4fce-8335-b4cfd09afbaf
+		type FENCE2_END
+		at 992 860
+		curdir 3
 
 	decorative MOUNT10 at 526 861
 
@@ -80609,9 +80975,41 @@ iMZ1r01
 
 	decorative TREE00 at 966 861
 
-	decorative TREE00 at 974 861
+	object TARG8af8ab99-48bb-4c25-bbb5-645ddb2ac654
+		type TARGET
+		at 972 861
+		curdir 3
+		tag 64
 
-	decorative TREE02 at 980 861
+	object STONc232cce0-10a8-45f3-87c1-f2cc6ff4cbe6
+		type STONE_ARCHWAY
+		at 975 861
+		curdir 2
+
+	object STONade709f7-d886-4ef2-af19-040f0f373bab
+		type STONE_ARCHWAY2
+		at 976 861
+		curdir 0
+
+	object STON077bd04b-58b3-4d9f-bb60-97aa48df0027
+		type STONE_ARCHWAY2
+		at 977 861
+		curdir 0
+
+	object STONec1dc195-cf74-42f8-8d9f-383fafb629d2
+		type STONE_ARCHWAY
+		at 978 861
+		curdir 3
+
+	object FENCc1f14473-c563-4788-9271-0c6e5b5c76cd
+		type FENCE2
+		at 982 861
+		curdir 2
+
+	object TROUa2b70cd2-bdfe-47d3-95f0-f576f7e19e58
+		type TROUGH
+		at 989 861
+		curdir 0
 
 	decorative MOUNT04 at 569 862
 
@@ -80713,13 +81111,37 @@ iMZ1r01
 
 	decorative TREE01 at 966 862
 
-	decorative TREE00 at 968 862
+	object TABL40b2a942-8476-4577-b9fd-2d546bfc3b65
+		type TABLE6-V
+		at 979 862
+		curdir 0
 
-	decorative TREE01 at 970 862
+	object FOODbf949f97-35d8-4718-858a-6db5788bda68
+		type FOOD07
+		at 979 862
+		curdir 1
 
-	decorative TREE02 at 974 862
+	object FENC9255f8a0-cd0a-43d1-83a4-4a0b8d1f59d9
+		type FENCE2
+		at 982 862
+		curdir 2
 
-	decorative TREE00 at 984 862
+	object COW_9b4ca002-d14c-4c10-b5f6-437b3f82910d
+		type COW_EVIL
+		inside EGG_72ccd68a-ed88-4974-a448-3dcbc43fc94c
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_e59c4365-45cc-4bbe-a275-0d8b6401650b
+		type COW
+		inside EGG_72ccd68a-ed88-4974-a448-3dcbc43fc94c
+		curdir 1
+		activity GRAZE
+
+	object EGG_72ccd68a-ed88-4974-a448-3dcbc43fc94c
+		type EGG_OBJECT(COW_EVIL)
+		at 984 862
+		curdir 0
 
 	decorative MOUNT04 at 569 863
 
@@ -80815,9 +81237,59 @@ iMZ1r01
 
 	decorative TREE00 at 963 863
 
-	decorative TREE01 at 970 863
+	object TABL641bbe01-665a-4890-a94f-2bb9c96e1a2f
+		type TABLE6-V
+		at 979 863
+		curdir 2
 
-	decorative TREE01 at 974 863
+	object FOOD55bb45ae-b906-4c3a-825b-2c4bf4a378a9
+		type FOOD04
+		at 979 863
+		curdir 0
+
+	object FOOD6d87d7e6-422e-4128-a9fe-d434f980501a
+		type FOOD04
+		at 979 863
+		curdir 1
+
+	object FENCba5c007b-1640-46fa-900b-3ee13615b55b
+		type FENCE2
+		at 982 863
+		curdir 3
+
+	object COW_7ff6ff5f-c581-4051-a3de-8905436fc3e1
+		type COW_EVIL
+		inside EGG_15d91d24-45f6-466f-83c6-d9d44466f5ef
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_c5fdbbea-a11d-4fe0-84c0-f4748708f2de
+		type COW
+		inside EGG_15d91d24-45f6-466f-83c6-d9d44466f5ef
+		curdir 1
+		activity GRAZE
+
+	object EGG_15d91d24-45f6-466f-83c6-d9d44466f5ef
+		type EGG_OBJECT(COW_EVIL)
+		at 989 863
+		curdir 0
+
+	object COW_67ba738b-d54f-447d-ae79-7b40d2edfa6c
+		type COW_EVIL
+		inside EGG_0945a311-efd3-4f24-9d0a-d59139c04dd8
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_03fe4e52-5365-4321-92f8-0b07144ba115
+		type COW
+		inside EGG_0945a311-efd3-4f24-9d0a-d59139c04dd8
+		curdir 1
+		activity GRAZE
+
+	object EGG_0945a311-efd3-4f24-9d0a-d59139c04dd8
+		type EGG_OBJECT(COW_EVIL)
+		at 991 863
+		curdir 0
 
 	decorative MOUNT10 at 569 864
 
@@ -80925,17 +81397,35 @@ iMZ1r01
 
 	decorative TREE03 at 959 864
 
-	decorative TREE03 at 972 864
+	object TREEb554a7f6-c51c-408e-b733-52a61da022e8
+		type TREE01_STUMP
+		at 971 864
+		curdir 0
 
-	decorative TREE03 at 974 864
+	object CHURd33aea7d-f137-438a-8ab6-6e0fb95f9b91
+		type CHURN
+		at 975 864
+		curdir 0
 
-	decorative TREE00 at 975 864
+	object TABL4fc7295c-3393-4950-83fc-dc4668b0ab9c
+		type TABLE6-V
+		at 979 864
+		curdir 3
 
-	decorative TREE03 at 976 864
+	object FOOD90bee524-4692-4533-b44b-1b70889894e8
+		type FOOD07
+		at 979 864
+		curdir 1
 
-	decorative TREE03 at 982 864
+	object FENC48d3c2cb-3fb3-4cb5-a6ca-7b053cf82213
+		type FENCE2
+		at 982 864
+		curdir 2
 
-	decorative TREE00 at 985 864
+	object BONE7abe4de3-a683-42f0-8eff-e605dff15a38
+		type BONES0
+		at 991 864
+		curdir 2
 
 	decorative MOUNT04 at 570 865
 
@@ -81029,11 +81519,60 @@ iMZ1r01
 
 	decorative TREE02 at 968 865
 
-	decorative TREE01 at 974 865
+	object STONf19549db-67aa-4c4c-b2bd-ca1b6db31f99
+		type STONEDOOR5_LOCK
+		at 977 865
+		curdir 1
+		tag 65
 
-	decorative TREE01 at 975 865
+	object FENC1666900c-f8e2-411e-a8a7-446448287b42
+		type FENCE2
+		at 982 865
+		curdir 2
 
-	decorative TREE00 at 985 865
+	object COW_3ce1ef90-903d-4387-8d6d-1549701b6355
+		type COW_EVIL
+		inside EGG_817ce8dd-0c11-4540-907e-813bba9ea9ec
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_160da758-3e10-4d7b-8a92-ecd3b318ed76
+		type COW
+		inside EGG_817ce8dd-0c11-4540-907e-813bba9ea9ec
+		curdir 1
+		activity GRAZE
+
+	object EGG_817ce8dd-0c11-4540-907e-813bba9ea9ec
+		type EGG_OBJECT(COW_EVIL)
+		at 984 865
+		curdir 0
+
+	object COW_ac89a24b-c491-45fa-9c49-9441549544e9
+		type COW_EVIL
+		inside EGG_0f4e2f15-fa7d-4a5e-a32a-e94a78a9bd81
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_2657e296-9896-4099-b766-549f77c24e5f
+		type COW
+		inside EGG_0f4e2f15-fa7d-4a5e-a32a-e94a78a9bd81
+		curdir 1
+		activity GRAZE
+
+	object EGG_0f4e2f15-fa7d-4a5e-a32a-e94a78a9bd81
+		type EGG_OBJECT(COW_EVIL)
+		at 988 865
+		curdir 0
+
+	object BONEf523b33c-0314-42b6-9c6f-2548c94dc044
+		type BONES0
+		at 989 865
+		curdir 1
+
+	object BONE82466e0e-91dc-4bde-beb9-41a651ed7773
+		type BONES0
+		at 990 865
+		curdir 3
 
 	decorative MOUNT04 at 570 866
 
@@ -81131,15 +81670,45 @@ iMZ1r01
 
 	decorative TREE02 at 956 866
 
-	decorative TREE03 at 972 866
+	object FOOD5644f53f-aaeb-4640-83af-95f4c8894291
+		type FOOD07
+		at 975 866
+		curdir 1
 
-	decorative TREE02 at 973 866
+	object FOOD809ab4dd-6569-4ec6-98f0-dd3ff61ff1a7
+		type FOOD04
+		at 976 866
+		curdir 0
 
-	decorative TREE01 at 974 866
+	object FOOD16b8ba59-af60-4463-a558-abfd4507f0e4
+		type FOOD04
+		at 976 866
+		curdir 1
 
-	decorative TREE02 at 978 866
+	object FOOD79724904-c914-4ff2-ae99-e22dada3d0b4
+		type FOOD07
+		at 977 866
+		curdir 1
 
-	decorative TREE00 at 979 866
+	object TABLdc845da5-1374-40d8-9ac6-cd53cc881b86
+		type TABLE6-V
+		at 979 866
+		curdir 0
+
+	object MEAT678493b6-beeb-4c37-8757-c71b6c230474
+		type MEAT03
+		at 979 866
+		curdir 2
+
+	object MEAT0e6097f8-62e4-4b4e-9082-f013a4b47e28
+		type MEAT04
+		at 979 866
+		curdir 3
+
+	object FENC7fc7c4da-c9b2-4b2b-a812-e848223678b7
+		type FENCE2
+		at 982 866
+		curdir 3
 
 	decorative MOUNT04 at 570 867
 
@@ -81251,13 +81820,93 @@ iMZ1r01
 
 	decorative TREE03 at 964 867
 
+	object TREE029cca4e-81dd-4e12-a09d-f8312ee2448b
+		type TREE01_STUMP
+		at 967 867
+		curdir 0
+
 	decorative TREE01 at 968 867
 
 	decorative TREE00 at 971 867
 
-	decorative TREE01 at 974 867
+	object FOODba1766a4-c177-43d7-bf5c-ed0cd64528b9
+		type FOOD04
+		at 975 867
+		curdir 0
 
-	decorative TREE03 at 977 867
+	object FOODdd1c2418-53c0-461d-a5fc-a71b09208027
+		type FOOD04
+		at 975 867
+		curdir 1
+
+	object FOODfd1629a8-d30f-4a65-af78-227b98bb106a
+		type FOOD07
+		at 976 867
+		curdir 1
+
+	object FOOD257a68e4-048e-46ee-83a6-6893a47d7c4b
+		type FOOD04
+		at 977 867
+		curdir 1
+
+	object FOODcf9cb403-4081-4ded-a3e1-f38127a943b3
+		type FOOD04
+		at 977 867
+		curdir 0
+
+	object TABLe91c44ea-c5f1-41db-9bc1-ac49de32ea28
+		type TABLE6-V
+		at 979 867
+		curdir 1
+
+	object KNIFd9573ad4-11a7-4b00-a270-eb77797e00b7
+		type KNIFE_0
+		at 979 867
+		curdir 2
+
+	object FENC7c972cea-0710-4a22-9864-31cdf8ddb76c
+		type FENCE2
+		at 982 867
+		curdir 2
+
+	object COW_042491e6-e790-4534-86c0-3fe4f0959dbc
+		type COW_EVIL
+		inside EGG_6f37442f-e801-440f-a1e7-9fca4c43deaa
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_35cb3743-936a-4a24-ad72-f546f579e986
+		type COW
+		inside EGG_6f37442f-e801-440f-a1e7-9fca4c43deaa
+		curdir 1
+		activity GRAZE
+
+	object EGG_6f37442f-e801-440f-a1e7-9fca4c43deaa
+		type EGG_OBJECT(COW_EVIL)
+		at 985 867
+		curdir 0
+
+	object COW_91030f90-7335-4cdb-a49f-651cba275798
+		type COW_EVIL
+		inside EGG_4ca9d735-418a-46f1-909b-e1b9ff5a98ab
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_c017e5b7-5ce8-4f21-a438-2ef8637c3f66
+		type COW
+		inside EGG_4ca9d735-418a-46f1-909b-e1b9ff5a98ab
+		curdir 1
+		activity GRAZE
+
+	object EGG_4ca9d735-418a-46f1-909b-e1b9ff5a98ab
+		type EGG_OBJECT(COW_EVIL)
+		at 991 867
+		curdir 0
+
+	object BONE13f6004e-22e7-43c1-83c7-618f0c06c139
+		type BONES2
+		at 993 867
+		curdir 1
 
 	decorative MOUNT08 at 569 868
 
@@ -81381,15 +82030,88 @@ iMZ1r01
 
 	decorative TREE03 at 966 868
 
-	decorative TREE00 at 971 868
+	object BAG_2439fbdc-4bc2-4ea3-a2bd-fbc054bbdfed
+		type BAG
+		inside CHES5da9735b-4e9b-45ef-aeb0-03bc406c5e97
+		curdir 2
 
-	decorative TREE03 at 972 868
+	object GOLDad4c38f0-5b9f-48e7-9fe8-b07f90666efe
+		type GOLD_COINS
+		inside BAG_2439fbdc-4bc2-4ea3-a2bd-fbc054bbdfed
+		curdir 1
+		stats->quantity 500
 
-	decorative TREE01 at 982 868
+	object BONE169f6cdc-c5d6-4415-946b-82324e7619eb
+		type BONES0
+		inside CHES5da9735b-4e9b-45ef-aeb0-03bc406c5e97
+		curdir 2
 
-	decorative TREE03 at 983 868
+	object DECOe6874b81-19e3-42bc-a030-ac7c21862dc0
+		type DECOR_EARS
+		inside CHES5da9735b-4e9b-45ef-aeb0-03bc406c5e97
+		curdir 1
 
-	decorative TREE02 at 986 868
+	object CHES5da9735b-4e9b-45ef-aeb0-03bc406c5e97
+		type CHEST
+		at 975 868
+		curdir 1
+
+	object FOOD2587e817-947e-4d95-9d9b-d85003467b04
+		type FOOD04
+		at 976 868
+		curdir 1
+
+	object FOOD4c285db6-34d4-4c05-9790-5e31db8b110f
+		type FOOD04
+		at 976 868
+		curdir 0
+
+	object FOODa66e4177-8aeb-4f48-b796-5b1b6fc7be73
+		type FOOD07
+		at 977 868
+		curdir 1
+
+	object TABLec251903-6a11-4a26-ac76-9615a54b2887
+		type TABLE6-H
+		at 978 868
+		curdir 2
+
+	object WOMAa4ba5aa3-3fc1-4633-bfe3-45844b5d09c1
+		type WOMAN1_BODY
+		at 978 868
+		curdir 1
+
+	object TABLeefe0525-1d88-48f0-9ca0-7de3831ce586
+		type TABLE6-H
+		at 979 868
+		curdir 3
+
+	object BLOO296d6a99-6c5f-4546-b54f-e058871be453
+		type BLOOD01
+		at 979 868
+		curdir 1
+
+	object FENC45108618-6ec0-4e3f-b739-a00ee255076c
+		type FENCE2
+		at 982 868
+		curdir 2
+
+	object COW_9021be27-1943-4b77-a58a-13e7239e7237
+		type COW_EVIL
+		inside EGG_96fa7f38-3a32-45df-93f9-933fb552e10d
+		curdir 1
+		activity ATTACK_PARTY
+
+	object COW_e963a281-36fc-426d-9180-197c186c9429
+		type COW
+		inside EGG_96fa7f38-3a32-45df-93f9-933fb552e10d
+		curdir 1
+		activity GRAZE
+
+	object EGG_96fa7f38-3a32-45df-93f9-933fb552e10d
+		type EGG_OBJECT(COW_EVIL)
+		at 988 868
+		curdir 0
 
 	decorative MOUNT04 at 569 869
 
@@ -81511,11 +82233,60 @@ iMZ1r01
 
 	decorative TREE02 at 968 869
 
-	decorative TREE02 at 974 869
+	object FENCbc6912b7-3145-4228-8648-61a4145bef03
+		type FENCE2_CORNER
+		at 982 869
+		curdir 2
 
-	decorative TREE02 at 977 869
+	object FENC745a6007-2449-4286-b1f4-92e39a81b697
+		type FENCE2
+		at 983 869
+		curdir 0
 
-	decorative TREE03 at 984 869
+	object FENC563bbb0b-cdd3-4bf2-9280-de1200ff3854
+		type FENCE2
+		at 984 869
+		curdir 0
+
+	object FENC9d1f9d8f-1be8-4546-b3b9-8c274aeac352
+		type FENCE2
+		at 985 869
+		curdir 0
+
+	object FENCe887424b-7b6b-4bca-aa24-9fff56bf2139
+		type FENCE2
+		at 986 869
+		curdir 1
+
+	object FENC71c4948a-f399-4fdd-b51d-420e767c3125
+		type FENCE2
+		at 987 869
+		curdir 0
+
+	object FENCffb2aacf-ddd1-4d82-93f8-be25f00a70ae
+		type FENCE2
+		at 988 869
+		curdir 0
+
+	object FENC3a4ff981-5f6b-4abf-989e-b1bd79959180
+		type FENCE2
+		at 989 869
+		curdir 0
+
+	object FENCbb459565-e439-4298-8ee3-b4b80d7b29aa
+		type FENCE2
+		at 990 869
+		curdir 1
+
+	object FENC160f1abb-1973-4fec-91a0-79266bc450f0
+		type FENCE2
+		at 991 869
+		curdir 0
+
+	object FENCd67f587e-43f3-418a-b3df-07f1437f476c
+		type FENCE2_END
+		at 992 869
+		curdir 3
 
 	decorative MOUNT07 at 569 870
 
@@ -81661,20 +82432,6 @@ iMZ1r01
 
 	decorative TREE02 at 970 870
 
-	decorative TREE01 at 974 870
-
-	decorative TREE03 at 978 870
-
-	decorative TREE01 at 979 870
-
-	decorative TREE02 at 980 870
-
-	decorative TREE02 at 981 870
-
-	decorative TREE03 at 985 870
-
-	decorative TREE00 at 986 870
-
 	decorative MOUNT02 at 569 871
 
 	decorative MOUNT03 at 574 871
@@ -81791,7 +82548,12 @@ iMZ1r01
 
 	decorative TREE03 at 971 871
 
-	decorative TREE01 at 980 871
+	decorative TREE01 at 974 871
+
+	object TREE0fef18e3-5fbf-4fe2-b412-e21fe550e89c
+		type TREE01_STUMP
+		at 981 871
+		curdir 0
 
 	decorative TREE00 at 983 871
 
@@ -81906,8 +82668,6 @@ iMZ1r01
 	decorative TREE03 at 948 872
 
 	decorative TREE00 at 977 872
-
-	decorative TREE00 at 978 872
 
 	decorative TREE01 at 979 872
 
@@ -82218,6 +82978,11 @@ iMZ1r01
 	decorative TREE02 at 967 874
 
 	decorative TREE00 at 970 874
+
+	object TREEe6c6e2d0-608e-4ee4-a103-166c5855cc5c
+		type TREE01_STUMP
+		at 973 874
+		curdir 0
 
 	decorative TREE03 at 977 874
 

@@ -13628,7 +13628,7 @@ section: rooftiles
 	roof/roof34.cel
 	roof/roof35.cel
 	roof/roof36.cel
-	backings/mnt27.png no_map dark
+	backings/mnt27.png no_map dark 96
 	roof/metal00.cel
 	roof/metal01.cel
 	roof/metal02.cel stand_under
