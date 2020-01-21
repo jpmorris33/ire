@@ -664,8 +664,8 @@ if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible) {
 	if(temp->form->overlay) {
 		if(temp->form->flags&SEQFLAG_POSTOVERLAY) {
 			if(post_ovl<MAX_P_OVERLAY) {
-				postoverlay[post_ovl].x=xpos; //(cx-x)<<5;
-				postoverlay[post_ovl].y=ypos; //(cy-y)<<5;
+				postoverlay[post_ovl].x=xpos+project->ox; //(cx-x)<<5;
+				postoverlay[post_ovl].y=ypos+project->oy; //(cy-y)<<5;
 				postoverlay[post_ovl++].s=temp->form->overlay->image;
 			}
 		} else {

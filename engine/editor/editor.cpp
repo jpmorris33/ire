@@ -175,6 +175,13 @@ extern void gen_largemap();     // Build the large-objects map
 extern void LoadResources(char *filename);
 extern void EditArea(char *object);
 
+static struct POSTOVL
+	{
+	int x,y;
+	IRESPRITE *s;
+	} postoverlay[MAX_P_OVERLAY];
+
+
 // Code
 
 /*
@@ -697,7 +704,7 @@ int cx,cy,vx,vy,yoff,xpos,ypos;
 int startx,starty,ctr;
 OBJECT *temp;
 SEQ_POOL *project;
-OBJECT *postoverlay[MAX_P_OVERLAY];
+//OBJECT *postoverlay[MAX_P_OVERLAY];
 int post_ovl=0;
 
 startx = VIEWDIST;
@@ -711,14 +718,11 @@ if((x+startx)<0)
 if((y+starty)<0)
 	starty=0;
 
-for(vy=starty;vy<VSH;vy++)
-	{
+for(vy=starty;vy<VSH;vy++) {
 	yoff=ytab[y+vy];
-	for(vx=startx;vx<VSW;vx++)
-		{
-		for(temp=curmap->objmap[yoff+x+vx];temp;temp=temp->next)
-			if(sx_proj || (objsel && !strcmp(temp->name,objsel->name)))
-				{
+	for(vx=startx;vx<VSW;vx++) {
+		for(temp=curmap->objmap[yoff+x+vx];temp;temp=temp->next) {
+			if(sx_proj || (objsel && !strcmp(temp->name,objsel->name))) {
 				cx=vx+x;
 				cy=vy+y;
 
@@ -731,67 +735,73 @@ for(vy=starty;vy<VSH;vy++)
 				ypos=((cy-y)<<5)+project->yoff;
 
 
-				if(temp->flags & IS_TRANSLUCENT)
-					{
+				if(temp->flags & IS_TRANSLUCENT) {
 					project->seq[temp->sptr]->image->DrawAlpha(gamewin,xpos,ypos,project->translucency);
-					}
-				else
-					if(temp->flags&IS_SHADOW && !(temp->flags&IS_INVISIBLE)) // Invisible is 'Hidden'
-						{
+				} else {
+					if(temp->flags&IS_SHADOW && !(temp->flags&IS_INVISIBLE)) { // Invisible is 'Hidden'
 						project->seq[temp->sptr]->image->DrawShadow(gamewin,xpos,ypos,48);
-						}
-					else
+					} else {
 						project->seq[temp->sptr]->image->Draw(gamewin,xpos,ypos);
+					}
+				}
 
                 // If there is an overlay sprite, find out if it is for now
                 // or for later.  If it's for now, display it, else queue it
 
-				if(temp->form->overlay)
-					{
-					if(temp->form->flags&64)
-						{
-						if(post_ovl<MAX_P_OVERLAY)
-							postoverlay[post_ovl++]=temp;
+				if(temp->form->overlay) {
+					if(temp->form->flags&SEQFLAG_CHIMNEY || temp->form->flags&SEQFLAG_POSTOVERLAY) {
+						if(post_ovl<MAX_P_OVERLAY) {
+//							postoverlay[post_ovl++]=temp;
+							postoverlay[post_ovl].x=xpos+project->ox; //(cx-x)<<5;
+							postoverlay[post_ovl].y=ypos+project->oy; //(cy-y)<<5;
+							postoverlay[post_ovl++].s=temp->form->overlay->image;
 						}
-					else
+					} else {
 						project->overlay->image->Draw(gamewin,xpos+project->ox,ypos+project->oy);
 					}
+				}
 
 				// If the object is the selected object, highlight it.
-				if(objsel == temp)
+				if(objsel == temp) {
 					ClipBox((cx-mapx)<<5,(cy-mapy)<<5,temp->w-1,temp->h-1,ITG_WHITE,gamewin);
+				}
 
 				// If the object is the selected object, show any radius
-				if(objsel == temp)
-					if(temp->stats->radius)
+				if(objsel == temp) {
+					if(temp->stats->radius) {
 						ClipCircle(((cx-mapx)<<5)+16,((cy-mapy)<<5)+16,temp->stats->radius<<5,ITG_RED,gamewin);
+					}
+				}
 
 				// If the object is the Owner of the current object, highlight in red.
-				if(objsel)
-					if(objsel->stats->owner.objptr == temp)
+				if(objsel) {
+					if(objsel->stats->owner.objptr == temp) {
 						ClipBox((cx-mapx)<<5,(cy-mapy)<<5,temp->w-1,temp->h-1,ITG_RED,gamewin);
+					}
+				}
 
 				// If the object is the current Schedule Target, highlight in blue.
-				if(schsel == temp)
+				if(schsel == temp) {
 					ClipBox((cx-mapx)<<5,(cy-mapy)<<5,temp->w-1,temp->h-1,ITG_BLUE,gamewin);
+				}
 
 				// If we're showing all 'Owned' objects
-				if(ow_proj && temp->stats->owner.objptr)
-					{
+				if(ow_proj && temp->stats->owner.objptr) {
 					//set_invert_blender(128,128,255,255);
 					//draw_trans_rle_sprite(gamewin,project->seq[temp->sptr]->image,((cx-x)<<5),((cy-y)<<5));
 					project->seq[temp->sptr]->image->DrawInverted(gamewin,xpos,ypos);
-					}
 				}
+			}
 		}
 	}
+}
 // Now, display any post-processed overlays
 
-for(ctr=0;ctr<post_ovl;ctr++)
-	{
-	temp = postoverlay[ctr];
-	temp->form->overlay->image->Draw(gamewin,((temp->x-x)<<5)+temp->form->xoff,((temp->y-y)<<5)+temp->form->yoff);
-	}
+for(ctr=0;ctr<post_ovl;ctr++) {
+	postoverlay[ctr].s->Draw(gamewin,postoverlay[ctr].x,postoverlay[ctr].y);
+//	temp = postoverlay[ctr];
+//	temp->form->overlay->image->Draw(gamewin,((temp->x-x)<<5)+temp->form->xoff,((temp->y-y)<<5)+temp->form->yoff);
+}
 
 }
 
