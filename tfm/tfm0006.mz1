@@ -3916,8 +3916,8 @@ iMZ1r01
 		at 308 230
 		curdir 0
 
-	object FENCcdd6ea96-9292-4324-a22b-fa1623c95430
-		type FENCE2_END
+	object FENCe32e392d-46f4-4cf0-baff-70b6182671e1
+		type FENCE2_GATE_POST
 		at 311 230
 		curdir 2
 

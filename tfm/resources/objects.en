@@ -7945,6 +7945,23 @@ section: characters
 	setActiveArea	V 0 0 1 2
 	setActiveArea	H 0 0 2 1
 
+	name FENCE2_GATE_POST
+	left		FENCE2_GATEPOST_H
+	right		FENCE2_GATEPOST_H
+	up		FENCE2_GATEPOST_V
+	down		FENCE2_GATEPOST_V
+	hp		100
+	weight		-1
+	description	"You see a wooden gatepost."
+	short		"gatepost"
+	IfKilled	break_fence
+	solid
+	fixed
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 1
+	setActiveArea	H 0 0 1 1
+
 	name F16-GREY
 	left		F16GRAY-L
 	right		F16GRAY-R

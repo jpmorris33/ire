@@ -1934,6 +1934,8 @@ section: sprites
 
 	fence2_gate_h		sprites/fgate2_01.png
 	fence2_gate_v		sprites/fgate2_02.png
+	fence2_gatepost_h	sprites/fgate2_03.png
+	fence2_gatepost_v	sprites/fgate2_04.png
 	
 	f16-d			sprites/tech/grayf16d.pcx
 	f16-l			sprites/tech/grayf16l.pcx
@@ -8872,6 +8874,22 @@ section: sequences
 	overlay FENCE2_GATE_H
 	framelist:
 		FENCE2_B
+	end
+
+	name FENCE2_GATEPOST_H
+	overlay FENCE2_GATEPOST_H
+	ox -32
+	post_overlay
+	framelist:
+		blank
+	end
+
+	name FENCE2_GATEPOST_V
+	overlay FENCE2_GATEPOST_V
+	oy -32
+	post_overlay
+	framelist:
+		blank
 	end
 	
 	name F16GRAY-D

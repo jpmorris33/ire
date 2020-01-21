@@ -5016,8 +5016,8 @@ iMZ1r01
 
 	decorative MOUNT04 at 394 129
 
-	object FENC1debd0d0-97e6-4cc7-93ad-fcd28feea76b
-		type FENCE2_END
+	object FENC7b16e7ac-8a79-4e90-9bc0-d0d0969279ac
+		type FENCE2_GATE_POST
 		at 482 129
 		curdir 0
 
@@ -80720,8 +80720,8 @@ iMZ1r01
 
 	decorative TREE02 at 959 859
 
-	object FENC65cf211e-2d18-4e33-b50d-4ec262dcd17a
-		type FENCE2_END
+	object FENC2106f3fb-bc4a-44ba-bc69-cc765e33e126
+		type FENCE2_GATE_POST
 		at 982 859
 		curdir 0
 
@@ -80857,8 +80857,8 @@ iMZ1r01
 		at 984 860
 		curdir 0
 
-	object FENC438a6819-a61d-49a0-bfef-33bc1ccc0358
-		type FENCE2_END
+	object FENCf2e9388c-bdba-4255-95df-b9bc0261c1f4
+		type FENCE2_GATE_POST
 		at 987 860
 		curdir 2
 

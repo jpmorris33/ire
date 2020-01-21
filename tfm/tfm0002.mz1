@@ -148391,8 +148391,8 @@ iMZ1r01
 		at 191 641
 		curdir 2
 
-	object FENC19d7180d-d212-470e-88f2-dc70224df3ab
-		type FENCE2_END
+	object FENCe82a62f6-5af4-406f-8234-1622564e972d
+		type FENCE2_GATE_POST
 		at 226 641
 		curdir 0
 
@@ -148442,7 +148442,7 @@ iMZ1r01
 	object FENCb247f63f-f32f-481d-88b6-d96d0b871a61
 		type FENCE2
 		at 245 641
-		curdir 2
+		curdir 3
 
 	decorative TREE00 at 248 641
 
@@ -148922,7 +148922,7 @@ iMZ1r01
 		at 190 642
 		curdir 1
 
-	object FENC74379ee3-d7fd-4e51-be01-45e2ea56e2b9
+	object FENC067a1c8b-b390-404c-8646-7f3c08256ea2
 		type FENCE2
 		at 226 642
 		curdir 2
@@ -149387,7 +149387,7 @@ iMZ1r01
 		at 224 643
 		curdir 2
 
-	object FENC067a1c8b-b390-404c-8646-7f3c08256ea2
+	object FENC74379ee3-d7fd-4e51-be01-45e2ea56e2b9
 		type FENCE2
 		at 226 643
 		curdir 3
@@ -149757,7 +149757,7 @@ iMZ1r01
 	object FENC90279fdc-b64c-407e-b84f-a96e552bd5b3
 		type FENCE2
 		at 245 644
-		curdir 2
+		curdir 3
 
 	decorative TREE00 at 267 644
 
@@ -150749,7 +150749,7 @@ iMZ1r01
 	object FENC9f7123ba-4070-4adc-944d-efd75e233251
 		type FENCE2
 		at 245 647
-		curdir 2
+		curdir 3
 
 	decorative TREE00 at 251 647
 
@@ -152053,7 +152053,7 @@ iMZ1r01
 	object FENC7012b025-b6b3-4b62-8888-bc31122a565e
 		type FENCE2
 		at 245 651
-		curdir 2
+		curdir 3
 
 	decorative TREE02 at 250 651
 
@@ -152356,8 +152356,6 @@ iMZ1r01
 		curdir 2
 
 	decorative TREE02 at 220 652
-
-	decorative TREE02 at 224 652
 
 	object FENC4cdbfbc3-78a6-4b8a-9a5f-4dafe165bc2e
 		type FENCE2
