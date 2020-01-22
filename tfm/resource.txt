@@ -2382,6 +2382,7 @@ section: sprites
 	bucket_empty		sprites/bucket1.cel
 	bucket_milk		sprites/bucket2.cel
 	bucket_blood		sprites/bucket3.cel
+	bucket_milk2		sprites/bucket4.cel
 	snake00			sprites/wildlife/snake00.cel
 	snake01			sprites/wildlife/snake01.cel
 	snake02			sprites/wildlife/snake02.cel
@@ -9859,6 +9860,7 @@ section: sequences
 	quickname BUCKET_EMPTY BUCKET_EMPTY
 	quickname BUCKET_MILK BUCKET_MILK
 	quickname BUCKET_BLOOD BUCKET_BLOOD
+	quickname BUCKET_MILK2 BUCKET_MILK2
 	quickname W_KNIFE W_KNIFE
 
 	name SNAKE_R

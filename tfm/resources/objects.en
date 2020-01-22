@@ -9355,6 +9355,9 @@ section: characters
 	IfUsed		EAT_FOOD
 	no_resurrect
 
+	alias FOOD04B = FOOD04
+	description	"You see some artisan butter."
+
 	name FOOD05
 	left		FOOD05
 	right		FOOD05
@@ -9405,6 +9408,9 @@ section: characters
 	short		"cheese"
 	IfUsed		EAT_FOOD
 	no_resurrect
+
+	alias FOOD07B = FOOD07
+	description	"You see a wheel of artisan cheese."
 
 	name FOOD08
 	left		FOOD08A
@@ -10964,69 +10970,31 @@ section: characters
 	setActiveArea	V 0 0 1 1
 	setActiveArea	H 0 0 1 1
 
-	name BUCKET_WATER
-	left		BUCKET_WATER
-	right		BUCKET_WATER
-	up		BUCKET_WATER
-	down		BUCKET_WATER
-	hp		100
-	weight		6000
-	description	"You see a bucket of water."
-	short		"bucket"
-	IfUsed		bucket
-	solid
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
-
 	name BUCKET
-	left		BUCKET_EMPTY
-	right		BUCKET_EMPTY
-	up		BUCKET_EMPTY
-	down		BUCKET_EMPTY
+	frame		BUCKET_EMPTY
 	hp		100
 	weight		1000
 	description	"You see an empty bucket"
 	short		"bucket"
 	IfUsed		bucket
 	solid
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name BUCKET_MILK
-	left		BUCKET_MILK
-	right		BUCKET_MILK
-	up		BUCKET_MILK
-	down		BUCKET_MILK
-	hp		100
+	alias BUCKET_WATER = BUCKET
+	frame		BUCKET_WATER
 	weight		6000
+	description	"You see a bucket of water."
+
+	alias BUCKET_MILK = BUCKET_WATER
+	frame		BUCKET_MILK
 	description	"You see a bucket of milk."
-	short		"bucket"
-	IfUsed		bucket
-	solid
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name BUCKET_BLOOD
-	left		BUCKET_BLOOD
-	right		BUCKET_BLOOD
-	up		BUCKET_BLOOD
-	down		BUCKET_BLOOD
-	hp		100
-	weight		6000
+	alias BUCKET_MILK2 = BUCKET_MILK
+	frame		BUCKET_MILK2
+	description	"You see a bucket of weird milk."
+
+	alias BUCKET_BLOOD = BUCKET_WATER
+	frame		BUCKET_BLOOD
 	description	"You see a bucket of blood."
-	short		"bucket"
-	IfUsed		bucket
-	solid
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name SNAKE
 	left		SNAKE_L

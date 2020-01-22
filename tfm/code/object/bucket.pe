@@ -206,6 +206,80 @@ if bucket is called "bucket_milk"
 	return
 endif	
 
+# Bucket of weird milk
+
+if bucket is called "bucket_milk2"
+	replace bucket = "bucket"
+	
+	# Pour it on something/someone
+	
+	if_exist current
+		if_flag current IN_PARTY
+			if me = player
+				print "It tastes funny."
+			endif
+		else
+			# Fill another bucket
+			if current is called "bucket"
+				object_sound "pouring" current
+				replace current = "bucket_milk2"
+				return
+			endif
+
+			# Douse fire
+			if current is called "firestones_lit"
+				change current = "firestones"
+				return
+			endif
+
+			# Use on bed, wake people up
+			if current is called "bed*"
+				call awaken_current
+				return
+			endif
+
+			# Make butter
+			if current is called "churn"
+				create current = "FOOD04B"
+				transfer_to_pocket current to me
+				if me = player
+					print "You make some artisan butter."
+					printcr
+				endif
+				return
+			endif
+
+			# Use on someone
+			if current.stats.hp > 0
+			and current.stats.intelligence > 40
+				if current.label.rank = "king"
+					let victim = current
+					let suspect = me
+					call justice_HTreason
+				else
+					if me = player
+						print "~Aagh!~"
+					endif
+				endif
+			else
+				if me = player
+					print "You pour it away."
+				endif
+			endif
+		endif
+		if me = player
+			printcr
+		endif
+		return
+	endif
+
+	if me = player
+		print "You pour it away."
+		printcr
+	endif
+	return
+endif	
+
 
 # Bucket of blood
 
@@ -323,6 +397,14 @@ if bucket is called "bucket"
 		# Milking cows
 		if current is called "cow"
 			replace bucket = "bucket_milk"
+			if me = player
+				print "You milk the cow."
+				printcr
+			endif
+			return
+		endif
+		if current is called "cow_evil"
+			replace bucket = "bucket_milk2"
 			if me = player
 				print "You milk the cow."
 				printcr
