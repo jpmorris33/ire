@@ -563,7 +563,8 @@ Player has joined
 [if true][if_not ransome_pope][link="I have retrieved Pope Harris' diary from his study."]
 [am_carrying book_popediary1]
 [if true][if_not ransome_pope][linkto="popequest_done"]
-
+[if edwyg_fairford][if_not edwyg_fairford_done][link="King Edwyg needs your help."]
+[if edwyg_fairford][if_not edwyg_fairford_done][linkto="edwyg"]
 [link="Tell me about the Holy Land."]
 [linkto="holyland"]
 [link="Tell me about the other air bases."]
@@ -1384,6 +1385,29 @@ Finally he hands you a large bag of coins as a reward.
 [endpage]
 
 
+[page="edwyg"]
+[call="edwyg_panthers"]
+[set edwyg_fairford_done]
+[journal_done jrn_EdwygFairford]
+[image="f16_00.cel"]
+
+[colour="#808080"]
+Ransome looks concerned.
+[colour="#ffffff"]
+
+"The King fears the Church are about to move against him?
+ I suppose it was only a matter of time.
+
+ Very well... I've sent some of our guard panthers to act
+ as bodyguards for him.  Hopefully the artificial fur
+ will stop them being targetted as demons, at least until
+ people have had a chance to get used to them.
+
+ Fingers crossed the password we agreed with Edwyg is
+ still valid."
+
+[nextpage="other"]
+[endpage]
 
 
 
@@ -1508,7 +1532,7 @@ Ransome looks pained.
 
  Apart from the fact that the artwork is better, most
  aircraft prefer vinyl because it's easier to hold than
- a coin-sized data cartridge."
+ a pea-sized data card."
 
 [endpage]
 

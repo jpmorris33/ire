@@ -57,6 +57,20 @@ start:
 Cardinal Umbring wants me to deliver the Sceptre to the Pope.
 end
 
+name jrn_SceptreChurch
+tag task
+title Tell the king about Cardinal Bas' letter
+start:
+I have found a letter from the Pope to Cardinal Bas, which appears to be instructing him to steal the sceptre.  I must show this to the King.
+end
+
+name jrn_EdwygFairford
+tag task
+title Ask Ransome to help King Edwyg
+start:
+The King has realised that the Church is moving against him, and wishes protection.  He has suggested I ask the demon Ransome for aid.
+end
+
 name jrn_Phone1
 tag task
 title Visit New Fairford, find Ransome
@@ -249,6 +263,12 @@ start:
 I've returned the android's head to the security team so they can revive him.
 end
 
+name jrn_MordorDisappearances
+tag task
+title Disappearances in Mordor
+start:
+Apparently some people have gone missing in Mordor.  Maybe I should investigate.
+end
 
 
 

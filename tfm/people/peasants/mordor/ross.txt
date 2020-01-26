@@ -77,13 +77,14 @@ You see Sir Ross.
 
 "I accidentally slew the daughter of a nobleman whom I
  was sent here to rescue.  I dare not return openly for
- I shall surely hang, so I am living in exile.
+ I shall surely lose my head, so I am living in exile.
 
  But I sometimes have need to deal with men on behalf of
  the dragon.. in such times I disguise myself as a monk.
 
  I worry that one day the nobleman may learn of my crime
- and send the king's men to take me to the gallows-tree.
+ and send the king's men to take me to the gallows-tree,
+ or more likely the headsman.
  But the dragon has vowed to protect me should soldiers
  ever approach the keep."
 
@@ -150,13 +151,18 @@ You see Sir Ross.
  slain an ugly fat girl who snores.  I cowered, waiting
  for the wyrm to strike me down with a death-blow or
  roast me with the searing heat of its breath, but
- instead it turned and asked me to help remove the body.
+ instead it turned and asked me to help remove the body."
 
- We dug a grave for the fat maiden.  It took all night
- and I quailed, knowing that I would hang when the maid's
- father found out what I had done.  But the dragon made
- me an offer that I could not refuse; shelter and
- protection in exchange for my service."
+[nextpage="exile3"]
+[endpage]
+
+[page="exile3"]
+
+"We dug a grave for the fat maiden.  It took all night
+ and I quailed, knowing that I should face beheading
+ when the maid's father found out what I had done.
+ But the dragon made me an offer I could not refuse;
+ shelter and protection in exchange for my service."
 
 [link="What do you do?"]
 [linkto="job"]
@@ -262,7 +268,11 @@ You see Sir Ross.
 
  King Duncan is not a man known for rash acts, though.
  Yet it is not outside of reason that he may covet the
- Sceptre of Albion."
+ Sceptre of Albion.
+
+ Hmm... now that I think of this, Jorge did mention
+ the town of Avis on some occasions.  Mayhap he had
+ some contact there?"
 
 [link="What do you do?"]
 [linkto="job"]

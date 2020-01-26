@@ -8808,6 +8808,18 @@ section: characters
 	description	"You see something written in a strange, printed text."
 	short		"paper"
 
+	name PAPER_SCQUEST
+	left		KIDDIE-DRAWING-1L
+	right		KIDDIE-DRAWING-1R
+	up		KIDDIE-DRAWING-1
+	down		KIDDIE-DRAWING-1
+	hp		15
+	weight		5
+	description	"You see a parchment with writing on it."
+	short		"paper"
+	IfUsed		BOOK_USE
+	spikeproof
+	conversation	books/misc/scep3.txt
 
 	name PLAQUE_STONE
 	left		PLAQUE_STONE_H
@@ -10080,6 +10092,7 @@ section: characters
 	weight		250
 	description	"You see a coat of synthetic panther fur."
 	short		"panther fur"
+	oninit		self_wield
 	IfWielded	wield_panther
 	wielded
 

@@ -89,6 +89,8 @@ You see $NAME, the innkeeper.
 
 
 [page="news"]
+[set morder_disappearances]
+[journal jrn_MordorDisappearances]
 
 "Nothing much has been heard from the Dragon of the North
  lately, though rumours say that a foolish man has sold
@@ -99,7 +101,10 @@ You see $NAME, the innkeeper.
 
  The village of New Leuchars has been destroyed by the
  forces of darkness.  The Church has increased the Tithes
- again as a result."
+ again as a result.
+
+ And alas, some of our folk from this town have vanished.
+ The Thane's men are baffled and suspect foul murder."
  
 [link="Why is this place called the Yawning Wolf?"]
 [linkto="yawningwolf"]

@@ -1,0 +1,127 @@
+
+[page="start"]
+[call="check_king"]
+[if killed_king][goto="kingdead"]
+[if false][goto="kingmissing"]
+[image="panth5d.pcx"]
+[colour="#808080"]
+You see some kind of robot panther, clad in artificial
+fur.  The creature speaks in a faintly mechanical voice.
+[colour="#ffffff"]
+
+"Yes, $SIR?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+[image="panth5d.pcx"]
+
+"Goodbye, $SIR."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="what"]
+[image="panth5d.pcx"]
+
+"I am a Mark 8 panther.  We are semi-autonomous guard
+ robots manufactured for the purpose of defending
+ military installations.
+
+ I have been assigned to protect King Edwyg."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="You all look the same."]
+[linkto="same"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[image="panth5d.pcx"]
+[learn_name]
+
+"I am $NAME.  I have been assigned to protect King Edwyg
+ from his political enemies."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="You all look the same."]
+[linkto="same"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="time"]
+[call="guard_telltime"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+Without consulting any kind of timepiece, the creature
+answers immediately.
+[colour="#ffffff"]
+
+"Yes, it is currently $USERNUM1 : $USERNUM2."
+
+[link="You all look the same."]
+[linkto="same"]
+[link="Thankyou.  Goodbye.."]
+[linkto="bye"]
+[endpage]
+
+
+[page="same"]
+[image="panth5d.pcx"]
+
+"That is because we are all the same model."
+
+[link="Can you tell me the time?"]
+[linkto="time"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="kingdead"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+The creature wails in a broken voice.
+[colour="#ffffff"]
+
+"The King is dead!  We have failed in our sworn duty!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="kingmissing"]
+[image="panth5d.pcx"]
+
+[colour="#808080"]
+The creature wails in a broken voice.
+[colour="#ffffff"]
+
+"The King is missing!  He is probably dead!
+ We have failed in our sworn duty!"
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+

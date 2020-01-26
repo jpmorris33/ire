@@ -63,10 +63,10 @@ Cardinal De'Ath
 
 [page="trinity_believe"]
 
-"Of course.  My predecessor angered the LORD and I have seen
- His will carried out on Earth.  Christ himself has spoken to
- me as has the Holy Ghost.  I would be a fool to disbelieve
- in the Trinity after this."
+"Of course.  My predecessor angered the LORD and I have
+ seen His will carried out on Earth.  Christ himself has
+ spoken to me, as has the Holy Ghost.  I would be a fool
+ to disbelieve in the Trinity after this."
 
 [link="Tell me about your predecessor."]
 [linkto="ludwig"]
@@ -83,13 +83,13 @@ Cardinal De'Ath
 "I was, until recently, a priest.
 
  My predecessor was Cardinal Bas, who until recently
- resided here at Avis.  However, the LORD entrusted him with
- some most sacred duty in which he had failed.  I know not
- what this task was, but he failed and the LORD, very
- greatly displeased, smote him down with holy fire.
+ resided here at Avis.  However, the LORD entrusted him
+ with some most sacred duty in which he had failed.
+ I know not what this task was, but he failed and the
+ LORD, greatly displeased, smote him down with holy fire.
 
- I happened to be nearby at the time and the LORD commanded
- me to take his place, which I try to do.
+ I happened to be nearby at the time and the LORD
+ commanded me to take his place, which I try to do.
 
  Cardinal Bas' personal effects are in a chest in my
  home, I have not yet had time to examine them."
@@ -160,11 +160,14 @@ Cardinal De'Ath shakes his head.
 The Cardinal looks appalled at your presence.
 [colour="#ffffff"]
 
-"The LORD has informed us of your sins, my $Son, and
- made it clear that you are no longer welcome in
- the House of God.
+"The Saviour has informed us of your sins, my $Son,
+ and made it clear that you are no longer welcome
+ in the House of God.
 
- Pray, leave immediately before the LORD destroys
+ If you wish to make your peace with the Trinity, I fear
+ that his holiness, the Pope may be your only recourse.
+
+ Now pray, leave immediately before the LORD destroys
  you!  I have no wish to witness His anger again!"
 
 [nextpage="exit"]

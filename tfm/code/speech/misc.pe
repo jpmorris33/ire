@@ -14,6 +14,7 @@ endlocal
 ##
 
 function king_checkbody
+private
 
 set_user_flag "true" = 0
 set_user_flag "false" = 1
@@ -41,16 +42,74 @@ end
 
 
 function check_bishop
+private
 object o
 
-# If you kill the cardinal, Jesus kills you
-
+set_user_flag "killed_bishop" = 0
 find_tag o = "deadcardinal" 36
 if_exists o
 	set_user_flag "killed_bishop" = 1
+	return
+endif
+
+find_tag o = "CARDINAL_HEAD" 36
+if_exists o
+	set_user_flag "killed_bishop" = 1
+	return
 endif
 
 end
+
+function check_king
+private
+object o
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+set_user_flag "killed_king" = 0
+find_tag o = "deadking" 36
+if_exists o
+	set_user_flag "killed_king" = 1
+	return
+endif
+
+find_tag o = "KING_HEAD" 36
+if_exists o
+	set_user_flag "killed_king" = 1
+	return
+endif
+
+find_tag o = "KING" 36
+if_exists o
+	return
+endif
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+
+end
+
+##
+##  Is the Cow still alive?
+##
+
+function check_thecow
+private
+object o
+
+find_tag o = "COW_THECOW" 0
+if_exists o
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+	return
+endif
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+end
+
+
 
 ##
 ##  Add 1320 to your dues to the Church

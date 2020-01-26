@@ -1,0 +1,311 @@
+
+
+Green	- Poison
+Red	- Cure
+Yellow	- Heal
+Black	- Invis 	WARG DON'T HAVE THSE
+
+Blue	- Sleep?
+Magenta
+Purple
+White   - Light, or X-ray vision, or something else
+
+
+
+
+[page="start"]
+
+"Well met, $SIR.  I am Jon the apothecar.
+ Are you interested in buying potions?"
+[learn_name]
+
+[link="Tell me about your potions."]
+[linkto="potions"]
+[link="Any interesting news?"]
+[linkto="gossip"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="startname"]
+[colour="#808080"]
+You see Jon the apothecar.
+[colour="#ffffff"]
+
+"Welcome back.
+ Are you interested in buying potions?"
+
+[link="Tell me about your potions."]
+[linkto="potions"]
+[link="Any interesting news?"]
+[linkto="gossip"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gossip"]
+[set morder_disappearances]
+[journal jrn_MordorDisappearances]
+"Aye.  There have been a number of disappearances
+ of late, and some fear that a mad murderer may be
+ on the loose.
+
+ Also, while picking hearbs to the west of our town,
+ I did see a number of dwarven folk prospecting for
+ gold or gems.  They were singing a harsh lament
+ about the torments of Hell."
+
+[link="Tell me about your potions."]
+[linkto="potions"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="potions"]
+
+"I have a selection of potions I can sell you.
+ They are dyed so that you can tell which is which.
+
+ The green potions are poison that is useful for
+ slaying rats and keeping livestock free from lice.
+
+ Red potions are a fast-acting antidote to most toxins,
+ including snake venom and the rat poison.
+
+ Yellow potions are restorative and allow wounds to heal
+ very rapidly.  Blue potions induce a refreshing sleep.
+
+ We also have black potions that can render the user
+ invisible, but they are most expensive since the
+ unscrupulous may use them to commit evil deeds."
+
+[link="How much are they?"]
+[linkto="prices"]
+[always]
+[link="I'd like some rat poison."]
+[linkto="green"]
+[always]
+[link="I'd like the cure potion."]
+[linkto="red"]
+[always]
+[link="I'd like the healing potion."]
+[linkto="yellow"]
+[always]
+[link="I'd like the sleep potion."]
+[linkto="blue"]
+[always]
+[link="I'd like the invisibility potion."]
+[linkto="black"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="prices"]
+
+"I sell rat poison for 20 gold coins, cure potions and
+ healing potions for 25 gold coins, a sleeping draught
+ for 50 gold coins.  For the black potion I must ask
+ 250 gold coins and record your name in my logbook."
+
+[link="Tell me more about the potions."]
+[linkto="potions"]
+[always]
+[link="I'd like some rat poison."]
+[linkto="green"]
+[always]
+[link="I'd like the cure potion."]
+[linkto="red"]
+[always]
+[link="I'd like the healing potion."]
+[linkto="yellow"]
+[always]
+[link="I'd like the sleep potion."]
+[linkto="blue"]
+[always]
+[link="I'd like the white potion."]
+[linkto="white"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="green"]
+
+"That will be 20 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="green2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="green2"]
+[take 20 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_green]
+[append="buy_core"]
+[endpage]
+
+
+[page="red"]
+
+"That will be 25 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="red2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="red2"]
+[take 25 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_red]
+[append="buy_core"]
+[endpage]
+
+
+[page="yellow"]
+
+"That will be 25 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="yellow2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="yellow2"]
+[take 25 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_yellow]
+[append="buy_core"]
+[endpage]
+
+
+[page="blue"]
+
+"That will be 50 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="blue2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="blue2"]
+[take 50 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_blue]
+[append="buy_core"]
+[endpage]
+
+
+[page="black"]
+
+"That will be 250 gold coins, and I must record your
+ name, by law of the Thane."
+
+[link="Okay, I'll have one."]
+[linkto="black2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="black2"]
+[take 250 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_black]
+[append="buy_core"]
+[endpage]
+
+
+[page="white"]
+
+"That will be 20 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="white2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="white2"]
+[take 20 gold_coins]
+[if false][goto="nomoney"]
+[create 1 potion_white]
+[append="buy_core"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you cannot afford that.  Would you like to buy
+ something else?"
+
+[link="Yes, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buy_core"]
+"Here you go."
+
+[colour="#808080"]
+The apothecar hands you the vial of potion.
+[colour="#ffffff"]
+
+[link="I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+
+"Fare the well, good $SIR!"
+
+[nextpage="exit"]
+[endpage]
+
+
+

@@ -60,6 +60,7 @@ King Edwyg greets you like a visiting prince.
 
 
 [page="start4"]
+[if edwyg_fairford][goto="start5"]
 [colour="#808080"]
 King Edwyg greets you like a visiting prince.
 [colour="#ffffff"]
@@ -74,6 +75,52 @@ King Edwyg greets you like a visiting prince.
 [if flour2][linkto="flour"]
 [if sceptre_jorge][link="I have more information on the Sceptre's theft."]
 [if sceptre_jorge][linkto="sceptre2"]
+[am_carrying PAPER_SCQUEST]
+[if true][if sceptre_church][link="I think I have found out who ordered the theft."]
+[if true][if sceptre_church][linkto="sceptre3"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="start5"]
+[if edwyg_fairford_done][goto="start6"]
+[colour="#808080"]
+King Edwyg greets you like a visiting prince.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYER.  I trust you are well.
+
+ Was there something you wished to ask me?"
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[call="check_thecow"]
+[if true][link="The cow is blocking the way to New Fairford."]
+[if true][linkto="fairford3"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="start6"]
+[colour="#808080"]
+King Edwyg greets you like a visiting prince.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYER.  I trust you are well.
+
+ Thank you for obtaining these guards, I feel much safer
+ 'neath their protection.  Still, this but delays the
+ inevitable... if you can aid Ransome, it may be that he
+ can bring peace between the Church and the people they
+ claim to serve."
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
 [link="Goodbye"]
 [linkto="bye"]
 [endpage]
@@ -84,7 +131,7 @@ King Edwyg greets you like a visiting prince.
 The King stares at you in fury and astonishment.
 [colour="#ffffff"]
 
-"This was not in the prophecy..!
+"This was not the prophecy..!
 
  GUARDS!  Remove the impostor!"
 
@@ -222,7 +269,7 @@ The King stares at you in fury and astonishment.
 
 [page="whatdo"]
 
-"I do not know what to do.  I cannot fight the Church
+"I know not what to do.  I cannot fight the Church
  outright or I shall be excommunicated.  My throne would
  be usurped by some puppet of New Avignon and all the
  achievements of my reign would be cast aside.
@@ -232,7 +279,7 @@ The King stares at you in fury and astonishment.
  as He did unto King Nebuchadnezzar in the book of Daniel.
 
  But if I recant and pay the Church, my people shall
- suffer even as the monks of the Lord grow fat!"
+ suffer even as the monks of the LORD grow fat!"
 
 [link="Why doesn't God like you?"]
 [linkto="whynotlike"]
@@ -692,6 +739,30 @@ was bearing from 'N'.
 [linkto="bye"]
 [endpage]
 
+
+
+[page="sceptre3"]
+[esc=disabled]
+[colour="#808080"]
+As you show the parchment to the King, the colour drains
+from his face.
+[colour="#ffffff"]
+
+"This... the Church had stolen my Sceptre?!?
+
+ It.. it all makes sense.. for the Church has long been
+ at odds with my reforms, and over the Tithes..
+
+ And if I am not wrong, the Sceptre itself is worth about
+ a third of my Kingdom!  They ordered it taken in payment
+ for the Tithes!"
+
+[nextpage="fairford"]
+[endpage]
+
+
+
+
 "The Pope took it from me."
 
 [page="sceptre_pope"]
@@ -714,13 +785,16 @@ The King turns pale.
  that it shall become necessary to retrieve the Sceptre
  from the Pope's treasury by stealth."
 
+[nextpage="fairford"]
 [endpage]
 
 
-[page="sceptre_pope2"]
+[page="fairford"]
+[set edwyg_fairford]
+[clear find_jorge]
 
 [colour="#808080"]
-King Edwyg lowers his voice.
+King Edwyg glances around the room and lowers his voice.
 [colour="#ffffff"]
 
 "$PLAYER, there is something that I ask of you.
@@ -731,13 +805,26 @@ King Edwyg lowers his voice.
  Among those there is an old ally of mine, who goes by
  the name of Ransome.  I warn you, he is not like you or
  I.. he is in fact, a daemon.  But a daemon in whom I can
- put the utmost trust and who always answers truthfully.
+ put the utmost trust and who always answers truthfully."
 
- Find him, I beseech you.. find him and tell him what has
- happened.  For it seems to me that the Church is
- preparing for a strike against those whom it considers
- its enemies, and that would include him too."
+[nextpage="fairford2"]
+[endpage]
 
+[page="fairford2"]
+[journal_done jrn_SceptreChurch]
+[journal jrn_EdwygFairford]
+
+"Find Ransome, I beseech you.. find him and tell him
+ what has happened.  For it seems to me that the Church
+ is preparing for a strike against those whom it
+ considers its enemies, and that would include him too."
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[link="Goodbye"]
+[linkto="bye"]
 [endpage]
 
 

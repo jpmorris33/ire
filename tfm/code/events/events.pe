@@ -72,7 +72,7 @@ function plot_cowattack
 object cow
 integer cowdead
 
-get_user_flag cowdead = "cow_dead"
+get_user_flag cowdead = "cow_thecow_dead"
 if cowdead <> 0
 	# The cow's dead
 	return
@@ -82,7 +82,7 @@ endif
 find_tag cow = "cow_thecow" 0
 #let cow = current.stats.owner
 if_not_exists cow
-	print "No cow|"
+#	print "No cow|"
 	return # Oops
 endif
 
@@ -641,4 +641,40 @@ if_exists head
 	resume_action temp
 endif
 
+end
+
+##
+##  Activate the King's elite guard
+##
+
+function edwyg_panthers
+object panther
+
+find_tag panther = "GUARD_PANTHER" 110
+if_not_exists panther
+	print "Oops: no panther 110|"
+	return
+endif
+
+# Switch the panther on
+
+let panther.stats.hp = 1200
+check_hurt panther
+
+stop_action panther
+resume_action panther
+
+# Now the other one
+
+find_tag panther = "GUARD_PANTHER" 111
+if_not_exists panther
+	print "Oops: no panther 111|"
+	return
+endif
+
+let panther.stats.hp = 1200
+check_hurt panther
+
+stop_action panther
+resume_action panther
 end

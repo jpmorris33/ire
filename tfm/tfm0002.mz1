@@ -1056,11 +1056,10 @@ iMZ1r01
 		curdir 2
 		stats->owner MAN_da634be2-216f-4c52-9687-db39b9e6aa52
 
-	object PAPEd47c5a5d-50f7-46bf-9e40-6e7ac7388640
-		type PAPER
+	object PAPE696088b7-7af1-446e-abfd-0e5db79ce1b9
+		type PAPER_SCQUEST
 		inside CHES7d73236e-9436-40b8-820c-df250c0faa5f
 		curdir 0
-		funcs->talk books/misc/scep3.txt
 
 	object PAPEfdc34fe4-8151-4f13-b949-0a3152d5fb5d
 		type PAPER
@@ -132021,6 +132020,7 @@ iMZ1r01
 		at 152 596
 		curdir 0
 		name Cardinal De'Ath
+		tag 36
 		funcs->talk people/church/de_ath.txt
 		schedule 8 0 SIT_AT_LOCATION TARG46ba2e3a-3041-4e7b-9eec-937a4c4dc4c1
 		schedule 22 0 GO_TO_SLEEP BED_c8923602-f9fd-411d-a22b-8af5dd8ed9b4

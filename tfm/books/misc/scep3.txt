@@ -24,6 +24,7 @@
      Pope Harris 
 
 [set sceptre_church]
+[journal jrn_SceptreChurch]
 [nextpage="exit"]
 [endpage]
 

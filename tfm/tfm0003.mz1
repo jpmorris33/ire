@@ -69088,6 +69088,7 @@ iMZ1r01
 		at 829 776
 		curdir 0
 		name Trom
+		tag 36
 		funcs->talk people/church/trom.txt
 
 	object STAId4e4f63d-57be-49ff-bcfe-905c0e39bb5b
