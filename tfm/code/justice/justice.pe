@@ -884,6 +884,16 @@ if current = suspect
 	return
 endif
 
+# Stop panthers trying to arrest each other for being panthers
+if suspect.user.user19 == CRIME_BEAST
+	if suspect is called "guard_panther"
+		if current is called "guard_panther"
+			return
+		endif
+	endif
+endif
+
+
 if suspect.user.vigilante = 0			# Licensed to kill?
 	if_not_flag current IN_PARTY		# Are you of Us?
 		if_flag current IS_GUARD
@@ -957,9 +967,8 @@ all_around me radius 20 does justice_attack_party
 if alreadyguilty = 0
 	print "~DEMON!  KILL IT!~"
 	printcr
+	call call_guards
 endif
-call call_guards
-
 end
 
 
