@@ -620,10 +620,11 @@ end
 ##
 
 function self_wield
-
 if_flag current IS_WIELDED
 	return
 endif
+
+let me = current.parent
 
 if_not_exists me
 	return
