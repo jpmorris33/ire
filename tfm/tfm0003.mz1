@@ -80527,6 +80527,12 @@ iMZ1r01
 		at 973 851
 		curdir 2
 
+	object TARGa87dce35-bd8b-429f-9357-c5a75111baf5
+		type TARGET
+		at 974 851
+		curdir 0
+		tag 80035
+
 	object TABL5374f0c0-2122-4768-9b8d-724a211582b8
 		type TABLE-SHADOW2
 		at 976 851
@@ -80542,11 +80548,10 @@ iMZ1r01
 		at 977 851
 		curdir 0
 
-	object CHAIe5d5648a-9490-422e-b784-c3186bc346a3
-		type CHAIR
+	object TARG33557877-4125-49b5-9b27-abe467fb7329
+		type TARGET
 		at 977 851
 		curdir 0
-		stats->owner MAN_63f79b74-2014-43e7-ae51-7c86272c814c
 
 	object TABL0e3076f1-1119-40e6-af72-7ef95e8fe533
 		type TABLE-SHADOW1
@@ -80562,6 +80567,12 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 979 851
 		curdir 0
+
+	object TARGff81d7b0-708f-49be-94db-8dcbdf655788
+		type TARGET
+		at 979 851
+		curdir 0
+		tag 80031
 
 	object STONd74624b5-cb11-4d85-a38e-8db062a7f140
 		type STONEWINDOW1
@@ -80732,6 +80743,18 @@ iMZ1r01
 		at 975 852
 		curdir 1
 		name Farmer Jack
+		schedule 7 0 LOITER_ATWORK TARGb20441d0-be7d-46c5-853a-dba9aa9f4137
+		schedule 12 0 EAT_AT_HOME TARG33557877-4125-49b5-9b27-abe467fb7329
+		schedule 13 0 LOITER_ATWORK TARGb20441d0-be7d-46c5-853a-dba9aa9f4137
+		schedule 19 0 EAT_AT_LOCATION TARG33557877-4125-49b5-9b27-abe467fb7329
+		schedule 20 0 SIT_AT_LOCATION TARGff81d7b0-708f-49be-94db-8dcbdf655788
+		schedule 22 0 GO_TO_SLEEP BED_10733327-2b8b-4e46-82c5-e023e2de411c
+
+	object CHAIe5d5648a-9490-422e-b784-c3186bc346a3
+		type CHAIR
+		at 977 852
+		curdir 0
+		stats->owner MAN_63f79b74-2014-43e7-ae51-7c86272c814c
 
 	object FENC91680649-1e23-421e-a738-27b169fd9876
 		type FENCE2
@@ -81117,6 +81140,12 @@ iMZ1r01
 		at 982 855
 		curdir 2
 
+	object TARGb20441d0-be7d-46c5-853a-dba9aa9f4137
+		type TARGET
+		at 983 855
+		curdir 3
+		tag 80030
+
 	object COW_79ef33a8-b564-4afa-b096-20e37e78bf40
 		type COW
 		inside EGG_8996de53-dd0a-4db8-a4b5-7cc5fdb1549e
@@ -81211,8 +81240,8 @@ iMZ1r01
 
 	decorative TREE02 at 906 856
 
-	object STONb15489f4-eb6a-4ba1-b3b1-42f75a538ef8
-		type STONEDOOR1_LOCK
+	object STONfd0ad3ac-5076-4d26-9a58-b48f3891ba92
+		type STONEDOOR1_SHUT
 		at 976 856
 		curdir 0
 
@@ -81602,6 +81631,12 @@ iMZ1r01
 		type EGG_OBJECT(COW)
 		at 988 859
 		curdir 2
+
+	object TARGcd69382f-c2ee-4217-868f-93a7710cb44e
+		type TARGET
+		at 989 859
+		curdir 1
+		tag 80034
 
 	decorative MOUNT10 at 524 860
 
@@ -82105,6 +82140,18 @@ iMZ1r01
 	decorative TREE01 at 957 863
 
 	decorative TREE00 at 963 863
+
+	object TARG1962e1c9-c091-47d5-b6cd-91a83cd6f030
+		type TARGET
+		at 975 863
+		curdir 1
+		tag 80032
+
+	object TARG8da42f9b-763a-4c50-8129-e7c7fa863b1e
+		type TARGET
+		at 978 863
+		curdir 1
+		tag 80033
 
 	object TABL641bbe01-665a-4890-a94f-2bb9c96e1a2f
 		type TABLE6-V

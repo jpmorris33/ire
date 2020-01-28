@@ -7938,6 +7938,7 @@ section: characters
 	short		"gate"
 	IfUsed		CloseDoorG1
 	IfKilled	DoorwayG1
+	IfTriggered	door_close_trigger
 	solid
 	fixed
 	setsolid	V 0 0 1 2

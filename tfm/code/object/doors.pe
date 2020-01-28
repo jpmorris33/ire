@@ -484,6 +484,7 @@ end
 function OpenDoorG1
 change current = "fence2_gate_open"
 object_sound "open_door" current
+start_action current does SelfCloseG1
 end
 
 
@@ -494,6 +495,19 @@ let victim = current
 call justice_vandalism
 object_sound "doorbreaking" current
 end
+
+
+function SelfCloseG1
+# If the counter has timed out, close the door
+if me.user.user1 > 3
+        let me.user.user1 = 0
+        stop_action me
+	start_action me does door_selfclose
+endif
+# Increment counter
+add me.user.user1 + 1
+end
+
 
 
 ##
