@@ -2292,164 +2292,87 @@ section: characters
 	setActiveArea	H 0 0 1 1
 
 	name BLOOD0
+	frame		BLOOD00
+	hp		100
+	weight		-1
+	description	"You see a pool of blood"
+	short		"blood"
+	translucent
+	fixed
+
+	alias BLOOD01 = BLOOD0
+	frame		BLOOD01
+
+	alias BLOOD02 = BLOOD0
+	frame		BLOOD02
+
+	alias BLOOD03 = BLOOD0
+	frame		BLOOD03
+
+	alias BLOOD04 = BLOOD0
+	frame		BLOOD04
+
+	alias BLOOD05 = BLOOD0
+	frame		BLOOD05
+
+	alias BLOOD06 = BLOOD0
+	frame		BLOOD06
+
+	alias BLOOD07 = BLOOD0
+	frame		BLOOD07
+
+	alias BLOOD08 = BLOOD0
+	frame		BLOOD08
+
+	alias BLOOD09 = BLOOD0
+	frame		BLOOD09
+
+	name BLOOD_THICK
 	left		BLOOD00
-	right		BLOOD00
-	up		BLOOD00
-	down		BLOOD00
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
-
-	name BLOOD01
-	left		BLOOD01
 	right		BLOOD01
-	up		BLOOD01
-	down		BLOOD01
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
-
-	name BLOOD02
-	left		BLOOD02
-	right		BLOOD02
 	up		BLOOD02
-	down		BLOOD02
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
-
-	name BLOOD03
-	left		BLOOD03
-	right		BLOOD03
-	up		BLOOD03
 	down		BLOOD03
 	hp		100
 	weight		-1
-	description	"You see a pool of fresh blood"
+	description	"You see a pool of blood"
 	short		"blood"
-	translucent
 	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name BLOOD04
-	left		BLOOD04
-	right		BLOOD04
-	up		BLOOD04
-	down		BLOOD04
+	name BLOOD10
+	frame		BLOOD10
 	hp		100
 	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
+	description	"You see a pool of black fluid"
+	short		"robot blood"
+#	translucent
 	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name BLOOD05
-	left		BLOOD05
-	right		BLOOD05
-	up		BLOOD05
-	down		BLOOD05
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias BLOOD11 = BLOOD10
+	frame		BLOOD11
 
-	name BLOOD06
-	left		BLOOD06
-	right		BLOOD06
-	up		BLOOD06
-	down		BLOOD06
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias BLOOD12 = BLOOD10
+	frame		BLOOD12
 
-	name BLOOD07
-	left		BLOOD07
-	right		BLOOD07
-	up		BLOOD07
-	down		BLOOD07
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias BLOOD13 = BLOOD10
+	frame		BLOOD13
 
-	name BLOOD08
-	left		BLOOD08
-	right		BLOOD08
-	up		BLOOD08
-	down		BLOOD08
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias BLOOD14 = BLOOD10
+	frame		BLOOD14
 
-	name BLOOD09
-	left		BLOOD09
-	right		BLOOD09
-	up		BLOOD09
-	down		BLOOD09
-	hp		100
-	weight		-1
-	description	"You see a pool of fresh blood"
-	short		"blood"
-	translucent
-	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias BLOOD15 = BLOOD10
+	frame		BLOOD15
+
+	alias BLOOD16 = BLOOD10
+	frame		BLOOD16
+
+	alias BLOOD17 = BLOOD10
+	frame		BLOOD17
+
+	alias BLOOD18 = BLOOD10
+	frame		BLOOD18
+
+	alias BLOOD19 = BLOOD10
+	frame		BLOOD19
 
 	name THE_DEATH
 	left		THE_DEATH

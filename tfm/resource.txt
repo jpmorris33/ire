@@ -1781,6 +1781,16 @@ section: sprites
 	blood07			sprites/blood07.cel
 	blood08			sprites/blood08.cel
 	blood09			sprites/blood09.cel
+	blood10			sprites/blood10.png
+	blood11			sprites/blood11.png
+	blood12			sprites/blood12.png
+	blood13			sprites/blood13.png
+	blood14			sprites/blood14.png
+	blood15			sprites/blood15.png
+	blood16			sprites/blood16.png
+	blood17			sprites/blood17.png
+	blood18			sprites/blood18.png
+	blood19			sprites/blood19.png
 	cobweb0			sprites/cobweb0.cel
 	cobweb1			sprites/cobweb1.cel
 	cobweb2			sprites/cobweb2.cel
@@ -8272,16 +8282,26 @@ section: sequences
 	quickname COBWEB0 COBWEB0
 	quickname COBWEB1 COBWEB1
 	quickname COBWEB2 COBWEB2
-	quickname BLOOD00 BLOOD00
-	quickname BLOOD01 BLOOD01
-	quickname BLOOD02 BLOOD02
-	quickname BLOOD03 BLOOD03
-	quickname BLOOD04 BLOOD04
-	quickname BLOOD05 BLOOD05
-	quickname BLOOD06 BLOOD06
-	quickname BLOOD07 BLOOD07
-	quickname BLOOD08 BLOOD08
-	quickname BLOOD09 BLOOD09
+	quickname BLOOD00
+	quickname BLOOD01
+	quickname BLOOD02
+	quickname BLOOD03
+	quickname BLOOD04
+	quickname BLOOD05
+	quickname BLOOD06
+	quickname BLOOD07
+	quickname BLOOD08
+	quickname BLOOD09
+	quickname BLOOD10
+	quickname BLOOD11
+	quickname BLOOD12
+	quickname BLOOD13
+	quickname BLOOD14
+	quickname BLOOD15
+	quickname BLOOD16
+	quickname BLOOD17
+	quickname BLOOD18
+	quickname BLOOD19
 	quickname MOBILE MOBILE
 	quickname FENCE_T FENCE_T
 	quickname FENCE_L FENCE_L

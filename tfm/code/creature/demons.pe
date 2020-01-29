@@ -155,7 +155,7 @@ if_exists current.enemy
 endif
 
 # Need black blood for the panther
-#call make_blood
+call make_blackblood
 call egg_killed
 
 end
@@ -291,7 +291,7 @@ if_exists current.enemy
 endif
 
 # Need black blood for the panther
-#call make_blood
+call make_blackblood
 call egg_killed
 
 end
@@ -328,4 +328,52 @@ start_action current does enemy_flee to suspect
 
 end
 
+
+
+##
+##	Bleed
+##
+
+function make_blackblood
+integer rnd
+object o
+
+if_not_exists current
+	return
+endif
+
+random rnd between 0 4
+
+if rnd = 0
+	create o = "blood10"
+endif
+
+if rnd = 1
+	create o = "blood11"
+endif
+
+if rnd = 2
+	create o = "blood12"
+endif
+
+if rnd = 3
+	create o = "blood13"
+endif
+
+if rnd = 4
+	create o = "blood14"
+endif
+
+if_exists o
+	transfer_object o to current.x current.y
+	let o.stats.owner = current
+	move_to_floor o
+	set_flag o IS_SPAWNED = 1	# Blood is temporary
+
+	# Set its HP to <0, otherwise the GC won't remove it
+	let o.stats.hp = -1
+	let o.maxstats.hp = -1
+endif
+
+end
 

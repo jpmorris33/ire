@@ -322,6 +322,7 @@ copy_schedule me.pocket to current
 set_direction current faces me.curdir
 set_personalname current = me.pocket.personalname
 if current.personalname = ""
+or current.personalname = "-"
 	if_flag current IS_ROBOT
 		call name_robot
 	else
