@@ -4153,7 +4153,7 @@ if(*max < *min)
 	return;
 	}
 
-tot = (*max)-(*min);
+tot = ((*max)-(*min))+1;
 
 if(tot<1)
 	{
