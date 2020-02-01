@@ -45,7 +45,7 @@ You see $NAME the tailor.
 [page="who"]
 [learn_name]
 "My name is $NAME.  I am the tailor of the town of
- Mordor.
+ Mawdor.
  
  If you have need of garments, you need only ask and
  I shall see what I can do for you."

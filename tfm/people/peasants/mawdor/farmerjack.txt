@@ -1,0 +1,121 @@
+
+[page="start"]
+[colour="#808080"]
+You see a slightly disheveled man in farm clothes.
+[colour="#ffffff"]
+
+"Welcome, stranger!
+ Just keep away from the beeves."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the beeves."]
+[linkto="cows"]
+[link="What are you selling?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see $NAME, the dairy farmer.
+[colour="#ffffff"]
+
+"Ah, 'tis you again!  Welcome back!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the beeves."]
+[linkto="cows"]
+[link="What are you selling?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am called Jack, and I do tend the beeves here upon
+ my farm.  From their milk I make fine artisan cheeses
+ and butter."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the beeves."]
+[linkto="cows"]
+[link="What are you selling?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="job"]
+
+"I work the land.  I raise and milk beeves as my father
+ before me.  Of late I have trying to breed beeves that
+ produce milk with a longer life ere it turns sour.
+
+ From this new milk, I make artisan cheese!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Tell me about the beeves."]
+[linkto="cows"]
+[link="What are you selling?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cows"]
+
+"Aye, they can be dangerous.  Lately they have been in a
+ foul mood, and may attack without provocation.
+ Yet it would seem the most vicious beeves give the 
+ sweetest milk."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="What are you selling?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy"]
+
+"I make artisanal cheese and butter, aye and milk too,
+ a special milk that does not go off.
+
+ Alas since my wife left, I have been too busy to sell
+ it myself.  If you should wish to buy some, ask in
+ the city west of here."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the beeves."]
+[linkto="cows"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+"Fare you well!"
+
+[nextpage="exit"]
+[endpage]

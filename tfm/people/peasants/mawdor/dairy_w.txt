@@ -1,0 +1,332 @@
+
+[page="start"]
+[iftime "0800-0900"][goto="church"]
+[ifntime "0800-1800"][goto="outofhours"]
+[colour="#808080"]
+You see a lean woman selling milk and cheeses.
+[colour="#ffffff"]
+
+"Hello, are you come to buy some of my wares?
+
+ We have fresh cheese, milk and butter, and also
+ artisan cheeses from the mountains."
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy stuff?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime "0800-0900"][goto="church"]
+[ifntime "0800-1800"][goto="outofhours"]
+[colour="#808080"]
+You see $NAME, the dairy maid.
+[colour="#ffffff"]
+
+"Hello, $Sir.
+ Have you come for milk?  Cheese?"
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy stuff?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="church"]
+
+"Nay, not during the Mass!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="buy"]
+
+"I have fresh butter, milk and cheese.  
+ Butter costs 2 gold pieces, milk is 3 gold per pail.
+
+ A whole cheese is 5 gold pieces, but I can cut you
+ slices for a single coin each.
+
+ We also sell artisan cheese and butter, I must ask
+ 20 gold pieces for the cheese, and 7 for the butter."
+
+[link="I would like some butter."]
+[linkto="butter"]
+[always]
+[link="I would like some milk."]
+[linkto="milk"]
+[always]
+[link="I would like a slice of cheese."]
+[linkto="cheese_slice"]
+[always]
+[link="I would like a whole cheese."]
+[linkto="cheese"]
+[always]
+[link="I would like some artisan butter."]
+[linkto="abutter"]
+[always]
+[link="I would like some artisan cheese."]
+[linkto="acheese"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="butter"]
+[take 2 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "food04"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="milk"]
+[take 3 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "bucket_milk"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cheese_slice"]
+[take 1 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "foodp03"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="cheese"]
+[take 5 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "food07"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="abutter"]
+[take 7 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "FOOD04B"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="acheese"]
+[take 20 "gold_coins"]
+[if false][goto="no_money"]
+[create 1 "FOOD07B"]
+[call="money_sound"]
+"Thank you, $Milord!
+
+ I am sure you will enjoy it."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell"]
+
+"Most of out wares are produced by myself and my husband.
+ Though 'tis true, we have lately been selling artisan
+ cheese produced by Farmer Jack, who lives out east."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="artisan"]
+
+"Aye, it has a most unique flavour.
+ 
+ Farmer Jack has also offered us artisan milk which does
+ not go sour!  We have sold out of that, I fear.
+ 
+ 'Tis most miraculous, but he will not part with the
+  secret of his creation."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="no_money"]
+
+"I'm afraid you do not have the money, $Milord.
+
+ Would you buy anything else instead?"
+
+[link="Yes, I would."]
+[linkto="buy"]
+[link="Do you buy cheese?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="outofhours"]
+[colour="#808080"]
+You see a lean woman.
+[colour="#ffffff"]
+
+"Hello there."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="talk"]
+
+"Certainly, $Milord.  What would you speak of?"
+
+[link="What is your name?"]
+[linkto="who"]
+[if tithes][link="Tell me about the tithes."]
+[if tithes][linkto="tithes"]
+[if met_cow][link="Tell me about the Cow."]
+[if met_cow][linkto="cow"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+
+"My name is $NAME, $Milord.  I am but a farmer's wife.
+ We keep beeves, for their milk and the meat.
+
+ My husband and I tend the farm.  If you should come
+ by in the morning, I sell our wares outside the house."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+"Fare you well, $Milord."
+
+[nextpage="exit"]
+[endpage]

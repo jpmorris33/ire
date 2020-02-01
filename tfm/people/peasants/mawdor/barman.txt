@@ -89,8 +89,8 @@ You see $NAME, the innkeeper.
 
 
 [page="news"]
-[set morder_disappearances]
-[journal jrn_MordorDisappearances]
+[set mawdor_disappearances]
+[journal jrn_MawdorMissing]
 
 "Nothing much has been heard from the Dragon of the North
  lately, though rumours say that a foolish man has sold

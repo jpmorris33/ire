@@ -4,11 +4,11 @@
 ##
 
 "Who seeks entry to the noble house of Lord O'Beth,
- Thane of Mordor?"
+ Thane of Mawdor?"
  
 [I am $PLAYER]
 [Who is O'Beth]
-[Mordor?]
+[Mawdor?]
 [Never mind]
 
 

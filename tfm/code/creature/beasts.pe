@@ -519,6 +519,52 @@ endif
 
 end
 
+
+##
+##	Make lots of blood
+##
+
+function make_blood_fatal
+integer rnd
+object o
+
+if_not_exists current
+	return
+endif
+
+create o = "blood_thick"
+random rnd between 0 3
+
+if rnd = 0
+	set_direction o faces UP
+endif
+
+if rnd = 1
+	set_direction o faces DOWN
+endif
+
+if rnd = 2
+	set_direction o faces LEFT
+endif
+
+if rnd = 3
+	set_direction o faces RIGHT
+endif
+
+if_exists o
+	transfer_object o to current.x current.y
+	let o.stats.owner = current
+	move_to_floor o
+	set_flag o IS_SPAWNED = 1	# Blood is temporary
+
+	# Set its HP to <0, otherwise the GC won't remove it
+	let o.stats.hp = -1
+	let o.maxstats.hp = -1
+endif
+
+end
+
+
 ##
 ##  Summon a devil
 ##

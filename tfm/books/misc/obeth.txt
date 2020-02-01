@@ -1,7 +1,7 @@
 [page="start"]
 [backing="paper.pcx"]
 [font 3]
-       The Journal of Lord O'Beth, Thane of Mordor
+       The Journal of Lord O'Beth, Thane of Mawdor
 
  July 14 1324
 
@@ -17,7 +17,7 @@
 
  II.  King Duncan shall make me a Thane.. yet in spite of this
      grand title I shall be unhappy.  Even as I write it is so, for
-     the King bade me rule the foul Northlands of Mordor.
+     the King bade me rule the foul Northlands of Mawdor.
 
  III. Banquo's son Fleance shall become a Knight of the
      Flower-Children.  He shall renounce his family and all

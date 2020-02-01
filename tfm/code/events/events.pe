@@ -126,7 +126,7 @@ endif
 end
 
 ##
-##  Destroy Bedevere (the new one will be created in mordor)
+##  Destroy Bedevere (the new one will be created in mawdor)
 ##
 
 function plot_breakoutbedevere2
@@ -136,7 +136,7 @@ end
 
 
 ##
-##  Activate new Bedevere in Lakeside (was Mordor)
+##  Activate new Bedevere in Lakeside (was Mawdor)
 ##
 
 function plot_newbedevere
@@ -150,7 +150,7 @@ if i = 0
 endif
 
 # Transfer Bedevere and all his personal effects to the workshop
-#move_tag -24 to -30 490 (Mordor)
+#move_tag -24 to -30 490 (Mawdor)
 move_tag -24 to -339 -164
 
 # And destroy the trigger so it doesn't happen twice and throw him into the sea
@@ -678,3 +678,91 @@ check_hurt panther
 stop_action panther
 resume_action panther
 end
+
+
+
+##
+##  Mawdor murder mystery
+##
+
+function plot_mawdormissing_evidence
+if_not_user_flag "mawdor_missing_solved"
+	set_user_flag "mawdor_missing_evidence" = 1
+	journal "jrn_MawdorMissingEvidence"
+endif
+end
+
+function plot_mawdormissing_solved
+private
+object farmer
+object pike
+object o
+
+# Do justice on him, should have no effect if the player already lopped his head off
+find_tag farmer = "man_generic" 69
+if_not_exists farmer
+	find_tag farmer = "DEADPEASANT" 69
+endif
+
+
+if_exists farmer
+	let current = farmer
+	call behead_current
+endif
+
+# Now pike the head
+find_tag pike = "pike" 69
+if_exists pike
+	find_tag farmer = "peasant_head" 69
+	if_exists farmer
+		transfer_object farmer to pike.x pike.y
+		move_to_top farmer
+	endif
+else
+	print "ERROR: pike not found|"
+endif
+
+# I suppose we'd better rescue the kid too
+find_tag o = "stonedoor3_lock" 68
+if_exists o
+	# Open the door for versimilitude
+	replace o = "stonedoor3_open"
+endif
+
+# If the kid's alive, reboot them
+# If the player did this while they're dead and resurrects them, that's their own damned fault
+find_tag o = "man_boy" 69
+if_exists o
+	set_user_flag "mawdor_missing_foundkid" = 1
+	set_flag o NO_SCHEDULE = 0
+	stop_action o
+	resume_action o
+endif
+
+end
+
+function plot_mawdormissing_gotbones
+private
+
+set_user_flag "false" = 1
+set_user_flag "true" = 0
+
+search_inside player calling find_mawdor_bones_func
+
+end
+
+
+function find_mawdor_bones_func
+private
+if current.tag <> 69
+	return
+endif
+if current is called "bones*"
+	set_user_flag "false" = 0
+	set_user_flag "true" = 1
+	return
+endif
+end
+
+
+

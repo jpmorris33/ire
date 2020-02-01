@@ -14264,10 +14264,7 @@ section: characters
 	IfUsed		rubics_cube
 
 	name FAKEMUD
-	left		fakemud_closed
-	right		fakemud_closed
-	up		fakemud_closed
-	down		fakemud_closed
+	frame		fakemud_closed
 	hp		250000
 	weight		-1
 	description	"You see some mud."
@@ -14275,27 +14272,19 @@ section: characters
 	ifwielded	fakemud_open
 	fixed
 
-	name FAKEMUD_OPEN
-	left		fakemud_open
-	right		fakemud_open
-	up		fakemud_open
-	down		fakemud_open
-	hp		250000
-	weight		-1
-	description	"You see some mud."
-	short		""
-	fixed
+	alias FAKEMUD_OPEN = FAKEMUD
+	frame		fakemud_open
 	ifwielded	fakemud_close
-	setsolid	H 0 0 0 0
-	setsolid	V 0 0 0 0
-	setactivearea 	H 1 0 1 1
-	setactivearea 	V 1 0 1 1
+
+	alias FAKEMUD_BAD = FAKEMUD
+	up		mud00
+	down		mud01
+	left		mud02
+	right		mud03
+	ifwielded	fakemud_dig
 
 	name FAKETILE
-	left		faketile_closed
-	right		faketile_closed
-	up		faketile_closed
-	down		faketile_closed
+	frame		faketile_closed
 	hp		250000
 	weight		-1
 	description	"You see ceramic tiles"
@@ -14304,10 +14293,7 @@ section: characters
 	fixed
 
 	name FAKETILE_OPEN
-	left		faketile_open
-	right		faketile_open
-	up		faketile_open
-	down		faketile_open
+	frame		faketile_open
 	hp		250000
 	weight		-1
 	description	"You see ceramic tiles"

@@ -263,12 +263,22 @@ start:
 I've returned the android's head to the security team so they can revive him.
 end
 
-name jrn_MordorDisappearances
+name jrn_MawdorMissing
 tag task
-title Disappearances in Mordor
+title Disappearances in Mawdor
 start:
-Apparently some people have gone missing in Mordor.  Maybe I should investigate.
+Apparently some people have gone missing in Mawdor.  Maybe I should investigate.
 end
 
+name jrn_MawdorMissingEvidence
+tag task
+title Report Farmer Jack to the authorities
+start:
+Farmer Jack has a hidden room with a murdered woman in it.  I should inform the ruler of Mawdor.
+end
 
-
+name jrn_MawdorMissingSolved
+title Solved the disapperances in Mawdor
+start:
+Farmer Jack was murdering people and feeding them to his cows.  Lord O'Beth has rewarded me for bringing him to justice.
+end

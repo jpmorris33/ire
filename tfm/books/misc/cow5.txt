@@ -29,12 +29,10 @@
   Grass-fed beeves give forth milk that turns blue and goes
   sour.
 
-  Beeves fed upon mine other diet gave forth orange milk,
+  Beeves fed upon mine new diet give forth orange milk,
   that has lasted lo these many moons, yet remains fresh
-  as the day it were milked!
-
-  'Tis a pity the feed be so hard to obtain...
-  
+  as the day it were milked!"
+ 
 [left="2"]
 [right="exit"]
 [endpage]

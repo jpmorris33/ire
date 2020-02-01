@@ -151,10 +151,46 @@ if current is called "FAKESAND"
 	endif
 endif
 
+
+if current is called "FAKEMUD_BAD"
+	let me = current
+	call me.funcs.wield
+	print "You found something!"
+	printcr
+	return
+endif
+
+
 print "Didn't find anything interesting."
 printcr
 
 end
+
+function fakemud_dig
+int r
+object bone
+
+create bone = "BONES0"
+
+random r between 0 3
+if r = 0
+	force_direction bone = UP
+endif
+if r = 1
+	force_direction bone = DOWN
+endif
+if r = 2
+	force_direction bone = LEFT
+endif
+if r = 3
+	force_direction bone = RIGHT
+endif
+let bone.tag = me.tag
+transfer_to_pocket bone to me
+spill me
+
+end
+
 
 ##
 ##  Vending machine

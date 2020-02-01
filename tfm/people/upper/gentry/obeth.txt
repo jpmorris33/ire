@@ -1,4 +1,4 @@
-O'Beth, Thane of Mordor
+O'Beth, Thane of Mawdor
 
 
 [page="start"]
@@ -9,9 +9,33 @@ O'Beth, Thane of Mordor
 
 [link="Who are you?"]
 [linkto="who"]
+[if mawdor_disappearances][link="About the disappearances..."]
+[if mawdor_disappearances][linkto="disappear"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="startname"]
+[image="obeth.pcx"]
+
+"Ah, the Promised One!
+ What business have you with me?"
+
+[link="Who are you again?"]
+[linkto="who"]
+[link="Why is the land so barren?"]
+[linkto="land"]
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[if find_ross][link="I'm looking for a man called Ross."]
+[if find_ross][linkto="ross"]
+[if mawdor_disappearances][link="About the disappearances..."]
+[if mawdor_disappearances][linkto="disappear"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 ##
 ##	Who are you?
@@ -21,7 +45,7 @@ O'Beth, Thane of Mordor
 [image="obeth.pcx"]
 [learn_name]
 
-"I am O'Beth, Thane of Mordor!  All the lands between the
+"I am O'Beth, Thane of Mawdor!  All the lands between the
  forest and the western sea are my domain.
  
  You have entered my realm, and are subject to my laws."
@@ -31,7 +55,7 @@ O'Beth, Thane of Mordor
 [link="How did you inherit these lands?"]
 [linkto="badland"]
 [link="Thane of WHERE?"]
-[linkto="mordor"]
+[linkto="mawdor"]
 [if find_ross][link="I'm looking for a man called Ross."]
 [if find_ross][linkto="ross"]
 [link="Goodbye."]
@@ -40,7 +64,7 @@ O'Beth, Thane of Mordor
 
 
 ##
-##  Discussion about Mordor
+##  Discussion about Mawdor
 ##
 
 
@@ -50,7 +74,7 @@ O'Beth, Thane of Mordor
 "Four score and ten years ago, the LORD placed a curse
  upon this land, and it remains barren unto this day.
  
- It was referred to by many as 'Mordor' referring to the
+ It was referred to by many as 'Mawdor' referring to the
  fabled land of darkness and evil.  That name has stuck.
  
  But soon I shall rule over more pleasant lands."
@@ -66,7 +90,7 @@ O'Beth, Thane of Mordor
 [endpage]
 
 
-[page="mordor"]
+[page="mawdor"]
 [image="obeth.pcx"]
 
 [colour="#808080"]
@@ -75,7 +99,7 @@ He chuckles slightly.
 
 "My domain is officially known as the Northlands but
  after the land was made barren by the LORD, it became
- known in jest as Mordor, after the fabled land of
+ known in jest as Mawdor, after the fabled land of
  darkness and evil.  That name has stuck.
  
  How I long to rule over more pleasant lands.."
@@ -93,7 +117,7 @@ He chuckles slightly.
 ##
 
 [page="badland"]
-[set_obethplot]
+[set obethplot]
 [image="obeth.pcx"]
 
 [colour="#808080"]He smiles grimly.
@@ -138,7 +162,7 @@ He chuckles slightly.
 
 
 [page="whytell"]
-[set_obethplot]
+[set obethplot]
 [image="obeth.pcx"]
 
 "Why not?  I am immortal!  None can stop me, for it was
@@ -403,3 +427,95 @@ He chuckles slightly.
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="disappear"]
+[if mawdor_missing_solved][goto="disappear2"]
+[image="obeth.pcx"]
+
+"Ah yes.  Certain of my citizens have vanished.
+ 'Tis a disturbing matter, likely foul play. However my
+ guards have found no clue to the mystery thus far.
+
+ Should you wish to investigate it yourself, you shall
+ not find me ungrateful."
+
+[if mawdor_missing_evidence][link="Farmer Jack has a corpse in his cellar."]
+[if mawdor_missing_evidence][linkto="disappear3"]
+[call plot_mawdormissing_gotbones]
+[if true][link="Farmer Jack has a mass grave on his land."]
+[if true][linkto="disappear3"]
+[link="Who are you again?"]
+[linkto="who"]
+[link="Why is the land so barren?"]
+[linkto="land"]
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="disappear2"]
+[image="obeth.pcx"]
+
+"Ah yes.  Thank you for solving the murders,
+ and bringing the villain to justice."
+
+[link="Who are you again?"]
+[linkto="who"]
+[link="Why is the land so barren?"]
+[linkto="land"]
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="disappear3"]
+[esc=disabled]
+[image="obeth.pcx"]
+
+"By the LORD!  I shall send men to investigate
+ immediately!"
+
+[nextpage="disappear3a"]
+[endpage]
+
+[page="disappear3a"]
+[set mawdor_missing_solved]
+[journal_done jrn_MawdorMissing]
+[journal_done jrn_MawdorMissingEvidence]
+[journal jrn_MawdorMissingSolved]
+[create 2000 gold_coin]
+[call="money_sound"]
+[call="give_250_xp"]
+[call="plot_mawdormissing_solved"]
+[image="obeth.pcx"]
+
+[colour="#808080"]
+Shortly afterwards, a guard returns and whispers in
+O'Beth's ear.
+[colour="#ffffff"]
+
+"Your reports are correct... It would seem that this
+ Farmer Jack has been feeding my citizens to his cows.
+
+ For this vile deed, his head shall be piked in the
+ square as a warning to all.
+
+ I grant you this reward of 2000 gold coins for
+ uncovering his murders."
+
+[link="Who are you again?"]
+[linkto="who"]
+[link="Why is the land so barren?"]
+[linkto="land"]
+[link="How did you inherit these lands?"]
+[linkto="badland"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+

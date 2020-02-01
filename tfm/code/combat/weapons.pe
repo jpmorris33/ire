@@ -461,6 +461,11 @@ function decap_attack_corpse
 
 		# Move possessions to the body
 		move_contents head to body
+
+		# Now bleed for me...
+		let current = body
+		call make_blood_fatal
+
 	else
 		print "ERROR: no body found for "
 		print enemyobject

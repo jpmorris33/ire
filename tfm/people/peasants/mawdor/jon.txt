@@ -47,8 +47,8 @@ You see Jon the apothecar.
 
 
 [page="gossip"]
-[set morder_disappearances]
-[journal jrn_MordorDisappearances]
+[set mawdor_disappearances]
+[journal jrn_MawdorMissing]
 "Aye.  There have been a number of disappearances
  of late, and some fear that a mad murderer may be
  on the loose.

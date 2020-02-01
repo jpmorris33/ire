@@ -20,3 +20,12 @@ call egg_despawned
 empty me
 destroy me
 end
+
+
+##
+##  Stop the NPC from doing their schedule until activated (prisoners etc)
+##
+
+function no_schedule
+set_flag me NO_SCHEDULE = 1
+end
