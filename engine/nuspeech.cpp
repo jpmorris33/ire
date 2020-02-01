@@ -1688,16 +1688,18 @@ if(!istricmp(line2,"journal") || !istricmp(line2,"set_journal")
     }
 
 if(!istricmp(line2,"journal_done")) {
-    strcpy(temp,strrest(line1));
-    strstrip(temp);
-    JOURNALENTRY *journal = J_Find(temp);
-    if(!journal) {
-	Bug("Did not find journal '%s'\n", temp);
-        return 32;
-    }
-    journal->status = 100;
-    
-    return 32;
+	strcpy(temp,strrest(line1));
+	strstrip(temp);
+	JOURNALENTRY *journal = J_Find(temp);
+	if(!journal) {
+		char *strdata = getstring4name(temp);
+		if(!strdata) {
+			Bug("Did not find journal '%s'\n", temp);
+		}
+		return 32;
+	}
+	journal->status = 100;
+	return 32;
 }
 
 if(!istricmp(line2,"if_race") || !istricmp(line2,"if_race=")) {

@@ -7359,7 +7359,18 @@ CHECK_POINTER(name);
 
 JOURNALENTRY *journal = J_Find(name);
 if(!journal) {
-	pevm_err=1;
+
+	id=getnum4string(name);
+	if(id < 0) {
+		// Then try a raw string
+		id=getnum4stringname(name);
+	}
+	if(id < 0) {
+		pevm_err=1;
+		return;
+	}
+	// It does exist, but hasn't been started
+	pevm_err=0;
 	return;
 }
 pevm_err=0;
