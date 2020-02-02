@@ -1366,54 +1366,52 @@ OBJECT *target;
 #define DEBUG_RESACT_PRINT(x,y) ;
 #endif
 
+if(o == player) {
+	ActivityName(o,"player_action",NULL);
+	return;
+}
+
 
 // Make sure it's valid
 
-if(!o)
-	{
+if(!o) {
 	DEBUG_RESACT_PRINT("ResumeSchedule was passed %x\n",NULL);
 	return;
-	}
+}
 
 	DEBUG_RESACT_PRINT("Resuming for %s\n",BestName(o));
 
-if((o->flags & IS_ON) == 0)
-	{
+if((o->flags & IS_ON) == 0) {
 	DEBUG_RESACT_PRINT("%s is switched off\n",BestName(o));
 	return;
-	}
+}
 
 if(GetNPCFlag(o,IN_PARTY)) {
 	DEBUG_RESACT_PRINT("%s is of the party\n",BestName(o));
 	return;
 }
 
-if(o->stats->hp<=0)
-	{
+if(o->stats->hp<=0) {
 	DEBUG_RESACT_PRINT("%s is dead\n",BestName(o));
 	return;
-	}
+}
 
-if(!o->schedule)
-	{
+if(!o->schedule) {
 	// We don't have a schedule.  Was there a default activity?
 	i=getnum4char(o->name);
-	if(i<0)
-		{
+	if(i<0) {
 		Bug("Gurk!!  Object '%s' doesn't exist in ResumeSchedule\n",o->name);
 		return;
-		}
-	if(CHlist[i].activity>0)
-		{
+	}
+	if(CHlist[i].activity>0) {
 		ActivityNum(o,CHlist[i].activity,NULL);
 		return;
-		}
-	// Carry on.  It's possible there's a subactivity.  If not, stop then
 	}
+	// Carry on.  It's possible there's a subactivity.  If not, stop then
+}
 
 // First, are there any pending sub-activities
-if(o->user->actlist[0]>0)
-	{
+if(o->user->actlist[0]>0) {
 	// Get the activity
 	SubAction_Pop(o,&activity,&target);
 
@@ -1424,21 +1422,19 @@ if(o->user->actlist[0]>0)
 	// Do the activity
 	ActivityNum(o,activity,target);
 	return;
-	}
+}
 
-if(GetNPCFlag(o,NO_SCHEDULE))
-	{
+if(GetNPCFlag(o,NO_SCHEDULE)) {
 	DEBUG_RESACT_PRINT("%s is not accepting new schedules\n",BestName(o));
 	return;
-	}
+}
 
 
-if(!o->schedule)
-	{
+if(!o->schedule) {
 	// Bang, you're dead
 //	DEBUG_RESACT_PRINT("%s has no schedule\n",BestName(o));
 	return;
-	}
+}
 
 i = -1;
 h = -1;
@@ -1447,80 +1443,77 @@ h = -1;
 // REMEMBER: There are 24 slots, but each slot does NOT correspond to an hour!
 
 DEBUG_RESACT_PRINT("%s: trying today\n",o->name);
-for(ctr=0;ctr<24;ctr++)
-	{
+for(ctr=0;ctr<24;ctr++) {
 	// Reject known bad cases
-	if(!o->schedule[ctr].active)
+	if(!o->schedule[ctr].active) {
 		continue;
+	}
 
 #ifdef DEBUG_RESUMEACTIVITY
 		ilog_quiet("Event found at %d:%02d [%s]\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm);
 #endif
 		
-	if(o->schedule[ctr].hour > game_hour)
+	if(o->schedule[ctr].hour > game_hour) {
 		continue;
-	if(o->schedule[ctr].hour == game_hour && o->schedule[ctr].minute > game_minute)
+	}
+	if(o->schedule[ctr].hour == game_hour && o->schedule[ctr].minute > game_minute) {
 		continue;
-	if(o->schedule[ctr].hour >= h)
-		{
+	}
+	if(o->schedule[ctr].hour >= h) {
 	#ifdef DEBUG_RESUMEACTIVITY
 		ilog_quiet("using event found at %d:%02d [%s]\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm);
 	#endif
 		i = ctr;
 		h = o->schedule[ctr].hour;
-		}
 	}
+}
 
 // Found nothing?  Try yesterday (before game_hour)
 
-if(h == -1)
-	{
+if(h == -1) {
 	DEBUG_RESACT_PRINT("%s: trying yesterday\n",o->name);
-	for(ctr=0;ctr<24;ctr++)
-		{
+	for(ctr=0;ctr<24;ctr++) {
 		// Reject known bad cases
-		if(!o->schedule[ctr].active)
+		if(!o->schedule[ctr].active) {
 			continue;
-		if(o->schedule[ctr].hour < game_hour)
+		}
+		if(o->schedule[ctr].hour < game_hour) {
 			continue;
+		}
 		#ifdef DEBUG_RESUMEACTIVITY
 			ilog_quiet("Event found at %d:%02d [%s]\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm);
 		#endif
-		if(o->schedule[ctr].hour >= h)
-			{
+		if(o->schedule[ctr].hour >= h) {
 			i = ctr;
 			h = o->schedule[ctr].hour;
-			}
 		}
 	}
+}
 
-if(i>=0)
-	{
-	if(o->schedule[i].call == o->activity && o->schedule[i].target.objptr == o->target.objptr)
-		{
+if(i>=0) {
+	if(o->schedule[i].call == o->activity && o->schedule[i].target.objptr == o->target.objptr) {
 //		ilog_quiet("%s trying to resume current task\n",o->name);
 		return;
-		}
+	}
 	SubAction_Wipe(o);
 	ActivityNum(o,o->schedule[i].call,o->schedule[i].target.objptr);
 	#ifdef DEBUG_RESUMEACTIVITY
 	ilog_quiet("%s resumes doing %s (%d) to %s\n",o->name,o->schedule[i].vrm,o->schedule[i].call,o->schedule[i].target.objptr?o->schedule[i].target.objptr->name:"Nothing");
 	#endif
-	}
-else
-	{
+} else {
 	// Okay, so we have absolutely no idea.  Was there a default activity?
 	i=getnum4char(o->name);
-	if(i<0)
-		{
+	if(i<0) {
 		Bug("Gurk!!  Object '%s' doesn't exist in ResumeSchedule\n",o->name);
 		return;
-		}
-	if(CHlist[i].activity>0)
-		ActivityNum(o,CHlist[i].activity,NULL);
-//	else
-//		DEBUG_RESACT_PRINT("%s couldn't decide what to do\n",BestName(o));
 	}
+	if(CHlist[i].activity>0) {
+		ActivityNum(o,CHlist[i].activity,NULL);
+	}
+//	else {
+//		DEBUG_RESACT_PRINT("%s couldn't decide what to do\n",BestName(o));
+//	}
+}
 }
 
 
