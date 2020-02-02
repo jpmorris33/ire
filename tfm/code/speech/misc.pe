@@ -596,6 +596,12 @@ let suspect = player
 call justice_intruder_deadly
 end
 
+function npc_kill_player
+#let current = me
+let current.enemy = player
+stop_action current
+call start_attack
+end
 
 ##
 ##  Spell level checks
@@ -655,5 +661,6 @@ endif
 end
 
 endlocal
+
 
 

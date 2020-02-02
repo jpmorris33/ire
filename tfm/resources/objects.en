@@ -16588,6 +16588,7 @@ section: characters
 
 	name		PLAYER_HEAD
 	frame		head_player
+	down		pikedhead_player
 	hp		-1
 	weight		1500
 	description	"You see a severed head."
@@ -16599,6 +16600,7 @@ section: characters
 
 	alias		PEASANT_HEAD = PLAYER_HEAD
 	frame		head_peasant
+	down		pikedhead_peasant
 
 	alias		PILGRIM_HEAD = PEASANT_HEAD
 
@@ -16606,39 +16608,48 @@ section: characters
 
 	alias		GUARD_HEAD = PLAYER_HEAD
 	frame		head_guard
+	down		pikedhead_guard
 
 	alias		MODERNGUARD_HEAD = PLAYER_HEAD
 
 	alias		MAN_HEAD = PLAYER_HEAD
 	frame		head_man01
+	down		pikedhead_man01
 
 	alias		NOBLE_HEAD = PLAYER_HEAD
 	frame		head_noble
+	down		pikedhead_noble
 
 	alias		WOMAN_HEAD = PLAYER_HEAD
 	frame		head_woman
+	down		pikedhead_woman
 
 	alias		NOBLEWOMAN_HEAD = WOMAN_HEAD
 	
 	alias		OLDMAN_HEAD = PLAYER_HEAD
 	frame		head_oldman
+	down		pikedhead_oldman
 
 	alias		MAGE_HEAD = OLDMAN_HEAD
 
 	alias		CARDINAL_HEAD = PLAYER_HEAD
 	frame		head_cardinal
+	down		pikedhead_cardinal
 
 	alias		POPE_HEAD = PLAYER_HEAD
 	frame		head_pope
+	down		pikedhead_pope
 	description	"You see the Pope's severed head.  This will not end well."
 
 	alias		KING_HEAD = PLAYER_HEAD
 	frame		head_king
+	down		pikedhead_king
 
 	alias		PRINCE_HEAD = KING_HEAD
 
 	name		OUTLAW_HEAD
 	frame		head_cardinal
+	down		pikedhead_cardinal
 	hp		-1
 	weight		1500
 	description	"You see a severed head."
@@ -16648,9 +16659,11 @@ section: characters
 
 	alias		OUTLAW2_HEAD = OUTLAW_HEAD
 	frame		head_oldman
+	down		pikedhead_oldman
 
 	alias		OUTLAW3_HEAD = OUTLAW_HEAD
 	frame		head_peasant
+	down		pikedhead_peasant
 
 
 	name PLAYER_BODY

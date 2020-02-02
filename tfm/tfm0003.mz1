@@ -81402,6 +81402,12 @@ iMZ1r01
 
 	decorative TREE03 at 966 852
 
+	object HALB6a06bd55-61dc-408e-8dac-af08524cc145
+		type HALBERD
+		inside MAN_63f79b74-2014-43e7-ae51-7c86272c814c
+		curdir 0
+		stats->owner MAN_63f79b74-2014-43e7-ae51-7c86272c814c
+
 	object KEY_93745434-bf98-4a14-bc0e-bdda63203161
 		type KEY
 		inside MAN_63f79b74-2014-43e7-ae51-7c86272c814c

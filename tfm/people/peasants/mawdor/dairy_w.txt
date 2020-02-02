@@ -2,6 +2,7 @@
 [page="start"]
 [iftime "0800-0900"][goto="church"]
 [ifntime "0800-1800"][goto="outofhours"]
+[if mawdor_missing_solved][goto="start2"]
 [colour="#808080"]
 You see a lean woman selling milk and cheeses.
 [colour="#ffffff"]
@@ -24,15 +25,67 @@ You see a lean woman selling milk and cheeses.
 [endpage]
 
 
+[page="start2"]
+[colour="#808080"]
+You see a shocked-looking dairy maid.
+[colour="#ffffff"]
+
+"Farmer Jack has had his head been chopped off!
+
+ They say he murdered the people who vanished and made
+ their blood into artisan cheese!
+
+ I can scarce believe it!  How could he do such things?!"
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy stuff?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 [page="startname"]
 [iftime "0800-0900"][goto="church"]
 [ifntime "0800-1800"][goto="outofhours"]
+[if mawdor_missing_solved][goto="startname2"]
 [colour="#808080"]
 You see $NAME, the dairy maid.
 [colour="#ffffff"]
 
 "Hello, $Sir.
  Have you come for milk?  Cheese?"
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy stuff?"]
+[linkto="sell"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="startname2"]
+[colour="#808080"]
+You see $NAME, the dairy maid, she looks shocked.
+[colour="#ffffff"]
+
+"Farmer Jack has had his head been chopped off!
+
+ They say he murdered the people who vanished and made
+ their blood into cheese!
+
+ I can scarce believe it!  How could he do such things?!"
 
 [link="What are you selling?"]
 [linkto="buy"]
@@ -56,6 +109,7 @@ You see $NAME, the dairy maid.
 
 
 [page="buy"]
+[if mawdor_missing_solved][goto="buy2"]
 
 "I have fresh butter, milk and cheese.  
  Butter costs 2 gold pieces, milk is 3 gold per pail.
@@ -92,6 +146,38 @@ You see $NAME, the dairy maid.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+# No artisan produce for you
+
+[page="buy2"]
+
+"I have fresh butter, milk and cheese.  
+ Butter costs 2 gold pieces, milk is 3 gold per pail.
+
+ A whole cheese is 5 gold pieces, but I can cut you
+ slices for a single coin each."
+
+[link="I would like some butter."]
+[linkto="butter"]
+[always]
+[link="I would like some milk."]
+[linkto="milk"]
+[always]
+[link="I would like a slice of cheese."]
+[linkto="cheese_slice"]
+[always]
+[link="I would like a whole cheese."]
+[linkto="cheese"]
+[always]
+[link="Tell me about the artisan produce."]
+[linkto="artisan"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="butter"]
@@ -226,8 +312,9 @@ You see $NAME, the dairy maid.
 
 
 [page="sell"]
+[if mawdor_missing_solved][goto="sell2"]
 
-"Most of out wares are produced by myself and my husband.
+"Most of our wares are produced by myself and my husband.
  Though 'tis true, we have lately been selling artisan
  cheese produced by Farmer Jack, who lives out east."
 
@@ -240,8 +327,27 @@ You see $NAME, the dairy maid.
 [linkto="bye"]
 [endpage]
 
+[page="sell2"]
+
+"Nay!  Our wares are produced by myself and my husband.
+
+ Though 'tis true, we had lately been selling artisan
+ cheese before Farmer Jack's execution, we shall not
+ risk our own heads by selling crooked produce again!"
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 
 [page="artisan"]
+[if mawdor_missing_solved][goto="artisan2"]
 
 "Aye, it has a most unique flavour.
  
@@ -250,6 +356,25 @@ You see $NAME, the dairy maid.
  
  'Tis most miraculous, but he will not part with the
   secret of his creation."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="May I speak with you?"]
+[linkto="talk"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="artisan2"]
+
+"Nay!  'Twas made from people!
+ Orange milk that does not turn sour?  I had feared
+ 'twas too good to be true!
+
+ We shall ask most careful next time someone should ask
+ us to sell their wares, I can tell you that!"
 
 [link="I would like to buy something."]
 [linkto="buy"]

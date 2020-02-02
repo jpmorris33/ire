@@ -454,6 +454,17 @@ section: sprites
 	head_pope		sprites/people/head08.png
 	head_king		sprites/people/head09.png
 
+	pikedhead_player	sprites/people/head10.png
+	pikedhead_peasant	sprites/people/head11.png
+	pikedhead_guard		sprites/people/head12.png
+	pikedhead_man01		sprites/people/head13.png
+	pikedhead_noble		sprites/people/head14.png
+	pikedhead_woman		sprites/people/head15.png
+	pikedhead_oldman	sprites/people/head16.png
+	pikedhead_cardinal	sprites/people/head17.png
+	pikedhead_pope		sprites/people/head18.png
+	pikedhead_king		sprites/people/head19.png
+
 	body_player		sprites/people/man02_hl.png
 	body_playerf		sprites/people/womp_hl.png
 	body_peasant		sprites/people/mm1-hl.png
@@ -13485,6 +13496,17 @@ section: sequences
 	quickname	head_cardinal
 	quickname	head_pope
 	quickname	head_king
+
+	quickname	pikedhead_player
+	quickname	pikedhead_peasant
+	quickname	pikedhead_guard
+	quickname	pikedhead_man01
+	quickname	pikedhead_noble
+	quickname	pikedhead_woman
+	quickname	pikedhead_oldman
+	quickname	pikedhead_cardinal
+	quickname	pikedhead_pope
+	quickname	pikedhead_king
 
 	quickname	body_player
 	quickname	body_playerf

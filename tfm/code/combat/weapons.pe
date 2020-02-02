@@ -474,6 +474,12 @@ function decap_attack_corpse
 		return
 	endif
 
+	# Are they in bed?
+	if enemy.parent is called "bed*"
+		let current = enemy.parent
+		call hurt_bed
+	endif
+
 end
 
 ##
@@ -484,6 +490,13 @@ function behead_current
 
 let attacker = current
 let attacker.enemy = current
+
+if_flag current KNOW_NAME
+	set_string tempstring = current.personalname
+else
+	set_string tempstring = current.shortdesc
+endif
+
 
 # Off with their heads!
 let enemyname = tempstring

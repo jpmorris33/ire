@@ -1,5 +1,6 @@
-
 [page="start"]
+[if mawdor_missing_solved][goto="killplayer"]
+[if farmer_jack_psycho][goto="killplayer"]
 [colour="#808080"]
 You see a slightly disheveled man in farm clothes.
 [colour="#ffffff"]
@@ -7,6 +8,11 @@ You see a slightly disheveled man in farm clothes.
 "Welcome, stranger!
  Just keep away from the beeves."
 
+[if mawdor_missing_evidence][link="I know what's in the cellar."]
+[if mawdor_missing_evidence][linkto="cellar"]
+[call plot_mawdormissing_gotbones]
+[if true][link="Tell me about the mass grave."]
+[if true][linkto="cellar"]
 [link="Who are you?"]
 [linkto="name"]
 [link="What do you do?"]
@@ -21,12 +27,19 @@ You see a slightly disheveled man in farm clothes.
 
 
 [page="startname"]
+[if mawdor_missing_solved][goto="killplayer"]
+[if farmer_jack_psycho][goto="killplayer"]
 [colour="#808080"]
 You see $NAME, the dairy farmer.
 [colour="#ffffff"]
 
 "Ah, 'tis you again!  Welcome back!"
 
+[if mawdor_missing_evidence][link="I know what's in the cellar."]
+[if mawdor_missing_evidence][linkto="cellar"]
+[call plot_mawdormissing_gotbones]
+[if true][link="Tell me about the mass grave."]
+[if true][linkto="cellar"]
 [link="Who are you?"]
 [linkto="name"]
 [link="What do you do?"]
@@ -119,3 +132,30 @@ You see $NAME, the dairy farmer.
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="cellar"]
+[set farmer_jack_psycho]
+[at_exit_call="npc_kill_player"]
+[colour="#808080"]
+The farmer looks at you with a sad expression.
+[colour="#ffffff"]
+
+"Ah, 'tis a great pity you saw that.
+ Now I must feed you to my beeves."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="killplayer"]
+[at_exit_call="npc_kill_player"]
+[colour="#808080"]
+The farmer's expression contorts with deranged anger.
+[colour="#ffffff"]
+
+"DIE!  DIE!"
+
+[nextpage="exit"]
+[endpage]
+

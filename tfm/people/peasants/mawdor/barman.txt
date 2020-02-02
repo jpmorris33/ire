@@ -89,6 +89,7 @@ You see $NAME, the innkeeper.
 
 
 [page="news"]
+[if mawdor_missing_solved][goto="news2"]
 [set mawdor_disappearances]
 [journal jrn_MawdorMissing]
 
@@ -117,6 +118,30 @@ You see $NAME, the innkeeper.
 [link="Farewell."]
 [linkto="bye"]
 [endpage]
+
+
+[page="news2"]
+
+"Aye, the big news now is the execution of Farmer Jack,
+ a serial killer who had murdered many people and fed
+ them to his cows!  His head is piked now by the gallows
+ to warn all of the sin of mass-murder and cannibalism!
+
+ Beside that, Jon the Apocather claims to have seen some
+ dwarves singing, while he was out gathering hearbs."
+ 
+[link="Why is this place called the Yawning Wolf?"]
+[linkto="yawningwolf"]
+[if find_ross][link="What do you know of a man called 'Ross'?"]
+[if find_ross][linkto="ross"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="Do you have a room?"]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="inn"]

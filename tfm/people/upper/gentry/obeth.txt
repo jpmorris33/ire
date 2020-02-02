@@ -488,7 +488,8 @@ He chuckles slightly.
 [journal_done jrn_MawdorMissing]
 [journal_done jrn_MawdorMissingEvidence]
 [journal jrn_MawdorMissingSolved]
-[create 2000 gold_coin]
+[create 2000 gold_coins]
+[create 15 toadstone]
 [call="money_sound"]
 [call="give_250_xp"]
 [call="plot_mawdormissing_solved"]
@@ -505,8 +506,8 @@ O'Beth's ear.
  For this vile deed, his head shall be piked in the
  square as a warning to all.
 
- I grant you this reward of 2000 gold coins for
- uncovering his murders."
+ I grant you this reward of 2000 gold coins and some
+ precious gems for uncovering his murders."
 
 [link="Who are you again?"]
 [linkto="who"]
