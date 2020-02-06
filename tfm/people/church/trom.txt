@@ -67,6 +67,7 @@ Cardinal Trom
 
 
 [page="inchurch"]
+[at_exit_call="advance_hour"]
 [colour="#808080"]
  The Cardinal's already grim expression darkens as he
  begins the Mass.  He points a finger accusingly at the

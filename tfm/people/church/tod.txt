@@ -59,6 +59,7 @@ Cardinal Tod
 
 
 [page="inchurch"]
+[at_exit_call="advance_hour"]
 [colour="#808080"]
  The Cardinal adopts a speaking voice and addresses his
  congregation.

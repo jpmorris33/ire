@@ -88,6 +88,7 @@ He hands you the key and a rough piece of paper.
 
 
 [page="inchurch"]
+[at_exit_call="advance_hour"]
 [esc="bye2"]
 [image="priest4.pcx"]
 [colour="#808080"]

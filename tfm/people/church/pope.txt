@@ -426,6 +426,7 @@ air of distaste.
 
 
 [page="inchurch"]
+[at_exit_call="advance_hour"]
 [esc="bye2"]
 [image="pope.pcx"]
 [colour="#808080"]
