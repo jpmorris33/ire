@@ -5,7 +5,7 @@
 #####################################
 
 # Define all the targets first
-all: library_ithe ire-engine ire-ed chknpc resize png2cel cel2png cel2font font2cel fixfont grabfont finished # mover
+all: library_ithe ire-engine ire-ed chknpc resize png2cel cel2png cel2font font2cel fixfont grabfont makejug finished # mover
 #library_bgui2
 
 ##
@@ -211,6 +211,9 @@ fixfont: $(fixfont_obj)
 
 grabfont: $(grabfont_obj)
 	$(LD) $(grabfont_obj) -lstdc++ -o tools/grabfont
+
+makejug: $(makejug_obj)
+	$(LD) $(Xopts) $(makejug_obj) -lithe -lstdc++ -o tools/makejug
 
 finished:
 	@echo "All done"

@@ -227,6 +227,13 @@ extern void putw(int w, FILE *fp);
 #define snprintf _snprintf	// Windows is shit
 #endif
 
+// JUG file stuff
+
+//0x747.500 jug version no
+#define JUG_BASE 0x7074	
+#define JUG_VERSION 0x0500
+
+
 
 // End of library functions
 
