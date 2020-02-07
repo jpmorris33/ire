@@ -3,17 +3,17 @@
 #include <string.h>
 #include <stdbool.h> 
 
+#include <sys/stat.h> 
+
 #include "../ithelib/ithelib.h"
 
 #define BLOCKLEN 32768
-typedef int32_t INT32;
 
 void F_error(const char *e,const char *e2);
-bool JUG5create(const char *jugfile);
-FILE *JUG5save(const char *jugfile,const char *entryname, INT32 len);
-INT32 getfilelength(FILE *fp);
+long getfilelength(FILE *fp);
 bool traverse(const char *directory, bool append);
-void copyfile(FILE *fpi, FILE *fpo, INT32 len);
+void copyfile(FILE *fpi, FILE *fpo, int32_t len);
+bool  statFile(FILE *fp, const char *filename, struct JUGFILE_ENTRY *jug);
 
 unsigned char databuf[BLOCKLEN];
 char *jugname=NULL;
@@ -39,7 +39,7 @@ if(argc>2) {
 strcpy(basedir,argv[1]);
 
 
-if(!JUG5create(jugname)) {
+if(!JUG5writeHeader(jugname)) {
 	F_error("Cannot open new JUGfile:",jugname);
 }
 
@@ -50,49 +50,9 @@ if(!traverse(basedir, false)) {
 puts("Done.");
 }
 
-bool JUG5create(const char *jugfile) {
-unsigned short sig = JUG_BASE|JUG_VERSION;
-FILE *fp;
-
-fp=fopen(jugname,"wb");
-if(!fp) {
-	return false;
-}
-fwrite(&sig,1,2,fp);
-fclose(fp);
-return true;
-}
-
-
-FILE *JUG5save(const char *jugfile,const char *entryname,INT32 len)
-{
-FILE *fp;
-
-fp=fopen(jugfile,"ab");
-if(!fp) {
-	return NULL;
-}
-
-fseek(fp,0L,SEEK_END);
-fwrite(entryname,1,252,fp);
-fwrite(&len,1,4,fp);
-return fp;
-}
-
-
-
-INT32 getfilelength(FILE *fp) {
-long oldpos = ftell(fp);
-long len =0;
-fseek(fp,0L,SEEK_END);
-len=ftell(fp);
-fseek(fp,oldpos,SEEK_SET);
-return (INT32)len;
-}
-
-void copyfile(FILE *fpi, FILE *fpo, INT32 len) {
-INT32 readbytes;
-INT32 count=0;
+void copyfile(FILE *fpi, FILE *fpo, int32_t len) {
+int32_t readbytes;
+int32_t count=0;
 do {
 	readbytes=fread(databuf,1,BLOCKLEN,fpi);
 	fwrite(databuf,1,readbytes,fpo);
@@ -108,7 +68,7 @@ char path3[3072];
 char **filenames;
 int items,ctr;
 FILE *fpi,*fpo;
-INT32 filelen;
+struct JUGFILE_ENTRY jug;
 
 strcpy(path,"");
 strcpy(path2,"");
@@ -144,8 +104,8 @@ for(ctr=0;ctr<items;ctr++) {
 		strdeck(path2,']');
 		strstrip(path2);
 
-		if(strlen(path2) >= 252) {
-			F_error("Path exceeds 252 characters:",path2);
+		if(strlen(path2) >= JUG_MAXPATH) {
+			F_error("Path exceeds 224 characters:",path2);
 		}
 
 		printf("open directory '%s'\n",path2);
@@ -156,8 +116,8 @@ for(ctr=0;ctr<items;ctr++) {
 		printf("%s%s\n",path,filenames[ctr]);
 
 		strcat(path2, filenames[ctr]);
-		if(strlen(path2) >= 252) {
-			F_error("Path exceeds 252 characters:",path2);
+		if(strlen(path2) >= JUG_MAXPATH) {
+			F_error("Path exceeds 224 characters:",path2);
 		}
 
 		strcpy(path3,basedir);
@@ -167,13 +127,14 @@ for(ctr=0;ctr<items;ctr++) {
 		if(!fpi) {
 			F_error("Error opening input file:",path3);
 		}
-		filelen = getfilelength(fpi);
-		fpo=JUG5save(jugname,path2,filelen);
+		JUG5empty(&jug);
+		statFile(fpi,path2,&jug);
+		fpo=JUG5startFileSave(jugname,&jug);
 		if(!fpo) {
 			F_error("Error opening output file:",jugname);
 		}
-		copyfile(fpi,fpo,filelen);
-		fclose(fpo);
+		copyfile(fpi,fpo,jug.len);
+		JUG5close(&jug);
 		fclose(fpi);
 	}
 }
@@ -193,4 +154,27 @@ void F_error(const char *e,const char *e2)
 {
 printf("%s %s\n",e,e2);
 exit(1);
+}
+
+
+bool  statFile(FILE *fp, const char *filename, struct JUGFILE_ENTRY *jug) {
+struct stat sb;
+struct tm *t;
+if(fstat(fileno(fp), &sb)) {
+	return false;
+}
+
+jug->len = sb.st_size;
+
+t = localtime(&sb.st_mtime);
+
+jug->year = t->tm_year + 1900;
+jug->month = t->tm_mon + 1;
+jug->day = t->tm_mday;
+jug->hour = t->tm_hour;
+jug->min = t->tm_min;
+
+memset(&jug->filename,0,sizeof(jug->filename));
+strncpy(jug->filename,filename,JUG_MAXPATH);
+
 }

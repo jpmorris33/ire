@@ -69,4 +69,6 @@ grabfont_obj = utils/grabfont.o
 
 makejug_obj = utils/makejug.o
 
+lsjug_obj = utils/lsjug.o
+
 unjug_obj = utils/unjug.o

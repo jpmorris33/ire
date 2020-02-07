@@ -7,6 +7,8 @@
 
 #include <stdio.h>            // Just in case
 #include <time.h>
+#include <stdbool.h> 
+#include <stdlib.h>
 
 // Enable full memory debugging with Fortify (very slow!)
 //#define FORTIFY
@@ -232,6 +234,33 @@ extern void putw(int w, FILE *fp);
 //0x747.500 jug version no
 #define JUG_BASE 0x7074	
 #define JUG_VERSION 0x0500
+#define JUG_MAXPATH 224
+
+struct JUGFILE_ENTRY {
+char filename[JUG_MAXPATH+1]; // 224 on disk, 225 in memory for null terminator
+short year;
+char month,day;
+char hour,min;
+char spare[22];
+int32_t len;
+
+// Not part of disk format
+long _headerStart;
+long _dataStart;
+FILE *_fp;
+};
+
+
+extern void JUG5clean(struct JUGFILE_ENTRY *fileentry);
+extern bool JUG5writeHeader(const char *jugfile);
+extern FILE *JUG5startFileSave(const char *jugfile, struct JUGFILE_ENTRY *fileentry);
+extern void JUG5close(struct JUGFILE_ENTRY *fileentry);
+
+bool JUG5readHeader(const char *jugfile, struct JUGFILE_ENTRY *fileentry);
+extern FILE *JUG5getFileInfo(struct JUGFILE_ENTRY *fileentry);
+extern void JUG5skipFileData(struct JUGFILE_ENTRY *fileentry);
+void JUG5empty(struct JUGFILE_ENTRY *jug);
+
 
 
 

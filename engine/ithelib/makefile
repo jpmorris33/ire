@@ -1,6 +1,8 @@
 #
 #	Makefile for the IT-HE support library
 #
+#	See also: deb/makefile.ithe
+#
 
 
 #Debug = 1	# Uncomment for debug version
@@ -19,7 +21,7 @@ endif
 Librarian         = ar
 
 
-Object_files   = debug.o doslib.o fs.o memory.o strlib.o
+Object_files   = debug.o doslib.o fs.o memory.o strlib.o jug.o
 
 
 library: $(Object_files)

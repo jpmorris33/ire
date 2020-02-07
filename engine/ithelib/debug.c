@@ -2,7 +2,7 @@
  *      Debugging and log routines
  */
 
-#define ITHE_VERSION "V1.64 (built " __DATE__ " at " __TIME__ ")"
+#define ITHE_VERSION "V1.70 (built " __DATE__ " at " __TIME__ ")"
 #define ITHE_VERSIOND "***DEBUG***" ITHE_VERSION
 
 #ifdef _WIN32
