@@ -10,10 +10,9 @@
 #define BLOCKLEN 32768
 
 void F_error(const char *e,const char *e2);
-long getfilelength(FILE *fp);
 bool traverse(const char *directory, bool append);
 void copyfile(FILE *fpi, FILE *fpo, int32_t len);
-bool  statFile(FILE *fp, const char *filename, struct JUGFILE_ENTRY *jug);
+bool statFile(FILE *fp, const char *filename, struct JUGFILE_ENTRY *jug);
 
 unsigned char databuf[BLOCKLEN];
 char *jugname=NULL;

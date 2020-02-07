@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "../ithelib/ithelib.h"
 
-typedef int32_t INT32;
-
-
-void F_error(char *e,char *e2);
+void F_error(const char *e,const char *e2);
 
 int main(int argc,char *argv[])
 {
@@ -45,7 +43,7 @@ puts("Done.");
 printf("%ld bytes total\n",total);
 }
 
-void F_error(char *e,char *e2)
+void F_error(const char *e,const char *e2)
 {
 printf("%s %s\n",e,e2);
 exit(1);
