@@ -8,7 +8,7 @@ void F_error(const char *e,const char *e2);
 
 int main(int argc,char *argv[])
 {
-struct JUGFILE_ENTRY jug;
+JUGFILE_ENTRY jug;
 char *jugname;
 FILE *fp;
 long total = 0;

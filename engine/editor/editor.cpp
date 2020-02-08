@@ -309,6 +309,10 @@ ilog_printf("\n");
 ilog_printf("Loading project: %s\n",projectname);
 ilog_printf("\n");
 
+if(use_jugfiles) {
+	ithe_safepanic("-jug is not supported for the map editor!","");
+}
+
 #ifndef _WIN32
 if(!editarea[0]) // Area Editor wants fast startup
 	sleep(1);

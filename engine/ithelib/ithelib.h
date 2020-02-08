@@ -236,7 +236,7 @@ extern void putw(int w, FILE *fp);
 #define JUG_VERSION 0x0500
 #define JUG_MAXPATH 224
 
-struct JUGFILE_ENTRY {
+typedef struct {
 char filename[JUG_MAXPATH+1]; // 224 on disk, 225 in memory for null terminator
 short year;
 char month,day;
@@ -248,19 +248,24 @@ int32_t len;
 long _headerStart;
 long _dataStart;
 FILE *_fp;
-};
+} JUGFILE_ENTRY;
 
 
-extern void JUG5clean(struct JUGFILE_ENTRY *fileentry);
+extern void JUG5clean(JUGFILE_ENTRY *fileentry);
 extern bool JUG5writeHeader(const char *jugfile);
-extern FILE *JUG5startFileSave(const char *jugfile, struct JUGFILE_ENTRY *fileentry);
-extern void JUG5close(struct JUGFILE_ENTRY *fileentry);
+extern FILE *JUG5startFileSave(const char *jugfile, JUGFILE_ENTRY *fileentry);
+extern void JUG5close(JUGFILE_ENTRY *fileentry);
 
-bool JUG5readHeader(const char *jugfile, struct JUGFILE_ENTRY *fileentry);
-extern FILE *JUG5getFileInfo(struct JUGFILE_ENTRY *fileentry);
-extern void JUG5skipFileData(struct JUGFILE_ENTRY *fileentry);
-void JUG5empty(struct JUGFILE_ENTRY *jug);
+extern bool JUG5readHeader(const char *jugfile, JUGFILE_ENTRY *fileentry);
+extern FILE *JUG5getFileInfo(JUGFILE_ENTRY *fileentry);
+extern void JUG5skipFileData(JUGFILE_ENTRY *fileentry);
+extern void JUG5empty(JUGFILE_ENTRY *jug);
 
+
+extern bool jug_mountfiles(char **jugfiles, int listlen);
+extern FILE *jug_openfile(const char *filename, int32_t *length);
+extern bool jug_fileexists(const char *filename);
+extern void jug_closefile(FILE *fp);
 
 
 

@@ -60,33 +60,45 @@ IFILE *iopen(const char *filename)
 FILE *fp;
 IFILE *ifp;
 char buffer[1024];
+int32_t len=0;
 
 fp=NULL;
 
 // If we have a prefix, try that first
 
-if(ifile_prefix)
-	{
+if(ifile_prefix) {
 	strcpy(buffer,ifile_prefix);
 	strcat(buffer,filename);
+
 	#ifdef _WIN32
 	strwinslash(buffer);
 	#endif
 	fp = fopen(buffer,"rb");
-	}
+}
 
 //  Nothing?  Try without any prefix
-if(!fp)
+if(!fp) {
 	fp = fopen(filename,"rb");
+}
 
-if(!fp)
+if(!fp) {
+	fp=jug_openfile(filename,&len);
+}
+
+if(!fp) {
 	ithe_panic("iopen_readfile: fopen failed on file",filename);
+}
 //	return NULL;
 
 // OK, we got a result with a physical file, load it and go
 ifp = (IFILE *)M_get(1,sizeof(IFILE));
-ifp->length = filelength(fileno(fp));
-ifp->origin = 0;
+if(len) {
+	ifp->length = len;
+} else {
+	ifp->length = filelength(fileno(fp));
+}
+
+ifp->origin = ftell(fp);
 ifp->fp = fp;
 
 ifp->truename = M_get(1,strlen(filename)+1);
@@ -132,13 +144,23 @@ int iexist(const char *filename)
 {
 char buffer[1024];
 
-if(!access(filename,F_OK))
+if(!access(filename,F_OK)) {
 	return 2;
+}
 strcpy(buffer,ifile_prefix);
 strcat(buffer,filename);
 
-if(!access(buffer,F_OK))
+if(!access(buffer,F_OK)) {
 	return 1;
+}
+
+if(jug_fileexists(filename)) {
+	return 2;
+}
+
+if(jug_fileexists(buffer)) {
+	return 1;
+}
 
 return 0;
 }

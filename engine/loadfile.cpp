@@ -232,10 +232,10 @@ temp=strLocalBuf();
 // Savegame 0 means the actual level data (master copy) not a savegame,
 // (savegames are modified copies of the original).
 
-if(!savegame)
-	sprintf(temp,"%s%s%04d%s",projectdir,projectname,number,extension);
-else
-	{
+if(!savegame) {
+	const char *projdir=use_jugfiles?"":projectdir;
+	sprintf(temp,"%s%s%04d%s",projdir,projectname,number,extension);
+} else {
 	t2=getsavegamedir(savegame);
 	if(!t2)
 		return NULL;
@@ -245,7 +245,7 @@ else
 	#else
 	strslash(temp);
 	#endif
-	}
+}
 
 return temp;
 }

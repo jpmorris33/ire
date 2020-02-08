@@ -19,8 +19,10 @@
 #include "loadfile.hpp"
 #include "cookies.h"
 #include "core.hpp"
+
 #include "init.hpp"
 
+#define MAXJUGS 16
 
 // Defines
 #define find(xxx) OSCLI_find(ArgC,ArgV,xxx)
@@ -49,6 +51,7 @@ char ire_U6partymode=0; // Ultima5 or Ultima6 style of party management?
 char ire_NOASM=0;
 bool ire_checkcache=false;
 bool ire_recache=false;
+bool use_jugfiles=false;
 char show_vrm_calls=0;
 int graflog=-1;        // Graphical bootlog, true or false
 char quickstart=0;      // Prevent logging to disk
@@ -87,6 +90,7 @@ char editarea[256];
 char projectdir[256];
 unsigned char dlink_r=0,dlink_g=80,dlink_b=190;		// Default link colour
 unsigned char dtext_r=255,dtext_g=255,dtext_b=255;	// Default conv. colour
+static char *juglist[MAXJUGS];
 
 int StartingTag=0;
 int vcpu_memory=0;
@@ -258,11 +262,34 @@ if(found("checkcache"))
 
 // Get the project title
 cpt=find("project");
-if(cpt>=0)
-	if(ArgV[cpt+1])
-		{
+if(cpt>=0) {
+	if(ArgV[cpt+1]) {
 		SAFE_STRCPY(projectname,ArgV[cpt+1]);
+	}
+}
+
+// Look for JUGfiles and mount them on the VFS layer if found
+if(!juglist[0]) {
+	cpt=find("jug");
+	if(cpt>=0) {
+		int jugctr=0;
+		for(int ctr=cpt+1;ctr<ArgC;ctr++) {
+			if(ArgV[ctr]) {
+				juglist[jugctr++] = ArgV[ctr];
+			}
+			if(jugctr >= MAXJUGS) {
+				jugctr=MAXJUGS-1;
+				break;
+			}
 		}
+
+		if(jugctr > 0) {
+			jug_mountfiles(juglist,jugctr);
+			use_jugfiles=true;
+		}
+	}
+}
+
 
 if(!gamespec)
 	{
@@ -722,6 +749,89 @@ return 0;
 //
 //  Parse a .INI file
 //
+/*
+int INI_file(char *ini)
+{
+int words,len,ctr;
+char *word[64];
+char *line;
+char *pos;
+FILE *fp;
+int32_t filelen=0;
+char *buffer;
+char *end;
+
+fp=fopen(ini,"rb");
+if(fp) {
+	fseek(fp,0L,SEEK_END);
+	filelen = ftell(fp);
+	fseek(fp,0L,SEEK_SET);
+
+	printf("OPENED FILE '%s'\n",ini);
+} else {
+	printf("OPENING JUG '%s'\n",ini);
+	fp=jug_openfile(ini,&filelen);
+	}
+if(!fp) {
+	printf("COULDN'T OPEN '%s'\n",ini);
+	return 0;
+}
+
+buffer = (char *)M_get(1,filelen+1);
+words=fread(buffer,1,filelen,fp);
+fclose(fp);
+
+printf("Read %d bytes\n",words);
+
+
+printf("file content: [%s]\n",buffer);
+
+
+line=buffer;
+pos=line;
+end=buffer + filelen;
+do {
+	pos=strchr(line,0x0a);
+	if(pos) {
+		*pos=0;
+	} else {
+		break;
+	}
+	while(line[0] >0 && line[0]<32) {
+		line++;
+	}
+	if(!line[0]) {
+		line=pos+1;
+		continue;
+	}
+	printf("line=[%s]\n",line);
+
+	if(line[0]!='#'&&line[0]!=';'&&line[0]!='%') {
+		words=0;
+		word[words++]=&line[0];
+		len=strlen(line);                     
+		for(ctr=0;ctr<len&&words<15;ctr++) {
+			if(line[ctr]==' '||line[ctr]=='\t') {
+				line[ctr]=0;
+				word[words++]=&line[ctr+1];
+			} else {
+				if(line[ctr]<' ') {
+					line[ctr]=0;
+				}
+			}
+			OSCLI(words,word);
+		}
+	}
+	printf("OK\n");
+	line=pos+1;
+
+} while(line<end);
+
+M_free(buffer);
+return 1;
+}
+*/
+
 
 int INI_file(char *ini)
 {
@@ -730,13 +840,33 @@ char linebuf[1024];
 char *word[64];
 char *line;
 FILE *fp;
+int32_t filelen=0;
+long limit=0;
 
 fp=fopen(ini,"r");
-if(!fp)
-	return 0;
+if(!fp) {
+	fp=jug_openfile(ini,&filelen);
+	if(!fp) {
+		return 0;
+	}
+}
 
-	do	{
+if(filelen) {
+	limit=ftell(fp) + filelen;
+}
+
+do	{
+
+	// For an INI file in a jug
+	if(limit) {
+		if(ftell(fp) > limit) {
+			break;
+		}
+	}
 	line=fgets(linebuf,1023,fp);
+
+//	printf("line = [%s]\n",line);
+
 	if(line)
 		if(line[0]!='#'&&line[0]!=';'&&line[0]!='%')
 			{
@@ -759,6 +889,8 @@ fclose(fp);
 
 return 1;
 }
+
+
 
 //
 //  Look for an INI file locally or in a shared area

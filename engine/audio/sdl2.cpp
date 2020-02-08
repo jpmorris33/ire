@@ -296,7 +296,7 @@ void LoadWavs()
 {
 char filename[1024];
 char filename2[1024];
-int ctr;
+int ctr,len;
 
 if(!SoundOn)
 	return;
@@ -307,22 +307,22 @@ ilog_printf("  Loading sounds");     // This line is not terminated, for the dot
 
 Plot(Waves);    // Work out how many dots to print
 
-for(ctr=0;ctr<Waves;ctr++)
-	{
-	if(!loadfile(wavtab[ctr].fname,filename))
+for(ctr=0;ctr<Waves;ctr++) {
+	if(!loadfile(wavtab[ctr].fname,filename)) {
 		ithe_panic("LoadWavs: Cannot open WAV file",wavtab[ctr].fname);
-	wavtab[ctr].sample=Mix_LoadWAV(filename);
-	if(!wavtab[ctr].sample)
-		{
-		// SDL can't access things inside files so we use a bodge
-		strcpy(filename2,projectdir);
-		strcat(filename2,filename);
-		wavtab[ctr].sample=Mix_LoadWAV(filename2);
-		if(!wavtab[ctr].sample)
+	}
+	unsigned char *buffer=iload_file(filename,&len);
+	SDL_RWops *rw = SDL_RWFromMem(buffer, len);
+	wavtab[ctr].sample=Mix_LoadWAV_RW(rw,SDL_FALSE);
+	if(!wavtab[ctr].sample) {
+		if(!wavtab[ctr].sample) {
 			ithe_panic("LoadWavs: Invalid WAV file",filename);
 		}
-	Plot(0);                                        // Print a dot
 	}
+	SDL_RWclose(rw);
+	M_free(buffer);
+	Plot(0);                                        // Print a dot
+}
 
 ilog_printf("\n");  // End the line of dots
 }

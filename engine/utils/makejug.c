@@ -12,7 +12,7 @@
 void F_error(const char *e,const char *e2);
 bool traverse(const char *directory, bool append);
 void copyfile(FILE *fpi, FILE *fpo, int32_t len);
-bool statFile(FILE *fp, const char *filename, struct JUGFILE_ENTRY *jug);
+bool statFile(FILE *fp, const char *filename, JUGFILE_ENTRY *jug);
 
 unsigned char databuf[BLOCKLEN];
 char *jugname=NULL;
@@ -67,7 +67,7 @@ char path3[3072];
 char **filenames;
 int items,ctr;
 FILE *fpi,*fpo;
-struct JUGFILE_ENTRY jug;
+JUGFILE_ENTRY jug;
 
 strcpy(path,"");
 strcpy(path2,"");
@@ -156,7 +156,7 @@ exit(1);
 }
 
 
-bool  statFile(FILE *fp, const char *filename, struct JUGFILE_ENTRY *jug) {
+bool  statFile(FILE *fp, const char *filename, JUGFILE_ENTRY *jug) {
 struct stat sb;
 struct tm *t;
 if(fstat(fileno(fp), &sb)) {

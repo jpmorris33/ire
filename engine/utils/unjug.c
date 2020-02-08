@@ -21,7 +21,7 @@ char *outputdir;
 
 int main(int argc,char *argv[])
 {
-struct JUGFILE_ENTRY jug;
+JUGFILE_ENTRY jug;
 char outpath[1024];
 char *ptr;
 FILE *fpi,*fpo;
