@@ -27,6 +27,7 @@
 // Defines
 #define find(xxx) OSCLI_find(ArgC,ArgV,xxx)
 #define found(xxx) OSCLI_found(ArgC,ArgV,xxx)
+#define getarg(xxx) OSCLI_getarg(ArgC,ArgV,xxx)
 
 // Variables:  These are all controlled by commandline switches
 
@@ -115,6 +116,7 @@ extern long tli_alloc;
 
 static short OSCLI_find(short ArgC,char **ArgV,char *param);
 static char OSCLI_found(short ArgC,char **ArgV,char *param);
+static char *OSCLI_getarg(short argc, char **argv, int index);
 void OSCLI(int ArgC,char **ArgV);
 extern void AddScriptConstant(const char *name, VMINT value);
 static int CopyGameINI();
@@ -184,23 +186,23 @@ if(found("L"))
 
 cpt=find("map");
 if(cpt>=0&&!default_mapnumber)
-	if(ArgV[cpt+1])
-		default_mapnumber = atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		default_mapnumber = atoi(getarg(cpt+1));
 
 cpt=find("edit");
 if(cpt>=0)
-	if(ArgV[cpt+1])
-		default_mapnumber = atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		default_mapnumber = atoi(getarg(cpt+1));
 
 cpt=find("framerate");
 if(cpt>=0)
-	if(ArgV[cpt+1])
-		FRAMERATE = atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		FRAMERATE = atoi(getarg(cpt+1));
 
 cpt=find("mousewait");
 if(cpt>=0)
-	if(ArgV[cpt+1])
-		MouseWait = atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		MouseWait = atoi(getarg(cpt+1));
 
 if(found("nopanic"))
     no_panic = 1;
@@ -264,8 +266,8 @@ if(found("checkcache"))
 // Get the project title
 cpt=find("project");
 if(cpt>=0) {
-	if(ArgV[cpt+1]) {
-		SAFE_STRCPY(projectname,ArgV[cpt+1]);
+	if(getarg(cpt+1)) {
+		SAFE_STRCPY(projectname,getarg(cpt+1));
 	}
 }
 
@@ -296,9 +298,9 @@ if(!gamespec)
 	{
 	cpt=find("game");
 	if(cpt>=0)
-		if(ArgV[cpt+1])
+		if(getarg(cpt+1))
 			{
-			SAFE_STRCPY(projectdir,ArgV[cpt+1]);
+			SAFE_STRCPY(projectdir,getarg(cpt+1));
 			strslash(projectdir);
 			// There must be a slash at the end
 			if(projectdir[strlen(projectdir)-1] != '/')
@@ -311,8 +313,8 @@ if(VideoMode==-1)
 	{
 	cpt=find("VideoMode");
 	if(cpt>=0)
-		if(ArgV[cpt+1])
-			VideoMode=atoi(ArgV[cpt+1]);
+		if(getarg(cpt+1))
+			VideoMode=atoi(getarg(cpt+1));
 	}
 
 // Shorthand for emergency start (handy for GDB under X11)
@@ -327,22 +329,22 @@ if(found("vx") || found("window") || found("windowed"))
 cpt=find("console_x");
 if(cpt>=0)
 	{
-	if(ArgV[cpt+1])
-		conx=atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		conx=atoi(getarg(cpt+1));
 	}
 
 cpt=find("console_y");
 if(cpt>=0)
     {
-    if(ArgV[cpt+1])
-  	cony=atoi(ArgV[cpt+1]);
+    if(getarg(cpt+1))
+  	cony=atoi(getarg(cpt+1));
     }
 
 cpt=find("console_w");
 if(cpt>=0)
     {
-    if(ArgV[cpt+1])
-  	conwid=atoi(ArgV[cpt+1]);
+    if(getarg(cpt+1))
+  	conwid=atoi(getarg(cpt+1));
     else
         conwid = 900;
     if(conwid > 80)
@@ -352,8 +354,8 @@ if(cpt>=0)
 cpt=find("console_h");
 if(cpt>=0)
     {
-    if(ArgV[cpt+1])
-  	conlen=atoi(ArgV[cpt+1])-1;
+    if(getarg(cpt+1))
+  	conlen=atoi(getarg(cpt+1))-1;
     else
         conlen = 900;   // Not valid, therefore print the message below.
     if(conlen > 60)
@@ -361,61 +363,61 @@ if(cpt>=0)
     }
 
 cpt = find("speechfont");
-if(cpt>=0) {
-	speechfont = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1)) {
+	speechfont = atol(getarg(cpt+1));
 }
 
 cpt = find("torch_bonus");
-if(cpt>=0) {
-	torch_bonus = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1)) {
+	torch_bonus = atol(getarg(cpt+1));
 }
 
 cpt=find("loadfont");
 if(cpt>=0)
-	if(ArgV[cpt+1])
-		irecon_registerfont(ArgV[cpt+2],atoi(ArgV[cpt+1]));
+	if(getarg(cpt+1))
+		irecon_registerfont(getarg(cpt+2),atoi(getarg(cpt+1)));
 
 cpt=find("driftlevel");
 if(cpt>=0)
     {
-    if(ArgV[cpt+1])
-  	driftlevel=atoi(ArgV[cpt+1]);
+    if(getarg(cpt+1))
+  	driftlevel=atoi(getarg(cpt+1));
     }
 
 cpt=find("map_width");
 if(cpt>=0)
     {
-    if(ArgV[cpt+1])
-  	map_W=atoi(ArgV[cpt+1]);
+    if(getarg(cpt+1))
+  	map_W=atoi(getarg(cpt+1));
     }
 
 cpt=find("map_height");
 if(cpt>=0)
     {
-    if(ArgV[cpt+1])
-  	map_H=atoi(ArgV[cpt+1]);
+    if(getarg(cpt+1))
+  	map_H=atoi(getarg(cpt+1));
     }
 
 cpt=find("view_w");
 if(cpt>=0)
 	{
-	if(ArgV[cpt+1])
-		VSW=atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		VSW=atoi(getarg(cpt+1));
 	}
 
 cpt=find("view_h");
 if(cpt>=0)
 	{
-	if(ArgV[cpt+1])
-		VSH=atoi(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		VSH=atoi(getarg(cpt+1));
 	}
 
 cpt=find("loadingpic");
 if(cpt>=0 && graflog ==-1)
 	{
-	if(ArgV[cpt+1])
+	if(getarg(cpt+1))
 		{
-		SAFE_STRCPY(loadingpic,ArgV[cpt+1]);
+		SAFE_STRCPY(loadingpic,getarg(cpt+1));
 		}
 	else
 		ithe_safepanic("Usage: -loadingpic MYFILE.PCX","The picture can be PCX, or JPEG");
@@ -424,12 +426,12 @@ if(cpt>=0 && graflog ==-1)
 cpt=find("loadingpic_console");
 if(cpt>=0)
 	{
-	if(ArgV[cpt+1])
-		logx=atoi(ArgV[cpt+1]);
-	if(ArgV[cpt+2])
-		logy=atoi(ArgV[cpt+2]);
-	if(ArgV[cpt+3])
-		loglen=atoi(ArgV[cpt+3]);
+	if(getarg(cpt+1))
+		logx=atoi(getarg(cpt+1));
+	if(getarg(cpt+2))
+		logy=atoi(getarg(cpt+2));
+	if(getarg(cpt+3))
+		loglen=atoi(getarg(cpt+3));
 	if(logx>128)
 		logx=4;
 	if(logy+(loglen*8)>480)
@@ -443,16 +445,16 @@ if(cpt>=0)
 cpt=find("book");
 if(cpt>=0 && in_editor == 0)
 	{
-	if(ArgV[cpt+1])
+	if(getarg(cpt+1))
 		{
-		SAFE_STRCPY(bookview,ArgV[cpt+1]);
+		SAFE_STRCPY(bookview,getarg(cpt+1));
 		}
 	else
 		ithe_safepanic("Usage: -book path/bookfile.txt",NULL);
 
-	if(ArgV[cpt+2])
+	if(getarg(cpt+2))
 		{
-		SAFE_STRCPY(bookview2,ArgV[cpt+2]);
+		SAFE_STRCPY(bookview2,getarg(cpt+2));
 		}
 	}
 
@@ -461,8 +463,8 @@ if(cpt>=0 && in_editor == 0)
 cpt=find("area");
 if(cpt>=0 && in_editor == 1)
 	{
-	if(ArgV[cpt+1])
-		strcpy(editarea,ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		strcpy(editarea,getarg(cpt+1));
 	else
 		ithe_safepanic("Usage: -area object","The object must be an entry in Section: Characters");
 	}
@@ -482,148 +484,140 @@ if(found("show_imap"))
 cpt=find("imapxy");
 if(cpt>=0)
 	{
-	if(ArgV[cpt+1])
-		imapx=atol(ArgV[cpt+1]);
-	if(ArgV[cpt+2])
-		imapy=atol(ArgV[cpt+2]);
+	if(getarg(cpt+1))
+		imapx=atol(getarg(cpt+1));
+	if(getarg(cpt+2))
+		imapy=atol(getarg(cpt+2));
 	}
 
 if(found("probe_ivo"))
     probeInvalidObject= 1;
 
 cpt=find("destroy_hp");
-if(cpt>=0)
-if(ArgV[cpt+1])
-  	destroyhp = atoi(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+	destroyhp = atoi(getarg(cpt+1));
 
 cpt=find("journal_style");
-if(cpt>=0)
-if(ArgV[cpt+1])
-  	journalstyle = atoi(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+	journalstyle = atoi(getarg(cpt+1));
 
 // Set VCPU memory size
 
 cpt = find("vcpu_memory");
-if(cpt>=0)
-	vcpu_memory = atoi(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+	vcpu_memory = atoi(getarg(cpt+1));
 
 
 // Set limits for the script editor
 
 cpt = find("max_sprites");
-if(cpt>=0)
-    spr_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    spr_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_sequences");
-if(cpt>=0)
-    seq_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    seq_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_vrms");
-if(cpt>=0)
-    vrm_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    vrm_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_characters");
-if(cpt>=0)
-    chr_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    chr_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_tiles");
-if(cpt>=0)
-    til_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    til_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_wavs");
-if(cpt>=0)
-    wav_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    wav_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_music");
 if(cpt<0)
 	cpt = find("max_mods");
 if(cpt>=0)
-    mus_alloc = atol(ArgV[cpt+1]);
+    mus_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_pe_files");
-if(cpt>=0)
-    pef_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    pef_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_tables");
-if(cpt>=0)
-    tab_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    tab_alloc = atol(getarg(cpt+1));
 
 cpt = find("max_tilelinks");
-if(cpt>=0)
-    tli_alloc = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    tli_alloc = atol(getarg(cpt+1));
 
 // Starting date
 
 cpt = find("start_minute");
-if(cpt>=0)
-    ig_min = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    ig_min = atol(getarg(cpt+1));
 
 cpt = find("start_hour");
-if(cpt>=0)
-    ig_hour = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    ig_hour = atol(getarg(cpt+1));
 
 cpt = find("start_day");
-if(cpt>=0)
-    ig_day = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    ig_day = atol(getarg(cpt+1));
 
 cpt = find("start_month");
-if(cpt>=0)
-    ig_month = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    ig_month = atol(getarg(cpt+1));
 
 cpt = find("start_year");
-if(cpt>=0)
-    ig_year = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    ig_year = atol(getarg(cpt+1));
 
 cpt = find("start_day_of_month");
-if(cpt>=0)
-    ig_year = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    ig_year = atol(getarg(cpt+1));
 
 // Calendar definitions
 
 cpt = find("turns_per_minute");
-if(cpt>=0)
-    turns_min = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    turns_min = atol(getarg(cpt+1));
 
 cpt = find("minutes_per_hour");
-if(cpt>=0)
-    min_hour = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    min_hour = atol(getarg(cpt+1));
 
 cpt = find("hours_per_day");
-if(cpt>=0)
-    hour_day = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    hour_day = atol(getarg(cpt+1));
 
 cpt = find("days_per_week");
-if(cpt>=0)
-    day_week = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    day_week = atol(getarg(cpt+1));
 
 cpt = find("days_per_month");
-if(cpt>=0)
-    day_month = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    day_month = atol(getarg(cpt+1));
 
 cpt = find("months_per_year");
-if(cpt>=0)
-    month_year = atol(ArgV[cpt+1]);
+if(cpt>=0 && getarg(cpt+1))
+    month_year = atol(getarg(cpt+1));
 
 cpt=find("egglockout");
-if(cpt>=0)
-	{
-	if(ArgV[cpt+1])
-		EggLockout=atoi(ArgV[cpt+1]);
-	}
+if(cpt>=0 && getarg(cpt+1))
+	EggLockout=atoi(getarg(cpt+1));
 
 cpt=find("eggdistance");
-if(cpt>=0)
-	{
-	if(ArgV[cpt+1])
-		EggDistance=atoi(ArgV[cpt+1]);
-	}
+if(cpt>=0 && getarg(cpt+1))
+	EggDistance=atoi(getarg(cpt+1));
 
 // Set default link colour
 
 cpt = find("linkcol");
-if(cpt>=0)
+if(cpt>=0 && getarg(cpt+1))
 	{
-	pos=strchr(ArgV[cpt+1],'#');
+	pos=strchr(getarg(cpt+1),'#');
 	if(pos)
 		{
 		pos++;
@@ -637,9 +631,9 @@ if(cpt>=0)
 // Set default conversation text colour
 
 cpt = find("textcol");
-if(cpt>=0)
+if(cpt>=0 && getarg(cpt+1))
 	{
-	pos=strchr(ArgV[cpt+1],'#');
+	pos=strchr(getarg(cpt+1),'#');
 	if(pos)
 		{
 		pos++;
@@ -653,9 +647,9 @@ if(cpt>=0)
 // Set default blanker colour
 
 cpt = find("blankcol");
-if(cpt>=0)
+if(cpt>=0 && getarg(cpt+1))
 	{
-	pos=strchr(ArgV[cpt+1],'#');
+	pos=strchr(getarg(cpt+1),'#');
 	if(pos)
 		{
 		pos++;
@@ -668,14 +662,14 @@ if(cpt>=0)
 cpt = find("set");
 if(cpt>=0)
 	{
-	value=ArgV[cpt+2];
+	value=getarg(cpt+2);
 	if(value)
 		if(value[0] == '=')
-			value=ArgV[cpt+3];
-	if(value && ArgV[cpt+1])
+			value=getarg(cpt+3);
+	if(value && getarg(cpt+1))
 		{
 		rgb=atol(value);
-		AddScriptConstant(ArgV[cpt+1],rgb);
+		AddScriptConstant(getarg(cpt+1),rgb);
 		}
 
 	}
@@ -683,11 +677,8 @@ if(cpt>=0)
 // Find a tag and start there (handy for development)
 
 cpt = find("startingtag");
-if(cpt>=0)
-	{
-	if(ArgV[cpt+1])
-		StartingTag=atol(ArgV[cpt+1]);
-	}
+if(cpt>=0 && getarg(cpt+1))
+	StartingTag=atol(getarg(cpt+1));
 
 
 // It is of vital importance that -include/list comes last, or the INI parser will
@@ -695,16 +686,16 @@ if(cpt>=0)
 
 cpt=find("include");
 if(cpt>=0)
-	if(ArgV[cpt+1])
+	if(getarg(cpt+1))
 		{
-		INI_file(ArgV[cpt+1]);
+		INI_file(getarg(cpt+1));
 		return;
 		}
 
 cpt=find("list");
 if(cpt>=0)
-	if(ArgV[cpt+1])
-		INI_file(ArgV[cpt+1]);
+	if(getarg(cpt+1))
+		INI_file(getarg(cpt+1));
 return;
 }
 
@@ -746,6 +737,15 @@ if(OSCLI_find(ArgC,ArgV,param) >= 0)
 	return 1;
 return 0;
 }
+
+char *OSCLI_getarg(short argc, char **argv, int index) {
+if(index<0 || index >=argc) {
+	return NULL;
+}
+return argv[index];
+}
+
+
 
 //
 //  Parse a .INI file
