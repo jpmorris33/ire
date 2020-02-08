@@ -150,6 +150,7 @@ if(found("?") || found("h") || found("help"))
 	puts("-noasm              Disable assembler routines");
 	puts("-checkcache	  Check image cache is up-to-date (slightly slower)");
 	puts("-recache		  Rebuild image cache");
+	puts("-jug <file[s]>      Load game data from one of more .jug files");
 if(in_editor)
 		{
 		puts("-reset_stats        Reset all objects in the editor to their default statistics");

@@ -181,6 +181,8 @@ if(!INI_file(fname))
 	INI_file("game.ini"); // Okay, try current directory then
 */
 
+TryINI("jug.ini"); // Optional
+
 if(!TryINI("game.ini"))
 	ithe_panic("Could not open game.ini",NULL);
 

@@ -35,6 +35,7 @@ static int SoundOn=0;
 //static char *IsPlaying=NULL;
 static Mix_Music *IsPlaying=NULL;
 static int MusicChannel=-1;
+static SDL_RWops *musRW=NULL;
 
 struct SMTab *wavtab;       // Tables of data for each sound and song.
 struct SMTab *mustab;       // Filled by script.cc
@@ -50,6 +51,8 @@ void S_StopMusic();         // Stop the music
 
 static void LoadMusic();
 static void LoadWavs();
+static void FreeMusic();
+static void FreeWavs();
 
 static void SetSoundVol(int vol);
 static void SetMusicVol(int vol);
@@ -70,8 +73,8 @@ if(SDL_Init(SDL_INIT_AUDIO) < 0)
 	return 0;
 	}
 
-// stereo, 4k buffer
-r=Mix_OpenAudio(44100,AUDIO_S16,2,4096);
+// stereo, 2k buffer
+r=Mix_OpenAudio(44100,AUDIO_S16,2,2048);
 if(r<0)
 	{
 	ilog_quiet("SDL: Mix Audio failed, returned %d\n",r);
@@ -93,7 +96,12 @@ void S_Term()
 if(!SoundOn)
 	return;
 
+S_StopMusic();
 Mix_CloseAudio();
+
+FreeMusic();
+FreeWavs();
+
 #ifndef NO_SDL_QUIT
 SDL_Quit();
 #endif
@@ -162,48 +170,38 @@ if(!SoundOn)
 // Is the music playing?  If not, this will clear IsPlaying
 S_IsPlaying();
 
-for(ctr=0;ctr<Songs;ctr++)
-	if(!istricmp(mustab[ctr].name,name))
-		{
+for(ctr=0;ctr<Songs;ctr++) {
+	if(!istricmp(mustab[ctr].name,name)) {
 		// If the music is marked Not Present, ignore it (music is optional)
-		if(mustab[ctr].fname[0] == 0)
+		if(!mustab[ctr].buffer) {
 			return;
+		}
 
 		// Is something else playing?
-		if(IsPlaying)
+		if(IsPlaying) {
 			S_StopMusic();
+		}
 
 		// Otherwise, no excuses
-//		IsPlaying = mustab[ctr].name; // This is playing now
-
-		if(!loadfile(mustab[ctr].fname,filename))
-			{
-			Bug("S_PlayMusic - could play song %s, could not find file '%s'\n",name,mustab[ctr].fname);
+		musRW = SDL_RWFromMem(mustab[ctr].buffer, mustab[ctr].bufferlen);
+		IsPlaying=Mix_LoadMUS_RW(musRW,SDL_FALSE);
+		if(!IsPlaying) {
+			Bug("S_PlayMusic - could not load song '%s'\n",name);
+			SDL_RWclose(musRW);
+			musRW=NULL;
 			return;
-			}
-
-		IsPlaying=Mix_LoadMUS(filename);
-		if(!IsPlaying)
-			{
-			// SDL can't access things inside files so we use a bodge
-			strcpy(filename2,projectdir);
-			strcat(filename2,filename);
-			IsPlaying=Mix_LoadMUS(filename2);
-			if(!IsPlaying)
-				{
-				Bug("S_PlayMusic - could not load song '%s'\n",name);
-				return;
-				}
-			}
+		}
 		MusicChannel=Mix_PlayMusic(IsPlaying,0);
-		if(!MusicChannel < 0)
-			{
+		if(!MusicChannel < 0) {
 			Bug("S_PlayMusic - could not play song '%s'\n",name);
 			IsPlaying=NULL;
+			SDL_RWclose(musRW);
+			musRW=NULL;
 			MusicChannel=-1;
-			}
-		return;
 		}
+		return;
+	}
+}
 
 Bug("S_PlayMusic - could not find song '%s'\n",name);
 }
@@ -215,13 +213,16 @@ Bug("S_PlayMusic - could not find song '%s'\n",name);
 
 void S_StopMusic()
 {
-if(IsPlaying)
-	{
+if(IsPlaying) {
 	Mix_HaltMusic();
 	Mix_FreeMusic(IsPlaying);
 	IsPlaying=NULL;
-	MusicChannel=-1;
+	if(musRW) {
+		SDL_RWclose(musRW);
 	}
+	musRW=NULL;
+	MusicChannel=-1;
+}
 }
 
 
@@ -276,12 +277,13 @@ if(!SoundOn)
 
 ilog_printf("  Checking music.. ");     // This line is not terminated!
 
-for(ctr=0;ctr<Songs;ctr++)
-	if(!loadfile(mustab[ctr].fname,filename))
-		{
+for(ctr=0;ctr<Songs;ctr++) {
+	if(!loadfile(mustab[ctr].fname,filename)) {
 		ilog_quiet("Warning: Could not load music file '%s'\n",mustab[ctr].fname);
-		mustab[ctr].fname[0]=0;	// Erase the filename to mark N/A
-		}
+		mustab[ctr].buffer = NULL;
+	}
+	mustab[ctr].buffer=iload_file(filename,&mustab[ctr].bufferlen);
+}
 
 ilog_printf("done.\n");  // This terminates the line above
 
@@ -326,6 +328,29 @@ for(ctr=0;ctr<Waves;ctr++) {
 
 ilog_printf("\n");  // End the line of dots
 }
+
+
+
+void FreeWavs()
+{
+for(int ctr=0;ctr<Waves;ctr++) {
+	if(wavtab[ctr].sample) {
+		Mix_FreeChunk(wavtab[ctr].sample);
+		wavtab[ctr].sample=NULL;
+	}
+}
+}
+
+void FreeMusic()
+{
+for(int ctr=0;ctr<Songs;ctr++) {
+	if(mustab[ctr].buffer) {
+		M_free(mustab[ctr].buffer);
+		mustab[ctr].buffer=NULL;
+	}
+}
+}
+
 
 
 

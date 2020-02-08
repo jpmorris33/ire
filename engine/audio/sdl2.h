@@ -9,11 +9,13 @@
 
 struct SMTab
 {
-    char *name;
+	char *name;
 	char *fname;
 	Mix_Chunk *sample;
-    char nodrift;
+	char nodrift;
 	char loopsong;
+	unsigned char *buffer;
+	int bufferlen;
 };
 
 extern struct SMTab *wavtab;
