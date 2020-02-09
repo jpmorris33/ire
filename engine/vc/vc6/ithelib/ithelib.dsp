@@ -97,6 +97,10 @@ SOURCE=..\..\..\ithelib\fs.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\ithelib\jug.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\ithelib\memory.c
 # End Source File
 # Begin Source File

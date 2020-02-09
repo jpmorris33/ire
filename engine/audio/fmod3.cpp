@@ -274,7 +274,6 @@ ilog_printf("done.\n");  // This terminates the line above
 void LoadWavs()
 {
 char filename[1024];
-char filename2[1024];
 int ctr;
 
 //return;
@@ -292,11 +291,9 @@ for(ctr=0;ctr<Waves;ctr++)
 	{
 	if(!loadfile(wavtab[ctr].fname,filename))
 		ithe_panic("LoadWavs: Cannot open WAV file",wavtab[ctr].fname);
-	strcpy(filename2,ifile_prefix);
-	strcat(filename2,filename);
-	wavtab[ctr].sample=FSOUND_Sample_Load(FSOUND_FREE,filename2,FSOUND_NORMAL,0,0);
+	wavtab[ctr].sample=FSOUND_Sample_Load(FSOUND_FREE,filename,FSOUND_NORMAL,0,0);
 	if(!wavtab[ctr].sample)
-		ithe_panic("LoadWavs: Invalid WAV file",filename2);
+		ithe_panic("LoadWavs: Invalid WAV file",filename);
 	Plot(0);                                        // Print a dot
 	}
 

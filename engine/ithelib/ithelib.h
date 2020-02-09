@@ -7,7 +7,6 @@
 
 #include <stdio.h>            // Just in case
 #include <time.h>
-#include <stdbool.h> 
 #include <stdlib.h>
 
 // Enable full memory debugging with Fortify (very slow!)
@@ -20,6 +19,7 @@
 
 #ifndef _WIN32
 #include <signal.h>
+#include <stdbool.h> 
 #endif
 
 
@@ -28,19 +28,30 @@
 #define MAX_LINE_LEN 4096	// Maximum line length for string processing
 //#define LOG_MEM		// Help find leaks
 
-
 // Are we on Windows?  If so we need to help it
 #ifdef _WIN32
 	typedef __int64 qword;
 	typedef unsigned __int64 uqword;
+
+	#ifndef ALLEGRO_H
+		typedef __int32 int32_t;
+	#endif
+
 	#define F_OK 0
 	#define X_OK 1
 	#define W_OK 2
 	#define R_OK 4
 
+	#ifndef __cplusplus
+		typedef int bool;
+		#define false 0
+		#define true 1
+	#endif
+
 	#define BYTE_ORDER 1
 	#define LITTLE_ENDIAN 1
 	#define BIG_ENDIAN 2
+
 #else
 	typedef long long qword;
 	typedef unsigned long long uqword;

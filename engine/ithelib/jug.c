@@ -189,8 +189,9 @@ static int jug_filecount;
 // Look for the file in the list and return it to overwrite, or else the next free slot to put it in
 
 static int findfile(const char *filename) {
+int ctr=0;
 
-for(int ctr=0;ctr<jug_filecount;ctr++) {
+for(ctr=0;ctr<jug_filecount;ctr++) {
 	if(!jug_list[ctr].jugfile[0]) {
 //		printf("%s: slot blank at %d\n",filename,ctr);
 		return ctr;
@@ -275,7 +276,7 @@ for(ctr=0;ctr<listlen;ctr++) {
 }
 
 // Now we need to do something clever like sorting them for faster access
-
+return true;
 }
 
 //
@@ -284,13 +285,14 @@ for(ctr=0;ctr<listlen;ctr++) {
 
 FILE *jug_openfile(const char *filename, int32_t *length) {
 FILE *fp;
+int ctr;
 if(!filename || !length) {
 	return NULL;
 }
 
 // If none have been initialised, filecount will be 0 and it should just bail immediately
 
-for(int ctr=0;ctr<jug_filecount;ctr++) {
+for(ctr=0;ctr<jug_filecount;ctr++) {
 	if(!jug_list[ctr].jugfile[0]) {
 		continue; // Blank
 	}
@@ -315,14 +317,14 @@ return NULL;
 //
 
 bool jug_fileexists(const char *filename) {
-FILE *fp;
+int ctr;
 if(!filename) {
 	return false;
 }
 
 // If none have been initialised, filecount will be 0 and it should just bail immediately
 
-for(int ctr=0;ctr<jug_filecount;ctr++) {
+for(ctr=0;ctr<jug_filecount;ctr++) {
 	if(!jug_list[ctr].jugfile[0]) {
 		continue; // Blank
 	}
