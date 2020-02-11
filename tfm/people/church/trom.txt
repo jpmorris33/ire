@@ -24,6 +24,8 @@ Cardinal Trom
 
  Now.  What did you wish to speak with me about?"
  
+[if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
+[if obethplot][linkto="obeth"]
 [link="Tell me about the Trinity."]
 [linkto="trinity"]
 [link="Goodbye."]
@@ -34,6 +36,7 @@ Cardinal Trom
 [page="startname"]
 [if banged_devil][goto="devil"]
 [iftime 0800-0900][goto="inchurch"]
+[if trom_kills_player][goto="startdead"]
 [reset_links]
 
 [colour="#808080"]
@@ -46,11 +49,87 @@ Cardinal Trom
 
 [link="Do you believe all this crap about the Trinity?"]
 [linkto="trinity_cack"]
+[if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
+[if obethplot][linkto="obeth"]
 [if know_aaruuff][link="Tell me about Aa'Ruuff."]
 [if know_aaruuff][linkto="aaruuff"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="startdead"]
+[if trom_killed_player][goto="startdead2"]
+[reset_links]
+[clear trom_kills_player]
+[set trom_killed_player]
+
+[colour="#808080"]
+Cardinal Trom sees that you are alive again with a look
+of intense disappointment.
+[colour="#ffffff"]
+
+"By the LORD!  Not another cursed immortal!
+ It was bad enough with Lord O'Beth!
+ 
+ Even so, test not my patience, I warn you...
+ For should the LORD tire of His amusements with you,
+ I shall be there waiting to end your evil forever!"
+
+[if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
+[if obethplot][linkto="obeth"]
+[if know_aaruuff][link="Tell me about Aa'Ruuff."]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startdead2"]
+[reset_links]
+[clear trom_kills_player]
+
+[colour="#808080"]
+Cardinal Trom scowls at you angrily.
+[colour="#ffffff"]
+
+"Not again!  What do you want now?!
+ Why can't you just die like a normal man?!"
+ 
+[if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
+[if obethplot][linkto="obeth"]
+[if know_aaruuff][link="Tell me about Aa'Ruuff."]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="obeth"]
+[colour="#808080"]
+ Cardinal Trom's mouth curls as if eating a lemon.
+[colour="#ffffff"]
+
+"Aye, and it grieves my heart full sore.
+
+ For this blasphemy, O'Beth's head was chopped off, yet
+ still he lives and breathes.  It always worked before!
+ 
+ After hanging and impalement failed likewise, the LORD
+ commanded me to cease punishment, and this I have done.
+
+ He must have great need of this Lord O'Beth to grant
+ him immortality."
+
+[link="Do you believe all this crap about the Trinity?"]
+[linkto="trinity_cack"]
+[if know_aaruuff][link="Tell me about Aa'Ruuff."]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 
 
 [page="trinity"]
@@ -135,6 +214,7 @@ Cardinal Trom
 
 
 [page="trinity_cack"]
+[set trom_kills_player]
 
 [colour="#808080"]
 The Cardinal looks mildly surprised, and snaps his
@@ -153,6 +233,7 @@ fingers once.
 The player has tried to kill the Cardinal
 
 [page="die"]
+[set trom_kills_player]
 [colour="#808080"]
 The Cardinal laughs horribly and points at you.
 [colour="#ffffff"]
@@ -245,6 +326,7 @@ will be similarly damned.
 
 
 [page="aaruuff3a"]
+[set trom_kills_player]
 [image="lord.jpg"]
 [call_at_exit="hang_player"]
 
@@ -300,6 +382,28 @@ will be similarly damned.
 
 
 [page="devil"]
+
+[colour="#808080"]
+ Cardinal Trom claps his hands delightedly.
+[colour="#ffffff"]
+
+"Know that I have had men watching you, waiting for you
+ to slip and fall.  This diligence has now been rewarded.
+
+ You have already been seen entering other people's
+ homes and looting their possessions.
+
+ And now, you have been seen engaging in forbidden
+ passions with the Evil One itself!
+
+ GUARDS!  Execute this heretic immediately!"
+
+[at_exit_call="justice_heresy"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="devil_old"]
 
 [colour="#808080"]
  Cardinal Trom is astonished at your very presence.
