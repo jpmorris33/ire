@@ -37,7 +37,7 @@ if(blankercol > 0) {
 void VisMap::calculate()
 {
 int ctr,ctr2;
-int xoff,yoff,xmax,ymax;
+int xoff,yoff,xmax,ymax,visx,visy;
 OBJECT *o;
 
 xoff = mapx-1;
@@ -45,8 +45,13 @@ yoff = mapy-1;
 xmax = VSW;
 ymax = VSH;
 
-if(!player) { // If there isn't a player we want to keep the old visibility map
-	return;
+if(player) {
+	visx=player->x;
+	visy=player->y;
+} else {
+	// If there's no player, make an educated guess
+	visx=mapx+VSMIDX;
+	visy=mapy+VSMIDY;
 }
 
 // First, clear the visibility map (all blank)
@@ -68,31 +73,31 @@ for(ctr=0;ctr<=ymax;ctr++)
 
 // Check for windows
 // North
-o=GetSolidObject(player->x,player->y-1);
+o=GetSolidObject(visx,visy-1);
 if(o)
 	if(o->flags & IS_WINDOW)
-		punch(player->x-mapx,(player->y-mapy)-1);
+		punch(visx-mapx,(visy-mapy)-1);
 
 // West
-o=GetSolidObject(player->x-1,player->y);
+o=GetSolidObject(visx-1,visy);
 if(o)
 	if(o->flags & IS_WINDOW)
-		punch((player->x-mapx)-1,player->y-mapy);
+		punch((visx-mapx)-1,visy-mapy);
 
 // East
-o=GetSolidObject(player->x+1,player->y);
+o=GetSolidObject(visx+1,visy);
 if(o)
 	if(o->flags & IS_WINDOW)
-		punch((player->x-mapx)+1,player->y-mapy);
+		punch((visx-mapx)+1,visy-mapy);
 
 // South
-o=GetSolidObject(player->x,player->y+1);
+o=GetSolidObject(visx,visy+1);
 if(o)
 	if(o->flags & IS_WINDOW)
-		punch(player->x-mapx,(player->y-mapy)+1);
+		punch(visx-mapx,(visy-mapy)+1);
 
 // General floodfill
-floodfill(player->x-mapx,player->y-mapy);
+floodfill(visx-mapx,visy-mapy);
 }
 
 //
