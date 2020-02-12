@@ -1128,6 +1128,7 @@ if(ML_InList(&ActiveList,objsel))  // Make sure it isn't there yet
 // Set up the physics
 if(!fullrestore) {
 	objsel->flags = CHlist[ctr].flags;
+	objsel->engineflags |= CHlist[ctr].engineflags;
 	objsel->stats->npcflags = CHlist[ctr].stats->npcflags;
 	SubAction_Wipe(objsel);
 	ActivityNum(objsel,CHlist[ctr].activity,NULL); // Set default action
@@ -1206,6 +1207,7 @@ objsel->tag = obj->tag;
 if(!fullrestore)
 	{
 	objsel->flags = obj->flags;
+	objsel->engineflags |= obj->flags;
 	objsel->stats->npcflags = obj->stats->npcflags;
 	objsel->light = obj->light;
 	SubAction_Wipe(objsel);

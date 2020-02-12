@@ -3173,7 +3173,7 @@ CHECK_POINTER(y);
 if(!*obj)
 	return;
 //draw_rle_sprite(swapscreen,(*obj)->form->seq[0]->image,*x,*y);
-(*obj)->form->seq[0]->image->Draw(swapscreen,*x,*y);
+(*obj)->form->seq[0]->image->Draw(swapscreen,*x + (*obj)->form->xoff,*y + (*obj)->form->yoff) ;
 }
 
 void PV_PrintXYs()
