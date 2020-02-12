@@ -694,7 +694,7 @@ if(rebuild)
 void Init_Areas(OBJECT *objsel)
 {
 SEQ_POOL *seq;
-objsel->flags &= ~IS_LARGE;  // Assume it's only 1 square
+objsel->engineflags &= ~ENGINE_ISLARGE;  // Assume it's only 1 square
 
 // First the vertical
 
@@ -725,7 +725,7 @@ if(objsel->h & 0x1f || !objsel->mh)
 	objsel->mh++;
 
 if(objsel->mh>1 || objsel->mw>1)        // If it's bigger than 1 square..
-	objsel->flags |= IS_LARGE;
+	objsel->engineflags |= ENGINE_ISLARGE;
 
 // Set up verticals
 
@@ -781,7 +781,7 @@ if(objsel->h & 0x1f || !objsel->mh)
 
 // Just to make sure
 if(objsel->mh>1 || objsel->mw>1)        // If it's bigger than 1 square..
-	objsel->flags |= IS_LARGE;
+	objsel->engineflags |= ENGINE_ISLARGE;
 
 // Set up horizontals
 
@@ -808,6 +808,15 @@ if(objsel->hblock[BLK_H] == 0)
 	objsel->hblock[BLK_H]=objsel->mh;
 	objsel->hblock[BLK_Y]=0;
 	}
+
+// Manual override of size
+if(objsel->engineflags & ENGINE_FORCESMALL) {
+	objsel->mh = 1;
+	objsel->mw = 1;
+	objsel->engineflags &= ~ENGINE_ISLARGE;
+}
+
+
 }
 
 /*
@@ -818,7 +827,7 @@ void CalcSize(OBJECT *objsel)
 {
 SEQ_POOL *seq;
 
-if(!(objsel->flags & IS_LARGE)) // Don't bother for small object
+if(!(objsel->engineflags & ENGINE_ISLARGE)) // Don't bother for small object
 	return;
 
 seq = &SQlist[objsel->dir[objsel->curdir]];
@@ -843,6 +852,14 @@ if(objsel->w & 0x1f || !objsel->mw)
 objsel->mh = objsel->h>>5;
 if(objsel->h & 0x1f || !objsel->mh)
 	objsel->mh++;
+
+// Manual override
+if(objsel->engineflags & ENGINE_FORCESMALL) {
+	objsel->mh = 1;
+	objsel->mw = 1;
+	objsel->engineflags &= ~ENGINE_ISLARGE;
+}	
+
 }
 
 

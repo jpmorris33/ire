@@ -178,6 +178,7 @@ static void PV_SetDarkness();
 static void PV_SetFlag();
 static void PV_GetFlag();
 static void PV_ResetFlag();
+static void PV_GetEngineFlag();
 static void PV_If_on();
 static void PV_If_non();
 static void PV_If_tn();
@@ -1229,6 +1230,7 @@ VMOP(Destroy);
 VMOP(SetFlag);
 VMOP(GetFlag);
 VMOP(ResetFlag);
+VMOP(GetEngineFlag);
 VMOP(If_on);
 VMOP(If_non);
 VMOP(If_tn);
@@ -2936,6 +2938,24 @@ if((*obj)->flags & IS_DECOR)	// Mustn't change a decor, that's bad
 
 default_flag(*obj,*flag);
 }
+
+// get_flag <i> = <object> <flag>
+
+void PV_GetEngineFlag()
+{
+VMINT *var,*flag;
+OBJECT **obj;
+
+var = GET_INT();
+CHECK_POINTER(var);
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+flag = GET_INT();
+CHECK_POINTER(flag);
+
+*var = ((*obj)->engineflags & (*flag)) ? 1 : 0;
+}
+
 
 // IF <object> <flag> then continue, else jump to offset
 

@@ -1032,14 +1032,14 @@ sel_yoff = 0;
 gen_largemap();
 objsel = GetObject(cx,cy);      // Go fishing
 
-if(objsel)                      // Caught a fish
-    {
-    if(objsel->flags&IS_LARGE)             // If it's a big fish, find out
-        {                               // what part of the object was
-        sel_xoff = objsel->x-cx;        // grabbed, for drag'n'drop purposes
-        sel_yoff = objsel->y-cy;
-        }
-    }
+if(objsel) {
+	// Caught a fish
+	if(objsel->engineflags & ENGINE_ISLARGE) {
+		// If it's a big fish, find out what part of the object was grabbed, for drag'n'drop purposes
+		sel_xoff = objsel->x-cx;
+		sel_yoff = objsel->y-cy;
+	}
+}
 
 OB_Update();                    // Sort out the direction display
 //DrawMap(mapx,mapy,1,l_proj,0);  // Redraw the map with the changes
@@ -1389,35 +1389,38 @@ if(IRE_TestShift(IRESHIFT_SHIFT)) {
 
 
 for(vy=0;vy<curmap->h;vy++) {
-    yoff=ytab[vy];
-    for(vx=0;vx<curmap->w;vx++) {
-        gotDecor=0;
-        for(temp=curmap->objmap[yoff+vx];temp;temp=temp->next) {
-            if(temp) {                           // Safety check
-                objects++;
-                if(temp->x != vx)
-                    good=0;
-                if(temp->y != vy)
-                    good=0;
-                if(temp->flags&IS_LARGE)
-                    large++;
-                if(temp->user->edecor) {
-                    if(gotDecor) {
-                        problem = temp;
-                        break;
-                    }
-                   gotDecor=1;
-                }
-            }
-        }
-    }
+	yoff=ytab[vy];
+	for(vx=0;vx<curmap->w;vx++) {
+		gotDecor=0;
+		for(temp=curmap->objmap[yoff+vx];temp;temp=temp->next) {
+			if(temp) {                           // Safety check
+				objects++;
+				if(temp->x != vx) {
+					good=0;
+				}
+				if(temp->y != vy) {
+					good=0;
+				}
+				if(temp->engineflags & ENGINE_ISLARGE) {
+					large++;
+				}
+				if(temp->user->edecor) {
+					if(gotDecor) {
+						problem = temp;
+						break;
+					}
+					gotDecor=1;
+				}
+			}
+		}
+	}
 }
 
 if(problem) {
-    sprintf(string1,"Stacked decorative at %d,%d\n",problem->x,problem->y);
-    Notify(-1,-1,"Decorative object error",string1);
-    SelectThisObject(problem);
-    return;
+	sprintf(string1,"Stacked decorative at %d,%d\n",problem->x,problem->y);
+	Notify(-1,-1,"Decorative object error",string1);
+	SelectThisObject(problem);
+	return;
 }
 
 problem=NULL;

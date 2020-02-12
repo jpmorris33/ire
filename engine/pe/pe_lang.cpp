@@ -657,6 +657,7 @@ OPCODE vmspec[] =
                     {"if_not_flag",PEVM_If_non,"On",PE_if,PEP_if,3},
                     {"if_not_flag",PEVM_If_non,"cn",PE_if,PEP_if,3},
                     {"if_not_flag",PEVM_If_ntn,"tn",PE_if,PEP_if,3},
+                    {"get_engineflag",PEVM_GetEngineFlag,"i=on",PE_checkaccess,NULL,3},
                     {"move_object",PEVM_MoveObject,"o?nn",PE_generic,NULL,3},
                     {"move_object",PEVM_MoveObject,"o?ni",PE_generic,NULL,3},
                     {"move_object",PEVM_MoveObject,"o?nI",PE_generic,NULL,3},
@@ -3759,7 +3760,6 @@ ADD_CONST(IS_SEMIVISIBLE);
 ADD_CONST(IS_FIXED);
 ADD_CONST(IS_CONTAINER);
 ADD_CONST(IS_TRANSLUCENT);
-ADD_CONST(IS_LARGE);
 ADD_CONST(IS_SPIKEPROOF);
 ADD_CONST(CAN_WIELD);
 ADD_CONST(IS_REPEATSPIKE);
@@ -3803,6 +3803,10 @@ ADD_CONST(IS_OVERDUE);
 ADD_CONST(IS_WIELDED);
 ADD_CONST(IS_ROBOT);
 ADD_CONST(IN_PARTY);
+
+// Engine flags, you shouldn't need to do this
+
+ADD_CONST(ENGINE_ISLARGE);
 
 // Keys
 

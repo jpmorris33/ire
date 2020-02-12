@@ -318,7 +318,7 @@ typedef struct ST_ITEM
 #define IS_FIXED        0x00000100	// Is it nailed to the ground?
 #define IS_CONTAINER    0x00000200	// Is it a container?
 #define IS_TRANSLUCENT  0x00000400	// Is it translucent?
-#define IS_LARGE        0x00000800	// Bigger than one tile?
+///#define SPARE        0x00000800
 #define IS_SPIKEPROOF   0x00001000	// Doesn't set off triggers
 #define CAN_WIELD       0x00002000	// Can it be wielded?
 #define IS_REPEATSPIKE	0x00004000	// Is the trigger one-shot or repeats every turn?
@@ -337,7 +337,10 @@ typedef struct ST_ITEM
 #define IS_SHADOW       0x01000000	// Is it just a dark patch?
 #define IS_DECOR        0x02000000	// Is it a special decorative object?
 #define IS_SYSTEM       0x04000000	// Hidden from player (markers triggers etc)
-	
+//#define SPARE         0x08000000
+//#define SPARE         0x10000000
+//#define SPARE         0x20000000
+//#define SPARE         0x40000000
 #define IS_NPCFLAG      0x80000000	// RESERVED
 
 #define IS_INVISSHADOW  0x01000040	// Combination flag
@@ -352,6 +355,8 @@ typedef struct ST_ITEM
 #define ENGINE_DIDACTIVETILE	0x00000008	// Going to use this to improve lava handling for offscreen NPCs
 #define ENGINE_DIDSPIKE		0x00000010	// Have we updated repeating spikes?
 #define ENGINE_DIDMOVESTACK	0x00000020	// Used by MoveTag
+#define ENGINE_ISLARGE		0x00000040	// Bigger than one tile?
+#define ENGINE_FORCESMALL	0x00000080	// Manual override to force a large object to be a single tile
 
 typedef struct FUNCS            // This is called when you...
 {

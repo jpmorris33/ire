@@ -1095,6 +1095,9 @@ for(ctr=1;ctr<z1.lines;ctr++)
 				}
 				// Strip out the semi-visible flag (was IS_PARTY)
 				num &= ~IS_SEMIVISIBLE;
+
+				// Strip out the large-object flag
+				num &= 0x00000800;
 			}
 			temp->flags = num;
 			// Make it active

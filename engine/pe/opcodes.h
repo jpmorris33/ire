@@ -54,6 +54,7 @@ enum {
 	PEVM_If_ntn,
 	PEVM_SetFlag,
 	PEVM_GetFlag,
+	PEVM_GetEngineFlag,
 	PEVM_SetPFlag,
 	PEVM_GetPFlag,
 	PEVM_SetUFlag,

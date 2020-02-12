@@ -176,17 +176,19 @@ int temp,cx,cy,div,rx,ry,blockx,blocky,blockw,blockh,istree;
 OBJECT *ob;
 IG_BlackPanel(62,62,386,386);
 
-for(cy=0;cy<curmap->h;cy++)
+for(cy=0;cy<curmap->h;cy++) {
 	for(cx=0;cx<curmap->w;cx++) {
 		temp=ReadMap(cx,cy);
-		if(temp==RANDOM_TILE)
+		if(temp==RANDOM_TILE) {
 			swapscreen->PutPixel(cx+64,cy+64,ITG_BLUE);
-		else
+		} else {
 			swapscreen->PutPixel(cx+64,cy+64,TIlist[temp].form->seq[0]->thumbcol);
+		}
 	}
+}
 
-if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
-	for(cy=0;cy<curmap->h;cy++)
+if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights) {
+	for(cy=0;cy<curmap->h;cy++) {
 		for(cx=0;cx<curmap->w;cx++) {
 			ob=GetRawObjectBase(cx,cy);
 			for(;ob;ob=ob->next) {
@@ -199,7 +201,7 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
 					if(!ShowSolid && !(istree && ShowTrees)) {
 						continue;
 					}
-					if(ob->flags & IS_LARGE) {
+					if(ob->engineflags & ENGINE_ISLARGE) {
 						if(ob->curdir > CHAR_D) { //(U,D,L,R) > D = L,R
 							blockx=ob->hblock[BLK_X];
 							blocky=ob->hblock[BLK_Y];
@@ -218,23 +220,32 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
 				}
 				// Show eggs
 				if(ShowEggs) {
-					if(ob->flags & IS_INVISIBLE)
+					if(ob->flags & IS_INVISIBLE) {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_WHITE);
-					if(!istricmp_fuzzy(ob->name,"egg*"))
+					}
+					if(!istricmp_fuzzy(ob->name,"egg*")) {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_YELLOW);
-					if(!istricmp_fuzzy(ob->name,"PATHMARKER"))
+					}
+					if(!istricmp_fuzzy(ob->name,"PATHMARKER")) {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+					}
 				}
 			}
 			// Show roof
-			if(ShowRoof)
-				if(ReadRoof(cx,cy))
+			if(ShowRoof) {
+				if(ReadRoof(cx,cy)) {
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+				}
+			}
 			// Show lights
-			if(ShowLights)
-				if(ReadLight(cx,cy))
+			if(ShowLights) {
+				if(ReadLight(cx,cy)) {
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+				}
+			}
 		}
+	}
+}
 
 
 div = curmap->w>>6; //div64
@@ -284,8 +295,8 @@ for(cy=0;cy<ch;cy++)
 			swapscreen->PutPixel(cx+64,cy+64,TIlist[temp].form->seq[0]->thumbcol);
 	}
 
-if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
-	for(cy=0;cy<ch;cy++)
+if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights) {
+	for(cy=0;cy<ch;cy++) {
 		for(cx=0;cx<cw;cx++) {
 			ob=GetRawObjectBase(cx+pmx,cy+pmy);
 			for(;ob;ob=ob->next) {
@@ -299,7 +310,7 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
 						continue;
 					}
 
-					if(ob->flags & IS_LARGE) {
+					if(ob->engineflags & ENGINE_ISLARGE) {
 						if(ob->curdir > CHAR_D) { //(U,D,L,R) > D = L,R
 							blockx=ob->hblock[BLK_X];
 							blocky=ob->hblock[BLK_Y];
@@ -318,34 +329,48 @@ if(ShowSolid || ShowEggs || ShowRoof || ShowTrees || ShowLights)
 				}
 				// Show eggs
 				if(ShowEggs) {
-					if(ob->flags & IS_INVISIBLE)
+					if(ob->flags & IS_INVISIBLE) {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_WHITE);
-					if(!istricmp_fuzzy(ob->name,"egg*"))
+					}
+					if(!istricmp_fuzzy(ob->name,"egg*")) {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_YELLOW);
-					if(!istricmp_fuzzy(ob->name,"pathmarker"))
+					}
+					if(!istricmp_fuzzy(ob->name,"pathmarker")) {
 						swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+					}
 				}
 			}
 			// Show roof
-			if(ShowRoof)
-				if(ReadRoof(cx+pmx,cy+pmy))
+			if(ShowRoof) {
+				if(ReadRoof(cx+pmx,cy+pmy)) {
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+				}
+			}
 			// Show lights
-			if(ShowLights)
-				if(ReadLight(cx+pmx,cy+pmy))
+			if(ShowLights) {
+				if(ReadLight(cx+pmx,cy+pmy)) {
 					swapscreen->PutPixel(cx+64,cy+64,ITG_RED);
+				}
+			}
 		}
+	}
+}
 
 // Path point
 
-if(path1x)
-	if(path1y)
-		if(path1x-pmx>0)
-			if(path1y-pmy>0)
-				if((path1x-pmx)+64<384)
+if(path1x) {
+	if(path1y) {
+		if(path1x-pmx>0) {
+			if(path1y-pmy>0) {
+				if((path1x-pmx)+64<384) {
 					if((path1y-pmy)+64<384) {
 						swapscreen->Circle((path1x-pmx)+64,(path1y-pmy)+64,3,ITG_RED);
 					}
+				}
+			}
+		}
+	}
+}
 
 div = curmap->w>>6; // div64
 rx=0;

@@ -2086,8 +2086,15 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
-		if(!istricmp(Rptr,"bag_of_holding")) {            // Disable weight limits for container
+		if(!istricmp(Rptr,"bag_of_holding")) {
+			// Disable weight limits for container
 			character->flags |= IS_BAGOFHOLDING;
+			continue;
+		}
+
+		if(!istricmp(Rptr,"small")) {
+			// Make it a 1x1 object, even if it's not
+			character->engineflags |= ENGINE_FORCESMALL;
 			continue;
 		}
 

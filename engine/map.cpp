@@ -160,31 +160,33 @@ return 0;
 void CentreMap(OBJECT *focus)
 {
 if(!focus)
-   return;
+	return;
 
-if(focus->flags & IS_LARGE)
-    {
-    focus->mw = focus->w>>5;
-    if(focus->w & 0xf || !focus->mw)
-        focus->mw++;
+if(focus->engineflags & ENGINE_ISLARGE) {
+	focus->mw = focus->w>>5;
 
-    focus->mh = focus->h>>5;
-    if(focus->h & 0xf || !focus->mh)
-        focus->mh++;
+	if(focus->w & 0xf || !focus->mw) {
+		focus->mw++;
+	}
 
-    mapx = (focus->x-VSMIDX)+(focus->mw>>1);
-    mapy = (focus->y-VSMIDY)+(focus->mh>>1);
-    }
-else
-    {
-    mapx = focus->x-VSMIDX;
-    mapy = focus->y-VSMIDY;
-    }
+	focus->mh = focus->h>>5;
+	if(focus->h & 0xf || !focus->mh) {
+	        focus->mh++;
+	}
 
-if(mapx<0)
-    mapx=0;
-if(mapy<0)
-    mapy=0;
+	mapx = (focus->x-VSMIDX)+(focus->mw>>1);
+	mapy = (focus->y-VSMIDY)+(focus->mh>>1);
+} else {
+	mapx = focus->x-VSMIDX;
+	mapy = focus->y-VSMIDY;
+}
+
+if(mapx<0) {
+	mapx=0;
+}
+if(mapy<0) {
+	mapy=0;
+}
 
 mapx2 = mapx+VSW-1;
 mapy2 = mapy+VSH-1;

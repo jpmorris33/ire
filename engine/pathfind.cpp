@@ -142,8 +142,9 @@ OBJECT *temp,*temp2;
 int oldx,oldy,done,newdir;
 
 // Something wicked this way comes
-if(start->stats->radius>0)
+if(start->stats->radius>0) {
 	return PATH_BLOCKED; // Pathfinder won't work w/radius objs (shared variable)
+}
 
 // Centre around mover
 CentreMap(start);
@@ -151,8 +152,7 @@ gen_largemap();
 
 // Calculate a route to take.
 ret=FindPath_main(start,end,diagonal);
-if(ret == PATH_BLOCKED)
-	{
+if(ret == PATH_BLOCKED) {
 	// Abort: move the window back over the player again
 	CentreMap(player);
 	gen_largemap();
@@ -162,7 +162,7 @@ if(ret == PATH_BLOCKED)
 	start->user->counter++;
 	// Let's go
 	return ret;
-	}
+}
 
 // Calculate new coordinates from the delta we got back
 dx=start->x+start->user->dx;
@@ -175,26 +175,23 @@ dy=start->y+start->user->dy;
 // decide what to do about it with user-written code.
 // This can open a door or whatever.
 
-if(start->flags & IS_LARGE)
-	{
+if(start->engineflags & ENGINE_ISLARGE) {
 	// Use the new mechanism, optimised for large objects
 	done=MoveTurnObject(start,end,start->user->dx,start->user->dy);
-	}
-else
-	{
+} else {
 	// Use the old mechanism, which works better for small objects
 	newdir=get_dir(start,dx,dy); // Face direction you're heading
 
 	// Previously we reset the animation before moving, but this
 	// makes people stand up in their chairs if they can't move
 	done=MoveObject(start,dx,dy,0);
-	if(done && newdir >= 0)
+	if(done && newdir >= 0) {
 		OB_SetDir(start,newdir,FORCE_FRAME);
 	}
+}
 
 // Anyway, we tried to move.  Did it work?
-if(!done)
-	{
+if(!done) {
 	temp = current_object;
 	temp2 = victim;
 	oldx = new_x;
@@ -213,7 +210,7 @@ if(!done)
 	victim = temp2;
 	new_x = oldx;
 	new_y = oldy;
-	}
+}
 
 // Move the window back over the player again
 CentreMap(player);
@@ -271,11 +268,10 @@ else
 	Pheight=Pwidth;
 //ilog_printf("Routing for square %d,%d\n",Pwidth,Pheight);
 
-if(!imap_on)
-	{
+if(!imap_on) {
 	imap = MakeIREBITMAP(MAPSIZE,MAPSIZE);
 	imap_on = 1;
-	}
+}
 
 // First, reset DX,DY to stop overshoot if we're already at destination
 start->user->dx=0;
@@ -285,35 +281,36 @@ start->user->dy=0;
 
 // printf("st = %s, %d, %d, nd = %s T%d at %d,%d\n",start->name,start->x,start->y,end->name,end->tag,end->x,end->y);
 
-if(start->x == end->x && start->y == end->y)
+if(start->x == end->x && start->y == end->y) {
 	return PATH_FINISHED;
+}
 
 // Centre the window around the START object
 
 vsx = start->x-(MAPSIZE>>1);
-if(vsx<0)
+if(vsx<0) {
 	vsx=0;
+}
 vsy = start->y-(MAPSIZE>>1);
-if(vsy<0)
+if(vsy<0) {
 	vsy=0;
+}
 
 // Detect an out-of-bounds target and return abort (code 2)
-if(end->x<=vsx || end->y<=vsy || end->x>=(vsx+MAPSIZE-1) || end->y>=(vsy+MAPSIZE-1))
+if(end->x<=vsx || end->y<=vsy || end->x>=(vsx+MAPSIZE-1) || end->y>=(vsy+MAPSIZE-1)) {
 	return PATH_BLOCKED;
+}
 
 // In pocket, move it outside
-if(start->parent.objptr)
-	{
+if(start->parent.objptr) {
 	TransferObject(start,start->x,start->y);
 	return PATH_WAITING; // Return code 1 (moved OK, but not yet found the object)
-	}
+}
 
 // Now, fill in the actual map with details of the environment
 
-for(cx=MAPSIZE-1;cx>0;cx--)
-	{
-	for(cy=MAPSIZE-1;cy>0;cy--)
-		{
+for(cx=MAPSIZE-1;cx>0;cx--) {
+	for(cy=MAPSIZE-1;cy>0;cy--) {
 		tx = cx+vsx;
 		ty = cy+vsy;
 
@@ -325,93 +322,91 @@ for(cx=MAPSIZE-1;cx>0;cx--)
 
 		// If it is a living thing, it might move away.
 		// But attach a high cost to it to avoid them if possible
-		if(temp)
-			if(temp->flags & IS_PERSON && temp->stats->hp > 0)
-				{
+		if(temp) {
+			if(temp->flags & IS_PERSON && temp->stats->hp > 0) {
 				temp=NULL;
 				pfmap[cx][cy] += PF_PERSON;	// Was '='
-				}
+			}
+		}
 
 		// If it can be pushed out of the way, add a high cost but assume it's doable.
 		// This prevents the guards simply freezing if you barracade yourself in
-		if(temp)
-			if(!(temp->flags & IS_FIXED))
-				{
+		if(temp) {
+			if(!(temp->flags & IS_FIXED)) {
 				temp=NULL;
 				pfmap[cx][cy] += PF_MOVEABLE;
-				}
+			}
+		}
 
 		// Check the objects.
-		if(temp)
-			{
-			if(temp->flags & IS_LARGE)      // It's large, do lots of stuff
-				{
+		if(temp) {
+			if(temp->engineflags & ENGINE_ISLARGE) {      // It's large, do lots of stuff
 				// First, generate the appropriate object shape
-				if(temp->curdir>CHAR_D)
-					{
+				if(temp->curdir>CHAR_D) {
 					blockx=temp->hblock[BLK_X];
 					blocky=temp->hblock[BLK_Y];
 					blockw=temp->hblock[BLK_W];
 					blockh=temp->hblock[BLK_H];
-					}
-				else
-					{
+				} else {
 					blockx=temp->vblock[BLK_X];
 					blocky=temp->vblock[BLK_Y];
 					blockw=temp->vblock[BLK_W];
 					blockh=temp->vblock[BLK_H];
-					}
+				}
 
-				if(cx+blockw+blockx>MAPSIZE)
+				if(cx+blockw+blockx>MAPSIZE) {
 					blockw-=((cx+blockw+blockx)-MAPSIZE);
-				if(cy+blockh+blocky>MAPSIZE)
+				}
+				if(cy+blockh+blocky>MAPSIZE) {
 					blockh-=((cy+blockh+blocky)-MAPSIZE);
+				}
 
 				// Fill in the map where the solid parts of the shape are
 
-				for(xctr=0;xctr<blockw;xctr++)
-					for(yctr=0;yctr<blockh;yctr++)
+				for(xctr=0;xctr<blockw;xctr++) {
+					for(yctr=0;yctr<blockh;yctr++) {
 						pfmap[cx+xctr+blockx][cy+yctr+blocky] = PF_WALL;
+					}
+				}
 
 				// If it can be opened, punch out the Active Area
 
-				if(temp->flags & CAN_OPEN && (!GetNPCFlag(start,NOT_OPEN_DOORS)))
-					{
-					if(temp->curdir>CHAR_D)
-						{
+				if(temp->flags & CAN_OPEN && (!GetNPCFlag(start,NOT_OPEN_DOORS))) {
+					if(temp->curdir>CHAR_D) {
 						blockx=temp->harea[BLK_X];
 						blocky=temp->harea[BLK_Y];
 						blockw=temp->harea[BLK_W];
 						blockh=temp->harea[BLK_H];
-						}
-					else
-						{
+					} else {
 						blockx=temp->varea[BLK_X];
 						blocky=temp->varea[BLK_Y];
 						blockw=temp->varea[BLK_W];
 						blockh=temp->varea[BLK_H];
-						}
+					}
 
-					if(cx+blockw+blockx>MAPSIZE)
+					if(cx+blockw+blockx>MAPSIZE) {
 						blockw-=((cx+blockw+blockx)-MAPSIZE);
-					if(cy+blockh+blocky>MAPSIZE)
+					}
+					if(cy+blockh+blocky>MAPSIZE) {
 						blockh-=((cy+blockh+blocky)-MAPSIZE);
+					}
 
 					// Punch the holes
 
-					for(xctr=0;xctr<blockw;xctr++)
-						for(yctr=0;yctr<blockh;yctr++)
+					for(xctr=0;xctr<blockw;xctr++) {
+						for(yctr=0;yctr<blockh;yctr++) {
 							pfmap[cx+xctr+blockx][cy+yctr+blocky] = PF_BLANK;
+						}
 					}
 				}
-			else
-				if(!(temp->flags & CAN_OPEN) || GetNPCFlag(start,NOT_OPEN_DOORS))
-					{
+			} else {
+				if(!(temp->flags & CAN_OPEN) || GetNPCFlag(start,NOT_OPEN_DOORS)) {
 					pfmap[cx][cy] = PF_WALL;    // It's just a small one
-					}
+				}
 			}
 		}
 	}
+}
 
 // Punch the dest and source out of the solidity map
 
@@ -419,28 +414,31 @@ pfmap[end->x-vsx][end->y-vsy] = PF_BLANK;
 pfmap[start->x-vsx][start->y-vsy] = PF_BLANK;
 
 // For debugging, draw the cute little map
-if(show_imap && player->enemy.objptr == start)
-	{
-	for(cx=0;cx<MAPSIZE;cx++)
-		for(cy=0;cy<MAPSIZE;cy++)
-			if(pfmap[cx][cy]<0.0)
+if(show_imap && player->enemy.objptr == start) {
+	for(cx=0;cx<MAPSIZE;cx++) {
+		for(cy=0;cy<MAPSIZE;cy++) {
+			if(pfmap[cx][cy]<0.0) {
 				imap->PutPixel(cx,cy,0,0,0);
-			else
+			} else {
 				imap->PutPixel(cx,cy,255,255,255);
+			}
+		}
+	}
 
 	imap->PutPixel(start->x-vsx,start->y-vsy,0,0,255);
 	imap->PutPixel(end->x-vsx,end->y-vsy,255,0,0);
 //	stretch_sprite(swapscreen,imap,imapx,imapy,imap->w*2,imap->h*2);
 	imap->DrawStretch(swapscreen,imapx,imapy,imap->GetW()*2,imap->GetH()*2);
-	}
+}
 
 // Update large object window and request the path
 
 // Set the diagonal flag
-if(flags&FP_DIAGONAL)
+if(flags&FP_DIAGONAL) {
 	do_diagonals=1;
-else
+} else {
 	do_diagonals=0;
+}
 
 // Build the path
 p = MakePath(start->x-vsx,start->y-vsy,end->x-vsx,end->y-vsy);
@@ -453,48 +451,43 @@ pstart=p;
 
 // If only checking a route, not traversing one:
 
-if(flags&FP_FINDROUTE)
-	{
+if(flags&FP_FINDROUTE) {
 	// If it can't be done, return failure
-	if(!p)
-		{
+	if(!p) {
 		CleanUp();
 		return PATH_BLOCKED;
-		}
+	}
 
-	if(!p->parent)
-		{
+	if(!p->parent) {
 		CleanUp();
 		return PATH_BLOCKED;
-		}
+	}
 
 	cx=0;
 	for(;p->parent->parent;p=p->parent) cx++; // count the steps in the path
 
 	CleanUp();
 	return cx;      // and return them
-	}
+}
 
 //
 // If we're calculating a route so an object can traverse it
 //
 
 // If it can't be done, return failure (code 2)
-if(!p)
-	{
+if(!p) {
 	CleanUp();
 	return PATH_BLOCKED;
-	}
+}
 
-if(p->parent)
-	{
+if(p->parent) {
 	pstart=p;
 
 	// Scan to the last node of the list for X,Y
 	for(;p->parent->parent;p=p->parent); // printf("p = %p, parent = %p\n",p,p->parent);
 	start->user->dx=(p->x+vsx)-start->x;        // Get delta x and y
 	start->user->dy=(p->y+vsy)-start->y;
-	}
+}
 
 CleanUp();
 return PATH_WAITING; // Return code 1 (moved OK, but not yet found the object)

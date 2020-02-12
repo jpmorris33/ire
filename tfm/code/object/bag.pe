@@ -123,12 +123,6 @@ if current = kfs
 	return
 endif
 
-if_flag current IS_LARGE
-	print msg_WontFit
-	printcr
-	return
-endif
-
 if_flag current IS_FIXED
 	print msg_WontFit
 	printcr
@@ -140,6 +134,15 @@ if_flag current IS_PERSON
 	printcr
 	return
 endif
+
+# is it large?
+if current.mw > 1
+or current.mh > 1
+	print msg_WontFit
+	printcr
+	return
+endif
+
 
 if current.funcs.gcache > 0
 	call current.funcs.get

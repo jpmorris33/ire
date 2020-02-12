@@ -931,13 +931,6 @@ if(flag & IS_TRIGGER)
 		return; // NO
 	}
 
-if(flag & IS_LARGE)
-	{
-	Bug("Flag LARGE is read-only\n");
-	redraw();
-	return;
-	}
-
 if(flag & IS_DECOR)
 	{
 	Bug("Flag DECOR is read-only\n");

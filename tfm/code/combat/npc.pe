@@ -776,14 +776,10 @@ do
 while food
 
 # Eat the corpse too
-if_flag prey IS_LARGE
-	# Dead cows etc. split open when destroyed
-	let prey.stats.hp = -100
-	check_hurt prey
-else
-	# If it's small, no-one will notice
-#	destroy prey
-endif
+# Dead cows etc. split open when destroyed, so let's hit the pinata
+let prey.stats.hp = -100
+check_hurt prey
+
 let me.enemy = null
 let me.target = null
 

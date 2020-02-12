@@ -1318,49 +1318,43 @@ if(objsel->engineflags & ENGINE_DIDSETSEQUENCE)
 	}
 
 // If it's a large object, find out if the new shape would actually fit
-if(!(flags & FORCE_SHAPE))           // Sometimes we won't want to do this
-	if(objsel->flags & IS_LARGE)
-		{
+if(!(flags & FORCE_SHAPE)) {           // Sometimes we won't want to do this
+	if(objsel->engineflags & ENGINE_ISLARGE) {
 		// Find the polarity of the new object
-		if(dir < CHAR_L)  //(U,D,L,R)
-			{
+		if(dir < CHAR_L) {  //(U,D,L,R)
 			w = objsel->vblock[BLK_W];
 			h = objsel->vblock[BLK_H];
 			x = objsel->vblock[BLK_X];
 			y = objsel->vblock[BLK_Y];
-			}
-		else
-			{
+		} else {
 			w = objsel->hblock[BLK_W];
 			h = objsel->hblock[BLK_H];
 			x = objsel->hblock[BLK_X];
 			y = objsel->hblock[BLK_Y];
-			}
+		}
 
 		// Now make sure it doesn't hit something else
 		// If it hits itself that's OK
-		for(cx=0;cx<w;cx++)
-			for(cy=0;cy<h;cy++)
-				{
+		for(cx=0;cx<w;cx++) {
+			for(cy=0;cy<h;cy++) {
 				temp = GetRawSolidObject(cx+x+objsel->x,cy+y+objsel->y,objsel);
-				if(temp)
-					{
+				if(temp) {
 					objsel->curdir = olddir; // Obstruction
 					return 0;
-					}
-				tile=GetTile(cx+x+objsel->x,cy+y+objsel->y);
-				if(tile->flags & IS_SOLID)
-					{
-					objsel->curdir = olddir; // Obstruction
-					return 0;
-					}
 				}
+				tile=GetTile(cx+x+objsel->x,cy+y+objsel->y);
+				if(tile->flags & IS_SOLID) {
+					objsel->curdir = olddir; // Obstruction
+					return 0;
+				}
+			}
 		}
+	}
+}
 
 // Set up new direction up
 
-if(!nochange)
-	{
+if(!nochange) {
 	objsel->form = &SQlist[seq];
 
 	// Set up the animation stats
@@ -1372,7 +1366,7 @@ if(!nochange)
 	objsel->hoty = objsel->form->hoty;
 	//objsel->w    = objsel->form->seq[0]->w;
 	//objsel->h    = objsel->form->seq[0]->h;
-	}
+}
 CalcSize(objsel);
 
 return 1; // Success
@@ -1387,11 +1381,10 @@ int olddir;
 //int w,h,x,y;
 //char *dirn[]={"Up","Down","Left","Right"};
 
-if(dir>3)
-	{
+if(dir>3) {
 	Bug("Attempt to set %s to face invalid direction %d!\n",objsel->name,dir);
 	return 0;
-	}
+}
 
 olddir=objsel->curdir;  // In case we need to revert
 objsel->curdir = dir;
@@ -1406,26 +1399,7 @@ if(OB_SetDir(objsel,dir,0))
 ret=0;
 
 // If it's a large object, find out if the new shape would actually fit
-if(objsel->flags & IS_LARGE)
-	{
-/*
-	// Find the polarity of the new object
-	if(dir < CHAR_L)  //(U,D,L,R)
-		{
-		w = objsel->vblock[BLK_W];
-		h = objsel->vblock[BLK_H];
-		x = objsel->vblock[BLK_X];
-		y = objsel->vblock[BLK_Y];
-		}
-	else
-		{
-		w = objsel->hblock[BLK_W];
-		h = objsel->hblock[BLK_H];
-		x = objsel->hblock[BLK_X];
-		y = objsel->hblock[BLK_Y];
-		}
-*/
-
+if(objsel->engineflags & ENGINE_ISLARGE) {
 	// Figure out where it should go, to help large objects turning
 	osx = osy = 0;
 //	if(olddir < CHAR_L && dir == CHAR_R)
@@ -1438,13 +1412,12 @@ if(objsel->flags & IS_LARGE)
 //	irecon_printf("Want %s: Trying offset %d,%d\n",dirn[dir],osx,osy);
 	ret = MoveObject(objsel,objsel->x+osx,objsel->y+osy,1);
 
-	if(!ret)
-		{
+	if(!ret) {
 		// Shit, it didn't work
 		OB_SetDir(objsel,olddir,1);
 		return 0;
-		}
 	}
+}
 
 return ret;
 }

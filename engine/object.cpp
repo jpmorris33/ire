@@ -490,183 +490,178 @@ char allow=1,swap=0;
 
 // Prevent the impossible
 
-if(!object)
+if(!object) {
 	return 0;
+}
 
 moveobject_blockage=NULL; // Nothing got in the way
 
-if(object->x == x)
-	if(object->y == y)
+if(object->x == x) {
+	if(object->y == y) {
 		return 1;     // Oh yes, we've done it, honest ;-)
+	}
+}
 
-if(x<0 || x>=curmap->w || y<0 || y>=curmap->h)
+if(x<0 || x>=curmap->w || y<0 || y>=curmap->h) {
 	return 0; // Out of bounds
+}
 
-if(object->flags & IS_FIXED) // Can't move
+if(object->flags & IS_FIXED) { // Can't move
 	return 0;
+}
 
-if(object->flags & IS_SYSTEM) // Can't move
+if(object->flags & IS_SYSTEM) { // Can't move
 	return 0;
+}
 
 // Do we want to use speed restriction?
 
-if(!pushed)
-	{
+if(!pushed) {
 	// Yes, impose a movement delay
-	if(object->maxstats->speed)
-		{
+	if(object->maxstats->speed) {
 		object->stats->speed+=object->maxstats->speed;
-		if(object->stats->speed > 100)
+		if(object->stats->speed > 100) {
 			object->stats->speed-=100;
-		else
-			{
+		} else {
 			// Abort the movement
 			return 0;
-			}
 		}
 	}
+}
 
 // If it's a large object, check all of it, but allow if it's only
 // hitting itself.
 
-if(object->flags & IS_LARGE)
-	{
+if(object->engineflags & ENGINE_ISLARGE) {
 	allow=0;
-	if(object->curdir > CHAR_D) //(U,D,L,R)
-		{
+	if(object->curdir > CHAR_D) { //(U,D,L,R)
 		blockx=object->hblock[BLK_X];
 		blocky=object->hblock[BLK_Y];
 		blockw=object->hblock[BLK_W];
 		blockh=object->hblock[BLK_H];
-		}
-	else
-		{
+	} else {
 		blockx=object->vblock[BLK_X];
 		blocky=object->vblock[BLK_Y];
 		blockw=object->vblock[BLK_W];
 		blockh=object->vblock[BLK_H];
-		}
+	}
 
-	for(sy=0;sy<blockh;sy++)
-		for(sx=0;sx<blockw;sx++)
-			{
-			if(isSolid(sx+x+blockx,sy+y+blocky))
-				{
+	for(sy=0;sy<blockh;sy++) {
+		for(sx=0;sx<blockw;sx++) {
+			if(isSolid(sx+x+blockx,sy+y+blocky)) {
 //				ilog_printf("Block at %d,%d\n",sx+x+blockx,sy+y+blocky);
 				temp=GetSolidObject(sx+x+blockx,sy+y+blocky);
 				tile=GetTile(sx+x+blockx,sy+y+blocky);
-				if(temp)
-					{
-					if(temp != object)
-						{
+				if(temp) {
+					if(temp != object) {
 //						ilog_printf("%s Blocked by %s at %d,%d\n",object->name,temp->name,sx+x+blockx,sy+y+blocky);
 //						ilog_printf("x,y = %d,%d, w,h = %d,%d\n",blockx,blocky,blockw,blockh);
 						moveobject_blockage=temp; // Gotcha
 						return 0;
-						}
 					}
-				else
-					{
+				} else {
 					// GetSolidObject won't work on decoratives.
 					// This will, though:
 					temp=GetSolidMap(sx+x+blockx,sy+y+blocky);
-					if(temp && temp != object)
-						{
+					if(temp && temp != object) {
 						moveobject_blockage=temp; // Gotcha
 						return 0;
-						}
 					}
+				}
 
 				// If there is a boat over water, allow anything to rest on it
 				// Also drives the shore and bridges
-				if(tile->flags & IS_WATER)
-					if(GetBridge(sx+x+blockx,sy+y+blocky))
-						{
+				if(tile->flags & IS_WATER) {
+					if(GetBridge(sx+x+blockx,sy+y+blocky)) {
 //						ilog_printf("Bridge allow\n");
 						allow=1;
-						}
+					}
+				}
+	
 
-
-				if(tile->flags & IS_SOLID && !allow)
-					{
+				if(tile->flags & IS_SOLID && !allow) {
 //					ilog_printf("%s Blocked by tile %s at %d,%d\n",object->name,tile->name,sx+x+blockx,sy+y+blocky);
 					return 0;
-					}
+				}
 				// Looks like an illusion caused by the LargeMap
 				allow=1;
-				}
 			}
-	if(allow)
-		{
+		}
+	}
+
+	if(allow) {
 //		ilog_printf("NEWCODE: allowing move of '%s'\n",object->name);
 		TransferObject(object,x,y);     // Allow the move anyway
 		return 1;
-		}
 	}
+}
 
 allow=1;
 
 // If there is something in the way, abort.
 // If it turns out to be two party members, swap them over
 
-if(isSolid(x,y))
-	{
+if(isSolid(x,y)) {
 	tile=GetTile(x,y);
 	temp=GetSolidObject(x,y);   // Find the obstruction
 
 	moveobject_blockage=temp;   // This looks like the culprit
 	allow=0;
 
-	if(temp == object)                  // The object has hit itself..
-		{
+	if(temp == object) {                  // The object has hit itself..
 		TransferObject(object,x,y);     // Allow the move anyway
 		moveobject_blockage=NULL;       // disregard the blockage
 		return 1;
-		}
+	}
 
 	// It is legal for unliving objects and boats to enter water
 
-	if((tile->flags & IS_WATER) && !temp)
-		if(!(object->flags & IS_PERSON))       // Live people won't swim
+	if((tile->flags & IS_WATER) && !temp) {
+		if(!(object->flags & IS_PERSON)) {       // Live people won't swim
 			allow=1;
+		}
+	}
 
-	if(temp)                    // Before we touch the flags, sanity check
-		{
+	if(temp) {                   // Before we touch the flags, sanity check
 		// If there is a boat over water, allow anything to rest on it
 		// Also drives the shore and bridges
 
-		if(tile->flags & IS_WATER && temp->flags & IS_WATER)
+		if(tile->flags & IS_WATER && temp->flags & IS_WATER) {
 			allow=1;
+		}
 
 		// If there is a party/leader conflict, swap the party members
 		swap=0;
 
 		// The player wants to stand where a member is
-		if(GetNPCFlag(temp,IN_PARTY))
-			if(object==player)
+		if(GetNPCFlag(temp,IN_PARTY)) {
+			if(object==player) {
 				swap=1;
+			}
+		}
 
 		// The obstruction is in the same party as me.
 		// If the obstruction is a follower and I'm not (i.e. leader)
 		// they get out of my way
 
-		if(temp->labels->party != NOTHING)
-			if(!istricmp(temp->labels->party,object->labels->party))  // Brethren
-				{
-				if(!istricmp(temp->labels->rank,"follower") && istricmp(object->labels->rank,"follower")) // leader
+		if(temp->labels->party != NOTHING) {
+			if(!istricmp(temp->labels->party,object->labels->party)) {  // Brethren
+				if(!istricmp(temp->labels->rank,"follower") && istricmp(object->labels->rank,"follower")) { // leader
 					swap=1;
-				// Otherwise, if both same faction and rank, randomise it to prevent logjams
-				if(!istricmp(temp->labels->rank,object->labels->rank))
-					if((fastrandom()&3) > 1)
-						swap=1;
 				}
-
+				// Otherwise, if both same faction and rank, randomise it to prevent logjams
+				if(!istricmp(temp->labels->rank,object->labels->rank)) {
+					if((fastrandom()&3) > 1) {
+						swap=1;
+					}
+				}
+			}
+		}
 
 
 		// If we need to swap the members, do it
 
-		if(swap)
-			{
+		if(swap) {
 			// Store the leader's old coordinates for the follower
 			ox=object->x;
 			oy=object->y;
@@ -678,71 +673,68 @@ if(isSolid(x,y))
 			TransferObject(object,x,y);
 			// The two party members are reversed now
 			moveobject_blockage=NULL;       // disregard the blockage
-				return 1;
-			}
+			return 1;
+		}
 
-		if(temp->flags & IS_TABLETOP)            // Pushing something into a table
-			{
-			if(pushed)                          // If it's an actual push
+		if(temp->flags & IS_TABLETOP) {            // Pushing something into a table
+			if(pushed) {                          // If it's an actual push
 				allow=1;                        // let them on the table
-			else                                // Otherwise, prevent people
-				if(!(object->flags & IS_PERSON))       // from walking randomly on the table
-					if(object != player)        // (player not always a person.. can be boat etc)
+			} else {                                // Otherwise, prevent people
+				if(!(object->flags & IS_PERSON)) {       // from walking randomly on the table
+					if(object != player) {        // (player not always a person.. can be boat etc)
 						allow=1;
+					}
+				}
 			}
+		}
 
-		if(temp->flags & IS_CONTAINER)
-			if(!(object->flags & IS_SPIKEPROOF) && !(object->flags & IS_PERSON))
-				{
+		if(temp->flags & IS_CONTAINER) {
+			if(!(object->flags & IS_SPIKEPROOF) && !(object->flags & IS_PERSON)) {
 //				printf("Moved %s into %s\n",object->name,temp->name);
 				MoveToPocket(object,temp);
 				moveobject_blockage=NULL;       // disregard the blockage
 				return 1;
-				}
+			}
 		}
-	// There wasn't a solid object in that square, but is there a boat?
-	else
-		{
+	} else {
+		// There wasn't a solid object in that square, but is there a boat?
 		temp=GetObjectBase(x,y);
-		for(;temp;temp=temp->next)
-			if(temp->flags & IS_WATER)
-				{
+		for(;temp;temp=temp->next) {
+			if(temp->flags & IS_WATER) {
 				// Found a boat
-				if(tile->flags & IS_WATER) // It is on water
-					{
+				if(tile->flags & IS_WATER) { // It is on water
 					allow=1;
 					break;
-					}
+				}
 
 				// If this happens, we found a boat but it wasn't on water.
 				// At present there aren't any other mitigating factors so we
 				// might as well forget the whole idea and carry on.
 				temp=NULL;
 				break;
-				}
+			}
 		}
 	// Blocked
 	}
+}
 
 // If we're about to move into a bag (the player must not)
 
-if(!(object->flags & IS_PERSON) && !(object->flags&IS_SPIKEPROOF))
-	{
+if(!(object->flags & IS_PERSON) && !(object->flags&IS_SPIKEPROOF)) {
 	temp=GetObject(x,y);
-	if(temp)
-		if(temp->flags & IS_CONTAINER)
-			{
+	if(temp) {
+		if(temp->flags & IS_CONTAINER) {
 			MoveToPocket(object,temp);
 			moveobject_blockage=NULL;       // disregard any blockage
 			return 1;
-			}
+		}
 	}
+}
 
-if(allow)
-	{
+if(allow) {
 	TransferObject(object,x,y);
 	moveobject_blockage=NULL;       // disregard any blockage
-	}
+}
 
 return allow;
 }
@@ -1006,111 +998,86 @@ ody=dy;
 dir = CHAR_U;
 
 // Most complex first
-if(dx > 0 && dx > dy)
+if(dx > 0 && dx > dy) {
 	dir = CHAR_R;
-if(dx < 0 && dx < dy)
+}
+if(dx < 0 && dx < dy) {
 	dir = CHAR_L;
-if(dy > 0 && dy >= dx)
+}
+if(dy > 0 && dy >= dx) {
 	dir = CHAR_D;
-if(dy < 0 && dy <= dx)
+}
+if(dy < 0 && dy <= dx) {
 	dir = CHAR_U;
+}
 
 // Simple cases override complex ones
-if(!dx && dy > 0)
+if(!dx && dy > 0) {
 	dir = CHAR_D;
-if(!dx && dy < 0)
+}
+if(!dx && dy < 0) {
 	dir = CHAR_U;
-if(!dy && dx > 0)
+}
+if(!dy && dx > 0) {
 	dir = CHAR_R;
-if(!dy && dx < 0)
+}
+if(!dy && dx < 0) {
 	dir = CHAR_L;
+}
 
 moveobject_blockage=NULL;
 
 // Try just changing direction
 OB_SetDir(objsel,dir,FORCE_FRAME);
-if(MoveObject(objsel,objsel->x+dx,objsel->y+dy,0)) // Not pushed!
-	{
+if(MoveObject(objsel,objsel->x+dx,objsel->y+dy,0)) { // Not pushed!
 	looplock--;
 	return 1;
-	}
+}
 
-if(!objdst)
-	{
+if(!objdst) {
 	looplock--;
 	return 0;
-	}
+}
 
 //irecon_printf("Input: %d,%d\n",dx,dy);
 
 // Try changing direction
-if(olddir == CHAR_D || olddir == CHAR_U)
-	{
-	if(objdst->x > objsel->x)
+if(olddir == CHAR_D || olddir == CHAR_U) {
+	if(objdst->x > objsel->x) {
 		dir = CHAR_R;
-	if(objdst->x < objsel->x)
+	}
+	if(objdst->x < objsel->x) {
 		dir = CHAR_L;
 	}
-else
-	{
-	if(objdst->y > objsel->y)
+} else {
+	if(objdst->y > objsel->y) {
 		dir = CHAR_D;
-	if(objdst->y < objsel->y)
+	}
+	if(objdst->y < objsel->y) {
 		dir = CHAR_U;
 	}
+}
 
 ret=0;
 
 // If it's a large object, find out if the new shape would actually fit
-if(objsel->flags & IS_LARGE)
-	{
+if(objsel->engineflags & ENGINE_ISLARGE) {
 	// Figure out where it should go, to help large objects turning
 	osx = osy = 0;
 	osy = oh - ow;
-//	osx = ow - oh;
-/*
-//	if(olddir < CHAR_L && dir == CHAR_R)
-		osy = oh - ow;
-//	if(olddir > CHAR_D && dir == CHAR_U)
-		osx = ow - oh;
-*/
 
-/*
-	if(olddir == CHAR_R && dir == CHAR_D)
-		{
-		osx = ow - oh;
-		}
-
-	if(olddir == CHAR_L && dir == CHAR_D)
-		{
-		// Do nothing
-		}
-
-	if(olddir == CHAR_R && dir == CHAR_U)
-		{
-		osy = -(oh - ow);
-		osx = ow - oh;
-		}
-
-	if(olddir == CHAR_L && dir == CHAR_U)
-		{
-		osy = -(oh - ow);
-		}
-*/
 	// Offset is only required for negative movements
 	// Push it into place
 	OB_SetDir(objsel,dir,FORCE_SHAPE|FORCE_FRAME);
 //	irecon_printf("Want %s: Trying offset %d,%d\n",dirn[dir],osx,osy);
 	ret = MoveObject(objsel,objsel->x+osx,objsel->y+osy,0);
 
-	if(!ret)
-		{
+	if(!ret) {
 		// Shit, it didn't work.
 		OB_SetDir(objsel,olddir,FORCE_SHAPE|FORCE_FRAME);
 
 		// Try moving in a 'refined' direction
-		switch(olddir)
-			{
+		switch(olddir) {
 			case CHAR_U:
 			dx=0;
 			dy=-1;
@@ -1130,16 +1097,16 @@ if(objsel->flags & IS_LARGE)
 			dx=1;
 			dy=0;
 			break;
-			};
+		};
 
 //		irecon_printf("desparate try: offset %d,%d\n",dx,dy);
-		if(!MoveObject(objsel,objsel->x+dx,objsel->y+dy,0))
-			{
+		if(!MoveObject(objsel,objsel->x+dx,objsel->y+dy,0)) {
 			dx=dy=0;
-			if(olddir == CHAR_L || olddir == CHAR_R)
+			if(olddir == CHAR_L || olddir == CHAR_R) {
 				dy=(qrand()%3)-1;
-			else
+			} else {
 				dx=(qrand()%3)-1;
+			}
 //			irecon_printf("final chance: random offset %d,%d\n",dx,dy);
 //			irecon_printf("recursing:\n");
 			ret=MoveTurnObject_Core(objsel,objdst,dx,dy);
@@ -1147,135 +1114,16 @@ if(objsel->flags & IS_LARGE)
 			return ret;
 
 //			return MoveObject(objsel,objsel->x+dx,objsel->y+dy,0);
-			}
+		}
 
 		looplock--;
 		return 0;
-		}
 	}
+}
 
 looplock--;
 return ret;
 }
-
-
-int MoveTurnObject_old(OBJECT *objsel,OBJECT *objdst,int dx, int dy)
-{
-int ow,oh,osx,osy,ret,dir;
-int olddir;
-char *dirn[]={"Up","Down","Left","Right"};
-
-olddir=objsel->curdir;  // In case we need to revert
-ow = objsel->mw;
-oh = objsel->mh;
-
-// Work out core direction
-dir = CHAR_U;
-
-// Most complex first
-if(dx > 0 && dx > dy)
-	dir = CHAR_R;
-if(dx < 0 && dx < dy)
-	dir = CHAR_L;
-if(dy > 0 && dy >= dx)
-	dir = CHAR_D;
-if(dy < 0 && dy <= dx)
-	dir = CHAR_U;
-
-// Simple cases override complex ones
-if(!dx && dy > 0)
-	dir = CHAR_D;
-if(!dx && dy < 0)
-	dir = CHAR_U;
-if(!dy && dx > 0)
-	dir = CHAR_R;
-if(!dy && dx < 0)
-	dir = CHAR_L;
-
-moveobject_blockage=NULL;
-
-// Try just changing direction
-OB_SetDir(objsel,dir,FORCE_FRAME);
-if(MoveObject(objsel,objsel->x+dx,objsel->y+dy,0)) // Not pushed!
-	return 1;
-
-if(!objdst)
-	return 0;
-
-irecon_printf("Input: %d,%d\n",dx,dy);
-
-// Try changing direction
-if(olddir == CHAR_D || olddir == CHAR_U)
-	{
-	if(objdst->x > objsel->x)
-		dir = CHAR_R;
-	if(objdst->x < objsel->x)
-		dir = CHAR_L;
-	}
-else
-	{
-	if(objdst->y > objsel->y)
-		dir = CHAR_D;
-	if(objdst->y < objsel->y)
-		dir = CHAR_U;
-	}
-
-ret=0;
-
-// If it's a large object, find out if the new shape would actually fit
-if(objsel->flags & IS_LARGE)
-	{
-	// Figure out where it should go, to help large objects turning
-	osx = osy = 0;
-//	if(olddir < CHAR_L && dir == CHAR_R)
-		osy = oh - ow;
-//	if(olddir > CHAR_D && dir == CHAR_U)
-//		osy = oh - ow;
-
-	// Offset is only required for negative movements
-	// Push it into place
-	OB_SetDir(objsel,dir,FORCE_SHAPE|FORCE_FRAME);
-	irecon_printf("Want %s: Trying offset %d,%d\n",dirn[dir],osx,osy);
-	ret = MoveObject(objsel,objsel->x+osx,objsel->y+osy,0);
-
-	if(!ret)
-		{
-		// Shit, it didn't work.
-		OB_SetDir(objsel,olddir,FORCE_SHAPE|FORCE_FRAME);
-
-		// One last try
-		switch(olddir)
-			{
-			case CHAR_U:
-			dx=0;
-			dy=-1;
-			break;
-
-			case CHAR_D:
-			dx=0;
-			dy=1;
-			break;
-
-			case CHAR_L:
-			dx=-1;
-			dy=0;
-			break;
-
-			case CHAR_R:
-			dx=1;
-			dy=0;
-			break;
-			};
-
-		irecon_printf("Final try: offset %d,%d\n",dx,dy);
-		MoveObject(objsel,objsel->x+dx,objsel->y+dy,0);
-		return 0;
-		}
-	}
-
-return ret;
-}
-
 
 
 
@@ -1289,12 +1137,11 @@ OBJECT *GetObjectBase(int x,int y)
 OBJECT *anchor,*a2;
 char ok;
 
-if(x<0 || x>=curmap->w || y<0 || y>=curmap->h)
-	{
+if(x<0 || x>=curmap->w || y<0 || y>=curmap->h) {
 	return NULL;
 //   sprintf(str,"GetObjectBase(%d,%d,%s) Attempted outside map boundary",x,y);
 //   panic(cfa,str,"Ai! ai!  A Balrog!  A Balrog is come!  'Tis Durin's Bane!");
-	}
+}
 
 // Find the list
 
@@ -1302,18 +1149,21 @@ anchor=curmap->objmap[ytab[y]+x];
 a2=NULL;
 
 // Find it in the Large Object list if possible
-if(x>=mapx && x<=(mapx+VSW))
-	if(y>=mapy && y<=(mapy+VSH))
-		{
+if(x>=mapx && x<=(mapx+VSW)) {
+	if(y>=mapy && y<=(mapy+VSH)) {
 		a2=largemap[VIEWDIST+x-mapx][VIEWDIST+y-mapy];
 		// If there isn't anything there, it presumably means that the
 		// object has an Active Area that doesn't include the base
 		// (But we must ONLY do this if Anchor found a Large Object!)
-		if(anchor)
-			if(anchor->flags & IS_LARGE && !(anchor->flags & IS_DECOR))
-				if(!a2)
+		if(anchor) {
+			if(anchor->engineflags & ENGINE_ISLARGE && !(anchor->flags & IS_DECOR)) {
+				if(!a2) {
 					anchor=anchor->next; // Get rid of the original pointer
+				}
+			}
 		}
+	}
+}
 
 // If there wasn't anything at the original spot, but there is from the
 // largemap, use that.
@@ -1997,20 +1847,20 @@ ex=mapx+VSW+4;
 ey=mapy+VSH+4;
 xo=0;
 yo=0;
-if(sx<0)
-	{
+if(sx<0) {
 	xo=0-sx;
 	sx=0;
-	}
-if(sy<0)
-	{
+}
+if(sy<0) {
 	yo=0-sy;
 	sy=0;
-	}
-if(ex>=curmap->w)
+}
+if(ex>=curmap->w) {
 	ex=curmap->w-(VSW+4);
-if(ey>=curmap->h)
+}
+if(ey>=curmap->h) {
 	ey=curmap->h-(VSH+4);
+}
 
 // Clear the grids
 memset(&largemap[0][0],0,(sizeof(OBJECT *)*(LMSIZE*LMSIZE)));
@@ -2021,51 +1871,43 @@ memset(&decorymap[0][0],0,(sizeof(int)*(LMSIZE*LMSIZE)));
 
 by=yo;
 bx=xo;
-for(y=sy;y<ey;y++)
-	{
-	for(x=sx;x<ex;x++)
-		{
+for(y=sy;y<ey;y++) {
+	for(x=sx;x<ex;x++) {
 		temp = curmap->objmap[ytab[y]+x];
-		for(;temp;temp=temp->next)
-			{
-			if(temp->flags & IS_ON)
-				{
+		for(;temp;temp=temp->next) {
+			if(temp->flags & IS_ON) {
 				// Is it a decorative?
-				if(temp->flags & IS_DECOR)
-					{
-					for(xctr=0;xctr<temp->mw;xctr++)
-						for(yctr=0;yctr<temp->mw;yctr++)
-							{
+				if(temp->flags & IS_DECOR) {
+					for(xctr=0;xctr<temp->mw;xctr++) {
+						for(yctr=0;yctr<temp->mw;yctr++) {
 							decorxmap[bx+xctr][by+yctr]=x;
 							decorymap[bx+xctr][by+yctr]=y;
-							}
+						}
 					}
+				}
 
 				// Next, is it large?
-				if(temp->flags & IS_LARGE)       // Found a large object?
-					{
-					if(temp->flags & IS_SOLID)   // Is it solid? If so, find out where
-						{
-						if(temp->curdir > CHAR_D) //(U,D,L,R) > D = L,R
-							{
+				if(temp->engineflags & ENGINE_ISLARGE) {       // Found a large object?
+					if(temp->flags & IS_SOLID) {   // Is it solid? If so, find out where
+						if(temp->curdir > CHAR_D) { //(U,D,L,R) > D = L,R
 							blockx=temp->hblock[BLK_X];
 							blocky=temp->hblock[BLK_Y];
 							blockw=temp->hblock[BLK_W];
 							blockh=temp->hblock[BLK_H];
-							}
-						else
-							{
+						} else {
 							blockx=temp->vblock[BLK_X];
 							blocky=temp->vblock[BLK_Y];
 							blockw=temp->vblock[BLK_W];
 							blockh=temp->vblock[BLK_H];
-							}
+						}
 
 						// Bounds check
-						if(bx+blockx+blockw > LMSIZE)
+						if(bx+blockx+blockw > LMSIZE) {
 							blockw = LMSIZE-(bx+blockx);
-						if(by+blocky+blockh > LMSIZE)
+						}
+						if(by+blocky+blockh > LMSIZE) {
 							blockh = LMSIZE-(by+blocky);
+						}
 
 						// Reset border size
 						temp->w = blockw<<5;
@@ -2073,64 +1915,68 @@ for(y=sy;y<ey;y++)
 
 						// Colour in the squares where the solid parts are
 
-						for(xctr=0;xctr<blockw;xctr++)
-							for(yctr=0;yctr<blockh;yctr++)
-								{
+						for(xctr=0;xctr<blockw;xctr++) {
+							for(yctr=0;yctr<blockh;yctr++) {
 								solidmap[bx+xctr+blockx][by+yctr+blocky]=temp;
 								// If it's solid it must exist here too
 								largemap[bx+blockx+xctr][by+blocky+yctr]=temp;
-								}
+							}
 						}
+					}
 
 					// Fill in the active area of the object
 
-					if(temp->curdir > CHAR_D) //(U,D,L,R) > D = L,R
-						{
+					if(temp->curdir > CHAR_D) { //(U,D,L,R) > D = L,R
 						blockx=temp->harea[BLK_X];
 						blocky=temp->harea[BLK_Y];
 						blockw=temp->harea[BLK_W];
 						blockh=temp->harea[BLK_H];
-						}
-					else
-						{
+					} else {
 						blockx=temp->varea[BLK_X];
 						blocky=temp->varea[BLK_Y];
 						blockw=temp->varea[BLK_W];
 						blockh=temp->varea[BLK_H];
-						}
+					}
 
 					// Bounds check
-					if(bx+blockx+blockw > LMSIZE)
+					if(bx+blockx+blockw > LMSIZE) {
 						blockw = LMSIZE-(bx+blockx);
-					if(by+blocky+blockh > LMSIZE)
+					}
+					if(by+blocky+blockh > LMSIZE) {
 						blockh = LMSIZE-(by+blocky);
+					}
 
 					largemap[bx][by]=NULL; // Delete core section
-					for(xctr=0;xctr<blockw;xctr++)
-						for(yctr=0;yctr<blockh;yctr++)        // For the height,
+					for(xctr=0;xctr<blockw;xctr++) {
+						for(yctr=0;yctr<blockh;yctr++) {        // For the height,
 							largemap[bx+blockx+xctr][by+blocky+yctr]=temp;
+						}
+					}
 
 					// Is it a bridge
-					if(temp->flags & IS_WATER)
-						for(xctr=0;xctr<blockw;xctr++)
-							for(yctr=0;yctr<blockh;yctr++)        // For the height,
+					if(temp->flags & IS_WATER) {
+						for(xctr=0;xctr<blockw;xctr++) {
+							for(yctr=0;yctr<blockh;yctr++) {        // For the height,
 								bridgemap[bx+blockx+xctr][by+blocky+yctr]=temp;
+							}
+						}
 					}
-				else
-					{
+				} else {
 					// Not a Large Object
-					if(temp->flags & IS_SOLID)           // If it's small and solid
+					if(temp->flags & IS_SOLID) {           // If it's small and solid
 						solidmap[bx][by]=temp;  // Fill in the single square
-					if(temp->flags & IS_WATER)
+					}
+					if(temp->flags & IS_WATER) {
 						bridgemap[bx][by]=temp;  // Fill in the single square
 					}
 				}
 			}
-		bx++;
 		}
+		bx++;
+	}
 	bx=xo;
 	by++;
-	}
+}
 
 }
 

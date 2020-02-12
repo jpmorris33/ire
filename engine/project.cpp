@@ -474,125 +474,115 @@ cy=0;
 startx = -VIEWDIST;
 starty = -VIEWDIST;
 
-if((x+startx)<0)
+if((x+startx)<0) {
 	startx=startx - (x+startx);
-if((y+starty)<0)
+}
+if((y+starty)<0) {
 	starty=starty - (y+starty);
+}
 
-if(x>(curmap->w-VSW))
+if(x>(curmap->w-VSW)) {
 	x=curmap->w-VSW;
-if(y>(curmap->h-VSH))
+}
+if(y>(curmap->h-VSH)) {
 	y=curmap->h-VSH;
+}
 
-for(vy=starty;vy<VSH;vy++)
-	{
+for(vy=starty;vy<VSH;vy++) {
 	yoff=ytab[y+vy];
-	for(vx=startx;vx<VSW;vx++)
-		{
+	for(vx=startx;vx<VSW;vx++) {
 		ok=1;
 		// If there's darkness on this bit of map, don't draw the sprites
-		if(vx>=0 && vy>=0)
-			if(vismap.getNoSpriteDirect(vx,vy))
+		if(vx>=0 && vy>=0) {
+			if(vismap.getNoSpriteDirect(vx,vy)) {
 				ok=0;
+			}
+		}
 
-		for(temp=curmap->objmap[yoff+x+vx];temp;temp=temp->next)
-			{
-			if(temp->flags & IS_ON)
-				{
+		for(temp=curmap->objmap[yoff+x+vx];temp;temp=temp->next) {
+			if(temp->flags & IS_ON) {
 				// If a large object is partially-blanked, don't show it
 				// Don't do the check if it's always drawn on top (Post-Overlay)
-				if(temp->flags & IS_LARGE && (temp->form->flags&SEQFLAG_POSTOVERLAY) == 0)
-					if(IsTileSolid(temp->x,temp->y))
-						{
+				if(temp->engineflags & ENGINE_ISLARGE && (temp->form->flags&SEQFLAG_POSTOVERLAY) == 0) {
+					if(IsTileSolid(temp->x,temp->y)) {
 						// It looks like we have something against a wall.
 						// If the opposite side of the wall is invisible,
 						// don't draw it.
 
-						if(temp->curdir == CHAR_U || temp->curdir == CHAR_D)
-							{
+						if(temp->curdir == CHAR_U || temp->curdir == CHAR_D) {
 							// Horizontal
-							for(xck=0;xck<temp->mw;xck++)
-								if(vx+xck>=0 && vy>=0)
-									if(vismap.getNoSpriteDirect(vx+xck,vy))
-										{
+							for(xck=0;xck<temp->mw;xck++) {
+								if(vx+xck>=0 && vy>=0) {
+									if(vismap.getNoSpriteDirect(vx+xck,vy)) {
 										ok=0; // Don't draw
 										break;
-										}
+									}
+								}
 							}
-						else
-							{
+						} else {
 							// Vertical
-							for(xck=0;xck<temp->mh;xck++)
-								if(vy+xck>=0 && vx>=0)
-									if(vismap.getNoSpriteDirect(vx,vy+xck))
-										{
+							for(xck=0;xck<temp->mh;xck++) {
+								if(vy+xck>=0 && vx>=0) {
+									if(vismap.getNoSpriteDirect(vx,vy+xck)) {
 										ok=0; // Don't draw
 										break;
-										}
+									}
+								}
 							}
 						}
+					}
+				}
 
-				if(ok || temp->form->flags & SEQFLAG_WALL) // walls sprites
-					{
-					if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible)
-						{
+				if(ok || temp->form->flags & SEQFLAG_WALL) { // walls sprites
+					if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible) {
 						cx=vx+x;
 						cy=vy+y;
 
 						// Animate the object, continously (or once, if stepped)
 
-						if(temp->form->flags&SEQFLAG_STEPPED)
-							{
-							if(temp->engineflags & ENGINE_STEPUPDATED)              // if updating
-								{
+						if(temp->form->flags&SEQFLAG_STEPPED) {
+							if(temp->engineflags & ENGINE_STEPUPDATED) {              // if updating
 								animate[temp->form->flags&SEQFLAG_ANIMCODE](temp);
 								temp->engineflags &= ~ENGINE_STEPUPDATED;           // Clear flag
-								}
 							}
-						else
-							{
+						} else {
 							// Do the animation always, or when the timer says so
-							if(temp->form->flags&SEQFLAG_ASYNC)
-								{
-								if(!temp->form->speed || !(masterclock % temp->form->speed))
+							if(temp->form->flags&SEQFLAG_ASYNC) {
+								if(!temp->form->speed || !(masterclock % temp->form->speed)) {
 									animate[temp->form->flags&SEQFLAG_ANIMCODE](temp);
 								}
-							else
-								{
+							} else {
 								temp->stats->tick++;
-								if(temp->stats->tick>=temp->form->speed)
-									{
+								if(temp->stats->tick>=temp->form->speed) {
 									animate[temp->form->flags&SEQFLAG_ANIMCODE](temp);
 									temp->stats->tick=0;
-									}
 								}
 							}
 						}
+					}
 
 					// Draw people later (helps with large NPCs, horses etc)
-					if(temp->flags & IS_PERSON)
-						{
-						if(people_ovl<MAX_P_OVERLAY)
-							{
+					if(temp->flags & IS_PERSON) {
+						if(people_ovl<MAX_P_OVERLAY) {
 							people[people_ovl].x=x;
 							people[people_ovl].y=y;
 							people[people_ovl].cx=cx;
 							people[people_ovl].cy=cy;
 							people[people_ovl++].obj=temp;
-							}
 						}
-					else
+					} else {
 						Project_sprite(temp,cx,cy,x,y);	// Draw the sprite now
+					}
 
 					// You may have noticed that CX and CY aren't always set
 					// This doesn't really matter since if the object is not
 					// visible, they won't be used anyway
 						
-					}
 				}
 			}
 		}
 	}
+}
 
 // Normalise drawing mode, may have changed after effects
 //drawing_mode(DRAW_MODE_SOLID,NULL,0,0);
@@ -602,22 +592,22 @@ gamewin->SetBrushmode(ALPHA_SOLID,255);
 
 // People
 
-for(ctr=0;ctr<people_ovl;ctr++)
+for(ctr=0;ctr<people_ovl;ctr++) {
 	Project_sprite(people[ctr].obj,people[ctr].cx,people[ctr].cy,people[ctr].x,people[ctr].y);
-
+}
 
 // Effects
-for(ctr=0;ctr<postfx;ctr++)
-	{
+for(ctr=0;ctr<postfx;ctr++) {
 	person=current_object=postfx_buf[ctr];
 	CallVMnum(-current_object->user->fx_func);
-	}
+}
 // Normalise drawing mode again
 gamewin->SetBrushmode(ALPHA_SOLID,255);
 
 // And post-overlays
-for(ctr=0;ctr<post_ovl;ctr++)
+for(ctr=0;ctr<post_ovl;ctr++) {
 	postoverlay[ctr].s->Draw(gamewin,postoverlay[ctr].x,postoverlay[ctr].y);
+}
 
 // Restore Current and Me, which may have been changed by the effects code
 current_object = oldcurrent;
