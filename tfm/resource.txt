@@ -13159,8 +13159,7 @@ section: sequences
 	quickname keyring_full keyring_full
 
 	name panther_r
-	hotx 32
-	hoty 0
+	xoff -32
 	stepped
 	looped
 	speed 1
@@ -13172,8 +13171,7 @@ section: sequences
 	end
 
 	name panther_l
-	hotx 0
-	hoty 0
+	xoff -8
 	stepped
 	looped
 	speed 1
@@ -13185,8 +13183,7 @@ section: sequences
 	end
 
 	name panther_d
-	hotx 0
-	hoty 32
+	yoff -8
 	stepped
 	looped
 	speed 1
@@ -13198,8 +13195,7 @@ section: sequences
 	end
 
 	name panther_u
-	hotx 0
-	hoty 0
+	yoff -8
 	stepped
 	looped
 	speed 1

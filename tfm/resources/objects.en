@@ -472,10 +472,7 @@ section: characters
 	cant_eat
 	race		panther
 	rank		hero
-	setsolid	V 0 0 1 2
-	setsolid	H 0 0 2 1
-	setActiveArea	V 0 0 1 2
-	setActiveArea	H 0 0 2 1
+	small
 
 	name PLAYERacw
 	left		CYBERWOLF_LEFT
@@ -1053,6 +1050,7 @@ section: characters
 	short		"body"
 	IfLookedAt	SearchContainer
 	container
+	small
 
 	alias DEADPLAYERf = DEADPLAYER
 	frame		REDWOMAN_DEAD
@@ -7219,6 +7217,7 @@ section: characters
 	ifhorrified	ModernGuard_Horror
 	attack		close_attack
 	conversation	people/guards/panther.txt
+	small
 	solid
 	person
 	male
@@ -7228,10 +7227,6 @@ section: characters
 	horrific
 	race		panther
 	rank		guard
-	setsolid	V 0 0 1 2
-	setsolid	H 0 0 2 1
-	setActiveArea	V 0 0 1 2
-	setActiveArea	H 0 0 2 1
 
 	name DEADPANTHER
 	frame		PANTHER_DEAD
