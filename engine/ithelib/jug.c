@@ -238,7 +238,7 @@ if(jug_list) {
 for(ctr=0;ctr<listlen;ctr++) {
 	JUG5empty(&jug);
 	if(!JUG5readHeader(jugfiles[ctr],&jug)) {
-		ithe_panic("Error opening JUGfile %s",jugfiles[ctr]);
+		ithe_panic("Error opening JUGfile",jugfiles[ctr]);
 	}
 
 	do {
@@ -299,7 +299,7 @@ for(ctr=0;ctr<jug_filecount;ctr++) {
 	if(!strcmp(jug_list[ctr].filename,filename)) {
 		fp=fopen(jug_list[ctr].jugfile,"rb");
 		if(!fp) {
-			printf("jug: couldn't open JUGFILE %s!\n",jug_list[ctr].jugfile);
+//			printf("jug: couldn't open JUGFILE %s!\n",jug_list[ctr].jugfile);
 			return NULL;
 		}
 		*length = jug_list[ctr].length;
