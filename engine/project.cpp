@@ -533,7 +533,7 @@ for(vy=starty;vy<VSH;vy++) {
 					}
 				}
 
-				if(ok || temp->form->flags & SEQFLAG_WALL) { // walls sprites
+				if(ok || temp->form->flags & SEQFLAG_WALL || temp->form->flags & SEQFLAG_CHIMNEY) { // walls sprites
 					if(!(temp->flags & (IS_INVISIBLE|IS_SEMIVISIBLE)) || show_invisible) {
 						cx=vx+x;
 						cy=vy+y;
