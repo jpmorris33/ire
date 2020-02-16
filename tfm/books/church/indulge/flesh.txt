@@ -1,0 +1,4 @@
+[page="start"]
+[backing="flesh.png"]
+[nextpage="exit"]
+[endpage]

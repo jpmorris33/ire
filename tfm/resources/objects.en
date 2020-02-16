@@ -13227,27 +13227,36 @@ section: characters
 	weight 100
 	description	"You see a plenary indulgence signed by the Pope."
 	short		"indulgence"
+	IfUsed		BOOK_USE
+	conversation	books/church/indulge/plenary.txt
 
 	alias INDULGENCE_MURDER = INDULGENCE_PLENARY
 	description	"You see a indulgence for murder signed by the Pope."
+	conversation	books/church/indulge/murder.txt
 
 	alias INDULGENCE_THEFT = INDULGENCE_PLENARY
 	description	"You see a indulgence for theft signed by the Pope."
+	conversation	books/church/indulge/theft.txt
 
 	alias INDULGENCE_ASSAULT = INDULGENCE_PLENARY
 	description	"You see a indulgence for assault signed by the Pope."
+	conversation	books/church/indulge/assault.txt
 
 	alias INDULGENCE_SIN = INDULGENCE_PLENARY
 	description	"You see a indulgence for sins for the flesh, including abominations.  It is signed by the Pope."
+	conversation	books/church/indulge/flesh.txt
 
 	alias INDULGENCE_GLUTTONY = INDULGENCE_PLENARY
 	description	"You see a indulgence for the sin of gluttony, signed by the Pope."
+	conversation	books/church/indulge/gluttony.txt
 
 	alias INDULGENCE_VANITY = INDULGENCE_PLENARY
 	description	"You see a indulgence for the sin of vanity, signed by the Pope."
+	conversation	books/church/indulge/vanity.txt
 
 	alias INDULGENCE_INQUIRY = INDULGENCE_PLENARY
 	description	"You see a indulgence for the sin of inquiry, signed by the Pope."
+	conversation	books/church/indulge/inquiry.txt
 
 	name POSTER_WANTED
 	up		poster_v

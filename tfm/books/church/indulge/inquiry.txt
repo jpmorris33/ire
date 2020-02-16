@@ -1,0 +1,4 @@
+[page="start"]
+[backing="inquiry.png"]
+[nextpage="exit"]
+[endpage]

@@ -1,7 +1,9 @@
 [page="start"]
-[backing="murder.png"]
+[backing="theft.png"]
 [nextpage="exit"]
 [endpage]
+
+
 
 [page="startold"]
 [backing="paper.pcx"]

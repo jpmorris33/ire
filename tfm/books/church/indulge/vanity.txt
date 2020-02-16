@@ -1,0 +1,4 @@
+[page="start"]
+[backing="vanity.png"]
+[nextpage="exit"]
+[endpage]

@@ -1,0 +1,4 @@
+[page="start"]
+[backing="assault.png"]
+[nextpage="exit"]
+[endpage]

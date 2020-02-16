@@ -214,6 +214,8 @@ Cardinal Trom scowls at you angrily.
 
 
 [page="trinity_cack"]
+[am_carrying indulgence_plenary]
+[if true][goto="indulgence"]
 [set trom_kills_player]
 
 [colour="#808080"]
@@ -227,6 +229,19 @@ fingers once.
 [call_at_exit="hang_player"]
 [nextpage="exit"]
 [endpage]
+
+
+[page="indulgence"]
+[colour="#808080"]
+The Cardinal looks bitterly disappointed as he realises
+you hold a plenary indulgence.
+[colour="#ffffff"]
+
+"OUT!  Get out, or I shall slay you anyway!"
+
+[nextpage="exit"]
+[endpage]
+
 
 
 

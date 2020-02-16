@@ -1,5 +1,5 @@
 [page="start"]
-[backing="murder.png"]
+[backing="plenary.png"]
 [nextpage="exit"]
 [endpage]
 
@@ -12,7 +12,7 @@
      On behalf of His Holiness, Pope Harris
 
    Any man who has lawfully obtained this document
-   may not be held liable for the sin of murder.
+   may not be held liable for the sin of theft.
 
 
       In the year of our LORD, 1384
@@ -21,3 +21,6 @@
 
 [nextpage="exit"]
 [endpage]
+
+
+Anything whatsover, including murder, adultery or dismemberment of a close friend or relative.

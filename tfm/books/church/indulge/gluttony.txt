@@ -1,0 +1,4 @@
+[page="start"]
+[backing="gluttony.png"]
+[nextpage="exit"]
+[endpage]
