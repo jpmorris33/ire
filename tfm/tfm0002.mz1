@@ -132249,6 +132249,11 @@ iMZ1r01
 		curdir 3
 		tag 60007
 
+	object BOWL85cdf0d2-50fa-48af-a0be-d8a2f2dba77c
+		type BOWL_WATER
+		at 801 596
+		curdir 3
+
 	decorative TREE02 at 25 597
 
 	decorative TREE01 at 27 597
@@ -132559,6 +132564,18 @@ iMZ1r01
 		at 793 597
 		curdir 2
 		tag 10002
+
+	object BOWL222cae21-1773-4a38-9501-c5b16245ae4d
+		type BOWL_WATER
+		at 794 597
+		curdir 3
+
+	object TARG0bbe43a0-5778-4120-8947-6cc8456b75f6
+		type TARGET
+		at 799 597
+		curdir 2
+		name NPC jail point
+		tag -10002
 
 	object BED28d1356e0-9eb3-4bf7-879d-f39fa785311d
 		type BED2
@@ -138302,6 +138319,13 @@ iMZ1r01
 		curdir 2
 		name Non-jurisdiction jail
 		tag 10003
+
+	object TARGe73c7c15-cd43-42e9-9fed-ae83cff52fad
+		type TARGET
+		at 485 614
+		curdir 2
+		name NPC jail point
+		tag -10003
 
 	decorative TREE00 at 486 614
 
@@ -146601,6 +146625,13 @@ iMZ1r01
 		at 210 636
 		curdir 1
 
+	object TARG92b5a361-c9b6-41ec-b824-e80eaf9017eb
+		type TARGET
+		at 215 636
+		curdir 0
+		name NPC jail point
+		tag -10000
+
 	object BUCKdf8b219c-99ee-4ba8-8daa-91b9e91fb5d6
 		type BUCKET
 		at 216 636
@@ -147265,6 +147296,11 @@ iMZ1r01
 	object STONb367b247-d92e-4afa-bbb7-237dc99666c9
 		type STONEWINDOW1
 		at 217 638
+		curdir 2
+
+	object OPEN850aaba4-383e-4221-b979-8189dbecf42a
+		type OPENROOF
+		at 218 638
 		curdir 2
 
 	object FENC0a8758bf-0a01-458e-b5e0-b9530886fc27
@@ -208529,6 +208565,13 @@ iMZ1r01
 		at 208 863
 		curdir 3
 		tag 25
+
+	object TARG9149b9bc-49e0-4909-bbeb-ead86d390afd
+		type TARGET
+		at 223 863
+		curdir 3
+		name NPC jail point
+		tag -10001
 
 	decorative TREE02 at 243 863
 

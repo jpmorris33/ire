@@ -16,30 +16,35 @@ let arrested = victim
 if_exists victim
 	# Reset the crime flag
 	let victim.user.user19 = CRIME_NONE
+else
+	return
 endif
 
-if victim = player
-	call find_prison
 
-	# Lock the door again
+call find_prison
 
-	find_tag target = "stonedoor5_*" prison_tag
-	if_exists target
-		change target = "stonedoor5_lock"
-		let target.user.oldhp = target.stats.hp
-	endif
+# Lock the door again
 
-	# No door?  Well 'Ard.
+find_tag target = "stonedoor5_*" prison_tag
+if_exists target
+	change target = "stonedoor5_lock"
+	let target.user.oldhp = target.stats.hp
+endif
 
-	find_tag target = "stonedoorway*" prison_tag
-	if_exists target
-		change target = "stonedoor5_lock"
-		let target.user.oldhp = target.stats.hp
-	endif
+# No door?  Well 'Ard.
 
-	# Chuck the player into their cell
+find_tag target = "stonedoorway*" prison_tag
+if_exists target
+	change target = "stonedoor5_lock"
+	let target.user.oldhp = target.stats.hp
+endif
 
+# Chuck the player into their cell
+
+# If any party member is arrested, treat it as if the player was arrested
+if_flag victim IN_PARTY
 	find_tag target = "target" prison_tag # Find the player's cell
+
 	if_exist target
 #		cls
 		print "~You are under arrest!~"
@@ -60,7 +65,23 @@ if victim = player
 		printcr
 	endif
 
+else
+	# It's an NPC.  Teleport them into a cell for NPCs (negative)
+	let prison_tag = 0 - prison_tag
+	find_tag target = "target" prison_tag
 
+	if_exist target
+		push_object victim to target.x target.y
+		if err <> 0
+			# Or just kill them if we can't
+			let victim.stats.hp = -50
+			check_hurt victim
+		endif
+	else
+		# Or just kill them if we can't
+		let victim.stats.hp = -50
+		check_hurt victim
+	endif
 endif
 
 end

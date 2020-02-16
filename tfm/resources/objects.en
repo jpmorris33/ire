@@ -528,6 +528,7 @@ section: characters
 	fragile
 	race		human
 	rank		peasant
+	faction		medieval
 
 	name MAN_GENERIC_NOSCHEDULE
 	left		PEASANT_L
@@ -554,6 +555,7 @@ section: characters
 	no_schedule
 	race		human
 	rank		peasant
+	faction		medieval
 
 	name MAN_NOBLE
 	left		NOBLEMAN_L
@@ -579,6 +581,7 @@ section: characters
 	fragile
 	race		human
 	rank		nobleman
+	faction		medieval
 
 	name MAN_PILGRIM
 	left		MONK_LEFT
@@ -605,7 +608,7 @@ section: characters
 	race		human
 	rank		pilgrim
 	party		pilgrim
-
+	faction		medieval
 
 	name MAN_BOY
 	left		F_LEFT
@@ -654,6 +657,7 @@ section: characters
 	person
 	male
 	fragile
+	horrific
 	race		outlaw		# Not human..
 	rank		peasant
 
@@ -680,6 +684,7 @@ section: characters
 	solid
 	person
 	male
+	horrific
 	race		outlaw		# Not human..
 	rank		mage
 
@@ -706,6 +711,7 @@ section: characters
 	person
 	male
 	fragile
+	horrific
 	race		outlaw
 	rank		peasant
 
@@ -734,6 +740,7 @@ section: characters
 	fragile
 	race		human
 	rank		priest
+	faction		medieval
 
 	name MAN_CARDINAL
 	left		P_LEFT
@@ -759,6 +766,7 @@ section: characters
 	fragile
 	race		human
 	rank		priest
+	faction		medieval
 
 	name MAN_FAKECARDINAL
 	left		P_LEFT
@@ -784,6 +792,7 @@ section: characters
 	fragile
 	race		human
 	rank		priest
+	faction		medieval
 
 	name MAN_POPE
 	left		POPE_LEFT
@@ -808,6 +817,7 @@ section: characters
 	male
 	race		human
 	rank		pope
+	faction		medieval
 
 	name SATAN
 	left		SATAN_LEFT
@@ -856,10 +866,7 @@ section: characters
 	male
 	race		human
 	rank		monk
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	faction		medieval
 
 	name MAN_MONK_SFRANCIS
 	left		MONK_LEFT
@@ -885,10 +892,7 @@ section: characters
 	race		human
 	rank		monk
 	party		SFRANCIS
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	faction		medieval
 
 	name MAN_OLD
 	left		OLDMAN_L
@@ -913,35 +917,10 @@ section: characters
 	male
 	race		human
 	rank		peasant
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	faction		medieval
 
-	name MAN_OLD_GLASSMAKER
-	left		OLDMAN_L
-	right		OLDMAN_R
-	up		OLDMAN_U
-	down		OLDMAN_D
-	hp		90
-	dexterity	10
-	strength	8000
-	intelligence	140
-	weight		55000
-	damage		6
-	description	"You see a white-bearded man."
-	short		"old man"
-	attack		close_attack
-	IfKilled	OldMan_Dies
-	IfHurt		OldMan_Hurt
-	ifhorrified	OldMan_Horror
-	biological
-	solid
-	person
-	male
+	alias MAN_OLD_GLASSMAKER = MAN_OLD
 	no_schedule
-	race		human
-	rank		peasant
 
 	name MAN_FENCE
 	left		P_LEFT
@@ -993,6 +972,7 @@ section: characters
 	male
 	race		human
 	rank		king
+	faction		medieval
 
 	name PRINCE
 	left		KING_LEFT
@@ -1016,6 +996,7 @@ section: characters
 	male
 	race		human
 	rank		prince
+	faction		medieval
 
 	name MAN_MAGE
 	left		MAGE_LEFT
@@ -1041,6 +1022,7 @@ section: characters
 	male
 	race		human
 	rank		mage
+	faction		medieval
 
 	name DEADPLAYER
 	frame		REDMAN_DEAD
@@ -1080,6 +1062,7 @@ section: characters
 	horrific
 
 	alias DEADOUTLAW = DEADFOLLOWER
+	race		outlaw
 	frame		F_DEAD
 
 	alias DEADOUTLAW2 = DEADOUTLAW
@@ -4228,10 +4211,7 @@ section: characters
 	female
 	race		human
 	rank		peasant
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	faction		medieval
 
 	name WOMAN_NOBLE
 	left		WOMAN1_LEFT
@@ -4257,6 +4237,7 @@ section: characters
 	fragile
 	race		human
 	rank		nobleman
+	faction		medieval
 
 	name WALL_EDGE
 	left		WALL_EDGE_BL
@@ -7129,6 +7110,7 @@ section: characters
 	biological
 	race		human
 	rank		guard
+	faction		medieval
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
@@ -7162,6 +7144,7 @@ section: characters
 	biological
 	race		human
 	rank		guard
+	faction		medieval
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
@@ -7197,6 +7180,7 @@ section: characters
 	biological
 	race		human
 	rank		guard
+	faction		modern
 
 	name GUARD_PANTHER
 	left		PANTHER_L
@@ -7227,6 +7211,7 @@ section: characters
 	horrific
 	race		panther
 	rank		guard
+	faction		modern
 
 	name DEADPANTHER
 	frame		PANTHER_DEAD
@@ -7273,6 +7258,7 @@ section: characters
 	horrific
 	race		panther
 	rank		guard
+	faction		modern
 
 	name DEADCYBERWOLF
 	frame		CYBERWOLF_DEAD
@@ -13222,35 +13208,46 @@ section: characters
 
 
 	name WARRANT
-	up		scroll00
-	down		scroll00
-	left		scroll00
-	right		scroll00
+	frame		scroll00
 	hp 100
 	weight 100
 	description	"You see a royal warrant."
 	short		"warrant"
 	IfLookedAt	GENERIC_SIGN
 
-	name WARRANT_FLOUR
-	up		scroll00
-	down		scroll00
-	left		scroll00
-	right		scroll00
-	hp 100
-	weight 100
+	alias WARRANT_FLOUR = WARRANT
 	description	"You see a royal warrant for some flour."
-	short		"warrant"
 
-	name PASS_POPE
-	up		scroll00
-	down		scroll00
-	left		scroll00
-	right		scroll00
+	alias PASS_POPE = WARRANT
+	description	"You see a church warrant allowing you to see the Pope."
+
+	name INDULGENCE_PLENARY
+	frame		scroll00
 	hp 100
 	weight 100
-	description	"You see a church warrant allowing you to see the Pope."
-	short		"warrant"
+	description	"You see a plenary indulgence signed by the Pope."
+	short		"indulgence"
+
+	alias INDULGENCE_MURDER = INDULGENCE_PLENARY
+	description	"You see a indulgence for murder signed by the Pope."
+
+	alias INDULGENCE_THEFT = INDULGENCE_PLENARY
+	description	"You see a indulgence for theft signed by the Pope."
+
+	alias INDULGENCE_ASSAULT = INDULGENCE_PLENARY
+	description	"You see a indulgence for assault signed by the Pope."
+
+	alias INDULGENCE_SIN = INDULGENCE_PLENARY
+	description	"You see a indulgence for sins for the flesh, including abominations.  It is signed by the Pope."
+
+	alias INDULGENCE_GLUTTONY = INDULGENCE_PLENARY
+	description	"You see a indulgence for the sin of gluttony, signed by the Pope."
+
+	alias INDULGENCE_VANITY = INDULGENCE_PLENARY
+	description	"You see a indulgence for the sin of vanity, signed by the Pope."
+
+	alias INDULGENCE_INQUIRY = INDULGENCE_PLENARY
+	description	"You see a indulgence for the sin of inquiry, signed by the Pope."
 
 	name POSTER_WANTED
 	up		poster_v

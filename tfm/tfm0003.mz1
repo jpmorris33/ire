@@ -3339,6 +3339,13 @@ iMZ1r01
 
 	decorative MOUNT03 at 1004 103
 
+	object TARG7d132e20-ae66-4db3-a265-32c536d7e2a8
+		type TARGET
+		at 328 104
+		curdir 1
+		name NPC jail point
+		tag -10004
+
 	object TARG340ae56b-9ed6-4bf5-b8a3-3eb3ea404f9d
 		type TARGET
 		at 330 104
@@ -17106,6 +17113,13 @@ iMZ1r01
 		at 642 306
 		curdir 3
 
+	object TARG699c5a31-2bc2-47a2-8f1e-7781fdcd0095
+		type TARGET
+		at 648 306
+		curdir 2
+		name NPC jail point
+		tag -10003
+
 	object TARGa135d021-b498-4102-b54d-13adf4283737
 		type TARGET
 		at 649 306
@@ -22692,6 +22706,13 @@ iMZ1r01
 		curdir 1
 		tag 69
 		funcs->init NO_SCHEDULE
+		schedule 8 0 SIT_AT_LOCATION PEW_7a6ffaed-d994-4e7e-a738-465a06826b62
+		schedule 9 0 LOITER_ATWORK TARG21327444-c956-4d29-8392-eced863cb31e
+		schedule 12 0 EAT_AT_HOME TARG19870604-fa8f-4b37-9abe-27975169535e
+		schedule 13 0 LOITER_ATWORK TARG21327444-c956-4d29-8392-eced863cb31e
+		schedule 18 0 EAT_AT_HOME TARG19870604-fa8f-4b37-9abe-27975169535e
+		schedule 19 0 SIT_AT_LOCATION TARG06af45b3-1cd7-4437-83ea-ec887f4c977e
+		schedule 22 0 GO_TO_SLEEP BED_fbaf4ba1-c22c-4101-88da-3f2112204341
 
 	object STON25353692-58ce-4d3a-9b93-0374eceb0c8d
 		type STONE_MASK3
@@ -40441,6 +40462,20 @@ iMZ1r01
 	decorative TREE00 at 962 572
 
 	decorative TREE02 at 966 572
+
+	object TARGfcdf574b-333f-4990-8002-e4cae64d4a59
+		type TARGET
+		at 654 573
+		curdir 2
+		name Player jail point
+		tag 10001
+
+	object TARG4d411271-3da5-49aa-9558-fe9db67936df
+		type TARGET
+		at 655 573
+		curdir 2
+		name NPC jail point
+		tag -10001
 
 	object FENC7f0e2cfd-dee7-4a14-8ecc-2db0b83b14f8
 		type FENCE_CORNER
@@ -68144,6 +68179,8 @@ iMZ1r01
 		type PEW_RIGHT
 		at 829 762
 		curdir 0
+		name Taylor's kid
+		labels->location MawdorChurch
 
 	object PEW_402f9adb-c293-4de8-a3ff-aab621d18042
 		type PEW_LEFT
@@ -68155,6 +68192,7 @@ iMZ1r01
 		type PEW_MIDDLE
 		at 833 762
 		curdir 0
+		name Dan's
 		labels->location MawdorChurch
 
 	object PEW_4f9845c0-25ff-487f-855a-e31fe244f8d4
@@ -68288,6 +68326,21 @@ iMZ1r01
 		at 835 763
 		curdir 0
 
+	object GRAVae4f7d20-35fa-4426-8442-b4e2379c2b80
+		type GRAVESTONE
+		at 845 763
+		curdir 0
+
+	object GRAVd39a921b-ce85-4d9c-b164-96a1509d9c56
+		type GRAVESTONE
+		at 847 763
+		curdir 0
+
+	object GRAVcf1836de-1aaa-46f6-8a5a-364ce35b353f
+		type GRAVESTONE
+		at 849 763
+		curdir 0
+
 	decorative TREE03 at 896 763
 
 	decorative TREE02 at 899 763
@@ -68400,6 +68453,21 @@ iMZ1r01
 	object PEW_4bf1e15f-4c6a-428a-896b-a5808a40a87a
 		type PEW_RIGHT
 		at 834 764
+		curdir 0
+
+	object GRAV5c2135ad-1836-4944-acfa-c3d62e94704f
+		type GRAVE
+		at 845 764
+		curdir 0
+
+	object GRAV79ec852f-6513-4c24-9120-453bd5a271d3
+		type GRAVE
+		at 847 764
+		curdir 0
+
+	object GRAV5a96ab90-fb73-4a63-a42d-cbf008d7522e
+		type GRAVE
+		at 849 764
 		curdir 0
 
 	decorative TREE03 at 894 764
@@ -68612,6 +68680,21 @@ iMZ1r01
 		at 837 766
 		curdir 0
 
+	object GRAVddeebb14-503c-4013-b5a5-b9b601afa955
+		type GRAVESTONE
+		at 845 766
+		curdir 0
+
+	object GRAV628b6e9e-65ac-45f2-8bde-bb67b7092ff0
+		type GRAVESTONE
+		at 847 766
+		curdir 0
+
+	object GRAVb82a31fd-2b95-4175-836a-62ad831a9cfc
+		type GRAVESTONE
+		at 849 766
+		curdir 0
+
 	decorative TREE01 at 910 766
 
 	decorative TREE03 at 913 766
@@ -68737,6 +68820,27 @@ iMZ1r01
 	decorative TREE01 at 710 767
 
 	decorative TREE00 at 717 767
+
+	object GRAV4faca4bd-dd77-4a34-bf7a-239b6e06a4b5
+		type GRAVE
+		at 845 767
+		curdir 0
+
+	object TARGd0eae989-3784-4e45-8cbe-ce77f5d084f0
+		type TARGET
+		at 846 767
+		curdir 1
+		tag 666
+
+	object GRAV2885c534-12e0-4a2a-ac3c-87f91e4a7d98
+		type GRAVE
+		at 847 767
+		curdir 0
+
+	object GRAVc76207b6-1fec-42f1-b31f-a83e9c9eca94
+		type GRAVE
+		at 849 767
+		curdir 0
 
 	decorative TREE02 at 896 767
 
@@ -69203,6 +69307,24 @@ iMZ1r01
 		at 796 771
 		curdir 0
 
+	object GRAV05559c67-b6a4-4eea-a522-fe03bf27cfa0
+		type GRAVESTONE
+		at 845 771
+		curdir 0
+		name Morgan
+
+	object GRAV1143c0f9-634b-4cd8-a572-b6b2f325f004
+		type GRAVESTONE
+		at 847 771
+		curdir 0
+		name Groom
+
+	object GRAV7f83da81-65dd-4534-876f-889afd2a8b67
+		type GRAVESTONE
+		at 849 771
+		curdir 0
+		name Jeary
+
 	decorative TREE00 at 898 771
 
 	decorative TREE01 at 903 771
@@ -69293,6 +69415,26 @@ iMZ1r01
 		type STONEDOOR1_SHUT
 		at 799 772
 		curdir 2
+
+	object CHIM45c37906-f8d9-4336-adf1-f4e6d52663cf
+		type CHIMNEY1
+		at 807 772
+		curdir 2
+
+	object GRAVe4f284a6-005e-4336-90a7-b73c6ced6bae
+		type GRAVE
+		at 845 772
+		curdir 0
+
+	object GRAV68b4e516-43ff-41a5-892b-d9e404817681
+		type GRAVE
+		at 847 772
+		curdir 0
+
+	object GRAV29e02946-56e9-42cc-b2a3-3947becdec16
+		type GRAVE
+		at 849 772
+		curdir 0
 
 	decorative TREE01 at 895 772
 
@@ -69557,6 +69699,68 @@ iMZ1r01
 		at 796 774
 		curdir 0
 
+	object STAIedcc83bb-8314-4c5a-95a5-0d2ee8c6b6ae
+		type STAIRS_DOWN
+		at 803 774
+		curdir 3
+
+	object TABL5207ed89-8acf-4b2e-a623-813b32837e89
+		type TABLE6-H
+		at 804 774
+		curdir 2
+
+	object FOOD35419b0f-6c80-49cc-b1fd-00d6caa5331f
+		type FOOD07
+		at 804 774
+		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABLe47a6f9a-8c4f-4582-bfd6-e73e57838c8c
+		type TABLE6-H
+		at 805 774
+		curdir 3
+
+	object FOOD3178d9c9-0f80-4ad0-a271-40915e8bbc35
+		type FOOD05_SHEEP
+		at 805 774
+		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABLdf170580-95b7-4e84-bb65-89260410008c
+		type TABLE-SHADOW2
+		at 806 774
+		curdir 3
+
+	object FIRE17181647-6078-4da3-b888-ebe18dd7ea8e
+		type FIRE-A
+		at 807 774
+		curdir 1
+
+	object STONbe0cd5ab-0c8a-48c4-8bdf-257a35a84b7a
+		type STONE_ARCHWAY
+		at 807 774
+		curdir 2
+
+	object FIREe91a495f-581f-438d-996d-0c4e02cad77b
+		type FIRE-A
+		at 808 774
+		curdir 1
+
+	object STON240b58a0-d344-4827-aab2-66f712daa211
+		type STONE_ARCHWAY2
+		at 808 774
+		curdir 0
+
+	object FIREf076780e-c65a-439e-83ed-ec4fb37863c7
+		type FIRE-A
+		at 809 774
+		curdir 0
+
+	object STON15d9baeb-0b64-48ba-a183-6ce77fb92075
+		type STONE_ARCHWAY2
+		at 809 774
+		curdir 0
+
 	object CAND55650a50-46a7-4781-ba77-70291d917a91
 		type CANDLESTK
 		at 828 774
@@ -69568,6 +69772,24 @@ iMZ1r01
 		at 833 774
 		curdir 1
 		stats->owner MAN_25abe7c3-e85f-457e-8a55-aa48b9822d12
+
+	object GRAV2d836ebb-41e2-447f-af04-050b777794eb
+		type GRAVESTONE
+		at 845 774
+		curdir 0
+		name West
+
+	object GRAV001389af-d681-4695-bbe5-52fc588f184b
+		type GRAVESTONE
+		at 847 774
+		curdir 0
+		name Midson
+
+	object GRAV04b9ee7d-7192-41ed-a3be-44bc28ba45f9
+		type GRAVESTONE
+		at 849 774
+		curdir 0
+		name Harradence
 
 	decorative TREE03 at 899 774
 
@@ -69652,12 +69874,65 @@ iMZ1r01
 		at 799 775
 		curdir 2
 
+	object TABL39fc7636-b029-4d85-a56c-f6707cfe8e9a
+		type TABLE-SHADOW2
+		at 804 775
+		curdir 1
+
+	object TABLa6e4ffba-5d3b-427e-8f6c-3641a63cca63
+		type TABLE5-LEGS
+		at 804 775
+		curdir 1
+
+	object TABL2d2d1437-a7db-459a-b97b-c636e4b448fa
+		type TABLE-SHADOW1
+		at 805 775
+		curdir 1
+
+	object TABL10cc4110-f9ab-4434-a7e7-5e4a07cb672e
+		type TABLE5-LEGS
+		at 805 775
+		curdir 1
+
+	object TARG415c9243-b82a-4c48-9938-e1d2313b2bc9
+		type TARGET
+		at 807 775
+		curdir 1
+		labels->location YawningWolf
+
+	object KNIF97bafabc-3e3c-4489-b1ba-1f47895237e6
+		type KNIFE_0
+		inside MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+		curdir 0
+
+	object MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+		type MAN_GENERIC
+		at 808 775
+		curdir 1
+		name Alfred
+		funcs->talk people/peasants/mawdor/barman.txt
+
 	object PATH1619297c-9bc0-4ce6-b271-c47d2918d97a
 		type PATHMARKER
 		at 831 775
 		curdir 0
 		labels->location MawdorChurch
 		stats->owner PATHeccc3339-ec19-49bc-b181-108f5e8cd260
+
+	object GRAVdd350015-62bc-46d8-9fdd-729a0dd172ae
+		type GRAVE
+		at 845 775
+		curdir 0
+
+	object GRAVcf23d399-fe6f-45a1-ab28-f6c050a5f915
+		type GRAVE
+		at 847 775
+		curdir 0
+
+	object GRAVcb0814a6-d527-493a-94e7-5d59928af25d
+		type GRAVE
+		at 849 775
+		curdir 0
 
 	decorative TREE03 at 895 775
 
@@ -69786,11 +70061,6 @@ iMZ1r01
 	object STAIa8f0d295-89e0-4608-ae07-c031ae3256da
 		type STAINEDGLASS00
 		at 835 776
-		curdir 0
-
-	object GRAVddeebb14-503c-4013-b5a5-b9b601afa955
-		type GRAVESTONE
-		at 838 776
 		curdir 0
 
 	decorative TREE01 at 895 776
@@ -69925,6 +70195,65 @@ iMZ1r01
 		at 796 777
 		curdir 0
 
+	object TABL1c43e026-634a-4e7a-8227-f4795ea859b5
+		type TABLE6-H
+		at 803 777
+		curdir 2
+
+	object FOOD310b2a77-2376-44e9-b81a-8845aacc0c5b
+		type FOOD04B
+		at 803 777
+		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FOOD3e6bca91-5a3d-4bd9-bf12-1bcd81620d08
+		type FOOD04B
+		at 803 777
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL3b895629-901d-452d-989d-67700ca177bf
+		type TABLE6-H
+		at 804 777
+		curdir 1
+
+	object TABLc6a0788a-f4f8-4ce3-aef8-a3e10ca750eb
+		type TABLE6-H
+		at 805 777
+		curdir 3
+
+	object TABL445661d0-84a9-4e55-a0bd-22a7468a1cb3
+		type TABLE-SHADOW2
+		at 806 777
+		curdir 3
+
+	object TABLa857e13c-2d9b-4ab0-932f-1604b3ce09af
+		type TABLE6-H
+		at 808 777
+		curdir 2
+
+	object SPAT67e31a9f-69d6-45b0-8bcb-baac32453d97
+		type SPATULA
+		at 808 777
+		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object ROLL220849f1-2395-4dd4-ab3b-ea3e88ad829d
+		type ROLLINGPIN
+		at 808 777
+		curdir 1
+
+	object TABLae0b33cc-7e7c-44d7-ac4e-30afcb74de37
+		type TABLE6-H
+		at 809 777
+		curdir 0
+
+	object KNIFb1827ad7-e045-4b46-aee5-b8584ad958e5
+		type KNIFE_0
+		at 809 777
+		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
 	object STAIf8ded21f-b1e3-4e07-86c9-28b00e5581ad
 		type STAINEDGLASS00
 		at 826 777
@@ -69946,17 +70275,6 @@ iMZ1r01
 		type STAINEDGLASS00
 		at 835 777
 		curdir 1
-
-	object GRAV4faca4bd-dd77-4a34-bf7a-239b6e06a4b5
-		type GRAVE
-		at 838 777
-		curdir 0
-
-	object TARGd0eae989-3784-4e45-8cbe-ce77f5d084f0
-		type TARGET
-		at 838 777
-		curdir 1
-		tag 666
 
 	decorative TREE01 at 892 777
 
@@ -70086,6 +70404,24 @@ iMZ1r01
 		at 799 778
 		curdir 2
 
+	object STON3177854c-6638-4c63-ac01-09945c8fb4db
+		type STONE_ARCHWAY
+		at 805 778
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object STON53eadf0b-c6b2-4deb-b968-1338e8b76c9b
+		type STONE_ARCHWAY2
+		at 806 778
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object STON54c9f0af-54e1-4273-8b8d-3c5dfb20da8d
+		type STONE_ARCHWAY
+		at 807 778
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
 	object STAI748a0500-fcd3-4242-abac-bcf68ca44d25
 		type STAINEDGLASS00
 		at 826 778
@@ -70108,7 +70444,7 @@ iMZ1r01
 
 	object CHIM3135b79c-3674-4bf4-8a11-fff511da44f4
 		type CHIMNEY1
-		at 842 778
+		at 851 778
 		curdir 2
 
 	decorative TREE02 at 894 778
@@ -70228,28 +70564,11 @@ iMZ1r01
 		curdir 3
 		stats->owner PRIN024029a2-ce0b-467b-96da-f7dc40ebceff
 
-	object CHIMaed96520-5524-4bc4-8ce5-75aeea1f4715
-		type CHIMNEY1
-		at 797 779
-		curdir 2
-
-	object STON77569c40-b238-4fc3-99b6-ca291b570337
-		type STONEDOOR1_SHUT
-		at 802 779
-		curdir 2
-
-	object TARG415c9243-b82a-4c48-9938-e1d2313b2bc9
-		type TARGET
-		at 807 779
+	object CHAId538c6b8-2e8e-4a9d-b7d2-a0d2435b7206
+		type CHAIR
+		at 803 779
 		curdir 1
-		labels->location YawningWolf
-
-	object MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
-		type MAN_GENERIC
-		at 808 779
-		curdir 1
-		name Alfred
-		funcs->talk people/peasants/mawdor/barman.txt
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object STAI4be5486b-40be-45f1-b956-9ef1bb1649af
 		type STAINEDGLASS00
@@ -70366,30 +70685,40 @@ iMZ1r01
 
 	decorative TREE02 at 713 780
 
+	object STONf397858b-56f9-418a-b98c-f47485fd18d5
+		type STONEDOOR1_SHUT
+		at 800 780
+		curdir 1
+
 	object TABL759a1b56-5870-4b98-9d5f-04bbdbcba8ac
 		type TABLE6-H
 		at 805 780
 		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLaa575ec4-9831-4302-8fc6-84d27a4396c9
 		type TABLE6-H
 		at 806 780
 		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLc8d2c286-3062-46e1-8ca9-eb3a65fd2725
 		type TABLE6-H
 		at 807 780
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLb32c2a48-9abe-4de6-95d3-5a93af183c9d
 		type TABLE6-H
 		at 808 780
 		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLced41dca-7e86-40d8-9cf6-cb46d223128a
 		type TABLE6-H
 		at 809 780
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object STAI66739536-ca63-4af5-99ac-4ed4e1d06064
 		type STAINEDGLASS01
@@ -70415,38 +70744,38 @@ iMZ1r01
 
 	object FIREd1625bc0-25c3-4258-8ac6-0cf9b8f269db
 		type FIRE-A
-		at 843 780
+		at 852 780
 		curdir 0
 
 	object CAULedeb32dd-a00e-42bc-adff-adebf894b9da
 		type CAULDRON_BROTH
-		at 843 780
+		at 852 780
 		curdir 2
 
 	object STON7f11ec3d-65db-4912-90f5-f767783f1230
 		type STONE_ARCHWAY2
-		at 843 780
+		at 852 780
 		curdir 0
 
 	object FIRE1aee914b-0ba9-4410-9edc-cbaa4899189a
 		type FIRE-A
-		at 844 780
+		at 853 780
 		curdir 2
 
 	object STONba3d64cb-b960-463c-9147-2ccf7bfb77e0
 		type STONE_ARCHWAY
-		at 844 780
+		at 853 780
 		curdir 3
 
 	object BED_8f58539f-6685-43c5-a13c-d0a7b4b6a34e
 		type BED
-		at 846 780
+		at 855 780
 		curdir 0
 		labels->location Dairy
 
 	object BED_8c34096b-6df6-4b6f-b249-f0a88b6f47dc
 		type BED
-		at 847 780
+		at 856 780
 		curdir 0
 
 	decorative TREE00 at 897 780
@@ -70555,37 +70884,13 @@ iMZ1r01
 
 	decorative TREE02 at 715 781
 
-	object STAIedcc83bb-8314-4c5a-95a5-0d2ee8c6b6ae
-		type STAIRS_DOWN
-		at 796 781
-		curdir 3
-
-	object FIREe91a495f-581f-438d-996d-0c4e02cad77b
-		type FIRE-A
-		at 798 781
-		curdir 1
-
-	object STON240b58a0-d344-4827-aab2-66f712daa211
-		type STONE_ARCHWAY2
-		at 798 781
-		curdir 0
-
-	object FIREf076780e-c65a-439e-83ed-ec4fb37863c7
-		type FIRE-A
-		at 799 781
-		curdir 0
-
-	object STON15d9baeb-0b64-48ba-a183-6ce77fb92075
-		type STONE_ARCHWAY2
-		at 799 781
-		curdir 0
-
 	object TABL42a43a11-9149-48b8-a8cd-3d18d9d9b28d
 		type TABLE-SHADOW2
 		at 805 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TABLa6e4ffba-5d3b-427e-8f6c-3641a63cca63
+	object TABL2e135dee-27d0-4a92-b8b2-6158c06fb0b8
 		type TABLE5-LEGS
 		at 805 781
 		curdir 1
@@ -70594,31 +70899,49 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 806 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object CHAIde00d4c6-36b8-481d-bf9f-44931b1e4376
+		type CHAIR
+		at 806 781
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL847fd4ae-30bb-4dde-b696-ce034c0a97d2
 		type TABLE-SHADOW1
 		at 807 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLeebb35b1-c4d8-44ee-8b0c-9a8fe701c66f
 		type TABLE5-LEGS
 		at 807 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLa95567b2-f229-4414-9a4d-5d8835604404
 		type TABLE-SHADOW1
 		at 808 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object CHAI4a6e2071-319c-4a5a-b0aa-fa2aac8dc1d9
+		type CHAIR
+		at 808 781
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL603793d8-e4d7-4fc9-8195-066897439e84
 		type TABLE-SHADOW1
 		at 809 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLbdad7170-ee55-44a3-9b6e-6707658663ab
 		type TABLE5-LEGS
 		at 809 781
 		curdir 1
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	decorative TREE02 at 896 781
 
@@ -70751,18 +71074,81 @@ iMZ1r01
 
 	object CHAIb8a443cc-e9bd-4a5e-9420-ebbb91c7265b
 		type CHAIR
-		at 801 782
+		at 797 782
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object CHAI753627b0-36e5-47e2-8934-474975aea633
-		type CHAIR
-		at 804 782
-		curdir 1
+	object TABL64654486-12bb-4ed2-9362-155e3dddffa4
+		type TABLE8-L
+		at 798 782
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object CHAI4a6e2071-319c-4a5a-b0aa-fa2aac8dc1d9
+	object KNIFfe20bea7-3645-4822-b66b-0740e4e8953b
+		type KNIFE_1
+		at 798 782
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORKd65f8541-cc6a-4cef-b602-74c296c898dc
+		type FORK_1
+		at 798 782
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLATc210c6b3-a0a2-4730-81ae-16e62571ece4
+		type PLATE
+		at 798 782
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL2f4c4a7a-ca9c-4938-a475-671f6d346954
+		type TABLE8-R
+		at 799 782
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF3cc0c6fa-8642-4a05-95d9-e41db1e57011
+		type KNIFE_1
+		at 799 782
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK0714fa74-2b75-4783-a71f-aca3710dd89f
+		type FORK_1
+		at 799 782
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLAT914f9545-ff9a-4afb-9c12-b7e18606dee3
+		type PLATE
+		at 799 782
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL559a2476-b03e-4fb3-9a74-4df5378e2b84
+		type TABLE-SHADOW2
+		at 800 782
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABLcef2c129-7961-4aab-ae67-74e97ffff57f
+		type TABLE5-LEGS
+		at 800 782
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object CHAI4b0bd271-1df7-421a-9195-074bfd9a965e
 		type CHAIR
-		at 808 782
-		curdir 1
+		at 800 782
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TARG542ae9a3-e88e-41db-96fa-1c05a07070c0
+		type TARGET
+		at 802 782
+		curdir 3
+		labels->location YawningWolf
 
 	object STON69693aa3-7916-483b-bc8e-d98c6a59fdea
 		type STONE_ARCHWAY
@@ -70784,44 +71170,55 @@ iMZ1r01
 		at 832 782
 		curdir 3
 
+	object SPAW9a3c9666-910e-4c58-aaae-1c22fc64c05b
+		type SPAWN_GUARDS
+		at 836 782
+		curdir 1
+
+	object SPAW301d6b16-d8c1-4a75-a87e-f7dce75c529f
+		type SPAWN_GUARDS
+		at 849 782
+		curdir 1
+
 	object TABL12e48420-f881-4aea-ac14-bc1fdcc2dcb4
 		type TABLE6-V
-		at 843 782
+		at 852 782
 		curdir 0
 
 	object FOODd0784bb3-8800-4ef7-b92b-14698b889d45
 		type FOOD07
-		at 843 782
+		at 852 782
 		curdir 1
 		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
 
 	object TABL96627b39-0cc6-4b33-9cdf-c760378d5ed0
 		type TABLE-SHADOW2
-		at 844 782
+		at 853 782
 		curdir 3
 
 	object TABLf84d001a-b9d5-4cab-8b58-09c9510296a2
 		type TABLE5-LEGS
-		at 844 782
+		at 853 782
 		curdir 3
 
 	object WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
 		type WOMAN_GENERIC
-		at 845 782
+		at 854 782
 		curdir 1
 		name Sherri
 		funcs->talk /people/peasants/mawdor/dairy_w.txt
-		schedule 7 0 SIT_AT_LOCATION PEW_4f9845c0-25ff-487f-855a-e31fe244f8d4
+		schedule 7 30 EAT_AT_LOCATION TARG7c462382-c464-4a89-98e1-113ff86c58a3
+		schedule 8 0 SIT_AT_LOCATION PEW_4f9845c0-25ff-487f-855a-e31fe244f8d4
 		schedule 9 0 SIT_AT_LOCATION TARG12ee6acf-d99c-47ef-a095-ecb482117682
 		schedule 12 0 EAT_AT_HOME TARG7c462382-c464-4a89-98e1-113ff86c58a3
 		schedule 13 0 SIT_AT_LOCATION TARG12ee6acf-d99c-47ef-a095-ecb482117682
 		schedule 18 0 EAT_AT_HOME TARG7c462382-c464-4a89-98e1-113ff86c58a3
-		schedule 19 0 SIT_AT_LOCATION BED_8f58539f-6685-43c5-a13c-d0a7b4b6a34e
+		schedule 19 0 SIT_AT_LOCATION TARGb2b55498-e3b7-481f-8b86-b0db45c40af8
 		schedule 22 0 GO_TO_SLEEP BED_8f58539f-6685-43c5-a13c-d0a7b4b6a34e
 
 	object STON49aa5c1d-d86f-4ff5-951e-275f69358b7e
 		type STONEWINDOW1
-		at 848 782
+		at 857 782
 		curdir 2
 
 	decorative TREE01 at 896 782
@@ -70930,108 +71327,237 @@ iMZ1r01
 
 	decorative TREE03 at 717 783
 
-	object STON94939554-4895-44f4-8cf9-5f312491e6ec
-		type STONEDOOR1_SHUT
+	object CHAI976a00b3-315e-4170-8ef4-fa1b292e877b
+		type CHAIR
+		at 797 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL900a02f4-2fc7-444e-b3e7-0fea376b0cd6
+		type TABLE8-L
+		at 798 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF95b2d781-f601-4588-a0ff-e760a2aaaa2f
+		type KNIFE_1
+		at 798 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK553d5aba-0849-4118-8c4e-c3134f464768
+		type FORK_1
+		at 798 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLAT0c33b977-65f4-4bf7-bcd1-da8c902d5890
+		type PLATE
+		at 798 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABLc30b60ec-03bd-4d0b-b66a-db88fe688ebb
+		type TABLE8-R
+		at 799 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF656c05d7-7627-4286-937b-e0335ff773dc
+		type KNIFE_1
+		at 799 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORKc2f2686c-9c68-495a-8d28-3dc72bd51790
+		type FORK_1
+		at 799 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLATa7116f6f-e528-4b59-956a-3555008b3f27
+		type PLATE
+		at 799 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL18662a7f-8579-4eb0-a1b5-d0d73b8713ad
+		type TABLE-SHADOW1
+		at 800 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object CHAI7b009e83-32e6-4689-8fda-8f88483d78f6
+		type CHAIR
 		at 800 783
 		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TABLe5c42bfc-defc-405b-a325-a88da9c7cd7b
-		type TABLE6-V
+	object CHAI753627b0-36e5-47e2-8934-474975aea633
+		type CHAIR
+		at 803 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL9cb91176-1ece-41e6-a3a7-3dbf8e953560
+		type TABLE8-L
 		at 804 783
 		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF28328abb-1ead-4212-b623-2b9c91b82a93
+		type KNIFE_1
+		at 804 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK3e379875-71d0-44bf-bc9f-bc329b1f2a05
+		type FORK_1
+		at 804 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLAT4f0d06a3-34bd-4d0e-a4d8-664ce611d0a8
+		type PLATE
+		at 804 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABLd102f447-633c-4d7c-9393-313f762865f1
+		type TABLE8-R
+		at 805 783
+		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIFcbc87ac1-f97e-49ea-85e7-a5091f9ea2a7
+		type KNIFE_1
+		at 805 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK8bdb82d3-4551-4d9b-b28c-86c04f8970be
+		type FORK_1
+		at 805 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLATe434b43f-026d-4831-b4d4-eaf658e1080b
+		type PLATE
+		at 805 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLe904a63c-004b-4468-8038-2a54e830d1bb
 		type TABLE-SHADOW2
-		at 805 783
+		at 806 783
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL073a0469-b5d1-4c9a-93a8-649e5caca9e9
 		type TABLE5-LEGS
-		at 805 783
-		curdir 3
-
-	object TABL7e949ebc-a01e-4972-ba2c-5f6d1fefff47
-		type TABLE6-V
 		at 806 783
-		curdir 0
-
-	object TABL710e0922-94fc-4db6-8478-5fd1f5125305
-		type TABLE-SHADOW2
-		at 807 783
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TABLa1ea22fc-612c-46c8-9f46-c1f01eb1e690
-		type TABLE5-LEGS
-		at 807 783
-		curdir 3
-
-	object CHAId9971b8b-ac08-4a77-9c2f-92defc5a46a9
-		type CHAIR
-		at 807 783
+	object TARGb2b55498-e3b7-481f-8b86-b0db45c40af8
+		type TARGET
+		at 806 783
 		curdir 2
+		labels->location YawningWolf
+
+	object CHAId2e8a48e-b43d-44f6-b268-16f722636772
+		type CHAIR
+		at 806 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL049a1c22-3a26-49ee-8c06-5649760780e9
 		type TABLE6-V
 		at 808 783
 		curdir 0
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK4757a614-edd3-4d6b-9026-59565c32068d
+		type FORK_1
+		at 808 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF29df0432-4af7-4360-8a36-b49df3373f70
+		type KNIFE_1
+		at 808 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLAT9f43579d-978a-4690-b811-0ece194cae83
+		type PLATE
+		at 808 783
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL7e3c78db-b7fc-4432-ad26-45f7232a9a5e
 		type TABLE-SHADOW2
 		at 809 783
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLc9cbf73e-dc07-4935-a289-f89c1d07a11a
 		type TABLE5-LEGS
 		at 809 783
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object SPAW9a3c9666-910e-4c58-aaae-1c22fc64c05b
-		type SPAWN_GUARDS
-		at 837 783
-		curdir 1
+	object CHAIf3453e75-90fa-4dbf-bf69-28ce285b47ad
+		type CHAIR
+		at 809 783
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL4f719506-ba68-4146-91e9-de095fe2847b
 		type TABLE6-V
-		at 843 783
+		at 852 783
 		curdir 1
 
 	object FOODb7fff058-e247-47af-8ddf-004302529335
 		type FOOD01
-		at 843 783
+		at 852 783
 		curdir 2
 		stats->owner MAN_bd91e6a1-b5d6-43bf-80aa-d13e7cbca16f
 
 	object TABL171d195b-8695-468d-98e1-79f66795da0b
 		type TABLE-SHADOW1
-		at 844 783
+		at 853 783
 		curdir 3
 
 	object TABL711a0ec1-f987-43da-8647-73fe9125a301
 		type TABLE5-LEGS
-		at 844 783
+		at 853 783
 		curdir 3
 
 	object MAN_bd91e6a1-b5d6-43bf-80aa-d13e7cbca16f
 		type MAN_GENERIC
-		at 845 783
+		at 854 783
 		curdir 1
 		name Dan
+		schedule 7 30 EAT_AT_LOCATION TARG8231cbb6-8ce9-42c8-8da1-3dccc1de668f
+		schedule 8 0 SIT_AT_LOCATION PEW_eac93b6c-32ef-48a1-87e0-7577159f0750
+		schedule 9 0 LOITER_ATWORK TARG21327444-c956-4d29-8392-eced863cb31e
+		schedule 12 0 EAT_AT_HOME TARG8231cbb6-8ce9-42c8-8da1-3dccc1de668f
+		schedule 13 0 LOITER_ATWORK TARG21327444-c956-4d29-8392-eced863cb31e
+		schedule 18 0 EAT_AT_LOCATION TARG8231cbb6-8ce9-42c8-8da1-3dccc1de668f
+		schedule 19 0 SIT_AT_LOCATION TARG1cd6d1fe-e55a-4713-be2d-c054798e803f
+		schedule 22 0 GO_TO_SLEEP BED_8f58539f-6685-43c5-a13c-d0a7b4b6a34e
 
 	object CHAI4d816479-f044-41dc-871b-2601b0612ab3
 		type CHAIR
-		at 846 783
+		at 855 783
 		curdir 3
 		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
 
 	object TABLef4cd293-f422-4e60-a014-088737088400
 		type TABLE6-V
-		at 847 783
+		at 856 783
 		curdir 0
-
-	object SPAW301d6b16-d8c1-4a75-a87e-f7dce75c529f
-		type SPAWN_GUARDS
-		at 853 783
-		curdir 1
 
 	decorative TREE01 at 893 783
 
@@ -71111,86 +71637,173 @@ iMZ1r01
 
 	decorative TREE00 at 715 784
 
-	object TABLa857e13c-2d9b-4ab0-932f-1604b3ce09af
-		type TABLE6-H
-		at 796 784
-		curdir 2
-
-	object TABLae0b33cc-7e7c-44d7-ac4e-30afcb74de37
-		type TABLE6-H
+	object CHAI71c74f6e-bc42-4032-8fdb-f8b487a94339
+		type CHAIR
 		at 797 784
-		curdir 0
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TABL79b67677-0f6f-420e-ab1a-4d649f51fb32
-		type TABLE6-H
+	object TABL73aeafa9-bb87-4129-badd-5a76e502aba0
+		type TABLE8-L
 		at 798 784
-		curdir 1
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TABL54cc77e5-4e16-4b17-8b66-ee648c571b7c
-		type TABLE6-H
+	object KNIF91fe3653-e7ac-4767-8599-b7a6c5c83c4e
+		type KNIFE_1
+		at 798 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORKca218dd5-f99d-4739-9a04-93957ba59a68
+		type FORK_1
+		at 798 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLATa6e5f207-1cfe-459a-8a11-22a852ba4c52
+		type PLATE
+		at 798 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL3e4ead89-c428-4429-bab1-f2a25af3490e
+		type TABLE8-R
 		at 799 784
-		curdir 0
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object CHAI976a00b3-315e-4170-8ef4-fa1b292e877b
+	object KNIF0ef7433d-e29a-4a2e-a6c7-b658155b476e
+		type KNIFE_1
+		at 799 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK243bdc98-93e1-411b-b240-1871fcf762ac
+		type FORK_1
+		at 799 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLATbeba9adc-4d36-4a93-b332-2f99192dea4d
+		type PLATE
+		at 799 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL911a3a13-bb80-4a41-85cf-2a52d4aef17f
+		type TABLE-SHADOW1
+		at 800 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABLee2cee89-c077-4c9b-b451-efad06192223
+		type TABLE5-LEGS
+		at 800 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object CHAI6cbe088f-5508-4680-9432-2f64bfb7f88c
+		type CHAIR
+		at 800 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object CHAI9ce186a2-4c5f-46bc-9934-bb92772e3742
 		type CHAIR
 		at 803 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TABL29a9270a-2c18-4aaf-abc9-67893d6dedee
-		type TABLE6-V
+	object TABL6ede5dc8-d1e0-487a-8c9a-cd81c4e69911
+		type TABLE8-L
 		at 804 784
 		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF8cb4fb6b-7103-4c83-8b46-374b72382faa
+		type KNIFE_1
+		at 804 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORK2bed6a84-a18c-4124-8624-2c9dd833c560
+		type FORK_1
+		at 804 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLAT9926503b-4025-4afd-9fab-50c7c2df6d4d
+		type PLATE
+		at 804 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object TABL736c897f-27be-4c32-9ed4-ed12d808bf74
+		type TABLE8-R
+		at 805 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object KNIF7b4af671-334a-40c9-b4d2-9c3095f63443
+		type KNIFE_1
+		at 805 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object FORKf2c67537-e33d-4276-8253-41c84ad6e5d5
+		type FORK_1
+		at 805 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
+
+	object PLAT0410c4b9-e886-4fa4-aaf2-fdc3a1bbdac9
+		type PLATE
+		at 805 784
+		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL333cc8c5-d02f-4e8e-a020-90f0de421ec8
 		type TABLE-SHADOW1
-		at 805 784
+		at 806 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABLff3395a9-8cb1-4e41-a14c-b4e9502e8012
 		type TABLE5-LEGS
-		at 805 784
+		at 806 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object TARG542ae9a3-e88e-41db-96fa-1c05a07070c0
+	object TARG1cd6d1fe-e55a-4713-be2d-c054798e803f
 		type TARGET
-		at 805 784
-		curdir 3
-		labels->location YawningWolf
-
-	object CHAId09901af-ff17-4e5d-b3ba-065ae74ec2d8
-		type CHAIR
-		at 805 784
-		curdir 3
-
-	object TABL86e2a9b6-030c-4eb9-8fb6-1a2ecea86ee4
-		type TABLE6-V
 		at 806 784
 		curdir 2
+		labels->location YawningWolf
 
-	object TABL16674d73-fc70-4e3b-a6d6-b58941e92a3a
-		type TABLE-SHADOW1
-		at 807 784
-		curdir 3
-
-	object TABL0ec3f902-7986-44e1-a8a3-aa1854848663
-		type TABLE5-LEGS
-		at 807 784
-		curdir 3
+	object CHAI07f57482-29b5-4256-bae5-bfeb8a31e138
+		type CHAIR
+		at 806 784
+		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL67350fae-65ec-4e47-a10d-894703114641
 		type TABLE6-V
 		at 808 784
 		curdir 2
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object KNIFdd58972c-4a44-43eb-80f4-62d8d56439c0
 		type KNIFE_1
 		at 808 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
-	object FORK4757a614-edd3-4d6b-9026-59565c32068d
+	object FORK1881101c-c1c9-42ee-b56c-a210930b938b
 		type FORK_1
 		at 808 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object PLATab496f1f-41f3-4ca5-b279-a7d0146cc65e
 		type PLATE
@@ -71202,11 +71815,13 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 809 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TABL21c94f93-8bdd-4190-a51f-659e8eef0341
 		type TABLE5-LEGS
 		at 809 784
 		curdir 3
+		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
 	object TARGae82f4ed-0714-433f-96e3-8efd2d77794b
 		type TARGET
@@ -71234,52 +71849,58 @@ iMZ1r01
 		labels->location YawningWolf
 		stats->owner PATH6f974b0d-8d6b-469a-b808-31d34d9d5bd0
 
+	object TARG12ee6acf-d99c-47ef-a095-ecb482117682
+		type TARGET
+		at 846 784
+		curdir 1
+		labels->location Dairy
+
+	object CHAI2996e712-0c03-4446-b3f3-54dbf7387cf5
+		type CHAIR
+		at 847 784
+		curdir 1
+
 	object DRAWf834472b-0c63-42d2-ae91-fa0e45f65c41
 		type DRAWERS
-		at 842 784
+		at 851 784
 		curdir 2
 
 	object TABL6c531a23-2e81-4867-b649-8acb5f79d131
 		type TABLE-SHADOW2
-		at 843 784
+		at 852 784
 		curdir 1
 
 	object TABL037c5f85-6594-4d7a-bdc2-8ba990d49243
 		type TABLE-SHADOW3
-		at 844 784
-		curdir 1
-
-	object CHURd802c76e-8466-4688-9da2-2de22ded163f
-		type CHURN
-		at 845 784
+		at 853 784
 		curdir 1
 
 	object TARG7c462382-c464-4a89-98e1-113ff86c58a3
 		type TARGET
-		at 846 784
+		at 855 784
 		curdir 3
 		labels->location Dairy
 
 	object CHAI4e2872dc-93c2-467a-8643-62cfaffadba7
 		type CHAIR
-		at 846 784
+		at 855 784
 		curdir 3
 		stats->owner MAN_bd91e6a1-b5d6-43bf-80aa-d13e7cbca16f
 
 	object TABLdd687357-1c38-4505-9986-c79f78dda1d8
 		type TABLE6-V
-		at 847 784
+		at 856 784
 		curdir 2
 
 	object PLATc3708fb2-3254-4945-b432-0df72ee7a1b4
 		type PLATE
-		at 847 784
+		at 856 784
 		curdir 2
 		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
 
 	object STONe051e77e-06ed-490c-b05e-23e99b8fffb3
 		type STONEWINDOW1
-		at 848 784
+		at 857 784
 		curdir 2
 
 	decorative TREE01 at 892 784
@@ -71395,20 +72016,158 @@ iMZ1r01
 		labels->location MawdorChurch
 		stats->owner PATH1619297c-9bc0-4ce6-b271-c47d2918d97a
 
+	object TABL89a48220-160d-4697-b2c9-4f9bd68abab0
+		type TABLE6-H
+		at 844 785
+		curdir 2
+
+	object TRAY341bf216-29ef-45fc-9691-eaba60698604
+		type TRAY_FOOD
+		at 844 785
+		curdir 1
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOOD950f2b75-4520-4384-b941-fb5230a2c7b3
+		type FOOD04
+		at 844 785
+		curdir 1
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOOD09f9b7f5-f2a4-4600-a8cf-02a1303ed13e
+		type FOOD04
+		at 844 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object GLAS4883baba-3ea4-42d5-9541-c80b8649d289
+		type GLASS_COUNTER
+		at 844 785
+		curdir 2
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object TABLbd558e87-3f3d-4703-93d5-fba28e29697f
+		type TABLE6-H
+		at 845 785
+		curdir 0
+
+	object TRAYa60b8af5-95d3-4b1a-a9f9-372f4d21715a
+		type TRAY_FOOD
+		at 845 785
+		curdir 2
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOODe6c32329-408d-46a1-b75f-8767c09505eb
+		type FOODP03
+		at 845 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOODb0b75ef9-58cf-440f-9768-16216bb99cba
+		type FOODP03
+		at 845 785
+		curdir 1
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object GLASc41cf504-5fc8-4a3d-bb38-93761ce2d67c
+		type GLASS_COUNTER
+		at 845 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object TABL049591f5-4be2-4cf6-8e9a-5a058e4fe7b8
+		type TABLE6-H
+		at 846 785
+		curdir 1
+
+	object TRAY53054863-d862-4a1c-9b4b-044eaabded8c
+		type TRAY_FOOD
+		at 846 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOODfbf1ce95-dd49-49aa-a307-ad374d9d6bf0
+		type FOOD07
+		at 846 785
+		curdir 2
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object GLAS6565f796-d719-40ba-8dbd-06f7097a0ccc
+		type GLASS_COUNTER
+		at 846 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object TABL41923824-2a1d-488b-a711-88303297fa8f
+		type TABLE6-H
+		at 847 785
+		curdir 0
+
+	object TRAYf4e24ccf-cfa3-411d-bf38-8a7e68766bbc
+		type TRAY_FOOD
+		at 847 785
+		curdir 2
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOOD9301a5f8-9aa8-498d-8936-e7d45918e617
+		type FOOD04B
+		at 847 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOODedcd7c79-d146-4736-8995-b9a26bdbd9d2
+		type FOOD04B
+		at 847 785
+		curdir 1
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object GLASf05715e0-a4f7-402b-8a5f-55ae55c6cbd7
+		type GLASS_COUNTER
+		at 847 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object TABL749d215d-5b76-4977-92ba-4b3d4a721591
+		type TABLE6-H
+		at 848 785
+		curdir 3
+
+	object TRAY0aa243e4-10e3-416f-8761-c45c0d62b1f0
+		type TRAY_FOOD
+		at 848 785
+		curdir 0
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object FOOD776a5d9d-5810-488d-a1b4-fa29b1b70a7d
+		type FOOD07B
+		at 848 785
+		curdir 2
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object GLASc4bc2e28-83c5-42be-8566-690642e90633
+		type GLASS_COUNTER
+		at 848 785
+		curdir 3
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
+	object TABL69cdc476-a186-47d3-ab5b-b19b44d70b23
+		type TABLE-SHADOW2
+		at 849 785
+		curdir 3
+
 	object TARG8231cbb6-8ce9-42c8-8da1-3dccc1de668f
 		type TARGET
-		at 846 785
+		at 855 785
 		curdir 3
 		labels->location Dairy
 
 	object TABL84fe80a5-7678-41c6-9275-a40699765f94
 		type TABLE6-V
-		at 847 785
+		at 856 785
 		curdir 3
 
 	object PLATd7b20c58-ff64-4009-aecc-589181f4eadc
 		type PLATE
-		at 847 785
+		at 856 785
 		curdir 2
 		stats->owner MAN_bd91e6a1-b5d6-43bf-80aa-d13e7cbca16f
 
@@ -71527,9 +72286,67 @@ iMZ1r01
 		labels->location Apothecary
 		stats->owner PATH585c9b2a-8e72-46cf-96c3-58b09d5a5a81
 
+	object PATH0d5a20e1-0462-40da-a103-150201d8f235
+		type PATHMARKER
+		at 840 786
+		curdir 2
+		labels->location MawdorChurch
+		stats->owner PATH1619297c-9bc0-4ce6-b271-c47d2918d97a
+
+	object PATH5c2f3799-18dd-478d-88da-44fa9664f0db
+		type PATHMARKER
+		at 841 786
+		curdir 3
+		labels->location Dairy
+
+	object TABL028bc7b6-63e9-4277-9820-8cbbc01953cd
+		type TABLE-SHADOW2
+		at 844 786
+		curdir 1
+
+	object TABL0f9b4fff-e304-4468-94e3-8a36ddb64a07
+		type TABLE5-LEGS
+		at 844 786
+		curdir 1
+
+	object TABL661dd835-c0d4-4f13-8dba-bde4c90dc17b
+		type TABLE-SHADOW1
+		at 845 786
+		curdir 0
+
+	object TABL90965e96-ef2b-4000-a977-58f07e9bb1be
+		type TABLE-SHADOW1
+		at 846 786
+		curdir 0
+
+	object TABL5ef739a5-32d1-4f67-8bc7-e05b40901ddf
+		type TABLE5-LEGS
+		at 846 786
+		curdir 1
+
+	object TABL2582b6b0-8189-404a-ba07-79bebd31740d
+		type TABLE-SHADOW1
+		at 847 786
+		curdir 0
+
+	object TABLda07f6dc-853b-4ce6-9fb5-0115511ca37b
+		type TABLE-SHADOW1
+		at 848 786
+		curdir 0
+
+	object TABL4035c5ab-bc97-49fb-9fa6-4677df34e1c6
+		type TABLE5-LEGS
+		at 848 786
+		curdir 1
+
+	object TABL251baef4-4f01-4e6c-bcf5-1f8ad185c2a3
+		type TABLE-SHADOW3
+		at 849 786
+		curdir 1
+
 	object STONb13d0884-bf32-4d77-bc2e-b5bb743a447b
 		type STONEDOOR1_SHUT
-		at 844 786
+		at 853 786
 		curdir 0
 
 	decorative TREE02 at 896 786
@@ -71632,11 +72449,6 @@ iMZ1r01
 
 	decorative TREE03 at 718 787
 
-	object SPAWfce2ee34-5852-4359-bb12-525879e849a9
-		type SPAWN_GUARDS
-		at 799 787
-		curdir 1
-
 	object PATH31c5da95-e33d-4cef-b7fb-f203621b0223
 		type PATHMARKER
 		at 802 787
@@ -71661,6 +72473,13 @@ iMZ1r01
 		curdir 2
 		labels->location Apothecary
 		stats->owner PATHbc6dd5e2-f14b-48aa-8114-bef4a3e80df8
+
+	object PATH566ee2c5-747b-4345-b907-0aa1dd691e9c
+		type PATHMARKER
+		at 840 787
+		curdir 2
+		labels->location YawningWolf
+		stats->owner PATH3050a877-d292-40b6-a1f4-e49ebf3f4d97
 
 	decorative TREE00 at 900 787
 
@@ -71761,6 +72580,11 @@ iMZ1r01
 		at 796 788
 		curdir 0
 
+	object SPAWfce2ee34-5852-4359-bb12-525879e849a9
+		type SPAWN_GUARDS
+		at 799 788
+		curdir 1
+
 	object PATHbc6dd5e2-f14b-48aa-8114-bef4a3e80df8
 		type PATHMARKER
 		at 800 788
@@ -71803,15 +72627,9 @@ iMZ1r01
 		labels->location TailorShop
 		stats->owner PATHbbd89973-c9f6-45b2-8878-e6f4bace82a0
 
-	object TARG12ee6acf-d99c-47ef-a095-ecb482117682
-		type TARGET
-		at 846 788
-		curdir 1
-		labels->location Dairy
-
-	object CHAI2996e712-0c03-4446-b3f3-54dbf7387cf5
-		type CHAIR
-		at 846 788
+	object SPAW4b5aa661-5d30-4cf2-9dc5-84399b81b49c
+		type SPAWN_GUARDS
+		at 835 788
 		curdir 1
 
 	decorative TREE02 at 899 788
@@ -71909,144 +72727,6 @@ iMZ1r01
 		curdir 1
 		name Lost Prince wander
 		labels->location YawningWolf
-
-	object TABL89a48220-160d-4697-b2c9-4f9bd68abab0
-		type TABLE6-H
-		at 844 789
-		curdir 2
-
-	object TRAY341bf216-29ef-45fc-9691-eaba60698604
-		type TRAY_FOOD
-		at 844 789
-		curdir 1
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOOD950f2b75-4520-4384-b941-fb5230a2c7b3
-		type FOOD04
-		at 844 789
-		curdir 1
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOOD09f9b7f5-f2a4-4600-a8cf-02a1303ed13e
-		type FOOD04
-		at 844 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object GLAS4883baba-3ea4-42d5-9541-c80b8649d289
-		type GLASS_COUNTER
-		at 844 789
-		curdir 2
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object TABLbd558e87-3f3d-4703-93d5-fba28e29697f
-		type TABLE6-H
-		at 845 789
-		curdir 0
-
-	object TRAYa60b8af5-95d3-4b1a-a9f9-372f4d21715a
-		type TRAY_FOOD
-		at 845 789
-		curdir 2
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOODe6c32329-408d-46a1-b75f-8767c09505eb
-		type FOODP03
-		at 845 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOODb0b75ef9-58cf-440f-9768-16216bb99cba
-		type FOODP03
-		at 845 789
-		curdir 1
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object GLASc41cf504-5fc8-4a3d-bb38-93761ce2d67c
-		type GLASS_COUNTER
-		at 845 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object TABL049591f5-4be2-4cf6-8e9a-5a058e4fe7b8
-		type TABLE6-H
-		at 846 789
-		curdir 1
-
-	object TRAY53054863-d862-4a1c-9b4b-044eaabded8c
-		type TRAY_FOOD
-		at 846 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOODfbf1ce95-dd49-49aa-a307-ad374d9d6bf0
-		type FOOD07
-		at 846 789
-		curdir 2
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object GLAS6565f796-d719-40ba-8dbd-06f7097a0ccc
-		type GLASS_COUNTER
-		at 846 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object TABL41923824-2a1d-488b-a711-88303297fa8f
-		type TABLE6-H
-		at 847 789
-		curdir 0
-
-	object TRAYf4e24ccf-cfa3-411d-bf38-8a7e68766bbc
-		type TRAY_FOOD
-		at 847 789
-		curdir 2
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOOD9301a5f8-9aa8-498d-8936-e7d45918e617
-		type FOOD04B
-		at 847 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOODedcd7c79-d146-4736-8995-b9a26bdbd9d2
-		type FOOD04B
-		at 847 789
-		curdir 1
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object GLASf05715e0-a4f7-402b-8a5f-55ae55c6cbd7
-		type GLASS_COUNTER
-		at 847 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object TABL749d215d-5b76-4977-92ba-4b3d4a721591
-		type TABLE6-H
-		at 848 789
-		curdir 3
-
-	object TRAY0aa243e4-10e3-416f-8761-c45c0d62b1f0
-		type TRAY_FOOD
-		at 848 789
-		curdir 0
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object FOOD776a5d9d-5810-488d-a1b4-fa29b1b70a7d
-		type FOOD07B
-		at 848 789
-		curdir 2
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object GLASc4bc2e28-83c5-42be-8566-690642e90633
-		type GLASS_COUNTER
-		at 848 789
-		curdir 3
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
-
-	object TABL69cdc476-a186-47d3-ab5b-b19b44d70b23
-		type TABLE-SHADOW2
-		at 849 789
-		curdir 3
 
 	decorative TREE01 at 899 789
 
@@ -72231,51 +72911,6 @@ iMZ1r01
 		curdir 2
 		labels->location TailorShop
 		stats->owner TARGe7e1408a-1316-4edf-b318-1509641cc88a
-
-	object TABL028bc7b6-63e9-4277-9820-8cbbc01953cd
-		type TABLE-SHADOW2
-		at 844 790
-		curdir 1
-
-	object TABL0f9b4fff-e304-4468-94e3-8a36ddb64a07
-		type TABLE5-LEGS
-		at 844 790
-		curdir 1
-
-	object TABL661dd835-c0d4-4f13-8dba-bde4c90dc17b
-		type TABLE-SHADOW1
-		at 845 790
-		curdir 0
-
-	object TABL90965e96-ef2b-4000-a977-58f07e9bb1be
-		type TABLE-SHADOW1
-		at 846 790
-		curdir 0
-
-	object TABL5ef739a5-32d1-4f67-8bc7-e05b40901ddf
-		type TABLE5-LEGS
-		at 846 790
-		curdir 1
-
-	object TABL2582b6b0-8189-404a-ba07-79bebd31740d
-		type TABLE-SHADOW1
-		at 847 790
-		curdir 0
-
-	object TABLda07f6dc-853b-4ce6-9fb5-0115511ca37b
-		type TABLE-SHADOW1
-		at 848 790
-		curdir 0
-
-	object TABL4035c5ab-bc97-49fb-9fa6-4677df34e1c6
-		type TABLE5-LEGS
-		at 848 790
-		curdir 1
-
-	object TABL251baef4-4f01-4e6c-bcf5-1f8ad185c2a3
-		type TABLE-SHADOW3
-		at 849 790
-		curdir 1
 
 	decorative TREE01 at 895 790
 
@@ -72708,6 +73343,23 @@ iMZ1r01
 		at 834 792
 		curdir 1
 
+	object TARG3f3e933c-3e0c-4313-82f8-46ea07f03dd0
+		type TARGET
+		at 836 792
+		curdir 2
+		tag 80051
+		labels->location Dairy
+
+	decorative HUT00 at 837 792
+
+	decorative HUT01 at 838 792
+
+	decorative HUT01 at 839 792
+
+	decorative HUT01 at 840 792
+
+	decorative HUT02 at 841 792
+
 	object FENCdbe8be0b-8664-4752-8e16-26e2231200da
 		type FENCE2
 		at 843 792
@@ -72859,6 +73511,15 @@ iMZ1r01
 		type FENCE2
 		at 827 793
 		curdir 2
+
+	decorative HUT03 at 837 793
+
+	object CHURd802c76e-8466-4688-9da2-2de22ded163f
+		type CHURN
+		at 838 793
+		curdir 1
+
+	decorative HUT03 at 841 793
 
 	object FENCfb4d6260-8204-44fe-b9ca-14059ca7c1ca
 		type FENCE2
@@ -73054,31 +73715,33 @@ iMZ1r01
 		at 827 794
 		curdir 2
 
-	object COW_23252993-5593-4866-9c58-450e92931058
-		type COW
-		inside EGG_75751446-c754-400a-a6f0-15e32fe85d8f
-		curdir 1
-		activity GRAZE
+	decorative HUT03 at 837 794
 
-	object FOOD6f5d42b0-a2e8-4064-a5a8-38133a12d09e
-		type FOOD05
-		inside COW_23252993-5593-4866-9c58-450e92931058
+	object TARG6866ad57-cb44-4e36-8ea0-285097ba3eed
+		type TARGET
+		at 838 794
 		curdir 1
+		tag 80056
+		labels->location Dairy
 
-	object FOODce327037-d033-41c4-b4d3-2fcbcd12b350
-		type FOOD05
-		inside COW_23252993-5593-4866-9c58-450e92931058
-		curdir 1
+	object BUCK4de3a35a-bdfe-4e02-a4ab-932e10b13895
+		type BUCKET
+		at 840 794
+		curdir 0
 
-	object EGG_75751446-c754-400a-a6f0-15e32fe85d8f
-		type EGG_ALWAYS
-		at 841 794
-		curdir 1
+	decorative HUT03 at 841 794
 
 	object FENCbd97cfdd-bd23-4e24-9be0-1c73c324c079
 		type FENCE2
 		at 843 794
 		curdir 2
+
+	object PATH2ef3a9ea-a765-49c6-99c7-edf8f5781140
+		type PATHMARKER
+		at 845 794
+		curdir 0
+		labels->location MawdorChurch
+		stats->owner PATH0d5a20e1-0462-40da-a103-150201d8f235
 
 	decorative TREE00 at 900 794
 
@@ -73292,6 +73955,10 @@ iMZ1r01
 		at 831 795
 		curdir 1
 
+	decorative HUT04 at 837 795
+
+	decorative HUT06 at 841 795
+
 	object FENC6fc2624e-bf7e-471d-9c8f-649c757b538a
 		type FENCE2
 		at 843 795
@@ -73468,6 +74135,27 @@ iMZ1r01
 		type FENCE2
 		at 827 796
 		curdir 2
+
+	object COW_23252993-5593-4866-9c58-450e92931058
+		type COW
+		inside EGG_75751446-c754-400a-a6f0-15e32fe85d8f
+		curdir 1
+		activity GRAZE
+
+	object FOOD6f5d42b0-a2e8-4064-a5a8-38133a12d09e
+		type FOOD05
+		inside COW_23252993-5593-4866-9c58-450e92931058
+		curdir 1
+
+	object FOODce327037-d033-41c4-b4d3-2fcbcd12b350
+		type FOOD05
+		inside COW_23252993-5593-4866-9c58-450e92931058
+		curdir 1
+
+	object EGG_75751446-c754-400a-a6f0-15e32fe85d8f
+		type EGG_ALWAYS
+		at 836 796
+		curdir 1
 
 	object FENCd86fc6e9-9599-44b9-9cb6-c47b8624090d
 		type FENCE2_GATE_SHUT
@@ -73663,6 +74351,8 @@ iMZ1r01
 		type TARGET
 		at 840 797
 		curdir 1
+		tag 80050
+		labels->location Dairy
 
 	decorative TREE00 at 893 797
 
@@ -74521,6 +75211,13 @@ iMZ1r01
 		at 827 801
 		curdir 2
 
+	object TARGc6ca9aef-9baf-49c2-9b3f-2c7f656d8016
+		type TARGET
+		at 828 801
+		curdir 2
+		tag 80054
+		labels->location Dairy
+
 	object FENC44669a5c-9ab2-4f74-89a5-78d4aee94edc
 		type FENCE2
 		at 843 801
@@ -75126,6 +75823,13 @@ iMZ1r01
 		type EGG_ALWAYS
 		at 830 804
 		curdir 1
+
+	object TARG88073751-fd77-4839-a54e-4103b97e282b
+		type TARGET
+		at 835 804
+		curdir 2
+		tag 80052
+		labels->location Dairy
 
 	object FENC6d2df3d8-2fda-4641-9bc5-8c82d0fab101
 		type FENCE2
@@ -76101,6 +76805,13 @@ iMZ1r01
 		at 834 810
 		curdir 1
 
+	object TARG20f4d7a1-0622-4f9a-aa7c-ad482e6d96e4
+		type TARGET
+		at 836 810
+		curdir 2
+		tag 80053
+		labels->location Dairy
+
 	object FENCc5e18f63-ccd8-41ab-9e2a-761005df0f6f
 		type FENCE2
 		at 843 810
@@ -76487,6 +77198,19 @@ iMZ1r01
 
 	decorative MOUNT02 at 645 812
 
+	object BED_fbaf4ba1-c22c-4101-88da-3f2112204341
+		type BED
+		at 788 812
+		curdir 0
+		name Kid's bed
+		labels->location TailorsHouse
+
+	object CHAI89b7e2b9-1fe2-4a2b-b144-abf3c8ad8863
+		type CHAIR
+		at 790 812
+		curdir 1
+		name Kid's chair
+
 	object STONa23b1f91-d77c-45b0-b529-bef81af29845
 		type STONEDOOR1_SHUT
 		at 794 812
@@ -76650,12 +77374,7 @@ iMZ1r01
 		type BED
 		at 787 813
 		curdir 0
-		labels->location TailorsHouse
-
-	object BED_fbaf4ba1-c22c-4101-88da-3f2112204341
-		type BED
-		at 788 813
-		curdir 0
+		name Taylor's bed
 		labels->location TailorsHouse
 
 	object TARG19870604-fa8f-4b37-9abe-27975169535e
@@ -76663,11 +77382,6 @@ iMZ1r01
 		at 790 813
 		curdir 1
 		labels->location TailorsHouse
-
-	object CHAI89b7e2b9-1fe2-4a2b-b144-abf3c8ad8863
-		type CHAIR
-		at 790 813
-		curdir 1
 
 	object TARG15f66e11-ce2d-4fe2-a48e-4d9888dfc97e
 		type TARGET
@@ -76679,6 +77393,7 @@ iMZ1r01
 		type CHAIR
 		at 791 813
 		curdir 1
+		name Taylor's chair
 
 	object TARGa5b112ce-3817-49fc-993d-8e6bce0c7a79
 		type TARGET
@@ -77599,6 +78314,13 @@ iMZ1r01
 		at 838 817
 		curdir 2
 		tag 10000
+
+	object TARG0f5d6749-bd03-4469-96ce-c3366db010f3
+		type TARGET
+		at 841 817
+		curdir 2
+		name NPC jail point
+		tag -10000
 
 	decorative TREE01 at 896 817
 
@@ -87498,6 +88220,12 @@ iMZ1r01
 		at 570 888
 		curdir 1
 		tag 10002
+
+	object TARG7975abde-e9ed-4bea-8050-0f949a60d58a
+		type TARGET
+		at 571 888
+		curdir 2
+		tag -10002
 
 	decorative MOUNT08 at 605 888
 

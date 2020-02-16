@@ -114,6 +114,11 @@ if_not_exists victim
 	return
 endif
 
+# If it's an outlaw, do nothing
+if victim.label.race = "outlaw"
+	return
+endif
+
 # Are they human or animal?
 if victim.stats.intel <= 90
 	return
@@ -126,11 +131,9 @@ else
 	let suspect.user.user19 = CRIME_ASSAULT
 endif
 
-
 # Were there any witnesses?
 
 let witnesses = 0
-#for_all_onscreen justice_stopthief
 all_around me radius 20 does justice_stopthief
 
 if witnesses > 0
@@ -179,10 +182,15 @@ if_not_onscreen victim
 endif
 
 talk_to "people/church/crucifix.txt" "kill"
+
+# Jesus might have tripped the indulgences and nulled out the suspect
+if_not_exists suspect
+	return
+endif
+
 let suspect.user.user19 = CRIME_BLASPHEMY
 
 let witnesses = 0
-#for_all_onscreen justice_attack_party
 all_around suspect radius 32 does justice_attack_party
 
 if witnesses > 0
@@ -259,7 +267,6 @@ all_around suspect radius 32 does justice_attack_party
 if witnesses > 0
 	print "~KILL THE BLASPHEMER!~"
 	printcr
-#	call call_guards
 endif
 
 end
@@ -290,7 +297,6 @@ all_around suspect radius 32 does justice_attack_party
 if witnesses > 0
 	print "~BURN THE HERETIC!~"
 	printcr
-#	call call_guards
 endif
 
 end
@@ -322,13 +328,11 @@ let suspect.user.user19 = CRIME_DESECRATION
 # Were there any witnesses?
 
 let witnesses = 0
-#for_all_onscreen justice_attack_party
 all_around suspect radius 32 does justice_attack_party
 
 if witnesses > 0
 	print "~GET THEM!  HANG THEM!  BURN THEM!~"
 	printcr
-#	call call_guards
 endif
 
 end
@@ -558,7 +562,7 @@ for_all_onscreen justice_attack_party
 
 if witnesses > 0
 	if suspect.user.user19 = CRIME_MURDER
-		print "~Feed him to the slugs!!~"
+		print "~Feed them to the slugs!!~"
 		printcr
 	endif
 endif
@@ -571,6 +575,16 @@ end
 
 
 function call_guards
+
+if_not_exists victim
+	print "Call guards: no victim|"
+	return
+endif
+
+# Stop revenge for outlaws
+if victim.label.race = "outlaw"
+	return
+endif
 
 for_all_onscreen justice_arrest		# Recruit guards onscreen
 
@@ -779,6 +793,11 @@ if current.user.unconscious > 0
 	return
 endif
 
+# Check for indulgences
+call check_indulgences
+if_not_exists suspect
+	return
+endif
 
 if suspect.user.vigilante = 0			# Licensed to kill?
 	if_not_flag current IN_PARTY		# Are you of Us?
@@ -830,6 +849,12 @@ function justice_attack_party
 
 # Prevent anyone from trying to wreak justice upon themselves
 if current = suspect
+	return
+endif
+
+# Check for indulgences
+call check_indulgences
+if_not_exists suspect
 	return
 endif
 
@@ -887,12 +912,18 @@ endif
 # Stop panthers trying to arrest each other for being panthers
 if suspect.user.user19 == CRIME_BEAST
 	if suspect is called "guard_panther"
-		if current is called "guard_panther"
+		if current.label.faction <> "medieval"
 			return
 		endif
 	endif
 endif
 
+
+# Check for indulgences
+call check_indulgences
+if_not_exists suspect
+	return
+endif
 
 if suspect.user.vigilante = 0			# Licensed to kill?
 	if_not_flag current IN_PARTY		# Are you of Us?
@@ -917,8 +948,13 @@ function justice_beast
 int alreadyguilty = 0
 
 # Is there a suspect?
-
 if_not_exists suspect
+	return
+endif
+
+# Stop everyone freaking out over a dead bandit
+if suspect.stats.hp < 1
+	set_flag victim IS_HORRIBLE = 0 # Mark the corpse 'police-aware'
 	return
 endif
 
@@ -989,3 +1025,60 @@ let current = me
 talk_to "people/church/lord.txt" "regicide"
 stop_action me
 end
+
+
+
+
+##
+##  Is the player allowed to commit this crime?
+##
+
+function check_indulgences
+object indulgence
+string needs
+
+if_not_exist suspect
+	return
+endif
+
+if current.label.faction <> "medieval"
+	return
+endif
+
+
+# This one trumps everything
+find indulgence = "INDULGENCE_PLENARY" inside suspect
+if_exists indulgence
+	let suspect = null
+	return
+endif
+
+let needs = ""
+if suspect.user.user19 = CRIME_THEFT
+	let needs = "INDULGENCE_THEFT"
+endif
+if suspect.user.user19 = CRIME_MURDER
+	let needs = "INDULGENCE_MURDER"
+endif
+
+if suspect.user.user19 = CRIME_ASSAULT
+	let needs = "INDULGENCE_ASSAULT"
+endif
+
+if suspect.user.user19 = CRIME_REGICIDE
+	let needs = "INDULGENCE_MURDER"
+endif
+
+if needs = ""
+	return
+endif
+
+find indulgence = needs inside suspect
+if_exists indulgence
+	let suspect = null
+	return
+endif
+
+end
+
+

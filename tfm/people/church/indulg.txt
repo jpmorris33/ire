@@ -31,9 +31,9 @@
  ... sins of the flesh 1000
  ... abominations 2000
 
- ... theft 4000
- ... murder 7000
- ... plenary indulgence 25000"
+ ... theft 10000
+ ... murder 20000
+ ... plenary indulgence 50000"
  
 [endpage]
 

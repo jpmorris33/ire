@@ -173,6 +173,10 @@
 Player has decapitated someone else and brought their head
 
 [page="bandit_head2"]
+[am_carrying indulgence_plenary]
+[if true][goto="bandit_head2a"]
+[am_carrying indulgence_murder]
+[if true][goto="bandit_head2a"]
 [colour="#808080"]
 The mayor stares at the head in shock and disbelief.
 [colour="#ffffff"]
@@ -185,6 +189,24 @@ The mayor stares at the head in shock and disbelief.
 [call_at_exit="hang_player"]
 [nextpage="exit"]
 [endpage]
+
+[page="bandit_head2a"]
+[colour="#808080"]
+The mayor stares at the head, appalled.
+[colour="#ffffff"]
+
+"By the LORD!  This is no bandit!
+ This is $USERSTR1!
+
+ While I see that you have a holy indulgence to partake
+ in the sin of murder, I beg you ply this hideous trade
+ elsewhere!
+
+ Now leave me be!"
+
+[nextpage="exit"]
+[endpage]
+
 
 
 [page="bandit_head_cow"]
@@ -200,6 +222,10 @@ The mayor stares at the head with disdain.
 
 
 [page="bandit_head_guard"]
+[am_carrying indulgence_plenary]
+[if true][goto="bandit_head_guard2"]
+[am_carrying indulgence_murder]
+[if true][goto="bandit_head_guard2"]
 [colour="#808080"]
 The mayor stares at the head in shock and disbelief.
 [colour="#ffffff"]
@@ -212,10 +238,30 @@ The mayor stares at the head in shock and disbelief.
 [nextpage="exit"]
 [endpage]
 
+[page="bandit_head_guard2"]
+[colour="#808080"]
+The mayor stares at the head, appalled.
+[colour="#ffffff"]
+
+"By the LORD!  This is no bandit!  This is a guard!
+
+ While I see that you have a holy indulgence to partake
+ in the sin of murder, I beg you ply this hideous trade
+ elsewhere!
+
+ Now leave me be!"
+
+[nextpage="exit"]
+[endpage]
+
 
 The player should probably be beheaded for this
 
 [page="bandit_head_clergy"]
+[am_carrying indulgence_plenary]
+[if true][goto="bandit_head_bad"]
+[am_carrying indulgence_murder]
+[if true][goto="bandit_head_bad"]
 [colour="#808080"]
 The mayor stares at the head in shock and disbelief.
 [colour="#ffffff"]
@@ -230,9 +276,30 @@ The mayor stares at the head in shock and disbelief.
 [endpage]
 
 
+[page="bandit_head_bad"]
+[colour="#808080"]
+The mayor's face turns white as he takes in the head.
+[colour="#ffffff"]
+
+"By the LORD!  What have you done?!
+
+ While I see that you have a holy indulgence to partake
+ in the sin of murder, I beg you ply this hideous trade
+ elsewhere!
+
+ Now leave me be!"
+
+[nextpage="exit"]
+[endpage]
+
+
 The player should be beheaded for this
 
 [page="bandit_head_king"]
+[am_carrying indulgence_plenary]
+[if true][goto="bandit_head_bad"]
+[am_carrying indulgence_murder]
+[if true][goto="bandit_head_bad"]
 [colour="#808080"]
 The mayor stares at the head in shock and disbelief.
 [colour="#ffffff"]
@@ -249,13 +316,32 @@ The mayor stares at the head in shock and disbelief.
 The player should definitely be beheaded for this
 
 [page="bandit_head_pope"]
+[am_carrying indulgence_plenary]
+[if true][goto="bandit_head_pope2"]
+[am_carrying indulgence_murder]
+[if true][goto="bandit_head_pope2"]
 [colour="#808080"]
 The mayor takes in the Pope's head and suffers a
 heart attack.
 
 Shortly afterwards, his men escort you to the
-guillotine.  In your last moments, you reflect
-that maybe this wasn't such a good idea.
+guillotine.  In your last moments, you reflect that
+maybe this wasn't such a good idea.
+[colour="#ffffff"]
+
+[call_at_exit="guillotine_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="bandit_head_pope2"]
+[colour="#808080"]
+The mayor takes in the Pope's head and suffers a
+heart attack.
+
+Shortly afterwards, his men escort you to the
+guillotine.  In your last moments, you reflect that
+there are some things even an indulgence can't pardon.
 [colour="#ffffff"]
 
 [call_at_exit="guillotine_player"]
