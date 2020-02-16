@@ -214,6 +214,15 @@ if current.label.race = "headless"
 	return
 endif
 
+if current.label.race = "outlaw"
+	let victim = me
+	set_flag victim IS_HORRIBLE = 0
+	let suspect = current
+	call justice_assault
+	return
+endif
+
+
 
 # Evil must be destroyed
 if current.stats.alignment < 0
