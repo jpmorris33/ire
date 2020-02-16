@@ -2,6 +2,8 @@
 #	Splatter.  Appears on a character or object when they take damage
 #
 
+const SPLAT_DELAY = 250	# was 500
+
 function splat_blood
 
 	object newpos
@@ -15,7 +17,7 @@ function splat_blood
 	force_from_pocket splat from syspocket to newpos.x newpos.y
 	set_sequence splat "splat_blood"
 	redraw_map
-	wait 500 NONBLOCKING
+	wait SPLAT_DELAY NONBLOCKING
 	move_to_pocket splat to syspocket
 
 end
@@ -33,7 +35,7 @@ function splat_spark
 	force_from_pocket splat from syspocket to newpos.x newpos.y
 	set_sequence splat "splat_spark"
 	redraw_map
-	wait 500 NONBLOCKING
+	wait SPLAT_DELAY NONBLOCKING
 	move_to_pocket splat to syspocket
 
 end
