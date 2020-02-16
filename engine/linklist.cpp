@@ -214,10 +214,12 @@ temp->labels = (CHAR_LABELS *)M_get(1,sizeof(CHAR_LABELS));
 temp->labels->rank=NOTHING;
 temp->labels->race=NOTHING;
 temp->labels->party=NOTHING;
-if(in_editor)
+if(in_editor) {
 	temp->labels->location=NULL; // Editor prefers NULL
-else
+} else {
 	temp->labels->location=NOTHING; // Game prefers an empty string
+}
+temp->labels->faction=NOTHING;
 
 // Return the address of the new entry
 return temp;
@@ -1073,6 +1075,7 @@ OB_Funcs(objsel);
 objsel->labels->race=CHlist[ctr].labels->race;
 objsel->labels->rank=CHlist[ctr].labels->rank;
 objsel->labels->party=CHlist[ctr].labels->party;
+objsel->labels->faction=CHlist[ctr].labels->faction;
 
 // Editor-specific things to do with decorative objects
 objsel->user->edecor = CHlist[ctr].user->edecor;
@@ -1186,6 +1189,7 @@ OB_Funcs(objsel);
 objsel->labels->race=obj->labels->race;
 objsel->labels->rank=obj->labels->rank;
 objsel->labels->party=obj->labels->party;
+objsel->labels->faction=obj->labels->faction;
 
 objsel->user->edecor = obj->user->edecor;
 

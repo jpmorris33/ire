@@ -1112,6 +1112,7 @@ for(ctr=start;ctr<=finish;ctr++)
 				character->labels->race=NOTHING;
 				character->labels->party=NOTHING;
 				character->labels->location=NOTHING;
+				character->labels->faction=NOTHING;
 
 				character->funcs->ucache=-1;
 				character->funcs->tcache=-1;
@@ -1672,6 +1673,22 @@ for(ctr=start;ctr<=finish;ctr++)
 				character->labels->location = (char *)strrest(line);
 			continue;
 			}
+
+		if(!istricmp(Rptr,"faction")) {
+			strcpy(Rbuffer,strfirst(strrest(line)));
+			if(Rbuffer[0] == '\"') {  // Quoted text
+				character->labels->faction = strchr(line,'\"'); // start
+				character->labels->faction++;       // skip the quote
+				ptr = strrchr(line,'\"');     // Find last quote
+				if(ptr) {
+					*ptr = 0;                 // blow quote away
+				}
+			} else  {                   // unquoted text
+				character->labels->faction = (char *)strrest(line);
+			}
+			continue;
+		}
+
 
         // Get the character's USE function
 

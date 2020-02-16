@@ -98,7 +98,7 @@ static USEDATA usedata_template;
 static WIELD wield_template;
 static CHAR_LABELS label_template;
 
-long pevm_err=0;
+VMINT pevm_err=0;
 static int funcid=0; // Unique id for functions
 
 static 	char *IRE_VERSION=IKV;
@@ -3611,7 +3611,8 @@ STRUCTURE labelspec[] =
 					{"rank",		's',"R",&label_template.rank,NULL},
 					{"race",		's',"R",&label_template.race,NULL},
 					{"party",		's',"R",&label_template.party,NULL},
-					{"location",	's',"R",&label_template.location,NULL},
+					{"location",		's',"R",&label_template.location,NULL},
+					{"faction",		's',"R",&label_template.faction,NULL},
 					{NULL,			0,NULL,NULL,NULL},
 					};
 

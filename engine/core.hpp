@@ -112,6 +112,7 @@ char *rank;
 char *race;
 char *party;
 char *location;
+char *faction;
 
 } CHAR_LABELS;
 
