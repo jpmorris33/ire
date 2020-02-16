@@ -391,7 +391,7 @@ function decap_attack
 
 	# If they're dead, hack the head off
 	if enemy.stats.hp < 1
-		call decap_attack_corpse
+		call decap_attack_corpse_core
 		return
 	endif
 
@@ -399,6 +399,22 @@ end
 
 
 function decap_attack_corpse
+	object corpse
+	let corpse = attackweapon.enemy
+	let attacker.enemy = corpse
+
+	if_flag corpse KNOW_NAME
+		set_string tempstring = corpse.personalname
+	else
+		set_string tempstring = corpse.shortdesc
+	endif
+	let enemyname = tempstring
+	call decap_attack_corpse_core
+end
+
+
+local
+function decap_attack_corpse_core
 
 	string headobject
 	string bodyobject
@@ -481,6 +497,8 @@ function decap_attack_corpse
 	endif
 
 end
+endlocal
+
 
 ##
 ##  Execute someone, no questions asked
@@ -503,7 +521,7 @@ let enemyname = tempstring
 let attacker.stats.hp = -50
 check_hurt attacker
 let hit_damage = 1
-call decap_attack_corpse
+call decap_attack_corpse_core
 
 end
 
