@@ -2362,6 +2362,10 @@ section: sprites
 	hut04			sprites/hut04.cel
 	hut05			sprites/hut05.cel
 	hut06			sprites/hut06.cel
+	hut07			sprites/hut07.cel
+	hut08			sprites/hut08.cel
+	hut09			sprites/hut09.cel
+	hut10			sprites/hut10.cel
 	hutd00			sprites/hutd00.cel
 	hutd01			sprites/hutd01.cel
 	hutd02			sprites/hutd02.cel
@@ -9841,6 +9845,10 @@ section: sequences
 	quickname HUT04 HUT04
 	quickname HUT05 HUT05
 	quickname HUT06 HUT06
+	quickname HUT07
+	quickname HUT08
+	quickname HUT09
+	quickname HUT10
 
 	name HUTD00
 	post_overlay

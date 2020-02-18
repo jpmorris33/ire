@@ -10579,10 +10579,7 @@ section: characters
 	user1		GOLD_NUGGET
 
 	name HUT00
-	left		HUT00
-	right		HUT00
-	up		HUT00
-	down		HUT00
+	frame		HUT00
 	hp		2000000000
 	weight		-1
 	description	"You see a crude hut."
@@ -10592,89 +10589,35 @@ section: characters
 	spikeproof
 	decorative
 
-	name HUT01
-	left		HUT01
-	right		HUT01
-	up		HUT01
-	down		HUT01
-	hp		2000000000
-	weight		-1
-	description	"You see a crude hut."
-	short		"hut"
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias HUT01 = HUT00
+	frame		HUT01
 
-	name HUT02
-	left		HUT02
-	right		HUT02
-	up		HUT02
-	down		HUT02
-	hp		2000000000
-	weight		-1
-	description	"You see a crude hut."
-	short		"hut"
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias HUT02 = HUT00
+	frame		HUT02
 
-	name HUT03
-	left		HUT03
-	right		HUT03
-	up		HUT03
-	down		HUT03
-	hp		2000000000
-	weight		-1
-	description	"You see a crude hut."
-	short		"hut"
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias HUT03 = HUT00
+	frame		HUT03
 
-	name HUT04
-	left		HUT04
-	right		HUT04
-	up		HUT04
-	down		HUT04
-	hp		2000000000
-	weight		-1
-	description	"You see a crude hut."
-	short		"hut"
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias HUT04 = HUT00
+	frame		HUT04
 
-	name HUT05
-	left		HUT05
-	right		HUT05
-	up		HUT05
-	down		HUT05
-	hp		2000000000
-	weight		-1
-	description	"You see a crude hut."
-	short		"hut"
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias HUT05 = HUT00
+	frame		HUT05
 
-	name HUT06
-	left		HUT06
-	right		HUT06
-	up		HUT06
-	down		HUT06
-	hp		2000000000
-	weight		-1
-	description	"You see a crude hut."
-	short		"hut"
-	solid
-	fixed
-	spikeproof
-	decorative
+	alias HUT06 = HUT00
+	frame		HUT06
+
+	alias HUT07 = HUT00
+	frame		HUT07
+
+	alias HUT08 = HUT00
+	frame		HUT08
+
+	alias HUT09 = HUT00
+	frame		HUT09
+
+	alias HUT10 = HUT00
+	frame		HUT10
 
 	name HUT_DOORWAY
 	left		HUTD03

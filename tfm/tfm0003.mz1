@@ -69731,19 +69731,14 @@ iMZ1r01
 		at 806 774
 		curdir 3
 
-	object FIRE17181647-6078-4da3-b888-ebe18dd7ea8e
-		type FIRE-A
-		at 807 774
-		curdir 1
-
 	object STONbe0cd5ab-0c8a-48c4-8bdf-257a35a84b7a
 		type STONE_ARCHWAY
 		at 807 774
 		curdir 2
 
-	object FIREe91a495f-581f-438d-996d-0c4e02cad77b
+	object FIRE17181647-6078-4da3-b888-ebe18dd7ea8e
 		type FIRE-A
-		at 808 774
+		at 807 774
 		curdir 1
 
 	object STON240b58a0-d344-4827-aab2-66f712daa211
@@ -69751,13 +69746,18 @@ iMZ1r01
 		at 808 774
 		curdir 0
 
-	object FIREf076780e-c65a-439e-83ed-ec4fb37863c7
+	object FIREe91a495f-581f-438d-996d-0c4e02cad77b
 		type FIRE-A
-		at 809 774
-		curdir 0
+		at 808 774
+		curdir 1
 
 	object STON15d9baeb-0b64-48ba-a183-6ce77fb92075
 		type STONE_ARCHWAY2
+		at 809 774
+		curdir 0
+
+	object FIREf076780e-c65a-439e-83ed-ec4fb37863c7
+		type FIRE-A
 		at 809 774
 		curdir 0
 
@@ -70742,6 +70742,11 @@ iMZ1r01
 		at 835 780
 		curdir 0
 
+	object STON7f11ec3d-65db-4912-90f5-f767783f1230
+		type STONE_ARCHWAY2
+		at 852 780
+		curdir 0
+
 	object FIREd1625bc0-25c3-4258-8ac6-0cf9b8f269db
 		type FIRE-A
 		at 852 780
@@ -70752,20 +70757,15 @@ iMZ1r01
 		at 852 780
 		curdir 2
 
-	object STON7f11ec3d-65db-4912-90f5-f767783f1230
-		type STONE_ARCHWAY2
-		at 852 780
-		curdir 0
+	object STONba3d64cb-b960-463c-9147-2ccf7bfb77e0
+		type STONE_ARCHWAY
+		at 853 780
+		curdir 3
 
 	object FIRE1aee914b-0ba9-4410-9edc-cbaa4899189a
 		type FIRE-A
 		at 853 780
 		curdir 2
-
-	object STONba3d64cb-b960-463c-9147-2ccf7bfb77e0
-		type STONE_ARCHWAY
-		at 853 780
-		curdir 3
 
 	object BED_8f58539f-6685-43c5-a13c-d0a7b4b6a34e
 		type BED
@@ -71546,13 +71546,7 @@ iMZ1r01
 		schedule 13 0 LOITER_ATWORK TARG21327444-c956-4d29-8392-eced863cb31e
 		schedule 18 0 EAT_AT_LOCATION TARG8231cbb6-8ce9-42c8-8da1-3dccc1de668f
 		schedule 19 0 SIT_AT_LOCATION TARG1cd6d1fe-e55a-4713-be2d-c054798e803f
-		schedule 22 0 GO_TO_SLEEP BED_8f58539f-6685-43c5-a13c-d0a7b4b6a34e
-
-	object CHAI4d816479-f044-41dc-871b-2601b0612ab3
-		type CHAIR
-		at 855 783
-		curdir 3
-		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+		schedule 22 0 GO_TO_SLEEP BED_8c34096b-6df6-4b6f-b249-f0a88b6f47dc
 
 	object TABLef4cd293-f422-4e60-a014-088737088400
 		type TABLE6-V
@@ -71857,7 +71851,7 @@ iMZ1r01
 
 	object CHAI2996e712-0c03-4446-b3f3-54dbf7387cf5
 		type CHAIR
-		at 847 784
+		at 846 784
 		curdir 1
 
 	object DRAWf834472b-0c63-42d2-ae91-fa0e45f65c41
@@ -72160,6 +72154,12 @@ iMZ1r01
 		curdir 3
 		labels->location Dairy
 
+	object CHAI4d816479-f044-41dc-871b-2601b0612ab3
+		type CHAIR
+		at 855 785
+		curdir 3
+		stats->owner WOMA5b498150-a7c8-4930-af85-f3a938f7d8c4
+
 	object TABL84fe80a5-7678-41c6-9275-a40699765f94
 		type TABLE6-V
 		at 856 785
@@ -72292,12 +72292,6 @@ iMZ1r01
 		curdir 2
 		labels->location MawdorChurch
 		stats->owner PATH1619297c-9bc0-4ce6-b271-c47d2918d97a
-
-	object PATH5c2f3799-18dd-478d-88da-44fa9664f0db
-		type PATHMARKER
-		at 841 786
-		curdir 3
-		labels->location Dairy
 
 	object TABL028bc7b6-63e9-4277-9820-8cbbc01953cd
 		type TABLE-SHADOW2
@@ -72474,12 +72468,32 @@ iMZ1r01
 		labels->location Apothecary
 		stats->owner PATHbc6dd5e2-f14b-48aa-8114-bef4a3e80df8
 
+	object PATH1ea1f3cb-366b-4119-b288-e682163ca2a4
+		type PATHMARKER
+		at 813 787
+		curdir 3
+		labels->location Dairy
+		stats->owner PATHd127abe7-d51d-42c2-84f9-2b4dac60f213
+
+	object PATHd127abe7-d51d-42c2-84f9-2b4dac60f213
+		type PATHMARKER
+		at 827 787
+		curdir 3
+		labels->location Dairy
+		stats->owner PATH5c2f3799-18dd-478d-88da-44fa9664f0db
+
 	object PATH566ee2c5-747b-4345-b907-0aa1dd691e9c
 		type PATHMARKER
 		at 840 787
 		curdir 2
 		labels->location YawningWolf
 		stats->owner PATH3050a877-d292-40b6-a1f4-e49ebf3f4d97
+
+	object PATH5c2f3799-18dd-478d-88da-44fa9664f0db
+		type PATHMARKER
+		at 841 787
+		curdir 3
+		labels->location Dairy
 
 	decorative TREE00 at 900 787
 
@@ -73955,9 +73969,9 @@ iMZ1r01
 		at 831 795
 		curdir 1
 
-	decorative HUT04 at 837 795
+	decorative HUT08 at 837 795
 
-	decorative HUT06 at 841 795
+	decorative HUT08 at 841 795
 
 	object FENC6fc2624e-bf7e-471d-9c8f-649c757b538a
 		type FENCE2
@@ -74079,11 +74093,6 @@ iMZ1r01
 
 	object FIREcad36b63-241f-4757-83a9-d6c1cec213d6
 		type FIRE-A
-		at 808 796
-		curdir 0
-
-	object CAULa9d1dac3-b5e8-4cc1-afe4-99996f6cfd5e
-		type CAULDRON_BROTH
 		at 808 796
 		curdir 0
 
@@ -74281,6 +74290,11 @@ iMZ1r01
 		curdir 0
 		tag 80010
 		labels->location Obeth
+
+	object CAULa9d1dac3-b5e8-4cc1-afe4-99996f6cfd5e
+		type CAULDRON_BROTH
+		at 808 797
+		curdir 0
 
 	object STAI6ab70cfa-5a65-4c4c-8d58-06ec609a5898
 		type STAIRS_DOWN
@@ -76734,30 +76748,30 @@ iMZ1r01
 		at 785 810
 		curdir 2
 
-	object FIRE19f7ed5f-059a-4cb1-9c5b-7a81cf9deae7
-		type FIRE-A
-		at 786 810
-		curdir 1
-
 	object STON20606d99-16fd-4477-9a58-c89ae1444ea4
 		type STONE_ARCHWAY2
 		at 786 810
 		curdir 0
+
+	object FIRE19f7ed5f-059a-4cb1-9c5b-7a81cf9deae7
+		type FIRE-A
+		at 786 810
+		curdir 1
 
 	object CAUL5885335f-e848-4ef9-ba6a-a9ed1701f1a7
 		type CAULDRON_BROTH
 		at 786 810
 		curdir 0
 
-	object FIREe6ee1a74-f349-4a7e-a0cb-c532dbc62e47
-		type FIRE-A
-		at 787 810
-		curdir 1
-
 	object STONc61b043d-5836-4e48-a751-7051e78dbe26
 		type STONE_ARCHWAY
 		at 787 810
 		curdir 3
+
+	object FIREe6ee1a74-f349-4a7e-a0cb-c532dbc62e47
+		type FIRE-A
+		at 787 810
+		curdir 1
 
 	object TABLab41320c-b4e3-4fd1-b377-3cf55e3261c7
 		type TABLE6-H
@@ -77198,19 +77212,6 @@ iMZ1r01
 
 	decorative MOUNT02 at 645 812
 
-	object BED_fbaf4ba1-c22c-4101-88da-3f2112204341
-		type BED
-		at 788 812
-		curdir 0
-		name Kid's bed
-		labels->location TailorsHouse
-
-	object CHAI89b7e2b9-1fe2-4a2b-b144-abf3c8ad8863
-		type CHAIR
-		at 790 812
-		curdir 1
-		name Kid's chair
-
 	object STONa23b1f91-d77c-45b0-b529-bef81af29845
 		type STONEDOOR1_SHUT
 		at 794 812
@@ -77377,11 +77378,24 @@ iMZ1r01
 		name Taylor's bed
 		labels->location TailorsHouse
 
+	object BED_fbaf4ba1-c22c-4101-88da-3f2112204341
+		type BED
+		at 788 813
+		curdir 0
+		name Kid's bed
+		labels->location TailorsHouse
+
 	object TARG19870604-fa8f-4b37-9abe-27975169535e
 		type TARGET
 		at 790 813
 		curdir 1
 		labels->location TailorsHouse
+
+	object CHAI89b7e2b9-1fe2-4a2b-b144-abf3c8ad8863
+		type CHAIR
+		at 790 813
+		curdir 1
+		name Kid's chair
 
 	object TARG15f66e11-ce2d-4fe2-a48e-4d9888dfc97e
 		type TARGET
@@ -78062,6 +78076,12 @@ iMZ1r01
 		type TABLE-SHADOW3
 		at 812 816
 		curdir 3
+
+	object GOLD461b0723-778a-4687-82d5-08d2e3c79c33
+		type GOLD_COINS
+		inside CHES62a76ea8-786a-45ad-afce-4cdd2f8137da
+		curdir 0
+		stats->quantity 90
 
 	object CHES62a76ea8-786a-45ad-afce-4cdd2f8137da
 		type CHEST
