@@ -259,6 +259,13 @@ if hit_damage >= 0
 */
 	check_hurt attacker.enemy
 
+	if_not_exists attacker
+		return
+	endif
+	if_not_exists attacker.enemy
+		return
+	endif
+
 	# Was the attack permitted?
 	if attacker.user.vigilante = 1
 		# Yes, don't involve any Justice
