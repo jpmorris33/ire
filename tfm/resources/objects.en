@@ -4252,10 +4252,6 @@ section: characters
 	blockslight
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name WALL2_EDGE
 	left		WALL2_EDGE_BL
@@ -4270,10 +4266,6 @@ section: characters
 	blockslight
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name WALL3_EDGE
 	left		WALL3_EDGE_BL
@@ -4288,10 +4280,20 @@ section: characters
 	blockslight
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	name WALL4_EDGE
+	left		WALL4_EDGE_BL
+	right		WALL4_EDGE_TR
+	up		WALL4_EDGE_BL
+	down		WALL4_EDGE_TR
+	hp		2000000000
+	weight		-1
+	description	"You see a metal wall."
+	short		"wall"
+	solid
+	blockslight
+	fixed
+	spikeproof
 
 	name CHIMNEY1
 	frame		CHIMNEY1
@@ -6949,10 +6951,6 @@ section: characters
 	blockslight
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name SECRETDOOR1_OPEN
 	left		SECRETDOOR04
@@ -6967,48 +6965,44 @@ section: characters
 	IfKilled	DoorwaySec
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name SECRETDOOR2_SHUT
-	left		SECRETDOOR03
-	right		SECRETDOOR03
-	up		SECRETDOOR00
-	down		SECRETDOOR00
+	alias SECRETDOOR2_SHUT = SECRETDOOR1_SHUT
 	hp		8000
-	weight		-1
-	description	"You see a secret door."
-	short		"wall"
+	IfUsed		-
 	Ifwielded	OPENDOORSECRET2
 	IfKilled	respawn
-	solid
-	blockslight
-	fixed
-	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name SECRETDOOR2_OPEN
-	left		SECRETDOOR04
-	right		SECRETDOOR04
-	up		SECRETDOOR01
-	down		SECRETDOOR01
-	hp		80
-	weight		-1
-	description	"You see a secret door."
-	short		"wall"
+	alias SECRETDOOR2_OPEN = SECRETDOOR1_OPEN
+	hp		8000
+	IfUsed		-
 	IfWielded	CLOSEDOORSECRET2
 	IfKilled	respawn
-	fixed
-	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	alias SECRETDOOR3_SHUT = SECRETDOOR1_SHUT
+	left		SECRETDOOR09
+	right		SECRETDOOR09
+	up		SECRETDOOR06
+	down		SECRETDOOR06
+	IfUsed		OPENDOORSECRET3
+
+	alias SECRETDOOR3_OPEN = SECRETDOOR1_OPEN
+	left		SECRETDOOR10
+	right		SECRETDOOR10
+	up		SECRETDOOR07
+	down		SECRETDOOR07
+	IfUsed		CLOSEDOORSECRET3
+
+	alias SECRETDOOR4_SHUT = SECRETDOOR3_SHUT
+	hp		8000
+	IfUsed		-
+	IfWielded	OPENDOORSECRET3
+	IfKilled	respawn
+
+	alias SECRETDOOR4_OPEN = SECRETDOOR3_OPEN
+	hp		8000
+	IfUsed		-
+	IfWielded	CLOSEDOORSECRET3
+	IfKilled	respawn
 
 	name FONT1
 	left		FONT1

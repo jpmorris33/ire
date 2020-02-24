@@ -792,6 +792,8 @@ section: sprites
 	wall2_edge_tr		sprites/walledg6.cel
 	wall2_edge_b		sprites/walledg7.cel
 	wall2_edge_r		sprites/walledg8.cel
+	wall4_edge_tr		sprites/walledg9.cel
+	wall4_edge_bl		sprites/walledga.cel
 	arkcov00		sprites/arkcov00.cel
 	arkcov01		sprites/arkcov01.cel
 	arkcov02		sprites/arkcov02.cel
@@ -1744,6 +1746,12 @@ section: sprites
 	secretdoor03		sprites/secret03.cel
 	secretdoor04		sprites/secret04.cel
 	secretdoor05		sprites/secret05.cel
+	secretdoor06		sprites/secret06.cel
+	secretdoor07		sprites/secret07.cel
+	secretdoor08		sprites/secret08.cel
+	secretdoor09		sprites/secret09.cel
+	secretdoor10		sprites/secret10.cel
+	secretdoor11		sprites/secret11.cel
 	font1			sprites/font1.cel
 	poorbox1		sprites/poorbox1.cel
 	poorbox2		sprites/poorbox2.cel
@@ -7175,6 +7183,9 @@ section: sequences
 	oversprite WALL3_EDGE_B metalwall_b
 	oversprite WALL3_EDGE_R metalwall_r
 
+	oversprite WALL4_EDGE_BL WALL4_EDGE_BL
+	oversprite WALL4_EDGE_TR WALL4_EDGE_TR
+
 	quickname metaltop metaltop
 
 	quickname ARKOFCOVENANT_SHUT ARKCOV00
@@ -8249,6 +8260,27 @@ section: sequences
 	#1 frames
 		SECRETDOOR04
 	end
+
+	quickname SECRETDOOR06 SECRETDOOR06
+
+	name SECRETDOOR07
+	post_overlay
+	overlay SECRETDOOR08
+	framelist:
+	#1 frames
+		SECRETDOOR07
+	end
+
+	quickname SECRETDOOR09 SECRETDOOR09
+
+	name SECRETDOOR10
+	post_overlay
+	overlay SECRETDOOR11
+	framelist:
+	#1 frames
+		SECRETDOOR10
+	end
+
 	quickname FONT1 FONT1
 	quickname POORBOX1 POORBOX1
 	quickname POORBOX2 POORBOX2

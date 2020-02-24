@@ -296,6 +296,16 @@ change current = "SecretDoor2_shut"
 object_sound "shut_door" current
 end
 
+function OpenDoorSecret3
+change current = "SecretDoor3_open"
+object_sound "open_door" current
+end
+
+function CloseDoorSecret3
+change current = "SecretDoor3_shut"
+object_sound "shut_door" current
+end
+
 
 function OpenDoorC1
 change current = "cagedoor_open"
