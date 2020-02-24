@@ -13965,6 +13965,11 @@ iMZ1r01
 		at 156 397
 		curdir 3
 
+	object WALLcdb75db3-1278-4bba-ac78-9680d93723ef
+		type WALL4_EDGE
+		at 171 397
+		curdir 3
+
 	object TORCe21a53f4-1bb5-4963-922d-37b5d0b8f83a
 		type TORCH
 		at 295 397
@@ -14105,6 +14110,66 @@ iMZ1r01
 		at 157 398
 		curdir 3
 
+	object STONcaffa355-e7fb-41d7-b202-5f5b46022a66
+		type STONE_MASK
+		at 165 398
+		curdir 2
+
+	object PIPE035d1005-71b1-41f2-8cc9-ccb81e9ba134
+		type PIPES_04
+		at 165 398
+		curdir 0
+
+	object STON566f8fa1-7753-4a27-a9b5-359659322da1
+		type STONE_MASK
+		at 166 398
+		curdir 0
+
+	object PIPE6d905b1a-5d40-4162-b68a-d899de142ec4
+		type PIPES_00
+		at 166 398
+		curdir 2
+
+	object STONbbbc7a4c-98cd-4643-97c2-60e4986039da
+		type STONE_MASK
+		at 167 398
+		curdir 0
+
+	object PIPEbe0e3031-ba79-4181-9478-03372c97dbf8
+		type PIPES_00
+		at 167 398
+		curdir 2
+
+	object STON7def94c5-5ff4-4c41-a714-756a64183ebb
+		type STONE_MASK
+		at 168 398
+		curdir 0
+
+	object PIPE52494295-302c-4084-8ef4-3e2e230e19eb
+		type PIPES_05
+		at 168 398
+		curdir 0
+
+	object STONf69578a0-9b25-494a-bbc4-82a4b2b19521
+		type STONE_MASK
+		at 169 398
+		curdir 0
+
+	object PIPE9592c253-810f-4738-b572-3c5384ac0ab6
+		type PIPES_00
+		at 169 398
+		curdir 2
+
+	object STON0a63d002-71b0-4eb1-b47c-e488230f4098
+		type STONE_MASK
+		at 170 398
+		curdir 3
+
+	object PIPE1661d511-acc2-4c40-8c2d-4223f417175b
+		type PIPES_00
+		at 170 398
+		curdir 2
+
 	object DIRTee1575a2-a556-493a-a577-9bdf3833fba9
 		type DIRT1
 		at 293 398
@@ -14168,6 +14233,74 @@ iMZ1r01
 		type TABLE-SHADOW3
 		at 151 399
 		curdir 3
+
+	object PIPEcaaeded3-a6e7-4c7b-8e29-dae06417108b
+		type PIPES_03
+		at 164 399
+		curdir 2
+
+	object PIPEbbe2e690-b600-4a84-af23-e24f7b68d05b
+		type PIPES_02
+		at 164 399
+		curdir 2
+
+	object STON7ccc7ee9-5920-4545-9a83-ad5fc7dbe18e
+		type STONE_MASK2
+		at 165 399
+		curdir 2
+
+	object PIPE421ec3f6-2c95-4519-9900-e79047d95d6a
+		type PIPES_05
+		at 165 399
+		curdir 3
+
+	object PIPEda32d47a-710c-42b8-a03c-78e020e424f0
+		type PIPES_00
+		at 166 399
+		curdir 2
+
+	object RADI107ca67b-58f2-4d9f-95b3-c8baeec8a2d8
+		type RADIATION
+		at 166 399
+		curdir 2
+		activity RADIATION_DAMAGE
+
+	object PIPE51d84d45-c6ce-4559-9ab1-36c52aeb632d
+		type PIPES_05
+		at 167 399
+		curdir 0
+
+	object PIPE408a5154-753d-49d4-ab60-bac13e25321f
+		type PIPES_05
+		at 168 399
+		curdir 1
+
+	object RADI1497b72c-6326-46c8-86c9-8d8fa6846e4e
+		type RADIATION
+		at 168 399
+		curdir 2
+		activity RADIATION_DAMAGE
+
+	object PIPE4de16fff-32c0-4afa-944e-4404ef016d93
+		type PIPES_05
+		at 169 399
+		curdir 0
+
+	object STON7aa4a773-01dc-40e7-b3ad-834c5bcbaa2f
+		type STONE_MASK2
+		at 170 399
+		curdir 3
+
+	object PIPEbce99748-c63b-403d-978e-47a6ad6b7022
+		type PIPES_00
+		at 170 399
+		curdir 2
+
+	object RADIfd5a1201-0618-44c4-b10e-a8090497dbea
+		type RADIATION
+		at 170 399
+		curdir 2
+		activity RADIATION_DAMAGE
 
 	object TABL57fb3edc-5ee0-4665-89a9-53ae07875082
 		type TABLE6-H
@@ -14263,6 +14396,69 @@ iMZ1r01
 		type PRINTOUT01
 		at 148 400
 		curdir 3
+
+	object PIPEc45ef9d0-93c8-499e-b439-a3ed78ad6a0c
+		type PIPES_01
+		at 164 400
+		curdir 1
+
+	object STONdfbfca7e-ea90-4bce-967f-ecfe5e074fea
+		type STONE_MASK2
+		at 165 400
+		curdir 2
+
+	object PIPE2605c1cf-8d9f-4daa-bdb7-f6247736af49
+		type PIPES_05
+		at 165 400
+		curdir 3
+
+	object PIPEecddd467-3951-4640-baa8-0bc4047208ad
+		type PIPES_00
+		at 166 400
+		curdir 2
+
+	object RADI659188ee-b9a1-42ab-8ace-a3ba3d76caec
+		type RADIATION
+		at 166 400
+		curdir 2
+		activity RADIATION_DAMAGE
+
+	object PIPE04e68c6c-8923-43eb-a4d0-a06dbb0aaf8c
+		type PIPES_05
+		at 167 400
+		curdir 1
+
+	object PIPE56f1292f-0d01-473d-bd82-b57d41c7d5cb
+		type PIPES_05
+		at 168 400
+		curdir 0
+
+	object RADI58c3375d-becd-49e1-9804-a547311c4bd4
+		type RADIATION
+		at 168 400
+		curdir 2
+		activity RADIATION_DAMAGE
+
+	object PIPEc6f60cae-6658-4bdf-8de1-970b5a8742fb
+		type PIPES_05
+		at 169 400
+		curdir 1
+
+	object STON94448ede-d94f-42a7-b3b7-a0442bd57c6b
+		type STONE_MASK2
+		at 170 400
+		curdir 3
+
+	object PIPEf1e79f7c-fbe5-4144-b019-b49af657e339
+		type PIPES_00
+		at 170 400
+		curdir 2
+
+	object RADI23cb6b99-67da-44e9-9e24-b5318359649c
+		type RADIATION
+		at 170 400
+		curdir 2
+		activity RADIATION_DAMAGE
 
 	object TORC403405bf-c34a-4327-959c-2a9226a7d81c
 		type TORCH
@@ -14363,6 +14559,71 @@ iMZ1r01
 		curdir 0
 		funcs->talk books/church/lord.txt
 
+	object PIPE58ba3792-3325-42e3-929e-150278c58b2f
+		type PIPES_03
+		at 164 401
+		curdir 1
+
+	object STON92c08723-b0fb-42f8-b3ec-9c21ee5df9cb
+		type STONE_MASK3
+		at 165 401
+		curdir 2
+
+	object PIPE05e0c7f7-6e48-4302-a707-eaeb209d7fd5
+		type PIPES_04
+		at 165 401
+		curdir 2
+
+	object STON9100a8b9-a9e6-4007-986e-f8766ce08841
+		type STONE_MASK
+		at 166 401
+		curdir 1
+
+	object PIPE809e0ee2-84a1-4018-aac8-199b5e6236e2
+		type PIPES_00
+		at 166 401
+		curdir 2
+
+	object STON76c39384-4234-4dcb-b0f7-55d8dbde4e67
+		type STONE_MASK
+		at 167 401
+		curdir 1
+
+	object PIPE0e2a04dd-62d1-4eb5-ba32-d8f0412c2a7e
+		type PIPES_00
+		at 167 401
+		curdir 2
+
+	object STON6d4da3be-023e-4808-8ab8-d37436214236
+		type STONE_MASK
+		at 168 401
+		curdir 1
+
+	object PIPE3cf7cda9-293e-4981-b77f-2a7bdf4bf63c
+		type PIPES_05
+		at 168 401
+		curdir 1
+
+	object STONe48bb9fb-11b4-441d-8027-a8c5f57525e9
+		type STONE_MASK
+		at 169 401
+		curdir 1
+
+	object PIPEae59f7b5-b4c4-46d5-8523-82c7d2850966
+		type PIPES_00
+		at 169 401
+		curdir 2
+
+	object STONdc2527e4-de82-482a-97ea-08914ed4f016
+		type STONE_MASK3
+		at 170 401
+		curdir 3
+
+	object PIPE34ff4f1b-6d96-4133-84e9-fe4371dfabf8
+		type PIPES_00
+		at 170 401
+		curdir 2
+
 	object FORG5aae6f81-fd8b-4bf6-b431-3930805c592e
 		type FORGE
 		at 295 401
@@ -14442,6 +14703,33 @@ iMZ1r01
 		type PRINTOUT01
 		at 157 402
 		curdir 2
+
+	object DATAaa569d8b-ea28-48ad-9952-e0bad46ecdd3
+		type DATAPANEL2
+		at 164 402
+		curdir 2
+
+	object DATAfec28247-014e-41e5-8d14-7379e8b3c335
+		type DATAPANEL2
+		at 165 402
+		curdir 0
+
+	object DATA7ffcb814-93ea-4d63-bf22-f33a8392fee9
+		type DATAPANEL2
+		at 166 402
+		curdir 3
+
+	object HITEbbac0113-be42-4c09-9139-0c7e16669e90
+		type HITECH_DOOR2_SHUT
+		at 167 402
+		curdir 0
+
+	object LIGHd7822e2a-72de-40fe-b5f9-8f08e17818fa
+		type LIGHT_SWITCH
+		at 169 402
+		curdir 0
+		stats->owner HITEbbac0113-be42-4c09-9139-0c7e16669e90
+		funcs->use CALLWIELD_OWNER
 
 	object BLOO9dd093fe-1c38-409b-a4c4-a84f09e2985c
 		type BLOOD01
@@ -14660,6 +14948,33 @@ iMZ1r01
 		at 157 404
 		curdir 3
 
+	object WALL1ecff2dc-206f-4212-b76d-af48c1e986f3
+		type WALL2_EDGE
+		at 161 404
+		curdir 1
+
+	object RADS9ebee23c-7932-4d43-be1a-bc8cc9b479bb
+		type RADSIGN
+		at 166 404
+		curdir 0
+
+	object HITEb11ec158-ad88-47b1-9964-b8a886c94102
+		type HITECH_DOOR2_SHUT
+		at 167 404
+		curdir 0
+
+	object RADSabe395c5-6714-40b7-b373-c4ec6ffae9d7
+		type RADSIGN
+		at 169 404
+		curdir 0
+
+	object LIGHdc47d224-2932-4245-b2af-7756a5c7f21d
+		type LIGHT_SWITCH
+		at 170 404
+		curdir 0
+		stats->owner HITEb11ec158-ad88-47b1-9964-b8a886c94102
+		funcs->use CALLWIELD_OWNER
+
 	object TORC705e18e8-68dd-424f-9f42-30ac9539ea8d
 		type TORCH
 		at 292 404
@@ -14741,6 +15056,11 @@ iMZ1r01
 		type PLANT1
 		at 157 405
 		curdir 3
+
+	object SECR003b2083-1a45-4205-a393-4f4f8a8bd451
+		type SECRETDOOR3_SHUT
+		at 158 405
+		curdir 2
 
 	object TRAPb3f178d0-f69f-4481-9bf1-3f1878ec9c43
 		type TRAP_RADIUS
@@ -14960,6 +15280,11 @@ iMZ1r01
 		at 304 406
 		curdir 3
 
+	object WALLca7a91db-1c66-4c6c-ac30-d0210b9103ca
+		type WALL2_EDGE
+		at 161 407
+		curdir 1
+
 	object STAId5cd6a1c-0836-4a89-bfec-1d5638f0c498
 		type STAIRS_DOWN
 		at 206 407
@@ -14971,6 +15296,12 @@ iMZ1r01
 		at 207 407
 		curdir 1
 		tag 35
+
+	object LIGH04a6beea-d8f7-4bb0-b2dd-f0cbfe5d199c
+		type LIGHT_SWITCH
+		at 149 408
+		curdir 2
+		tag 57
 
 	object STON27779100-eb33-4cb8-b8e4-b92f9cc8dac6
 		type STONEDOOR4_SHUT

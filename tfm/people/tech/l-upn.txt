@@ -65,7 +65,7 @@ You see Lupin, the wolf android.
 
 [page="job"]
 
-"Unlike the cyberjags,I have hands rather than paws
+"Unlike the cyberjags, I have hands rather than paws
  and am capable of performing delicate adjustments.
 
  This makes us valuable for maintaining the aircraft
@@ -189,8 +189,8 @@ lupine despondency.
  Argus sent him to spy on the humans.  Such missions
  are the purpose we were built for, after all.  And
  before you say that a shiny black wolf-man with
- glowing red eyes isn't stealth, I must stress that we
- are equipped with invisibility field generators.
+ glowing red eyes isn't stealthy, I must stress that
+ we are equipped with invisibility field generators.
 
  However, this appears to have been insufficient as he
  never returned and we are convinced he was captured.
