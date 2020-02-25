@@ -29,7 +29,7 @@ extern void Init_Font();                // Set up the console font
 extern void Init_VRM(int id);           // Load in a single VRM
 extern void Init_PE(int pos);			// Register a PE function
 extern void Init_Funcs();               // Init functions for all characters1
-extern void InitFuncsFor(OBJECT *o,int rebuild);// Assign VRM to CHlist.funcs entries
+extern void InitFuncsFor(OBJECT *o);	// Assign VRM to CHlist.funcs entries
 extern void Init_Areas(OBJECT *o);      // Set up subwidth and subheight
 extern void CalcSize(OBJECT *objsel);   // Calculate object size in tiles
 

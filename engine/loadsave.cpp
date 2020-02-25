@@ -1562,7 +1562,7 @@ for(ptr=MasterList;ptr;ptr=ptr->next)
 					ptr->ptr->schedule[ctr2].target.objptr =resolveObject(&ptr->ptr->schedule[ctr2].target);
 			}
 
-		InitFuncsFor(ptr->ptr,0);
+		InitFuncsFor(ptr->ptr);
 		OB_Funcs(ptr->ptr);
 		}
 

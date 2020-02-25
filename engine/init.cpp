@@ -85,6 +85,7 @@ static int CMP_search_DTI(const void *a,const void *b);
 static int CMP_search_DTS(const void *a,const void *b);
 static int GetAvg(IREBITMAP *bmp);
 static IRESPRITE *LoadCachedImage(char *fname, VMINT *avcol);
+static bool resolveFuncs(char *func, VMINT *cache, const char *description);
 
 // code
 
@@ -424,7 +425,29 @@ if(Sysfunc_restarted == UNDEFINED)
 	ilog_quiet("Did not find system function 'sys_restarted', continuing anyway\n");
 
 for(ctr=0;ctr<CHtot;ctr++)
-	InitFuncsFor(&CHlist[ctr],0);
+	InitFuncsFor(&CHlist[ctr]);
+}
+
+
+
+bool resolveFuncs(char *func, VMINT *cache, const char *description) {
+int funcID;
+if(!func[0]) {
+	return false;
+}
+if(!strcmp(func,"-")) {
+	*func=0;	// Stop it looking them up again later
+	return false;
+}
+
+funcID = getnum4PE(func);
+if(funcID == UNDEFINED) {
+	Bug("%s: Did not find function '%s'.  Ignoring\n",description,func);
+	*cache = -1;
+	return false;
+}
+*cache = funcID;
+return true;
 }
 
 /*
@@ -432,258 +455,44 @@ for(ctr=0;ctr<CHtot;ctr++)
  *						 Called by Init_Funcs and somewhere in loadsave.cpp
  */
 
-void InitFuncsFor(OBJECT *o, int rebuild)
+void InitFuncsFor(OBJECT *o)
 {
-char *str;
-int tmp,objtype=0;
+// Find the given USE function in the VRM list and put it in the Ucache
+resolveFuncs(o->funcs->use, &o->funcs->ucache, "use");
 
-if(rebuild)
-	objtype=getnum4char(o->name);
+// Find a STAND function in the VRM list and put it in the Scache
+if(!resolveFuncs(o->funcs->stand, &o->funcs->scache, "stand")) {
+	// Switch off the trigger bit if none found
+	o->flags &= ~IS_TRIGGER;
+}
 
-    // Find the given USE function in the VRM list and put it in the Ucache
-    str = o->funcs->use;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp == UNDEFINED)
-            {
-            Bug("use: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->ucache = -1;
-			if(rebuild)
-				{
-				o->funcs->ucache = CHlist[objtype].funcs->ucache;
-				strcpy(o->funcs->use,CHlist[objtype].funcs->use);
-				}
-            }
-        else
-            o->funcs->ucache = tmp;
-        }
-    else
-		{
-		o->funcs->ucache = -1;
-		}
+// Find the given LOOK function in the VRM list and put it in the Lcache
+resolveFuncs(o->funcs->look, &o->funcs->lcache, "look");
 
-    // Find a STAND function in the VRM list and put it in the Scache
-    // Switch off the trigger bit if none found
+// Find the given KILLED function in the VRM list and put it in the Kcache
+// If none, the engine will just vanish the dead thing
+resolveFuncs(o->funcs->kill, &o->funcs->kcache, "kill");
 
-	str = o->funcs->stand;
-	if(str[0])
-		{
-		tmp = getnum4PE(str);
-		if(tmp == UNDEFINED)
-			{
-			Bug("stand: Did not find function '%s'.  Ignoring\n",str);
-			o->funcs->scache = -1;
-			if(rebuild)
-				{
-				o->funcs->scache = CHlist[objtype].funcs->scache;
-				strcpy(o->funcs->stand,CHlist[objtype].funcs->stand);
-				}
-			else
-				o->flags &= ~IS_TRIGGER;
-			}
-		else
-			o->funcs->scache = tmp;
-		}
-	else
-		o->flags &= ~IS_TRIGGER;
+// Find the given HURT function in the VRM list and put it in the Hcache
+resolveFuncs(o->funcs->hurt, &o->funcs->hcache, "hurt");
 
-    // Find the given LOOK function in the VRM list and put it in the Lcache
+// Find the given WIELD function in the VRM list and put it in the Wcache
+resolveFuncs(o->funcs->wield, &o->funcs->wcache, "wield");
 
-    str = o->funcs->look;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp==UNDEFINED)
-            {
-            Bug("look: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->lcache = -1;
-			if(rebuild)
-				{
-				o->funcs->lcache = CHlist[objtype].funcs->lcache;
-				strcpy(o->funcs->look,CHlist[objtype].funcs->look);
-				}
-            }
-        else
-            o->funcs->lcache = tmp;
-        }
-    else
-        o->funcs->lcache = -1;
+// Find the given INIT function in the VRM list and put it in the Icache
+resolveFuncs(o->funcs->init, &o->funcs->icache, "init");
 
-    // Find the given KILLED function in the VRM list and put it in the Kcache
-    // If none, the engine will just vanish the dead thing
+// Find an ATTACK function in the VRM list and put it in the Acache
+resolveFuncs(o->funcs->attack, &o->funcs->acache, "attack");
 
-    str = o->funcs->kill;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp == UNDEFINED)
-            {
-            Bug("kill: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->kcache = -1;
-			if(rebuild)
-				{
-				o->funcs->kcache = CHlist[objtype].funcs->kcache;
-				strcpy(o->funcs->kill,CHlist[objtype].funcs->kill);
-				}
-            }
-        else
-            o->funcs->kcache = tmp;
-        }
-    else
-        o->funcs->kcache = -1;
+// Find the given HORROR function in the VRM list and put it in the HRcache
+resolveFuncs(o->funcs->horror, &o->funcs->hrcache, "horror");
 
-    // Find the given HURT function in the VRM list and put it in the Hcache
-    str = o->funcs->hurt;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp == UNDEFINED)
-            {
-            Bug("hurt: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->hcache = -1;
-			if(rebuild)
-				{
-				o->funcs->hcache = CHlist[objtype].funcs->hcache;
-				strcpy(o->funcs->hurt,CHlist[objtype].funcs->hurt);
-				}
-            }
-        else
-            o->funcs->hcache = tmp;
-        }
-    else
-        o->funcs->hcache = -1;
+// Find the given Quantity Change function in the VRM list and put it in the HRcache
+resolveFuncs(o->funcs->quantity, &o->funcs->qcache, "quantity");
 
-    // Find the given WIELD function in the VRM list and put it in the Wcache
-    str = o->funcs->wield;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp == UNDEFINED)
-		{
-		Bug("wield: Did not find function '%s'.  Ignoring\n",str);
-		o->funcs->wcache = -1;
-		if(rebuild)
-			{
-			o->funcs->wcache = CHlist[objtype].funcs->wcache;
-			strcpy(o->funcs->wield,CHlist[objtype].funcs->wield);
-			}
-		}
-        else
-		o->funcs->wcache = tmp;
-        }
-    else
-        o->funcs->wcache = -1;
-
-    // Find the given INIT function in the VRM list and put it in the Icache
-    str = o->funcs->init;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp == UNDEFINED)
-            {
-            Bug("init: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->icache = -1;
-			if(rebuild)
-				{
-				o->funcs->icache = CHlist[objtype].funcs->icache;
-				strcpy(o->funcs->init,CHlist[objtype].funcs->init);
-				}
-            }
-        else
-            o->funcs->icache = tmp;
-        }
-    else
-        o->funcs->icache = -1;
-
-    // Find an ATTACK function in the VRM list and put it in the Acache
-
-	str = o->funcs->attack;
-	if(str[0])
-		{
-		tmp = getnum4PE(str);
-		if(tmp == UNDEFINED)
-			{
-			Bug("attack: Did not find function '%s'.  Ignoring\n",str);
-			o->funcs->acache = -1;
-			if(rebuild)
-				{
-				o->funcs->acache = CHlist[objtype].funcs->acache;
-				strcpy(o->funcs->attack,CHlist[objtype].funcs->attack);
-				}
-			}
-		else
-			o->funcs->acache = tmp;
-		}
-	else
-		o->funcs->acache = -1;
-
-    // Find the given HORROR function in the VRM list and put it in the HRcache
-    str = o->funcs->horror;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp == UNDEFINED)
-            {
-            Bug("horror: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->hrcache = -1;
-			if(rebuild)
-				{
-				o->funcs->hrcache = CHlist[objtype].funcs->hrcache;
-				strcpy(o->funcs->horror,CHlist[objtype].funcs->horror);
-				}
-            }
-        else
-            o->funcs->hrcache = tmp;
-        }
-    else
-        o->funcs->hrcache = -1;
-
-    // Find the given Quantity Change function in the VRM list and put it in the HRcache
-
-    str = o->funcs->quantity;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp==UNDEFINED)
-            {
-            Bug("look: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->qcache = -1;
-			if(rebuild)
-				{
-				o->funcs->qcache = CHlist[objtype].funcs->qcache;
-				strcpy(o->funcs->quantity,CHlist[objtype].funcs->quantity);
-				}
-            }
-        else
-            o->funcs->qcache = tmp;
-        }
-    else
-        o->funcs->qcache = -1;
-
-    // Find the given IfGet function in the VRM list and put it in the HRcache
-
-    str = o->funcs->get;
-    if(str[0])
-        {
-        tmp = getnum4PE(str);
-        if(tmp==UNDEFINED)
-            {
-            Bug("look: Did not find function '%s'.  Ignoring\n",str);
-            o->funcs->gcache = -1;
-		if(rebuild)
-			{
-			o->funcs->gcache = CHlist[objtype].funcs->gcache;
-			strcpy(o->funcs->get,CHlist[objtype].funcs->get);
-			}
-            }
-        else
-            o->funcs->gcache = tmp;
-        }
-    else
-        o->funcs->gcache = -1;
-
-
+// Find the given Quantity Change function in the VRM list and put it in the HRcache
+resolveFuncs(o->funcs->get, &o->funcs->gcache, "get");
 }
 
 
@@ -891,33 +700,42 @@ int getnum4PE_slow(const char *name)
 {
 int ctr;
 
-if(editarea[0])  // Are we the Area Editor?
+if(!strcmp(name,"-")) {
+	return UNDEFINED;
+}
+if(editarea[0]) {  // Are we the Area Editor?
 	return 0;
+}
 
-if(PEtot <1)
+if(PEtot <1) {
 	ithe_panic("getnum4PE called before any scripts defined",NULL);
+}
 
 // Fast search first
 
-for(ctr=0;ctr<PEtot;ctr++)
-	if(!PElist[ctr].hidden)
-		if(!istricmp(name,PElist[ctr].name))
+for(ctr=0;ctr<PEtot;ctr++) {
+	if(!PElist[ctr].hidden) {
+		if(!istricmp(name,PElist[ctr].name)) {
 			return ctr;
+		}
+	}
+}
 
 // Not found.  Is it a local function?
 
-for(ctr=0;ctr<PEtot;ctr++)
-	if(!istricmp(name,PElist[ctr].name))
-		if(PElist[ctr].hidden)
-			{
+for(ctr=0;ctr<PEtot;ctr++) {
+	if(!istricmp(name,PElist[ctr].name)) {
+		if(PElist[ctr].hidden) {
 			Bug("PE script '%s' is local.. can't call it directly\n",name);
-			return -1;
-			}
+			return UNDEFINED;
+		}
+	}
+}
 
 // It simply doesn't exist..
 
 Bug("PE script '%s' not found\n",name);
-return -1;
+return UNDEFINED;
 }
 
 
@@ -1214,23 +1032,29 @@ int getnum4PE(const char *name)
 {
 search_st *p;
 
-if(editarea[0])  // Are we the Area Editor?
-	return 0;
 
-if(!scripts)
-	return -1;
+if(editarea[0]) {  // Are we the Area Editor?
+	return 0;
+}
+
+if(!scripts) {
+	return UNDEFINED;
+}
+
+if(!strcmp(name,"-")) {
+	return UNDEFINED;
+}
+
 
 p = FIND(name,scripts,PEtot);
-if(p)
-	{
-	if(PElist[p->num].hidden)
-		{
+if(p) {
+	if(PElist[p->num].hidden) {
 		Bug("PE script '%s' is local.. can't call it directly\n",name);
-		return -1;
-		}
-	return p->num;
+		return UNDEFINED;
 	}
-return -1;
+	return p->num;
+}
+return UNDEFINED;
 }
 
 
