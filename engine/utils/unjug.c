@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdbool.h> 
 #include <errno.h> 
+#include <time.h> 
+#include <utime.h> 
 
 #include <sys/stat.h> 
 
@@ -14,6 +16,7 @@ void F_error(const char *e,const char *e2);
 void copyfile(FILE *fpi, FILE *fpo, int32_t len);
 bool doesDirExist(const char *path);
 bool makePath(const char *path);
+void setFileTime(const char *path, JUGFILE_ENTRY *jug);
 
 unsigned char databuf[BLOCKLEN];
 char *jugname;
@@ -69,6 +72,7 @@ do {
 		copyfile(fpi,fpo,jug.len);
 		fclose(fpo);
 		printf("wrote %s   [%d bytes]\n",outpath, jug.len);
+		setFileTime(outpath, &jug);
 		total += jug.len;
 	}
 
@@ -169,4 +173,23 @@ switch (errno) {
 	default:
 	return false;
 }
+}
+
+
+void setFileTime(const char *path, JUGFILE_ENTRY *jug) {
+struct utimbuf ut;
+time_t t;
+struct tm tp;
+
+memset(&tp,0,sizeof(tp));
+tp.tm_hour = jug->hour;
+tp.tm_min = jug->min;
+tp.tm_mday = jug->day;
+tp.tm_mon = jug->month-1;
+tp.tm_year = jug->year - 1900;
+
+t = mktime(&tp);
+ut.actime = t;
+ut.modtime = t;
+utime(path, &ut);
 }
