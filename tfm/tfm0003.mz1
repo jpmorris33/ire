@@ -38307,13 +38307,6 @@ iMZ1r01
 		at 657 551
 		curdir 2
 
-	object TARG733e9138-a50f-49cd-8a91-77349c9be533
-		type TARGET
-		at 752 551
-		curdir 2
-		name Map 2 transfer point
-		tag 11002
-
 	object FENCecc824c5-86dd-4b2e-9a76-c4c5fc79f6fa
 		type FENCE
 		at 786 551
@@ -38421,12 +38414,12 @@ iMZ1r01
 		at 657 552
 		curdir 2
 
-	object TARG893a4482-7f07-42fb-9ba9-1f2b6c2cafcd
+	object TARG733e9138-a50f-49cd-8a91-77349c9be533
 		type TARGET
-		at 716 552
+		at 752 552
 		curdir 2
-		name Map 1 transfer point
-		tag 11001
+		name Map 2 transfer point
+		tag 11002
 
 	decorative TREE00 at 786 552
 
@@ -38517,6 +38510,13 @@ iMZ1r01
 		type FENCE
 		at 657 553
 		curdir 2
+
+	object TARG893a4482-7f07-42fb-9ba9-1f2b6c2cafcd
+		type TARGET
+		at 716 553
+		curdir 2
+		name Map 1 transfer point
+		tag 11001
 
 	object FENCa7b73360-8ede-4c50-a39a-1ffa7e0e019d
 		type FENCE
@@ -38902,6 +38902,20 @@ iMZ1r01
 		type FENCE
 		at 657 557
 		curdir 2
+
+	object TARGbd27be6e-5164-4d54-8a21-129c918288fb
+		type TARGET
+		at 719 557
+		curdir 2
+		name Map 1 player landing
+		tag 11101
+
+	object TARGb6c5d11a-6ef0-4eb5-a1f4-dc91d0d346d8
+		type TARGET
+		at 756 557
+		curdir 2
+		name Map 2 player landing
+		tag 11102
 
 	decorative TREE00 at 786 557
 
@@ -42183,7 +42197,7 @@ iMZ1r01
 		curdir 2
 		name War copy
 		tag 11002
-		funcs->talk /people/demons/war.txt
+		funcs->talk /people/demons/war2.txt
 		schedule 0 0 AIRTRAVEL_HIDEVISITOR -
 
 	object FENC429fd2d9-ace2-4efe-8860-fdd105861e7f
@@ -43016,7 +43030,7 @@ iMZ1r01
 		curdir 2
 		name Watson copy
 		tag 11001
-		funcs->talk /people/demons/watson.txt
+		funcs->talk /people/demons/watson2.txt
 		schedule 0 0 AIRTRAVEL_HIDEVISITOR -
 
 	decorative TREE03 at 510 602
@@ -52748,6 +52762,12 @@ iMZ1r01
 	decorative TREE01 at 926 655
 
 	decorative TREE00 at 927 655
+
+	object LEVEb6c1ac25-8cfa-4fef-972d-037f8550653a
+		type LEVER2
+		at 987 655
+		curdir 0
+		funcs->use ENABLE_AIRTRAVEL
 
 	decorative TREE01 at 615 656
 

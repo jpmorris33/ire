@@ -1,0 +1,10 @@
+Fake War on another map.  Don't say much to help maintain the charade
+
+
+[page="start"]
+[image="f16v2.pcx"]
+
+"There you go!  I'll be heading back to Panavius now..."
+
+[nextpage="exit"]
+[endpage]

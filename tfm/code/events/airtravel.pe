@@ -8,6 +8,8 @@ int airtravel_destmap = 0
 
 local
 int oldmap
+const JETDEST_BASE = 11000
+const PLAYERDEST_BASE = 11100
 endlocal
 
 
@@ -64,6 +66,12 @@ int tag
 
 # Not while the player is onscreen
 if_onscreen me
+	return
+endif
+
+# Make sure they're out of range
+get_distance tag = me player
+if tag < 16
 	return
 endif
 
@@ -126,23 +134,22 @@ private
 int tag
 
 get_mapno oldmap
-let tag = 11000 + oldmap
+let tag = PLAYERDEST_BASE + oldmap
 
-fade_out
 play_sound "flyover"
+fade_out
 
-# FIXME: Add separate target for player landing, e.g. 11000
 change_map airtravel_destmap at tag
 
-# FIXME: Need to run this as a callback after loading map!
-# FIXME: This will ideally want an extra hook in the engine
-
-call airtravel_callback
+# We rely on the sys_changemap callback to call airtravel_callback
+# And fade the screen in again, etc
 
 end
 
 ##
 ##  Move the jet into position and fade in
+##
+##  This is called by the engine via sys_changemap
 ##
 
 function airtravel_callback
@@ -152,11 +159,18 @@ object target
 string_array jetname[3]
 string jet_name
 
+if airtravel_destmap = 0
+	return
+endif
+
+let airtravel_destmap = 0
+
+
 let jetname[1] = "GR1-BLUE"
 let jetname[2] = "F16-BLACK"
 let jetname[3] = "F15-GREY"
 
-let tag = 11000 + oldmap
+let tag = JETDEST_BASE + oldmap
 
 find_tag target = "target" tag
 if_not_exists target
@@ -191,3 +205,12 @@ fade_in
 
 end
 
+##
+##  Activate it all (currently by cheating)
+##
+
+function enable_airtravel
+
+set_user_flag "airtravel_on" = 1
+
+end

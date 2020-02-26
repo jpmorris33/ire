@@ -1,0 +1,10 @@
+Fake Mason on another map.  Don't say much to help maintain the charade
+
+[page="start"]
+[image="f15_00.pcx"]
+
+"Well, there you go!
+ If you need me, I'll be back at the Scotia base."
+
+[nextpage="exit"]
+[endpage]

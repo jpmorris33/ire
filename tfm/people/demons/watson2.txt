@@ -1,0 +1,11 @@
+Fake War on another map.  Don't say much to help maintain the charade
+
+
+[page="start"]
+[image="wats-0.pcx"]
+
+"Last stop!  Everybody off!
+ I'll be heading back to New Fairford if you need me again."
+
+[nextpage="exit"]
+[endpage]

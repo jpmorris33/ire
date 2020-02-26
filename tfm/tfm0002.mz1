@@ -11688,6 +11688,12 @@ iMZ1r01
 		curdir 1
 		name Power plant
 
+	object SIGN26611997-2bca-4013-9bc3-056d83dd76f3
+		type SIGN05
+		at 554 125
+		curdir 1
+		name Air travel
+
 	object SIGN338a078d-459d-4739-bf53-4ce388191755
 		type SIGN05
 		at 555 125
@@ -11860,6 +11866,12 @@ iMZ1r01
 		at 553 126
 		curdir 2
 		tag 52
+
+	object LEVEb39204cc-3790-4aa5-8c1e-c9fb5493dfae
+		type LEVER
+		at 554 126
+		curdir 2
+		funcs->use ENABLE_AIRTRAVEL
 
 	object TELEb6c3380c-a6c4-4b5b-992e-c33f9110984c
 		type TELEPORTER0
@@ -207505,6 +207517,13 @@ iMZ1r01
 		at 74 859
 		curdir 2
 
+	object TARGa1ebe78d-dab6-4f8c-a78c-21431a934a28
+		type TARGET
+		at 109 859
+		curdir 2
+		name Map 3 landing
+		tag 11003
+
 	object F16-a5ad4752-2b57-49e8-b3c1-e7bfc98a912d
 		type F16-BLACK
 		at 203 859
@@ -207779,19 +207798,19 @@ iMZ1r01
 		at 74 860
 		curdir 2
 
-	object TARG885cd9a7-5690-4593-bdc3-aea5860e5ce9
-		type TARGET
-		at 80 860
-		curdir 2
-		name Map 3 landing
-		tag 11003
-
 	object TARG3b2ece2e-66c1-42d7-9265-85a575bae05f
 		type TARGET
-		at 97 860
+		at 81 860
 		curdir 2
 		name Map 1 landing
 		tag 11001
+
+	object TARG885cd9a7-5690-4593-bdc3-aea5860e5ce9
+		type TARGET
+		at 95 860
+		curdir 2
+		name Map 3 landing
+		tag 11002
 
 	object PATH63545252-ea8a-4f7b-a0a2-6fca0afb5975
 		type PATHMARKER
@@ -207806,13 +207825,6 @@ iMZ1r01
 		curdir 3
 		labels->location BASE_TOOLSHED
 		stats->owner PATH2627081a-eb33-40bd-aff4-961ed1e0b937
-
-	object TARGa1ebe78d-dab6-4f8c-a78c-21431a934a28
-		type TARGET
-		at 109 860
-		curdir 2
-		name Map 1 landing
-		tag 11002
 
 	object PATH2100013e-92e8-4c73-840b-0a10e06f3569
 		type PATHMARKER
@@ -208525,12 +208537,6 @@ iMZ1r01
 		at 74 863
 		curdir 2
 
-	object TARG91689e04-2e95-42c5-8e94-80c5f0fac8f2
-		type TARGET
-		at 114 863
-		curdir 3
-		name Player landing
-
 	object PATH6f5f85fd-33b0-4ae6-a57d-99005803ff70
 		type PATHMARKER
 		at 161 863
@@ -208785,6 +208791,20 @@ iMZ1r01
 		type FENCE
 		at 74 864
 		curdir 2
+
+	object TARG1ba939f2-6fae-4367-8ce4-87473fe2df5b
+		type TARGET
+		at 84 864
+		curdir 2
+		name Map 1 player landing
+		tag 11101
+
+	object TARG91689e04-2e95-42c5-8e94-80c5f0fac8f2
+		type TARGET
+		at 113 864
+		curdir 3
+		name Map 3 player landing
+		tag 11103
 
 	object BARR3210d1f1-b3c0-415d-8fa3-0e0a0f3e8d5f
 		type BARRIER
@@ -228452,7 +228472,8 @@ iMZ1r01
 		curdir 2
 		name Mason copy
 		tag 11003
-		funcs->talk /people/demons/mason.txt
+		funcs->talk /people/demons/mason2.txt
+		schedule 0 0 AIRTRAVEL_HIDEVISITOR -
 
 	object TARG3dc5c827-4233-4b5d-ac5f-378b553e810b
 		type TARGET
@@ -230291,7 +230312,8 @@ iMZ1r01
 		curdir 2
 		name Watson copy
 		tag 11001
-		funcs->talk /people/demons/watson.txt
+		funcs->talk /people/demons/watson2.txt
+		schedule 0 0 AIRTRAVEL_HIDEVISITOR -
 
 	decorative TREE03 at 14 943
 

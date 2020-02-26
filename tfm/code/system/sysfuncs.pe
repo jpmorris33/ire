@@ -525,6 +525,19 @@ endif
 end
 
 
+################################
+#                              #
+#  The player has changed map  #
+#                              #
+################################
+
+function sys_changemap
+
+call airtravel_callback
+
+end
+
+
 ##
 ##  Utility function to make sure player comes first
 ##
@@ -561,3 +574,4 @@ if_exists favour
 endif
 
 end
+

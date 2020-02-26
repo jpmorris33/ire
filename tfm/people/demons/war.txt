@@ -1,7 +1,8 @@
 
-Pestillence - One of the Four Horsemen.
+War - One of the Four Horsemen.
 
 [page="start"]
+[if airtravel_on][goto="transport_noname"]
 [image="f16v2.pcx"]
 [learn_name]
 
@@ -15,6 +16,39 @@ eyes.  Finally he speaks in a soft, quiet voice.
  I'm one of the Four Horsemen of the Apocalypse, I just
  happen to be the one called 'War'.  Don't let
  the name put you off."
+
+[link="What are you?"]
+[linkto="what"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[if airtravel_on][goto="transport"]
+[image="f16v2.pcx"]
+
+[colour="#808080"]
+You see War, of the Four Horsemen.
+[colour="#ffffff"]
+
+"Welcome back, $PLAYERNAME."
+
+[link="What are you?"]
+[linkto="what"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="convo"]
+[image="f16v2.pcx"]
+
+"Certainly.  What is on your mind?"
 
 [link="What are you?"]
 [linkto="what"]
@@ -218,3 +252,62 @@ Why don't you resign
 
 [nextpage="exit"]
 [endpage]
+
+
+
+[page="transport"]
+[image="f16v2.pcx"]
+
+"It's so nice to be able to fly again!
+ Do you want me to take you anywhere?"
+
+[link="New Fairford intelligence base, please!"]
+[linkto="transport_map1"]
+[link="Scotia research base, please!"]
+[linkto="transport_map3"]
+[link="I'd like to talk about something else."]
+[linkto="convo"]
+[link="Nevermind, thanks."]
+[linkto="bye"]
+[endpage]
+
+[page="transport_noname"]
+[image="f16v2.pcx"]
+[learn_name]
+
+"It's so nice to be able to fly again!
+ I am War, of the Four Horsemen.
+
+ Do you want me to take you anywhere?"
+
+[link="New Fairford intelligence base, please!"]
+[linkto="transport_map1"]
+[link="Scotia research base, please!"]
+[linkto="transport_map3"]
+[link="I'd like to talk about something else."]
+[linkto="convo"]
+[link="Nevermind, thanks."]
+[linkto="bye"]
+[endpage]
+
+
+[page="transport_map1"]
+[at_exit_call="airtravel_map1"]
+[image="f16v2.pcx"]
+
+"This is your captain speaking...
+ Your captain is dead."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="transport_map3"]
+[at_exit_call="airtravel_map3"]
+[image="f16v2.pcx"]
+
+"Next stop, fish town!"
+
+[nextpage="exit"]
+[endpage]
+
