@@ -1697,6 +1697,8 @@ for(ptr=MasterList;ptr;ptr=ptr->next)
 
 CallVM("sys_loadproc");
 
+CallVM("sys_changemap");
+
 ResyncEverything();
 
 // Okay, done
@@ -1852,8 +1854,13 @@ return 0;
 
 void GameBusy()
 {
-if(!gamewin)
+if(!gamewin) {
 	return;
+}
+if(Fader == 255) {
+	// Don't do it if we're already faded to black
+	return;
+}
 
 // Darken the screen to show the game's 'thinking'
 swapscreen->FillRect(VIEWX,VIEWY,gamewin->GetW(),gamewin->GetH(),ire_black);
