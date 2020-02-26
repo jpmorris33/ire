@@ -13900,6 +13900,7 @@ section: scripts
 	code/events/events.pe
 	code/events/fishrman.pe
 	code/events/music.pe
+	code/events/airtravel.pe
 	code/events/randolph.pe
 	code/justice/justice.pe
 	code/justice/execution.pe

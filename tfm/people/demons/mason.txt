@@ -1,4 +1,5 @@
 [page="start"]
+[if airtravel_on][goto="transport_noname"]
 [image="f15_00.pcx"]
 
 [colour="#808080"]
@@ -19,6 +20,7 @@ You see an unarmed F-15 looking down at you.
 
 
 [page="startname"]
+[if airtravel_on][goto="transport"]
 [image="f15_00.pcx"]
 
 [colour="#808080"]
@@ -37,6 +39,27 @@ You see Mason, the F-15.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="convo"]
+[image="f15_00.pcx"]
+
+[colour="#808080"]
+You see Mason, the F-15.
+[colour="#ffffff"]
+
+"Sure.  Anything you want to know?"
+
+[link="Tell me about the destroyed village."]
+[linkto="leuchars"]
+[link="Who is in charge here?"]
+[linkto="master"]
+[link="What is your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="name"]
@@ -219,3 +242,63 @@ He gives a very convincing sigh.
 
 [nextpage="exit"]
 [endpage]
+
+
+
+[page="transport"]
+[image="f15_00.pcx"]
+
+"Nice one on getting the barriers down!
+ Anywhere you want to go?"
+
+[link="New Fairford intelligence base, please!"]
+[linkto="transport_map1"]
+[link="Panavius security base, please!"]
+[linkto="transport_map2"]
+[link="I'd like to talk about something else."]
+[linkto="convo"]
+[link="Nevermind, thanks."]
+[linkto="bye"]
+[endpage]
+
+[page="transport_noname"]
+[image="f15_00.pcx"]
+[learn_name]
+
+"Nice one on getting the barriers down!
+ The name's Mason. Anywhere you want to go?"
+
+[link="New Fairford intelligence base, please!"]
+[linkto="transport_map1"]
+[link="Panavius security base, please!"]
+[linkto="transport_map2"]
+[link="I'd like to talk about something else."]
+[linkto="convo"]
+[link="Nevermind, thanks."]
+[linkto="bye"]
+[endpage]
+
+
+[page="transport_map1"]
+[at_exit_call="airtravel_map1"]
+[image="f15_00.pcx"]
+
+"Please fasten your seatbelts!
+ Smoking is not permitted, and is a bad habit anyway."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="transport_map2"]
+[at_exit_call="airtravel_map2"]
+[image="f15_00.pcx"]
+
+"Please obey all warnings signs and instructions from
+ cabin crew.
+ Since we have no cabin crew, I must ask you to
+ use your imagination."
+
+[nextpage="exit"]
+[endpage]
+

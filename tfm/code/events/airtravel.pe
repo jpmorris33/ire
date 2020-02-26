@@ -1,0 +1,193 @@
+#################################################
+#                                               #
+# Systems for air travel between the three maps #
+#                                               #
+#################################################
+
+int airtravel_destmap = 0
+
+local
+int oldmap
+endlocal
+
+
+##
+##  Schedule function to move the local aircraft to the runway
+##
+
+function airtravel_movetorunway
+activity
+object target
+
+# Have they brought down the forcefield?
+if_not_user_flag "airtravel_on"
+	return
+endif
+
+# Is the player watching?
+if_onscreen me
+	return
+endif
+
+find_tag target = "target" me.tag
+
+if_not_exists target
+	bug start
+	print "aircraft runway tag "
+	print me.tag
+	print " not found!"
+	printcr
+	bug end
+	return
+endif
+
+if me.x = target.x
+and me.y = target.y
+	# Already there
+	stop_action me
+	return
+endif
+
+transfer_object me to target.x target.y
+force_direction me faces target.curdir
+end
+
+
+##
+##  Schedule function to move the itinerant aircraft back to their hiding places
+##
+
+function airtravel_hidevisitor
+activity
+object target
+int tag
+
+# Not while the player is onscreen
+if_onscreen me
+	return
+endif
+
+let tag = 0 - me.tag
+find_tag target = "target" tag
+
+if_not_exists target
+	bug start
+	print "aircraft hideaway tag "
+	print tag
+	print " not found!"
+	printcr
+	bug end
+	return
+endif
+
+if me.x = target.x
+and me.y = target.y
+	# Already there
+	stop_action me
+	return
+endif
+
+
+play_sound "flyover"
+
+transfer_object me to target.x target.y
+
+end
+
+
+##
+##  move player to map
+##
+
+function airtravel_map1
+private
+let airtravel_destmap = 1
+call airtravel_move
+end
+
+function airtravel_map2
+private
+let airtravel_destmap = 2
+call airtravel_move
+end
+
+function airtravel_map3
+private
+let airtravel_destmap = 3
+call airtravel_move
+end
+
+##
+##  Actually do it
+##
+
+function airtravel_move
+private
+int tag
+
+get_mapno oldmap
+let tag = 11000 + oldmap
+
+fade_out
+play_sound "flyover"
+
+# FIXME: Add separate target for player landing, e.g. 11000
+change_map airtravel_destmap at tag
+
+# FIXME: Need to run this as a callback after loading map!
+# FIXME: This will ideally want an extra hook in the engine
+
+call airtravel_callback
+
+end
+
+##
+##  Move the jet into position and fade in
+##
+
+function airtravel_callback
+int tag
+object jet
+object target
+string_array jetname[3]
+string jet_name
+
+let jetname[1] = "GR1-BLUE"
+let jetname[2] = "F16-BLACK"
+let jetname[3] = "F15-GREY"
+
+let tag = 11000 + oldmap
+
+find_tag target = "target" tag
+if_not_exists target
+	bug start
+	print "aircraft dest tag "
+	print tag
+	print " not found!"
+	printcr
+	bug end
+	fade_in
+	return
+endif
+
+let jet_name = jetname[oldmap]
+find_tag jet = jet_name tag
+if_not_exists jet
+	bug start
+	print "aircraft "
+	print jet_name
+	print " dest tag "
+	print tag
+	print " not found!"
+	printcr
+	bug end
+	fade_in
+	return
+endif
+
+transfer_object jet to target.x target.y
+force_direction jet faces target.curdir
+fade_in
+
+end
+

@@ -202066,11 +202066,12 @@ iMZ1r01
 		at 91 837
 		curdir 1
 		name War
+		tag 11002
 		funcs->talk people/demons/war.txt
-		schedule 0 0 NOTHING -
-		schedule 6 0 NOTHING -
-		schedule 12 0 NOTHING -
-		schedule 18 0 NOTHING -
+		schedule 0 0 AIRTRAVEL_MOVETORUNWAY -
+		schedule 6 0 AIRTRAVEL_MOVETORUNWAY -
+		schedule 12 0 AIRTRAVEL_MOVETORUNWAY -
+		schedule 18 0 AIRTRAVEL_MOVETORUNWAY -
 
 	object F16-e1f8475d-500a-444a-8756-149e887c25b9
 		type F16-BLACK
@@ -207778,6 +207779,20 @@ iMZ1r01
 		at 74 860
 		curdir 2
 
+	object TARG885cd9a7-5690-4593-bdc3-aea5860e5ce9
+		type TARGET
+		at 80 860
+		curdir 2
+		name Map 3 landing
+		tag 11003
+
+	object TARG3b2ece2e-66c1-42d7-9265-85a575bae05f
+		type TARGET
+		at 97 860
+		curdir 2
+		name Map 1 landing
+		tag 11001
+
 	object PATH63545252-ea8a-4f7b-a0a2-6fca0afb5975
 		type PATHMARKER
 		at 102 860
@@ -207791,6 +207806,13 @@ iMZ1r01
 		curdir 3
 		labels->location BASE_TOOLSHED
 		stats->owner PATH2627081a-eb33-40bd-aff4-961ed1e0b937
+
+	object TARGa1ebe78d-dab6-4f8c-a78c-21431a934a28
+		type TARGET
+		at 109 860
+		curdir 2
+		name Map 1 landing
+		tag 11002
 
 	object PATH2100013e-92e8-4c73-840b-0a10e06f3569
 		type PATHMARKER
@@ -228424,6 +228446,20 @@ iMZ1r01
 
 	decorative MOUNT07 at 710 935
 
+	object F15-3b41e500-8004-4b31-9876-683ff679e074
+		type F15-GREY
+		at 861 935
+		curdir 2
+		name Mason copy
+		tag 11003
+		funcs->talk /people/demons/mason.txt
+
+	object TARG3dc5c827-4233-4b5d-ac5f-378b553e810b
+		type TARGET
+		at 861 935
+		curdir 1
+		tag -11003
+
 	decorative TREE02 at 4 936
 
 	decorative TREE00 at 6 936
@@ -230242,6 +230278,20 @@ iMZ1r01
 	decorative MOUNT06 at 826 942
 
 	decorative MOUNT09 at 827 942
+
+	object TARG771f5cb4-b4f7-467c-b4b8-90240887d4bf
+		type TARGET
+		at 859 942
+		curdir 1
+		tag -11001
+
+	object GR1-a3a50ab9-959c-40aa-89a0-4e2132d3c38a
+		type GR1-BLUE
+		at 859 942
+		curdir 2
+		name Watson copy
+		tag 11001
+		funcs->talk /people/demons/watson.txt
 
 	decorative TREE03 at 14 943
 

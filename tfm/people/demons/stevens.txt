@@ -119,7 +119,6 @@ Stevens, expert hacker and ex-american president.
 
 
 [page="comms"]
-[if_not if dlpower_fixed][goto="comms_borked"]
 [image="f18-0.pcx"]
 
 "Right.  Hyperdrive technology works by warping space
@@ -129,9 +128,17 @@ Stevens, expert hacker and ex-american president.
  By creating a smaller portal, say a couple of
  millimetres across, you can send a laserbeam through
  the portal, and thereby transmit information
- instantaneously instead.
+ instantaneously instead."
 
- However, the space-warp process requires a synchrotron
+[nextpage="comms2"]
+[endpage]
+
+
+[page="comms2"]
+[if_not dlpower_fixed][goto="comms_borked"]
+[image="f18-0.pcx"]
+
+"However, the space-warp process requires a synchrotron
  in order to operate.  And that needs a LOT of power,
  more than we can generate locally.  The base is linked
  to a dam in the southeast mountains.
@@ -151,16 +158,7 @@ Stevens, expert hacker and ex-american president.
 [page="comms_borked"]
 [image="f18-0.pcx"]
 
-"Right.  Hyperdrive technology works by warping space
- in front of a starship, creating a portal which allows
- instantaneous travel.
-
- By creating a smaller portal, say a couple of
- millimetres across, you can send a laserbeam through
- the portal, and thereby transmit information
- instantaneously instead.
-
- However, the space-warp process requires a synchrotron
+"However, the space-warp process requires a synchrotron
  in order to operate.  And that needs a LOT of power,
  more than we can generate locally.  The base is linked
  to a dam in the southeast mountains.
@@ -184,7 +182,7 @@ Stevens, expert hacker and ex-american president.
 [image="f18-0.pcx"]
 
 "Well, on the plus side they still patched you up
- after instead ofleaving you to rot.
+ after instead of leaving you to decompose.
  Most people aren't so lucky!"
 	 
  As for preventing it... well, some of the Churchies
@@ -341,7 +339,7 @@ Stevens, expert hacker and ex-american president.
  I'd split the difference  and lay money on it being
  some kind of alien supercomputer."
 
-[if met_drakaan_or_something][link="It is, I've met the aliens who created it."]
+[if met_drakaan_or_something][link="He is, I've met the aliens who created him."]
 [if met_drakaan_or_something][linkto="xylan"]
 [link="Tell me about your presidency."]
 [linkto="prez"]
@@ -351,5 +349,19 @@ Stevens, expert hacker and ex-american president.
 [linkto="bye"]
 [endpage]
 
+
+[page="xylan"]
+[image="f18-0.pcx"]
+
+"Hardcore!  I hope you can introduce me sometime!
+ I'd love to know how some of those divine powers work!"
+
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
