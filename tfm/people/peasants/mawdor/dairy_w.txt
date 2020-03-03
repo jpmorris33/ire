@@ -85,7 +85,7 @@ You see $NAME, the dairy maid, she looks shocked.
  They say he murdered the people who vanished and made
  their blood into cheese!
 
- I can scarce believe it!  How could he do such things?!"
+ I can scarce believe it!  He seemed so nice!"
 
 [link="What are you selling?"]
 [linkto="buy"]

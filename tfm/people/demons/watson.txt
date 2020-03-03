@@ -356,7 +356,8 @@ Sherlock butts in.
 [page="goaway2"]
 [image="wats-2.pcx"]
 
-"After what you've done...?  Get lost!"
+"I may have agreed to ferry you around, but that
+ doesn't make us friends!"
 
 [nextpage="exit"]
 [endpage]

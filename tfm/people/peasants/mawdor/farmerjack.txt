@@ -13,6 +13,8 @@ You see a slightly disheveled man in farm clothes.
 [call plot_mawdormissing_gotbones]
 [if true][link="Tell me about the mass grave."]
 [if true][linkto="cellar"]
+[if mawdor_kid][link="What's with the kid in the cellar?"]
+[if mawdor_kid][linkto="kid"]
 [link="Who are you?"]
 [linkto="name"]
 [link="What do you do?"]
@@ -40,6 +42,8 @@ You see $NAME, the dairy farmer.
 [call plot_mawdormissing_gotbones]
 [if true][link="Tell me about the mass grave."]
 [if true][linkto="cellar"]
+[if mawdor_kid][link="What's with the kid in the cellar?"]
+[if mawdor_kid][linkto="kid"]
 [link="Who are you?"]
 [linkto="name"]
 [link="What do you do?"]
@@ -132,6 +136,31 @@ You see $NAME, the dairy farmer.
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="kid"]
+
+"Aye, 'tis my son.  He has been stealing again, and
+ is locked in the cellar as punishment.
+ Ignore him, for he will surely tell lies."
+
+[if mawdor_missing_evidence][link="I know what's in the cellar."]
+[if mawdor_missing_evidence][linkto="cellar"]
+[call plot_mawdormissing_gotbones]
+[if true][link="Tell me about the mass grave."]
+[if true][linkto="cellar"]
+[link="Who are you?"]
+[linkto="name"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the beeves."]
+[linkto="cows"]
+[link="What are you selling?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="cellar"]

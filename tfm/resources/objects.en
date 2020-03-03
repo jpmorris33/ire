@@ -4445,103 +4445,37 @@ section: characters
 	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/protectr.txt
 
-	name BOOK_beasts
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_beasts = BOOK_protect
 	personalname	"Chorley's Bestiary, vol.2"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/bestiary.txt
 
-	name BOOK_ghost
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_ghost = BOOK_protect
 	personalname	"An Essay on the Holy Ghost"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/ghost.txt
 
-	name BOOK_astro
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_astro = BOOK_protect
 	personalname	"Astrology and the Church"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/astro.txt
 
-	name BOOK_witches
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_witches = BOOK_protect
 	personalname	"The Discovery of Witchcraft"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/witches1.txt
 
-	name BOOK_notr
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_notr = BOOK_protect
 	personalname	"The Name of the Rose"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/other/namerose.txt
 
-	name BOOK_fowl
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_fowl = BOOK_protect
 	personalname	"The hunting of Fowl"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/other/hunting.txt
 
-	name BOOK_alchemy
-	left		BOOK_L
-	right		BOOK_R
-	up		BOOK_U
-	down		BOOK_D
-	hp		100
-	weight		200
-	description	"You see a book"
-	short		"book"
+	alias BOOK_alchemy = BOOK_protect
 	personalname	"The Book of Abraham the Jew"
-	IfUsed		BOOK_USE
-	IfLookedAt	BOOK_COVER
 	conversation	books/church/holy/alchemy.txt
+
+	alias BOOK_fysshyng = BOOK_protect
+	personalname	"A treatyse of fysshynge wyth an Angle."
+	conversation	books/church/holy/fysshyng.txt
 
 	name KARMOMETER
 	frame		HALO10
@@ -5557,25 +5491,14 @@ section: characters
 	description	"You see a mobile phone."
 	short		"mobile phone"
 	IfUsed		use_mobile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name SEASHELL
-	left		SEASHELL
-	right		SEASHELL
-	up		SEASHELL
-	down		SEASHELL
+	frame		SEASHELL
 	hp		100
-	weight		100
 	description	"You see a seashell."
 	short		"seashell"
 	quantity
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	unit_weight	100
 
 	name FAKEWALL
 	left		WALL_STONE_H

@@ -1,0 +1,57 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+           A treatyse of fysshynge wyth an Angle.
+                 Dame Juliana Berners
+
+
+ The Grayling by an other name called Umbre is a ryght delcious
+ fysshe to mannis mouthe, and ye may take him as ye do the
+ Troute, and these ben his baytes.
+
+ In Marche & in Apryll the read worme. In May the greene worme,
+ a lytle braised worme, the docke canker and the hauthorne worme.
+ In Iune the bayte that breedeth betwene the tree and the barke of
+ an Oke. In Iuly a bayte that bredeth on a ferne lefe and a great
+ red worm and nyp of the head and put it on your hooke, and a
+ cod worme before, in August the read worme and a Docke worme,
+ and all the yere after a read worme.
+
+[colour="#ffffff"]
+[right="2"]
+[endpage]
+
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+ The Barbell is a swete fysh but it is a qualy meat and perylous
+ for a mans body. For commonly he gyueth an introduction to the
+ febres. And yf that he be eaten rawe, he may be cause of
+ mannes deth, whiche hath oftentymes bene sene.
+ These be his baytes. In Marche and in Apryll take a fayre freshe
+ chese, and laye it on the borde, and cut it in small square peces
+ of the length of your hooke. Than take a candell and brenne it
+ at the ende at the poynt of the hooke vnto the tyme that it be
+ yelowe, and than bynde it on your hooke with fletchers sylke,
+ and make it tough lyke a welbede, this bayte is good all the
+ sommer season.
+ In May and Iune take the hautorne worme, & the great red worme,
+ & nip of ye head and put vpon your hooke a cod worme before,
+ and that is a good bayte. In Iuly take the read worme for chese,
+ & the hauthorne together, also the water docke lefe worme together
+ in August, and for al the yere, take the talow of a shepe, and
+ soft chese of eche like much, & a lytel hony, & grinde or stampe
+ them together long & temper it till it be tough and put thereto
+ a lytell floure, & make it in small pelletes & that is a good
+ bait to angle wt at the ground, & loke yt it sinke in the water,
+ or else it is not good to this purpose.
+
+[colour="#ffffff"]
+[left="start"]
+[right="exit"]
+[endpage]
+
+
+
+This is excerpted from an actual medieval text.

@@ -1,0 +1,126 @@
+[page="start"]
+[if mawdor_missing_solved][goto="start2"]
+[set mawdor_kid]
+[colour="#808080"]
+You see wide-eyed youth.
+[colour="#ffffff"]
+
+"Help!  You have to help me!
+ This madman of a farmer has locked me up!
+ I fear he means to murder me!"
+
+[link="For all I know, you were stealing his milk!"]
+[linkto="stealing"]
+[link="Why hasn't he killed you then?"]
+[linkto="killed"]
+[link="Do you have any proof?"]
+[linkto="proof"]
+[link="I'll try and get help."]
+[linkto="help"]
+[endpage]
+ 
+
+[page="stealing"]
+
+"What kind of farmer just happens to have a dungeon
+ in his cellar?!  How does that make sense?
+
+ Please! People have been vanishing in Mawdor.
+ I knew there was a farmer out here all on his own,
+ so I went to warn him he may be in danger.
+ 
+ Yet it seems he is the villain responsible!
+ He intends to feed me to his cattle!"
+
+[link="Why hasn't he killed you then?"]
+[linkto="killed"]
+[link="Do you have any proof?"]
+[linkto="proof"]
+[link="I'll try and get help."]
+[linkto="help"]
+[endpage]
+
+
+[page="killed"]
+
+"I don't know!  Maybe I am too young?
+ Mayhap he can't bring himself to slay a child, yet
+ still he cannot risk my revealing his secret?
+ Who knows the mind of a madman?"
+
+[link="For all I know, you were stealing his milk!"]
+[linkto="stealing"]
+[link="Do you have any proof?"]
+[linkto="proof"]
+[link="I'll try and get help."]
+[linkto="help"]
+[endpage]
+
+
+[page="proof"]
+
+"There is a secret door in the wall yonder... I have
+ watched him force others in there... each time there
+ was a scream and then silence!
+
+ If you seek evidence, that is where I should look!" 
+ 
+[link="For all I know, you were stealing his milk!"]
+[linkto="stealing"]
+[link="Why hasn't he killed you then?"]
+[linkto="killed"]
+[link="I'll try and get help."]
+[linkto="help"]
+[endpage]
+
+
+[page="help"]
+
+"Search the cellar!  Look for proof, and tell the
+ Lord O'Beth of his evil!
+
+ But please... do so quickly, lest he finally decides
+ to slay me!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+[page="start2"]
+[learn_name]
+[colour="#808080"]
+You see the youth formerly kidnapped by the mad farmer.
+[colour="#ffffff"]
+
+"Thank you for rescuing me, stranger!
+ I fear I have not given you my name in my haste
+ to be free of Farmer Jack and his madness.
+
+ I am called Tim, and I am the tailor's son."
+
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[colour="#808080"]
+You see Tim, the tailor's son.
+[colour="#ffffff"]
+
+"Thank you again for rescuing me!"
+
+[link="Goodbye!"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare well, and thanks again!"
+
+[nextpage="exit"]
+[endpage]

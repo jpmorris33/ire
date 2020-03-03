@@ -22705,6 +22705,7 @@ iMZ1r01
 		at 1008 354
 		curdir 1
 		tag 69
+		funcs->talk /people/peasants/mawdor/tim.txt
 		funcs->init NO_SCHEDULE
 		schedule 8 0 SIT_AT_LOCATION PEW_7a6ffaed-d994-4e7e-a738-465a06826b62
 		schedule 9 0 LOITER_ATWORK TARG21327444-c956-4d29-8392-eced863cb31e
