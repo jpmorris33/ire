@@ -347,9 +347,10 @@ IG_TextButton(388,336,"Paste",OB_Paste,NULL,NULL);
 IG_TextButton(444,336,"Clear",OB_Wipe1,NULL,OB_Wipe);
 IG_TextButton(500,336,"Uproot",OB_Uproot,NULL,NULL);
 
-IG_AddKey(IREKEY_C,OB_Kopy);
-IG_AddKey(IREKEY_X,OB_Cut);
-IG_AddKey(IREKEY_V,OB_Paste);
+// Disabled because I had one too many accidents pressing 'X'
+//IG_AddKey(IREKEY_C,OB_Kopy);
+//IG_AddKey(IREKEY_X,OB_Cut);
+//IG_AddKey(IREKEY_V,OB_Paste);
 
 
 IG_TextButton(300,368,"Pockets",OB_Pocket,NULL,NULL);
@@ -582,31 +583,26 @@ int ctr;
 
 // Make sure we have an object
 
-if(!objsel)
-	{
+if(!objsel) {
 	Notify(-1,-1,"No sprite has been selected.","You must pick a sprite before you can modify it.");
 	return;
-	}
+}
 
-if(objsel->flags & IS_SYSTEM)
-	{
-	if(Confirm(-1,-1,"Can't modify system objects.","Do you want to delete it and create a new object?"))
-		{
-		OB_Delete();
-		OB_SlowInsert();
-		}
-//	Notify(-1,-1,"Can't modify system objects.","You must delete it and create a new object.");
+if(objsel->flags & IS_SYSTEM) {
+//	if(Confirm(-1,-1,"Can't modify system objects.","Do you want to delete it and create a new object?")) {
+	OB_Delete();
+	OB_SlowInsert();
+//}
 	return;
-	}
+}
 
 
 // Make sure it's not a silly object
 
-if(objsel==curmap->object)
-	{
+if(objsel==curmap->object) {
 	Notify(-1,-1,"Not permitted.",NULL);
 	return;
-	}
+}
 
 ExpandDecor(objsel);	// If a shrunk decor, need to expand before changing
 
@@ -616,11 +612,10 @@ list=(char **)M_get(CHtot+1,sizeof(char *));
 
 // Set it up, convert to uppercase for Wyber's ordered selection routine.
 
-for(ctr=0;ctr<CHtot;ctr++)
-	{
+for(ctr=0;ctr<CHtot;ctr++) {
 	list[ctr]=CHlist[ctr].name;
 	strupr(list[ctr]);              // Affects the original too
-	}
+}
 
 strcpy(Name,objsel->name);      // Set up the default string
 
@@ -632,22 +627,23 @@ GetOBFromList( -1,-1, "Choose a character:", CHtot-1, list, Name);
 
 // If the user didn't press ESC instead of choosing, modify the character
 
-if(Name[0])     // It's ok, do it
-	{
+if(Name[0]) {     // It's ok, do it
 	objsel->uid[0]=0;	// Destroy the UUID since the object is being replaced
 	OB_Init(objsel,Name);	// Re-evaluate the character
 	ShrinkDecor(objsel);	// Save memory if possible
+	
+	// Force-delete the existing contents to ensure the new ones take precedence
+	FreePockets(objsel);
 	Deal_With_Contents(objsel);     // Create/destroy any contents
 	strcpy(last_sprite,Name);       // Keep this name for reference
-	}
+}
 
 free(list);                             // Dispose of the list
 
-if(!editpocket)
-    {
-    OB_Update();                          // Sort out the direction display
-    DrawMap(mapx,mapy,1,l_proj,0);          // Update the map
-    }
+if(!editpocket) {
+	OB_Update();                          // Sort out the direction display
+	DrawMap(mapx,mapy,1,l_proj,0);          // Update the map
+}
 }
 
 /*
