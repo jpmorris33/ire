@@ -7458,6 +7458,12 @@ iMZ1r01
 		curdir 2
 		tag 36
 
+	object KEY_6d4d6c7a-d4ae-4d7d-9bf5-3ab6496136df
+		type KEY
+		at 396 99
+		curdir 0
+		tag 77
+
 	object DECO5834d78f-d8ab-4a33-9002-e8e0ff095db8
 		type DECOR05
 		at 400 99
@@ -8400,6 +8406,7 @@ iMZ1r01
 		type STONEDOOR5_LOCK
 		at 397 105
 		curdir 0
+		tag 77
 
 	object POSTf52b37fd-45cb-4ec4-b38a-261e6405f6d8
 		type POSTER2

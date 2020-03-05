@@ -4,6 +4,8 @@
 [if hear_truth][goto="HT_start"]
 [if killed_bishop][goto="final_sin"]
 [if banged_devil][goto="kill4"]
+[if met_dragons][if_not dragonquest_done][goto="dragonquest"]
+[if jesus_dragonquest][if_not dragonquest_done][goto="dragonquest"]
 [call="tithes_check"]
 [if true][goto="pay_tithes"]
 [if desecrate][goto="desecrate"]
@@ -827,6 +829,120 @@ The Crucifix assumes a very stern expression.
  
  Renounce the sins of the modern age or your place in
  the LORD's plan shall be one of eternal suffering!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="dragonquest"]
+[if jesus_dragonquest_answer][goto="dragonquest3"]
+[if jesus_dragonquest][goto="dragonquest2"]
+[image="crucifix1.png"]
+[journal jrn_JesusDragonQuest]
+[set jesus_dragonquest]
+[esc="disabled"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+[create 1 ultimatum]
+
+"Now hear me, my $son.
+
+ It is known that you have met with the dragons in the
+ northern land.
+ Know that they defy the LORD your God, the Holy Ghost
+ and Me.  This must cease.
+
+ Behold - this scroll contains an ultimatum from the
+ Holy Trinity.  You shall deliver it unto the one known
+ as 'Gurd' and bring back his reply to Me.
+
+ Go forth and obey the Trinity."
+
+[link="I will do this."]
+[linkto="dragonquest_yes"]
+[link="I refuse to do this."]
+[linkto="dragonquest_no"]
+[endpage]
+
+
+[page="dragonquest_no"]
+[image="crucifix3.png"]
+[at_exit_call="single_attackplayer"]
+
+"Then you shall be destroyed."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dragonquest_yes"]
+[image="crucifix1.png"]
+
+"Then tarry not.
+ The LORD grows impatient."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dragonquest2"]
+[if dragonquest_warning][goto="failed"]
+[set dragonquest_warning]
+[image="crucifix3.png"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in an angry voice.
+[colour="#ffffff"]
+
+"You were commanded to deliver an ultimatum to the evil
+ dragons of the north.
+
+ You have not yet obeyed this instruction.  Leave now
+ and do as the Trinity has commanded.
+
+ If you return again before this task has been completed,
+ you shall surely be destroyed.
+
+ Now leave, and obey."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dragonquest3"]
+[clear dragonquest_warning]
+[set dragonquest_done]
+[call="give_250_xp"]
+[give 1500 gold_coins]
+[call="money_sound"]
+[image="crucifix1.png"]
+[journal_done jrn_JesusDragonQuest2]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"You have delivered the ultimatum as instructed.
+ The Trinity is pleased and will grant them a stay of
+ six rels to surrender voluntarily before further action
+ is taken against them.
+
+ Take this reward of gold and pray to Me often, for your
+ services shall surely be required again soon."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="failed"]
+[at_exit_call="single_attackplayer"]
+[image="crucifix4.png"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in an angry voice.
+[colour="#ffffff"]
+
+"You have failed the Trinity.
+ The sentence for this is immediate death."
 
 [nextpage="exit"]
 [endpage]

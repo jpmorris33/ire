@@ -4,6 +4,7 @@
 [endpage]
 
 [page="start"]
+[set met_dragons]
 [esc="goodbye1"]
 [image="saxiis1.pcx"]
 [colour="#808080"]
@@ -44,6 +45,9 @@ You see Commander Gurd, of the Dra'kaan research team.
 
 "Hello again."
 
+[am_carrying "ultimatum"]
+[if true][link="I was ordered to give you this scroll."]
+[if true][linkto="ultimatum"]
 [link="Tell me about the god."]
 [linkto="xylan"]
 [link="Tell me about the ship."]
@@ -548,6 +552,31 @@ You see Commander Gurd, of the Dra'kaan research team.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="ultimatum"]
+[take 1 ultimatum]
+[set jesus_dragonquest_answer]
+[journal_done jrn_JesusDragonQuest]
+[journal jrn_JesusDragonQuest2]
+[image="saxiis1.pcx"]
+
+[colour="#808080"]
+The creature takes the scroll, and studies it closely.
+With a sigh, he turns back to you.
+[colour="#ffffff"]
+
+"This is not good.  Xy'lan demands our surrender.
+ You are supposed to return with our reply...
+
+ Tell the Church that we are considering their terms.
+ They shall have an answer within six rels.
+
+ I suggest you inform them soon, or they may kill you."
+
+[nextpage="exit"]
+[endpage]
+
 
 
 [page="attacked"]

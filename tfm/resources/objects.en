@@ -13118,6 +13118,11 @@ section: characters
 	description	"You see a indulgence for the sin of inquiry, signed by the Pope."
 	conversation	books/church/indulge/inquiry.txt
 
+	alias ULTIMATUM = WARRANT
+	description	"You see an ultimatum from the Church to Commander Gurd."
+	short		"ultimatum"
+	IfLookedAt	-
+
 	name POSTER_WANTED
 	up		poster_v
 	down		poster_v

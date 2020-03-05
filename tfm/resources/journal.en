@@ -282,3 +282,18 @@ title Solved the disapperances in Mawdor
 start:
 Farmer Jack was murdering people and feeding them to his cows.  Lord O'Beth has rewarded me for bringing him to justice.
 end
+
+
+name jrn_JesusDragonQuest
+tag task
+title Give the ultimatum to Commander Gurd
+start:
+The Church has ordered me to deliver an ultimatum to the dragon-like aliens in Scotia.
+end
+
+name jrn_JesusDragonQuest2
+tag task
+title Inform the Church of Commander Gurd's reply
+start:
+I have delivered the ultimatum to Commander Gurd.  Now I must pass his reply on to the Church.
+end

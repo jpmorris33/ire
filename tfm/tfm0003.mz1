@@ -1,9 +1,45 @@
 iMZ1r01
 
-	object EGG_cd00865c-e97d-4f22-91a0-376affb4c22b
+	object COW_4dabfd30-11b9-4197-87b7-a196d5a3224c
+		type COW
+		inside EGG_7ad13f68-4991-42f4-be6a-8595a3ddb59d
+		curdir 0
+		activity GRAZE
+
+	object FOOD7e304fee-214f-48eb-bbb7-fb3a97279464
+		type FOOD05
+		inside COW_4dabfd30-11b9-4197-87b7-a196d5a3224c
+		curdir 1
+		stats->owner COW_4dabfd30-11b9-4197-87b7-a196d5a3224c
+
+	object FOOD2d2701ee-41c1-4fc9-b453-02db64ed9be6
+		type FOOD05
+		inside COW_4dabfd30-11b9-4197-87b7-a196d5a3224c
+		curdir 1
+		stats->owner COW_4dabfd30-11b9-4197-87b7-a196d5a3224c
+
+	object EGG_7ad13f68-4991-42f4-be6a-8595a3ddb59d
 		type EGG_ALWAYS
 		at 326 69
 		curdir 0
+
+	object COW_4012bccb-57e9-411d-9ac9-5de07ba35f95
+		type COW
+		inside EGG_18d0746a-eca5-48c6-9fd5-33411c56d3ba
+		curdir 0
+		activity GRAZE
+
+	object FOODa15c3597-726b-4f80-8a9c-5bc5610ab4cc
+		type FOOD05
+		inside COW_4012bccb-57e9-411d-9ac9-5de07ba35f95
+		curdir 1
+		stats->owner COW_4012bccb-57e9-411d-9ac9-5de07ba35f95
+
+	object FOOD588370b5-d64f-4c90-8472-f11c402fa20a
+		type FOOD05
+		inside COW_4012bccb-57e9-411d-9ac9-5de07ba35f95
+		curdir 1
+		stats->owner COW_4012bccb-57e9-411d-9ac9-5de07ba35f95
 
 	object EGG_18d0746a-eca5-48c6-9fd5-33411c56d3ba
 		type EGG_ALWAYS
@@ -367,6 +403,24 @@ iMZ1r01
 		type FENCE2_CORNER
 		at 326 77
 		curdir 1
+
+	object COW_39f61c58-6f8e-4b98-b64a-12295f9c863f
+		type COW
+		inside EGG_d9fa8585-34f3-49af-8b71-048d3b452b91
+		curdir 0
+		activity GRAZE
+
+	object FOODf6f17b89-85ce-4750-a028-a6908697d2de
+		type FOOD05
+		inside COW_39f61c58-6f8e-4b98-b64a-12295f9c863f
+		curdir 1
+		stats->owner COW_39f61c58-6f8e-4b98-b64a-12295f9c863f
+
+	object FOODd2248737-9801-46e0-ac00-6977d1795042
+		type FOOD05
+		inside COW_39f61c58-6f8e-4b98-b64a-12295f9c863f
+		curdir 1
+		stats->owner COW_39f61c58-6f8e-4b98-b64a-12295f9c863f
 
 	object EGG_d9fa8585-34f3-49af-8b71-048d3b452b91
 		type EGG_ALWAYS
@@ -6674,6 +6728,13 @@ iMZ1r01
 		curdir 3
 		tag 33
 
+	object KEY_24149868-9511-45c7-97a5-aeb017191dfb
+		type KEY_1
+		inside MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+		curdir 2
+		tag 70
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
 	object KEY_4fa69912-dfc8-4a12-b411-7f8adc1e0a55
 		type KEY
 		inside MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
@@ -6682,7 +6743,7 @@ iMZ1r01
 
 	object MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 		type MAN_GENERIC
-		at 508 156
+		at 507 156
 		curdir 1
 		name Reynard
 		funcs->talk people/peasants/lakeside/barman.txt
@@ -6741,6 +6802,7 @@ iMZ1r01
 		type STONEDOOR1_LOCK
 		at 503 157
 		curdir 2
+		tag 70
 
 	object TABLe79c4862-ba12-4efa-abcf-22cd269e3cd7
 		type TABLE6-H
@@ -23852,7 +23914,13 @@ iMZ1r01
 		at 656 371
 		curdir 3
 
-	object EGG_75ead270-6f62-46ff-822a-10b113b0a379
+	object BUNNf5a508ba-7e87-40cc-8ae5-c26d16a6e77c
+		type BUNNY
+		inside EGG_0acd7aef-8495-4cf8-9dfc-7114f399879d
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_0acd7aef-8495-4cf8-9dfc-7114f399879d
 		type EGG_OBJECT(BUNNY)
 		at 969 371
 		curdir 0
@@ -26526,6 +26594,7 @@ iMZ1r01
 		type STONEDOOR5_LOCK
 		at 448 406
 		curdir 2
+		tag 71
 
 	object DRAWaaeeb905-c3f2-43d1-ac7f-1160101b5471
 		type DRAWBRIDGE_UP
@@ -26548,10 +26617,17 @@ iMZ1r01
 		at 454 406
 		curdir 3
 
+	object KEY_1dc8df5d-eed9-4646-bfd3-67cdbab22741
+		type KEY
+		at 458 406
+		curdir 2
+		tag 71
+
 	object STON555652c6-134b-4ca2-8d87-ea6861cfa126
 		type STONEDOOR5_LOCK
 		at 459 406
 		curdir 2
+		tag 71
 
 	decorative MOUNT10 at 816 406
 
@@ -27587,7 +27663,13 @@ iMZ1r01
 		at 580 428
 		curdir 3
 
-	object EGG_7f2f9990-7109-4aa3-b51c-d17f88dd2f0e
+	object SNAK67d8a02f-3544-45c4-b8a0-184598edfb03
+		type SNAKE
+		inside EGG_33fcefc2-78ae-40fc-87bb-1b66b4b408bb
+		curdir 1
+		activity ATTACK_PARTY
+
+	object EGG_33fcefc2-78ae-40fc-87bb-1b66b4b408bb
 		type EGG_OBJECT(SNAKE)
 		at 974 428
 		curdir 0
@@ -79040,7 +79122,31 @@ iMZ1r01
 
 	decorative MOUNT02 at 548 822
 
-	object EGG_fb686325-bd75-4dd5-948c-3f509c9678b0
+	object COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+		type COW_EVIL
+		inside EGG_d79dd7e7-077b-4f7a-9a2b-55188e47562f
+		curdir 0
+		activity ATTACK_PARTY
+
+	object TOAD01a6131c-5ff8-49ec-8f7f-36dd243e903d
+		type TOADSTONE
+		inside COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+		curdir 1
+		stats->owner COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+
+	object FOOD919ac747-233d-4dff-9a83-8b9ad2e8ddd8
+		type FOOD05
+		inside COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+		curdir 1
+		stats->owner COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+
+	object FOOD5f41c8f7-6e93-42d2-a44f-8759ff0450fb
+		type FOOD05
+		inside COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+		curdir 1
+		stats->owner COW_4f32efdc-b84a-4ed2-b257-90f896b56a23
+
+	object EGG_d79dd7e7-077b-4f7a-9a2b-55188e47562f
 		type EGG_ALWAYS
 		at 552 822
 		curdir 0
@@ -93531,6 +93637,13 @@ iMZ1r01
 		at 698 919
 		curdir 2
 
+	object KEY_7ccb8496-6c9d-415d-89ef-b124622b2cca
+		type KEY
+		inside MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
+		curdir 0
+		tag 72
+		stats->owner MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
+
 	object MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
 		type MAN_GENERIC
 		at 698 919
@@ -94610,6 +94723,7 @@ iMZ1r01
 		type STONEDOOR5_LOCK
 		at 700 924
 		curdir 0
+		tag 72
 
 	decorative TREE01 at 711 924
 
@@ -98555,10 +98669,31 @@ iMZ1r01
 		at 588 948
 		curdir 1
 
-	object CHES3de66ef5-bf5d-455e-81a0-01151efcd018
+	object SPELb59b087a-39cd-4659-a158-767feccc2358
+		type SPELL_ENSORCELLMENT
+		inside CHESf9c62b09-d465-4342-925f-8c7aac2118db
+		curdir 1
+
+	object SPEL77e953c1-74c9-4598-8299-a6bfb2fca2ce
+		type SPELL_HEARTRUTH
+		inside CHESf9c62b09-d465-4342-925f-8c7aac2118db
+		curdir 1
+
+	object SPEL4cdee323-cc79-4fa3-ad2b-ad47113d0dd4
+		type SPELL_HACKEDPEER
+		inside CHESf9c62b09-d465-4342-925f-8c7aac2118db
+		curdir 1
+
+	object CHESf9c62b09-d465-4342-925f-8c7aac2118db
 		type CHESTLOCKED
 		at 588 948
 		curdir 1
+		tag 73
+
+	object VALV2d492681-ddf0-479f-b011-6ecd8dd3cdab
+		type VALVE
+		at 589 948
+		curdir 0
 
 	decorative TREE00 at 648 948
 
@@ -98728,11 +98863,6 @@ iMZ1r01
 		type VALVE_BROKEN
 		at 586 949
 		curdir 2
-
-	object VALV2d492681-ddf0-479f-b011-6ecd8dd3cdab
-		type VALVE
-		at 589 949
-		curdir 0
 
 	decorative TREE03 at 650 949
 
@@ -99194,6 +99324,12 @@ iMZ1r01
 		type COBWEB0
 		at 575 952
 		curdir 1
+
+	object KEY_db40cec1-7016-4da1-96f0-c9921cd1b357
+		type KEY
+		at 578 952
+		curdir 1
+		tag 73
 
 	object VALV5fc6eb7e-0549-4a63-921d-c0653b23dd59
 		type VALVE_BROKEN
