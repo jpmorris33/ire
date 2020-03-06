@@ -216,6 +216,7 @@ Cardinal Trom scowls at you angrily.
 [page="trinity_cack"]
 [am_carrying indulgence_plenary]
 [if true][goto="indulgence"]
+[if trom_killed_player][goto="trinity_cack2"]
 [set trom_kills_player]
 
 [colour="#808080"]
@@ -225,6 +226,22 @@ fingers once.
 
 [if_player_male]"Guards: Hang this man."
 [if_player_female]"Guards: Hang this woman."
+
+[call_at_exit="hang_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="trinity_cack2"]
+[set trom_kills_player]
+
+[colour="#808080"]
+The Cardinal looks mildly annoyed, and snaps his
+fingers once.
+[colour="#ffffff"]
+
+[if_player_male]"Guards: Hang this man... again."
+[if_player_female]"Guards: Hang this woman... again."
 
 [call_at_exit="hang_player"]
 [nextpage="exit"]

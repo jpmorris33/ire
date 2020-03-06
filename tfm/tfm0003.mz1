@@ -68600,6 +68600,8 @@ iMZ1r01
 		type PEW_LEFT
 		at 832 764
 		curdir 0
+		name Blacksmith
+		labels->location MawdorChurch
 
 	object PEW_684f869a-802d-491e-8294-9a61f7eb0c62
 		type PEW_MIDDLE
@@ -71549,6 +71551,12 @@ iMZ1r01
 		curdir 2
 		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
+	object TARG73a895aa-5796-4cda-9bc4-02954962ece7
+		type TARGET
+		at 803 783
+		curdir 3
+		labels->location YawningWolf
+
 	object CHAI753627b0-36e5-47e2-8934-474975aea633
 		type CHAIR
 		at 803 783
@@ -71623,7 +71631,7 @@ iMZ1r01
 
 	object CHAId2e8a48e-b43d-44f6-b268-16f722636772
 		type CHAIR
-		at 806 783
+		at 807 783
 		curdir 2
 		stats->owner MAN_fe92517a-171d-4e52-bb41-6da3e65102a4
 
@@ -72631,6 +72639,13 @@ iMZ1r01
 		labels->location Dairy
 		stats->owner PATHd127abe7-d51d-42c2-84f9-2b4dac60f213
 
+	object PATHea4f8c8c-1583-4301-85b6-6d379d49b645
+		type PATHMARKER
+		at 820 787
+		curdir 2
+		labels->location MawdorSmithy
+		stats->owner PATH1eedd57b-743e-4b9c-ac19-7521c5dca2b4
+
 	object PATHd127abe7-d51d-42c2-84f9-2b4dac60f213
 		type PATHMARKER
 		at 827 787
@@ -73081,6 +73096,13 @@ iMZ1r01
 		curdir 2
 		labels->location TailorShop
 		stats->owner TARGe7e1408a-1316-4edf-b318-1509641cc88a
+
+	object PATH1eedd57b-743e-4b9c-ac19-7521c5dca2b4
+		type PATHMARKER
+		at 801 790
+		curdir 1
+		labels->location MawdorSmithy
+		stats->owner PATH871fcf7b-273a-41d7-a325-311f7dc0cfd3
 
 	decorative TREE01 at 895 790
 
@@ -75696,6 +75718,13 @@ iMZ1r01
 		type STONEDOOR1_SHUT
 		at 792 803
 		curdir 3
+
+	object PATH871fcf7b-273a-41d7-a325-311f7dc0cfd3
+		type PATHMARKER
+		at 801 803
+		curdir 1
+		labels->location MawdorSmithy
+		stats->owner PATH4ae393ea-54b4-41b6-b51c-c6555308576e
 
 	object SPAW9f954d76-5113-4a70-89c4-1c3401374c70
 		type SPAWN_GUARDS
@@ -78599,6 +78628,13 @@ iMZ1r01
 
 	decorative TREE01 at 725 818
 
+	object PATH4ae393ea-54b4-41b6-b51c-c6555308576e
+		type PATHMARKER
+		at 800 818
+		curdir 1
+		labels->location MawdorSmithy
+		stats->owner TARGcee388c5-3115-435a-9d51-9a6671905e72
+
 	object STON74b79a5c-dc45-473a-8a15-e8e3eaf03380
 		type STONEWINDOW1
 		at 806 818
@@ -78729,10 +78765,28 @@ iMZ1r01
 
 	decorative TREE02 at 727 819
 
-	object STOV53bc6371-4046-4943-8379-c8a9f7eb5a32
-		type STOVE_UNLIT
+	object STOV8d512ebe-7181-44d4-804e-1df9331bf7e5
+		type STOVE
 		at 792 819
 		curdir 2
+
+	object CLOTf8ffd9cc-9dc7-46e1-9a6e-f610650a4223
+		type CLOTHING01
+		inside DRAW1977d46e-fd26-4904-9f6e-50677c66a429
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object GOLDa157eef3-6265-4f17-93ca-7292d35a05df
+		type GOLD_BAR
+		inside DRAW1977d46e-fd26-4904-9f6e-50677c66a429
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object DRAW1977d46e-fd26-4904-9f6e-50677c66a429
+		type DRAWERS
+		at 794 819
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
 
 	object STONbab9a50b-aa61-413d-b5b5-ee517e041677
 		type STONEDOOR1_SHUT
@@ -78872,6 +78926,12 @@ iMZ1r01
 		at 791 820
 		curdir 0
 
+	object FOODf58b1a65-0007-40d5-8ed6-98a8fac57604
+		type FOOD02
+		at 791 820
+		curdir 2
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
 	object TABL6174a3ed-9186-4ea7-8b12-6231405ac2d2
 		type TABLE-SHADOW2
 		at 792 820
@@ -78881,6 +78941,12 @@ iMZ1r01
 		type TABLE5-LEGS
 		at 792 820
 		curdir 3
+
+	object BED_d6b1be18-ef18-43ee-afea-cd8d6811f7cb
+		type BED
+		at 793 820
+		curdir 0
+		labels->location MawdorSmithy
 
 	object SPAW3fa4802b-cd6e-4b32-bc38-9600ba5c2ab8
 		type SPAWN_GUARDS
@@ -79036,6 +79102,11 @@ iMZ1r01
 
 	decorative TREE02 at 727 821
 
+	object STON6e831acd-fe1a-43c8-abee-3b14cf75fa21
+		type STONEWINDOW1
+		at 790 821
+		curdir 2
+
 	object TABL9c43384b-54b5-4c58-94ab-5a38c38cf61a
 		type TABLE6-V
 		at 791 821
@@ -79050,6 +79121,11 @@ iMZ1r01
 		type TABLE5-LEGS
 		at 792 821
 		curdir 3
+
+	object STONd605667b-6713-4f99-92a6-4271e5f7def5
+		type STONEWINDOW1
+		at 796 821
+		curdir 2
 
 	object BRIDf89343cb-bb15-40e3-bede-fe3a1e293aac
 		type BRIDGE_END_N
@@ -79191,6 +79267,11 @@ iMZ1r01
 	decorative TREE01 at 712 822
 
 	decorative TREE03 at 718 822
+
+	object BOOKf02b6e0b-d528-4a15-951c-1aef58b80d14
+		type BOOKSHELF00
+		at 790 822
+		curdir 2
 
 	object TABLdfe4443d-d87b-48a9-bb5c-7151794a671a
 		type TABLE-SHADOW2
@@ -79439,6 +79520,33 @@ iMZ1r01
 
 	decorative TREE03 at 724 824
 
+	object TARGa67e7cad-9afb-42a1-8a0c-5916d4b7258a
+		type TARGET
+		at 792 824
+		curdir 1
+		labels->location MawdorSmithy
+
+	object CHAIa0804865-4e03-45cb-b147-6394f743134d
+		type CHAIR
+		at 792 824
+		curdir 1
+
+	object TARG20e8f04a-8d44-40f3-bbe3-913cb7a33f07
+		type TARGET
+		at 794 824
+		curdir 1
+		labels->location MawdorSmithy
+
+	object CHAI496c021e-9ea4-423d-9a9d-23d4a87f85fd
+		type CHAIR
+		at 794 824
+		curdir 1
+
+	object STON89bb3d39-173f-4839-9dec-ac263b166683
+		type STONEWINDOW1
+		at 796 824
+		curdir 2
+
 	object BRID97ed1107-13b7-4868-85c0-68bb3c8f15b8
 		type BRIDGE_STEPS_S
 		at 836 824
@@ -79576,15 +79684,35 @@ iMZ1r01
 		at 792 825
 		curdir 0
 
+	object PLAT5b6150c8-a0a7-4d17-9b9b-a837bddea76f
+		type PLATE
+		at 792 825
+		curdir 0
+
 	object TABL98da1c2b-802f-4192-86c5-e0315c8f4391
 		type TABLE6-H
 		at 793 825
 		curdir 1
 
+	object BIBLb6378577-a2de-48f6-b383-488c219187be
+		type BIBLE
+		at 793 825
+		curdir 0
+		labels->location MawdorSmithy
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
 	object TABLf2d1b33a-e673-49e0-847e-f254de38e066
 		type TABLE6-H
 		at 794 825
 		curdir 0
+
+	object BOOK06cc2088-2b3f-4af7-9b19-9b7d16913978
+		type BOOK_OPEN
+		at 794 825
+		curdir 0
+		name Astrology and the Church
+		labels->location MawdorSmithy
+		funcs->talk /books/church/holy/astro.txt
 
 	object TABL4f2bba41-b7b0-4c0e-842b-6daa95013759
 		type TABLE6-H
@@ -79836,6 +79964,13 @@ iMZ1r01
 		at 799 827
 		curdir 1
 
+	object PATHfef540b4-a0f7-4fe1-bd7b-f4750ac5729c
+		type PATHMARKER
+		at 801 827
+		curdir 0
+		labels->location MawdorChurch
+		stats->owner PATHbf758866-7d2d-40aa-9669-31e447453054
+
 	decorative TREE01 at 899 827
 
 	decorative TREE00 at 901 827
@@ -80076,15 +80211,56 @@ iMZ1r01
 
 	decorative TREE01 at 714 829
 
-	object COBW94c71c7b-1a3c-49f1-b213-2154e3251beb
-		type COBWEB0
-		at 791 829
-		curdir 1
+	object TROU36ffbb3a-77a7-4992-8898-16ce4749e7a6
+		type TROUGH
+		at 789 829
+		curdir 2
 
-	object FORGddf61efd-c971-43d3-9bb0-b910113ce4b0
-		type FORGE_COLD
+	object ANVI8aaf56b5-22cc-41d8-9a71-c863ba45cd02
+		type ANVIL
+		at 792 829
+		curdir 0
+		tag 80063
+
+	object FORGc020aa53-91c7-466e-822b-754a6553d82d
+		type FORGE
 		at 793 829
 		curdir 3
+
+	object TABL2036c35d-b0df-42fa-8aaf-7c82aa4a1f5c
+		type TABLE6-H
+		at 795 829
+		curdir 2
+
+	object TARG3c08991a-cce4-409a-ab83-a02b54510a5f
+		type TARGET
+		at 795 829
+		curdir 1
+		tag 80062
+		labels->location MawdorSmithy
+
+	object TOOLb7c1fe68-12f8-46ed-abc4-f01b4a53230b
+		type TOOLS05
+		at 795 829
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object TABL088c7913-c187-4c19-93dd-a99910ca7ae2
+		type TABLE6-H
+		at 796 829
+		curdir 3
+
+	object METAde0e220d-be29-4a73-a502-c5375ab00417
+		type METAL03
+		at 796 829
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object META82b740b0-fc4c-4f9a-993a-dc7fc2c037ac
+		type METAL01
+		at 796 829
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
 
 	object STON000cbf67-f6bd-4d83-8244-3fbb932a6ee2
 		type STONE_ARCHWAY
@@ -80191,10 +80367,64 @@ iMZ1r01
 
 	decorative TREE03 at 713 830
 
+	object TARGee46f4ed-981d-4a6b-b6b6-374eba825009
+		type TARGET
+		at 791 830
+		curdir 3
+		tag 80064
+		labels->location MawdorSmithy
+
 	object BELL55eb21ba-1183-4c14-9231-66b29c8689d5
 		type BELLOWS1
 		at 792 830
 		curdir 3
+
+	object TARGf97200a2-b3b3-4e8d-912c-fae34c9a554a
+		type TARGET
+		at 793 830
+		curdir 1
+		tag 80061
+		labels->location MawdorSmithy
+
+	object META1d6b8d76-294a-46cc-bb4c-4a0ffc5edd6c
+		type METAL02
+		at 793 830
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object TABL0bc222a8-5e95-4a6d-ba47-b2a594f34e6a
+		type TABLE-SHADOW2
+		at 795 830
+		curdir 1
+
+	object TABL91dbc051-9219-4636-ae37-c5998ccdccad
+		type TABLE5-LEGS
+		at 795 830
+		curdir 1
+
+	object MAN_4a112196-3415-495e-877f-dc1d3e410920
+		type MAN_GENERIC
+		at 795 830
+		curdir 1
+		name Petter
+		funcs->talk /people/peasants/mawdor/blacksmt.txt
+		schedule 8 0 SIT_AT_LOCATION PEW_ede69849-95ba-4644-b268-aaaffbc50ea0
+		schedule 9 0 BLACKSMITH TARGcee388c5-3115-435a-9d51-9a6671905e72
+		schedule 12 0 EAT_AT_HOME TARGa67e7cad-9afb-42a1-8a0c-5916d4b7258a
+		schedule 13 0 BLACKSMITH TARGcee388c5-3115-435a-9d51-9a6671905e72
+		schedule 19 0 EAT_AT_LOCATION TARG73a895aa-5796-4cda-9bc4-02954962ece7
+		schedule 20 0 SIT_AT_LOCATION TARG20e8f04a-8d44-40f3-bbe3-913cb7a33f07
+		schedule 22 0 GO_TO_SLEEP BED_d6b1be18-ef18-43ee-afea-cd8d6811f7cb
+
+	object TABL96c7de6c-826f-4fc8-a2ad-609714951248
+		type TABLE-SHADOW1
+		at 796 830
+		curdir 1
+
+	object TABL2ac4f4dd-d9dc-48da-9f62-c3f652c32ce2
+		type TABLE5-LEGS
+		at 796 830
+		curdir 1
 
 	object STONe2168fea-e5d0-410e-b2a1-d5338bf184a8
 		type STONE_ARCHWAY2
@@ -80313,6 +80543,13 @@ iMZ1r01
 	decorative TREE02 at 707 831
 
 	decorative TREE02 at 714 831
+
+	object TARGcee388c5-3115-435a-9d51-9a6671905e72
+		type TARGET
+		at 796 831
+		curdir 1
+		tag 80060
+		labels->location MawdorSmithy
 
 	object STONd2023e58-98fc-4e49-ad72-814daa361575
 		type STONE_ARCHWAY2
@@ -80444,30 +80681,96 @@ iMZ1r01
 		at 791 832
 		curdir 2
 
+	object SWORca17624b-b906-4e06-933b-e6540411635c
+		type SWORD02
+		at 791 832
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object GLASc6252f3c-67ee-4702-9661-4ab1b14a5f76
+		type GLASS_COUNTER
+		at 791 832
+		curdir 2
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
 	object TABL18056e9c-9307-40b3-a016-d21fcbcd9fe8
 		type TABLE6-H
 		at 792 832
 		curdir 1
+
+	object ARMO77f0fa81-4fd8-4f9a-85da-f34f0206be65
+		type ARMOUR03
+		at 792 832
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object GLAS46b3ebf3-e4df-47bf-82b1-d77c47282dbe
+		type GLASS_COUNTER
+		at 792 832
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
 
 	object TABL3a45162b-a220-4b32-b3b7-929dea829f52
 		type TABLE6-H
 		at 793 832
 		curdir 0
 
+	object ARMOe16fc77d-13f0-4042-aff0-a5519b8e02e3
+		type ARMOUR02
+		at 793 832
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object GLASc499d770-31d9-4f0e-bcc0-e9c6fbfed250
+		type GLASS_COUNTER
+		at 793 832
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
 	object TABLb98e9fef-fc45-43e7-b037-7c4d11c54548
 		type TABLE6-H
 		at 794 832
 		curdir 1
+
+	object SWORb789a240-8ca3-41ef-a3fa-619f28dc8cf0
+		type SWORD01
+		at 794 832
+		curdir 1
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object GLASb6031262-ce1c-4635-9300-e892f17806e1
+		type GLASS_COUNTER
+		at 794 832
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
 
 	object TABL75a43d01-33ad-42f0-a838-8769bb8aaa7a
 		type TABLE6-H
 		at 795 832
 		curdir 3
 
+	object ARMOe0f81eb2-64f5-41aa-86ea-4c9a11de6dac
+		type ARMOUR00
+		at 795 832
+		curdir 0
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
+	object GLASfb23e1f7-45ac-48f7-9b69-6fceb8fdeecc
+		type GLASS_COUNTER
+		at 795 832
+		curdir 3
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
+
 	object TABL770c36f3-9093-4da1-b9bb-d57997516252
 		type TABLE-SHADOW2
 		at 796 832
 		curdir 3
+
+	object BUCKecd2182e-eed3-4c6f-9d86-df8afd9c50b6
+		type BUCKET_WATER
+		at 796 832
+		curdir 3
+		stats->owner MAN_4a112196-3415-495e-877f-dc1d3e410920
 
 	object STON78b07b14-11e4-4d18-8d13-5cb1a3356a41
 		type STONE_ARCHWAY

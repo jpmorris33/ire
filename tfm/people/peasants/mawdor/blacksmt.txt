@@ -1,0 +1,622 @@
+Mawdor blacksmith
+
+[page="start"]
+[iftime 0800-0900][goto="inchurch"]
+[ifntime "0900-1800"][goto="outofhours"]
+[colour="#808080"]
+You see a sturdy blacksmith.
+[colour="#ffffff"]
+[learn_name]
+
+"Hello there, I am $NAME.
+ Can I interest you in some of my fine weapons?
+
+ I have something to suit every purse.."
+
+[link="What are you selling?"]
+[linkto="buy"]
+[always]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="inchurch"]
+"Hush!  I am listening to the Priest."
+[nextpage="exit"]
+[endpage]
+
+[page="buy"]
+
+"What would you seek to buy?  Weapons or armour?"
+
+[link="I would like a weapon."]
+[linkto="buy_sword"]
+[always]
+[link="I would like some armour."]
+[linkto="buy_armour"]
+[always]
+[link="Do you buy items?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_sword"]
+
+"I have fine cutlasses for 100 gold pieces each, a
+ shortsword for 170, and an excellent longsword for only
+ 400 gold pieces.
+
+ I also have some daggers.  Those with the plain, wooden
+ handle are 90 gold each, but I also have gilt daggers
+ for 150 gold each."
+
+[link="I would like a cutlass."]
+[linkto="sword00"]
+[always]
+[link="I would like a shortsword."]
+[linkto="sword01"]
+[always]
+[link="I would like the longsword, please."]
+[linkto="sword02"]
+[always]
+[link="I would like a plain dagger, please."]
+[linkto="sword04"]
+[always]
+[link="I would like a gilt dagger, please."]
+[linkto="sword05"]
+[always]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[always]
+[link="I'd like some armour instead."]
+[linkto="buy_armour"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sword00"]
+[take 100 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "sword00"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sword01"]
+[take 170 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "sword01"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sword02"]
+[take 400 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "sword02"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sword04"]
+[take 90 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "sword04"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sword05"]
+[take 150 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "sword05"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_armour"]
+
+"I make chainmail.  If you would like some, I will sell
+ it for 200 gold coins.  If that is not sufficient, I
+ also make fine platemail, but it requires skill to make
+ and I must ask 600 gold coins.
+
+ If you cannot afford plate, I also have some banded
+ armour.  It is cheaper than the plate but more
+ protective than the chain.  I will ask 300 gold.
+
+ I also make shields, and I can sell one for 100 gold.
+ You may wish to seek out Holm the fletcher.  He works
+ wood and cloth, his wares may be more appropriate if you
+ cannot afford the extra protection of steel."
+
+[link="I would like some chainmail."]
+[linkto="armour02"]
+[always]
+[link="I would like some platemail."]
+[linkto="armour03"]
+[always]
+[link="I would like the banded armour."]
+[linkto="armour04"]
+[always]
+[link="I would like a shield, please."]
+[linkto="shield01"]
+[always]
+[link="Do you buy armour?"]
+[linkto="sell_armour"]
+[always]
+[link="I'd like a weapon instead."]
+[linkto="buy_sword"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="armour02"]
+[take 200 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "armour02"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="armour03"]
+[take 600 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "armour03"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="armour04"]
+[take 300 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "armour04"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="shield01"]
+[take 100 "gold_coins"]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 "shield01"]
+"Thankyou, $Sir!
+
+ I hope you find it useful."
+
+[link="I would like to buy something else."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell"]
+
+"Ah.  Would you be selling arms or armour?"
+
+[link="I have a weapon."]
+[linkto="sell_sword"]
+[always]
+[link="I have some armour."]
+[linkto="sell_armour"]
+[always]
+[link="I'd like to buy something instead."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="sell_sword"]
+
+"I will pay 102 gold pieces for a shortsword, 60 gold for
+ a cutlass, 240 gold for a longsword.
+ I will also give you 54 gold for a plain dagger, or 90
+ for a dagger with a gilded handle."
+
+[link="I want to sell a cutlass."]
+[linkto="s_sword00"]
+[always]
+[link="I want to sell a shortsword."]
+[linkto="s_sword01"]
+[always]
+[link="I want to sell a longsword."]
+[linkto="s_sword02"]
+[always]
+[link="I want to sell a dagger."]
+[linkto="s_sword04"]
+[always]
+[link="I want to sell a gilt dagger."]
+[linkto="s_sword05"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="s_sword00"]
+[take 1 "sword00"]
+[if false][goto="no_sword"]
+[call="money_sound"]
+[create 60 "gold_coins"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="s_sword01"]
+[take 1 "sword01"]
+[if false][goto="no_sword"]
+[call="money_sound"]
+[create 102 "gold_coins"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_sword02"]
+[take 1 "sword02"]
+[if false][goto="no_sword"]
+[create 240 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_sword04"]
+[take 1 "sword04"]
+[if false][goto="no_sword"]
+[create 54 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="s_sword05"]
+[take 1 "sword05"]
+[if false][goto="no_sword"]
+[create 90 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="sell_armour"]
+
+"I will pay 120 gold pieces for chainmail, 360 gold for
+ platemail, 180 for banded armour, and 60 gold for a
+ shield."
+
+[link="I want to sell some chainmail."]
+[linkto="s_armour02"]
+[always]
+[link="I want to sell some platemail."]
+[linkto="s_armour03"]
+[always]
+[link="I want to sell some banded armour."]
+[linkto="s_armour04"]
+[always]
+[link="I want to sell a curved shield."]
+[linkto="s_shield01"]
+[always]
+[am_carrying shield02]
+[if true][link="I have this fancy shield, will you buy it?"]
+[if true][linkto="s_shield02"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_armour02"]
+[take 1 "armour02"]
+[if false][goto="no_sword"]
+[create 120 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_armour03"]
+[take 1 "armour03"]
+[if false][goto="no_sword"]
+[create 360 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_armour04"]
+[take 1 "armour04"]
+[if false][goto="no_sword"]
+[create 180 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_shield01"]
+[take 1 "shield01"]
+[if false][goto="no_sword"]
+[create 60 "gold_coins"]
+[call="money_sound"]
+"Very good, $Sir.
+
+ Here is your money."
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="s_shield02"]
+[colour="#808080"]
+The blacksmith recoils in horror.
+[colour="#ffffff"]
+
+"No!  I shall not, for that is Church property!"
+
+[link="I would like to sell something else."]
+[linkto="sell"]
+[always]
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="no_money"]
+
+"I'm afraid you can't afford that, friend. In these times
+ that's not uncommon.
+
+ Would you buy anything else instead?"
+
+[link="Yes, I would."]
+[linkto="buy"]
+[always]
+[link="Do you buy weapons?"]
+[linkto="sell"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_sword"]
+
+"I do not see it.. mayhap you have left the item at home."
+
+ Would you sell something else instead?"
+
+[link="Yes, I would."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="outofhours"]
+[colour="#808080"]
+[if_know_name]You see $NAME, the blacksmith.
+[if_not_know_name]You see a sturdy blacksmith at rest.
+[colour="#ffffff"]
+
+"Hello there."
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+
+"I'm $NAME, the town blacksmith.
+ I make swords, armour and various tools from steel.
+
+ Come to my shop during the day if you are interested."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+"Fare well."
+
+[nextpage="exit"]
+[endpage]

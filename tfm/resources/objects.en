@@ -6890,10 +6890,21 @@ section: characters
 	spikeproof
 
 	alias SECRETDOOR2_SHUT = SECRETDOOR1_SHUT
+	left		SECRETDOOR03
+	right		SECRETDOOR03
+	up		SECRETDOOR00
+	down		SECRETDOOR00
 	hp		8000
-	IfUsed		-
+	weight		-1
+	description	"You see a secret door."
+	short		"wall"
 	Ifwielded	OPENDOORSECRET2
 	IfKilled	respawn
+	solid
+	blockslight
+	fixed
+	spikeproof
+	hp		8000
 
 	alias SECRETDOOR2_OPEN = SECRETDOOR1_OPEN
 	hp		8000
@@ -6915,9 +6926,12 @@ section: characters
 	down		SECRETDOOR07
 	IfUsed		CLOSEDOORSECRET3
 
-	alias SECRETDOOR4_SHUT = SECRETDOOR3_SHUT
+	alias SECRETDOOR4_SHUT = SECRETDOOR2_SHUT
+	left		SECRETDOOR09
+	right		SECRETDOOR09
+	up		SECRETDOOR06
+	down		SECRETDOOR06
 	hp		8000
-	IfUsed		-
 	IfWielded	OPENDOORSECRET3
 	IfKilled	respawn
 
