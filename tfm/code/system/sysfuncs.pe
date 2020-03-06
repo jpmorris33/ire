@@ -262,18 +262,14 @@ function sys_trackstop
 object temp
 
 get_solid_object temp from new_x new_y
-if_exists temp
-	# Can it be opened like a door?
-	if_flag temp CAN_OPEN
-		# Can the creature open it?
-		if_not_flag current NOT_OPEN_DOORS
-			# Yes
-			let current = temp
-			call temp.funcs.ucache
-			return
-		endif
-	else
-		return
+if_not_exists temp
+	get_object temp from new_x new_y
+endif
+
+if_not_exists temp
+	return
+endif
+
 /*
 		print me.name
 		print " blocked by "
@@ -286,24 +282,16 @@ if_exists temp
 		printx me.flags
 		printcr
 */
-	endif
-else
-	get_object temp from new_x new_y
-	if_exists temp
 
-		/*
-		print "FIXME: blocked by not-solid object|"
-		print me.name
-		print " bocked by "
-		print temp.name
-		printcr
-		*/
-
-		if_flag temp CAN_OPEN
-			let current = temp
-			call temp.funcs.ucache
-			return
-		endif
+# Can it be opened like a door?
+if_flag temp CAN_OPEN
+and temp.funcs.ucache >= 0
+	# Can the creature open it?
+	if_not_flag current NOT_OPEN_DOORS
+		# Yes
+		let current = temp
+		call temp.funcs.ucache
+		return
 	endif
 endif
 
