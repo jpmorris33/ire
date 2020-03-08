@@ -210,7 +210,7 @@ endif
 # But only if there is another container outside (e.g. bag inside player)
 if_exists current_bag.parent
 	transfer_to_pocket back_icon to current_bag	# Back icon
-	let back_icon.pocket = current_bag # This is dangerous if uncontrolled
+#	let back_icon.pocket = current_bag	# NO NO NO, NEVER DO THIS AGAIN
 endif
 
 # Draw the box

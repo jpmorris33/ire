@@ -1564,16 +1564,17 @@ if(!obj->pocket.objptr)
 	return;
 
 temp = obj->pocket.objptr;
-while(temp)
-	{
+while(temp) {
 	next = temp->next;
 	LL_Remove(&obj->pocket.objptr,temp);       // Unlink the object
-	if(temp->pocket.objptr)                    // If it has objects inside
+	temp->parent.objptr = NULL;					// Prevent CheckRefs getting confused
+	if(temp->pocket.objptr) {                    // If it has objects inside
 		FreePockets(temp); 	            // Recurse inside it
+	}
 	LL_Kill(temp);                  	    // Free the memory
 	// Go to next object
 	temp = next;
-	};
+};
 }
 
 int LLcache_register(void *ptr)

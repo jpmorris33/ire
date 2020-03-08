@@ -2882,7 +2882,7 @@ if(o->parent.objptr)
 	if((o->parent.objptr->flags & IS_ON) == 0)
 		{
 #ifdef DEBUG_SAVE
-		ilog_quiet("CKR: emergency drop object %s (%x) ID%ld from %s (%p) at %ld,%ld\n",o->name,o,o->save_id,o->parent->name,o->parent,o->parent->x,o->parent->y);
+		ilog_quiet("CKR: emergency drop object %s (%p) ID%ld from %s (%p) at %ld,%ld\n",o->name,o,o->save_id,o->parent->name,o->parent,o->parent->x,o->parent->y);
 #endif
 		LL_Remove(&o->parent.objptr->pocket.objptr,o);
 		ForceDropObject(0,0,o);
