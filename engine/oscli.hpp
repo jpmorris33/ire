@@ -46,6 +46,8 @@ extern char debug_act;
 extern char SkipInit;
 extern int blankercol;
 extern VMINT speechfont;
+extern VMINT speechlinksfont;
+extern VMINT speechmargin;
 extern int logx,logy,loglen;
 extern int conx,cony,conlen,conwid;
 extern int ig_min,ig_hour,ig_day,ig_month,ig_year,ig_dow;

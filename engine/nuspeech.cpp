@@ -115,7 +115,7 @@ extern void CheckSpecialKeys(int k);
  *                                     to use 'start' as the starting page,
  */
 
-static int start,end,linectr,fh,toph;
+static int start,end,linectr,fh,fh2,toph;
 
 int NPC_Converse(const char *file,const char *startpage)
 {
@@ -136,7 +136,7 @@ ret = 1; // Assume success
 SaveRanges(); // Store old mouse ranges
 
 userfont=speechfont;
-fh = irecon_font(userfont); // Load new font, get height
+fh2 = fh = irecon_font(userfont); // Load new font, get height
 toph = 8*(fh/8);
 
 // Set the NPC we're talking to, especially if it's a link to another object
@@ -317,28 +317,36 @@ do  {
 	// Now display the page links
 
 	irecon_colour(link_r,link_g,link_b);   // Colour for the menu
+	if(speechlinksfont >= 0) {
+		fh2 = irecon_font(speechlinksfont);
+	}
 
-	y+=fh;
-	for(ctr=0;ctr<linkptr;ctr++)
-		{
-		if(ctr<9)
+	y=swapscreen->GetH() - (fh2 * linkptr);
+	if(speechmargin >= 0) {
+		y-=(fh2 * speechmargin);
+	} else {
+		y-=(fh2/2); // Negative for half a line
+	}
+	for(ctr=0;ctr<linkptr;ctr++) {
+		if(ctr<9) {
 			itoa(ctr+1,msg,10);
-		else
+		} else {
 			strcpy(msg,"0");
-		irecon_printxy(link_x,y,msg);
-		if(links[ctr][3][0]!=0)     // Is there an alternate title?
-			{
-			if(NPC_WasRead(npc,links[ctr][0],playername)) // Should we use it?
-				irecon_printxy(link_x+(fh*2),y,links[ctr][3]);   // Yes
-			else
-				irecon_printxy(link_x+(fh*2),y,links[ctr][1]);   // No
-			}
-		else
-			irecon_printxy(link_x+(fh*2),y,links[ctr][1]);       // No there wasn't
-		AddMouseRange(IREKEY_1+ctr,link_x,y,(fh*2)+(fh*strlen(links[ctr][1])),fh);
-		SetRangePointer(IREKEY_1+ctr,1);
-		y+=fh;
 		}
+		irecon_printxy(link_x,y,msg);
+		if(links[ctr][3][0]!=0)  {    // Is there an alternate title?
+			if(NPC_WasRead(npc,links[ctr][0],playername)) { // Should we use it?
+				irecon_printxy(link_x+(fh2*2),y,links[ctr][3]);   // Yes
+			} else {
+				irecon_printxy(link_x+(fh2*2),y,links[ctr][1]);   // No
+			}
+		} else {
+			irecon_printxy(link_x+(fh*2),y,links[ctr][1]);       // No there wasn't
+		}
+		AddMouseRange(IREKEY_1+ctr,link_x,y,(fh2*2)+(fh2*strlen(links[ctr][1])),fh2);
+		SetRangePointer(IREKEY_1+ctr,1);
+		y+=fh2;
+	}
 
 	if(PageDelay)
 		{
@@ -348,6 +356,7 @@ do  {
 		}
 
 	irecon_colour(def_r,def_g,def_b);
+	irecon_font(userfont);
 
 	// If we have an autolink, display a little icon
 	if(autolink[0])
@@ -2442,21 +2451,34 @@ for(ctr=0;ctr<MAX_MEMBERS;ctr++)
 irecon_colour(0,0,160);
 
 //y+=32;
-for(ctr=0;ctr<members;ctr++)
-    {
+
+fh2=fh;
+if(speechlinksfont >= 0) {
+	fh2 = irecon_font(speechlinksfont);
+}
+
+y=swapscreen->GetH() - (fh2 * linkptr);
+if(speechmargin >= 0) {
+	y-=(fh2 * speechmargin);
+} else {
+	y-=(fh2/2); // Negative for half a line
+}
+
+for(ctr=0;ctr<members;ctr++) {
     itoa(ctr+1,msg,10);
     irecon_printxy(0,y,msg);
     if(party[ctr]->personalname)
-        irecon_printxy((fh*2),y,party[ctr]->personalname);
+        irecon_printxy((fh2*2),y,party[ctr]->personalname);
     else
-        irecon_printxy((fh*2),y,party[ctr]->name);
-    y+=fh;
-    }
+        irecon_printxy((fh2*2),y,party[ctr]->name);
+    y+=fh2;
+}
 
 irecon_printxy(0,y,"0");
-irecon_printxy((fh*2),y,"No-one");
-y+=fh;
+irecon_printxy((fh2*2),y,"No-one");
+y+=fh2;
 
+irecon_font(speechfont);
 irecon_colour(def_r,def_g,def_b);
 
 Show();

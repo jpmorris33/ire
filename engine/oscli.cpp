@@ -76,6 +76,8 @@ int imapx=384,imapy=240;
 int ig_min,ig_hour,ig_day,ig_month,ig_year,ig_dow;
 int turns_min=0,min_hour=60,hour_day=24,day_week=7,day_month=30,month_year=12;
 VMINT speechfont=0;
+VMINT speechlinksfont=-1;
+VMINT speechmargin=0;  // lines to leave at the bottom (e.g. 0,1   -1 = half a line)
 int torch_bonus=0; // If lightsources are onscreen, remove total darkness
 char DebugVM=0;
 char in_editor; // Which program we are in (some modules are shared)
@@ -365,6 +367,16 @@ if(cpt>=0)
 cpt = find("speechfont");
 if(cpt>=0 && getarg(cpt+1)) {
 	speechfont = atol(getarg(cpt+1));
+}
+
+cpt = find("speechlinksfont");
+if(cpt>=0 && getarg(cpt+1)) {
+	speechlinksfont = atol(getarg(cpt+1));
+}
+
+cpt = find("speechmargin");
+if(cpt>=0 && getarg(cpt+1)) {
+	speechmargin = atol(getarg(cpt+1));
 }
 
 cpt = find("torch_bonus");
