@@ -1,5 +1,6 @@
 [page="start"]
 [backing="paper.pcx"]
+[set met_cow]
 [font 3]
 
    The Cow is the LORD's judgement upon us!

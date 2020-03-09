@@ -1,4 +1,5 @@
 [page="start"]
 [backing="cow2.jpg"]
+[set met_cow]
 [nextpage="exit"]
 [endpage]

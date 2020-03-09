@@ -6889,7 +6889,8 @@ section: characters
 	fixed
 	spikeproof
 
-	alias SECRETDOOR2_SHUT = SECRETDOOR1_SHUT
+	# Doesn't have WILL_OPEN flag
+	name SECRETDOOR2_SHUT
 	left		SECRETDOOR03
 	right		SECRETDOOR03
 	up		SECRETDOOR00

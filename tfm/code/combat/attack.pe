@@ -691,14 +691,18 @@ if attacker = player
 else	# If not the player, check range and attack if possible
  	let current = attacker
 
+	# If it's The Cow, set the plot flag
+	if_flag attacker.enemy IS_HERO
+		if attacker is called "COW_THECOW"
+			set_user_flag "met_cow" = 1
+		endif
+	endif
+
 	let blockage = null
 	call track_enemy
 	if_exists blockage
 		if blockage = attacker.enemy
 			# Kill the enemy
-#			print "Trample on "
-#			print blockage.name
-#			printcr
 			add blockage.stats.hp - attacker.stats.damage
 			check_hurt blockage
 		else
@@ -714,9 +718,6 @@ else	# If not the player, check range and attack if possible
 	if_exists blockage
 		if blockage = attacker.enemy
 			# Kill the enemy
-#			print "Trample on "
-#			print blockage.name
-#			printcr
 			add blockage.stats.hp - attacker.stats.damage
 			check_hurt blockage
 		else

@@ -206,7 +206,11 @@ function sys_mainproc
 int bx
 object o
 
+# Check map number for the cardinal in case the user warped map
+get_mapno bx
+
 if CardinalSpoke2U = 0
+and bx = 1
 	# Set default journal entry as necessary
 	journal jrn_Arrival
 

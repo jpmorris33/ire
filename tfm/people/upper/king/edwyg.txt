@@ -98,7 +98,7 @@ King Edwyg greets you like a visiting prince.
 [if flour2][link="I would like some grain, your Majesty."]
 [if flour2][linkto="flour"]
 [call="check_thecow"]
-[if true][link="The cow is blocking the way to New Fairford."]
+[if true][link="A giant cow is blocking the way to New Fairford."]
 [if true][linkto="fairford3"]
 [link="Goodbye"]
 [linkto="bye"]
@@ -827,6 +827,22 @@ King Edwyg glances around the room and lowers his voice.
 [linkto="bye"]
 [endpage]
 
+
+[page="fairford3"]
+[journal jrn_EdwygFairford]
+
+"Find Ransome, I beseech you.. find him and tell him
+ what has happened.  For it seems to me that the Church
+ is preparing for a strike against those whom it
+ considers its enemies, and that would include him too."
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
 
 
 

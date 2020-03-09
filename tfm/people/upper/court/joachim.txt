@@ -16,6 +16,9 @@ Joachim, the King's sorcerer
 [if yado_quest_packages][linkto="yado_island"]
 [if yado_quest_rocks][link="A Master told me to swallow rocks.  Any ideas?"]
 [if yado_quest_rocks][linkto="yado_rocks"]
+[if edwyg_fairford][call="check_thecow"]
+[if edwyg_fairford][if true][link="A giant cow is blocking the way to New Fairford."]
+[if edwyg_fairford][if true][linkto="cow"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -36,6 +39,13 @@ You see Joachim, the King's sorcerer.
 [if yado_quest_packages][linkto="yado_island"]
 [if yado_quest_rocks][link="A Master told me to swallow rocks.  Any ideas?"]
 [if yado_quest_rocks][linkto="yado_rocks"]
+[if edwyg_fairford][call="check_thecow"]
+[if edwyg_fairford][if true][link="A giant cow is blocking the way to New Fairford."]
+[if edwyg_fairford][if true][linkto="cow"]
+[if strangeman_scar][link="Do you know a man with a scar on his forehead?"]
+[if strangeman_scar][linkto="findpeople"]
+[if find_jorge][link="Do you know of a man named 'Jorge'?"]
+[if find_jorge][linkto="findpeople"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -57,8 +67,9 @@ You see Joachim, the King's sorcerer.
 
 
 [page="job"]
+[learn_name]
 
-"I am the court sorcerer to my liege, his majesty
+"I am Joachim, court sorcerer to my liege, his majesty
  King Edwyg the Generous.  I advise the King on matters
  of the arcane, among other things.
 
@@ -350,6 +361,56 @@ He drops to a whisper.
 
 "Seek for the one who is called 'Ransome'.  I believe he
  may be able to aid you in this."
+
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Doesn't the Church mind sorcery?"]
+[linkto="church"]
+[link="What experiments do you perform?"]
+[linkto="experiments"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="cow"]
+
+"To circumvent the Cow is to circumvent the will of
+ the LORD.  I could not possibly aid you with such
+ a blasphemous undertaking!
+
+ But speaking purely hypothetically, if one were to
+ commit such a crime against the Church, how might they
+ go about it?
+
+ No normal weapons would work.  It is said that the
+ Ancients had devices which would explode and kill many
+ in a single fell act.  There are tales that some here
+ have been able to make a black powder with similar
+ properties, but I know not where such a thing may be
+ found.
+
+ Magic is, of course, another possibility."
+
+[link="Tell me about the King"]
+[linkto="king"]
+[link="Doesn't the Church mind sorcery?"]
+[linkto="church"]
+[link="What experiments do you perform?"]
+[linkto="experiments"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="findpeople"]
+
+"My work for the King and my own researches keep me
+ here within the castle and I rarely stray beyond its
+ walls these days.
+
+ So I cannot help you find this person.  But if it were
+ me, I should ask at the tavern, see if anyone there
+ knows of them."
 
 [link="Tell me about the King"]
 [linkto="king"]

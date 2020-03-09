@@ -300,10 +300,10 @@ You see a burly woman.
 
 [page="cow"]
 
-"The Cow is come to do the Lord's bidding, so they say.
+"The Cow is come to do the LORD's bidding, so they say.
  It does us no harm, but kills any who approach the mill.
 
- I am glad OUR cows are not as big as the Lord's!"
+ I am glad OUR cows are not as big as the LORD's!"
 
 
 [link="Tell me about the mill."]

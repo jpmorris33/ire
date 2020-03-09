@@ -398,7 +398,8 @@ if_not_exist me
 endif
 
 if_not_exist me.target
-	print "STG no target"
+	print "STG no target for "
+	print me.name
 	printcr
 	return
 endif
@@ -457,7 +458,8 @@ if_not_exist me
 endif
 
 if_not_exist me.target
-	print "STG no target"
+	print "STG no target for "
+	print me.name
 	printcr
 	return
 endif
