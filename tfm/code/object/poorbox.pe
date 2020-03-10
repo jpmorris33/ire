@@ -7,6 +7,7 @@
 function poorbox_donate
 integer amount
 integer available
+object pocket
 
 # Ask the question
 
@@ -42,7 +43,8 @@ move amount "gold_coins" from player to current
 
 # Set ownership of stuff inside to match box's owner (e.g. Cardinal, Jesus)
 if_exists current.pocket
-	let current.pocket.stats.owner = current.stats.owner
+	let pocket = current.pocket
+	let pocket.stats.owner = current.stats.owner
 endif
 
 # If any Tithes due, pay them off
