@@ -165,6 +165,7 @@ OBJECT *aptr;
 OBJLIST *active,*next;
 int vx,vy,ctr,turns;
 OBJREGS oldvars;
+clock_t profstart,profend;
 
 turns=0;
 
@@ -421,10 +422,24 @@ do {
 
 	stopmetric=GetIREClock();
 
+	if(profile_actions) {
+		printf("\n");
+		profstart = clock();
+	}
+
 	// Now move all other objects
 	active=ActiveList;
+	aptr=active->ptr;
 	if(active)	{
 		do {
+			if(profile_actions) {
+				profend = clock();
+				if(profend-profstart > 200) {
+					printf("Actions for %s took %ld clocks\n",aptr->name,profend-profstart);
+				}
+				profstart = clock();
+			}
+
 			aptr=active->ptr;  // Active may get deleted from the list,
 							    // so take a copy of the object in question
 

@@ -53,6 +53,7 @@ char ire_NOASM=0;
 bool ire_checkcache=false;
 bool ire_recache=false;
 bool use_jugfiles=false;
+bool profile_actions=false;
 char show_vrm_calls=0;
 int graflog=-1;        // Graphical bootlog, true or false
 char quickstart=0;      // Prevent logging to disk
@@ -153,6 +154,7 @@ if(found("?") || found("h") || found("help"))
 	puts("-showfuncs          Write all script function names to IREFUNCS.TXT and stop");
 	puts("-noasm              Disable assembler routines");
 	puts("-checkcache	  Check image cache is up-to-date (slightly slower)");
+	puts("-profile		  Profile activity scripts");
 	puts("-recache		  Rebuild image cache");
 	puts("-jug <file[s]>      Load game data from one of more .jug files");
 if(in_editor)
@@ -264,6 +266,9 @@ if(found("recache"))
 
 if(found("checkcache"))
     ire_checkcache = true;
+
+if(found("profile"))
+    profile_actions = true;
 
 // Get the project title
 cpt=find("project");

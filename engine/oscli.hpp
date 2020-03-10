@@ -28,6 +28,7 @@ extern char ire_NOASM;
 extern bool ire_checkcache;
 extern bool ire_recache;
 extern bool use_jugfiles;
+extern bool profile_actions;
 extern char skip_unk;
 extern char ire_showfuncs;
 extern char ire_U6partymode;
