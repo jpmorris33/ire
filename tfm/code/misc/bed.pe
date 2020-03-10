@@ -47,6 +47,7 @@ if_exists bed
 
 else
 	# Sleep on the floor
+	let current = me
 	call lie_down
 	# Deep sleep (not used yet)
 	let me.user.unconscious = 9999
