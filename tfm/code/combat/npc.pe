@@ -21,6 +21,7 @@
 function enemy_attack
 
 object atk
+int dist
 
 let atk = me
 
@@ -55,14 +56,19 @@ if_not_exist atk.enemy
 	endif
 endif
 
+# Give up if too far away
+get_distance dist = atk atk.enemy
+if dist > 50
+	# If it's a random monster, remove it to save cycles
+	if_flag atk IS_SPAWNED
+		do_action atk does creature_despawn
+		return
+	endif
 
-/*
-if_flag atk.enemy IS_SHADOW
-#	move_thick atk atk.enemy
-else
-	move_towards atk atk.enemy
+	resume_activity atk
+	return
 endif
-*/
+
 
 # Set up for attack, if successful
 let splatvictim = atk.enemy

@@ -81,7 +81,7 @@ if victim = player
 	create guard = "guard"
 	transfer_object guard to x x2
 	queue_action guard does seek_target_use_resume to hatch.stats.owner
-	queue_action guard does guard_despawn
+	queue_action guard does creature_despawn
 	run_queue guard
 	set_flag guard IS_SPAWNED = 1	# Guard must evapourate afterwards
 
@@ -167,7 +167,7 @@ if victim = player
 	create guard = "guard"
 	transfer_object guard to x y
 	queue_action guard does seek_target_use_resume to guillotine
-	queue_action guard does guard_despawn
+	queue_action guard does creature_despawn
 	run_queue guard
 	set_flag guard IS_SPAWNED = 1	# Guard must evapourate afterwards
 

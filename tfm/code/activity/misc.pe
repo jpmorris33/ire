@@ -6,7 +6,7 @@
 ##  If a guard is summoned for a cutscene etc, make them vanish afterwards
 ##
 
-function guard_despawn
+function creature_despawn
 activity
 
 # Wait until I'm offscreen, then vanish
