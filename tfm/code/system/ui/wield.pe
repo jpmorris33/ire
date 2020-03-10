@@ -17,6 +17,8 @@ integer w_middle
 integer w_bottom
 integer wield_init = 0
 
+# Do not save this in the savegame or the mouse ranges will break
+transient wield_init
 
 ##
 ##	Set up wield coordinates
