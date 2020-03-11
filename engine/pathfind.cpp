@@ -255,6 +255,7 @@ int FindPath_main(OBJECT *start, OBJECT *end, int flags)
 {
 int vsx,vsy,tx,ty,cx,cy,xctr,yctr;
 int blockx,blocky,blockw,blockh;
+double blocktype = PF_WALL;
 OBJECT *temp;
 NODE *p,*pstart;
 
@@ -345,6 +346,10 @@ for(cx=MAPSIZE-1;cx>0;cx--) {
 
 		// Check the objects.
 		if(temp) {
+			blocktype = PF_WALL;
+			if(temp->flags & IS_BOAT) {
+				blocktype = PF_BRIDGE;
+			}
 			if(temp->engineflags & ENGINE_ISLARGE) {      // It's large, do lots of stuff
 				// First, generate the appropriate object shape
 				if(temp->curdir>CHAR_D) {
@@ -370,7 +375,7 @@ for(cx=MAPSIZE-1;cx>0;cx--) {
 
 				for(xctr=0;xctr<blockw;xctr++) {
 					for(yctr=0;yctr<blockh;yctr++) {
-						pfmap[cx+xctr+blockx][cy+yctr+blocky] = PF_WALL;
+						pfmap[cx+xctr+blockx][cy+yctr+blocky] = blocktype;
 					}
 				}
 
@@ -408,7 +413,7 @@ for(cx=MAPSIZE-1;cx>0;cx--) {
 
 			} else {
 				if(!(temp->flags & CAN_OPEN) || GetNPCFlag(start,NOT_OPEN_DOORS)) {
-					pfmap[cx][cy] = PF_WALL;    // It's just a small one
+					pfmap[cx][cy] = blocktype;    // It's just a small one
 				}
 			}
 		}
@@ -421,7 +426,7 @@ pfmap[end->x-vsx][end->y-vsy] = PF_BLANK;
 pfmap[start->x-vsx][start->y-vsy] = PF_BLANK;
 
 // For debugging, draw the cute little map
-if(show_imap && player->enemy.objptr == start) {
+if(show_imap && !strcmp(start->personalname,"X24") /*player->enemy.objptr == start*/) {
 	for(cx=0;cx<MAPSIZE;cx++) {
 		for(cy=0;cy<MAPSIZE;cy++) {
 			if(pfmap[cx][cy]<0.0) {

@@ -10,6 +10,7 @@
 //#define DEBUG_LARGE_OBJECTS
 //#define DEBUG_SOLID_OBJECTS
 //#define DEBUG_BLOCKSLIGHT
+//#define DEBUG_BRIDGES
 //#define CHECK_ACTIVELIST
 //#define CHECK_MASTERLIST
 //#define WIELD_PARANOID	// If objects being wielded disappear, this may help
@@ -122,6 +123,7 @@ void CheckSpecialKeys(int k);
 
 extern VisMap vismap;
 extern VisMap lightingmap;
+
 
 // code
 
@@ -784,6 +786,12 @@ if(UpdateAnim())	{
 		for(int vx=0;vx<VSH;vx++)
 			if(solidmap[vx+VIEWDIST][vy+VIEWDIST])
 				gamewin->FillRect((vx<<5),(vy<<5),32,32,255,255,255);
+	#endif
+	#ifdef DEBUG_BRIDGES
+	for(int vy=0;vy<VSW;vy++)
+		for(int vx=0;vx<VSH;vx++)
+			if(bridgemap[vx+VIEWDIST][vy+VIEWDIST])
+				gamewin->FillRect((vx<<5),(vy<<5),8,8,255,255,255);
 	#endif
 	#ifdef DEBUG_BLOCKSLIGHT
 	for(int vy=0;vy<VSW;vy++)
