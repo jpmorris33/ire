@@ -24,8 +24,9 @@
 #define MAPSIZE 64
 #define PF_BLANK 1.0
 #define PF_WALL -1.0
+#define PF_BRIDGE 1.0
 #define PF_PERSON 10.0 // points to move around a person
-#define PF_MOVEABLE 20.0 // points to move around a person
+#define PF_MOVEABLE 20.0 // Object is in the way but could be moved
 
 #define BACK_PROPAGATION // Better results but slower
 
@@ -317,6 +318,10 @@ for(cx=MAPSIZE-1;cx>0;cx--) {
 		// Get an initial opinion of the cost (and whether it's solid)
 		pfmap[cx][cy] = (double)GetTileCost(tx,ty);
 
+		if(GetBridge(tx,ty)) {
+			pfmap[cx][cy] = PF_BRIDGE;
+		}
+
 		// Get the solid object at this point, unless it is You
 		temp = GetRawSolidObject(tx,ty,start);
 
@@ -399,6 +404,8 @@ for(cx=MAPSIZE-1;cx>0;cx--) {
 						}
 					}
 				}
+
+
 			} else {
 				if(!(temp->flags & CAN_OPEN) || GetNPCFlag(start,NOT_OPEN_DOORS)) {
 					pfmap[cx][cy] = PF_WALL;    // It's just a small one
