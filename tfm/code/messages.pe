@@ -451,6 +451,60 @@ talk_to "books/tech/dlpower.txt" "ampex"
 
 end
 
+
+##
+##  Dr. Seuss' laptop
+##
+
+function drrob_login
+string tbuffer
+integer letlogin
+
+cls
+textcolour 200 200 200
+print "FishOnAStick LOGIN:"
+printcr
+textcolour 255 255 255
+
+let tbuffer = passwordbuffer
+let letlogin = 1
+
+call get_username
+if tbuffer <> "drseuss"
+	# Wrong
+	let letlogin = 0
+endif
+
+textcolour 200 200 200
+print "PASSWORD:"
+printcr
+textcolour 255 255 255
+
+call get_password
+if tbuffer <> "Eps1l0n"
+	# Wrong
+	let letlogin = 0
+endif
+
+if letlogin = 0
+	textcolour 200 200 200
+	print "ACCESS DENIED."
+	printcr
+	textcolour 255 255 255
+	return
+endif
+
+#talk_to "books/tech/dlpower.txt" "ampex"
+
+call print_drrobs_diary
+if me = player
+	print "You print out the diary."
+	printcr
+endif
+
+end
+
+
 ##
 ##  Get password (main proc)
 ##

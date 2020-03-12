@@ -710,7 +710,7 @@ integer y
 find_tag printer = "PRINTER" current.tag
 if_exists printer
 	let y = printer.y + 1
-	object_sound "print" printer
+	object_sound "printer" printer
 	create printout = "DRROB_DIARY"
 	transfer_object printout to printer.x y
 endif

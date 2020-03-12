@@ -13662,6 +13662,7 @@ section: sounds
 	lava_plop		sound/lavahiss.wav
 	snail			sound/snail1644.wav
 	snail_squish		sound/snail2.wav
+	printer			sound/lx400-2.wav
 
 section: music
 

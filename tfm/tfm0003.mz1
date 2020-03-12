@@ -48626,7 +48626,7 @@ iMZ1r01
 		at 756 630
 		curdir 0
 		tag 54
-		funcs->use PRINT_DRROBS_DIARY
+		funcs->use DRROB_LOGIN
 		funcs->talk -
 
 	object TABL425e3d7f-432a-4bda-8126-6afce1bbc8fc
