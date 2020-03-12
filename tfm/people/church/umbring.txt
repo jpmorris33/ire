@@ -66,12 +66,14 @@ He hands you the key and a rough piece of paper.
 [link="What should I do?"]
 [linkto="whatshouldIdo"]
 [always]
-[if flour1][link="Tell me about The Cow."]
-[if flour1][linkto="thecow"]
-[always]
-[if met_cow][link="Tell me about The Cow."]
-[if met_cow][linkto="thecow"]
-[always]
+[if flour1][if_not met_cow][link="Tell me about The Cow."]
+[if flour1][if_not met_cow][linkto="thecow"]
+[if flour1][if_not met_cow][always]
+[if met_cow][if_not flour1][link="Tell me about The Cow."]
+[if met_cow][if_not flour1][linkto="thecow"]
+[if met_cow][if_not flour1][always]
+[if popequest_wip][link="Can I see the Pope?"]
+[if popequest_wip][linkto="see_pope"]
 [link="Tell me about the tithes."]
 [linkto="tithes"]
 [altlink="Tell me again about the tithes."]
@@ -81,7 +83,7 @@ He hands you the key and a rough piece of paper.
 [if malcolm_ascended][if_not malcolm_saint][linkto="malcolm"]
 [if malcolm_ascended][if malcolm_saint][link="Tell me about Malcolm's disappearance."]
 [if malcolm_ascended][if malcolm_saint][linkto="malcolm2"]
-[always]
+[if malcolm_ascended][always]
 [link="Jesus was a dead guy on a stick."]
 [linkto="blasphemy"]
 [always]
@@ -1158,7 +1160,7 @@ Quest dialogue
 [are_there 12000 gold_coins]
 [if true][link="I'll give you 12000 gold coins."]
 [if true][linkto="see_pope_bribed"]
-[am_carrying 1 ring_inv]
+[am_carrying ring_inv]
 [if true][link="I have the ring."]
 [if true][linkto="see_pope_gotring"]
 [link="I'd like to talk about something else instead."]
@@ -1174,6 +1176,7 @@ Quest dialogue
 [take 1 ring_inv]
 [create 1 pass_pope]
 [clear find_the_precious]
+[set found_the_precious]
 
 "Blessings be upon you, my $Son!
  Here is the pass that will allow you an audience with
@@ -1183,7 +1186,7 @@ Quest dialogue
 [endpage]
 
 [page="see_pope_gotring2"]
-[image="lord.pcx"]
+[image="lord.jpg"]
 
 "MUST HAVE IT!  WE WANTS IT, WE WANTS IT, WE WANTS IT!"
 

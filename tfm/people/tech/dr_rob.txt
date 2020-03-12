@@ -1,8 +1,77 @@
 [page="start"]
 [if_not dr_rob_free][goto="helpme"]
+[if found_the_precious][goto="start2"]
 
-""
+"Thanks again for rescuing me!
+ Let me know if there's any way I can repay you!"
+
+[if find_the_precious][link="Actually, I need that invisibility ring."]
+[if find_the_precious][linkto="precious"]
+[if_not find_the_precious][link="I'll let you know if I think of something!"]
+[if_not find_the_precious][linkto="something"]
+[link="Goodbye."]
+[linkto="bye"]
 [endpage]
+
+
+[page="precious"]
+[give 1 key]
+[if false][goto="precious2"]
+
+"Ah yes, the ring.  It is a very precious thing, and
+ I'm not sure how easy it would be to find another.
+
+ But I do owe you my freedom, so...
+ The ring is in a locker in the store room.
+ Take this key.
+
+ I just ask one thing in return - could you lend the
+ ring to DeLuca in New Fairford so she can analyse it?
+
+ Do as you like with it afterwards, but if we can find
+ out how it works it would be a great boon to science!"
+
+[link="Thanks, I'll do that!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="precious2"]
+
+"The ring is in a locker in the store room.
+ I've already given you the key.
+
+ I just ask one thing in return - could you lend the
+ ring to DeLuca in New Fairford so she can analyse it?
+
+ Do as you like with it afterwards, but if we can find
+ out how it works it would be a great boon to science!"
+
+[link="Thanks, I'll do that!"]
+[linkto="bye"]
+[endpage]
+
+
+[page="something"]
+
+"In that case, I guess I owe you a favour!
+ Let me know when you've decided, and if I can grant
+ it, I will."
+
+[link="Thanks, I'll do that!"]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Farewell, and thanks again!"
+
+[nextpage="exit"]
+[endpage]
+
+
 
 
 [page="helpme"]
@@ -74,31 +143,21 @@
 
 
 [page="hm_proof"]
-[give 1 key]
-[if false][goto="hm_proof2"]
 
-"Very well.  My diary is in one of the base lockers.
- You'll need this:"
+"Very well.  My diary is on my computer, but you should
+ be able to print it out.
 
-[colour="#808080"]
-The professor hands slides a small key beneath the cell
-door.
-[colour="#ffffff"]
+ The username is 'drseuss', password is 'Eps1l0n'.
+ That's capital E, number one for the 'i', and a zero
+ for the 'o'.
 
-"By all means give them the diary, if that's what it
+ By all means let them see the diary, if that's what it
  takes."
 
 [nextpage="exit"]
 [endpage]
 
 
-[page="hm_proof2"]
-
-"Please give them the diary.  I've already given you the
- key, it should be in a locker in the base."
-
-[nextpage="exit"]
-[endpage]
 
 
 [page="hm_church"]

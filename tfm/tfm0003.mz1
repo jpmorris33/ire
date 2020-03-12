@@ -17451,7 +17451,9 @@ iMZ1r01
 		at 650 307
 		curdir 3
 		name Doctor Robertson
+		tag 800022
 		funcs->talk people/tech/dr_rob.txt
+		schedule 23 0 GO_TO_SLEEP -
 
 	object STON296f0b68-0f83-48a2-9930-5b8da5cfeb02
 		type STONEDOOR3_LOCK
@@ -17697,6 +17699,11 @@ iMZ1r01
 		type TARGET
 		at 652 308
 		curdir 3
+
+	object PERC2b56a1f5-cb19-4fe4-9da0-31f01b4f6c56
+		type PERCH
+		at 652 308
+		curdir 0
 
 	object OSPR1bd10839-996e-49ef-a4ba-6f9223b99315
 		type OSPREY
@@ -20286,7 +20293,7 @@ iMZ1r01
 
 	object PERC4e965d3c-9b09-4494-b299-cd569111f249
 		type PERCH
-		at 640 322
+		at 637 322
 		curdir 0
 
 	decorative HUT03 at 641 322
@@ -36114,8 +36121,6 @@ iMZ1r01
 
 	decorative TREE00 at 743 529
 
-	decorative TREE01 at 745 529
-
 	decorative TREE03 at 752 529
 
 	decorative TREE02 at 753 529
@@ -36238,38 +36243,6 @@ iMZ1r01
 
 	decorative TREE00 at 740 530
 
-	decorative TREE01 at 741 530
-
-	decorative TREE03 at 749 530
-
-	decorative TREE01 at 750 530
-
-	decorative TREE01 at 753 530
-
-	decorative TREE01 at 754 530
-
-	decorative TREE01 at 755 530
-
-	decorative TREE02 at 760 530
-
-	decorative TREE02 at 761 530
-
-	decorative TREE02 at 767 530
-
-	decorative TREE00 at 769 530
-
-	decorative TREE03 at 772 530
-
-	decorative TREE03 at 778 530
-
-	decorative TREE02 at 780 530
-
-	decorative TREE03 at 783 530
-
-	decorative TREE03 at 784 530
-
-	decorative TREE01 at 785 530
-
 	decorative TREE03 at 788 530
 
 	decorative TREE02 at 791 530
@@ -36343,32 +36316,6 @@ iMZ1r01
 	decorative TREE01 at 649 531
 
 	decorative TREE03 at 651 531
-
-	decorative TREE02 at 659 531
-
-	decorative TREE03 at 662 531
-
-	decorative TREE01 at 746 531
-
-	decorative TREE02 at 749 531
-
-	decorative TREE01 at 750 531
-
-	decorative TREE00 at 751 531
-
-	decorative TREE00 at 753 531
-
-	decorative TREE02 at 754 531
-
-	decorative TREE03 at 768 531
-
-	decorative TREE00 at 769 531
-
-	decorative TREE00 at 775 531
-
-	decorative TREE03 at 779 531
-
-	decorative TREE02 at 782 531
 
 	decorative TREE01 at 788 531
 
@@ -37137,8 +37084,6 @@ iMZ1r01
 		at 785 533
 		curdir 0
 
-	decorative TREE02 at 786 533
-
 	object FENC14a953da-cd55-47c4-97a6-22f48ffb20cc
 		type FENCE_CORNER
 		at 786 533
@@ -37221,14 +37166,10 @@ iMZ1r01
 		at 657 534
 		curdir 2
 
-	decorative TREE00 at 786 534
-
 	object FENCc7516559-b64b-497e-9789-958130513939
 		type FENCE
 		at 786 534
 		curdir 2
-
-	decorative TREE00 at 788 534
 
 	decorative TREE00 at 793 534
 
@@ -37407,8 +37348,6 @@ iMZ1r01
 		curdir 2
 
 	decorative TREE02 at 787 536
-
-	decorative TREE03 at 788 536
 
 	decorative TREE03 at 791 536
 
@@ -37720,8 +37659,6 @@ iMZ1r01
 		at 657 541
 		curdir 2
 
-	decorative TREE02 at 786 541
-
 	object FENC3cb78c6e-857a-4384-b142-15a185e6533e
 		type FENCE
 		at 786 541
@@ -37772,8 +37709,6 @@ iMZ1r01
 		at 657 542
 		curdir 2
 
-	decorative TREE01 at 786 542
-
 	object FENC4c55741b-1bc0-4374-8ed0-5bedbc713edb
 		type FENCE
 		at 786 542
@@ -37823,8 +37758,6 @@ iMZ1r01
 
 	decorative TREE01 at 787 543
 
-	decorative TREE00 at 788 543
-
 	decorative TREE01 at 791 543
 
 	decorative TREE03 at 793 543
@@ -37868,8 +37801,6 @@ iMZ1r01
 		type FENCE
 		at 786 544
 		curdir 2
-
-	decorative TREE00 at 787 544
 
 	decorative TREE02 at 788 544
 
@@ -37916,14 +37847,10 @@ iMZ1r01
 		at 657 545
 		curdir 2
 
-	decorative TREE01 at 786 545
-
 	object FENC6f021c70-8402-41d8-9e3f-8d820d87b6b5
 		type FENCE
 		at 786 545
 		curdir 2
-
-	decorative TREE00 at 787 545
 
 	decorative TREE02 at 794 545
 
@@ -38000,8 +37927,6 @@ iMZ1r01
 		at 786 546
 		curdir 2
 
-	decorative TREE02 at 788 546
-
 	decorative TREE00 at 789 546
 
 	decorative TREE00 at 790 546
@@ -38058,8 +37983,6 @@ iMZ1r01
 		type FENCE
 		at 657 547
 		curdir 2
-
-	decorative TREE00 at 786 547
 
 	object FENCae6ab497-d79e-4545-a16f-4badcba3750d
 		type FENCE
@@ -38195,8 +38118,6 @@ iMZ1r01
 		at 657 549
 		curdir 2
 
-	decorative TREE01 at 786 549
-
 	object FENC4eacc344-7d14-4f54-9d5c-3a924129959c
 		type FENCE
 		at 786 549
@@ -38307,8 +38228,6 @@ iMZ1r01
 		at 786 550
 		curdir 2
 
-	decorative TREE02 at 788 550
-
 	decorative TREE01 at 792 550
 
 	decorative TREE00 at 794 550
@@ -38394,8 +38313,6 @@ iMZ1r01
 		type FENCE
 		at 786 551
 		curdir 2
-
-	decorative TREE02 at 788 551
 
 	decorative TREE02 at 789 551
 
@@ -38503,8 +38420,6 @@ iMZ1r01
 		curdir 2
 		name Map 2 transfer point
 		tag 11002
-
-	decorative TREE00 at 786 552
 
 	object FENC1bf544cc-1623-4fc9-bcb6-c4de0fa1c26f
 		type FENCE
@@ -38774,8 +38689,6 @@ iMZ1r01
 		at 657 555
 		curdir 2
 
-	decorative TREE00 at 786 555
-
 	object FENCbe1291f7-8052-4acc-8372-18edf6586624
 		type FENCE
 		at 786 555
@@ -38867,8 +38780,6 @@ iMZ1r01
 		type FENCE
 		at 657 556
 		curdir 2
-
-	decorative TREE02 at 786 556
 
 	object FENC414dbc14-9ec5-43a7-90f8-5a48d256282b
 		type FENCE
@@ -39000,8 +38911,6 @@ iMZ1r01
 		name Map 2 player landing
 		tag 11102
 
-	decorative TREE00 at 786 557
-
 	object FENC811c0c7a-852d-4c6c-92f9-1ddecc12720e
 		type FENCE
 		at 786 557
@@ -39099,8 +39008,6 @@ iMZ1r01
 		at 786 558
 		curdir 2
 
-	decorative TREE00 at 787 558
-
 	decorative TREE02 at 795 558
 
 	decorative TREE00 at 797 558
@@ -39184,8 +39091,6 @@ iMZ1r01
 		type FENCE
 		at 786 559
 		curdir 2
-
-	decorative TREE03 at 787 559
 
 	decorative TREE01 at 790 559
 
@@ -43016,16 +42921,10 @@ iMZ1r01
 		at 657 601
 		curdir 2
 
-	decorative TREE02 at 786 601
-
 	object FENC4cd438fb-3b27-4e61-9aa7-a8c136ef43e7
 		type FENCE
 		at 786 601
 		curdir 2
-
-	decorative TREE00 at 787 601
-
-	decorative TREE00 at 788 601
 
 	decorative TREE02 at 790 601
 
@@ -43167,8 +43066,6 @@ iMZ1r01
 		at 657 602
 		curdir 2
 
-	decorative TREE00 at 786 602
-
 	object FENC590b473c-83eb-4ad9-80f6-9be2948857e8
 		type FENCE
 		at 786 602
@@ -43269,8 +43166,6 @@ iMZ1r01
 		at 657 603
 		curdir 2
 
-	decorative TREE03 at 786 603
-
 	object FENCd45eeba1-9fb1-4516-bf65-68fca633b5ac
 		type FENCE
 		at 786 603
@@ -43359,10 +43254,6 @@ iMZ1r01
 	decorative TREE00 at 647 604
 
 	decorative TREE03 at 649 604
-
-	decorative TREE02 at 654 604
-
-	decorative TREE03 at 655 604
 
 	object FENC47d0e423-3f37-476d-83d5-ce44264711a2
 		type FENCE
@@ -43610,10 +43501,6 @@ iMZ1r01
 
 	decorative TREE01 at 653 606
 
-	decorative TREE00 at 654 606
-
-	decorative TREE03 at 655 606
-
 	object FENC1ef703c1-1187-4d24-b405-015ff45d6b46
 		type FENCE
 		at 657 606
@@ -43800,8 +43687,6 @@ iMZ1r01
 	decorative TREE02 at 649 607
 
 	decorative TREE00 at 651 607
-
-	decorative TREE03 at 655 607
 
 	object FENC910a5dd5-b9a9-4191-9b15-2e58cb40ceb4
 		type FENCE
@@ -44002,8 +43887,6 @@ iMZ1r01
 		at 767 607
 		curdir 1
 
-	decorative TREE02 at 786 607
-
 	object FENCd7a65218-afc6-498d-b9e3-1f96093d61a5
 		type FENCE
 		at 786 607
@@ -44122,8 +44005,6 @@ iMZ1r01
 	decorative TREE01 at 648 608
 
 	decorative TREE00 at 652 608
-
-	decorative TREE01 at 654 608
 
 	object FENCe452496a-4e9d-4648-8b78-982a14a72f9b
 		type FENCE
@@ -44320,8 +44201,6 @@ iMZ1r01
 		at 786 608
 		curdir 2
 
-	decorative TREE03 at 788 608
-
 	decorative TREE00 at 795 608
 
 	decorative TREE02 at 800 608
@@ -44459,12 +44338,6 @@ iMZ1r01
 	decorative TREE03 at 649 609
 
 	decorative TREE01 at 651 609
-
-	decorative TREE02 at 653 609
-
-	decorative TREE01 at 655 609
-
-	decorative TREE00 at 656 609
 
 	object FENCc907667b-f55d-4845-89fb-1f9d92f515c1
 		type FENCE
@@ -44653,8 +44526,6 @@ iMZ1r01
 	decorative TREE01 at 639 610
 
 	decorative TREE00 at 641 610
-
-	decorative TREE02 at 654 610
 
 	object FENC9f05c955-8ec8-4b81-9ac9-7041cf5580be
 		type FENCE
@@ -44909,16 +44780,10 @@ iMZ1r01
 		tag -59
 		funcs->user1 pass_card1
 
-	decorative TREE00 at 786 611
-
 	object FENCa17057ee-f451-4713-a37e-97af78cd12fd
 		type FENCE
 		at 786 611
 		curdir 2
-
-	decorative TREE01 at 787 611
-
-	decorative TREE03 at 788 611
 
 	decorative TREE01 at 794 611
 
@@ -45044,8 +44909,6 @@ iMZ1r01
 
 	decorative TREE03 at 653 612
 
-	decorative TREE00 at 655 612
-
 	object FENCc2adead2-cf5c-4f22-8383-28640b43d044
 		type FENCE
 		at 657 612
@@ -45083,8 +44946,6 @@ iMZ1r01
 		type FENCE
 		at 786 612
 		curdir 2
-
-	decorative TREE03 at 788 612
 
 	decorative TREE00 at 790 612
 
@@ -45204,8 +45065,6 @@ iMZ1r01
 
 	decorative TREE02 at 653 613
 
-	decorative TREE00 at 656 613
-
 	object FENC9b4b77ba-0b56-4464-a7fb-cd7d5014b82a
 		type FENCE
 		at 657 613
@@ -45234,14 +45093,10 @@ iMZ1r01
 		tag 57
 		stats->owner LIGH3467ff45-1c43-4b24-9ef5-349930fcdc3e
 
-	decorative TREE02 at 786 613
-
 	object FENCe79e6354-83ae-4342-a4bf-b8a8ce09abb4
 		type FENCE
 		at 786 613
 		curdir 2
-
-	decorative TREE00 at 788 613
 
 	decorative TREE03 at 792 613
 
@@ -45356,8 +45211,6 @@ iMZ1r01
 	decorative TREE03 at 651 614
 
 	decorative TREE01 at 653 614
-
-	decorative TREE00 at 656 614
 
 	object FENCfab56bd1-d88e-4fd8-a4cd-4fa65abd072e
 		type FENCE
@@ -45527,8 +45380,6 @@ iMZ1r01
 
 	decorative TREE02 at 652 615
 
-	decorative TREE00 at 655 615
-
 	object FENCaffb3725-4142-4e38-aa7d-66f4b1df4c25
 		type FENCE
 		at 657 615
@@ -45667,8 +45518,6 @@ iMZ1r01
 
 	decorative TREE01 at 651 616
 
-	decorative TREE00 at 655 616
-
 	object FENCa8532da8-e024-4881-b320-97410995009e
 		type FENCE
 		at 657 616
@@ -45679,8 +45528,6 @@ iMZ1r01
 		at 767 616
 		curdir 3
 		stats->owner LIGH38442d4c-210b-40d1-87f4-f36a41edd518
-
-	decorative TREE01 at 786 616
 
 	object FENCbb045265-d4b0-4f55-8cf9-3fa1776c8635
 		type FENCE
@@ -45867,8 +45714,6 @@ iMZ1r01
 		type FENCE
 		at 786 617
 		curdir 2
-
-	decorative TREE03 at 788 617
 
 	decorative TREE01 at 790 617
 
@@ -46140,8 +45985,6 @@ iMZ1r01
 		type FENCE
 		at 786 618
 		curdir 2
-
-	decorative TREE01 at 787 618
 
 	decorative TREE03 at 793 618
 
@@ -46460,10 +46303,6 @@ iMZ1r01
 		at 786 619
 		curdir 2
 
-	decorative TREE01 at 787 619
-
-	decorative TREE02 at 789 619
-
 	decorative TREE01 at 795 619
 
 	decorative TREE03 at 796 619
@@ -46613,10 +46452,6 @@ iMZ1r01
 	decorative TREE03 at 649 620
 
 	decorative TREE02 at 651 620
-
-	decorative TREE00 at 655 620
-
-	decorative TREE00 at 656 620
 
 	object FENC06e9d39c-7723-4fdd-aab4-dcf4834700ed
 		type FENCE
@@ -46966,8 +46801,6 @@ iMZ1r01
 
 	decorative TREE02 at 652 621
 
-	decorative TREE03 at 654 621
-
 	object FENC208c4aec-13ba-4068-b3ec-503909c30ff1
 		type FENCE
 		at 657 621
@@ -47154,14 +46987,10 @@ iMZ1r01
 		at 767 621
 		curdir 1
 
-	decorative TREE00 at 786 621
-
 	object FENCb076d544-fcb5-45b7-9242-0013a3f13cff
 		type FENCE
 		at 786 621
 		curdir 2
-
-	decorative TREE00 at 787 621
 
 	decorative TREE01 at 790 621
 
@@ -47279,8 +47108,6 @@ iMZ1r01
 
 	decorative TREE00 at 643 622
 
-	decorative TREE01 at 654 622
-
 	object FENC8aea23b4-52e1-4f5a-8ab9-a49c1ad15971
 		type FENCE
 		at 657 622
@@ -47364,14 +47191,10 @@ iMZ1r01
 		tag 49
 		stats->owner LIGH6019b738-0631-4393-8dda-185de0328775
 
-	decorative TREE03 at 786 622
-
 	object FENC680677f5-b913-437e-8450-d8d989374162
 		type FENCE
 		at 786 622
 		curdir 2
-
-	decorative TREE01 at 787 622
 
 	decorative TREE02 at 794 622
 
@@ -47557,14 +47380,10 @@ iMZ1r01
 		curdir 1
 		name Kitchen
 
-	decorative TREE01 at 786 623
-
 	object FENC6d96fa89-9d5c-4e63-abfb-ecd63d999267
 		type FENCE
 		at 786 623
 		curdir 2
-
-	decorative TREE03 at 787 623
 
 	decorative TREE01 at 789 623
 
@@ -47674,8 +47493,6 @@ iMZ1r01
 
 	decorative TREE00 at 649 624
 
-	decorative TREE01 at 653 624
-
 	object FENC4f6a534e-ef1c-4e5f-8db7-fe51e31025f6
 		type FENCE
 		at 657 624
@@ -47711,14 +47528,10 @@ iMZ1r01
 		name Lysander
 		funcs->talk people/demons/lysander.txt
 
-	decorative TREE01 at 786 624
-
 	object FENC33853dbb-db95-4cd6-8b8d-f33f0a07fa2f
 		type FENCE
 		at 786 624
 		curdir 2
-
-	decorative TREE03 at 787 624
 
 	decorative TREE01 at 791 624
 
@@ -47828,8 +47641,6 @@ iMZ1r01
 
 	decorative TREE01 at 649 625
 
-	decorative TREE01 at 655 625
-
 	object FENC551203c5-f25d-45ca-a87a-ad664fae976e
 		type FENCE
 		at 657 625
@@ -47856,8 +47667,6 @@ iMZ1r01
 		type FENCE
 		at 786 625
 		curdir 2
-
-	decorative TREE02 at 787 625
 
 	decorative TREE00 at 789 625
 
@@ -48001,8 +47810,6 @@ iMZ1r01
 
 	decorative TREE00 at 648 626
 
-	decorative TREE02 at 653 626
-
 	object FENC02c17ff6-76bf-4b90-8ddb-2cf22e24b602
 		type FENCE
 		at 657 626
@@ -48058,8 +47865,6 @@ iMZ1r01
 		type DECOR01
 		at 765 626
 		curdir 0
-
-	decorative TREE02 at 786 626
 
 	object FENC7b04a8de-8a80-49c4-90f5-62c66949c125
 		type FENCE
@@ -48443,8 +48248,6 @@ iMZ1r01
 
 	decorative TREE00 at 652 628
 
-	decorative TREE02 at 653 628
-
 	object FENCd83c126f-2f67-4ebc-849c-78e7f15c1a42
 		type FENCE
 		at 657 628
@@ -48506,10 +48309,6 @@ iMZ1r01
 		type FENCE
 		at 786 628
 		curdir 2
-
-	decorative TREE02 at 787 628
-
-	decorative TREE00 at 788 628
 
 	decorative TREE00 at 792 628
 
@@ -48764,8 +48563,6 @@ iMZ1r01
 
 	decorative TREE00 at 651 630
 
-	decorative TREE00 at 654 630
-
 	object FENC514ce0f2-ce90-44d2-b788-552d4c4c43e6
 		type FENCE
 		at 657 630
@@ -48996,8 +48793,6 @@ iMZ1r01
 
 	decorative TREE03 at 643 631
 
-	decorative TREE02 at 653 631
-
 	object FENC404d2a20-dfe9-4013-81d8-45226476cd9b
 		type FENCE
 		at 657 631
@@ -49091,8 +48886,6 @@ iMZ1r01
 		type STONEWINDOW3
 		at 765 631
 		curdir 1
-
-	decorative TREE00 at 786 631
 
 	object FENC45398e66-acd4-4b8c-96a8-d708f02a234f
 		type FENCE
@@ -49218,8 +49011,6 @@ iMZ1r01
 	decorative TREE00 at 648 632
 
 	decorative TREE01 at 651 632
-
-	decorative TREE01 at 655 632
 
 	object FENC3fa38bbf-a74a-4ad9-af54-8f38db0c4d42
 		type FENCE
@@ -49363,14 +49154,10 @@ iMZ1r01
 
 	decorative TREE01 at 651 633
 
-	decorative TREE02 at 655 633
-
 	object FENCff041687-ff13-48c8-a5f0-5fcedd65c9ca
 		type FENCE
 		at 657 633
 		curdir 2
-
-	decorative TREE01 at 786 633
 
 	object FENC6e7dceb0-bdb6-4f4c-a485-263d29598138
 		type FENCE
@@ -49489,10 +49276,6 @@ iMZ1r01
 
 	decorative TREE01 at 649 634
 
-	decorative TREE01 at 654 634
-
-	decorative TREE03 at 655 634
-
 	object FENCfa215745-030a-4189-9556-1a39ece86ee3
 		type FENCE
 		at 657 634
@@ -49502,8 +49285,6 @@ iMZ1r01
 		type FENCE
 		at 786 634
 		curdir 2
-
-	decorative TREE00 at 787 634
 
 	decorative TREE01 at 801 634
 
@@ -49609,8 +49390,6 @@ iMZ1r01
 		type FENCE
 		at 657 635
 		curdir 2
-
-	decorative TREE00 at 786 635
 
 	object FENCdf666552-5015-427e-aa24-43a7c31aec4a
 		type FENCE
@@ -49789,8 +49568,6 @@ iMZ1r01
 
 	decorative TREE03 at 651 637
 
-	decorative TREE00 at 655 637
-
 	object FENCa0bc17a4-1fd3-4981-a2a7-05106a1d713e
 		type FENCE
 		at 657 637
@@ -49800,8 +49577,6 @@ iMZ1r01
 		type FENCE
 		at 786 637
 		curdir 2
-
-	decorative TREE00 at 787 637
 
 	decorative TREE02 at 791 637
 
@@ -49897,14 +49672,10 @@ iMZ1r01
 
 	decorative TREE02 at 647 638
 
-	decorative TREE03 at 655 638
-
 	object FENC4ef377a8-17a8-4920-b9e4-8117cfcb1877
 		type FENCE
 		at 657 638
 		curdir 2
-
-	decorative TREE00 at 786 638
 
 	object FENCe31f7589-3c7e-4080-893e-9f4f2d7ab928
 		type FENCE
@@ -49993,8 +49764,6 @@ iMZ1r01
 
 	decorative TREE03 at 649 639
 
-	decorative TREE01 at 656 639
-
 	object FENCb4ed5718-a80e-472c-9f50-14ba636323a6
 		type FENCE
 		at 657 639
@@ -50078,8 +49847,6 @@ iMZ1r01
 	decorative TREE02 at 617 640
 
 	decorative TREE00 at 623 640
-
-	decorative TREE01 at 656 640
 
 	object FENC92701297-5fd4-4f39-abff-fee1f5356cfb
 		type FENCE_CORNER
@@ -50819,84 +50586,6 @@ iMZ1r01
 
 	decorative TREE00 at 654 641
 
-	decorative TREE02 at 655 641
-
-	decorative TREE00 at 656 641
-
-	decorative TREE00 at 658 641
-
-	decorative TREE02 at 660 641
-
-	decorative TREE00 at 672 641
-
-	decorative TREE01 at 676 641
-
-	decorative TREE01 at 692 641
-
-	decorative TREE01 at 694 641
-
-	decorative TREE01 at 696 641
-
-	decorative TREE00 at 698 641
-
-	decorative TREE00 at 701 641
-
-	decorative TREE03 at 704 641
-
-	decorative TREE00 at 706 641
-
-	decorative TREE02 at 709 641
-
-	decorative TREE03 at 711 641
-
-	decorative TREE02 at 716 641
-
-	decorative TREE01 at 718 641
-
-	decorative TREE01 at 719 641
-
-	decorative TREE02 at 720 641
-
-	decorative TREE03 at 724 641
-
-	decorative TREE00 at 726 641
-
-	decorative TREE02 at 727 641
-
-	decorative TREE02 at 728 641
-
-	decorative TREE01 at 735 641
-
-	decorative TREE01 at 741 641
-
-	decorative TREE01 at 743 641
-
-	decorative TREE01 at 750 641
-
-	decorative TREE02 at 754 641
-
-	decorative TREE02 at 756 641
-
-	decorative TREE02 at 758 641
-
-	decorative TREE01 at 765 641
-
-	decorative TREE01 at 766 641
-
-	decorative TREE00 at 770 641
-
-	decorative TREE00 at 771 641
-
-	decorative TREE03 at 778 641
-
-	decorative TREE03 at 780 641
-
-	decorative TREE03 at 782 641
-
-	decorative TREE03 at 786 641
-
-	decorative TREE02 at 787 641
-
 	decorative TREE02 at 793 641
 
 	decorative TREE03 at 799 641
@@ -50997,8 +50686,6 @@ iMZ1r01
 
 	decorative TREE02 at 666 642
 
-	decorative TREE00 at 676 642
-
 	decorative TREE01 at 684 642
 
 	decorative TREE03 at 685 642
@@ -51008,12 +50695,6 @@ iMZ1r01
 	decorative TREE01 at 688 642
 
 	decorative TREE00 at 691 642
-
-	decorative TREE03 at 692 642
-
-	decorative TREE03 at 698 642
-
-	decorative TREE00 at 699 642
 
 	decorative TREE00 at 702 642
 
@@ -51027,37 +50708,15 @@ iMZ1r01
 
 	decorative TREE01 at 715 642
 
-	decorative TREE02 at 719 642
-
-	decorative TREE03 at 721 642
-
 	decorative TREE00 at 723 642
 
 	decorative TREE01 at 725 642
 
-	decorative TREE00 at 728 642
-
-	decorative TREE00 at 736 642
-
 	decorative TREE01 at 741 642
-
-	decorative TREE03 at 748 642
-
-	decorative TREE00 at 749 642
 
 	decorative TREE01 at 750 642
 
-	decorative TREE00 at 751 642
-
-	decorative TREE03 at 753 642
-
-	decorative TREE00 at 755 642
-
 	decorative TREE01 at 769 642
-
-	decorative TREE00 at 780 642
-
-	decorative TREE00 at 787 642
 
 	decorative TREE03 at 789 642
 
@@ -52193,7 +51852,9 @@ iMZ1r01
 
 	decorative TREE02 at 738 650
 
-	decorative TREE00 at 807 650
+	decorative TREE00 at 802 650
+
+	decorative TREE03 at 805 650
 
 	decorative TREE00 at 810 650
 
@@ -53102,9 +52763,7 @@ iMZ1r01
 
 	decorative TREE00 at 789 657
 
-	decorative TREE00 at 795 657
-
-	decorative TREE01 at 803 657
+	decorative TREE00 at 800 657
 
 	decorative TREE01 at 804 657
 
@@ -53267,6 +52926,8 @@ iMZ1r01
 	decorative TREE01 at 786 658
 
 	decorative TREE00 at 798 658
+
+	decorative TREE01 at 802 658
 
 	decorative TREE02 at 807 658
 
@@ -53445,8 +53106,6 @@ iMZ1r01
 	decorative TREE02 at 784 659
 
 	decorative TREE03 at 805 659
-
-	decorative TREE03 at 806 659
 
 	decorative TREE00 at 810 659
 
@@ -53627,9 +53286,9 @@ iMZ1r01
 
 	decorative TREE02 at 788 660
 
-	decorative TREE01 at 800 660
+	decorative TREE00 at 798 660
 
-	decorative TREE00 at 805 660
+	decorative TREE01 at 800 660
 
 	decorative TREE01 at 808 660
 
@@ -53939,8 +53598,6 @@ iMZ1r01
 
 	decorative TREE02 at 788 662
 
-	decorative TREE01 at 800 662
-
 	decorative TREE00 at 805 662
 
 	decorative TREE00 at 807 662
@@ -54096,12 +53753,6 @@ iMZ1r01
 	decorative TREE03 at 781 663
 
 	decorative TREE00 at 792 663
-
-	decorative TREE01 at 794 663
-
-	decorative TREE00 at 796 663
-
-	decorative TREE02 at 797 663
 
 	decorative TREE03 at 805 663
 
@@ -54299,13 +53950,7 @@ iMZ1r01
 
 	decorative TREE00 at 793 664
 
-	decorative TREE01 at 799 664
-
-	decorative TREE02 at 800 664
-
 	decorative TREE00 at 803 664
-
-	decorative TREE00 at 804 664
 
 	decorative TREE02 at 806 664
 
@@ -54467,14 +54112,6 @@ iMZ1r01
 
 	decorative TREE02 at 793 665
 
-	decorative TREE03 at 795 665
-
-	decorative TREE02 at 797 665
-
-	decorative TREE01 at 799 665
-
-	decorative TREE01 at 800 665
-
 	decorative TREE03 at 812 665
 
 	decorative TREE00 at 820 665
@@ -54609,10 +54246,6 @@ iMZ1r01
 
 	decorative TREE02 at 791 666
 
-	decorative TREE01 at 796 666
-
-	decorative TREE03 at 801 666
-
 	decorative TREE00 at 802 666
 
 	decorative TREE00 at 810 666
@@ -54746,10 +54379,6 @@ iMZ1r01
 	decorative TREE03 at 790 667
 
 	decorative TREE02 at 792 667
-
-	decorative TREE03 at 800 667
-
-	decorative TREE03 at 801 667
 
 	decorative TREE03 at 803 667
 
@@ -54888,10 +54517,6 @@ iMZ1r01
 	decorative TREE03 at 781 668
 
 	decorative TREE02 at 789 668
-
-	decorative TREE01 at 797 668
-
-	decorative TREE01 at 800 668
 
 	decorative TREE00 at 807 668
 
@@ -55043,9 +54668,7 @@ iMZ1r01
 
 	decorative TREE00 at 791 669
 
-	decorative TREE00 at 792 669
-
-	decorative TREE01 at 794 669
+	decorative TREE00 at 795 669
 
 	decorative TREE01 at 806 669
 
@@ -55176,16 +54799,6 @@ iMZ1r01
 	decorative TREE01 at 791 670
 
 	decorative TREE03 at 792 670
-
-	decorative TREE03 at 793 670
-
-	decorative TREE00 at 795 670
-
-	decorative TREE01 at 796 670
-
-	decorative TREE01 at 800 670
-
-	decorative TREE00 at 801 670
 
 	decorative TREE02 at 804 670
 
@@ -55335,11 +54948,9 @@ iMZ1r01
 
 	decorative TREE01 at 787 671
 
-	decorative TREE02 at 794 671
+	decorative TREE03 at 794 671
 
-	decorative TREE01 at 795 671
-
-	decorative TREE03 at 797 671
+	decorative TREE00 at 800 671
 
 	decorative TREE01 at 803 671
 
@@ -55489,9 +55100,7 @@ iMZ1r01
 
 	decorative TREE03 at 787 672
 
-	decorative TREE02 at 802 672
-
-	decorative TREE00 at 803 672
+	decorative TREE02 at 801 672
 
 	decorative TREE00 at 807 672
 
@@ -55641,10 +55250,6 @@ iMZ1r01
 
 	decorative TREE01 at 792 673
 
-	decorative TREE01 at 800 673
-
-	decorative TREE01 at 801 673
-
 	decorative TREE02 at 803 673
 
 	decorative TREE01 at 805 673
@@ -55762,10 +55367,6 @@ iMZ1r01
 	decorative TREE02 at 775 674
 
 	decorative TREE03 at 786 674
-
-	decorative TREE00 at 797 674
-
-	decorative TREE00 at 804 674
 
 	decorative TREE00 at 810 674
 
@@ -55905,9 +55506,7 @@ iMZ1r01
 
 	decorative TREE03 at 789 675
 
-	decorative TREE03 at 797 675
-
-	decorative TREE01 at 799 675
+	decorative TREE00 at 801 675
 
 	decorative TREE01 at 811 675
 
@@ -56030,8 +55629,6 @@ iMZ1r01
 	decorative TREE00 at 786 676
 
 	decorative TREE03 at 791 676
-
-	decorative TREE00 at 798 676
 
 	decorative TREE03 at 803 676
 
@@ -93734,6 +93331,12 @@ iMZ1r01
 		curdir 3
 		stats->owner MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
 
+	object SKINcec5bf53-6584-4a7e-bc56-5bcdb789c95f
+		type SKINS00
+		at 700 918
+		curdir 0
+		stats->owner MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
+
 	object TABLf6df6603-0fd2-4bb1-89e5-8e1925bf0e50
 		type TABLE-SHADOW2
 		at 701 918
@@ -93981,10 +93584,10 @@ iMZ1r01
 		at 700 919
 		curdir 3
 
-	object SKINcec5bf53-6584-4a7e-bc56-5bcdb789c95f
-		type SKINS00
+	object SKIN02f8988d-ae07-4845-b1a5-d194bfd98a1b
+		type SKINS03
 		at 700 919
-		curdir 0
+		curdir 3
 		stats->owner MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
 
 	object TABL47e23e0d-a5da-4281-bb20-7683fafbe547
@@ -94191,10 +93794,10 @@ iMZ1r01
 		at 700 920
 		curdir 2
 
-	object SKIN02f8988d-ae07-4845-b1a5-d194bfd98a1b
-		type SKINS03
+	object FISHe049c088-026b-4996-b1e0-abace277de90
+		type FISHROD
 		at 700 920
-		curdir 3
+		curdir 0
 		stats->owner MAN_e7bfb68d-3b92-4b91-b7ba-43037be2a3b2
 
 	object TABL56f3dd1a-57fe-4982-868c-6af435107e49

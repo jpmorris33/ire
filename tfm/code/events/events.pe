@@ -769,4 +769,24 @@ endif
 end
 
 
+##
+##
+##
 
+function free_drrob
+object obj
+find_tag obj = "STONEDOOR3_LOCKED" 800022
+if_exists obj
+	replace obj = "STONEDOOR3_SHUT"
+endif
+
+find_tag obj = "MAN_GENERIC*" 800022
+if_exists obj
+	set_flag obj NO_SCHEDULE = 0
+	stop_action obj
+	resume_action obj
+endif
+
+
+
+end

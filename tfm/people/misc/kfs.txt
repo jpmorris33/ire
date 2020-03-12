@@ -45,6 +45,8 @@ You see a young man in kitchen clothes.
 [linkto="burger"]
 [link="I'd like a KFS Sandwich, please."]
 [linkto="sandwich"]
+[if curryquest][link="One squirrel curry to take away, please."]
+[if curryquest][linkto="curry"]
 [link="I've changed my mind.  Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -76,8 +78,8 @@ He nods.
 
 "We get enough to live by.
 
- And in times of poverty, the King himself has paid us to
- give food to the starving."
+ And in times of poverty, King Edwyg himself has paid
+ us to give food to the starving."
 
 [link="Did you just say it was squirrel?"]
 [linkto="squirrel"]

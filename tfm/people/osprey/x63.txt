@@ -630,7 +630,7 @@ The bird flies away to search for fish.
 Inside your chest, your heart stops beating.
 [colour="#ffffff"]
 
-[if_pflag 1]"What a sad waste of human life."
+[if_pflag 1]"What a sad waste of intelligent life."
 
 [at_exit_call="kill_player"]
 [nextpage="exit"]

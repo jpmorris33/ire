@@ -32,6 +32,49 @@ tail.  His manner is somewhat nervous.
 [endpage]
 
 
+[page="startname"]
+[if dr_rob_free][goto="startname2"]
+[image="milo3.pcx"]
+[colour="#808080"]
+You see Milo, the light fighter.
+[colour="#ffffff"]
+
+"Hello again, $Sir."
+
+[link="Who is in charge here?"]
+[linkto="master"]
+[link="What does the crest on your tail mean?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[if dr_rob_needdiary][link="Do you know where Dr. Robertson keeps his diary?"]
+[if dr_rob_needdiary][linkto="need_diary"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname2"]
+[image="milo3.pcx"]
+[colour="#808080"]
+You see Milo, the light fighter.
+[colour="#ffffff"]
+
+"Thank you so much for rescuing Dr. Robertson!"
+
+[link="What does the crest on your tail mean?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 [page="name"]
 [image="milo2.pcx"]
 [learn_name]
@@ -73,6 +116,7 @@ tail.  His manner is somewhat nervous.
 
 
 [page="master"]
+[if dr_rob_free][goto="master3"]
 [image="milo2.pcx"]
 
 "Dr. Robertson is in charge.  Unfortunately, he has
@@ -80,6 +124,44 @@ tail.  His manner is somewhat nervous.
 
 [link="Where do you think he went?"]
 [linkto="master2"]
+[link="What is the crest on your tail?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="master2"]
+[image="milo2.pcx"]
+[set find_ospreys]
+
+"We think he went to investigate the ospreys.
+ If you get the chance could you look for him?
+
+ I think he mentioned visiting Lakeside in the
+ far northwest... he was planing to ask the locals
+ if they knew anything about those birds..."
+
+[link="Tell me about the ospreys."]
+[linkto="ospreys"]
+[link="What is the crest on your tail?"]
+[linkto="crest"]
+[if_local lys_here][link="Tell me about Lysander."]
+[if_local lys_here][linkto="lysander"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="master2"]
+[image="milo3.pcx"]
+
+"Dr. Robertson is in charge.  Thank you again
+ for rescuing him!"
+
 [link="What is the crest on your tail?"]
 [linkto="crest"]
 [if_local lys_here][link="Tell me about Lysander."]
@@ -165,9 +247,14 @@ tail.  His manner is somewhat nervous.
  I suggest you check out the project report.  There's
  a copy of it in the main offices.
 
- The village is to the west, but be very careful!
- The birds don't like intruders, and they can zap you."
+ The village is to the north-northwest of here, but be
+ very careful!
+ The birds don't like intruders, and they can zap you.
 
+ Lysander can also give you more information."
+
+[link="Goodbye."]
+[linkto="bye"]
 [endpage]
 
 
@@ -197,9 +284,7 @@ tail.  His manner is somewhat nervous.
 [image="lysander1.pcx"]
 
 "Look at the project report, it will make a lot more
- sense.
-
-"
+ sense."
 
 [link="This is bullshit."]
 [linkto="osprey_lys_bs"]
