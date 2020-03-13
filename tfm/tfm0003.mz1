@@ -17453,6 +17453,16 @@ iMZ1r01
 		name Doctor Robertson
 		tag 800022
 		funcs->talk people/tech/dr_rob.txt
+		schedule 8 0 SIT_AT_LOCATION TARG5959d7b1-9e3e-45c4-b8d5-6ce04fa3b671
+		schedule 8 30 SIT_AT_LOCATION BASI88d2d93d-0f45-42e4-8e69-28bd1792f816
+		schedule 9 0 SIT_AT_LOCATION TARGe4928618-0960-4f1a-a478-7164f0d0b70a
+		schedule 12 0 EAT_AT_HOME TARG9c2106b5-329d-402b-94de-75ae64aa3938
+		schedule 13 0 SIT_AT_LOCATION TARGdd69965c-4bd1-446e-b755-55fe51e52749
+		schedule 13 30 SIT_AT_LOCATION TARG7befd8aa-9e22-4f41-a02a-250a8f11d3f0
+		schedule 14 45 SIT_AT_LOCATION TARG189349a9-fead-42b5-824c-ba4838f468ac
+		schedule 16 0 SIT_AT_LOCATION TARG0d7cd8b6-46c4-4843-acd5-24f9fbed65a8
+		schedule 17 0 EAT_AT_HOME TARG9c2106b5-329d-402b-94de-75ae64aa3938
+		schedule 18 0 SIT_AT_LOCATION TARGe4928618-0960-4f1a-a478-7164f0d0b70a
 		schedule 23 0 GO_TO_SLEEP -
 
 	object STON296f0b68-0f83-48a2-9930-5b8da5cfeb02
@@ -17684,6 +17694,7 @@ iMZ1r01
 		type BED2
 		at 648 308
 		curdir 3
+		stats->owner MAN_d746454e-6d16-40c8-a57a-fa89f7828038
 
 	object PLAT32e96126-9f7e-4621-85bf-c29fd03ed777
 		type PLATE
@@ -23335,6 +23346,17 @@ iMZ1r01
 		curdir 2
 		stats->owner MAN_63f79b74-2014-43e7-ae51-7c86272c814c
 
+	object CRUC14d5fd84-98dd-45ec-86c4-b4655a6a30c4
+		type CRUCIFIX
+		at 596 363
+		curdir 0
+
+	object SECR50bad662-7536-4c09-a462-cd2af7d0f56a
+		type SECRETDOOR2_SHUT
+		at 598 363
+		curdir 1
+		tag -41
+
 	object FOODe12694f3-a93c-494e-bc70-d2b8f2296b11
 		type FOOD08
 		at 868 363
@@ -23394,6 +23416,31 @@ iMZ1r01
 		at 877 363
 		curdir 2
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+
+	object STEPdb717d12-0bc4-496e-9f2a-bac911498cf4
+		type STEPS01
+		at 594 364
+		curdir 0
+
+	object BLOO5e724c6a-0086-4f16-b747-79edb040b9d6
+		type BLOOD_THICK
+		at 597 364
+		curdir 0
+
+	object PEASe116a955-e5b9-475d-93a9-ded6e77b34c8
+		type PEASANT_BODY
+		at 597 364
+		curdir 0
+
+	object CARP09102ae9-9005-4023-8e61-6d804ac15469
+		type CARPET
+		at 598 364
+		curdir 0
+
+	object STEP323850f2-63b1-4a93-9f57-2f7acc3cc7b0
+		type STEPS02
+		at 599 364
+		curdir 0
 
 	object FOODa353f514-092a-4580-92cf-3641b1054da0
 		type FOOD08
@@ -23465,6 +23512,76 @@ iMZ1r01
 		type EGG_OBJECT(TODE)
 		at 563 365
 		curdir 3
+
+	object STEPc5002bf7-fda0-471f-82c9-4a0c975dc49a
+		type STEPS01
+		at 594 365
+		curdir 1
+
+	object TABLa4709cb9-6aea-471f-bf7d-806029036026
+		type TABLE2-END
+		at 595 365
+		curdir 2
+
+	object TABL23ddbbfb-7109-46d1-9ad3-0a246fd14954
+		type TABLE2-EDGES
+		at 596 365
+		curdir 0
+
+	object TABL009c1fee-6186-4e43-a166-39b766d44d9a
+		type TABLECLOTH
+		at 596 365
+		curdir 0
+
+	object CRUCf105d638-2770-47c2-984e-b4127a143914
+		type CRUCIFIX-TABLE
+		at 596 365
+		curdir 0
+
+	object PEAScb8071b1-d644-4dbf-8053-aa2603b9fbce
+		type PEASANT_HEAD
+		at 596 365
+		curdir 1
+
+	object TABL17bff2eb-e707-4e0f-87cf-aae340e46676
+		type TABLE2-EDGES
+		at 597 365
+		curdir 0
+
+	object TABL2406b5db-8f2e-4af2-a142-87ab0614f0a0
+		type TABLECLOTH
+		at 597 365
+		curdir 1
+
+	object BLOOfcf8a076-6f12-42ca-a5ea-15d97ecc6a53
+		type BLOOD_THICK
+		at 597 365
+		curdir 3
+
+	object CARP132b4d8e-abda-4dd7-9f1d-0344ffe3c591
+		type CARPET2
+		at 598 365
+		curdir 0
+
+	object TABL7b36bccf-c055-4d85-9b62-bbd7a6d6121e
+		type TABLE-SHADOW3
+		at 598 365
+		curdir 2
+
+	object TABL3761e26d-dbd4-4c2c-8f68-1b7441211406
+		type TABLE2-END
+		at 598 365
+		curdir 3
+
+	object STEP9dbdbeb8-f4e9-43ee-9c5f-ecfa3b869bcb
+		type STEPS02
+		at 599 365
+		curdir 3
+
+	object TABL484cad70-547a-494e-b758-edcede168d76
+		type TABLE-SHADOW2
+		at 599 365
+		curdir 2
 
 	object FOODd9d77939-c338-4cb1-ba7c-6f1740303c0a
 		type FOOD08
@@ -23542,6 +23659,66 @@ iMZ1r01
 		type EGG_OBJECT(TODE)
 		at 945 365
 		curdir 3
+
+	object STAIf2b9e55b-b406-49fd-b4e5-b670d6014290
+		type STAINEDGLASS00
+		at 593 366
+		curdir 0
+
+	object STEP03442e12-65da-4ed7-a452-b3e996ff85d5
+		type STEPS01
+		at 594 366
+		curdir 1
+
+	object TABLe3009c7f-19cd-4bb1-bebc-0270122352c2
+		type TABLE-SHADOW2
+		at 595 366
+		curdir 0
+
+	object TABL16691af6-743c-46d9-b76d-22067e320a22
+		type TABLE5-LEGS
+		at 595 366
+		curdir 0
+
+	object TABLd50c8982-a10d-4f70-a2e1-b7440a94509a
+		type TABLE-SHADOW1
+		at 596 366
+		curdir 1
+
+	object TABLa0e71e9f-ebeb-4d63-8e05-ba5e5b20ed02
+		type TABLE-SHADOW1
+		at 597 366
+		curdir 1
+
+	object CARP85902fc4-bd12-4862-93ea-43a58ae34cb0
+		type CARPET2
+		at 598 366
+		curdir 0
+
+	object TABL96e5e9c6-158e-4bac-a44c-0326c909fd5c
+		type TABLE-SHADOW1
+		at 598 366
+		curdir 1
+
+	object TABLfa874f45-b7ab-43d4-a689-7465a0cd35cd
+		type TABLE5-LEGS
+		at 598 366
+		curdir 0
+
+	object STEPf3db2362-40d8-4c0c-95c4-ab252b036949
+		type STEPS02
+		at 599 366
+		curdir 3
+
+	object TABLea569a7d-23c4-4a5e-97a1-01e7b3e50ea9
+		type TABLE-SHADOW3
+		at 599 366
+		curdir 0
+
+	object STAI71745408-1d60-4d3c-82f1-5b6da78dcd2b
+		type STAINEDGLASS00B
+		at 600 366
+		curdir 0
 
 	object FOOD967a7763-b7fc-4ddd-96e2-6a21ef36e06a
 		type FOOD08
@@ -23622,6 +23799,46 @@ iMZ1r01
 	object RUBBa8d7dd7d-d70a-4c08-a793-871a59476e6e
 		type RUBBLE_080910
 		at 585 367
+		curdir 1
+
+	object STAIe213d80e-0dc5-4f4c-bef0-f7c683bf84ad
+		type STAINEDGLASS00
+		at 593 367
+		curdir 1
+
+	object STEP19caade9-773d-4f3a-a44c-7285b617a585
+		type STEPS01
+		at 594 367
+		curdir 2
+
+	object STEPcd5ceb47-4ea4-4758-82ab-03c4c34de3b1
+		type STEPS01
+		at 595 367
+		curdir 3
+
+	object CARP3e1b179c-bbd7-4708-8ba3-2ffbbb12deb7
+		type CARPET
+		at 595 367
+		curdir 1
+
+	object STEP439216b3-4bf1-4b51-975d-56f0c123904f
+		type STEPS01
+		at 598 367
+		curdir 3
+
+	object CARP71bf79c1-68a3-4af1-bbaf-8a5ed01d865b
+		type CARPET
+		at 598 367
+		curdir 2
+
+	object STEP1d402e8b-d131-4115-b3b3-de8a5a2f4e7d
+		type STEPS02
+		at 599 367
+		curdir 1
+
+	object STAI65b7547f-21ed-49d0-93a1-c554bee03792
+		type STAINEDGLASS00B
+		at 600 367
 		curdir 1
 
 	decorative RUBBLE_20 at 607 367
@@ -23720,6 +23937,21 @@ iMZ1r01
 	decorative RUBBLE_11 at 586 368
 
 	decorative RUBBLE_04 at 588 368
+
+	object STAIa45ab967-f9f3-4743-a1fc-39caf5cd3cec
+		type STAINEDGLASS00B
+		at 593 368
+		curdir 2
+
+	object CARP5c7f5543-5e9a-4098-b4fc-7291324389a0
+		type CARPET2
+		at 595 368
+		curdir 2
+
+	object STAI08bbc867-7bf5-410c-9f29-ac67d07ac6f7
+		type STAINEDGLASS00B
+		at 600 368
+		curdir 2
 
 	decorative RUBBLE_22 at 607 368
 
@@ -23832,6 +24064,61 @@ iMZ1r01
 
 	decorative RUBBLE_12 at 588 369
 
+	object STAI29ee4ca2-417d-4559-b3bc-12b13e03d7aa
+		type STAINEDGLASS00B
+		at 593 369
+		curdir 3
+
+	object PLAN0089eb4f-866f-4a9a-98cf-afc667fdbfee
+		type PLANKS_00
+		at 594 369
+		curdir 2
+
+	object PLANdbea9632-abb3-4b29-8e64-81c679a4ff42
+		type PLANKS_00
+		at 594 369
+		curdir 0
+
+	object PLANe50a29d5-7f5e-4f34-9193-0a708fbcd289
+		type PLANKS_01
+		at 595 369
+		curdir 3
+
+	object PLANbfe2996e-9724-4d46-941d-a31d368614dd
+		type PLANKS_00
+		at 595 369
+		curdir 0
+
+	object PLANad7c5b4c-bf9a-4cf8-af6d-247a9c448d03
+		type PLANKS_00
+		at 598 369
+		curdir 2
+
+	object PLANd2a812cc-8178-4940-8060-4a83b0cf6124
+		type PLANKS_00
+		at 598 369
+		curdir 1
+
+	object PLAN1854b9e6-7e50-4bc1-a113-29bbe73d3d0c
+		type PLANKS_00
+		at 599 369
+		curdir 0
+
+	object PLAN1f85d6df-bd5b-4d37-9115-29a06d4669ce
+		type PLANKS_00
+		at 599 369
+		curdir 2
+
+	object PLANc1a6cd23-5620-4496-8d6c-abd2d06af890
+		type PLANKS_00
+		at 599 369
+		curdir 3
+
+	object STAI4feb8060-25b1-4306-81cf-db76f9382086
+		type STAINEDGLASS00B
+		at 600 369
+		curdir 3
+
 	decorative RUBBLE_23 at 607 369
 
 	object TABL16aed035-fb86-4c27-ac7a-4b7a1e708df6
@@ -23858,6 +24145,31 @@ iMZ1r01
 	object RUBB7debc8b2-3f42-42fc-a9b9-54ae84c0a1ef
 		type RUBBLE_080910
 		at 589 370
+		curdir 1
+
+	object STAIab461d5e-8a62-4bfd-99fb-d28a03a7d246
+		type STAINEDGLASS01B
+		at 593 370
+		curdir 1
+
+	object DIRT34014fd4-4cc8-4081-9cbe-71fa8742c1cb
+		type DIRT0
+		at 596 370
+		curdir 0
+
+	object OPEN181cd340-404e-4318-b611-db0cdc18894d
+		type OPENROOF
+		at 598 370
+		curdir 1
+
+	object OPENd771eb7f-3313-4abd-b459-e237649a3b55
+		type OPENROOF
+		at 599 370
+		curdir 1
+
+	object STAI62ab25c6-0117-4ec9-86a5-c9307655a470
+		type STAINEDGLASS01B
+		at 600 370
 		curdir 1
 
 	decorative RUBBLE_16 at 607 370
@@ -23897,6 +24209,63 @@ iMZ1r01
 		curdir 3
 
 	decorative RUBBLE_16 at 588 371
+
+	decorative RUBBLE_16 at 593 371
+
+	object PLANdf5772da-ad7e-4ad3-b522-ed09ebdc089d
+		type PLANKS_01
+		at 594 371
+		curdir 3
+
+	object PLANa359deaf-a236-4357-9a62-993632bb30b0
+		type PLANKS_00
+		at 594 371
+		curdir 2
+
+	object PLANe1f07915-531f-4b20-bb23-06e55813dcef
+		type PLANKS_00
+		at 595 371
+		curdir 3
+
+	object PLAN95ecd281-c418-44dc-a4a6-5245484fbb90
+		type PLANKS_00
+		at 595 371
+		curdir 0
+
+	object PLAN4c54d713-b46a-492c-bbe4-1a3ce962a9d3
+		type PLANKS_00
+		at 595 371
+		curdir 1
+
+	object PLAN926105df-ed20-4248-9510-8e906f517977
+		type PLANKS_00
+		at 598 371
+		curdir 1
+
+	object PLAN170974a6-33ea-4da5-aff8-57039d22cede
+		type PLANKS_00
+		at 598 371
+		curdir 0
+
+	object OPEN334c1d5a-f78d-466b-b8f4-9c2ade4206f9
+		type OPENROOF
+		at 598 371
+		curdir 1
+
+	object PLAN9f88ad27-91c9-41cd-96e5-5fbab0833d20
+		type PLANKS_00
+		at 599 371
+		curdir 1
+
+	object PLAN06f47e13-fbb9-43ec-9255-2ae383a0f77a
+		type PLANKS_01
+		at 599 371
+		curdir 0
+
+	object OPEN6b25b45e-0765-484f-99ad-f12158a76f41
+		type OPENROOF
+		at 599 371
+		curdir 1
 
 	object ASH_b7eec56a-fbdd-4eee-9e9c-151aa058ed7e
 		type ASH
@@ -23956,6 +24325,18 @@ iMZ1r01
 		at 589 372
 		curdir 2
 
+	decorative RUBBLE_22 at 593 372
+
+	object DIRT592e27bb-ca05-45e7-ba80-718026db192f
+		type DIRT1
+		at 597 372
+		curdir 3
+
+	object OPEN8d92ccf1-1306-49b2-b5e0-204a01f37437
+		type OPENROOF
+		at 599 372
+		curdir 1
+
 	object PLAT70293bb1-5cca-4a5d-ac08-2a32ade829a5
 		type PLATE_BROKEN
 		at 608 372
@@ -23976,6 +24357,61 @@ iMZ1r01
 		curdir 2
 
 	decorative RUBBLE_22 at 588 373
+
+	object PLAN618fe131-b7cc-40e1-b53c-f3c6faa0ba8e
+		type PLANKS_00
+		at 594 373
+		curdir 1
+
+	object PLAN01445b73-889b-4a01-8dfa-0c7e37361387
+		type PLANKS_00
+		at 594 373
+		curdir 0
+
+	object PLAN40f7ab60-2647-4676-90a3-a716ec848a31
+		type PLANKS_00
+		at 595 373
+		curdir 3
+
+	object PLAN6cf4554c-1c62-4672-8617-7a7678547a84
+		type PLANKS_01
+		at 595 373
+		curdir 3
+
+	object PLANfb1ca65c-4950-4fc6-a365-2721fc9205f0
+		type PLANKS_00
+		at 595 373
+		curdir 2
+
+	object PLAN87d77e0d-5e47-4930-8031-2d5e416a6100
+		type PLANKS_01
+		at 598 373
+		curdir 2
+
+	object PLANe7d53414-e234-484f-9c9f-9546bae084c1
+		type PLANKS_00
+		at 598 373
+		curdir 1
+
+	object PLAN8025e5e2-6ebf-41e4-94bb-9426dbdc7ae4
+		type PLANKS_00
+		at 598 373
+		curdir 3
+
+	object PLAN21f43dcd-5ef3-49d1-ad46-4688ffce0586
+		type PLANKS_00
+		at 599 373
+		curdir 3
+
+	object PLAN2320b991-297e-4e27-bcdd-c0dd56e82fae
+		type PLANKS_00
+		at 599 373
+		curdir 0
+
+	object PLANd629a345-36f0-4ffe-b96a-f30d50e8184a
+		type PLANKS_01
+		at 599 373
+		curdir 1
 
 	decorative RUBBLE_12 at 607 373
 
@@ -24009,6 +24445,26 @@ iMZ1r01
 		curdir 3
 
 	decorative RUBBLE_23 at 588 374
+
+	object STON61f90c4a-dc6e-4ed3-94d6-007d6db22690
+		type STONE_ARCHWAY
+		at 595 374
+		curdir 2
+
+	object STON2825f6f2-6ec9-4ef6-851a-a07bcef11c80
+		type STONE_ARCHWAY2
+		at 596 374
+		curdir 0
+
+	object STONdafa8397-cc1f-469c-bbfd-95f823ff659d
+		type STONE_ARCHWAY2
+		at 597 374
+		curdir 0
+
+	object STON1171ff6d-df73-4b94-99f5-f6f19bed8324
+		type STONE_ARCHWAY
+		at 598 374
+		curdir 3
 
 	decorative RUBBLE_16 at 607 374
 
@@ -29417,8 +29873,6 @@ iMZ1r01
 
 	decorative TREE01 at 588 484
 
-	decorative TREE03 at 621 484
-
 	decorative TREE03 at 623 484
 
 	decorative TREE00 at 633 484
@@ -29512,8 +29966,6 @@ iMZ1r01
 	decorative TREE01 at 588 485
 
 	decorative TREE01 at 591 485
-
-	decorative TREE03 at 619 485
 
 	decorative TREE00 at 623 485
 
@@ -43746,6 +44198,12 @@ iMZ1r01
 		name Milo
 		funcs->talk people/demons/milo.txt
 
+	object TARG189349a9-fead-42b5-824c-ba4838f468ac
+		type TARGET
+		at 745 607
+		curdir 1
+		labels->location Airbase_Hangar
+
 	object TABL7b7c838f-a153-4cb1-aeae-c021f81ad4a9
 		type TABLE6-H
 		at 754 607
@@ -44557,6 +45015,12 @@ iMZ1r01
 		at 739 610
 		curdir 1
 
+	object TARG0d7cd8b6-46c4-4843-acd5-24f9fbed65a8
+		type TARGET
+		at 739 610
+		curdir 0
+		labels->location Airbase_Hangar
+
 	object TABL0a6c125c-7001-45cd-83b6-25d209db165a
 		type TABLE-SHADOW1
 		at 740 610
@@ -44772,6 +45236,12 @@ iMZ1r01
 		type AIRCRAFTPARTS_01
 		at 759 611
 		curdir 3
+
+	object TARGf6c51ed5-0a20-456f-9860-0933f584bf78
+		type TARGET
+		at 764 611
+		curdir 0
+		labels->location Airbase_bathroom
 
 	object CARD099359bf-1b60-4019-902b-d1266f0e40e0
 		type CARDREADER
@@ -45385,6 +45855,19 @@ iMZ1r01
 		at 657 615
 		curdir 2
 
+	object PATH382d42e9-107d-4fcc-a99d-3493443b7ecf
+		type PATHMARKER
+		at 762 615
+		curdir 3
+		labels->location Airbase_bathroom
+
+	object PATH94430e60-7314-46ac-994d-6cb727b8f48b
+		type PATHMARKER
+		at 764 615
+		curdir 2
+		labels->location Airbase_Hangar
+		stats->owner PATHe7021961-918d-4688-8b6d-ff82dc38b77e
+
 	object FENCc414e667-253d-4977-b4ca-26b8daf3ac1c
 		type FENCE
 		at 786 615
@@ -45522,6 +46005,20 @@ iMZ1r01
 		type FENCE
 		at 657 616
 		curdir 2
+
+	object PATH141d71d4-4816-48a6-82c3-6160b1f17b38
+		type PATHMARKER
+		at 737 616
+		curdir 3
+		labels->location Airbase_Hangar
+		stats->owner TARGa6d7c1e8-b2bf-46a2-8ff6-6ad48c9e5543
+
+	object TARGa6d7c1e8-b2bf-46a2-8ff6-6ad48c9e5543
+		type TARGET
+		at 744 616
+		curdir 0
+		name Airbase hanger generic
+		labels->location Airbase_Hangar
 
 	object LIGH83d2a1e2-2e49-48de-a2bb-03b027da4d74
 		type LIGHT_END
@@ -46293,6 +46790,11 @@ iMZ1r01
 		at 766 619
 		curdir 1
 
+	object CHAI62b9b6d2-d2de-4b4a-8299-1f8acfe4c030
+		type CHAIR
+		at 766 619
+		curdir 2
+
 	object TABLaedafa79-7924-4787-9674-84cc881d402c
 		type TABLE-SHADOW1
 		at 767 619
@@ -46576,6 +47078,34 @@ iMZ1r01
 		at 700 620
 		curdir 0
 
+	object PATHb4b605ec-806d-4395-9fe5-a32c29784a1a
+		type PATHMARKER
+		at 717 620
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATH289dcc92-e465-490d-afc9-6d1f511861c1
+
+	object PATHb86d525f-bb23-4c44-b758-3974095bb6b9
+		type PATHMARKER
+		at 725 620
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATHb4b605ec-806d-4395-9fe5-a32c29784a1a
+
+	object PATH22004879-f700-4405-8d64-9466a5d8bc1a
+		type PATHMARKER
+		at 734 620
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATHb86d525f-bb23-4c44-b758-3974095bb6b9
+
+	object PATHc3b46d08-b067-436f-b74d-408c31bb35b3
+		type PATHMARKER
+		at 743 620
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATH22004879-f700-4405-8d64-9466a5d8bc1a
+
 	object TABLc2a297a0-6e1c-4001-9220-1b8976cf1837
 		type TABLE8-L
 		at 754 620
@@ -46611,8 +47141,8 @@ iMZ1r01
 		at 764 620
 		curdir 2
 
-	object BREAea23d5b3-40c5-4cfb-bfad-6e0b211575d6
-		type BREAD_SLICE
+	object PLAT29ce0c18-78d8-4bdb-a354-34c565162fd3
+		type PLATE
 		at 764 620
 		curdir 3
 
@@ -46621,10 +47151,11 @@ iMZ1r01
 		at 765 620
 		curdir 2
 
-	object CHAI62b9b6d2-d2de-4b4a-8299-1f8acfe4c030
-		type CHAIR
+	object TARG9c2106b5-329d-402b-94de-75ae64aa3938
+		type TARGET
 		at 765 620
 		curdir 2
+		labels->location Airbase
 
 	object TABLc0106603-daac-4389-94aa-6d15c50811ed
 		type TABLE8-L
@@ -46972,6 +47503,11 @@ iMZ1r01
 		at 764 621
 		curdir 1
 
+	object BREAea23d5b3-40c5-4cfb-bfad-6e0b211575d6
+		type BREAD_SLICE
+		at 764 621
+		curdir 3
+
 	object TABL3cc565c4-1cb8-4f16-bcfe-a54715f3935b
 		type TABLE-SHADOW1
 		at 765 621
@@ -47149,6 +47685,47 @@ iMZ1r01
 		type RADSIGN
 		at 680 622
 		curdir 2
+
+	object PATHd9bdf880-3ece-40f6-b5e2-b724ddb3b90e
+		type PATHMARKER
+		at 699 622
+		curdir 2
+		labels->location Airbase04
+
+	object PATH6ea2a699-7bac-49b9-b958-89164c9c8d95
+		type PATHMARKER
+		at 713 622
+		curdir 3
+		labels->location Airbase
+		stats->owner PATH85ea5f3c-76bc-4fed-9517-56465a9a9478
+
+	object PATH806fcfbe-3f15-401d-8b98-e2798946e200
+		type PATHMARKER
+		at 714 622
+		curdir 3
+		labels->location Airbase_Hangar
+		stats->owner PATHa835d03e-8479-4d4e-bd69-fdb141f0ac0b
+
+	object PATH85ea5f3c-76bc-4fed-9517-56465a9a9478
+		type PATHMARKER
+		at 724 622
+		curdir 3
+		labels->location Airbase
+		stats->owner PATH8c8df954-6cfe-4424-a13e-b7b658fa8b66
+
+	object PATHa835d03e-8479-4d4e-bd69-fdb141f0ac0b
+		type PATHMARKER
+		at 725 622
+		curdir 3
+		labels->location Airbase_Hangar
+		stats->owner PATH141d71d4-4816-48a6-82c3-6160b1f17b38
+
+	object PATH8c8df954-6cfe-4424-a13e-b7b658fa8b66
+		type PATHMARKER
+		at 737 622
+		curdir 3
+		labels->location Airbase
+		stats->owner PATHb0e2f2a9-09df-4c21-a0ee-a4cca7f797e1
 
 	object LIGH0187be7c-a054-40f5-8803-2c0f0337abc7
 		type LIGHT_SWITCH
@@ -47347,6 +47924,13 @@ iMZ1r01
 		at 735 623
 		curdir 3
 
+	object PATH452351ee-35e5-45fa-8034-60cdf42c3048
+		type PATHMARKER
+		at 750 623
+		curdir 0
+		labels->location Airbase_Hangar
+		stats->owner TARGa6d7c1e8-b2bf-46a2-8ff6-6ad48c9e5543
+
 	object WALLfa15a7d7-e0f2-4757-9618-e9b3cdec3efc
 		type WALL2_EDGE
 		at 753 623
@@ -47528,6 +48112,39 @@ iMZ1r01
 		name Lysander
 		funcs->talk people/demons/lysander.txt
 
+	object PATHb0e2f2a9-09df-4c21-a0ee-a4cca7f797e1
+		type PATHMARKER
+		at 747 624
+		curdir 3
+		labels->location Airbase
+
+	object PATH6d91de03-1a26-4c45-b779-b421cf8f4389
+		type PATHMARKER
+		at 751 624
+		curdir 3
+		labels->location Airbase_bathroom
+		stats->owner PATH2998daed-ff8b-4102-83be-b22e68c4736e
+
+	object TARG5959d7b1-9e3e-45c4-b8d5-6ce04fa3b671
+		type TARGET
+		at 755 624
+		curdir 0
+		labels->location Airbase
+
+	object PATHe7021961-918d-4688-8b6d-ff82dc38b77e
+		type PATHMARKER
+		at 760 624
+		curdir 2
+		labels->location Airbase_Hangar
+		stats->owner PATH452351ee-35e5-45fa-8034-60cdf42c3048
+
+	object PATH2998daed-ff8b-4102-83be-b22e68c4736e
+		type PATHMARKER
+		at 761 624
+		curdir 0
+		labels->location Airbase_bathroom
+		stats->owner PATH382d42e9-107d-4fcc-a99d-3493443b7ecf
+
 	object FENC33853dbb-db95-4cd6-8b8d-f33f0a07fa2f
 		type FENCE
 		at 786 624
@@ -47646,10 +48263,51 @@ iMZ1r01
 		at 657 625
 		curdir 2
 
+	object TARG7befd8aa-9e22-4f41-a02a-250a8f11d3f0
+		type TARGET
+		at 698 625
+		curdir 2
+		labels->location Airbase04
+
 	object HANG959c90f1-33d9-4be4-9557-1ee648a72606
 		type HANGAR_DOOR_D_OPEN
 		at 700 625
 		curdir 0
+
+	object PATH289dcc92-e465-490d-afc9-6d1f511861c1
+		type PATHMARKER
+		at 701 625
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATHd9bdf880-3ece-40f6-b5e2-b724ddb3b90e
+
+	object PATH821fca1e-b66c-422a-bc96-f5e8ec9720ff
+		type PATHMARKER
+		at 702 625
+		curdir 3
+		labels->location Airbase
+		stats->owner PATH6ea2a699-7bac-49b9-b958-89164c9c8d95
+
+	object PATHad78f662-eedd-48e9-8729-21ce33cbdfd3
+		type PATHMARKER
+		at 703 625
+		curdir 3
+		labels->location Airbase_Hangar
+		stats->owner PATH806fcfbe-3f15-401d-8b98-e2798946e200
+
+	object PATH1ec7e396-1052-4084-abac-0c7cc94a090b
+		type PATHMARKER
+		at 751 625
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATHc3b46d08-b067-436f-b74d-408c31bb35b3
+
+	object PATHf6541e91-4425-4811-8b94-153102dea9e9
+		type PATHMARKER
+		at 760 625
+		curdir 2
+		labels->location Airbase04
+		stats->owner PATH1ec7e396-1052-4084-abac-0c7cc94a090b
 
 	object LIGH8ce147e3-8388-490e-a8cd-af142834951c
 		type LIGHT_END
@@ -48055,6 +48713,12 @@ iMZ1r01
 		curdir 2
 		tag 47
 
+	object TARG3677f36b-f02b-4c31-affc-f22bddcfa928
+		type TARGET
+		at 755 627
+		curdir 0
+		labels->location Airbase
+
 	object TABL08bb79ae-11b0-4662-a596-e04db7f07aaf
 		type TABLE2-END
 		at 758 627
@@ -48099,6 +48763,7 @@ iMZ1r01
 		type BED
 		at 767 627
 		curdir 0
+		labels->location Airbase
 		stats->owner MAN_1f533b61-dee6-45aa-ab1a-53b0586031ef
 
 	object FENCbe1e001f-0698-44ee-93ce-e975e2ac8ec4
@@ -48264,12 +48929,6 @@ iMZ1r01
 		curdir 2
 		name Dr. 'Seuss' Robertson
 
-	object TARGe4928618-0960-4f1a-a478-7164f0d0b70a
-		type TARGET
-		at 756 628
-		curdir 0
-		tag 53
-
 	object TABL58514757-5431-44df-a4a2-83735875a0db
 		type TABLE-SHADOW2
 		at 758 628
@@ -48282,6 +48941,11 @@ iMZ1r01
 
 	object TABLb229b8d5-6a00-4aab-ae24-ad76b1b8aeaa
 		type TABLE-SHADOW1
+		at 759 628
+		curdir 0
+
+	object TARGecdf8aa8-22f3-461f-89c7-46e40a236f6e
+		type TARGET
 		at 759 628
 		curdir 0
 
@@ -48407,6 +49071,11 @@ iMZ1r01
 		at 657 629
 		curdir 2
 
+	object TARGdd4fec5b-b04d-4fda-8cab-1382c2efbdc5
+		type TARGET_BASE
+		at 696 629
+		curdir 0
+
 	object WALL9771aa34-8aa8-4760-a79a-b15d0bcc0cbc
 		type WALL2_EDGE
 		at 700 629
@@ -48417,11 +49086,30 @@ iMZ1r01
 		at 755 629
 		curdir 1
 
+	object TARGe4928618-0960-4f1a-a478-7164f0d0b70a
+		type TARGET
+		at 756 629
+		curdir 1
+		tag 53
+		labels->location Airbase
+
+	object TARG38220647-11bb-48ab-b56c-bea77720b8d4
+		type TARGET
+		at 763 629
+		curdir 1
+		labels->location Airbase
+
 	object CHAIe6fe055b-1a65-4010-82fc-4b59f4213670
 		type CHAIR
 		at 763 629
 		curdir 1
 		stats->owner MAN_1f533b61-dee6-45aa-ab1a-53b0586031ef
+
+	object TARG9af291ad-a625-4e24-8a5d-a64364a473d3
+		type TARGET
+		at 767 629
+		curdir 1
+		labels->location Airbase
 
 	object CHAIbda66bb9-1c86-4428-b508-b8b775a4425b
 		type CHAIR
@@ -48435,6 +49123,14 @@ iMZ1r01
 		curdir 1
 		name Father Abraham
 		funcs->talk people/tech/abraham.txt
+		schedule 23 0 GO_TO_SLEEP BED_1dd01920-5a52-4b0b-9bd1-c19fbbb6f609
+		schedule 9 0 EAT_AT_HOME TARG38220647-11bb-48ab-b56c-bea77720b8d4
+		schedule 9 30 SIT_AT_LOCATION TARG9af291ad-a625-4e24-8a5d-a64364a473d3
+		schedule 12 0 EAT_AT_HOME TARG38220647-11bb-48ab-b56c-bea77720b8d4
+		schedule 13 0 SIT_AT_LOCATION TARG9af291ad-a625-4e24-8a5d-a64364a473d3
+		schedule 15 0 SIT_AT_LOCATION TARG3677f36b-f02b-4c31-affc-f22bddcfa928
+		schedule 17 0 EAT_AT_HOME TARG38220647-11bb-48ab-b56c-bea77720b8d4
+		schedule 18 0 SIT_AT_LOCATION TARG9af291ad-a625-4e24-8a5d-a64364a473d3
 
 	object FENC79eab5b7-cb64-4c71-a665-bb12fcb0156c
 		type FENCE
@@ -48568,11 +49264,6 @@ iMZ1r01
 		at 657 630
 		curdir 2
 
-	object TARGdd4fec5b-b04d-4fda-8cab-1382c2efbdc5
-		type TARGET_BASE
-		at 697 630
-		curdir 0
-
 	object HANGa64b29e2-d4b6-4a22-8f01-3a4c09947469
 		type HANGAR_SIGN
 		at 700 630
@@ -48643,6 +49334,7 @@ iMZ1r01
 		type BED
 		at 759 630
 		curdir 2
+		stats->owner MAN_d746454e-6d16-40c8-a57a-fa89f7828038
 
 	object TABL46bd794f-b1eb-48f5-88bf-379edd77f1ce
 		type TABLE6-H
@@ -48697,16 +49389,16 @@ iMZ1r01
 		at 765 630
 		curdir 3
 
-	object BIBL20fc4a6f-e025-4f22-8a75-c847b436f78a
-		type BIBLE_OPEN
-		at 766 630
-		curdir 0
-		stats->owner MAN_1f533b61-dee6-45aa-ab1a-53b0586031ef
-
 	object LECT1ac443ba-0143-4b86-b1e8-d69f4c5b9f85
 		type LECTERN
-		at 766 630
+		at 767 630
 		curdir 2
+
+	object BIBL20fc4a6f-e025-4f22-8a75-c847b436f78a
+		type BIBLE_OPEN
+		at 767 630
+		curdir 0
+		stats->owner MAN_1f533b61-dee6-45aa-ab1a-53b0586031ef
 
 	object FENC77103654-fb85-4861-b715-472c25642056
 		type FENCE
@@ -48865,12 +49557,25 @@ iMZ1r01
 		at 692 631
 		curdir 3
 
+	object TARGeab33f5d-35ba-4ce8-9123-47ee7da475f8
+		type TARGET
+		at 697 631
+		curdir 3
+		labels->location Airbase04
+
 	object GUAR87bbde65-cbd1-4e28-b7db-92a2925b5265
 		type GUARD_PANTHER
 		at 697 631
 		curdir 3
 		name Maxwell
 		funcs->talk people/guards/pantherm.txt
+		schedule 0 1 SIT_AT_LOCATION TARGeab33f5d-35ba-4ce8-9123-47ee7da475f8
+
+	object TARGdd69965c-4bd1-446e-b755-55fe51e52749
+		type TARGET
+		at 698 631
+		curdir 2
+		labels->location Airbase04
 
 	object STON6a364ce5-eb5f-4b36-8f44-627b492f00d3
 		type STONEWINDOW3

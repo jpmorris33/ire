@@ -775,9 +775,9 @@ end
 
 function free_drrob
 object obj
-find_tag obj = "STONEDOOR3_LOCKED" 800022
+find_tag obj = "STONEDOOR3_LOCK" 800022
 if_exists obj
-	replace obj = "STONEDOOR3_SHUT"
+	replace obj = "STONEDOOR3_OPEN"
 endif
 
 find_tag obj = "MAN_GENERIC*" 800022
