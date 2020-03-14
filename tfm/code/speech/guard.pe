@@ -163,6 +163,10 @@ if victim.user.potion0 > 0
 	return
 endif
 
+if current.user.user10 <> 0
+	return			# The player is allowed to enter
+endif
+
 # Look for a suitable guard, who is alive, conscious and othewise able to respond
 let findguardtag = 0 - current.tag
 let findguardptr = null
@@ -211,17 +215,28 @@ end
 ##
 
 function guard_pass
+object_array barriers[32]
 object barrier
 int tag
+int ctr
 
 let tag = 0 - current.tag
 
-find_tag barrier = "trap_guardbarrier" tag
-if_not_exists barrier
-	return
-endif
+find_tags barriers[1] = "trap_guardbarrier" tag
+for ctr = 1 to 32
+	let barrier = barriers[ctr]
+	if_exists barrier
+		let barrier.user.user10 = 1	# Pass, friend
+	endif
+next ctr
 
-let barrier.user.user10 = 1	# Pass, friend
+find_tags barriers[1] = "trap_guardhalt" tag
+for ctr = 1 to 32
+	let barrier = barriers[ctr]
+	if_exists barrier
+		let barrier.user.user10 = 1	# Pass, friend
+	endif
+next ctr
 
 end
 
@@ -230,17 +245,28 @@ end
 ##
 
 function guard_unpass
+object_array barriers[32]
 object barrier
 int tag
+int ctr
 
 let tag = 0 - current.tag
 
-find_tag barrier = "trap_guardbarrier" tag
-if_not_exists barrier
-	return
-endif
+find_tags barriers[1] = "trap_guardbarrier" tag
+for ctr = 1 to 32
+	let barrier = barriers[ctr]
+	if_exists barrier
+		let barrier.user.user10 = 0	# Thou shalt not pass!
+	endif
+next ctr
 
-let barrier.user.user10 = 0	# Thou shalt not pass!
+find_tags barriers[1] = "trap_guardhalt" tag
+for ctr = 1 to 32
+	let barrier = barriers[ctr]
+	if_exists barrier
+		let barrier.user.user10 = 0	# Thou shalt not pass!
+	endif
+next ctr
 
 end
 
