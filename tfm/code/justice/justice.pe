@@ -70,6 +70,12 @@ if_not_flag victim.stats.owner IS_PERSON
 	return
 endif
 
+# Invisible?
+if suspect.user.potion0 > 0
+        return
+endif
+
+
 # Thieving scoundrel!
 let suspect.user.user19 = CRIME_THEFT
 
@@ -347,41 +353,46 @@ function justice_vandalism
 # Is there a suspect?
 
 if_not_exists suspect
-	print "vandal: No suspect|"
+#	print "vandal: No suspect|"
 	return
 endif
 
 # Who or what was attacked?
 
 if_not_exists victim
-	print "vandal: No victim|"
+#	print "vandal: No victim|"
 	return
 endif
 
 # Is the object public property?
 if_not_exists victim.stats.owner
-	print "vandal: public|"
+#	print "vandal: public|"
 	return
 endif
 
 # Does the object belong to the accused?
 if victim.stats.owner = suspect
-	print "vandal: yours|"
+#	print "vandal: yours|"
 	return
 endif
 
 # Are they both party members?  (Thanks for finding this Michael!)
 if_flag victim.stats.owner IN_PARTY
 	if_flag suspect IN_PARTY
-	print "vandal: of party|"
+#		print "vandal: of party|"
 		return
 	endif
 endif
 
 # Is the owner a person?  (Not an artifact or egg)
 if_not_flag victim.stats.owner IS_PERSON
-	print "vandal: owner not human|"
+#	print "vandal: owner not human|"
 	return
+endif
+
+# Invisible?
+if suspect.user.potion0 > 0
+        return
 endif
 
 let suspect.user.user19 = CRIME_VANDALISM
