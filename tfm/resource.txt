@@ -3229,6 +3229,17 @@ section: sprites
 	keypad_v		sprites/tech/keypad1.cel
 	keypad_h		sprites/tech/keypad2.cel
 
+	leversign1		sprites/tech/lever1.png
+	leversign2		sprites/tech/lever2.png
+	leversign4		sprites/tech/lever4.png
+	leversign8		sprites/tech/lever8.png
+	leversign16		sprites/tech/lever16.png
+	leversign32		sprites/tech/lever32.png
+	leversign64		sprites/tech/lever64.png
+	leversign16u		sprites/tech/lever16u.png
+	leversign32u		sprites/tech/lever32u.png
+	leversign64u		sprites/tech/lever64u.png
+
 	jc_was_here		sprites/jcwasere.cel
 
 	segfault01		sprites/tech/seg01.cel
@@ -12372,6 +12383,17 @@ section: sequences
 
 	quickname keypad_v keypad_v
 	quickname keypad_h keypad_h
+
+	quickname leversign1
+	quickname leversign2
+	quickname leversign4
+	quickname leversign8
+	quickname leversign16
+	quickname leversign32
+	quickname leversign64
+	quickname leversign16u
+	quickname leversign32u
+	quickname leversign64u
 
 	quickname jc_was_here jc_was_here
 

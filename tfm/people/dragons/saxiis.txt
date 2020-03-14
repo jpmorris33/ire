@@ -29,6 +29,8 @@ Saxiis, a Drakaan who has gone native.
 [linkto="job"]
 [link="What are you?"]
 [linkto="what"]
+[if dragonquest_wip][link="Ransome proposes an alliance."]
+[if dragonquest_wip][linkto="ransome"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -797,6 +799,30 @@ The creature looks at you knowingly.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="ransome"]
+[image="saxiis2.pcx"]
+[journal jrn_SaxiisCode]
+
+"Oh no no no.  I'm not getting involved.
+ You don't want me, you want Gurd.
+
+ I can't risk telling you where to find him, but
+ I'll give you a clue.  My race, old as it is, still
+ has a strong fondness for caves.
+
+ Also, should you discover their home, you will need a
+ code for the front door.  Try using '631824'."
+
+[link="What's your job?"]
+[linkto="job"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="attacked"]
