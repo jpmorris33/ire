@@ -606,6 +606,7 @@ Player has joined
 
 
 [page="comms_unit"]
+[esc=disabled]
 [take 1 "comms_unit"]
 [set base_fairford1]
 [if base_leuchars1][if base_panavius1][goto="comms_active"]
@@ -688,6 +689,7 @@ The comms unit shuts off, and Ransome looks down at you.
 
 
 [page="comms_active"]
+[esc=disabled]
 [image="f16_00.cel"]
 [set drakaan_task_gavecomms]
 

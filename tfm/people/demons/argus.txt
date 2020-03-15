@@ -1,8 +1,6 @@
 
 [page="start"]
 [learn_name]
-[am_carrying "comms_unit"]
-[if true][if_not base_panavius1][goto="comms_unit"]
 [image="f18-0.pcx"]
 
 "Welcome, stranger.  Apologies for the reception...
@@ -24,6 +22,9 @@
 [linkto="base"]
 [link="Tell me about yourself."]
 [linkto="argus"]
+[am_carrying "comms_unit"]
+[if true][if_not base_panavius1][link="I bring the gift of alien technology."]
+[if true][if_not base_panavius1][linkto="comms_unit"]
 [link="bye"]
 [linkto="bye"]
 [endpage]
@@ -426,6 +427,7 @@ transmitter and why they have a security base anyway
 
 
 [page="comms_unit"]
+[esc=disabled]
 [take 1 "comms_unit"]
 [set base_panavius1]
 [if base_leuchars1][if base_fairford1][goto="comms_active"]
@@ -450,12 +452,17 @@ almost drops it.
 Commander Gurd appears, looking rather displeased.
 [colour="#ffffff"]
 
+"So?  So what if we still use valves?
+ What's it to you?"
+
+[nextpage="comms_unit3"]
+[endpage]
+
+
 "So?  So what if we still use valves?  What's it to you?
  Could YOU design a transistor circuit capable of
  amplifying 130 amps at 15'000 volts?"
 
-[nextpage="comms_unit3"]
-[endpage]
 
 [page="comms_unit3"]
 [image="comms.pcx"]
@@ -519,6 +526,7 @@ The comms unit shuts off, and Argus looks down at you.
 
 
 [page="comms_active"]
+[esc=disabled]
 [image="f18-0.pcx"]
 [set drakaan_task_gavecomms]
 
@@ -542,9 +550,8 @@ almost drops it.
 Commander Gurd appears, looking rather displeased.
 [colour="#ffffff"]
 
-"So?  So what if we still use valves?  What's it to you?
- Could YOU design a transistor circuit capable of
- amplifying 130 amps at 15'000 volts?"
+"So?  So what if we still use valves?
+ What's it to you?"
 
 [nextpage="comms_active2a"]
 [endpage]

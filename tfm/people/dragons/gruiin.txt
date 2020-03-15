@@ -22,7 +22,8 @@ Spellmaster
 You see Spellmaster Gruiin, of the Dra'kaan research team.
 [colour="#ffffff"]
 
-"Good day, human.  I trust that life treats you well."
+"Good day, $PLAYERNAME.
+ I trust that life treats you well."
 
 [link="Tell me about your job."]
 [linkto="job"]

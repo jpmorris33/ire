@@ -178,6 +178,9 @@ You see $NAME the tailor.
 "I fear you have not enough cloth for me to make a whole
  jacket.  I need three sheets of the fabric."
 
+[link="Where do I get the purple cloth from again?"]
+[linkto="buy_purple5"]
+[always]
 [link="I'd like to buy a cloak."]
 [linkto="buy_cloak"]
 [always]
@@ -216,6 +219,31 @@ a jacket from the purple cloth.
 [always]
 [link="I'd like a cloak as well."]
 [linkto="buy_cloak"]
+[always]
+[link="I'd like to sell you something."]
+[linkto="sell"]
+[always]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_purple5"]
+
+"It is rare and much sought-after by the Church.
+ Occasionally traders do bring it from the unholy realms
+ near the eastern desert, but they have not been seen
+ for some time, and I fear they may have been waylaid
+ by fell thieves."
+
+"If you can lawfully and piously obtain three sheets of
+ such cloth, then I shall gladly make for you a jacket."
+
+[link="I'd like to buy a cloak."]
+[linkto="buy_cloak"]
+[always]
+[link="I'd like to buy an ordinary jacket then."]
+[linkto="buy_jacket"]
 [always]
 [link="I'd like to sell you something."]
 [linkto="sell"]

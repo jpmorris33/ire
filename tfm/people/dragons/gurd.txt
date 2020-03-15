@@ -1,5 +1,4 @@
 [page="halt"]
-[if_knowname][goto="startname"]
 [goto="start"]
 [endpage]
 
@@ -21,11 +20,14 @@ in a language that you cannot read.
 
  I wish to explain the origins of the malevolent god
  Xy'lan, who stalks this world, performing dark miracles.
+ My crew can also supply you with magic if you need it.
 
  But first, take this device.  It is a communicator which
  will allow us to contact you."
 
 [create 1 "dragoncom"]
+[if dragonquest_wip][link="Ransome proposes an alliance with you."]
+[if dragonquest_wip][linkto="ransome"]
 [link="Tell me about the god."]
 [linkto="xylan"]
 [link="Tell me about the ship."]
@@ -48,6 +50,8 @@ You see Commander Gurd, of the Dra'kaan research team.
 [am_carrying "ultimatum"]
 [if true][link="I was ordered to give you this scroll."]
 [if true][linkto="ultimatum"]
+[if dragonquest_wip][link="Ransome proposes an alliance with you."]
+[if dragonquest_wip][linkto="ransome"]
 [link="Tell me about the god."]
 [linkto="xylan"]
 [link="Tell me about the ship."]
@@ -83,7 +87,7 @@ You see Commander Gurd, of the Dra'kaan research team.
 
 [page="xylan"]
 [image="saxiis1.pcx"]
-"Thousands of your years ago our ship, the Maxima, was
+"Hundreds of your years ago our ship, the Maxima, was
  built.. the third vessel to be equipped with a new type
  of drive system, and all the on-board systems were run
  by an experimental computer sentience called "Xy'lan".
@@ -173,6 +177,7 @@ You see Commander Gurd, of the Dra'kaan research team.
 [page="task"]
 [if drakaan_task_gotcomms][goto="task2"]
 [set drakaan_task_getcomms]
+[journal jrn_DeliverComms]
 [image="saxiis1.pcx"]
 
 "First, we need to establish communications with the
@@ -575,6 +580,37 @@ With a sigh, he turns back to you.
  I suggest you inform them soon, or they may kill you."
 
 [nextpage="exit"]
+[endpage]
+
+
+[page="ransome"]
+[journal jrn_DeliverComms]
+[set drakaan_task_getcomms]
+[image="saxiis1.pcx"]
+
+"I am pleased to hear this.  We have for some time
+ been attempting to contact him or any of the other
+ aircraft-creatures.
+
+ When we are done talking, I suggest you talk to
+ Engineer Naavris.  He can give you a number of comms
+ units which Xy'Lan should not be able to jam.
+ If you deliver these to Ransome and the other two
+ air-bases we will be able to organise an alliance!"
+
+[am_carrying "ultimatum"]
+[if true][link="I was ordered to give you this scroll."]
+[if true][linkto="ultimatum"]
+[link="Tell me about the god."]
+[linkto="xylan"]
+[link="Tell me about the ship."]
+[linkto="maxima"]
+[link="Tell me about your people."]
+[linkto="drakaan"]
+[link="What should I do?"]
+[linkto="task"]
+[link="Goodbye."]
+[linkto="bye"]
 [endpage]
 
 

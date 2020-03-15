@@ -1,0 +1,189 @@
+
+[page="start"]
+[learn_name]
+[image="saxiis2.pcx"]
+"I greet you, human.  I am Xenobiologist Vaargaz."
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="startname"]
+[image="saxiis2.pcx"]
+[colour="#808080"]
+You see Xenobiologist Vaargaz, of the Dra'kaan
+research team.
+[colour="#ffffff"]
+
+"Again I greet you, $PLAYERNAME!"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="job"]
+[image="saxiis2.pcx"]
+"Our mission was to study, and potentially terraform
+ worlds in a sector of the galaxy previously impractical
+ for us to visit easily.
+
+ My role was to study and document any indigenous life
+ on the world.  Now that your race has begun colonising
+ the world it makes that job harder, and in some ways
+ less important.
+
+ That said, I may be able to share some useful data
+ with you.  The birds you call 'ospreys' are especially
+ interesting."
+
+[link="Tell me about the native lifeforms."]
+[linkto="waarg"]
+[link="What do you know about the toads?"]
+[linkto="todes"]
+[link="What do you know about the ospreys?"]
+[linkto="ospreys"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="waarg"]
+[image="saxiis2.pcx"]
+
+"So far as we can tell, this world had no intelligent
+ life of its own prior to our arrival.
+
+ The most advanced lifeform was a small furry carnivore
+ resembling the wolves of your world due to convergent
+ evolution.
+
+ Seeking worshippers, Xy'Lan began to mutate them,
+ using his magic and advanced nanotechnology to 
+ increase their intelligence to something like that of
+ your own.  They call themselves the Waarg and are
+ capable of speech."
+
+[nextpage="waarg2"]
+[endpage]
+
+
+[page="waarg2"]
+[image="saxiis2.pcx"]
+
+"However, when you humans arrived, Xy'Lan dropped that
+ project of uplifting the Waarg-creatures to a state
+ where they were useful worshippers.
+
+ He instead concentrated on enslaving your kind, since
+ you have hands, but the Waarg-creatures require magic
+ to manipulate and move objects.
+
+ Thus, the Waarg-creatures fell out with Xy'Lan whom
+ they now call 'The Betrayer'.
+
+ If you have not already established contact with them,
+ they may provide useful allies to our cause."
+
+[link="What do you know about the toads?"]
+[linkto="todes"]
+[link="What do you know about the ospreys?"]
+[linkto="ospreys"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="ospreys"]
+[image="saxiis2.pcx"]
+
+"The ospreys are not native to this world, but seeded
+ from stock brought here by you humans.
+
+ However, they have recently been building nesting
+ platforms and other structures of their own, a feat
+ far beyond their native intelligence and physical
+ capability.  Image enhancement shows that they are
+ able to project laser beams psychically which they
+ use to fell trees, or destroy enemies."
+
+[nextpage="ospreys2"]
+[endpage]
+
+
+[page="ospreys2"]
+[image="saxiis2.pcx"]
+
+"These capabilities are not natural and are assuredly
+ the work of Xy'Lan.  It is certain to me that he has
+ been modifying them with nano-devices to increase their
+ intelligence.
+
+ We do not know why, since he has a clear preference for
+ humans as worshippers, but there is obviously some
+ reason for his continued interest.
+
+ The other thing we do not know is whether they are
+ grateful to Xy'Lan for increasing their intellect or
+ are opposed to his goals."
+
+[link="Tell me about the native lifeforms."]
+[linkto="waarg"]
+[link="What do you know about the toads?"]
+[linkto="todes"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="todes"]
+[image="saxiis2.pcx"]
+
+"Toads are primitive amphibian life, an invasive species
+ brought by you humans in your colonisation project.
+
+ Rulyz tells me that that they have developed limited
+ speech and spellcasting abilities under Xy'Lan's sway,
+ using a psionic amplifier crystal embedded in the
+ creature's brain.
+
+ We think that Xy'Lan uses them as semi-autonomous
+ drones to spy on people."
+
+[link="Tell me about the native lifeforms."]
+[linkto="waarg"]
+[link="What do you know about the ospreys?"]
+[linkto="ospreys"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="bye"]
+[image="saxiis2.pcx"]
+"Farewell."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[image="saxiis3.pcx"]
+[at_exit_call="player_killme"]
+
+[colour="#808080"]
+Before you have time to strike, the creature has whipped
+out a small energy pistol and burned through a number
+of vital organs.
+[colour="#ffffff"]
+
+[nextpage="exit"]
+[endpage]

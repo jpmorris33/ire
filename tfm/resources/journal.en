@@ -297,3 +297,11 @@ title Inform the Church of Commander Gurd's reply
 start:
 I have delivered the ultimatum to Commander Gurd.  Now I must pass his reply on to the Church.
 end
+
+name jrn_DeliverComms
+tag task
+title Deliver the comms units to the airbases
+start:
+Commander Gurd has suggested I talk to Navriis, one of his crew, who will provide me with a number of comms units.  I should deliver these to Ransome, and the other two airbases.  Then we will be able to negotiate an alliance.
+end
+

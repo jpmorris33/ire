@@ -313,7 +313,7 @@ He glowers, and the eyes seem to glow brighter.
 
 
 [page="ransome2"]
-[image="phone.jpg"]
+[image="phone.pcx"]
 
 [colour="#808080"]
 You dial any old number, hoping that Ransome's team will

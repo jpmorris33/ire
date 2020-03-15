@@ -1,6 +1,8 @@
 [page="start"]
 [if_not dr_rob_free][goto="helpme"]
 [if found_the_precious][goto="start2"]
+[am_carrying "comms_unit"]
+[if true][if_not base_leuchars1][goto="comms_unit"]
 
 "Thanks again for rescuing me!
  Let me know if there's any way I can repay you!"
@@ -12,6 +14,20 @@
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+[page="start2"]
+[am_carrying "comms_unit"]
+[if true][if_not base_leuchars1][goto="comms_unit"]
+
+"Thanks again for rescuing me!  I hope the ring
+ proved useful!"
+
+FIXME: NEED MORE DIALOGUE
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="precious"]
@@ -183,6 +199,7 @@
 
 
 [page="comms_unit"]
+[esc=disabled]
 [take 1 "comms_unit"]
 [set base_leuchars1]
 [if base_panavius1][if base_fairford1][goto="comms_active"]
@@ -309,6 +326,7 @@ Dr. Robertson looks at you as the comms device shuts off.
 
 
 [page="comms_active"]
+[esc=disabled]
 [set drakaan_task_gavecomms]
 
 [colour="#808080"]

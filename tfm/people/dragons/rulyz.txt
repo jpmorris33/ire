@@ -1,5 +1,6 @@
 
 [page="start"]
+[learn_name]
 [image="saxiis2.pcx"]
 "Greetings, human.  I am Librarian Rulyz."
 
@@ -8,6 +9,21 @@
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+[page="startname"]
+[image="saxiis2.pcx"]
+[colour="#808080"]
+You see Librarian Rulyz, of the Dra'kaan research team.
+[colour="#ffffff"]
+
+"Greetings again, $PLAYERNAME!"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="job"]

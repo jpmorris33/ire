@@ -10,7 +10,7 @@ Stevens, expert hacker and ex-american president.
  Hacker, cracker and former president of the USA.
  Pleased to meet you."
 
-[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][link="I can't get at the power plant without dying."]
 [if enter_pp][linkto="enter_pp"]
 [link="Tell me about your presidency."]
 [linkto="prez"]
@@ -42,7 +42,7 @@ Stevens, expert hacker and ex-american president.
  Even a good ruler might turn bad in the end, being able
  to swap them out after a while is crucially important."
 
-[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][link="I can't get at the power plant without dying."]
 [if enter_pp][linkto="enter_pp"]
 [link="Did you find any interesting secrets out?"]
 [linkto="toomanysecrets"]
@@ -74,7 +74,7 @@ Stevens, expert hacker and ex-american president.
  Strictly they were UFOs, but they were entirely
  designed and built on Earth."
 
-[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][link="I can't get at the power plant without dying."]
 [if enter_pp][linkto="enter_pp"]
 [link="Tell me about the base."]
 [linkto="base"]
@@ -105,7 +105,7 @@ Stevens, expert hacker and ex-american president.
  for the new colony.  We also have the transstellar
  communicator, which is our sole link with Earth."
 
-[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][link="I can't get at the power plant without dying."]
 [if enter_pp][linkto="enter_pp"]
 [link="Tell me about the communicator."]
 [linkto="comms"]
@@ -167,7 +167,7 @@ Stevens, expert hacker and ex-american president.
  someone to try and fix it, but we don't have anyone
  left to send."
 
-[if enter_pp][link="I can't get at the power plant.  The LORD keeps killing me if I try."]
+[if enter_pp][link="I can't get at the power plant without dying."]
 [if enter_pp][linkto="enter_pp"]
 [link="Tell me about your presidency."]
 [linkto="prez"]
@@ -248,6 +248,7 @@ Stevens, expert hacker and ex-american president.
 
 
 [page="medieval"]
+[if stevens_comms][goto="medieval4"]
 [image="f18-0.pcx"]
 
 "Well, something has taken over the planet and
@@ -339,8 +340,27 @@ Stevens, expert hacker and ex-american president.
  I'd split the difference  and lay money on it being
  some kind of alien supercomputer."
 
-[if met_drakaan_or_something][link="He is, I've met the aliens who created him."]
-[if met_drakaan_or_something][linkto="xylan"]
+[if met_dragons][link="He is, I've met the aliens who created him."]
+[if met_dragons][linkto="xylan"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="medieval4"]
+[image="f18-0.pcx"]
+
+"Well, thanks to you, we can now confirm that the humans
+ have been brainwashed by an insane supercomputer built
+ by a race of draconic aliens.
+
+ ...Which sounds like a bad science fiction story when
+ you summarise it briefly like that."
+
 [link="Tell me about your presidency."]
 [linkto="prez"]
 [link="Tell me about the base."]
@@ -355,6 +375,26 @@ Stevens, expert hacker and ex-american president.
 
 "Hardcore!  I hope you can introduce me sometime!
  I'd love to know how some of those divine powers work!"
+
+[am_carrying "comms_unit"]
+[if true][link="I have a spare comms unit, actually."]
+[if true][linkto="xylan2"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="xylan2"]
+[image="f18-0.pcx"]
+[take 1 "comms_unit"]
+[set stevens_comms]
+
+"Woah!  That's so cool!  I don't know how to thank you!
+ I have so much to ask them!"
 
 [link="Tell me about your presidency."]
 [linkto="prez"]

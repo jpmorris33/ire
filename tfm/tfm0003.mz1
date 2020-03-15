@@ -99254,6 +99254,13 @@ iMZ1r01
 
 	decorative TREE00 at 982 947
 
+	object DRAG567d6e8c-b1c1-47ea-b291-483bebd335f2
+		type DRAGON_CLOTHED
+		at 553 948
+		curdir 0
+		name Xenobiologist Vaargaz
+		funcs->talk people/dragons/vaargaz.txt
+
 	object WALLa8cb1895-4a5f-4aff-81b4-10542d891cb6
 		type WALL3_EDGE
 		at 567 948
