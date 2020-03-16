@@ -372,6 +372,7 @@ end
 ##
 
 function hurt_wild
+integer threshold
 
 # Show the blood
 
@@ -383,7 +384,8 @@ if_not_flag current IN_PARTY
         if_exist current.enemy
                 if_flag current.enemy IS_PERSON
 			# Size them up
-			if current.enemy.stats.hp > current.stats.hp
+			let threshold = current.stats.hp * 3   # Affects difficulty
+			if current.enemy.stats.hp > threshold
 				# Too strong, run away!
 				queue_action current does enemy_flee to current.enemy
 				run_queue current
