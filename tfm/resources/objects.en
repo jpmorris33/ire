@@ -11092,6 +11092,7 @@ section: characters
 	damage		5
 	description	"You see a headless corpse."
 	short		"corpse"
+	IfLookedAt	SearchContainer
 
 	name DEVIL
 	left		DEVIL_LEFT
@@ -11385,6 +11386,8 @@ section: characters
 	alignment	-10
 	fragile
 #	person
+	# Stop carrying them from confusing the egg
+	ifTaken		grabbed_spawn
 
 
 	name TODE_DEAD
@@ -11470,6 +11473,8 @@ section: characters
 	horrific
 	race		rabbit
 	rank		prey
+	# Stop carrying them from confusing the egg
+	ifTaken		grabbed_spawn
 
 
 	name BUNNY_PSYCHO

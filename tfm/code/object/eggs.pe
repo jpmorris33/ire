@@ -281,7 +281,17 @@ end
 function egg_despawned
 
 # Was it hatched from an egg?
+if_not_flag current IS_SPAWNED
+	return
+endif
+
+# Tell the egg that it needs to replenish
 if_exists current.stats.owner
+	# Abort on edge case where someone's picked up the creature and then killed it
+	if_flag current.stats.owner IS_PERSON
+		return
+	endif
+
 	# If we haven't gone overboard (e.g. creature resurrected?)
 	if current.stats.owner.user.user1 > 0
 		# Splash one lizard
@@ -652,6 +662,14 @@ endif
 
 end
 
+##
+##  Pick up a spawned object, disassociate before it thinks the player is its egg
+##
+
+function grabbed_spawn
+call egg_despawned
+set_flag current IS_SPAWNED = 0
+end
 
 
 ##
