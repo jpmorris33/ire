@@ -8,8 +8,11 @@
 [linkto="name"]
 [link="What do you do?"]
 [linkto="job"]
-[link="Join me"]
-[linkto="join"]
+[is_in_party]
+[if false][link="Join me"]
+[if false][linkto="join"]
+[if true][link="Leave the party, please"]
+[if true][linkto="leave"]
 [link="Goodbye."]
 [linkto="bye"]
 
@@ -17,13 +20,17 @@
 
 
 [page="startname"]
+[is_in_party][goto="startparty"]
 
 "Hello again."
 
 [link="What do you do?"]
 [linkto="job"]
-[link="Join me"]
-[linkto="join"]
+[is_in_party]
+[if false][link="Join me"]
+[if false][linkto="join"]
+[if true][link="Leave the party, please"]
+[if true][linkto="leave"]
 [link="Goodbye."]
 [linkto="bye"]
 
@@ -38,8 +45,11 @@
 
 [link="What do you do?"]
 [linkto="job"]
-[link="Join me"]
-[linkto="join"]
+[is_in_party]
+[if false][link="Join me"]
+[if false][linkto="join"]
+[if true][link="Leave the party, please"]
+[if true][linkto="leave"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -55,8 +65,11 @@
 
 [link="Tell me about the forests."]
 [linkto="forest"]
-[link="Join me"]
-[linkto="join"]
+[is_in_party]
+[if false][link="Join me"]
+[if false][linkto="join"]
+[if true][link="Leave the party, please"]
+[if true][linkto="leave"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -89,6 +102,21 @@
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+[page="leave"]
+[call="leave_party"]
+
+"Very well.  I hope that I can be of further use to you
+ in the future!"
+
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the forests."]
+[linkto="forest"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 ----- Forest -----
 

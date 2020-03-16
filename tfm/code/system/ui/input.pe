@@ -560,6 +560,9 @@ if key = SHIFT_F9
 		print "ptr = "
 		printx current
 		printcr
+
+		# Dump schedule
+		# status 20
 	else
 
 		get_first_object current from new_x new_y

@@ -20,6 +20,8 @@ end
 
 function leave_party
 del_member current
+stop_action current
+resume_schedule current
 end
 
 ##
