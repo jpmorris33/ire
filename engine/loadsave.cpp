@@ -47,7 +47,7 @@ static int use_saveid=0;
 
 void load_map();
 void load_z1(char *filename);
-void save_z1(char *filename);
+void save_z1(char *filename, VMINT mapno);
 void wipe_z1();
 void load_z2();
 static void load_map_r01(char *fname);
@@ -55,11 +55,13 @@ static void load_z2_r01(char *fname);
 static void load_z3_r01(char *fname);
 
 
-static void WriteContainers(OBJECT *cont, FILE *fp);
+static void WriteContainers(OBJECT *cont, FILE *fp, VMINT mapno);
 //static void WriteContainerSchedules(OBJECT *cont);
 //static char *LoadSaveList_getter(int index, int *list_size);
 static int ProcessBadObject(OBJECT **objptr, char *name, int maxlen);
 static void DeleteProtoObject(OBJECT *o);
+static void reconstituteSchedule(SCHEDULE *schedule, OBJECT *obj);
+
 
 static void MoveToPocketEnd(OBJECT *object, OBJECT *container);
 static int getObjectId(OBJECTID *dest, const char *inputline);
@@ -99,7 +101,7 @@ extern void read_WORLD(WORLD *w,IFILE *f);
 extern void write_WORLD(WORLD *w,IFILE *f);
 void read_USEDATA(USEDATA *u,IFILE *f);
 void write_USEDATA(USEDATA *u,IFILE *f);
-extern void TWriteObject(FILE *fp,OBJECT *o);
+extern void TWriteObject(FILE *fp,OBJECT *o, VMINT mapno);
 
 extern void put_uuid(OBJECT *obj, IFILE *ofp);
 extern void get_uuid(char uuid[UUID_SIZEOF], IFILE *ifp);
@@ -820,7 +822,7 @@ if(curmap->lightst)
  *      save_z1 - Write the object layer, or a savegame
  */
 
-void save_z1(char *filename)
+void save_z1(char *filename, VMINT mapno)
 {
 OBJECT *temp;
 int vx,vy;
@@ -848,8 +850,8 @@ for(vy=0;vy<curmap->h;vy++)
 			else
 				{
 				if(temp->pocket.objptr)
-					WriteContainers(temp->pocket.objptr,fp);
-				TWriteObject(fp,temp);
+					WriteContainers(temp->pocket.objptr,fp,mapno);
+				TWriteObject(fp,temp,mapno);
 				}
 		}
 
@@ -1498,15 +1500,22 @@ for(ctr=1;ctr<z1.lines;ctr++)
 			temp->schedule[ke].hour = x;
 			temp->schedule[ke].minute = y;
 			if(use_saveid) {
-				temp->schedule[ke].target.saveid = atoi(uid); // Fix up later
+				temp->schedule[ke].saveid = atoi(uid); // Fix up later
 			} else {
-				SAFE_STRCPY(temp->schedule[ke].target.uuid,uid); // Fix up later
+				SAFE_STRCPY(temp->schedule[ke].uuid,uid); //Record it separately so it doesn't get lost moving between maps
 			}
 			SAFE_STRCPY(temp->schedule[ke].vrm,str);
 			temp->schedule[ke].call = getnum4PE(str);
 			}
 		continue;
 		}
+
+	// Original map
+	if(!istricmp(first,"user->originmap")) {
+		temp->user->originmap = atoi(strfirst(strrest(l)));
+		continue;
+	}
+
 	}
 
 // Don't need text file open anymore
@@ -1544,27 +1553,18 @@ while(temp)
 
 // Convert remaining integers to pointers and set up functions
 
-for(ptr=MasterList;ptr;ptr=ptr->next)
-	if(ptr->ptr)
-		{
-//		if(ptr->ptr->target.saveid)
+for(ptr=MasterList;ptr;ptr=ptr->next) {
+	if(ptr->ptr) {
 		ptr->ptr->target.objptr = resolveObject(&ptr->ptr->target);
-//		if(ptr->ptr->enemy.saveid)
 		ptr->ptr->enemy.objptr = resolveObject(&ptr->ptr->enemy);
-//		if(ptr->ptr->stats->owner.saveid)
 		ptr->ptr->stats->owner.objptr = resolveObject(&ptr->ptr->stats->owner);
 
 		// Convert any targets
-		if(ptr->ptr->schedule)
-			{
-			for(ctr2=0;ctr2<24;ctr2++)
-				if(ptr->ptr->schedule[ctr2].active)
-					ptr->ptr->schedule[ctr2].target.objptr =resolveObject(&ptr->ptr->schedule[ctr2].target);
-			}
-
+		reconstituteSchedule(ptr->ptr->schedule,ptr->ptr);
 		InitFuncsFor(ptr->ptr);
 		OB_Funcs(ptr->ptr);
-		}
+	}
+}
 
 fastfind_id_stop();
 
@@ -1594,6 +1594,34 @@ if(!in_editor)
 				}
 			}
 		}
+
+}
+
+void reconstituteSchedule(SCHEDULE *schedule, OBJECT *obj) {
+int ctr;
+
+if(schedule) {
+	for(ctr=0;ctr<24;ctr++) {
+		SCHEDULE *sched = &schedule[ctr];
+		if(sched->active) {
+			sched->okay = 1;
+			if(use_saveid) {
+				sched->target = fastfind_id(sched->saveid);
+				if(!sched->target && sched->saveid > 0) {
+					sched->okay = 0;
+				}
+			} else {
+				// Should probably compare against originmap
+//				ilog_quiet("Attemmpt to reconstitute uuid '%s' for object '%s' (%s)\n", sched->uuid, obj->name, obj->personalname);
+				sched->target = find_uuid(sched->uuid);
+				if(!sched->target && check_uuid(sched->uuid)) {
+//					ilog_quiet("WARNING: Could not reconstitute uuid '%s' for object '%s' (%s)\n", sched->uuid, obj->name, obj->personalname);
+					sched->okay = 0;
+				}
+			}
+		}
+	}
+}
 
 }
 
@@ -3423,15 +3451,15 @@ ithe_panic("MoveToPocketEnd: This object was not in the list:",object->name);
  *                        Recursive, called by save_z1
  */
 
-void WriteContainers(OBJECT *cont, FILE *fp)
+void WriteContainers(OBJECT *cont, FILE *fp, VMINT mapno)
 {
 OBJECT *temp;
 
 for(temp = cont;temp;temp=temp->next)
 	{
-	TWriteObject(fp,temp);
+	TWriteObject(fp,temp,mapno);
 	if(temp->pocket.objptr)
-		WriteContainers(temp->pocket.objptr,fp);
+		WriteContainers(temp->pocket.objptr,fp,mapno);
 	}
 
 return;
@@ -3512,58 +3540,55 @@ while(curmap->object->pocket.objptr)
 
 void restore_objects()
 {
-OBJECT *temp,*t2;
+OBJECT *dest,*next,*obj;
 
 // Find new location, if using a tag
-if(change_map_tag)
-	{
+if(change_map_tag) {
 	// Find the destination object
-	temp=FindTag(change_map_tag,"target");
-	if(!temp)
-		temp=FindTag(change_map_tag,NULL);
-	if(temp)
-		{
-		// We will land here
-		change_map_x = temp->x;
-		change_map_y = temp->y;
-		}
+	dest=FindTag(change_map_tag,"target");
+	if(!dest) {
+		dest=FindTag(change_map_tag,NULL);
 	}
+	if(dest) {
+		// We will land here
+		change_map_x = dest->x;
+		change_map_y = dest->y;
+	}
+}
 
 change_map_tag=0; // reset tag
 
 // Decode everything
 
-while(limbo.pocket.objptr)
-	{
-	t2=limbo.pocket.objptr;
+while(limbo.pocket.objptr) {
+	obj=limbo.pocket.objptr;
 
 #ifdef DEBUG_SAVE
 	ilog_quiet("unpack %s: archive flags = %x (%d)\n",limbo.pocket.objptr->name,limbo.pocket.objptr->user->archive,limbo.pocket.objptr->user->archive);
 #endif
-	
-	switch(limbo.pocket.objptr->user->archive)
-		{
+
+	switch(limbo.pocket.objptr->user->archive) {
 		// Move to the linked list buffer
 		case UARC_SYSPOCKET:
-		temp=limbo.pocket.objptr->next;
+		next=limbo.pocket.objptr->next;
 		TransferToPocket(limbo.pocket.objptr,curmap->object);
-		limbo.pocket.objptr=temp;
+		limbo.pocket.objptr=next;
 		break;
 
 		// Move to the linked list buffer
 		case UARC_SYSLIST:
-		temp=limbo.pocket.objptr->next;
+		next=limbo.pocket.objptr->next;
 		limbo.pocket.objptr->parent.objptr = NULL;
 		LL_Add(&curmap->object,limbo.pocket.objptr);
-		limbo.pocket.objptr=temp;
+		limbo.pocket.objptr=next;
 		break;
 
 		// Move to another object's pocket
 		case UARC_INPOCKET:
-		temp=limbo.pocket.objptr->next;
+		next=limbo.pocket.objptr->next;
 		TransferToPocket(limbo.pocket.objptr,limbo.pocket.objptr->user->arcpocket.objptr);
 //		LL_Add(&limbo.pocket->user->arcpocket,limbo.pocket);
-		limbo.pocket.objptr=temp;
+		limbo.pocket.objptr=next;
 		break;
 
 		// Move the object to its appropriate map position
@@ -3572,17 +3597,19 @@ while(limbo.pocket.objptr)
 		default:
 		limbo.pocket.objptr->x=change_map_x;
 		limbo.pocket.objptr->y=change_map_y;
-		if(!ForceFromPocket(limbo.pocket.objptr,&limbo,limbo.pocket.objptr->x,limbo.pocket.objptr->y))
-			{
+		if(!ForceFromPocket(limbo.pocket.objptr,&limbo,limbo.pocket.objptr->x,limbo.pocket.objptr->y)) {
 			Bug("Problem restoring '%s' from Limbo!\n",limbo.pocket.objptr->name);
 			// Force us to the next one
 			limbo.pocket.objptr = limbo.pocket.objptr->next;
-			}
-		break;
 		}
-	// Reset Archive state for object
-	t2->user->archive=0;
+		break;
 	}
+	// Reset Archive state for object
+	obj->user->archive=0;
+
+	// Make sure the schedule still works
+	reconstituteSchedule(obj->schedule,obj);
+}
 }
 
 

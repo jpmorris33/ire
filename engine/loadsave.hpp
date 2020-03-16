@@ -12,7 +12,7 @@ extern void save_map(int mapno);
 extern void erase_curmap();
 
 extern void load_z1(char *filename);
-extern void save_z1(char *filename);
+extern void save_z1(char *filename, VMINT mapno);
 extern void load_z1A(char *filename);
 extern void save_z1A(char *filename);
 extern void wipe_z1();

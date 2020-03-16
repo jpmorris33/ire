@@ -84,6 +84,7 @@ extern IREBITMAP *iload_png(char *filename);
 static void UnPcx(unsigned char *in,unsigned char *out,int length);
 static unsigned char *UnJPG(FILE *fp, int *w, int *h, int *bpp);
 extern int getnum4char(const char *name);
+extern int check_uuid(const char *uuid);
 
 // Code
 
@@ -724,7 +725,7 @@ if((pend - pstart) != USEDATA_VERSION) {
 #define IF_CHANGED(v) if(o->v != CHlist[type].v)
 #define IF_S_CHANGED(v) if(stricmp(o->v,CHlist[type].v))
 
-void TWriteObject(FILE *fp,OBJECT *o)
+void TWriteObject(FILE *fp,OBJECT *o, VMINT mapno)
 {
 int type,ctr;
 char objectname[1024];
@@ -867,6 +868,15 @@ IF_CHANGED(stats->alignment)
 if(MZ1_SavingGame)
 	fprintf(fp,"\t\tstats->npcflags 0x%lx\n",o->stats->npcflags);
 
+// Usedata - should probably put all future usedata in here rather than the savegame
+
+if(MZ1_SavingGame && o->user) {
+	if(!o->user->originmap) {
+		o->user->originmap = mapno;
+	}
+	fprintf(fp,"\t\tuser->originmap %ld\n",o->user->originmap);
+}
+
 //
 //  Funcs
 //
@@ -909,8 +919,8 @@ if(o->schedule)
 	for(ctr=0;ctr<24;ctr++)
 		if(o->schedule[ctr].active)
 			{
-			if(o->schedule[ctr].target.objptr)
-				fprintf(fp,"\t\tschedule %d %d %s %s\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,o->schedule[ctr].target.objptr->uid);
+			if(check_uuid(o->schedule[ctr].uuid))
+				fprintf(fp,"\t\tschedule %d %d %s %s\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,o->schedule[ctr].uuid);
 			else
 				fprintf(fp,"\t\tschedule %d %d %s %s\n",o->schedule[ctr].hour,o->schedule[ctr].minute,o->schedule[ctr].vrm,"-");
 			}

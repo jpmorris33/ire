@@ -1981,7 +1981,9 @@ for(ctr=start;ctr<=finish;ctr++)
 					sched[blockw].minute=minute;
 					sched[blockw].call=tmp;
 					SAFE_STRCPY(sched[blockw].vrm,PElist[tmp].name);
-					sched[blockw].target.objptr=NULL;
+					sched[blockw].target=NULL;
+					sched[blockw].saveid=0;
+					sched[blockw].uuid[0]=0;
 					sched[blockw].active=1;
 					blockh=1;
 					break;
@@ -2263,6 +2265,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			SetNPCFlag(character, IS_SPAWNED);
 			continue;
 			}
+
 
 		// If we get this far, there was no recognised keyword
 

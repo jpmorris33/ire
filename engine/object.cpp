@@ -2898,12 +2898,19 @@ if(o->target.objptr)
 		o->target.objptr=NULL;
 
 // Check schedule
-if(o->schedule)
-	for(ctr=0;ctr<24;ctr++)
-		if(o->schedule[ctr].active)
-			if(o->schedule[ctr].target.objptr)
-				if((o->schedule[ctr].target.objptr->flags & IS_ON) == 0)
-					o->schedule[ctr].active = 0;
+if(o->schedule) {
+	for(ctr=0;ctr<24;ctr++) {
+		if(o->schedule[ctr].active) {
+			if(o->schedule[ctr].target) {
+				if((o->schedule[ctr].target->flags & IS_ON) == 0) {
+					// No pointer, but keep the uuid intact
+					o->schedule[ctr].okay = 0;
+					o->schedule[ctr].target = NULL;
+				}
+			}
+		}
+	}
+}
 
 // Check sub-task stack
 if(o->user)

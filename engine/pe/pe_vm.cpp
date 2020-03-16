@@ -7941,7 +7941,23 @@ switch(*num)
 		ire_pushkey = pevm_err;
 		pevm_err=0;
 	break;
-	
+
+	case 20:
+		if(!current_object) {
+			return;
+		}
+		ilog_printf(">>> Dump schedule uuids for %s (%s)\n",current_object->name, current_object->personalname);
+		if(current_object->schedule) {
+			for(int ctr2=0;ctr2<24;ctr2++) {
+				if(current_object->schedule[ctr2].active) {
+					ilog_printf("%d: hour = %d, activity = %s, target = %s\n",ctr2,current_object->schedule[ctr2].hour,current_object->schedule[ctr2].vrm,current_object->schedule[ctr2].uuid);
+				}
+			}
+		}
+		ilog_printf(">>> Dump schedule done\n");
+
+	break;
+
 	default:
 	Bug("Unknown status request %d\n",*num);
 	}

@@ -1221,18 +1221,17 @@ if(!istricmp(line2,"if_npflag") || !istricmp(line2,"ifnpflag")
     }
 
 if(!istricmp(line2,"is_in_party") || !istricmp(line2,"is_in_party?")
-|| !istricmp(line2,"in_party") || !istricmp(line2,"in_party?"))
-    {
-    Set_tFlag("true",0);
-    Set_tFlag("false",1);
-    for(r=0;r<MAX_MEMBERS;r++)
-        if(party[r] == npc)
-            {
-            Set_tFlag("true",1);
-            Set_tFlag("false",0);
-            }
+|| !istricmp(line2,"in_party") || !istricmp(line2,"in_party?")) {
+	Set_tFlag("true",0);
+	Set_tFlag("false",1);
+	for(r=0;r<MAX_MEMBERS;r++) {
+		if(party[r] == npc) {
+			Set_tFlag("true",1);
+			Set_tFlag("false",0);
+		}
+	}
     return 16;
-    }
+}
 
 if(!istricmp(line2,"on_exit_call") || !istricmp(line2,"on_exit_call=")
 || !istricmp(line2,"at_exit_call") || !istricmp(line2,"at_exit_call=")

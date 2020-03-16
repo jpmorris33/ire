@@ -189,6 +189,8 @@ VMINT actptr,actlen;
 
 VMINT fx_func; // Special effects function number or 0
 
+VMINT originmap;	// ID of the map they were created on
+
 NPC_RECORDING *npctalk;     // Used to record what you've said for continuity
 NPC_RECORDING *lFlags;      // Local Flags
 } USEDATA;
@@ -450,11 +452,13 @@ SEQ_POOL **alternate;// Alternate tiles (for blanked corners) or NULL
 
 typedef struct SCHEDULE
 {
-char active,ok,hour,minute;
+char active,okay,hour,minute;
 
 char vrm[32];
 VMINT call;
-OBJECTID target;
+OBJECT *target;
+unsigned int saveid; // Old save mechanism
+char uuid[UUID_SIZEOF]; // Backup copy of target UUID
 } SCHEDULE;
 
 

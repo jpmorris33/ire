@@ -599,7 +599,9 @@ irecon_printf("%s does %s to %s\n",active->ptr->name,active->ptr->schedule[vx].v
 #endif
 									lastvrmcall="Activity Engine";
 									SubAction_Wipe(active->ptr);
-									ActivityNum(active->ptr,active->ptr->schedule[vx].call,active->ptr->schedule[vx].target.objptr);
+									if(active->ptr->schedule[vx].okay) {
+										ActivityNum(active->ptr,active->ptr->schedule[vx].call,active->ptr->schedule[vx].target);
+									}
 									lastvrmcall="N/A";
 								}
 							}
@@ -1514,12 +1516,16 @@ if(h == -1) {
 }
 
 if(i>=0) {
-	if(o->schedule[i].call == o->activity && o->schedule[i].target.objptr == o->target.objptr) {
+	if(o->schedule[i].call == o->activity && o->schedule[i].target == o->target.objptr) {
 //		ilog_quiet("%s trying to resume current task\n",o->name);
 		return;
 	}
 	SubAction_Wipe(o);
-	ActivityNum(o,o->schedule[i].call,o->schedule[i].target.objptr);
+
+	if(o->schedule[i].okay) {
+		// Only do this if the target was resolved properly
+		ActivityNum(o,o->schedule[i].call,o->schedule[i].target);
+	}
 	#ifdef DEBUG_RESUMEACTIVITY
 	ilog_quiet("%s resumes doing %s (%d) to %s\n",o->name,o->schedule[i].vrm,o->schedule[i].call,o->schedule[i].target.objptr?o->schedule[i].target.objptr->name:"Nothing");
 	#endif
@@ -1613,7 +1619,7 @@ fname=makemapname(mapnumber,9999,".mz1");
 if(fname)
 	{
 	MZ1_SavingGame=1; // Store every tiny detail
-	save_z1(fname);
+	save_z1(fname,mapnumber);
 	MZ1_SavingGame=0;
 	}
 
@@ -1913,7 +1919,7 @@ GameBusy();
 
 savegame=makemapname(mapnumber,savegame_no,".mz1");
 MZ1_SavingGame=1; // Store every tiny detail
-save_z1(savegame);
+save_z1(savegame,mapnumber);
 MZ1_SavingGame=0;
 
 // Save light state

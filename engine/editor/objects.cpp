@@ -2032,7 +2032,7 @@ if(!objsel->schedule[setschedule].active)
 	{
 	strcpy(STime_str," 00:00 ");
 	strcpy(objsel->schedule[setschedule].vrm,"-");
-	objsel->schedule[setschedule].target.objptr=NULL;
+	objsel->schedule[setschedule].target=NULL;
 	}
 else
 	snprintf(STime_str,sizeof(STime_str)-1," %02d:%02d ",objsel->schedule[setschedule].hour,objsel->schedule[setschedule].minute);
@@ -2042,14 +2042,14 @@ strcpy(SLoc_str,"-               ");
 
 strncpy(SVrm_str,objsel->schedule[setschedule].vrm,sizeof(SVrm_str)-1);
 PAD_OUT(SVrm_str,17);
-if(objsel->schedule[setschedule].target.objptr)
+if(objsel->schedule[setschedule].target)
 	{
-	strncpy(SObj_str,objsel->schedule[setschedule].target.objptr->name,sizeof(SObj_str)-1);
+	strncpy(SObj_str,objsel->schedule[setschedule].target->name,sizeof(SObj_str)-1);
 	PAD_OUT(SObj_str,17);
 	// Update location if there is one
-	if(objsel->schedule[setschedule].target.objptr->labels->location)
+	if(objsel->schedule[setschedule].target->labels->location)
 		{
-		strncpy(SLoc_str,objsel->schedule[setschedule].target.objptr->labels->location,sizeof(SLoc_str)-1);
+		strncpy(SLoc_str,objsel->schedule[setschedule].target->labels->location,sizeof(SLoc_str)-1);
 		PAD_OUT(SLoc_str,17);
 		}
 	}
@@ -2927,7 +2927,7 @@ IG_Text(300,72,"Click on the object they will focus on",ITG_WHITE);
 MapXpos_Id = IG_InputButton(24,40,mapxstr,GetMapX,NULL,NULL);
 MapYpos_Id = IG_InputButton(112,40,mapystr,GetMapY,NULL,NULL);
 
-schsel = objsel->schedule[setschedule].target.objptr;
+schsel = objsel->schedule[setschedule].target;
 if(schsel)
 	{
 	mapx = schsel->x-4;
@@ -2981,11 +2981,11 @@ if(objsel)                       // If an object was selected
     last_dir = objsel->curdir;
     objsel->form=NULL; // Force direction to change
     OB_SetDir(objsel,objsel->curdir,1);
-    a->schedule[setschedule].target.objptr = objsel;
+    a->schedule[setschedule].target = objsel;
     }
 else
     {
-    a->schedule[setschedule].target.objptr = NULL;
+    a->schedule[setschedule].target = NULL;
     }
 
 objsel = a;
@@ -2999,7 +2999,7 @@ void SC_NoTarget()
 if(setschedule < 0)
 	return;
 
-objsel->schedule[setschedule].target.objptr=NULL;
+objsel->schedule[setschedule].target=NULL;
 schsel=NULL;
 IG_WaitForRelease();
 }

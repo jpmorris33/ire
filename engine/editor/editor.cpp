@@ -967,7 +967,7 @@ if(ptr)
 		rename(ptr,ptr2); // rename original to backup
 		}
 	MZ1_SavingGame=0; // Don't store every tiny detail
-	save_z1(ptr);
+	save_z1(ptr,mapnumber);
 	}
 
 //	Write Roofmap (uses mapname)

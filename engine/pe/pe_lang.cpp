@@ -3568,6 +3568,7 @@ STRUCTURE userspec[] =
 					{"pathgoal",	'>',"",&usedata_template.pathgoal,&objspec},
 					{"timeout",	'i',"RW",&usedata_template.counter,NULL},
 					{"fx_func",	'i',"R",&usedata_template.fx_func,NULL},
+					{"originmap",	'i',"R",&usedata_template.originmap,NULL},
 					{NULL,			0,NULL,NULL,NULL},
 					};
 
