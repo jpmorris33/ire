@@ -653,9 +653,10 @@ for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 	temp=igetl_i(f);	// Junk
 }
 
-u->actptr = igetl_i(f);
-u->actlen = igetl_i(f);
-u->fx_func = (int)igetl_i(f);	// sign-extend to 64 bits as necessary
+ctr = igetl_i(f);	// Junk - actptr
+ctr = igetl_i(f);	// Junk - actlen
+
+ctr = igetl_i(f);	// Junk - FX function (now in .mz1 file)
 
 ctr = igetl_i(f);	// Junk - NPCtalk
 ctr = igetl_i(f);	// Junk - lFlags
@@ -704,9 +705,10 @@ for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 	iputl_i(0,f);	// Junk for compatability
 }
 
-iputl_i(u->actptr,f);
-iputl_i(u->actlen,f);
-iputl_i((int)u->fx_func,f);
+iputl_i(0,f);	// Junk - actptr
+iputl_i(0,f);	// Junk - actlen
+
+iputl_i(0,f);	// Junk - FX function
 
 iputl_i(0,f);	// Junk - NPCtalk
 iputl_i(0,f);	// Junk - lFlags
@@ -871,10 +873,20 @@ if(MZ1_SavingGame)
 // Usedata - should probably put all future usedata in here rather than the savegame
 
 if(MZ1_SavingGame && o->user) {
+
+	// Original map for NPCs
 	if(!o->user->originmap) {
 		o->user->originmap = mapno;
 	}
 	fprintf(fp,"\t\tuser->originmap %ld\n",o->user->originmap);
+
+	// Special effects
+	if(o->user->fx_func > 0 && o->user->fx_func < PEtot) {
+		fprintf(fp,"\t\tuser->fxfunc %s\n",PElist[o->user->fx_func].name);
+	}
+	if(o->user->fx_func < 0 && (-o->user->fx_func) < PEtot) {
+		fprintf(fp,"\t\tuser->overfx %s\n",PElist[-(o->user->fx_func)].name);
+	}
 }
 
 //

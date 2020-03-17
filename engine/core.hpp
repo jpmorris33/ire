@@ -185,7 +185,6 @@ OBJECTID pathgoal;  // For the long-range pathfinder
 // Sub-Activities
 VMINT actlist[USEDATA_ACTSTACK];
 struct OBJECT *acttarget[USEDATA_ACTSTACK];
-VMINT actptr,actlen;
 
 VMINT fx_func; // Special effects function number or 0
 

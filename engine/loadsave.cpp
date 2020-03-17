@@ -1516,6 +1516,18 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		continue;
 	}
 
+	// special effects function
+	if(!istricmp(first,"user->fxfunc")) {
+		temp->user->fx_func = getnum4PE(strfirst(strrest(l)));
+		continue;
+	}
+
+	// special effects overlay function (negative index)
+	if(!istricmp(first,"user->overfx")) {
+		temp->user->fx_func = -getnum4PE(strfirst(strrest(l)));
+		continue;
+	}
+
 	}
 
 // Don't need text file open anymore
@@ -2533,6 +2545,10 @@ for(ctr=0;ctr<num;ctr++) {
 
 		oldn=o->user->npctalk;
 		oldl=o->user->lFlags;
+
+		// Parameters which are now in the .mz1 file should take precedence
+		usedata.fx_func=o->user->fx_func;
+		usedata.originmap=o->user->originmap;
 
 		memcpy(o->user,&usedata,sizeof(USEDATA));
 		// Now we must clear all the pointers to prevent death
