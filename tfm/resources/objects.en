@@ -10880,7 +10880,6 @@ section: characters
 	IfHurt		hurt_wild
 	behaviour	attack_party
 	Attack		close_attack
-	user2		all
 	solid
 	speed		80
 	alignment	-1
