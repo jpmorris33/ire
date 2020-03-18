@@ -77,6 +77,7 @@ static void toke(char *string);
 static int toker(char *string);
 static OBJECT *ChoosePartyMember();
 static void InitConvSprites();
+static void overlapped_strcpy(char *out,char *in);
 
 static int NPC_CountPages();
 static int NPC_InSession(const char *page);
@@ -2055,12 +2056,18 @@ if(enable_censorware)
 		}
 
 a=strchr(string,'$');
-if(!a)
-	{
+if(!a) {
 	a=strchr(string,'{'); // matches with '}'
-	if(!a)
+	if(!a) {
 		return 0;      // No special tokens, don't need to change it
 	}
+}
+
+// If it's a double symbol, e.g. $$ or {{ abort
+if(a && a[1] == a[0]) {
+	overlapped_strcpy(a,a+1);
+	return 0;
+}
 *a=0; // smash the token symbol away
 
 notail=0;
@@ -2504,20 +2511,24 @@ void NPC_BeenRead(OBJECT *o,const char *page, const char *reader)
 {
 NPC_RECORDING *temp;
 
-if(!o)     // Press F1 for Help has no object attached to it
+if(!o) {
+	// Press F1 for Help has no object attached to it
 	return;
-if(!reader)
+}
+
+if(!reader) {
 	return; // If no 'player' involved
+}
 
-if(!o->user)
+if(!o->user) {
 	ithe_panic("NPC_BeenRead: Passed invalid object (no usedata)",o->name);
+}
 
-	ilog_quiet("%s talks to %s\n",o->name,reader);
+//ilog_quiet("%s talks to %s\n",o->name,reader);
 
 // Empty list
 
-if(o->user->npctalk == NULL)
-	{
+if(o->user->npctalk == NULL) {
 	temp = (NPC_RECORDING *)M_get(1,sizeof(NPC_RECORDING));
 	o->user->npctalk = temp;
 	temp->next = NULL;
@@ -2526,13 +2537,15 @@ if(o->user->npctalk == NULL)
 	temp->readername = (char *)M_get(1,strlen(reader)+1);
 	strcpy(temp->readername,reader);
 	return;
-	}
+}
 
 // Non-empty list, skip if already present
 
-for(temp=o->user->npctalk;temp->next;temp=temp->next)
-	if(!istricmp(temp->page,page) && temp->readername && !istricmp(temp->readername,reader))
+for(temp=o->user->npctalk;temp->next;temp=temp->next) {
+	if(!istricmp(temp->page,page) && temp->readername && !istricmp(temp->readername,reader)) {
 		return;
+	}
+}
 
 // Add new entry to end of list
 
@@ -3087,4 +3100,19 @@ if(!ticksprite)
 		ticksprite = iload_bitmap(filename);
 	}
 
+}
+
+
+void overlapped_strcpy(char *out,char *in)
+{
+int ctr,len;
+if(!out || !in) {
+	return;
+}
+
+len=strlen(in)+1;
+
+for(ctr=0;ctr<len;ctr++) {
+	*out++=*in++;
+}
 }
