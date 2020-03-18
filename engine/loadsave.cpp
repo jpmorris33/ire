@@ -3645,11 +3645,8 @@ for(t=MasterList;t;t=t->next)
 	if(t->ptr)
 		ctr++;
 
-if(!ctr)
-	ithe_panic("fastfind_id_start: No objects in the world!",NULL);
-
 fastfind_id_num = ctr;
-fastfind_id_list = (OBJECT **)M_get(ctr,sizeof(OBJECT *));
+fastfind_id_list = (OBJECT **)M_get(ctr+1,sizeof(OBJECT *));
 
 ctr=0;
 for(t=MasterList;t;t=t->next)
