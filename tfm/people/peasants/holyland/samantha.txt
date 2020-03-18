@@ -1,0 +1,87 @@
+[page="start"]
+[iftime "0800-0900"][goto="church"]
+
+[colour="#808080"]
+You see a busy-looking woman.
+[colour="#ffffff"]
+
+"If you would be brief, $Milord, I have much to do!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[iftime "0800-0900"][goto="church"]
+
+[colour="#808080"]
+You see $NAME, the housekeeper.
+[colour="#ffffff"]
+
+"If you would be brief, $Milord, I have much to do!"
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name"]
+[learn_name]
+
+"I am called $NAME, I am housekeeper to his
+ Holiness, the Pope!"
+
+[link="What's your job?"]
+[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job"]
+
+"His Holiness does do most of the cleaning of the
+ grand cathedral himself, for he hates mess and uses
+ the power of the LORD to ensure all is tidy and good.
+
+ 'Tis said that cleanliness is next to godliness, after
+ all.
+
+ But still, there are yet tasks which must be done,
+ such as replacing his bed linen and tidying his study.
+ He does also value the eye of others as might spot
+ things which he has missed himself."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fare thee well!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="church"]
+
+"Please, not now.  Pray do not interrupt the Service!"
+
+[nextpage="exit"]
+[endpage]
+

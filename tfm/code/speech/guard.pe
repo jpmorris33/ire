@@ -288,6 +288,22 @@ let suspect = victim
 call justice_intruder		# Kill the intruder!
 end
 
+
+function guard_breach_deadly
+# Abort if invisible
+if victim.user.potion0 > 0
+	return
+endif
+
+if current.user.user10 <> 0
+	return			# The player is allowed to enter
+endif
+
+let suspect = victim
+call justice_intruder_deadly	# Kill the intruder!
+end
+
+
 function guard_breach_panthers
 
 # Abort if invisible
