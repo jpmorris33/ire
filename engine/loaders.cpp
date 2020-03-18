@@ -735,7 +735,10 @@ char objectname[1024];
 type = getnum4char(o->name);
 
 if(!o->uid[0]) {
-	ithe_panic("No UID for object",o->name);
+	//ithe_panic("No UID for object",o->name);
+	printf("WARNING: No UID for object '%s' - object will not be saved to file!\n",o->name);
+	ilog_quiet("WARNING: No UID for object '%s' - object will not be saved to file!\n",o->name);
+	return;
 }
 
 // First line (declaration)

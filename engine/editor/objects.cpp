@@ -477,6 +477,8 @@ DrawMap(mapx,mapy,1,l_proj,0);
 void OB_SlowInsert()
 {
 objsel=OB_Alloc();              // Allocate the object
+
+
 objsel->x=mapx+(VSW/2);         // Set reasonable defaults
 objsel->y=mapy+(VSH/2);
 MoveToMap(objsel->x,objsel->y,objsel);  // Let there be Consistency
@@ -488,6 +490,9 @@ objsel->name = CHlist[0].name;             // Give it a name
 objsel->form = &SQlist[CHlist[0].dir[0]];  // And a shape
 
 OB_Edit();              // Do this to set everything up
+if(!objsel->uid[0]) {
+	OB_Init(objsel,objsel->name);	// ensure we have a UUID or the editor may crash on save
+}
 
 if(objsel->flags & IS_QUANTITY)
     objsel->stats->quantity=1;          // Make sure there is at least one
@@ -627,7 +632,8 @@ GetOBFromList( -1,-1, "Choose a character:", CHtot-1, list, Name);
 
 // If the user didn't press ESC instead of choosing, modify the character
 
-if(Name[0]) {     // It's ok, do it
+if(Name[0] && getnum4char(Name) != -1) {
+	// It's ok, do it
 	objsel->uid[0]=0;	// Destroy the UUID since the object is being replaced
 	OB_Init(objsel,Name);	// Re-evaluate the character
 	ShrinkDecor(objsel);	// Save memory if possible
@@ -636,6 +642,10 @@ if(Name[0]) {     // It's ok, do it
 	FreePockets(objsel);
 	Deal_With_Contents(objsel);     // Create/destroy any contents
 	strcpy(last_sprite,Name);       // Keep this name for reference
+}
+
+if(!objsel->uid[0]) {
+	OB_Init(objsel,objsel->name);	// ensure we have a UUID or the editor may crash on save
 }
 
 free(list);                             // Dispose of the list
