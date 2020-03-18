@@ -2976,17 +2976,16 @@ click_y = ((y-VIEWY)>>5)+(mapy); // click_y = (mouse_y_pos/32) + map_y_pos
 
 SelectObj(click_x,click_y);      // Go fish
 
-if(objsel)                       // If an object was selected
-    {
-    last_dir = objsel->curdir;
-    objsel->form=NULL; // Force direction to change
-    OB_SetDir(objsel,objsel->curdir,1);
-    a->schedule[setschedule].target = objsel;
-    }
-else
-    {
-    a->schedule[setschedule].target = NULL;
-    }
+if(objsel) {                       // If an object was selected
+	last_dir = objsel->curdir;
+	objsel->form=NULL; // Force direction to change
+	OB_SetDir(objsel,objsel->curdir,1);
+	a->schedule[setschedule].target = objsel;
+	SAFE_STRCPY(a->schedule[setschedule].uuid,objsel->uid);
+} else {
+	a->schedule[setschedule].target = NULL;
+	a->schedule[setschedule].uuid[0]=0;
+}
 
 objsel = a;
 
@@ -3000,6 +2999,7 @@ if(setschedule < 0)
 	return;
 
 objsel->schedule[setschedule].target=NULL;
+objsel->schedule[setschedule].uuid[0]=0;
 schsel=NULL;
 IG_WaitForRelease();
 }
