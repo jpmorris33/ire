@@ -2547,8 +2547,15 @@ for(ctr=0;ctr<num;ctr++) {
 		oldl=o->user->lFlags;
 
 		// Parameters which are now in the .mz1 file should take precedence
-		usedata.fx_func=o->user->fx_func;
 		usedata.originmap=o->user->originmap;
+
+		// For backwards compatibility, if the usedata file had an FX function,
+		// reset the object's init flag as a hack to try and restart the special effects
+		if(usedata.fx_func && (o->flags & DID_INIT)) {
+			o->flags &= ~DID_INIT;
+		}
+		// Either way, use the MZ1 effects function ID instead
+		usedata.fx_func=o->user->fx_func;
 
 		memcpy(o->user,&usedata,sizeof(USEDATA));
 		// Now we must clear all the pointers to prevent death

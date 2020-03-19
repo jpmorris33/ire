@@ -1210,8 +1210,9 @@ OBJLIST *active,*ptr;
 int ctr,newmap;
 
 // Safety valve
-if(!curmap->object)
+if(!curmap->object) {
 	return 0;
+}
 
 GameBusy();
 
@@ -1235,8 +1236,7 @@ wipe_z1();
 // Change map if neccessary
 newmap=0;
 
-if(mapnumber != default_mapnumber)
-	{
+if(mapnumber != default_mapnumber) {
 	mapnumber = default_mapnumber;
 	newmap=1;
 
@@ -1255,11 +1255,12 @@ if(mapnumber != default_mapnumber)
 	// Read in the physical map
 	load_map(mapnumber);
 	syspocket = curmap->object; // make sure we don't trash the game!
-	}
+}
 
 // Reset tile scrolling
-for(ctr=0;ctr<TItot;ctr++)
+for(ctr=0;ctr<TItot;ctr++) {
 	scroll_tile_reset(ctr);
+}
 
 // Reset everything
 irecon_printf("Reload..\n");
@@ -1275,35 +1276,36 @@ fullrestore = 0;
 ilog_printf("\n");
 ilog_printf("Rerun Object Inits\n");
 
-for(ptr=MasterList;ptr;ptr=ptr->next)
-	if((ptr->ptr->flags & DID_INIT) == 0)
-		{
-		if(ptr->ptr->funcs->icache != -1)
-			{
+for(ptr=MasterList;ptr;ptr=ptr->next) {
+	if(!(ptr->ptr->flags & DID_INIT)) {
+		if(ptr->ptr->funcs->icache != -1) {
 			current_object = ptr->ptr;
 			person = ptr->ptr;
 			new_x = person->x;
 			new_y = person->y;
 			CallVMnum(ptr->ptr->funcs->icache);
-			}
-		ptr->ptr->flags |= DID_INIT;
 		}
+		ptr->ptr->flags |= DID_INIT;
+	}
+}
 
 irecon_printf("Reset..\n");
 
 // Find player
 
 player = NULL;
-for(active=MasterList;active;active=active->next)
-	if(active->ptr)
-		if(!istricmp_fuzzy(active->ptr->name,"player*"))
-			{
+for(active=MasterList;active;active=active->next) {
+	if(active->ptr) {
+		if(!istricmp_fuzzy(active->ptr->name,"player*")) {
 			player = active->ptr;
 			break;
-			}
+		}
+	}
+}
 
-if(!player)
+if(!player) {
     ithe_panic("Cannot find the player anymore",NULL);
+}
 
 reset_globals();
 
@@ -1312,11 +1314,10 @@ ResyncEverything();
 CallVM("sys_mainproc");
 CallVM("sys_loadproc");
 
-for(ctr=0;ctr<MAX_MEMBERS-1;ctr++)
-	{
+for(ctr=0;ctr<MAX_MEMBERS-1;ctr++) {
 	party[ctr]=0;
 	partyname[ctr][0]='\0';
-	}
+}
 party[0]=player;
 strcpy(partyname[0],BestName(player));
 SetNPCFlag(player, IN_PARTY);
@@ -1557,40 +1558,48 @@ OBJLIST *active,*next;
 
 // Reset update flag
 
-for(active=ActiveList;active;active=active->next)
+for(active=ActiveList;active;active=active->next) {
 	active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
+}
 
 // Move all objects with this tag
 active=ActiveList;
-if(active)
+if(active) {
 	do {
 		next = active->next;
-		if(active->ptr->flags & IS_ON)
-			if(active->ptr->tag == tag)
-				if(!(active->ptr->engineflags & ENGINE_DIDUPDATE)) // Don't do this one again if we need
-					{                               // to restart the update
+		if(active->ptr->flags & IS_ON) {
+			if(active->ptr->tag == tag) {
+				if(!(active->ptr->engineflags & ENGINE_DIDUPDATE)) { // Don't do this one again if we need
+											// to restart the update
 					active->ptr->user->oldhp = active->ptr->stats->hp;
 					AL_dirty=0;                     // Mark list as clean
 					current_object = NULL;//active->ptr;   // Set up parameters for the VRM
 					person = active->ptr;           // Who am I?
 					active->ptr->engineflags |= ENGINE_DIDUPDATE; // Mark object as moved
-					if(GetNPCFlag(active->ptr,IS_BIOLOGICAL))
-						if(active->ptr->stats->hp > 0)	// Must be alive
+					if(GetNPCFlag(active->ptr,IS_BIOLOGICAL)) {
+						if(active->ptr->stats->hp > 0) {	// Must be alive
 							CallVMnum(Sysfunc_updatelife);		// Only for carbon-based life
-					if(GetNPCFlag(active->ptr,IS_ROBOT))
-						if(active->ptr->stats->hp > 0)	// Must be alive
+						}
+					}
+					if(GetNPCFlag(active->ptr,IS_ROBOT)) {
+						if(active->ptr->stats->hp > 0) {	// Must be alive
 							CallVMnum(Sysfunc_updaterobot);		// Only for robotic life
+						}
+					}
 					CallVMnum(active->ptr->activity);
 					if(!(active->ptr->engineflags & ENGINE_DIDACTIVETILE)) {
 						CheckTile(active->ptr->x, active->ptr->y);
 						active->ptr->engineflags |= ENGINE_DIDACTIVETILE;
 					}
-					if(AL_dirty)                    // If list is dirty we need to
+					if(AL_dirty) {                    // If list is dirty we need to
 						next=ActiveList;            // start over.
 					}
-			active = next;
-			} while(active);
-
+				}
+			}
+		}
+		active = next;
+	} while(active);
+}
 // Delete Objects
 
 DeletePending();
@@ -1616,20 +1625,18 @@ save_objects(mapnumber);
 
 // Write current map space to savegame 9999
 fname=makemapname(mapnumber,9999,".mz1");
-if(fname)
-	{
+if(fname) {
 	MZ1_SavingGame=1; // Store every tiny detail
 	save_z1(fname,mapnumber);
 	MZ1_SavingGame=0;
-	}
+}
 
 // Write NPC usedata to file (AFTER z1 has assigned new numbers)
 fname=makemapname(mapnumber,9999,".ms2");
-if(fname)
-	{
+if(fname) {
 	ilog_quiet("Write '%s'\n",fname);
 	save_ms2(fname);
-	}
+}
 
 // Get light state as well
 save_lightstate(mapnumber,9999);
@@ -1649,22 +1656,18 @@ syspocket = curmap->object; // make sure we don't trash the game!
 
 // Read in savegame 9999 map if it exists
 fname=makemapname(mapnumber,9999,".mz1");
-if(fname && fileexists(fname))
-	{
+if(fname && fileexists(fname)) {
 	fullrestore=1;	// Ensure every tiny detail is restored
 	load_z1(fname);
 	fullrestore=0;
-	}
-else
-	{
+} else {
 	// Read in the master file if it doesn't
 	fname=makemapname(mapnumber,0,".mz1");
-	if(fname)
-		{
+	if(fname) {
 		// Just read it in normally (DON'T use 'fullrestore')
 		load_z1(fname);
-		}
 	}
+}
 
 load_z2(mapnumber);
 load_z3(mapnumber);
@@ -1696,33 +1699,28 @@ restore_objects();
 load_lightstate(mapnumber,9999);
 
 // Run inits (as necessary)
-for(ptr=MasterList;ptr;ptr=ptr->next)
-	{
-	if(!(ptr->ptr->flags & DID_INIT))
-		{
-		if(ptr->ptr->funcs->icache != -1)
-			{
+for(ptr=MasterList;ptr;ptr=ptr->next) {
+	if(!(ptr->ptr->flags & DID_INIT)) {
+		if(ptr->ptr->funcs->icache != -1) {
 			current_object = ptr->ptr;
 			person = ptr->ptr;
 			new_x = person->x;
 			new_y = person->y;
 			CallVMnum(ptr->ptr->funcs->icache);
-			}
-		ptr->ptr->flags |= DID_INIT;
 		}
+		ptr->ptr->flags |= DID_INIT;
+	}
 		
 #ifdef WIELD_PARANOID
-	if(ptr->ptr->stats && GetNPCFlag(ptr->ptr,IS_WIELDED))
-		{
+	if(ptr->ptr->stats && GetNPCFlag(ptr->ptr,IS_WIELDED)) {
 //		printf("Check wield for %s\n",ptr->ptr->name);
-		if(!FindWieldPoint(ptr->ptr,NULL))
-			{
+		if(!FindWieldPoint(ptr->ptr,NULL)) {
 			printf("!!! semi-wielded object %s found!\n",ptr->ptr->name);
 			ClearNPCFlag(ptr->ptr, IS_WIELDED);
-			}
 		}
-#endif		
 	}
+#endif		
+}
 
 CallVM("sys_loadproc");
 
@@ -1971,18 +1969,16 @@ bool LoadGame(int savegame_no)
 OBJECT *temp;
 int mapno,ctr;
 
-if(savegame_no == -666)
+if(savegame_no == -666) {
 	return Restart();
+}
 
-if(savegame_no > 0)
-	{
+if(savegame_no > 0) {
 	// Read the savegame title and current world number
 	savegame=read_sgheader(savegame_no,&mapno);
-	if(savegame)
-		{
+	if(savegame) {
 		// Do we have a functional world? (reload from the menu won't)
-		if(curmap->object)
-			{
+		if(curmap->object) {
 			irecon_printf("Please wait..\n");
 			irecon_update();
 			GameBusy();
@@ -1993,14 +1989,15 @@ if(savegame_no > 0)
 			MassCheckDepend();
 
 			wipe_z1();
-			}
+		}
 
 		fullrestore = 1;
 
 		mapnumber=mapno;
 		// Read in the physical map
-		if(curmap->object)
+		if(curmap->object) {
 			erase_curmap();
+		}
 		load_map(mapnumber);
 		syspocket = curmap->object; // make sure we don't trash the game!
 
@@ -2041,15 +2038,28 @@ if(savegame_no > 0)
 		CheckRoof();
 		dark_mix=0;
 		DarkRoof();
-		}
-	else
-		{
+	} else {
 		irecon_printf("Could not find savegame '%s'\n",savegame);
 		return false;
+	}
+
+	// Now re-initialise anything that needs it (this is a savegame backwards compatibility fix)
+	for(OBJLIST *ptr=MasterList;ptr;ptr=ptr->next) {
+		if(!(ptr->ptr->flags & DID_INIT)) {
+			if(ptr->ptr->funcs->icache != -1) {
+				current_object = ptr->ptr;
+				person = ptr->ptr;
+				new_x = person->x;
+				new_y = person->y;
+				CallVMnum(ptr->ptr->funcs->icache);
+			}
+			ptr->ptr->flags |= DID_INIT;
 		}
+	}
+
 	ilog_quiet("RELOAD COMPLETE\n");
 	return true;
-	}
+}
 
 return false;
 }

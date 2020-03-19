@@ -656,7 +656,7 @@ for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
 ctr = igetl_i(f);	// Junk - actptr
 ctr = igetl_i(f);	// Junk - actlen
 
-ctr = igetl_i(f);	// Junk - FX function (now in .mz1 file)
+u->fx_func = igetl_i(f);	// FX function (now in .mz1 file by preference)
 
 ctr = igetl_i(f);	// Junk - NPCtalk
 ctr = igetl_i(f);	// Junk - lFlags
