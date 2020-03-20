@@ -49,11 +49,16 @@ King Edwyg greets you like a visiting prince.
 [if sceptre][if true][set GotSceptre]
 [if GotSceptre][am_carrying "deadfollower"]
 [if GotSceptre][if true][clear GotSceptre]
+[if GotSceptre][am_carrying "OUTLAW_HEAD"]
+[if GotSceptre][if true][clear GotSceptre]
 [if GotSceptre][link="I have the Sceptre but no body."]
 [if GotSceptre][linkto="sceptre_found"]
 [if_not GotSceptre][if sceptre][am_carrying "deadfollower"]
 [if_not GotSceptre][if sceptre][if true][link="I have the man who stole the Sceptre."]
 [if_not GotSceptre][if sceptre][if true][linkto="check_body"]
+[if_not GotSceptre][if sceptre][am_carrying "OUTLAW_HEAD"]
+[if_not GotSceptre][if sceptre][if true][link="I have the head of the man who stole the Sceptre."]
+[if_not GotSceptre][if sceptre][if true][linkto="check_head"]
 [link="Goodbye"]
 [linkto="bye"]
 [endpage]
@@ -647,9 +652,64 @@ The King's face turns a very interesting colour.
 [call="money_sound"]
 [call="tithes_add1320"]
 [take 1 sceptre]
+[call="MoveSceptre"]
 [remove 1 deadfollower]
 [nextpage="exit-sceptre"]
 [endpage]
+
+
+
+[page="check_head"]
+[am_carrying "sceptre"]
+[if true][goto="right_head"]
+[goto="wrong_head"]
+[endpage]
+
+
+[page="wrong_head"]
+[esc="disabled"]
+
+"So, this is the thief who took the Royal Sceptre!
+ I shall have their head piked.
+
+ Now show me the Sceptre."
+
+[link="I couldn't find it."]
+[linkto="wrong_body2"]
+[link="I must have left it behind!"]
+[linkto="wrong_body3"]
+[link="I didn't find the thief.  This is just some tramp."]
+[linkto="wrong_body4"]
+[endpage]
+
+[page="right_head"]
+
+"So, this is the thief who took the Royal Sceptre!
+ I shall have their head piked.
+
+ As a token of thanks for returning my Sceptre, I give to
+ you the 4000 gold coins from my treasury, to spend as
+ you deem fit.
+
+ Yet I do not feel that the theft was the result of one
+ man alone.. surely it was stolen for someone else.
+ If you should find out who wished the Sceptre taken I
+ would be eternally grateful."
+
+[set returned_sceptre]
+[clear sceptre_strangeman]
+[clear strangeman_scar]
+[create 4000 gold_coins]
+[add_karma 25]
+[call="money_sound"]
+[call="tithes_add1320"]
+[take 1 sceptre]
+[call="MoveSceptre"]
+[remove 1 outlaw_head]
+[nextpage="exit-sceptre"]
+[endpage]
+
+
 
 
 [page="sceptre_found"]
@@ -672,6 +732,7 @@ The King's face turns a very interesting colour.
 [call="money_sound"]
 [call="tithes_add1320"]
 [take 1 sceptre]
+[call="MoveSceptre"]
 [nextpage="exit-sceptre"]
 [endpage]
 

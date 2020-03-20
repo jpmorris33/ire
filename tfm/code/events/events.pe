@@ -416,8 +416,23 @@ end
 ##
 
 function MoveSceptre
-# Move it into the cabinet (tag 40)
-# Make sure it belongs to the King
+object sceptre
+object king
+object dest
+
+find_tag sceptre = "SCEPTRE" 0
+
+if_exists sceptre
+	# Make sure it belongs to the King
+	find_tag king = "KING" 36
+	if_exists king
+		let sceptre.stats.owner = king
+	endif
+
+	# Move it into the cabinet (tag 40)
+	find_tag dest = "TARGET" 40
+	insert_after dest = sceptre
+endif
 end
 
 ##
