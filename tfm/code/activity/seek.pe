@@ -532,9 +532,12 @@ if close_to
 
 	# Talk
 	let current = me
+	set_user_flag "resume_after_talk" = 1
 	talk_to me.funcs.talk
-	stop_action me
-	resume_action me
+	if_user_flag "resume_after_talk"
+		stop_action me
+		resume_action me
+	endif
 else
 	let me.user.user1 = 0
 endif

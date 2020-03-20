@@ -26,5 +26,6 @@ He draws his sword.
 [colour="#ffffff"]
 [call="attack_party"]
 [set darett_attack]
+[clear resume_after_talk]
 [nextpage="exit"]
 [endpage]
