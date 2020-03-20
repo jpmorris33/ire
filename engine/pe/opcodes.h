@@ -111,6 +111,7 @@ enum {
 	PEVM_FadeIn,
 	PEVM_MoveToTop,
 	PEVM_MoveToFloor,
+	PEVM_InsertAfter,
 	PEVM_GetLOS,
 	PEVM_GetDistance,
 	PEVM_CheckHurt,

@@ -2309,8 +2309,6 @@ void MoveToFloor(OBJECT *object)
 {
 OBJECT *temp,*after;
 
-// Move object to the top of the heap by moving it to 0,0 and back
-
 if(object->parent.objptr)		// Don't bother for pocketed object
 	return;
 
@@ -2337,6 +2335,41 @@ if(!after || object->flags & IS_FIXED)
 object->next = after->next;
 after->next = object;
 }
+
+
+/*
+ *      InsertAfter - Move specified object to above the destination
+ *                    CAUTION: does low-level linked-list manipulation
+ */
+
+void InsertAfter(OBJECT *after, OBJECT *object)
+{
+int ox,oy;
+
+if(!after || !object) {
+	return;
+}
+
+if(after->parent.objptr) { // Don't bother for pocketed object
+	return;
+}
+
+// Move object to the top of the heap by moving it to 0,0 and back
+// This also handles cases like the source objects being inside a pocket etc
+ox = after->x;
+oy = after->y;
+TransferObject(object,0,0);
+TransferObject(object,ox,oy);
+
+// Disassociate from the map
+LL_Remove(&curmap->objmap[MAP_POS(object->x,object->y)],object);
+
+// Now do the pointer switcharoo
+object->next = after->next;
+after->next = object;
+}
+
+
 
 /*
  *      TakeQuantity - Subtract an amount from a container with several

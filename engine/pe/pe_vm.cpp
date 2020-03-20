@@ -51,6 +51,7 @@ extern OBJECT *GameGetObject(int x,int y);
 extern TILE *GetTile(int x,int y);
 extern void MoveToTop(OBJECT *o);
 extern void MoveToFloor(OBJECT *o);
+extern void InsertAfter(OBJECT *dest, OBJECT *o);
 extern void spillcontents(OBJECT *bag,int x,int y);
 extern void movecontents(OBJECT *src, OBJECT *dest);
 extern void gen_largemap(void);
@@ -230,6 +231,7 @@ static void PV_FadeOut();
 static void PV_FadeIn();
 static void PV_MoveToTop();
 static void PV_MoveToFloor();
+static void PV_InsertAfter();
 static void PV_GetLOS();
 static void PV_GetDistance();
 static void PV_CheckHurt();
@@ -1281,6 +1283,7 @@ VMOP(FadeOut);
 VMOP(FadeIn);
 VMOP(MoveToTop);
 VMOP(MoveToFloor);
+VMOP(InsertAfter);
 VMOP(GetLOS);
 VMOP(GetDistance);
 VMOP(CheckHurt);
@@ -3798,6 +3801,23 @@ CHECK_POINTER(obj);
 
 MoveToFloor(*obj);
 }
+
+// Move object to after another one
+
+void PV_InsertAfter()
+{
+OBJECT **dest;
+OBJECT **obj;
+
+dest = GET_OBJECT();
+CHECK_POINTER(dest);
+
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+
+InsertAfter(*dest,*obj);
+}
+
 
 // Get line-of-sight between two objects, return number of steps
 
