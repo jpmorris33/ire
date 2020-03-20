@@ -159,6 +159,8 @@ if current.stats.hp <= 0
 endif
 
 #No, run away
+let me = current
+insert_action current does enemy_flee to current.enemy
 call enemy_flee
 
 end
@@ -307,7 +309,7 @@ end
 
 function hurt_thecow
 play_sound "cow_thecow_pain"
-call hurt_wild
+call hurt_pred
 end
 
 
@@ -368,10 +370,43 @@ end
 
 
 ##
-##	A dangerous animal has been injured and turns on their attacker
+## An animal is hurt, turn against the attacker if we can
 ##
 
-function hurt_wild
+function hurt_generic
+integer threshold
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+if_not_flag current IN_PARTY
+        if_exist current.enemy
+                if_flag current.enemy IS_PERSON
+			# Size them up
+			let threshold = current.stats.hp * 3
+			if current.enemy.stats.hp > threshold
+				# Too strong, run away!
+				insert_action current does enemy_flee to current.enemy
+				return
+			endif
+
+			# Beat the crap out of them, but don't eat the body
+			insert_action current does enemy_attack to current.enemy
+			return
+                endif
+        endif
+endif
+ 
+end
+
+##
+## A dangerous animal has been injured and turns on their attacker
+##
+
+function hurt_pred
 integer threshold
 
 # Show the blood
@@ -387,8 +422,7 @@ if_not_flag current IN_PARTY
 			let threshold = current.stats.hp * 3   # Affects difficulty
 			if current.enemy.stats.hp > threshold
 				# Too strong, run away!
-				queue_action current does enemy_flee to current.enemy
-				run_queue current
+				insert_action current does enemy_flee to current.enemy
 				return
 			endif
 
@@ -396,6 +430,32 @@ if_not_flag current IN_PARTY
 			insert_action current does enemy_attack_eat to current.enemy
 			return
                 endif
+        endif
+endif
+ 
+end
+
+
+##
+##  A prey animal is hurt
+##
+
+function hurt_prey
+
+# Show the blood
+
+let splatvictim = current
+call splat_blood
+
+# If the attacker is an intelligent creature
+if_not_flag current IN_PARTY
+        if_exist current.enemy
+                if_flag current.enemy IS_PERSON
+			insert_action current does enemy_flee to current.enemy
+			let me = current
+			call enemy_flee
+			return
+		endif
         endif
 endif
  
@@ -615,7 +675,7 @@ function wolf_hurt
 # Say 'uh!' (You're kidding, right?)
 #object_sound "uh!" current
 
-call hurt_wild
+call hurt_pred
 end
 
 ##
@@ -646,7 +706,7 @@ end
 
 function snail_hurt
 object_sound "snail" current
-call hurt_wild
+call hurt_pred
 end
 
 
@@ -655,4 +715,13 @@ function snail_dies
 change current = "firesnail_dead"
 object_sound "snail_squish" current
 call egg_killed
+end
+
+
+##
+##  Backwards compat
+##
+
+function hurt_wild
+call hurt_generic
 end

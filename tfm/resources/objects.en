@@ -1257,7 +1257,7 @@ section: characters
 	description	"You see a giant bee."
 	short		"bee"
 	ifkilled	bee_dies
-	ifhurt		hurt_wild
+	ifhurt		hurt_generic
 	behaviour	attack_party
 	attack		close_attack
 
@@ -1286,7 +1286,7 @@ section: characters
 	description	"You see one of the Little People."
 	short		"leprechaun"
 	IfKilled	Leprechaun_Dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	behaviour	attack_party
 	attack		range_attack
 	user2		attack_firebolt
@@ -1330,7 +1330,7 @@ section: characters
 	description	"You see a dwarf."
 	short		"dwarf"
 	IfKilled	Leprechaun_Dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	attack		close_attack
 	biological
 	solid
@@ -6619,7 +6619,7 @@ section: characters
 	description	"You see a huge spider."
 	short		"spider"
 	IfKilled	spider_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_pred
 	Attack		close_attack
 	user2		poison_enemy
 	behaviour	 attack_party
@@ -8420,7 +8420,7 @@ section: characters
 	behaviour	graze
 	Attack		close_attack
 	IfKilled	cow_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_prey
 	ifhorrified	cow_horror
 	solid
 	person
@@ -8467,7 +8467,7 @@ section: characters
 	behaviour	attack_party
 	Attack		close_attack
 	IfKilled	cow_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_pred
 	solid
 	person
 	female
@@ -8490,13 +8490,13 @@ section: characters
 	intelligence	40
 	weight		20000
 	damage		15
-	speed		20
+	speed		50
 	description	"You see a sheep."
 	short		"sheep"
 	behaviour	graze
 	Attack		close_attack
 	IfKilled	sheep_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_prey
 	ifhorrified	cow_horror
 	solid
 	person
@@ -8517,7 +8517,7 @@ section: characters
 	hp		600
 	strength	100
 	weight		20000
-	speed 20
+	speed 50
 	description	"You see a dead sheep."
 	short		"body"
 	solid
@@ -8542,7 +8542,7 @@ section: characters
 	behaviour	graze_attack_party
 	Attack		close_attack
 	IfKilled	sheep_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_pred
 	solid
 	person
 	female
@@ -10833,7 +10833,7 @@ section: characters
 	description	"You see a snake."
 	short		"snake"
 	IfKilled	snake_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	Attack		close_attack
 	user2		poison_enemy
 	behaviour	 attack_party
@@ -10877,7 +10877,7 @@ section: characters
 	description	"You see a wild pig."
 	short		"pig"
 	IfKilled	pig_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	behaviour	attack_party
 	Attack		close_attack
 	solid
@@ -10925,7 +10925,7 @@ section: characters
 	description	"You see a tame pig."
 	short		"pig"
 	IfKilled	pig_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	behaviour	bird_wander
 	Attack		close_attack
 	solid
@@ -11370,7 +11370,7 @@ section: characters
 	description	"You see a large toad."
 	short		"tode"
 	IfKilled	tode_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	behaviour	attack_party
 	attack		range_attack
 	user2		attack_firebolt
@@ -11460,7 +11460,7 @@ section: characters
 	description	"That's one scary rabbit."
 	short		"rabbit"
 	IfKilled	bunny_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_prey
 	behaviour	bunny_wander
 	attack		close_attack
 	solid
@@ -11490,7 +11490,7 @@ section: characters
 	description	"That's one scary rabbit."
 	short		"rabbit"
 	IfKilled	bunny_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_pred
 	behaviour	attack_party
 	attack		close_attack
 	solid
@@ -11536,7 +11536,7 @@ section: characters
 	description	"You see a rat."
 	short		"rat"
 	IfKilled	rat_dies
-	IfHurt		hurt_wild
+	IfHurt		hurt_generic
 	behaviour	bird_wander
 	Attack		close_attack
 	speed		80
