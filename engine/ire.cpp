@@ -121,6 +121,8 @@ char fname[1024];
 char homepath[1024];
 int ret;
 const char *backend;
+unsigned char *jugid;
+int jugidlen;
 
 #ifdef FORTIFY
 remove("fortify.out");
@@ -229,6 +231,14 @@ if(!bookview[0]) // Book viewer wants fast startup
 init_media(1); // Enter graphics mode now, for graphical popup
 
 ilog_printf("Loading game: %s\n",projectname);
+if(fileexists("jug.id")) {
+	jugid = iload_file("jug.id",&jugidlen);
+	if(jugid) {
+		ilog_printf("%s",(const char *)jugid);
+		M_free(jugid);
+	}
+}
+
 ilog_printf("\n");
 #ifndef _WIN32
 sleep(1);

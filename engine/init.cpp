@@ -161,11 +161,12 @@ snprintf(query,2047,"SELECT image, timestamp, avgcol FROM \"%s\" WHERE filename 
 query[2047]=0;
 	
 record = GetSQL(query,&err);
-if(record)
+if(record) {
 	if(record->items < 1)	{
 		delete record;
 		record=NULL;
 	}
+}
 	
 if(!record)	{
 	// It's not in the cache, try and insert it
@@ -175,8 +176,9 @@ if(!record)	{
 	ftime=igettime(filename);
 	
 	dest = MakeIRESPRITE(img);
-	if(!dest)
+	if(!dest) {
 		ithe_panic("Could not load image: unsupported format?",filename);
+	}
 	avg=GetAvg(img);
 	delete img;
 	
@@ -214,12 +216,14 @@ if(!cimgbuffer)	{
 	
 cptr = (const char *)record->GetRecord(1,NULL,NULL);
 itime=0;
-if(cptr)
+if(cptr) {
 	itime = atoi(cptr);
+}
 cptr = (const char *)record->GetRecord(2,NULL,NULL);
 avg=0;
-if(cptr)
+if(cptr) {
 	avg = atoi(cptr);
+}
 
 if(ire_checkcache)	{
 	ftime=igettime(filename);
@@ -227,20 +231,23 @@ if(ire_checkcache)	{
 	if(difftime(itime,ftime) != 0.0)	{
 		delete record;
 		// The cache is stale, delete this entry, and rerun to force a rebuild
-		printf("Cache: delete stale entry '%s'\n",fname);
+		//printf("Cache: delete stale entry '%s'\n",fname);
 		snprintf(query,2047,"DELETE FROM \"%s\" WHERE filename=\"%s\";",imgcachedir,fname);
 		len=RunSQL(query);
-		if(len != SQLITE_OK)
-			printf("delete (%s) failed with %d\n",query,len);
-		return LoadCachedImage(fname,avcol); // Recreate the cache entry
+		if(len != SQLITE_OK) {
+			ilog_quiet("Cache: delete (%s) failed with %d\n",query,len);
 		}
+		return LoadCachedImage(fname,avcol); // Recreate the cache entry
+	}
 }
 
 dest = MakeIRESPRITE(cimgbuffer,len);
-if(!dest)
+if(!dest) {
     ithe_panic("Cached image damaged or wrong format: try running with -recache option",filename);
-if(avcol)
+}
+if(avcol) {
 	*avcol=avg;
+}
 
 // Close the database rowset
 delete record;
