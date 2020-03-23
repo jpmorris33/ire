@@ -123,6 +123,9 @@ let player_load = temp / 1000
 let temp = player.stats.str * player.stats.level
 let player_strength = temp / 1000
 
+let player_exp = player.user.experience
+let player_level = player.stats.level
+
 # Fetch a bucket of water, the hero's freaked out
 
 if player.user.user0 >= 1
