@@ -250,7 +250,8 @@ He glowers, and the eyes seem to glow brighter.
 
 
 [page="letmein"]
-[if_player_is_inside][goto="enter_inside"]
+[call="death_isgateopen"]
+[if true][goto="enter_inside"]
 [set need_pass]
 [image="f16v.pcx"]
 
@@ -616,6 +617,8 @@ creature snaps to a salute and becomes very respectful.
 
 
 [page="p_enter"]
+[call="death_isgateopen"]
+[if true][goto="p_isopen"]
 [image="f16v.pcx"]
 
 "Very good, $Sir.  However, for security reasons, you
@@ -658,6 +661,20 @@ Death snaps a quick salute.
  Have a nice day."
 
 [call="death_opengate"]
+[learn_name]
+[nextpage="exit"]
+[endpage]
+
+
+[page="p_isopen"]
+[image="f16v.pcx"]
+
+[colour="#808080"]
+Death snaps a quick salute.
+[colour="#ffffff"]
+
+"Already done, $Sir!  Have a nice day."
+
 [nextpage="exit"]
 [endpage]
 

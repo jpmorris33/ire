@@ -325,6 +325,10 @@ if conversation.stats.hp < 1
 	return
 endif
 
+if me.user.user10 <> 0
+	return	# The player is allowed to enter
+endif
+
 # Okay, do the thing
 let current = conversation
 talk_to conversation.funcs.talk
@@ -387,6 +391,12 @@ find_tag obj = "lever" -25
 if_exists obj
 	let current = obj
 	call current.funcs.ucache
+endif
+
+# Stop Death talking to you automatically after you have access
+find_tag obj = "trap_radius" -24
+if_exists obj
+	let obj.user.user10 = 1
 endif
 
 end

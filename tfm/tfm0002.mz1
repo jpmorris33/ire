@@ -208591,6 +208591,7 @@ iMZ1r01
 		at 207 863
 		curdir 3
 		name Death
+		tag -24
 		stats->owner F16-a5ad4752-2b57-49e8-b3c1-e7bfc98a912d
 		stats->radius 5
 		funcs->use TALK_TO_OWNER

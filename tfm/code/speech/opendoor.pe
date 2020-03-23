@@ -50,3 +50,24 @@ start_action current does seek_target_use_resume to target
 end
 
 
+
+##
+##
+
+function death_isgateopen
+object obj
+
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+find_tag obj = "lever" -24
+if_exists obj
+	if obj.curdir = UP
+	or obj.curdir = DOWN
+		set_user_flag "true" = 0
+		set_user_flag "false" = 1
+	endif
+endif
+
+end
+
