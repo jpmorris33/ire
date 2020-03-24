@@ -945,6 +945,30 @@ endif
 
 end
 
+##
+##  
+##
+
+function trap_close_secretdoor
+object owner
+
+let owner = current.stats.owner
+if_exists owner
+	# Reset the egg lockout to 0
+	let current.user.counter = 0
+
+	# Only flip the door if it's open
+	if_not_flag owner IS_SOLID
+		let current = owner
+		call current.funcs.wcache
+	endif
+endif
+
+end
+
+
+
+
 
 ##
 ##  If the player tries to use a hatch in the Maxima

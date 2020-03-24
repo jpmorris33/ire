@@ -13370,6 +13370,51 @@ iMZ1r01
 		at 390 301
 		curdir 1
 
+	object GUNP9efee2d8-9ebc-4e83-9789-aaf3afc975ec
+		type GUNPOWDER
+		at 464 301
+		curdir 1
+
+	object GUNPc6fd7640-ce9d-4a81-9ae3-ebfab9d7018e
+		type GUNPOWDER
+		at 465 301
+		curdir 1
+
+	object GUNPc6fed6c1-66b5-43d7-8287-cf4b3e5b8f88
+		type GUNPOWDER
+		at 466 301
+		curdir 1
+
+	object GUNP028532b6-2663-44c2-af6b-b92559d435f0
+		type GUNPOWDER
+		at 469 301
+		curdir 1
+
+	object GUNP8f21b73a-024b-49c2-a0c4-118238261d6a
+		type GUNPOWDER
+		at 470 301
+		curdir 1
+
+	object GUNPd615ccab-b8c5-409b-bcb0-f6279274b1dc
+		type GUNPOWDER
+		at 471 301
+		curdir 1
+
+	object GUNP4e58fd64-f09a-4712-bd46-4f8f18440bfc
+		type GUNPOWDER
+		at 474 301
+		curdir 1
+
+	object GUNP6f12860a-6ca0-464c-a139-61de2a43b6e4
+		type GUNPOWDER
+		at 475 301
+		curdir 1
+
+	object GUNPbb4bc9d3-98c7-4d9f-a9ac-a30b6b11e602
+		type GUNPOWDER
+		at 476 301
+		curdir 1
+
 	object FENCb343163d-5f62-4b5c-ba3e-f3f7c4dcb68b
 		type FENCE_CORNER
 		at 233 302
@@ -13434,6 +13479,51 @@ iMZ1r01
 		type FENCE
 		at 388 302
 		curdir 0
+
+	object GUNP9cb1b983-54c1-4789-9d4c-732660fd3cc7
+		type GUNPOWDER
+		at 464 302
+		curdir 1
+
+	object GUNP81c3fde4-01f4-4128-96c5-9c069ef68a47
+		type GUNPOWDER
+		at 465 302
+		curdir 1
+
+	object GUNP21e00361-d0bb-4dc6-a27a-c1fbc9a6e56c
+		type GUNPOWDER
+		at 466 302
+		curdir 1
+
+	object GUNP896535f5-2f0c-4dc6-9cd1-0d249558623b
+		type GUNPOWDER
+		at 469 302
+		curdir 1
+
+	object GUNP5c96a62b-7899-4495-9584-0e0edb49da6a
+		type GUNPOWDER
+		at 470 302
+		curdir 1
+
+	object GUNP94a6cbe5-2c6d-4ec9-baa0-7ac43b4f3f16
+		type GUNPOWDER
+		at 471 302
+		curdir 1
+
+	object GUNP1e8afe61-ecf2-4607-a697-bc86db7bcc80
+		type GUNPOWDER
+		at 474 302
+		curdir 1
+
+	object GUNPd19e8ab0-0760-4b34-ae47-37fd2647bbad
+		type GUNPOWDER
+		at 475 302
+		curdir 1
+
+	object GUNPd1a58299-34a1-4cd4-a8f7-17169185c18c
+		type GUNPOWDER
+		at 476 302
+		curdir 1
 
 	object FORCc34faffd-8e8f-4092-aac2-3ed12d83a90e
 		type FORCEFIELD_OFF
@@ -13522,6 +13612,58 @@ iMZ1r01
 		tag 37
 		funcs->init START_GENERATORFX
 
+	object LEVEbc360931-290e-49a3-8862-d21feeb6bfdc
+		type LEVER3
+		at 457 303
+		curdir 3
+		stats->owner SECR040b5c46-f89c-4e01-925c-a2787fe6a582
+		funcs->use CALLWIELD_OWNER
+
+	object GUNPc066be53-bc55-48f0-9b55-ac92ce7e708a
+		type GUNPOWDER
+		at 464 303
+		curdir 1
+
+	object GUNPf8a2008a-b4a9-431f-b6ca-366e3213843f
+		type GUNPOWDER
+		at 465 303
+		curdir 1
+
+	object GUNPd334a3b4-9272-48a8-b7b2-acbc31f54b1c
+		type GUNPOWDER
+		at 466 303
+		curdir 1
+
+	object GUNPa1360552-f635-4edc-b146-5f5995e3c3d4
+		type GUNPOWDER
+		at 469 303
+		curdir 1
+
+	object GUNPd8ab9d6a-95e4-4de4-83bc-0c8b38185726
+		type GUNPOWDER
+		at 470 303
+		curdir 1
+
+	object GUNPea2826d4-6a40-43fb-8b0b-d32f7d8559d9
+		type GUNPOWDER
+		at 471 303
+		curdir 1
+
+	object GUNP83b0c9df-a0f2-4727-a5b3-fa568f50a7b9
+		type GUNPOWDER
+		at 474 303
+		curdir 1
+
+	object GUNPfe0f84ee-340c-481f-80ba-a9153011f3fb
+		type GUNPOWDER
+		at 475 303
+		curdir 1
+
+	object GUNPefd63ae5-dd2b-4246-84a5-70c7437e850d
+		type GUNPOWDER
+		at 476 303
+		curdir 1
+
 	object FORC87658f57-9473-4134-a413-ce3ed26a43cd
 		type FORCEFIELD_OFF
 		at 233 304
@@ -13586,6 +13728,16 @@ iMZ1r01
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
+
+	object SECR362e19f2-6bf2-4940-8d7e-2f0c2621cdd9
+		type SECRETDOOR1_SHUT
+		at 458 304
+		curdir 2
+
+	object SECR040b5c46-f89c-4e01-925c-a2787fe6a582
+		type SECRETDOOR2_SHUT
+		at 463 304
+		curdir 2
 
 	object FORC0fbb833f-2941-4bea-9ec8-9cd8360766d0
 		type FORCEFIELD_OFF
@@ -13717,6 +13869,51 @@ iMZ1r01
 		tag 37
 		funcs->init START_GENERATORFX
 
+	object GUNPbc5f491e-596f-4a74-9750-fc0088014919
+		type GUNPOWDER
+		at 464 306
+		curdir 1
+
+	object GUNPd53388aa-656e-4d74-9dff-7fb6a1a49521
+		type GUNPOWDER
+		at 465 306
+		curdir 1
+
+	object GUNPd0752ead-69f1-4d25-ad20-b5ad303b0c25
+		type GUNPOWDER
+		at 466 306
+		curdir 1
+
+	object GUNP2b776d82-6a84-4810-b1c3-645dc7deefcb
+		type GUNPOWDER
+		at 469 306
+		curdir 1
+
+	object GUNP6dfd821a-a65b-4412-8284-d088585b41d1
+		type GUNPOWDER
+		at 470 306
+		curdir 1
+
+	object GUNPff981c2c-b62e-400b-8960-dea5c5546074
+		type GUNPOWDER
+		at 471 306
+		curdir 1
+
+	object GUNPcb442d66-d1b3-4123-960c-9f511c0c24a4
+		type GUNPOWDER
+		at 474 306
+		curdir 1
+
+	object GUNP3fae69cc-31e0-4f9f-865c-c9f382e655c7
+		type GUNPOWDER
+		at 475 306
+		curdir 1
+
+	object GUNP0f647a8e-8548-4f46-8e08-6daf5cf230d2
+		type GUNPOWDER
+		at 476 306
+		curdir 1
+
 	object FORCf2c5eab7-daa7-4b63-96bf-224241e00edd
 		type FORCEFIELD_OFF
 		at 233 307
@@ -13782,6 +13979,51 @@ iMZ1r01
 		tag 37
 		funcs->init START_GENERATORFX
 
+	object GUNP0cc146be-5131-4c60-b335-e548699dc7d2
+		type GUNPOWDER
+		at 464 307
+		curdir 1
+
+	object GUNPf165e6a0-3e98-4643-8a18-38af3e25b5eb
+		type GUNPOWDER
+		at 465 307
+		curdir 1
+
+	object GUNPc2d8add1-9eeb-4960-a161-5a7d953279b4
+		type GUNPOWDER
+		at 466 307
+		curdir 1
+
+	object GUNPd84a8be3-65d7-4a1c-a444-f9937dca7455
+		type GUNPOWDER
+		at 469 307
+		curdir 1
+
+	object GUNP95964c9e-0186-411c-8c40-bada8bc279bc
+		type GUNPOWDER
+		at 470 307
+		curdir 1
+
+	object GUNPdb64d8ec-4f30-4b6c-8296-4a1a71fdd88f
+		type GUNPOWDER
+		at 471 307
+		curdir 1
+
+	object GUNP6ae47a3f-2281-45fa-a488-396f4bb5823d
+		type GUNPOWDER
+		at 474 307
+		curdir 1
+
+	object GUNP8141a733-6ef6-46bc-a877-57855883b949
+		type GUNPOWDER
+		at 475 307
+		curdir 1
+
+	object GUNP3d10944d-42d9-4f4c-85bf-e37fa40aa96b
+		type GUNPOWDER
+		at 476 307
+		curdir 1
+
 	object FORCe2b31776-0cdd-4f90-9919-83b5e825352c
 		type FORCEFIELD_OFF
 		at 233 308
@@ -13846,6 +14088,51 @@ iMZ1r01
 		curdir 2
 		tag 37
 		funcs->init START_GENERATORFX
+
+	object GUNP0b849660-b1f6-4600-a8fc-8dd10dbda161
+		type GUNPOWDER
+		at 464 308
+		curdir 1
+
+	object GUNPf6275f68-6c94-4f3a-8323-f193af8e43b1
+		type GUNPOWDER
+		at 465 308
+		curdir 1
+
+	object GUNP42d3e1e3-6482-4674-89e5-1d7a86e9c9d4
+		type GUNPOWDER
+		at 466 308
+		curdir 1
+
+	object GUNP1fcd4f9c-446a-4bb6-a6b3-50080e2bde9b
+		type GUNPOWDER
+		at 469 308
+		curdir 1
+
+	object GUNP8526ac85-943f-4168-a36c-3acac295bbe1
+		type GUNPOWDER
+		at 470 308
+		curdir 1
+
+	object GUNP215da51e-4956-4d13-bceb-3863c26b27c4
+		type GUNPOWDER
+		at 471 308
+		curdir 1
+
+	object GUNPfddd5860-4c8f-4a26-bce3-245bc6cb1528
+		type GUNPOWDER
+		at 474 308
+		curdir 1
+
+	object GUNP6f8a6450-3212-43bd-9495-5be61b8b5f30
+		type GUNPOWDER
+		at 475 308
+		curdir 1
+
+	object GUNP38ce4bd8-4986-4008-83cd-b0a98cda7069
+		type GUNPOWDER
+		at 476 308
+		curdir 1
 
 	object FENC847a96a9-8373-48ef-bb97-78147766935a
 		type FENCE_CORNER
@@ -15280,6 +15567,20 @@ iMZ1r01
 		at 304 406
 		curdir 3
 
+	object LIGH41c6243d-a0ff-4727-921e-aef12eaa73fd
+		type LIGHT_SWITCH
+		at 385 406
+		curdir 2
+		stats->owner SECR232de6d4-2f85-431b-852a-b9e3a47064be
+		funcs->use CALLWIELD_OWNER
+
+	object TORC69d2d82e-8e6a-4866-9d9d-ace489fec7a6
+		type TORCHUNLIT
+		at 404 406
+		curdir 0
+		stats->owner SECR6ba82b6a-bfd6-4066-8f71-95b87fe290c2
+		funcs->use CALLWIELD_OWNER
+
 	object WALLca7a91db-1c66-4c6c-ac30-d0210b9103ca
 		type WALL2_EDGE
 		at 161 407
@@ -15702,6 +16003,12 @@ iMZ1r01
 		curdir 0
 		tag 8002
 		funcs->use LEVER_GALLOWS
+
+	object LIGHf773cda5-0ca9-460a-9dae-6d0bac3689ca
+		type LIGHT_ALWAYS
+		at 380 417
+		curdir 0
+		stats->owner LIGH6e246a25-44c3-4849-95a5-e430d71fbeaf
 
 	object ORB_fa8ac5de-256e-4f07-9b80-c47794a165d8
 		type ORB
@@ -16880,6 +17187,12 @@ iMZ1r01
 		at 363 429
 		curdir 0
 
+	object LIGH6e246a25-44c3-4849-95a5-e430d71fbeaf
+		type LIGHT_END
+		at 392 429
+		curdir 0
+		stats->owner LIGHf773cda5-0ca9-460a-9dae-6d0bac3689ca
+
 	object MAGIf7fd982f-287d-4703-ade1-c6c8a562574b
 		type MAGIC_BARRIER
 		at 191 430
@@ -16970,6 +17283,14 @@ iMZ1r01
 		type DIRT0
 		at 281 432
 		curdir 1
+
+	object TRAP58a306b5-c0c3-4af9-b5b6-d0a47c4b1a22
+		type TRAP_CLOSEDOORS
+		at 386 432
+		curdir 0
+		stats->owner SECRf1ee296f-0406-4f3d-854c-e085940b1447
+		stats->radius 3
+		funcs->use TRAP_CLOSE_SECRETDOOR
 
 	object MAGI59bbdb7c-7e69-422e-90da-dfa8c1cd5700
 		type MAGIC_BARRIER
@@ -17923,6 +18244,11 @@ iMZ1r01
 		at 317 444
 		curdir 2
 
+	object SECR74f6cc12-7e58-4169-9901-1146aa71faf0
+		type SECRETDOOR1_SHUT
+		at 386 444
+		curdir 0
+
 	object MAGI919ac6ce-b265-4656-8ed8-e9acfc8473bf
 		type MAGIC_BARRIER
 		at 191 445
@@ -18096,6 +18422,38 @@ iMZ1r01
 		at 320 447
 		curdir 1
 
+	object LEVEe3487997-672c-4257-b919-0bb7dc5d5a52
+		type LEVER_SIGN_LOW
+		at 384 447
+		curdir 2
+
+	object LEVE0c968ea7-0d63-4a62-9538-23dfcd512bc9
+		type LEVER
+		at 384 447
+		curdir 1
+		stats->str 1
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
+
+	object MEMO8d8b196f-30f3-4b7c-9aaf-6297242c1908
+		type MEMO
+		at 386 447
+		curdir 0
+		name Need to leave a clue
+
+	object LEVE03b349c4-2b0e-482e-82d5-e57b5f09e582
+		type LEVER_SIGN_HIGH
+		at 388 447
+		curdir 2
+
+	object LEVE429d4128-d361-447f-b3cb-f4bf587f8203
+		type LEVER
+		at 388 447
+		curdir 1
+		stats->str 16
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
+
 	object MAGI4ae97d70-2d9c-42a2-8bb5-17ed929c4a4c
 		type MAGIC_BARRIER
 		at 191 448
@@ -18142,6 +18500,32 @@ iMZ1r01
 		type TREASURE_04
 		at 317 448
 		curdir 2
+
+	object LEVE3eaea34f-136f-4ffa-97b3-b234e8cf44ac
+		type LEVER_SIGN_LOW
+		at 384 448
+		curdir 3
+
+	object LEVE45a7dca1-3722-4e40-a79f-3bfb7ce8d223
+		type LEVER
+		at 384 448
+		curdir 1
+		stats->str 2
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
+
+	object LEVEc2bc0784-3e13-4cf1-a4c3-1bf1881bf4c2
+		type LEVER_SIGN_HIGH
+		at 388 448
+		curdir 3
+
+	object LEVEd14b715e-d8a8-4ea5-8c77-1e853e870b46
+		type LEVER
+		at 388 448
+		curdir 1
+		stats->str 32
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
 
 	object STONf5f6f862-9e0a-48aa-8414-434a5fe4b7db
 		type STONEDOORWAY
@@ -18194,6 +18578,41 @@ iMZ1r01
 		type TREASURE_04
 		at 319 449
 		curdir 2
+
+	object LEVE88236895-61b7-4f5a-a1f1-2a0613261bdb
+		type LEVER_SIGN_LOW
+		at 384 449
+		curdir 0
+
+	object LEVEf2883099-1533-45cd-9eea-7e68c04deec6
+		type LEVER
+		at 384 449
+		curdir 1
+		stats->str 4
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
+
+	object LEVE64485610-2aca-4051-abf9-442acc52f66f
+		type LEVER
+		at 386 449
+		curdir 1
+		name Try lever
+		stats->owner SECRf1ee296f-0406-4f3d-854c-e085940b1447
+		stats->karma 123
+		funcs->use LEVER_BINARYFINISH
+
+	object LEVEa35c2e17-bc37-444a-a7af-167d5ba4449f
+		type LEVER_SIGN_HIGH
+		at 388 449
+		curdir 0
+
+	object LEVE6cf33e9b-8f2e-4b05-a836-98a829624e2a
+		type LEVER
+		at 388 449
+		curdir 1
+		stats->str 64
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
 
 	object STON95d3925d-b68c-44b7-8140-8f1f9194287e
 		type STONEDOORWAY
@@ -18261,6 +18680,32 @@ iMZ1r01
 		type GOLD_NUGGET
 		at 322 450
 		curdir 1
+
+	object LEVEed4a0c75-cc66-4f58-8426-2c0b3598a7ca
+		type LEVER_SIGN_LOW
+		at 384 450
+		curdir 1
+
+	object LEVE863dd36e-8c68-4013-ba83-928fc7460e1d
+		type LEVER
+		at 384 450
+		curdir 1
+		stats->str 8
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
+
+	object LEVEff0625f2-4c32-4143-8fa4-ad69393ab98c
+		type LEVER_SIGN_HIGH
+		at 388 450
+		curdir 1
+
+	object LEVEb16d38a6-aede-4d48-bb54-abc19834ddd7
+		type LEVER
+		at 388 450
+		curdir 1
+		stats->str 128
+		stats->owner LEVE64485610-2aca-4051-abf9-442acc52f66f
+		funcs->use LEVER_BINARYADD
 
 	object MAGI6f5e1ca9-f0f5-41bd-b81d-868e4c7b7649
 		type MAGIC_BARRIER

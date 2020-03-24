@@ -3236,9 +3236,11 @@ section: sprites
 	leversign16		sprites/tech/lever16.png
 	leversign32		sprites/tech/lever32.png
 	leversign64		sprites/tech/lever64.png
+	leversign128		sprites/tech/lever128.png
 	leversign16u		sprites/tech/lever16u.png
 	leversign32u		sprites/tech/lever32u.png
 	leversign64u		sprites/tech/lever64u.png
+	leversign128u		sprites/tech/lever128u.png
 
 	jc_was_here		sprites/jcwasere.cel
 
@@ -12391,9 +12393,11 @@ section: sequences
 	quickname leversign16
 	quickname leversign32
 	quickname leversign64
+	quickname leversign128
 	quickname leversign16u
 	quickname leversign32u
 	quickname leversign64u
+	quickname leversign128u
 
 	quickname jc_was_here jc_was_here
 

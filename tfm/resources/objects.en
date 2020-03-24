@@ -8718,7 +8718,7 @@ section: characters
 	left		leversign16
 	right		leversign32
 	up		leversign64
-	down		leversign1
+	down		leversign128
 	hp		10000
 	weight 10
 	description	"You see a vinyl sticker."
@@ -8728,7 +8728,7 @@ section: characters
 	left		leversign16u
 	right		leversign32u
 	up		leversign64u
-	down		leversign1
+	down		leversign128u
 	hp		10000
 	weight 10
 	description	"You see a vinyl sticker."
