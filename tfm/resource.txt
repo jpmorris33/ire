@@ -14536,6 +14536,21 @@ section: tables
 		OUTLAW3_HEAD		MAN_OUTLAW3
 	end
 
+	name levelup
+	key=integer
+	data=integer
+	list:
+		0		0
+		1		800
+		2		1600
+		3		3200
+		4		6400
+		5		12800
+		6		25600
+		7		51200
+		8		102400
+	end
+
 ##
 ##  Tile connections for the 'Tile Router' button in the editor
 ##

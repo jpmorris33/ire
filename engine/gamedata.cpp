@@ -73,7 +73,11 @@ OBJLIST *ActiveList=NULL;  // List of all active objects
 long Sysfunc_scheduler = -1, Sysfunc_status = -1, Sysfunc_follower = -1;
 long Sysfunc_splash = -1, Sysfunc_trackstop = -1, Sysfunc_updatelife = -1;
 long Sysfunc_erase = -1, Sysfunc_wakeup = -1, Sysfunc_updaterobot = -1;
+long Sysfunc_levelup = -1;
 long mapnumber=1,fx_func;
+
+VMINT exptab[EXPTAB_MAX];
+VMINT exptab_max;
 
 // Resource data info
 

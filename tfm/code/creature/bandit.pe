@@ -30,8 +30,8 @@ function outlaw_dies
 change current = "deadoutlaw"
 object_sound "man_dying" current
 if_exists current.enemy
-	add current.enemy.stats.karma + 5
-	add current.enemy.user.experience + 75
+	add current.enemy.stats.karma + 1
+	add current.enemy.user.experience + 50
 endif
 
 call egg_killed

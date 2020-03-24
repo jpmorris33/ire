@@ -113,6 +113,7 @@ static void do_change_map();
 static void check_horrors(OBJECT *o);  // Look for things that scare NPCs
 static void ProcessDeath_U5();
 static void ProcessDeath_U6();
+static void CheckLevelUp(OBJECT *obj);
 
 extern void StoreObjects();
 int Restart();
@@ -391,6 +392,11 @@ do {
 		}
 		active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
 		active->ptr->engineflags &= ~ENGINE_DIDSPIKE;
+
+		// While we're at it, check level/experience
+		if(active->ptr->flags & IS_PERSON) {
+			CheckLevelUp(active->ptr);
+		}
 	}
 
 	// Need to reset the active tile flags for everything
@@ -2226,4 +2232,19 @@ if(k == (IREKEY_F10 | IREKEY_CTRLMOD))
 if(IRE_TestKey(IREKEY_PAUSE))
 	if(IRE_TestShift(IRESHIFT_CONTROL))
 		ithe_panic("User Break","User requested emergency quit");
+}
+
+
+void CheckLevelUp(OBJECT *obj) {
+if(obj->stats->level < 0 || (obj->stats->level+1) >= exptab_max) {
+	return;
+}
+if(obj->user->experience > exptab[obj->stats->level+1]) {
+//	printf("levelup: exp %ld > target %ld (level %ld)\n",obj->user->experience,exptab[obj->stats->level+1], obj->stats->level+1);
+	obj->stats->level++;
+	if(Sysfunc_levelup > 0) {
+		current_object = obj;
+		CallVMnum(Sysfunc_levelup);
+	}
+}
 }

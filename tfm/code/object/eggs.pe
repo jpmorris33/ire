@@ -259,7 +259,8 @@ call egg_despawned
 
 if_exists current.enemy
 	# Give experience
-	add current.enemy.user.experience + current.maxstats.hp
+#	add current.enemy.user.experience + current.maxstats.hp
+	add current.enemy.user.experience + 25
 /*
 	if_flag current.enemy IN_PARTY
 		print_bestname current.enemy

@@ -13,6 +13,7 @@
 #define PATH_FINISHED 0
 #define PATH_WAITING -1
 #define PATH_BLOCKED -2
+#define EXPTAB_MAX 256
 
 extern OBJECT *syspocket;          // Storage area for GUI objects
 extern OBJECT *player;             // The player
@@ -64,6 +65,8 @@ extern int decorxmap[LMSIZE][LMSIZE];
 extern int decorymap[LMSIZE][LMSIZE];
 extern OBJLIST *ActiveList;       // List of all active objects
 extern OBJECT limbo;
+extern VMINT exptab[EXPTAB_MAX];
+extern VMINT exptab_max;
 
 extern IRECURSOR *MouseOverPtr; // New mouse pointer
 extern IRECURSOR *DefaultCursor;
@@ -73,6 +76,7 @@ extern IRECURSOR *DefaultCursor;
 extern long Sysfunc_scheduler, Sysfunc_status, Sysfunc_follower;
 extern long Sysfunc_splash, Sysfunc_trackstop, Sysfunc_updatelife;
 extern long Sysfunc_erase, Sysfunc_wakeup, Sysfunc_updaterobot;
+extern long Sysfunc_levelup;
 extern long mapnumber,fx_func;
 
 // Resource Data

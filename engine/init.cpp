@@ -73,6 +73,8 @@ extern char mapname[];
 
 static int qrt[QRAND_MAX];
 
+
+
 // functions
 
 short FindProc(char *name);
@@ -387,6 +389,8 @@ if(!istricmp(PElist[pos].name,"sys_restarted"))
 	Sysfunc_restarted = pos;
 if(!istricmp(PElist[pos].name,"sys_alldead"))
 	Sysfunc_alldead = pos;
+if(!istricmp(PElist[pos].name,"sys_levelup"))
+	Sysfunc_levelup = pos;
 }
 
 
@@ -430,9 +434,41 @@ if(Sysfunc_updaterobot == UNDEFINED)
 	ilog_quiet("Did not find system function 'sys_update_robot', continuing anyway\n");
 if(Sysfunc_restarted == UNDEFINED)
 	ilog_quiet("Did not find system function 'sys_restarted', continuing anyway\n");
+if(Sysfunc_levelup == UNDEFINED)
+	ilog_quiet("Did not find system function 'sys_levelup', continuing anyway\n");
 
-for(ctr=0;ctr<CHtot;ctr++)
+for(ctr=0;ctr<CHtot;ctr++) {
 	InitFuncsFor(&CHlist[ctr]);
+}
+
+// Set up a default experience table
+exptab_max=8;
+exptab[0]=0;
+exptab[1]=100;
+exptab[2]=200;
+exptab[3]=400;
+exptab[4]=800;
+exptab[5]=1600;
+exptab[6]=3200;
+exptab[7]=6400;
+exptab[8]=12800;
+
+// Load in a custom one if present (and set up to have integer values)
+int exptable = getnum4table("levelup");
+if(exptable != -1) {
+	DATATABLE *tab = &DTlist[exptable];
+	exptab_max=tab->entries;
+	if(exptab_max >= EXPTAB_MAX) {
+		exptab_max=EXPTAB_MAX;
+	}
+
+	if(tab->listtype == 'i') {
+		for(ctr=0;ctr<exptab_max;ctr++) {
+			exptab[ctr] = tab->unsorted[ctr]->ii;
+		}
+	}
+}
+
 }
 
 
