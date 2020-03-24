@@ -529,6 +529,22 @@ call airtravel_callback
 end
 
 
+#################################################################
+#                                                               #
+# sys_levelup - a character has levelled up (includes NPCS)     #
+#                                                               #
+#################################################################
+
+function sys_levelup
+if_flag current IN_PARTY
+	print current.personalname
+	print " has gained a level!"
+	printcr
+endif
+
+end
+
+
 ##
 ##  Utility function to make sure player comes first
 ##
