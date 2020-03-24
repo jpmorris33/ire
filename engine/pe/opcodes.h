@@ -177,6 +177,7 @@ enum {
 	PEVM_CheckTime,
 	PEVM_FindNear,
 	PEVM_FindNearby,
+	PEVM_FindNearbyFlag,
 	PEVM_FindTag,
 	PEVM_FastTag,
 	PEVM_MakeTagList,

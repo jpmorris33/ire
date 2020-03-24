@@ -78,6 +78,7 @@ extern void ResumeSchedule(OBJECT *o);
 extern void CheckTime();
 extern OBJECT *find_nearest(OBJECT *o, char *type);
 extern void find_nearby(OBJECT *o, char *type, OBJECT **list, int listsize);
+extern OBJECT *find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize);
 extern void set_light(int x, int y, int x2, int y2, int light);
 extern void ForceUpdateTag(int tag);
 extern OBJECT *GetFirstObject(OBJECT *cont, char *name);
@@ -304,6 +305,7 @@ static void PV_AllAround();
 static void PV_CheckTime();
 static void PV_FindNear();
 static void PV_FindNearby();
+static void PV_FindNearbyFlag();
 static void PV_FindTag();
 static void PV_FastTag();
 static void PV_MakeTagList();
@@ -1358,6 +1360,7 @@ VMOP(AllAround);
 VMOP(CheckTime);
 VMOP(FindNear);
 VMOP(FindNearby);
+VMOP(FindNearbyFlag);
 VMOP(FindTag);
 VMOP(FastTag);
 VMOP(MakeTagList);
@@ -5451,7 +5454,7 @@ CHECK_POINTER(o2);
 *o1 = find_nearest(*o2,str);
 }
 
-// Find up to 16 nearby objects of given type (fuzzy search supported)
+// Find up to n nearby objects of given type (fuzzy search supported)
 
 void PV_FindNearby()
 {
@@ -5473,6 +5476,30 @@ CHECK_POINTER(o2);
 // Give it the start of the array, not o1, in case it has been poisoned
 find_nearby(*o2,str,(OBJECT **)array,size);
 }
+
+// Find up to n nearby objects of given flag
+
+void PV_FindNearbyFlag()
+{
+OBJECT **o1;
+OBJECT **o2;
+VMINT *flag;
+OBJECT *array;
+VMINT size,idx;
+
+GET_ARRAY_INFO((void **)&array,&size,&idx); // Get size of array at IP
+
+o1 = GET_OBJECT();
+CHECK_POINTER(o1);
+flag = GET_INT();
+CHECK_POINTER(flag);
+o2 = GET_OBJECT();
+CHECK_POINTER(o2);
+
+// Give it the start of the array, not o1, in case it has been poisoned
+find_nearby_flag(*o2,*flag,(OBJECT **)array,size);
+}
+
 
 // Find a tag anywhere in the world
 

@@ -143,7 +143,13 @@ static void sysBug(char *msg, ...);
 extern char debcurfunc[];
 extern void VMstacktrace();
 
+struct OBJECT_PREF {
+	OBJECT *ptr;
+	int steps;
+};
+
 void set_light(int x, int y, int x2, int y2, int light);
+static int CMP_sort_objpref(const void *a,const void *b);
 
 
 ///////////////////////////////////
@@ -1533,25 +1539,25 @@ OBJECT *temp;
 int x,y,mix,miy,max,may,steps;
 
 // the three possible cases, best of each
-OBJECT *mine_ob=NULL;
-int mine_st=INF;
-OBJECT *public_ob=NULL;
-int public_st=INF;
-OBJECT *private_ob=NULL;
-int private_st=INF;
+OBJECT_PREF mine_ob;
+OBJECT_PREF public_ob;
+OBJECT_PREF private_ob;
+mine_ob.steps = public_ob.steps = private_ob.steps = INF;
+mine_ob.ptr = public_ob.ptr = private_ob.ptr = NULL;
 
-if(!o || !type)
-	{
+if(!o || !type) {
 	s1="Null";
 	s2="Null";
 
-	if(o)
+	if(o) {
 		s1=o->name;
-	if(type)
+	}
+	if(type) {
 		s2=type;
+	}
 	Bug("find_nearest(%s,%s)\n",s1,s2);
 	return 0;
-	}
+}
 
 CHECK_OBJECT(o);
 
@@ -1559,68 +1565,70 @@ CHECK_OBJECT(o);
 
 mix = o->x - 16;
 miy = o->y - 16;
-if(mix<0)
+if(mix<0) {
 	mix=0;
-if(miy<0)
+}
+if(miy<0) {
 	miy=0;
+}
 max=mix+32;
 may=miy+32;
 
-if(max>curmap->w)
+if(max>curmap->w) {
 	max=curmap->w;
-if(may>curmap->h)
+}
+if(may>curmap->h) {
 	may=curmap->h;
+}
 
 // Ok, start searching
 
-for(y=miy;y<may;y++)
-    for(x=mix;x<max;x++)
-        for(temp=GetRawObjectBase(x,y);temp;temp=temp->next)
-            if(temp->flags & IS_ON)
-                if(!istricmp(temp->name,type))
-                    {
+for(y=miy;y<may;y++) {
+    for(x=mix;x<max;x++) {
+        for(temp=GetRawObjectBase(x,y);temp;temp=temp->next) {
+            if(temp->flags & IS_ON) {
+                if(!istricmp(temp->name,type)) {
                     steps = CanRoute(o,temp,1);
-                    if(steps >= 0)
-                        {
-			// best case, mine
-                        if(temp->stats->owner.objptr == o)
-                            {
-                            if(steps<mine_st)
-                                {
-                                mine_st = steps;
-                                mine_ob = temp;
-                                }
+                    if(steps >= 0) {
+						// best case, mine
+                        if(temp->stats->owner.objptr == o) {
+                            if(steps<mine_ob.steps) {
+                                mine_ob.steps = steps;
+                                mine_ob.ptr = temp;
                             }
-                        else
-                        if(temp->stats->owner.objptr == NULL || GetNPCFlag(temp, IS_SPAWNED))
-                            {
-			    // next best case, public (spawned from an egg counts too)
-                            if(steps<public_st)
-                                {
-                                public_st = steps;
-                                public_ob = temp;
+                        } else {
+                        	if(temp->stats->owner.objptr == NULL || GetNPCFlag(temp, IS_SPAWNED)) {
+							    // next best case, public (spawned from an egg counts too)
+                        	    if(steps<public_ob.steps) {
+	                                public_ob.steps = steps;
+                                	public_ob.ptr = temp;
+                            	}
+                        	} else {
+								// worst case, someone else's
+	                            if(steps<private_ob.steps) {
+	                                private_ob.steps = steps;
+                                	private_ob.ptr = temp;
                                 }
-                            }
-                        else                // worst case, someone else's
-                            {
-                            if(steps<private_st)
-                                {
-                                private_st = steps;
-                                private_ob = temp;
-                                }
-                            }
+							}
                         }
                     }
+                }
+			}
+		}
+	}
+}
 
 // Now we should have the best possible case for each of the three types
 
-if(mine_ob)
-	return mine_ob;
+if(mine_ob.ptr) {
+	return mine_ob.ptr;
+}
 
-if(public_ob)
-	return public_ob;
+if(public_ob.ptr) {
+	return public_ob.ptr;
+}
 
-return private_ob;
+return private_ob.ptr;
 }
 
 // Find up to 16 of the nearest objects of the type requested
@@ -1631,8 +1639,7 @@ char *s1,*s2;
 OBJECT *temp;
 int x,y,mix,miy,max,may,ptr;
 
-if(!o || !type)
-	{
+if(!o || !type || !list) {
 	s1="Null";
 	s2="Null";
 
@@ -1642,7 +1649,7 @@ if(!o || !type)
 		s2=type;
 	Bug("find_nearby(%s,%s,%x,%d)\n",s1,s2,list,listsize);
 	return;
-	}
+}
 
 // Blank the list
 memset(list,0,listsize*sizeof(OBJECT *));
@@ -1679,6 +1686,96 @@ for(y=miy;y<may;y++)
 
 return;
 }
+
+// Find up to n of the nearest objects matching the flag requested (e.g. IS_PERSON)
+
+void find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize)
+{
+char *s1,*s2;
+OBJECT *temp;
+int x,y,mix,miy,max,may,ctr,dist;
+OBJECT_PREF steps[256];
+
+if(!o || !list) {
+	return;
+}
+
+flag |= IS_ON;	// Ensure it's on
+
+// Blank the list
+memset(list,0,listsize*sizeof(OBJECT *));
+
+if(listsize > 255) {
+	listsize = 255;
+}
+
+// Initialise the pool
+for(ctr=0;ctr<listsize;ctr++) {
+	steps[ctr].ptr=NULL;
+	steps[ctr].steps = INF;
+}
+
+CHECK_OBJECT(o);
+
+// Now build the search area and make sure it is within the bounds of the map
+
+mix = o->x - 16;
+miy = o->y - 16;
+if(mix<0) {
+    mix=0;
+}
+if(miy<0) {
+    miy=0;
+}
+max=mix+32;
+may=miy+32;
+
+if(max>curmap->w) {
+    max=curmap->w;
+}
+if(may>curmap->h) {
+    may=curmap->h;
+}
+
+// Ok, start searching, and keep adding to the list if we can get there
+
+ctr=0;
+for(y=miy;y<may;y++) {
+	for(x=mix;x<max;x++) {
+		for(temp=GetRawObjectBase(x,y);temp;temp=temp->next) {
+			if(temp == o) {
+				continue;
+			}
+			if((temp->flags & flag) == flag) {
+				dist= CanRoute(o,temp,1);
+				if(dist >= 0) {
+					if(ctr<listsize) {
+						steps[ctr].ptr = temp;
+						steps[ctr].steps = dist;
+						ctr++;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Sort them shortest-first
+qsort(steps,ctr,sizeof(OBJECT_PREF),CMP_sort_objpref);
+
+for(y=0;y<ctr;y++) {
+	list[y]=steps[y].ptr;
+}
+
+return;
+}
+
+
+static int CMP_sort_objpref(const void *a,const void *b)
+{
+return ((OBJECT_PREF *)a)->steps - ((OBJECT_PREF *)b)->steps;
+}
+
 
 
 // Find object by tag (searching nearby for speed)
