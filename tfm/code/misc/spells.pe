@@ -376,7 +376,7 @@ if spelltarget.stats.hp > 0
 
 		# Smite them with heavenly forthe
 		add spelltarget.stats.hp - dmg
-		let spelltarget.enemy = player # Blame
+		let spelltarget.enemy = me # Blame
 		check_hurt spelltarget
 
 		if me = player

@@ -40,6 +40,21 @@ call egg_killed    # Sometimes this happens
 end
 
 ##
+##  Outlaw variant
+##
+
+function peasant_outlaw_dies
+change current = "deadoutlaw3"
+object_sound "man_dying" current
+if_exists current.enemy
+        add current.enemy.stats.karma + 2
+        add current.enemy.user.experience + OUTLAW_EXP
+endif
+
+call egg_killed    # Sometimes this happens
+end
+
+##
 ## Woman Hurt
 ##
 
@@ -109,6 +124,23 @@ change current = "deadmage"
 object_sound "man_dying" current
 if_exists current.enemy
 	add current.enemy.stats.karma - 20
+endif
+
+call egg_killed
+
+end
+
+##
+##  Outlaw variant
+##
+
+function mage_outlaw_dies
+
+change current = "DEADOUTLAW2"
+object_sound "man_dying" current
+if_exists current.enemy
+        add current.enemy.stats.karma + 2
+        add current.enemy.user.experience + OUTLAW_MAGE_EXP
 endif
 
 call egg_killed

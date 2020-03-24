@@ -78,6 +78,11 @@ const CLASS_MISC = 0
 const CLASS_SOLDIER = 1
 const CLASS_KING = 2
 
+# EXP
+
+const OUTLAW_EXP = 75
+const OUTLAW_MAGE_EXP = 100
+
 # Temporary string for spell diagnostics
 userstring baal 20
 

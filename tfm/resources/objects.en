@@ -673,12 +673,12 @@ section: characters
 	weight		60000
 	damage		10
 	range		11
-#	level		8
+	level		8
 	description	"You see a bandit."
 	short		"mage"
 	attack		magic_attack
-	IfKilled	Mage_Dies
-	IfHurt		Mage_Hurt
+	IfKilled	Mage_Outlaw_Dies
+	IfHurt		Outlaw_Hurt
 	behaviour	attack_people
 	biological
 	solid
@@ -687,6 +687,8 @@ section: characters
 	horrific
 	race		outlaw		# Not human..
 	rank		mage
+	contains	food01
+	contains	toadstone
 
 	name MAN_OUTLAW3
 	left		PEASANT_L
@@ -702,9 +704,9 @@ section: characters
 	description	"You see a bandit."
 	short		"man"
 	attack		close_attack
-	IfKilled	Peasant_Dies
-	IfHurt		Peasant_Hurt
-	ifhorrified	Follower_Horror
+	IfKilled	Peasant_Outlaw_Dies
+	IfHurt		Outlaw_Hurt
+#	ifhorrified	Follower_Horror
 	behaviour	attack_people
 	biological
 	solid
