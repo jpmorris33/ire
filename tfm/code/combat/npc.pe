@@ -494,6 +494,59 @@ end
 
 
 ##
+##	Attack People
+##
+
+function attack_people
+object us
+object them
+object_array npc[16]
+int ctr
+
+# Decide who we are, first.
+let us = me
+if_exists current
+	let us = current
+endif
+
+# Am I still inside my egg?
+if_exists us.parent
+	return
+endif
+
+# Am I alive?
+if us.stats.hp < 1
+	return
+endif
+
+if us = player
+	return
+endif
+
+# Look for nearby people
+find_nearby_flag npc[1] = IS_PERSON near me
+
+let them = null
+for ctr = 1 to 16
+	let them = npc[ctr]
+	if_exists them
+		if them.stats.hp > 0
+		and them.stats.alignment >= 0
+
+			# May need to weight this so they attack the player more frequently
+
+			let us.enemy = them
+			do_action us does enemy_attack to us.enemy
+			return
+		endif
+	endif
+next ctr
+
+end
+
+
+
+##
 ##	Attack and feast upon the juicy corpse
 ##
 

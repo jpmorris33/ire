@@ -389,7 +389,7 @@ section: characters
 	intelligence	140
 	weight		60000
 	damage		6
-	level		8
+	level		1
 	description	"You see Mr. Smith"
 	short		"person"
 	attack		close_attack
@@ -422,7 +422,7 @@ section: characters
 	intelligence	140
 	weight		60000
 	damage		6
-	level		8
+	level		1
 	description	"You see Ms. Smith"
 	short		"person"
 	attack		close_attack
@@ -651,7 +651,7 @@ section: characters
 	attack		close_attack
 	IfKilled	Outlaw_Dies
 	IfHurt		Outlaw_Hurt
-	behaviour	attack_party
+	behaviour	attack_people
 	biological
 	solid
 	person
@@ -673,13 +673,13 @@ section: characters
 	weight		60000
 	damage		10
 	range		11
-	level		8
+#	level		8
 	description	"You see a bandit."
 	short		"mage"
 	attack		magic_attack
 	IfKilled	Mage_Dies
 	IfHurt		Mage_Hurt
-	behaviour	attack_party
+	behaviour	attack_people
 	biological
 	solid
 	person
@@ -705,7 +705,7 @@ section: characters
 	IfKilled	Peasant_Dies
 	IfHurt		Peasant_Hurt
 	ifhorrified	Follower_Horror
-	behaviour	attack_party
+	behaviour	attack_people
 	biological
 	solid
 	person
@@ -1258,7 +1258,7 @@ section: characters
 	short		"bee"
 	ifkilled	bee_dies
 	ifhurt		hurt_generic
-	behaviour	attack_party
+	behaviour	attack_people
 	attack		close_attack
 
 	name BEE_DEAD
@@ -1287,7 +1287,7 @@ section: characters
 	short		"leprechaun"
 	IfKilled	Leprechaun_Dies
 	IfHurt		hurt_generic
-	behaviour	attack_party
+	behaviour	attack_people
 	attack		range_attack
 	user2		attack_firebolt
 	biological
@@ -6582,7 +6582,7 @@ section: characters
 	short		"snail"
 	IfKilled	snail_dies
 	IfHurt		snail_hurt
-	behaviour	attack_party
+	behaviour	attack_people
 	attack		range_attack
 	user2		attack_firebolt
 	solid
@@ -6622,7 +6622,7 @@ section: characters
 	IfHurt		hurt_pred
 	Attack		close_attack
 	user2		poison_enemy
-	behaviour	 attack_party
+	behaviour	 attack_people
 	solid
 	wont_shut_doors
 	wont_open_doors
@@ -8464,7 +8464,7 @@ section: characters
 	speed		100
 	description	"You see a fresian cow."
 	short		"cow"
-	behaviour	attack_party
+	behaviour	attack_people
 	Attack		close_attack
 	IfKilled	cow_dies
 	IfHurt		hurt_pred
@@ -10836,7 +10836,7 @@ section: characters
 	IfHurt		hurt_generic
 	Attack		close_attack
 	user2		poison_enemy
-	behaviour	 attack_party
+	behaviour	 attack_people
 	solid
 	wont_shut_doors
 	wont_open_doors
@@ -10878,7 +10878,7 @@ section: characters
 	short		"pig"
 	IfKilled	pig_dies
 	IfHurt		hurt_generic
-	behaviour	attack_party
+	behaviour	attack_people
 	Attack		close_attack
 	solid
 	speed		80
@@ -10951,7 +10951,7 @@ section: characters
 	short		"golem"
 	IfKilled	golem_dies
 	IfHurt		undead_hurt
-	behaviour	attack_party
+	behaviour	attack_people
 	Attack		close_attack
 	horrific
 	alignment	-10
@@ -10994,7 +10994,7 @@ section: characters
 	short		"spectre"
 	IfKilled	spook_dies
 	IfHurt		undead_hurt
-	behaviour	 attack_party
+	behaviour	 attack_people
 	Attack		close_attack
 	translucent
 	wont_shut_doors
@@ -11014,7 +11014,7 @@ section: characters
 	short		"jelly monster"
 	IfKilled	jjm_dies
 	IfHurt		undead_hurt
-	behaviour	 attack_party
+	behaviour	 attack_people
 	Attack		close_attack
 	translucent
 	wont_shut_doors
@@ -11034,7 +11034,7 @@ section: characters
 	short		"skeleton"
 	IfKilled	skeleton_dies
 	IfHurt		undead_hurt
-	behaviour	attack_party
+	behaviour	attack_people
 	Attack		close_attack
 	horrific
 	alignment	-10
@@ -11070,7 +11070,7 @@ section: characters
 	short		"zombie"
 	IfKilled	headless_dies
 	IfHurt		undead_hurt
-	behaviour	attack_party
+	behaviour	attack_people
 	Attack		close_attack
 	horrific
 	alignment	-10
@@ -11371,7 +11371,7 @@ section: characters
 	short		"tode"
 	IfKilled	tode_dies
 	IfHurt		hurt_generic
-	behaviour	attack_party
+	behaviour	attack_people
 	attack		range_attack
 	user2		attack_firebolt
 	conversation	people/creature/tode.txt
@@ -11491,7 +11491,7 @@ section: characters
 	short		"rabbit"
 	IfKilled	bunny_dies
 	IfHurt		hurt_pred
-	behaviour	attack_party
+	behaviour	attack_people
 	attack		close_attack
 	solid
 	contains	FOODP00
