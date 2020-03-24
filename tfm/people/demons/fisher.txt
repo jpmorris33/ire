@@ -178,6 +178,7 @@ You see Fisher, a female F-16.
 
 [page="toad3"]
 [delete 1 tode]
+[set toad_spoke]
 [image="f16_00.cel"]
 
 "Excellent!"

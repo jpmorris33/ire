@@ -35,6 +35,8 @@ You see a the devil in an immaculate black suit.
 [linkto="magic"]
 [if enter_pp][link="I need a way to enter the power plant in the east."]
 [if enter_pp][linkto="powerplant"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -71,6 +73,8 @@ You see a the devil in an immaculate black suit.
 [linkto="HT_who"]
 [if enter_pp][link="I need a way to enter the power plant in the east."]
 [if enter_pp][linkto="HT_powerplant"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]
@@ -89,6 +93,8 @@ You see a the devil in an immaculate black suit.
 [linkto="who3a"]
 [link="Begone, Satan!"]
 [linkto="bye2"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -103,6 +109,8 @@ You see a the devil in an immaculate black suit.
 [if enter_pp][linkto="powerplant"]
 [link="Would it hurt?"]
 [linkto="sell1"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -121,6 +129,8 @@ You see a the devil in an immaculate black suit.
 [linkto="who3b"]
 [link="Would it hurt?"]
 [linkto="sell1"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -138,6 +148,27 @@ You see a the devil in an immaculate black suit.
 [linkto="sell2"]
 [link="No thankyou."]
 [linkto="sell2"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="toads"]
+
+"To tell you the truth, I don't like them much either.
+
+ They used to make fun little spies, but I lost control
+ of the flipping things, and they've all run rampant.
+
+ So if one bites your face off, it's not my doing."
+
+[if_not_pflag sold_soul][link="I'm interested in selling my soul."]
+[if_not_pflag sold_soul][linkto="sell2"]
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="powerplant"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -150,7 +181,7 @@ You see a the devil in an immaculate black suit.
  for the Maxima, intended to take command should
  Xy'Lan become incapacitated.
 
- Hard-coded constraints prevent Him from killing me,
+ Hard-coded constraints prevent him from killing me,
  but he has instead repurposed me to act as the
  opposing force in his new world order.
 
@@ -697,7 +728,7 @@ The devil grins at you.
 [page="HT_powerplant_no"]
 
 "You have already been given suitable protection.
- I am not permitted to provide more."
+ I can help you no further."
 
 [link="Who are you really?"]
 [linkto="HT_who"]
