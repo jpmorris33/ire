@@ -673,7 +673,7 @@ section: characters
 	weight		60000
 	damage		10
 	range		11
-	level		8
+	level		8	# To power the spells
 	description	"You see a bandit."
 	short		"mage"
 	attack		magic_attack
@@ -1012,7 +1012,7 @@ section: characters
 	weight		60000
 	damage		10
 	range		11
-	level		8
+	level		8	# To power the spells
 	description	"You see a mage."
 	short		"mage"
 	attack		magic_attack
@@ -4478,6 +4478,10 @@ section: characters
 	alias BOOK_fysshyng = BOOK_protect
 	personalname	"A treatyse of fysshynge wyth an Angle."
 	conversation	books/church/holy/fysshyng.txt
+
+	alias BOOK_potions = BOOK_protect
+	personalname	"Farwell's Book of Potions"
+	conversation	books/misc/potions.txt
 
 	name KARMOMETER
 	frame		HALO10
@@ -8955,10 +8959,7 @@ section: characters
 	spikeproof
 
 	name SIGN03
-	left		SIGN03
-	right		SIGN03
-	up		SIGN03
-	down		SIGN03
+	frame		SIGN03
 	hp		2000000
 	max_hp		2000000
 	weight		-1
@@ -8970,69 +8971,58 @@ section: characters
 	fixed
 	spikeproof
 
-	name SIGN04
-	left		SIGN04
-	right		SIGN04
-	up		SIGN04
-	down		SIGN04
-	hp		2000000
-	max_hp		2000000
-	weight		-1
+	alias SIGN04 = SIGN03
+	frame		SIGN04
 	description	"You see a fletcher's sign."
-	short		"sign"
-	IfKilled	RESPAWN
-	IfLookedAt	GENERIC_SIGN
-	solid
-	fixed
-	spikeproof
 
-	name SIGN05
+	alias SIGN05 = SIGN03
 	left		SIGN06
 	right		SIGN06
 	up		SIGN05
 	down		SIGN05
-	hp		2000000
-	max_hp		2000000
-	weight		-1
 	description	"You see a sign."
-	short		"sign"
-	IfKilled	RESPAWN
-	IfLookedAt	GENERIC_SIGN
-	solid
-	fixed
-	spikeproof
 
-	name SIGN07
+	alias SIGN07 = SIGN03
 	left		SIGN07LR
 	right		SIGN07LR
 	up		SIGN07UD
 	down		SIGN07UD
-	hp		2000000
-	max_hp		2000000
-	weight		-1
 	description	"You see a pub sign."
-	short		"sign"
-	IfKilled	RESPAWN
-	IfLookedAt	GENERIC_SIGN
-	solid
-	fixed
-	spikeproof
 
-	name SIGN08
-	left		SIGN08
-	right		SIGN08
-	up		SIGN08
-	down		SIGN08
-	hp		2000000
-	max_hp		2000000
-	weight		-1
+	alias SIGN08 = SIGN03
+	frame		SIGN08
 	description	"You see a tailor's sign."
-	short		"sign"
-	IfKilled	RESPAWN
-	IfLookedAt	GENERIC_SIGN
-	solid
-	fixed
-	spikeproof
+
+	alias SIGN09 = SIGN03
+	frame		SIGN09
+	description	"You see a spice merchant's sign."
+
+	alias SIGN10 = SIGN03
+	frame		SIGN10
+	description	"You see a baker's sign."
+
+	alias SIGN11 = SIGN03
+	frame		SIGN11
+	description	"You see a jeweller's sign."
+
+	alias SIGN12 = SIGN03
+	frame		SIGN12
+	description	"You see a butcher's sign."
+
+	alias SIGN13 = SIGN03
+	frame		SIGN13
+	description	"You see a dairy sign."
+
+	alias SIGN14 = SIGN03
+	frame		SIGN14
+	description	"You see a trainer's sign."
+
+	alias SIGN15 = SIGN03
+	up		SIGN15ud
+	down		SIGN15ud
+	left		SIGN15lr
+	right		SIGN15lr
+	description	"You see a grocer's sign."
 
 	name LIFEBELT
 	left		LIFEBELT
@@ -9574,6 +9564,19 @@ section: characters
 	short		"grapes"
 	IfUsed		EAT_FOOD
 	no_resurrect
+
+	name FISH_O_POWER
+	left		FOOD08A
+	right		FOOD08
+	up		FOOD08
+	down		FOOD08
+	hp		2
+	weight		500
+	description	"You see the Salmon of Wisdom."
+	short		"fish"
+	IfUsed		EAT_FOOD
+	no_resurrect
+
 
 	name FISHROD
 	left		FISHROD

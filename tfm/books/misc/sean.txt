@@ -3,7 +3,7 @@
 [font 3]
   The Tale of Sean
   
-  By [Invent some alias for Sofox here]
+  By Sobel Cassell
 
   Sean was but a peasant boy who dreamed of being an
   adventurer.  However he was a scrawny youth, and lacking of

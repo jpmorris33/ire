@@ -34,7 +34,7 @@ precise tones.
 "Hello $PLAYER, this is Ransome.
  I don't have time to explain, so listen carefully.
 
- We're at New Fairford, a small village to the
+ We're just south of New Fairford, a small village
  south-southeast of the town you're in at the moment.
 
  Please get here as quickly as you can, but take care..

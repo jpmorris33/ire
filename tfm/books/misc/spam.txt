@@ -1,5 +1,5 @@
 [page="start"]
-[backing="paper2.pcx"]
+[backing="paper.pcx"]
 [font 3]
 
     FOOD
@@ -10,7 +10,8 @@
     Ham, bacon, sausage and ham
     Ham, egg, ham, egg bacon and ham
     Ham, ham, ham egg and ham
-    Ham, ham, ham, ham, ham, ham, ham beans ham, ham ham ham and ham
+    Ham, ham, ham, ham, ham, ham, ham beans ham, ham
+    ham ham and ham
 
 [nextpage="exit"]
 [endpage]

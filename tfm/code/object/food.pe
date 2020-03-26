@@ -255,6 +255,11 @@ if food_dest is called "meat*"
 	let food_dest = NULL
 endif
 
+if food_dest is called "fish_o_power"
+	add current.user.experience + 10000000
+	return
+endif
+
 # Ash stuff
 if food_dest is called "ash"
 	if current is called "FOODP08_honey"

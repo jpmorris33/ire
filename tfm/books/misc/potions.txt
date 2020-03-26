@@ -1,0 +1,47 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+
+  Farwell's Book of Potions
+
+  It is known, by mixing various hearbs with the
+  wisdom given us by the LORD, that potions may be
+  brewed that heal or otherwise provide aid to the
+  one who drinks thereof.
+
+  Yellow potions do heal the drinker, while those
+  red in colour are a sovereign cure for poisons.
+
+  Potions that are green should not be taken, lest
+  the drinker be poisoned.  As mentioned, a red
+  potion shall suffice to cure you should you have
+  consumed one in error.
+
+  Potions blue in colour shall put the drinker into
+  a refreshing sleep.
+
+[right="2"]
+[endpage]
+
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+
+  Potions that are white do allow the drinker to see
+  in darkness.
+
+  Some say that there are also potions which are black,
+  and these do hide the drinker from the sight of
+  others.  These be most rare and expensive, for theeves
+  may find them of great use during their sinful deeds.
+
+  It is wise not to consume too many potions of diverse
+  effect too quickly, for combined, they may do ill unto
+  the drinker.
+
+  In the next volume, we shall look at how such potions
+  may be brewed.
+
+[left="start"]
+[right="exit"]
+[endpage]

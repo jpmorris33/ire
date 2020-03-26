@@ -2109,6 +2109,14 @@ section: sprites
 	sign07lr		sprites/sign07lr.cel
 	sign07ud		sprites/sign07ud.cel
 	sign08			sprites/sign08.cel
+	sign09			sprites/sign09.png
+	sign10			sprites/sign10.png
+	sign11			sprites/sign11.png
+	sign12			sprites/sign12.png
+	sign13			sprites/sign13.png
+	sign14			sprites/sign14.png
+	sign15ud		sprites/sign15ud.png
+	sign15lr		sprites/sign15lr.png
 	lever01			sprites/lever1.cel
 	lever02			sprites/lever2.cel
 	lever03			sprites/lever3.cel
@@ -9424,6 +9432,14 @@ section: sequences
 	quickname SIGN07UD SIGN07UD
 	quickname SIGN07LR SIGN07LR
 	quickname SIGN08 SIGN08
+	quickname SIGN09
+	quickname SIGN10
+	quickname SIGN11
+	quickname SIGN12
+	quickname SIGN13
+	quickname SIGN14
+	quickname SIGN15ud
+	quickname SIGN15lr
 	quickname LEVER01 LEVER01
 	quickname LEVER02 LEVER02
 	quickname LEVER03 LEVER03

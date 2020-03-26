@@ -19,6 +19,8 @@ You see a sturdy blacksmith.
 [link="Do you buy weapons?"]
 [linkto="sell"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -42,6 +44,8 @@ You see a sturdy blacksmith.
 [link="Do you buy items?"]
 [linkto="sell"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -78,6 +82,8 @@ You see a sturdy blacksmith.
 [link="I'd like some armour instead."]
 [linkto="buy_armour"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -202,6 +208,8 @@ You see a sturdy blacksmith.
 [link="I'd like a weapon instead."]
 [linkto="buy_sword"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -285,6 +293,8 @@ You see a sturdy blacksmith.
 [link="I'd like to buy something instead."]
 [linkto="buy"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -315,6 +325,8 @@ You see a sturdy blacksmith.
 [link="I'd like to buy something."]
 [linkto="buy"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -445,6 +457,8 @@ You see a sturdy blacksmith.
 [link="I'd like to buy something."]
 [linkto="buy"]
 [always]
+[link="Can you help me with something?"]
+[linkto="help"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -535,10 +549,10 @@ You see a sturdy blacksmith.
 The blacksmith recoils in horror.
 [colour="#ffffff"]
 
-"By the Trinity.. that is the shield of a Crusader of the
- army of the LORD!  I will not ask how you came by it,
+"By the Trinity.. that is the shield of a Crusader of
+ the army of the LORD!  I ask not how you came by it,
  but hide it carefully, lest others may suspect that you
- murdered the soldiers of God, and you shall surely hang!
+ murdered soldiers of God, and you shall surely hang!
 
  Now take it away!"
 
@@ -580,6 +594,23 @@ The blacksmith recoils in horror.
  Would you sell something else instead?"
 
 [link="Yes, I would."]
+[linkto="sell"]
+[always]
+[link="I'd like to buy something."]
+[linkto="buy"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="help"]
+
+"Sorry, I am a busy man.
+ But if you come by the Green Lion after hours,
+ I may be able to help you then."
+
+[link="Do you buy weapons?"]
 [linkto="sell"]
 [always]
 [link="I'd like to buy something."]
@@ -732,7 +763,8 @@ The blacksmith recoils in horror.
 
 [page="scarman2"]
 
-"I have heard he lives in the forest, south of the river.
+"I have heard he lives deep in the forest, some way
+ west of Munrick the fisherman's hut.
 
  But he is very dangerous!  I am sure he would slay you
  if you approached him!"
