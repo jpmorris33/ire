@@ -290,6 +290,11 @@ if(!filename || !length) {
 	return NULL;
 }
 
+// Skip leading / as this won't work
+if(*filename == '/' || *filename == '\\') {
+	filename++;
+}
+
 // If none have been initialised, filecount will be 0 and it should just bail immediately
 
 for(ctr=0;ctr<jug_filecount;ctr++) {
@@ -320,6 +325,11 @@ bool jug_fileexists(const char *filename) {
 int ctr;
 if(!filename) {
 	return false;
+}
+
+// Skip leading / as this won't work
+if(*filename == '/' || *filename == '\\') {
+	filename++;
 }
 
 // If none have been initialised, filecount will be 0 and it should just bail immediately
