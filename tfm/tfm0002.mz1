@@ -134974,7 +134974,7 @@ iMZ1r01
 		type GRAVESTONE
 		at 144 606
 		curdir 0
-		name Bishop Ludwig
+		name Cardinal Bas
 
 	object GRAV77f55401-b90d-47e0-b69d-aadf9419c327
 		type GRAVESTONE
@@ -139289,6 +139289,7 @@ iMZ1r01
 		curdir 1
 		name Edward
 		funcs->talk people/peasants/eastshir/barman.txt
+		funcs->hurt JET_HURT
 		schedule 8 0 SIT_AT_LOCATION PEW_d871ea08-4633-4109-bfaf-d8363ddb5e5a
 		schedule 10 0 WAITER_STARTUP TARG88cfdf81-1346-4a25-ba96-5e7a2496bc98
 		schedule 6 0 WAITER_STARTUP TARG88cfdf81-1346-4a25-ba96-5e7a2496bc98
@@ -141692,6 +141693,18 @@ iMZ1r01
 	decorative TREE01 at 25 622
 
 	decorative TREE01 at 27 622
+
+	object SIGN78bd4197-ef68-4c57-86a3-e75f9c8a01c9
+		type SIGN01
+		at 57 622
+		curdir 2
+		name New Albion
+
+	object SIGNb3e5ce10-3b3d-4ef7-93f8-3dc191550ffc
+		type SIGN01
+		at 58 622
+		curdir 3
+		name Avis
 
 	decorative TREE03 at 93 622
 
@@ -157604,6 +157617,12 @@ iMZ1r01
 
 	decorative TREE00 at 164 668
 
+	object SIGNe388f114-dc74-4764-8a82-4fce2b18fd29
+		type SIGN01
+		at 192 668
+		curdir 0
+		name Avis
+
 	decorative TREE00 at 214 668
 
 	decorative TREE02 at 215 668
@@ -158014,6 +158033,12 @@ iMZ1r01
 	decorative TREE02 at 144 669
 
 	decorative TREE03 at 160 669
+
+	object SIGNae25533f-2b39-42de-8262-c90c9fc8a849
+		type SIGN01
+		at 190 669
+		curdir 2
+		name New Albion
 
 	decorative TREE02 at 225 669
 

@@ -204,7 +204,7 @@ You see Sir Ross.
  plain that my life would be forfeit if I were to speak
  of the matter.  I took this to mean that his employer
  was a man of great power and influence, such as King
- Edwyg of Albion.
+ Edwyg of New Albion.
 
  I have less fear of such reprisals now, for I have the
  dragon to protect me."
@@ -248,7 +248,7 @@ You see Sir Ross.
 
  I have less fear of such reprisals now, for I have the
  dragon to protect me.  Yet if it be not the King of
- Albion, who could have desired such a theft?"
+ New Albion, who could have desired such a theft?"
 
 [link="What about the King of Scotia?"]
 [linkto="jorge_employer3"]
@@ -273,6 +273,27 @@ You see Sir Ross.
  Hmm... now that I think of this, Jorge did mention
  the town of Avis on some occasions.  Mayhap he had
  some contact there?"
+
+[link="Where is Avis?"]
+[linkto="avis"]
+[link="What do you do?"]
+[linkto="job"]
+[link="Tell me about the dragon."]
+[linkto="beast"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="avis"]
+
+"Avis is a small farming town far southeast of here.
+ If you go south through King Edwyg's realm, you shall
+ find a path heading east to the Eastlands.
+
+ Avis is the first town you will find in that forsaken
+ land.  Stray not too far to the east, for there are
+ dark woolves there that serve the Enemy!"
 
 [link="What do you do?"]
 [linkto="job"]

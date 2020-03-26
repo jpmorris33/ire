@@ -603,6 +603,12 @@ stop_action current
 call start_attack
 end
 
+
+function behead_player
+let current = player
+call behead_current
+end
+
 ##
 ##  Spell level checks
 ##

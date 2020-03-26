@@ -104,7 +104,7 @@ King Edwyg greets you like a visiting prince.
 [if flour2][linkto="flour"]
 [call="check_thecow"]
 [if true][link="A giant cow is blocking the way to New Fairford."]
-[if true][linkto="fairford3"]
+[if true][linkto="fairford4"]
 [link="Goodbye"]
 [linkto="bye"]
 [endpage]
@@ -896,6 +896,24 @@ King Edwyg glances around the room and lowers his voice.
  what has happened.  For it seems to me that the Church
  is preparing for a strike against those whom it
  considers its enemies, and that would include him too."
+
+[link="Why are you called 'The Generous'?"]
+[linkto="name"]
+[if flour2][link="I would like some grain, your Majesty."]
+[if flour2][linkto="flour"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="fairford4"]
+
+"Aye, that is surely the Cow's true purpose - not just
+ to punish the people, but to trap those who live there
+ still.
+
+ I would suggest you consult my advisor, Joachim.
+ Micah, too, may be able to help in this."
 
 [link="Why are you called 'The Generous'?"]
 [linkto="name"]

@@ -21,6 +21,8 @@ grace and agility.
 [linkto="inn"]
 [link="Have you any news?"]
 [linkto="news"]
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -44,6 +46,8 @@ You see Edward the barkeeper.
 [linkto="inn"]
 [link="Have you any news?"]
 [linkto="news"]
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -109,6 +113,8 @@ You see Edward the barkeeper.
 [linkto="buy"]
 [link="I'd like a room, please."]
 [linkto="inn"]
+[if find_jorge][link="Do you know of a man called Jorge?"]
+[if find_jorge][linkto="jorge"]
 [link="Farewell."]
 [linkto="bye"]
 [endpage]
@@ -183,6 +189,32 @@ You see Edward the barkeeper.
 
  Many have gone to slay the beast, and none have ever
  returned.  That is bad for my business."
+ 
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="jorge"]
+
+"He is a known villain and rogue.  A slippery man.
+ Many has been the time when we have expected him to be
+ sent to the rope or the blade, yet his life is charmed
+ and he has thus far escaped justice.
+
+ I have not seem him for some while, so it may yet be
+ that his luck has finally run out.
+
+ 'Tis curious, but when last he was here, he was
+ talking with Cardinal Bas at our Church.  I care not to
+ think what his errand there was, for he surely did not
+ visit the church to confess."
  
 [link="Why is this pub called 'The Lost Lake Inn'?"]
 [linkto="pubname"]
@@ -382,6 +414,25 @@ You see Edward the barkeeper.
 [page="bye"]
 
 "Fare you well."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="attacked"]
+[at_exit_call="behead_player"]
+[clear true]
+
+[colour="#808080"]
+Before your very eyes, the barman's form shifts into a
+winged feline creature.
+
+His eyes glow red as the wings stretch out into
+tentacles that streak towards your neck.
+[colour="#ffffff"]
+
+"You fool!  I would have let you live!
+ You stupid... stupid... NNNG!"
 
 [nextpage="exit"]
 [endpage]
