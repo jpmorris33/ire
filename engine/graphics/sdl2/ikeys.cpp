@@ -280,6 +280,9 @@ asciitab[IREKEY_COLON] = ';';
 asciitab[IREKEY_DOT] = '.';
 asciitab[IREKEY_COMMA] = ',';
 asciitab[IREKEY_QUOTE] = '\'';
+asciitab[IREKEY_QUOTE] = '\'';
+asciitab[IREKEY_OPENBRACE] = '[';
+asciitab[IREKEY_CLOSEBRACE] = ']';
 
 shiftascii['0']=')';
 shiftascii['1']='!';
@@ -300,6 +303,7 @@ shiftascii['[']='{';
 shiftascii[']']='}';
 shiftascii[';']=':';
 shiftascii['\'']='@';
+shiftascii['\\']='|';
 
 for(int ctr='a';ctr<='z';ctr++) {
 	shiftascii[ctr]=ctr-32;
