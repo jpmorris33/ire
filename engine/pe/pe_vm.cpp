@@ -78,7 +78,7 @@ extern void ResumeSchedule(OBJECT *o);
 extern void CheckTime();
 extern OBJECT *find_nearest(OBJECT *o, char *type);
 extern void find_nearby(OBJECT *o, char *type, OBJECT **list, int listsize);
-extern OBJECT *find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize);
+extern void find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize);
 extern void set_light(int x, int y, int x2, int y2, int light);
 extern void ForceUpdateTag(int tag);
 extern OBJECT *GetFirstObject(OBJECT *cont, char *name);
