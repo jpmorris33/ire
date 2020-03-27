@@ -27310,6 +27310,7 @@ iMZ1r01
 		type BOAT2
 		at 385 414
 		curdir 2
+		funcs->use -
 
 	object TODE5454336b-515c-47f5-83c3-bb9c8622fe5e
 		type TODE
@@ -27336,6 +27337,7 @@ iMZ1r01
 		type BOAT2
 		at 373 415
 		curdir 2
+		funcs->use -
 
 	decorative TREE03 at 573 415
 
@@ -27782,6 +27784,7 @@ iMZ1r01
 		type BOAT2
 		at 373 422
 		curdir 2
+		funcs->use -
 
 	object SWAMa78232f9-6823-42ec-b42c-9fdec49d0b5c
 		type SWAMP_INSIDE

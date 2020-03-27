@@ -505,12 +505,13 @@ as if considering something.
 [image="yado.pcx"]
 [journal="jrn_YaDo-packages"]
 
-"Far, far away,  an island there is, somewhere to
- the West it lies, yes.  According to legend, much
- treasure there is.  I have foreseen that
- and amongst this wealth, several brown packages
- there are, of a rare and much sought-after
- substance.
+"Far, far away, an island there is, many days sailing to
+ the West it lies, yes!
+
+ According to legend, much treasure there is.
+ I have foreseen that and amongst this wealth, several
+ brown packages there are, of a rare and much
+ sought-after substance.
 
  If these packages you bring, then help you I will!"
 
