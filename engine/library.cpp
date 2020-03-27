@@ -808,7 +808,7 @@ for(ctr=0;ctr<ms;ctr++)
 // Line of sight routine, using J. Grant's interpretation of Bresenham
 // From the ITG32 graphics library (1995)
 
-int line_of_sight(int xa, int ya, int xb, int yb)
+int line_of_sight(int xa, int ya, int xb, int yb, int *tx, int *ty)
 {
 int t, distance,steps;
 int xerr=0, yerr=0, delta_x, delta_y;
@@ -840,43 +840,67 @@ steps=0;
 	delta_x = abs(delta_x);
 	delta_y = abs(delta_y);
 
-	if(delta_x > delta_y)
-		distance=delta_x;
-	else
+	if(delta_x > delta_y) {
+		distance=delta_x; 
+	} else {
 		distance=delta_y;
+	}
 
 	// Draw the god dam line.
-	for(t = 0; t <= distance + 1; t++)
-		{
-		if(isSolid(xa,ya))
-			if(!(xa == xo && ya == yo))
-				if(!(xa == xb && ya == yb))
-					{
+	for(t = 0; t <= distance + 1; t++) {
+		if(isSolid(xa,ya) && (!IsTileWater(xa,ya))) {
+			if(!(xa == xo && ya == yo)) {
+				if(!(xa == xb && ya == yb)) {
 					obj = GetSolidObject(xa,ya);
-					if(!obj)
-						return 0;
-					CHECK_OBJECT(obj);
-					if(!(obj->flags & IS_TABLETOP))
+					if(!obj) {
+						if(tx) {
+							*tx=xa;
+						}
+						if(ty) {
+							*ty=ya;
+						}
 						return 0;
 					}
+					CHECK_OBJECT(obj);
+					if(!(obj->flags & IS_TABLETOP)) {
+						if(tx) {
+							*tx=xa;
+						}
+						if(ty) {
+							*ty=ya;
+						}
+						return 0;
+					}
+				}
+			}
+		}
+	
 		xerr += delta_x;
 		yerr += delta_y;
 
 		steps++;
 
-		if(xerr > distance)
-			{
+		if(xerr > distance) {
 			xerr -= distance;
 			xa += incx;
-			}
-		if(yerr > distance)
-			{
+		}
+		if(yerr > distance) {
 			yerr -= distance;
 			ya += incy;
-			}
 		}
+	}
+
+if(tx) {
+	*tx=xa;
+}
+if(ty) {
+	*ty=ya;
+}
+
 return steps;
 }
+
+
 
 void move_to_top(OBJECT *object)
 {

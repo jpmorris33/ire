@@ -96,7 +96,7 @@ extern int is_solid(int x,int y);
 extern int in_pocket(OBJECT *o);
 extern int move_object(OBJECT *src,int x,int y);
 extern void transfer_object(OBJECT *src,int x,int y);
-extern int line_of_sight(int xa, int ya, int xb, int yb);
+extern int line_of_sight(int xa, int ya, int xb, int yb, int *tx, int *ty);
 extern int move_forward(OBJECT *a);
 extern int move_backward(OBJECT *a);
 extern int turn_l(OBJECT *a);

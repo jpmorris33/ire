@@ -3827,6 +3827,7 @@ InsertAfter(*dest,*obj);
 void PV_GetLOS() {
 VMINT *x;
 OBJECT **obj1,**obj2;
+int tx=0,ty=0;
 
 x = GET_INT();
 CHECK_POINTER(x);
@@ -3850,7 +3851,9 @@ if(!*obj2) {
 
 // Ok, do it
 
-*x=line_of_sight((*obj1)->x,(*obj1)->y,(*obj2)->x,(*obj2)->y);
+*x=line_of_sight((*obj1)->x,(*obj1)->y,(*obj2)->x,(*obj2)->y,&tx,&ty);
+new_x=tx;
+new_y=ty;
 }
 
 // Get crude distance between two objects
