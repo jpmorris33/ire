@@ -24,6 +24,9 @@
 #define POCKET_Y 80
 #define POCKET_H 34
 
+#define NOFUNC -1
+#define WIPEFUNC -2
+
 #define PAD_OUT(a,b) PadOut(a,b);
 
 #ifdef WINDOWS_IS_BROKEN
@@ -107,6 +110,7 @@ static void SetOwnerRecursively(OBJECT *obj, OBJECT *owner);
 static void SelectThisObject(OBJECT *ptr);
 static int CMPsched(const void *a, const void *b);
 static void makeUIDPrefix(char strout[16], const char *name);
+static void setFunc(char *out, VMINT *dest, int script);
 
 void OB_up();           // Panning functions
 void OB_down();
@@ -2126,7 +2130,7 @@ if(setschedule < 0)
 	return;
 
 x = PickVrm(objsel->schedule[setschedule].vrm,'A',"P");
-if(x==-1)
+if(x<0)
 	strcpy(objsel->schedule[setschedule].vrm,"\0");
 else
 	{
@@ -2293,37 +2297,37 @@ Behave_Update2();
 
 void Behave_Update()
 {
-if(objsel->activity== -1)
+if(objsel->activity < 0)
 	IG_UpdateText(behave_Id,none);
 else
 	IG_UpdateText(behave_Id,PElist[objsel->activity].name);
 
-if(objsel->funcs->ucache == -1)
+if(objsel->funcs->ucache < 0)
 	IG_UpdateText(use_Id,none);
 else
 	IG_UpdateText(use_Id,PElist[objsel->funcs->ucache].name);
 
-if(objsel->funcs->kcache == -1)
+if(objsel->funcs->kcache < 0)
     IG_UpdateText(kill_Id,none);
 else
     IG_UpdateText(kill_Id,PElist[objsel->funcs->kcache].name);
 
-if(objsel->funcs->lcache == -1)
+if(objsel->funcs->lcache < 0)
     IG_UpdateText(look_Id,none);
 else
     IG_UpdateText(look_Id,PElist[objsel->funcs->lcache].name);
 
-if(objsel->funcs->scache == -1)
+if(objsel->funcs->scache < 0)
     IG_UpdateText(stand_Id,none);
 else
     IG_UpdateText(stand_Id,PElist[objsel->funcs->scache].name);
 
-if(objsel->funcs->hcache == -1)
+if(objsel->funcs->hcache < 0)
     IG_UpdateText(hurt_Id,none);
 else
     IG_UpdateText(hurt_Id,PElist[objsel->funcs->hcache].name);
 
-if(objsel->funcs->icache == -1)
+if(objsel->funcs->icache < 0)
     IG_UpdateText(init_Id,none);
 else
     IG_UpdateText(init_Id,PElist[objsel->funcs->icache].name);
@@ -2332,12 +2336,12 @@ else
 void Behave_Update2()
 {
 
-if(objsel->funcs->wcache == -1)
+if(objsel->funcs->wcache < 0)
     IG_UpdateText(wield_Id,none);
 else
     IG_UpdateText(wield_Id,PElist[objsel->funcs->wcache].name);
 
-if(objsel->funcs->acache == -1)
+if(objsel->funcs->acache < 0)
     IG_UpdateText(attack_Id,none);
 else
     IG_UpdateText(attack_Id,PElist[objsel->funcs->acache].name);
@@ -2354,7 +2358,7 @@ IG_UpdateText(talk_Id,objsel->funcs->talk);
 
 void SetBehave()
 {
-if(objsel->activity == -1)
+if(objsel->activity < 0)
 	objsel->activity = PickVrm(NULL,'A',"P");
 else
 	objsel->activity = PickVrm(PElist[objsel->activity].name,'A',"P");
@@ -2365,9 +2369,8 @@ IG_WaitForRelease();
 
 void SetUse()
 {
-objsel->funcs->ucache = PickVrm(objsel->funcs->use,0,"AP");
-if(objsel->funcs->ucache != -1)
-    strcpy(objsel->funcs->use, PElist[objsel->funcs->ucache].name);
+int selection = PickVrm(objsel->funcs->use,0,"AP");
+setFunc(objsel->funcs->use, &objsel->funcs->ucache, selection);
 
 Behave_Update();
 IG_WaitForRelease();
@@ -2375,9 +2378,8 @@ IG_WaitForRelease();
 
 void SetKill()
 {
-objsel->funcs->kcache = PickVrm(objsel->funcs->kill,0,"AP");
-if(objsel->funcs->kcache != -1)
-    strcpy(objsel->funcs->kill, PElist[objsel->funcs->kcache].name);
+int selection = PickVrm(objsel->funcs->kill,0,"AP");
+setFunc(objsel->funcs->kill, &objsel->funcs->kcache, selection);
 
 Behave_Update();
 IG_WaitForRelease();
@@ -2385,9 +2387,8 @@ IG_WaitForRelease();
 
 void SetLook()
 {
-objsel->funcs->lcache = PickVrm(objsel->funcs->look,0,"AP");
-if(objsel->funcs->lcache != -1)
-    strcpy(objsel->funcs->look, PElist[objsel->funcs->lcache].name);
+int selection = PickVrm(objsel->funcs->look,0,"AP");
+setFunc(objsel->funcs->look, &objsel->funcs->lcache, selection);
 
 Behave_Update();
 IG_WaitForRelease();
@@ -2395,9 +2396,8 @@ IG_WaitForRelease();
 
 void SetStand()
 {
-objsel->funcs->scache = PickVrm(objsel->funcs->stand,0,"AP");
-if(objsel->funcs->scache != -1)
-    strcpy(objsel->funcs->stand, PElist[objsel->funcs->scache].name);
+int selection = PickVrm(objsel->funcs->stand,0,"AP");
+setFunc(objsel->funcs->stand, &objsel->funcs->scache, selection);
 
 Behave_Update();
 IG_WaitForRelease();
@@ -2405,9 +2405,8 @@ IG_WaitForRelease();
 
 void SetHurt()
 {
-objsel->funcs->hcache = PickVrm(objsel->funcs->hurt,0,"AP");
-if(objsel->funcs->hcache != -1)
-    strcpy(objsel->funcs->hurt, PElist[objsel->funcs->hcache].name);
+int selection = PickVrm(objsel->funcs->hurt,0,"AP");
+setFunc(objsel->funcs->hurt, &objsel->funcs->hcache, selection);
 
 Behave_Update();
 IG_WaitForRelease();
@@ -2415,9 +2414,8 @@ IG_WaitForRelease();
 
 void SetWield()
 {
-objsel->funcs->wcache = PickVrm(objsel->funcs->wield,0,"AP");
-if(objsel->funcs->wcache != -1)
-    strcpy(objsel->funcs->wield, PElist[objsel->funcs->wcache].name);
+int selection = PickVrm(objsel->funcs->wield,0,"AP");
+setFunc(objsel->funcs->wield, &objsel->funcs->wcache, selection);
 
 Behave_Update2();
 IG_WaitForRelease();
@@ -2425,9 +2423,8 @@ IG_WaitForRelease();
 
 void SetAttack()
 {
-objsel->funcs->acache = PickVrm(objsel->funcs->attack,0,"AP");
-if(objsel->funcs->acache != -1)
-	strcpy(objsel->funcs->attack, PElist[objsel->funcs->acache].name);
+int selection = PickVrm(objsel->funcs->attack,0,"AP");
+setFunc(objsel->funcs->attack, &objsel->funcs->acache, selection);
 
 Behave_Update2();
 IG_WaitForRelease();
@@ -2459,9 +2456,8 @@ IG_WaitForRelease();
 
 void SetInit()
 {
-objsel->funcs->icache = PickVrm(objsel->funcs->init,0,"AP");
-if(objsel->funcs->icache != -1)
-    strcpy(objsel->funcs->init,PElist[objsel->funcs->icache].name);
+int selection = PickVrm(objsel->funcs->init,0,"AP");
+setFunc(objsel->funcs->init, &objsel->funcs->icache, selection);
 
 Behave_Update();
 IG_WaitForRelease();
@@ -2519,11 +2515,11 @@ mlist = (char **)M_get(PEtot+1,sizeof(char *));
 
 // If a null pointer
 if(!original)
-     original="-";
+     original="";
 
 // If an empty string
-if(!original[0])
-     original="-";
+//if(!original[0])
+//     original="-";
 
 mlist[num++]="-";
 for(ctr=0;ctr<PEtot;ctr++)
@@ -2548,12 +2544,18 @@ if(!name[0])
 
 M_free(mlist);
 
+// If they selected '-' we need to handle that specially or it'll get detected as 'no match'
+if(!strcmp(name,"-")) {
+	return WIPEFUNC;
+}
+
 for(ctr=0;ctr<PEtot;ctr++)
 	if(PElist[ctr].name != NULL)
 		if(PElist[ctr].Class == Class || !Class)
 			if(!stricmp(PElist[ctr].name,name))
 				return ctr;
-return -1;
+
+return NOFUNC;
 }
 
 /*
@@ -3421,4 +3423,21 @@ while(strlen(strout)<4) {
 	strcat(strout,"_");
 }
 strupr(strout); // Make the prefix uppercase
+}
+
+
+void static setFunc(char *out, VMINT *dest, int script) {
+if(script >= 0 && script < PEtot) {
+	strcpy(out, PElist[script].name);
+	*dest = script;
+	return;
+}
+
+// If it's a special value, erase it
+if(script == WIPEFUNC) {
+	strcpy(out,"-");
+	*dest = NOFUNC;
+}
+
+// Otherwise leave it alone
 }

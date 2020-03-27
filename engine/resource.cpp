@@ -1705,10 +1705,10 @@ for(ctr=start;ctr<=finish;ctr++)
 			{
 			// If we have a behaviour already, reject the second one
 			// unless it is the dummy one to make ifTriggered work
-			if(character->activity != -1)
+			if(character->activity >= 0)
 				Dump(ctr,"Multiple initial behaviours not supported",NULL);
 			character->activity = getnum4PE(strfirst(strrest(line)));
-			if(character->activity == -1)
+			if(character->activity < 0)
 				Dump(ctr,"Cannot find script function",strfirst(strrest(line)));
 			continue;
 			}

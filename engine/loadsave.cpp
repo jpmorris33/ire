@@ -148,7 +148,7 @@ if(!in_editor)
 	for(ptr=MasterList;ptr;ptr=ptr->next)
 		if(!(ptr->ptr->flags&DID_INIT))
 			{
-			if(ptr->ptr->funcs->icache != -1)
+			if(ptr->ptr->funcs->icache >= 0)
 				{
 				current_object = ptr->ptr;
 				person = ptr->ptr;

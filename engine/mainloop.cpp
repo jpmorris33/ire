@@ -1284,7 +1284,7 @@ ilog_printf("Rerun Object Inits\n");
 
 for(ptr=MasterList;ptr;ptr=ptr->next) {
 	if(!(ptr->ptr->flags & DID_INIT)) {
-		if(ptr->ptr->funcs->icache != -1) {
+		if(ptr->ptr->funcs->icache >= 0) {
 			current_object = ptr->ptr;
 			person = ptr->ptr;
 			new_x = person->x;
@@ -1707,7 +1707,7 @@ load_lightstate(mapnumber,9999);
 // Run inits (as necessary)
 for(ptr=MasterList;ptr;ptr=ptr->next) {
 	if(!(ptr->ptr->flags & DID_INIT)) {
-		if(ptr->ptr->funcs->icache != -1) {
+		if(ptr->ptr->funcs->icache >= 0) {
 			current_object = ptr->ptr;
 			person = ptr->ptr;
 			new_x = person->x;
@@ -1796,7 +1796,7 @@ for(ctr=0;ctr<15;ctr++)
 		break;
 	if(vy<0 || vy>curmap->h)
 		break;
-	if(line_of_sight(o->x,o->y,vx,vy))
+	if(line_of_sight(o->x,o->y,vx,vy,NULL,NULL))
 		{
 		temp=GameGetObject(vx,vy);
 		for(;temp;temp=temp->next)
@@ -2052,7 +2052,7 @@ if(savegame_no > 0) {
 	// Now re-initialise anything that needs it (this is a savegame backwards compatibility fix)
 	for(OBJLIST *ptr=MasterList;ptr;ptr=ptr->next) {
 		if(!(ptr->ptr->flags & DID_INIT)) {
-			if(ptr->ptr->funcs->icache != -1) {
+			if(ptr->ptr->funcs->icache >= 0) {
 				current_object = ptr->ptr;
 				person = ptr->ptr;
 				new_x = person->x;

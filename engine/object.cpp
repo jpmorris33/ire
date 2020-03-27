@@ -2269,7 +2269,7 @@ for(int ictr=0;ictr<objsel->funcs->contents;ictr++)
 if(!in_editor)
 	if(!(objsel->flags & DID_INIT))
 		{
-		if(objsel->funcs->icache != -1)
+		if(objsel->funcs->icache >= 0)
 			{
 			VM_SaveRegs(&oldvars);
 			current_object = objsel;
@@ -3299,7 +3299,7 @@ for(temp=start;temp;temp=next)
         if(temp->stats->hp < temp->user->oldhp)
             {
             if(temp->stats->hp>0)
-                if(temp->funcs->hcache != -1)
+                if(temp->funcs->hcache >= 0)
                     {
                     current_object = temp;
                     CallVMnum(temp->funcs->hcache);
@@ -3314,7 +3314,7 @@ for(temp=start;temp;temp=next)
         if(temp->stats->hp < 1)
             {
 			UnWield(temp,NULL);	// Unwield all wielded stuff
-            if(temp->funcs->kcache != -1)      // If it can be killed..
+            if(temp->funcs->kcache >= 0)      // If it can be killed..
                 {
                 current_object = temp;
                 CallVMnum(temp->funcs->kcache); // ..then kill it.

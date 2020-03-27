@@ -478,8 +478,10 @@ int funcID;
 if(!func[0]) {
 	return false;
 }
-if(!strcmp(func,"-")) {
-	*func=0;	// Stop it looking them up again later
+if(func[0] == '-' && (!func[1])) {
+//	*func=0;	// Stop it looking them up again later
+	// JM: deleting the function broke the editor when removing unwanted functions
+	//     I think this was just an optimisation, but I guess we'll find out
 	return false;
 }
 
