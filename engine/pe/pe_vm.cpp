@@ -3851,7 +3851,7 @@ if(!*obj2) {
 
 // Ok, do it
 
-*x=line_of_sight((*obj1)->x,(*obj1)->y,(*obj2)->x,(*obj2)->y,&tx,&ty);
+*x=line_of_sight((*obj1)->x,(*obj1)->y,(*obj2)->x,(*obj2)->y,&tx,&ty,*obj2);
 new_x=tx;
 new_y=ty;
 }

@@ -1796,7 +1796,7 @@ for(ctr=0;ctr<15;ctr++)
 		break;
 	if(vy<0 || vy>curmap->h)
 		break;
-	if(line_of_sight(o->x,o->y,vx,vy,NULL,NULL))
+	if(line_of_sight(o->x,o->y,vx,vy,NULL,NULL,NULL))
 		{
 		temp=GameGetObject(vx,vy);
 		for(;temp;temp=temp->next)

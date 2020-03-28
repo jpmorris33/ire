@@ -808,7 +808,7 @@ for(ctr=0;ctr<ms;ctr++)
 // Line of sight routine, using J. Grant's interpretation of Bresenham
 // From the ITG32 graphics library (1995)
 
-int line_of_sight(int xa, int ya, int xb, int yb, int *tx, int *ty)
+int line_of_sight(int xa, int ya, int xb, int yb, int *tx, int *ty, OBJECT *ignore)
 {
 int t, distance,steps;
 int xerr=0, yerr=0, delta_x, delta_y;
@@ -848,6 +848,7 @@ steps=0;
 
 	// Draw the god dam line.
 	for(t = 0; t <= distance + 1; t++) {
+
 		if(isSolid(xa,ya) && (!IsTileWater(xa,ya))) {
 			if(!(xa == xo && ya == yo)) {
 				if(!(xa == xb && ya == yb)) {
@@ -862,14 +863,16 @@ steps=0;
 						return 0;
 					}
 					CHECK_OBJECT(obj);
-					if(!(obj->flags & IS_TABLETOP)) {
-						if(tx) {
-							*tx=xa;
+					if(obj != ignore) {
+						if(!(obj->flags & IS_TABLETOP)) {
+							if(tx) {
+								*tx=xa;
+							}
+							if(ty) {
+								*ty=ya;
+							}
+							return 0;
 						}
-						if(ty) {
-							*ty=ya;
-						}
-						return 0;
 					}
 				}
 			}
