@@ -388,7 +388,7 @@ You see Milo, the light fighter.
 
 "Do you have to, $Sir?  It's his private thoughts...
 
- It's probably on his computer.  But please, show
+ It's probably on his laptop computer.  But please, show
  some respect for his privacy..."
 
 [link="What is the crest on your tail?"]

@@ -5314,6 +5314,11 @@ iMZ1r01
 
 	object STON1fe2e2fb-8029-44e8-8de3-48e2275a628f
 		type STONEWINDOW1
+		at 512 131
+		curdir 0
+
+	object SIGN94c8cdca-fcdb-4da2-8d21-7ac97a12c485
+		type SIGN08
 		at 513 131
 		curdir 0
 
@@ -5322,11 +5327,15 @@ iMZ1r01
 		at 514 131
 		curdir 1
 
-	object PLAQ8414d743-d9b8-4e51-85cb-2913ac9b61c9
-		type PLAQUE_BRASS
+	object SIGN5cb8a3c9-389c-4b89-998a-097242cdc2bc
+		type SIGN08
 		at 516 131
 		curdir 0
-		name Tailors
+
+	object STON468e13ee-9b05-482a-b108-56aa12aaad09
+		type STONEWINDOW1
+		at 517 131
+		curdir 0
 
 	decorative MOUNT08 at 905 131
 
@@ -5856,11 +5865,21 @@ iMZ1r01
 
 	decorative MOUNT03 at 1014 138
 
+	object SIGN97f36401-bfe0-4ec1-9468-3bf7081f82c0
+		type SIGN12
+		at 485 139
+		curdir 0
+
 	object STON8cbb5ac6-fd50-4f93-8e1d-e782579269c4
 		type STONEDOOR2_SHUT
 		at 486 139
 		curdir 1
 		name Butcher
+
+	object SIGN03db9666-914d-4456-b2f0-a034c7982c48
+		type SIGN12
+		at 488 139
+		curdir 0
 
 	decorative HUT03 at 693 139
 
@@ -6580,10 +6599,20 @@ iMZ1r01
 		at 514 153
 		curdir 1
 
+	object SIGNea08967d-9507-4343-94ee-b4c4db78b1f2
+		type SIGN19
+		at 515 153
+		curdir 0
+
 	object STONe51320c7-4be7-4faa-9b46-5ddd9fd97e31
 		type STONEDOOR1_SHUT
 		at 516 153
 		curdir 1
+
+	object SIGN6ff2b83f-2345-48db-b089-6c12efbbebc3
+		type SIGN19
+		at 518 153
+		curdir 0
 
 	object TODE6192d067-e0fa-419b-992e-30b05586d81d
 		type TODE
@@ -7701,6 +7730,11 @@ iMZ1r01
 		at 483 167
 		curdir 2
 
+	object SIGN939c5847-42d3-45f0-88d9-6988bb5f98ca
+		type SIGN16
+		at 487 167
+		curdir 3
+
 	object SIGNd2ab5907-a3f4-4c88-84fa-af565183ed74
 		type SIGN07
 		at 502 167
@@ -7711,6 +7745,12 @@ iMZ1r01
 		type STONEDOOR1_SHUT
 		at 503 167
 		curdir 1
+
+	object SIGN32a71de4-876d-4ab1-84e8-fd2b65fece3b
+		type SIGN07
+		at 505 167
+		curdir 0
+		name The Flying Trout
 
 	object STONf31ae4c8-560d-44f7-8719-26948d6074c7
 		type STONEWINDOW1
@@ -8019,6 +8059,11 @@ iMZ1r01
 
 	decorative MOUNT11 at 996 169
 
+	object SIGN0b76d0d9-b8b3-45ce-8160-3ea8f69ef48a
+		type SIGN16
+		at 487 170
+		curdir 3
+
 	object BED_4c24e020-3084-40f2-a34d-7e9826a6c308
 		type BED
 		at 525 170
@@ -8163,6 +8208,12 @@ iMZ1r01
 		type TABLE6-H
 		at 486 171
 		curdir 3
+
+	object SIGN1262b171-08b6-4c09-bfbb-3543d2fad28b
+		type SIGN02
+		at 521 171
+		curdir 0
+		name Fishmonger
 
 	object STONc6bcdf1e-6c98-417e-93b9-0824f1bbafd4
 		type STONEDOOR1_SHUT
@@ -8403,6 +8454,12 @@ iMZ1r01
 	decorative MOUNT04 at 983 173
 
 	decorative MOUNT03 at 987 173
+
+	object SIGNeb9f407f-f1f3-4f7c-ab1d-3458317cf474
+		type SIGN02
+		at 521 174
+		curdir 0
+		name Fishmonger
 
 	object STONee1c4a83-39b2-44e0-b9e5-e5e8a635cf41
 		type STONEWINDOW1
@@ -24439,6 +24496,16 @@ iMZ1r01
 		at 584 374
 		curdir 1
 
+	object TREA05004e0c-a778-43b0-9de1-4645fa76fb64
+		type TREASURE_02
+		inside CHES6dd36893-6aba-420f-a3fa-9a3430e7af0d
+		curdir 0
+
+	object TREAc979b6d4-7320-438b-ad63-097062d46ff8
+		type TREASURE_04
+		inside CHES6dd36893-6aba-420f-a3fa-9a3430e7af0d
+		curdir 0
+
 	object CHES6dd36893-6aba-420f-a3fa-9a3430e7af0d
 		type CHESTBROKEN
 		at 587 374
@@ -24488,6 +24555,11 @@ iMZ1r01
 	decorative RUBBLE_01 at 581 375
 
 	decorative RUBBLE_25 at 582 375
+
+	object SIGN4d0d5282-de5c-4c53-9020-cc7fe3fbce6c
+		type SIGN11
+		at 583 375
+		curdir 2
 
 	decorative RUBBLE_24 at 584 375
 
@@ -25786,6 +25858,11 @@ iMZ1r01
 
 	decorative RUBBLE_23 at 583 391
 
+	object SIGN44f46c22-2bec-473d-a738-a624e01308d0
+		type SIGN17
+		at 583 391
+		curdir 2
+
 	decorative MOUNT10 at 811 391
 
 	decorative MOUNT02 at 812 391
@@ -26888,12 +26965,12 @@ iMZ1r01
 
 	decorative RUBBLE_25 at 604 402
 
-	decorative RUBBLE_24 at 605 402
-
-	object RUBB6074a801-b4fb-44a9-942c-7bd4757e1ec6
-		type RUBBLE_FAKE
-		at 606 402
+	object SIGNc223b4d1-80ba-4402-9437-9db0a782a5fb
+		type SIGN07
+		at 605 402
 		curdir 0
+
+	decorative RUBBLE_24 at 606 402
 
 	decorative RUBBLE_04 at 607 402
 
@@ -73813,6 +73890,11 @@ iMZ1r01
 		schedule 20 0 SIT_AT_LOCATION TARGec7578c3-cb95-405c-b0c1-c10afabbd196
 		schedule 22 0 GO_TO_SLEEP BED_6640e243-51fc-4678-9ddd-8de189e33811
 
+	object SIGN96feb136-f609-480a-9acc-47f54e6cd855
+		type SIGN08
+		at 792 792
+		curdir 2
+
 	object PATH0136adf7-8a37-46ff-b1c8-f0c15c9d1316
 		type PATHMARKER
 		at 795 792
@@ -74154,6 +74236,11 @@ iMZ1r01
 	object LOOMf34f6129-8005-4f23-92d9-675c9cf100ed
 		type LOOM
 		at 790 794
+		curdir 2
+
+	object SIGN3dcb1e00-88be-4cae-aaaa-fed88482a18d
+		type SIGN08
+		at 792 794
 		curdir 2
 
 	object PATHa93dcf7c-b120-4768-a4c8-06ee02a7c107
@@ -78390,6 +78477,7 @@ iMZ1r01
 		at 808 815
 		curdir 0
 		name Jon
+		funcs->talk /people/peasants/mawdor/jon.txt
 		schedule 8 0 SIT_AT_LOCATION PEW_f67536ac-45ed-4094-bf91-779e15d99c5a
 		schedule 9 0 ALCHEMY_AT_LOCATION TARG69b1459b-76b8-49e4-9af2-e5c76ff1be62
 		schedule 12 0 EAT_AT_LOCATION TARG542ae9a3-e88e-41db-96fa-1c05a07070c0
@@ -78950,6 +79038,16 @@ iMZ1r01
 		at 807 818
 		curdir 1
 		name Jon the Apothecar
+
+	object SIGNadf3a055-6da4-44d4-979c-e873cb5dd1b3
+		type SIGN18
+		at 807 818
+		curdir 2
+
+	object SIGNd1890867-1fdd-4ae0-9963-c38f0bc63b52
+		type SIGN18
+		at 809 818
+		curdir 2
 
 	object STON4e99e07c-2f1d-4673-afb4-ad49503485f0
 		type STONEWINDOW1
@@ -80405,6 +80503,11 @@ iMZ1r01
 		type CHIMNEY1
 		at 792 828
 		curdir 0
+
+	object SIGNef796ecf-4c6e-42fc-bc79-fad46963f3ba
+		type SIGN03
+		at 797 828
+		curdir 2
 
 	decorative TREE01 at 895 828
 

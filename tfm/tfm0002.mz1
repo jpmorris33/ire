@@ -142510,6 +142510,11 @@ iMZ1r01
 		curdir 3
 		stats->owner WOMAc7a6da90-a040-44d1-b4fa-2846ab151d93
 
+	object SIGN23df819a-50d0-4a1e-9341-160569966c7d
+		type SIGN08
+		at 177 624
+		curdir 2
+
 	object PATHa3234870-9838-462d-b9a2-4faa9fc7cfc2
 		type PATHMARKER
 		at 183 624
@@ -144646,6 +144651,11 @@ iMZ1r01
 		schedule 18 0 SIT_AT_LOCATION TARG642b6419-ba11-4e37-bf38-1ba9a6000095
 		schedule 20 0 GO_TO_SLEEP BED_60836757-5d1d-4140-8170-023d1928728e
 
+	object SIGN0e27c95b-bb8a-4546-9024-252fe8ea8057
+		type SIGN17
+		at 168 630
+		curdir 2
+
 	object PATH230563c5-0e21-4a3e-a914-409078ad930f
 		type PATHMARKER
 		at 184 630
@@ -145310,6 +145320,11 @@ iMZ1r01
 	object TABL9943b611-5432-4103-8668-797b70175c66
 		type TABLE-SHADOW1
 		at 163 632
+		curdir 2
+
+	object SIGN4213aa57-9aa6-4baa-9977-48f92dd41267
+		type SIGN17
+		at 168 632
 		curdir 2
 
 	object SPAW71283431-2c9d-45fe-abc4-c92b4c4e4d6d

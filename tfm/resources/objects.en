@@ -8993,7 +8993,10 @@ section: characters
 	description	"You see a pub sign."
 
 	alias SIGN08 = SIGN03
-	frame		SIGN08
+	left		SIGN08LR
+	right		SIGN08LR
+	up		SIGN08UD
+	down		SIGN08UD
 	description	"You see a tailor's sign."
 
 	alias SIGN09 = SIGN03
@@ -9026,6 +9029,28 @@ section: characters
 	left		SIGN15lr
 	right		SIGN15lr
 	description	"You see a grocer's sign."
+
+	alias SIGN16 = SIGN03
+	up		SIGN16ud
+	down		SIGN16ud
+	left		SIGN16lr
+	right		SIGN16lr
+	description	"You see a glassmaker's sign."
+
+	alias SIGN17 = SIGN03
+	up		SIGN17ud
+	down		SIGN17ud
+	left		SIGN17lr
+	right		SIGN17lr
+	description	"You see a healer's sign."
+
+	alias SIGN18 = SIGN03
+	frame		SIGN18
+	description	"You see an apothecary sign."
+
+	alias SIGN19 = SIGN03
+	frame		SIGN19
+	description	"You see a vintner's sign."
 
 	name LIFEBELT
 	left		LIFEBELT

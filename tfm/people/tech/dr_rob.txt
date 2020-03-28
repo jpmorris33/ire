@@ -160,8 +160,8 @@ FIXME: NEED MORE DIALOGUE
 
 [page="hm_proof"]
 
-"Very well.  My diary is on my computer, but you should
- be able to print it out.
+"Very well.  My diary is on the laptop computer in my
+ study, but you should be able to print it out.
 
  The username is 'drseuss', password is 'Eps1l0n'.
  That's capital E, number one for the 'i', and a zero

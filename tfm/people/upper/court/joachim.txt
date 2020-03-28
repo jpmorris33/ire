@@ -35,6 +35,9 @@ You see Joachim, the King's sorcerer.
 [linkto="name"]
 [link="What is your job?"]
 [linkto="job"]
+[link="I'd like to buy a potion."]
+[linkto="potions"]
+[always]
 [if yado_quest_packages][link="A Master asked me to visit a distant island."]
 [if yado_quest_packages][linkto="yado_island"]
 [if yado_quest_rocks][link="A Master told me to swallow rocks.  Any ideas?"]
@@ -76,6 +79,9 @@ You see Joachim, the King's sorcerer.
  When I am not needed by my King, I carry out experiments
  in my workshop."
 
+[link="I'd like to buy a potion."]
+[linkto="potions"]
+[always]
 [link="Tell me about the King"]
 [linkto="king"]
 [link="Doesn't the Church mind sorcery?"]
@@ -101,6 +107,9 @@ He chuckles.
  Officially, I am court Astrologer and an alchemist, both
  of which are allowed by the Church."
 
+[link="I'd like to buy a potion."]
+[linkto="potions"]
+[always]
 [link="What experiments do you perform?"]
 [linkto="experiments"]
 [link="Tell me about the Pope."]
@@ -125,6 +134,9 @@ He chuckles.
  But I also have an impressive collection of elder texts,
  containing much wisdom from the ancient ones."
 
+[link="I'd like to buy a potion."]
+[linkto="potions"]
+[always]
 [link="Tell me about the Philosopher's Stone."]
 [linkto="philostone"]
 [link="Tell me about Alkahest."]
@@ -155,6 +167,9 @@ He chuckles.
  Have you ever wondered how it is that the Pope is over
  three hundred years old?"
 
+[link="I'd like to buy a potion."]
+[linkto="potions"]
+[always]
 [link="Tell me about Alkahest."]
 [linkto="alkahest"]
 [link="Tell me about the Ancient Ones."]
@@ -183,6 +198,9 @@ He chuckles.
  Of course one of the great problems of the Alkahest is
  what to put it in once it has finally been distilled.."
 
+[link="I'd like to buy a potion."]
+[linkto="potions"]
+[always]
 [link="Tell me about the Philosopher's Stone."]
 [linkto="philostone"]
 [link="Tell me about the Ancient Ones."]
@@ -421,6 +439,194 @@ He drops to a whisper.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+
+
+[page="potions"]
+
+"I have a selection of potions I can sell you.
+ They are dyed so that you can tell which is which.
+
+ The green potions are poison that is useful for
+ slaying rats and keeping livestock free from lice.
+
+ Red potions are a fast-acting antidote to most toxins,
+ including snake venom and the rat poison.
+
+ Yellow potions are restorative and allow wounds to heal
+ very rapidly.
+
+ I also have white potions allow you to see in the dark."
+
+[link="How much are they?"]
+[linkto="prices"]
+[always]
+[link="I'd like some rat poison."]
+[linkto="green"]
+[always]
+[link="I'd like the cure potion."]
+[linkto="red"]
+[always]
+[link="I'd like the healing potion."]
+[linkto="yellow"]
+[always]
+[link="I'd like the light potion."]
+[linkto="white"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="prices"]
+
+"I sell rat poison for 30 gold coins, cure potions and
+ healing potions for 50 gold coins, and a light potion
+ for 100 gold coins."
+
+[link="Tell me more about the potions."]
+[linkto="potions"]
+[always]
+[link="I'd like some rat poison."]
+[linkto="green"]
+[always]
+[link="I'd like the cure potion."]
+[linkto="red"]
+[always]
+[link="I'd like the healing potion."]
+[linkto="yellow"]
+[always]
+[link="I'd like the light potion."]
+[linkto="white"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="green"]
+
+"That will be 30 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="green2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="green2"]
+[take 30 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 potion_green]
+[append="buy_core"]
+[endpage]
+
+
+[page="red"]
+
+"That will be 50 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="red2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="red2"]
+[take 50 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 potion_red]
+[append="buy_core"]
+[endpage]
+
+
+[page="yellow"]
+
+"That will be 50 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="yellow2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="yellow2"]
+[take 50 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 potion_yellow]
+[append="buy_core"]
+[endpage]
+
+
+
+[page="white"]
+
+"That will be 100 gold coins."
+
+[link="Okay, I'll have one."]
+[linkto="white2"]
+[always]
+[link="No, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="white2"]
+[take 100 gold_coins]
+[if false][goto="nomoney"]
+[call="money_sound"]
+[create 1 potion_white]
+[append="buy_core"]
+[endpage]
+
+
+[page="nomoney"]
+
+"I fear you cannot afford that.  Would you like to buy
+ something else?"
+
+[link="Yes, I'd like something else."]
+[linkto="prices"]
+[always]
+[link="No thanks, goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="buy_core"]
+"Here you go."
+
+[colour="#808080"]
+The sorcerer hands you the vial of potion.
+[colour="#ffffff"]
+
+[link="I'd like something else."]
+[linkto="prices"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="bye"]

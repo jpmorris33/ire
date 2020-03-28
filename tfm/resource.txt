@@ -2108,7 +2108,8 @@ section: sprites
 	sign06			sprites/sign06.cel
 	sign07lr		sprites/sign07lr.cel
 	sign07ud		sprites/sign07ud.cel
-	sign08			sprites/sign08.cel
+	sign08lr		sprites/sign08lr.cel
+	sign08ud		sprites/sign08ud.cel
 	sign09			sprites/sign09.png
 	sign10			sprites/sign10.png
 	sign11			sprites/sign11.png
@@ -2117,6 +2118,12 @@ section: sprites
 	sign14			sprites/sign14.png
 	sign15ud		sprites/sign15ud.png
 	sign15lr		sprites/sign15lr.png
+	sign16ud		sprites/sign16ud.png
+	sign16lr		sprites/sign16lr.png
+	sign17ud		sprites/sign17ud.png
+	sign17lr		sprites/sign17lr.png
+	sign18			sprites/sign18.png
+	sign19			sprites/sign19.png
 	lever01			sprites/lever1.cel
 	lever02			sprites/lever2.cel
 	lever03			sprites/lever3.cel
@@ -7313,10 +7320,10 @@ section: sequences
 	quickname SAND23 SAND23
 	quickname SAND24 SAND24
 	quickname SAND25 SAND25
-	quickname LAPTOP_DOWN LAPTOP00
-	quickname LAPTOP_UP LAPTOP03
-	quickname LAPTOP_LEFT LAPTOP02
-	quickname LAPTOP_RIGHT LAPTOP01
+	quickname LAPTOP_RIGHT LAPTOP00
+	quickname LAPTOP_LEFT LAPTOP01
+	quickname LAPTOP_UP LAPTOP02
+	quickname LAPTOP_DOWN LAPTOP03
 	quickname WOODMASK_L WOODMASK_L
 	quickname WOODMASK_U WOODMASK_U
 	quickname WOODMASK_D WOODMASK_D
@@ -9431,7 +9438,8 @@ section: sequences
 	quickname SIGN06 SIGN06
 	quickname SIGN07UD SIGN07UD
 	quickname SIGN07LR SIGN07LR
-	quickname SIGN08 SIGN08
+	quickname SIGN08UD SIGN08UD
+	quickname SIGN08LR SIGN08LR
 	quickname SIGN09
 	quickname SIGN10
 	quickname SIGN11
@@ -9440,6 +9448,12 @@ section: sequences
 	quickname SIGN14
 	quickname SIGN15ud
 	quickname SIGN15lr
+	quickname SIGN16ud
+	quickname SIGN16lr
+	quickname SIGN17ud
+	quickname SIGN17lr
+	quickname SIGN18
+	quickname SIGN19
 	quickname LEVER01 LEVER01
 	quickname LEVER02 LEVER02
 	quickname LEVER03 LEVER03
