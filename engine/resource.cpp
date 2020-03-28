@@ -1114,6 +1114,7 @@ for(ctr=start;ctr<=finish;ctr++)
 				character->labels->location=NOTHING;
 				character->labels->faction=NOTHING;
 
+				character->funcs->acache=-1;
 				character->funcs->ucache=-1;
 				character->funcs->tcache=-1;
 				character->funcs->kcache=-1;
