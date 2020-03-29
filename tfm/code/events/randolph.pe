@@ -71,6 +71,10 @@ if_exists dest
   endif
 endif
 
+# And skip an hour
+let game_minute = 0
+add game_hour + 1
+resync_everything
 
 fade_in
 
