@@ -17539,11 +17539,6 @@ iMZ1r01
 		at 652 307
 		curdir 0
 
-	object OPEN7d5db4dd-fe5a-486c-b592-6dfc940c4976
-		type OPENROOF
-		at 652 307
-		curdir 1
-
 	object BRIDc869a529-be77-451c-bd9e-e8dfbf415d8c
 		type BRIDGE_END_E
 		at 653 307

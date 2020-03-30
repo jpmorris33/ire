@@ -2739,11 +2739,6 @@ iMZ1r01
 		at 289 219
 		curdir 1
 
-	object OPEN72ef5127-a726-45da-983e-5d5043328641
-		type OPENROOF
-		at 292 219
-		curdir 2
-
 	object STONd8c88904-f8f5-4dd7-ab68-95aed7ac549b
 		type STONEWINDOW1
 		at 293 219
@@ -2787,11 +2782,6 @@ iMZ1r01
 	object STONd40c6387-2206-4b3c-b225-04225812e0a2
 		type STONEWINDOW1
 		at 302 219
-		curdir 2
-
-	object OPEN44908c81-bb33-40c1-a726-4a3c457814b2
-		type OPENROOF
-		at 303 219
 		curdir 2
 
 	object BUNN86825505-485e-4300-9b10-d479cad9e4c3
@@ -3189,16 +3179,6 @@ iMZ1r01
 		type STONEFLOOR10
 		at 287 223
 		curdir 1
-
-	object OPEN8e748696-6633-44ed-8e26-1714340b5c58
-		type OPENROOF
-		at 295 223
-		curdir 2
-
-	object OPENcd504765-58d3-40fb-80e9-c9524cfaa2b4
-		type OPENROOF
-		at 300 223
-		curdir 2
 
 	object CASH73cd9100-93d2-4f0f-9f15-05bd048f80d7
 		type CASH_MACHINE

@@ -147345,11 +147345,6 @@ iMZ1r01
 		at 217 638
 		curdir 2
 
-	object OPEN850aaba4-383e-4221-b979-8189dbecf42a
-		type OPENROOF
-		at 218 638
-		curdir 2
-
 	object FENC0a8758bf-0a01-458e-b5e0-b9530886fc27
 		type FENCE2_CORNER
 		at 226 638
@@ -176633,11 +176628,6 @@ iMZ1r01
 
 	decorative TREE00 at 561 734
 
-	object OPENbad18bf8-1716-4440-935f-cb94879f58e0
-		type OPENROOF
-		at 727 734
-		curdir 2
-
 	object STON6af4e279-8ed7-4184-ab2a-5bb0831d1342
 		type STONEWINDOW2A
 		at 728 734
@@ -177155,11 +177145,6 @@ iMZ1r01
 	decorative TREE03 at 552 736
 
 	decorative TREE02 at 559 736
-
-	object OPENcf09568e-3048-4ad4-8153-2cc573166cca
-		type OPENROOF
-		at 729 736
-		curdir 2
 
 	decorative MOUNT02 at 761 736
 
