@@ -1822,48 +1822,50 @@ return;
 
 void CheckRoof()
 {
+OBJECT *temp;
+// The script language has the final say
+if(force_roof) {
+	show_roof = force_roof>0 ? 1 : 0;
+	return;
+}
+
 // Check roof
 show_roof=1;
 
-if(curmap->roof[(player->y*curmap->w)+player->x])
-	{
+if(curmap->roof[(player->y*curmap->w)+player->x]) {
 	// There is a roof above our heads.  Take the roof away?
-	if(RTlist[curmap->roof[(player->y*curmap->w)+player->x]].flags&KILLROOF)
+	if(RTlist[curmap->roof[(player->y*curmap->w)+player->x]].flags&KILLROOF) {
 		show_roof=0;
+		return;
 	}
+}
 
-/*
 // Look for windows
 
-	temp=GetRawObjectBase(player->x,player->y-1);
-	if(temp)
-		if(temp->flags & IS_WINDOW)
-			show_roof=0;
+temp=GetObject(player->x,player->y-1);
+if(temp && temp->flags & IS_WINDOW) {
+	show_roof=0;
+	return;
+}
 
-	temp=GetRawObjectBase(player->x,player->y+1);
-	if(temp)
-		if(temp->flags & IS_WINDOW)
-			show_roof=0;
+temp=GetObject(player->x,player->y+1);
+if(temp && temp->flags & IS_WINDOW) {
+	show_roof=0;
+	return;
+}
 
-	temp=GetRawObjectBase(player->x-1,player->y);
-	if(temp)
-		if(temp->flags & IS_WINDOW)
-			show_roof=0;
+temp=GetObject(player->x-1,player->y);
+if(temp && temp->flags & IS_WINDOW) {
+	show_roof=0;
+	return;
+}
 
-	temp=GetRawObjectBase(player->x+1,player->y);
-	if(temp)
-		if(temp->flags & IS_WINDOW)
-			show_roof=0;
-*/
+temp=GetObject(player->x+1,player->y);
+if(temp && temp->flags & IS_WINDOW) {
+	show_roof=0;
+	return;
+}
 
-// The script language has the final say
-if(force_roof)
-	{
-	if(force_roof>0)
-		show_roof=1;
-	else
-		show_roof=0;
-	}
 }
 
 

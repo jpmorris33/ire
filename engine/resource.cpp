@@ -2049,11 +2049,10 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"post_overlay"))     // Are overlays postprojected?
 			Dump(ctr,"Post Overlay is moved to Section: Sequences",Rptr);
 
-		if(!istricmp(Rptr,"window"))           // Is it a window?
-			{
-			character->flags |= IS_WINDOW|DOES_BLOCKLIGHT;
+		if(!istricmp(Rptr,"window")) {           // Is it a window?
+			character->flags |= IS_WINDOW;
 			continue;
-			}
+		}
 
 		if(!istricmp(Rptr,"fixed"))             // Can't move/get it?
 			{

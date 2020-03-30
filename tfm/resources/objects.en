@@ -1402,6 +1402,7 @@ section: characters
 	solid
 	will_open
 	fixed
+	window
 	setsolid	V 0 0 1 1
 	setsolid	H 0 1 1 1
 	setActiveArea	V 1 0 1 1
@@ -1463,6 +1464,7 @@ section: characters
 	IfTriggered	door_close_trigger
 	IfKilled	DoorwayS1
 	IfLookedAt	Door_Sign
+	window
 	solid
 	will_open
 	fixed
@@ -1523,6 +1525,7 @@ section: characters
 	IfUsed		CloseDoorS3
 	IfTriggered	door_close_trigger
 	IfKilled	DoorwayS1
+	window
 	solid
 	will_open
 	fixed
@@ -1544,6 +1547,7 @@ section: characters
 	ifWielded	flip_doorS4
 	solid
 	fixed
+	window
 	setsolid	V 0 0 2 1
 	setsolid	H 0 0 1 2
 	setActiveArea	V 0 0 2 1
@@ -1561,6 +1565,7 @@ section: characters
 	IfKilled	broken_arch
 	solid
 	fixed
+	window
 	setsolid	V 0 0 1 1
 	setsolid	H 0 1 1 1
 	setActiveArea	V 1 0 1 1
@@ -1625,6 +1630,7 @@ section: characters
 	IfKilled	DoorwayS5
 	ifhurt		DoorwayS5_hit
 	solid
+	window
 	will_open
 	fixed
 	setsolid	V 0 0 1 1
@@ -1659,6 +1665,7 @@ section: characters
 	description	"You see a window."
 	short		"window"
 	solid
+	blockslight
 	window
 	fixed
 	setsolid	V 0 0 1 1
@@ -1676,6 +1683,8 @@ section: characters
 	description	"You see a window with a steel shutter."
 	short		"window"
 	IfUsed		shut_window2
+	blockslight
+	window
 	solid
 	fixed
 	setsolid	V 0 0 1 1
@@ -1711,6 +1720,8 @@ section: characters
 	description	"You see a bulletproof window."
 	short		"window"
 	solid
+	window
+	blockslight
 	translucent
 	fixed
 
@@ -1727,6 +1738,7 @@ section: characters
 	solid
 	fixed
 	spikeproof
+	window
 	no_resurrect
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
@@ -1746,6 +1758,7 @@ section: characters
 	fixed
 	spikeproof
 	no_resurrect
+	window
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	setActiveArea	V 0 0 1 1
@@ -1763,6 +1776,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
+	window
 	spikeproof
 
 	name STONE_ARCHWAY2_P
@@ -1777,6 +1791,7 @@ section: characters
 	IfKilled	respawn
 	fixed
 	spikeproof
+	window
 	solid
 
 	name STONEDOORWAY_BROKEN
@@ -6897,6 +6912,7 @@ section: characters
 	IfKilled	DoorwaySec
 	fixed
 	spikeproof
+	window
 
 	# Doesn't have WILL_OPEN flag
 	name SECRETDOOR2_SHUT
@@ -7495,6 +7511,7 @@ section: characters
 	short		"door"
 	solid
 	fixed
+	window
 	ifwielded	close_ldoor
 	IfKilled	RESPAWN
 	setsolid	V 0 0 1 1
@@ -7528,6 +7545,7 @@ section: characters
 	short		"door"
 	solid
 	fixed
+	window
 	ifwielded	close_rdoor
 	IfKilled	RESPAWN
 	setsolid	V 4 0 1 1
@@ -7561,6 +7579,7 @@ section: characters
 	short		"door"
 	solid
 	fixed
+	window
 	ifwielded	close_udoor
 	IfKilled	RESPAWN
 	setsolid	V 0 0 1 1
@@ -7592,6 +7611,7 @@ section: characters
 	short		"door"
 	solid
 	fixed
+	window
 	ifwielded	close_ddoor
 	IfKilled	RESPAWN
 	setsolid	V 0 4 1 1
@@ -7639,6 +7659,7 @@ section: characters
 	translucent
 	solid
 	fixed
+	window
 	setsolid	V 0 0 1 1
 	setsolid	H 0 0 1 1
 	
@@ -7660,6 +7681,7 @@ section: characters
 	will_open
 #	blockslight
 	translucent
+	window
 
 
 	name FENCE_CORNER
@@ -10625,6 +10647,7 @@ section: characters
 	short		"doorway"
 	solid
 	fixed
+	window
 	setsolid	V 0 1 1 1
 	setsolid	H 1 0 1 1
 	setActiveArea	V 0 1 2 1
@@ -10662,6 +10685,7 @@ section: characters
 	IfKilled	DoorwayH1
 	solid
 	fixed
+	window
 	setsolid	V 0 1 1 1
 	setsolid	H 1 0 1 1
 	setActiveArea	V 0 1 2 1
