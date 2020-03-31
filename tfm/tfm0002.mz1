@@ -158050,6 +158050,12 @@ iMZ1r01
 		curdir 2
 		name New Albion
 
+	object SIGNffa2a291-dde4-4c4f-bcc0-7b66c7d6c8f6
+		type SIGN01
+		at 198 669
+		curdir 3
+		name Evil Lands
+
 	decorative TREE02 at 225 669
 
 	decorative TREE01 at 246 669
@@ -162352,12 +162358,23 @@ iMZ1r01
 
 	decorative HUT03 at 752 683
 
+	object TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
+		type TARGET
+		at 754 683
+		curdir 1
+		labels->location WargPub
+
 	object WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
 		type WAARG_MALE
-		at 754 683
+		at 755 683
 		curdir 1
 		name Barkeep
 		funcs->talk people/warg/barkeep.txt
+		schedule 9 0 SIT_AT_LOCATION TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
+		schedule 12 0 WAITER_STARTUP TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
+		schedule 14 0 SIT_AT_LOCATION TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
+		schedule 17 0 WAITER_STARTUP TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
+		schedule 19 0 SIT_AT_LOCATION TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
 
 	object WINE4c82c4be-0c03-45e0-a74f-708ab4fb904d
 		type WINECASK0

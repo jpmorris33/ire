@@ -59,11 +59,34 @@ Healer
 [page="job"]
 
 "I have an ensorcelled potion that heals most injuries,
- or I can cure poisons as well.
+ or I can cure poisons as well.  These I get from the
+ apothecary yonder, should you wish to buy supplies.
 
  But if you have the need, when the night is at its
  darkest, and with the aid of skilled mages, I can 
  sometimes raise the dead."
+
+[link="Do you sell potions?"]
+[linkto="potions"]
+[link="I need healing."]
+[linkto="healing"]
+[always]
+[link="I need curing."]
+[linkto="curing"]
+[always]
+[link="I need a resurrection."]
+[linkto="resurrection"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="potions"]
+
+"Nay, but I purchase mine from the apothecary yonder,
+ should you wish to purchase supplies of your own.
+ His prices are fair."
 
 [link="I need healing."]
 [linkto="healing"]
@@ -238,8 +261,8 @@ The creature looks at you thoughtfully.
 [if true][goto="resurrection2"]
 
 "It is a most difficult thing to do.
- My fee will be 300 gold pieces, and I will need to refer
- to the ancient lore.
+ My fee will be 1000 gold pieces, and I will need to
+ refer to the ancient lore.
 
  If you truly require this service, place the body of
  your departed companion upon my bed, and ask me again
@@ -261,7 +284,7 @@ The creature looks at you thoughtfully.
 
 
 [page="resurrection2"]
-[take 300 gold_coins]
+[take 1000 gold_coins]
 [if false][goto="nomoney"]
 [call resurrection_doit]
 

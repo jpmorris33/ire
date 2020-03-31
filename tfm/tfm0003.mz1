@@ -9285,7 +9285,7 @@ iMZ1r01
 		type GRAVESTONE
 		at 463 187
 		curdir 0
-		name You!
+		name Roger the Reindeer
 
 	object GRAV997bcc9a-cfe0-4ae8-b19d-c651d3df1083
 		type GRAVESTONE
@@ -9381,6 +9381,18 @@ iMZ1r01
 		type GRAVE
 		at 461 188
 		curdir 0
+
+	object SPOO3b3d0cfe-1c0b-4f5a-b4cf-32e2950bb8a7
+		type SPOOK
+		inside EGG_dfca551c-f39e-4e67-8352-20b72fde2de8
+		curdir 0
+		activity ATTACK_PEOPLE
+
+	object EGG_dfca551c-f39e-4e67-8352-20b72fde2de8
+		type EGG_NIGHT
+		at 461 188
+		curdir 0
+		stats->str 50
 
 	object GRAVe2448436-61bb-441d-9b8d-65b876481a8d
 		type GRAVE
@@ -10037,6 +10049,18 @@ iMZ1r01
 	decorative MOUNT04 at 836 204
 
 	decorative MOUNT03 at 841 204
+
+	object SIGN70af0a0e-8076-4bc4-a24a-34f2dede8680
+		type SIGN01
+		at 538 205
+		curdir 2
+		name New Leuchars|Duncan's Realm
+
+	object SIGNe71b08a0-b966-45f1-9eb1-d89789376a16
+		type SIGN01
+		at 541 205
+		curdir 3
+		name New Leuchars|Duncan's Realm
 
 	object BRID2948eb37-1a54-4ada-a7b4-f78fa22e2455
 		type BRIDGE_STEPS_W
@@ -25932,6 +25956,18 @@ iMZ1r01
 
 	decorative TREE04 at 585 392
 
+	object SIGNa8ebbe1f-9b1c-4a2e-ba4a-386564247bdc
+		type SIGN01
+		at 713 392
+		curdir 2
+		name New Leuchars|Duncan's Realm
+
+	object SIGN9ea502ab-29af-4cca-a06a-9a48c464ad8a
+		type SIGN01
+		at 714 392
+		curdir 0
+		name Lakeside
+
 	decorative MOUNT04 at 812 392
 
 	object TOOL809a202d-8519-4636-ae11-1b6afbd2aef1
@@ -27699,6 +27735,12 @@ iMZ1r01
 		at 385 420
 		curdir 1
 
+	object SIGNc10b360e-d518-48ac-8767-131d6107f02f
+		type SIGN01
+		at 510 420
+		curdir 2
+		name Realm of King Duncan
+
 	decorative TREE01 at 592 420
 
 	decorative TREE01 at 595 420
@@ -28714,6 +28756,24 @@ iMZ1r01
 	decorative TREE02 at 587 464
 
 	decorative TREE01 at 593 464
+
+	object SIGN0eefdd29-d05c-49d1-8498-bfb3c8fb032e
+		type SIGN01
+		at 701 464
+		curdir 2
+		name New Leuchars
+
+	object SIGN99946342-bb90-4641-b25f-fa22a0857d3f
+		type SIGN01
+		at 702 464
+		curdir 0
+		name Lakeside
+
+	object SIGN237b6ae2-711e-47f0-ae7a-662d52800188
+		type SIGN01
+		at 703 464
+		curdir 3
+		name Mawdor
 
 	decorative TREE01 at 719 464
 
@@ -57264,7 +57324,23 @@ iMZ1r01
 
 	decorative TREE02 at 796 685
 
-	decorative TREE02 at 822 685
+	object SIGNc71d146d-db3f-4b97-befb-93fb5b15854d
+		type SIGN01
+		at 820 685
+		curdir 2
+		name Abandoned Mines
+
+	object SIGN29c66237-e789-44f2-8831-6387b6c652f1
+		type SIGN01
+		at 821 685
+		curdir 0
+		name New Leuchars|Lakeside
+
+	object SIGNfcb08e28-8095-40fa-87f9-6b1882873161
+		type SIGN01
+		at 822 685
+		curdir 3
+		name Mawdor
 
 	decorative TREE00 at 827 685
 
@@ -57403,6 +57479,8 @@ iMZ1r01
 	decorative TREE02 at 807 686
 
 	decorative TREE01 at 820 686
+
+	decorative TREE02 at 823 686
 
 	decorative TREE03 at 825 686
 
@@ -57556,11 +57634,7 @@ iMZ1r01
 
 	decorative TREE02 at 819 687
 
-	decorative TREE00 at 820 687
-
 	decorative TREE01 at 821 687
-
-	decorative TREE00 at 822 687
 
 	decorative TREE01 at 825 687
 
@@ -57716,8 +57790,6 @@ iMZ1r01
 
 	decorative TREE03 at 819 688
 
-	decorative TREE00 at 820 688
-
 	decorative TREE01 at 824 688
 
 	decorative TREE00 at 825 688
@@ -57853,8 +57925,6 @@ iMZ1r01
 	decorative TREE02 at 819 689
 
 	decorative TREE03 at 820 689
-
-	decorative TREE00 at 822 689
 
 	decorative TREE01 at 824 689
 
@@ -58808,8 +58878,6 @@ iMZ1r01
 	decorative TREE02 at 815 695
 
 	decorative TREE03 at 822 695
-
-	decorative TREE00 at 823 695
 
 	decorative TREE02 at 824 695
 
@@ -69000,6 +69068,18 @@ iMZ1r01
 		at 847 764
 		curdir 0
 
+	object SPOO8666b338-2c79-4ff3-9287-46a91e7f2c9d
+		type SPOOK
+		inside EGG_c219a801-fad5-45b8-bb24-6e54c3e4b57c
+		curdir 0
+		activity ATTACK_PEOPLE
+
+	object EGG_c219a801-fad5-45b8-bb24-6e54c3e4b57c
+		type EGG_NIGHT
+		at 847 764
+		curdir 0
+		stats->str 50
+
 	object GRAV5a96ab90-fb73-4a63-a42d-cbf008d7522e
 		type GRAVE
 		at 849 764
@@ -69219,11 +69299,13 @@ iMZ1r01
 		type GRAVESTONE
 		at 845 766
 		curdir 0
+		funcs->look PLAYERGRAVE
 
 	object GRAV628b6e9e-65ac-45f2-8bde-bb67b7092ff0
 		type GRAVESTONE
 		at 847 766
 		curdir 0
+		name 'Tis far too late for thee
 
 	object GRAVb82a31fd-2b95-4175-836a-62ad831a9cfc
 		type GRAVESTONE
@@ -69363,7 +69445,7 @@ iMZ1r01
 
 	object TARGd0eae989-3784-4e45-8cbe-ce77f5d084f0
 		type TARGET
-		at 846 767
+		at 845 767
 		curdir 1
 		tag 666
 
@@ -69376,6 +69458,18 @@ iMZ1r01
 		type GRAVE
 		at 849 767
 		curdir 0
+
+	object SPOOb2ad1e8f-bb8b-42c5-b1b8-54a35f4bf445
+		type SPOOK
+		inside EGG_b4380fda-1226-4f3c-b7cf-13ef09af61ef
+		curdir 0
+		activity ATTACK_PEOPLE
+
+	object EGG_b4380fda-1226-4f3c-b7cf-13ef09af61ef
+		type EGG_NIGHT
+		at 849 767
+		curdir 0
+		stats->str 50
 
 	decorative TREE02 at 896 767
 
@@ -74075,6 +74169,7 @@ iMZ1r01
 		type EGG_OBJECT(PIG)
 		at 813 793
 		curdir 3
+		stats->str 80
 
 	object FENCe0cd95eb-2b2e-4034-badd-cb88413120cf
 		type FENCE2
@@ -74265,6 +74360,7 @@ iMZ1r01
 		type EGG_OBJECT(PIG)
 		at 814 794
 		curdir 3
+		stats->str 80
 
 	object PIG_612bb5be-94b4-4237-bc01-3c378c890206
 		type PIG
@@ -74276,6 +74372,7 @@ iMZ1r01
 		type EGG_OBJECT(PIG)
 		at 816 794
 		curdir 3
+		stats->str 80
 
 	object FENC1d74d3ae-b7a6-46b5-9492-c2d1342a4b6c
 		type FENCE2
@@ -92298,6 +92395,24 @@ iMZ1r01
 	decorative TREE03 at 779 908
 
 	decorative TREE03 at 781 908
+
+	object SIGN4df75000-e66e-4a00-9186-fe4a9a9704fc
+		type SIGN01
+		at 790 908
+		curdir 2
+		name New Albion
+
+	object SIGN6a11daef-80ae-4133-aebc-0b242749e82f
+		type SIGN01
+		at 791 908
+		curdir 0
+		name Mawdor
+
+	object SIGN4a4dbd18-ae40-4c9e-900a-4f86c9b3943f
+		type SIGN01
+		at 792 908
+		curdir 3
+		name New Leuchars|Lakeside
 
 	decorative TREE03 at 879 908
 
