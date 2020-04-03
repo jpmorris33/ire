@@ -79,6 +79,39 @@ if o is called "plate_broken"
 	return
 endif
 
+# Is it an empty bowl?
+if o is called "bowl"
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+
+	# Make it into a special bowl, looked for by Waarg waiters
+	change o = "bowl_waiter"
+	# The bowl remains property of the barkeep since he gets mad if you break it
+	# Add another delay
+	let me.user.user1 = 7
+	return
+endif
+
+# Did it get smashed?
+if o is called "bowl_broken"
+	# Are we hungry yet?
+	if me.user.user1 > 0
+		add me.user.user1 - 1
+		return
+	endif
+
+	# Make it into a special bowl, looked for by waiters
+	change o = "bowl_waiter_broken"
+	# The bowl remains property of the barkeep since he gets mad if you break it
+	# Add another delay
+	let me.user.user1 = 7
+	return
+endif
+
+
 end
 
 
@@ -106,6 +139,33 @@ if_exists o
 	run_queue me
 	return
 endif
+
+# If we're in the Waarg land look for bowls instead
+find_nearest o = "bowl_waiter_broken" near me
+if_exists o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does waiter_makefood to o
+	run_queue me
+	return
+endif
+
+find_nearest o = "bowl_waiter" near me
+if_exists o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does waiter_makefood to o
+	run_queue me
+	return
+endif
+
+# Have the barkeep replace any bowls the player trod on
+find_nearest o = "bowl_broken" near me
+if_exists o
+	queue_action me does seek_target_use_resume to o
+	queue_action me does waiter_makefood to o
+	run_queue me
+	return
+endif
+
 
 # Otherwise, wander around
 
@@ -139,6 +199,7 @@ if_not_exists me.target
 	BUG START
 	print "Waiter action needs a starting point|"
 	BUG END
+	return
 endif
 
 queue_action me does go_to_location to me.target
@@ -157,6 +218,24 @@ object o
 # Create some food randomly
 
 if_exists me.target
+	# Check for broken non-waiter goods
+
+	if me.target is called "bowl_broken"
+		change me.target = "bowl"
+		# Make sure the bowl still belongs to the establishment
+		let me.target.stats.owner = me
+		return
+	endif
+
+	if me.target is called "plate_broken"
+		change me.target = "plate"
+		# Make sure the item still belongs to the establishment
+		let me.target.stats.owner = me
+		return
+	endif
+
+	# Now deal with food
+
 	call create_food
 	let o = current
 	# Create the food and align it with the plate
@@ -167,12 +246,22 @@ if_exists me.target
 	let o.stats.owner = me.target.stats.owner
 
 	# Reset the screaming plate to a normal (non-broken) one
-	change me.target = "plate"
+	if me.target is called "plate*"
+		change me.target = "plate"
+	endif
+	if me.target is called "bowl*"
+		change me.target = "bowl"
+		# Make sure the bowl still belongs to the establishment
+		let me.target.stats.owner = me
+	endif
 
 	# Go back to loitering mode
 	resume_action me
 endif
 end
+
+
+
 
 ##
 ##  Find place to eat
@@ -220,6 +309,7 @@ endif
 
 # Is it an empty plate?
 if o is called "plate"
+or o is called "bowl"
 	# Are we hungry yet?
 	if me.user.user1 > 0
 		add me.user.user1 - 1
@@ -239,6 +329,11 @@ endif
 # Did it get smashed?
 if o is called "plate_broken"
 	change o = "plate"
+	return
+endif
+
+if o is called "bowl_broken"
+	change o = "bowl"
 	return
 endif
 

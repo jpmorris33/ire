@@ -3133,34 +3133,11 @@ section: characters
 	IfTriggered	stamp_on_china
 	IfKilled	smash_china
 	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name PLATE_WAITER
-	left		PLATE02
-	right		PLATE03
-	up		PLATE00
-	down		PLATE01
-	hp		1
-	weight		500
-	damage		1
-	description	"You see a plate."
-	short		"plate"
-	IfTriggered	stamp_on_china
-	IfKilled	smash_china
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias PLATE_WAITER = PLATE
 
 	name PLATE_BROKEN
-	left		PLATE_BROKEN
-	right		PLATE_BROKEN
-	up		PLATE_BROKEN
-	down		PLATE_BROKEN
+	frame		PLATE_BROKEN
 	hp		1000
 	weight		500
 	damage		1
@@ -3169,57 +3146,25 @@ section: characters
 	short		"smashed plate"
 	IfTriggered	spikes
 	resurrect_as	plate
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name PLATE_WAITER_BROKEN
-	left		PLATE_BROKEN
-	right		PLATE_BROKEN
-	up		PLATE_BROKEN
-	down		PLATE_BROKEN
-	hp		1000
-	weight		500
-	damage		1
-	cost		5
-	description	"You see a smashed plate."
-	short		"smashed plate"
-	IfTriggered	spikes
+	alias PLATE_WAITER_BROKEN = PLATE_BROKEN
 	resurrect_as	plate_waiter
 
 
-	name BOWL
-	left		PLATE02
-	right		PLATE03
-	up		PLATE00
-	down		PLATE01
-	hp		1
-	weight		500
-	damage		1
+	alias BOWL = PLATE
+	cost		5
 	description	"You see an empty bowl."
 	short		"bowl"
-	IfTriggered	stamp_on_china
-	IfKilled	smash_china
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	IfTriggered	stamp_on_waargbowl
 
-	name BOWL_BROKEN
-	left		PLATE_BROKEN
-	right		PLATE_BROKEN
-	up		PLATE_BROKEN
-	down		PLATE_BROKEN
-	hp		1000
-	weight		500
-	damage		1
-	cost		5
+	alias BOWL_WAITER = BOWL
+
+	alias BOWL_BROKEN = PLATE_BROKEN
 	description	"You see a smashed bowl."
 	short		"bits of china"
-	IfTriggered	spikes
 	resurrect_as	bowl
+
+	alias BOWL_WAITER_BROKEN = BOWL_BROKEN
 
 	name BOWL_BROTH
 	left		PLATE04
@@ -3231,7 +3176,7 @@ section: characters
 	damage		1
 	description	"You see a bowl full of broth."
 	short		"bowl"
-	IfTriggered	stamp_on_china
+	IfTriggered	stamp_on_waargbowl
 	IfKilled	smash_china
 	ifused		eat_food
 	fragile
@@ -3247,7 +3192,7 @@ section: characters
 	damage		1
 	description	"You see a bowl full of water."
 	short		"water"
-	IfTriggered	stamp_on_china
+	IfTriggered	stamp_on_waargbowl
 	IfKilled	smash_china
 	ifused		eat_food
 	fragile
@@ -3263,7 +3208,7 @@ section: characters
 	damage		1
 	description	"You see a bowl full of milk."
 	short		"milk"
-	IfTriggered	stamp_on_china
+	IfTriggered	stamp_on_waargbowl
 	IfKilled	smash_china
 	ifused		eat_food
 	fragile
@@ -3279,7 +3224,7 @@ section: characters
 	damage		1
 	description	"You see a bowl full of beer."
 	short		"beer"
-	IfTriggered	stamp_on_china
+	IfTriggered	stamp_on_waargbowl
 	IfKilled	smash_china
 	ifused		eat_food
 	fragile
@@ -3295,7 +3240,7 @@ section: characters
 	damage		1
 	description	"You see a bowl full of ick."
 	short		"gunk"
-	IfTriggered	stamp_on_china
+	IfTriggered	stamp_on_waargbowl
 	IfKilled	smash_china
 	ifused		eat_food
 	fragile

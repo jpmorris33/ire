@@ -162360,13 +162360,14 @@ iMZ1r01
 
 	object TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
 		type TARGET
-		at 754 683
+		at 755 683
 		curdir 1
+		tag 80110
 		labels->location WargPub
 
 	object WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
 		type WAARG_MALE
-		at 755 683
+		at 756 683
 		curdir 1
 		name Barkeep
 		funcs->talk people/warg/barkeep.txt
@@ -162376,11 +162377,6 @@ iMZ1r01
 		schedule 17 0 WAITER_STARTUP TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
 		schedule 19 0 SIT_AT_LOCATION TARGbe52a94b-2f38-44a7-a414-96195dcc6d26
 
-	object WINE4c82c4be-0c03-45e0-a74f-708ab4fb904d
-		type WINECASK0
-		at 758 683
-		curdir 3
-
 	object WINEf9157584-ccb4-4aaa-a443-69dc8f066ad4
 		type WINECASK0
 		at 759 683
@@ -162389,7 +162385,7 @@ iMZ1r01
 	object WINE12940afb-6960-4519-ae22-1472d10f89e1
 		type WINECASK0
 		at 760 683
-		curdir 3
+		curdir 1
 
 	decorative HUT03 at 762 683
 
@@ -162653,10 +162649,40 @@ iMZ1r01
 		at 753 684
 		curdir 2
 
+	object BOWLc78ce70e-c0a5-432a-ab17-08b43cff8b2f
+		type BOWL
+		at 753 684
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object BOWL24c3d928-58ee-44d1-9e80-b402b8447a4a
+		type BOWL
+		at 753 684
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD6157dbe3-f0ae-4379-85ac-dc13f8fe41a2
+		type FOODP00
+		at 753 684
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD851e37da-055a-4683-96fd-914c891f5af2
+		type FOODP07
+		at 753 684
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
 	object TABLe4a330a5-3247-4034-829f-212e94a7fbb3
 		type TABLE6-H
 		at 754 684
 		curdir 0
+
+	object BOWL72cc84d2-0750-4a19-945d-48c666a4e2ad
+		type BOWL_BROTH
+		at 754 684
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
 
 	object TABL3a269595-299d-4ff1-b09a-ff4bd5e17fb7
 		type TABLE6-H
@@ -162667,6 +162693,18 @@ iMZ1r01
 		type TABLE6-H
 		at 756 684
 		curdir 3
+
+	object BOWL55939e52-7b77-4799-bb0a-d9a44eec6f35
+		type BOWL
+		at 756 684
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD246837f8-78c1-4932-92ef-7ffcfb1ca8d7
+		type FOODP01
+		at 756 684
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
 
 	object TABL16714b6d-d66d-4cb6-b5b3-59a9309ee5a6
 		type TABLE-SHADOW2
@@ -162993,6 +163031,18 @@ iMZ1r01
 		at 757 685
 		curdir 1
 
+	object TARG180026cf-7a65-41bf-bccc-3e24d833acab
+		type TARGET
+		at 759 685
+		curdir 0
+		tag 80111
+		labels->location WargPub
+
+	object HUT_529f8d56-8400-47a9-ae86-de5696325f11
+		type HUT_DOOR_SHUT
+		at 760 685
+		curdir 1
+
 	decorative HUT03 at 762 685
 
 	decorative TREE00 at 765 685
@@ -163292,11 +163342,7 @@ iMZ1r01
 
 	decorative HUT00 at 759 686
 
-	decorative HUT01 at 760 686
-
-	decorative HUT01 at 761 686
-
-	decorative HUT06 at 762 686
+	decorative HUT03 at 762 686
 
 	decorative TREE03 at 765 686
 
@@ -163562,16 +163608,28 @@ iMZ1r01
 		at 753 687
 		curdir 0
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	object BOWLc5ce843b-2297-4dae-aa5c-5a08a405cb4a
 		type BOWL
 		at 754 687
 		curdir 0
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	decorative HUT03 at 759 687
+
+	object FOOD454ac332-2d5d-4874-86d0-4d2a1e689b33
+		type FOOD03
+		at 760 687
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD41baaa2c-6286-4084-9a13-979a6f3b43c4
+		type FOOD03
+		at 760 687
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	decorative HUT03 at 762 687
 
 	decorative TREE02 at 768 687
 
@@ -163863,7 +163921,6 @@ iMZ1r01
 		at 754 688
 		curdir 2
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	object W_BEed330494-2c08-4860-abaf-5feb337d99d1
 		type W_BED
@@ -163877,7 +163934,20 @@ iMZ1r01
 
 	decorative HUT03 at 759 688
 
-	decorative TREE00 at 762 688
+	object FOOD91d6e749-72a1-45a8-8a40-c8909b9ead85
+		type FOOD08
+		at 760 688
+		curdir 3
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object TARG6de57365-1f9a-48f9-9d98-fc80ae8ecf51
+		type TARGET
+		at 761 688
+		curdir 2
+		tag 80113
+		labels->location WargPub
+
+	decorative HUT03 at 762 688
 
 	decorative TREE02 at 768 688
 
@@ -164160,16 +164230,22 @@ iMZ1r01
 		at 757 689
 		curdir 0
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	object BOWLd1d82b18-5719-4e35-aa5f-8ad0615326f8
 		type BOWL
 		at 758 689
 		curdir 0
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	decorative HUT03 at 759 689
+
+	object FOODaafdd293-a2a7-4b12-8c10-950255f88166
+		type FOOD07B
+		at 760 689
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	decorative HUT03 at 762 689
 
 	decorative TREE01 at 763 689
 
@@ -164469,6 +164545,26 @@ iMZ1r01
 
 	decorative HUT03 at 759 690
 
+	object FOOD629ca4f5-f945-4fa6-96f7-690bdaf2a25a
+		type FOOD06
+		at 760 690
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD6c386b73-439c-470c-9d1d-3faede6227a2
+		type FOOD05
+		at 760 690
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD09991205-dfd1-4139-a5cc-222344539876
+		type FOOD05
+		at 760 690
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	decorative HUT03 at 762 690
+
 	decorative TREE00 at 765 690
 
 	decorative TREE02 at 769 690
@@ -164751,16 +164847,37 @@ iMZ1r01
 	object W_BE8bb06248-cce5-4e7e-b9d1-8d813e258df5
 		type W_BED
 		at 756 691
-		curdir 0
+		curdir 1
 
 	object W_BE5c2d68b1-125a-4ccf-85fa-cc1195ad4066
 		type W_BED
 		at 758 691
-		curdir 0
+		curdir 1
 		name Apothacar
 		labels->location WargPub
 
 	decorative HUT03 at 759 691
+
+	object FOOD44a61129-3f63-4dd8-bd44-8d6f0ad598ea
+		type FOOD04
+		at 760 691
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FOOD7323df9b-e143-475a-8031-83b1bcf55318
+		type FOOD04
+		at 760 691
+		curdir 1
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object TARGfd027149-0b6f-4e4b-8510-ec7c57df4520
+		type TARGET
+		at 761 691
+		curdir 1
+		tag 80114
+		labels->location WargPub
+
+	decorative HUT03 at 762 691
 
 	decorative TREE02 at 764 691
 
@@ -165082,21 +165199,44 @@ iMZ1r01
 		name Bard
 		funcs->talk people/warg/bard.txt
 
+	object TARGb63ea554-8b8b-4544-a9ad-fac30a82a2b0
+		type TARGET
+		at 755 692
+		curdir 3
+		tag 80812
+		labels->location WargPub
+
 	object BOWL9dba95a0-ae1a-4906-9ad0-cf7384bd84f0
 		type BOWL
 		at 756 692
 		curdir 0
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	object BOWL6e7216da-dee0-4320-ab63-b8f69792bd97
 		type BOWL
 		at 758 692
 		curdir 0
 		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
-		funcs->stand STAMP_ON_WAARGBOWL
 
 	decorative HUT03 at 759 692
+
+	object FOOD2fde6eca-c95c-4216-88f9-393bd3a55d72
+		type FOOD01
+		at 760 692
+		curdir 0
+		stats->owner WAAR690c18a5-30aa-4b7e-b93d-71a440f65d3c
+
+	object FIREb7eed00c-64a8-477c-a63e-66844425705f
+		type FIRESTONES_LIT
+		at 761 692
+		curdir 0
+
+	object CAULe48f50ab-1f00-4e36-8eab-f269e89b6b2b
+		type CAULDRON_BROTH
+		at 761 692
+		curdir 2
+
+	decorative HUT03 at 762 692
 
 	decorative TREE01 at 764 692
 
@@ -165463,7 +165603,13 @@ iMZ1r01
 
 	decorative HUT01 at 758 693
 
-	decorative HUT06 at 759 693
+	decorative HUT01 at 759 693
+
+	decorative HUT01 at 760 693
+
+	decorative HUT01 at 761 693
+
+	decorative HUT06 at 762 693
 
 	decorative TREE02 at 763 693
 

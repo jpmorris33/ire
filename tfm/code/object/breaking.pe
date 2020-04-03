@@ -185,11 +185,11 @@ if victim.stats.weight > 5000
 	let bowlowner = current.stats.owner
 	check_hurt current
 
-	print "victim = "
-	print victim.name
-	print ", bowlowner = "
-	printx bowlowner
-	printcr
+#	print "victim = "
+#	print victim.name
+#	print ", bowlowner = "
+#	printx bowlowner
+#	printcr
 
 	if victim = player
 		redraw_map
