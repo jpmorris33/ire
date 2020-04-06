@@ -13323,7 +13323,7 @@ iMZ1r01
 		curdir 1
 		tag 98
 		stats->karma 1
-		funcs->use TELEPORT_FAKEMUD
+		funcs->use TELEPORT_NEWMAP
 
 	object PIPEc2ac779c-6688-415d-a867-facb30fb597c
 		type PIPES_06

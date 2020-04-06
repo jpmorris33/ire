@@ -1,6 +1,6 @@
 [page="start"]
 [am_carrying "dragoncom"]
-[if true][goto="drakaan"]
+[if true][goto="dragoncom"]
 [backing="data4.png"]
 [nextpage="exit"]
 [endpage]
@@ -8,6 +8,7 @@
 
 
 [page="dragoncom"]
+[if_not drakaan_task_gavecomms][goto="dragoncom9"]
 [if airtravel_on][goto="dragoncom0"]
 [if did_maxima_laptop][goto="dragoncom2"]
 [set did_maxima_laptop]
@@ -74,6 +75,23 @@
 
 "We have already disabled the flight barriers.
  There is little more we can do here!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dragoncom9"]
+[image="comms05a.pcx"]
+
+"Ooh, interesting!  This human-built computer has been
+ hooked up to the Maxima's auxiliary processing systems!
+
+ Remember this place, mark it with an orb if you can,
+ for we shall need you to return here as soon as Naavris
+ has finished writing the new firmware we will need.
+
+ Until then, distributing communicators to the air
+ bases is a higher priority."
 
 [nextpage="exit"]
 [endpage]
