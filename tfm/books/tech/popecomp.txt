@@ -1,0 +1,80 @@
+[page="start"]
+[am_carrying "dragoncom"]
+[if true][goto="drakaan"]
+[backing="data4.png"]
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="dragoncom"]
+[if airtravel_on][goto="dragoncom0"]
+[if did_maxima_laptop][goto="dragoncom2"]
+[set did_maxima_laptop]
+[image="comms05a.pcx"]
+
+"We are in luck!  This human-built computer has been
+ hooked up to the Maxima's auxiliary processing systems.
+
+ With this machine we should be able to modify the
+ ship's engine controllers and get them to generate a
+ counter-forcefield capable of negating the flight
+ barriers.  If Xy'Lan has installed other forcefields
+ to block your path we may be able to negate those too.
+
+ Now, plug the communicator into the lap-top and we
+ shall see what we can accomplish!"
+
+[nextpage="dragoncom2"]
+[endpage]
+
+
+[page="dragoncom2"]
+[call="check_drives"]
+[if true][goto="dragoncom3"]
+[image="comms05a.pcx"]
+[colour="#808080"]
+ Commander Gurd reappears on the communicator shortly
+ afterwards.
+[colour="#ffffff"]
+
+"We have a problem.  The engines are indicating an
+ error condition.  You will have to go into the Maxima
+ itself to rectify this.
+
+ The entrance to the ship must be somewhere in this area,
+ but it is likely to be protected by various human-built
+ traps and devices.
+
+ I had hoped to avoid this, but we will aid you if we
+ can.  Good luck!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dragoncom3"]
+[set airtravel_on]
+[call="plot_disable_forcefields"]
+[image="comms05a.pcx"]
+[colour="#808080"]
+ Commander Gurd reappears on the communicator with a
+ triumphant expression.
+[colour="#ffffff"]
+
+"There!  It is done!  The flight barriers should be
+ negated now!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="dragoncom0"]
+[image="comms05a.pcx"]
+
+"We have already disabled the flight barriers.
+ There is little more we can do here!"
+
+[nextpage="exit"]
+[endpage]
+

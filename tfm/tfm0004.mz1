@@ -4841,21 +4841,41 @@ iMZ1r01
 		at 237 146
 		curdir 2
 
-	object DEFE0e1fa1a8-ac21-4993-b934-0dff107911b9
-		type DEFENCE_POST_UP
+	object FORCe3443893-4fcd-49ae-ade8-073d824887f8
+		type FORCEFIELD_ON
 		at 309 146
 		curdir 0
-		activity DEFPOST_START_HV
-		stats->damage 1000
-		stats->owner DEFEdba45bb7-10ea-480a-ad62-bea5d4aaab68
+		tag 59
 
-	object DEFEdba45bb7-10ea-480a-ad62-bea5d4aaab68
-		type DEFENCE_POST_UP
+	object FORC73e25057-4a06-4fc3-bda6-4945ed2660be
+		type FORCEFIELD_ON
+		at 310 146
+		curdir 0
+		tag 59
+
+	object FORCe91c798c-70d4-4bdc-b085-7f7ef1e780d4
+		type FORCEFIELD_ON
+		at 311 146
+		curdir 0
+		tag 59
+
+	object FORC8f187285-f831-436d-b296-edf196a25ce5
+		type FORCEFIELD_ON
+		at 312 146
+		curdir 0
+		tag 59
+
+	object FORC88f527c7-a6f3-47ca-97d8-8b11f4c8da84
+		type FORCEFIELD_ON
+		at 313 146
+		curdir 0
+		tag 59
+
+	object FORC58a6cd17-0a47-4649-8661-01cdedb70889
+		type FORCEFIELD_ON
 		at 314 146
 		curdir 0
-		activity DEFPOST_START_HV
-		stats->damage 1000
-		stats->owner DEFE0e1fa1a8-ac21-4993-b934-0dff107911b9
+		tag 59
 
 	object PIPE19fe59d7-8e37-46e9-b76d-3047bc3dde5b
 		type PIPES_01
@@ -14521,6 +14541,17 @@ iMZ1r01
 		at 151 399
 		curdir 3
 
+	object TABL42bf0f94-bc00-4d23-8c46-bca9a4bdc35d
+		type TABLE7
+		at 154 399
+		curdir 1
+
+	object LAPT8dcaae10-6126-4a38-aa78-bd1951e1dccf
+		type LAPTOP_FIXED
+		at 154 399
+		curdir 1
+		funcs->talk books/tech/popecomp.txt
+
 	object PIPEcaaeded3-a6e7-4c7b-8e29-dae06417108b
 		type PIPES_03
 		at 164 399
@@ -14683,6 +14714,7 @@ iMZ1r01
 		type PRINTOUT01
 		at 148 400
 		curdir 3
+		name Notes from Xy'Lan
 
 	object PIPEc45ef9d0-93c8-499e-b439-a3ed78ad6a0c
 		type PIPES_01
@@ -14832,6 +14864,7 @@ iMZ1r01
 		type PRINTOUT00
 		at 156 401
 		curdir 3
+		name Notes from Xy'Lan
 		funcs->talk books/church/lord.txt
 		funcs->user1 4
 
@@ -15087,6 +15120,7 @@ iMZ1r01
 		type PRINTOUT01
 		at 146 403
 		curdir 1
+		name Notes from Xy'Lan
 		funcs->talk books/church/lord.txt
 		funcs->user1 3
 
@@ -15104,6 +15138,7 @@ iMZ1r01
 		type PRINTOUT00
 		at 148 403
 		curdir 1
+		name Notes from Xy'Lan
 		funcs->talk books/church/lord.txt
 		funcs->user1 2
 
@@ -15203,6 +15238,7 @@ iMZ1r01
 		type PRINTOUT00
 		at 149 404
 		curdir 3
+		name Notes from Xy'Lan
 		funcs->talk books/church/lord.txt
 
 	object TABL2a0b47c3-d18d-4ad2-b572-30650f326033

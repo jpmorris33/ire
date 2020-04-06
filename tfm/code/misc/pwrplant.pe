@@ -687,6 +687,9 @@ integer Lgen
 integer Rgen
 object generator
 
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
 # Check both L generators are functioning
 let Lgen = 0
 find_tag generator = "generator" 14
@@ -747,9 +750,14 @@ endif
 # If both drives are shut down, the magic goes away
 set_user_flag "magic_disabled" = 0
 if Rgen = 0
-	if Lgen = 0
-		set_user_flag "magic_disabled" = 1
-	endif
+and Lgen = 0
+	set_user_flag "magic_disabled" = 1
+endif
+
+if Rgen = 1
+and Lgen = 1
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
 endif
 
 end

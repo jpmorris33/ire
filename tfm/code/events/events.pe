@@ -815,3 +815,30 @@ endif
 
 
 end
+
+
+
+
+##
+##  Disable forcefields
+##
+
+function plot_disable_forcefields
+object_array stuff[32]
+integer ctr
+
+if_user_flag "airtravel_on"
+	return
+endif
+
+# Take the forcefield down on the bridge
+find_tags stuff[1] = "forcefield_on" 59
+for ctr = 1 to 32
+	if_exists stuff[ctr]
+		stopfx stuff[ctr]
+		change stuff[ctr] = "forcefield_off"
+	endif
+next ctr
+
+end
+

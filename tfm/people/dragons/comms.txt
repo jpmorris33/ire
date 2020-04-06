@@ -273,14 +273,18 @@ For a moment, the commander says nothing.
  I can only suggest that you look among the Pope's
  belongings.  If anyone has been given the entry codes,
  it will most likely be him.
- There is probably some kind of workshop in the region
- below the Great Cathedral.. this would be where the Pope
- gets into the system himself.  Find it and look for
- clues there."
+ Check his workshop below the Great Cathedral, where you
+ found the computer which we used to disable the force
+ barriers.  Find it and look for clues there."
 
 [delay 2]
 [nextpage="exit"]
 [endpage]
+
+ There is probably some kind of workshop in the region
+ below the Great Cathedral.. this would be where the Pope
+ gets into the system himself.  Find it and look for
+ clues there."
 
 
 [page="codecterminal2"]
