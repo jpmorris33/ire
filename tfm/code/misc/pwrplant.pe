@@ -1043,6 +1043,10 @@ next ctr
 
 call check_drives
 
+# reset the success flag since check_drives will have changed it
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
 # Set it back so the breaker's own code will work properly
 set_direction breaker facing DOWN
 
