@@ -8,6 +8,12 @@ function Door_sign
 integer l
 if_exists current
 
+	if current.personalname = "-"
+	or current.personalname = ""
+		# Forget it
+		return
+	endif
+
 	# Are we close enough to read it?
 	if_exists lookobj
 		get_line_of_sight l = lookobj current
@@ -26,6 +32,12 @@ end
 function generic_sign
 integer l
 if_exists current
+
+	if current.personalname = "-"
+	or current.personalname = ""
+		# Forget it
+		return
+	endif
 
 	# Are we close enough to read it?
 	if_exists lookobj
@@ -110,6 +122,12 @@ function book_cover
 integer l
 
 if_exists current
+
+	if current.personalname = "-"
+	or current.personalname = ""
+		# Forget it
+		return
+	endif
 
 	# Are we close enough to read it?
 	if_exists lookobj
