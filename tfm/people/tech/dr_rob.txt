@@ -394,9 +394,76 @@ Eventually, Gurd butts in and calls the meeting to order.
 
 
 [page="comms_active4"]
+[image="comms.pcx"]
 
-Here endeth the script
+"I believe first task should be to negate the force
+ barriers preventing transport between your bases.
 
+ We have a plan to do this by temporarily reprogramming
+ the drives in our ship, the Maxima, which lies buried
+ beneath the temple built by the human known as 'Pope'.
+
+ Our chief engineer believes they can could make the
+ drives generate a pulse of energy attuned to the force
+ barrier.  Negating it by phase cancellation is one
+ possibility, but Xy'Lan could re-instate the barrier
+ simply by having his repair servitors deactivate the
+ engines."
+
+[nextpage="comms_active5"]
+[endpage]
+
+
+[page="comms_active5"]
+[image="comms.pcx"]
+
+"However, a pulse in tune with the barrier should create
+ a resonance that would burn out the field generators.
+ I cannot promise that this will be a permanent fix,
+ but with luck it will buy us the time we need to regain
+ control of the ship, and defeat Xy'Lan.
+
+ If we can avoid having someone enter the ship itself,
+ that would be best as it is the very seat of Xy'Lan's
+ power and He will do His best to prevent intrusion so
+ close to his prize.
+
+ However, we will definitely need to send someone to the
+ temple to explore its underworks.  There is probably
+ some kind of workshop below where Pope can access the
+ systems himself when Xy'Lan needs him to."
+
+[nextpage="comms_active6"]
+[endpage]
+
+
+[page="comms_active6"]
+[image="comms.pcx"]
+
+"Our friend here has already worked wonders in
+ delivering the communicators we are using now, and
+ while I am reluctant to ask for their aid again,
+ they are probably our best bet.
+
+ In the meantime, we will take stock of our available
+ resources and try to devise a plan to put Xy'Lan
+ back in his box."
+
+[nextpage="comms_active7"]
+[endpage]
+
+
+[page="comms_active7"]
+[colour="#808080"]
+Dr. Robertson looks at you with concern.
+[colour="#ffffff"]
+
+"Looks like you're going to have to explore the
+ restricted parts of the Great Cathedral again.
+
+ All I can say is, good luck!"
+
+[nextpage="exit"]
 [endpage]
 
 

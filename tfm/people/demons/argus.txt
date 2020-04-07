@@ -622,12 +622,19 @@ Eventually, Gurd butts in and calls the meeting to order.
  barrier.  Negating it by phase cancellation is one
  possibility, but Xy'Lan could re-instate the barrier
  simply by having his repair servitors deactivate the
- engines.
+ engines."
 
- However, a pulse in tune with the barrier should be able
- to create a resonance and burn out the field generators.
- I cannot promise that this will be a permanent fix, but
- with luck it will buy us the time we need to regain
+[nextpage="comms_active5"]
+[endpage]
+
+
+[page="comms_active5"]
+[image="comms.pcx"]
+
+"However, a pulse in tune with the barrier should create
+ a resonance that would burn out the field generators.
+ I cannot promise that this will be a permanent fix,
+ but with luck it will buy us the time we need to regain
  control of the ship, and defeat Xy'Lan.
 
  If we can avoid having someone enter the ship itself,
@@ -638,10 +645,43 @@ Eventually, Gurd butts in and calls the meeting to order.
  However, we will definitely need to send someone to the
  temple to explore its underworks.  There is probably
  some kind of workshop below where Pope can access the
- systems himself when Xy'Lan needs him to.
+ systems himself when Xy'Lan needs him to."
+
+[nextpage="comms_active6"]
+[endpage]
+
+
+[page="comms_active6"]
+[image="comms.pcx"]
+
+"Our friend here has already worked wonders in
+ delivering the communicators we are using now, and
+ while I am reluctant to ask for their aid again,
+ they are probably our best bet.
+
+ In the meantime, we will take stock of our available
+ resources and try to devise a plan to put Xy'Lan
+ back in his box."
+
+[nextpage="comms_active7"]
+[endpage]
+
+
+[page="comms_active7"]
+[colour="#808080"]
+Argus looks down at you with concern.
+[colour="#ffffff"]
+
+"Looks like you're going to have to explore the
+ restricted parts of the Great Cathedral again.
+
+ All I can say is, good luck!"
+
+[nextpage="exit"]
+[endpage]
+
  
 
-[endpage]
 
 
 
