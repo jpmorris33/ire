@@ -448,7 +448,7 @@ if current is called "MAN_POPE"
 
 endif
 
-if current is called "BED_FULL"
+if current is called "BED_COVERED_FULL"
 	if current.stats.owner is called "MAN_POPE"
 		
 	else

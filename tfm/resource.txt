@@ -7047,6 +7047,24 @@ section: sequences
 		BED_H_FULL
 	end
 
+	name BED_COVERED_BLOODY_V
+	overlay BEDCOVER_V
+	OX -32
+	OY -32
+	framelist:
+	#1 frame
+		BED_V_BLOODY
+	end
+
+	name BED_COVERED_BLOODY_H
+	overlay BEDCOVER_H
+	OX -32
+	OY -32
+	framelist:
+	#1 frame
+		BED_H_BLOODY
+	end
+
 	quickname RED RED
 	quickname BLUE BLUE
 	quickname GREEN GREEN

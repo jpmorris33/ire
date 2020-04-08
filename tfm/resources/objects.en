@@ -2602,6 +2602,36 @@ section: characters
 	setActiveArea	H 0 0 2 1
 	fixed
 
+	name BED_COVERED_FULL
+	left		BED_COVERED_FULL_H
+	right		BED_COVERED_FULL_H
+	up		BED_COVERED_FULL_V
+	down		BED_COVERED_FULL_V
+	hp		300
+	weight		-1
+	description	"You see someone sleeping"
+	short		"bed"
+	IfHurt		hurt_bed
+	solid
+	setsolid	V 0 0 1 2
+	setsolid	H 0 0 2 1
+	setActiveArea	V 0 0 1 2
+	setActiveArea	H 0 0 2 1
+
+	name BED_COVERED_BLOODY
+	left		BED_COVERED_BLOODY_H
+	right		BED_COVERED_BLOODY_H
+	up		BED_COVERED_BLOODY_V
+	down		BED_COVERED_BLOODY_V
+	hp		200
+	weight		-1
+	description	"You see a blood-stained 4-poster bed"
+	short		"bed"
+	setsolid	V 0 0 1 2
+	setsolid	H 0 0 2 1
+	setActiveArea	V 0 0 1 2
+	setActiveArea	H 0 0 2 1
+
 	name CANDLE_DARK
 	left		CANDLE3
 	right		CANDLE3

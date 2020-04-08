@@ -22,11 +22,14 @@ call hawk_stopflying
 if_exists me.target
 	let bed = me.target
 else
-	find_nearest bed = "bed" near me
+	find_nearest bed = "bed_covered" near me
 	if_not_exist bed
-		find_nearest bed = "bed2" near me
+		find_nearest bed = "bed" near me
 		if_not_exist bed
-			find_nearest bed = "chair" near me
+			find_nearest bed = "bed2" near me
+			if_not_exist bed
+				find_nearest bed = "chair" near me
+			endif
 		endif
 	endif
 endif
@@ -105,6 +108,17 @@ endif
 
 # Now decide what to change it into
 
+if bed is called "bed_covered"
+	# Doggie lie on bed, not get in it
+	if me.label.race = "waarg"
+		set_sequence me "wolfa_sleep_r"
+	else
+		transfer_to_pocket me to bed
+		set_flag me IN_BED = 1
+		change bed = "bed_covered_full"
+	endif
+endif
+
 if bed is called "bed"
 	# Doggie lie on bed, not get in it
 	if me.label.race = "waarg"
@@ -115,6 +129,7 @@ if bed is called "bed"
 		change bed = "bed_full"
 	endif
 endif
+
 
 if bed is called "bed2"
 	transfer_to_pocket me to bed
@@ -247,6 +262,9 @@ do
 	if temp.stats.hp < 1
 		if old is called "bed_full"
 			replace old = "bed_bloody"
+		endif
+		if old is called "BED_COVERED_FULL"
+			replace old = "BED_COVERED_BLOODY"
 		endif
 		if old is called "bed2_full"
 		or old is called "bed2a_full"
@@ -412,6 +430,11 @@ if_in_pocket me
 		# Change sprite as appropriate
 		if bed is called "bed_full"
 			change bed = "bed"
+			force_from_pocket me from bed to bed.x bed.y
+		endif
+
+		if bed is called "bed_covered_full"
+			change bed = "bed_covered"
 			force_from_pocket me from bed to bed.x bed.y
 		endif
 

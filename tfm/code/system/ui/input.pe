@@ -418,7 +418,13 @@ else
 			printcr
 			goto endtalk
 		endif
-	
+
+		if current.user.unconscious > 0
+			print "No reply!"
+			printcr
+			goto endtalk
+		endif
+
 		if current.funcs.tcache <> -1 # Invisible?
 			if current.stats.hp > 0
 				if player.user.potion0 = 0
