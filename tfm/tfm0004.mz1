@@ -15677,7 +15677,7 @@ iMZ1r01
 		at 207 412
 		curdir 0
 		tag 10950
-		stats->hp 2500
+		stats->hp 2500000
 
 	object SIGN62cccd87-0d74-4000-a961-5aba17144092
 		type SIGN05
