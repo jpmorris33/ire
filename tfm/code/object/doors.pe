@@ -43,11 +43,19 @@ if me = player
 endif
 
 let door = current
+let findkey_key = null
+
+# Some NPCs have a built-in key
+if me.tag = door.tag
+and me.tag <> 0
+	let findkey_key = me
+endif
 
 # For an NPC, look for a key with the same tag as the door
-let findkey_tag = door.tag
-let findkey_key = null
-search_inside me calling findkey_func
+if_not_exists findkey_key
+	let findkey_tag = door.tag
+	search_inside me calling findkey_func
+endif
 
 # If it exists, unlock it
 if_exists findkey_key
@@ -97,7 +105,17 @@ endif
 # Do you have the right key?
 let findkey_tag = current.tag
 let findkey_key = null
-search_inside me calling findkey_func
+
+# Some NPCs have a built-in key
+if me.tag = current.tag
+and me.tag <> 0
+	let findkey_key = me
+endif
+
+# Otherwise look in their pockets
+if_not_exists findkey_key
+	search_inside me calling findkey_func
+endif
 
 if_not_exists findkey_key
 	# No key, no locking
