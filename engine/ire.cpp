@@ -161,7 +161,7 @@ ilog_start(newbootlog,oldbootlog);
 // Write the bootlog to both screen and file
 
 ilog_printf("IRE game runtime, Copyright (C) 2019 IT-HE Software\n");
-ilog_printf("IRE Kernel version: %s%s\n",IKV,SVNREVISION);
+ilog_printf("IRE engine version: %s%s\n",IKV,SVNREVISION);
 ilog_printf("Build date: %s at %s\n",__DATE__,__TIME__);
 ilog_printf("IT-HE lib version: %s\n",ithe_get_version());
 ilog_printf("%s\n",backend);
