@@ -525,10 +525,14 @@ do
 		if mouseclick = INV_ARROW_U
 			let cursor_y = -1
 			call status			# Redraw status area
+			wait 50 NONBLOCKING
+			let mouseclick = -1
 		endif
 		if mouseclick = INV_ARROW_D
 			let cursor_y = 4
 			call status			# Redraw status area
+			wait 50 NONBLOCKING
+			let mouseclick = -1
 		endif
 
 		# Try the wield window?

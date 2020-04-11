@@ -142,11 +142,19 @@ if key = KEY_MOUSE
 		let cursor_y = -1
 		call status			# Redraw status area
 		let mouseclick = -1
+		# just using inventory, give them another turn
+		wait 50 NONBLOCKING
+		get_key
+		goto rerun
 	endif
 	if mouseclick = INV_ARROW_D
 		let cursor_y = 4
 		call status			# Redraw status area
 		let mouseclick = -1
+		# just using inventory, give them another turn
+		wait 50 NONBLOCKING
+		get_key
+		goto rerun
 	endif
 
 	# Try the wield window?
