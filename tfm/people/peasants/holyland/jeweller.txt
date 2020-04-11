@@ -92,6 +92,33 @@ You see Abraham the Jeweller.
 [link="I would like to sell something."]
 [linkto="sell"]
 [always]
+[link="Tell me about the Pope's jewellery."]
+[linkto="pope"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="pope"]
+
+"Aye, he has cuff-links and like finery made by mine own
+ hand!
+
+ Once his men did commission me to build for him
+ a replica of the Papal ring for display purposes!
+ 'Tis held most dear, and never leaves his hand.
+
+ Even my poor copy is a most beautious thing...
+ I understand it be loaned to Cricklade Abbey, and
+ displayed there only on high days."
+
+[link="I would like to buy something."]
+[linkto="buy"]
+[always]
+[link="I would like to sell something."]
+[linkto="sell"]
+[always]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -479,11 +506,11 @@ SELLING GEMS
 [page="sell_jewellery"]
 
 "I would pay 800 gold for a necklace or bracelet.
- I have also been offered silver daggers in the past, and
- will pay 600 gold coins for each one.
+ I have also been offered silver daggers in the past,
+ and will pay 600 gold coins for each one.
 
- I am also interested in rings, and I shall pay 700 for a
- ruby ring.  For magical rings, I would pay at least 1200,
+ I am also interested in rings, and I shall pay 700 for
+ a ruby ring.  For magical rings, I would pay far more,
  depending on what you have."
 
 [am_carrying "treasure_00"]
@@ -730,10 +757,10 @@ SELLING GEMS
 [take 1 ring_inv]
 [if false][goto="no_product"]
 [call="money_sound"]
-[create 1200 gold_coins]
+[create 12000 gold_coins]
 
 "Indeed.. this is a most valuable find.. an invisibility
- ring.  I will give you 1200 gold coins."
+ ring.  I will give you 12000 gold coins."
 
 [am_carrying "ring_inv"]
 [if true][link="I have another one to sell."]
@@ -759,9 +786,9 @@ himself and utters a number of very rapid prayers.
 This doesn't look good at all.
 [colour="#ffffff"]
 
-"THIEF!  GUARDS!  THIS MAN STOLE THE PAPAL SIGNET RING!"
+"THIEF!  GUARDS!  THIS MAN STOLE THE POPE'S RING!"
 
-[at_exit_call="stopthief_popering"]
+[at_exit_call="stopthief_deadly"]
 [nextpage="exit"]
 [endpage]
 

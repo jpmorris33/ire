@@ -12382,7 +12382,7 @@ section: characters
 	hp		10000
 	weight		125
 	description	"You see a gold ring adorned with a large amethyst seal."
-	short		"signet ring"
+	short		"ring"
 	ifused		use_ring
 	IfWielded	wield_ring
 	IfTaken		popering_stolen
@@ -12392,8 +12392,8 @@ section: characters
 	frame		POPERING
 	hp		10000
 	weight		125
-	description	"You see a copy of the Pope's signet ring."
-	short		"fake signet ring"
+	description	"You see a copy of the Pope's ring."
+	short		"fake papal ring"
 	ifused		use_ring
 	IfWielded	wield_ring
 	wielded

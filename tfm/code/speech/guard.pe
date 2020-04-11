@@ -368,3 +368,14 @@ stop_search
 
 end
 
+
+##
+##  Call guards to kill the player's ass for stealing something big
+##
+
+function stopthief_deadly
+
+let suspect = player
+call justice_theft_deadly
+
+end

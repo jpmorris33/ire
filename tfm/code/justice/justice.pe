@@ -101,6 +101,34 @@ endif
 
 end
 
+##
+##  If you stole the papal ring or something
+##
+
+function justice_theft_deadly
+# Is there a suspect?
+
+if_not_exists suspect
+	return
+endif
+
+# Thieving scoundrel!
+let suspect.user.user19 = CRIME_THEFT
+
+# And were there any witnesses?
+
+let witnesses = 0
+for_all_onscreen justice_attack_party
+
+if witnesses > 0
+	print "~EXECUTE THE THIEF!~"
+	printcr
+	call call_guards_deadly
+endif
+
+end
+
+
 
 ##
 ##  Justice_Assault - Beating people up
