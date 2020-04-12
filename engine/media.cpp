@@ -322,14 +322,34 @@ return bmp->GetW()*bmp->GetH()*cd;
 
 int GetKey()
 {
-int z;
+int z,shift;
 IRE_GetMouse(NULL,NULL,&z,NULL);
-if(z<0)
-	return IREKEY_UP;
-if(z>0)
-	return IREKEY_DOWN;
+z=GetMouseZ(z);
+if(z) {
+	return z;
+}
 return IRE_GetBufferedKeycode();
 }
+
+int GetMouseZ(int z)
+{
+int shift;
+shift=IRE_TestShift(IRESHIFT_SHIFT);
+if(z<0) {
+	if(shift) {
+		return IREKEY_LEFT;
+	}
+	return IREKEY_UP;
+}
+if(z>0) {
+	if(shift) {
+		return IREKEY_RIGHT;
+	}
+	return IREKEY_DOWN;
+}
+return 0;
+}
+
 
 /*
  *      Wait for a key

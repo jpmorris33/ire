@@ -22,7 +22,7 @@ static int lastkey=0;
 static char lastascii=0;
 static char asciitab[SDLK_LAST];
 static char shiftascii[256];
-static int mousex,mousey;
+static int mousex,mousey,mousez;
 
 // Is it a modifier, rather than something that should return a proper keycode?
 
@@ -46,7 +46,7 @@ switch(keycode)	{
 
 void IRE_GetKeys()	{
 	SDL_Event sdlEvent;
-	int k,m;
+	int k,m,y;
 
 	if( SDL_PollEvent( &sdlEvent ) )	{
 		k=sdlEvent.key.keysym.scancode & STRIP_TO_FIT;
@@ -70,6 +70,14 @@ void IRE_GetKeys()	{
 		if(sdlEvent.type == SDL_MOUSEMOTION)	{
 			mousex = sdlEvent.motion.x;
 			mousey = sdlEvent.motion.y;
+		}
+
+		if(sdlEvent.type == SDL_MOUSEWHEEL)	{
+			y=sdlEvent.wheel.y;
+			if(sdlEvent.wheel.direction == SDL_MOUSEWHEEL_FLIPPED) {
+				y=-y;
+			}
+			mousez=-y;
 		}
 
 	}
@@ -337,8 +345,12 @@ if(x)
 	*x=mousex;
 if(y)
 	*y=mousey;
-if(z)
-	*z=0;
+if(z)	{
+	*z=mousez;
+	if(mousez) {
+		mousez=0;
+	}
+}
 /*
 if(z)
 	{

@@ -6,6 +6,7 @@
 #include "../ithelib.h"
 #include "../core.hpp"
 #include "../oscli.hpp"
+#include "../media.hpp"
 #include "menusys.h"
 //#include <allegro.h>
 
@@ -25,6 +26,7 @@
 
 
 // Defines
+#define MAX_KEYBIND 128
 
 // Variables
 
@@ -40,11 +42,11 @@ IRECOLOUR *ITG_WHITE;
 
 static int max_buttons;
 static BUTTON *ButtonList;
-static KEYBIND KeyList[128];
+static KEYBIND KeyList[MAX_KEYBIND];
 
 //IREBITMAP *swapscreen;
 char running,dragflag,didkill=0;
-int x,y,z;        // Mouse X,Y and buttonlevel (z)
+int x,y,b,z;        // Mouse X,Y and buttonlevel (z)
 
 // Functions
 
@@ -342,7 +344,7 @@ DrawScreenBoxHollow(x,y,x+w,y+h);
 void IG_KillAll()
 {
 memset(&ButtonList[0],0,sizeof(BUTTON)*max_buttons);
-memset(&KeyList[0],0,sizeof(KEYBIND)*128);
+memset(&KeyList[0],0,sizeof(KEYBIND)*MAX_KEYBIND);
 didkill=1;
 }
 
@@ -351,7 +353,7 @@ didkill=1;
 void IG_AddKey(int key,FPTR ptr)
 {
 int ctr;
-for(ctr=0;ctr<128;ctr++)
+for(ctr=0;ctr<MAX_KEYBIND;ctr++)
 	if(!KeyList[ctr].key)
 		{
 		KeyList[ctr].key = key;
@@ -383,87 +385,100 @@ SetColor(&c);
 void IG_Dispatch()
 {
 int key_,ctrx,ctr;
-static int x1=100,y1=300,z2;
+static int x1=100,y1=300,b2;
 
-z=0;
+b=0;
 
-// x1 = mouse_x; y1 = mouse_y; z = mouse_b;	// Allegro
-IRE_GetMouse(&x1,&y1,NULL,&z);
+IRE_GetMouse(&x1,&y1,&z,&b);
 x=x1-4;y=y1-4;
 
 didkill=0;
 
-if(IRE_KeyPressed())
-		key_ = IRE_NextKey(NULL);
-	else
-		key_ = 0;
+if(IRE_KeyPressed()) {
+	key_ = IRE_NextKey(NULL);
+} else {
+	key_ = 0;
+}
 
-	if(key_)
-		{
-		for(ctrx=0;ctrx<128;ctrx++)
-			if( key_ == KeyList[ctrx].key)
-				if(KeyList[ctrx].DoKey)
-					{
-					KeyList[ctrx].DoKey();
-					z=0;
-					break;
-					}
+if(z) {
+	key_ = GetMouseZ(z);
+}
+
+if(key_) {
+	for(ctrx=0;ctrx<MAX_KEYBIND;ctrx++) {
+		if( key_ == KeyList[ctrx].key) {
+			if(KeyList[ctrx].DoKey) {
+				KeyList[ctrx].DoKey();
+				b=0;
+				break;
+			}
 		}
+	}
+}
 
-	Show();
+Show();
 
-	if(z&&running)
-		{
-		for(ctr=0;ctr<max_buttons;ctr++)
-			if(x>=ButtonList[ctr].x&&x<=ButtonList[ctr].x2)
-				if(y>=ButtonList[ctr].y&&y<=ButtonList[ctr].y2)
-					{
-					z2=1;
-					if(z==IREMOUSE_LEFT&&ButtonList[ctr].left_ptr==UNUSED)
-						z2=0;
-					if(z==IREMOUSE_RIGHT&&ButtonList[ctr].right_ptr==UNUSED)
-						z2=0;
-					if(z==IREMOUSE_MIDDLE&&ButtonList[ctr].middle_ptr==UNUSED)
-						z2=0;
-					if(z2)
-						{
-						if(ButtonList[ctr].type==TOGGLE)
-                        	*ButtonList[ctr].toggle = !(*ButtonList[ctr].toggle);
-						else
-							ButtonList[ctr].state=ST_IN;
-						draw_button(ctr);
-						Show();
+if(b&&running) {
+	for(ctr=0;ctr<max_buttons;ctr++) {
+		if(x>=ButtonList[ctr].x&&x<=ButtonList[ctr].x2) {
+			if(y>=ButtonList[ctr].y&&y<=ButtonList[ctr].y2) {
+				b2=1;
+				if(b==IREMOUSE_LEFT&&ButtonList[ctr].left_ptr==UNUSED) {
+					b2=0;
+				}
+				if(b==IREMOUSE_RIGHT&&ButtonList[ctr].right_ptr==UNUSED) {
+					b2=0;
+				}
+				if(b==IREMOUSE_MIDDLE&&ButtonList[ctr].middle_ptr==UNUSED) {
+					b2=0;
+				}
+				if(b2) {
+					if(ButtonList[ctr].type==TOGGLE) {
+                        			*ButtonList[ctr].toggle = !(*ButtonList[ctr].toggle);
+					} else {
+						ButtonList[ctr].state=ST_IN;
+					}
+					draw_button(ctr);
+					Show();
 
-						if(!(ButtonList[ctr].flag & 2))
-							IG_WaitForRelease();
+					if(!(ButtonList[ctr].flag & 2)) {
+						IG_WaitForRelease();
+					}
 
-						if(z==IREMOUSE_LEFT)
-							ButtonList[ctr].left_ptr();
-						if(z==IREMOUSE_RIGHT)
-							ButtonList[ctr].right_ptr();
-						if(z==IREMOUSE_MIDDLE)
-							ButtonList[ctr].middle_ptr();
-						if(!didkill)
-							{
-							switch(ButtonList[ctr].type)
-								{
-								case NORMAL:
-								case UNDEFINED:
+					if(b==IREMOUSE_LEFT) {
+						ButtonList[ctr].left_ptr();
+					}
+					if(b==IREMOUSE_RIGHT) {
+						ButtonList[ctr].right_ptr();
+					}
+					if(b==IREMOUSE_MIDDLE) {
+						ButtonList[ctr].middle_ptr();
+					}
+					if(!didkill) {
+						switch(ButtonList[ctr].type) {
+							case NORMAL:
+							case UNDEFINED:
 								ButtonList[ctr].state=ST_OUT;
 								break;
-								}
-							draw_button(ctr);
-							}
-//						x1 = mouse_x-4; y1 = mouse_y-4; z = mouse_b;
-						IRE_GetMouse(&x1,&y1,NULL,&z);
-						x1-=4;
-						y1-=4;
-						break; // Only dispatch one event
 						}
+						draw_button(ctr);
 					}
-		Show();
+
+//					x1 = mouse_x-4; y1 = mouse_y-4; z = mouse_b;
+					IRE_GetMouse(&x1,&y1,&z,&b);
+					x1-=4;
+					y1-=4;
+					break; // Only dispatch one event
+				}
+			}
 		}
-	if(dragflag) dragflag--;
+	}
+
+	Show();
+}
+if(dragflag) {
+	dragflag--;
+}
 }
 
 
@@ -554,20 +569,18 @@ IRE_WaitFor(50);
 
 void IG_WaitForRelease()
 {
-int x,y,z=1,timeout;
+int x,y,b=1,timeout;
 timeout=254;
-while(z && timeout>0)
-    {
-    IRE_GetMouse(&x,&y,NULL,&z);
-    x-=4;y-=4;
+while(b && timeout>0) {
+	IRE_GetMouse(&x,&y,NULL,&b);
+	x-=4;y-=4;
 //    x = mouse_x-4; y = mouse_y-4; z = mouse_b;
-    waitabit();
-    timeout--;
-    }
+	waitabit();
+	timeout--;
+}
 
-if(timeout < 1)
-    {
-    fprintf(DEBUGIO,"IRE GUI: Timed out waiting for mouse to respond (gui/igui.cpp line %d)\n",__LINE__);
-    fprintf(DEBUGIO,"Mouse says %d\n",z);
-    }
+if(timeout < 1) {
+	fprintf(DEBUGIO,"IRE GUI: Timed out waiting for mouse to respond (gui/igui.cpp line %d)\n",__LINE__);
+	fprintf(DEBUGIO,"Mouse says %d\n",b);
+}
 }

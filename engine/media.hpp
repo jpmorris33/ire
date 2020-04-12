@@ -14,6 +14,7 @@ extern unsigned int GetIREClock();
 extern unsigned int GetAnimClock();
 extern void ResetIREClock();
 extern int GetKey();
+extern int GetMouseZ(int z);
 extern int WaitForKey();
 extern unsigned char WaitForAscii();
 extern void FlushKeys();
