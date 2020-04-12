@@ -97,11 +97,13 @@ do
 
 	# Move selection if need be
 	if key = KEY_UP
+	or key = KEY_MOUSEUP
 	and menupos > 1
 		add menupos - 1
 	endif
 
 	if key = KEY_DOWN
+	or key = KEY_MOUSEDOWN
 	and menupos < 4
 		add menupos + 1
 	endif

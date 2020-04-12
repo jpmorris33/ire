@@ -169,6 +169,23 @@ if key = KEY_MOUSE
 
 endif
 
+# Scroll wheel
+if key = KEY_MOUSEUP
+	let cursor_y = -1
+	call status			# Redraw status area
+	wait 50 NONBLOCKING
+	get_key
+	goto rerun
+endif
+
+if key = KEY_MOUSEDOWN
+	let cursor_y = 4
+	call status			# Redraw status area
+	wait 50 NONBLOCKING
+	get_key
+	goto rerun
+endif
+
 if key = KEY_UP
 	if_key KEY_LEFT
 		let x = x - 1	

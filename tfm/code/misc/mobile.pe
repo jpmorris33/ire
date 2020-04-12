@@ -141,10 +141,12 @@ do
         endif
 
 	if key = KEY_UP
+	or key = KEY_MOUSEUP
 		scrollwindow win -1
 	endif
 
 	if key = KEY_DOWN
+	or key = KEY_MOUSEDOWN
 		scrollwindow win +1
 	endif
 

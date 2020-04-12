@@ -545,6 +545,21 @@ do
 		endif
 	endif
 
+	# Scroll wheel
+	if key = KEY_MOUSEUP
+		let cursor_y = -1
+		call status			# Redraw status area
+		wait 50 NONBLOCKING
+		let key = 0
+	endif
+	if key = KEY_MOUSEDOWN
+		let cursor_y = 4
+		call status			# Redraw status area
+		wait 50 NONBLOCKING
+		let key = 0
+	endif
+	
+
 	# Enter selects an object
 
 	if key = KEY_ENTER
@@ -661,6 +676,21 @@ do
 		endif
 
 	endif
+
+	# Scroll wheel
+	if key = KEY_MOUSEUP
+		let cursor_y = -1
+		call status			# Redraw status area
+		wait 50 NONBLOCKING
+		let key = 0
+	endif
+	if key = KEY_MOUSEDOWN
+		let cursor_y = 4
+		call status			# Redraw status area
+		wait 50 NONBLOCKING
+		let key = 0
+	endif
+
 
 	call status			# Redraw status area
 
