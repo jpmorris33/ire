@@ -75,12 +75,13 @@ static int StreamSong_GetVoice();
 
 int S_Init()
 {
-if(SoundOn)
+if(SoundOn) {
 	return 0;
+}
 
-if(install_sound(DIGI_AUTODETECT,MIDI_NONE,NULL))
+if(install_sound(DIGI_AUTODETECT,MIDI_NONE,NULL)) {
 	return 0;	// Zero success for install_sound
-
+}
 #ifdef USE_ALOGG
 	alogg_init();
 	memset(&ogg_vfs,0,sizeof(ogg_vfs));
@@ -98,8 +99,9 @@ return 1;
 
 void S_Term()
 {
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 StreamSong_stop();
 #ifdef USE_ALOGG
@@ -115,8 +117,9 @@ SoundOn=0;
 
 void S_Load()
 {
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 LoadMusic();
 LoadWavs();
 }
@@ -128,10 +131,12 @@ LoadWavs();
 
 void S_MusicVolume(int vol)
 {
-if(vol < 0)
+if(vol < 0) {
 	vol=0;
-if(vol > 100)
+}
+if(vol > 100) {
 	vol=100;
+}
 mu_volume = vol;
 SetMusicVol(mu_volume);
 return;
@@ -144,10 +149,12 @@ return;
 
 void S_SoundVolume(int vol)
 {
-if(vol < 0)
+if(vol < 0) {
 	vol=0;
-if(vol > 100)
+}
+if(vol > 100) {
 	vol=100;
+}
 sf_volume = vol;
 SetSoundVol(sf_volume);
 return;
@@ -163,40 +170,44 @@ void S_PlayMusic(char *name)
 char filename[1024];
 long ctr;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 // Is the music playing?  If not, this will clear IsPlaying
 S_IsPlaying();
 
-for(ctr=0;ctr<Songs;ctr++)
-	if(!istricmp(mustab[ctr].name,name))
-		{
+for(ctr=0;ctr<Songs;ctr++) {
+	if(!istricmp(mustab[ctr].name,name)) {
 		// If the music is marked Not Present, ignore it (music is optional)
-		if(mustab[ctr].fname[0] == 0)
+		if(mustab[ctr].fname[0] == 0) {
 			return;
+		}
 
 		// Is it already playing?
-		if(IsPlaying == mustab[ctr].name)
+		if(IsPlaying == mustab[ctr].name) {
 			return;
+		}
 
 		// Is something else playing?
-		if(IsPlaying)
+		if(IsPlaying) {
 			StreamSong_stop();
+		}
 
 		// Otherwise, no excuses
 		IsPlaying = mustab[ctr].name; // This is playing now
 
-		if(!loadfile(mustab[ctr].fname,filename))
-			{
+		if(!loadfile(mustab[ctr].fname,filename)) {
 			Bug("S_PlayMusic - could play song %s, could not find file '%s'\n",name,mustab[ctr].fname);
 			return;
-			}
-
-		if(!StreamSong_start(filename))
-			Bug("S_PlayMusic - could not play song '%s'\n",name);
-		return;
 		}
+
+		if(!StreamSong_start(filename)) {
+			Bug("S_PlayMusic - could not play song '%s'\n",name);
+		}
+		return;
+	}
+}
 
 Bug("S_PlayMusic - could not find song '%s'\n",name);
 }
@@ -220,21 +231,21 @@ void S_PlaySample(char *name, int volume)
 {
 int freq,num,ctr;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
-for(ctr=0;ctr<Waves;ctr++)
-	if(!istricmp(wavtab[ctr].name,name))
-		{
+for(ctr=0;ctr<Waves;ctr++) {
+	if(!istricmp(wavtab[ctr].name,name)) {
 		freq=1000;
-		if(!wavtab[ctr].nodrift)
-			{
+		if(!wavtab[ctr].nodrift) {
 			num = 10 - (rand()%20);
 			freq+=(num*driftlevel)/10;
-			}
+		}
 		play_sample(wavtab[ctr].sample,volume,128,freq,0); // vol,pan,freq,loop
 		return;
-		}
+	}
+}
 
 Bug("S_PlaySample- could not find sound '%s'\n",name);
 }
@@ -253,17 +264,18 @@ void LoadMusic()
 char filename[1024];
 int ctr;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 ilog_printf("  Checking music.. ");     // This line is not terminated!
 
-for(ctr=0;ctr<Songs;ctr++)
-	if(!loadfile(mustab[ctr].fname,filename))
-		{
+for(ctr=0;ctr<Songs;ctr++) {
+	if(!loadfile(mustab[ctr].fname,filename)) {
 		ilog_quiet("Warning: Could not load music file '%s'\n",mustab[ctr].fname);
 		mustab[ctr].fname[0]=0;	// Erase the filename to mark N/A
-		}
+	}
+}
 
 ilog_printf("done.\n");  // This terminates the line above
 
@@ -279,8 +291,9 @@ void LoadWavs()
 char filename[1024];
 int ctr;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 // load in each sound
 
@@ -288,15 +301,16 @@ ilog_printf("  Loading sounds");     // This line is not terminated, for the dot
 
 Plot(Waves);    // Work out how many dots to print
 
-for(ctr=0;ctr<Waves;ctr++)
-	{
-	if(!loadfile(wavtab[ctr].fname,filename))
+for(ctr=0;ctr<Waves;ctr++) {
+	if(!loadfile(wavtab[ctr].fname,filename)) {
 		ithe_panic("LoadWavs: Cannot open WAV file",wavtab[ctr].fname);
-	wavtab[ctr].sample=iload_wav(filename);
-	if(!wavtab[ctr].sample)
-		ithe_panic("LoadWavs: Invalid WAV file",filename);
-	Plot(0);                                        // Print a dot
 	}
+	wavtab[ctr].sample=iload_wav(filename);
+	if(!wavtab[ctr].sample) {
+		ithe_panic("LoadWavs: Invalid WAV file",filename);
+	}
+	Plot(0);                                        // Print a dot
+}
 
 ilog_printf("\n");  // End the line of dots
 
@@ -313,9 +327,11 @@ vol = (vol*255)/100;
 // Get channel used by streamer because we don't want to touch that one
 musvoice = StreamSong_GetVoice();
 
-for(ctr=0;ctr<256;ctr++)
-	if(ctr != musvoice)
+for(ctr=0;ctr<256;ctr++) {
+	if(ctr != musvoice) {
 		voice_set_volume(ctr,vol);
+	}
+}
 }
 
 
@@ -327,8 +343,9 @@ vol = (vol*255)/100;
 
 // Get channel used by streamer
 musvoice = StreamSong_GetVoice();
-if(musvoice>=0)
+if(musvoice>=0) {
 	voice_set_volume(musvoice,vol);
+}
 }
 
 
@@ -337,11 +354,10 @@ if(musvoice>=0)
 int S_IsPlaying()
 {
 #ifdef USE_ALOGG
-if(!stream || !thread || !alogg_is_thread_alive(thread))
-	{
+if(!stream || !thread || !alogg_is_thread_alive(thread)) {
 	IsPlaying = NULL;
 	return 0;
-	}
+}
 #endif
 
 return 1;
@@ -351,15 +367,17 @@ int StreamSong_start(char *filename)
 {
 IFILE *ifile;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return 0;
+}
 
 #ifdef USE_ALOGG
 	ifile = iopen(filename);
 
 	stream = alogg_start_streaming_callbacks((void *)ifile,(struct ov_callbacks *)&ogg_vfs,40960,NULL);
-	if(!stream)
+	if(!stream) {
 		return 0;
+	}
 	thread = alogg_create_thread(stream);
 
 	SetMusicVol(mu_volume);
@@ -371,25 +389,25 @@ return 1;
 
 void StreamSong_stop()
 {
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 IsPlaying = NULL;
 
 #ifdef USE_ALOGG
-	if(!stream)
+	if(!stream) {
 		return;
+	}
 
-	if(thread)
-		{
+	if(thread) {
 		alogg_stop_thread(thread);
 		while(alogg_is_thread_alive(thread));
 		alogg_destroy_thread(thread);
 		thread=NULL;
-		}
+	}
 
 	stream=NULL;
-
 #endif
 
 return;
@@ -403,36 +421,38 @@ int i,voice=-1;
 AUDIOSTREAM *audiostream=NULL;
 #endif
 
-if(!SoundOn)
+if(!SoundOn) {
 	return -1;
+}
 
 #ifdef USE_ALOGG
-	if(!stream)
+	if(!stream) {
 		return  -1;
+	}
 
-	if(!thread)
+	if(!thread) {
 		return  -1;
+	}
 
-	if(!alogg_is_thread_alive(thread))
+	if(!alogg_is_thread_alive(thread)) {
 		return  -1;
+	}
 
 	// Tranquilise the thread while we mess around with it
 	i=alogg_lock_thread(thread);
-	if(!i)
-		{
+	if(!i) {
 		// Get the underlying audio stream structure
 		audiostream=alogg_get_audio_stream(stream);
-		if(audiostream)
-			{
+		if(audiostream) {
 			// Set the volume level
 			voice = audiostream->voice;
 			free_audio_stream_buffer(audiostream);
-			}
+		}
 		// Leave the thread to wake up
 		alogg_unlock_thread(thread);
-		}
-	else
+	} else {
 		printf("Alogg thread lock error %d\n",i);
+	}
 #endif
 
 return voice;
@@ -475,87 +495,95 @@ return (long)itell((IFILE *)datasource);
  */
 SAMPLE *iload_wav(char *filename)
 {
-   IFILE *f;
-   char buffer[25];
-   int i;
-   int length, len;
-   int freq = 22050;
-   int bits = 8;
-   int channels = 1;
-   signed short s;
-   SAMPLE *spl = NULL;
+IFILE *f;
+char buffer[25];
+int i;
+int length, len;
+int freq = 22050;
+int bits = 8;
+int channels = 1;
+signed short s;
+SAMPLE *spl = NULL;
 
-	*allegro_errno=0;
+*allegro_errno=0;
 
-   f = iopen(filename);
-   if (!f)
-      return NULL;
+f = iopen(filename);
+if (!f) {
+	return NULL;
+}
 
-   iread((unsigned char *)buffer, 12, f);          /* check RIFF header */
-   if (memcmp(buffer, "RIFF", 4) || memcmp(buffer+8, "WAVE", 4))
-      goto getout;
+iread((unsigned char *)buffer, 12, f);          /* check RIFF header */
+if (memcmp(buffer, "RIFF", 4) || memcmp(buffer+8, "WAVE", 4)) {
+	goto getout;
+}
 
-   while (!ieof(f)) {
-      if (iread((unsigned char *)buffer, 4, f) != 4)
-	 break;
-
-      length = igetl_i(f);          /* read chunk length */
-
-      if (memcmp(buffer, "fmt ", 4) == 0) {
-	 i = igetsh_i(f);            /* should be 1 for PCM data */
-	 length -= 2;
-	 if (i != 1) 
-	    goto getout;
-
-	 channels = igetsh_i(f);     /* mono or stereo data */
-	 length -= 2;
-	 if ((channels != 1) && (channels != 2))
-	    goto getout;
-
-	 freq = igetl_i(f);         /* sample frequency */
-	 length -= 4;
-
-	 igetl_i(f);                /* skip six bytes */
-	 igetsh_i(f);
-	 length -= 6;
-
-	 bits = igetsh_i(f);         /* 8 or 16 bit data? */
-	 length -= 2;
-	 if ((bits != 8) && (bits != 16))
-	    goto getout;
-      }
-      else if (memcmp(buffer, "data", 4) == 0) {
-	 len = length / channels;
-
-	 if (bits == 16)
-	    len /= 2;
-
-	 spl = create_sample(bits, ((channels == 2) ? TRUE : FALSE), freq, len);
-
-	 if (spl) { 
-	    if (bits == 8) {
-	       iread((unsigned char *)spl->data, length, f);
-	    }
-	    else {
-	       for (i=0; i<len*channels; i++) {
-		  s = igetsh_i(f);
-		  ((signed short *)spl->data)[i] = s^0x8000;
-	       }
-	    }
-	    length = 0;
-	 }
-      }
-
-      while (length > 0) {             /* skip the remainder of the chunk */
-	if (igetc(f) == (unsigned char)EOF)
+while (!ieof(f)) {
+	if (iread((unsigned char *)buffer, 4, f) != 4) {
 		break;
-	length--;
-      }
-   }
+	}
 
-   getout:
-   iclose(f);
-   return spl;
+	length = igetl_i(f);          /* read chunk length */
+
+	if (memcmp(buffer, "fmt ", 4) == 0) {
+		i = igetsh_i(f);            /* should be 1 for PCM data */
+		length -= 2;
+		if (i != 1)  {
+			goto getout;
+		}
+
+		channels = igetsh_i(f);     /* mono or stereo data */
+		length -= 2;
+		if ((channels != 1) && (channels != 2)) {
+			goto getout;
+		}
+
+		freq = igetl_i(f);         /* sample frequency */
+		length -= 4;
+
+		igetl_i(f);                /* skip six bytes */
+		igetsh_i(f);
+		length -= 6;
+
+		bits = igetsh_i(f);         /* 8 or 16 bit data? */
+		length -= 2;
+		if ((bits != 8) && (bits != 16)) {
+			goto getout;
+		}
+	} else {
+		if (memcmp(buffer, "data", 4) == 0) {
+			len = length / channels;
+
+			if (bits == 16) {
+				len /= 2;
+			}
+
+			spl = create_sample(bits, ((channels == 2) ? TRUE : FALSE), freq, len);
+
+			if (spl) { 
+				if (bits == 8) {
+					iread((unsigned char *)spl->data, length, f);
+				} else {
+					for (i=0; i<len*channels; i++) {
+				  		s = igetsh_i(f);
+						((signed short *)spl->data)[i] = s^0x8000;
+					}
+				}
+				length = 0;
+			}
+		}
+	}
+
+	while (length > 0) {             /* skip the remainder of the chunk */
+		if (igetc(f) == (unsigned char)EOF) {
+			break;
+		}
+		length--;
+	}
+}
+
+getout:
+iclose(f);
+return spl;
 }
 
 

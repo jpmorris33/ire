@@ -64,26 +64,25 @@ int S_Init()
 {
 int r;
 
-if(SoundOn)
+if(SoundOn) {
 	return 0;
+}
 
-if(SDL_Init(SDL_INIT_AUDIO) < 0)
-	{
+if(SDL_Init(SDL_INIT_AUDIO) < 0) {
 	ilog_quiet("SDL: init failed\n");
 	return 0;
-	}
+}
 
 // stereo, 2k buffer
 r=Mix_OpenAudio(44100,AUDIO_S16,2,2048);
-if(r<0)
-	{
+if(r<0) {
 	ilog_quiet("SDL: Mix Audio failed, returned %d\n",r);
 	exit(1);
 	#ifndef NO_SDL_QUIT
 	SDL_Quit();
 	#endif
 	return 0;
-	}
+}
 
 SoundOn=1;
 
@@ -93,8 +92,9 @@ return 1;
 
 void S_Term()
 {
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 S_StopMusic();
 Mix_CloseAudio();
@@ -115,8 +115,9 @@ SoundOn=0;
 
 void S_Load()
 {
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 LoadMusic();
 LoadWavs();
 }
@@ -128,10 +129,12 @@ LoadWavs();
 
 void S_MusicVolume(int vol)
 {
-if(vol < 0)
+if(vol < 0) {
 	vol=0;
-if(vol > 100)
+}
+if(vol > 100) {
 	vol=100;
+}
 mu_volume = vol;
 SetMusicVol(mu_volume);
 return;
@@ -144,10 +147,12 @@ return;
 
 void S_SoundVolume(int vol)
 {
-if(vol < 0)
+if(vol < 0) {
 	vol=0;
-if(vol > 100)
+}
+if(vol > 100) {
 	vol=100;
+}
 sf_volume = vol;
 SetSoundVol(sf_volume);
 return;
@@ -161,11 +166,11 @@ return;
 void S_PlayMusic(char *name)
 {
 char filename[1024];
-char filename2[1024];
 long ctr;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 // Is the music playing?  If not, this will clear IsPlaying
 S_IsPlaying();
@@ -192,7 +197,7 @@ for(ctr=0;ctr<Songs;ctr++) {
 			return;
 		}
 		MusicChannel=Mix_PlayMusic(IsPlaying,0);
-		if(!MusicChannel < 0) {
+		if(MusicChannel < 0) {
 			Bug("S_PlayMusic - could not play song '%s'\n",name);
 			IsPlaying=NULL;
 			SDL_RWclose(musRW);
@@ -234,26 +239,25 @@ void S_PlaySample(char *name, int volume)
 {
 int freq,num,ctr,chn;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
-for(ctr=0;ctr<Waves;ctr++)
-	if(!istricmp(wavtab[ctr].name,name))
-		{
+for(ctr=0;ctr<Waves;ctr++) {
+	if(!istricmp(wavtab[ctr].name,name)) {
 		freq=1000;
-		if(!wavtab[ctr].nodrift)
-			{
+		if(!wavtab[ctr].nodrift) {
 			num = 10 - (rand()%20);
 			freq+=(num*driftlevel)/10;
-			}
+		}
 		chn=Mix_PlayChannel(-1,wavtab[ctr].sample,0);
-		if(chn>-1)
-			{
+		if(chn>-1) {
 			Mix_Volume(chn,volume/2);
 //			Mix_SetFreq(chn,freq);
-			}
-		return;
 		}
+		return;
+	}
+}
 
 Bug("S_PlaySample- could not find sound '%s'\n",name);
 }
@@ -272,8 +276,9 @@ void LoadMusic()
 char filename[1024];
 int ctr;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 ilog_printf("  Checking music.. ");     // This line is not terminated!
 
@@ -297,11 +302,11 @@ ilog_printf("done.\n");  // This terminates the line above
 void LoadWavs()
 {
 char filename[1024];
-char filename2[1024];
 int ctr,len;
 
-if(!SoundOn)
+if(!SoundOn) {
 	return;
+}
 
 // load in each sound
 
@@ -360,10 +365,13 @@ int ctr;
 
 vol *= 127;
 vol /= 100;
-for(ctr=0;ctr<256;ctr++)
-	if(ctr != MusicChannel)
-		if(Mix_GetChunk(ctr))
+for(ctr=0;ctr<256;ctr++) {
+	if(ctr != MusicChannel) {
+		if(Mix_GetChunk(ctr)) {
 			Mix_Volume(ctr,vol);
+		}
+	}
+}
 Mix_VolumeMusic((mu_volume*127)/100);
 }
 
@@ -379,8 +387,9 @@ Mix_VolumeMusic(vol/100);
 
 int S_IsPlaying()
 {
-if(!IsPlaying)
+if(!IsPlaying) {
 	return 0; // Definitely not
+}
 
 // Not sure, need to ask
 return Mix_PlayingMusic();
@@ -395,8 +404,9 @@ return Mix_PlayingMusic();
 int StreamSong_start(char *filename)
 {
 IsPlaying=Mix_LoadMUS(filename);
-if(IsPlaying)
+if(IsPlaying) {
 	return 1;
+}
 return 0;
 }
 

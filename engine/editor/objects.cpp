@@ -1427,7 +1427,7 @@ for(vy=0;vy<curmap->h;vy++) {
 }
 
 if(problem) {
-	sprintf(string1,"Stacked decorative at %d,%d\n",problem->x,problem->y);
+	sprintf(string1,"Stacked decorative at %ld,%ld\n",problem->x,problem->y);
 	Notify(-1,-1,"Decorative object error",string1);
 	SelectThisObject(problem);
 	return;

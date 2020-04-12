@@ -5108,19 +5108,24 @@ obj = CHECK_OBJ(1);
 jumpoffset = GET_DWORD();
 
 ok=0;
-if(obj)
-	if(*obj)
-		{
+if(obj) {
+	if(*obj) {
 		a=*obj;
-		if(a->x+(a->mw-1) >=mapx)
-			if(a->x <= mapx2)
-				if(a->y+(a->mh-1) >=mapy)
-					if(a->y <= mapy2)
+		if(a->x+(a->mw-1) >=mapx) {
+			if(a->x <= mapx2) {
+				if(a->y+(a->mh-1) >=mapy) {
+					if(a->y <= mapy2) {
 						ok=1;    // Yes
+					}
+				}
+			}
 		}
+	}
+}
     
-if(!ok)
+if(!ok) {
 	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
+}
 }
 
 void PV_If_not_oonscreen()
@@ -5133,19 +5138,24 @@ obj = CHECK_OBJ(1);
 jumpoffset = GET_DWORD();
 
 ok=0;
-if(obj)
-	if(*obj)
-		{
+if(obj) {
+	if(*obj) {
 		a=*obj;
-		if(a->x+(a->mw-1) >=mapx)
-			if(a->x <= mapx2)
-				if(a->y+(a->mh-1) >=mapy)
-					if(a->y <= mapy2)
+		if(a->x+(a->mw-1) >=mapx) {
+			if(a->x <= mapx2) {
+				if(a->y+(a->mh-1) >=mapy) {
+					if(a->y <= mapy2) {
 						ok=1;    // Yes
+					}
+				}
+			}
 		}
+	}
+}
     
-if(ok)
+if(ok) {
 	curvm->ip = ADD_IP(curvm->code,jumpoffset);  // Mess with IP for the jump
+}
 }
 
 // Take quantity of objects from a container
@@ -5346,23 +5356,26 @@ func = GET_DWORD();
 VM_SaveRegs(&objvars);
 
 SI_Search=1;
-for(y=mapy;y<mapy2;y++)
-	{
+for(y=mapy;y<mapy2;y++) {
 	// Search cancelled?
-	if(!SI_Search)
+	if(!SI_Search) {
 		break;
-		for(x=mapx;x<mapx2;x++)
-			{
-			// Search cancelled?
-			if(!SI_Search)
-				break;
-			current_object = GameGetObject(x,y);
-			if(current_object)
-				if(current_object->stats->hp > 0)
-					if(current_object->stats->intel > 0)
-						CallVMnum(func);
-			}
 	}
+	for(x=mapx;x<mapx2;x++) {
+		// Search cancelled?
+		if(!SI_Search) {
+			break;
+		}
+		current_object = GameGetObject(x,y);
+		if(current_object) {
+			if(current_object->stats->hp > 0) {
+				if(current_object->stats->intel > 0) {
+						CallVMnum(func);
+				}
+			}
+		}
+	}
+}
 SI_Search=0;
 
 VM_RestoreRegs(&objvars);
@@ -5410,25 +5423,26 @@ if(ey>curmap->h)
 VM_SaveRegs(&objvars);
 
 SI_Search=1;
-for(y=sy;y<ey;y++)
-	{
+for(y=sy;y<ey;y++) {
 	// Search cancelled?
-	if(!SI_Search)
+	if(!SI_Search) {
 		break;
-		for(x=sx;x<ex;x++)
-			{
-			// Search cancelled?
-			if(!SI_Search)
-				break;
-			current_object = GameGetObject(x,y);
-			if(current_object)
-				{
-				if(current_object->stats->hp > 0)
-					if(current_object->stats->intel > 0)
-						CallVMnum(func);
+	}
+	for(x=sx;x<ex;x++) {
+		// Search cancelled?
+		if(!SI_Search) {
+			break;
+		}
+		current_object = GameGetObject(x,y);
+		if(current_object) {
+			if(current_object->stats->hp > 0) {
+				if(current_object->stats->intel > 0) {
+					CallVMnum(func);
 				}
 			}
+		}
 	}
+}
 SI_Search=0;
 
 VM_RestoreRegs(&objvars);
@@ -5523,36 +5537,32 @@ CHECK_POINTER(tag);
 // If it has empty string, find any matching tag
 
 //if(strlen(str) == 0)
-if(!str[0])
+if(!str[0]) {
 	str=NULL;
-
+}
 
 // Look near focussed object to start with (for speed)
-if(person)
-	{
+if(person) {
 	*obj=find_neartag(person,str,*tag);
-	if(*obj)
+	if(*obj) {
 		return;
-	// Didn't find anything, carry on and search entire list
 	}
+	// Didn't find anything, carry on and search entire list
+}
 
-for(t=MasterList;t;t=t->next)
-	if(t->ptr->tag == *tag)
-		{
-		if(str)
-			{
-			if(!istricmp_fuzzy(str,t->ptr->name))
-				{
+for(t=MasterList;t;t=t->next) {
+	if(t->ptr->tag == *tag) {
+		if(str) {
+			if(!istricmp_fuzzy(str,t->ptr->name)) {
 				*obj = t->ptr;
 				return;
-				}
 			}
-		else
-			{
+		} else	{
 			*obj = t->ptr;
 			return;
-			}
 		}
+	}
+}
 
 *obj = NULL;
 }
@@ -5604,23 +5614,21 @@ obj=(OBJECT **)array;
 memset(obj,0,size*sizeof(OBJECT *)); // Blank the array
 actr=0;
 
-for(t=MasterList;t;t=t->next)
-	if(t->ptr->tag == *tag)
-		{
-		if(str)
-			{
-			if(!istricmp_fuzzy(str,t->ptr->name))
-				{
-				if(actr<size)
+for(t=MasterList;t;t=t->next) {
+	if(t->ptr->tag == *tag) {
+		if(str) {
+			if(!istricmp_fuzzy(str,t->ptr->name)) {
+				if(actr<size) {
 					obj[actr++] = t->ptr;
 				}
 			}
-		else
-			{
-			if(actr<size)
+		} else {
+			if(actr<size) {
 				obj[actr++] = t->ptr;
 			}
 		}
+	}
+}
 
 // *obj = NULL;
 }
@@ -5771,14 +5779,14 @@ OBJECT **o1;
 o1 = GET_OBJECT();
 CHECK_POINTER(o1);
 
-for(ctr=0;ctr<MAX_MEMBERS;ctr++)
-	if(party[ctr])
-		{
+for(ctr=0;ctr<MAX_MEMBERS;ctr++) {
+	if(party[ctr]) {
 		TransferToPocket(party[ctr],*o1);
 		// Update X/Y to match object
 		party[ctr]->x = (*o1)->x;
 		party[ctr]->y = (*o1)->y;
-		}
+	}
+}
 
 }
 

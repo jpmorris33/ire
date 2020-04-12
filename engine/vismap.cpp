@@ -37,11 +37,9 @@ if(blankercol > 0) {
 void VisMap::calculate()
 {
 int ctr,ctr2;
-int xoff,yoff,xmax,ymax,visx,visy;
+int xmax,ymax,visx,visy;
 OBJECT *o;
 
-xoff = mapx-1;
-yoff = mapy-1;
 xmax = VSW;
 ymax = VSH;
 
@@ -107,12 +105,9 @@ floodfill(visx-mapx,visy-mapy);
 void VisMap::calculateSimple()
 {
 int ctr,ctr2;
-int xoff,yoff,xmax,ymax;
+int xmax,ymax;
 char edgemode=VISMAP_IS_DONE|VISMAP_IS_NOSPRITE;
-OBJECT *o;
 
-xoff = mapx-1;
-yoff = mapy-1;
 xmax = VSW;
 ymax = VSH;
 

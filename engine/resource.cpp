@@ -398,7 +398,7 @@ return;
 
 void pre_sprites(long start,long finish)
 {
-long ctr,pos,imagedata;
+long ctr,pos;
 const char *Rptr;
 char *line;
 
@@ -428,7 +428,6 @@ ilog_printf("using %d bytes\n", sizeof(S_POOL)*(spr_alloc+1));
 // Gather the names and store them
 
 pos = 0;
-imagedata=0;
 
 for(ctr=start;ctr<=finish;ctr++)
 	{
@@ -2934,7 +2933,7 @@ for(ctr=start;ctr<=finish;ctr++) {
 	}
 }
 
-ilog_quiet("Finished\n");
+ilog_quiet("Finished, %d bytes of image data allocated\n", imagedata);
 ilog_printf("\n");
 }
 
@@ -3005,7 +3004,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		}
 	}
 
-ilog_printf("\n");
+ilog_quiet("\nFinished, %d bytes of image data allocated\n", imagedata);
 }
 
 /*
