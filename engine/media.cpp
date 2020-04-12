@@ -324,10 +324,14 @@ int GetKey()
 {
 int z,shift;
 IRE_GetMouse(NULL,NULL,&z,NULL);
-z=GetMouseZ(z);
 if(z) {
-	return z;
+	if(z<0) {
+		return IREKEY_MOUSEUP;
+	} else {
+		return IREKEY_MOUSEDOWN;
+	}
 }
+
 return IRE_GetBufferedKeycode();
 }
 
@@ -364,10 +368,10 @@ do {
 
 	IRE_GetMouse(NULL,NULL,&z,NULL);
 	if(z<0) {
-		return IREKEY_UP;
+		return IREKEY_MOUSEUP;
 	}
 	if(z>0) {
-		return IREKEY_DOWN;
+		return IREKEY_MOUSEDOWN;
 	}
 	CheckMouseRanges();
 	if(MouseID != -1) {

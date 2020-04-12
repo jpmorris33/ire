@@ -3989,6 +3989,8 @@ add_symbol_val("KEY_CTRL_F11",'n',IREKEY_F11|IREKEY_CTRLMOD);
 add_symbol_val("KEY_CTRL_F12",'n',IREKEY_F12|IREKEY_CTRLMOD);
 
 add_symbol_val("KEY_MOUSE",'n',IREKEY_MOUSE);
+add_symbol_val("KEY_MOUSEUP",'n',IREKEY_MOUSEUP);
+add_symbol_val("KEY_MOUSEDOWN",'n',IREKEY_MOUSEDOWN);
 
 ADD_CONST(MAX_MEMBERS);
 
