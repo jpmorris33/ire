@@ -2074,6 +2074,7 @@ iMZ1r01
 		type STONEDOOR5_LOCK
 		at 255 212
 		curdir 2
+		tag 3
 
 	object WARG2b935a55-c04b-4189-ada5-a811980b03db
 		type WARG_BRIDGE00
