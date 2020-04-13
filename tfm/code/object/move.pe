@@ -84,6 +84,7 @@ function move_forward
 
 int x
 int y
+int cost
 
 if_not_exists current
 	return
@@ -96,34 +97,38 @@ centre around current
 
 if current.curdir = RIGHT
 	add x + 1
-	move_object current to x y
-	return
+	goto do_move
 endif
 
 if current.curdir = LEFT
 	add x - 1
-	move_object current to x y
-	return
+	goto do_move
 endif
 
 if current.curdir = DOWN
 	add y + 1
-	move_object current to x y
-	return
+	goto do_move
 endif
 
 if current.curdir = UP
 	add y - 1
-	move_object current to x y
-	return
 endif
+
+label do_move
+
+centre around current
+get_cost cost = x y
+if cost < 100
+	move_object current to x y
+endif
+
 
 end
 
 
 
 ##
-##	Move Forward
+##	Track an enemy
 ##
 
 function track_enemy
@@ -132,6 +137,7 @@ int x
 int y
 int ex
 int ey
+int cost
 
 if_not_exists current
 	return
@@ -167,7 +173,10 @@ if y > ey
 endif
 
 centre around current
-move_object current to x y
+get_cost cost = x y
+if cost < 100
+	move_object current to x y
+endif
 
 end
 

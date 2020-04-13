@@ -91,7 +91,12 @@ endif
 label stop
 
 centre around me # Make sure collision detection window is up to date
-move_object me to x y
+
+# Make sure they don't just bound into lava etc
+get_cost rnd = x y
+if rnd < 100
+	move_object me to x y
+endif
 
 end
 
