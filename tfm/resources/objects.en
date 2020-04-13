@@ -15739,9 +15739,13 @@ section: characters
 	short		"comms unit"
 
 	alias COMMS_UNIT2 = COMMS_UNIT
+	frame		COMMS_UNIT_ANIM
 	IfUsed		BOOK_USE
 	conversation	people/dragons/commsunit.txt
-	oninit		start_holodisplay
+#	oninit		start_holodisplay
+	# Stop the player nicking it
+	fixed
+	weight		-1
 
 	name DRAGONCOM
 	frame		COMMS_MEDALLION

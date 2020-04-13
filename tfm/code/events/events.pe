@@ -842,3 +842,24 @@ next ctr
 
 end
 
+##
+##  Set up boardroom
+##
+
+function plot_boardroom
+object tag
+object communicator
+
+# Check it isn't already there somehow
+find_tag communicator = "COMMS_UNIT2" 11111
+if_exists communicator
+	return
+endif
+
+# Create one
+find_tag tag = "TARGET" 11111
+create communicator = "COMMS_UNIT2"
+let communicator.tag = 11111
+insert_after tag = communicator
+
+end

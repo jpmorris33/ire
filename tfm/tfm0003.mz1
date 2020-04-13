@@ -46330,6 +46330,21 @@ iMZ1r01
 		tag 56
 		stats->owner LIGHdab3403d-7bf8-47d7-b295-dfe3b338fe63
 
+	object DATAf979fa6e-d1e9-450d-8f98-285c2c8221c4
+		type DATAPANEL2
+		at 755 617
+		curdir 2
+
+	object DATA5e209e42-be18-46bb-9435-85ffb1623e46
+		type DATAPANEL2
+		at 756 617
+		curdir 0
+
+	object DATA5af770c3-44df-4639-9ff6-1c2936c511c9
+		type DATAPANEL2
+		at 757 617
+		curdir 3
+
 	object WALL1ce6370e-c90a-48c4-83d9-f211bb3f7ac1
 		type WALL2_EDGE
 		at 760 617
@@ -46613,6 +46628,11 @@ iMZ1r01
 		at 767 618
 		curdir 0
 
+	object KNIFd8e46e93-02d0-49f0-97e0-863426268e74
+		type KNIFE_0
+		at 767 618
+		curdir 0
+
 	object FENCfe0b130d-1673-4f61-8467-da4fd062b327
 		type FENCE
 		at 786 618
@@ -46880,6 +46900,11 @@ iMZ1r01
 		at 754 619
 		curdir 0
 
+	object WINEece9ba22-43f2-417c-81f3-5ccf04354246
+		type WINEGLASS
+		at 754 619
+		curdir 1
+
 	object TABL52f8938e-036d-49a8-9a4e-063268ffc60f
 		type TABLE8-M
 		at 755 619
@@ -46900,6 +46925,11 @@ iMZ1r01
 		at 758 619
 		curdir 0
 
+	object WINE7de1038b-6595-4f13-839c-8622a399fae1
+		type WINEGLASS
+		at 758 619
+		curdir 2
+
 	object TABLb7dc05e2-1968-4739-8534-70dc0beff61e
 		type TABLE-SHADOW2
 		at 759 619
@@ -46910,10 +46940,10 @@ iMZ1r01
 		at 764 619
 		curdir 3
 
-	object KNIFd8e46e93-02d0-49f0-97e0-863426268e74
-		type KNIFE_0
+	object TOAS94f4f4db-0af1-42e1-9333-1b0656865812
+		type TOASTER
 		at 764 619
-		curdir 2
+		curdir 0
 
 	object TABL4c6e3f30-b1cc-426f-87c2-579c53c258ff
 		type TABLE-SHADOW1
@@ -47255,6 +47285,12 @@ iMZ1r01
 		type TABLE8-M
 		at 756 620
 		curdir 1
+
+	object TARG2273e2d9-6ed6-4636-86ac-6f3934d9e6c2
+		type TARGET
+		at 756 620
+		curdir 1
+		tag 11111
 
 	object TABLec435ea8-c643-4f51-a24d-7259c7a322bb
 		type TABLE8-M

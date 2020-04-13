@@ -428,7 +428,8 @@ transmitter and why they have a security base anyway
 
 [page="comms_unit"]
 [esc=disabled]
-[take 1 "comms_unit"]
+[remove 1 "comms_unit"]
+[call="plot_boardroom"]
 [set base_panavius1]
 [if base_leuchars1][if base_fairford1][goto="comms_active"]
 [image="f18-0.pcx"]

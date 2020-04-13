@@ -607,7 +607,8 @@ Player has joined
 
 [page="comms_unit"]
 [esc=disabled]
-[take 1 "comms_unit"]
+[remove 1 "comms_unit"]
+[call="plot_boardroom"]
 [set base_fairford1]
 [if base_leuchars1][if base_panavius1][goto="comms_active"]
 [image="f16_00.cel"]

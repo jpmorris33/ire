@@ -13324,12 +13324,12 @@ section: sequences
 	quickname panther_head panther_head
 	quickname panthersuit panthersuit
 
-	name COMMS_UNIT
+	quickname COMMS_UNIT comms00
+
+	name COMMS_UNIT_ANIM
 	loop
 	speed 4
 	framelist:
-	#5 frames
-		comms00
 		comms01
 		comms02
 		comms03

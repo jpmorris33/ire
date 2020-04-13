@@ -204271,6 +204271,36 @@ iMZ1r01
 		at 185 845
 		curdir 0
 
+	object COBWe73c74ce-06d2-4317-8b06-6dc912688de3
+		type COBWEB0
+		at 191 845
+		curdir 1
+
+	object DATA358f378f-25da-49f2-8fc1-667c736fcfb1
+		type DATAPANEL2
+		at 193 845
+		curdir 2
+
+	object DATAdbc9490c-ef97-47af-a930-0155e17f9cea
+		type DATAPANEL2
+		at 194 845
+		curdir 0
+
+	object DATAd8e4fb25-26c6-4691-affc-1cffa13b39a7
+		type DATAPANEL2
+		at 195 845
+		curdir 1
+
+	object DATAa5997d30-897f-4a83-8cd0-2ba8f25768b2
+		type DATAPANEL2
+		at 196 845
+		curdir 0
+
+	object DATA362a4791-948f-4a87-8f7a-ace22fbdaacc
+		type DATAPANEL2
+		at 197 845
+		curdir 3
+
 	object FENC6edd526b-d76e-4cea-89c2-366ccea66fe1
 		type FENCE
 		at 208 845
@@ -204526,6 +204556,16 @@ iMZ1r01
 		type BED
 		at 184 846
 		curdir 0
+
+	object BED_700e9a3f-9838-44c7-bdbe-d4cbaf91f14c
+		type BED
+		at 192 846
+		curdir 0
+
+	object CHAI942d6d4c-0644-4101-b8b2-5043e9c5ed3e
+		type CHAIR
+		at 198 846
+		curdir 2
 
 	object FENC749aa04d-10bc-4171-917e-f743a80ead47
 		type FENCE
@@ -204805,6 +204845,46 @@ iMZ1r01
 		at 185 847
 		curdir 0
 
+	object TABL004bb68f-959f-4c67-82fe-5044d4ef9c3d
+		type TABLE1-CORNERS
+		at 193 847
+		curdir 0
+
+	object TABLdeedfd3b-9975-4553-ab9a-a24569e1f8ab
+		type TABLE-SHADOW2
+		at 193 847
+		curdir 0
+
+	object TABLb23d1ab2-5c8d-4d85-875b-6c5ffd454b8e
+		type TABLE1-EDGES
+		at 194 847
+		curdir 0
+
+	object TABL58ec95c3-4514-4e7d-9442-26167fb897f3
+		type TABLE1-EDGES
+		at 195 847
+		curdir 0
+
+	object TABLb4dd1277-5c20-4ab0-81a3-fbc33adc6100
+		type TABLE1-EDGES
+		at 196 847
+		curdir 0
+
+	object TABL45be5f9a-060f-4415-be95-cc45716268e2
+		type TABLE1-CORNERS
+		at 197 847
+		curdir 3
+
+	object CIRCd96adfa7-7fa1-4759-984c-4f407ad2bf59
+		type CIRCUITBOARD
+		at 197 847
+		curdir 0
+
+	object TABLaa5c6205-4df0-4aa0-9127-815f530cf11b
+		type TABLE-SHADOW2
+		at 198 847
+		curdir 2
+
 	object FENCab14df59-363a-47ad-be3f-efff01762e60
 		type FENCE
 		at 208 847
@@ -205083,6 +205163,56 @@ iMZ1r01
 		at 176 848
 		curdir 1
 
+	object COBWc4716246-7005-4a85-b8cf-98627fe8a04c
+		type COBWEB0
+		at 192 848
+		curdir 3
+
+	object TABLcb44593c-7739-4145-bc76-9721beb320c6
+		type TABLE1-EDGES
+		at 193 848
+		curdir 2
+
+	object TABL66d94f4f-eb61-4f68-a3f1-e5d934e1a609
+		type TABLE1-MIDDLE
+		at 194 848
+		curdir 2
+
+	object WINE70822429-3b81-4c76-9af4-0385cc8ff3f2
+		type WINEGLASS_BROKEN
+		at 194 848
+		curdir 0
+
+	object TABL1d44dbe8-1b5c-464a-82a2-67de6fab0ede
+		type TABLE1-MIDDLE
+		at 195 848
+		curdir 2
+
+	object TABLffaad6a7-0c41-43bb-8988-97dfa00fa939
+		type TABLE1-MIDDLE
+		at 196 848
+		curdir 2
+
+	object WINEe8e7e9c5-66f4-498a-99ce-19a8983b53c9
+		type WINEGLASS
+		at 196 848
+		curdir 0
+
+	object WINE16b863c4-b840-44d7-a963-b75d5dbce675
+		type WINEGLASS
+		at 196 848
+		curdir 3
+
+	object TABLa46b783b-6b09-48ae-8c12-a59c0a4b6976
+		type TABLE1-EDGES
+		at 197 848
+		curdir 3
+
+	object TABL62ed461e-0e12-43f1-9786-4aaa6c976d40
+		type TABLE-SHADOW1
+		at 198 848
+		curdir 2
+
 	object FENC093a3495-6e9e-4d12-9be3-c5360045dce4
 		type FENCE
 		at 208 848
@@ -205341,6 +205471,57 @@ iMZ1r01
 		curdir 3
 		name W-OLF dest
 		tag 1009
+
+	object CHAIac75fba7-8e8d-495c-b9e6-72cb9b77f5ad
+		type CHAIR
+		at 192 849
+		curdir 3
+
+	object TABL2e6926d9-afc4-42cc-b51c-50dfb9df4965
+		type TABLE1-CORNERS
+		at 193 849
+		curdir 2
+
+	object TABL858128b6-99d6-4026-89f9-044b669f214b
+		type TABLE1-EDGES
+		at 194 849
+		curdir 1
+
+	object TABL0a35acbc-dc28-44e4-993a-7886540c2de7
+		type TABLE1-EDGES
+		at 195 849
+		curdir 1
+
+	object TARGdc5638fb-5f32-4580-903c-eb8e9d1015de
+		type TARGET
+		at 195 849
+		curdir 1
+		tag 11111
+
+	object TABL2bbe1aba-3010-448c-8887-010650d5d700
+		type TABLE1-EDGES
+		at 196 849
+		curdir 1
+
+	object TABL7ec9fb0c-75f2-4118-9ee5-4a834da17efa
+		type TABLE-SHADOW3
+		at 197 849
+		curdir 2
+
+	object TABL349793ee-9ff6-47d0-b162-a6b1c31e4301
+		type TABLE1-CORNERS
+		at 197 849
+		curdir 1
+
+	object AIRC9198f2e2-a534-4182-a33c-38510af4ce5f
+		type AIRCRAFTPARTS_02
+		at 197 849
+		curdir 0
+
+	object TABLed0df1fe-37eb-4c75-a6bd-4729e79ac6de
+		type TABLE-SHADOW1
+		at 198 849
+		curdir 2
 
 	object FENCbbf4cf42-8f94-449d-ba2d-403a498219d4
 		type FENCE
@@ -205618,6 +205799,61 @@ iMZ1r01
 		type BED
 		at 184 850
 		curdir 2
+
+	object LOCK04bd6f2c-2280-4de1-a5fa-274398d4e1b6
+		type LOCKER_V
+		at 191 850
+		curdir 0
+
+	object TABL8765f70e-9280-4e65-8b56-ec140e93a5b0
+		type TABLE5-LEGS
+		at 193 850
+		curdir 0
+
+	object TABL26c9c954-da82-4708-bb2f-3aba8c0cbad8
+		type TABLE-SHADOW2
+		at 193 850
+		curdir 0
+
+	object TABL3e610ec8-f72d-4eea-870c-ceda52c510e9
+		type TABLE-SHADOW1
+		at 194 850
+		curdir 0
+
+	object TABL1c4be700-2151-4dc4-aee2-74c2232a993e
+		type TABLE5-LEGS
+		at 195 850
+		curdir 0
+
+	object TABLa6aee598-d071-4b18-a451-5967d105bfbc
+		type TABLE-SHADOW1
+		at 195 850
+		curdir 0
+
+	object CHAIb1bbc182-17bf-49a9-b651-c50b3cf98fef
+		type CHAIR
+		at 195 850
+		curdir 0
+
+	object TABL83659d0a-5365-4143-b911-684f69aec989
+		type TABLE-SHADOW1
+		at 196 850
+		curdir 0
+
+	object TABLb6faedc4-1ac4-409f-8d31-1e0fe283d69f
+		type TABLE5-LEGS
+		at 197 850
+		curdir 0
+
+	object TABLe3729996-5ef2-497f-aa4a-4ed5077bdcce
+		type TABLE-SHADOW1
+		at 197 850
+		curdir 0
+
+	object TABL1b61a6d2-9c90-4a54-9430-0a93687e04df
+		type TABLE-SHADOW3
+		at 198 850
+		curdir 0
 
 	object FENC6bec0461-6ad0-4d91-8d61-4ace51f684d0
 		type FENCE
@@ -205907,6 +206143,29 @@ iMZ1r01
 		type AIRCRAFTPARTS_05
 		at 184 851
 		curdir 0
+
+	object LOCKe88d9aac-1e61-42d2-ab99-7153a12ffe49
+		type LOCKER_V
+		at 191 851
+		curdir 1
+
+	object TRAPb59890eb-640a-4fbc-a83d-ddb0faf65617
+		type TRAP_HTDOOR
+		at 194 851
+		curdir 3
+		stats->owner HITE539728f4-e121-4a66-ab76-92d3bb9941c6
+
+	object TRAP233da6a9-8600-4860-8f95-a95d4eb4c308
+		type TRAP_HTDOOR
+		at 195 851
+		curdir 3
+		stats->owner HITE539728f4-e121-4a66-ab76-92d3bb9941c6
+
+	object TRAPa9f2655d-2bc0-4289-8b41-a25f6b3db636
+		type TRAP_HTDOOR
+		at 196 851
+		curdir 3
+		stats->owner HITE539728f4-e121-4a66-ab76-92d3bb9941c6
 
 	object FENCee5768fb-adb1-47b7-b1ff-f4217218c83e
 		type FENCE
@@ -206205,6 +206464,11 @@ iMZ1r01
 		curdir 1
 		stats->owner LIGHc923a805-027f-4f41-b1ff-31f2b4dafcae
 
+	object HITE539728f4-e121-4a66-ab76-92d3bb9941c6
+		type HITECH_DOOR_CLOSED
+		at 194 852
+		curdir 1
+
 	object PATHb085259b-d6ee-4fa6-83ee-26d01157e207
 		type PATHMARKER
 		at 201 852
@@ -206404,6 +206668,18 @@ iMZ1r01
 		at 182 853
 		curdir 3
 		stats->owner HITE9fde31c4-23c4-4363-8e1a-04fcb1ad8827
+
+	object TRAP59698b80-3a22-465a-ade2-ca291b8188a9
+		type TRAP_HTDOOR
+		at 194 853
+		curdir 3
+		stats->owner HITE539728f4-e121-4a66-ab76-92d3bb9941c6
+
+	object TRAP2a601c21-16bc-4064-b20f-df616bbf1a6a
+		type TRAP_HTDOOR
+		at 195 853
+		curdir 3
+		stats->owner HITE539728f4-e121-4a66-ab76-92d3bb9941c6
 
 	object FENC89823df2-a6e8-4952-bddd-f2bf69e50aa9
 		type FENCE
