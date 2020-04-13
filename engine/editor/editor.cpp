@@ -709,6 +709,9 @@ OBJECT *temp;
 SEQ_POOL *project;
 //OBJECT *postoverlay[MAX_P_OVERLAY];
 int post_ovl=0;
+int selx,sely,showsel=0;
+int ownx,owny,showown=0;
+int schx,schy,showsch=0;
 
 startx = VIEWDIST;
 starty = VIEWDIST;
@@ -766,26 +769,25 @@ for(vy=starty;vy<VSH;vy++) {
 
 				// If the object is the selected object, highlight it.
 				if(objsel == temp) {
-					ClipBox((cx-mapx)<<5,(cy-mapy)<<5,temp->w-1,temp->h-1,ITG_WHITE,gamewin);
-				}
-
-				// If the object is the selected object, show any radius
-				if(objsel == temp) {
-					if(temp->stats->radius) {
-						ClipCircle(((cx-mapx)<<5)+16,((cy-mapy)<<5)+16,temp->stats->radius<<5,ITG_RED,gamewin);
-					}
+					selx=(cx-mapx)<<5;
+					sely=(cy-mapy)<<5;
+					showsel=1;
 				}
 
 				// If the object is the Owner of the current object, highlight in red.
 				if(objsel) {
 					if(objsel->stats->owner.objptr == temp) {
-						ClipBox((cx-mapx)<<5,(cy-mapy)<<5,temp->w-1,temp->h-1,ITG_RED,gamewin);
+						ownx=(cx-mapx)<<5;
+						owny=(cy-mapy)<<5;
+						showown=1;
 					}
 				}
 
 				// If the object is the current Schedule Target, highlight in blue.
 				if(schsel == temp) {
-					ClipBox((cx-mapx)<<5,(cy-mapy)<<5,temp->w-1,temp->h-1,ITG_BLUE,gamewin);
+					schx=(cx-mapx)<<5;
+					schy=(cy-mapy)<<5;
+					showsch=1;
 				}
 
 				// If we're showing all 'Owned' objects
@@ -804,6 +806,23 @@ for(ctr=0;ctr<post_ovl;ctr++) {
 	postoverlay[ctr].s->Draw(gamewin,postoverlay[ctr].x,postoverlay[ctr].y);
 //	temp = postoverlay[ctr];
 //	temp->form->overlay->image->Draw(gamewin,((temp->x-x)<<5)+temp->form->xoff,((temp->y-y)<<5)+temp->form->yoff);
+}
+
+// Now display any highlights on top so they work with postobjects as well
+
+if(showsel && objsel) {
+	ClipBox(selx,sely,objsel->w-1,objsel->h-1,ITG_WHITE,gamewin);
+	if(objsel->stats->radius) {
+		ClipCircle(selx+16,sely+16,objsel->stats->radius<<5,ITG_RED,gamewin);
+	}
+}
+
+if(showown && objsel && objsel->stats->owner.objptr) {
+	ClipBox(ownx,owny,objsel->stats->owner.objptr->w-1,objsel->stats->owner.objptr->h-1,ITG_RED,gamewin);
+}
+
+if(showsch && schsel) {
+	ClipBox(schx,schy,schsel->w-1,schsel->h-1,ITG_BLUE,gamewin);
 }
 
 }
