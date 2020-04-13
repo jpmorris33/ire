@@ -15528,455 +15528,203 @@ section: characters
 	short		"toaster"
 	solid
 
-	name SPELL_LIGHT
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
+	name SPELL_BASE
+	frame		SPELLCARD0
 	hp		1
 	weight		1
 	description	"You see a sticker with a cute little monster on it."
-	short		"'Spell of Light' sticker"
 	ifUsed		USE_SPELLCARD
+	abstract
+
+
+	alias SPELL_LIGHT = SPELL_BASE
+	frame		SPELLCARD0
+	short		"'Spell of Light' sticker"
 	user1		learn_light
 
-	name SPELL_AWAKEN
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_AWAKEN = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Awakening' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_awaken
 
-	name SPELL_LIGHTHEAL
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_LIGHTHEAL = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Light Healing' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_lightheal
 
-	name SPELL_SLEEP
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_SLEEP = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Sleep' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_sleep
 
-	name SPELL_HELP
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_HELP = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Help' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_help
 
-	name SPELL_IDENTIFY
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_IDENTIFY = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Identify' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_identify
 
-	name SPELL_IGNITE
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_IGNITE = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Ignite' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_ignite
 
-	name SPELL_DOUSE
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_DOUSE = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Douse' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_douse
 
-	name SPELL_PEER
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_PEER = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Peer' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_peer
 
-	name SPELL_ALLSEEINGEYE
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_ALLSEEINGEYE = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'All-Seeing-Eye' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_allseeingeye
 
-	name SPELL_ABOUT
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_ABOUT = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'About Spell' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_about
 
-	name SPELL_POISON
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_POISON = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Poison' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_poison
 
-	name SPELL_PICKPOCKET
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_PICKPOCKET = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Pickpocket' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_pickpocket
 
-	name SPELL_BARRIER
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_BARRIER = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Magical Barrier' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_barrier
 
-	name SPELL_HARM
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_HARM = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Harm' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_harm
 
-	name SPELL_HEAL
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_HEAL = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Healing' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_heal
 
-	name SPELL_CURE
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_CURE = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Cure Poison' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_cure
 
-	name SPELL_GREATLIGHT
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_GREATLIGHT = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Great Light' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_greatlight
 
-	name SPELL_DISPELBARRIER
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_DISPELBARRIER = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Dispel Barrier' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_dispelbarrier
 
-	name SPELL_MARK
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_MARK = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Mark Orb' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_mark
 
-	name SPELL_RECALL
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_RECALL = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Recalling' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_recall
 
-	name SPELL_EXPLOSION
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_EXPLOSION = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Explosion' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_explosion
 
-	name SPELL_TELEKINESIS
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_TELEKINESIS = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Telekinesis' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_tk
 
-	name SPELL_PUSH
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_PUSH = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Pushing' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_push
 
-	name SPELL_KILL
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_KILL = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Light Murder' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_kill
 
-	name SPELL_DESTRUCTION
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_DESTRUCTION = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Destruction' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_destruction
 
-	name SPELL_GREATHEAL
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_GREATHEAL = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Great Heal' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_greatheal
 
-	name SPELL_ENSORCELLMENT
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_ENSORCELLMENT = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Ensorcellment' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_ensorcellment
 
-	name SPELL_CONFUSION
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_CONFUSION = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Confusion' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_confusion
 
-	name SPELL_FEAR
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_FEAR = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Fear' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_fear
 
-	name SPELL_HEARTRUTH
-	left		SPELLCARD2
-	right		SPELLCARD2
-	up		SPELLCARD2
-	down		SPELLCARD2
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_HEARTRUTH = SPELL_BASE
+	frame		SPELLCARD2
 	short		"'Spell of Hear Truth' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_heartruth
 
-	name SPELL_GREATKILL
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_GREATKILL = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Great Kill' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_greatkill
 
-	name SPELL_SUMMON
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_SUMMON = SPELL_BASE
+	frame		SPELLCARD1
 	short		"'Spell of Summoning' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_devil
 
-	name SPELL_PIEDPIPER
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_PIEDPIPER = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Spell of Pied Piper' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_piedpiper
 
-	name SPELL_RESURRECT
-	left		SPELLCARD0
-	right		SPELLCARD0
-	up		SPELLCARD0
-	down		SPELLCARD0
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_RESURRECT = SPELL_BASE
+	frame		SPELLCARD0
 	short		"'Spell of Resurrection' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_resurrect
 
-	name SPELL_HACKEDPEER
-	left		SPELLCARD1
-	right		SPELLCARD1
-	up		SPELLCARD1
-	down		SPELLCARD1
-	hp		1
-	weight		1
+	alias SPELL_HACKEDPEER = SPELL_BASE
+	frame		SPELLCARD1
 	description	"You see a sticker with a monster and some scribbling on it."
 	short		"'Hacked Peer Spell' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_uberpeer
 
-	name SPELL_ABOLISH
-	left		SPELLCARD3
-	right		SPELLCARD3
-	up		SPELLCARD3
-	down		SPELLCARD3
-	hp		1
-	weight		1
-	description	"You see a sticker with a cute little monster on it."
+	alias SPELL_ABOLISH = SPELL_BASE
+	frame		SPELLCARD3
 	short		"'Abolish Spell' sticker"
-	ifUsed		USE_SPELLCARD
 	user1		learn_abolish
 
 	name SPELLCARD_WRAPPER
-	left		SPELLCARD4
-	right		SPELLCARD4
-	up		SPELLCARD4
-	down		SPELLCARD4
+	frame		SPELLCARD4
 	hp		1
 	weight		1
 	description	"You see a piece of shrivelled backing paper."
@@ -15984,20 +15732,19 @@ section: characters
 	translucent
 
 	name COMMS_UNIT
-	left		COMMS_UNIT
-	right		COMMS_UNIT
-	up		COMMS_UNIT
-	down		COMMS_UNIT
+	frame		COMMS_UNIT
 	hp		1000
 	weight		2000
 	description	"You see a drakaan communications unit."
 	short		"comms unit"
 
+	alias COMMS_UNIT2 = COMMS_UNIT
+	IfUsed		BOOK_USE
+	conversation	people/dragons/commsunit.txt
+	oninit		start_holodisplay
+
 	name DRAGONCOM
-	left		COMMS_MEDALLION
-	right		COMMS_MEDALLION
-	up		COMMS_MEDALLION
-	down		COMMS_MEDALLION
+	frame		COMMS_MEDALLION
 	hp		100
 	weight		100
 	damage		1
