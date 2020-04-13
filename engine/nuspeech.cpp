@@ -662,14 +662,20 @@ if(!istricmp(line2,"font") || !istricmp(line2,"font="))
 	}
 
 // If we don't have a link yet, look for a default
-if(!esclink[0])
+if(!esclink[0]) {
 	if(!istricmp(line2,"escpage") || !istricmp(line2,"escpage=")
-	|| !istricmp(line2,"esc") || !istricmp(line2,"esc="))
-	    {
+	|| !istricmp(line2,"esc") || !istricmp(line2,"esc=")) {
 	    strcpy(esclink,strrest(line1));
 	    strstrip(esclink);
 	    return 4;
-	    }
+	}
+
+	// Workaround for a common error
+	if(!istricmp(line2,"esc=disabled")) {
+	    strcpy(esclink,"disabled");
+	    return 4;
+	}
+}
 
 if(scan_only)
     return 0;
@@ -1660,6 +1666,12 @@ if(!istricmp(line2,"escpage") || !istricmp(line2,"escpage=")
     strstrip(esclink);
     return 4;
     }
+
+// Workaround for a common error
+if(!istricmp(line2,"esc=disabled")) {
+    strcpy(esclink,"disabled");
+    return 4;
+}
 
 if(!istricmp(line2,"delay"))
 	{
