@@ -1013,13 +1013,18 @@ int ctr;
 int seq;
 
 ctr = getnum4char(name);                // Find the character's name
-if(ctr == -1)
-	{
+if(ctr == -1) {
 	Bug("OB_Init: Could not find object in Section: CHARACTERS\n");
 	Bug("         '%s'\n",name);
 	return 0;
-	}
+}
 objsel->name = CHlist[ctr].name;        // Update object's name from static
+
+// Technically we could allow this, but let's not
+if(CHlist[ctr].engineflags & ENGINE_ISABSTRACT) {
+	Bug("OB_Init: Could not initialise abstract object '%s'\n", name);
+	return 0;
+}
 
 // Generate a UID for it
 if(!objsel->uid[0]) {

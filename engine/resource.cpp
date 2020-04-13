@@ -1205,6 +1205,9 @@ for(ctr=start;ctr<=finish;ctr++)
 			memcpy(character->user,src->user,sizeof(USEDATA));
 			memcpy(character->labels,src->labels,sizeof(CHAR_LABELS));
 
+			// By default ensure that it's a concrete object
+			character->engineflags &= ~ENGINE_ISABSTRACT;
+
 			OB_Funcs(character);				// Set up the strings
 			continue;
 			}
@@ -2113,6 +2116,12 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"small")) {
 			// Make it a 1x1 object, even if it's not
 			character->engineflags |= ENGINE_FORCESMALL;
+			continue;
+		}
+
+		if(!istricmp(Rptr,"abstract")) {
+			// This object can't be created, but objects derived from it can be
+			character->engineflags |= ENGINE_ISABSTRACT;
 			continue;
 		}
 

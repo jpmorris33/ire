@@ -588,7 +588,7 @@ void OB_Edit()
 {
 char **list;
 char Name[256];
-int ctr;
+int ctr,tot;
 
 // Make sure we have an object
 
@@ -621,18 +621,25 @@ list=(char **)M_get(CHtot+1,sizeof(char *));
 
 // Set it up, convert to uppercase for Wyber's ordered selection routine.
 
+tot=0;
 for(ctr=0;ctr<CHtot;ctr++) {
-	list[ctr]=CHlist[ctr].name;
-	strupr(list[ctr]);              // Affects the original too
+	if(CHlist[ctr].engineflags & ENGINE_ISABSTRACT) {
+		// No.
+		continue;
+	}
+
+	list[tot]=CHlist[ctr].name;
+	strupr(list[tot]);              // Affects the original too
+	tot++;
 }
 
 strcpy(Name,objsel->name);      // Set up the default string
 
-qsort(list,CHtot,sizeof(char*),CMP);  // Sort them for the dialog box
+qsort(list,tot,sizeof(char*),CMP);  // Sort them for the dialog box
 
 // This is the graphical dialog box, taken from DEU.
 
-GetOBFromList( -1,-1, "Choose a character:", CHtot-1, list, Name);
+GetOBFromList( -1,-1, "Choose a character:", tot-1, list, Name);
 
 // If the user didn't press ESC instead of choosing, modify the character
 

@@ -359,6 +359,7 @@ typedef struct ST_ITEM
 #define ENGINE_DIDMOVESTACK	0x00000020	// Used by MoveTag
 #define ENGINE_ISLARGE		0x00000040	// Bigger than one tile?
 #define ENGINE_FORCESMALL	0x00000080	// Manual override to force a large object to be a single tile
+#define ENGINE_ISABSTRACT	0x00000100	// Can the object be instantiated?
 
 typedef struct FUNCS            // This is called when you...
 {
