@@ -49,6 +49,7 @@ extern void SetDarkness(int d);
 extern char *BestName(OBJECT *o);
 extern OBJECT *GameGetObject(int x,int y);
 extern TILE *GetTile(int x,int y);
+extern int GetTileCost(int x,int y);
 extern void MoveToTop(OBJECT *o);
 extern void MoveToFloor(OBJECT *o);
 extern void InsertAfter(OBJECT *dest, OBJECT *o);
@@ -210,6 +211,7 @@ static void PV_GetObject();
 static void PV_GetSolidObject();
 static void PV_GetFirstObject();
 static void PV_GetTile();
+static void PV_GetTileCost();
 static void PV_GetObjectBelow();
 static void PV_GetBridge();
 static void PV_ChangeObject();
@@ -816,12 +818,12 @@ return NULL;
 inline VMINT *SKIP_MEMBER()
 {
 OBJECT **obj;
-void *var2;
 unsigned char refs,ctr;
 obj = (OBJECT **)GET_PTR();
 refs = GET_BYTE();
-for(ctr=0;ctr<refs;ctr++)
-	var2 = (void *)GET_PTR();
+for(ctr=0;ctr<refs;ctr++) {
+	GET_PTR();
+}
 return (VMINT *)obj;
 }
 
@@ -972,7 +974,6 @@ return (VMINT *)pointer;
 
 inline VMINT *SKIP_ARRAY_MEMBER()
 {
-void *var2;
 unsigned char refs,ctr;
 VMINT **array;
 VMINT *idx;
@@ -989,11 +990,9 @@ if(!idx)
 
 refs = GET_BYTE();
 //ilog_quiet("[Refs = %d]\n",refs);
-for(ctr=0;ctr<refs;ctr++)
-	{
-	var2 = (void *)GET_PTR();
-//	ilog_quiet("<%p> ",var2);
-	}
+for(ctr=0;ctr<refs;ctr++){
+	GET_PTR();
+}
 
 // Make sure it doesn't exceed array bounds
 
@@ -1003,8 +1002,6 @@ if(*idx<1 || *idx > size)
 if(!array)
 	return NULL;
 
-//(*array) += *idx; // Now points to appropriate element (it had better, anyway)
-//return (int *)array;
 return NULL;
 }
 
@@ -1263,6 +1260,7 @@ VMOP(GetObject);
 VMOP(GetSolidObject);
 VMOP(GetFirstObject);
 VMOP(GetTile);
+VMOP(GetTileCost);
 VMOP(GetObjectBelow);
 VMOP(GetBridge);
 VMOP(ChangeObject);
@@ -1977,7 +1975,7 @@ for(;(VMUINT)curvm->ip<proglen;)
 	else
 		printf("   ");
 	// Calculate address
-	printf("%04x ",(curvm->ip-curvm->code)*sizeof(VMTYPE));
+	printf("%04lx ",(curvm->ip-curvm->code)*sizeof(VMTYPE));
 	opcode = (*curvm->ip++).u32; // Fetch
 	func=pe_get_function(opcode);
 	printf(" [%02x] %s ",opcode,&func[1]); // Skip first byte (no of operands)
@@ -1999,19 +1997,19 @@ for(;(VMUINT)curvm->ip<proglen;)
 			break;
 
 			case ACC_INDIRECT:
-			printf("[%x] ",GET_DWORD());
+			printf("[%lx] ",(VMUINT)GET_DWORD());
 			break;
 
 			case ACC_MEMBER:
-			printf("[%x] ",SAFE_INT());
+			printf("[%lx] ",(VMUINT)SAFE_INT());
 			break;
 
 			case ACC_ARRAY:
-			printf("[%x] ",SAFE_INT());
+			printf("[%lx] ",(VMUINT)SAFE_INT());
 			break;
 
 			case ACC_ARRAY | ACC_MEMBER:
-			printf("[%x] ",SAFE_INT());
+			printf("[%lx] ",(VMUINT)SAFE_INT());
 			break;
 
 			case ACC_IMMSTR:
@@ -2019,7 +2017,7 @@ for(;(VMUINT)curvm->ip<proglen;)
 			break;
 
 			case ACC_JUMP:
-			printf(" jmp->%x ",GET_DWORD());
+			printf(" jmp->%lx ",GET_DWORD());
 			break;
 
 			case ACC_OPERATOR|1:
@@ -2038,7 +2036,7 @@ for(;(VMUINT)curvm->ip<proglen;)
 		}
 	if(len == -1)
 		{
-		printf("%d ",GET_PTR());
+		printf("%ld ",(long)GET_PTR());
 		printf("[%p] ",GET_PTR());
 		}
 	printf("\n");
@@ -2718,18 +2716,18 @@ func = GET_DWORD();
 
 VM_SaveRegs(&objvars);
 SI_Search=1;
-for(t=MasterList;t;t=t->next)
-	{
+for(t=MasterList;t;t=t->next) {
 	// Search cancelled?
-	if(!SI_Search)
+	if(!SI_Search) {
 		break;
-	if(t->ptr)
-		if(t->ptr->flags & IS_ON)
-			{
+	}
+	if(t->ptr) {
+		if(t->ptr->flags & IS_ON) {
 			current_object = t->ptr;
 			CallVMnum(func);
-			}
+		}
 	}
+}
 VM_RestoreRegs(&objvars);
 }
 
@@ -3415,6 +3413,19 @@ CHECK_POINTER(y);
 *tile = GetTile(*x,*y);
 }
 
+void PV_GetTileCost()
+{
+VMINT *x,*y, *cost;
+cost = GET_INT();
+CHECK_POINTER(cost);
+x = GET_INT();
+CHECK_POINTER(x);
+y = GET_INT();
+CHECK_POINTER(y);
+
+*cost = GetTileCost(*x,*y);
+}
+
 void PV_GetObjectBelow()
 {
 OBJECT **obj1,**obj2;
@@ -3440,6 +3451,7 @@ CHECK_POINTER(y);
 *obj = GetBridge(*x,*y);
 }
 
+
 void PV_ChangeObject()
 {
 OBJECT **obj;
@@ -3452,7 +3464,6 @@ char speech[128];
 char user1[128];
 char user2[128];
 int tcache;
-VMUINT partie;     // Must preserve this for dead party members
 
 obj = GET_OBJECT();
 CHECK_POINTER(obj);
@@ -3470,7 +3481,6 @@ if(!*obj)
 	return;
 	}
 
-//partie = (*obj)->flags & IS_PARTY; // This is in stats now
 memcpy(&ostats,(*obj)->stats,sizeof(STATS));
 strcpy(resname,(*obj)->funcs->resurrect);
 strcpy(speech,(*obj)->funcs->talk);
@@ -3485,8 +3495,6 @@ strcpy((*obj)->personalname,pname);
 strcpy((*obj)->funcs->talk,speech);
 strcpy((*obj)->funcs->user1,user1);
 strcpy((*obj)->funcs->user2,user2);
-//(*obj)->flags &= ~IS_PARTY;
-//(*obj)->flags |= partie;
 
 (*obj)->funcs->tcache = tcache;
 AL_Add(&ActiveList,*obj); // Make active (if it can be)
@@ -3504,7 +3512,6 @@ char resname[32];
 char pname[32];
 char speech[128];
 int tcache;
-VMUINT partie;     // Must preserve this for dead party members
 
 obj = GET_OBJECT();
 CHECK_POINTER(obj);
@@ -3521,7 +3528,6 @@ if(type == -1)
 	return;
 	}
 
-//partie = (*obj)->flags & IS_PARTY;
 memcpy(&ostats,(*obj)->stats,sizeof(STATS));
 strcpy(resname,(*obj)->funcs->resurrect);
 strcpy(speech,(*obj)->funcs->talk);
@@ -3532,8 +3538,6 @@ memcpy((*obj)->stats,&ostats,sizeof(STATS));
 strcpy((*obj)->funcs->resurrect,resname);
 strcpy((*obj)->personalname,pname);
 strcpy((*obj)->funcs->talk,speech);
-//(*obj)->flags &= ~IS_PARTY;
-//(*obj)->flags |= partie;
 (*obj)->funcs->tcache = tcache;
 AL_Add(&ActiveList,*obj); // Make active (if it can be)
 }
@@ -3980,7 +3984,7 @@ CHECK_POINTER(str);
 
 void PV_If_Uflag() {
 char *str;
-int val, jumpoffset;
+int jumpoffset;
 str = GET_STRING();
 CHECK_POINTER(str);
 jumpoffset = GET_DWORD();
@@ -3992,7 +3996,7 @@ if(!Get_tFlag(str)) {
 
 void PV_If_nUflag() {
 char *str;
-int val, jumpoffset;
+int jumpoffset;
 str = GET_STRING();
 CHECK_POINTER(str);
 jumpoffset = GET_DWORD();
@@ -5637,7 +5641,6 @@ for(t=MasterList;t;t=t->next) {
 
 void PV_FindNext()
 {
-OBJLIST *t;
 OBJECT **obj;
 const char *str;
 OBJECT **list;
@@ -6062,7 +6065,6 @@ if(!p)
 void PV_GetDataKeysII()
 {
 VMINT *table;
-OBJECT **o2;
 OBJECT *array;
 VMINT size,idx;
 
@@ -6083,7 +6085,6 @@ GetTableNumKeys_i(*table, (VMINT *)array, size);
 void PV_GetDataKeysIS()
 {
 char *table;
-OBJECT **o2;
 OBJECT *array;
 VMINT size,idx;
 
@@ -6102,7 +6103,6 @@ GetTableNameKeys_i(table, (VMINT *)array, size);
 void PV_GetDataKeysSI()
 {
 VMINT *table;
-OBJECT **o2;
 OBJECT *array;
 VMINT size,idx;
 
@@ -6122,7 +6122,6 @@ GetTableNumKeys_s(*table, (char **)array, size);
 void PV_GetDataKeysSS()
 {
 char *table;
-OBJECT **o2;
 OBJECT *array;
 VMINT size,idx;
 
@@ -7295,8 +7294,6 @@ void PV_GetConsoleSelectU()
 {
 VMINT *id;
 USERSTRING **line;
-int len;
-char *ptr;
 const char *res;
 
 line = (USERSTRING **)GET_INT();
@@ -7304,9 +7301,6 @@ CHECK_POINTER(line);
 
 id = GET_INT();
 CHECK_POINTER(id);
-
-len=(*line)->len;
-ptr=(*line)->ptr;
 
 res=GetConsoleSelectS(*id);
 if(res)
@@ -7672,8 +7666,6 @@ void PV_PicklistText()
 {
 VMINT *id;
 USERSTRING **line;
-int len;
-char *ptr;
 const char *res;
 
 line = (USERSTRING **)GET_INT();
@@ -7681,9 +7673,6 @@ CHECK_POINTER(line);
 
 id = GET_INT();
 CHECK_POINTER(id);
-
-len=(*line)->len;
-ptr=(*line)->ptr;
 
 res=GetPicklistText(*id);
 if(res)
