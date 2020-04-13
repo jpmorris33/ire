@@ -6774,13 +6774,13 @@ if(vertices>32)
 	vertices=32;
 
 // Copy vertices and offset them
-for(idx=0;idx<vertices;idx++)
-	{
-	t=idx<<1; // two ints per vertex
+t=0;
+for(idx=0;idx<vertices;idx++) {
 	newpoints[t]=pointdata[t]+tfx_dx;
 	t++;
 	newpoints[t]=pointdata[t]+tfx_dy;
-	}
+	t++;
+}
 
 // 'Do it' (Gollum gets straight to the point)
 gamewin->Polygon(vertices,newpoints,tfx_Colour);

@@ -358,14 +358,18 @@ void SDL12BMP::Polygon(int count, int *vertices, IRECOLOUR *col)
 if(!img || !vertices || count < 2 || !col)
 	return;
 
+int ptr=2;
 int oldx=vertices[0];
 int oldy=vertices[1];
-for(int ctr=2;ctr<count;ctr+=2)	{
-	ITGline(oldx,oldy,vertices[ctr],vertices[ctr+1],col,this);
-	oldx=vertices[ctr];
-	oldy=vertices[ctr+1];
-	}
+for(int ctr=1;ctr<count;ctr++)	{
+	ITGline(oldx,oldy,vertices[ptr],vertices[ptr+1],col,this);
+	oldx=vertices[ptr];
+	oldy=vertices[ptr+1];
+	ptr+=2;
 }
+ITGline(oldx,oldy,vertices[0],vertices[1],col,this);
+}
+
 
 void SDL12BMP::Polygon(int count, int *vertices, int r, int g, int b)
 {
