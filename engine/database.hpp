@@ -7,8 +7,6 @@
 
 #include <sqlite3.h>
 
-static sqlite3 *db;
-
 #define SQLTYPE_NULL		0
 #define SQLTYPE_INT		1
 #define SQLTYPE_FLOAT		1

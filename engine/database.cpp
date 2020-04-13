@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+static sqlite3 *db;
+
 
 //
 //	Database engine functions

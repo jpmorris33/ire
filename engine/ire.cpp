@@ -204,28 +204,30 @@ ilog_printf("\n");
 
 // Do we have a project directory, passed from the commandline?
 ret=0;
-if(!projectdir[0])
-	{
+if(!projectdir[0]) {
 	// No, assume it's the current directory then
 	strcpy(projectdir,"./");
-	}
+}
 
 sprintf(fname,"%sgamedata.ini",projectdir);
 ret=INI_file(fname);
-if(!ret)
+if(!ret) {
 	ret=INI_file("gamedata.ini");
+}
 
 // Final checks
-if(!projectname[0])
+if(!projectname[0]) {
 	ithe_safepanic("Can't find gamedata.ini","There should be a -project <project> line in one of the INI files.");
+}
 
 // Use the project directory for all file accesses
 ifile_prefix=&projectdir[0];
 
 
 #ifndef _WIN32
-if(!bookview[0]) // Book viewer wants fast startup
+if(!bookview[0])  { // Book viewer wants fast startup
 	sleep(1);    // Wait a little so the user can see the boot prompt
+}
 #endif
 
 init_media(1); // Enter graphics mode now, for graphical popup
@@ -271,10 +273,14 @@ char temp[1024];
 #ifdef _WIN32
 	sprintf(temp,"%s\\irecache.sdb",homepath);
 #else
-	sprintf(temp,"%s/irecache.sdb",homepath);
+	ret=snprintf(temp,sizeof(temp),"%s/irecache.sdb",homepath);
+	if(ret > 0) {
+		temp[ret]=0;
+	}
 #endif
-if(InitSQL(temp) != 0)
+if(InitSQL(temp) != 0) {
 	ithe_safepanic("Could not create cache database at",temp);
+}
 
 CheckCacheTable();
 
@@ -289,13 +295,13 @@ ilog_printf("\n");
 if(fileexists("startup.ogg"))
 	StreamSong_start("startup.ogg");
 
-if(!fileexists("resource.txt"))
-	{
-	if(fileexists("main.txt"))
+if(!fileexists("resource.txt")) {
+	if(fileexists("main.txt")) {
 		ithe_panic("Resource file not found..","Please rename your main.txt file to resource.txt");
-	else
+	} else {
 		ithe_panic("Resource file not found..","File resource.txt is missing!");
 	}
+}
 
 ilog_printf("Load Resources\n");
 LoadResources("resource.txt");
@@ -303,17 +309,15 @@ LoadResources("resource.txt");
 DefaultCursor = MakeIRECURSOR();
 
 // Look for a mouse pointer (optional)
-if(loadfile("mouseptr.cel",fname))
-	{
+if(loadfile("mouseptr.cel",fname)) {
 	IREBITMAP *tempspr=iload_bitmap(fname);
-	if(!tempspr)
-		{
+	if(!tempspr) {
 		// Stop if the promise couldn't be delivered
 		ithe_panic("Could not load mouse pointer",fname);
-		}
+	}
 	MouseOverPtr=MakeIRECURSOR(tempspr,0,0);
 	delete tempspr;
-	}
+}
 
 ilog_printf("Init Random Number Generator\n");
 srand(time(0));                 // Initialise rng
@@ -328,20 +332,20 @@ TermSQL();
 irecon_term();
 
 
-if(bookview[0])
+if(bookview[0]) {
 	BookViewer();
-else
+} else {
 	RunGame();
+}
 
 PathTerm();
 
 term_media();
 
-if(buggy)
-	{
+if(buggy) {
 	printf("There were bugs in the script code.\n");
 	printf("Check 'bootlog.txt' and search for 'BUG:'\n");
-	}
+}
 
 return 0;			// Return a value to keep compiler happy
 }
@@ -448,8 +452,6 @@ ilog_printf("Stop Game\n");
 
 void BookViewer()
 {
-int bret;
-
 irecon_init(conx,cony,conwid,conlen);
 
 // Fake the entries that the engine might use for books
@@ -459,9 +461,9 @@ person=player;
 current_object=victim;
 
 if(bookview2[0])
-	bret=talk_to(bookview,bookview2);
+	talk_to(bookview,bookview2);
 else
-	bret=talk_to(bookview,NULL);
+	talk_to(bookview,NULL);
 }
 
 
