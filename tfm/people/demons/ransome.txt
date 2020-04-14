@@ -13,6 +13,7 @@
 [if_pflag scarpered][goto="fled"]
 [if_pflag offered][goto="undecided"]
 [if_not_pflag joined][goto="unjoined"]
+
 [goto="other"]
 [endpage]
 
@@ -572,6 +573,56 @@ Player has joined
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="post_comms"]
+[image="f16_00.cel"]
+
+"We've set up the communicator in the meeting room.
+ I'd go there if you want to talk to Commander Gurd."
+
+[link="Actually, I need a word with you."]
+[linkto="other2"]
+[link="Thanks, I'll do that!"]
+[linkto="bye"]
+[endpage]
+
+[page="other2"]
+[esc="bye"]
+[image="f16_00.cel"]
+
+"Ah.  What do you need?"
+
+[link="What do you suggest I do?"]
+[linkto="quests"]
+[link="I don't think I asked.. what are you?"]
+[linkto="whatareyou"]
+[altlink="What are you again?"]
+[link="Why aren't you a futuristic airplane?"]
+[linkto="whynotfuture"]
+[altlink="I forget. Why aren't you a futuristic plane?"]
+[if yado_quest_packages][link="Can you fly me to an island?"]
+[if yado_quest_packages][linkto="treasureisland"]
+[if find_randolph][if randolph_wont][link="I found Randolph but he won't leave."]
+[if find_randolph][if randolph_wont][linkto="rescue_randolph"]
+[if fixed_randolph][if_not randolph_reward][link="I found Randolph."]
+[if fixed_randolph][if_not randolph_reward][linkto="reward"]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][link="There's an aircraft like you in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if_not find_randolph][if met_randolph_cave][linkto="rescue_randolph_notknow"]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][link="I found Randolph in a nearby cave."]
+[if_not fixed_randolph][if_not randolph_wont][if find_randolph][if met_randolph_cave][linkto="rescue_randolph_know"]
+[am_carrying book_popediary1]
+[if true][if_not ransome_pope][link="I have retrieved Pope Harris' diary from his study."]
+[am_carrying book_popediary1]
+[if true][if_not ransome_pope][linkto="popequest_done"]
+[if edwyg_fairford][if_not edwyg_fairford_done][link="King Edwyg needs your help."]
+[if edwyg_fairford][if_not edwyg_fairford_done][linkto="edwyg"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
 
 
 [page="bases"]

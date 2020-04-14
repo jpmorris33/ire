@@ -8,6 +8,7 @@
 
 
 [page="dragoncom"]
+[set maxima_found_laptop]
 [if_not drakaan_task_gavecomms][goto="dragoncom9"]
 [if airtravel_on][goto="dragoncom0"]
 [if did_maxima_laptop][goto="dragoncom2"]
@@ -33,6 +34,7 @@
 [page="dragoncom2"]
 [call="check_drives"]
 [if true][goto="dragoncom3"]
+[set maxima_fix_engines]
 [image="comms05a.pcx"]
 [colour="#808080"]
  Commander Gurd reappears on the communicator shortly

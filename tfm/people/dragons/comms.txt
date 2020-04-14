@@ -73,7 +73,9 @@
  Look for the emergency stop button.  You will need to
  reset the power afterwards, though - the controls for
  that are in the emergency power plant, which is in a
- small maintenance room opposite the bridge."
+ small maintenance room opposite the bridge.
+
+ You may also need to replace one of the zeta links."
 
 [delay 2]
 [nextpage="exit"]
@@ -310,6 +312,7 @@ For a moment, the commander says nothing.
 
    (repair the power plant)
    (reset the engine controllers)
+   (rewrite what this is actually for since the barriers are already fixed)
 
 ..and return here before we can run it properly."
 
@@ -395,15 +398,17 @@ The commander does not look at all pleased.
 
 
 [page="defence_grid"]
+[set maxima_defence_grid]
 [image="comms05a.pcx"]
 
 "Wait!  That force barrier is deadly.. keep well away
  from it.
 
- Naavris says that this defence grid has an inspection hatch
- nearby.  You may be able to cut the power line feeding it.
+ Naavris says that this defence grid has an inspection 
+ hatch nearby.  You may be able to cut the power line
+ feeding it.
 
- Watch out, though - there are going to be more of these."
+ Watch out, though.  There will be more of these."
 
 [delay 2]
 [nextpage="exit"]

@@ -1,0 +1,156 @@
+[page="start"]
+[iftime 2300-2400][goto="bed"]
+[iftime 0000-0700][goto="bed"]
+[if_not airtravel_on][goto="forcefields"]
+[if_not panavius_allok][goto="panavius"]
+
+"I think the plot has run out."
+
+[nextpage="exit"]
+[endpage]
+
+
+	 Q: Could we just destroy the ship?
+	 
+	 "No.  And we will not help you do so.  Firstly, it is -our property-.  Without it we will be stranded here forever.
+	 "Secondly, destroying the magicserver will result in many deaths... there are sentient creatures here whose metabolisms are partly magical and we cannot permit their extinction.
+	 "Thirdly, destroying the ship would kill Xy'Lan.  Yes, his crimes are severe, but a wayward child must be corrected, not murdered.  Besides, he is not the only intelligence on the ship.
+	 "Finally, if Xy'Lan believes his life is at risk, he will have nothing to lose.  The safety locks that prevent him harming higher lifeforms are stretched very thin as they are, and adding an existential threat... well, he may destroy the world."
+	  
+	 Q: Who counts as 'higher lifeforms'?
+	 "Xy'Lan is not able to harm Drakaans directly owing to a constraint directive coded into his systems.  This is also why he has been reluctant to attack your aircraft.
+	  Unfortunately, he has been killing and tormenting humans with happy abandon, so we may have set the intelligence threshold a bit too high."
+	  
+	 Q:If you leave, won't that kill the magical creatures too?
+	 "Naturally we will put mitigations in place first.  With full control of the Maxima we could develop augmentations that will continue to function without the magicserver.
+	  Alternatively, we can set up a less powerful server to keep such lifeforms viable, and secure it much more tightly to prevent others misusing it."
+
+
+
+[page="forcefields"]
+[image="comms.pcx"]
+
+"Welcome back, $PLAYERNAME!
+
+ How goes your mission to reprogram the ship's engines?"
+
+[if_not maxima_found_laptop][link="I'm not sure where to go."]
+[if_not maxima_found_laptop][linkto="forcefield1"]
+[if maxima_found_laptop][link="I'm not sure how to get into the ship."]
+[if maxima_found_laptop][linkto="forcefield2"]
+[if maxima_defence_grid][link="The defence grid in the ship is a problem."]
+[if maxima_defence_grid][linkto="forcefield3"]
+[if maxima_fix_engines][link="I still need to fix the engines."]
+[if maxima_fix_engines][linkto="forcefield4"]
+[link="I'll get back on to it."]
+[linkto="bye"]
+[endpage]
+
+
+[page="forcefield1"]
+[image="comms.pcx"]
+
+"The temple that humans call the 'Grand Cathedral' in the
+ Holy Land is built on top of our ship, the Maxima.
+
+ Access to the ship is likely through some private
+ entrance available only to Pope."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="forcefield2"]
+[image="comms.pcx"]
+
+"You have already found the computer room beneath the
+ temple.  The entrance to the ship is likely close by.
+
+ To prevent others entering the ship, Pope will have
+ installed a barrier of some kind.  If I were him, I
+ would arrange it such that it can only be unlocked
+ with a special item kept on his person at all times.
+
+ Depending on what that item is, it may be necessary
+ to obtain a substitute so he does not notice its
+ disappearance."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="forcefield3"]
+[image="comms.pcx"]
+
+"Ah yes, the force barriers.
+
+ Naavris says that this defence grid has an inspection 
+ hatch nearby.  You may be able to cut the power line
+ feeding it.
+
+ There are likely to be suitable electronics tools in
+ the air bases."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="forcefield4"]
+[image="comms.pcx"]
+
+"The port power plant must be repaired.  Check the
+ rectifier valves first, then the zeta links.
+
+ If you need to hit the emergency shutdown, you will
+ have to reset the circuit breakers afterwards.
+
+ The breaker room is opposite the entrance to the
+ ship's bridge.
+
+ If you need to access the air conditioning ducts,
+ a tool will be required.  There should be a spare
+ lying around somewhere."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="panavius"]
+[image="comms.pcx"]
+
+"Many thanks for your help in bringing down the barriers!
+
+ When you are ready, there is more for you to look into.
+
+ Commander Argus in the Panavius base has a couple of
+ problems.  It would be helpful if you can look into
+ these while we plan our next move.  Speak with him for
+ more information."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="bye"]
+[image="comms.pcx"]
+
+"Very good!
+ While I hate to sound ungrateful or rush you, time is
+ on Xy'Lan's side, and not ours.
+
+ Good luck!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bed"]
+[image="comms.pcx"]
+
+"You should be in bed, human!  Defeating Xy'Lan will not
+ be any easier if you are dying of sleep deprivation!"
+
+[nextpage="exit"]
+[endpage]

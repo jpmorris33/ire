@@ -3,6 +3,7 @@
 [if found_the_precious][goto="start2"]
 [am_carrying "comms_unit"]
 [if true][if_not base_leuchars1][goto="comms_unit"]
+[if drakaan_task_gavecomms][goto="post_comms"]
 
 "Thanks again for rescuing me!
  Let me know if there's any way I can repay you!"
@@ -18,11 +19,12 @@
 [page="start2"]
 [am_carrying "comms_unit"]
 [if true][if_not base_leuchars1][goto="comms_unit"]
+[if drakaan_task_gavecomms][goto="post_comms"]
 
 "Thanks again for rescuing me!  I hope the ring
  proved useful!"
 
-FIXME: NEED MORE DIALOGUE
+[FIXME: NEED MORE DIALOGUE]
 
 [link="Goodbye."]
 [linkto="bye"]
@@ -465,6 +467,25 @@ Dr. Robertson looks at you with concern.
  All I can say is, good luck!"
 
 [nextpage="exit"]
+[endpage]
+
+
+
+
+[page="post_comms"]
+
+"Ah, we've set up the communicator in the meeting room.
+ I'd go there if you want to talk to Commander Gurd.
+
+ They've sent me a wealth of information about the
+ Drakaan race, and also what they think Xy'Lan has done
+ to make the ospreys intelligent.  I can probably get a
+ nobel prize out of this!"
+
+[if find_the_precious][link="I need that invisibility ring."]
+[if find_the_precious][linkto="precious"]
+[link="Thanks, I'll go find it!"]
+[linkto="bye"]
 [endpage]
 
 

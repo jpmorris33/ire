@@ -34,6 +34,7 @@
 [page="startname"]
 [am_carrying "comms_unit"]
 [if true][if_not base_panavius1][goto="comms_unit"]
+[if drakaan_task_gavecomms][goto="post_comms"]
 [image="f18-0.pcx"]
 
 "Welcome back, $PLAYERNAME.  How can I help you?"
@@ -49,6 +50,26 @@
 [link="bye"]
 [linkto="bye"]
 [endpage]
+
+
+[page="post_comms"]
+[image="f18-0.pcx"]
+
+"We've set up the communicator in the meeting room.
+ I'd go there if you want to talk to Commander Gurd."
+
+[if panavius_allok]"By the way, thanks for everything you've done!"
+
+[if_not panavius_allok][link="About the troubles you've been having."]
+[if_not panavius_allok][linkto="trouble"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Tell me about yourself."]
+[linkto="argus"]
+[link="bye"]
+[linkto="bye"]
+[endpage]
+
 
 
 
@@ -669,6 +690,8 @@ Eventually, Gurd butts in and calls the meeting to order.
 
 
 [page="comms_active7"]
+[image="f18-0.pcx"]
+
 [colour="#808080"]
 Argus looks down at you with concern.
 [colour="#ffffff"]
@@ -681,7 +704,7 @@ Argus looks down at you with concern.
 [nextpage="exit"]
 [endpage]
 
- 
+
 
 
 
