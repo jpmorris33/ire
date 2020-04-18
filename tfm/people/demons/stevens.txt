@@ -12,6 +12,29 @@ Stevens, expert hacker and ex-american president.
 
 [if enter_pp][link="I can't get at the power plant without dying."]
 [if enter_pp][linkto="enter_pp"]
+[if find_3320][link="Tell me about your missing synthesizer."]
+[if find_3320][linkto="synth"]
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="What has happened to this world?"]
+[linkto="medieval"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="startname"]
+[image="f18-0.pcx"]
+
+"Welcome back, $PLAYERNAME.
+ What can I do for you?"
+
+[if enter_pp][link="I can't get at the power plant without dying."]
+[if enter_pp][linkto="enter_pp"]
+[if find_3320][link="Tell me about your missing synthesizer."]
+[if find_3320][linkto="synth"]
 [link="Tell me about your presidency."]
 [linkto="prez"]
 [link="Tell me about the base."]
@@ -395,6 +418,30 @@ Stevens, expert hacker and ex-american president.
 
 "Woah!  That's so cool!  I don't know how to thank you!
  I have so much to ask them!"
+
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="synth"]
+[image="f18-0.pcx"]
+[set 7dwarves]
+
+"I had a Pro One, an actual relic from the 1980s, not
+ a modern reproduction.  It cost me a fortune.
+
+ Shortly after the Church attacked us, I found it was
+ missing. The weird thing is it was definitely there
+ immediately afterwards.
+
+ One of the panthers reported seeing seven dwarfs in
+ the vicinity, so it may be that they took it before
+ we were able to put Death on guard duty."
 
 [link="Tell me about your presidency."]
 [linkto="prez"]

@@ -1,0 +1,24 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+  Holy Father,
+
+  In accordance with your instructions, the heathen music device
+  has been secured and interred upon an island far to the west.
+
+  Should it become necessary to retrieve the machine, it may be
+  found by the following means:
+
+  There are two lakes upon the island, of these one has a rock
+  to the north of it.  Heading west from this rock, a palm tree
+  should eventually be found.  We have heaped stones beneath
+  the appropriate tree and, assuming none have removed these
+  in the intervening time, that is where one should dig.
+  
+  For the greater glory of the LORD,
+
+     Cardinal Bas
+
+[nextpage="exit"]
+[endpage]
+

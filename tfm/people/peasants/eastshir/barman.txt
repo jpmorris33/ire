@@ -23,6 +23,8 @@ grace and agility.
 [linkto="news"]
 [if find_jorge][link="Do you know of a man called Jorge?"]
 [if find_jorge][linkto="jorge"]
+[if 7dwarves][link="Have you seen seven dwarves here by any chance?"]
+[if 7dwarves][linkto="dwarves"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -215,6 +217,34 @@ You see Edward the barkeeper.
  talking with Cardinal Bas at our Church.  I care not to
  think what his errand there was, for he surely did not
  visit the church to confess."
+ 
+[link="Why is this pub called 'The Lost Lake Inn'?"]
+[linkto="pubname"]
+[link="What are you serving?"]
+[linkto="buy"]
+[link="I'd like a room, please."]
+[linkto="inn"]
+[link="Farewell."]
+[linkto="bye"]
+[endpage]
+
+
+[page="7dwarves"]
+
+[colour="#808080"]
+The barman's lips twist into a feral-looking snarl.
+[colour="#ffffff"]
+
+"Aye!  Those heathens did come here some years past.
+
+ We welcomed them with the charity often spoke of in the
+ scriptures, and they did reward us by desecrating the
+ graveyard in our church!
+
+ If ever they return, they shall hang for their deeds!
+
+ 'Tis said that they fled north to Scotia, where the
+ laws of King Edwyg do not hold."
  
 [link="Why is this pub called 'The Lost Lake Inn'?"]
 [linkto="pubname"]

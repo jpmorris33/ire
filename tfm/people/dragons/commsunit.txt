@@ -3,6 +3,8 @@
 [iftime 0000-0700][goto="bed"]
 [if_not airtravel_on][goto="forcefields"]
 [if_not panavius_allok][goto="panavius"]
+[if_not find_3320][goto="vcf"]
+[if_not find_3320_ok][goto="vcf7"]
 
 "I think the plot has run out."
 
@@ -130,6 +132,140 @@
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="vcf"]
+[esc=disabled]
+[image="comms.pcx"]
+
+"Right.  Engineer Naavris has detected a fault in one of
+ the drive units.  Most likely this was caused by our
+ stressing the drives when disabling the flight barriers.
+
+ Either way, it will be necessary to replace the
+ hyperspace modulator.
+
+ Unfortunately, this is not a part which we have to hand.
+
+ It was not felt necessary to carry spares since this
+ part rarely fails and prior to Xy'Lan's fit we could
+ just fabricate one on-demand by sending a prayer to the
+ magic server."
+
+[nextpage="vcf2"]
+[endpage]
+
+
+[page="vcf2"]
+[image="comms.pcx"]
+
+"Fortunately, a lot of your technology is derived from
+ ours.  As I may have mentioned, we seeded your race with
+ key concepts and designs to improve your lot, so it may
+ be that the part already exists on this world.
+
+ We need to locate or fabricate a 3320 modulator.  It is
+ what you call a microchip, with 18 pins.  I can send the
+ specifications if you have suitable fabrication plants."
+
+[nextpage="vcf3"]
+[endpage]
+
+
+[page="vcf3"]
+[image="f18-0.pcx"]
+
+[colour="#808080"]
+Stevens butts in to the conversation.
+[colour="#ffffff"]
+
+"Excuse me, but did you say you need a 3320 filter chip?
+ We do have some keyboards which use those.
+ They're really good for making brassy sounds.
+
+ I had one here, but it went missing during the attack
+ from the Church."
+
+[nextpage="vcf4"]
+[endpage]
+
+
+[page="vcf4"]
+[image="comms.pcx"]
+
+[colour="#808080"]
+Commander Gurd's jaw drops open in disbelief and he
+sounds genuinely appalled.
+[colour="#ffffff"]
+
+"What?!
+
+ Are you telling me, that you took our 3320 hyperspace
+ flux modulator - the pinnacle of Drakaan hyperspatial
+ technology - AND USED IT TO MAKE STUPID NOISES?!"
+
+[nextpage="vcf5"]
+[endpage]
+
+
+[page="vcf5"]
+[image="f18-2.pcx"]
+
+"You didn't exactly leave us any instructions for any of
+ this alien technology.  Mr. Curtis was trying to design
+ a sound chip, so that's what he did.  It might not even
+ work for whatever strange purpose you're envisaging.
+
+ Either way, if you want one, you're going to have to
+ find a synthesizer and borrow the chip from it.  The
+ alternative is to wait a few weeks while Austin sets up
+ his fabricator to manufacture one."
+
+[nextpage="vcf6"]
+[endpage]
+
+
+[page="vcf6"]
+[set find_3320]
+[image="comms.pcx"]
+
+[colour="#808080"]
+Commander Gurd looks as though he's swallowed something
+deeply unpleasant.
+[colour="#ffffff"]
+
+"This is true.  Very well...
+
+ $PLAYERNAME, please talk to Stevens.
+ Find out where his missing... music synthesizer... is
+ and bring it to Austin.  Once he has extracted the chip,
+ take it to the Maxima and swap out the faulty module.
+
+ You may as well return it to Austin, as the failed chip
+ may still work for manipulating audio signals even if it
+ can no longer manipulate spacetime.
+
+ Now go... I need to come to terms with this misuse of
+ our technological gifts."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="vcf7"]
+[set find_3320]
+[image="comms.pcx"]
+
+[colour="#808080"]
+Commander Gurd has clearly recovered some of his poise.
+[colour="#ffffff"]
+
+"So, have you any success in locating a suitable
+ 3320 chip?"
+
+[nextpage="exit"]
+[endpage]
+
 
 
 [page="bye"]
