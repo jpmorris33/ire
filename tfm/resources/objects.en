@@ -2788,10 +2788,7 @@ section: characters
 
 
 	name STUFF
-	left		STUFF
-	right		STUFF
-	up		STUFF
-	down		STUFF
+	frame		STUFF
 	hp		100
 	weight		50
 	description	"'They melt in your brain, not in your hands!'"
@@ -2804,19 +2801,34 @@ section: characters
 	setActiveArea	H 0 0 1 1
 
 	name BROWN_PACKAGE
-	left		BROWN_PACKAGE
-	right		BROWN_PACKAGE
-	up		BROWN_PACKAGE
-	down		BROWN_PACKAGE
+	frame		BROWN_PACKAGE
 	hp		100000
 	weight		500
 	description	"You see a suspicious-looking package of brown wax-paper."
 	short		"brown package"
 #	IfUsed		take_drugs
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	name E
+	left		bar_of_e_hori
+	right		bar_of_e_hori
+	up		bar_of_e_vert
+	down		bar_of_e_vert
+	hp		100000
+	weight		100000
+	description	"You see a gigantic bar of a suspicious white substance."
+	short		"bar of E"
+	IfUsed		take_drugs_overdose
+
+	name SALT_SHAKER
+	left		saltshaker_bl
+	right		saltshaker_tr
+	up		saltshaker_tl
+	down		saltshaker_br
+	hp		100000
+	weight		300
+	description	"You see a salt shaker full of white powder."
+	short		"salt shaker"
+	IfUsed		take_drugs_overdose
 
 	name FIRESTONES
 	left		FIRESTONES

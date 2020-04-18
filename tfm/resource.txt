@@ -3138,6 +3138,13 @@ section: sprites
 	jar07			sprites/jar07.png
 	fish00			sprites/fish00.cel
 
+	saltshaker_tl		sprites/tech/shaker0.png
+	saltshaker_tr		sprites/tech/shaker1.png
+	saltshaker_bl		sprites/tech/shaker2.png
+	saltshaker_br		sprites/tech/shaker3.png
+	bar_of_e_vert		sprites/tech/e.png
+	bar_of_e_hori		sprites/tech/e2.png
+
 	teleporter00		sprites/telep00.cel
 	teleporter01		sprites/telep01.cel
 	teleporter02		sprites/telep02.cel
@@ -12296,6 +12303,14 @@ section: sequences
 	quickname jar06 jar06
 	quickname jar07 jar07
 	quickname fish00 fish00
+
+	quickname bar_of_e_vert
+	quickname bar_of_e_hori
+
+	quickname saltshaker_tl
+	quickname saltshaker_tr
+	quickname saltshaker_bl
+	quickname saltshaker_br
 
 	name teleporter0
 	loop

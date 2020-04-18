@@ -132,3 +132,39 @@ next
 
 
 end
+
+##
+##  The player tried to taste the salt shaker like they do in cop shows
+##
+
+function take_drugs_overdose
+
+if me <> player
+	# Only losers use drugs
+	return 
+endif
+
+# Technically the panthers can eat, but drugs won't work
+if_flag player CANT_EAT
+	print msg_DoesntWork
+        printcr
+        return
+endif
+
+	# Only losers use drugs
+if player.user.user0 = 0
+	print player.personalname
+	print " has overdosed!"
+	printcr
+endif
+
+add player.user.poison + 10
+add player.user.potion1 + 15
+add player.user.potion0 + 15
+add player.user.user0 + 15
+let current = me
+call potion_overdose
+call potion_overdose
+check_hurt me
+end
+
