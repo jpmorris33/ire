@@ -19,7 +19,7 @@ if md <> 0
 	return
 endif
 
-if player.wield.body is called "armour07"
+if current.wield.body is called "armour07"
 	return
 endif
 
@@ -48,7 +48,7 @@ if_not_exists me.enemy
 	return
 endif
 
-if player.wield.body is called "armour07"
+if me.enemy.wield.body is called "armour07"
 	return
 endif
 
@@ -91,7 +91,7 @@ if md <> 0
 	return
 endif
 
-if player.wield.body is called "armour07"
+if me.enemy.wield.body is called "armour07"
 	return
 endif
 
@@ -128,7 +128,7 @@ if md <> 0
 	return
 endif
 
-if player.wield.body is called "armour07"
+if me.enemy.wield.body is called "armour07"
 	return
 endif
 
@@ -177,10 +177,31 @@ end
 
 
 ##
-##  Zap the player to death
+##  Zap current player to death
 ##
 
 function god_killplayer
+let me = player
+call god_killplayer_core
+end
+
+
+##
+##  Zap the hero to death
+##
+
+function god_killhero
+call find_hero
+call god_killplayer_core
+end
+
+
+##
+##  Zap the player to death
+##
+
+function god_killplayer_core
+private
 int md
 
 # Is the magicserver running?
@@ -192,7 +213,7 @@ endif
 # Reset trap to ensure retriggering on next encounter
 let current.user.counter = 0
 
-if player.wield.body is called "armour07"
+if me.wield.body is called "armour07"
 	get_user_flag md = "god_bastardised"	# Has He already said this?
 	if md = 0
 		talk_to "people/church/lord.txt" "powerplant2b"
@@ -202,18 +223,18 @@ if player.wield.body is called "armour07"
 	return
 endif
 
-if player.user.potion0 > 0
+if me.user.potion0 > 0
 	talk_to "people/church/lord.txt" "powerplant2a"
 endif
 
 play_sound "thunder"
-overfx player does LightningFx
+overfx me does LightningFx
 wait 1500 NONBLOCKING
-stopfx player
+stopfx me
 
 let arrest_only = 0 # Stop any arrest flag
-let player.stats.hp = -1
-check_hurt player
+let me.stats.hp = -1
+check_hurt me
 end
 
 

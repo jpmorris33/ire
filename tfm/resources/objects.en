@@ -2817,6 +2817,7 @@ section: characters
 	weight		100000
 	description	"You see a gigantic bar of a suspicious white substance."
 	short		"bar of E"
+	solid
 	IfUsed		take_drugs_overdose
 
 	name SALT_SHAKER

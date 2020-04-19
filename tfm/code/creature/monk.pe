@@ -188,10 +188,11 @@ if_not_user_flag "apocalypse"
 	talk_to "people/church/lord.txt" "popesdead"
 endif
 
-let player.stats.hp = -300
-replace player = "ash"
-let player.stats.hp = -300
-check_hurt player
+call find_hero
+let me.stats.hp = -300
+replace me = "ash"
+let me.stats.hp = -300
+check_hurt me
 end
 
 function pope_hurt

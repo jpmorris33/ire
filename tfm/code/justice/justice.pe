@@ -686,8 +686,7 @@ endif
 if_not_exists current.enemy
 	# The player must have engineered this somehow, get them
 	talk_to "people/church/lord.txt" "cardinal_n"
-	let current.enemy = player
-	call fry_current
+	call fry_player
 	return
 endif
 
@@ -707,8 +706,9 @@ end
 ##
 
 function fry_player
-let current = player
-let current.enemy = player
+call find_hero
+let current = me
+let current.enemy = me
 call fry_current
 end
 

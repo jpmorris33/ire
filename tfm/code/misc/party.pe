@@ -34,4 +34,20 @@ transfer_to_pocket current to player	# Player is the vehicle, move NPC aboard
 #let party_mode = 1
 end
 
+##
+##	Find the hero (for divine punishment etc)
+##
+
+function find_hero
+integer ctr
+let me = player
+for ctr = 1 to MAX_MEMBERS
+	if_exists party[ctr]
+		if_flag party[ctr] IS_HERO
+			let me = party[ctr]
+			return
+		endif
+	endif
+next ctr
+end
 
