@@ -1400,3 +1400,70 @@ int GetAvg(IREBITMAP *b)
 return b->GetPixel(0,0);
 //return getpixel(b,(b->w/2)+1,(b->h/2)+1);
 }
+
+void TermSequences() {
+int ctr;
+if(SQtot > 0) {
+	for(ctr=0;ctr<SQtot;ctr++) {
+		if(SQlist[ctr].name) {
+			M_free(SQlist[ctr].name);
+		}
+		if(SQlist[ctr].seq) {
+			M_free(SQlist[ctr].seq);
+		}
+	}
+	M_free(SQlist);
+	SQlist=NULL;
+	SQtot=0;
+}
+}
+
+void TermSprites() {
+int ctr;
+if(SPtot > 0) {
+	for(ctr=0;ctr<SPtot;ctr++) {
+		FreeIRESPRITE(SPlist[ctr].image);
+		FreeIRECOLOUR(SPlist[ctr].thumbcol);
+	}
+	M_free(SPlist);
+	SPlist=NULL;
+	SPtot=0;
+}
+}
+
+void TermTiles() {
+int ctr;
+if(TItot >0) {
+	for(ctr=0;ctr<TItot;ctr++) {
+		if(TIlist[ctr].alternate) {
+			M_free(TIlist[ctr].alternate);
+		}
+	}
+	M_free(TIlist);
+	TIlist=NULL;
+	TItot=0;
+}
+}
+
+void TermCode() {
+int ctr;
+if(PEtot >0) {
+	for(ctr=0;ctr<PEtot;ctr++) {
+		if(PElist[ctr].name) {
+			M_free(PElist[ctr].name);
+		}
+		if(PElist[ctr].code) {
+			M_free(PElist[ctr].code);
+		}
+	}
+	M_free(PElist);
+	PElist=NULL;
+	PEtot=0;
+}
+
+if(pe_files) {
+	M_free(pe_files);
+	pe_files=NULL;
+}
+
+}

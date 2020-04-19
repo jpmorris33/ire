@@ -533,6 +533,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 				SQlist[pos].name = (char *) strrest(line);   // Get name label
 				strstrip(SQlist[pos].name);         // Kill whitespace
+				SQlist[pos].name = stradd(NULL,SQlist[pos].name);	// Must be allocated memory for when we free it
 				pos++;
 				}
 			}

@@ -1067,3 +1067,7 @@ if(gotx!=-1 && goty!=-1) {
 
 return 0;
 }
+
+// Compatibility
+void Term_Projector(){
+}

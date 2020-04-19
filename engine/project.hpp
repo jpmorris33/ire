@@ -12,6 +12,7 @@ extern VMINT show_invisible;
 // Functions
 
 extern void Init_Projector(int x, int y);
+extern void Term_Projector();
 extern void Project_Map(int x, int y);
 extern void Project_Sprites(int x, int y);
 extern void Project_Roof(int x, int y);

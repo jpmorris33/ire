@@ -30,7 +30,13 @@ extern int ire_bpp,ire_bytespp;
 extern unsigned char ire_transparent_r;
 extern unsigned char ire_transparent_g;
 extern unsigned char ire_transparent_b;
-//extern IREBITMAP *MakeScreen(int w, int h);
+
+extern void FreeIREBITMAP(IREBITMAP *bmp);
+extern void FreeIRESPRITE(IRESPRITE *ptr);
+extern void FreeIRECOLOUR(IRECOLOUR *ptr);
+extern void FreeIRELIGHTMAP(IRELIGHTMAP *ptr);
+
+
 extern void SaveScreen();
 extern void RestoreScreen();
 

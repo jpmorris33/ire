@@ -33,6 +33,12 @@ extern void InitFuncsFor(OBJECT *o);	// Assign VRM to CHlist.funcs entries
 extern void Init_Areas(OBJECT *o);      // Set up subwidth and subheight
 extern void CalcSize(OBJECT *objsel);   // Calculate object size in tiles
 
+extern void TermSequences();
+extern void TermSprites();
+extern void TermTiles();
+extern void TermCode();
+
+
 /* Search group */
 
 extern SEQ_POOL *findseq(const char *name);   // Find an animation sequence

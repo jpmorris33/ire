@@ -11,6 +11,8 @@
 #include "oscli.hpp"
 #include "media.hpp"
 #include "loadfile.hpp"
+#include "init.hpp"
+#include "project.hpp"
 #include "mouse.hpp"
 #include "sound.h"
 
@@ -41,6 +43,7 @@ extern void CheckSpecialKeys(int k);
 static int rmbuf();
 static void BMPshot(IREBITMAP *savescreen);
 static void PNGshot(IREBITMAP *savescreen);
+
 
 
 // Code
@@ -203,7 +206,7 @@ else
 		}
 	swapscreen->Clear(ire_black);
 	pic->Draw(swapscreen,0,0);
-	delete pic;
+	FreeIREBITMAP(pic);
 	}
 
 ilog_quiet("  Start console\n");
@@ -269,6 +272,7 @@ if(c)
     return;
 c=1;
 ilog_quiet("Kill GFX:\n");
+
 IRE_Shutdown();
 #ifdef __linux__
 //c=system("reset");	// This was really for SVGAlib, probably don't need it now
@@ -276,6 +280,27 @@ IRE_Shutdown();
 
 ilog_quiet("Irecon-Term\n");
 irecon_term();
+
+Term_Projector();
+TermSequences();
+TermSprites();
+TermTiles();
+
+FreeIREBITMAP(swapscreen);
+swapscreen=NULL;
+FreeIREBITMAP(oldpic);
+oldpic=NULL;
+
+FreeIRECOLOUR(ire_transparent);
+ire_transparent=NULL;
+
+FreeIRECOLOUR(ire_black);
+ire_black=NULL;
+
+FreeIRECOLOUR(tfx_Colour);
+tfx_Colour=NULL;
+
+TermCode();
 }
 
 
@@ -560,3 +585,30 @@ void RestoreScreen()
 {
 oldpic->Draw(swapscreen,0,0);
 }
+
+
+
+void FreeIREBITMAP(IREBITMAP *ptr) {
+if(ptr) {
+	delete ptr;
+}
+}
+
+void FreeIRESPRITE(IRESPRITE *ptr) {
+if(ptr) {
+	delete ptr;
+}
+}
+
+void FreeIRELIGHTMAP(IRELIGHTMAP *ptr) {
+if(ptr) {
+	delete ptr;
+}
+}
+
+void FreeIRECOLOUR(IRECOLOUR *ptr) {
+if(ptr) {
+	delete ptr;
+}
+}
+

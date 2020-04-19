@@ -123,72 +123,125 @@ animate[5] = anim_unisync;	// Unisync
 animate[6] = anim_none;
 animate[7] = anim_none;
 
-
 tsbscreen = MakeIREBITMAP(64,64);
-if(!tsbscreen)
+if(!tsbscreen) {
 	ithe_panic("Could not allocate tile scroll buffer",NULL);
+}
 
 //gamewin=MakeScreen(w,h);
 gamewin = MakeIREBITMAP(w,h);
-if(!gamewin)
-    ithe_panic("Could not allocate projection window",NULL);
+if(!gamewin)	{
+	ithe_panic("Could not allocate projection window",NULL);
+}
 gamewinsize = w*h;
 
 //roofwin=MakeScreen(w,h);
 roofwin = MakeIREBITMAP(w,h);
-if(!roofwin)
-    ithe_panic("Could not allocate projection window",NULL);
+if(!roofwin) {
+	ithe_panic("Could not allocate projection window",NULL);
+}
 
 tsb = (IREBITMAP **)M_get(TItot,sizeof(IREBITMAP *)); // Tile Scroll Buffer
 
 scalebmp = MakeIREBITMAP(w,h);
-if(!scalebmp)
-    ithe_panic("Could not allocate map scaling buffer",NULL);
+if(!scalebmp) {
+	ithe_panic("Could not allocate map scaling buffer",NULL);
+}
 
-if(!loadfile("warning.cel",filename))
+if(!loadfile("warning.cel",filename)) {
 	ithe_panic("Could not find Warning image (warning.cel)",NULL);
+}
 warning=iload_bitmap(filename);
-if(!warning)
+if(!warning) {
 	ithe_panic("Could not load Warning image",filename);
+}
 
 // Build a random number table for the random animation code
 
-for(ctr=0;ctr<256;ctr++)
-    {
-    rndtab[ctr]=(unsigned char *)M_get(1,512);
-    if(ctr>0)
-        for(ctr2=0;ctr2<512;ctr2++)
-            {
-            rndtab[ctr][ctr2]=rand()%ctr;
-            // Prevent consecutive numbers appearing
-            if(ctr2>0 && ctr>1)
-                while(rndtab[ctr][ctr2]==rndtab[ctr][ctr2-1])
-                    rndtab[ctr][ctr2]=rand()%ctr;
-            }
-    }
+for(ctr=0;ctr<256;ctr++) {
+	rndtab[ctr]=(unsigned char *)M_get(1,512);
+	if(ctr>0) {
+		for(ctr2=0;ctr2<512;ctr2++) {
+			rndtab[ctr][ctr2]=rand()%ctr;
+			// Prevent consecutive numbers appearing
+			if(ctr2>0 && ctr>1) {
+				while(rndtab[ctr][ctr2]==rndtab[ctr][ctr2-1]) {
+		                    rndtab[ctr][ctr2]=rand()%ctr;
+				}
+			}
+		}
+	}
+}
 
 // Build the tile scroll buffer
 
-for(ctr=0;ctr<TItot;ctr++)
-	if(!tsb[ctr])
-		{
+for(ctr=0;ctr<TItot;ctr++) {
+	if(!tsb[ctr]) {
 		tsb[ctr]=MakeIREBITMAP(32,32);
-		if(!tsb[ctr])
-			{
+		if(!tsb[ctr]) {
 			TIlist[ctr].sdx=0;
 			TIlist[ctr].sdy=0;
 			Bug("Could not create TSB for tile %d\n",ctr);
-				return;
-			}
+			return;
 		}
+	}
+}
 
 darkmap = MakeIRELIGHTMAP(VSW32,VSH32);
-if(!darkmap)
+if(!darkmap) {
 	ithe_panic("Create DMP bitmap failed",NULL);
+}
 
 lightmask.init();
 SetDarkness(darklevel); // Resync darkness level
 }
+
+
+void Term_Projector()
+{
+int ctr;
+
+FreeIREBITMAP(tsbscreen);
+tsbscreen=NULL;
+
+FreeIREBITMAP(gamewin);
+gamewin=NULL;
+gamewinsize = 0;
+
+
+FreeIREBITMAP(roofwin);
+roofwin=NULL;
+
+if(tsb) {
+	for(ctr=0;ctr<TItot;ctr++) {
+		FreeIREBITMAP(tsb[ctr]);
+		tsb[ctr]=NULL;
+	}
+	M_free(tsb);
+	tsb=NULL;
+}
+
+FreeIREBITMAP(scalebmp);
+scalebmp=NULL;
+
+FreeIREBITMAP(warning);
+warning=NULL;
+
+for(ctr=0;ctr<256;ctr++) {
+	if(rndtab[ctr]) {
+		M_free(rndtab[ctr]);
+		rndtab[ctr]=NULL;
+	}
+}
+
+FreeIRELIGHTMAP(darkmap);
+darkmap=NULL;
+
+}
+
+
+
+
 
 /*
  *      anim_00() - no ping-pong, no loop

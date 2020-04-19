@@ -26,7 +26,7 @@ if(!s)
 	return;
 s->size=0;
 s->lines=0;
-s->linewords=0;
+s->linewords=NULL;
 s->blocks=1;
 s->block = (char **)calloc(1,sizeof(char *));
 s->line=NULL;
@@ -48,15 +48,28 @@ if(s->size)
 		free(s->block);
 		s->block=NULL;
 		}
-	if(s->lineword)
-		free(s->lineword);
-
 	s->size=0;
 	s->blocks=0;
 	}
 
 if(s->lines)
 	{
+
+	if(s->lineword) {
+		for(ctr=0;ctr<s->lines;ctr++) {
+			if(s->lineword[ctr]) {
+				free(s->lineword[ctr]);
+			}
+		}
+		free(s->lineword);
+		s->lineword = NULL;
+	}
+
+	if(s->linewords) {
+		free(s->linewords);
+		s->linewords=0;
+	}
+
 	if(s->line)
 		free(s->line);
 	s->lines=0;
