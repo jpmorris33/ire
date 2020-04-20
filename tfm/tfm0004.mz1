@@ -6777,6 +6777,11 @@ iMZ1r01
 		at 312 187
 		curdir 0
 
+	object WALL66452f84-3fbf-4389-aab7-9d7d2bb033e1
+		type WALL_METAL_WIREPANEL5
+		at 232 188
+		curdir 0
+
 	object PIPE71a752c8-ca16-4a71-a6c3-caa8fbf0d9ce
 		type PIPES_01
 		at 234 188
@@ -6808,6 +6813,12 @@ iMZ1r01
 		type WALL_METAL_D02
 		at 312 188
 		curdir 2
+
+	object WALLe458a7ae-fada-48eb-875f-03643944f06a
+		type WALL_METAL_WIREPANEL5
+		at 383 188
+		curdir 0
+		tag 60
 
 	object PIPEce7921d0-1279-420d-a950-287176a88b4a
 		type PIPES_01
@@ -8746,6 +8757,11 @@ iMZ1r01
 		at 332 235
 		curdir 1
 
+	object WALL26cc8355-559d-4379-9743-599b972935d6
+		type WALL_METAL_WIREPANEL5
+		at 232 236
+		curdir 0
+
 	object PIPEe1f49870-1410-48dd-9ad4-b3321ddf1ab6
 		type PIPES_01
 		at 234 236
@@ -8782,6 +8798,11 @@ iMZ1r01
 		type WALL_METAL_D02
 		at 344 236
 		curdir 2
+
+	object WALLcb39e199-5bb1-4975-8555-3fca9abe68eb
+		type WALL_METAL_WIREPANEL5
+		at 383 236
+		curdir 0
 
 	object PIPE2a5989fe-6855-4a0c-a32e-27447933ad3a
 		type PIPES_01

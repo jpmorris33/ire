@@ -14556,10 +14556,7 @@ section: characters
 	solid
 
 	name WALL_METAL_WIREPANEL1
-	left		mwall_decal17a
-	right		mwall_decal17a
-	up		mwall_decal17a
-	down		mwall_decal17a
+	frame		mwall_decal17a
 	weight		-1
 	hp		1000000
 	description	"You see an inspection hatch."
@@ -14567,43 +14564,38 @@ section: characters
 	fixed
 	IfUsed		OpenShipPanel1
 
-	name WALL_METAL_WIREPANEL2
-	left		mwall_decal17b
-	right		mwall_decal17b
-	up		mwall_decal17b
-	down		mwall_decal17b
-	weight		-1
-	hp		1000000
+	alias WALL_METAL_WIREPANEL2 = WALL_METAL_WIREPANEL1
+	frame		mwall_decal17b
 	description	"You see a cable loom."
 	short		"wiring"
-	fixed
 	IfUsed		CloseShipPanel1
 	ifHurt		shock_person
 
-	name WALL_METAL_WIREPANEL3
-	left		mwall_decal17a
-	right		mwall_decal17a
-	up		mwall_decal17a
-	down		mwall_decal17a
-	weight		-1
-	hp		1000000
-	description	"You see an inspection hatch."
-	short		"hatch"
-	fixed
+	alias WALL_METAL_WIREPANEL3 = WALL_METAL_WIREPANEL1
 	IfUsed		OpenShipPanel2
 
-	name WALL_METAL_WIREPANEL4
-	left		mwall_decal17c
-	right		mwall_decal17c
-	up		mwall_decal17c
-	down		mwall_decal17c
-	weight		-1
-	hp		1000000
+	alias WALL_METAL_WIREPANEL4 = WALL_METAL_WIREPANEL2
+	frame		mwall_decal17c
 	description	"You see a cable loom.  Some of the wires are cut."
-	short		"wiring"
-	fixed
 	IfUsed		CloseShipPanel2
-	ifHurt		shock_person
+
+	alias WALL_METAL_WIREPANEL5 = WALL_METAL_WIREPANEL1
+	frame		mwall_decal17d
+	IfUsed		OpenShipPanel3
+
+	alias WALL_METAL_WIREPANEL6 = WALL_METAL_WIREPANEL2
+	frame		mwall_decal17f
+	description	"You see a chip access panel."
+	IfUsed		CloseShipPanel3
+
+	alias WALL_METAL_WIREPANEL7 = WALL_METAL_WIREPANEL5
+	IfUsed		OpenShipPanel4
+
+	alias WALL_METAL_WIREPANEL8 = WALL_METAL_WIREPANEL6
+	frame		mwall_decal17e
+	description	"You see a chip access panel.  A fault is indicated."
+	IfUsed		CloseShipPanel4
+
 
 	name WALL_METAL_BREAKER
 	left		power_breaker1
@@ -15252,16 +15244,34 @@ section: characters
 	short		"can"
 	IfKilled	smash_can
 
-	name synth
-	left		synth
-	right		synth
-	up		synth
-	down		synth
+	name SYNTH
+	frame		synth
 	hp		10000
-	weight		6000
+	weight		7000
 	description	"You see a Sequential Circuits Pro-1."
 	short		"synthesizer"
 	IfUsed		music_bass
+
+	name SYNTH_OPEN
+	frame		synth2
+	hp		10000
+	weight		7000
+	description	"You see a disassembled synthesizer."
+	short		"synthesizer"
+	IfUsed		-
+
+	name CHIP_CURTIS
+	frame		chip
+	hp		100
+	weight		100
+	description	"You see an 18-pin filter chip on an antistatic mat."
+	short		"chip"
+
+	alias CHIP_DRAKAAN = CHIP_CURTIS
+	description	"You see an 18-pin hyperspace modulator on an antistatic mat."
+
+	alias CHIP_DRAKAAN2 = CHIP_DRAKAAN
+	description	"You see a faulty hyperspace modulator on an antistatic mat."
 
 	name CLOCK_1
 	left		CLOCK1H

@@ -3403,6 +3403,9 @@ section: sprites
 	mwall_decal57		sprites/starship/wdecal57.cel
 	mwall_decal58		sprites/starship/wdecal58.cel
 	mwall_decal59		sprites/starship/wdecal59.cel
+	mwall_decal60		sprites/starship/wdecal60.png
+	mwall_decal61		sprites/starship/wdecal61.png
+	mwall_decal62		sprites/starship/wdecal62.png
 
 	ladder_up		sprites/starship/ladderu.cel
 	lifebelt		sprites/tech/lifebelt.cel
@@ -3590,7 +3593,9 @@ section: sprites
 	whup09			sprites/tech/whup09.png
 
 	shipwreck		sprites/shipwrk.pcx
-	synth			sprites/tech/synth.cel
+	synth			sprites/tech/synth.png
+	synth2			sprites/tech/synth2.png
+	chip			sprites/tech/chip.png
 	clock1v			sprites/clock00.cel
 	clock1h			sprites/clock01.cel
 	clock2v			sprites/clock02.cel
@@ -12613,6 +12618,10 @@ section: sequences
 	quickname mwall_decal17b mwall_decal26
 	quickname mwall_decal17c mwall_decal27
 
+	quickname mwall_decal17d mwall_decal60
+	quickname mwall_decal17e mwall_decal61
+	quickname mwall_decal17f mwall_decal62
+
 	quickname mwall_decal18a mwall_decal28
 	quickname mwall_decal18b mwall_decal29
 
@@ -13194,13 +13203,15 @@ section: sequences
 	end
 
 
-	quickname shipwreck shipwreck
-	quickname synth synth
+	quickname shipwreck
+	quickname synth
+	quickname synth2
+	quickname chip
 
-	quickname clock1v clock1v
-	quickname clock1h clock1h
-	quickname clock2v clock2v
-	quickname clock2h clock2h
+	quickname clock1v
+	quickname clock1h
+	quickname clock2v
+	quickname clock2h
 
 	quickname printer printer
 	quickname tapedeck tapedeck

@@ -825,6 +825,7 @@ end
 
 function plot_disable_forcefields
 object_array stuff[32]
+object modulator
 integer ctr
 
 if_user_flag "airtravel_on"
@@ -839,6 +840,17 @@ for ctr = 1 to 32
 		change stuff[ctr] = "forcefield_off"
 	endif
 next ctr
+
+# Break the modulator
+find_tag modulator = "WALL_METAL_WIREPANEL5" 60
+if_not_exists modulator
+	# Did they open it?
+	find_tag modulator = "WALL_METAL_WIREPANEL6" 60
+endif
+
+if_exists modulator
+	change modulator = "WALL_METAL_WIREPANEL7"
+endif
 
 end
 

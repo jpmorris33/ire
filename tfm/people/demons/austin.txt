@@ -41,6 +41,9 @@ become slightly less tense.
 [if austins_gf][linkto="austins_gf"]
 [if heal_panthers][link="Can you repair a panther for me?"]
 [if heal_panthers][linkto="repairpanther"]
+[if find_3320][am_carrying synth]
+[if find_3320][if true][link="I need the 3320 chip from this synthesizer."]
+[if find_3320][if true][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -79,6 +82,9 @@ become slightly less tense.
 [linkto="past"]
 [if heal_panthers][link="Can you repair a panther for me?"]
 [if heal_panthers][linkto="repairpanther"]
+[if find_3320][am_carrying synth]
+[if find_3320][if true][link="I need the 3320 chip from this synthesizer."]
+[if find_3320][if true][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -283,6 +289,48 @@ Looks a little confused.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="synth"]
+[call="take_synth"]
+[if false][goto="synth2"]
+[image="f16g2-00.pcx"]
+[create 1 chip_curtis]
+
+"This is an original machine, complete with the little
+ pictures of mushrooms and Buddha on the circuit boards.
+
+ It kind of hurts to have to cannibalise it, but I guess
+ if you need the chip for your mission, that's the way
+ it has to be.
+
+ If you can bring the chip back after you're done with
+ whatever you need it for, I'll put it all back together
+ and send it to Stevens."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="synth2"]
+[image="f16g2-02.pcx"]
+
+"Um, okay.  Let me know when you've actually got one."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
 
 
 [page="mobile"]

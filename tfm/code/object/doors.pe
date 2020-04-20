@@ -825,6 +825,27 @@ object_sound "shut_door" current
 end
 
 
+function OpenShipPanel3
+change current = "WALL_METAL_WIREPANEL6"
+object_sound "open_door" current
+end
+
+function CloseShipPanel3
+change current = "WALL_METAL_WIREPANEL5"
+object_sound "open_door" current
+end
+
+function OpenShipPanel4
+change current = "WALL_METAL_WIREPANEL8"
+object_sound "open_door" current
+end
+
+function CloseShipPanel4
+change current = "WALL_METAL_WIREPANEL7"
+object_sound "shut_door" current
+end
+
+
 function pphatch_open
 
 if current is called "powerplant_hatch_open"

@@ -571,6 +571,42 @@ if_exists bandit_head
 endif
 end
 
+##
+##  Synthesizer
+##
+
+function take_synth
+object synth
+object dest
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+find synth = "SYNTH" inside player
+if_exists synth
+	find_tag dest = "TARGET" 133
+	if_exists dest
+		change synth = "SYNTH_OPEN"
+		transfer_object synth to dest.x dest.y
+		set_user_flag "true" = 1
+		set_user_flag "false" = 0
+		return
+	endif
+endif
+
+end
+
+
+function fix_synth
+object synth
+
+find_tag synth = "SYNTH_OPEN" 0
+if_exists synth
+	change synth = "SYNTH"
+endif
+
+end
+
 
 ##
 ##
@@ -608,6 +644,17 @@ function behead_player
 let current = player
 call behead_current
 end
+
+
+function behead_hero
+call find_hero
+let current = me
+call behead_current
+end
+
+
+
+
 
 ##
 ##  Spell level checks
