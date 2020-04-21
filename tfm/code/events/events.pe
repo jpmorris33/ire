@@ -566,24 +566,6 @@ set_user_flag "been_to_hell" = 1
 change_map 6 tag 1
 end
 
-
-##
-##  Give the player experience
-##
-
-function give_50_xp
-	add player.user.experience + 50
-end
-
-function give_100_xp
-	add player.user.experience + 100
-end
-
-function give_250_xp
-	add player.user.experience + 250
-end
-
-
 ##
 ##	Helper functions
 ##

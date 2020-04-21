@@ -14008,6 +14008,7 @@ section: scripts
 	code/justice/jail.pe
 	code/messages.pe
 	code/misc/bed.pe
+	code/misc/bonus.pe
 	code/misc/cheat.pe
 	code/misc/containr.pe
 	code/misc/drugs.pe

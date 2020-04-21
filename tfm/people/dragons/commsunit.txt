@@ -3,7 +3,7 @@
 [iftime 0000-0700][goto="bed"]
 [if_not airtravel_on][goto="forcefields"]
 [if_not panavius_allok][goto="panavius"]
-[if_not find_3320][goto="vcf"]
+[if_not find_3320][if_not find_3320_ok][goto="vcf"]
 [if_not find_3320_ok][goto="vcf7"]
 
 "I think the plot has run out."

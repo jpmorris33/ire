@@ -57,8 +57,8 @@
 
 
 [page="dragoncom3"]
-[set airtravel_on]
 [call="plot_disable_forcefields"]
+[set airtravel_on]
 [image="comms05a.pcx"]
 [colour="#808080"]
  Commander Gurd reappears on the communicator with a

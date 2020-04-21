@@ -1,0 +1,33 @@
+##
+##  Give the player experience
+##
+
+function give_50_xp
+	add player.user.experience + 50
+end
+
+function give_100_xp
+	add player.user.experience + 100
+end
+
+function give_250_xp
+	add player.user.experience + 250
+end
+
+
+
+##
+##  Give the player karma
+##
+
+function give_5_karma
+	add player.stats.karma + 5
+end
+
+function give_10_karma
+	add player.stats.karma + 10
+end
+
+function give_25_karma
+	add player.stats.karma + 25
+end

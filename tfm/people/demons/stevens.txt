@@ -35,6 +35,9 @@ Stevens, expert hacker and ex-american president.
 [if enter_pp][linkto="enter_pp"]
 [if find_3320][link="Tell me about your missing synthesizer."]
 [if find_3320][linkto="synth"]
+[if find_3320_ok][am_carrying synth]
+[if find_3320_ok][if true][link="Here's your synthesizer."]
+[if find_3320_ok][if true][linkto="synth2"]
 [link="Tell me about your presidency."]
 [linkto="prez"]
 [link="Tell me about the base."]
@@ -442,6 +445,22 @@ Stevens, expert hacker and ex-american president.
  One of the panthers reported seeing seven dwarfs in
  the vicinity, so it may be that they took it before
  we were able to put Death on guard duty."
+
+[link="Tell me about your presidency."]
+[linkto="prez"]
+[link="Tell me about the base."]
+[linkto="base"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="synth2"]
+[call="give_synth"]
+[image="f18-0.pcx"]
+
+"Oh, fantastic!  Thank you so much!  You've no idea
+ how much I've missed this baby!"
 
 [link="Tell me about your presidency."]
 [linkto="prez"]

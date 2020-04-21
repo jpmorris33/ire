@@ -15266,6 +15266,7 @@ section: characters
 	weight		100
 	description	"You see an 18-pin filter chip on an antistatic mat."
 	short		"chip"
+	ifUsed		use_3320
 
 	alias CHIP_DRAKAAN = CHIP_CURTIS
 	description	"You see an 18-pin hyperspace modulator on an antistatic mat."
@@ -15474,7 +15475,7 @@ section: characters
 	hp		250000
 	weight		-1
 	description	"You see some sand."
-	short		""
+	short		"sand"
 	fixed
 
 	name CRATE_EDGES

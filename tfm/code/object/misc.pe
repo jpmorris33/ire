@@ -193,6 +193,57 @@ end
 
 
 ##
+##  Use 3320 chip on something
+##
+
+function use_3320
+object chip
+
+if me <> player
+	return
+endif
+
+let chip = current
+
+print "Use "
+print current.shortdesc
+print " on "
+redraw_text
+
+let current = player
+call get_near
+if_not_exists current
+	print "nothing."
+	printcr
+	return
+endif
+
+print_bestname current
+printcr
+
+if current is called "WALL_METAL_WIREPANEL8"
+	# Change it
+	replace current = "WALL_METAL_WIREPANEL6"
+	replace chip = "CHIP_DRAKAAN2"
+	set_user_flag "find_3320" = 0
+	set_user_flag "find_3320_ok" = 1
+	return
+endif
+
+if current is called "WALL_METAL_WIREPANEL6"
+	print "It doesn't need replacing."
+	printcr
+	return
+endif
+
+print "No effect."
+printcr
+
+end
+
+
+
+##
 ##  Vending machine
 ##
 

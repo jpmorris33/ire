@@ -608,6 +608,27 @@ endif
 end
 
 
+function give_synth
+object synth
+object dest
+
+find synth = "SYNTH" inside player
+if_exists synth
+	find_tag dest = "TARGET" 78
+	if_exists dest
+		add me.stats.karma + 25
+		transfer_object synth to dest.x dest.y
+
+		# Stop player giving it twice
+		let synth.stats.weight = -1
+		set_flag synth IS_FIXED = 1
+		return
+	endif
+endif
+
+end
+
+
 ##
 ##
 ##

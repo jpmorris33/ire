@@ -44,6 +44,9 @@ become slightly less tense.
 [if find_3320][am_carrying synth]
 [if find_3320][if true][link="I need the 3320 chip from this synthesizer."]
 [if find_3320][if true][linkto="synth"]
+[if find_3320_ok][am_carrying chip_drakaan2]
+[if find_3320_ok][if true][link="Can you put this 3320 chip back in the synthesizer?"]
+[if find_3320_ok][if true][linkto="synth3"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -85,6 +88,9 @@ become slightly less tense.
 [if find_3320][am_carrying synth]
 [if find_3320][if true][link="I need the 3320 chip from this synthesizer."]
 [if find_3320][if true][linkto="synth"]
+[if find_3320_ok][am_carrying chip_drakaan2]
+[if find_3320_ok][if true][link="Can you put this 3320 chip back in the synthesizer?"]
+[if find_3320_ok][if true][linkto="synth3"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -330,6 +336,26 @@ Looks a little confused.
 [linkto="bye"]
 [endpage]
 
+
+[page="synth3"]
+[call="fix_synth"]
+[image="f16g2-07.pcx"]
+[take 1 chip_drakaan2]
+
+"Are these... alien glyphs?!
+ Where the hell did you get this..?
+
+ Nevermind, I don't want to know.  It seems to be
+ compatible, though Stevens will probably want to adjust
+ the cutoff and resonance trimmers."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
 

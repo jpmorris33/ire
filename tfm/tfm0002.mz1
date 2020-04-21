@@ -198558,6 +198558,42 @@ iMZ1r01
 		at 74 821
 		curdir 2
 
+	object TAPEc2a8e028-1df6-4b28-b42a-2700ca2c1313
+		type TAPEDECK
+		at 159 821
+		curdir 1
+
+	object TABL8792ca05-05e2-4287-87d0-a4dc50f4a72b
+		type TABLE6-H
+		at 161 821
+		curdir 2
+
+	object TAPE04b3730f-ef56-414f-9d25-b85f23a231b9
+		type TAPE
+		at 161 821
+		curdir 1
+
+	object TABL03e41095-5878-4088-9004-0ca1b7c4efa7
+		type TABLE6-H
+		at 162 821
+		curdir 1
+
+	object TARG687cd2e0-2645-4909-a7a6-f8ada3468e46
+		type TARGET
+		at 162 821
+		curdir 1
+		tag 78
+
+	object TABLafabd99e-157b-497f-94a7-4fe4f06b3b91
+		type TABLE6-H
+		at 163 821
+		curdir 3
+
+	object TABL38f9e7bd-b106-41dc-ac19-f7a451a95d68
+		type TABLE-SHADOW2
+		at 164 821
+		curdir 3
+
 	object FENC06956535-8da3-48e4-abd3-4fa6dc2191a3
 		type FENCE
 		at 208 821
@@ -198739,6 +198775,36 @@ iMZ1r01
 		curdir 1
 		name Wintermute
 		funcs->talk people/demons/wintmute.txt
+
+	object TABLd6d6e038-ed05-4025-aa56-3ed817e3e638
+		type TABLE-SHADOW2
+		at 161 822
+		curdir 1
+
+	object TABL9937418c-0bf0-4411-9c0d-acb23142f2a2
+		type TABLE5-LEGS
+		at 161 822
+		curdir 1
+
+	object TABL8206ed1a-c37c-4e69-803f-014d92ea98cc
+		type TABLE-SHADOW1
+		at 162 822
+		curdir 1
+
+	object TABL5bd14733-e4ed-41b0-8e37-a7e4362292f1
+		type TABLE-SHADOW1
+		at 163 822
+		curdir 1
+
+	object TABLc6ef5cbf-a1fe-4bc1-bb7b-a82d266ae365
+		type TABLE5-LEGS
+		at 163 822
+		curdir 1
+
+	object TABLb22ff55c-4fce-4323-8749-7c383782d067
+		type TABLE-SHADOW3
+		at 164 822
+		curdir 1
 
 	object FENC4849d4ef-6e76-4832-a8e7-1d28f435e587
 		type FENCE
