@@ -222,6 +222,8 @@ print_bestname current
 printcr
 
 if current is called "WALL_METAL_WIREPANEL8"
+	print "You replace the chip."
+	printcr
 	# Change it
 	replace current = "WALL_METAL_WIREPANEL6"
 	replace chip = "CHIP_DRAKAAN2"

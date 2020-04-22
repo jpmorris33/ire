@@ -691,12 +691,14 @@ Learning the Old Ways, figure out what needs to be done.
 [page="job2-q1c"]
 [image="yado.pcx"]
 
-"A poof I hope you are not!  Scared of a few bees?
+"A wuss I hope you are not!  Scared of a few bees?
  A fairy does not a true Chedei make!
 
  The bodies of twenty-five bees must you bring back.
  Only then can the rest of your training be taught."
  
+[link="Big words from someone who's afraid of seagulls."]
+[linkto="job2-q1d"]
 [link="Uh, Okay.  See you later!"]
 [linkto="bye-quest"]
 [link="Can you tell my fortune?"]
@@ -708,6 +710,20 @@ Learning the Old Ways, figure out what needs to be done.
 [once]
 [link="Goodbye."]
 [linkto="bye-quest"]
+[endpage]
+
+
+[page="job2-q1d"]
+[image="yado.pcx"]
+
+[colour="#808080"]
+Ya'Do's lip curls and he makes an involuntarily glance
+at the sky.
+[colour="#ffffff"]
+
+"Away, away!  The bees, you fetch - or be gone!"
+ 
+[nextpage="exit"]
 [endpage]
 
 

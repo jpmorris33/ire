@@ -434,50 +434,6 @@ Looks a little confused.
 
 
 
-[page="first1"]
-[image="f16g2-01.pcx"]
-[colour="#808080"]
-Austin frowns slightly, and becomes tense.
-[colour="#ffffff"]
-
-"I do not agree with our policy towards the Pope.
- Twenty years of conflict has won us nothing!
- 
- Look.. they have GOD on their side.  What have we got?
- A few beat-up old aircraft and a dozen humans.
-
- I'm starting to believe that our surrender may be
- the only way.  Surely they would let us live if we
- gave ourselves up.  Perhaps even allow us to
- return to Earth.."
- 
-[if0][link="Traitor"]
-[if0][linkto="traitor"]
-[link="That sounds too much like cowardice."]
-[linkto="coward"]
-[link="Goodbye."]
-[linkto="bye"]
-[endpage]
-
-[page="coward"]
-[image="f16g2-03.pcx"]
-
-"He who screams and runs away, lives to see another day.
-
- War should only ever be a last resort, and this is a war
- that we cannot win!"
-
-[link="You're pretty strongly against fighting.  Why?"]
-[linkto="past1"]
-[link="War is glorious."]
-[linkto="glory"]
-[link="Dulce et decorum est pro patria mori."]
-[linkto="dulce"]
-[link="Goodbye."]
-[linkto="bye"]
-[endpage]
-
-
 [page="past1"]
 [image="f16g2-01.pcx"]
 [colour="#808080"]
@@ -488,54 +444,24 @@ Austin's expression darkens.
  things that I will never, ever forget.
 
  Suffice to say I took an oath never to harm another
- living being if I can possibly avoid it."
+ living being if I can possibly avoid it.
 
-[link="What happened?"]
-[linkto="past1a"]
-[link="War is glorious."]
-[linkto="glory"]
-[link="Dulce et decorum est pro patria mori."]
-[linkto="dulce"]
+ I worry that our opposition to the Church may put me
+ in a position where I have to harm someone again...
+ But they committed far worse atrocities themselves...
+ 
+ Look, this is a very touchy point with me, and I'd
+ rather change the subject."
+
+[link="How do you build things?"]
+[linkto="howbuild"]
+[link="What do you build?"]
+[linkto="whatbuild"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
 
 
-[page="past1a"]
-[image="f16g2-07.pcx"]
-[colour="#808080"]
-Austin starts to becomes hysterical.
-[colour="#ffffff"]
-
-"No!  No!  I will not talk about this!
- I am trying to forget!  Do you hear me?
-
- I want to forget!"
-
-[link="I'm really sorry."]
-[linkto="past1b"]
-[link="Alright, I respect your wishes."]
-[linkto="bye"]
-[link="Tell me or I'll set light to the fuel barrels."]
-[linkto="barrels1"]
-[link="I'll leave you in peace."]
-[linkto="bye"]
-[endpage]
-
-
-[page="past1b"]
-[image="f16g2-03.pcx"]
-[colour="#808080"]
-Austin calms down.
-[colour="#ffffff"]
-
-"I'm sorry.. I am carrying a huge burden from my past.
-
-[link="Alright, I respect your wishes."]
-[linkto="bye"]
-[link="Goodbye."]
-[linkto="bye"]
-[endpage]
 
 
 [page="carvings"]
@@ -586,91 +512,6 @@ You get the impression Austin is embarrased.
 [endpage]
 
 
-[link="Dulce et decorum est pro patria mori."]
-[linkto="dulce"]
-
-[page="dulce"]
-[image="f16g2-04.pcx"]
-[colour="#808080"]
-Austin's reply is curt.
-[colour="#ffffff"]
-
-"Tum podex carmen extulit horridulum."
-
-[link="What happened?"]
-[linkto="past1a"]
-[link="War is glorious."]
-[linkto="glory"]
-[link="Goodbye."]
-[linkto="bye"]
-[endpage]
-
-
-
-[page="traitor"]
-[image="f16g2-03.pcx"]
-[colour="#808080"]
-Austin looks genuinely shocked.
-[colour="#ffffff"]
-
-"Never!  I am opposed to our policies.. that is common
- knowledge!
-
- Whatever our ideological differences, I have flown
- alongside my companions here for nearly two decades.
-
- Even a pacifist such as myself could never betray that
- sort of camerederie!"
- 
-[link="Goodbye."]
-[linkto="bye"]
-[endpage]
-
-
-[page="honour"]
-[image="f16g2-04.pcx"]
-[colour="#808080"]
-Austin makes a snorting noise.
-[colour="#ffffff"]
-
-"Honour?  A buzzword.  A ploy to get the foolish to die
- in your name."
-
-[endpage]
-
-
-[page="glory"]
-[image="f16g2-01.pcx"]
-[colour="#808080"]
-Austin looks at you with an expression of scorn.
-[colour="#ffffff"]
-
-"I don't think you know what air-to-air combat is;
- I shall tell you.
-
- It is going out there to kill another like yourself,
- and you don't know who - they might even be one of the
- friends you know in a chatroom - or a total stranger
- that you have no quarrel with.
- 
- It is the fear.. the searing pain of anti-aircraft
- fire..  the rending impact of the missile tearing into
- your belly..
-
- It is the agony of your fuselage burning.. quenched
- only by the shattering impact of death as you smash into
- the cruel ground behind enemy lines..
-
- And all because some high-minded human thinks they might
- gain some tiny advantage by sacrificing your life!
-
- What possible glory is there in THAT?"
-
-[link="Goodbye."]
-[linkto="bye"]
-[endpage]
-
-
 
 [page="past"]
 [image="f16g2-06.pcx"]
@@ -697,65 +538,29 @@ Austin looks rather troubled.
 [endpage]
 
 
-[page="exodus"]
-[image="f16g2-03.pcx"]
 
-"When we fled, the same number of cargo jets were
- publicly executed with anti-aircraft fire as a warning.
+[page="austins_gf"]
+[if dlpower_fixed][if][goto="austins_gf2"]
+[image="f16g2-02.pcx"]
 
- Our Commander, Eg. Eli, was an apologist.  He always
- tried to understand his orders and ensure they were
- carried them out, no matter how awful they seemed.
+[colour="#808080"]
+Austin sighs.
+[colour="#ffffff"]
 
- But this atrocity changed his mind and he organised the
- evacuation of as many dissidents and moderates as he
- could."
+"That's my fiance, Elsie. She's a racing falcon, and she
+ stayed behind on Earth when I left, to compete in the
+ world series.  I was only supposed to be away for two
+ months, and we were due to be married after I returned.
+ Now I'm stuck here doing Goodness-Only-Knows what.
 
-[nextpage="exodus2"]
-[endpage]
+ We kept in touch as often as we could, but we've lost
+ communications with Earth now."
 
-
-[page="exodus2"]
-[image="f16g2-01.pcx"]
-
-"Commander Eli arranged secret landings by tankers and
- bombers in the desert at midnight so the refugees could
- board them and escape when the aircraft defected.
-
- He was found out at the last moment and several tankers
- were shot down.  Many humans died and a number of
- aircraft only escaped Israel as backup tapes.
-
- Commander Eli himself landed in Jordan with one engine
- ablaze and his belly ripped open."
-
-[nextpage="israel"]
-[endpage]
-
-
-[page="israel"]
-[image="f16g2-06.pcx"]
-
-"Our Commander had negotiated a rump state in Jordan to
- provide a safe haven for the refugees.  Unable to think
- of a better name at the time he called it 'New Israel'
- and it has remained a peaceful land with good relations
- with its neighbours.
-
- But because all the left and centre movements had left
- Old Israel, it was now dominated by the right-wing and
- the Ultra-orthodox.  They considered it blasphemous for
- their country to be called Israel and changed the name
- to 'New Zion'.
-
- Then they declared war on virtually all their neighbours
- but without a single aircraft willing to fight, their
- success has been negligible."
-
+[link="Tell me about your job."]
+[linkto="job"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
-
 
 
 [page="austins_gf"]
@@ -771,120 +576,16 @@ Austin sighs.
  months, and we were due to be married after I returned.
  Now I'm stuck here doing Goodness-Only-Knows what.
 
- We keep in touch as often as we can, but it isn't easy.
- God keeps trying to jam communications with Earth."
+ We were keeping in touch as often as we could until the
+ link with Earth went down.  Hopefully I'll be able to
+ send her a message soon, now that you've fixed the
+ transstellar communicator."
 
 [link="Tell me about your job."]
 [linkto="job"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
-
-
-
-[page="topgun"]
-[image="f16g2-06.pcx"]
-
-"Yes.  It was part of the indoctrination at my academy
- before I defected.  Fortunately I managed to enter
- a hibernation state for most of the film.
- 
- Some of the others were not so lucky, and eventually
- became psychopathic, which is what the indoctrination
- was trying to achieve.  The air force wanted remorseless
- killing machines."
-
-[endpage]
-
-
-
-[page="barrels"]
-
-[colour="#808080"]
-A flicker of amusement crosses Austin's face.
-[colour="#ffffff"]
-
-"Set fire to the fuel barrels??  Go ahead.  Try!"
-
-[link="This is some trick.  What's in them?"]
-[linkto="barrels2"]
-
-[endpage]
-
-
-[page="barrels1"]
-
-[colour="#808080"]
-Though distraught, a flicker of amusement still briefly
-crosses the creature's face.
-[colour="#ffffff"]
-
-"Set fire to the fuel barrels??  Go ahead.  Try!"
-
-[link="This is some trick.  What's in them?"]
-[linkto="barrels2"]
-
-[endpage]
-
-
-[page="barrels2"]
-
-"The aviation fuels used by the ancients contained fire
- retardant, so they would only burn inside a functioning
- engine.  It is said that you could extinguish a campfire
- with them.
- 
- But if you can muster a flame from OUR fuel, I'll be very
- impressed indeed!"
-
-[endpage]
-
-
-
-"It seems incredible that I did all this, doesn't it?
-
- They had conditioned us to obey without question, so I
- simply accepted that the target was a terrorist base and
- attacked it with napalm.  It was my job, and the
- terrorists posed a direct threat to the country I had
- pledged to give my life to defend if need be.
-
- I was awarded a medal for that attack, you know, and I
- accepted it, although I had a faint uneasiness about the
- whole thing.  When we were given a direct order to fire
- on civilians, my squadron defected to Jordan instead."
-
-"Only then did we learn that the 'terrorist base' I had
- had attacked was actually a school.  I returned to my
- hangar without a word and shot myself in the head to try
- and atone for my crimes.
-
- When I committed suicide, it also destroyed a number of
- illegal modifications that the military had made to my
- brain to promote aggressive behaviour.  The 'me' who had
- killed all those children died that day."
-
-"Even so, it took the finest in Jordanian psychology to
- convince me that I was not truly responsible for my
- actions and get me relatively sane again.
- 
- The trauma for all of us was very severe.. it is unlikely
- any members of my squadron will ever see action again.
- But that's probably for the best.  There are many
- non-combatant roles for aircraft such as myself."
-
-[territorial patrols]
-[enforcement]
-[airliner escort]
-[surveillance]
-[instant freight delivery]
-[pleasure flights]
-
-"They say that time will heal all wounds, but I fear it
- may take centuries for this wound to heal.
-
- Sometimes I still see the faces of my victims.."
-
 
 
 
