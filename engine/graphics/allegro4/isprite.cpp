@@ -5,7 +5,10 @@
 #include <stdio.h>
 #include "ibitmap.hpp"
 
-#define HEADER_ALLEGRO 0x344c4741 // AGL4
+#define HEADER_ALLEGRO	0x344c4741	// AGL4
+#define ALLEGRO_ALLOC	0		// The DLL allocated it
+#define LOCAL_ALLOC	1		// We allocated it ourselves
+
 
 class A4SPR : public IRESPRITE
 	{
@@ -32,6 +35,7 @@ class A4SPR : public IRESPRITE
 	private:
 		RLE_SPRITE *img;
 		unsigned int avcol;
+		int allocator;
 	};
 
 	
@@ -105,52 +109,9 @@ if(!src)
 A4BMP *srcptr=(A4BMP *)src;
 img = get_rle_sprite(srcptr->img);
 avcol=0;
+allocator=ALLEGRO_ALLOC;
 }
 
-/*
-//
-//	Constructor to read in from a file
-//
-
-A4SPR::A4SPR(const char *fname) : IRESPRITE(fname)
-{
-if(!fname)
-	return;
-
-int sz = 0;
-FILE *fp;
-
-fp = fopen(fname,"rb");
-if(!fp)
-	return;
-
-sz = getw(fp);
-if(sz < 1)
-	{
-	fclose(fp);
-	return;
-	}
-
-img = (RLE_SPRITE *)calloc(1,sizeof(RLE_SPRITE) + sz);
-if(!img)
-	{
-	fclose(fp);
-	return;
-	}
-
-img->color_depth = getw(fp);
-img->w = getw(fp);
-img->h = getw(fp);
-img->size = sz;
-
-sz=fread(img->dat, 1, sz, fp);
-
-// Get average pixel colour, if a pointer is given
-avcol=getw(fp);
-
-fclose(fp);
-}
-*/
 
 // Constructor to build from cache data
 
@@ -171,6 +132,7 @@ sz = getwptr(&dptr);
 img = (RLE_SPRITE *)calloc(1,sizeof(RLE_SPRITE)+sz); // Allegro dumps the image data into the end of the structure
 if(!img)
 	return;
+allocator=LOCAL_ALLOC;
 
 img->color_depth = getwptr(&dptr);
 img->w = getwptr(&dptr);
@@ -190,9 +152,18 @@ avcol=getwptr(&dptr);
 
 A4SPR::~A4SPR()
 {
-if(img)
-	destroy_rle_sprite(img);
-img=NULL;
+if(img) {
+	// Handle cleanup differently depending on whether we allocated the memory here, or in the Allegro library
+	// This BS is necessary because of Windows, which can get pissy if you allocate memory inside a DLL and then free it in the main program
+
+	if(allocator == ALLEGRO_ALLOC) {
+		destroy_rle_sprite(img);
+	} 
+	if(allocator == LOCAL_ALLOC) {
+		free(img);
+	} 
+	img=NULL;
+}
 }
 
 //
