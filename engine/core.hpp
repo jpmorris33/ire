@@ -35,9 +35,10 @@
 #define FP_DIAGONAL 1   // Pathfinder flags
 #define FP_FINDROUTE 2
 
-#define KILLROOF	1
-#define KILLMAP		2
-#define INVISROOF	4
+#define KILLROOF		1
+#define KILLMAP			2
+#define INVISROOF		4
+#define ABSOLUTE_DARKNESS	8
 
 #define MAPSIG 0xf15e0005
 
@@ -205,7 +206,7 @@ enum
 	UARC_SYSLIST,
 	};
 
-// A single sprite
+// A single sprite or roof
 
 typedef struct S_POOL
 {

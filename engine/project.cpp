@@ -100,6 +100,7 @@ void render_lighting(int x, int y);
 extern void CallVMnum(int func);
 extern IRELIGHTMAP *load_lightmap(char *filename);
 static int scale_torches(int torchcount);
+extern int AbsoluteDarkness(int x, int y);
 
 
 // Code
@@ -893,6 +894,7 @@ int lights;
 unsigned char *lptr;
 int offset,id;
 int darkness=0,got_light=0,got_dark=0;
+int override_darklevel=0;
 
 // Find all lightsources
 
@@ -945,7 +947,16 @@ for(cy=starty;cy<ey;cy++) {
 
 // Ok, we're ready, figure out darkness level and start rendering.
 
-darkness = darklevel + dark_mix;
+// If we're inside a cave, we don't want the outside darkness to affect us
+if(player) {
+	override_darklevel=AbsoluteDarkness(player->x,player->y);
+}
+
+darkness = darklevel;
+if(override_darklevel) {
+	darkness = 0;
+}
+darkness += dark_mix;
 darkness -= scale_torches(got_light);
 darkness += scale_torches(got_dark);
 

@@ -13827,7 +13827,7 @@ section: rooftiles
 	roof/roof34.cel
 	roof/roof35.cel
 	roof/roof36.cel
-	backings/mnt27.png no_map dark 96
+	backings/mnt27.png no_map setdark 192
 	roof/metal00.cel
 	roof/metal01.cel
 	roof/metal02.cel stand_under
@@ -13883,14 +13883,14 @@ section: rooftiles
 	roof/tile29.cel
 	roof/tile30.cel
 	roof/tile31.cel
-	roof/snow00.cel dark 32
-	roof/snow01.cel dark 32
-	roof/snow02.cel dark 32
-	roof/snow03.cel dark 32
-	roof/snow04.cel dark 32
-	roof/snow05.cel dark 32
-	roof/snow06.cel dark 32
-	roof/snow07.cel dark 32
+	roof/snow00.cel darken 32
+	roof/snow01.cel darken 32
+	roof/snow02.cel darken 32
+	roof/snow03.cel darken 32
+	roof/snow04.cel darken 32
+	roof/snow05.cel darken 32
+	roof/snow06.cel darken 32
+	roof/snow07.cel darken 32
 	roof/metal18.cel
 	roof/metal19.cel
 	roof/metal18.cel stand_under
@@ -13900,23 +13900,23 @@ section: rooftiles
 	roof/tile34.cel
 	roof/tile35.cel
 
-	roof/snow08.cel dark 32
-	roof/snow09.cel dark 32
-	roof/snow10.cel dark 32
-	roof/snow11.cel dark 32
-	roof/snow12.cel dark 32
-	roof/snow13.cel dark 32
-	roof/snow14.cel dark 32
-	roof/snow15.cel dark 32
+	roof/snow08.cel darken 32
+	roof/snow09.cel darken 32
+	roof/snow10.cel darken 32
+	roof/snow11.cel darken 32
+	roof/snow12.cel darken 32
+	roof/snow13.cel darken 32
+	roof/snow14.cel darken 32
+	roof/snow15.cel darken 32
 
-	roof/snow16.cel dark 32
-	roof/snow17.cel dark 32
-	roof/snow18.cel dark 32
-	roof/snow19.cel dark 32
-	roof/snow20.cel dark 32
-	roof/snow21.cel dark 32
-	roof/snow22.cel dark 32
-	roof/snow23.cel dark 32
+	roof/snow16.cel darken 32
+	roof/snow17.cel darken 32
+	roof/snow18.cel darken 32
+	roof/snow19.cel darken 32
+	roof/snow20.cel darken 32
+	roof/snow21.cel darken 32
+	roof/snow22.cel darken 32
+	roof/snow23.cel darken 32
 
 	roof/tile36.cel
 	roof/tile37.cel

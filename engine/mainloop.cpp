@@ -105,6 +105,7 @@ static void CheckTileCore(int x, int y, TILE *t);
 static void DarkRoof();
 static void GameBusy();
 int DisallowMap();
+int AbsoluteDarkness(int x, int y);
 
 int LoadGame();
 void SaveGame();
@@ -248,6 +249,9 @@ ilog_quiet("All systems go\n");
 
 fpsmetric=0;
 time(&startmetric);
+
+dark_mix=0;		// Reset additional darkness level
+DarkRoof();   // Add darkness if we need it
 
 // The main loop begins here
 
@@ -1732,6 +1736,9 @@ CallVM("sys_loadproc");
 
 CallVM("sys_changemap");
 
+dark_mix=0;
+DarkRoof();
+
 ResyncEverything();
 
 // Okay, done
@@ -1871,18 +1878,42 @@ if(temp && temp->flags & IS_WINDOW) {
 
 void DarkRoof()
 {
-if(curmap->roof[(player->y*curmap->w)+player->x])
-	{
+if(!player) {
+	return;
+}
+unsigned char roofType = curmap->roof[(player->y*curmap->w)+player->x];
+if(!roofType) {
+	return;
+}
+
+S_POOL *roof = &RTlist[roofType];
+if(roof->flags & ABSOLUTE_DARKNESS) {
+	dark_mix=roof->darkness;
+} else {
 	// Darken the world if applicable
-	dark_mix+=RTlist[curmap->roof[(player->y*curmap->w)+player->x]].darkness;
-	}
+	dark_mix+=roof->darkness;
+}
 }
 
 
 int DisallowMap()
 {
-if(curmap->roof[(player->y*curmap->w)+player->x])
+if(player && curmap->roof[(player->y*curmap->w)+player->x]) {
 	return RTlist[curmap->roof[(player->y*curmap->w)+player->x]].flags & KILLMAP;
+}
+return 0;
+}
+
+
+int AbsoluteDarkness(int x, int y)
+{
+if(x<0||x>=curmap->w || y<0 || y>=curmap->h) {
+	return 0;
+}
+S_POOL *roof = &RTlist[curmap->roof[(y*curmap->w)+x]];
+if(roof) {
+	return roof->flags & ABSOLUTE_DARKNESS;
+}
 return 0;
 }
 

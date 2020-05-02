@@ -2923,9 +2923,26 @@ for(ctr=start;ctr<=finish;ctr++) {
 	if(FindWord(Rptr,"invisible"))
 		RTlist[pos].flags|=INVISROOF; // Only draw in editor
 
-	// It makes things dark?
-	dp=FindWord(Rptr,"dark");
+
+	// It makes things darker?
+	dp=FindWord(Rptr,"darken");
+	if(!dp) {
+		dp=FindWord(Rptr,"dark");	// Compatibility
+	}
 	if(dp) {
+		RTlist[pos].darkness=64;	// Default to 64
+
+		// Try and get a parameter
+		strcpy(Rbuffer,strgetword(Rptr,dp+1));
+		if(strisnumber(Rbuffer)) {
+			RTlist[pos].darkness=strgetnumber(Rbuffer);
+		}
+	}
+
+	// Set absolute darkness?
+	dp=FindWord(Rptr,"setdark");
+	if(dp) {
+		RTlist[pos].flags|=ABSOLUTE_DARKNESS; // You have to admit, that's a cool name
 		RTlist[pos].darkness=64;	// Default to 64
 
 		// Try and get a parameter
