@@ -639,7 +639,7 @@ qsort(list,tot,sizeof(char*),CMP);  // Sort them for the dialog box
 
 // This is the graphical dialog box, taken from DEU.
 
-GetOBFromList( -1,-1, "Choose a character:", tot-1, list, Name);
+GetOBFromList( -1,-1, "Choose a character:", tot, list, Name);
 
 // If the user didn't press ESC instead of choosing, modify the character
 
