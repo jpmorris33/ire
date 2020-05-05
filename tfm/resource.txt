@@ -14173,6 +14173,7 @@ section: tables
 	list:
 		waarg_king wolfa_king_rest_up 
 		waarg_male wolfa_rest_up 
+		waarg_female wolfa_rest_up 
 		waarg_soldier wolfa_soldier_rest_up 
 	end
 
@@ -14182,6 +14183,7 @@ section: tables
 	list:
 		waarg_king wolfa_king_rest_down 
 		waarg_male wolfa_rest_down 
+		waarg_female wolfa_rest_down 
 		waarg_soldier wolfa_soldier_rest_down 
 	end
 
@@ -14191,6 +14193,7 @@ section: tables
 	list:
 		waarg_king wolfa_king_rest_left 
 		waarg_male wolfa_rest_left 
+		waarg_female wolfa_rest_left 
 		waarg_soldier wolfa_soldier_rest_left 
 	end
 
@@ -14200,6 +14203,7 @@ section: tables
 	list:
 		waarg_king wolfa_king_rest_right 
 		waarg_male wolfa_rest_right 
+		waarg_female wolfa_rest_right 
 		waarg_soldier wolfa_soldier_rest_right 
 	end
 
