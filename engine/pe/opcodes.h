@@ -308,6 +308,7 @@ enum {
 
 	PEVM_Printaddr,
 	PEVM_PrintLog,
+	PEVM_Assert,
 	PEVM_LastOp,
 	
 	// Internal functions

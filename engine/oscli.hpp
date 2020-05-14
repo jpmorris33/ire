@@ -66,6 +66,7 @@ extern unsigned int FRAMERATE;
 extern unsigned int MouseWait;
 extern VMINT map_W,map_H;	       // Default map size
 extern int journalstyle;
+extern char unit_tests;
 
 extern unsigned char dlink_r,dlink_g,dlink_b;	// Default link colour
 extern unsigned char dtext_r,dtext_g,dtext_b;	// Default conv. colour

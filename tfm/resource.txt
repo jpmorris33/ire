@@ -14067,6 +14067,11 @@ section: scripts
 	code/creature/resurrec.pe
 	code/misc/expansn.pe
 
+	code/test/tests.pe
+	code/test/and.pe
+	code/test/or-2.pe
+	code/test/or-3.pe
+
 section: tables
 
 !include resources/tables.txt

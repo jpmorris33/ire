@@ -1,0 +1,73 @@
+function test_2or
+private
+
+call test_2or0
+call test_2or1
+call test_2or2
+call test_2or3
+
+end
+
+local
+
+
+function test_2or0
+
+int result = 0
+
+if 1 = 0
+or 2 = 0
+	let result = 1
+else
+	let result = 2
+endif
+
+assert result = 2
+end
+
+
+function test_2or1
+
+int result = 0
+
+if 1 = 1
+or 2 = 2
+	let result = 1
+else
+	let result = 2
+endif
+
+assert result = 1
+end
+
+
+function test_2or2
+
+int result = 0
+
+if 1 = 1
+or 2 = 0
+	let result = 1
+else
+	let result = 2
+endif
+
+assert result = 1
+end
+
+
+function test_2or3
+
+int result = 0
+
+if 1 = 0
+or 2 = 2
+	let result = 1
+else
+	let result = 2
+endif
+
+assert result = 1
+end
+
+endlocal

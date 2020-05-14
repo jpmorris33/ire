@@ -99,6 +99,7 @@ static void read_config();
 static void write_config();
 
 static void BookViewer();
+static void UnitTests();
 static void RunGame();
 
 extern void LoadResources(char *filename);
@@ -331,11 +332,14 @@ TermSQL();
 
 irecon_term();
 
-
 if(bookview[0]) {
 	BookViewer();
 } else {
-	RunGame();
+	if(unit_tests) {
+		UnitTests();
+	} else {
+		RunGame();
+	}
 }
 
 PathTerm();
@@ -464,6 +468,33 @@ if(bookview2[0])
 	talk_to(bookview,bookview2);
 else
 	talk_to(bookview,NULL);
+}
+
+
+/*
+ *  Run some script tests
+ */
+
+void UnitTests()
+{
+irecon_init(conx,cony,conwid,conlen);
+
+// Fake the entries that the engine might use
+player=OB_Alloc();
+victim=OB_Alloc();
+person=player;
+current_object=victim;
+
+ilog_printf("VRM fixups\n");
+Init_Funcs();                   // Assign the CHlist.func to appropriate VRM
+
+ilog_printf("Starting PEVM microkernel\n");
+InitVM();
+
+CallVM("sys_unittests");
+
+// If this did happen, the program would have quit by now
+printf("No test failures!\n");
 }
 
 

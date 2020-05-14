@@ -1,0 +1,62 @@
+function test_and
+private
+
+call test_and1
+call test_and2
+call test_and3
+
+end
+
+local
+
+function test_and1
+
+int result = 0
+
+if 1 = 1
+and 2 = 2
+and 3 = 3
+	let result = 1
+else
+	let result = 2
+endif
+
+
+assert result = 1
+end
+
+
+function test_and2
+
+int result = 0
+
+if 1 = 1
+and 2 = 2
+and 3 = 1
+	let result = 1
+else
+	let result = 2
+endif
+
+assert result = 2
+end
+
+
+function test_and3
+
+int result = 0
+
+if 1 = 1
+and 2 = 1
+and 3 = 3
+	let result = 1
+else
+	let result = 2
+endif
+
+assert result = 2
+end
+
+
+
+endlocal

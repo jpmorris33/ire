@@ -86,6 +86,7 @@ char use_hw_video=0;
 static char gamespec=0;
 char allow_breakout=0;
 char debug_act=0;
+char unit_tests=0;
 char SkipInit=0;
 char ShowRanges=0;
 char bookview[256];
@@ -147,6 +148,7 @@ if(found("?") || found("h") || found("help"))
 	puts("-nopanic            no fancy error messages");
 	puts("-debugVM            Allow debugging keys in the PE Virtual Machine");
 	puts("-debugAct           Debug activity system");
+	puts("-test	          Run script engine unit tests");
 	puts("-videomode          Set number of bpp, or 0 to ask user (recommended)");
 	puts("-nolight            Don't do any lighting (for slow systems)");
 	puts("-skipunknowns       Ignore unknown keywords in the script, don't stop");
@@ -248,6 +250,9 @@ if(found("reset_funcs"))
 
 if(found("censorware"))
 	enable_censorware = 1;
+
+if(found("test"))
+	unit_tests = 1;
 
 if(found("hardware_video"))
 	use_hw_video = 1;

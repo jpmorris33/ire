@@ -89,6 +89,7 @@ static void PE_while2(char **line);
 static void PE_do(char **line);		static void PEP_do(char **line);
 static void PE_continue(char **line);
 static void PE_break(char **line);
+static void PE_assert(char **line);
 
 static OBJECT obj_template;
 static TILE tile_template;
@@ -3354,6 +3355,22 @@ OPCODE vmspec[] =
                     {"loadgame",PEVM_LoadGame,"i",PE_generic,NULL,1},
                     {"loadgame",PEVM_LoadGame,"a",PE_generic,NULL,1},
                     {"getdate",PEVM_GetDate,"U",PE_generic,NULL,1},
+                    {"assert",PEVM_Assert,"npn",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"npi",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"npI",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"npa",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"ipn",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"ipi",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"ipI",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"ipa",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"Ipn",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"Ipi",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"IpI",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"Ipa",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"apn",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"api",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"apI",PE_assert,NULL,4},
+                    {"assert",PEVM_Assert,"apa",PE_assert,NULL,4},
                     {"status",PEVM_LastOp,"n",PE_generic,NULL,1},
                     {"get_funcname",PEVM_GetFuncP,"P=i",PE_generic,NULL,2},
                     {"get_funcname",PEVM_GetFuncP,"P=I",PE_generic,NULL,2},
@@ -4351,7 +4368,7 @@ if(!curfunc)
 pe_output->Class='A';
 }
 
-// Mark this function as being an Activity (used as a label for the Editor)
+// Mark this function as being hidden (used as a label for the Editor)
 void PE_classPrv(char **line)
 {
 if(!curfunc)
@@ -5703,4 +5720,14 @@ if(PE_FastBuild)
 
 add_opcode(vmp->opcode);
 add_dword(pe_getnumber(line[1]));
+}
+
+
+void PE_assert(char **line)
+{
+// If we're not doing a full compile, forget it
+if(PE_FastBuild)
+	return;
+PE_generic(line);
+add_dword(pe_lineid);
 }

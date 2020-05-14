@@ -437,6 +437,7 @@ static void PV_IfKey();
 static void PV_IfKeyPressed();
 static void PV_Printaddr();
 static void PV_PrintLog();
+static void PV_Assert();
 static void PV_Dump();
 static void PV_NOP();
 static void PV_Dofus();
@@ -1486,6 +1487,7 @@ VMOP(LastSaveSlot);
 VMOP(SaveGame);
 VMOP(LoadGame);
 VMOP(GetDate);
+VMOP(Assert);
 // These are used internally by the compiler
 
 VMOP(LastOp);
@@ -1609,8 +1611,10 @@ int pos;
 if(MZ1_LoadingGame)
 	return;
 
-if(!vm_up)
+if(!vm_up) {
+	Bug("Tried to use PEVM before InitVM()\n");
 	return;
+}
 //	ithe_panic("Tried to use PEVM before InitVM()","Aiee!");
 
 if(!function)
@@ -7831,6 +7835,26 @@ out = (USERSTRING **)GET_INT();
 CHECK_POINTER(out);
 if(out && *out)
 	STR_Set(*out,date);
+}
+
+
+void PV_Assert()
+{
+int lineno;
+VMINT *a,*b;
+unsigned char op;
+
+a = (VMINT *)GET_INT();
+CHECK_POINTER(a);
+op=GET_BYTE();
+b = (VMINT *)GET_INT();
+CHECK_POINTER(b);
+lineno = GET_DWORD();
+
+if(!Operator[op&OPMASK](*a,*b)) {
+	Bug("TEST FAILED in file %s at line %d, ( %ld %s %ld was not true)\n",curvm->file,lineno,*a,oplist[op&OPMASK],*b);
+	Bang("Unit test failed");
+}
 }
 
 
