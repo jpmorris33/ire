@@ -327,6 +327,7 @@ object target
 object grave
 int rx
 int ry
+int nores
 int targetid = 666
 
 let SoundFixed = 0	# If we opened the Ark of Testimony, set SFX to normal
@@ -353,6 +354,12 @@ if_exists temp
 	endif
 endif
 
+# Is the magic system enabled?
+get_user_flag nores = "magic_disabled"
+if nores
+	let temp = null
+endif
+
 # Make the grave, if we need it
 
 if_not_exist temp
@@ -362,8 +369,15 @@ else
 	let grave = null
 endif
 
-# If there is no corpse:
+# Is the magic system disabled?
+if nores
+	print "Error: General resurrection machinery not responding!"
+	printcr
 
+	goto die
+endif
+
+# If there is no corpse:
 if_not_exist temp
 	print "Your body has been destroyed!"
 	printcr
