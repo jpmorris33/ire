@@ -37,7 +37,6 @@ STRUCTURE *pe_datatype; // band-aid for supporting multiple structs
 int pe_numfuncs=0,pe_lineid=0;
 int icode_len=0,srcline=-1;
 OPCODE *vmp;
-KEYWORD *labelpending=NULL;
 char *curfunc=NULL; // Current function we're looking at (or NULL)
 char *pe_parm=NULL;
 char *pe_localfile=NULL;
@@ -108,7 +107,9 @@ static void find_orphans();
 static int label_pos(KEYWORD *label);
 static void show_labels();
 static int ifstack[IFSTACK_SIZE];
+static KEYWORD *labelstack[IFSTACK_SIZE];
 static int if_sp=0;
+static int label_sp=0;
 static int pe_comment=0;
 static char *VM_NextSame=NULL;
 static int VM_Items=0;
@@ -436,7 +437,9 @@ i->len=sizeof(data);
 i->data = (VMTYPE *)M_get(1,i->len);
 memcpy(i->data,&data,i->len);
 i->variable=0;
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 
 return i;
 }
@@ -457,7 +460,9 @@ i->len = sizeof(data);
 i->data = (VMTYPE *)M_get(1,i->len);
 memcpy(i->data,&data,i->len);
 i->variable=0;
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 return i;
 }
 
@@ -479,7 +484,9 @@ i->len = sizeof(data);
 i->data = (VMTYPE *)M_get(1,i->len);
 memcpy(i->data,&data,i->len);
 i->variable=0;
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 return i;
 }
 
@@ -487,6 +494,7 @@ return i;
 
 void add_opcode(unsigned int opcode)
 {
+int labels;
 ICODE *i;
 VMTYPE data;
 // Format conversion
@@ -499,12 +507,20 @@ i->len = sizeof(data);
 i->data = (VMTYPE *)M_get(1,i->len);
 memcpy(i->data,&data,i->len);
 i->variable=0;
-i->jump=0;
-if(labelpending)
-	{
-	i->label = labelpending;
-	labelpending = NULL;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
+
+labels = sizeof_labelstack();
+if(labels > 0) {
+	i->label = (KEYWORD **)M_get(sizeof(KEYWORD *),labels);
+	for(int ctr=0;ctr<labels;ctr++) {
+		i->label[ctr] = read_label();
+		pop_label();
+		ilog_quiet("%s: Writing label %s\n",curfunc,i->label[ctr]);
 	}
+	i->labels=labels;
+}
 }
 
 // Add a raw integer to the icode
@@ -525,7 +541,9 @@ i->len = sizeof(data);
 i->data = (VMTYPE *)M_get(1,i->len);
 memcpy(i->data,&data,i->len);
 i->variable=0;
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 
 return i;
 }
@@ -558,7 +576,9 @@ i->len = vstrlen;
 i->data = (VMTYPE *)M_get(1,i->len);
 memcpy(i->data,string,strlen(string)+1);  // Copy unpadded string
 i->variable=0;
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 }
 
 // Reserve a variable
@@ -573,7 +593,9 @@ data.ptr=NULL;
 add_byte(ACC_INDIRECT); // Indirect addressing mode
 
 i = new_node();
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 
 // Find the keyword for this variable, so we can extract it's ID number,
 // and store that in the i-code for fixup later on
@@ -670,7 +692,9 @@ if(isarray)
 
 
 i = new_node();
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 
 if(k_local)
 	{
@@ -731,7 +755,9 @@ if(!member)
 	add_byte(ACC_ARRAY); // Array addressing mode if needed
 
 i = new_node();
-i->jump=0;
+i->jumplabel=NULL;
+i->label=NULL;
+i->labels=0;
 
 // Find the keyword for this variable, so we can extract it's ID number,
 // and store that in the i-code for fixup later on
@@ -1033,8 +1059,7 @@ if(!kptr)
     PeDump(srcline,"Label not known",name);
 
 data.ptr=NULL; // No data yet
-i->jump = 1;
-i->label = kptr; // This is the label for future fixups
+i->jumplabel = kptr; // This is the label for future fixups
 
 i->len = sizeof(data);
 i->data = (VMTYPE *)M_get(1,i->len);
@@ -2907,15 +2932,15 @@ VMTYPE d;
 d.ptr=NULL;
 
 for(i=icode;i;i=i->next)
-	if(i->jump)
+	if(i->jumplabel)
 		{
-		lpos = label_pos(i->label);
+		lpos = label_pos(i->jumplabel);
 		if(lpos == -1)
 			{
-			ilog_quiet("Cannot find label 0x%x\n",i->label);
-			ilog_quiet("It is called %s\n",i->label->name);
+			ilog_quiet("%s: Cannot find label 0x%x\n",curfunc,i->jumplabel);
+			ilog_quiet("It is called %s\n",i->jumplabel->name);
 			show_labels();
-			PeDump(srcline,"Cannot find label",i->label->name);
+			PeDump(srcline,"Cannot find label",i->jumplabel->name);
 			}
 		// Poke in new position
 		d.i32=lpos;
@@ -2950,15 +2975,16 @@ if(count_locals())
 	pos=(sizeof(VMTYPE)*3);  // Take the 'DOFUS' linker into account
 //	pos=(sizeof(unsigned int)*3);  // Take the 'DOFUS' linker into account
 
-for(i=icode;i;i=i->next)
-	{
-	if(!i->jump) // We need the label itself not any jumps to it
-		{
-		if(i->label == label)
-			return pos;
+for(i=icode;i;i=i->next) {
+	if(i->labels) {
+		for(int ctr=0;ctr<i->labels;ctr++) {
+			if(i->label[ctr] == label) {
+				return pos;
+			}
 		}
-	pos+=i->len;
 	}
+	pos+=i->len;
+}
 
 return -1;
 }
@@ -2969,9 +2995,16 @@ void show_labels()
 {
 ICODE *i;
 
-for(i=icode;i;i=i->next)
-	if(i->label)
-		ilog_quiet("> %s (%c)\n",i->label->name,i->jump?'J':' ');
+for(i=icode;i;i=i->next) {
+	if(i->jumplabel) {
+		ilog_quiet("> %s (J)\n",i->jumplabel->name);
+	}
+	if(i->labels > 0) {
+		for(int ctr=0;ctr<i->labels;ctr++) {
+			ilog_quiet("> %s (D)\n",i->label[ctr]->name);
+		}
+	}
+}
 
 return;
 }
@@ -3166,6 +3199,49 @@ int explore_ifstack(int offset)
 if(if_sp-offset < 0)
 	return -1;
 return ifstack[if_sp-offset];
+}
+
+
+// This isn't a 'pure' stack, in that we don't need strict push/pop symmetry
+// as we'll always empty the whole thing in one go.
+// Hence we ignore some 'push' operations if they make no sense
+void push_label(KEYWORD *label)
+{
+// Silently abort if it's nothing, or it's already there
+if(!label) {
+	return;  
+}
+for(int ctr=1;ctr<label_sp;ctr++) {
+	if(labelstack[ctr] == label) {
+		return;
+	}
+}
+
+if(label_sp == IFSTACK_SIZE)
+    PeDump(srcline,"Too many pending labels",NULL);
+
+labelstack[++label_sp]=label;
+}
+
+void pop_label()
+{
+if(label_sp == 0)
+    PeDump(srcline,"Internal error: label stack underflow",NULL);
+
+labelstack[label_sp]=NULL;
+label_sp--;
+}
+
+KEYWORD *read_label()
+{
+if(label_sp < 1) {
+	return NULL;
+}
+return labelstack[label_sp];
+}
+
+int sizeof_labelstack() {
+return label_sp;
 }
 
 

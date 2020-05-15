@@ -21,6 +21,8 @@
 #define ADD_CONST(x) add_symbol_val(#x,'n',x)
 #define ADD_IREKEY(x) add_symbol_val(#x,'n',IRE##x)
 
+#define MAX_ORS 255	// If you have 255 OR statements in a row, something's off
+
 // Write the globals to the log as they are created, for debugging
 //#define LOG_ADDING_GLOBALS
 
@@ -4722,6 +4724,7 @@ if(PE_FastBuild)
 if(!line[1])
 	PeDump(srcline,"missing label name in declaration",NULL);
 
+/*
 if(labelpending)
     {
     if(strchr(labelpending->name,'@'))
@@ -4735,11 +4738,12 @@ if(labelpending)
     else
         PeDump(srcline,"You cannot have two labels for the same line",NULL);
     }
+*/
 
 ptr = find_keyword(line[1],'l',curfunc);
 if(!ptr)
     PeDump(srcline,"Internal error: Transient label detected",line[1]);
-labelpending=ptr;
+push_label(ptr);
 }
 
 void PE_goto(char **line)
@@ -4820,14 +4824,14 @@ if(!if_id)
 	PeDump(srcline,"OR statement without IF",NULL);
 
 mk_lineno(label,pe_lineid,"or");
-//ilog_quiet("Laying %s\n",label);
+ilog_quiet("%s: Laying %s\n",curfunc,label);
 k = add_keyword(label,'l',curfunc);
 if(!k)
 	PeDump(srcline,"Internal error handling OR statement",NULL);
 k->id = 0;
 
 mk_lineno(label,pe_lineid,"or_else");
-//ilog_quiet("Laying %s\n",label);
+ilog_quiet("%s: Laying %s\n",curfunc,label);
 k = add_keyword(label,'l',curfunc);
 if(!k)
 	PeDump(srcline,"Internal error handling OR statement",NULL);
@@ -4933,25 +4937,37 @@ if(!find_keyword(label,'l',curfunc))
 // If we've got an OR statement following we need to do some trickery
 void PE_orhelper(char *label, char **line)
 {
-KEYWORD *orptr;
+KEYWORD *orptr,*tmp;
+int or_offset=0;
 
 // If we're not doing a full compile, forget it
-if(PE_FastBuild)
+if(PE_FastBuild) {
 	return;
+}
 
-mk_lineno(label,pe_lineid+1,"or");
-orptr = find_keyword(label,'l',curfunc);
-if(orptr)
-	{
+orptr = NULL;
+for(int ctr=1;ctr<MAX_ORS;ctr++) {
+	mk_lineno(label,pe_lineid+ctr,"or");
+	tmp = find_keyword(label,'l',curfunc);
+	if(tmp) {
+		orptr = tmp;
+		or_offset = ctr;
+	} else {
+		break;
+	}
+}
+
+if(orptr) {
 	// Add an intermediate goto, for in case first one is OK and 2nd isn't
-	mk_lineno(label,pe_lineid+1,"or_else");
-	if(!find_keyword(label,'l',curfunc))
+	mk_lineno(label,pe_lineid+or_offset,"or_else");
+	if(!find_keyword(label,'l',curfunc)) {
 		PeDump(srcline,"Internal error handling OR statement (or else)",NULL);
+	}
 	add_opcode(PEVM_Goto);
 	add_jump(label);
 	// Generate the address for the second condition, for if the 1st is false
-	labelpending=orptr;
-	}
+	push_label(orptr);
+}
 }
 
 void PE_endif(char **line)
@@ -4965,8 +4981,8 @@ if(PE_FastBuild)
 	return;
 
 // If there's a jump in the way, add a NOP to prevent problems
-if(labelpending)
-	add_opcode(PEVM_NOP);
+//if(labelpending)
+//	add_opcode(PEVM_NOP);
 
 if_id = read_ifstack();
 pop_ifstack();
@@ -4977,7 +4993,7 @@ ptr = find_keyword(label,'l',curfunc);
 if(!ptr)
     PeDump(srcline,"Internal error: Transient IF statement",NULL);
 
-labelpending=ptr;
+push_label(ptr);
 }
 
 void PE_else(char **line)
@@ -5009,7 +5025,7 @@ add_jump(endifptr->name);
 
 // Fix up the ELSE label
 
-labelpending=elseptr;
+push_label(elseptr);
 }
 
 void PE_if(char **line)
@@ -5025,24 +5041,8 @@ PE_generic(line);
 add_jump(label);
 
 PE_orhelper(label,line);
-/*
-// If we've got an OR statement following we need to do some trickery
-
-mk_lineno(label,pe_lineid+1,"or");
-orptr =find_keyword(label,'l',curfunc);
-if(orptr)
-	{
-	// Add an intermediate goto, for in case first one is OK and 2nd isn't
-	mk_lineno(label,pe_lineid+1,"or_else");
-	if(!find_keyword(label,'l',curfunc))
-		PeDump(srcline,"Internal error handling OR statement (or else)",line);
-	add_opcode(PEVM_Goto);
-	add_jump(label);
-	// Generate the address for the second condition, for if the 1st is false
-	labelpending=orptr;
-	}
-*/
 }
+
 
 void PE_and(char **line)
 {
@@ -5072,6 +5072,13 @@ PE_andcore(label);
 PE_generic(line);
 add_jump(label);
 
+// add dest label
+mk_lineno(label,pe_lineid,"or");
+ptr=find_keyword(label,'l',curfunc);
+if(ptr) {
+	push_label(ptr);
+}
+
 // Generate the destination for if the previous statement was false
 
 mk_lineno(label,pe_lineid,"or_else");
@@ -5080,7 +5087,7 @@ ptr=find_keyword(label,'l',curfunc);
 if(!ptr)
 	PeDump(srcline,"Internal error handling OR statement (no or_else)",NULL);
 
-labelpending=ptr;
+push_label(ptr);
 }
 
 
@@ -5191,12 +5198,19 @@ extract_string(buf,line[4]);
 add_string(buf);
 add_jump(label);
 
+// add dest label
+mk_lineno(label,pe_lineid,"or");
+ptr=find_keyword(label,'l',curfunc);
+if(ptr) {
+	push_label(ptr);
+}
+
 mk_lineno(label,pe_lineid,"or_else");
 ptr=find_keyword(label,'l',curfunc);
 if(!ptr)
 	PeDump(srcline,"Internal error handling OR statement (transience)",NULL);
 
-labelpending=ptr;
+push_label(ptr);
 }
 
 void PE_or_oics(char **line)
@@ -5218,12 +5232,19 @@ extract_string(buf,line[4]);
 add_string(buf);
 add_jump(label);
 
+// add dest label
+mk_lineno(label,pe_lineid,"or");
+ptr=find_keyword(label,'l',curfunc);
+if(ptr) {
+	push_label(ptr);
+}
+
 mk_lineno(label,pe_lineid,"or_else");
 ptr=find_keyword(label,'l',curfunc);
 if(!ptr)
 	PeDump(srcline,"Internal error handling OR statement (transience)",NULL);
 
-labelpending=ptr;
+push_label(ptr);
 }
 
 
@@ -5312,7 +5333,7 @@ if(!ptr)
     PeDump(srcline,"Internal error: Transient FOR loop",NULL);
 
 // When we actually write the FOR loop code, the label will point to it
-labelpending=ptr; // This will be NULL, courtesy of the initialiser code above
+push_label(ptr); // This will be NULL, courtesy of the initialiser code above
 
 // Find the associated NEXT statement
 
@@ -5349,7 +5370,7 @@ if(!nextptr)
 add_opcode(PEVM_Goto);
 add_jump(forptr->name);
 
-labelpending=nextptr;
+push_label(nextptr);
 }
 
 void PE_for(char **line)
@@ -5394,8 +5415,8 @@ char label[20];
 if(PE_FastBuild)
 	return;
 
-if(labelpending)
-	add_opcode(PEVM_NOP);
+//if(labelpending)
+//	add_opcode(PEVM_NOP);
 
 push_ifstack(pe_lineid); // Store the line number for the while block
 
@@ -5404,7 +5425,7 @@ doptr = find_keyword(label,'l',curfunc);
 if(!doptr)
 	PeDump(srcline,"Internal error: Transient DO statement",NULL);
 
-labelpending=doptr;
+push_label(doptr);
 }
 
 void PEP_while(char **line)
@@ -5458,7 +5479,7 @@ if(!whileptr)
 PE_generic(line);
 add_jump(doptr->name);
 
-labelpending=whileptr;
+push_label(whileptr);
 }
 
 void PE_while2(char **line)
@@ -5487,7 +5508,7 @@ if(!whileptr)
 PE_generic(line);
 add_jump(doptr->name);
 
-labelpending=whileptr;
+push_label(whileptr);
 }
 
 void PE_continue(char **line)

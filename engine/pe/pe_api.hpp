@@ -22,8 +22,9 @@ VMTYPE *data;
 int srcline;   // line of code referencing this
 VMINT variable;  // Variables are treated specially by the code generator
 int arraysize;
-int jump;      // Is it a jump?
-struct KEYWORD *label; // Associated jump label (if any), either src or dest
+struct KEYWORD *jumplabel; // jump destination label
+struct KEYWORD **label; // Hooks to attach labels to
+int labels;
 ICODE *next;
 };
 
@@ -128,10 +129,13 @@ extern int read_ifstack();
 extern int explore_ifstack(int offset);
 extern void push_ifstack(int id);
 extern void pop_ifstack();
+extern KEYWORD *read_label();
+extern void push_label(KEYWORD *label);
+extern void pop_label();
+extern int sizeof_labelstack();
 extern STRUCTURE *pe_getstruct(const char *input);
 
 extern OPCODE *vmp;
-extern KEYWORD *labelpending;
 extern int srcline,icode_len,pe_numfuncs,pe_lineid;
 extern char *curfunc;
 extern char *pevm_context;
