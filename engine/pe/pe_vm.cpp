@@ -1843,7 +1843,7 @@ Bug("VM: Stack underflow.. no VM to delete");
 void DumpVM(int force)
 {
 int ctr,len;
-unsigned int proglen;
+VMUINT proglen;
 int data;
 char *func;
 unsigned int opcode,op;
