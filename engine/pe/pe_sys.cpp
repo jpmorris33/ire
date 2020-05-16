@@ -517,7 +517,7 @@ if(labels > 0) {
 	for(int ctr=0;ctr<labels;ctr++) {
 		i->label[ctr] = read_label();
 		pop_label();
-		ilog_quiet("%s: Writing label %s\n",curfunc,i->label[ctr]);
+//		ilog_quiet("%s: Writing label %s\n",curfunc,i->label[ctr]);
 	}
 	i->labels=labels;
 }

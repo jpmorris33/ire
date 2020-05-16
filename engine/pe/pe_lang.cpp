@@ -4824,14 +4824,14 @@ if(!if_id)
 	PeDump(srcline,"OR statement without IF",NULL);
 
 mk_lineno(label,pe_lineid,"or");
-ilog_quiet("%s: Laying %s\n",curfunc,label);
+//ilog_quiet("%s: Laying %s\n",curfunc,label);
 k = add_keyword(label,'l',curfunc);
 if(!k)
 	PeDump(srcline,"Internal error handling OR statement",NULL);
 k->id = 0;
 
 mk_lineno(label,pe_lineid,"or_else");
-ilog_quiet("%s: Laying %s\n",curfunc,label);
+//ilog_quiet("%s: Laying %s\n",curfunc,label);
 k = add_keyword(label,'l',curfunc);
 if(!k)
 	PeDump(srcline,"Internal error handling OR statement",NULL);
@@ -4938,7 +4938,6 @@ if(!find_keyword(label,'l',curfunc))
 void PE_orhelper(char *label, char **line)
 {
 KEYWORD *orptr,*tmp;
-int or_offset=0;
 
 // If we're not doing a full compile, forget it
 if(PE_FastBuild) {
@@ -4946,20 +4945,15 @@ if(PE_FastBuild) {
 }
 
 orptr = NULL;
-for(int ctr=1;ctr<MAX_ORS;ctr++) {
-	mk_lineno(label,pe_lineid+ctr,"or");
-	tmp = find_keyword(label,'l',curfunc);
-	if(tmp) {
-		orptr = tmp;
-		or_offset = ctr;
-	} else {
-		break;
-	}
+mk_lineno(label,pe_lineid+1,"or");
+tmp = find_keyword(label,'l',curfunc);
+if(tmp) {
+	orptr = tmp;
 }
 
 if(orptr) {
 	// Add an intermediate goto, for in case first one is OK and 2nd isn't
-	mk_lineno(label,pe_lineid+or_offset,"or_else");
+	mk_lineno(label,pe_lineid+1,"or_else");
 	if(!find_keyword(label,'l',curfunc)) {
 		PeDump(srcline,"Internal error handling OR statement (or else)",NULL);
 	}
@@ -5088,6 +5082,8 @@ if(!ptr)
 	PeDump(srcline,"Internal error handling OR statement (no or_else)",NULL);
 
 push_label(ptr);
+
+PE_orhelper(label,line);
 }
 
 
@@ -5177,6 +5173,8 @@ add_variable(line[1]);
 extract_string(buf,line[4]);
 add_string(buf);
 add_jump(label);
+
+PE_orhelper(label,line);
 }
 
 void PE_or_Oics(char **line)
@@ -5211,6 +5209,8 @@ if(!ptr)
 	PeDump(srcline,"Internal error handling OR statement (transience)",NULL);
 
 push_label(ptr);
+
+PE_orhelper(label,line);
 }
 
 void PE_or_oics(char **line)
@@ -5245,6 +5245,8 @@ if(!ptr)
 	PeDump(srcline,"Internal error handling OR statement (transience)",NULL);
 
 push_label(ptr);
+
+PE_orhelper(label,line);
 }
 
 
