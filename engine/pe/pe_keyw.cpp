@@ -610,8 +610,9 @@ return NULL;
 int wipe_keywords()
 {
 int ctr;
-for(ctr=0;ctr<255;ctr++)
+for(ctr=0;ctr<255;ctr++) {
 	wipe_keywords_core(ctr);
+}
 return 1;
 }
 
@@ -624,9 +625,11 @@ if(!klist[list])      // Haven't started!
 
 // Free everything array-style since it's easier than the linked-list way
 
-for(ctr=0;ctr<klistlen[list];ctr++)
-	if(klist[list][ctr])
-		M_free(klist[list][ctr]);
+for(ctr=0;ctr<klistlen[list];ctr++) {
+	if(klist[list][ctr]) {
+		M_free(klist[list][ctr]); 
+	}
+}
 M_free(klist[list]);
 klist[list]=NULL;
 

@@ -1654,10 +1654,13 @@ i = icode;      // Traverse the list, erasing as you go
 do {
 	in = i->next;
 	M_free(i->data);
+	if(i->label) {
+		M_free(i->label);
+	}
 	i->next = NULL;
 	M_free(i);
 	i = in;
-	} while(i); // When i=NULL we've finished
+} while(i); // When i=NULL we've finished
 
 icode = NULL;
 iccache = NULL;
