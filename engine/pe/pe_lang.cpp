@@ -4934,6 +4934,26 @@ if(!find_keyword(label,'l',curfunc))
 // Label is now the appropriate entry to jump to
 }
 
+// Find the appropriate destination for the OR statement
+void PE_orcore(char *label)
+{
+// If we're not doing a full compile, forget it
+if(PE_FastBuild) {
+	return;
+}
+
+mk_lineno(label,pe_lineid+1,"or");
+if(find_keyword(label,'l',curfunc)) {
+	// If there's another OR in the next line, use that for the destination label
+	return;
+}
+
+// Otherwise, use the else label as the target
+PE_andcore(label);
+}
+
+
+
 // If we've got an OR statement following we need to do some trickery
 void PE_orhelper(char *label, char **line)
 {
@@ -5062,7 +5082,7 @@ KEYWORD *ptr;
 if(PE_FastBuild)
 	return;
 
-PE_andcore(label);
+PE_orcore(label);
 PE_generic(line);
 add_jump(label);
 
@@ -5187,7 +5207,7 @@ KEYWORD *ptr;
 if(PE_FastBuild)
 	return;
 
-PE_andcore(label);
+PE_orcore(label);
 
 add_opcode(vmp->opcode);
 add_objmember(line[1]);
@@ -5223,7 +5243,7 @@ KEYWORD *ptr;
 if(PE_FastBuild)
 	return;
 
-PE_andcore(label);
+PE_orcore(label);
 
 add_opcode(vmp->opcode);
 add_variable(line[1]);

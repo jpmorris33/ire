@@ -356,14 +356,12 @@ endif
 
 # Is the magic system enabled?
 get_user_flag nores = "magic_disabled"
-if nores
-	let temp = null
-endif
 
 # Make the grave, if we need it
 
 if_not_exist temp
 or deathcount >= DEAD
+or nores
 	create grave = "grave_picture"
 else
 	let grave = null
