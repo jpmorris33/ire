@@ -22487,6 +22487,11 @@ iMZ1r01
 		at 453 343
 		curdir 0
 
+	object STONd6e3122e-0196-4e75-a006-8204a7df9fea
+		type STONEWINDOW1
+		at 486 343
+		curdir 0
+
 	decorative TREE01 at 541 343
 
 	decorative TREE02 at 545 343
@@ -22710,6 +22715,16 @@ iMZ1r01
 	object STONc4b78950-a628-48b8-b554-838379719383
 		type STONEWINDOW1
 		at 457 346
+		curdir 2
+
+	object STON17007ad5-446b-4b55-b471-be5b2e0914d1
+		type STONEWINDOW1
+		at 482 346
+		curdir 2
+
+	object STONbebd4a92-56f6-4bf6-8b4d-9fd075886cc7
+		type STONEWINDOW1
+		at 489 346
 		curdir 2
 
 	decorative TREE01 at 541 346
@@ -23068,6 +23083,11 @@ iMZ1r01
 		type SECRETDOOR1_SHUT
 		at 452 350
 		curdir 1
+
+	object STON61649ddd-d302-4bf1-8f51-2575069444bb
+		type STONEWINDOW1
+		at 486 350
+		curdir 0
 
 	decorative TREE00 at 537 350
 
