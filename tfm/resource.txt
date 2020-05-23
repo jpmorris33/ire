@@ -15418,6 +15418,70 @@ section: tilelink
 		e dshore_north_w
 		w dshore_north_e
 
+	name sand01
+		tile sand01
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand02
+		tile sand02
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand03
+		tile sand03
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand04
+		tile sand04
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand05
+		tile sand05
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand06
+		tile sand06
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand07
+		tile sand07
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand08
+		tile sand08
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+	name sand09
+		tile sand09
+		n dshore_north_s
+		s dshore_north_n
+		e dshore_north_w
+		w dshore_north_e
+
+
 	name dshore_north_w
 		tile dshore_north_w
 		n dshore_north_w
@@ -15425,6 +15489,15 @@ section: tilelink
 		n dshore2_north_ne
 		e water_n
 		w sand00
+		w sand01
+		w sand02
+		w sand03
+		w sand04
+		w sand05
+		w sand06
+		w sand07
+		w sand08
+		w sand09
 		s dshore_north_w
 		s dshore_north_sw
 		s dshore2_north_se
@@ -15436,6 +15509,15 @@ section: tilelink
 		n dshore2_north_nw
 		w water_n
 		e sand00
+		e sand01
+		e sand02
+		e sand03
+		e sand04
+		e sand05
+		e sand06
+		e sand07
+		e sand08
+		e sand09
 		s dshore_north_e
 		s dshore_north_se
 		s dshore2_north_sw
@@ -15443,6 +15525,15 @@ section: tilelink
 	name dshore_north_n
 		tile dshore_north_n
 		n sand00
+		n sand01
+		n sand02
+		n sand03
+		n sand04
+		n sand05
+		n sand06
+		n sand07
+		n sand08
+		n sand09
 		e dshore_north_n
 		e dshore_north_ne
 		e dshore2_north_se
@@ -15461,14 +15552,41 @@ section: tilelink
 		e dshore_north_sw
 		e dshore2_north_nw
 		s sand00
+		s sand01
+		s sand02
+		s sand03
+		s sand04
+		s sand05
+		s sand06
+		s sand07
+		s sand08
+		s sand09
 
 	name dshore_north_nw
 		tile dshore_north_nw
 		n sand00
+		n sand01
+		n sand02
+		n sand03
+		n sand04
+		n sand05
+		n sand06
+		n sand07
+		n sand08
+		n sand09
 		e dshore_north_n
 		e dshore_north_ne
 		e dshore2_north_se
 		w sand00
+		w sand01
+		w sand02
+		w sand03
+		w sand04
+		w sand05
+		w sand06
+		w sand07
+		w sand08
+		w sand09
 		s dshore_north_w
 		s dshore_north_sw
 		s dshore2_north_se
@@ -15476,7 +15594,25 @@ section: tilelink
 	name dshore_north_ne
 		tile dshore_north_ne
 		n sand00
+		n sand01
+		n sand02
+		n sand03
+		n sand04
+		n sand05
+		n sand06
+		n sand07
+		n sand08
+		n sand09
 		e sand00
+		e sand01
+		e sand02
+		e sand03
+		e sand04
+		e sand05
+		e sand06
+		e sand07
+		e sand08
+		e sand09
 		w dshore_north_n
 		w dshore_north_nw
 		w dshore2_north_sw
@@ -15493,6 +15629,15 @@ section: tilelink
 		e dshore_north_se
 		e dshore2_north_ne
 		w sand00
+		w sand01
+		w sand02
+		w sand03
+		w sand04
+		w sand05
+		w sand06
+		w sand07
+		w sand08
+		w sand09
 		s sand00
 
 	name dshore_north_se
@@ -15501,10 +15646,19 @@ section: tilelink
 		n dshore_north_ne
 		n dshore2_north_nw
 		e sand00
+		e sand01
+		e sand02
+		e sand03
+		e sand04
+		e sand05
+		e sand06
+		e sand07
+		e sand08
+		e sand09
 		w dshore_north_s
 		w dshore_north_sw
 		w dshore2_north_nw
-		e sand00
+#		s sand00
 
 	name dshore2_north_nw
 		tile dshore2_north_nw

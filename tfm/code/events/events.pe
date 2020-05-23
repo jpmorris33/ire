@@ -357,27 +357,6 @@ endif
 end
 
 
-
-##
-##	Satan teleports
-##
-
-function Satan_ToMass
-object conversation
-
-let conversation = me
-# If it's already been triggered, ignore it.
-
-if conversation.user.user1 = 0
-	let conversation.user.user1 = 1
-	# Okay, do the thing
-	let current = conversation
-	talk_to current.funcs.talk current.funcs.user1
-endif
-
-end
-
-
 function death_opengate
 object obj
 
