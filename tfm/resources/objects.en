@@ -5117,6 +5117,8 @@ section: characters
 	person		# Hack because people have a higher z-order in rendering
 	description	"Pikefire"
 	short		"Pikefire"
+	light		1
+	small
 
 	name WOOD_MASK
 	left		WOODMASK_L

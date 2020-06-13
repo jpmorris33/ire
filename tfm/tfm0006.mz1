@@ -953,11 +953,6 @@ iMZ1r01
 		at 194 199
 		curdir 3
 
-	object PIKEae8f5e85-0a84-447b-a1aa-f115dd2496ea
-		type PIKE_FIRE
-		at 195 199
-		curdir 0
-
 	object BRID48c3be45-fac5-4180-841c-0cfd18aa1141
 		type BRIDGE_STEPS_S
 		at 197 199
@@ -1033,6 +1028,11 @@ iMZ1r01
 		at 196 200
 		curdir 2
 
+	object PIKEae8f5e85-0a84-447b-a1aa-f115dd2496ea
+		type PIKE_FIRE
+		at 196 200
+		curdir 0
+
 	object FIRE52a6962d-f534-444f-897c-15e692813d71
 		type FIRE-A
 		at 222 200
@@ -1107,11 +1107,6 @@ iMZ1r01
 		type GUILLOTINE_BLOODY
 		at 192 201
 		curdir 1
-
-	object PIKE2e11d793-4b2b-4231-bc14-30cd339fd648
-		type PIKE_FIRE
-		at 200 201
-		curdir 0
 
 	object STON296378ed-8436-4ab5-9818-81f523169ee7
 		type STONEFLOOR14
@@ -1207,6 +1202,11 @@ iMZ1r01
 		type OUTLAW_HEAD
 		at 201 202
 		curdir 2
+
+	object PIKE2e11d793-4b2b-4231-bc14-30cd339fd648
+		type PIKE_FIRE
+		at 201 202
+		curdir 0
 
 	object PIKE69b76955-9490-474f-9422-16e53c4a0cd2
 		type PIKE
@@ -1398,11 +1398,6 @@ iMZ1r01
 		at 187 205
 		curdir 2
 
-	object PIKE4df3e399-3e86-4bd8-a744-90b4212cd670
-		type PIKE_FIRE
-		at 198 205
-		curdir 0
-
 	object STON8aa814fa-3c46-4ed3-8bd2-f5c467e27ee1
 		type STONEFLOOR14
 		at 210 205
@@ -1504,6 +1499,11 @@ iMZ1r01
 		type OUTLAW_HEAD
 		at 199 206
 		curdir 2
+
+	object PIKE4df3e399-3e86-4bd8-a744-90b4212cd670
+		type PIKE_FIRE
+		at 199 206
+		curdir 0
 
 	object PIKEc2b7af72-d28e-4d6e-8feb-c9f9c94dc08f
 		type PIKE
