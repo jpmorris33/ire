@@ -11364,14 +11364,16 @@ section: characters
 	hp		400
 	intelligence	250
 	weight		3000
-	damage		15
+	damage		10000
 	description	"You see a large brown and white hawk."
 	short		"osprey"
 	IfKilled	hawk_dies
-	IfHurt		enemy_flee
+	ifhurt		f16v_hurt
 	ifused		hawk_tame
 	behaviour	bird_wander
-	Attack		close_attack
+	attack		attack_laseralways
+	user1		fx_laserbeam_red
+	range		8
 	solid
 #	wont_shut_doors
 #	wont_open_doors
@@ -11389,12 +11391,15 @@ section: characters
 	hp		120000
 	intelligence	250
 	weight		-1
-	damage		15
+	damage		10000
 	description	"You see an osprey in flight."
 	short		"osprey"
 	IfKilled	hawk_dies
 	IfHurt		hawk_stopflying
 #	behaviour	bird_soar
+	attack		attack_laseralways
+	user1		fx_laserbeam_red
+	range		8
 	wont_shut_doors
 	wont_open_doors
 	spikeproof

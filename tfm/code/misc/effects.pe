@@ -151,7 +151,7 @@ fx_alpha 64
 fx_alphamode ALPHA_ADD
 let fx_brush = 2
 
-# Adust beam
+# Adjust beam
 add fx_srcx + 7
 add fx_srcy + 7
 add fx_destx + 7
@@ -278,9 +278,9 @@ endif
 fx_getxy fx_srcx fx_srcy = current
 fx_getxy fx_destx fx_desty = current.target
 
-# Adust beam
-add fx_srcx + 7
-add fx_srcy + 7
+# Adjust beam - we probably want to do this with hotx and hoty actually (which getxy supports)
+# NOTE: Previously we were doing this with srcx and srcy as well.  If there are any regressions, 
+# Modify hotx,hoty for the offending object
 add fx_destx + 7
 add fx_desty + 7
 
@@ -328,7 +328,7 @@ endif
 fx_getxy fx_srcx fx_srcy = current
 fx_getxy fx_destx fx_desty = current.target
 
-# Adust beam
+# Adjust beam
 add fx_srcx + 7
 add fx_srcy + 7
 add fx_destx + 7

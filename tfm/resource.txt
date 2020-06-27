@@ -12491,14 +12491,61 @@ section: sequences
 	quickname rubicscube2 rubicscube2
 	quickname rubicscube3 rubicscube3
 
-	quickname osprey_u osprey00
-	quickname osprey_d osprey01
-	quickname osprey_l osprey02
-	quickname osprey_r osprey03
-	quickname ospreyf_u osprey04
-	quickname ospreyf_d osprey05
-	quickname ospreyf_l osprey06
-	quickname ospreyf_r osprey07
+	name osprey_u
+	hotx 11
+	hoty 8
+	framelist:
+		osprey00
+	end
+
+	name osprey_d
+	hotx 11
+	hoty 25
+	framelist:
+		osprey01
+	end
+
+	name osprey_l
+	hotx 8
+	hoty 11
+	framelist:
+		osprey02
+	end
+
+	name osprey_r
+	hotx 25
+	hoty 8
+	framelist:
+		osprey03
+	end
+
+	name ospreyf_u
+	hotx 16
+	hoty 7
+	framelist:
+		osprey04
+	end
+
+	name ospreyf_d
+	hotx 17
+	hoty 26
+	framelist:
+		osprey05
+	end
+
+	name ospreyf_l
+	hotx 7
+	hoty 17
+	framelist:
+		osprey06
+	end
+
+	name ospreyf_r
+	hotx 26
+	hoty 16
+	framelist:
+		osprey07
+	end
 
 
 	quickname wall_metal_v metalwall_v
