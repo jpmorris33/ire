@@ -1805,9 +1805,16 @@ iMZ1r01
 
 	decorative HUT03 at 240 209
 
+	object KEY_18748300-fda8-465c-8815-25f5f329ebc8
+		type KEY
+		inside MAN_138a9d68-f7bf-4fe8-819e-069adaca7173
+		curdir 2
+		tag 3
+		stats->owner MAN_138a9d68-f7bf-4fe8-819e-069adaca7173
+
 	object MAN_138a9d68-f7bf-4fe8-819e-069adaca7173
 		type MAN_GENERIC
-		at 243 209
+		at 244 209
 		curdir 1
 
 	decorative HUT03 at 246 209
@@ -2185,6 +2192,7 @@ iMZ1r01
 		at 255 212
 		curdir 2
 		tag 3
+		stats->hp 250000
 
 	object WARG2b935a55-c04b-4189-ada5-a811980b03db
 		type WARG_BRIDGE00
@@ -4697,11 +4705,6 @@ iMZ1r01
 		at 308 230
 		curdir 0
 
-	object FENCe32e392d-46f4-4cf0-baff-70b6182671e1
-		type FENCE2_GATE_POST
-		at 311 230
-		curdir 2
-
 	object FENCf70c88e7-ff0d-4cc7-b460-4657276740fe
 		type FENCE2
 		at 312 230
@@ -4782,8 +4785,8 @@ iMZ1r01
 		at 417 230
 		curdir 0
 
-	object FENC4f1fe366-0b26-4058-99ee-42819ab9d12c
-		type FENCE2_END
+	object FENCe32e392d-46f4-4cf0-baff-70b6182671e1
+		type FENCE2_GATE_POST
 		at 420 230
 		curdir 2
 
@@ -7900,6 +7903,56 @@ iMZ1r01
 		at 349 263
 		curdir 3
 
+	object STONb4a77a71-8c8d-4340-ade0-749a73ed3d40
+		type STONEWINDOW1
+		at 369 263
+		curdir 0
+
+	object STONd9938245-8f4f-4243-ac50-b8bb828148ad
+		type STONEWINDOW1
+		at 372 263
+		curdir 0
+
+	object STON4d85643a-0b13-41b5-a14a-d5ed0e58d27b
+		type STONEWINDOW1
+		at 374 263
+		curdir 0
+
+	object STON3c5a8eb6-1172-4ec2-8250-2c7139dca92d
+		type STONEWINDOW1
+		at 377 263
+		curdir 0
+
+	object STON4bc8db89-dab2-4682-8571-f24b5f2009bb
+		type STONEWINDOW1
+		at 379 263
+		curdir 0
+
+	object STONccb397d2-af68-475b-9cca-252c88358b59
+		type STONEWINDOW1
+		at 382 263
+		curdir 0
+
+	object STON94be7cff-dd8a-413f-8371-d7bbd83e68e1
+		type STONEWINDOW1
+		at 384 263
+		curdir 0
+
+	object STONae615063-b8b9-4169-8c68-58a66b029b63
+		type STONEWINDOW1
+		at 387 263
+		curdir 0
+
+	object STONafac1798-ed0f-4f0f-8727-f34bfd45846e
+		type STONEWINDOW1
+		at 389 263
+		curdir 0
+
+	object STON3f224762-7c0d-47ca-af8a-2ae3c23b4998
+		type STONEWINDOW1
+		at 392 263
+		curdir 0
+
 	object STONd580709f-0bef-46ff-990f-320f3b5c2eb4
 		type STONEFLOOR18
 		at 430 263
@@ -8179,6 +8232,81 @@ iMZ1r01
 		type STONEFLOOR18
 		at 345 270
 		curdir 3
+
+	object STON31ebff52-4ca8-49c6-b205-e8134a62a667
+		type STONEWINDOW1
+		at 369 270
+		curdir 0
+
+	object STON8b6e0018-cd4b-46d3-9bb5-e3b6da5bddf6
+		type STONEDOOR1_SHUT
+		at 370 270
+		curdir 0
+
+	object STON8b1d4f4e-03c8-4d80-b98d-d470a76e5b3f
+		type STONEWINDOW1
+		at 372 270
+		curdir 0
+
+	object STON258ec35f-36ad-4525-a101-2d14872bf90d
+		type STONEWINDOW1
+		at 374 270
+		curdir 0
+
+	object STON2ce92c54-0f08-4b09-976d-549bf01b3931
+		type STONEDOOR1_SHUT
+		at 375 270
+		curdir 0
+
+	object STON90ee82c3-70e4-4597-800e-d6fcac5683f8
+		type STONEWINDOW1
+		at 377 270
+		curdir 0
+
+	object STON8ee84d66-809e-45e8-8315-41f07bcc8eb1
+		type STONEWINDOW1
+		at 379 270
+		curdir 0
+
+	object STON33d23545-4130-4cd6-a53d-724f3aecd6eb
+		type STONEDOOR1_SHUT
+		at 380 270
+		curdir 0
+
+	object STON37aeedfb-0df1-4437-9843-ac4789bbbe19
+		type STONEWINDOW1
+		at 382 270
+		curdir 0
+
+	object STON2e7744e9-e3fe-463a-b928-e1bbb111d8d8
+		type STONEWINDOW1
+		at 384 270
+		curdir 0
+
+	object STONb8e8c952-a5ea-4890-b68a-decd51e15f6a
+		type STONEDOOR1_SHUT
+		at 385 270
+		curdir 0
+
+	object STONee140837-169a-4a91-8512-e3f491b9a201
+		type STONEWINDOW1
+		at 387 270
+		curdir 0
+
+	object STON9c54d454-63c1-499e-bafa-7096acb31b8d
+		type STONEWINDOW1
+		at 389 270
+		curdir 0
+
+	object STON85e51ac8-61be-42b1-b4a6-29d13c6f63b9
+		type STONEDOOR1_SHUT
+		at 390 270
+		curdir 0
+
+	object STONf9f1c734-bb3d-43d9-bcaf-5fde5f8ebe2f
+		type STONEWINDOW1
+		at 392 270
+		curdir 0
 
 	object STON8a7cd701-b3b1-4ae4-ac8b-7473c3e9cd73
 		type STONEFLOOR10
@@ -10352,12 +10480,6 @@ iMZ1r01
 		at 402 334
 		curdir 1
 
-	object LIGHb9762473-2707-4873-9bf9-44f57bb27733
-		type LIGHT_END
-		at 350 335
-		curdir 0
-		stats->owner LIGHc5fb663e-bb7b-4e8c-857b-276126f011e6
-
 	object STON5ba5a153-50d5-4ef7-94c5-bf1f9fd7af2b
 		type STONEFLOOR10
 		at 370 335
@@ -10487,4 +10609,10 @@ iMZ1r01
 		type STONEFLOOR10
 		at 388 340
 		curdir 1
+
+	object LIGHb9762473-2707-4873-9bf9-44f57bb27733
+		type LIGHT_END
+		at 479 355
+		curdir 0
+		stats->owner LIGHc5fb663e-bb7b-4e8c-857b-276126f011e6
 
