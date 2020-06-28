@@ -67,7 +67,6 @@ static void MoveToPocketEnd(OBJECT *object, OBJECT *container);
 static int getObjectId(OBJECTID *dest, const char *inputline);
 
 int SumObjects(OBJECT *cont, char *name, int total);
-OBJECT *GetFirstObject(OBJECT *cont, char *name);
 extern void Init_Areas(OBJECT *objsel);
 
 extern OBJECT *find_uuid(const char *uuid);

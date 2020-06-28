@@ -108,7 +108,9 @@ static void IfTriggered(OBJECT *spikes);
 static OBJECT *IsTrigger(int x,int y);
 
 OBJECT *GetFirstObject(OBJECT *cont, char *name);
+OBJECT *GetFirstObjectNR(OBJECT *cont, char *name);
 OBJECT *GetFirstObjectFuzzy(OBJECT *cont, char *name);
+OBJECT *GetFirstObjectFuzzyNR(OBJECT *cont, char *name);
 int SumObjects(OBJECT *cont, char *name, int total);
 void CheckRefs(OBJECT *o);
 extern char *BestName(OBJECT *o);
@@ -2385,55 +2387,56 @@ int o;
 
 // First, see if the object can support quantity values.
 o = getnum4char(type);
-if(o == -1)
-    return 0;
+if(o == -1) {
+	return 0;
+}
 
-if(CHlist[o].flags & IS_QUANTITY)
+if(CHlist[o].flags & IS_QUANTITY) {
 	o=1;
-else
+} else {
 	o=0;
+}
 
 total = SumObjects(container->pocket.objptr, type, 0);
 
-if(!request)
+if(!request) {
 	request = 1;
+}
 
-if(total<request)
+if(total<request) {
 	return 0;
+}
 
 found=0;
 do {
 	temp = GetFirstObjectFuzzy(container->pocket.objptr,type);
-	if(!temp)
-		{
+	if(!temp) {
 		Bug("take_quantity: financial irregularities detected in object %s\n",container->name);
 		return 0;
-		}
+	}
 
-   // If the object doesn't support Quantities, we change it so it does
-   // and set the quantity of the object to 1 temporarily, since it will
-   // be destroyed later, anyway
+	// If the object doesn't support Quantities, we change it so it does
+	// and set the quantity of the object to 1 temporarily, since it will
+	// be destroyed later, anyway
 
-	if(!o)
+	if(!o) {
 		temp->stats->quantity = 1;
+	}
 
-   // If less than requested sum, take it all and destroy it.
+	// If less than requested sum, take it all and destroy it.
 
-	if(temp->stats->quantity <= request)
-		{
+	if(temp->stats->quantity <= request) {
 		found += temp->stats->quantity;
 		DeleteObject(temp);
-		}
-	else
-		{
+	} else {
 		temp->stats->quantity -=request; // Otherwise just take what we need
 		found=request;
-		}
+	}
 
 
 	Qsync(temp);  // Call the Quantity Change function if present
 
-	} while(found<request);
+} while(found<request);
 
 return 1;
 }
@@ -2441,7 +2444,8 @@ return 1;
 /*
  *      AddQuantity - Add a number of objects to the container.
  *                    E.g. pay the player 100 gold coins, and group them
- *                    together by adding to the first pile we come across.
+ *                    together by adding to the first pile we come across
+ *                    in the container root (e.g. to avoid adding toadstones to live toads the player is carrying)
  *                    If we try to add 0, create a new object regardless
  */
 
@@ -2452,50 +2456,49 @@ int o;
 
 // First, see if the object can support quantity values.
 o = getnum4char(type);
-if(o == -1)
-    {
-    Bug("Cannot create unknown object %s\n",type);
-    return;
-    }
+if(o == -1) {
+	Bug("Cannot create unknown object %s\n",type);
+	return;
+}
 
-if(CHlist[o].flags & IS_QUANTITY)
+if(CHlist[o].flags & IS_QUANTITY) {
 	o=1;
-else
+} else {
 	o=0;
+}
 
-temp = GetFirstObject(container->pocket.objptr,type);
-if(request == 0)
-    temp = NULL;
+// Only look in the root of the pocket to avoid e.g. adding gold to piles inside locked chests, or toads
+temp = GetFirstObjectNR(container->pocket.objptr,type);
+if(request == 0) {
+	temp = NULL;
+}
 
 // If the object exists
-if(temp && o > 0)
-	{
+if(temp && o > 0) {
 	temp->stats->quantity+=request;
 	Qsync(temp);  // Call the Quantity Change function if present
 	return;
-	}
+}
 
 // If it supports multiply quantites, just create one and set the quantity
 
-if(o)
-	{
+if(o) {
 	temp = OB_Alloc();
 	OB_Init(temp,type);
 	temp->stats->quantity=request;
 	MoveToPocket(temp,container);
 	Qsync(temp);  // Call the Quantity Change function if present
 	return;
-	}
+}
 
 // If not, make several
 
-for(o=0;o<request;o++)
-	{
+for(o=0;o<request;o++) {
 	temp = OB_Alloc();
 	OB_Init(temp,type);
 	CreateContents(temp);
 	MoveToPocket(temp,container);
-	}
+}
 
 return;
 }
@@ -2514,27 +2517,26 @@ int o,ctr;
 
 // First, see if the object can support quantity values.
 temp = GetFirstObjectFuzzy(src->pocket.objptr,type);
-if(!temp)
-	{
+if(!temp) {
 //	printf("Movequantity: not present in source\n");
 	return 0;	// There aren't any to study
-	}
+}
 
-if(temp->flags & IS_QUANTITY)
+if(temp->flags & IS_QUANTITY) {
 	o=1;
-else
+} else {
 	o=0;
+}
 
 total = SumObjects(src->pocket.objptr, type, 0);
 
 if(!request)
 	request = 1;
 
-if(total<request)
-	{
+if(total<request) {
 //	printf("MoveQuantity: not enough\n");
 	return 0;
-	}
+}
 
 // If the objects cannot be piles, trasfer them one at a time
 
@@ -2542,21 +2544,19 @@ if(!o)
 	{
 //	printf("MoveQuantity: moving objects\n");
 
-	for(ctr=0;ctr<request;ctr++)
-		{
+	for(ctr=0;ctr<request;ctr++) {
 		temp = GetFirstObjectFuzzy(src->pocket.objptr,type);
-		if(!temp)
-			{
+		if(!temp) {
 			Bug("move_quantity: financial irregularities detected in object %s\n",src->name);
 			return 0;
-			}
+		}
 
 //		printf("Moving %s to %s\n",temp->name,dest->name);
 		ForceFromPocket(temp,src,0,0);
 		TransferToPocket(temp,dest);
-		}
-	return 1;
 	}
+	return 1;
+}
 
 // If they can, delete the specified amount in the src and create in the dest
 
@@ -2566,30 +2566,26 @@ found=0;
 do
 	{
 	temp = GetFirstObject(src->pocket.objptr,type);
-	if(!temp)
-		{
+	if(!temp) {
 		Bug("move_quantity: financial irregularities detected in object %s\n",src->name);
 		return 0;
-		}
+	}
 
 	// If less than requested sum, take it all and destroy it.
 
-	if(temp->stats->quantity <= request)
-		{
+	if(temp->stats->quantity <= request) {
 		found += temp->stats->quantity;
 		DeleteObject(temp);
 		AddQuantity(dest,type,request);
-		}
-	else
-		{
+	} else {
 		temp->stats->quantity -=request; // Otherwise just take what we need
 		found=request;
 		AddQuantity(dest,type,request);
 		Qsync(temp);  // Call the Quantity Change function if present
-		}
+	}
 
 
-	} while(found<request);
+} while(found<request);
 
 return 1;
 }
@@ -2766,6 +2762,26 @@ return NULL;
 }
 
 /*
+ *     GetFirstObjectNR - Find the first instance of a specified object.
+ *                        Non-Recursive.
+ */
+
+OBJECT *GetFirstObjectNR(OBJECT *cont, char *name)
+{
+OBJECT *search;
+
+for(OBJECT *temp = cont;temp;temp=temp->next) {
+	if(temp->flags & IS_ON) {
+		if(!istricmp(temp->name,name)) {
+			return temp;
+		}
+	}
+}
+return NULL;
+}
+
+
+/*
  *     GetFirstObjectFuzzy - Find the first instance of an object which
  *                           matches the first few characters of the name.
  *                           Recursive.
@@ -2795,6 +2811,27 @@ for(OBJECT *temp = cont;temp;temp=temp->next)
 	}
 return NULL;
 }
+
+/*
+ *     GetFirstObjectFuzzyNR - Find the first instance of an object which
+ *                             matches the first few characters of the name.
+ *                             Non-Recursive.
+ */
+
+OBJECT *GetFirstObjectFuzzyNR(OBJECT *cont, char *name)
+{
+OBJECT *search;
+
+for(OBJECT *temp = cont;temp;temp=temp->next) {
+	if(temp->flags & IS_ON) {
+		if(!istricmp_fuzzy(temp->name,name)) {
+			return temp;
+		}
+	}
+}
+return NULL;
+}
+
 
 /*
  *      CheckDepend - Remove all references to a pointer
@@ -3604,13 +3641,12 @@ void Qsync(OBJECT *temp)
 {
 OBJECT *oldcur;
 
-if(temp && temp->funcs->qcache >= 0)
-	{
+if(temp && temp->funcs->qcache >= 0) {
 	oldcur = current_object;
 	current_object = temp;
 	CallVMnum(temp->funcs->qcache);
 	current_object = oldcur;
-	}
+}
 }
 
 //

@@ -116,6 +116,7 @@ extern int MoveQuantity(OBJECT *s,OBJECT *d,char *o,int q);
 extern void AddQuantity(OBJECT *c,char *o,int q);
 extern int SumObjects(OBJECT *c,char *o,int q);
 extern OBJECT *GetFirstObject(OBJECT *cont, char *name);
+extern OBJECT *GetFirstObjectNR(OBJECT *cont, char *name);
 extern int getYN(char *q);
 extern void gen_largemap();
 extern int get_num(int no);
