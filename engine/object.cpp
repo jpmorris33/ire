@@ -2703,19 +2703,20 @@ return 0;
 
 int SumObjects(OBJECT *cont, char *name, int total)
 {
-for(OBJECT *temp = cont;temp;temp=temp->next)
-    {
-    if(temp->flags & IS_ON)
-      if(!istricmp_fuzzy(temp->name,name))
-        {
-        if(temp->flags & IS_QUANTITY)
-            total+=temp->stats->quantity;
-        else
-            total++;
+for(OBJECT *temp = cont;temp;temp=temp->next) {
+	if(temp->flags & IS_ON) {
+		if(!istricmp_fuzzy(temp->name,name)) {
+		        if(temp->flags & IS_QUANTITY) {
+				total+=temp->stats->quantity;
+			} else {
+				total++;
+			}
+		}
         }
-    if(temp->pocket.objptr)
-        total+=SumObjects(temp->pocket.objptr,name,0); // 0, NOT total!
-    }
+	if(temp->pocket.objptr && (temp->flags & IS_CONTAINER)) {
+	        total+=SumObjects(temp->pocket.objptr,name,0); // 0, NOT total!
+	}
+}
 return total;
 }
 
@@ -2746,18 +2747,19 @@ OBJECT *GetFirstObject(OBJECT *cont, char *name)
 {
 OBJECT *search;
 
-for(OBJECT *temp = cont;temp;temp=temp->next)
-	{
-	if(temp->flags & IS_ON)
-		if(!istricmp(temp->name,name))
+for(OBJECT *temp = cont;temp;temp=temp->next) {
+	if(temp->flags & IS_ON) {
+		if(!istricmp(temp->name,name)) {
 			return temp;
-	if(temp->pocket.objptr)
-		{
+		}
+	}
+	if(temp->pocket.objptr && (temp->flags & IS_CONTAINER)) {
 		search=GetFirstObject(temp->pocket.objptr,name);
-		if(search)
+		if(search) {
 			return search;
 		}
 	}
+}
 return NULL;
 }
 
@@ -2791,24 +2793,21 @@ OBJECT *GetFirstObjectFuzzy(OBJECT *cont, char *name)
 {
 OBJECT *search;
 
-for(OBJECT *temp = cont;temp;temp=temp->next)
-	{
-	if(temp->flags & IS_ON)
-		{
+for(OBJECT *temp = cont;temp;temp=temp->next) {
+	if(temp->flags & IS_ON) {
 //		printf("GetFirstObjectFuzzy: %s vs %s\n",temp->name,name);
-		if(!istricmp_fuzzy(temp->name,name))
-			{
+		if(!istricmp_fuzzy(temp->name,name)) {
 //			printf("GetFirstObjectFuzzy: matched\n");
 			return temp;
-			}
 		}
-	if(temp->pocket.objptr)
-		{
+	}
+	if(temp->pocket.objptr && (temp->flags & IS_CONTAINER)) {
 		search=GetFirstObjectFuzzy(temp->pocket.objptr,name);
-		if(search)
+		if(search) {
 			return search;
 		}
 	}
+}
 return NULL;
 }
 
