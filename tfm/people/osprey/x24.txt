@@ -1,6 +1,8 @@
 Gatekeeper
 
 [page="start"]
+[call check_osprey_x36]
+[if false][goto="x36_dead"]
 [if_not find_ospreys][goto="notready"]
 
 "I am the keeper of the gate.  I raise and lower the
@@ -189,3 +191,23 @@ eyes.
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="x36_dead"]
+[image="kkkc.pcx"]
+
+[colour="#808080"]
+You see an impressive-looking osprey, watching you with a
+silent intent.  There is an ominous gleam in the bird's
+eyes.
+[colour="#ffffff"]
+
+"You have slain our watchman, whom we sent to investigate
+ the humans nearby.
+
+ You have betrayed us, and for that, you must die."
+
+[at_exit_call="single_attackplayer"]
+[nextpage="exit"]
+[endpage]
+

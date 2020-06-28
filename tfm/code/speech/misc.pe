@@ -86,7 +86,6 @@ endif
 set_user_flag "true" = 0
 set_user_flag "false" = 1
 
-
 end
 
 ##
@@ -108,6 +107,36 @@ set_user_flag "true" = 0
 set_user_flag "false" = 1
 
 end
+
+##
+##  Is your preliminary contact alive?
+##
+
+function check_osprey_x36
+private
+object o
+
+# Assume they're OK
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+# For backwards compatibility with existing savegames, see if the self-check object exists first
+find_tag o = "plant1" 80
+if_not_exist o
+	return
+endif
+
+find_tag o = "OSPREY" 80
+if_exists o
+	return
+endif
+
+# They're not around, punish the player
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+end
+
 
 
 
