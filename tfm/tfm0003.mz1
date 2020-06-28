@@ -5275,6 +5275,7 @@ iMZ1r01
 		type STAIRS_DOWN
 		at 512 125
 		curdir 0
+		tag 78
 
 	object GOLDc4697328-917b-4ecc-9575-49b2e60e1ea8
 		type GOLD_COINS
@@ -5389,6 +5390,12 @@ iMZ1r01
 		curdir 0
 		stats->owner MAN_b0a6090c-67b0-4f43-b140-b29d33bb156d
 
+	object TARG1c144eb3-b4b9-4e29-ba49-7bce662a6ebf
+		type TARGET
+		at 512 126
+		curdir 1
+		tag 79
+
 	object THREac2d1abb-9972-4d93-aa06-34000207b3f0
 		type THREAD01
 		at 513 126
@@ -5441,6 +5448,7 @@ iMZ1r01
 		type OSPREY
 		at 522 126
 		curdir 1
+		tag 80
 		activity BIRD_WANDER
 		funcs->talk people/osprey/x36.txt
 		schedule 0 1 BIRD_WANDER -
@@ -6443,6 +6451,12 @@ iMZ1r01
 		at 489 137
 		curdir 1
 
+	object MEMO34cc1e6a-fcee-4479-b215-775f69d3e1d3
+		type MEMO
+		at 500 137
+		curdir 2
+		name butcher and vintner hav no home
+
 	decorative MOUNT08 at 899 137
 
 	decorative MOUNT06 at 900 137
@@ -7430,6 +7444,7 @@ iMZ1r01
 		type STAIRS_DOWN
 		at 482 156
 		curdir 0
+		tag 76
 
 	decorative RUBBLE_16 at 487 156
 
@@ -7542,6 +7557,12 @@ iMZ1r01
 	decorative MOUNT11 at 1013 156
 
 	decorative RUBBLE_18 at 481 157
+
+	object TARGa82498f3-a232-4ed8-b473-b7d6771551c2
+		type TARGET
+		at 482 157
+		curdir 3
+		tag 77
 
 	object TARGa8965429-aa20-42af-b99a-4840b2e98893
 		type TARGET
@@ -8452,11 +8473,6 @@ iMZ1r01
 		at 483 167
 		curdir 2
 
-	object SIGN939c5847-42d3-45f0-88d9-6988bb5f98ca
-		type SIGN16
-		at 487 167
-		curdir 3
-
 	object SIGNd2ab5907-a3f4-4c88-84fa-af565183ed74
 		type SIGN07
 		at 502 167
@@ -8780,11 +8796,6 @@ iMZ1r01
 	decorative MOUNT00 at 995 169
 
 	decorative MOUNT11 at 996 169
-
-	object SIGN0b76d0d9-b8b3-45ce-8160-3ea8f69ef48a
-		type SIGN16
-		at 487 170
-		curdir 3
 
 	object BED_4c24e020-3084-40f2-a34d-7e9826a6c308
 		type BED
@@ -9284,6 +9295,12 @@ iMZ1r01
 
 	decorative MOUNT11 at 987 174
 
+	object STAIabda5113-1cba-4619-b6b1-2aa56131c96e
+		type STAIRS_DOWN
+		at 482 175
+		curdir 0
+		tag 74
+
 	object CHIMa8458fe7-a2b6-4a37-8f27-303114af1dc3
 		type CHIMNEY1
 		at 483 175
@@ -9428,6 +9445,12 @@ iMZ1r01
 	decorative MOUNT07 at 981 175
 
 	decorative MOUNT03 at 986 175
+
+	object TARG226649ff-df23-497b-afcb-3f65ee565ec0
+		type TARGET
+		at 482 176
+		curdir 1
+		tag 75
 
 	object FORGd33d44e6-97d2-4cfe-82f0-c66796a94530
 		type FORGE_COLD
@@ -21791,6 +21814,12 @@ iMZ1r01
 		tag 24
 		stats->owner MAN_96d1c998-9ebf-497e-b023-8ce5056becb6
 
+	object SIGN939c5847-42d3-45f0-88d9-6988bb5f98ca
+		type SIGN16
+		at 826 331
+		curdir 3
+		tag 24
+
 	decorative MOUNT04 at 907 331
 
 	decorative MOUNT03 at 913 331
@@ -21987,6 +22016,12 @@ iMZ1r01
 		type CHAIR
 		at 824 334
 		curdir 1
+		tag 24
+
+	object SIGN0b76d0d9-b8b3-45ce-8160-3ea8f69ef48a
+		type SIGN16
+		at 826 334
+		curdir 3
 		tag 24
 
 	decorative MOUNT10 at 909 334
@@ -22686,6 +22721,17 @@ iMZ1r01
 		at 877 345
 		curdir 3
 
+	object STAI38c6abbb-8bb1-42ab-8509-1915dd3de1b4
+		type STAIRS_UP
+		at 879 345
+		curdir 2
+		tag 77
+
+	object CHESc17d5984-d9f6-4dae-a8cd-3c35812bbe35
+		type CHESTBROKEN
+		at 885 345
+		curdir 3
+
 	object RAT_28b5da68-e67f-4e01-86a9-6027950339bf
 		type RAT_DEAD
 		at 892 345
@@ -22807,6 +22853,12 @@ iMZ1r01
 		at 877 346
 		curdir 2
 
+	object STAIc751e4b6-e868-4467-810e-87f4bda805f1
+		type STAIRS_UP
+		at 879 346
+		curdir 1
+		tag 77
+
 	object MEAT8e112280-be1c-4ce7-8fa2-d88b3aadebd8
 		type MEAT03
 		at 890 346
@@ -22899,6 +22951,12 @@ iMZ1r01
 		at 877 347
 		curdir 2
 
+	object TARGb071a2cb-f759-4a7b-8b4d-5e28a589f3f4
+		type TARGET
+		at 879 347
+		curdir 1
+		tag 76
+
 	object MEATaeb3cf2c-bb48-44be-bb91-c6d4a22b8bb8
 		type MEAT04
 		at 891 347
@@ -22988,6 +23046,16 @@ iMZ1r01
 	object TABLbc3e3f24-c113-40a8-8f6b-c82af17dcb4d
 		type TABLE5-LEGS
 		at 877 348
+		curdir 3
+
+	object TABL322e2554-2153-4234-9c9f-db946461c53f
+		type TABLE6-BROKEN
+		at 881 348
+		curdir 1
+
+	object TABL9fa826fc-d58c-44a2-86c3-cfe1324e420b
+		type TABLE6-BROKEN
+		at 883 348
 		curdir 3
 
 	object RAT_c924e11a-8c8e-4d58-893e-db8f1add3c15
@@ -23652,6 +23720,27 @@ iMZ1r01
 		curdir 1
 		tag 32
 
+	object STAI69e7aa05-6802-4765-bde3-74185bfae4be
+		type STAIRS_UP
+		at 886 355
+		curdir 2
+		tag 75
+
+	object WINEc4e033f7-eebb-434f-a076-04953a8fd0ef
+		type WINEGLASS_BROKEN
+		at 888 355
+		curdir 0
+
+	object TOOL148d2dc0-397f-4f7c-b468-4f04726b0cd5
+		type TOOLS04
+		at 891 355
+		curdir 2
+
+	object TOOL29139f0d-e5a6-4602-98fe-e5afb6526f89
+		type TOOLS05
+		at 891 355
+		curdir 2
+
 	object TABL3449fffa-3e46-4246-9434-3a5be6651b56
 		type TABLE6-V
 		at 999 355
@@ -23714,6 +23803,12 @@ iMZ1r01
 		at 873 356
 		curdir 2
 		tag 31
+
+	object STAI7ae9b023-613f-4f1e-85cb-f586c935fbb5
+		type STAIRS_UP
+		at 886 356
+		curdir 0
+		tag 75
 
 	object TABLa9cb78fe-e454-4897-8b76-28005e40101d
 		type TABLE6-V
@@ -23865,6 +23960,12 @@ iMZ1r01
 		type WINECASK0
 		at 880 357
 		curdir 1
+
+	object TARG773379fc-b73c-4846-8732-934aa1567f61
+		type TARGET
+		at 886 357
+		curdir 1
+		tag 74
 
 	object TORCe83d60bb-2bc3-4f22-8a64-d0bce9668364
 		type TORCH
@@ -24103,6 +24204,11 @@ iMZ1r01
 		at 876 359
 		curdir 3
 
+	object WINE5624697f-a1b6-4a8c-9a88-ee189e0bd2cb
+		type WINEGLASS_BROKEN
+		at 889 359
+		curdir 0
+
 	object TABL6e1395a9-73e7-424d-87cf-94e54b1a12e8
 		type TABLE6-V
 		at 999 359
@@ -24163,6 +24269,70 @@ iMZ1r01
 		at 1008 359
 		curdir 2
 		stats->owner MAN_63f79b74-2014-43e7-ae51-7c86272c814c
+
+	object GLAS59692fbf-dd81-48d6-b49b-72a21f49eed2
+		type GLASS_SHARDS
+		at 886 360
+		curdir 2
+
+	object ORB_f7acaf12-07d7-42ba-bf68-d50ee79cf3f8
+		type ORB
+		at 891 360
+		curdir 0
+
+	object STAI27e9b509-32ae-4ded-bac1-d3e3f159b45a
+		type STAIRS_UP
+		at 886 362
+		curdir 2
+		tag 79
+
+	object THRE67f3539d-607c-4bbb-a90b-6c8c455e9328
+		type THREAD00
+		at 887 362
+		curdir 3
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object THREa9856312-7687-4145-a836-f3520e3ddf67
+		type THREAD00
+		at 887 362
+		curdir 1
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOT7055a2a5-0434-429f-b35c-2294472e2db4
+		type CLOTH03
+		at 888 362
+		curdir 0
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOTd5d6a5c8-5f3d-46f7-aff5-b14b43581c3c
+		type CLOTH04
+		at 889 362
+		curdir 1
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOTce9c382a-6e1e-4c09-8c3b-192807bfc1a4
+		type CLOTH00
+		at 889 362
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOTed5a8cb3-2619-4a93-a2ab-b8a604a7e176
+		type CLOTH02
+		at 890 362
+		curdir 0
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOTcc26bee5-5099-4d00-b327-1518a39baada
+		type CLOTH00
+		at 890 362
+		curdir 3
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOT0362d4ad-a89e-414d-a219-48a97da0bb64
+		type CLOTH01
+		at 891 362
+		curdir 0
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
 
 	object CRUC14d5fd84-98dd-45ec-86c4-b4655a6a30c4
 		type CRUCIFIX
@@ -24234,6 +24404,53 @@ iMZ1r01
 		at 877 363
 		curdir 2
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+
+	object STAId469f141-8a88-4f70-b3d7-c80aab7f28cd
+		type STAIRS_UP
+		at 886 363
+		curdir 0
+		tag 79
+
+	object THRE57841164-cd18-4a52-b688-061458eb3aa5
+		type THREAD00
+		at 887 363
+		curdir 0
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object THREc4639538-beb2-48c0-befd-009e451970f4
+		type THREAD00
+		at 888 363
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOT428a2a28-9639-4408-8730-2593584c360a
+		type CLOTH00
+		at 889 363
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOT7811e768-c245-4032-9bce-58f53c5c4412
+		type CLOTH00
+		at 889 363
+		curdir 0
+
+	object THRE08b6f2b2-847e-414c-b993-5c5ad34e7981
+		type THREAD01
+		at 890 363
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object THRE175ad9fa-b4a4-42e9-8354-c045fa6cdf70
+		type THREAD00
+		at 891 363
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object THRE013b37cf-9f1a-497a-a19d-0bdfca1411cd
+		type THREAD01
+		at 891 363
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
 
 	object STEPdb717d12-0bc4-496e-9f2a-bac911498cf4
 		type STEPS01
@@ -24319,6 +24536,18 @@ iMZ1r01
 		at 877 364
 		curdir 0
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+
+	object TARG6c9926f2-9083-4532-a5f9-e0c6b539136d
+		type TARGET
+		at 886 364
+		curdir 1
+		tag 78
+
+	object THREfe19f998-a4a2-48ba-a8a4-ccddfec278b1
+		type THREAD01
+		at 889 364
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
 
 	object TODEf31d228f-f7a9-41a5-9564-4150f9de7503
 		type TODE
@@ -24461,6 +24690,12 @@ iMZ1r01
 		curdir 2
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
 
+	object CHAI225c83a3-0991-40ca-88a4-d7963fc0e26d
+		type CHAIR
+		at 891 365
+		curdir 1
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
 	object TARGf86b32ea-b9f0-497f-bbca-b2463ac2e8fc
 		type TARGET
 		at 920 365
@@ -24598,6 +24833,11 @@ iMZ1r01
 		curdir 0
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
 
+	object LOOM3f086650-dff2-47be-b4a1-9a46661ab666
+		type LOOM
+		at 890 366
+		curdir 1
+
 	object TODEa82ec1d1-1475-4077-98cc-f02b97a4aeea
 		type TODE
 		inside EGG_a9a90f66-8ed3-46f3-a4ad-74f0bed72d9e
@@ -24732,6 +24972,55 @@ iMZ1r01
 		at 877 367
 		curdir 2
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+
+	object CLOT28a7f3eb-81b4-430b-8605-6677148cf19d
+		type CLOTHING01
+		inside CHES8e21ef49-6291-431f-9888-2b53e34ccc0a
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object ARMO7a824af0-c0f1-4695-8412-75eb9bd9413b
+		type ARMOUR00
+		inside CHES8e21ef49-6291-431f-9888-2b53e34ccc0a
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CLOTb8d9abb5-6f93-47ac-b7b2-a9272d1b923d
+		type CLOTHING00
+		inside CHES8e21ef49-6291-431f-9888-2b53e34ccc0a
+		curdir 2
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object TOOLe42c3b37-ec18-432a-8676-00ffe1cce79f
+		type TOOLS11
+		inside CHES8e21ef49-6291-431f-9888-2b53e34ccc0a
+		curdir 0
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CHES8e21ef49-6291-431f-9888-2b53e34ccc0a
+		type CHEST
+		at 886 367
+		curdir 1
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object GOLDa7c7d586-4344-4faa-95a8-6fda2c069666
+		type GOLD_BAR
+		inside CHESeb7fc227-fd5e-4ccd-b1cd-bb4c43884485
+		curdir 1
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object GOLD3ef191f6-53aa-4bb8-893b-138109738bf0
+		type GOLD_COINS
+		inside CHESeb7fc227-fd5e-4ccd-b1cd-bb4c43884485
+		curdir 1
+		stats->quantity 264
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
+
+	object CHESeb7fc227-fd5e-4ccd-b1cd-bb4c43884485
+		type CHEST
+		at 888 367
+		curdir 1
+		stats->owner MAN_b78d24b4-cb10-447d-988d-72fb9a0cff03
 
 	decorative RUBBLE_19 at 577 368
 
@@ -44116,6 +44405,13 @@ iMZ1r01
 	decorative TREE03 at 931 599
 
 	decorative TREE00 at 934 599
+
+	object PLAN278088ca-7411-4b70-bca4-7559bc8737e1
+		type PLANT1
+		at 999 599
+		curdir 1
+		name Backwards compat for savegames
+		tag 80
 
 	decorative TREE03 at 541 600
 
