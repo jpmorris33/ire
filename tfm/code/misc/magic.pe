@@ -85,6 +85,8 @@ end
 function spell_check
 private
 int md
+object toadstone
+object tode
 
 # Assume success
 let spell_failed = 0
@@ -137,6 +139,16 @@ if me <> player
 endif
 
 # Take a todestone
+
+find toadstone = "toadstone" inside me
+if_exists toadstone
+	# Workaround in case the toadstone is still in the toad
+	if toadstone.parent IS CALLED "TODE"
+		let tode = toadstone.parent
+		let tode.stats.hp = -1
+		check_hurt tode
+	endif
+endif
 
 take 1 "toadstone" from me
 if err <> 0
