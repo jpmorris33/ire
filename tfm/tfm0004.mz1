@@ -12,6 +12,272 @@ iMZ1r01
 		curdir 0
 		name Corpse cleanup
 
+	object TABLdc2ca07e-de88-4fcd-8980-603c3184a6cf
+		type TABLE6-H
+		at 448 85
+		curdir 2
+
+	object FOODd3aed0e1-32ad-4921-a8b6-176aeb87f95e
+		type FOOD08
+		at 448 85
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLc447a0f9-7b65-4d74-83b9-381db8229abf
+		type TABLE6-H
+		at 449 85
+		curdir 0
+
+	object FOODfc790ad8-cc22-43ad-95fc-0f225943e138
+		type FOOD08
+		at 449 85
+		curdir 0
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL6b037154-439f-4db5-8c7f-1281b1987daf
+		type TABLE6-H
+		at 450 85
+		curdir 1
+
+	object FOOD020d1249-c1fd-4e0f-99d4-26153734b4e6
+		type FOOD08
+		at 450 85
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL79a516f7-22df-438c-8ef5-70df82c93b05
+		type TABLE6-H
+		at 451 85
+		curdir 0
+
+	object FOOD8ffc6cc5-7a3a-4d0b-b8d8-f07cb10fd2ff
+		type FOOD08
+		at 451 85
+		curdir 0
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLf5b82d44-dc2e-4533-bd31-1ccd982b703c
+		type TABLE6-H
+		at 452 85
+		curdir 1
+
+	object FOODf789151e-71fc-4672-b496-5ed541b23a49
+		type FOOD08
+		at 452 85
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL6c344ca9-558d-4b1f-b6ec-7f9f39cece1f
+		type TABLE6-H
+		at 453 85
+		curdir 0
+
+	object FOODa291c39f-966a-4485-821e-be81e11a7277
+		type FOOD08
+		at 453 85
+		curdir 0
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLe2df5e53-e5ee-4412-a27e-1f2a18a694d6
+		type TABLE6-H
+		at 454 85
+		curdir 3
+
+	object FOODdc7029a4-fb22-48b2-9fdb-f6cf5fea313b
+		type FOOD08
+		at 454 85
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLbc17a687-8b74-4551-83f6-4b38174201c7
+		type TABLE-SHADOW2
+		at 455 85
+		curdir 3
+
+	object TABL15af11eb-5b9d-4f98-8f5d-da8bb0b9de76
+		type TABLE-SHADOW2
+		at 448 86
+		curdir 1
+
+	object TABL3eb1c787-9afc-4a35-9f9a-c292d2827224
+		type TABLE5-LEGS
+		at 448 86
+		curdir 1
+
+	object TABL06b68e84-93ba-46e1-a486-f77b225e23b4
+		type TABLE-SHADOW1
+		at 449 86
+		curdir 0
+
+	object TABLe23ed479-3350-4433-800e-d8161a982778
+		type TABLE-SHADOW1
+		at 450 86
+		curdir 0
+
+	object TABL3423ef1b-bca7-4e30-9870-cd40d9ff0103
+		type TABLE5-LEGS
+		at 450 86
+		curdir 1
+
+	object TABL163691cb-1bdc-4e24-89e7-67e9444c4d8e
+		type TABLE-SHADOW1
+		at 451 86
+		curdir 0
+
+	object TABL6e5f8410-a3aa-4fe4-bbb3-2158f5989f59
+		type TABLE-SHADOW1
+		at 452 86
+		curdir 0
+
+	object TABLcb916e84-7956-4a47-aa50-2671d55de23f
+		type TABLE5-LEGS
+		at 452 86
+		curdir 1
+
+	object TABLd1452adf-4656-4556-ba20-53d1a7b0a033
+		type TABLE-SHADOW1
+		at 453 86
+		curdir 0
+
+	object TABLbf43605f-fe5f-452f-8c17-34b91a6b91d7
+		type TABLE-SHADOW1
+		at 454 86
+		curdir 0
+
+	object TABL49a0c9c3-afcb-42b2-b33d-792e41eb6882
+		type TABLE-SHADOW3
+		at 455 86
+		curdir 1
+
+	object MEMO3b6601ea-0545-4b85-99a8-aea09e28fb32
+		type MEMO
+		at 455 86
+		curdir 2
+		name Teleporter to something good
+
+	object TRAPb26d8567-0c18-4f24-bed6-5d79f94e7b48
+		type TRAP_RADIUS
+		at 451 87
+		curdir 2
+		tag -61
+		stats->radius 2
+		funcs->use CALLWIELD_TAGS
+
+	object TELE14e494f5-3458-4aca-bc5e-b7ba2edafa29
+		type TELEPORTER0
+		at 455 87
+		curdir 2
+
+	object TABLa7363b68-4168-472b-93cf-84c68e90e86c
+		type TABLE6-H
+		at 448 89
+		curdir 2
+
+	object FOOD87fcb901-73be-4baf-b987-92f1ba336265
+		type FOOD08
+		at 448 89
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLab62d64b-36a8-41ce-b233-7a6f416b860e
+		type TABLE6-H
+		at 449 89
+		curdir 0
+
+	object FOODe8727c6a-fe01-483f-bea3-b3d900441e1d
+		type FOOD08
+		at 449 89
+		curdir 0
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL37b6f924-52f0-4094-9735-c66a16c400ed
+		type TABLE6-H
+		at 450 89
+		curdir 1
+
+	object FOOD0cd961c2-d4d3-4116-9760-ce83559281d5
+		type FOOD08
+		at 450 89
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL0136c9b5-9ee5-4a31-9077-3f93729fa013
+		type TABLE6-H
+		at 451 89
+		curdir 0
+
+	object FOOD6ef16776-727e-488a-a2ac-5e44978dccc9
+		type FOOD08
+		at 451 89
+		curdir 0
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL4852236b-2918-4dc4-af94-7eb841388297
+		type TABLE6-H
+		at 452 89
+		curdir 1
+
+	object FOOD6f4f3c6e-8dce-45a5-ab25-dc725a4e53af
+		type FOOD08
+		at 452 89
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLac444498-9279-4fd3-b1f2-0a1784aeb8c9
+		type TABLE6-H
+		at 453 89
+		curdir 0
+
+	object FOOD5fd6dc25-10d0-40d1-b06b-d8d86afea623
+		type FOOD08
+		at 453 89
+		curdir 0
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABL4b272a73-b0d4-4b62-ae35-5ba5184697f0
+		type TABLE6-H
+		at 454 89
+		curdir 3
+
+	object FOOD96813811-9cf6-4f61-8beb-75dccdafc18a
+		type FOOD08
+		at 454 89
+		curdir 2
+		tag 61
+		stats->damage 25
+		funcs->wield ATTACK_PARTY
+
+	object TABLdecc1cd6-ae88-404e-98b5-9b61461a86a0
+		type TABLE-SHADOW2
+		at 455 89
+		curdir 3
+
 	object LIGHc4bc3e72-fcf7-4e5d-80c3-edae3b0881d3
 		type LIGHT_SWITCH
 		at 460 90

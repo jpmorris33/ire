@@ -5845,10 +5845,17 @@ iMZ1r01
 		at 491 131
 		curdir 2
 
+	object STOV922c9d96-6d1c-4709-9b5f-0fa4cfe13109
+		type STOVE
+		at 497 131
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
 	object STON7aa53fb4-aa4a-4bc4-afcb-007be3b4e339
 		type STONEWINDOW1
 		at 499 131
 		curdir 0
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
 
 	object STON1fe2e2fb-8029-44e8-8de3-48e2275a628f
 		type STONEWINDOW1
@@ -5930,6 +5937,48 @@ iMZ1r01
 		type FENCE2_CORNER
 		at 491 132
 		curdir 1
+
+	object TABL064b3094-7ebe-4a95-b5d3-7c084e861692
+		type TABLE6-H
+		at 499 132
+		curdir 2
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object FOODaab5c4dd-feff-477c-8f43-4b9d5d7c6a3f
+		type FOOD02
+		at 499 132
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL681e86e3-9235-4c66-8159-e118789b9606
+		type TABLE6-H
+		at 500 132
+		curdir 0
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object FOOD84d0efd6-36ba-45c9-ba3d-cd69553dd0ba
+		type FOOD05_SHEEP
+		at 500 132
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL8fe4bbb4-9c20-40c3-a81f-e2a25381688d
+		type TABLE6-H
+		at 501 132
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object PLAT4177ceb3-21fe-4748-881b-f2ba8cff162c
+		type PLATE
+		at 501 132
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL6b6c02c7-4ab7-44e8-87b3-45f3a8176e6d
+		type TABLE6-H
+		at 502 132
+		curdir 0
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
 
 	decorative MOUNT08 at 904 132
 
@@ -6028,6 +6077,54 @@ iMZ1r01
 		curdir 1
 		tag 40
 
+	object TABL72dfc320-db32-476d-98ff-c3f72a5dc115
+		type TABLE-SHADOW2
+		at 499 133
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABLb48d0965-0384-402d-ab1b-feb69d57fe76
+		type TABLE5-LEGS
+		at 499 133
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL8f4050cd-fe71-424d-b403-9e03da993d85
+		type TABLE-SHADOW1
+		at 500 133
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL366f9232-04a5-46f4-876e-796c845487ea
+		type TABLE-SHADOW1
+		at 501 133
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TARGf230f048-3180-44ba-92f2-168903df7c26
+		type TARGET
+		at 501 133
+		curdir 0
+		labels->location VintersHouse
+
+	object CHAI00ba9ebf-bfd4-4344-983f-f05d4bb53a02
+		type CHAIR
+		at 501 133
+		curdir 0
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL0ec0a4ed-d8e5-4cc2-8d7b-0d42b8f64951
+		type TABLE-SHADOW1
+		at 502 133
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL727b6e22-4a69-488f-80e9-d7dd3e157e18
+		type TABLE5-LEGS
+		at 502 133
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
 	decorative MOUNT04 at 904 133
 
 	decorative MOUNT00 at 910 133
@@ -6105,6 +6202,13 @@ iMZ1r01
 		at 485 134
 		curdir 0
 
+	object TARG6d9a0b8f-90ec-483f-928f-0c0284091534
+		type TARGET
+		at 485 134
+		curdir 0
+		tag 80091
+		labels->location LakesideButchers
+
 	object TABL7392e9cf-77fe-4d22-8c6a-55c2e535aad2
 		type TABLE-SHADOW1
 		at 486 134
@@ -6121,15 +6225,38 @@ iMZ1r01
 		curdir 1
 		tag 38
 
-	object STONc7bf1691-bbc5-4563-9b5f-4af17de45d97
-		type STONEWINDOW1
+	object GOLDdd96a358-e07a-46ce-9807-e67fe0bff20f
+		type GOLD_COINS
+		inside DRAW2e4e608a-b36d-4736-9218-5ddc9a326c61
+		curdir 0
+		stats->quantity 150
+
+	object CLOT8a56127b-044c-4a17-9b68-f92ace17b1e1
+		type CLOTHING00
+		inside DRAW2e4e608a-b36d-4736-9218-5ddc9a326c61
+		curdir 0
+
+	object DRAW2e4e608a-b36d-4736-9218-5ddc9a326c61
+		type DRAWERS
+		at 491 134
+		curdir 0
+
+	object BIBLb0dec62f-587f-46bc-9e8d-dba5ba77e678
+		type BIBLE
+		at 491 134
+		curdir 3
+
+	object DRAW00a3564b-3c79-4d4b-8f50-704e3aa926c1
+		type DRAWERS
 		at 496 134
 		curdir 2
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
 
 	object STONe515c945-cbfe-44ce-b120-f5777256ec2a
 		type STONEWINDOW1
 		at 503 134
 		curdir 2
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
 
 	decorative MOUNT08 at 903 134
 
@@ -6230,10 +6357,55 @@ iMZ1r01
 		at 483 135
 		curdir 3
 
-	object STON93179fdf-d926-4188-b65d-d30f9ec346dc
-		type STONEWINDOW1
-		at 490 135
-		curdir 3
+	object TARGa1eb010a-2ca0-4db9-a66c-dfdf84f4a671
+		type TARGET
+		at 485 135
+		curdir 1
+		tag 80093
+		labels->location LakesideButchers
+
+	object TARGf546aceb-ee00-49ad-a188-245c1825eb79
+		type TARGET
+		at 486 135
+		curdir 1
+		tag 80090
+		labels->location LakesideButchers
+
+	object TARGbf3f4702-4614-4950-8d7b-c51a73946491
+		type TARGET
+		at 488 135
+		curdir 1
+		tag 80092
+		labels->location LakesideButchers
+
+	object CHAI36cc7b0b-fc27-454d-993f-3af96f4c5ddd
+		type CHAIR
+		at 492 135
+		curdir 1
+
+	object TABL6218ead2-4748-48cc-93f6-c3359832ff3b
+		type TABLE6-H
+		at 500 135
+		curdir 2
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL5ac6bf59-c768-499b-880d-d77934706e20
+		type TABLE6-H
+		at 501 135
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object BIBLcc40b522-e011-46aa-a6ca-d7aa16d5dea6
+		type BIBLE_OPEN
+		at 501 135
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL5c1d8fe9-8e7a-49d5-9937-262b13e62388
+		type TABLE6-H
+		at 502 135
+		curdir 0
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
 
 	decorative MOUNT04 at 903 135
 
@@ -6396,6 +6568,71 @@ iMZ1r01
 		at 489 136
 		curdir 3
 
+	object STON5fd8e1d9-212c-427c-9131-d085282cbbfa
+		type STONEDOOR5_SHUT
+		at 490 136
+		curdir 2
+
+	object TARGfe7bddd2-10a5-4c14-9edf-de1c8b1dc68a
+		type TARGET
+		at 492 136
+		curdir 1
+		labels->location LakesideButchers
+
+	object STON93179fdf-d926-4188-b65d-d30f9ec346dc
+		type STONEWINDOW1
+		at 493 136
+		curdir 3
+
+	object BED_87a1b06a-b218-427b-b5c3-9b80d8cb648a
+		type BED
+		at 497 136
+		curdir 0
+		labels->location VintersHouse
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL819c9a4f-ba54-42c9-bb9a-e22f3419d711
+		type TABLE-SHADOW2
+		at 500 136
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL1621d7e2-94b4-42ad-9b66-b806a33c5e14
+		type TABLE5-LEGS
+		at 500 136
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABLd72ec0d9-5e8b-439e-95ca-569709a4adf5
+		type TABLE-SHADOW1
+		at 501 136
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TARG5cae2a1b-4b2b-4884-a879-a784b87a5df4
+		type TARGET
+		at 501 136
+		curdir 0
+		labels->location VintersHouse
+
+	object CHAI3bb102b7-7e2f-4237-aff2-c55b07161bca
+		type CHAIR
+		at 501 136
+		curdir 0
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABLeb3087fc-98ea-47aa-96ee-b680244e3863
+		type TABLE-SHADOW1
+		at 502 136
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object TABL6a27b7ef-96cb-4c75-87af-1611de87c8fe
+		type TABLE5-LEGS
+		at 502 136
+		curdir 1
+		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
 	decorative MOUNT08 at 901 136
 
 	decorative MOUNT06 at 902 136
@@ -6415,6 +6652,13 @@ iMZ1r01
 	decorative MOUNT05 at 1014 136
 
 	decorative MOUNT09 at 1015 136
+
+	object TARG03f892c4-bf36-4620-a8f9-4f4691555743
+		type TARGET
+		at 484 137
+		curdir 1
+		tag 80094
+		labels->location LakesideButchers
 
 	object TABL51f05044-5565-4a1d-9f76-3339c424d1ed
 		type TABLE-SHADOW2
@@ -6451,11 +6695,23 @@ iMZ1r01
 		at 489 137
 		curdir 1
 
-	object MEMO34cc1e6a-fcee-4479-b215-775f69d3e1d3
-		type MEMO
-		at 500 137
-		curdir 2
-		name butcher and vintner hav no home
+	object TARG42e22247-72d5-49f7-be00-66e8d0f6caa3
+		type TARGET
+		at 489 137
+		curdir 1
+		tag 80095
+		labels->location LakesideButchers
+
+	object TABLa9c3ede0-1e34-47ff-9ba5-8fc6efb90efc
+		type TABLE7
+		at 492 137
+		curdir 0
+
+	object BOOK5e9c3693-99f9-4c91-bb77-0945a2306dd3
+		type BOOK_OPEN
+		at 492 137
+		curdir 0
+		name Ledger
 
 	decorative MOUNT08 at 899 137
 
@@ -6519,6 +6775,13 @@ iMZ1r01
 		at 487 138
 		curdir 1
 		name Norris
+		schedule 7 30 SIT_AT_LOCATION PEW_a81632f2-5fa0-4d56-8727-758a12d3e149
+		schedule 9 0 LOITER_ATWORK TARGf546aceb-ee00-49ad-a188-245c1825eb79
+		schedule 12 0 EAT_AT_LOCATION TARG168a793d-a99c-4309-a272-69eec86bb10e
+		schedule 13 0 LOITER_ATWORK TARGf546aceb-ee00-49ad-a188-245c1825eb79
+		schedule 18 0 EAT_AT_LOCATION TARG168a793d-a99c-4309-a272-69eec86bb10e
+		schedule 20 0 SIT_AT_LOCATION TARGfe7bddd2-10a5-4c14-9edf-de1c8b1dc68a
+		schedule 22 0 GO_TO_SLEEP BED_f736e714-783e-476c-9257-04903d16ead9
 
 	object TABLaa971c95-e6b9-44e6-a753-015f6e2ab9d3
 		type TABLE6-H
@@ -6559,6 +6822,12 @@ iMZ1r01
 		at 489 138
 		curdir 2
 		stats->owner MAN_d2d96799-22e8-4350-8307-fe6913e5a538
+
+	object BED_f736e714-783e-476c-9257-04903d16ead9
+		type BED
+		at 491 138
+		curdir 2
+		labels->location LakesideButchers
 
 	object STONffe0a69d-2729-421d-9c76-0e53d090165b
 		type STONEDOOR1_SHUT
@@ -6665,6 +6934,26 @@ iMZ1r01
 		curdir 2
 		tag 3
 
+	object PATH9af9f129-4e0e-4838-91ef-b21e9b9d64a4
+		type PATHMARKER
+		at 487 140
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATHa4b8174e-d710-4029-a0af-cdc243f550fd
+
+	object PATH44c5c703-eb37-49bc-8602-443c6cf4f863
+		type PATHMARKER
+		at 500 140
+		curdir 0
+		labels->location VintersHouse
+
+	object PATH75cbcece-f559-45fb-b8f2-f1eee63ecdb8
+		type PATHMARKER
+		at 515 140
+		curdir 3
+		labels->location FlyingTrout
+		stats->owner PATHb3046254-0cba-4754-b797-cc8767899b9b
+
 	object TODE9759d302-362d-438a-92bc-de344143dd3f
 		type TODE
 		inside EGG_406faf38-647e-4d4e-a447-dfab07139969
@@ -6734,6 +7023,27 @@ iMZ1r01
 
 	decorative MOUNT03 at 1013 140
 
+	object PATH60ccf44f-ba0f-4ff5-9d72-34be74e61c57
+		type PATHMARKER
+		at 500 141
+		curdir 1
+		labels->location Vinters
+		stats->owner PATH5636bc23-39b0-4d59-8389-fe27d63ca7e6
+
+	object PATHa73d16ff-437d-4aaa-83df-3197a367ef3f
+		type PATHMARKER
+		at 519 141
+		curdir 3
+		labels->location Vinters
+		stats->owner PATHb8331a75-074d-41a2-91b0-b1447f65ce45
+
+	object PATHf39a5e28-9a0b-4d5a-98a3-f22ddf4171d5
+		type PATHMARKER
+		at 520 141
+		curdir 2
+		labels->location VintersHouse
+		stats->owner PATHb825e438-15fd-4910-8a3c-d34581193658
+
 	decorative HUT03 at 693 141
 
 	object HUT_eb29aedd-67fc-4921-91cd-6621c6c39538
@@ -6776,6 +7086,13 @@ iMZ1r01
 	decorative MOUNT05 at 1013 141
 
 	decorative MOUNT09 at 1014 141
+
+	object PATHb3046254-0cba-4754-b797-cc8767899b9b
+		type PATHMARKER
+		at 523 142
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATH650ea896-022c-4a7c-94e4-81c347931542
 
 	decorative HUT04 at 693 142
 
@@ -6849,6 +7166,13 @@ iMZ1r01
 
 	decorative MOUNT09 at 1015 143
 
+	object PATH5636bc23-39b0-4d59-8389-fe27d63ca7e6
+		type PATHMARKER
+		at 508 144
+		curdir 3
+		labels->location Vinters
+		stats->owner PATHa73d16ff-437d-4aaa-83df-3197a367ef3f
+
 	decorative MOUNT08 at 868 144
 
 	decorative MOUNT06 at 869 144
@@ -6873,6 +7197,51 @@ iMZ1r01
 
 	decorative MOUNT03 at 1015 144
 
+	object WINE9d7b1365-88f9-4532-bd5e-cf131bafaf12
+		type WINECASK0
+		at 513 145
+		curdir 1
+
+	object WINE01134c2b-72c3-4be4-84a8-2986e04ad0a3
+		type WINECASK0
+		at 515 145
+		curdir 1
+
+	object STONfd3d62c0-7441-44fb-af7c-969169a14bcf
+		type STONEWINDOW1
+		at 517 145
+		curdir 0
+
+	object GRAP2af042b2-de51-494f-8af3-3420d44daff6
+		type GRAPES_VAT
+		at 518 145
+		curdir 0
+
+	object TANKffe7b1f7-939a-4fa0-adaa-723d65e6fe36
+		type TANK02
+		at 518 145
+		curdir 0
+
+	object GRAP0a788667-8ae3-45f8-9d13-126641e28ea3
+		type GRAPES_VAT
+		at 519 145
+		curdir 1
+
+	object TANKd2b450d4-006d-4ff8-a9ea-127c2df3ceb3
+		type TANK12
+		at 519 145
+		curdir 0
+
+	object GRAP1adc723b-1cfa-4d48-975a-1683069b8dfa
+		type GRAPES_VAT
+		at 520 145
+		curdir 0
+
+	object TANKcdd2af80-e6e2-4633-8401-506982fe2a67
+		type TANK12
+		at 520 145
+		curdir 0
+
 	decorative MOUNT08 at 861 145
 
 	decorative MOUNT06 at 862 145
@@ -6893,50 +7262,57 @@ iMZ1r01
 
 	decorative MOUNT09 at 1016 145
 
-	object WINE9d7b1365-88f9-4532-bd5e-cf131bafaf12
-		type WINECASK0
-		at 513 146
+	object PATHa4b8174e-d710-4029-a0af-cdc243f550fd
+		type PATHMARKER
+		at 491 146
 		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATHe6310c41-ff69-4f7a-88c0-e65e6c980dae
 
-	object WINE01134c2b-72c3-4be4-84a8-2986e04ad0a3
-		type WINECASK0
-		at 515 146
-		curdir 1
+	object PATHa0a25797-718c-4b5b-9345-3a72680cb884
+		type PATHMARKER
+		at 497 146
+		curdir 2
+		labels->location FlyingTrout
+		stats->owner PATHa4b8174e-d710-4029-a0af-cdc243f550fd
 
-	object STONfd3d62c0-7441-44fb-af7c-969169a14bcf
-		type STONEWINDOW1
-		at 517 146
+	object PATHb825e438-15fd-4910-8a3c-d34581193658
+		type PATHMARKER
+		at 506 146
+		curdir 2
+		labels->location VintersHouse
+		stats->owner PATH44c5c703-eb37-49bc-8602-443c6cf4f863
+
+	object STAI161cfc9d-c709-4431-aa4a-226d3ac23427
+		type STAIRS_DOWN
+		at 512 146
+		curdir 2
+		tag 31
+
+	object WINE3fa1f852-124f-4d02-a92a-8e5beebbaf49
+		type WINEVAT
+		at 516 146
 		curdir 0
 
-	object GRAP2af042b2-de51-494f-8af3-3420d44daff6
+	object GRAPd5877346-9f38-4f14-8481-3785aaa540c4
 		type GRAPES_VAT
 		at 518 146
-		curdir 0
+		curdir 2
 
-	object TANKffe7b1f7-939a-4fa0-adaa-723d65e6fe36
-		type TANK02
+	object TANK7a6aefe2-d52b-4498-9bf4-73c6c68367f5
+		type TANK12
 		at 518 146
-		curdir 0
+		curdir 2
 
-	object GRAP0a788667-8ae3-45f8-9d13-126641e28ea3
+	object GRAP7c841ca5-795e-4cd2-a542-47812b172f91
 		type GRAPES_VAT
 		at 519 146
+		curdir 3
+
+	object GRAP91c84322-2915-46d5-a0ab-1e13ee562453
+		type GRAPES_VAT
+		at 520 146
 		curdir 1
-
-	object TANKd2b450d4-006d-4ff8-a9ea-127c2df3ceb3
-		type TANK12
-		at 519 146
-		curdir 0
-
-	object GRAP1adc723b-1cfa-4d48-975a-1683069b8dfa
-		type GRAPES_VAT
-		at 520 146
-		curdir 0
-
-	object TANKcdd2af80-e6e2-4633-8401-506982fe2a67
-		type TANK12
-		at 520 146
-		curdir 0
 
 	decorative MOUNT08 at 858 146
 
@@ -6964,34 +7340,39 @@ iMZ1r01
 
 	decorative MOUNT03 at 1016 146
 
-	object STAI161cfc9d-c709-4431-aa4a-226d3ac23427
-		type STAIRS_DOWN
+	object TARG1ffb8867-8810-4e7a-b566-87727f25e248
+		type TARGET
 		at 512 147
 		curdir 2
-		tag 31
+		tag 32
 
-	object WINE3fa1f852-124f-4d02-a92a-8e5beebbaf49
-		type WINEVAT
-		at 516 147
-		curdir 0
-
-	object GRAPd5877346-9f38-4f14-8481-3785aaa540c4
+	object GRAP69838339-4e98-4f8a-914a-9fae7332be3d
 		type GRAPES_VAT
 		at 518 147
-		curdir 2
-
-	object TANK7a6aefe2-d52b-4498-9bf4-73c6c68367f5
-		type TANK12
-		at 518 147
-		curdir 2
-
-	object GRAP7c841ca5-795e-4cd2-a542-47812b172f91
-		type GRAPES_VAT
-		at 519 147
 		curdir 3
 
-	object GRAP91c84322-2915-46d5-a0ab-1e13ee562453
+	object TANK9941fa32-0ad0-4389-a0cc-3fb08a21b42a
+		type TANK02
+		at 518 147
+		curdir 2
+
+	object GRAP087ba6ee-7259-4899-a159-dcc9e5611d9f
 		type GRAPES_VAT
+		at 519 147
+		curdir 2
+
+	object TANK145f9721-ed9c-433b-a1ba-f61067a1f3c5
+		type TANK12
+		at 519 147
+		curdir 1
+
+	object GRAP927be6e9-e8ea-46cc-8981-6746333bbaed
+		type GRAPES_VAT
+		at 520 147
+		curdir 0
+
+	object TANKbab8c4c4-c37a-4994-ac72-316cad0d9434
+		type TANK12
 		at 520 147
 		curdir 1
 
@@ -7027,41 +7408,76 @@ iMZ1r01
 
 	decorative MOUNT09 at 1018 147
 
-	object TARG1ffb8867-8810-4e7a-b566-87727f25e248
-		type TARGET
+	object PATH3a5170ed-f038-4d0c-8932-9c395fb8d24f
+		type PATHMARKER
+		at 491 148
+		curdir 0
+		labels->location LakesideButchers
+		stats->owner TARGf546aceb-ee00-49ad-a188-245c1825eb79
+
+	object STONe5f85744-df0e-40a9-bee4-00d3d528db5f
+		type STONEWINDOW1
+		at 511 148
+		curdir 2
+
+	object TABLe599f8af-844f-4c71-90c1-4092f4aff290
+		type TABLE6-V
 		at 512 148
-		curdir 2
-		tag 32
-
-	object GRAP69838339-4e98-4f8a-914a-9fae7332be3d
-		type GRAPES_VAT
-		at 518 148
-		curdir 3
-
-	object TANK9941fa32-0ad0-4389-a0cc-3fb08a21b42a
-		type TANK02
-		at 518 148
-		curdir 2
-
-	object GRAP087ba6ee-7259-4899-a159-dcc9e5611d9f
-		type GRAPES_VAT
-		at 519 148
-		curdir 2
-
-	object TANK145f9721-ed9c-433b-a1ba-f61067a1f3c5
-		type TANK12
-		at 519 148
-		curdir 1
-
-	object GRAP927be6e9-e8ea-46cc-8981-6746333bbaed
-		type GRAPES_VAT
-		at 520 148
 		curdir 0
 
-	object TANKbab8c4c4-c37a-4994-ac72-316cad0d9434
-		type TANK12
-		at 520 148
+	object BUCK992816d7-d286-4d1f-80c3-f43f80c57fbf
+		type BUCKET
+		at 512 148
+		curdir 2
+
+	object TABL69e1d891-30bd-4987-9e32-2e45700d79c0
+		type TABLE-SHADOW2
+		at 513 148
+		curdir 3
+
+	object TABL47a74b35-04fa-4db0-af0e-0f6ef2febd2a
+		type TABLE5-LEGS
+		at 513 148
+		curdir 3
+
+	object MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+		type MAN_GENERIC
+		at 514 148
 		curdir 1
+		name Vinter
+		funcs->talk people/peasants/lakeside/vintner.txt
+		schedule 7 30 SIT_AT_LOCATION PEW_d83c3c43-20de-4bdd-b0ac-bd62eb3f9390
+		schedule 9 0 LOITER_ATWORK TARG3a525954-c1cd-4eaa-8262-80af16b614d4
+		schedule 12 0 EAT_AT_HOME TARGf230f048-3180-44ba-92f2-168903df7c26
+		schedule 13 0 LOITER_ATWORK TARG3a525954-c1cd-4eaa-8262-80af16b614d4
+		schedule 18 0 EAT_AT_LOCATION TARG7a5f909f-deaf-4b81-883a-e65674d22a5e
+		schedule 20 0 SIT_AT_LOCATION TARG5cae2a1b-4b2b-4884-a879-a784b87a5df4
+		schedule 22 0 GO_TO_SLEEP BED_87a1b06a-b218-427b-b5c3-9b80d8cb648a
+
+	object LADD72081987-b591-47a7-8e9c-89a482151f75
+		type LADDER
+		at 517 148
+		curdir 1
+
+	object TANK13f0cd6b-5fd8-47d9-bcec-b3bc608785cd
+		type TANK00
+		at 518 148
+		curdir 2
+
+	object TANKc2fdb014-5b63-4bb7-aa5c-c88a32d86f65
+		type TANK01
+		at 519 148
+		curdir 0
+
+	object LADDf194b61c-176a-4a6e-ae70-2df3474b2d12
+		type LADDER
+		at 519 148
+		curdir 1
+
+	object TANK7d8f0987-6030-4864-a51a-bee9e0158612
+		type TANK01
+		at 520 148
+		curdir 0
 
 	decorative MOUNT08 at 852 148
 
@@ -7085,55 +7501,41 @@ iMZ1r01
 
 	decorative MOUNT11 at 1018 148
 
-	object STONe5f85744-df0e-40a9-bee4-00d3d528db5f
-		type STONEWINDOW1
-		at 511 149
-		curdir 2
-
-	object TABLe599f8af-844f-4c71-90c1-4092f4aff290
+	object TABLe1229e58-08f3-447b-bb8c-0b5e4488a920
 		type TABLE6-V
 		at 512 149
-		curdir 0
+		curdir 2
 
-	object BUCK992816d7-d286-4d1f-80c3-f43f80c57fbf
+	object BUCK11dc599a-ec74-43b4-adad-915e4057a0ad
 		type BUCKET
 		at 512 149
+		curdir 1
+
+	object TABLb24c2ac1-6b0b-4d84-925d-d1adc4ed7ead
+		type TABLE-SHADOW1
+		at 513 149
 		curdir 2
 
-	object TABL69e1d891-30bd-4987-9e32-2e45700d79c0
-		type TABLE-SHADOW2
-		at 513 149
-		curdir 3
+	object TARG3a525954-c1cd-4eaa-8262-80af16b614d4
+		type TARGET
+		at 514 149
+		curdir 2
+		tag 80070
+		labels->location Vinters
 
-	object TABL47a74b35-04fa-4db0-af0e-0f6ef2febd2a
-		type TABLE5-LEGS
-		at 513 149
-		curdir 3
-
-	object LADD72081987-b591-47a7-8e9c-89a482151f75
-		type LADDER
+	object TARG303414c4-cb8a-496b-9503-4b295af50d09
+		type TARGET
 		at 517 149
-		curdir 1
+		curdir 0
+		tag 80071
+		labels->location Vinters
 
-	object TANK13f0cd6b-5fd8-47d9-bcec-b3bc608785cd
-		type TANK00
-		at 518 149
-		curdir 2
-
-	object TANKc2fdb014-5b63-4bb7-aa5c-c88a32d86f65
-		type TANK01
+	object TARGbd4eebfc-cb21-44e7-898d-43ccd427c482
+		type TARGET
 		at 519 149
 		curdir 0
-
-	object LADDf194b61c-176a-4a6e-ae70-2df3474b2d12
-		type LADDER
-		at 519 149
-		curdir 1
-
-	object TANK7d8f0987-6030-4864-a51a-bee9e0158612
-		type TANK01
-		at 520 149
-		curdir 0
+		tag 80072
+		labels->location Vinters
 
 	decorative MOUNT08 at 848 149
 
@@ -7165,27 +7567,39 @@ iMZ1r01
 
 	decorative MOUNT03 at 1017 149
 
-	object TABLe1229e58-08f3-447b-bb8c-0b5e4488a920
+	object TABL31087b7c-405a-4539-a9e7-013d7ec33437
 		type TABLE6-V
 		at 512 150
-		curdir 2
+		curdir 3
 
-	object BUCK11dc599a-ec74-43b4-adad-915e4057a0ad
-		type BUCKET
-		at 512 150
-		curdir 1
-
-	object TABLb24c2ac1-6b0b-4d84-925d-d1adc4ed7ead
+	object TABLade849ec-c358-4682-9134-be14c8605dad
 		type TABLE-SHADOW1
 		at 513 150
 		curdir 2
 
-	object MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
-		type MAN_GENERIC
+	object TABLae1bca62-efdd-4698-a0d4-846309a402bf
+		type TABLE5-LEGS
+		at 513 150
+		curdir 3
+
+	object TARG78c76e75-941e-4fc0-86de-a2dbbc63483d
+		type TARGET
 		at 514 150
 		curdir 1
-		name Vinter
-		funcs->talk people/peasants/lakeside/vintner.txt
+		tag 80074
+		labels->location Vinters
+
+	object TARG05405df3-23b5-450e-9121-27c30049df7a
+		type TARGET
+		at 520 150
+		curdir 1
+		tag 80073
+		labels->location Vinters
+
+	object STONe6df67a3-b677-446b-8e3e-860b324b0548
+		type STONEWINDOW1
+		at 521 150
+		curdir 2
 
 	decorative MOUNT08 at 845 150
 
@@ -7215,25 +7629,62 @@ iMZ1r01
 
 	decorative MOUNT11 at 1017 150
 
-	object TABL31087b7c-405a-4539-a9e7-013d7ec33437
-		type TABLE6-V
+	object TABLbcd4b293-7232-4ff9-b219-7d62b000c90e
+		type TABLE8-L
 		at 512 151
-		curdir 3
+		curdir 1
 
-	object TABLade849ec-c358-4682-9134-be14c8605dad
-		type TABLE-SHADOW1
+	object GRAP809a5d6a-8b25-4574-8935-07dae9da883c
+		type GRAPES
+		at 512 151
+		curdir 0
+
+	object TABLe033e742-4959-45d4-839e-480cf5878921
+		type TABLE6-H
 		at 513 151
+		curdir 0
+
+	object TABLe7675b16-e25d-4147-83e8-dcc935568bd8
+		type TABLE6-H
+		at 514 151
+		curdir 1
+
+	object GRAP240ec3a2-7d56-4cfc-aa88-67250ba90504
+		type GRAPES
+		at 514 151
 		curdir 2
 
-	object TABLae1bca62-efdd-4698-a0d4-846309a402bf
+	object TABL833659d1-cb70-48e2-a1c7-96b70d444ddb
+		type TABLE6-H
+		at 515 151
+		curdir 3
+
+	object TABL5e29ce4a-c8cb-4002-a16f-20f1a30019d2
+		type TABLE-SHADOW2
+		at 516 151
+		curdir 3
+
+	object TABLc2bd2892-0cd0-4d0a-b92a-9308845ffeb8
 		type TABLE5-LEGS
-		at 513 151
+		at 516 151
 		curdir 3
 
-	object STONe6df67a3-b677-446b-8e3e-860b324b0548
-		type STONEWINDOW1
-		at 521 151
+	object TROUe2b64cb6-f236-4f92-873e-90b490074ea0
+		type TROUGH
+		at 519 151
+		curdir 1
+
+	object BUCK5f204bc2-bfa7-42f9-9490-4eb8f34cec41
+		type BUCKET_WATER
+		at 520 151
 		curdir 2
+
+	object PATHb8331a75-074d-41a2-91b0-b1447f65ce45
+		type PATHMARKER
+		at 523 151
+		curdir 1
+		labels->location Vinters
+		stats->owner TARG3a525954-c1cd-4eaa-8262-80af16b614d4
 
 	decorative MOUNT08 at 842 151
 
@@ -7260,55 +7711,25 @@ iMZ1r01
 
 	decorative MOUNT03 at 1016 151
 
-	object TABLbcd4b293-7232-4ff9-b219-7d62b000c90e
-		type TABLE8-L
-		at 512 152
-		curdir 1
-
-	object GRAP809a5d6a-8b25-4574-8935-07dae9da883c
-		type GRAPES
-		at 512 152
-		curdir 0
-
-	object TABLe033e742-4959-45d4-839e-480cf5878921
-		type TABLE6-H
-		at 513 152
-		curdir 0
-
-	object TABLe7675b16-e25d-4147-83e8-dcc935568bd8
-		type TABLE6-H
+	object STON297b0c3e-5232-4571-a380-ce36eb67f7bb
+		type STONEWINDOW1
 		at 514 152
 		curdir 1
 
-	object GRAP240ec3a2-7d56-4cfc-aa88-67250ba90504
-		type GRAPES
-		at 514 152
-		curdir 2
-
-	object TABL833659d1-cb70-48e2-a1c7-96b70d444ddb
-		type TABLE6-H
+	object SIGNea08967d-9507-4343-94ee-b4c4db78b1f2
+		type SIGN19
 		at 515 152
-		curdir 3
+		curdir 0
 
-	object TABL5e29ce4a-c8cb-4002-a16f-20f1a30019d2
-		type TABLE-SHADOW2
+	object STONe51320c7-4be7-4faa-9b46-5ddd9fd97e31
+		type STONEDOOR1_SHUT
 		at 516 152
-		curdir 3
-
-	object TABLc2bd2892-0cd0-4d0a-b92a-9308845ffeb8
-		type TABLE5-LEGS
-		at 516 152
-		curdir 3
-
-	object TROUe2b64cb6-f236-4f92-873e-90b490074ea0
-		type TROUGH
-		at 519 152
 		curdir 1
 
-	object BUCK5f204bc2-bfa7-42f9-9490-4eb8f34cec41
-		type BUCKET_WATER
-		at 520 152
-		curdir 2
+	object SIGN6ff2b83f-2345-48db-b089-6c12efbbebc3
+		type SIGN19
+		at 518 152
+		curdir 0
 
 	decorative MOUNT08 at 841 152
 
@@ -7330,24 +7751,9 @@ iMZ1r01
 
 	decorative MOUNT11 at 1016 152
 
-	object STON297b0c3e-5232-4571-a380-ce36eb67f7bb
-		type STONEWINDOW1
-		at 514 153
-		curdir 1
-
-	object SIGNea08967d-9507-4343-94ee-b4c4db78b1f2
-		type SIGN19
-		at 515 153
-		curdir 0
-
-	object STONe51320c7-4be7-4faa-9b46-5ddd9fd97e31
-		type STONEDOOR1_SHUT
-		at 516 153
-		curdir 1
-
-	object SIGN6ff2b83f-2345-48db-b089-6c12efbbebc3
-		type SIGN19
-		at 518 153
+	object CHIM9e52bd7b-66b2-422c-a292-3529adb9c788
+		type CHIMNEY1
+		at 496 153
 		curdir 0
 
 	object TODE6192d067-e0fa-419b-992e-30b05586d81d
@@ -7393,10 +7799,12 @@ iMZ1r01
 
 	decorative TREE05 at 487 154
 
-	object CHIM9e52bd7b-66b2-422c-a292-3529adb9c788
-		type CHIMNEY1
-		at 496 154
+	object PATH5c3db4d5-406c-405c-8958-858041326bb7
+		type PATHMARKER
+		at 523 154
 		curdir 0
+		labels->location VintersHouse
+		stats->owner PATHf39a5e28-9a0b-4d5a-98a3-f22ddf4171d5
 
 	decorative MOUNT04 at 838 154
 
@@ -7424,6 +7832,167 @@ iMZ1r01
 
 	decorative RUBBLE_04 at 487 155
 
+	object STON8c876635-02d4-42b5-b867-7466a6a0a649
+		type STONE_ARCHWAY
+		at 497 155
+		curdir 2
+
+	object FIRE56c3c023-31aa-41b3-8b2e-4b835e377f82
+		type FIRE-A
+		at 497 155
+		curdir 2
+
+	object STONbe01a8af-9a29-49a6-9816-b4962580f055
+		type STONE_ARCHWAY2
+		at 498 155
+		curdir 0
+
+	object FIRE212ac316-4133-4035-b0cb-6b4068346eef
+		type FIRE-A
+		at 498 155
+		curdir 3
+
+	object CAUL1e92d5db-b488-42db-b0cf-3a4566336fce
+		type CAULDRON_BROTH
+		at 498 155
+		curdir 0
+
+	object STONe014bc61-8860-4156-befc-5e06760f60b4
+		type STONE_ARCHWAY
+		at 499 155
+		curdir 3
+
+	object FIRE8628c254-5d3e-4cc5-9515-a43ac2076d6d
+		type FIRE-A
+		at 499 155
+		curdir 0
+
+	object CAULecb8a376-ba26-48d5-909e-db9ba234c6d6
+		type CAULDRON_EMPTY
+		at 501 155
+		curdir 3
+
+	object STAIa7fb6c3c-6b91-46ca-93fd-c1439865b29c
+		type STAIRS_DOWN
+		at 502 155
+		curdir 3
+		tag 33
+
+	object TABL5e02f53b-65e8-46d8-b7be-f7d4603f072a
+		type TABLE6-H
+		at 506 155
+		curdir 2
+
+	object PUDDf94538c2-c07e-4b77-bc3a-be36f90ce05e
+		type PUDDLE_BEER
+		inside BOTT620c7204-7dd8-4baf-8840-1944061410ab
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GLASd8b2610f-5907-4d9c-995a-d0e9760ba160
+		type GLASS_SHARDS
+		inside BOTT620c7204-7dd8-4baf-8840-1944061410ab
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object BOTT620c7204-7dd8-4baf-8840-1944061410ab
+		type BOTTLE_FULL
+		at 506 155
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TABL1680a84b-15ef-4ccb-8a72-9736ec0d1eab
+		type TABLE6-H
+		at 507 155
+		curdir 1
+
+	object PUDDa4785482-43bb-4c61-8b75-10568ee75974
+		type PUDDLE_BEER
+		inside BOTT739b0325-25c1-4e84-be54-d436ec373799
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GLASfc08dc08-7d86-4604-b12e-6f8130698f81
+		type GLASS_SHARDS
+		inside BOTT739b0325-25c1-4e84-be54-d436ec373799
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object BOTT739b0325-25c1-4e84-be54-d436ec373799
+		type BOTTLE_FULL
+		at 507 155
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TABLe2f0f7b9-284e-444f-b928-801cebf1b781
+		type TABLE6-H
+		at 508 155
+		curdir 0
+
+	object POTI73bf054e-3fa9-4e90-9430-8c9fb8be0c88
+		type POTION_YELLOW
+		at 508 155
+		curdir 0
+
+	object POTI2696f62f-f94b-48f3-9b93-70d8827924d3
+		type POTION_RED
+		at 508 155
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TABL5a96895d-b71c-4e4e-92ee-a75fe46ef91c
+		type TABLE6-H
+		at 509 155
+		curdir 1
+
+	object PUDDd1a1d70b-eae2-4c4f-824b-74a5366a3812
+		type PUDDLE_WINE
+		inside BOTTe910b27b-70a2-4424-83cd-8dfcff09ddea
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GLASe005b8d5-ec0c-4fa1-b0e5-4c0527587d74
+		type GLASS_SHARDS
+		inside BOTTe910b27b-70a2-4424-83cd-8dfcff09ddea
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object BOTTe910b27b-70a2-4424-83cd-8dfcff09ddea
+		type BOTTLE_WINE
+		at 509 155
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TABLffdb5d1c-aac0-4d95-8c1e-b416f07f0454
+		type TABLE6-H
+		at 510 155
+		curdir 0
+
+	object PUDDfcc21c51-f2da-48be-ae3c-fe3b75b3654d
+		type PUDDLE_WINE
+		inside BOTT09d90e48-34a9-4e5b-a589-4fb1560b82cc
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GLAS630f3a2f-d418-4866-ab3f-468ec02cb24f
+		type GLASS_SHARDS
+		inside BOTT09d90e48-34a9-4e5b-a589-4fb1560b82cc
+		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object BOTT09d90e48-34a9-4e5b-a589-4fb1560b82cc
+		type BOTTLE_WINE
+		at 510 155
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object PATH992710e3-337a-4a7e-b397-404c7d1ec114
+		type PATHMARKER
+		at 517 155
+		curdir 3
+		labels->location VintersHouse
+		stats->owner PATH5c3db4d5-406c-405c-8958-858041326bb7
+
 	decorative MOUNT08 at 836 155
 
 	decorative MOUNT06 at 837 155
@@ -7448,51 +8017,60 @@ iMZ1r01
 
 	decorative RUBBLE_16 at 487 156
 
-	object STON8c876635-02d4-42b5-b867-7466a6a0a649
-		type STONE_ARCHWAY
+	object TARGa000a219-48b7-4b7d-9769-df0b9c2d4be2
+		type TARGET
 		at 497 156
-		curdir 2
+		curdir 1
+		tag 80083
+		labels->location FlyingTrout
 
-	object FIRE56c3c023-31aa-41b3-8b2e-4b835e377f82
-		type FIRE-A
-		at 497 156
-		curdir 2
-
-	object STONbe01a8af-9a29-49a6-9816-b4962580f055
-		type STONE_ARCHWAY2
+	object TARGada85c01-454b-4c46-a9e8-0fad9077413e
+		type TARGET
 		at 498 156
 		curdir 0
+		tag 80082
+		labels->location FlyingTrout
 
-	object FIRE212ac316-4133-4035-b0cb-6b4068346eef
-		type FIRE-A
-		at 498 156
-		curdir 3
+	object TARG36a6a116-eda7-4ff8-a06b-9c4f57747dd9
+		type TARGET
+		at 500 156
+		curdir 1
+		tag 80081
+		labels->location FlyingTrout
 
-	object CAUL1e92d5db-b488-42db-b0cf-3a4566336fce
-		type CAULDRON_BROTH
-		at 498 156
-		curdir 0
-
-	object STONe014bc61-8860-4156-befc-5e06760f60b4
-		type STONE_ARCHWAY
-		at 499 156
-		curdir 3
-
-	object FIRE8628c254-5d3e-4cc5-9515-a43ac2076d6d
-		type FIRE-A
-		at 499 156
-		curdir 0
-
-	object CAULecb8a376-ba26-48d5-909e-db9ba234c6d6
-		type CAULDRON_EMPTY
-		at 501 156
-		curdir 3
-
-	object STAIa7fb6c3c-6b91-46ca-93fd-c1439865b29c
-		type STAIRS_DOWN
+	object TARGa8965429-aa20-42af-b99a-4840b2e98893
+		type TARGET
 		at 502 156
+		curdir 1
+		tag 34
+
+	object STON0fa6b940-e60f-4025-98ba-b9ba339f303d
+		type STONEDOOR1_LOCK
+		at 503 156
+		curdir 2
+		tag 70
+
+	object TABL9f04f06a-1f86-4570-b81a-bad6f8f52673
+		type TABLE-SHADOW2
+		at 506 156
+		curdir 1
+
+	object TABL238ed69b-24b0-4616-a9ad-b9fb40fefaae
+		type TABLE5-LEGS
+		at 506 156
+		curdir 1
+
+	object TABL1fe4dde5-ca49-491e-a4eb-933a1366d519
+		type TABLE-SHADOW1
+		at 507 156
+		curdir 0
+
+	object KEY_c915da57-0d40-49a1-bbd3-62ed8dbd5205
+		type KEY
+		inside MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 		curdir 3
-		tag 33
+		tag 81
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object KEY_24149868-9511-45c7-97a5-aeb017191dfb
 		type KEY_1
@@ -7513,6 +8091,56 @@ iMZ1r01
 		curdir 1
 		name Reynard
 		funcs->talk people/peasants/lakeside/barman.txt
+		schedule 7 30 SIT_AT_LOCATION PEW_89677a94-c93b-4aba-9ce3-9c4deffa1310
+		schedule 9 0 SIT_AT_LOCATION TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
+		schedule 12 0 WAITER_STARTUP TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
+		schedule 14 0 SIT_AT_LOCATION TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
+		schedule 17 0 WAITER_STARTUP TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
+		schedule 20 0 SIT_AT_LOCATION TARG1b34ae20-9327-44bd-9aca-16effe5d9c04
+		schedule 22 0 GO_TO_SLEEP BED_dada4d5b-45c8-4ede-8240-e94f8d997a62
+
+	object TABLd35ccc0f-e7f8-4408-aedf-107d94601d23
+		type TABLE-SHADOW1
+		at 508 156
+		curdir 0
+
+	object TABL3f1c78db-ae1d-471d-88a9-9d83ffe1119f
+		type TABLE5-LEGS
+		at 508 156
+		curdir 1
+
+	object TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
+		type TARGET
+		at 508 156
+		curdir 1
+		tag 80080
+		labels->location FlyingTrout
+
+	object TABLdac4fa76-61e0-4b22-887c-b3b43360a0b1
+		type TABLE-SHADOW1
+		at 509 156
+		curdir 0
+
+	object TABL157ff8a0-707e-475e-80ca-4f921bfb6910
+		type TABLE-SHADOW1
+		at 510 156
+		curdir 0
+
+	object TABL676dce7a-7341-46aa-a75b-9462966d180b
+		type TABLE5-LEGS
+		at 510 156
+		curdir 1
+
+	object TARG1b34ae20-9327-44bd-9aca-16effe5d9c04
+		type TARGET
+		at 510 156
+		curdir 1
+		labels->location FlyingTrout
+
+	object CHAIc2bef767-a176-475c-8ee2-0692521dfa72
+		type CHAIR
+		at 510 156
+		curdir 1
 
 	object STONb1b791cb-2ec9-4782-b27d-6af2c194a951
 		type STONEWINDOW1
@@ -7564,17 +8192,56 @@ iMZ1r01
 		curdir 3
 		tag 77
 
-	object TARGa8965429-aa20-42af-b99a-4840b2e98893
-		type TARGET
-		at 502 157
-		curdir 1
-		tag 34
-
-	object STON0fa6b940-e60f-4025-98ba-b9ba339f303d
-		type STONEDOOR1_LOCK
-		at 503 157
+	object TABLac00565f-416b-4322-ae86-ae9b4b231fc0
+		type TABLE6-H
+		at 497 157
 		curdir 2
-		tag 70
+
+	object TRAY3984d56d-6105-4791-9b31-6dfa2d855eaa
+		type TRAY_FOOD
+		at 497 157
+		curdir 0
+
+	object TABLb050a06b-6de9-447d-811d-e48575fa4139
+		type TABLE6-H
+		at 498 157
+		curdir 0
+
+	object TABL1e34fb71-c7a9-46f0-98d4-ae7ad7eb9ede
+		type TABLE6-H
+		at 499 157
+		curdir 1
+
+	object TABLaef8b56f-8de6-436b-a556-73c2c8e06025
+		type TABLE6-H
+		at 500 157
+		curdir 0
+
+	object TRAYb9bba391-a8d1-4457-b77f-19f052be893d
+		type TRAY_FOOD
+		at 500 157
+		curdir 0
+
+	object FOOD1d32ee32-ad2e-4abe-921d-bffb8eb3843c
+		type FOOD02
+		at 500 157
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TABL33876dd1-0610-4dd3-81ed-7b8c7182449b
+		type TABLE6-H
+		at 501 157
+		curdir 1
+
+	object TABLdb0ddca4-176d-47d9-976b-01c9d430003b
+		type TABLE6-H
+		at 502 157
+		curdir 0
+
+	object TRAY2608cbcc-1b02-4ac8-9fe8-ede24fff5a29
+		type TRAY_FOOD
+		at 502 157
+		curdir 0
 
 	object TABLe79c4862-ba12-4efa-abcf-22cd269e3cd7
 		type TABLE6-H
@@ -7628,10 +8295,23 @@ iMZ1r01
 		curdir 2
 		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
-	object TABL88180568-d8cc-4d30-914e-e70d6babe483
+	object TABL87daaeca-bd52-4675-8b18-4f12ce0a51d5
 		type TABLE6-H
 		at 510 157
+		curdir 0
+
+	object BOOK9275dfe5-a791-435a-9dc0-3fdb4f36d059
+		type BOOK
+		at 510 157
 		curdir 3
+		name Ledger
+
+	object PATH650ea896-022c-4a7c-94e4-81c347931542
+		type PATHMARKER
+		at 523 157
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATH52ad372b-b96e-4851-8213-ba5077e1a0cf
 
 	decorative MOUNT08 at 829 157
 
@@ -7657,50 +8337,29 @@ iMZ1r01
 
 	decorative MOUNT03 at 1010 157
 
-	object TABLac00565f-416b-4322-ae86-ae9b4b231fc0
-		type TABLE6-H
-		at 497 158
+	object BIBLe31c2659-5e13-4d6c-87f7-07c7c4061da3
+		type BIBLE
+		inside DRAW09b2776a-aa38-4802-b77d-8577f2bc50c0
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
-	object TRAY3984d56d-6105-4791-9b31-6dfa2d855eaa
-		type TRAY_FOOD
+	object CLOTdb00d652-c1e3-41f1-a5d2-08c2cb8f55b0
+		type CLOTHING01
+		inside DRAW09b2776a-aa38-4802-b77d-8577f2bc50c0
+		curdir 0
+
+	object GOLD23127f8f-e136-493e-9bd0-e094f8a1acb4
+		type GOLD_COINS
+		inside DRAW09b2776a-aa38-4802-b77d-8577f2bc50c0
+		curdir 0
+		stats->quantity 274
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object DRAW09b2776a-aa38-4802-b77d-8577f2bc50c0
+		type DRAWERS
 		at 497 158
-		curdir 0
-
-	object TABLb050a06b-6de9-447d-811d-e48575fa4139
-		type TABLE6-H
-		at 498 158
-		curdir 0
-
-	object TABL1e34fb71-c7a9-46f0-98d4-ae7ad7eb9ede
-		type TABLE6-H
-		at 499 158
 		curdir 1
-
-	object TABLaef8b56f-8de6-436b-a556-73c2c8e06025
-		type TABLE6-H
-		at 500 158
-		curdir 0
-
-	object TRAYb9bba391-a8d1-4457-b77f-19f052be893d
-		type TRAY_FOOD
-		at 500 158
-		curdir 0
-
-	object TABL33876dd1-0610-4dd3-81ed-7b8c7182449b
-		type TABLE6-H
-		at 501 158
-		curdir 1
-
-	object TABLdb0ddca4-176d-47d9-976b-01c9d430003b
-		type TABLE6-H
-		at 502 158
-		curdir 0
-
-	object TRAY2608cbcc-1b02-4ac8-9fe8-ede24fff5a29
-		type TRAY_FOOD
-		at 502 158
-		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL91db87dd-7fb1-491b-a8dd-8625e3085bdf
 		type TABLE-SHADOW2
@@ -7776,22 +8435,18 @@ iMZ1r01
 
 	decorative RUBBLE_12 at 487 159
 
-	object GOLDb58a7801-c874-4deb-a94c-f0aff934e4f4
-		type GOLD_COINS
-		inside DRAWed5d09dc-aa7e-42be-9398-fcad0ee12895
-		curdir 2
-		stats->quantity 1130
-		stats->owner PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+	object STONd5f610e4-0a2e-4ff3-a79c-03bbd9056221
+		type STONEDOOR2_LOCK
+		at 500 159
+		curdir 3
+		name Private
+		tag 81
 
-	object DRAWed5d09dc-aa7e-42be-9398-fcad0ee12895
-		type DRAWERS
-		at 497 159
+	object CHAId4990756-680d-4ede-afc9-22f5fc99bbaa
+		type CHAIR
+		at 506 159
 		curdir 1
-
-	object BIBL30b7e173-f573-4e79-a30d-7775c4865b04
-		type BIBLE
-		at 497 159
-		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object STONb6de5623-1530-47a9-8acc-20914d99cea1
 		type STONEWINDOW1
@@ -7824,11 +8479,27 @@ iMZ1r01
 
 	decorative RUBBLE_22 at 487 160
 
-	object CHAId4990756-680d-4ede-afc9-22f5fc99bbaa
-		type CHAIR
+	object BED_dada4d5b-45c8-4ede-8240-e94f8d997a62
+		type BED
+		at 497 160
+		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TABLa9eee4dc-d8ed-4c70-b7c6-9adafe0561a2
+		type TABLE7
+		at 499 160
+		curdir 0
+
+	object STONb8632b1d-8ceb-4483-9362-479cb8ad2d5b
+		type STONEDOORWAY
+		at 503 160
+		curdir 2
+
+	object TARG69ec9008-5c63-454b-a0a3-e29322118bae
+		type TARGET
 		at 506 160
 		curdir 1
-		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+		labels->location FlyingTrout
 
 	object CHAIb1cc0a2d-0d4b-4ac0-98a1-3d286a2e1a73
 		type CHAIR
@@ -7876,22 +8547,22 @@ iMZ1r01
 
 	decorative RUBBLE_23 at 487 161
 
-	object STON63121e9f-6c7a-4f8c-8bad-498b6a2969a0
-		type STONEWINDOW1
-		at 496 161
-		curdir 2
+	object BIBL95062f6e-7f13-4274-94e7-b4c0af411c84
+		type BIBLE
+		inside DRAWed5d09dc-aa7e-42be-9398-fcad0ee12895
+		curdir 0
 
-	object STON0a04955b-0bc3-4021-93f9-ba57b6128afb
-		type STONEDOOR2_LOCK
-		at 500 161
-		curdir 3
-		name Room 1
-		tag 35
-
-	object STON3e2c0df8-993e-4009-8e71-b4b251dcc9fd
-		type STONEDOORWAY
-		at 503 161
+	object GOLDb58a7801-c874-4deb-a94c-f0aff934e4f4
+		type GOLD_COINS
+		inside DRAWed5d09dc-aa7e-42be-9398-fcad0ee12895
 		curdir 2
+		stats->quantity 1130
+		stats->owner PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+
+	object DRAWed5d09dc-aa7e-42be-9398-fcad0ee12895
+		type DRAWERS
+		at 497 161
+		curdir 1
 
 	object TABLf9aa0c95-2f98-4a5d-bfd2-54b2d1249e12
 		type TABLE6-H
@@ -7994,22 +8665,17 @@ iMZ1r01
 
 	decorative RUBBLE_21 at 487 162
 
-	object BED_0c455b81-83ff-4f3d-b705-033fa071c509
-		type BED
-		at 497 162
-		curdir 3
-		stats->owner PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
-
-	object TABLdd2b2148-0f1d-4d2e-8db4-4140f17d7cc1
-		type TABLE7
-		at 499 162
-		curdir 3
-
-	object PLAN52223a58-9ddd-43a4-9461-a606cabbf531
-		type PLANT1
-		at 499 162
+	object STON63121e9f-6c7a-4f8c-8bad-498b6a2969a0
+		type STONEWINDOW1
+		at 496 162
 		curdir 2
-		stats->owner PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+
+	object STON0a04955b-0bc3-4021-93f9-ba57b6128afb
+		type STONEDOOR2_LOCK
+		at 500 162
+		curdir 3
+		name Room 1
+		tag 35
 
 	object TABL8c8dfa3f-d829-40c7-9e10-1a4b71656994
 		type TABLE-SHADOW2
@@ -8021,16 +8687,22 @@ iMZ1r01
 		at 506 162
 		curdir 1
 
-	object CHAI0172390c-5c40-4938-bd03-bc0ae9a31775
-		type CHAIR
-		at 506 162
-		curdir 0
-		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
-
 	object TABL9db7e0d8-3f4a-4d5d-8110-2c94963cf9c8
 		type TABLE-SHADOW1
 		at 507 162
 		curdir 0
+
+	object TARG168a793d-a99c-4309-a272-69eec86bb10e
+		type TARGET
+		at 507 162
+		curdir 0
+		labels->location FlyingTrout
+
+	object CHAI0172390c-5c40-4938-bd03-bc0ae9a31775
+		type CHAIR
+		at 507 162
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL34dc992b-3f87-42a5-b508-3a824fee7fcf
 		type TABLE-SHADOW1
@@ -8046,6 +8718,12 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 509 162
 		curdir 0
+
+	object TARG7a5f909f-deaf-4b81-883a-e65674d22a5e
+		type TARGET
+		at 509 162
+		curdir 0
+		labels->location FlyingTrout
 
 	object CHAI6d4f7266-0be5-48ee-a6d5-f251e7950c12
 		type CHAIR
@@ -8086,10 +8764,28 @@ iMZ1r01
 
 	decorative MOUNT11 at 1004 162
 
-	object DRAW87671ec4-39f9-4e42-8633-f7afaf180a80
-		type DRAWERS
+	object BED_0c455b81-83ff-4f3d-b705-033fa071c509
+		type BED
 		at 497 163
-		curdir 1
+		curdir 3
+		stats->owner PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+
+	object TABLdd2b2148-0f1d-4d2e-8db4-4140f17d7cc1
+		type TABLE7
+		at 499 163
+		curdir 3
+
+	object PLAN52223a58-9ddd-43a4-9461-a606cabbf531
+		type PLANT1
+		at 499 163
+		curdir 2
+		stats->owner PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+
+	object TARG59131e33-cb8b-4c64-81b6-16c2dffc8817
+		type TARGET
+		at 504 163
+		curdir 0
+		labels->location FlyingTrout
 
 	decorative MOUNT08 at 815 163
 
@@ -8126,6 +8822,18 @@ iMZ1r01
 	decorative MOUNT01 at 1002 163
 
 	decorative MOUNT11 at 1003 163
+
+	object PATH814c200a-8714-46b6-9aa0-7b753c0bd001
+		type PATHMARKER
+		at 492 164
+		curdir 0
+		labels->location LakesideButchers
+		stats->owner PATH3a5170ed-f038-4d0c-8932-9c395fb8d24f
+
+	object DRAW87671ec4-39f9-4e42-8633-f7afaf180a80
+		type DRAWERS
+		at 497 164
+		curdir 1
 
 	decorative MOUNT08 at 813 164
 
@@ -8168,6 +8876,13 @@ iMZ1r01
 		at 483 165
 		curdir 2
 
+	object PATHe6310c41-ff69-4f7a-88c0-e65e6c980dae
+		type PATHMARKER
+		at 492 165
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATH1e2dcc11-8cf8-43ae-86c3-151ec97ce2b5
+
 	object STON0a3bb8e6-41b3-419c-9959-8e8bcfd14793
 		type STONEWINDOW1
 		at 496 165
@@ -8179,6 +8894,11 @@ iMZ1r01
 		curdir 3
 		name Room 2
 		tag 36
+
+	object STON1ac3b71d-9945-461b-995a-f0ff93817ffc
+		type STONEDOORWAY
+		at 503 165
+		curdir 2
 
 	object CHAIbee2f5d7-1078-462e-868e-2822ad21b8e4
 		type CHAIR
@@ -8250,6 +8970,13 @@ iMZ1r01
 		type STONEWINDOW1
 		at 511 165
 		curdir 2
+
+	object PATH52ad372b-b96e-4851-8213-ba5077e1a0cf
+		type PATHMARKER
+		at 517 165
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATH8ba5847d-c012-4fc5-b092-f77e2989d433
 
 	decorative MOUNT04 at 813 165
 
@@ -8599,6 +9326,13 @@ iMZ1r01
 		at 487 168
 		curdir 3
 
+	object PATHb1652034-dde5-43fb-b70e-0f30a6c3ef1e
+		type PATHMARKER
+		at 504 168
+		curdir 0
+		labels->location FlyingTrout
+		stats->owner TARG59131e33-cb8b-4c64-81b6-16c2dffc8817
+
 	object TARGffa1cfdd-499b-4ca1-b0e0-6b9c1531b8a6
 		type TARGET
 		at 523 168
@@ -8711,6 +9445,13 @@ iMZ1r01
 	decorative MOUNT07 at 991 168
 
 	decorative MOUNT03 at 996 168
+
+	object PATHbb2f14be-07e9-4720-ae30-651655b1e9fc
+		type PATHMARKER
+		at 504 169
+		curdir 1
+		labels->location LakesideButchers
+		stats->owner PATH8a7b6a92-1545-4967-969b-1b09320297e5
 
 	object STON4ff6fecf-3e5d-431e-8f69-5c3e5d501a5d
 		type STONEWINDOW1
@@ -9462,6 +10203,20 @@ iMZ1r01
 		at 488 176
 		curdir 2
 
+	object PATH8a7b6a92-1545-4967-969b-1b09320297e5
+		type PATHMARKER
+		at 497 176
+		curdir 2
+		labels->location LakesideButchers
+		stats->owner PATH814c200a-8714-46b6-9aa0-7b753c0bd001
+
+	object PATH8ba5847d-c012-4fc5-b092-f77e2989d433
+		type PATHMARKER
+		at 512 176
+		curdir 2
+		labels->location FlyingTrout
+		stats->owner PATHb1652034-dde5-43fb-b70e-0f30a6c3ef1e
+
 	object STON47ac8206-349d-4e86-9a98-83c26854de3f
 		type STONEWINDOW1
 		at 526 176
@@ -9535,6 +10290,13 @@ iMZ1r01
 		type STONE_ARCHWAY2
 		at 488 177
 		curdir 2
+
+	object PATH1e2dcc11-8cf8-43ae-86c3-151ec97ce2b5
+		type PATHMARKER
+		at 499 177
+		curdir 3
+		labels->location FlyingTrout
+		stats->owner PATHb1652034-dde5-43fb-b70e-0f30a6c3ef1e
 
 	object STON97ddb525-8700-43dc-bb1c-3f1ba8366a1d
 		type STONEDOOR1_SHUT
@@ -10362,16 +11124,22 @@ iMZ1r01
 		type PEW_LEFT
 		at 469 191
 		curdir 0
+		name Butcher
+		labels->location LakesideChurch
 
 	object PEW_d83c3c43-20de-4bdd-b0ac-bd62eb3f9390
 		type PEW_RIGHT
 		at 470 191
 		curdir 0
+		name Vinter
+		labels->location LakesideChurch
 
 	object PEW_89677a94-c93b-4aba-9ce3-9c4deffa1310
 		type PEW_LEFT
 		at 473 191
 		curdir 0
+		name Barkeep
+		labels->location LakesideChurch
 
 	object PEW_2f27e397-aec8-4550-869a-bce362b2d126
 		type PEW_RIGHT
@@ -22571,6 +23339,11 @@ iMZ1r01
 
 	decorative TREE00 at 644 343
 
+	object TORC5a045faa-c00c-4fb5-8d99-ce679dd7b14f
+		type TORCH
+		at 891 343
+		curdir 2
+
 	decorative TREE01 at 542 344
 
 	decorative TREE03 at 547 344
@@ -22606,6 +23379,21 @@ iMZ1r01
 	decorative TREE00 at 645 344
 
 	decorative TREE02 at 647 344
+
+	object TORC340a7b51-ffa1-445e-9b25-98980755aca4
+		type TORCH
+		at 870 344
+		curdir 2
+
+	object TORCc3d08885-ebb8-4945-8539-a3f17ed0e204
+		type TORCH
+		at 873 344
+		curdir 2
+
+	object TORCf5175a5b-0924-4c41-98b3-8a16eec9c459
+		type TORCH
+		at 877 344
+		curdir 2
 
 	object COW_5fe636ec-aa98-4e67-93ce-ee7e9c91e1f5
 		type COW_THECOW_DEAD
@@ -22654,72 +23442,86 @@ iMZ1r01
 		type WINECASK0
 		at 868 345
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object WINE4830e7ff-516f-4b17-8c16-0f95b428512f
 		type WINECASK0
 		at 870 345
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object STAIb4fe83c6-31de-408c-b704-3b197786a97e
 		type STAIRS_UP
 		at 872 345
 		curdir 2
 		tag 34
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL59110f7b-4e9c-4f48-a471-562720868e29
 		type TABLE6-V
 		at 874 345
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODbeecf8df-fbc2-4e1e-87e2-67e74297582e
 		type FOOD02
 		at 874 345
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL7b13d4c1-7b50-432a-840f-c1d8937b3c3c
 		type TABLE-SHADOW2
 		at 875 345
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL827c0f23-f6c6-4818-b780-e552c159386f
 		type TABLE5-LEGS
 		at 875 345
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLc9e76429-8dcd-4672-8863-3a556163177f
 		type TABLE6-V
 		at 876 345
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD43ffb424-779f-4fe0-9593-67d2d3d2d247
 		type FOODP08
 		at 876 345
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD2f0c1028-54db-456b-86bb-9cf2c8b6f636
 		type FOODP08
 		at 876 345
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODe1c826ca-469e-4ce1-bf8d-463313e3daa5
 		type FOODP08
 		at 876 345
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD137d3765-e8e3-4d04-9d70-bbf46bad719d
 		type FOODP08
 		at 876 345
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLdffc7e17-c869-4318-a3a1-a0bb1304f26e
 		type TABLE-SHADOW2
 		at 877 345
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL0edb2bd0-ff59-4b7a-a146-d836f674b1d6
 		type TABLE5-LEGS
 		at 877 345
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object STAI38c6abbb-8bb1-42ab-8509-1915dd3de1b4
 		type STAIRS_UP
@@ -22792,66 +23594,79 @@ iMZ1r01
 		at 872 346
 		curdir 1
 		tag 34
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLe8f2c3df-5bf6-4ecf-a895-816e84b5489c
 		type TABLE6-V
 		at 874 346
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODba6ef69e-ffe2-4f3f-8746-0c9b034103c6
 		type FOODP04
 		at 874 346
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD4b3755a3-7a05-4e37-ab97-ea44e1a7429f
 		type FOODP04
 		at 874 346
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD3ae17018-9b64-4d5e-b5ce-8d18ac3e14a6
 		type FOODP04
 		at 874 346
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD5125a7e5-1382-4a67-b556-97f86ec9ae62
 		type FOODP04
 		at 874 346
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL7fe18b79-065c-4aba-8929-e03a03224dd5
 		type TABLE-SHADOW1
 		at 875 346
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLc31d55c9-52cd-4551-8210-be9138af21eb
 		type TABLE6-V
 		at 876 346
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD5db36822-c0ed-4a6b-9d5a-d1792e91974e
 		type FOODP09
 		at 876 346
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODec6282aa-1459-4a9e-8ae9-36fe77443ad5
 		type FOODP09
 		at 876 346
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD0a952f2e-6820-4b64-a19a-ae6794eaebba
 		type FOODP09
 		at 876 346
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD15462064-31e7-40d5-b681-8eb598e24c3e
 		type FOODP09
 		at 876 346
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL5f2cb87c-60d3-4d3d-a12b-ac7a61b252d8
 		type TABLE-SHADOW1
 		at 877 346
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object STAIc751e4b6-e868-4467-810e-87f4bda805f1
 		type STAIRS_UP
@@ -22900,56 +23715,73 @@ iMZ1r01
 
 	decorative TREE02 at 565 347
 
+	object TORC671ae257-bd0a-4e2c-80cb-b82e75a22615
+		type TORCHUNLIT
+		at 867 347
+		curdir 2
+		tag 81
+		funcs->use LEVER_CALLWIELD_TAG
+
 	object TARGc676b6fd-82a8-45c3-a605-69869eeb6c16
 		type TARGET
 		at 872 347
 		curdir 1
 		tag 33
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL1b6dd340-d105-4158-a886-48b7360947d8
 		type TABLE6-V
 		at 874 347
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD3ea609fa-ace4-47b8-940d-d0ce51d15af3
 		type FOOD01
 		at 874 347
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL9803b5eb-f08c-4aaf-bb68-498acf039bcb
 		type TABLE-SHADOW1
 		at 875 347
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL93fc66d8-3d59-47bb-a356-d441113573a4
 		type TABLE6-V
 		at 876 347
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODd789ef5d-c00c-4f50-93ea-b0408dbc6e8a
 		type FOODP01
 		at 876 347
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODd43fe06d-32dc-45e4-8d7c-eaabd91d9075
 		type FOODP01
 		at 876 347
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD693574c8-2bc0-44b8-9bfd-1ab5cc724592
 		type FOODP01
 		at 876 347
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD36bed605-c59b-475f-bbd2-bdc0874880f0
 		type FOODP01
 		at 876 347
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL0b403009-d61d-4370-a046-2374c597c0c6
 		type TABLE-SHADOW1
 		at 877 347
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TARGb071a2cb-f759-4a7b-8b4d-5e28a589f3f4
 		type TARGET
@@ -22997,56 +23829,67 @@ iMZ1r01
 		type TABLE6-V
 		at 874 348
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD62ce3a41-a278-47ce-bfef-878cb219f52e
 		type FOODP04
 		at 874 348
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD9b565972-a1a0-4dab-9397-bdba59121caa
 		type FOODP04
 		at 874 348
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD12e108df-fbe9-4d4d-ad31-a13c20ae1a33
 		type FOODP04
 		at 874 348
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODfaba1ccd-dca4-46f0-b3ca-cf61073cbe19
 		type FOODP04
 		at 874 348
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL08339c87-51b6-4b37-b622-8b0315fed6ed
 		type TABLE-SHADOW1
 		at 875 348
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLf4da23cf-e2ce-408e-903c-33baa2179cc4
 		type TABLE5-LEGS
 		at 875 348
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLa7616617-9496-4615-9e76-9b9dc6cfbab8
 		type TABLE6-V
 		at 876 348
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD2a80eb79-3295-4d14-affa-082094815b1e
 		type FOOD09
 		at 876 348
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL387ac5d7-93c3-44ec-9b7f-9b8342da1fa7
 		type TABLE-SHADOW1
 		at 877 348
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLbc3e3f24-c113-40a8-8f6b-c82af17dcb4d
 		type TABLE5-LEGS
 		at 877 348
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL322e2554-2153-4234-9c9f-db946461c53f
 		type TABLE6-BROKEN
@@ -23081,31 +23924,54 @@ iMZ1r01
 		type BUCKET_MILK
 		at 868 349
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object BUCKd20bb65e-d79e-4446-9833-cd3b09c8343f
+		type BUCKET_MILK
+		at 869 349
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object BUCKddec6994-0900-43e7-90c4-f2dcb8501469
+		type BUCKET_MILK
+		at 870 349
+		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object STON2afce70c-86d6-428a-aed3-aa766f9e8705
 		type STONEDOOR1_SHUT
 		at 872 349
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL4a8a7c16-e499-4001-869d-3de01006822f
 		type TABLE-SHADOW2
 		at 874 349
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLe27a879b-cd55-4191-b08e-9b25ace93bd9
 		type TABLE-SHADOW3
 		at 875 349
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL62dec2af-9ca8-4842-9622-87d28c5692bb
 		type TABLE-SHADOW2
 		at 876 349
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABLcfe810c2-46f5-4b30-89da-96aae0a280c0
 		type TABLE-SHADOW3
 		at 877 349
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TORCb2381a77-079f-413b-a22f-59203ce5afd4
+		type TORCH
+		at 886 349
+		curdir 2
 
 	object RAT_38988c8d-f99e-4604-a583-ead315a3aaa2
 		type RAT_DEAD
@@ -23173,121 +24039,145 @@ iMZ1r01
 		type FOOD04
 		at 868 350
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD87937298-378f-4e05-85b5-83a476edba2e
 		type FOOD04
 		at 868 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODb449fe51-dd47-4427-ae60-fb55356c8ad8
 		type FOODP03
 		at 869 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD7fc3812b-8fd6-440a-9308-c2fa0b935148
 		type FOODP03
 		at 869 350
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODd9036002-d3a0-4857-b1a8-b99987a78e8b
 		type FOODP03
 		at 869 350
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD8c40b012-7372-4965-94af-1ac0aefd3f31
 		type FOODP03
 		at 869 350
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD1d14f087-ae71-4e87-b473-7ec2ed135407
 		type FOOD07
 		at 869 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD8dafcbd5-b5f0-4445-9fd7-260fb9f7d3e3
 		type FOOD08
 		at 870 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODbff853f1-e481-4a58-9fcf-2f762cd3d81e
 		type FOOD06
 		at 871 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD5ad79d60-b0cf-43ed-80fe-7ead8fb22058
 		type FOOD05
 		at 871 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL0e13f0e4-9ef2-4d65-b660-3b8897163ec8
 		type TABLE6-H
 		at 874 350
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODaed9f398-0ce3-4868-9e7f-04e200e4826f
 		type FOOD00
 		at 874 350
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL7885df98-7081-4c57-abdb-c0a0f68741a8
 		type TABLE6-H
 		at 875 350
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD090cf27a-a3b2-48ca-bad1-8fd844a8d157
 		type FOODP05
 		at 875 350
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODcd0cfb73-6ffa-4c8e-a15f-9970c5b054f8
 		type FOODP05
 		at 875 350
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD99063d31-f432-4f72-82a7-1432f4b5ae59
 		type FOODP05
 		at 875 350
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODb75e5511-0374-4503-b19c-87c3474f2373
 		type FOODP05
 		at 875 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL99ec4790-1df1-4ed0-ad8b-0f9cf11d9559
 		type TABLE6-H
 		at 876 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD79ed5f43-0eab-4022-9772-7953238d11a2
 		type FOOD03
 		at 876 350
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object TABL23ebd646-c5a1-453d-80f0-2a366c4ea9ef
 		type TABLE6-H
 		at 877 350
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODd8d0c190-a305-49af-bc8a-21108e3e5b13
 		type FOODP10
 		at 877 350
 		curdir 1
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODe797652a-592d-44e9-a7be-5304bc2dcd07
 		type FOODP10
 		at 877 350
 		curdir 3
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOODcb7dad02-b97f-4961-a980-550ca593f2bb
 		type FOODP10
 		at 877 350
 		curdir 0
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object FOOD5c2b973c-d97f-4255-939d-04d61717b0ca
 		type FOODP10
 		at 877 350
 		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
 	object BLOO68e55167-c6ef-4b48-b275-0a4818e09cd2
 		type BLOOD01
@@ -23375,6 +24265,12 @@ iMZ1r01
 
 	decorative TREE00 at 645 351
 
+	object SECR4e3d3c5a-7c22-42f3-971e-41684d96a360
+		type SECRETDOOR2_SHUT
+		at 873 351
+		curdir 0
+		tag 81
+
 	object DEAD533bef96-b2dc-49f7-8897-c1b73d5dc902
 		type DEADPEASANT
 		at 887 351
@@ -23442,6 +24338,52 @@ iMZ1r01
 
 	decorative TREE03 at 551 352
 
+	object GOLD88a14301-5982-4249-9282-c4c6936f268f
+		type GOLD_BAR
+		at 868 352
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GOLD353858c2-6503-4d88-9acf-8117506e0623
+		type GOLD_BAR
+		at 868 352
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GOLDfc004c5a-8013-474e-bca6-0d9678a14520
+		type GOLD_BAR
+		at 868 352
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GOLD50731145-e80d-4b2c-b6b8-9b4deb74fb4a
+		type GOLD_BAR
+		at 868 352
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GOLDd5018d11-5eb8-4480-8c82-4a4b3101d48c
+		type GOLD_BAR
+		at 868 352
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object GOLD866094ef-f54f-44d9-b90d-2edd9a326131
+		type GOLD_BAR
+		at 868 352
+		curdir 2
+		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object SECR28f3bdb7-a968-4f49-b589-a5bc9a919f85
+		type SECRETDOOR1_SHUT
+		at 874 352
+		curdir 2
+
+	object SPEL2d6c12d7-8783-446a-9c61-0087dac5f74c
+		type SPELL_GREATKILL
+		at 877 352
+		curdir 3
+
 	object STONe4f6942d-199b-4e16-88db-44c05fc728e0
 		type STONE_MASK2
 		at 447 353
@@ -23484,6 +24426,21 @@ iMZ1r01
 	decorative TREE00 at 542 353
 
 	decorative TREE00 at 549 353
+
+	object TORCb7693b84-c006-4535-9dc4-4b1a683d40f8
+		type TORCH
+		at 869 353
+		curdir 2
+
+	object TORC15ac7818-516e-414b-a6be-19e0006f3e74
+		type TORCH
+		at 874 353
+		curdir 2
+
+	object TORCddbf6403-2a6a-40f8-91f4-5675ba45820e
+		type TORCH
+		at 878 353
+		curdir 2
 
 	object STON78f033aa-4e1b-47b0-82cc-c4407f7ae15e
 		type STONE_MASK2
@@ -24279,6 +25236,21 @@ iMZ1r01
 		type ORB
 		at 891 360
 		curdir 0
+
+	object TORC061e3a4a-cfd7-4071-82cf-78a8f07aa9e2
+		type TORCH
+		at 889 361
+		curdir 2
+
+	object TORC7e14c161-172a-463f-a8cc-efbae0a19b21
+		type TORCH
+		at 871 362
+		curdir 2
+
+	object TORC5ba086ff-b4bb-4969-897a-d6715e02d235
+		type TORCH
+		at 873 362
+		curdir 2
 
 	object STAI27e9b509-32ae-4ded-bac1-d3e3f159b45a
 		type STAIRS_UP

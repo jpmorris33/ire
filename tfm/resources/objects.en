@@ -9334,6 +9334,8 @@ section: characters
 	short		"fish"
 	IfUsed		EAT_FOOD
 	no_resurrect
+	damage		1
+	attack		close_attack
 
 	name FOOD09
 	left		FOOD09
