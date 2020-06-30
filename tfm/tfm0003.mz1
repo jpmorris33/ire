@@ -5295,14 +5295,8 @@ iMZ1r01
 		at 515 125
 		curdir 2
 
-	object TOOLa4fa4919-0470-4f42-bc9b-c93d856d0099
-		type TOOLS10
-		at 515 125
-		curdir 0
-		stats->owner MAN_b0a6090c-67b0-4f43-b140-b29d33bb156d
-
-	object TOOLfeab76ec-1a06-4648-8eb7-48ee40bf9660
-		type TOOLS11
+	object THRE90a0dfd6-52dc-4c6c-960d-6310f0dd757b
+		type THREAD00
 		at 515 125
 		curdir 0
 		stats->owner MAN_b0a6090c-67b0-4f43-b140-b29d33bb156d
@@ -5312,8 +5306,14 @@ iMZ1r01
 		at 516 125
 		curdir 0
 
-	object THRE90a0dfd6-52dc-4c6c-960d-6310f0dd757b
-		type THREAD00
+	object TOOLa4fa4919-0470-4f42-bc9b-c93d856d0099
+		type TOOLS10
+		at 516 125
+		curdir 0
+		stats->owner MAN_b0a6090c-67b0-4f43-b140-b29d33bb156d
+
+	object TOOLfeab76ec-1a06-4648-8eb7-48ee40bf9660
+		type TOOLS11
 		at 516 125
 		curdir 0
 		stats->owner MAN_b0a6090c-67b0-4f43-b140-b29d33bb156d
@@ -5388,6 +5388,7 @@ iMZ1r01
 		type BED
 		at 512 126
 		curdir 0
+		labels->location LakesideTailor
 		stats->owner MAN_b0a6090c-67b0-4f43-b140-b29d33bb156d
 
 	object TARG1c144eb3-b4b9-4e29-ba49-7bce662a6ebf
@@ -5416,6 +5417,13 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 516 126
 		curdir 0
+
+	object TARG80973ebe-c8ff-49c7-8509-f457ffc5cd61
+		type TARGET
+		at 516 126
+		curdir 0
+		tag 80102
+		labels->location LakesideTailor
 
 	object CHAIbf3e104d-f789-4cd4-bb1f-4977f0a78dab
 		type CHAIR
@@ -5559,6 +5567,13 @@ iMZ1r01
 		curdir 0
 		name Han
 		funcs->talk people/peasants/lakeside/han.txt
+		schedule 7 30 SIT_AT_LOCATION PEW_2f27e397-aec8-4550-869a-bce362b2d126
+		schedule 9 0 LOITER_ATWORK TARGd332c745-f6f9-448e-a63e-c3a2c593622c
+		schedule 12 0 EAT_AT_LOCATION TARG69ec9008-5c63-454b-a0a3-e29322118bae
+		schedule 13 0 LOITER_ATWORK TARGd332c745-f6f9-448e-a63e-c3a2c593622c
+		schedule 17 0 EAT_AT_LOCATION TARG69ec9008-5c63-454b-a0a3-e29322118bae
+		schedule 19 0 SIT_AT_LOCATION TARG80973ebe-c8ff-49c7-8509-f457ffc5cd61
+		schedule 22 0 GO_TO_SLEEP BED_13af4a75-ec09-4583-9fa0-f75b5ec37070
 
 	object TABL56fd53da-0537-47f1-9ec4-36c4dbc1c7ef
 		type TABLE6-V
@@ -5661,6 +5676,13 @@ iMZ1r01
 		type TABLE5-LEGS
 		at 513 129
 		curdir 3
+
+	object TARGd332c745-f6f9-448e-a63e-c3a2c593622c
+		type TARGET
+		at 516 129
+		curdir 3
+		tag 80100
+		labels->location LakesideTailor
 
 	object TABL322f8588-aefe-4431-9293-bc743daf88b7
 		type TABLE6-V
@@ -5772,6 +5794,13 @@ iMZ1r01
 		type TABLE5-LEGS
 		at 513 130
 		curdir 3
+
+	object TARGd3eb2e70-886f-45a5-a9a8-41250372cf57
+		type TARGET
+		at 513 130
+		curdir 2
+		tag 80101
+		labels->location LakesideTailor
 
 	object TABLb1095167-b206-4c42-8f3b-3950ac7b5f12
 		type TABLE6-V
@@ -6124,6 +6153,13 @@ iMZ1r01
 		at 502 133
 		curdir 1
 		stats->owner MAN_176d1d3a-bd94-470d-bfbd-ff8e88541669
+
+	object PATH5465e42d-4f6e-4ffc-9589-bb6860b20a54
+		type PATHMARKER
+		at 515 133
+		curdir 0
+		labels->location LakesideTailor
+		stats->owner TARGd332c745-f6f9-448e-a63e-c3a2c593622c
 
 	decorative MOUNT04 at 904 133
 
@@ -6713,6 +6749,11 @@ iMZ1r01
 		curdir 0
 		name Ledger
 
+	object SPAW9de4e664-b983-475e-9b22-26cd1a8e914d
+		type SPAWN_GUARDS
+		at 515 137
+		curdir 1
+
 	decorative MOUNT08 at 899 137
 
 	decorative MOUNT06 at 900 137
@@ -6947,12 +6988,39 @@ iMZ1r01
 		curdir 0
 		labels->location VintersHouse
 
+	object PATH3064ceee-1f5b-41fc-a582-70efe07d1740
+		type PATHMARKER
+		at 512 140
+		curdir 2
+		labels->location LakesideChurch
+		stats->owner PATH8b8e6580-1314-475b-b26b-ae356e3e10dc
+
 	object PATH75cbcece-f559-45fb-b8f2-f1eee63ecdb8
 		type PATHMARKER
 		at 515 140
 		curdir 3
 		labels->location FlyingTrout
 		stats->owner PATHb3046254-0cba-4754-b797-cc8767899b9b
+
+	object BARR96504a07-713b-4db0-8f34-947a966a6324
+		type BARRIER_NOENTRY
+		at 522 140
+		curdir 1
+
+	object BARR279db3ec-ca9e-4544-b198-3933fdb550ea
+		type BARRIER_NOENTRY
+		at 523 140
+		curdir 1
+
+	object BARReb632b7c-be0a-4e8f-ac50-b3a2e26b9dbd
+		type BARRIER_NOENTRY
+		at 524 140
+		curdir 1
+
+	object BARR6f74e1c8-6904-4ef9-b3a5-88d1f97db109
+		type BARRIER_NOENTRY
+		at 525 140
+		curdir 1
 
 	object TODE9759d302-362d-438a-92bc-de344143dd3f
 		type TODE
@@ -7023,6 +7091,11 @@ iMZ1r01
 
 	decorative MOUNT03 at 1013 140
 
+	object SPAWa8b6eec6-5f44-47bd-a877-22fdf12d5dbb
+		type SPAWN_GUARDS
+		at 496 141
+		curdir 1
+
 	object PATH60ccf44f-ba0f-4ff5-9d72-34be74e61c57
 		type PATHMARKER
 		at 500 141
@@ -7086,6 +7159,13 @@ iMZ1r01
 	decorative MOUNT05 at 1013 141
 
 	decorative MOUNT09 at 1014 141
+
+	object PATH55f11837-610e-4077-bed3-0155829561a5
+		type PATHMARKER
+		at 500 142
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATH8b8e6580-1314-475b-b26b-ae356e3e10dc
 
 	object PATHb3046254-0cba-4754-b797-cc8767899b9b
 		type PATHMARKER
@@ -7173,6 +7253,22 @@ iMZ1r01
 		labels->location Vinters
 		stats->owner PATHa73d16ff-437d-4aaa-83df-3197a367ef3f
 
+	object GUARb0d63c57-bba1-4c8d-9a4c-43633b54d421
+		type GUARD
+		inside EGG_a0a06e87-5b8c-41aa-af0b-224f5485055b
+		curdir 1
+		activity GUARD_PATROL
+
+	object EGG_a0a06e87-5b8c-41aa-af0b-224f5485055b
+		type EGG_GUARD_PATROL
+		at 523 144
+		curdir 1
+
+	object SPAWfa6b9c1f-c3ef-4d31-bcc5-8fa63abb433f
+		type SPAWN_GUARDS
+		at 525 144
+		curdir 1
+
 	decorative MOUNT08 at 868 144
 
 	decorative MOUNT06 at 869 144
@@ -7196,6 +7292,18 @@ iMZ1r01
 	decorative MOUNT04 at 1011 144
 
 	decorative MOUNT03 at 1015 144
+
+	object PATH53ecadfb-7ae6-44ad-95e9-69344a4a225e
+		type PATHMARKER
+		at 507 145
+		curdir 3
+		labels->location LakesideTailor
+		stats->owner PATH5465e42d-4f6e-4ffc-9589-bb6860b20a54
+
+	object SPAWa4ccac08-abd5-41d8-9e7f-a64e7ebbf9bd
+		type SPAWN_GUARDS
+		at 509 145
+		curdir 1
 
 	object WINE9d7b1365-88f9-4532-bd5e-cf131bafaf12
 		type WINECASK0
@@ -7262,12 +7370,34 @@ iMZ1r01
 
 	decorative MOUNT09 at 1016 145
 
-	object PATHa4b8174e-d710-4029-a0af-cdc243f550fd
-		type PATHMARKER
-		at 491 146
+	object GUARf4d3b13f-e866-49a4-b381-1c6584a78b84
+		type GUARD_WANDERING
+		inside EGG_441995c9-2e22-4ed0-984a-7a1b23236993
 		curdir 1
-		labels->location FlyingTrout
-		stats->owner PATHe6310c41-ff69-4f7a-88c0-e65e6c980dae
+		activity GUARD_WANDER
+
+	object GUAR2424cc3d-ec87-4dd9-b183-093f9e453e23
+		type GUARD
+		inside EGG_441995c9-2e22-4ed0-984a-7a1b23236993
+		curdir 1
+		activity GUARD_PATROL
+
+	object EGG_441995c9-2e22-4ed0-984a-7a1b23236993
+		type EGG_GUARD_WANDER
+		at 491 146
+		curdir 0
+
+	object SPAW44eb1afd-04df-4252-a2e8-da93c9edca30
+		type SPAWN_GUARDS
+		at 492 146
+		curdir 1
+
+	object PATH417e67e7-f99e-40d5-aa86-cbfbed7d44d7
+		type PATHMARKER
+		at 495 146
+		curdir 3
+		labels->location LakesideTailor
+		stats->owner PATH53ecadfb-7ae6-44ad-95e9-69344a4a225e
 
 	object PATHa0a25797-718c-4b5b-9345-3a72680cb884
 		type PATHMARKER
@@ -7339,6 +7469,13 @@ iMZ1r01
 	decorative MOUNT02 at 1012 146
 
 	decorative MOUNT03 at 1016 146
+
+	object PATHa4b8174e-d710-4029-a0af-cdc243f550fd
+		type PATHMARKER
+		at 491 147
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATHe6310c41-ff69-4f7a-88c0-e65e6c980dae
 
 	object TARG1ffb8867-8810-4e7a-b566-87727f25e248
 		type TARGET
@@ -7500,6 +7637,13 @@ iMZ1r01
 	decorative MOUNT00 at 1017 148
 
 	decorative MOUNT11 at 1018 148
+
+	object PATH8b8e6580-1314-475b-b26b-ae356e3e10dc
+		type PATHMARKER
+		at 491 149
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATHdc375389-c867-4c94-9f13-83d417e2a9e4
 
 	object TABLe1229e58-08f3-447b-bb8c-0b5e4488a920
 		type TABLE6-V
@@ -7755,6 +7899,13 @@ iMZ1r01
 		type CHIMNEY1
 		at 496 153
 		curdir 0
+
+	object PATH219de032-50e2-44f9-8d63-ff207af1aa70
+		type PATHMARKER
+		at 517 153
+		curdir 0
+		labels->location Vinters
+		stats->owner TARG3a525954-c1cd-4eaa-8262-80af16b614d4
 
 	object TODE6192d067-e0fa-419b-992e-30b05586d81d
 		type TODE
@@ -8017,6 +8168,13 @@ iMZ1r01
 
 	decorative RUBBLE_16 at 487 156
 
+	object PATH6f671af8-1184-4baf-8a32-47b33cbc2d1e
+		type PATHMARKER
+		at 492 156
+		curdir 0
+		labels->location LakesideTailor
+		stats->owner PATH417e67e7-f99e-40d5-aa86-cbfbed7d44d7
+
 	object TARGa000a219-48b7-4b7d-9769-df0b9c2d4be2
 		type TARGET
 		at 497 156
@@ -8036,6 +8194,12 @@ iMZ1r01
 		at 500 156
 		curdir 1
 		tag 80081
+		labels->location FlyingTrout
+
+	object TARG0bfc5dc5-88ac-46c5-b22d-3c745ad35a5c
+		type TARGET
+		at 501 156
+		curdir 1
 		labels->location FlyingTrout
 
 	object TARGa8965429-aa20-42af-b99a-4840b2e98893
@@ -8086,17 +8250,19 @@ iMZ1r01
 		tag 36
 
 	object MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
-		type MAN_GENERIC
+		type WOMAN_GENERIC
 		at 507 156
 		curdir 1
-		name Reynard
+		name Reyla
 		funcs->talk people/peasants/lakeside/barman.txt
 		schedule 7 30 SIT_AT_LOCATION PEW_89677a94-c93b-4aba-9ce3-9c4deffa1310
 		schedule 9 0 SIT_AT_LOCATION TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
+		schedule 11 30 EAT_AT_HOME TARG0bfc5dc5-88ac-46c5-b22d-3c745ad35a5c
 		schedule 12 0 WAITER_STARTUP TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
 		schedule 14 0 SIT_AT_LOCATION TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
 		schedule 17 0 WAITER_STARTUP TARGf88e66e3-d28e-49b1-b060-2dd4a51cd7ff
-		schedule 20 0 SIT_AT_LOCATION TARG1b34ae20-9327-44bd-9aca-16effe5d9c04
+		schedule 20 0 EAT_AT_HOME TARG0bfc5dc5-88ac-46c5-b22d-3c745ad35a5c
+		schedule 20 30 SIT_AT_LOCATION TARG1b34ae20-9327-44bd-9aca-16effe5d9c04
 		schedule 22 0 GO_TO_SLEEP BED_dada4d5b-45c8-4ede-8240-e94f8d997a62
 
 	object TABLd35ccc0f-e7f8-4408-aedf-107d94601d23
@@ -8232,6 +8398,11 @@ iMZ1r01
 		type TABLE6-H
 		at 501 157
 		curdir 1
+
+	object PLATae7c1504-cec7-446a-a2ba-2fd1728fe151
+		type PLATE
+		at 501 157
+		curdir 0
 
 	object TABLdb0ddca4-176d-47d9-976b-01c9d430003b
 		type TABLE6-H
@@ -8442,9 +8613,9 @@ iMZ1r01
 		name Private
 		tag 81
 
-	object CHAId4990756-680d-4ede-afc9-22f5fc99bbaa
+	object CHAIb1cc0a2d-0d4b-4ac0-98a1-3d286a2e1a73
 		type CHAIR
-		at 506 159
+		at 508 159
 		curdir 1
 		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
 
@@ -8452,6 +8623,13 @@ iMZ1r01
 		type STONEWINDOW1
 		at 511 159
 		curdir 2
+
+	object PATHacb8097c-6c60-498c-ae4f-f48d55295673
+		type PATHMARKER
+		at 523 159
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATH077d2212-8313-40b8-87d0-89a77412dfc1
 
 	decorative MOUNT08 at 824 159
 
@@ -8501,17 +8679,28 @@ iMZ1r01
 		curdir 1
 		labels->location FlyingTrout
 
-	object CHAIb1cc0a2d-0d4b-4ac0-98a1-3d286a2e1a73
+	object CHAId4990756-680d-4ede-afc9-22f5fc99bbaa
 		type CHAIR
-		at 508 160
+		at 506 160
 		curdir 1
 		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object TARG6bcfe780-7ae4-476e-bf45-48644ea4d6f8
+		type TARGET
+		at 508 160
+		curdir 1
+		labels->location FlyingTrout
 
 	object CHAI227cada5-e764-4827-b763-def560b41b02
 		type CHAIR
 		at 510 160
 		curdir 1
 		stats->owner MAN_6b9908c8-e38b-4581-a5d9-3ecf167af520
+
+	object SPAW7ec77c91-6c9d-4053-8ee5-561c925faf72
+		type SPAWN_GUARDS
+		at 515 160
+		curdir 1
 
 	decorative MOUNT04 at 824 160
 
@@ -8546,6 +8735,13 @@ iMZ1r01
 	decorative RUBBLE_14 at 481 161
 
 	decorative RUBBLE_23 at 487 161
+
+	object PATHdc375389-c867-4c94-9f13-83d417e2a9e4
+		type PATHMARKER
+		at 492 161
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATHf219e5b4-64c3-4139-a4cd-92d96760979b
 
 	object BIBL95062f6e-7f13-4274-94e7-b4c0af411c84
 		type BIBLE
@@ -8823,6 +9019,11 @@ iMZ1r01
 
 	decorative MOUNT11 at 1003 163
 
+	object SPAWaf845c12-af5c-4891-bb8e-b4f75e40c190
+		type SPAWN_GUARDS
+		at 491 164
+		curdir 1
+
 	object PATH814c200a-8714-46b6-9aa0-7b753c0bd001
 		type PATHMARKER
 		at 492 164
@@ -8833,6 +9034,50 @@ iMZ1r01
 	object DRAW87671ec4-39f9-4e42-8633-f7afaf180a80
 		type DRAWERS
 		at 497 164
+		curdir 1
+
+	object KEY_a0fa2183-62c2-4410-af5f-bfc3b92862b6
+		type KEY
+		inside PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+		curdir 2
+		tag 35
+
+	object PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
+		type PRINCE
+		at 510 164
+		curdir 1
+		name prince4
+		tag 16
+		stats->hp 30
+		stats->intel 80
+		stats->damage 120
+		funcs->talk people/misc/prince4.txt
+
+	object PATH559e723a-127b-489a-9ff6-1d9abb2b6aad
+		type PATHMARKER
+		at 517 164
+		curdir 0
+		labels->location Vinters
+		stats->owner PATH219de032-50e2-44f9-8d63-ff207af1aa70
+
+	object BARR900b98fe-18b6-49ff-a1b8-262c8c0b0a67
+		type BARRIER_NOENTRY
+		at 522 164
+		curdir 1
+
+	object BARRcbf8200b-c899-4aba-9f34-fb88fcadef2d
+		type BARRIER_NOENTRY
+		at 523 164
+		curdir 1
+
+	object BARRb1518eea-4ccb-4af1-b45f-15c0542ea94d
+		type BARRIER_NOENTRY
+		at 524 164
+		curdir 1
+
+	object BARR4d13cc19-aa20-4c09-814a-b759ad144a93
+		type BARRIER_NOENTRY
+		at 525 164
 		curdir 1
 
 	decorative MOUNT08 at 813 164
@@ -8948,23 +9193,6 @@ iMZ1r01
 		type CHAIR
 		at 510 165
 		curdir 1
-
-	object KEY_a0fa2183-62c2-4410-af5f-bfc3b92862b6
-		type KEY
-		inside PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
-		curdir 2
-		tag 35
-
-	object PRIN47a5d044-9e8f-4c11-a8e1-ed094f0d1702
-		type PRINCE
-		at 510 165
-		curdir 1
-		name prince4
-		tag 16
-		stats->hp 30
-		stats->intel 80
-		stats->damage 120
-		funcs->talk people/misc/prince4.txt
 
 	object STON3a76e823-ce35-457e-927a-9deb02bdf241
 		type STONEWINDOW1
@@ -9453,6 +9681,13 @@ iMZ1r01
 		labels->location LakesideButchers
 		stats->owner PATH8a7b6a92-1545-4967-969b-1b09320297e5
 
+	object PATH077d2212-8313-40b8-87d0-89a77412dfc1
+		type PATHMARKER
+		at 517 169
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATH97772abd-6070-4ad7-a9f4-cdc9f574715b
+
 	object STON4ff6fecf-3e5d-431e-8f69-5c3e5d501a5d
 		type STONEWINDOW1
 		at 522 169
@@ -9756,6 +9991,13 @@ iMZ1r01
 
 	decorative MOUNT11 at 993 171
 
+	object PATH5c30c091-3bc9-4df2-8cd8-7326495f77e3
+		type PATHMARKER
+		at 494 172
+		curdir 0
+		labels->location LakesideTailor
+		stats->owner PATH6f671af8-1184-4baf-8a32-47b33cbc2d1e
+
 	object STON3dbd3242-ab2d-4e45-87d4-83224f17ca8b
 		type STONEDOOR1_SHUT
 		at 522 172
@@ -10052,6 +10294,11 @@ iMZ1r01
 		at 488 175
 		curdir 0
 
+	object SPAW2e1ae4ef-a822-4232-bed2-e4217793cdfe
+		type SPAWN_GUARDS
+		at 506 175
+		curdir 1
+
 	object TABL0d65cc12-9a85-408f-b473-6922d3574a25
 		type TABLE6-H
 		at 523 175
@@ -10205,10 +10452,24 @@ iMZ1r01
 
 	object PATH8a7b6a92-1545-4967-969b-1b09320297e5
 		type PATHMARKER
-		at 497 176
-		curdir 2
+		at 496 176
+		curdir 0
 		labels->location LakesideButchers
 		stats->owner PATH814c200a-8714-46b6-9aa0-7b753c0bd001
+
+	object PATH97772abd-6070-4ad7-a9f4-cdc9f574715b
+		type PATHMARKER
+		at 507 176
+		curdir 2
+		labels->location LakesideChurch
+		stats->owner PATHf219e5b4-64c3-4139-a4cd-92d96760979b
+
+	object PATHb105a498-516d-45bb-96c4-f3f574bb1b36
+		type PATHMARKER
+		at 510 176
+		curdir 3
+		labels->location Vinters
+		stats->owner PATH559e723a-127b-489a-9ff6-1d9abb2b6aad
 
 	object PATH8ba5847d-c012-4fc5-b092-f77e2989d433
 		type PATHMARKER
@@ -10291,12 +10552,34 @@ iMZ1r01
 		at 488 177
 		curdir 2
 
+	object SPAW488ef0af-3681-490f-a3bb-88982d6b8a24
+		type SPAWN_GUARDS
+		at 495 177
+		curdir 1
+
 	object PATH1e2dcc11-8cf8-43ae-86c3-151ec97ce2b5
 		type PATHMARKER
 		at 499 177
 		curdir 3
 		labels->location FlyingTrout
 		stats->owner PATHb1652034-dde5-43fb-b70e-0f30a6c3ef1e
+
+	object GUARea82491c-0438-4c5c-9c9e-494b89bc4373
+		type GUARD_WANDERING
+		inside EGG_904c724a-414a-469a-a34a-9c85b3611b75
+		curdir 1
+		activity GUARD_WANDER
+
+	object GUAR5f390e29-36aa-4d5e-b612-48cac72103b4
+		type GUARD
+		inside EGG_904c724a-414a-469a-a34a-9c85b3611b75
+		curdir 1
+		activity GUARD_PATROL
+
+	object EGG_904c724a-414a-469a-a34a-9c85b3611b75
+		type EGG_GUARD_WANDER
+		at 509 177
+		curdir 1
 
 	object STON97ddb525-8700-43dc-bb1c-3f1ba8366a1d
 		type STONEDOOR1_SHUT
@@ -10343,6 +10626,20 @@ iMZ1r01
 		type STONE_ARCHWAY
 		at 488 178
 		curdir 1
+
+	object PATHf219e5b4-64c3-4139-a4cd-92d96760979b
+		type PATHMARKER
+		at 494 178
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATH3adcabe0-c300-4bef-9af1-24e409a4cc77
+
+	object PATH0b6cd04a-df48-4bef-b4c0-3d478cda3fb0
+		type PATHMARKER
+		at 495 178
+		curdir 3
+		labels->location Vinters
+		stats->owner PATHb105a498-516d-45bb-96c4-f3f574bb1b36
 
 	decorative MOUNT04 at 800 178
 
@@ -10516,6 +10813,16 @@ iMZ1r01
 
 	decorative MOUNT09 at 985 182
 
+	object STOV3428182a-b3eb-4da2-8177-6d9177b0c08a
+		type STOVE
+		at 460 183
+		curdir 0
+
+	object BOOK7784d34e-ec53-49d9-afd0-f49ba88ba5ae
+		type BOOKSHELF00
+		at 461 183
+		curdir 1
+
 	object CRUCdbdd2d08-4f4d-4491-82e0-94637bdad461
 		type CRUCIFIX
 		at 471 183
@@ -10553,10 +10860,40 @@ iMZ1r01
 
 	decorative MOUNT03 at 985 183
 
+	object CLOTa4ab0fd8-fb3b-4242-a9a3-038c99c7518c
+		type CLOTHING00
+		inside DRAW6322926a-a6a2-4d55-a466-1404406408d1
+		curdir 0
+
+	object DRAW6322926a-a6a2-4d55-a466-1404406408d1
+		type DRAWERS
+		at 459 184
+		curdir 2
+
+	object BED_bb97e33c-0419-4713-9535-83be0a7835c1
+		type BED
+		at 464 184
+		curdir 0
+		labels->location LakesideRectory
+
 	object STEP02022a38-de7e-491e-a215-a5d6f20c1bef
 		type STEPS01
 		at 469 184
 		curdir 0
+
+	object TARGf6bce0fa-fa65-490e-9974-0411a1a6ada4
+		type TARGET
+		at 471 184
+		curdir 1
+		tag 80110
+		labels->location LakesideRectory
+
+	object TARG54aca974-acde-4d41-aeee-756801665261
+		type TARGET
+		at 472 184
+		curdir 0
+		tag 80111
+		labels->location LakesideRectory
 
 	object CARP60125276-b67a-43f1-989c-23fe80d94465
 		type CARPET
@@ -10605,6 +10942,14 @@ iMZ1r01
 		curdir 3
 		name Keep: or Jesus will top you
 		tag 36
+		schedule 7 0 SIT_AT_LOCATION TARGf6bce0fa-fa65-490e-9974-0411a1a6ada4
+		schedule 9 15 SIT_AT_LOCATION TARG6324b277-cd16-4067-8bda-3788b79d2ff3
+		schedule 12 0 EAT_AT_HOME TARGb98f3cbe-797d-4cea-abe2-18a5826194fe
+		schedule 13 0 LOITER_ATWORK TARGf6bce0fa-fa65-490e-9974-0411a1a6ada4
+		schedule 17 0 EAT_AT_HOME TARGb98f3cbe-797d-4cea-abe2-18a5826194fe
+		schedule 18 0 LOITER_ATWORK TARGf6bce0fa-fa65-490e-9974-0411a1a6ada4
+		schedule 20 0 SIT_AT_LOCATION TARG6324b277-cd16-4067-8bda-3788b79d2ff3
+		schedule 22 0 GO_TO_SLEEP BED_bb97e33c-0419-4713-9535-83be0a7835c1
 
 	object TABL02595387-f97f-4159-873d-da63dec867fb
 		type TABLE2-END
@@ -10696,6 +11041,16 @@ iMZ1r01
 
 	decorative MOUNT03 at 984 185
 
+	object STON1284d17e-77b8-4d5d-b561-81958f1b0c55
+		type STONEWINDOW1
+		at 459 186
+		curdir 2
+
+	object STONdf74604a-a72f-4325-972d-f05b7f52e75c
+		type STONEWINDOW1
+		at 465 186
+		curdir 2
+
 	object STAI87fd4a96-1c54-44da-ade1-701740b5a931
 		type STAINEDGLASS00
 		at 468 186
@@ -10756,6 +11111,13 @@ iMZ1r01
 		at 475 186
 		curdir 0
 
+	object PATHfc34d5a1-ebd0-456f-ae04-00db66d835bd
+		type PATHMARKER
+		at 493 186
+		curdir 0
+		labels->location FlyingTrout
+		stats->owner PATH1e2dcc11-8cf8-43ae-86c3-151ec97ce2b5
+
 	decorative MOUNT08 at 794 186
 
 	decorative MOUNT06 at 795 186
@@ -10782,24 +11144,25 @@ iMZ1r01
 
 	decorative MOUNT03 at 984 186
 
-	object GRAV3219974a-3625-466d-879e-f371e2b0b723
-		type GRAVESTONE
+	object TABLe88033e3-2a47-4451-bc5e-dde27208d4af
+		type TABLE6-V
+		at 460 187
+		curdir 0
+
+	object TABLbd83b526-280e-48bc-900e-7f2169fb0c65
+		type TABLE-SHADOW2
 		at 461 187
-		curdir 0
-		name Kenny McKormick
+		curdir 3
 
-	object GRAV822561b2-2eb1-4f01-9e37-3649cb32335f
-		type GRAVESTONE
-		at 463 187
-		curdir 0
-		name Roger the Reindeer
+	object TABLc8f1843c-940f-4fd1-a1aa-a54193fad050
+		type TABLE5-LEGS
+		at 461 187
+		curdir 3
 
-	object GRAV997bcc9a-cfe0-4ae8-b19d-c651d3df1083
-		type GRAVESTONE
-		at 465 187
+	object TABLde818aab-352a-493f-a863-23583e61dadc
+		type TABLE6-V
+		at 464 187
 		curdir 0
-		name You!
-		funcs->look PLAYERGRAVE
 
 	object STAIbe3c13cd-ea82-4380-a192-410a9a96c37f
 		type STAINEDGLASS00
@@ -10810,6 +11173,13 @@ iMZ1r01
 		type STEPS01
 		at 469 187
 		curdir 2
+
+	object TARGbc2a6e00-555e-4faf-9e38-9200c4da43df
+		type TARGET
+		at 469 187
+		curdir 2
+		tag 80112
+		labels->location LakesideRectory
 
 	object STEPdb015d71-8d65-4ff6-a093-f030211638d3
 		type STEPS01
@@ -10836,10 +11206,24 @@ iMZ1r01
 		at 474 187
 		curdir 1
 
+	object TARG273f956a-b247-4014-adf2-292e9d8e2553
+		type TARGET
+		at 474 187
+		curdir 3
+		tag 80113
+		labels->location LakesideRectory
+
 	object STAId2ad886f-ca36-42c5-88f9-74e63be26ead
 		type STAINEDGLASS00
 		at 475 187
 		curdir 1
+
+	object PATH4479a93a-ca17-4c3a-89e5-0cc85f6d9ef0
+		type PATHMARKER
+		at 493 187
+		curdir 0
+		labels->location LakesideTailor
+		stats->owner PATH5c30c091-3bc9-4df2-8cd8-7326495f77e3
 
 	object TODEc41c8700-12fc-48b4-9941-4aff1cef5a24
 		type TODE
@@ -10884,48 +11268,81 @@ iMZ1r01
 
 	decorative MOUNT11 at 984 187
 
-	object GRAV355cf277-b8e2-4bc3-8160-9751d14ed873
-		type GRAVE
+	object TABL77799a00-babf-4135-bec5-f52fdb9ed823
+		type TABLE6-V
+		at 460 188
+		curdir 2
+
+	object BIBL424ec1dd-644a-4216-bb61-f0e2a44204bb
+		type BIBLE_OPEN
+		at 460 188
+		curdir 3
+
+	object TABL0169bde6-d6d3-4eda-b66c-61d8dcee91f4
+		type TABLE-SHADOW1
 		at 461 188
-		curdir 0
+		curdir 2
 
-	object SPOO3b3d0cfe-1c0b-4f5a-b4cf-32e2950bb8a7
-		type SPOOK
-		inside EGG_dfca551c-f39e-4e67-8352-20b72fde2de8
-		curdir 0
-		activity ATTACK_PEOPLE
-
-	object EGG_dfca551c-f39e-4e67-8352-20b72fde2de8
-		type EGG_NIGHT
+	object TABL22082367-4661-4d4e-97a9-ace8b7534c7a
+		type TABLE5-LEGS
 		at 461 188
-		curdir 0
-		stats->str 50
+		curdir 3
 
-	object GRAVe2448436-61bb-441d-9b8d-65b876481a8d
-		type GRAVE
-		at 463 188
-		curdir 0
-
-	object GRAVaefbe9c6-755c-46fa-aa6b-87eee24b0f59
-		type GRAVE
-		at 465 188
-		curdir 0
-
-	object TARG53413255-44db-4f57-b0cf-167f642630dc
+	object TARG6324b277-cd16-4067-8bda-3788b79d2ff3
 		type TARGET
-		at 465 188
-		curdir 0
-		tag 667
+		at 461 188
+		curdir 2
+		labels->location LakesideRectory
+
+	object CHAI52819f21-1c6d-4706-9dfa-4b3778818139
+		type CHAIR
+		at 461 188
+		curdir 2
+
+	object TARGb98f3cbe-797d-4cea-abe2-18a5826194fe
+		type TARGET
+		at 463 188
+		curdir 3
+		labels->location LakesideRectory
+
+	object CHAI98ef2fd4-af34-4a07-a3a6-95903bdd52d0
+		type CHAIR
+		at 463 188
+		curdir 3
+
+	object TABLd04770ae-0ded-4a2d-a9cd-ad1e8639c1db
+		type TABLE6-V
+		at 464 188
+		curdir 3
+
+	object PLAT58ff9b18-24c7-481e-b966-8416e452a167
+		type PLATE
+		at 464 188
+		curdir 2
 
 	object STAI822a1faa-4a17-4bc5-8cc6-fefb85b0ccc0
 		type STAINEDGLASS00
 		at 468 188
 		curdir 2
 
+	object TARGfb9f1b23-7baf-46c5-967f-9a0584be827f
+		type TARGET
+		at 469 188
+		curdir 2
+		tag 80114
+		labels->location LakesideRectory
+
 	object CARP7da6ca6a-297b-44dd-9400-7913a59bcfd4
 		type CARPET2
 		at 470 188
 		curdir 2
+
+	object TARG3e49dc44-c661-4852-96ce-4082c65737cb
+		type TARGET
+		at 474 188
+		curdir 3
+		tag 80115
+		labels->location LakesideRectory
 
 	object STAI9e9e7c8b-755a-4809-acdd-33a5d1b4e07b
 		type STAINEDGLASS00
@@ -10966,6 +11383,11 @@ iMZ1r01
 
 	decorative MOUNT11 at 983 188
 
+	object STON46fcc127-12d5-4df7-954b-f31675ff9bc9
+		type STONEDOOR1_SHUT
+		at 461 189
+		curdir 1
+
 	object STAI98573121-5851-4280-aca1-d1ca33bb52a1
 		type STAINEDGLASS00
 		at 468 189
@@ -10995,6 +11417,25 @@ iMZ1r01
 		type STAINEDGLASS00
 		at 475 189
 		curdir 3
+
+	object GRAV3219974a-3625-466d-879e-f371e2b0b723
+		type GRAVESTONE
+		at 478 189
+		curdir 0
+		name Kenny McKormick
+
+	object GRAV822561b2-2eb1-4f01-9e37-3649cb32335f
+		type GRAVESTONE
+		at 480 189
+		curdir 0
+		name Roger the Reindeer
+
+	object GRAV997bcc9a-cfe0-4ae8-b19d-c651d3df1083
+		type GRAVESTONE
+		at 482 189
+		curdir 0
+		name You!
+		funcs->look PLAYERGRAVE
 
 	decorative MOUNT04 at 793 189
 
@@ -11030,33 +11471,69 @@ iMZ1r01
 
 	decorative MOUNT11 at 982 189
 
-	object GRAV604798e8-e169-4da8-916e-8449142af070
-		type GRAVESTONE
-		at 461 190
-		curdir 0
-		name Peter
-
-	object GRAV914b1a92-be0f-43ef-b5e8-43087ed57a87
-		type GRAVESTONE
-		at 463 190
-		curdir 0
-		name Paul
-
-	object GRAVc721dc2a-d7f1-4fd7-a76c-56bc9ef6d2b6
-		type GRAVESTONE
-		at 465 190
-		curdir 0
-		name Mary
-
 	object STAI3ea4d6fc-5efa-4270-9d49-03f3372c4c01
 		type STAINEDGLASS01
 		at 468 190
 		curdir 0
 
+	object TARGaeeeda1d-f8ef-4460-bc5c-d120008f8038
+		type TARGET
+		at 469 190
+		curdir 2
+		tag 80116
+		labels->location LakesideRectory
+
+	object TARGc5382d74-7d97-419f-81a5-71f3480b93ef
+		type TARGET
+		at 474 190
+		curdir 3
+		tag 80117
+		labels->location LakesideRectory
+
 	object STAIa3fb95ef-05c1-49bc-b4d2-b4a202b72db9
 		type STAINEDGLASS01
 		at 475 190
 		curdir 0
+
+	object GRAV355cf277-b8e2-4bc3-8160-9751d14ed873
+		type GRAVE
+		at 478 190
+		curdir 0
+
+	object SPOO3b3d0cfe-1c0b-4f5a-b4cf-32e2950bb8a7
+		type SPOOK
+		inside EGG_dfca551c-f39e-4e67-8352-20b72fde2de8
+		curdir 0
+		activity ATTACK_PEOPLE
+
+	object EGG_dfca551c-f39e-4e67-8352-20b72fde2de8
+		type EGG_NIGHT
+		at 478 190
+		curdir 0
+		stats->str 50
+
+	object GRAVe2448436-61bb-441d-9b8d-65b876481a8d
+		type GRAVE
+		at 480 190
+		curdir 0
+
+	object GRAVaefbe9c6-755c-46fa-aa6b-87eee24b0f59
+		type GRAVE
+		at 482 190
+		curdir 0
+
+	object TARG53413255-44db-4f57-b0cf-167f642630dc
+		type TARGET
+		at 482 190
+		curdir 0
+		tag 667
+
+	object PATH3ef711b9-9be1-47ee-bce8-4ee2c1dc8dc5
+		type PATHMARKER
+		at 492 190
+		curdir 0
+		labels->location LakesideButchers
+		stats->owner PATH8a7b6a92-1545-4967-969b-1b09320297e5
 
 	object MUSI24c1f677-be03-48a3-8397-000270ba44dc
 		type MUSIC
@@ -11105,21 +11582,6 @@ iMZ1r01
 
 	decorative MOUNT11 at 981 190
 
-	object GRAV9b669c26-a052-41f2-b37a-f542de331e13
-		type GRAVE
-		at 461 191
-		curdir 0
-
-	object GRAVcd30aae6-9dad-4da3-95d9-5b9e2cbca2a5
-		type GRAVE
-		at 463 191
-		curdir 0
-
-	object GRAV375a081b-bbef-4f1c-a30d-187197a0aa5b
-		type GRAVE
-		at 465 191
-		curdir 0
-
 	object PEW_a81632f2-5fa0-4d56-8727-758a12d3e149
 		type PEW_LEFT
 		at 469 191
@@ -11145,6 +11607,15 @@ iMZ1r01
 		type PEW_RIGHT
 		at 474 191
 		curdir 0
+		name Tailor
+		labels->location LakesideChurch
+
+	object PATHa2288e44-a8ad-4958-b2c6-1d42c1b1ebdc
+		type PATHMARKER
+		at 492 191
+		curdir 0
+		labels->location Vinters
+		stats->owner PATH0b6cd04a-df48-4bef-b4c0-3d478cda3fb0
 
 	decorative MOUNT04 at 793 191
 
@@ -11165,6 +11636,45 @@ iMZ1r01
 	decorative MOUNT00 at 976 191
 
 	decorative MOUNT11 at 977 191
+
+	object TARGace1a1b1-acc8-4d1a-bb24-0848f4e35a65
+		type TARGET
+		at 469 192
+		curdir 2
+		tag 80118
+		labels->location LakesideRectory
+
+	object TARGd7d2ff12-4fe9-4caf-b915-5d6b80a3927d
+		type TARGET
+		at 474 192
+		curdir 3
+		tag 80119
+		labels->location LakesideRectory
+
+	object GRAV604798e8-e169-4da8-916e-8449142af070
+		type GRAVESTONE
+		at 478 192
+		curdir 0
+		name Peter
+
+	object GRAV914b1a92-be0f-43ef-b5e8-43087ed57a87
+		type GRAVESTONE
+		at 480 192
+		curdir 0
+		name Paul
+
+	object GRAVc721dc2a-d7f1-4fd7-a76c-56bc9ef6d2b6
+		type GRAVESTONE
+		at 482 192
+		curdir 0
+		name Mary
+
+	object PATH3adcabe0-c300-4bef-9af1-24e409a4cc77
+		type PATHMARKER
+		at 491 192
+		curdir 1
+		labels->location LakesideChurch
+		stats->owner PATHdcaa1563-df0d-406a-9608-e0bdf4eec90a
 
 	object WALL34e18892-a8af-40f1-9308-9cc03e475222
 		type WALL_EDGE
@@ -11205,24 +11715,6 @@ iMZ1r01
 
 	decorative MOUNT11 at 976 192
 
-	object GRAVf0240642-a123-4e86-a555-bca95414f08e
-		type GRAVESTONE
-		at 461 193
-		curdir 0
-		name Tom
-
-	object GRAV4dd86dca-c7fa-42fb-ad9e-7ebb4f2baa5b
-		type GRAVESTONE
-		at 463 193
-		curdir 0
-		name Dick
-
-	object GRAV3b925039-3352-4bae-add5-8b187456ac16
-		type GRAVESTONE
-		at 465 193
-		curdir 0
-		name Harry
-
 	object PEW_9376b9b8-6feb-477e-a0e2-351fb443a42f
 		type PEW_LEFT
 		at 469 193
@@ -11233,6 +11725,13 @@ iMZ1r01
 		at 470 193
 		curdir 0
 
+	object PATH26524858-5533-4fb9-b55d-a9fe70bde0cd
+		type PATHMARKER
+		at 472 193
+		curdir 1
+		labels->location LakesideButchers
+		stats->owner PATHf6dd7b08-0c24-4431-a01f-6fec8c4f1bff
+
 	object PEW_9c01ee58-2148-40af-a958-a80eb230e795
 		type PEW_LEFT
 		at 473 193
@@ -11241,6 +11740,21 @@ iMZ1r01
 	object PEW_1d9de32c-cf22-4d1e-85f2-a158360f679c
 		type PEW_RIGHT
 		at 474 193
+		curdir 0
+
+	object GRAV9b669c26-a052-41f2-b37a-f542de331e13
+		type GRAVE
+		at 478 193
+		curdir 0
+
+	object GRAVcd30aae6-9dad-4da3-95d9-5b9e2cbca2a5
+		type GRAVE
+		at 480 193
+		curdir 0
+
+	object GRAV375a081b-bbef-4f1c-a30d-187197a0aa5b
+		type GRAVE
+		at 482 193
 		curdir 0
 
 	decorative MOUNT05 at 796 193
@@ -11272,21 +11786,6 @@ iMZ1r01
 	decorative MOUNT10 at 974 193
 
 	decorative MOUNT11 at 975 193
-
-	object GRAVf9ae5be7-dc92-4b26-bcd3-3a21f9d46888
-		type GRAVE
-		at 461 194
-		curdir 0
-
-	object GRAVc6e38eb1-4ad8-4be6-a697-677ee83f3b63
-		type GRAVE
-		at 463 194
-		curdir 0
-
-	object GRAV74676b71-2ad5-4a60-8151-49f3725b0d36
-		type GRAVE
-		at 465 194
-		curdir 0
 
 	object STONd42bf5f4-a7e5-4893-bcbd-90595909a53d
 		type STONE_ARCHWAY
@@ -11320,6 +11819,34 @@ iMZ1r01
 
 	decorative MOUNT03 at 840 194
 
+	object SPAW3555222b-940d-4f8e-98b3-c7026921f0cd
+		type SPAWN_GUARDS
+		at 469 195
+		curdir 1
+
+	object SPAWf4bffa3d-392a-4c8a-8ebe-054538188ca1
+		type SPAWN_GUARDS
+		at 474 195
+		curdir 1
+
+	object GRAVf0240642-a123-4e86-a555-bca95414f08e
+		type GRAVESTONE
+		at 478 195
+		curdir 0
+		name Tom
+
+	object GRAV4dd86dca-c7fa-42fb-ad9e-7ebb4f2baa5b
+		type GRAVESTONE
+		at 480 195
+		curdir 0
+		name Dick
+
+	object GRAV3b925039-3352-4bae-add5-8b187456ac16
+		type GRAVESTONE
+		at 482 195
+		curdir 0
+		name Harry
+
 	decorative MOUNT00 at 796 195
 
 	decorative MOUNT01 at 797 195
@@ -11339,6 +11866,27 @@ iMZ1r01
 	decorative MOUNT05 at 840 195
 
 	decorative MOUNT09 at 841 195
+
+	object PATH153913f4-8842-4cc5-b06a-20c8a9f97abb
+		type PATHMARKER
+		at 472 196
+		curdir 0
+		labels->location LakesideChurch
+
+	object GRAVf9ae5be7-dc92-4b26-bcd3-3a21f9d46888
+		type GRAVE
+		at 478 196
+		curdir 0
+
+	object GRAVc6e38eb1-4ad8-4be6-a697-677ee83f3b63
+		type GRAVE
+		at 480 196
+		curdir 0
+
+	object GRAV74676b71-2ad5-4a60-8151-49f3725b0d36
+		type GRAVE
+		at 482 196
+		curdir 0
 
 	object TODEe0c27bb5-95b3-4574-aa25-a97fa445aaae
 		type TODE
@@ -11389,6 +11937,20 @@ iMZ1r01
 
 	decorative MOUNT03 at 841 197
 
+	object PATH90031bb8-67e5-45c4-be31-401c16f37429
+		type PATHMARKER
+		at 472 198
+		curdir 1
+		labels->location FlyingTrout
+		stats->owner PATH28c1bb22-3739-43eb-b06c-4978d502c5c8
+
+	object PATH28c1bb22-3739-43eb-b06c-4978d502c5c8
+		type PATHMARKER
+		at 488 198
+		curdir 0
+		labels->location FlyingTrout
+		stats->owner PATHfc34d5a1-ebd0-456f-ae04-00db66d835bd
+
 	decorative MOUNT08 at 809 198
 
 	decorative MOUNT07 at 810 198
@@ -11418,6 +11980,13 @@ iMZ1r01
 
 	decorative MOUNT03 at 840 199
 
+	object PATH3872bffa-81d3-46aa-9e49-f21669e9f2ae
+		type PATHMARKER
+		at 488 200
+		curdir 0
+		labels->location LakesideTailor
+		stats->owner PATH4479a93a-ca17-4c3a-89e5-0cc85f6d9ef0
+
 	object SIGN2f01112b-e8e8-44dc-a86e-026214d89651
 		type SIGN01
 		at 579 200
@@ -11441,6 +12010,41 @@ iMZ1r01
 	decorative MOUNT06 at 841 200
 
 	decorative MOUNT09 at 842 200
+
+	object PATHe140a207-e145-405a-bf8c-cbd809811f06
+		type PATHMARKER
+		at 473 201
+		curdir 3
+		labels->location Vinters
+		stats->owner PATH842017d3-7ccf-4600-903e-00d2e13c84f3
+
+	object PATHcc66e903-371c-4143-b7b5-647837328906
+		type PATHMARKER
+		at 475 201
+		curdir 3
+		labels->location LakesideTailor
+		stats->owner PATH3872bffa-81d3-46aa-9e49-f21669e9f2ae
+
+	object PATHf6dd7b08-0c24-4431-a01f-6fec8c4f1bff
+		type PATHMARKER
+		at 480 201
+		curdir 3
+		labels->location LakesideButchers
+		stats->owner PATH3ef711b9-9be1-47ee-bce8-4ee2c1dc8dc5
+
+	object PATHdcaa1563-df0d-406a-9608-e0bdf4eec90a
+		type PATHMARKER
+		at 482 201
+		curdir 2
+		labels->location LakesideChurch
+		stats->owner PATH153913f4-8842-4cc5-b06a-20c8a9f97abb
+
+	object PATH842017d3-7ccf-4600-903e-00d2e13c84f3
+		type PATHMARKER
+		at 485 201
+		curdir 3
+		labels->location Vinters
+		stats->owner PATHa2288e44-a8ad-4958-b2c6-1d42c1b1ebdc
 
 	object BRID7a3db2f8-7c0e-44ef-b051-f2bd29537d5e
 		type BRIDGE_STEPS_W
@@ -22798,6 +23402,19 @@ iMZ1r01
 
 	decorative MOUNT03 at 917 334
 
+	object TORC8e9bd37c-309b-4967-a710-2a1abaae9d55
+		type TORCH
+		at 1004 334
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object BOOKfbb567c4-64c8-40d0-945a-aacbd4b9ee2c
+		type BOOKSHELF00
+		at 1005 334
+		curdir 0
+		stats->owner SECRdd44b61f-7eb0-4083-8929-1bbadbd008ce
+		funcs->use CALLWIELD_OWNER
+
 	decorative TREE02 at 556 335
 
 	decorative TREE00 at 559 335
@@ -22889,6 +23506,19 @@ iMZ1r01
 		at 1003 335
 		curdir 2
 		tag 43
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHAI78405fd8-9681-46cd-a7b9-279e6b4e5365
+		type CHAIR
+		at 1006 335
+		curdir 2
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHAI4733e2dc-930e-4f80-bd89-f9f1597722b1
+		type CHAIR
+		at 1008 335
+		curdir 3
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
 
 	decorative TREE02 at 545 336
 
@@ -22941,6 +23571,31 @@ iMZ1r01
 		at 1003 336
 		curdir 1
 		tag 43
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHAI4fc8d6b0-0a37-4b52-b0b0-75455c8ca9c3
+		type CHAIR
+		at 1005 336
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHAI0722f306-ff8c-476f-98c7-864957912dc6
+		type CHAIR
+		at 1006 336
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHAI5422f7a4-c9bb-49e0-81e7-5baaa4bb3838
+		type CHAIR
+		at 1007 336
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHAIb420e67d-65a2-42a3-9911-72ce246d31de
+		type CHAIR
+		at 1008 336
+		curdir 2
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
 
 	decorative TREE02 at 556 337
 
@@ -22999,6 +23654,25 @@ iMZ1r01
 		at 1003 337
 		curdir 1
 		tag 42
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object PEW_04129a53-64ca-4844-bd59-4f5f4238c789
+		type PEW_LEFT
+		at 1004 337
+		curdir 2
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CANDd8ce3002-c6c6-4a73-94ae-402a2f910ab7
+		type CANDLESTKUNLIT
+		at 1005 337
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CAND924e8f62-f16f-4f3b-b3b1-6e98be54296e
+		type CANDLESTKUNLIT
+		at 1008 337
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
 
 	object WALLe8de5767-ad65-43f9-82d3-a5a30e7b7867
 		type WALL_EDGE
@@ -23071,6 +23745,54 @@ iMZ1r01
 
 	decorative MOUNT05 at 918 338
 
+	object TORCde1c86e8-3fc6-406d-89d7-4b6b811e5c4e
+		type TORCH
+		at 1002 338
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object PEW_877c9fa5-2e52-4bf7-873d-9cda65fc5703
+		type PEW_RIGHT
+		at 1004 338
+		curdir 2
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CAND1e046c3f-1ea3-4516-a207-e5cae05c45a6
+		type CANDLESTKUNLIT
+		at 1006 338
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object BOTTfe6d271c-eb4f-4d67-843d-de61f0e43590
+		type BOTTLE_WINE
+		inside CHES234edad4-8027-44a6-a175-1cf34e176b37
+		curdir 3
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object PUDDa7f9112a-916c-4e20-9a2c-b3a6dafeaed3
+		type PUDDLE_WINE
+		inside BOTTfe6d271c-eb4f-4d67-843d-de61f0e43590
+		curdir 1
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GLASda0b7999-a96e-4437-85fd-89f3dbc57b46
+		type GLASS_SHARDS
+		inside BOTTfe6d271c-eb4f-4d67-843d-de61f0e43590
+		curdir 1
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object WINEcd8f4e3f-49f5-45a3-a009-902ebf520efc
+		type WINEGLASS
+		inside CHES234edad4-8027-44a6-a175-1cf34e176b37
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CHES234edad4-8027-44a6-a175-1cf34e176b37
+		type CHEST
+		at 1008 338
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
 	decorative TREE01 at 548 339
 
 	decorative TREE02 at 567 339
@@ -23110,6 +23832,18 @@ iMZ1r01
 	decorative TREE00 at 642 339
 
 	decorative MOUNT04 at 913 339
+
+	object CAND67a3ec7c-b68e-4a03-855b-eb619c681411
+		type CANDLESTKUNLIT
+		at 1003 339
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object CRUCc436ee4f-5d0c-434e-b8ea-3c4bf4ff8162
+		type CRUCIFIX-TABLE
+		at 1007 339
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
 
 	decorative TREE01 at 544 340
 
@@ -23175,6 +23909,24 @@ iMZ1r01
 		at 942 340
 		curdir 3
 
+	object CRUC23fcde4f-70d7-4821-be50-636a06f1ce73
+		type CRUCIFIX-TABLE
+		at 1005 340
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object TABL29e8d46c-89fe-4de8-aa20-273e6667f2c8
+		type TABLECLOTH
+		at 1007 340
+		curdir 2
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object TABL32604bd7-ba21-4ed2-adfc-24e5442f19ee
+		type TABLECLOTH
+		at 1008 340
+		curdir 3
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
 	decorative TREE00 at 545 341
 
 	decorative TREE01 at 546 341
@@ -23225,6 +23977,11 @@ iMZ1r01
 		curdir 0
 		tag 24
 
+	object SECRdd44b61f-7eb0-4083-8929-1bbadbd008ce
+		type SECRETDOOR2_SHUT
+		at 1004 341
+		curdir 0
+
 	decorative TREE00 at 542 342
 
 	decorative TREE01 at 551 342
@@ -23274,6 +24031,66 @@ iMZ1r01
 		at 822 342
 		curdir 0
 		tag 24
+
+	object GOLD1c2649c4-9fba-487c-b401-d7c8e6572ea3
+		type GOLD_BAR
+		at 1003 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GOLD6a1457fe-2050-47fd-9511-daea8fa3b1d9
+		type GOLD_BAR
+		at 1003 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GOLD5094a143-40ab-4b20-8757-1145a6112ac5
+		type GOLD_BAR
+		at 1003 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GOLD7e1d9adb-87eb-4c4f-9ca3-91eb89800c8b
+		type GOLD_BAR
+		at 1003 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GOLD0409e2e4-f41d-4aec-8cac-703bbdcb742e
+		type GOLD_BAR
+		at 1003 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GOLDfa535277-1ca6-4ac8-8013-11dadc37da83
+		type GOLD_BAR
+		at 1003 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object SPEL7de31a91-d533-4c75-8263-542d74042fb6
+		type SPELL_DISPELBARRIER
+		at 1005 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object SPELd96910ce-a6b3-474b-9abe-5f944c2b027c
+		type SPELL_ENSORCELLMENT
+		at 1005 342
+		curdir 0
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object GOLD2e0c6dee-4815-4f54-af21-0953b79913a7
+		type GOLD_COINS
+		at 1007 342
+		curdir 0
+		stats->quantity 1500
+		stats->owner MAN_a30655fb-bc08-4596-9582-80e332fcbb6e
+
+	object STDOf5d1a238-a242-4d2a-8c7d-03a2c955d670
+		type STDONALDS_LITTER
+		at 1008 342
+		curdir 0
 
 	object STON93dd59ba-22bf-4de9-935f-8dd764d4d856
 		type STONEWINDOW1

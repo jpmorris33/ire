@@ -3,7 +3,7 @@
 [page="start"]
 
 [colour="#808080"]
-You see a barkeeper.
+You see a barmaid.
 [colour="#ffffff"]
 
 "Hail, friend and welcome to the Flying Trout.
@@ -31,7 +31,7 @@ You see a barkeeper.
 [page="startname"]
 
 [colour="#808080"]
-You see Reynard the barkeeper.
+You see Reyla the barmaid.
 [colour="#ffffff"]
 
 "Hail, friend and welcome back to the Flying Trout.
@@ -64,7 +64,7 @@ You see Reynard the barkeeper.
 [page="name"]
 [learn_name]
 
-"My name is Reynard."
+"My name is Reyla."
 
 [link="Why is this pub called the 'Flying Trout'?"]
 [linkto="pubname"]
@@ -255,7 +255,7 @@ You see Reynard the barkeeper.
  if this is a blessing or a curse."
 
 [colour="#808080"]
-His chest puffs up with pride.
+Her chest puffs up with pride.
 [colour="#ffffff"]
 
  "But I do have the exiled prince of Agnar lodging here!"
