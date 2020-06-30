@@ -9,6 +9,7 @@ activity
 
 int x
 int y
+int cost
 
 # The guard in the egg must not move
 
@@ -23,39 +24,34 @@ centre around me
 
 if me.curdir = RIGHT
 	add x + 1
-	move_object me to x y
-	if err <> 0
-		set_direction me = LEFT
-	endif
-	return
 endif
 
 if me.curdir = LEFT
 	add x - 1
-	move_object me to x y
-	if err <> 0
-		set_direction me = RIGHT
-	endif
-	return
 endif
 
 if me.curdir = DOWN
 	add y + 1
-	move_object me to x y
-	if err <> 0
-		set_direction me = UP
-	endif
-	return
 endif
 
 if me.curdir = UP
 	add y - 1
-	move_object me to x y
-	if err <> 0
-		set_direction me = DOWN
-	endif
+endif
+
+get_cost cost = x y
+if cost < 0
+	let current = me
+	call flip_direction
 	return
 endif
+
+move_object me to x y
+if err <> 0
+	let current = me
+	call flip_direction
+	return
+endif
+
 
 end
 
@@ -71,6 +67,7 @@ activity
 int x
 int y
 int rnd
+int cost
 
 # The guard in the egg must not move
 
@@ -103,6 +100,11 @@ endif
 if rnd = 4
 	set_direction me = DOWN
 	let y = y + 1
+endif
+
+get_cost cost = x y
+if cost < 0
+	return
 endif
 
 move_object me to x y

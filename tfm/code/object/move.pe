@@ -77,6 +77,43 @@ end
 
 
 ##
+##	Rotate 180 degrees
+##
+
+function flip_direction
+
+if_not_exists current
+	let current = me
+	if_not_exists current
+		return
+	endif
+endif
+
+if current.curdir = UP
+	set_direction current = DOWN
+	return
+endif
+
+if current.curdir = DOWN
+	set_direction current = UP
+	return
+endif
+
+if current.curdir = LEFT
+	set_direction current = RIGHT
+	return
+endif
+
+if current.curdir = RIGHT
+	set_direction current = LEFT
+	return
+endif
+
+end
+
+
+
+##
 ##	Move Forward
 ##
 
@@ -119,6 +156,7 @@ label do_move
 centre around current
 get_cost cost = x y
 if cost < 100
+and cost >= 0
 	move_object current to x y
 endif
 

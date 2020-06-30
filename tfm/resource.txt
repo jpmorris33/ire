@@ -14134,6 +14134,9 @@ section: tables
 		man_old oldmansit_u 
 		man_boy flsit_u 
 		guard guardsit_u 
+		guard_disposable guardsit_u 
+		guard_wandering guardsit_u 
+		guard_modern modernguardsit_u 
 		player redmansit_u 
 		playerf redwomansit_u 
 		woman_generic WOMAN1SIT_U
@@ -14158,6 +14161,9 @@ section: tables
 		man_old oldmansit_d 
 		man_boy flsit_d
 		guard guardsit_d
+		guard_disposable guardsit_d
+		guard_wandering guardsit_d
+		guard_modern modernguardsit_d
 		player redmansit_d
 		playerf redwomansit_d
 		woman_generic WOMAN1SIT_D
@@ -14181,7 +14187,10 @@ section: tables
 		man_noble noblemansit_l
 		man_old oldmansit_l 
 		man_boy flsit_l 
-		guard guardsit_l 
+		guard guardsit_l
+		guard_disposable guardsit_l 
+		guard_wandering guardsit_l 
+		guard_modern modernguardsit_l 
 		player redmansit_l 
 		playerf redwomansit_l
 		woman_generic WOMAN1SIT_L
@@ -14206,6 +14215,9 @@ section: tables
 		man_old oldmansit_r 
 		man_boy flsit_r 
 		guard guardsit_r 
+		guard_disposable guardsit_r 
+		guard_wandering guardsit_r 
+		guard_modern modernguardsit_r 
 		player redmansit_r
 		playerf redwomansit_r
 		woman_generic WOMAN1SIT_R
@@ -14627,7 +14639,8 @@ section: tables
 		man_old			OLDMAN_LIEDOWN 
 		man_boy			F_LIEDOWN 
 		guard			GUARD_SLEEPING 
-		DEADGUARD_MODERN	MODERNGUARD_SLEEPING 
+		guard_wandering		GUARD_SLEEPING 
+		GUARD_MODERN		MODERNGUARD_SLEEPING 
 		player			REDMAN_SLEEPING
 		playerf			REDWOMMAN_SLEEPING
 		woman_generic		WOMAN1_SLEEPING
