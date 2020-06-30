@@ -29,6 +29,7 @@ end
 function jail_player
 
 let victim = player
+let me = null
 call arrest_victim
 
 end

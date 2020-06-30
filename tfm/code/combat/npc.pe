@@ -168,6 +168,7 @@ and atk.enemy.stats.hp > -1
 	check_hurt victim
 
 	# Sling them in pokey
+	let me = atk
 	call arrest_victim
 
 	let atk.enemy = null
@@ -306,6 +307,7 @@ move_towards atk atk.enemy
 get_distance dist = atk atk.enemy
 if dist < 2
 	let victim = atk.enemy
+	let me = atk
 	call arrest_victim
 	resume_activity atk
 endif

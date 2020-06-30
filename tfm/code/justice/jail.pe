@@ -20,6 +20,14 @@ else
 	return
 endif
 
+# 'me' should be set to the arresting party or null if it's a scripted arrest
+if_exists me
+	if_not_flag me IS_GUARD
+		# You're not entitled to do this
+		return
+	endif
+endif
+
 
 call find_prison
 

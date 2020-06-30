@@ -948,6 +948,16 @@ if current = suspect
 	return
 endif
 
+# Stop corpses being thrown into jail (sigh)
+if suspect.stats.hp < 1
+	# Stop them just staring at the corpse instead
+	if_not_flag current IN_PARTY
+		stop_activity current
+		resume_activity current
+	endif
+	return
+endif
+
 # Stop panthers trying to arrest each other for being panthers
 if suspect.user.user19 == CRIME_BEAST
 	if suspect is called "guard_panther"
