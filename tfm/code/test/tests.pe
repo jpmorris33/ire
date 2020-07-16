@@ -4,6 +4,7 @@ private
 call test_and
 call test_2or
 call test_3or
+call test_initarray
 
 # Who guards the guards?
 #assert 0 = 1

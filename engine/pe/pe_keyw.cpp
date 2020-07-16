@@ -627,6 +627,9 @@ if(!klist[list])      // Haven't started!
 
 for(ctr=0;ctr<klistlen[list];ctr++) {
 	if(klist[list][ctr]) {
+		if(klist[list][ctr]->arrayinit) {
+			M_free(klist[list][ctr]->arrayinit); 
+		}
 		M_free(klist[list][ctr]); 
 	}
 }

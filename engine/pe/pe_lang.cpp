@@ -62,6 +62,7 @@ static void PE_label(char **a);		static void PEP_label(char **a);
 static void PEP_intarray(char **a);	static void PEP_objarray(char **a);
 static void PEP_strarray(char **a);static void PEP_userstring(char **a);
 void PEP_array(char **line, char type);
+static void PEP_initarray(KEYWORD *k,char **line, char type);
 static void PE_goto(char **a);
 static void PE_else(char **line);	static void PEP_else(char **line);
 static void PE_endif(char **line);	static void PEP_endif(char **line);
@@ -126,6 +127,7 @@ static 	char *IRE_VERSION=IKV;
 // T = Table (string->int)
 // l = label (a keyword the user has created)
 // ? = any (matches anything)
+// ( = array init
 // p = math symbols -,+,=,*,/ etc
 // x = complex expression
 // > = redirection (In a STRUCT definition)
@@ -205,12 +207,15 @@ OPCODE vmspec[] =
                     {"integer",0,"l",PE_declare,PEP_integer,0},
                     {"integer",0,"l=n",PE_declare,PEP_integer,0},
                     {"integer_array",0,"a",PE_declare,PEP_intarray,0},
+                    {"integer_array",0,"a=(",PE_declare,PEP_intarray,0},
                     {"string",0,"l",PE_declare,PEP_string,0},
                     {"string_array",0,"b",PE_declare,PEP_strarray,0},
+                    {"string_array",0,"b=(",PE_declare,PEP_strarray,0},
                     {"userstring",0,"ln",PE_declare,PEP_userstring,0},
                     {"int",0,"l",PE_declare,PEP_integer,0},
                     {"int",0,"l=n",PE_declare,PEP_integer,0},
                     {"int_array",0,"a",PE_declare,PEP_intarray,0},
+                    {"int_array",0,"a=(",PE_declare,PEP_intarray,0},
                     {"object",0,"o",PE_declare,PEP_object,0},
                     {"object_array",0,"c",PE_declare,PEP_objarray,0},
                     {"tile",0,"t",PE_declare,PEP_tile,0},
@@ -4653,6 +4658,8 @@ if(!k)
 k->value = NULL;
 k->arraysize = val;
 
+PEP_initarray(k,line,type);
+
 // Make provision for it
 
 if(curfunc == NULL)
@@ -4671,6 +4678,90 @@ else
 	}
 return;
 }
+
+
+//
+//  initialise an array with default values, if there are any
+//
+
+void PEP_initarray(KEYWORD *k,char **line, char type) {
+int words,ctr, openp, closep, totalcount=0;
+char *lineptr,*ptr,*ptr2,*word;
+VMTYPE *outlist = NULL;
+
+// Only for ints and strings
+if(type != 'a' && type != 'b') {
+	return;
+}
+
+if(!line[2]) {
+	return; // Nothing there
+}
+
+if(strcmp(line[2],"=")) {
+	PeDump(srcline,"array initialisation didn't have an = as second parameter",lineptr);
+}
+
+openp=3;
+
+if(!strchr(line[openp],'(')) {
+	PeDump(srcline,"array initialisation list must start with (",lineptr);
+}
+
+closep=0;
+lineptr="";
+for(ctr=3;ctr++;line[ctr]) {
+	if(!line[ctr]) {
+		break;
+	}
+	lineptr=line[ctr];
+	closep=ctr;
+}
+
+// Does the last term have a ')' at the end
+if(!lineptr[0] || lineptr[strlen(lineptr)-1] != ')') {
+	PeDump(srcline,"Couldn't find closing bracket in array initialisation list",lineptr);
+} else {
+	lineptr[strlen(lineptr)-1]=0;
+}
+
+words=(closep-openp)+1; 
+
+// As a future project we can make it auto-init array size from the init list
+outlist = (VMTYPE *)M_get(words, sizeof(VMTYPE));
+
+for(ctr=0;ctr<words;ctr++) {
+	word = line[ctr+openp];
+	if(word == NOTHING || word == NULL) {
+		continue;
+	}
+	if(word[0] == '(') {
+		word++;
+	}
+
+	if(!word[0]) {
+		continue;
+	}
+	if(type == 'a') {
+		outlist[ctr].i32 = pe_getnumber(word);
+	}
+	if(type == 'b') {
+		// TODO: strip this out afterwards to remove the quotes
+		outlist[ctr].ptr = word;
+	}
+	totalcount++;
+}
+
+if(totalcount != k->arraysize) {
+	ilog_quiet("Array size mismatch: %d words out of %d\n",totalcount,k->arraysize);
+	PeDump(srcline,"Initialisation list does not match array size",lineptr);
+}
+
+
+k->arrayinit = outlist;
+}
+
+
 
 void PEP_userstring(char **line)
 {
