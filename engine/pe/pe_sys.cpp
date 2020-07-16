@@ -101,6 +101,7 @@ static int get_entry(char **line);
 static ICODE *new_node();
 static int fixup_locals();
 static int count_locals();
+static void patch_arraydata(VMTYPE *p);
 static void fixup_jumps();
 static int code_size();
 static void find_orphans();
@@ -286,6 +287,7 @@ for(lineno=0;lineno<lines;lineno++)
 	entry = get_firstentry(line[0]); // No need for full syntax matching
 	if(entry == -1)
 		PeDump(lineno,"Unknown command",line[0]);
+
 	if(vmspec[entry].parse)
 		vmspec[entry].parse(line);
 	}
@@ -798,7 +800,7 @@ if(k_local)
 	{
 	i->variable = k_local->id+1;
 	data.ptr = k_local->value;
-//	ilog_quiet("%s: localval = %x, id = %d\n",k_local->name,k_local->value,k_local->id);
+//	ilog_quiet("%s: localval = %p, id = %d, data.ptr=%p   idx offset = %d\n",k_local->name,k_local->value,k_local->id, data.ptr,atoi(idx)-1);
 	k_local->refcount++;
 	i->arraysize= k_local->arraysize;
 	}
@@ -1610,8 +1612,7 @@ pe_output->codelen = icode_data;
 
 // Insert the DOFUS linker into the output code if it is needed
 
-if(patches)
-	{
+if(patches) {
 //	ilog_quiet("Building DOOFUS in %s: %d patches from %x onwards\n",compilename,patches,icode_data);
 	// Insert Dofus opcode 
 	d.u32=PEVM_Dofus;
@@ -1624,19 +1625,23 @@ if(patches)
 	// Insert Dofus offset
 	d.i32=icode_data;
 	*p++=d;
-	}
+}
 
 p1 = p;	// For debugging if necessary
 
 // Copy the icode to the pointer
 
-for(i=icode;i;i=i->next)
-	{
+for(i=icode;i;i=i->next) {
 	memcpy(p,i->data,i->len);
 	p=(VMTYPE *)((char *)p+i->len); // advance pointer in bytes
 //	p+=i->len;
 //	ilog_quiet("%04x: [%x] (%d bytes long)\n",(unsigned)p-(unsigned)p1,*(int *)i->data,i->len);
-	}
+}
+
+if(patches) {
+	patch_arraydata(p);
+}
+
 pe_output++;
 }
 
@@ -1874,11 +1879,17 @@ no=ctr-1;
 
 // Wrong number of parameters
 
-if(len != no)
-    {
-//    printf("<%s/%s>\n",line,vmspec[entry].parm);
-    return 0;
-    }
+if(len != no) {
+
+	// Is it an array initialisation?
+	if(strchr(vmspec[entry].parm, '(') && len < no) {
+		// It's fine... really
+		return 1;
+	}
+
+//	printf("<%d/%d for %s>\n",len,no,vmspec[entry].parm);
+	return 0;
+}
 
 // Is there something we don't understand.. an invalid keyword?
 
@@ -1892,6 +1903,7 @@ for(ctr=0;ctr<len;ctr++)
     if(vmspec[entry].parm[ctr] != '?')
         pe_isnumber(buffer);
     }
+
 
 // Ok, check the parameters
 
@@ -2087,9 +2099,20 @@ for(ctr=0;ctr<len;ctr++)
             {
             return 0;
             }
-		break;
+	break;
 
         case '?':
+        break;
+
+        case '(':
+
+//		// It claims to be an array initialisation.  Look for the brackets
+		if(!strchr(buffer,'(')) {
+			return 0;
+		}
+		if(!strchr(buffer,')')) {
+			return 0;
+		}
         break;
 
         default:
@@ -2240,6 +2263,10 @@ switch(type)
 	break;
 
 	case '?':
+	ilog_quiet("diagnose_keyword: array init error with '%s'\n",name);
+	break;
+
+	case '(':
 	//PeDump(srcline,"Undefined symbol [type 'any']",name);
 	break;
 
@@ -2364,6 +2391,10 @@ switch(type)
 
     case ']':
     return "<array access>";
+    break;
+
+    case '(':
+    return "<array initialisation>";
     break;
 
     default:
@@ -2671,23 +2702,24 @@ for(kctr=0;_keylist[kctr];kctr++)
 				// Copy the current default value to the globals array
 				// Then change the value so it points to the global instead
 
-				if(k->id != -1)	// -1 is for system variables, pre-resolved
-					{
-					if(k->arraysize>0)
-						{
-						for(ctr=0;ctr<k->arraysize;ctr++)
-							{
-							pe_global[k->id+ctr] = NULL;//(void *)k->value;
+				if(k->id != -1) {	// -1 is for system variables, pre-resolved
+					if(k->arraysize>0) {
+						for(ctr=0;ctr<k->arraysize;ctr++) {
+							// If array is pre-initialised, use that value
+							if(k->arrayinit) {
+								pe_global[k->id+ctr] = (void *)k->arrayinit[ctr].ptr;
+							} else {
+								// Otherwise, set it to null
+								pe_global[k->id+ctr] = NULL;
 							}
-						k->value = (void *)&pe_global[k->id]; // Point to [0]
 						}
-					else
-						{
+						k->value = (void *)&pe_global[k->id]; // Point to [0]
+					} else {
 //						ilog_quiet("fixup %s = id:%d\n",k->name,k->id);
 						pe_global[k->id] = (void *)k->value;
 						k->value = (void *)&pe_global[k->id];
-						}
 					}
+				}
 
 				// Register the pointer for Garbage Collection
 				if(k->type == 'o' && k->id != -1)
@@ -2903,27 +2935,67 @@ pos = 0;
 
 locals=0;
 
-if(i)
+if(i) {
 	do {
 		in=i->next; // Store next in list (because it might change!)
-		if(i->variable)
-			{
+		if(i->variable) {
 			add_dword_raw(pos);            // Store code offset to patch
 			add_dword_raw(i->variable-1);  // Followed by which slot to use
 			locals++;
-/*
-			if(i->arraysize)
-				{
-				ilog_quiet("ARP: pos = %x\n",pos);
-				}
-*/
-//			pos+=(i->arraysize*sizeof(int)); // Skip length of array
-			}
+		}
 		pos+=i->len; // Update position counter
 		i=in;  // Next, please
-		} while(i);
+	} while(i);
+}
 return locals;
 }
+
+
+// Pre-initialise local array data (and hopefully all other local variables eventually)
+
+void patch_arraydata(VMTYPE *p)
+{
+KEYWORD *k;
+int lc,ctr;
+
+for(ctr=0;_keylist[ctr];ctr++) {
+	lc=_keylist[ctr];
+	if(!klist[lc]) {
+		continue;
+	}
+	for(k=klist[lc][0];k;k=k->next) {
+		if(k->local == curfunc) {
+			switch(k->type) {
+				case 'i':
+					// These aren't being evaluated in compilation order so doing this may swap the variables around!
+//					VMTYPE i;
+//					i.i32 = (VMINT)k->value;
+//					memcpy(p,&i,sizeof(VMTYPE));
+					// Fall through
+				case 'o':
+				case 't':
+				case 's':
+					p++;
+				break;
+
+				case 'a':
+				case 'b':
+					if(k->arrayinit) {
+						memcpy(p,k->arrayinit,k->arraysize * sizeof(VMTYPE));
+					}
+					// Fall through
+				case 'c':
+					p+=k->arraysize; // An array is lots of variables
+				break;
+
+				default:
+				break;
+			};
+		}
+	}
+}
+}
+
 
 // Fix up the jumps: gotos, if statements etc..
 

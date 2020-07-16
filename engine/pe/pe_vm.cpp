@@ -8207,7 +8207,10 @@ for(ctr=0;ctr<num;ctr++)
 //	ilog_quiet("varptr = %p\n",varptr->ptr);
 	value_ptr = (VMUINT *)(*varptr).ptr; // Get address
 	DOFUS_LOG("old slotvalue = %ld\n",*value_ptr);
-	*value_ptr = val; // Write default value into the variable
+	if(!*value_ptr) {
+		*value_ptr = val; // Write default value into the variable, if the array loader hasn't handled it first
+				// TODO: Try and make the array loader initialise non-array locals as well then we can lose this default patching hack entirely
+	}
 
 #ifdef DOFUS_DEBUG
 ilog_quiet("round again.. [%d/%d]\n\n",ctr+1,num);

@@ -1,0 +1,132 @@
+function test_initarray
+private
+
+call test_basiclocals
+call test_initarray1
+#call test_initarray2
+call test_initarray3
+call test_initarray4
+call test_initarray5
+call test_initarray5a
+
+# Do it again, just in case
+call test_initarray3
+
+end
+
+int_array _test_initarray[3] = ( -1 -2 -3 )
+
+local
+
+
+# check local vars are pre-initialised with the right value
+
+function test_basiclocals
+
+int a = 0x0123
+int c = 0x89ab
+int b = 0x4567
+
+assert a = 0x0123
+assert b = 0x4567
+assert c = 0x89ab
+
+end
+
+
+# check uninitialised int array
+
+function test_initarray1
+
+int_array x[3]
+
+assert x[1] = 0
+assert x[2] = 0
+assert x[3] = 0
+
+end
+
+# Check global int array
+
+function test_initarray2
+
+assert _test_initarray[1] = -1
+assert _test_initarray[2] = -2
+assert _test_initarray[3] = -3
+
+end
+
+# check local int array
+
+function test_initarray3
+int_array xxy[3] = (1 2 -3)
+
+assert xxy[3] = -3
+assert xxy[2] = 2
+assert xxy[1] = 1
+
+let xxy[2] = 9
+
+assert xxy[3] = -3
+assert xxy[2] = 9
+assert xxy[1] = 1
+
+end
+
+
+# check local int array without explicit accesses
+
+function test_initarray4
+int_array xxy[3]
+int ctr = 0
+int tot = 0
+
+for ctr = 1 to 3
+	add tot + xxy[ctr]
+next ctr
+
+assert tot = 0
+
+end
+
+
+# check local int array without explicit accesses
+
+function test_initarray5
+int ctr = 0
+int tot = 0
+int_array xxy[3] = (1 10 100)
+
+for ctr = 1 to 3
+	add tot + xxy[ctr]
+	print tot
+	printcr
+next ctr
+
+assert tot = 111
+
+end
+
+
+# This fails
+
+function test_initarray5a
+int_array xxy[3] = (1 10 100)
+int ctr = 0
+int tot = 0
+
+for ctr = 1 to 3
+	add tot + xxy[ctr]
+	print tot
+	printcr
+next ctr
+
+assert tot = 111
+
+end
+
+
+
+
+
+endlocal
