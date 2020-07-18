@@ -10,6 +10,8 @@
 #define EMERGENCY_QUIT // Allow SHIFT-BREAK to quit the VM for postmortems
 //#define SAFER        // More vigorous pointer checks (but slower?)
 //#define PENDING_DELETE_CHECK	// This will generate many false positives, especially with the Ark of Testimony
+//#define DUMP_VM_TO_CONSOLE
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -151,6 +153,12 @@ static void PV_Let_seU();
 static void PV_ClearArrayI();
 static void PV_ClearArrayS();
 static void PV_ClearArrayO();
+static void PV_CopyArrayI();
+static void PV_CopyArrayS();
+static void PV_CopyArrayO();
+static void PV_SetArrayI();
+static void PV_SetArrayS();
+static void PV_SetArrayO();
 static void PV_Add();
 static void PV_Goto();
 static void PV_If_iei();
@@ -438,6 +446,7 @@ static void PV_IfKeyPressed();
 static void PV_Printaddr();
 static void PV_PrintLog();
 static void PV_Assert();
+static void PV_AssertStr();
 static void PV_Dump();
 static void PV_NOP();
 static void PV_Dofus();
@@ -475,10 +484,12 @@ void InitVM();
 void CallVM(char *function);
 void CallVMnum(int pos);
 void DumpVM(int force);
-static void DumpVMtoconsole();
 static void VMbug();
 static VMTYPE *VMget(int bytes);
 static void VMfree(VMTYPE *ptr);
+#ifdef DUMP_VM_TO_CONSOLE
+static void DumpVMtoconsole();
+#endif
 
 
 static PEVM *AddVM(PEM *p);
@@ -1203,6 +1214,12 @@ VMOP(Let_seU);
 VMOP(ClearArrayI);
 VMOP(ClearArrayS);
 VMOP(ClearArrayO);
+VMOP(CopyArrayI);
+VMOP(CopyArrayS);
+VMOP(CopyArrayO);
+VMOP(SetArrayI);
+VMOP(SetArrayS);
+VMOP(SetArrayO);
 VMOP(Add);
 VMOP(Goto);
 VMOP(If_iei);
@@ -1488,6 +1505,7 @@ VMOP(SaveGame);
 VMOP(LoadGame);
 VMOP(GetDate);
 VMOP(Assert);
+VMOP(AssertStr);
 // These are used internally by the compiler
 
 VMOP(LastOp);
@@ -1810,6 +1828,7 @@ if(vmstack_ptr<(VM_STACKLIMIT-1))
 		}
 	memcpy(p->code,f->code,p->size);
 	p->name = f->name;
+	p->funcid = f->funcid;
 	p->file = f->file;
 	p->ip = p->code;
 	return p;
@@ -1947,6 +1966,8 @@ curvm->ip = oldip;
 }
 
 
+#ifdef DUMP_VM_TO_CONSOLE
+
 void DumpVMtoconsole()
 {
 int ctr,len;
@@ -2049,7 +2070,7 @@ for(;(VMUINT)curvm->ip<proglen;)
 curvm->ip = oldip;
 
 }
-
+#endif
 
 // Helper functions for VM opcodes
 
@@ -2206,7 +2227,8 @@ CHECK_POINTER(c);
 
 void PV_Let_pes()
 {
-VMINT **a,function;
+VMINT **a;
+int function;
 char *b;
 VMTYPE *p1,*p2;
 unsigned int offset;
@@ -2221,7 +2243,7 @@ CHECK_POINTER(b);
 // Find the address in the original binary code
 
 // First get the ID number of the currently running function
-function = getnum4PE(curvm->name);
+function = curvm->funcid;
 // I feel my eyes go really wide.
 if(function == -1)
 	ithe_panic("current function does not exist in let_pes",curvm->name);
@@ -2317,6 +2339,140 @@ for(ctr=0;ctr<size;ctr++) {
 	array[ctr]=NULL;
 }
 }
+
+// Copy Array i[]
+
+void PV_CopyArrayI()
+{
+VMINT *array_d, *array_s;
+VMINT size_d,size_s,idx,ctr;
+GET_ARRAY_INFO((void **)&array_d, &size_d, &idx);
+// Skip array member
+GET_INT();
+
+GET_ARRAY_INFO((void **)&array_s, &size_s, &idx);
+// Skip array member
+GET_INT();
+
+// If the dest won't fit, stop
+if(size_d < size_s) {
+	size_s = size_d;
+}
+
+for(ctr=0;ctr<size_s;ctr++) {
+	array_d[ctr]=array_s[ctr];
+}
+}
+
+// Copy Array s[]
+
+void PV_CopyArrayS()
+{
+char **array_d, **array_s;
+VMINT size_d,size_s,idx,ctr;
+GET_ARRAY_INFO((void **)&array_d, &size_d, &idx);
+// Skip array member
+GET_STRING();
+
+GET_ARRAY_INFO((void **)&array_s, &size_s, &idx);
+// Skip array member
+GET_STRING();
+
+// If the dest won't fit, stop
+if(size_d < size_s) {
+	size_s = size_d;
+}
+
+for(ctr=0;ctr<size_s;ctr++) {
+	array_d[ctr]=array_s[ctr];
+}
+}
+
+// Copy Array o[]
+
+void PV_CopyArrayO()
+{
+OBJECT **array_d, **array_s;
+VMINT size_d,size_s,idx,ctr;
+GET_ARRAY_INFO((void **)&array_d, &size_d, &idx);
+// Skip array member
+GET_OBJECT();
+
+GET_ARRAY_INFO((void **)&array_s, &size_s, &idx);
+// Skip array member
+GET_OBJECT();
+
+// If the dest won't fit, stop
+if(size_d < size_s) {
+	size_s = size_d;
+}
+
+for(ctr=0;ctr<size_s;ctr++) {
+	array_d[ctr]=array_s[ctr];
+}
+}
+
+
+// Set Array i[] = (1, 2, 3)
+
+void PV_SetArrayI()
+{
+VMINT *array;
+VMINT size_d,size_s,idx,ctr,*val;
+GET_ARRAY_INFO((void **)&array, &size_d, &idx);
+// Skip array member
+GET_INT();
+
+size_s = GET_DWORD();
+
+for(ctr=0;ctr<size_s;ctr++) {
+	val = GET_INT();
+	if(ctr<size_d) {
+		array[ctr]=*val;
+	}
+}
+}
+
+// Set Array s[]  = ("1", "2", "3")
+
+void PV_SetArrayS()
+{
+char **array,*val;
+VMINT size_d,size_s,idx,ctr;
+GET_ARRAY_INFO((void **)&array, &size_d, &idx);
+// Skip array member
+GET_INT();
+
+size_s = GET_DWORD();
+
+for(ctr=0;ctr<size_s;ctr++) {
+	val = GET_STRING();
+	if(ctr<size_d) {
+		array[ctr]=val;
+	}
+}
+}
+
+// Set Array o[] = (obj1, obj2, obj3)
+
+void PV_SetArrayO()
+{
+OBJECT **array,**val;
+VMINT size_d,size_s,idx,ctr;
+GET_ARRAY_INFO((void **)&array, &size_d, &idx);
+// Skip array member
+GET_INT();
+
+size_s = GET_DWORD();
+
+for(ctr=0;ctr<size_s;ctr++) {
+	val = GET_OBJECT();
+	if(ctr<size_d) {
+		array[ctr]=*val;
+	}
+}
+}
+
 
 
 // Goto
@@ -2814,7 +2970,9 @@ OBJECT **obj;
 obj = GET_OBJECT();
 CHECK_POINTER(obj);
 
-// DumpVMtoconsole();
+#ifdef DUMP_VM_TO_CONSOLE
+DumpVMtoconsole();
+#endif
 
 if(*obj == player)
 	{
@@ -7002,7 +7160,8 @@ if(vpos < 0 || vpos >= (*str)->len)
 void PV_strgetpos2()
 {
 char *str;
-VMINT *pos,vpos;
+VMINT *pos;
+VMUINT vpos;
 VMINT *intvar;
 
 intvar = (VMINT *)GET_INT();
@@ -7857,6 +8016,25 @@ if(!Operator[op&OPMASK](*a,*b)) {
 }
 }
 
+void PV_AssertStr()
+{
+int lineno;
+char *a,*b;
+unsigned char op;
+
+a = GET_STRING();
+CHECK_POINTER(a);
+op=GET_BYTE();
+b = GET_STRING();
+CHECK_POINTER(b);
+lineno = GET_DWORD();
+
+if(!Operator[op&OPMASK](istricmp_fuzzy(a,b),0)) {
+	Bug("TEST FAILED in file %s at line %d, ( %s %s %s was not true)\n",curvm->file,lineno,a,oplist[op&OPMASK],b);
+	Bang("Unit test failed");
+}
+}
+
 
 //
 // LASTOP: new opcodes go above this line
@@ -8142,12 +8320,12 @@ ilog_quiet("in %s\n",debcurfunc);
 //ilog_quiet("%s\n",debcurfunc);
 ilog_quiet("Doofus: dump before: ");
 unsigned char *cc=(unsigned char *)curvm->code;
-for(ctr=0;ctr<curvm->size;ctr++)
-	{
-	if(!(ctr % 16))
+for(ctr=0;ctr<curvm->size;ctr++) {
+	if(!(ctr % 16)) {
 		ilog_quiet("\n%-3x  ",ctr/16);
-	ilog_quiet("%02x ",cc[ctr]&255);
 	}
+	ilog_quiet("%02x ",cc[ctr]&255);
+}
 ilog_quiet("\n");
 #endif
 
@@ -8173,8 +8351,7 @@ DOFUS_LOG2("slotaddress = 0x%x [0x%x]\n---\n",slotaddr->u32);
 
 // Patch each of the entries
 
-for(ctr=0;ctr<num;ctr++)
-	{
+for(ctr=0;ctr<num;ctr++) {
 	// Get the first word (variable offset)
 	DOFUS_LOG("dataptr = %p\n",data);
 	varoff = (*data++).u32;
@@ -8207,25 +8384,22 @@ for(ctr=0;ctr<num;ctr++)
 //	ilog_quiet("varptr = %p\n",varptr->ptr);
 	value_ptr = (VMUINT *)(*varptr).ptr; // Get address
 	DOFUS_LOG("old slotvalue = %ld\n",*value_ptr);
-	if(!*value_ptr) {
-		*value_ptr = val; // Write default value into the variable, if the array loader hasn't handled it first
-				// TODO: Try and make the array loader initialise non-array locals as well then we can lose this default patching hack entirely
-	}
+	*value_ptr = val;
 
-#ifdef DOFUS_DEBUG
-ilog_quiet("round again.. [%d/%d]\n\n",ctr+1,num);
-#endif
-	}
+	#ifdef DOFUS_DEBUG
+	ilog_quiet("round again.. [%d/%d]\n\n",ctr+1,num);
+	#endif
+}
 #ifdef DOFUSDUMP
 ilog_quiet("Doofus: dump after\n");
 
 //cc=(unsigned char *)curvm->code;
-for(ctr=0;ctr<curvm->size;ctr++)
-	{
-	if(!(ctr % 16))
+for(ctr=0;ctr<curvm->size;ctr++) {
+	if(!(ctr % 16)) {
 		ilog_quiet("\n%-3x  ",ctr/16);
-	ilog_quiet("%02x ",cc[ctr]&255);
 	}
+	ilog_quiet("%02x ",cc[ctr]&255);
+}
 ilog_quiet("\n");
 ilog_quiet("DumpVM\n");
 

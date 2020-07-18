@@ -1,0 +1,195 @@
+##
+##  String array tests
+##
+
+function test_strarray
+private
+
+#call test_basiclocals
+call test_array1
+call test_array2
+call test_array3
+call test_copyarray
+call test_setarray1
+call test_setarray2
+call test_setarray3
+call test_setarray4
+#call test_setarray5
+
+end
+
+local
+
+# check local vars are pre-initialised with the right value
+
+function test_basiclocals
+
+string a
+string c
+string b
+
+let a = "0123"
+let c = "89ab"
+let b = "4567"
+
+assert a = "0123"
+assert b = "4567"
+assert c = "89ab"
+
+end
+
+
+# check uninitialised string array
+
+function test_array1
+
+string_array x[3]
+
+assert x[1] = ""
+assert x[2] = ""
+assert x[3] = ""
+
+end
+
+# check local string array without explicit accesses
+
+function test_array2
+string_array xxy[3]
+int ctr = 0
+
+for ctr = 1 to 3
+	assert xxy[ctr] = ""
+next ctr
+
+end
+
+
+function test_array3
+int ctr = 0
+string_array xxy[3]
+
+for ctr = 1 to 3
+	assert xxy[ctr] = ""
+next ctr
+end
+
+
+# Test copyarray
+
+function test_copyarray
+
+string_array src[3]
+string_array dest[3]
+
+assert src[1] = ""
+assert src[2] = ""
+assert src[3] = ""
+
+assert dest[1] = ""
+assert dest[2] = ""
+assert dest[3] = ""
+
+let src[1] = "1"
+let src[3] = "3"
+let src[2] = "2"
+
+assert src[1] = "1"
+assert src[2] = "2"
+assert src[3] = "3"
+
+assert dest[1] = "0"
+assert dest[2] = "0"
+assert dest[3] = "0"
+
+copy_array dest[1] = src[1]
+clear_array src[1]
+
+assert src[1] = "0"
+assert src[2] = "0"
+assert src[3] = "0"
+
+assert dest[1] = "1"
+assert dest[2] = "2"
+assert dest[3] = "3"
+
+end
+
+
+
+function test_setarray1
+
+string_array x[3]
+
+set_array x[1] = ( "a", "b", "c")
+
+assert x[3] = "c"
+assert x[1] = "a"
+assert x[2] = "b"
+
+end
+
+
+function test_setarray2
+
+string_array x[3]
+
+set_array x[1] = ( "a", "b", "c", "d" )
+
+assert x[3] = "c"
+assert x[1] = "a"
+assert x[2] = "b"
+
+end
+
+
+function test_setarray3
+
+string_array x[3]
+
+set_array x[1] = ( "a" "b")
+
+assert x[3] = ""
+assert x[1] = "a"
+assert x[2] = "b"
+
+end
+
+
+function test_setarray4
+
+string_array x[3]
+
+set_array x[1] = ( "a", "b", "c" )
+
+assert x[3] = "c"
+assert x[1] = "a"
+assert x[2] = "b"
+
+set_array x[1] = ( "d", "e")
+
+assert x[1] = "d"
+assert x[2] = "e"
+
+end
+
+
+# Type mismatch
+
+## FIXME: Crashes
+
+function test_setarray5
+
+string_array x[3]
+
+set_array x[1] = ( 1 2 3 )
+
+assert x[3] = ""
+assert x[1] = "a"
+assert x[2] = "b"
+end
+
+endlocal
+
+
+
+

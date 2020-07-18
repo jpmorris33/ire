@@ -62,7 +62,6 @@ static void PE_label(char **a);		static void PEP_label(char **a);
 static void PEP_intarray(char **a);	static void PEP_objarray(char **a);
 static void PEP_strarray(char **a);static void PEP_userstring(char **a);
 void PEP_array(char **line, char type);
-static void PEP_initarray(KEYWORD *k,char **line, char type);
 static void PE_goto(char **a);
 static void PE_else(char **line);	static void PEP_else(char **line);
 static void PE_endif(char **line);	static void PEP_endif(char **line);
@@ -93,6 +92,7 @@ static void PE_do(char **line);		static void PEP_do(char **line);
 static void PE_continue(char **line);
 static void PE_break(char **line);
 static void PE_assert(char **line);
+static void PE_setarray(char **line);
 
 static OBJECT obj_template;
 static TILE tile_template;
@@ -207,15 +207,12 @@ OPCODE vmspec[] =
                     {"integer",0,"l",PE_declare,PEP_integer,0},
                     {"integer",0,"l=n",PE_declare,PEP_integer,0},
                     {"integer_array",0,"a",PE_declare,PEP_intarray,0},
-                    {"integer_array",0,"a=(",PE_declare,PEP_intarray,0},
                     {"string",0,"l",PE_declare,PEP_string,0},
                     {"string_array",0,"b",PE_declare,PEP_strarray,0},
-                    {"string_array",0,"b=(",PE_declare,PEP_strarray,0},
                     {"userstring",0,"ln",PE_declare,PEP_userstring,0},
                     {"int",0,"l",PE_declare,PEP_integer,0},
                     {"int",0,"l=n",PE_declare,PEP_integer,0},
                     {"int_array",0,"a",PE_declare,PEP_intarray,0},
-                    {"int_array",0,"a=(",PE_declare,PEP_intarray,0},
                     {"object",0,"o",PE_declare,PEP_object,0},
                     {"object_array",0,"c",PE_declare,PEP_objarray,0},
                     {"tile",0,"t",PE_declare,PEP_tile,0},
@@ -337,6 +334,18 @@ OPCODE vmspec[] =
                     {"cleararray",PEVM_ClearArrayI,"a",PE_checkaccess,NULL,1},
                     {"cleararray",PEVM_ClearArrayS,"b",PE_checkaccess,NULL,1},
                     {"cleararray",PEVM_ClearArrayO,"c",PE_checkaccess,NULL,1},
+                    {"copy_array",PEVM_CopyArrayI,"a=a",PE_checkaccess,NULL,2},
+                    {"copy_array",PEVM_CopyArrayS,"b=b",PE_checkaccess,NULL,2},
+                    {"copy_array",PEVM_CopyArrayO,"c=c",PE_checkaccess,NULL,2},
+                    {"copyarray",PEVM_CopyArrayI,"a=a",PE_checkaccess,NULL,2},
+                    {"copyarray",PEVM_CopyArrayS,"b=a",PE_checkaccess,NULL,2},
+                    {"copyarray",PEVM_CopyArrayO,"c=a",PE_checkaccess,NULL,2},
+                    {"set_array",PEVM_SetArrayI,"a=(",PE_setarray,NULL,1},
+                    {"set_array",PEVM_SetArrayS,"b=(",PE_setarray,NULL,1},
+//                    {"set_array",PEVM_SetArrayO,"c=(",PE_setarray,NULL,1},
+                    {"setarray",PEVM_SetArrayI,"a=(",PE_setarray,NULL,1},
+                    {"setarray",PEVM_SetArrayS,"b=(",PE_setarray,NULL,1},
+//                    {"setarray",PEVM_SetArrayO,"c=(",PE_checkaccess,NULL,1},
                     {"label",0,"l",PE_label,PEP_label,0},
                     {"goto",PEVM_Goto,"l",PE_goto,NULL,1},
                     {"if",PEVM_If_i,"i",PE_if,PEP_if,2},
@@ -3378,6 +3387,31 @@ OPCODE vmspec[] =
                     {"assert",PEVM_Assert,"api",PE_assert,NULL,4},
                     {"assert",PEVM_Assert,"apI",PE_assert,NULL,4},
                     {"assert",PEVM_Assert,"apa",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"sps",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"spS",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"spP",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"spU",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"spb",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Sps",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"SpS",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"SpP",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"SpU",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Spb",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Pps",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"PpS",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"PpP",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"PpU",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Ppb",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Ups",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"UpS",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Upp",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"UpU",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"Upb",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"bps",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"bpS",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"bpp",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"bpU",PE_assert,NULL,4},
+                    {"assert",PEVM_AssertStr,"bpb",PE_assert,NULL,4},
                     {"status",PEVM_LastOp,"n",PE_generic,NULL,1},
                     {"get_funcname",PEVM_GetFuncP,"P=i",PE_generic,NULL,2},
                     {"get_funcname",PEVM_GetFuncP,"P=I",PE_generic,NULL,2},
@@ -4104,7 +4138,6 @@ add_symbol_val("END",'n',0);
 //
 void PE_checkaccess(char **line) {
 char buf[2048];
-KEYWORD *key = NULL;
 STRUCTURE *member = NULL;
 
 // If we're not doing a full compile, forget it
@@ -4253,6 +4286,7 @@ for(ctr=0;ctr<len;ctr++)
 
 		case '=':
 		case '?':
+		case '(':
 		case 'e':
 		case 'E':
 		break;
@@ -4393,7 +4427,7 @@ void PE_declare(char **line)
 void PEP_const(char **line)
 {
 char *ptr;
-int val;
+VMINT val;
 KEYWORD *k;
 
 // If we're not doing a full compile, forget it
@@ -4424,7 +4458,7 @@ return;
 void PEP_integer(char **line)
 {
 char *ptr;
-int val;
+VMINT val;
 KEYWORD *k;
 
 // If we're not doing a full compile, forget it
@@ -4658,8 +4692,6 @@ if(!k)
 k->value = NULL;
 k->arraysize = val;
 
-PEP_initarray(k,line,type);
-
 // Make provision for it
 
 if(curfunc == NULL)
@@ -4679,87 +4711,6 @@ else
 return;
 }
 
-
-//
-//  initialise an array with default values, if there are any
-//
-
-void PEP_initarray(KEYWORD *k,char **line, char type) {
-int words,ctr, openp, closep, totalcount=0;
-char *lineptr,*ptr,*ptr2,*word;
-VMTYPE *outlist = NULL;
-
-// Only for ints and strings
-if(type != 'a' && type != 'b') {
-	return;
-}
-
-if(!line[2]) {
-	return; // Nothing there
-}
-
-if(strcmp(line[2],"=")) {
-	PeDump(srcline,"array initialisation didn't have an = as second parameter",lineptr);
-}
-
-openp=3;
-
-if(!strchr(line[openp],'(')) {
-	PeDump(srcline,"array initialisation list must start with (",lineptr);
-}
-
-closep=0;
-lineptr="";
-for(ctr=3;ctr++;line[ctr]) {
-	if(!line[ctr]) {
-		break;
-	}
-	lineptr=line[ctr];
-	closep=ctr;
-}
-
-// Does the last term have a ')' at the end
-if(!lineptr[0] || lineptr[strlen(lineptr)-1] != ')') {
-	PeDump(srcline,"Couldn't find closing bracket in array initialisation list",lineptr);
-} else {
-	lineptr[strlen(lineptr)-1]=0;
-}
-
-words=(closep-openp)+1; 
-
-// As a future project we can make it auto-init array size from the init list
-outlist = (VMTYPE *)M_get(words, sizeof(VMTYPE));
-
-for(ctr=0;ctr<words;ctr++) {
-	word = line[ctr+openp];
-	if(word == NOTHING || word == NULL) {
-		continue;
-	}
-	if(word[0] == '(') {
-		word++;
-	}
-
-	if(!word[0]) {
-		continue;
-	}
-	if(type == 'a') {
-		outlist[ctr].i32 = pe_getnumber(word);
-	}
-	if(type == 'b') {
-		// TODO: strip this out afterwards to remove the quotes
-		outlist[ctr].ptr = word;
-	}
-	totalcount++;
-}
-
-if(totalcount != k->arraysize) {
-	ilog_quiet("Array size mismatch: %d words out of %d\n",totalcount,k->arraysize);
-	PeDump(srcline,"Initialisation list does not match array size",lineptr);
-}
-
-
-k->arrayinit = outlist;
-}
 
 
 
@@ -5864,4 +5815,101 @@ if(PE_FastBuild)
 	return;
 PE_generic(line);
 add_dword(pe_lineid);
+}
+
+void PE_setarray(char **line)
+{
+int words,ctr, openp, closep, totalcount=0;
+char *lineptr,*word,type;
+// If we're not doing a full compile, forget it
+if(PE_FastBuild)
+	return;
+PE_checkaccess(line);
+
+type = pe_parm[0];
+
+if(!line[2]) {
+	return; // Nothing there
+}
+
+if(strcmp(line[2],"=")) {
+	PeDump(srcline,"array initialisation didn't have an = as second parameter",line[2]);
+}
+
+openp=3;
+
+if(!strchr(line[openp],'(')) {
+	PeDump(srcline,"array initialisation list must start with (",line[openp]);
+}
+
+closep=0;
+lineptr="";
+for(ctr=3;line[ctr];ctr++) {
+	if(!line[ctr]) {
+		break;
+	}
+	lineptr=line[ctr];
+	closep=ctr;
+}
+
+// Does the last term have a ')' at the end
+if(!lineptr[0] || lineptr[strlen(lineptr)-1] != ')') {
+	PeDump(srcline,"Couldn't find closing bracket in array initialisation list",lineptr);
+} else {
+	lineptr[strlen(lineptr)-1]=0;
+}
+
+words=(closep-openp)+1; 
+
+// Check algorithm must match both versions (See below)
+for(ctr=0;ctr<words;ctr++) {
+	word = line[ctr+openp];
+	if(word == NOTHING || word == NULL) {
+		continue;
+	}
+	if(word[0] == '(') {
+		word++;
+	}
+
+	if(!word[0]) {
+		continue;
+	}
+	totalcount++;
+}
+
+// Write number of following items
+add_dword(totalcount);
+
+
+// Check algorithm must match both versions (See above)
+for(ctr=0;ctr<words;ctr++) {
+	word = line[ctr+openp];
+	if(word == NOTHING || word == NULL) {
+		continue;
+	}
+	if(word[0] == '(') {
+		word++;
+	}
+
+	if(!word[0]) {
+		continue;
+	}
+	switch(type) {
+		case 'a':
+			add_number(pe_getnumber(word));
+			break;
+		case 'b':
+			add_string(word);
+			break;
+		case 'c':
+			add_variable(word);
+			break;
+		default:
+			char outmsg[2];
+			outmsg[0]=type;
+			outmsg[1]=0;
+			PeDump(srcline,"Unsupported array type",outmsg);
+			break;
+	}
+}
 }

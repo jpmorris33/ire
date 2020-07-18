@@ -42,7 +42,6 @@ int index;	// Base Index within array (used for fast searching)
 int keywordid;
 bool preconfigured; // Constants can be overridden on the commandline
 bool transient;	    // If it's a global it's not saved in the savegame
-VMTYPE *arrayinit;	// Store for pre-initalised array values
 KEYWORD *next;
 };
 

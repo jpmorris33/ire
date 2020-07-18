@@ -1,0 +1,232 @@
+##
+##  Integer array tests
+##
+
+function test_intarray
+private
+
+call test_basiclocals
+call test_array1
+call test_array2
+call test_array3
+#call test_array4
+call test_copyarray
+call test_setarray1
+call test_setarray2
+call test_setarray3
+call test_setarray4
+#call test_setarray5
+call test_setarray6
+
+end
+
+local
+
+
+# check local vars are pre-initialised with the right value
+
+function test_basiclocals
+
+int a = 0x0123
+int c = 0x89ab
+int b = 0x4567
+
+assert a = 0x0123
+assert b = 0x4567
+assert c = 0x89ab
+
+end
+
+
+# check uninitialised int array
+
+function test_array1
+
+int_array x[3]
+
+assert x[1] = 0
+assert x[2] = 0
+assert x[3] = 0
+
+end
+
+# check local int array without explicit accesses
+
+function test_array2
+int_array xxy[3]
+int ctr = 0
+int tot = 0
+
+for ctr = 1 to 3
+	add tot + xxy[ctr]
+next ctr
+
+assert tot = 0
+end
+
+
+function test_array3
+int ctr = 0
+int tot = 0
+int_array xxy[3]
+
+for ctr = 1 to 3
+	add tot + xxy[ctr]
+next ctr
+
+assert tot = 0
+end
+
+##
+##  FIXME: This causes problems with DumpVM
+##
+
+function test_array4
+int ctr = 666
+int tot = 0
+int_array xxy[3]
+
+for ctr = 1 to 3
+	add tot + xxy[ctr]
+next ctr
+
+assert tot = 0
+end
+
+
+
+# Test copyarray
+
+function test_copyarray
+
+int_array src[3]
+int_array dest[3]
+
+assert src[1] = 0
+assert src[2] = 0
+assert src[3] = 0
+
+assert dest[1] = 0
+assert dest[2] = 0
+assert dest[3] = 0
+
+let src[1] = 1
+let src[3] = 3
+let src[2] = 2
+
+assert src[1] = 1
+assert src[2] = 2
+assert src[3] = 3
+
+assert dest[1] = 0
+assert dest[2] = 0
+assert dest[3] = 0
+
+copy_array dest[1] = src[1]
+clear_array src[1]
+
+assert src[1] = 0
+assert src[2] = 0
+assert src[3] = 0
+
+assert dest[1] = 1
+assert dest[2] = 2
+assert dest[3] = 3
+
+end
+
+
+
+function test_setarray1
+
+int_array x[3]
+
+set_array x[1] = ( -1, -2, -3)
+
+assert x[3] = -3
+assert x[1] = -1
+assert x[2] = -2
+
+end
+
+
+function test_setarray2
+
+int_array x[3]
+
+set_array x[1] = ( -1, -2, -3, -4)
+
+assert x[3] = -3
+assert x[1] = -1
+assert x[2] = -2
+
+end
+
+
+function test_setarray3
+
+int_array x[3]
+
+set_array x[1] = ( -1, -2)
+
+assert x[3] = 0
+assert x[1] = -1
+assert x[2] = -2
+
+end
+
+
+function test_setarray4
+
+int_array x[3]
+
+set_array x[1] = ( -1, -2, -3)
+
+assert x[3] = -3
+assert x[1] = -1
+assert x[2] = -2
+
+set_array x[1] = ( 4, 5)
+
+assert x[1] = 4
+assert x[2] = 5
+
+end
+
+## FIXME: Commas don't work right
+
+function test_setarray5
+
+int_array x[3]
+
+set_array x[1] = ( -1,-2,-3 )
+
+assert x[3] = -3
+assert x[1] = -1
+assert x[2] = -2
+
+set_array x[1] = ( 4,5 )
+
+assert x[1] = 4
+assert x[2] = 5
+
+end
+
+
+# Type mismatch
+
+function test_setarray6
+
+int_array x[3]
+
+set_array x[1] = ( "a", "b", "c" )
+
+assert x[3] = 0
+assert x[1] = 0
+assert x[2] = 0
+
+end
+
+
+
+endlocal

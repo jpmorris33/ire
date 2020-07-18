@@ -267,6 +267,7 @@ VMINT translucency;       // Translucency amount
 
 typedef struct PEM
 	{
+	int funcid;
 	char *name;
 	char *file;
 	char *code;
@@ -584,6 +585,7 @@ struct OBJLIST *next;
 typedef struct PEVM
 	{
 	OBJECT *reg[4];		// Local object registers
+	int funcid;			// Function index (for self-reflection)
 	char *name;			// Name of function (for debugging)
 	char *file;			// Filename of function (for debugging)
 	VMTYPE *code;	// code and data

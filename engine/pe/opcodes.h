@@ -34,6 +34,12 @@ enum {
 	PEVM_ClearArrayI,
 	PEVM_ClearArrayS,
 	PEVM_ClearArrayO,
+	PEVM_CopyArrayI,
+	PEVM_CopyArrayS,
+	PEVM_CopyArrayO,
+	PEVM_SetArrayI,
+	PEVM_SetArrayS,
+	PEVM_SetArrayO,
 	PEVM_For,
 	PEVM_Searchin,
 	PEVM_Listafter,
@@ -309,6 +315,7 @@ enum {
 	PEVM_Printaddr,
 	PEVM_PrintLog,
 	PEVM_Assert,
+	PEVM_AssertStr,
 	PEVM_LastOp,
 	
 	// Internal functions

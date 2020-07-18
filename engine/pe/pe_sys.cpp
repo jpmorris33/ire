@@ -2705,13 +2705,7 @@ for(kctr=0;_keylist[kctr];kctr++)
 				if(k->id != -1) {	// -1 is for system variables, pre-resolved
 					if(k->arraysize>0) {
 						for(ctr=0;ctr<k->arraysize;ctr++) {
-							// If array is pre-initialised, use that value
-							if(k->arrayinit) {
-								pe_global[k->id+ctr] = (void *)k->arrayinit[ctr].ptr;
-							} else {
-								// Otherwise, set it to null
-								pe_global[k->id+ctr] = NULL;
-							}
+							pe_global[k->id+ctr] = NULL;
 						}
 						k->value = (void *)&pe_global[k->id]; // Point to [0]
 					} else {
@@ -2980,10 +2974,6 @@ for(ctr=0;_keylist[ctr];ctr++) {
 
 				case 'a':
 				case 'b':
-					if(k->arrayinit) {
-						memcpy(p,k->arrayinit,k->arraysize * sizeof(VMTYPE));
-					}
-					// Fall through
 				case 'c':
 					p+=k->arraysize; // An array is lots of variables
 				break;

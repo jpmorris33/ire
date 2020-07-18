@@ -14118,7 +14118,8 @@ section: scripts
 	code/test/and.pe
 	code/test/or-2.pe
 	code/test/or-3.pe
-	code/test/initarray.pe
+	code/test/intarray.pe
+	code/test/strarray.pe
 
 section: tables
 
