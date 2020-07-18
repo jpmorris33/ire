@@ -142,6 +142,8 @@ extern char *pevm_context;
 extern char **pe_outputfuncnames;
 extern void **pe_global;
 extern int pe_globals;
+extern bool pevm_crashed;
+
 
 // Top-level API
 

@@ -133,6 +133,7 @@ static unsigned int vmem_limit; // Size of the VM space in words
 char debcurfunc[1024];
 char debmsg[1024];
 char *pevm_context="Undefined";
+bool pevm_crashed=false;
 
 // Functions
 
@@ -630,8 +631,7 @@ array = (VMINT **)GET_PTR();
 size = GET_DWORD();
 idx = (VMINT *)GET_INT();
 
-if(!idx)
-	{
+if(!idx) {
 	Bug("ERROR:  Array pointer corrupt\n");
 	Bug("        Dumping VM to bootlog.txt...\n");
 	DumpVM(1);
@@ -639,13 +639,13 @@ if(!idx)
 	VMbug();
 	Bug("Terminating crashed VM...\n");
 	DelVM();
+	pevm_crashed=true;
 	return NULL;
-	}
+}
 
 // Make sure it doesn't exceed array bounds
 
-if(*idx<1 || *idx > size)
-	{
+if(*idx<1 || *idx > size) {
 	Bug("ERROR:  Array access out of bounds\n");
 	Bug("        Array stretches 1-%d, tried to access %d\n",size,*idx);
 	Bug("        Dumping VM to bootlog.txt...\n");
@@ -654,8 +654,9 @@ if(*idx<1 || *idx > size)
 	VMbug();
 	Bug("Terminating crashed VM...\n");
 	DelVM();
+	pevm_crashed=true;
 	return NULL;
-	}
+}
 
 array += (*idx)-1; // Now points to appropriate element
 
@@ -703,17 +704,17 @@ unsigned char flags;
 swap = curvm->ip; // Store IP before processing
 
 flags = GET_BYTE();
-if(!(flags&ACC_ARRAY))
-	{
+if(!(flags&ACC_ARRAY)) {
 	Bug("Array_info: Array is not an array!  Flag '%x' isn't %x\n",flags,ACC_ARRAY);
 	Bug("         Dumping VM to bootlog.txt...\n");
 	DumpVM(1);
 	Bug("         Current VM cannot continue.\n");
 	VMbug();
-		Bug("Terminating crashed VM...\n");
+	Bug("Terminating crashed VM...\n");
 	DelVM();
+	pevm_crashed=true;
 	return;
-	}
+}
 
 arr = (VMINT **)GET_PTR();
 size = GET_DWORD();
@@ -1701,6 +1702,7 @@ Bug("         Current VM cannot continue.\n");
 VMbug();
 Bug("Terminating crashed VM...\n");
 DelVM();
+pevm_crashed=true;
 }
 
 void VMstacktrace()

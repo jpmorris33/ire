@@ -493,6 +493,11 @@ InitVM();
 
 CallVM("sys_unittests");
 
+if(pevm_crashed) {
+	printf("ERROR: VM crashed during tests!\n");
+	return;
+}
+
 // If this did happen, the program would have quit by now
 printf("No test failures!\n");
 }
