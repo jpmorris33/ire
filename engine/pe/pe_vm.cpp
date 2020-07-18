@@ -157,9 +157,7 @@ static void PV_ClearArrayO();
 static void PV_CopyArrayI();
 static void PV_CopyArrayS();
 static void PV_CopyArrayO();
-static void PV_SetArrayI();
-static void PV_SetArrayS();
-static void PV_SetArrayO();
+static void PV_SetArray();
 static void PV_Add();
 static void PV_Goto();
 static void PV_If_iei();
@@ -472,6 +470,11 @@ static int OP_Xor(int a, int b);
 static int OP_Nand(int a, int b);
 static int OP_Shl(int a, int b);
 static int OP_Shr(int a, int b);
+
+static void PV_SetArrayI(VMINT *array, VMINT size_d);
+static void PV_SetArrayS(char **array, VMINT size_d);
+static void PV_SetArrayO(OBJECT **array, VMINT size_d);
+
 
 static VMINT *GET_INT();
 static VMINT *SAFE_INT();
@@ -1218,9 +1221,7 @@ VMOP(ClearArrayO);
 VMOP(CopyArrayI);
 VMOP(CopyArrayS);
 VMOP(CopyArrayO);
-VMOP(SetArrayI);
-VMOP(SetArrayS);
-VMOP(SetArrayO);
+VMOP(SetArray);
 VMOP(Add);
 VMOP(Goto);
 VMOP(If_iei);
@@ -1918,19 +1919,19 @@ for(;(VMUINT)curvm->ip<proglen;)
 			break;
 
 			case ACC_INDIRECT:
-			ilog_quiet("[%x] ",GET_DWORD());
+			ilog_quiet("[%lx] ",GET_DWORD());
 			break;
 
 			case ACC_MEMBER:
-			ilog_quiet("[%x] ",SAFE_INT());
+			ilog_quiet("[%lx] ",SAFE_INT());
 			break;
 
 			case ACC_ARRAY:
-			ilog_quiet("[%x] ",SAFE_INT());
+			ilog_quiet("[%lx] ",SAFE_INT());
 			break;
 
 			case ACC_ARRAY | ACC_MEMBER:
-			ilog_quiet("[%x] ",SAFE_INT());
+			ilog_quiet("[%lx] ",SAFE_INT());
 			break;
 
 			case ACC_IMMSTR:
@@ -2246,6 +2247,7 @@ CHECK_POINTER(b);
 
 // First get the ID number of the currently running function
 function = curvm->funcid;
+
 // I feel my eyes go really wide.
 if(function == -1)
 	ithe_panic("current function does not exist in let_pes",curvm->name);
@@ -2415,16 +2417,41 @@ for(ctr=0;ctr<size_s;ctr++) {
 }
 
 
-// Set Array i[] = (1, 2, 3)
+// Set Array wrapper
 
-void PV_SetArrayI()
+void PV_SetArray()
 {
-VMINT *array;
-VMINT size_d,size_s,idx,ctr,*val;
-GET_ARRAY_INFO((void **)&array, &size_d, &idx);
-// Skip array member
+void *array;
+VMINT size,idx;
+char type = 0;
+GET_ARRAY_INFO(&array, &size, &idx);
 GET_INT();
 
+type = (char)GET_DWORD();
+
+switch(type) {
+	case 'a':
+		PV_SetArrayI((VMINT *)array, size);
+		break;
+	case 'b':
+		PV_SetArrayS((char **)array, size);
+		break;
+	case 'c':
+		PV_SetArrayO((OBJECT **)array, size);
+		break;
+	default:
+		char typestr[]="0";
+		typestr[0]=type;
+		VMstop("ERROR: Unsupported setarray type\n",typestr);
+	break;
+}
+}
+
+// Set Array i[]  = (1, 2, 3)
+
+void PV_SetArrayI(VMINT *array, VMINT size_d)
+{
+VMINT size_s,ctr,*val;
 size_s = GET_DWORD();
 
 for(ctr=0;ctr<size_s;ctr++) {
@@ -2435,15 +2462,13 @@ for(ctr=0;ctr<size_s;ctr++) {
 }
 }
 
+
 // Set Array s[]  = ("1", "2", "3")
 
-void PV_SetArrayS()
+void PV_SetArrayS(char **array, VMINT size_d)
 {
-char **array,*val;
-VMINT size_d,size_s,idx,ctr;
-GET_ARRAY_INFO((void **)&array, &size_d, &idx);
-// Skip array member
-GET_INT();
+char *val;
+VMINT size_s,ctr;
 
 size_s = GET_DWORD();
 
@@ -2457,13 +2482,10 @@ for(ctr=0;ctr<size_s;ctr++) {
 
 // Set Array o[] = (obj1, obj2, obj3)
 
-void PV_SetArrayO()
+void PV_SetArrayO(OBJECT **array, VMINT size_d)
 {
-OBJECT **array,**val;
-VMINT size_d,size_s,idx,ctr;
-GET_ARRAY_INFO((void **)&array, &size_d, &idx);
-// Skip array member
-GET_INT();
+OBJECT **val;
+VMINT size_s,idx,ctr;
 
 size_s = GET_DWORD();
 
@@ -8025,14 +8047,20 @@ char *a,*b;
 unsigned char op;
 
 a = GET_STRING();
-CHECK_POINTER(a);
 op=GET_BYTE();
 b = GET_STRING();
-CHECK_POINTER(b);
 lineno = GET_DWORD();
 
+if(!a) {
+	a="";
+}
+if(!b) {
+	b="";
+}
+
+// Otherwise do a string comparison
 if(!Operator[op&OPMASK](istricmp_fuzzy(a,b),0)) {
-	Bug("TEST FAILED in file %s at line %d, ( %s %s %s was not true)\n",curvm->file,lineno,a,oplist[op&OPMASK],b);
+	Bug("TEST FAILED in file %s at line %d, ( '%s' %s '%s' was not true)\n",curvm->file,lineno,a,oplist[op&OPMASK],b);
 	Bang("Unit test failed");
 }
 }
@@ -8386,7 +8414,7 @@ for(ctr=0;ctr<num;ctr++) {
 //	ilog_quiet("varptr = %p\n",varptr->ptr);
 	value_ptr = (VMUINT *)(*varptr).ptr; // Get address
 	DOFUS_LOG("old slotvalue = %ld\n",*value_ptr);
-	*value_ptr = val;
+	*value_ptr = val; // Write default value into the variable
 
 	#ifdef DOFUS_DEBUG
 	ilog_quiet("round again.. [%d/%d]\n\n",ctr+1,num);

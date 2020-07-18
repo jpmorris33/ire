@@ -340,12 +340,12 @@ OPCODE vmspec[] =
                     {"copyarray",PEVM_CopyArrayI,"a=a",PE_checkaccess,NULL,2},
                     {"copyarray",PEVM_CopyArrayS,"b=a",PE_checkaccess,NULL,2},
                     {"copyarray",PEVM_CopyArrayO,"c=a",PE_checkaccess,NULL,2},
-                    {"set_array",PEVM_SetArrayI,"a=(",PE_setarray,NULL,1},
-                    {"set_array",PEVM_SetArrayS,"b=(",PE_setarray,NULL,1},
-//                    {"set_array",PEVM_SetArrayO,"c=(",PE_setarray,NULL,1},
-                    {"setarray",PEVM_SetArrayI,"a=(",PE_setarray,NULL,1},
-                    {"setarray",PEVM_SetArrayS,"b=(",PE_setarray,NULL,1},
-//                    {"setarray",PEVM_SetArrayO,"c=(",PE_checkaccess,NULL,1},
+                    {"set_array",PEVM_SetArray,"a=(",PE_setarray,NULL,1},
+                    {"set_array",PEVM_SetArray,"b=(",PE_setarray,NULL,1},
+//                    {"set_array",PEVM_SetArray,"c=(",PE_setarray,NULL,1},
+                    {"setarray",PEVM_SetArray,"a=(",PE_setarray,NULL,1},
+                    {"setarray",PEVM_SetArray,"b=(",PE_setarray,NULL,1},
+//                    {"setarray",PEVM_SetArray,"c=(",PE_checkaccess,NULL,1},
                     {"label",0,"l",PE_label,PEP_label,0},
                     {"goto",PEVM_Goto,"l",PE_goto,NULL,1},
                     {"if",PEVM_If_i,"i",PE_if,PEP_if,2},
@@ -5821,12 +5821,32 @@ void PE_setarray(char **line)
 {
 int words,ctr, openp, closep, totalcount=0;
 char *lineptr,*word,type;
+char buf[2048];
+char typelist[] = "abc";
 // If we're not doing a full compile, forget it
 if(PE_FastBuild)
 	return;
 PE_checkaccess(line);
 
-type = pe_parm[0];
+SAFE_STRCPY(buf,line[1]);
+word = strchr(buf,'[');
+if(!word) {
+	PeDump(srcline, "array initialisation: first parameter must be an array.",line[1]);
+}
+*word=0;
+
+type=0;
+words = strlen(typelist);
+for(ctr=0;ctr<words;ctr++) {
+	if(find_keyword(buf,typelist[ctr],curfunc)) {
+		type = typelist[ctr];
+		break;
+	}
+}
+
+if(!type) {
+	PeDump(srcline, "array initialisation: couldn't detect type for array variable",line[1]);
+}
 
 if(!line[2]) {
 	return; // Nothing there
@@ -5877,9 +5897,12 @@ for(ctr=0;ctr<words;ctr++) {
 	totalcount++;
 }
 
+// Write data type (since the script parser isn't discriminating properly)
+// If that's ever fixed and this stops working, we can go back to three opcodes
+add_dword((VMINT)type);
+
 // Write number of following items
 add_dword(totalcount);
-
 
 // Check algorithm must match both versions (See above)
 for(ctr=0;ctr<words;ctr++) {
@@ -5899,7 +5922,8 @@ for(ctr=0;ctr<words;ctr++) {
 			add_number(pe_getnumber(word));
 			break;
 		case 'b':
-			add_string(word);
+			extract_string(buf,word);
+			add_string(buf);
 			break;
 		case 'c':
 			add_variable(word);

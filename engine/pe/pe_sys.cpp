@@ -101,7 +101,6 @@ static int get_entry(char **line);
 static ICODE *new_node();
 static int fixup_locals();
 static int count_locals();
-static void patch_arraydata(VMTYPE *p);
 static void fixup_jumps();
 static int code_size();
 static void find_orphans();
@@ -1638,10 +1637,6 @@ for(i=icode;i;i=i->next) {
 //	ilog_quiet("%04x: [%x] (%d bytes long)\n",(unsigned)p-(unsigned)p1,*(int *)i->data,i->len);
 }
 
-if(patches) {
-	patch_arraydata(p);
-}
-
 pe_output++;
 }
 
@@ -2942,48 +2937,6 @@ if(i) {
 	} while(i);
 }
 return locals;
-}
-
-
-// Pre-initialise local array data (and hopefully all other local variables eventually)
-
-void patch_arraydata(VMTYPE *p)
-{
-KEYWORD *k;
-int lc,ctr;
-
-for(ctr=0;_keylist[ctr];ctr++) {
-	lc=_keylist[ctr];
-	if(!klist[lc]) {
-		continue;
-	}
-	for(k=klist[lc][0];k;k=k->next) {
-		if(k->local == curfunc) {
-			switch(k->type) {
-				case 'i':
-					// These aren't being evaluated in compilation order so doing this may swap the variables around!
-//					VMTYPE i;
-//					i.i32 = (VMINT)k->value;
-//					memcpy(p,&i,sizeof(VMTYPE));
-					// Fall through
-				case 'o':
-				case 't':
-				case 's':
-					p++;
-				break;
-
-				case 'a':
-				case 'b':
-				case 'c':
-					p+=k->arraysize; // An array is lots of variables
-				break;
-
-				default:
-				break;
-			};
-		}
-	}
-}
 }
 
 
