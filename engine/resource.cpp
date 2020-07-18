@@ -2673,7 +2673,7 @@ for(pos=0;pos<numfiles;pos++)
 			PElist[func].codelen = pe[ctr].codelen;
 			
 			PElist[func].name = stradd(NULL,pe[ctr].name);
-			PElist[func].funcid = ctr;
+			PElist[func].funcid = func;
 			PElist[func].file = pe_files[pos];
 			PElist[func].hidden = pe[ctr].hidden; // hide local functions
 			PElist[func].Class = pe[ctr].Class; // function type
