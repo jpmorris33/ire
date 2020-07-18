@@ -100,6 +100,9 @@ if(klist[kl]) {
 		if(k->local == func) {
 			if(type == k->type || type == '?' || k->type == '?') {
 				if(!istricmp(k->name,name)) {
+					if(k->type == 'f' && k->localfile || k->localfile != pe_localfile) {
+						continue;
+					}
 					return NULL; // Duplicate entry!
 				}
 			}
@@ -627,9 +630,6 @@ if(!klist[list])      // Haven't started!
 
 for(ctr=0;ctr<klistlen[list];ctr++) {
 	if(klist[list][ctr]) {
-		if(klist[list][ctr]->arrayinit) {
-			M_free(klist[list][ctr]->arrayinit); 
-		}
 		M_free(klist[list][ctr]); 
 	}
 }
