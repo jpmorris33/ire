@@ -9693,12 +9693,26 @@ iMZ1r01
 		at 522 169
 		curdir 2
 
+	object FISH878daf8b-4c68-4dca-8993-cfdeedc90536
+		type FISHROD
+		inside MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+		curdir 0
+
 	object MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
 		type MAN_GENERIC
 		at 526 169
 		curdir 1
 		name Fishman
 		funcs->talk people/peasants/lakeside/fishermn.txt
+		schedule 7 0 SEEK_TARGET_USE LOGI9dd4ec9c-8488-4b5e-8efd-d13479c1a0e0
+		schedule 7 30 SIT_AT_LOCATION PEW_e808dc44-f6f8-4989-8c2c-6c0af7734855
+		schedule 9 0 LOITER_ATWORK TARGbc3a66bb-e6e7-4b06-9b34-e5cdcd2d5033
+		schedule 10 0 SIT_AT_LOCATION TARGa05199c3-859b-48c7-970a-79b3b59f4eb5
+		schedule 12 0 EAT_AT_HOME FOOD4fe36dcc-0c5f-447b-9cbc-75dc0ccadb5b
+		schedule 13 0 SIT_AT_LOCATION TARGa05199c3-859b-48c7-970a-79b3b59f4eb5
+		schedule 18 0 EAT_AT_LOCATION TARG6bcfe780-7ae4-476e-bf45-48644ea4d6f8
+		schedule 20 0 SEEK_TARGET_USE LOGI9dd4ec9c-8488-4b5e-8efd-d13479c1a0e0
+		schedule 21 0 GO_TO_SLEEP BED_4c24e020-3084-40f2-a34d-7e9826a6c308
 
 	object TABL5dd3387e-7a01-452c-a76a-ef6a3faf863f
 		type TABLE6-V
@@ -9709,6 +9723,12 @@ iMZ1r01
 		type BRIDGE_STEPS_W
 		at 533 169
 		curdir 2
+
+	object TARGa05199c3-859b-48c7-970a-79b3b59f4eb5
+		type TARGET
+		at 538 169
+		curdir 3
+		labels->location LakesideFish
 
 	object BRIDe9aaaaa5-a0fc-446d-9165-82a8556a0270
 		type BRIDGE_END_E
@@ -9777,6 +9797,7 @@ iMZ1r01
 		type BED
 		at 525 170
 		curdir 2
+		labels->location LakesideFish
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
 
 	object TABL06a9d318-30c6-4e9c-855d-5195719830c4
@@ -10003,6 +10024,12 @@ iMZ1r01
 		at 522 172
 		curdir 3
 
+	object TARGbc3a66bb-e6e7-4b06-9b34-e5cdcd2d5033
+		type TARGET
+		at 525 172
+		curdir 1
+		labels->location LakesideFish
+
 	object STONa4dd6117-effb-4f8f-88d9-36427d4f3a4e
 		type STONEWINDOW1
 		at 529 172
@@ -10192,6 +10219,11 @@ iMZ1r01
 		at 524 174
 		curdir 1
 
+	object TARG8c4b17db-4fc7-47bf-a9bd-98185af5aa13
+		type TARGET
+		at 524 174
+		curdir 1
+
 	object TABL80d403b9-85bd-4886-b54c-1ea5c0940e12
 		type TABLE-SHADOW1
 		at 525 174
@@ -10201,6 +10233,11 @@ iMZ1r01
 		type TABLE-SHADOW1
 		at 526 174
 		curdir 0
+
+	object TARGa281697b-1881-43bd-bb0a-72e2e6ae688d
+		type TARGET
+		at 526 174
+		curdir 1
 
 	object TABL60c5b2a6-f45c-4541-9c65-9b507de77d60
 		type TABLE-SHADOW1
@@ -10365,23 +10402,25 @@ iMZ1r01
 		curdir 2
 		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
 
-	object FOODe91997a5-d5d6-4ca4-a340-4861184d403b
-		type FOOD08
-		at 533 175
-		curdir 2
-		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
-
-	object FOODdae0ea16-1974-4afa-b207-a33431c682fe
-		type FOOD08
+	object LOGI9dd4ec9c-8488-4b5e-8efd-d13479c1a0e0
+		type LOGIC
 		at 534 175
-		curdir 1
-		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+		curdir 0
+		labels->location LakesideFish
+		funcs->use SMOKEFISH_PUT
+		schedule 0 1 SMOKEFISH_COOKING -
+		schedule 4 0 SMOKEFISH_COOKING -
+		schedule 8 0 SMOKEFISH_COOKING -
+		schedule 12 0 SMOKEFISH_COOKING -
+		schedule 16 0 SMOKEFISH_COOKING -
+		schedule 20 0 SMOKEFISH_COOKING -
+		schedule 22 0 SMOKEFISH_COOKING -
 
-	object FOOD35a7d621-cba8-4012-a8d1-7ee02f2635f5
-		type FOOD08
-		at 535 175
-		curdir 2
-		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
+	object TARGb59e7092-6eca-4a1d-9e17-760bcb615f6c
+		type TARGET
+		at 534 175
+		curdir 0
+		labels->location LakesideFish
 
 	object TODE9a1fee6f-e1e2-4391-9932-d75a2a69b2a1
 		type TODE
@@ -10482,24 +10521,6 @@ iMZ1r01
 		type STONEWINDOW1
 		at 526 176
 		curdir 0
-
-	object FOOD94593fbf-f2ec-4d91-a6bf-b74d63b2dda6
-		type FOOD08
-		at 533 176
-		curdir 0
-		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
-
-	object FOOD2234fe02-e1bf-42a1-a29a-6545f1d864a1
-		type FOOD08
-		at 534 176
-		curdir 2
-		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
-
-	object FOOD35f34788-805d-42be-9101-0f3e4d4f389d
-		type FOOD08
-		at 535 176
-		curdir 0
-		stats->owner MAN_2c491cb1-2ba8-44fb-b023-faeb8ea3fee0
 
 	decorative MOUNT04 at 802 176
 
@@ -11393,25 +11414,33 @@ iMZ1r01
 		at 468 189
 		curdir 3
 
-	object PEW_60383649-4b11-4465-9ad0-1ed411060221
+	object PEW_a81632f2-5fa0-4d56-8727-758a12d3e149
 		type PEW_LEFT
 		at 469 189
 		curdir 0
+		name Butcher
+		labels->location LakesideChurch
 
-	object PEW_e808dc44-f6f8-4989-8c2c-6c0af7734855
+	object PEW_d83c3c43-20de-4bdd-b0ac-bd62eb3f9390
 		type PEW_RIGHT
 		at 470 189
 		curdir 0
+		name Vinter
+		labels->location LakesideChurch
 
-	object PEW_6992b82b-6063-4456-830d-f0f85747ce94
+	object PEW_89677a94-c93b-4aba-9ce3-9c4deffa1310
 		type PEW_LEFT
 		at 473 189
 		curdir 0
+		name Barkeep
+		labels->location LakesideChurch
 
-	object PEW_065c7e50-0ed8-4d2f-b159-ed5cff4dfb34
+	object PEW_2f27e397-aec8-4550-869a-bce362b2d126
 		type PEW_RIGHT
 		at 474 189
 		curdir 0
+		name Tailor
+		labels->location LakesideChurch
 
 	object STAIf5a3d147-a0bf-4697-a8fb-1856cae85c13
 		type STAINEDGLASS00
@@ -11582,33 +11611,27 @@ iMZ1r01
 
 	decorative MOUNT11 at 981 190
 
-	object PEW_a81632f2-5fa0-4d56-8727-758a12d3e149
+	object PEW_60383649-4b11-4465-9ad0-1ed411060221
 		type PEW_LEFT
 		at 469 191
 		curdir 0
-		name Butcher
-		labels->location LakesideChurch
 
-	object PEW_d83c3c43-20de-4bdd-b0ac-bd62eb3f9390
+	object PEW_e808dc44-f6f8-4989-8c2c-6c0af7734855
 		type PEW_RIGHT
 		at 470 191
 		curdir 0
-		name Vinter
+		name Fishman
 		labels->location LakesideChurch
 
-	object PEW_89677a94-c93b-4aba-9ce3-9c4deffa1310
+	object PEW_6992b82b-6063-4456-830d-f0f85747ce94
 		type PEW_LEFT
 		at 473 191
 		curdir 0
-		name Barkeep
-		labels->location LakesideChurch
 
-	object PEW_2f27e397-aec8-4550-869a-bce362b2d126
+	object PEW_065c7e50-0ed8-4d2f-b159-ed5cff4dfb34
 		type PEW_RIGHT
 		at 474 191
 		curdir 0
-		name Tailor
-		labels->location LakesideChurch
 
 	object PATHa2288e44-a8ad-4958-b2c6-1d42c1b1ebdc
 		type PATHMARKER

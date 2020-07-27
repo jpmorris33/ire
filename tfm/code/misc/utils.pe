@@ -1,0 +1,38 @@
+##
+##  Packed date/time
+##
+
+int packed_datetime
+transient packed_datetime
+
+function pack_datetime
+	int temp
+
+        # YYYYMMDDHH
+        let packed_datetime = game_year * 1000000
+        let temp = game_month * 10000
+        add packed_datetime + temp
+	let temp = game_day * 100
+        add packed_datetime + temp
+	add packed_datetime + game_hour
+
+end
+
+##
+##  Packed date
+##
+
+int packed_date
+transient packed_date
+
+function pack_date
+	int temp
+
+        # YYYYMMDD
+        let packed_date = game_year * 10000
+        let temp = game_month * 100
+        add packed_date + temp
+        add packed_date + game_day
+
+
+end

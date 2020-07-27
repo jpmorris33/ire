@@ -362,14 +362,7 @@ integer_array holo[8]
 fx_getxy fx_destx fx_desty = current
 
 # Set up the polygon
-let holo[1] = 24
-let holo[2] = 16
-let holo[3] = 104
-let holo[4] = 16
-let holo[5] = 128
-let holo[6] = 32
-let holo[7] = 0
-let holo[8] = 32
+set_array holo[1] = ( 24, 16, 104, 16, 128, 32, 0, 32 ) 
 
 # Draw the blue core
 fx_alpha 96

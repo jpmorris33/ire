@@ -5291,7 +5291,7 @@ section: characters
 	description	"You see some pieces of a large ship."
 	short		"shipwreck"
 
-	name LIGHT_CONTROL
+	name LOGIC
 	frame		CRAP_SUN
 	hp		16
 	max_hp		16
@@ -5301,7 +5301,9 @@ section: characters
 	fixed
 	spikeproof
 	shadow
+	invisible
 
+	alias LIGHT_CONTROL = LOGIC
 	schedule 04:15 LIGHT01
 	schedule 04:30 LIGHT02
 	schedule 04:45 LIGHT03
@@ -5328,29 +5330,14 @@ section: characters
 	schedule 21:45 LIGHT02
 	schedule 22:00 LIGHT01
 
-	name LIGHT_CONTROL_UNDERGROUND
-	frame		CRAP_SUN
-	hp		16
-	max_hp		16
-	weight		-1
-	description	"You don't notice anything unusual.|Which is a total lie."
-	short		"GET LOST!"
-	fixed
-	spikeproof
-	shadow
+	alias LIGHT_CONTROL_UNDERGROUND = LOGIC
 	schedule 04:15 LIGHT01
 
-	name CORPSE_CONTROL
-	frame		CRAP_SUN
-	hp		16
-	max_hp		16
-	weight		-1
+	alias CORPSE_CONTROL = LOGIC
 	description	"I eat dead people.. they're everywhere.."
 	short		"GET LOST!"
-	fixed
-	spikeproof
-	shadow
 	schedule 00:00 CHECK_CORPSES
+
 
 	name MIRROR2
 	left		MIRROR2_H_EMPTY

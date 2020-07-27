@@ -32,12 +32,7 @@ set_string kp_input_h = "000000"
 let entered = kp_input_h
 
 if_not_exists keypad_h_icon[1]
-	let keypad_h_x[1] = 38
-	let keypad_h_x[2] = 51
-	let keypad_h_x[3] = 64
-	let keypad_h_x[4] = 77
-	let keypad_h_x[5] = 90
-	let keypad_h_x[6] = 103
+	set_array keypad_h_x[1] = ( 38, 51, 64, 77, 90, 103 )
 
 	create keypad_h_icon[1] = "HUMAN_KEYPAD0"
 	create keypad_h_icon[2] = "HUMAN_KEYPAD1"

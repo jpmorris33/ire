@@ -495,15 +495,8 @@ string_array bad[5]
 string lookfor
 object head
 
-let bandit[1] = "outlaw_head";
-let bandit[2] = "outlaw2_head";
-let bandit[3] = "outlaw2_head";
-
-let bad[1] = "PLAYER_HEAD";
-let bad[2] = "PEASANT_HEAD";
-let bad[3] = "WOMAN_HEAD";
-let bad[4] = "NOBLE_HEAD";
-let bad[5] = "OLDMAN_HEAD";
+set_array bandit[1] = ( "outlaw_head", "outlaw2_head", "outlaw3_head"  ) 
+set_array bad[1] = ( "PLAYER_HEAD", "PEASANT_HEAD", "WOMAN_HEAD", "NOBLE_HEAD", "OLDMAN_HEAD" )
 
 set_user_flag "got_heads" = 0
 set_user_flag "bandit_head_ok" = 0

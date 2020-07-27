@@ -336,8 +336,6 @@ end
 ##
 
 function use_cash_machine
-integer packed_date
-integer temp
 
 if me = player
 	object card
@@ -348,11 +346,8 @@ if me = player
 		return
 	endif
 
-	# YYYYMMDD
-	let packed_date = game_year * 10000
-	let temp = game_month * 100
-	add packed_date + temp
-	add packed_date + game_day
+	# calculate packed_date
+	call pack_date
 
 	if current.user.user3 >= packed_date
 		textcolour 0 200 0

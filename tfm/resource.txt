@@ -14019,6 +14019,7 @@ section: scripts
 	code/activity/seek.pe
 	code/activity/smith.pe
 	code/activity/stdonald.pe
+	code/activity/dryfish.pe
 #	code/activity/market/dairy.pe
 	code/combat/attack.pe
 	code/combat/loadweap.pe
@@ -14072,6 +14073,7 @@ section: scripts
 	code/misc/spelbook.pe
 	code/misc/spells.pe
 	code/misc/maparea.pe
+	code/misc/utils.pe
 	code/object/arkohpoo.pe
 	code/object/bag.pe
 	code/object/bellows.pe

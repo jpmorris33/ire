@@ -30,12 +30,7 @@ set_string kp_input_d = "000000"
 let entered = kp_input_d
 
 if_not_exists keypad_d_icon[1]
-	let keypad_d_x[1] = 60
-	let keypad_d_x[2] = 91
-	let keypad_d_x[3] = 122
-	let keypad_d_x[4] = 153
-	let keypad_d_x[5] = 184
-	let keypad_d_x[6] = 215
+	set_array keypad_d_x[1] = ( 60, 91, 122, 153, 184, 215 )
 
 	create keypad_d_icon[1] = "DRAK_KEYPAD0"
 	create keypad_d_icon[2] = "DRAK_KEYPAD1"

@@ -1,0 +1,97 @@
+##
+##  Smoking fish
+##
+
+
+##
+## NPC puts fish down for smoking
+##
+
+function smokefish_put
+
+integer x
+integer y
+integer ctr
+object fish
+object target
+object logic
+
+int_array xcoord[6]
+int_array ycoord[6]
+
+set_array xcoord[1] = ( -1, -1,  0, +1, +1, 0 )
+set_array ycoord[1] = (  0, +1, +1, +1,  0, 0 )
+
+let logic = me
+if_exists me.target
+	let logic = me.target
+endif
+
+
+for ctr = 1 to 6
+	let x = logic.x + xcoord[ctr]
+	let y = logic.y + ycoord[ctr]
+
+	get_object target at x y
+	if target is called "FISH00"
+		destroy target
+	else
+		if target is called "food08"
+			continue
+		endif
+	endif
+
+	create fish = "food08"
+	let fish.stats.owner = me
+	transfer_object fish to x y
+next ctr
+
+end
+
+##
+##  Cook the fish, storing the starting time if none present and comparing to the current time
+##
+
+function smokefish_cooking
+activity
+
+integer x
+integer y
+integer ctr
+object target
+
+# Only do this once per schedule
+stop_action me
+
+int_array xcoord[6]
+int_array ycoord[6]
+
+set_array xcoord[1] = ( -1, -1,  0, +1, +1, 0 )
+set_array ycoord[1] = (  0, +1, +1, +1,  0, 0 )
+
+# calculate packed_datetime
+call pack_datetime
+
+for ctr = 1 to 6
+	let x = me.x + xcoord[ctr]
+	let y = me.y + ycoord[ctr]
+
+	get_object target at x y
+
+	if target is called "food08"
+		if target.user.user2 = 0
+			let target.user.user2 = packed_datetime
+			continue
+		endif
+
+		# If the fish has been cooking for at least 4 hours, cook it
+		let x = packed_datetime - target.user.user2
+		if x > 4
+			replace target = "FISH00"
+		endif
+	endif
+next ctr
+
+end
+
+
