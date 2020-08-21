@@ -1308,7 +1308,7 @@ if(!istricmp(line2,"are_there"))
     Set_tFlag("true",0);
     Set_tFlag("false",1);
 	if(!bookview[0])
-		if(SumObjects(player,temp,0)>=r)
+		if(SumObjects(player->pocket.objptr,temp,0)>=r)
 			{
 			Set_tFlag("true",1);
 			Set_tFlag("false",0);
