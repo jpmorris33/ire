@@ -1613,8 +1613,8 @@ Gives us the next-page icon
 "Spells in 5th ring, I have a spell for picking pockets.
  Much fun at parties, yes!  Also, a spell to create a
  glowing barrier of.. of stuff, yes.
- A spell of Harm I can sell, use it myself, I do, protect
- me against the Church, it does.
+ A spell of Damage I can sell, use it myself, I do,
+ protect me against the Church, it does, yes.
  Then I have spells of healing, a general purpose healing
  spell, and a spell to cure poison, hmm.
  And finally, a spell of light, better one.  Great Light.
@@ -1625,7 +1625,7 @@ Gives us the next-page icon
 [linkto="buy_r51"]
 [link="I'd like to buy the Barrier spell."]
 [linkto="buy_r52"]
-[link="I'd like to buy the Harm spell."]
+[link="I'd like to buy the Damage spell."]
 [linkto="buy_r53"]
 [link="I'd like to buy the Heal spell."]
 [linkto="buy_r54"]

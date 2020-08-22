@@ -335,7 +335,7 @@ end
 
 
 ##
-##	Harm
+##	Damage (harm)
 ##
 
 function spell_harm
@@ -349,7 +349,7 @@ if spell_failed
 	return
 endif
 
-let spellname = "harm"
+let spellname = "damage"
 
 call get_spell_range
 if_not_flag spelltarget IS_ON
@@ -357,16 +357,16 @@ if_not_flag spelltarget IS_ON
 endif
 
 # Work out upper bound for damage
-let upper = me.stats.level * 10
-if upper <= 10
-	let upper = 30
+let upper = me.stats.level * 2
+if upper <= 5
+	let upper = 5
 endif
 
 # Get damage
-random dmg between 10 upper
+random dmg between 2 upper
 
 if spelltarget.stats.hp > 0
-	if spelltarget.stats.intel >= 40
+#	if spelltarget.stats.intel >= 40
 
 		# Add a corona effect
 		let spelltarget.user.user18 = 0		# Initial size
@@ -385,7 +385,7 @@ if spelltarget.stats.hp > 0
 			printcr
 		endif
 		return
-	endif
+#	endif
 endif
 
 # Tell the player it went wrong

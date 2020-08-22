@@ -29,7 +29,7 @@
 	list:
 		spell_pickpocket	Pickpocket
 		spell_barrier		Create Barrier
-		spell_harm		Harm
+		spell_harm		Damage
 		spell_heal		Heal
 		spell_cure		Cure
 		spell_greatlight	Great Light

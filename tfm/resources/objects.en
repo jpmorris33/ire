@@ -15621,7 +15621,7 @@ section: characters
 
 	alias SPELL_HARM = SPELL_BASE
 	frame		SPELLCARD2
-	short		"'Spell of Harm' sticker"
+	short		"'Spell of Damage' sticker"
 	user1		learn_harm
 
 	alias SPELL_HEAL = SPELL_BASE

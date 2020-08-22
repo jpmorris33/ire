@@ -385,10 +385,11 @@ You see a the devil in an immaculate black suit.
 
 [page="r5"]
 
-"I've only got one Acolyte spell, 'Harm'.
- It causes a moderate amount of damage."
+"I've only got one Acolyte spell, 'Damage'.
+ It causes a small amount of harm to people,
+ or things."
 
-[link="I'd like to buy 'Harm'."]
+[link="I'd like to buy 'Damage'."]
 [linkto="buy_r53"]
 [link="I'm interested in another ring."]
 [linkto="magic4"]
