@@ -1391,6 +1391,8 @@ section: sprites
 	robsit_l		sprites/robsit3.cel
 	light_sw1		sprites/lgt_sw1.cel
 	light_sw2		sprites/lgt_sw2.cel
+	light_sw3		sprites/lgt_sw3.cel
+	light_sw4		sprites/lgt_sw4.cel
 	light_start		sprites/lightct0.cel
 	light_end		sprites/lightct1.cel
 	mnt00			backings/mnt00.png
@@ -2859,6 +2861,8 @@ section: sprites
 	bookshelf05		sprites/booksh05.cel
 	bookshelf06		sprites/booksh06.cel
 	bookshelf07		sprites/booksh07.cel
+	marks00			sprites/marks00.cel
+	marks01			sprites/marks01.cel
 	cauldron00		sprites/cauldrn0.png
 	cauldron01		sprites/cauldrn1.png
 	cauldron02		sprites/cauldrn2.png
@@ -7479,6 +7483,10 @@ section: sequences
 	#1 frames
 		LIGHT_SW2
 	end
+
+	quickname LGT_SW3 LIGHT_SW3
+	quickname LGT_SW4 LIGHT_SW4
+
 	quickname LIGHT_START LIGHT_START
 	quickname LIGHT_END LIGHT_END
 	quickname MNT00 MNT00
@@ -8269,6 +8277,18 @@ section: sequences
 	quickname CARPET24 CARPET24
 	quickname CARPET25 CARPET25
 	quickname CARPET26 CARPET26
+
+	name CARPET27
+	overlay marks00
+	framelist:
+		CARPET01
+	end
+
+	name CARPET28
+	overlay marks01
+	framelist:
+		CARPET01
+	end
 
 	name CRUCIFIX
 	hotx 24

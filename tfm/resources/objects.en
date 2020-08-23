@@ -5542,10 +5542,12 @@ section: characters
 	short		"light switch"
 	IfUsed		LIGHT_TOGGLE
 	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	alias LIGHT_SWITCH_SECRET = LIGHT_SWITCH
+	left		LGT_SW3
+	right		LGT_SW3
+	up		LGT_SW4
+	down		LGT_SW4
 
 	name LIGHT_START
 	left		LIGHT_START
@@ -18966,4 +18968,12 @@ section: tiles
 	cost 128
 	water
 	function lava_incinerate
+
+	name CARPET27
+	sequence	CARPET27
+	description	"You see a rich carpet with marks on it."
+
+	name CARPET28
+	sequence	CARPET28
+	description	"You see a rich carpet with marks on it."
 
