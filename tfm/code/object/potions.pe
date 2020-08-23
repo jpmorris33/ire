@@ -128,7 +128,7 @@ endif
 if p is called "potion_black"
 	call potion_overdose
 	set_flag current IS_SHADOW = 1
-	let current.user.potion0 = 50
+	add current.user.potion0 + 50
 	check_hurt current
 endif
 

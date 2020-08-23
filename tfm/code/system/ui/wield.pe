@@ -69,13 +69,17 @@ endlocal
 
 function unwield
 
+# If it's a torch, cancel the effect
+#if wield_obj.light
+#	add me.light - wield_obj.light
+#endif
+
+# Call the wield function again to tidy up
+let current = wield_obj
+call current.funcs.wcache
+
 set_flag wield_obj IS_WIELDED = 0
 
-# If it's a torch, cancel the effect
-
-if wield_obj.light
-	add me.light - wield_obj.light
-endif
 
 # Check the head
 
@@ -434,16 +438,20 @@ end
 
 function wield_iring
 
-# If it's already wielded, abort
-
+# Handle un-wielding
 if_flag current IS_WIELDED
+	add me.user.potion0 - 20000000
+	if me.user.potion0 <= 0
+		let me.user.potion0 = 0
+		set_flag me IS_SHADOW = 0
+	endif
 	return
 endif
 
 if_not_exist me.wield.l_finger
 	let me.wield.l_finger = current
 	set_flag current IS_WIELDED = 1
-	let me.user.potion0 = 20000000
+	add me.user.potion0 + 20000000
 	set_flag me IS_SHADOW = 1
 	return
 endif
@@ -451,7 +459,7 @@ endif
 if_not_exist me.wield.r_finger
 	let me.wield.r_finger = current
 	set_flag current IS_WIELDED = 1
-	let me.user.potion0 = 20000000
+	add me.user.potion0 + 20000000
 	set_flag me IS_SHADOW = 1
 	return
 endif
@@ -470,9 +478,13 @@ end
 
 function wield_torch
 
-# If it's already wielded, abort
-
+# Handle unwielding
 if_flag current IS_WIELDED
+
+	# Remove the light from the player
+	if current.light
+		add me.light - current.light
+	endif
 	return
 endif
 
