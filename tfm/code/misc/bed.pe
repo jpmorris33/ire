@@ -212,6 +212,12 @@ if me = player
 		set_flag me IN_BED = 0
 	endif
 
+	if bed is called "bed_covered_full"
+		change bed = "bed_covered"
+		force_from_pocket me from bed to x y
+		set_flag me IN_BED = 0
+	endif
+
 	# Set the bed's weight back so it can perhaps be carried again
 	let bed.stats.weight = bed.user.user19	# Set it back
 
