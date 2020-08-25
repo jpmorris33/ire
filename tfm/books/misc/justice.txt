@@ -1,0 +1,52 @@
+[page="start"]
+[backing="paper.pcx"]
+[font 3]
+ The Book of Justice
+ by Cardinal Trom
+ 
+ As with all things, sin has many layers, and many punishments
+ according to their kind.
+ 
+ Those who do commit petty crimes shall be kept in jail for their
+ deeds, deprived of liberty only, until such time as their penance
+ be paid in full.
+ 
+ Common crimes, such as murder among the peasantry shall be
+ punished by the neck, wherein they shall finish their days at the
+ end of a rope while the people do watch them kick and struggle.
+ 
+ Those who commit crimes against the nobility, or nobles who do
+ themselves fall into error and sin, shall face the justice of
+ beheading, by axe, sword or the falling blade.
+
+ This be a swifter death than the rabble should expect, but also
+ a surer fate.  'Tis not unknown for a brigand to swallow a pipe
+ of lead and thereby survive the noose, and those skilled in the
+ healing arts could revive a hanged man from the brink.
+ 
+[right="2"]
+[endpage]
+ 
+[page="2"]
+[backing="paper.pcx"]
+[font 3]
+ But once the head be struck from the body, only his holiness the
+ Pope himself, or one impossibly skilled at healing magics could
+ return the victim to life and health.
+ 
+ Beheading is also the fate which awaits many bandits, for 'tis
+ easier to bring in their head alone for the bounty than their
+ whole body.  As such, they may lose their head in the woods to
+ a barbarian broadsword, or else it be cut from their shoulders
+ after death by sword or knife, to take back as a prize.
+
+ Finally, there remains the punishment of burning, for those who
+ have offended the LORD Himself, or desecrated His works. Those
+ who are so condemned shall be set aflame in the square, that
+ all may watch their sufferings in sure knowledge that, reduced
+ to mere ashes, they shall never again return to trouble Him or His
+ faithful.
+
+[left="start"]
+[right="exit"]
+[endpage]
