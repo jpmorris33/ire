@@ -751,7 +751,7 @@ Gold: 79 = 3 (Lithium)
 [page="learn_lightheal"]
 [take 75 "gold_coins"]
 [if false][goto="nomoney"]
-[call="learn_lightheal"]
+[call="learn_lheal"]
 [append="learned_spell"]
 [endpage]
 
