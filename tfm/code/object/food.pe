@@ -9,6 +9,12 @@
 object food_dest
 integer eat_silently = 0
 
+local
+string fruitgot
+string fruitnotgot
+string fruitobj
+endlocal
+
 ##
 ##	Eat
 ##
@@ -361,46 +367,70 @@ end
 ##
 
 function appletree
-object apple
+let fruitgot = "Got an apple."
+let fruitnotgot = "Can't reach any apples."
+let fruitobj = "foodp08"
+
+call fruittree
+end
+
+##
+##	Carrot Tree
+##
+
+function carrottree
+let fruitgot = "Got a carrot."
+let fruitnotgot = "Can't reach any carrots."
+let fruitobj = "foodp05"
+
+call fruittree
+end
+
+
+local
+function fruittree
+object fruit
 integer weight
 
 # Is the tree 'empty'?
 if current.stats.karma <= 0
 	if me = player
-		print "Can't reach any apples."
+		print fruitnotgot
 		printcr
 	endif
 	return
 endif
 
 # Create an apple
-create apple = "foodp08"
-let apple.stats.quantity = 1
+create fruit = fruitobj
+let fruit.stats.quantity = 1
 
 # Calculate the weight the player is carrying plus the apple
 get_weight weight = player
-add weight + apple.stats.weight
+add weight + fruit.stats.weight
 add weight - me.stats.weight # Cancel out player's weight
 
 # If the weight is bigger then you can carry
 if weight > me.stats.str
 	# Wouldn't fit
-	destroy apple
+	destroy fruit
 	if me = player
-		print "Can't carry it."
+		print msg_CannotCarryIt
 		printcr
 	endif
 	return
 else
-	move_to_pocket apple to me
+	move_to_pocket fruit to me
 	add current.stats.karma - 1 # Take an apple away
 	if me = player
-		print "Got an apple."
+		print fruitgot
 		printcr
 	endif
 endif
 
 end
+
+endlocal
 
 ##
 ##  Player tries to use the honey in the Bee Cave

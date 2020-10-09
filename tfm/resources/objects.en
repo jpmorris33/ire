@@ -8294,10 +8294,7 @@ section: characters
 	setActiveArea	H 0 0 4 2
 
 	name TREE07
-	left		TREE07
-	right		TREE07
-	up		TREE07
-	down		TREE07
+	frame		TREE07
 	hp		250
 	weight		-1
 	description	"You see an apple tree."
@@ -8312,20 +8309,8 @@ section: characters
 	setActiveArea	V 0 0 2 2
 	setActiveArea	H 0 0 2 2
 
-	name TREE08
-	left		TREE08
-	right		TREE08
-	up		TREE08
-	down		TREE08
-	hp		250
-	karma		6
-	weight		-1
-	description	"You see an apple tree."
-	short		"tree"
-	solid
-	fixed
-	spikeproof
-	ifused		appletree
+	alias TREE08 = TREE07
+	frame		TREE08
 	setsolid	V 2 1 1 2
 	setsolid	H 2 1 1 2
 	setActiveArea	V 0 0 3 2
@@ -8348,6 +8333,16 @@ section: characters
 	setsolid	H 1 1 1 1
 	setActiveArea	V 0 0 2 2
 	setActiveArea	H 0 0 2 2
+
+	alias TREE10 = TREE07
+	frame		TREE10
+	ifused		carrottree
+	description	"You see a carrot tree."
+
+	alias TREE11 = TREE08
+	frame		TREE11
+	ifused		carrottree
+	description	"You see a carrot tree."
 
 	name STAKE
 	left		STAKE3
@@ -9494,8 +9489,8 @@ section: characters
 	hp		2
 	quantity
 	unit_weight	75
-	description	"You see a portion of carrots."
-	short		"carrots"
+	description	"You see a carrot."
+	short		"carrot"
 	IfUsed		EAT_FOOD
 	no_resurrect
 

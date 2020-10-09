@@ -2044,6 +2044,8 @@ section: sprites
 	tree07			sprites/tree07.cel
 	tree08			sprites/tree08.cel
 	tree09			sprites/tree09.cel
+	tree10			sprites/tree10.cel
+	tree11			sprites/tree11.cel
 	stake1			sprites/stake1.cel
 	stake2			sprites/stake2.cel
 	stake3			sprites/stake3.cel
@@ -9417,6 +9419,22 @@ section: sequences
 	framelist:
 	#1 frames
 		TREE09
+	end
+
+	name TREE10
+	post_overlay
+	overlay TREE10
+	framelist:
+	#1 frames
+		TREE10
+	end
+
+	name TREE11
+	post_overlay
+	overlay TREE11
+	framelist:
+	#1 frames
+		TREE11
 	end
 	
 	quickname STAKE1 STAKE1

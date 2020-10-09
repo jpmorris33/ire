@@ -7998,6 +7998,56 @@ iMZ1r01
 		at 350 264
 		curdir 3
 
+	object BED_fc85891c-bc05-4b42-ba7c-61a7062d6b74
+		type BED
+		at 369 264
+		curdir 0
+
+	object TABL28f20ebc-4887-432f-886a-a66f2681f196
+		type TABLE7
+		at 371 264
+		curdir 0
+
+	object BED_fe91972e-ed93-4042-88c0-53f56f4e433a
+		type BED
+		at 374 264
+		curdir 0
+
+	object TABL0945498e-206d-4a17-bd89-8b2512af307a
+		type TABLE7
+		at 376 264
+		curdir 0
+
+	object BED_07de34bf-b036-4c14-b736-70e4e9db51be
+		type BED
+		at 379 264
+		curdir 0
+
+	object TABLd860cab2-f9f6-43a4-a8cf-06451fff3cdd
+		type TABLE7
+		at 381 264
+		curdir 0
+
+	object BED_6e398da9-0f62-4eda-901a-650a9760fa94
+		type BED
+		at 384 264
+		curdir 0
+
+	object TABLa598ad89-7e89-478a-9590-e3cf2e3b5cca
+		type TABLE7
+		at 386 264
+		curdir 0
+
+	object BED_5d5ae10e-d73f-4945-9f93-d6e0d6209523
+		type BED
+		at 389 264
+		curdir 0
+
+	object TABL5340378c-7995-4de7-8cba-10141350080f
+		type TABLE7
+		at 391 264
+		curdir 0
+
 	object STONae1c95ed-0fd2-4e60-823e-9ad757769fa1
 		type STONEFLOOR10
 		at 430 264
@@ -9665,6 +9715,41 @@ iMZ1r01
 		at 374 306
 		curdir 3
 
+	object TREE9d02194a-3c30-4fc0-ac7a-fe3e6d4712f7
+		type TREE11
+		at 378 306
+		curdir 0
+
+	object TREE25db4666-d805-469e-8a18-3c5c154ce5a8
+		type TREE11
+		at 381 306
+		curdir 0
+
+	object TREE1d7f7dc1-a571-4be8-a0ca-4afd3dc4fd3b
+		type TREE11
+		at 384 306
+		curdir 0
+
+	object TREE886eeb9e-5712-4c0f-954d-54f8398d46ec
+		type TREE11
+		at 387 306
+		curdir 0
+
+	object TREE408023ad-f8d1-42a3-9f1e-51fd9e037a55
+		type TREE11
+		at 390 306
+		curdir 0
+
+	object TREEd78a37d4-d902-4ae6-b443-5b7f1fc0d6c0
+		type TREE11
+		at 393 306
+		curdir 0
+
+	object TREE18f166bf-e88b-43b9-94a9-2ed3195986d1
+		type TREE11
+		at 396 306
+		curdir 0
+
 	object STONdc914384-0eaf-4d8e-a084-aad8739785ef
 		type STONEFLOOR18
 		at 420 306
@@ -9770,6 +9855,46 @@ iMZ1r01
 		at 375 310
 		curdir 1
 
+	object TREEac67909b-3bdc-41ae-929d-943ee1a87c77
+		type TREE10
+		at 378 310
+		curdir 0
+
+	object TREE675b37c9-f431-4741-9541-551eec8c8c07
+		type TREE10
+		at 381 310
+		curdir 0
+
+	object TREE59bd07e0-e195-4b7c-b641-4efe4bb42f4a
+		type TREE10
+		at 384 310
+		curdir 0
+
+	object TREE0c983c95-4ce9-4efc-8cbc-de1d00ca4e7b
+		type TREE10
+		at 387 310
+		curdir 0
+
+	object TREEde9e90a8-e1c3-47ea-8a06-4b649cde1948
+		type TREE10
+		at 390 310
+		curdir 0
+
+	object TREE2b5fdb28-a674-4db8-8f87-8bb09bfc0dad
+		type TREE10
+		at 393 310
+		curdir 0
+
+	object TREEb6941cae-3c12-4058-9e91-4566d1eb15e5
+		type TREE10
+		at 396 310
+		curdir 0
+
+	object TREE3ecc7457-8291-4ebc-adce-4b1930ee8bb7
+		type TREE10
+		at 399 310
+		curdir 0
+
 	object STON1bc05009-8c73-4b2e-a4ec-e5bafe182e55
 		type STONEFLOOR10
 		at 416 310
@@ -9844,6 +9969,41 @@ iMZ1r01
 		type STONEFLOOR10
 		at 375 313
 		curdir 3
+
+	object TREEee0c0ad3-1ec4-44db-8401-0c40f8cae423
+		type TREE11
+		at 378 313
+		curdir 0
+
+	object TREE4c5f5e63-21aa-4bc1-b4fb-a2338c173b7b
+		type TREE11
+		at 381 313
+		curdir 0
+
+	object TREE3d98b88b-e84e-4796-b289-a3693e86db09
+		type TREE11
+		at 384 313
+		curdir 0
+
+	object TREE2e26ee0a-c7b0-43ea-8945-09a515d754cb
+		type TREE11
+		at 387 313
+		curdir 0
+
+	object TREEbac99bac-1b0a-44a2-9dad-6e38595c068b
+		type TREE11
+		at 390 313
+		curdir 0
+
+	object TREEb6f5ee42-d57a-4e2e-bfa0-81e9b8e3d36e
+		type TREE11
+		at 393 313
+		curdir 0
+
+	object TREEf8635d55-9d8e-4d02-8c77-ea84770f7017
+		type TREE11
+		at 396 313
+		curdir 0
 
 	object STON7e500502-f547-420d-8b33-47aa1cdaebb6
 		type STONEFLOOR10
@@ -9959,6 +10119,41 @@ iMZ1r01
 		type STONEFLOOR18
 		at 374 317
 		curdir 3
+
+	object TREEa88e4907-180e-4df1-8ef1-fff1147cebb3
+		type TREE10
+		at 378 317
+		curdir 0
+
+	object TREEaabbd7fc-74a0-45d0-9500-fb6f8378ac7e
+		type TREE10
+		at 381 317
+		curdir 0
+
+	object TREEcb203e04-85b5-479f-8477-aced5427b4ea
+		type TREE10
+		at 384 317
+		curdir 0
+
+	object TREE4878d29d-ce68-41c7-8e27-7c6458e8f4dc
+		type TREE10
+		at 387 317
+		curdir 0
+
+	object TREE28788331-b61c-433e-8a94-4c897c1c8c4d
+		type TREE10
+		at 390 317
+		curdir 0
+
+	object TREE9110dd12-4b47-4d95-b767-f2e8569fc858
+		type TREE10
+		at 393 317
+		curdir 0
+
+	object TREE78fe4050-c77e-4d04-b5b6-c28f0b07732e
+		type TREE10
+		at 396 317
+		curdir 0
 
 	object STONa52d76d4-bf91-4881-89ed-f5a7e371d105
 		type STONEFLOOR10

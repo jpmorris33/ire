@@ -17,6 +17,7 @@ quickname msg_Cancelled			cancelled
 quickname msg_ItReads			It reads:
 quickname msg_CannotUseThat		You can't use that.
 quickname msg_CannotCarryThem		You can't carry them.
+quickname msg_CannotCarryIt		You can't carry it.
 quickname msg_WontFit			It won't go in!
 
 quickname sign_WelcomeToHell		Welcome to Hell!|Population: lots
