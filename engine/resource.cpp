@@ -1037,28 +1037,26 @@ ilog_printf("using %d bytes\n", sizeof(OBJECT)*(chr_alloc+1));
 // Extract the names
 
 pos = -1;
-for(ctr=start;ctr<=finish;ctr++)
-	{
+for(ctr=start;ctr<=finish;ctr++) {
 	line = script.line[ctr];
 	Rptr=strfirst(line);                       // Get first term
-	if(Rptr!=NOTHING)                       // Main parsing is here
-		{
-		if(!istricmp(Rptr,"name") || !istricmp(Rptr,"alias"))       // Got the first one
-			{
+	if(Rptr!=NOTHING) {                        // Main parsing is here
+		if(!istricmp(Rptr,"name") || !istricmp(Rptr,"alias")) {       // Got the first one
 			Rptr=strfirst(strrest(line));     // Get second term
-			if(Rptr!=NOTHING)           // Make sure its there
-				{
+			if(Rptr!=NOTHING) {           // Make sure its there
 				pos ++;                             // Pre-increment
 				character = &CHlist[pos];
 				character->name = (char *)strrest(line);      // Get name label
-				strstrip(character->name);         // Kill whitespace
-				if(strlen(character->name) > 31)   // Check name length
-					if(istricmp(strfirst(line),"alias"))	// Ignore if it's an alias
+				strstrip(character->name);          // Kill whitespace
+				if(strlen(character->name) > 31) {  // Check name length
+					if(istricmp(strfirst(line),"alias")) {	// Ignore if it's an alias
 						Dump(ctr,"This name exceeds 31 letters",character->name);
+					}
 				}
 			}
 		}
 	}
+}
 }
 
 /*
@@ -1150,6 +1148,13 @@ for(ctr=start;ctr<=finish;ctr++)
 				strcpy(character->funcs->resurrect,character->name);
 
 				OB_Funcs(character);				// Set up the strings
+
+				for(int ctr2=0;ctr2<pos;ctr2++) {
+					if(!stricmp(CHlist[ctr2].name,character->name)) {
+						Dump(ctr,"Duplicate object name",character->name);
+					}
+				}
+
 				continue;
 				}
 			else
@@ -1208,6 +1213,12 @@ for(ctr=start;ctr<=finish;ctr++)
 
 			// By default ensure that it's a concrete object
 			character->engineflags &= ~ENGINE_ISABSTRACT;
+
+			for(int ctr2=0;ctr2<pos;ctr2++) {
+				if(!stricmp(CHlist[ctr2].name,character->name)) {
+					Dump(ctr,"Duplicate object name",character->name);
+				}
+			}
 
 			OB_Funcs(character);				// Set up the strings
 			continue;
