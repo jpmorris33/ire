@@ -1866,7 +1866,7 @@ return -1;
 int check_parm(char **line, unsigned int entry)
 {
 int no,len,ctr,ok;
-char *errbuf;
+char *errbuf,*dot,*firstq,*lastq;
 
 len=strlen(vmspec[entry].parm);
 for(ctr=0;line[ctr];ctr++);
@@ -2034,9 +2034,20 @@ for(ctr=0;ctr<len;ctr++)
         case 'O':
         case 'S':
 		// It claims to be a member of a structure, so look for '.'
-		if(!strchr(buffer,'.')) {
+		dot = strchr(buffer,'.');
+		if(!dot) {
             		return 0;
             	}
+
+		// Check for string literal silliness
+		firstq = strchr(buffer,'\"');
+		lastq = strrchr(buffer,'\"');
+		if(firstq && lastq) {
+			if(dot > firstq && dot < lastq) {
+				// False alarm, it's probably something like LET MSG="Can't reach it."
+				return 0;
+			}
+		}
 
 		errbuf = pe_checkstruct(buffer);
 		//  Quit if we get this kind of error
