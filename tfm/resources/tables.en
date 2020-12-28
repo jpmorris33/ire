@@ -20,6 +20,7 @@
 		Master Master
 		son son
 		Son Son
+		his his
 	end
 
 	name FemaleWords
@@ -44,5 +45,6 @@
 		Master Mistress
 		son child
 		Son Child
+		his her
 	end
 

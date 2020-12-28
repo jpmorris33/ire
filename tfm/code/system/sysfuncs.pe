@@ -132,6 +132,9 @@ if player.user.user0 >= 1
 	call freak
 endif
 
+if player.user.potion8 > 0
+	call tithes_check_deadline
+endif
 
 # Wielded torches etc
 

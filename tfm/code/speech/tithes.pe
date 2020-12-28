@@ -1,0 +1,150 @@
+##############################
+#                            #
+#   Tithes from the Church   #
+#                            #
+##############################
+
+
+
+##
+##  Get sceptre tithes amount remaining, used by the Crucifix
+##
+
+function tithes_num
+let usernum1 = player.user.potion9
+
+let usernum2 = 0
+set_user_flag "tithes_deadline" = 0
+if player.user.potion8 > 0
+	call pack_date
+	let usernum2 = player.user.potion8 - packed_date
+	set_user_flag "tithes_deadline" = 1
+endif
+
+end
+
+##
+##  Sceptre Tithes flag, TRUE if not yet paid
+##
+
+function tithes_check
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+if player.user.potion9 > 0
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+end
+
+##
+##  Pay off the Tithes, used by the Bishop
+##
+
+function tithes_paid
+let player.user.potion9 = 0
+
+# Disable deadline, if any
+let player.user.potion8 = 0
+end
+
+##
+##  Try to pay the tithes, since we now have several possible amounts
+##
+
+function pay_tithes_off
+
+set_user_flag "true" = 1
+set_user_flag "false" = 0
+
+let err = 0
+move player.user.potion9 "gold_coin" from player to current
+if err <> 0
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+endif
+
+end
+
+
+##
+##  Add 1320 to your dues to the Church
+##
+
+function tithes_add1320
+add player.user.potion9 + 1320
+end
+
+
+##
+##  The Player has annoyed the Trinity but shown contrition so they get a discount
+##
+
+function set_tithe_10days_small
+
+add player.user.potion9 + 5000
+let usernum1 = player.user.potion9
+
+call pack_date
+add packed_date + 10
+let player.user.potion8 = packed_date
+
+end
+
+##
+##  The Player has annoyed the Trinity but shown contrition so they get a discount
+##
+
+function set_tithe_10days_big
+
+add player.user.potion9 + 20000
+let usernum1 = player.user.potion9
+
+call pack_date
+add packed_date + 10
+let player.user.potion8 = packed_date
+
+end
+
+##
+##  Player annoyed Jesus so the tithe is even bigger now
+##
+
+function set_tithe_10days_bignow
+
+add player.user.potion9 + 30000
+let usernum1 = player.user.potion9
+
+# This shouldn't happen, but just in case
+if player.user.potion8 < 1
+	call pack_date
+	add packed_date + 10
+	let player.user.potion8 = packed_date
+endif
+
+end
+
+
+
+##
+##  Check deadline
+##
+
+function tithes_check_deadline
+
+if player.user.potion8 > 0
+	if player.user.potion9 > 0
+		call pack_date
+		if packed_date >= player.user.potion8
+			talk_to "people/church/lord.txt" "tithes_kill"
+			# Prevent re-entrancy after player death
+			let player.user.potion8 = 0
+		endif
+	else
+		# If there's no outstanding tithes, cancel the deadline
+		let player.user.potion8 = 0
+	endif
+endif
+
+end

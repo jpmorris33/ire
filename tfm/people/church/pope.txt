@@ -855,7 +855,7 @@ to you in a strained voice.
 [page="devil3a"]
 [image="pope.pcx"]
 
-"Guards... off with his head!"
+"Guards... off with $his head!"
 
 [at_exit_call="guillotine_player"]
 [nextpage="exit"]

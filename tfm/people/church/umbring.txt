@@ -1342,7 +1342,7 @@ The Cardinal sounds puzzled.
 
 
 [page="pay_tithes_pay"]
-[take 1320 gold_coins]
+[call="pay_tithes_off"]
 [if true][goto="pay_tithes_paid"]
 [image="priest4.pcx"]
 

@@ -14150,6 +14150,7 @@ section: scripts
 	code/speech/guard.pe
 	code/speech/healer.pe
 	code/speech/misc.pe
+	code/speech/tithes.pe
 	code/speech/opendoor.pe
 	code/creature/resurrec.pe
 	code/misc/expansn.pe

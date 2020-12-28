@@ -4,7 +4,6 @@
 #                            #
 ##############################
 
-#int Tithes = 0
 local
 object bandit_head
 endlocal
@@ -139,50 +138,6 @@ end
 
 
 
-
-##
-##  Add 1320 to your dues to the Church
-##
-
-function tithes_add1320
-add player.user.potion9 + 1320
-end
-
-##
-##  Get sceptre tithes amount remaining, used by the Crucifix
-##
-
-function tithes_num
-#let usernum1 = Tithes
-let usernum1 = player.user.potion9
-
-end
-
-##
-##  Sceptre Tithes flag, TRUE if not yet paid
-##
-
-function tithes_check
-
-set_user_flag "true" = 0
-set_user_flag "false" = 1
-
-#if Tithes > 0
-if player.user.potion9 > 0
-
-	set_user_flag "true" = 1
-	set_user_flag "false" = 0
-endif
-end
-
-##
-##  Pay off the Tithes, used by the Bishop
-##
-
-function tithes_paid
-#let Tithes = 0
-let player.user.potion9 = 0
-end
 
 ##
 ##  Call the speaker's wield function

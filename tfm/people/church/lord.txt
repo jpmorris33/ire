@@ -450,6 +450,23 @@ A glowing ball appears before you.
 [endpage]
 
 
+The player owes the Trinity
+
+[page="tithes_kill"]
+[image="lord.jpg"]
+
+[colour="#808080"]
+You see a visitation of the LORD.
+[colour="#ffffff"]
+
+"WHERE'S MY MONEY?"
+
+[delay 3]
+[at_exit_call="fry_player"]
+[nextpage="exit"]
+[endpage]
+
+
 [page="jesusisdead"]
 [esc="disabled"]
 [image="lord.jpg"]

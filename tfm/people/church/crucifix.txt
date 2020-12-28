@@ -1,5 +1,6 @@
 [esc="bye2"]
 [page="start"]
+[if htptest][goto="help_the_poor"]
 [call="check_bishop"]
 [if hear_truth][goto="HT_start"]
 [if killed_bishop][goto="final_sin"]
@@ -762,6 +763,7 @@ latin since arriving, and the Crucifix stuttered over it.
 
 [page="pay_tithes"]
 [esc="disabled"]
+[call="tithes_num"]
 [image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers, and speaks in a voice of command.
@@ -770,9 +772,9 @@ The Crucifix shimmers, and speaks in a voice of command.
 "Now hear me, my $son.
 
  You have not yet paid the LORD His dues.
- The Church demands that the tithe of 1320 gold coins
- be paid in full.
-[call="tithes_num"]
+ The Trinity demands that the tithes you owe be paid in
+[if tithes_deadline] full in $USERNUM2 days time or your blood shall be upon you.
+[if_not tithes_deadline] full as soon as possible.
 
  You still owe the Holy Trinity $USERNUM1 gold coins."
 
@@ -833,6 +835,210 @@ The Crucifix assumes a very stern expression.
 [nextpage="exit"]
 [endpage]
 
+
+
+
+[page="help_the_poor"]
+[esc="disabled"]
+[call="tithes_check"]
+[if true][goto="pay_tithes"]
+[image="crucifix1.png"]
+[colour="#808080"]
+The Crucifix shimmers, and speaks in a voice of command.
+[colour="#ffffff"]
+
+"Now hear me, my $son.
+
+ It has come to My attention that you have been aiding
+ many of the poor and needy."
+
+[link="Oh, it was no trouble."]
+[linkto="htp2"]
+[link="Sorry, it won't happen again."]
+[linkto="htp3"]
+[link="Bye!"]
+[linkto="htp4"]
+[endpage]
+
+
+[page="htp2"]
+[image="crucifix3.png"]
+
+"You are to cease this insolent meddling immediately.
+
+ Those who are in need are poor because the LORD has
+ willed it to be so.
+
+ It is for them to help themselves, and by interfering
+ you are helping them evade the righteous punishment
+ inflicted upon them by the LORD."
+
+[link="But helping people is what Christianity is all about!"]
+[linkto="htp2a"]
+[link="Sorry, it won't happen again."]
+[linkto="htp3"]
+[link="Bye!"]
+[linkto="htp4a"]
+[endpage]
+
+[page="htp2a"]
+[call="set_tithe_10days_big"]
+[image="crucifix3.png"]
+
+"Do you presume to tell the Holy Trinity how its
+ worshippers should behave...?
+
+ The Faithful must create wealth for the Trinity and
+ their servants.  Feudal agrarianism is what the LORD
+ has decreed, and so it shall be.
+
+ There is no room in the LORD's Great Plan for those who
+ give aid to His enemies, which you have done.
+
+ You are to give the Church a tithe of $USERNUM1 gold
+ pieces within ten days.  If this is not done, you shall
+ be destroyed.
+
+ Now leave My presence.  And remember - ten days."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="htp2b"]
+[call="set_tithe_10days_bignow"]
+[image="crucifix3.png"]
+
+"Do you presume to tell the Holy Trinity how its
+ worshippers should behave...?
+
+ The tithe is hereby increased to $USERNUM1 gold coins.
+ Let this serve as a warning to you.
+
+ Now leave My presence, lest I change My mind and order
+ your immediate execution.  And remember - ten days."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="htp3"]
+[call="set_tithe_10days_small"]
+[image="crucifix3.png"]
+
+"Your contrition is noted.  Nonetheless, you shall
+ cease your meddling immediately.
+
+ Those who are in need are poor because the LORD has
+ willed it to be so.
+
+ It is for them to help themselves, and by interfering
+ you are helping them evade the righteous punishment
+ inflicted upon them by the LORD.
+
+ You are to give the Church a tithe of $USERNUM1 gold
+ pieces within ten days.  If this is not done, you shall
+ be destroyed."
+
+[link="I will fetch the money."]
+[linkto="htp4b"]
+[link="Isn't helping people what Christianity is all about?"]
+[linkto="htp2b"]
+[endpage]
+
+
+[page="htp3a"]
+[call="set_tithe_10days_small"]
+[image="crucifix3.png"]
+
+"Your contrition is noted.  Nonetheless, you shall
+ cease your meddling immediately.
+
+ You are to give the Church a tithe of $USERNUM1 gold
+ pieces within ten days.  If this is not done, you shall
+ be destroyed."
+
+[link="Sorry, it won't happen again."]
+[linkto="htp3b"]
+[link="Isn't helping people what Christianity is all about?"]
+[linkto="htp2b"]
+[link="I will fetch the money."]
+[linkto="htp4b"]
+[endpage]
+
+[page="htp3b"]
+[image="crucifix3.png"]
+
+"For your sake, it must not
+ Now leave My presence, and remember... ten days."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="htp4"]
+[image="crucifix3.png"]
+
+"HALT.  You have not been given leave to depart.
+
+ Now listen well, for your actions anger the LORD.
+
+ You have been seen to help the needy.
+ Know that this poverty was part of the LORD's Plan
+ and those who are in need are poor because the LORD
+ has willed it to be so.
+
+ It is for them to help themselves, and by interfering
+ you are helping them evade the righteous punishment
+ inflicted upon them by the LORD."
+
+[link="Sorry, it won't happen again."]
+[linkto="htp3a"]
+[link="But helping people is what Christianity is all about!"]
+[linkto="htp2a"]
+[link="I'm leaving anyway."]
+[linkto="htp5"]
+[endpage]
+
+
+[page="htp4a"]
+[image="crucifix3.png"]
+
+"HALT.  You have not been given leave to depart.
+
+ As penance for the disruption of the LORD's Great Plan,
+ you are to give the Church a tithe of $USERNUM1 gold
+ pieces within ten days.  If this is not done, you shall
+ be destroyed."
+
+[link="Sorry, it won't happen again."]
+[linkto="htp3b"]
+[link="But helping people is what Christianity is all about!"]
+[linkto="htp2a"]
+[link="I'm leaving anyway."]
+[linkto="htp5"]
+[endpage]
+
+
+[page="htp4b"]
+[image="crucifix1.png"]
+
+"I suggest you do so soon, for the LORD is waiting."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="htp5"]
+[image="crucifix1.png"]
+
+"Then your death shall be an example to others.
+
+ Off with $his head."
+
+[at_exit_call="guillotine_player"]
+[nextpage="exit"]
+[endpage]
 
 
 [page="dragonquest"]
@@ -1144,6 +1350,7 @@ floor.
 
 
 [page="HT_inchurch"]
+[esc="disabled"]
 [image="crucifix1.png"]
 [colour="#808080"]
 The Crucifix shimmers and speaks to you in a flat,

@@ -280,23 +280,26 @@ printxy "  Invisible: "
 printxy current.user.potion0
 printxy "  Light: "
 printxy current.user.potion1
-printxy "  P02: "
+printxy "  P2: "
 printxy current.user.potion2
-printxy "  P03: "
+printxy "  P3: "
 printxy current.user.potion3
-printxy "  P04: "
+printxy "  P4: "
 printxy current.user.potion4
 printxy
 
-printxy "P05: "
+printxy "P5: "
 printxy current.user.potion5
-printxy "  P06: "
+printxy "  P6: "
 printxy current.user.potion6
-printxy "  P07: "
+printxy "  Cooldown: "
+# Potion 7 is throw cooldown
 printxy current.user.potion7
-printxy "  P08: "
+printxy "  TitheDate: "
+# Potion 8 is also Tithes deadline
 printxy current.user.potion8
-printxy "  Throw damage cooldown: "
+printxy "  Tithes: "
+# Potion 9 is Tithes for the player
 printxy current.user.potion9
 printxy
 
