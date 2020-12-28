@@ -208,8 +208,8 @@ if me.user.potion1 > 0
 endif
 
 # We're abusing this to make thrown damage fairer
-if me.user.potion9 > 0
-	add me.user.potion9 - 1
+if me.user.potion7 > 0
+	add me.user.potion7 - 1
 endif
 
 end
@@ -243,8 +243,8 @@ if me.user.potion0 > 0
 endif
 
 # We're abusing this to make thrown damage fairer
-if me.user.potion9 > 0
-	add me.user.potion9 - 1
+if me.user.potion7 > 0
+	add me.user.potion7 - 1
 endif
 
 end

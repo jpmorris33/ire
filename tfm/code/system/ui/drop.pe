@@ -138,13 +138,13 @@ for t = -1 to distance
 
 		get_object temp at xa ya
 		if_exists temp
-			if temp.user.potion9 < 1
+			if temp.user.potion7 < 1
 			or FUN_BUGS = 1
 				# If this is a living creature or robot,
 				# add a cooldown period to stop the player
 				# rampaging with a candlestick etc
 				if temp.stats.intel > 40
-					let temp.user.potion9 = 25
+					let temp.user.potion7 = 25
 				endif
 				add temp.stats.hp - weightdamage
 				let temp.enemy = obj.stats.owner
