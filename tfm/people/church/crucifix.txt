@@ -969,7 +969,7 @@ The Crucifix shimmers, and speaks in a voice of command.
 [page="htp3b"]
 [image="crucifix3.png"]
 
-"For your sake, it must not
+"For your sake, it must not.
  Now leave My presence, and remember... ten days."
 
 [nextpage="exit"]
