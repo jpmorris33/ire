@@ -478,6 +478,142 @@ iMZ1r01
 		at 276 73
 		curdir 1
 
+	object STAId14a5edd-9445-478f-8afa-e9bef630e4d3
+		type STAIRS_DOWN
+		at 391 161
+		curdir 1
+		tag 5
+
+	object SHEE0dc0ec51-e80a-4ceb-b27b-6dc5a319c78d
+		type SHEEP
+		inside EGG_5524c181-348d-4e5d-9e9c-a420cc21dc60
+		curdir 1
+		activity GRAZE
+
+	object EGG_5524c181-348d-4e5d-9e9c-a420cc21dc60
+		type EGG_OBJECT(SHEEP)
+		at 389 165
+		curdir 0
+
+	object FENC0ea8f813-6abc-4be2-bc93-f611985f8bff
+		type FENCE2_CORNER
+		at 390 165
+		curdir 0
+
+	object FENC0f8a4774-74fd-48b5-b77b-82e12b9d6b8d
+		type FENCE2
+		at 391 165
+		curdir 0
+
+	object FENC1880e308-b856-45de-bd8a-199e9a822f3c
+		type FENCE2
+		at 392 165
+		curdir 1
+
+	object FENC7edb00c2-2735-4dd3-bce9-e71b93655426
+		type FENCE2
+		at 393 165
+		curdir 0
+
+	object FENC97f9ae6b-3158-4fcc-b825-a30e40ab569f
+		type FENCE2_CORNER
+		at 394 165
+		curdir 3
+
+	object BUNN8ee4bd9d-7c25-4d17-ae2e-dbcfd83b7540
+		type BUNNY
+		inside EGG_a04610ab-9787-4f7d-8729-27e3e0d6b34e
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_a04610ab-9787-4f7d-8729-27e3e0d6b34e
+		type EGG_OBJECT(BUNNY)
+		at 396 165
+		curdir 0
+
+	object FENC21c3a26a-2f78-48a3-9de9-ce3af6245117
+		type FENCE2
+		at 390 166
+		curdir 2
+
+	object TREE3a251124-e034-4fcf-9cac-4244b9912b4c
+		type TREE08
+		at 391 166
+		curdir 0
+
+	object FENCde87b81c-0977-4b23-9a06-1a0db14df869
+		type FENCE2
+		at 394 166
+		curdir 2
+
+	object FENCffb6d8ba-47b7-42b0-8e20-0ed743995817
+		type FENCE2
+		at 390 167
+		curdir 3
+
+	object FENC044d2c45-314c-4192-9ee3-1ff691cbe35d
+		type FENCE2
+		at 394 167
+		curdir 3
+
+	object FENC08f41c33-9998-4664-8818-911896a11ad0
+		type FENCE2
+		at 390 168
+		curdir 2
+
+	object FENC7541de41-8c35-4c36-a209-b88473d9f7e6
+		type FENCE2_GATE_SHUT
+		at 391 168
+		curdir 1
+
+	object FENCdf419351-c424-4b64-b27f-84006224dc44
+		type FENCE2
+		at 394 168
+		curdir 2
+
+	object FENC9632cb28-91fe-4262-94a5-d8a373e425bc
+		type FENCE2_CORNER
+		at 390 169
+		curdir 2
+
+	object FENC97c8a7c4-14cf-446b-967e-91120cbd6d33
+		type FENCE2_GATE_POST
+		at 393 169
+		curdir 3
+
+	object FENCdb2f25ef-a365-4f68-b4c5-a1c6db6b6ac5
+		type FENCE2_CORNER
+		at 394 169
+		curdir 1
+
+	object SHEE40845ee9-6144-4d15-8875-e7d2fdcf27aa
+		type SHEEP
+		inside EGG_b04005f5-d667-45b6-b776-5b956128a780
+		curdir 1
+		activity GRAZE
+
+	object EGG_b04005f5-d667-45b6-b776-5b956128a780
+		type EGG_OBJECT(SHEEP)
+		at 395 170
+		curdir 0
+
+	object BUNNf06008a4-5c23-46ec-9cd2-3d32fa859823
+		type BUNNY
+		inside EGG_04372ce9-6b5d-4eb8-87f2-1d847b25c0dc
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_04372ce9-6b5d-4eb8-87f2-1d847b25c0dc
+		type EGG_OBJECT(BUNNY)
+		at 389 171
+		curdir 0
+
+	object TARGd6122956-29fb-4864-922f-4bd25c78e0a5
+		type TARGET
+		at 393 172
+		curdir 1
+		tag 4
+
 	object STON5fa2da69-4d3a-4c45-8327-672c5a89ff72
 		type STONEFLOOR10
 		at 193 191
@@ -2841,6 +2977,11 @@ iMZ1r01
 		at 289 217
 		curdir 3
 
+	object DRAWa3d124f6-d6f1-4335-aec2-3c714ff6b562
+		type DRAWERS
+		at 293 217
+		curdir 2
+
 	object BUNN83170e99-50f2-465a-83ed-a26030e174b1
 		type BUNNY
 		inside EGG_fb7e2b8b-a533-4f3d-838c-fac5adb52657
@@ -2934,18 +3075,13 @@ iMZ1r01
 
 	object TABL4886bd8e-f553-4ddb-8e70-31a945f2eec2
 		type TABLE6-H
-		at 294 218
+		at 295 218
 		curdir 2
 
 	object TABL0875aa1b-8d1b-4067-b2ff-eea4e82df9fc
 		type TABLE6-H
-		at 295 218
-		curdir 0
-
-	object TABL8a9218e3-47a3-4948-ae0b-25baa4def87c
-		type TABLE6-H
 		at 296 218
-		curdir 1
+		curdir 0
 
 	object MEMO9ba5dfa0-d63e-4166-8cb6-0c5caf15ccb8
 		type MEMO
@@ -2953,15 +3089,26 @@ iMZ1r01
 		curdir 0
 		name Painting implements
 
-	object TABL833c521a-0cbb-4880-9748-56721e0a7755
+	object TABL8a9218e3-47a3-4948-ae0b-25baa4def87c
 		type TABLE6-H
 		at 297 218
+		curdir 1
+
+	object TABL833c521a-0cbb-4880-9748-56721e0a7755
+		type TABLE6-H
+		at 298 218
 		curdir 3
 
 	object TABL9af7e677-986e-4efc-9693-dd06596018eb
 		type TABLE-SHADOW2
-		at 298 218
+		at 299 218
 		curdir 3
+
+	object MEMOed0f64fc-d78a-4b9c-a3e3-53916067b0d9
+		type MEMO
+		at 300 218
+		curdir 0
+		name Paintings on easels
 
 	object STONa2b134d1-221c-4ecc-9269-727d05a57589
 		type STONEFLOOR18
@@ -3125,37 +3272,37 @@ iMZ1r01
 
 	object TABL115865ec-90ea-4001-8c2c-0dd59442d456
 		type TABLE-SHADOW2
-		at 294 219
+		at 295 219
 		curdir 1
 
 	object TABL8d646263-b1ff-4946-ba22-793a6a101196
 		type TABLE5-LEGS
-		at 294 219
+		at 295 219
 		curdir 1
 
 	object TABLbe5b9bb7-1484-4daf-ae0f-a0e971673360
 		type TABLE-SHADOW1
-		at 295 219
+		at 296 219
 		curdir 0
 
 	object TABL2068db36-8c6d-4a75-9281-a66e612bbc8e
 		type TABLE-SHADOW1
-		at 296 219
+		at 297 219
 		curdir 0
 
 	object TABLeb5a65a0-2e2d-4cd2-a1f4-06a13ac123a2
 		type TABLE-SHADOW1
-		at 297 219
+		at 298 219
 		curdir 0
 
 	object TABL379cc4d8-c548-4307-ba2f-d84cd5411587
 		type TABLE5-LEGS
-		at 297 219
+		at 298 219
 		curdir 1
 
 	object TABL0da2bc99-6484-4192-97aa-1562197ab88d
 		type TABLE-SHADOW3
-		at 298 219
+		at 299 219
 		curdir 1
 
 	object STONd40c6387-2206-4b3c-b225-04225812e0a2
@@ -8798,6 +8945,12 @@ iMZ1r01
 		at 349 284
 		curdir 3
 
+	object STAI2df861f5-1a81-45b1-b6ef-34677647cc68
+		type STAIRS_DOWN_NOTSOLID
+		at 434 284
+		curdir 0
+		tag 4
+
 	object STONf38822ec-da6e-4607-91e9-f158691cc1e3
 		type STONEFLOOR18
 		at 436 284
@@ -8807,6 +8960,12 @@ iMZ1r01
 		type STONEFLOOR18
 		at 349 285
 		curdir 3
+
+	object TARG4a4212ff-b7f0-42d0-96cd-2f681125630f
+		type TARGET
+		at 434 285
+		curdir 0
+		tag 5
 
 	object STONbf44756c-62d6-4a2d-b74b-8684eee4503f
 		type STONEFLOOR10

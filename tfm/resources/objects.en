@@ -5090,7 +5090,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
-	ifUsed		fliplever
+	ifUsed		use_guillotine
 	setsolid	V 2 1 1 1
 	setsolid	H 2 1 1 1
 
@@ -5106,7 +5106,7 @@ section: characters
 	IfKilled	respawn
 	solid
 	fixed
-	ifUsed		fliplever
+	ifUsed		use_guillotine
 	setsolid	V 2 1 1 1
 	setsolid	H 2 1 1 1
 
@@ -9114,6 +9114,19 @@ section: characters
 	IfKilled	RESET_HEALTH
 	fixed
 	spikeproof
+
+	name GUILLOTINE_LEVER
+	frame		lever02
+	hp		2000000
+	max_hp		2000000
+	weight		-1
+	description	"You see a lever."
+	short		"lever"
+	IfKilled	RESET_HEALTH
+	fixed
+	spikeproof
+	invisible
+	IfUsed		call_owner
 
 	name FIRE-A
 	left		FIRE-A2

@@ -64,6 +64,19 @@ endif
 end
 
 ##
+##  Call the use function for the owner
+##
+
+function call_owner
+
+if_exists current.stats.owner
+	let current = current.stats.owner
+	call current.funcs.use
+endif
+
+end
+
+##
 ##  Thunk to call User1 as a function (used by animation calls)
 ##
 

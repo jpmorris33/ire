@@ -112,6 +112,7 @@ end
 function guillotine_player
 
 object guillotine
+object guillotine_lever
 object oldvictim
 object guard
 integer x
@@ -130,11 +131,15 @@ if victim = player
 			return
 		endif
 	endif
+	find_nearest guillotine_lever = "guillotine_lever" near guillotine
+	if_not_exists guillotine_lever
+		let guillotine_lever = guillotine
+	endif
 
 	fade_out
 
 	# Clean up if anyone still there (cathedral)
-	find_tag oldvictim = "guillotine_victim*" 10000
+	find_tag oldvictim = "guillotine_victim*" guillotine.tag
 	if_exists oldvictim
 		destroy oldvictim
 	endif
@@ -166,7 +171,83 @@ if victim = player
 	let y = y + 6
 	create guard = "guard"
 	transfer_object guard to x y
-	queue_action guard does seek_target_use_resume to guillotine
+	queue_action guard does seek_target_use_resume to guillotine_lever
+	queue_action guard does creature_despawn
+	run_queue guard
+	set_flag guard IS_SPAWNED = 1	# Guard must evapourate afterwards
+
+	fade_in
+
+	# Go.. player is helpless and awaiting execution
+endif
+
+end
+
+
+
+function guillotine_player_waarg
+
+object guillotine
+object guillotine_lever
+object oldvictim
+object guard
+integer x
+integer y
+string victimtype
+
+if victim = player
+
+	find_tag guillotine = "guillotine_waarg" 10000
+	if_not_exists guillotine
+		find_tag guillotine = "guillotine_waarg_bloody" 10000
+		if_not_exists guillotine
+			print "Error: no guillotine for the player!  Using silly workaround|"
+			let current = player
+			call behead_current
+			return
+		endif
+	endif
+	find_nearest guillotine_lever = "guillotine_lever" near guillotine
+	if_not_exists guillotine_lever
+		let guillotine_lever = guillotine
+	endif
+
+	fade_out
+
+	# Clean up if anyone still there (cathedral)
+	find_tag oldvictim = "guillotine_victim*" guillotine.tag
+	if_exists oldvictim
+		destroy oldvictim
+	endif
+
+	# In case it's bloodied
+	replace guillotine = "guillotine_waarg"
+	set_direction guillotine facing NORTH
+
+	# move player to guillotine
+	let x = guillotine.x + 2
+	let y = guillotine.y + 1
+
+	transfer_object player to x y
+	# TODO: support other player types
+
+	get_data victimtype WHERE player_guillotine = victim.name
+	if_not_exists victimtype
+		let victimtype = "guillotine_victim_player"
+	endif
+
+	set_sequence player = victimtype
+	if victim = player
+		set_leader victim player_automatic follower_action
+		# Skip keyboard input for first cycle
+		call player_automatic
+	endif
+	
+	# Create a guard and have them pull the lever
+	let y = y + 6
+	create guard = "waarg_guard"
+	transfer_object guard to x y
+	queue_action guard does seek_target_use_resume to guillotine_lever
 	queue_action guard does creature_despawn
 	run_queue guard
 	set_flag guard IS_SPAWNED = 1	# Guard must evapourate afterwards

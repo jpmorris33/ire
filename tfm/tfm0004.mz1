@@ -16283,6 +16283,12 @@ iMZ1r01
 		at 237 417
 		curdir 2
 
+	object GUILdf6a1c45-57be-414e-9242-847ec645b9d1
+		type GUILLOTINE_LEVER
+		at 237 417
+		curdir 1
+		stats->owner GUIL7de76448-8ee7-4453-a4d2-2e24c2783c3d
+
 	object LEVE6979af48-fa80-46c5-9627-8b40c0819f93
 		type LEVER
 		at 241 417
