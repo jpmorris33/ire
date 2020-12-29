@@ -180,6 +180,8 @@ enum {
 	PEVM_AllOnscreen,
 	PEVM_AllAround,
 	PEVM_CheckTime,
+	PEVM_CheckTimeI,
+	PEVM_CheckDateI,
 	PEVM_FindNear,
 	PEVM_FindNearby,
 	PEVM_FindNearbyFlag,

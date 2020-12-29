@@ -130,6 +130,13 @@ extern void scroll_tile_reset(int no);
 extern void vrmfade_in();
 extern void vrmfade_out();
 extern void check_time();
+extern void check_time(VMINT *timeptr);
+extern void check_date(VMINT *timeptr);
+extern void unpack_time(VMINT packed, VMINT *year, VMINT *month, VMINT *day, VMINT *hour);
+extern VMINT pack_time(VMINT year, VMINT month, VMINT day, VMINT hour);
+extern void unpack_date(VMINT packed, VMINT *year, VMINT *month, VMINT *day);
+extern VMINT pack_date(VMINT year, VMINT month, VMINT day);
+
 extern OBJECT *find_nearest(OBJECT *o, char *type);
 extern OBJECT *find_pathmarker(OBJECT *o, char *name);
 extern OBJECT *find_neartag(OBJECT *o, char *type, int tag);
@@ -146,7 +153,6 @@ extern void InitOrbit();
 //extern void ProjectCorona(int x,int y,int w,int h, int intensity, int falloff);
 extern void ProjectCorona(VMINT x,VMINT y,VMINT radius, VMINT intensity, VMINT falloff, VMINT tint);
 extern void ProjectBlackCorona(VMINT x,VMINT y,VMINT radius, VMINT intensity, VMINT falloff, VMINT tint);
-
 
 extern void InitConsoles();
 extern void TermConsoles();

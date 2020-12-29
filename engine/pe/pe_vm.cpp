@@ -78,7 +78,9 @@ extern void AddQuantity(OBJECT *c,char *o,int q);
 extern int TakeQuantity(OBJECT *c,char *o,int q);
 extern int MoveQuantity(OBJECT *s,OBJECT *d,char *o,int q);
 extern void ResumeSchedule(OBJECT *o);
-extern void CheckTime();
+extern void check_time();
+extern void check_time(VMINT *time);
+extern void check_date(VMINT *date);
 extern OBJECT *find_nearest(OBJECT *o, char *type);
 extern void find_nearby(OBJECT *o, char *type, OBJECT **list, int listsize);
 extern void find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize);
@@ -312,6 +314,8 @@ static void PV_CopySpeech();
 static void PV_AllOnscreen();
 static void PV_AllAround();
 static void PV_CheckTime();
+static void PV_CheckTimeI();
+static void PV_CheckDateI();
 static void PV_FindNear();
 static void PV_FindNearby();
 static void PV_FindNearbyFlag();
@@ -1376,6 +1380,8 @@ VMOP(CopySpeech);
 VMOP(AllOnscreen);
 VMOP(AllAround);
 VMOP(CheckTime);
+VMOP(CheckTimeI);
+VMOP(CheckDateI);
 VMOP(FindNear);
 VMOP(FindNearby);
 VMOP(FindNearbyFlag);
@@ -5641,7 +5647,19 @@ VM_RestoreRegs(&objvars);
 
 void PV_CheckTime()
 {
-CheckTime();
+check_time();
+}
+
+void PV_CheckTimeI()
+{
+VMINT *datetime = GET_INT();
+check_time(datetime);
+}
+
+void PV_CheckDateI()
+{
+VMINT *date = GET_INT();
+check_date(date);
 }
 
 void PV_FindNear()

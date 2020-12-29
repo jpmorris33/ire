@@ -1559,6 +1559,111 @@ void check_time()
 CheckTime();
 }
 
+//
+// Convert date and time to packed format
+//
+
+VMINT pack_time(VMINT year, VMINT month, VMINT day, VMINT hour) {
+return (year * 1000000) + (month * 10000) + (day * 100) + hour;
+}
+
+//
+// Split packed date time to component parts
+//
+
+void unpack_time(VMINT packed, VMINT *year, VMINT *month, VMINT *day, VMINT *hour) {
+if(year) {
+	*year = packed / 1000000;
+}
+packed %= 1000000;
+if(month) {
+	*month = packed / 10000;
+}
+packed %= 10000;
+if(day) {
+	*day = packed / 100;
+}
+packed %= 100;
+if(hour) {
+	*hour = packed;
+}
+}
+
+//
+// Convert date to packed format
+//
+
+VMINT pack_date(VMINT year, VMINT month, VMINT day) {
+return (year * 10000) + (month * 100) + day;
+}
+
+//
+// Split packed date to component parts
+//
+
+void unpack_date(VMINT packed, VMINT *year, VMINT *month, VMINT *day) {
+if(year) {
+	*year = packed / 10000;
+}
+packed %= 10000;
+if(month) {
+	*month = packed / 100;
+}
+packed %= 100;
+if(day) {
+	*day = packed;
+}
+}
+
+//
+//  Check and adjust a packed datetime integer
+//
+
+void check_time(VMINT *timeptr) {
+VMINT hour=0,day=0,month=0,year=0;
+if(!timeptr) {
+	CheckTime();
+	return;
+}
+
+unpack_time(*timeptr,&year,&month,&day,&hour);
+
+if(hour >= hour_day) {
+	day += hour/hour_day;
+	hour %= hour_day;
+}
+
+if(day >= day_month) {
+	month += day/day_month;
+	day %= day_month;
+}
+
+if(month >= month_year) {
+	year += month/month_year;
+	month %= month_year;
+}
+
+*timeptr = pack_time(year,month,day,hour);
+}
+
+//
+//  Check and adjust packed time without date
+//
+
+void check_date(VMINT *timeptr) {
+if(!timeptr) {
+	CheckTime();
+	return;
+}
+
+// Convert to datetime by adding a fake hour
+VMINT datetime = (*timeptr) * 100;
+check_time(&datetime);
+*timeptr = datetime/100;
+}
+
+
+
 OBJECT *find_nearest(OBJECT *o, char *type)
 {
 #define INF 2000000000
