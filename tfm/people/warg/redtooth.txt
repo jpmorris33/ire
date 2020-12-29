@@ -1,7 +1,12 @@
 [page="start"]
 [call="check_collar"]
 [if false][goto="nocollar"]
-[if_not_know_name][goto="first"]
+[goto="first"]
+[endpage]
+
+[page="startname"]
+[call="check_collar"]
+[if false][goto="nocollar2"]
 [goto="back_again"]
 [endpage]
 
@@ -16,10 +21,26 @@ upon his head.  His eyes narrow to two slits.
 "So, human!  Come to finish the work of your dark master,
  have you?  I think not!
 
- Come my guards, end its life!
+ Come, my guards...  End its life!
  We shall dine on human meat this night!"
 
 [at_exit_call="guillotine_player_waarg"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="nocollar2"]
+[image="rt_mad.png"]
+[colour="#808080"]
+You see a large, grizzled wolf-creature, with a crown
+upon his head.  His eyes narrow to two slits.
+[colour="#ffffff"]
+
+"Human!  You have removed the token of submission!
+
+ Replace the Favour around your neck at once, or
+ else feel the wrath of King Redtooth!"
+
 [nextpage="exit"]
 [endpage]
 
