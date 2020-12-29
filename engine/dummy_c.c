@@ -9,8 +9,6 @@ int Songs=0;
 #endif
 #endif
 
-void *gamewin;
-
 int T_IsDue()
 {
 return 1;
