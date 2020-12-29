@@ -6,6 +6,7 @@ call test_2or
 call test_3or
 call test_intarray
 call test_strarray
+call test_checktime
 
 # Who guards the guards?
 #assert 0 = 1

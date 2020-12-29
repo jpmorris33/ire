@@ -14161,6 +14161,7 @@ section: scripts
 	code/test/or-3.pe
 	code/test/intarray.pe
 	code/test/strarray.pe
+	code/test/checktime.pe
 
 section: tables
 
