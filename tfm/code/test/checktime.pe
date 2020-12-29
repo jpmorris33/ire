@@ -1,0 +1,84 @@
+function test_checktime
+private
+call test_check_time
+call test_check_date
+end
+
+local
+
+##
+##  Date and Time
+##
+
+function test_check_time
+
+int result = 0
+
+let result = 2001010203
+check_time result
+assert result = 2001010203
+
+# 25 hours
+let result = 2001010225
+check_time result
+assert result = 2001010301
+
+# cascade
+let result = 2001123024
+check_time result
+assert result = 2002010100
+
+# add 10 days (1)
+let result = 2001010200
+add result + 1000
+check_time result
+assert result = 2001011200
+
+# add 10 days (2)
+let result = 2001012200
+add result + 1000
+check_time result
+assert result = 2001020200
+
+end
+
+##
+##  Date without time
+##
+
+
+function test_check_date
+
+int result = 0
+
+let result = 20010102
+check_date result
+assert result = 20010102
+
+# 31 days
+let result = 20010131
+check_date result
+assert result = 20010201
+
+# cascade
+let result = 20011231
+check_date result
+assert result = 20020101
+
+# add 10 days (1)
+let result = 20010102
+add result + 10
+check_date result
+assert result = 20010112
+
+# add 10 days (2)
+let result = 20010122
+add result + 10
+check_date result
+assert result = 20010202
+
+end
+
+
+
+endlocal
