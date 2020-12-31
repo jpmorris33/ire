@@ -76,7 +76,9 @@ function unwield
 
 # Call the wield function again to tidy up
 let current = wield_obj
-call current.funcs.wcache
+if current.funcs.wcache > -1
+	call current.funcs.wcache
+endif
 
 set_flag wield_obj IS_WIELDED = 0
 
