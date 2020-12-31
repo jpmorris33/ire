@@ -1,8 +1,8 @@
 [esc="bye2"]
 [page="start"]
-[if htptest][goto="help_the_poor"]
-[call="check_bishop"]
 [if hear_truth][goto="HT_start"]
+[if htptest][if_not htp_tithe][goto="help_the_poor"]
+[call="check_bishop"]
 [if killed_bishop][goto="final_sin"]
 [if banged_devil][goto="kill4"]
 [if met_dragons][if_not dragonquest_done][goto="dragonquest"]
@@ -839,6 +839,7 @@ The Crucifix assumes a very stern expression.
 
 
 [page="help_the_poor"]
+[set htp_tithe]
 [esc="disabled"]
 [call="tithes_check"]
 [if true][goto="pay_tithes"]
@@ -1159,6 +1160,9 @@ Hear Truth
 
 [page="HT_start"]
 [clear hear_truth]
+[call="tithes_check"]
+[if true][goto="HT_tithesdue"]
+[if htptest][if_not htp_tithe][goto="HT_htp"]
 [iftime 0800-0900][goto="HT_inchurch"]
 [iftime 1600-1700][goto="HT_inchurch"]
 [image="crucifix1.png"]
@@ -1450,6 +1454,66 @@ The Cardinal's expression changes to one of shock.
 [endpage]
 
 
+[page="HT_htp"]
+[set htp_tithe]
+[image="crucifix1.png"]
+[colour="#808080"]
+The Crucifix shimmers and speaks to you in a flat,
+toneless voice.
+[colour="#ffffff"]
+[call="set_tithe_10days_small"]
+
+"Master, I must inform you that the Holy Trinity objects
+ to your aiding the poor and needy.  Church doctrine
+ states that their suffering is punishment from the LORD.
+ Mitigation is therefore considered blasphemous.
+
+ As such the Trinity has decreed that you are to pay it
+ a tithe of $USERNUM1 gold coins within ten days as a
+ penance for your sin, or face execution.
+
+ Normal service can not be resumed until the tithes
+ have been paid in full.  This unit apologises for
+ any inconvenience caused."
+
+[link="That's ridiculous."]
+[linkto="HT_htp2"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+[page="HT_htp2"]
+[image="crucifix1.png"]
+
+"This unit apologises for the inconvenience caused."
+
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+[page="HT_tithesdue"]
+[call="tithes_num"]
+[image="crucifix1.png"]
+[colour="#808080"]
+The Crucifix shimmers and speaks to you in a flat,
+toneless voice.
+[colour="#ffffff"]
+
+"Master, I must remind you that there are outstanding
+ tithes due to the Holy Trinity.  Normal service cannot
+ resume until the sum is paid in full.
+
+ The Trinity demands that the tithes you owe be paid in
+[if tithes_deadline] full in $USERNUM2 days time or you are to be destroyed.
+[if_not tithes_deadline] full as soon as possible.
+
+ You still owe the Holy Trinity $USERNUM1 gold coins."
+
+[link="That's ridiculous."]
+[linkto="HT_htp2"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
 
 
 

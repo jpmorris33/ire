@@ -74,7 +74,28 @@ You see a the devil in an immaculate black suit.
 [if enter_pp][link="I need a way to enter the power plant in the east."]
 [if enter_pp][linkto="HT_powerplant"]
 [if toad_spoke][link="I don't think much of your toads."]
-[if toad_spoke][linkto="toads"]
+[if toad_spoke][linkto="HT_toads"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_toads"]
+
+"They were created as surveillance drones to provide me
+ with intelligence on Xy'Lan's activities.
+
+ He subsequently discovered my attempts at subversion
+ and has now assumed control of the toads himself.
+ I can no longer prevent them from attacking innocents.
+
+ Of course, the toads still claim to be under my control,
+ so I take the blame for their actions."
+
+[link="Who are you really?"]
+[linkto="HT_who"]
+[if enter_pp][link="I need a way to enter the power plant in the east."]
+[if enter_pp][linkto="HT_powerplant"]
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]
