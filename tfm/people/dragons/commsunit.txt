@@ -5,6 +5,7 @@
 [if_not panavius_allok][goto="panavius"]
 [if_not find_3320][if_not find_3320_ok][goto="vcf"]
 [if_not find_3320_ok][goto="vcf7"]
+[if_not accesskey_ok][goto="accesskey"]
 
 "I think the plot has run out."
 
@@ -135,6 +136,7 @@
 
 
 [page="vcf"]
+[journal jrn_VCF]
 [esc=disabled]
 [image="comms.pcx"]
 
@@ -264,6 +266,46 @@ Commander Gurd has clearly recovered some of his poise.
  3320 chip?"
 
 [nextpage="exit"]
+[endpage]
+
+
+[page="accesskey"]
+[journal_done jrn_VCF]
+[journal_done jrn_VCF2]
+[journal_done jrn_VCF3]
+[journal_done jrn_VCF4]
+[journal jrn_accesskey]
+[esc=disabled]
+[image="comms.pcx"]
+
+"Welcome back, $PLAYERNAME!
+
+ I see you have repaired the drive units.  This is good.
+
+ We will now need to regain access to the bridge.
+ This is currently prevented by a forcefield, and a
+ physical key is needed to disable it.
+
+ We were not able to bring it with us during our escape
+ from the ship.  While it might be worth searching the
+ accessible parts of the Maxima, it seems more likely
+ that Xy'Lan's agents have removed it."
+
+[nextpage="accesskey2"]
+[endpage]
+
+
+[page="accesskey2"]
+[image="comms.pcx"]
+
+"The access key is a rectangular crystal object encoded
+ with a passcode.
+
+ If I were you, I would suggest searching the Church's
+ records to see if this object has been stored in the
+ Cathedral by Pope and his minions."
+ 
+[nextpage="accesskey2"]
 [endpage]
 
 

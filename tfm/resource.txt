@@ -3474,6 +3474,9 @@ section: sprites
 	pphatch5		sprites/starship/pphatch5.png
 	powerlink		sprites/starship/powrlink.png
 
+	bridgekeyslot		sprites/starship/keyslot.png
+	bridgekeycard		sprites/starship/keycard.png
+
 	drives_l0		backings/drive_l0.cel
 	drives_l1		backings/drive_l1.cel
 	drives_l2		backings/drive_l2.cel
@@ -12771,6 +12774,9 @@ section: sequences
 		mwall_decal59
 		mwall_decal58
 	end
+
+	quickname bridgekeyslot
+	quickname bridgekeycard
 
 	quickname ladder_up ladder_up
 	quickname lifebelt lifebelt

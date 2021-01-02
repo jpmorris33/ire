@@ -20,6 +20,8 @@ like Humphrey Bogart.
 [if dwarves][linkto="singing"]
 [if dwarves][link="Tell me about Snow White."]
 [if dwarves][linkto="snowwhite"]
+[if 7dwarves][link="Did you guys lift a synthesizer from an airbase?"]
+[if 7dwarves][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -41,6 +43,8 @@ You see Sleazy, one of the Seven Dwarves.
 [if dwarves][linkto="singing"]
 [if dwarves][link="Tell me about Snow White."]
 [if dwarves][linkto="snowwhite"]
+[if 7dwarves][link="Did you guys lift a synthesizer from an airbase?"]
+[if 7dwarves][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -283,6 +287,23 @@ He shrugs.
 [linkto="job"]
 [if dwarves][link="What were you doing just now?"]
 [if dwarves][linkto="singing"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="synth"]
+
+"Ah... Yeah.  Yeah, we did.  Ask Fatso 'bout that."
+
+[link="Who are you?"]
+[linkto="name"]
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]

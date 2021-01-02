@@ -305,3 +305,37 @@ start:
 Commander Gurd has suggested I talk to Navriis, one of his crew, who will provide me with a number of comms units.  I should deliver these to Ransome, and the other two airbases.  Then we will be able to negotiate an alliance.
 end
 
+
+name jrn_VCF
+tag task
+title Find a 3020 hyperspace modulator
+start:
+I need to find a CEM3320 hyperspace flux modulator.  Stevens had a vintage synthesizer which may contain a compatible device.  If I can find it, I should bring it to Austin, and then swap the microchips in the spaceship's drive systems.
+end
+
+name jrn_VCF2
+title Find the seven dwarves
+start:
+Stevens says that his synthesizer may have been stolen by seven dwarves.  I should ask if they have been seen near Avis, as it's the nearest settlement.
+end
+
+name jrn_VCF3
+title Find the seven dwarves in Scotia
+start:
+Asking about the dwarves at Avis, I learned they were run out of town and may have escaped to Scotia in the north.
+end
+
+name jrn_VCF4
+title Find the buried treasure.
+start:
+One of the seven dwarves told me that they buried the stolen synthesizer as treasure.
+It may be buried some way west of a marker stone.
+end
+
+name jrn_accesskey
+tag task
+title Find the bridge access key
+start:
+I need to find a CEM3320 hyperspace flux modulator.  Stevens had a vintage synthesizer which may contain a compatible device.  If I can find it, I should bring it to Austin, and then swap the microchips in the spaceship's drive systems.
+end
+

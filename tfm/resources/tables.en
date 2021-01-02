@@ -48,3 +48,28 @@
 		his her
 	end
 
+	name EnbyWords
+	key=string
+	data=string
+	list:
+		SIR SER
+		Sir Ser
+		sir ser
+		He They
+		he they
+		HE THEY
+		him them
+		Him Them
+		HIM THEM
+		LORD NOBLE
+		Lord Noble
+		MILORD GOOD NOBLE
+		Milord Good noble
+		MR Mx.
+		master mastress
+		Master Mastress
+		son child
+		Son Child
+		his their
+	end
+

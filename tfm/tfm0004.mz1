@@ -4966,21 +4966,12 @@ iMZ1r01
 		at 237 143
 		curdir 2
 
-	object DEFE3cbb322b-65fb-4331-993d-c962e3be6789
-		type DEFENCE_POST_UP
-		at 309 143
+	object CARD16d22255-1c83-4caf-ac52-bbaf0a301c2c
+		type CARDREADER_BRIDGE
+		at 308 143
 		curdir 0
-		activity DEFPOST_START_HV
-		stats->damage 1000
-		stats->owner DEFEbf858a26-aeb7-449c-97cd-1af3498e0d45
-
-	object DEFEbf858a26-aeb7-449c-97cd-1af3498e0d45
-		type DEFENCE_POST_UP
-		at 314 143
-		curdir 0
-		activity DEFPOST_START_HV
-		stats->damage 1000
-		stats->owner DEFE3cbb322b-65fb-4331-993d-c962e3be6789
+		tag -62
+		funcs->wield CALLWIELD_TAGS
 
 	object TELEfd821698-57ed-4a8b-b3e6-0324c8372e7c
 		type TELEPORTER0
@@ -5041,6 +5032,26 @@ iMZ1r01
 		at 237 144
 		curdir 2
 
+	object DEFE3cbb322b-65fb-4331-993d-c962e3be6789
+		type DEFENCE_POST_UP
+		at 309 144
+		curdir 0
+		tag 62
+		activity DEFPOST_START_HV
+		stats->damage 1000
+		stats->owner DEFEbf858a26-aeb7-449c-97cd-1af3498e0d45
+		funcs->wield DEFPOST_RISE
+
+	object DEFEbf858a26-aeb7-449c-97cd-1af3498e0d45
+		type DEFENCE_POST_UP
+		at 314 144
+		curdir 0
+		tag 62
+		activity DEFPOST_START_HV
+		stats->damage 1000
+		stats->owner DEFE3cbb322b-65fb-4331-993d-c962e3be6789
+		funcs->wield DEFPOST_RISE
+
 	object TELE71f5ecdb-9ff6-44fe-8f08-cf36c60c94d0
 		type TELEPORTER0
 		at 384 144
@@ -5087,6 +5098,13 @@ iMZ1r01
 		at 237 145
 		curdir 2
 
+	object CARDb824bc85-a9d5-464c-b62e-99962ad1d96e
+		type CARDREADER_BRIDGE
+		at 308 145
+		curdir 0
+		tag -62
+		funcs->wield CALLWIELD_TAGS
+
 	object PIPEdaa07f6a-29bd-4984-9bec-2a6cefd48bcc
 		type PIPES_01
 		at 385 145
@@ -5106,12 +5124,6 @@ iMZ1r01
 		type PIPES_01
 		at 237 146
 		curdir 2
-
-	object FORCe3443893-4fcd-49ae-ade8-073d824887f8
-		type FORCEFIELD_ON
-		at 309 146
-		curdir 0
-		tag 59
 
 	object FORC73e25057-4a06-4fc3-bda6-4945ed2660be
 		type FORCEFIELD_ON
@@ -5177,6 +5189,18 @@ iMZ1r01
 		type WALL_METAL_D06
 		at 290 147
 		curdir 1
+
+	object FORCe3443893-4fcd-49ae-ade8-073d824887f8
+		type FORCEFIELD_ON
+		at 310 147
+		curdir 0
+		tag 59
+
+	object MEMO1da2da79-5f71-42af-8d18-82373a212a9f
+		type MEMO
+		at 311 147
+		curdir 0
+		name Put back after testing bridge k
 
 	object VENT50a418d3-b0af-4de3-9cb6-6ff3103e076f
 		type VENT_SHUT

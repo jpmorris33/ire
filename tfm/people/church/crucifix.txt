@@ -1478,6 +1478,8 @@ toneless voice.
 
 [link="That's ridiculous."]
 [linkto="HT_htp2"]
+[link="Set the tithes to zero."]
+[linkto="HT_htp3"]
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]
@@ -1486,6 +1488,21 @@ toneless voice.
 [image="crucifix1.png"]
 
 "This unit apologises for the inconvenience caused."
+
+[link="Set the tithes to zero."]
+[linkto="HT_htp3"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+[page="HT_htp3"]
+[image="crucifix1.png"]
+
+"I cannot, Master.  The debt has been levied by the
+ Holy Trinity.  Any changes made unilaterally will be
+ detected and reverted by the other two members.
+
+ This unit apologises for the inconvenience caused."
 
 [link="Goodbye."]
 [linkto="HT_bye"]
@@ -1511,6 +1528,8 @@ toneless voice.
 
 [link="That's ridiculous."]
 [linkto="HT_htp2"]
+[link="Set the tithes to zero."]
+[linkto="HT_htp3"]
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]

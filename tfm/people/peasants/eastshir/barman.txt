@@ -230,6 +230,8 @@ You see Edward the barkeeper.
 
 
 [page="7dwarves"]
+[journal_done jrn_VCF2]
+[journal jrn_VCF3]
 
 [colour="#808080"]
 The barman's lips twist into a feral-looking snarl.

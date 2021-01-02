@@ -434,6 +434,7 @@ Stevens, expert hacker and ex-american president.
 [page="synth"]
 [image="f18-0.pcx"]
 [set 7dwarves]
+[journal jrn_VCF2]
 
 "I had a Pro One, an actual relic from the 1980s, not
  a modern reproduction.  It cost me a fortune.

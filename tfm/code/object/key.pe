@@ -269,7 +269,7 @@ if_exists door
 	endif
 
 	# If it matches, run the wield function
-	if door is called "cardreader"
+	if door is called "cardreader*"
 		if thekey.name = door.funcs.user1
 			let current = door
 			# Run wield function

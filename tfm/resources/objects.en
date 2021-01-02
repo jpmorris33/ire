@@ -14172,6 +14172,12 @@ section: characters
 	fixed
 	spikeproof
 
+	alias CARDREADER_BRIDGE = CARDREADER
+	frame		BRIDGEKEYSLOT
+	description	"You see a slot for some kind of keycard."
+	user1		BRIDGE_KEYCARD
+	ifwielded	USE_AIRLOCK
+
 	name KEYPAD
 	left		KEYPAD_H
 	right		KEYPAD_H
@@ -16293,6 +16299,14 @@ section: characters
 	description	"You see some kind of crystalline data card."
 	short		"datacrystal"
 	ifUsed		USE_DATACRYSTAL
+
+	name BRIDGE_KEYCARD
+	frame		BRIDGEKEYCARD
+	hp		30
+	weight		100
+	description	"You see some kind of crystalline key card."
+	short		"key card"
+        IfUsed          use_pcard
 
 	name WARP_ANTENNA
 	frame		warp_antenna

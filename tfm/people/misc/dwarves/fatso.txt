@@ -20,6 +20,8 @@ bass voice.
 [if dwarves][linkto="singing"]
 [if dwarves][link="Tell me about Snow White."]
 [if dwarves][linkto="snowwhite"]
+[if 7dwarves][link="Did you guys steal a synthesizer from an airbase?"]
+[if 7dwarves][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -41,6 +43,8 @@ You see Fatso, one of the Seven Dwarves.
 [if dwarves][linkto="singing"]
 [if dwarves][link="Tell me about Snow White."]
 [if dwarves][linkto="snowwhite"]
+[if 7dwarves][link="Did you guys steal a synthesizer from an airbase?"]
+[if 7dwarves][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -155,6 +159,8 @@ He looks away.
 [linkto="job"]
 [if dwarves][link="Tell me about Snow White."]
 [if dwarves][linkto="snowwhite"]
+[if 7dwarves][link="What happened to the bass synthesizer?"]
+[if 7dwarves][linkto="synth"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -197,6 +203,34 @@ He looks away.
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
+
+
+[page="synth"]
+[journal_done jrn_VCF2]
+[journal_done jrn_VCF3]
+[journal jrn_VCF4]
+
+[colour="#808080"]
+You see Fatso, one of the Seven Dwarves.
+[colour="#ffffff"]
+
+"We found it in the Eastlands, yeah.  Snuck into some
+ place the Church was raiding.  Found it there.
+
+ But then the LORD tried to take it from us, so we
+ buried it on a desert island.  I think it was buried
+ somewhere west of a rock, but I can't really remember."
+
+[link="What's your job?"]
+[linkto="job"]
+[if dwarves][link="What were you singing just now?"]
+[if dwarves][linkto="singing"]
+[if dwarves][link="Tell me about Snow White."]
+[if dwarves][linkto="snowwhite"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="bye"]

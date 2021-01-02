@@ -21,7 +21,29 @@ if current is called "DEFENCE_POST_DOWN"
 	queue_action current does wait_for_user1
 	queue_action current does defpost_start_hv
 	run_queue current
+	return
 endif
+
+if current is called "DEFENCE_POST_UP"
+
+	# Is it broken
+	if current.stats.hp < 1
+		return
+	endif
+
+	stopfx current
+	stop_action current
+
+	# This sequence will call 'defpost_stop_hv' when the animation ends
+	set_sequence current = "defencepost_lower"
+
+	# Make sure it happens, even if the defpost is offscreen
+	let current.user.user1 = 1
+	queue_action current does wait_for_user1
+	queue_action current does defpost_stop_hv
+	run_queue current
+endif
+
 end
 
 
@@ -39,6 +61,15 @@ endif
 change me = "DEFENCE_POST_UP"
 overfx me does defpost_fx
 start_action me does spark_source_dangerous to me.stats.owner
+end
+
+##
+##	Stop a defence post beam
+##
+
+function defpost_stop_hv
+activity
+change me = "DEFENCE_POST_DOWN"
 end
 
 ##
