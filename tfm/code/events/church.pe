@@ -34,6 +34,14 @@ call plot_sacrifice
 end
 
 ##
+##  If you start it by pickpocketing him
+##
+
+function plot_sacrifice_pickpocket
+talk_to me.funcs.talk
+end
+
+##
 ##  Sacrifice sacrifice sacrifice sacrifice..
 ##
 

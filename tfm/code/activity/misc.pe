@@ -29,3 +29,25 @@ end
 function no_schedule
 set_flag me NO_SCHEDULE = 1
 end
+
+##
+##  NPC checks for key, calls user2 if not present
+##
+
+function npc_key_check
+activity
+
+if_not_exists me.pocket
+	let current = me
+	call me.funcs.user2
+	return
+endif
+
+# Todo - check all objects inside?  Don't need this yet.
+
+if me.pocket is called "key*"
+	return
+endif
+let current = me
+call me.funcs.user2
+end

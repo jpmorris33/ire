@@ -726,6 +726,10 @@ if_exists me.enemy
 	else
 		replace me.enemy = "ash"
 	endif
+
+	# Prevent the heap of ash resuming its schedule
+	set_flag me.enemy NO_SCHEDULE = 1
+
 endif
 let me = oldme
 
