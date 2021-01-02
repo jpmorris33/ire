@@ -1,0 +1,11 @@
+
+[page="start"]
+[image="priest4.pcx"]
+
+"I am glad to see you here, my $son.
+ It is time for your reward."
+
+[call_at_exit="plot_sacrifice_bootstrap"]
+[nextpage="exit"]
+[endpage]
+

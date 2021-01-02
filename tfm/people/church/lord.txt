@@ -652,6 +652,7 @@ TODO: If the player has been doing a lot of pro-church stuff,
 "Have faith, my $Son."
 
 [delay 1]
+[if saxiis_onside][nextpage="sacrfice6"]
 [nextpage="exit"]
 [endpage]
 
@@ -661,6 +662,7 @@ TODO: If the player has been doing a lot of pro-church stuff,
 
 "Certainly."
 
+[if saxiis_onside][nextpage="sacrfice6"]
 [nextpage="exit"]
 [endpage]
 

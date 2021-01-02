@@ -1552,5 +1552,6 @@ This should probably have him no longer on the cross
  This world and the Earth shall belong to the Holy
  Trinity for ever."
  
+[delay 1]
 [nextpage="exit"]
 [endpage]

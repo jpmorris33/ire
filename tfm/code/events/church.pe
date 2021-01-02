@@ -25,6 +25,15 @@ endif
 end
 
 ##
+##  If you start it by talking to the cardinal
+##
+
+function plot_sacrifice_bootstrap
+let me = current.stats.owner
+call plot_sacrifice
+end
+
+##
 ##  Sacrifice sacrifice sacrifice sacrifice..
 ##
 
@@ -51,6 +60,7 @@ endif
 
 let cardinal = jesus.stats.owner
 if_not_exist cardinal
+or cardinal.stats.hp < 1
 	# Where is the cardinal?
 	let current = player
 	talk_to "people/church/lord.txt" "umbringisdead"
@@ -91,8 +101,24 @@ get_user_flag i = "false"
 if i <> 0
 	# Kill Umbring instead
 	destroy me		# Remove the trigger
+
+	let current = cardinal
+	let current.enemy = cardinal
+	call fry_current
+	spill cardinal
+
+	let current = jesus
+	let current.enemy = jesus
+	call fry_current
+
 	return
 endif
+
+# Stop the player escaping
+set_leader player player_automatic follower_action
+# Skip keyboard input for first cycle
+#call player_automatic
+
 
 # Hurt the player
 start_action cardinal does start_attack to player
@@ -142,7 +168,6 @@ let fx_radius = 64
 let fx_falloff = 3400			# 2.30 falloff rate
 fx_corona TINT_WHITE
 let current = player
-fx_sprite
 
 # First, fade the plasma in
 add player.user.user18 + 10
@@ -168,7 +193,6 @@ let fx_radius = 64
 let fx_falloff = 3400			# 2.30 falloff rate
 fx_corona TINT_WHITE
 let current = player
-fx_sprite
 
 # Move the corona towards its target
 if fx_srcy > fx_desty
@@ -218,7 +242,6 @@ let fx_radius = 64
 let fx_falloff = 3400			# 2.30 falloff rate
 fx_corona TINT_WHITE
 let current = player
-fx_sprite
 
 # fade the plasma out
 add player.user.user18 - 10
