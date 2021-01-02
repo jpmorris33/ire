@@ -14623,6 +14623,7 @@ section: characters
 	description	"You see a circular panel in the floor."
 	short		"panel"
 	fixed
+	ifWielded	defpost_toggle
 
 	name DEFENCE_POST_UP
 	left		defencepost_up
@@ -14635,6 +14636,7 @@ section: characters
 	short		"post"
 	fixed
 	solid
+	ifWielded	defpost_toggle
 
 	name AIRLOCK_TOP
 	left		airlock_top_l

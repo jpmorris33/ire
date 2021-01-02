@@ -12604,7 +12604,7 @@ section: sequences
 
 	name defencepost_raise
 	speed 4
-	call CallUser1
+	call defpost_start_hv
 	framelist:
 		defencepost00
 		defencepost01
@@ -12615,6 +12615,7 @@ section: sequences
 
 	name defencepost_lower
 	speed 4
+	call defpost_stop_hv
 	framelist:
 		defencepost04
 		defencepost03

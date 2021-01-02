@@ -5125,6 +5125,12 @@ iMZ1r01
 		at 237 146
 		curdir 2
 
+	object FORCe3443893-4fcd-49ae-ade8-073d824887f8
+		type FORCEFIELD_ON
+		at 309 146
+		curdir 0
+		tag 59
+
 	object FORC73e25057-4a06-4fc3-bda6-4945ed2660be
 		type FORCEFIELD_ON
 		at 310 146
@@ -5189,18 +5195,6 @@ iMZ1r01
 		type WALL_METAL_D06
 		at 290 147
 		curdir 1
-
-	object FORCe3443893-4fcd-49ae-ade8-073d824887f8
-		type FORCEFIELD_ON
-		at 310 147
-		curdir 0
-		tag 59
-
-	object MEMO1da2da79-5f71-42af-8d18-82373a212a9f
-		type MEMO
-		at 311 147
-		curdir 0
-		name Put back after testing bridge k
 
 	object VENT50a418d3-b0af-4de3-9cb6-6ff3103e076f
 		type VENT_SHUT

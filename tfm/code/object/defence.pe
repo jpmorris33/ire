@@ -5,6 +5,10 @@
 #############################
 
 function defpost_rise
+call defpost_toggle
+end
+
+function defpost_toggle
 
 if current is called "DEFENCE_POST_DOWN"
 
@@ -17,7 +21,7 @@ if current is called "DEFENCE_POST_DOWN"
 	set_sequence current = "defencepost_raise"
 
 	# Make sure it happens, even if the defpost is offscreen
-	let current.user.user1 = 1
+	let current.user.user1 = 2
 	queue_action current does wait_for_user1
 	queue_action current does defpost_start_hv
 	run_queue current
@@ -38,7 +42,7 @@ if current is called "DEFENCE_POST_UP"
 	set_sequence current = "defencepost_lower"
 
 	# Make sure it happens, even if the defpost is offscreen
-	let current.user.user1 = 1
+	let current.user.user1 = 2
 	queue_action current does wait_for_user1
 	queue_action current does defpost_stop_hv
 	run_queue current
