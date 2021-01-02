@@ -12374,7 +12374,7 @@ section: characters
 	frame		TREASURE15
 	hp		10000
 	quantity
-	unit_weight	300
+	unit_weight	30
 	description	"You see a small white crystal."
 	short		"todestone"
 
