@@ -217,93 +217,6 @@ end
 
 
 
-##
-##	Saxiis doorbell scene
-##
-
-function plot_doorbell_saxiis
-object saxiis
-object doortarget
-object switch
-
-object_sound "doorbell" me
-find_tag saxiis = "dragon_naked" 6
-
-# She is around, yeah?
-if_not_exists saxiis
-	# Oh my Lord, Kyle!  Did you just throw doodoo at Eric?
-#	print "No dragon|"
-	print "~There's no reply.~"
-	printcr
-	return
-endif
-
-# Saxiis is wounded or dead, the player can go bend
-if saxiis.stats.hp < 3
-	print "~There's no reply.~"
-	printcr
-	return
-endif
-
-# Make sure we've got the door target
-find_tag doortarget = "target" 7
-if_not_exists doortarget
-	print "No doortarget|"
-	return
-endif
-
-# And the lever
-find_tag switch = "lever" 5
-if_not_exists switch
-	print "No lever|"
-	return
-endif
-
-# Set the behaviour
-set_flag saxiis NO_SCHEDULE = 1
-queue_action saxiis does seek_target_use_resume to doortarget
-queue_action saxiis does saxiis_answer_door to switch
-run_queue saxiis
-
-end
-
-
-##
-##
-##
-
-function saxiis_answer_door
-activity
-integer i
-
-centre me
-
-if_not_onscreen player
-	centre player
-	return
-endif
-
-centre player
-
-let current = me
-set_user_flag "Saxiis_allow_in" = 0
-talk_to me.funcs.talk "doorbell"
-
-get_user_flag i = "Saxiis_allow_in"
-if i = 1
-	# Open the door
-	let current = me.target
-	call current.funcs.use
-endif
-
-# Reset activity schedule
-set_flag me NO_SCHEDULE = 0 # Resume our normal program
-stop_action me
-resume_action me
-
-end
-
-
 
 
 ##
@@ -836,3 +749,5 @@ let communicator.tag = 11111
 insert_after tag = communicator
 
 end
+
+

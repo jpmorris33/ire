@@ -1,5 +1,6 @@
 
 [page="start"]
+[if saxiis_onside][goto="start2"]
 
 "Hello there.  What brings you to the Dragon's keep?"
 
@@ -15,6 +16,7 @@
 
 
 [page="startname"]
+[if saxiis_onside][goto="start2"]
 
 [colour="#808080"]
 You see Sir Ross.
@@ -31,6 +33,24 @@ You see Sir Ross.
 [link="Goodbye"]
 [linkto="bye"]
 [endpage]
+
+[page="start2"]
+
+[colour="#808080"]
+You see Sir Ross.  He looks around the base in awe.
+[colour="#ffffff"]
+
+"It seems I really am 'Ross the Bewildered' now.
+ Hopefully my time in this strange metal world will be
+ a short one.
+
+ They say that they succeed in their task I may be able 
+ to resume some semblance of a normal life again!"
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
 
 
 [page="name"]

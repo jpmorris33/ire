@@ -339,3 +339,14 @@ start:
 I need to find a CEM3320 hyperspace flux modulator.  Stevens had a vintage synthesizer which may contain a compatible device.  If I can find it, I should bring it to Austin, and then swap the microchips in the spaceship's drive systems.
 end
 
+name jrn_SaxiisJoins
+title Saxiis has rejoined Gurd's team
+start:
+I have persuaded Saxiis to help us defeat Xy'Lan.
+end
+
+name jrn_SaxiisTreasure
+title Saxiis' treasure
+start:
+Now Saxiis has rejoined Gurd and his team, she has allowed me accesss to her treasure vault, so long as I use it to help them defeat Xy'Lan and His worshippers.  The passcode for the vault is 427586, and the front door code is 451888.
+end

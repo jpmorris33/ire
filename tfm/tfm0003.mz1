@@ -1241,6 +1241,7 @@ iMZ1r01
 		at 317 83
 		curdir 1
 		name Ross
+		tag 84
 		funcs->talk people/peasants/mawdor/ross.txt
 
 	object TABL45659424-27f6-41a0-b1ba-e25e4bc0559d
@@ -3613,6 +3614,7 @@ iMZ1r01
 		curdir 2
 		tag 5
 		funcs->use USEPORTCULLI
+		funcs->wield USEPORTCULLI
 
 	object TABL6afb6843-db1d-4a03-99ff-f3d378b9c926
 		type TABLE6-H
@@ -3792,6 +3794,15 @@ iMZ1r01
 		at 331 103
 		curdir 3
 		tag 5
+
+	object KEYP7153897d-42c4-4e55-a63a-19de6f76577f
+		type KEYPAD
+		at 332 103
+		curdir 0
+		tag 5
+		stats->owner LEVE7acc429d-0bbb-4865-b88e-9c139e55e93d
+		funcs->wield CALLWIELD_OWNER
+		funcs->user1 451888
 
 	decorative TREE01 at 356 103
 
@@ -94388,6 +94399,62 @@ iMZ1r01
 
 	decorative MOUNT03 at 518 898
 
+	object DATA4a968629-080c-4817-9b30-daf86ceafa76
+		type DATAPANEL2
+		at 553 898
+		curdir 2
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATAbd8d8411-7bd8-4948-9e59-3cf89133122a
+		type DATAPANEL2
+		at 554 898
+		curdir 0
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATA7cccb5e8-5fc8-489b-9f0f-c9a162c5ed03
+		type DATAPANEL2
+		at 555 898
+		curdir 1
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATA571b34e6-eeea-43ae-81a3-54bc059b2d62
+		type DATAPANEL2
+		at 556 898
+		curdir 3
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATA44b7023f-2c69-48ce-8331-c107d4ff9e97
+		type DATAPANEL2
+		at 585 898
+		curdir 2
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATAe04d2e44-053e-4ef5-8069-0b55d6037058
+		type DATAPANEL2
+		at 586 898
+		curdir 0
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATAdf88a80a-7170-44ac-b438-2e5afb069fe4
+		type DATAPANEL2
+		at 587 898
+		curdir 1
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
+	object DATAcb33cbb4-9716-48d7-a07c-beba7d335872
+		type DATAPANEL2
+		at 588 898
+		curdir 3
+		funcs->talk books/tech/ddatadsp.txt
+		funcs->user1 2
+
 	decorative MOUNT04 at 600 898
 
 	decorative MOUNT03 at 604 898
@@ -94533,6 +94600,12 @@ iMZ1r01
 	decorative MOUNT00 at 517 899
 
 	decorative MOUNT11 at 518 899
+
+	object TARG6ff86dae-5cc5-4383-9a71-cfdbfeace64a
+		type TARGET
+		at 583 899
+		curdir 1
+		tag 83
 
 	decorative MOUNT04 at 600 899
 
@@ -94697,6 +94770,22 @@ iMZ1r01
 	decorative MOUNT04 at 512 900
 
 	decorative MOUNT03 at 517 900
+
+	object WALL04843ea1-5ab5-4d65-9bf6-cc288254c54c
+		type WALL3_EDGE
+		at 567 900
+		curdir 0
+
+	object WALL49ac8025-a3c8-4f00-bbe9-79922a54d32b
+		type WALL3_EDGE
+		at 574 900
+		curdir 0
+
+	object TARG6ef110b0-ac7c-4a35-9de5-06c5e79d2cba
+		type TARGET
+		at 585 900
+		curdir 0
+		tag 82
 
 	decorative MOUNT10 at 600 900
 

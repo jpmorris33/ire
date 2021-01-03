@@ -3,6 +3,7 @@ Saxiis, a Drakaan who has gone native.
 
 
 [page="start"]
+[if saxiis_onside][goto="start2"]
 [image="saxiis1.pcx"]
 
 "Hello there.  Did you want something?"
@@ -21,6 +22,7 @@ Saxiis, a Drakaan who has gone native.
 
 
 [page="startname"]
+[if saxiis_onside][goto="start2"]
 [image="saxiis1.pcx"]
 
 "Hello again."
@@ -31,6 +33,22 @@ Saxiis, a Drakaan who has gone native.
 [linkto="what"]
 [if dragonquest_wip][link="Ransome proposes an alliance."]
 [if dragonquest_wip][linkto="ransome"]
+[if gurd_saxiis][link="Gurd could use your help."]
+[if gurd_saxiis][linkto="join_gurd"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="start2"]
+[image="saxiis1.pcx"]
+
+"Hello again."
+
+[link="What's your job?"]
+[linkto="job2"]
+[link="What are you?"]
+[linkto="what2"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -42,11 +60,26 @@ Saxiis, a Drakaan who has gone native.
 [learn_name]
 
 "I am Saxiis.  Most people call me 'dragon', though."
-[learn_name]
 [link="What are you?"]
 [linkto="what"]
 [link="What's your job?"]
 [linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="name2"]
+[image="saxiis1.pcx"]
+
+"I am High Programmer Saxiis.  It's going to take me a
+ while to get used to not just being called 'dragon',
+ though."
+
+[link="What are you?"]
+[linkto="what2"]
+[link="What's your job?"]
+[linkto="job2"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -68,8 +101,85 @@ Saxiis, a Drakaan who has gone native.
 [linkto="maid2a"]
 [link="What are you?"]
 [linkto="what"]
-[link="What's your job?"]
-[linkto="job"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="job2"]
+[image="saxiis1.pcx"]
+
+"Well, I WAS guarding a pile of gold and raising cattle.
+ Now I'm trying to help bottle Xy'Lan back up, or at
+ least stop him killing us all.
+
+ A career change that was YOUR idea, may I remind you!"
+
+[link="What happens to the hoard now?"]
+[linkto="gold-after"]
+[link="What are you?"]
+[linkto="what2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="gold-after"]
+[if saxiis_take_treasure][goto="gold-after3"]
+[image="saxiis1.pcx"]
+
+"Actually, you've got a point there.  Without me to guard
+ it, it's only a matter of time before someone breaks in
+ and steals it all.
+
+ But if you're working to thwart Xy'Lan, it might be more
+ use to you.  After all, you can't ask someone to risk
+ their lives trying to save your ass and not give them
+ any material support, right?
+
+ Of course, you'll have to figure out a way to bring it
+ all back with you."
+
+[nextpage="gold-after2"]
+[endpage]
+
+
+[page="gold-after2"]
+[set saxiis_take_treasure]
+[journal jrn_SaxiisTreasure]
+[image="saxiis3.pcx"]
+
+"The passcode to the vault is 427586 in your tongue.
+ The front door code is 451888.
+
+ But remember this hoard took a LOT of work to accumulate.
+ If we win this and get to go home, I'd like to take some
+ of it back with me as a keepsake.
+
+ I'm only giving you the passcode because I think it'll
+ help us win.
+
+ So if you take it and then sell us out, just remember...
+ I can literally bite your head off."
+
+[link="What are you?"]
+[linkto="what2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="gold-after3"]
+[image="saxiis3.pcx"]
+
+"Yeah, I said you could have some.  The passcode to the
+ vault is 427586, and the front door is 451888.
+ 
+ Just don't take it all if you can help it, and remember
+ that if you DID sell us out to Xy'Lan, you'd be making a
+ large predator who can bite your head off very unhappy."
+
+[link="What are you?"]
+[linkto="what2"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -97,6 +207,22 @@ Saxiis, a Drakaan who has gone native.
 [linkto="bye"]
 [endpage]
 
+
+[page="what2"]
+[image="saxiis1.pcx"]
+
+"I'm a Drakaan.  A member of the race that probably
+ started most of your dragon myths.
+
+ At some point I'll get a new uniform, but going around
+ on all fours for about 300 years is gonna be a tough
+ habit to break."
+
+[link="What's your job?"]
+[linkto="job2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
 
 
 
@@ -854,3 +980,64 @@ throat, bringing a quick, if painful, end.
 [page="fakeexit"]
 [goto="exit"]
 [endpage]
+
+
+[page="join_gurd"]
+[image="saxiis2.pcx"]
+
+[colour="#808080"]
+The dragon sighs.
+[colour="#ffffff"]
+
+"Look, I told you before, I don't want to get involved.
+ It's for our own safety."
+
+[if airtravel_on][link="I've been into the Maxima.  I've switched off Xy'Lan's forcefields."]
+[if airtravel_on][linkto="join_gurd2"]
+[link="What's your job?"]
+[linkto="job"]
+[link="What are you?"]
+[linkto="what"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join_gurd2"]
+[esc=disabled]
+[image="saxiis2.pcx"]
+[journal jrn_SaxiisJoins]
+[set saxiis_onside]
+
+[colour="#808080"]
+The dragon stares in astonishment.
+[colour="#ffffff"]
+
+"Well, well!  According to my implants, you have and all!
+ Xy'Lan holds nearly all the cards, and yet you've somehow
+ managed to give him a bloody snout.
+
+ I... I was one of Xy'Lan's creators.  I don't want to do
+ anything that would directly harm my child.  But at the
+ same time, what you've done may provoke Him to threaten
+ my kindred.  And I can't allow that either."
+
+[nextpage="join_gurd3"]
+[endpage]
+
+
+[page="join_gurd3"]
+[call_at_exit="saxiis_move_to_base"]
+[image="saxiis2.pcx"]
+
+"Very well, human... you win.  I'd better go and help
+ Gurd out of the mess he's creating for himself by
+ provoking Xy'Lan.
+
+ I just hope you appreciate what an awkward position
+ you've put me in."
+
+[nextpage="exit"]
+[endpage]
+
+

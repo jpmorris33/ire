@@ -14096,6 +14096,7 @@ section: scripts
 	code/events/music.pe
 	code/events/airtravel.pe
 	code/events/randolph.pe
+	code/events/saxiis.pe
 	code/justice/justice.pe
 	code/justice/execution.pe
 	code/justice/jail.pe

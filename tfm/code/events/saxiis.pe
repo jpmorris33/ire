@@ -1,0 +1,138 @@
+##
+##	Saxiis doorbell scene
+##
+
+function plot_doorbell_saxiis
+object saxiis
+object doortarget
+object switch
+
+object_sound "doorbell" me
+find_tag saxiis = "dragon_naked" 6
+
+# She is around, yeah?
+if_not_exists saxiis
+	# Oh my Lord, Kyle!  Did you just throw doodoo at Eric?
+#	print "No dragon|"
+	print "~There's no reply.~"
+	printcr
+	return
+endif
+
+# Saxiis is wounded or dead, the player can go bend
+if saxiis.stats.hp < 3
+	print "~There's no reply.~"
+	printcr
+	return
+endif
+
+# Make sure we've got the door target
+find_tag doortarget = "target" 7
+if_not_exists doortarget
+	print "No doortarget|"
+	return
+endif
+
+# And the lever
+find_tag switch = "lever" 5
+if_not_exists switch
+	print "No lever|"
+	return
+endif
+
+# Set the behaviour
+set_flag saxiis NO_SCHEDULE = 1
+queue_action saxiis does seek_target_use_resume to doortarget
+queue_action saxiis does saxiis_answer_door to switch
+run_queue saxiis
+
+end
+
+
+##
+##
+##
+
+function saxiis_answer_door
+activity
+integer i
+
+centre me
+
+if_not_onscreen player
+	centre player
+	return
+endif
+
+centre player
+
+let current = me
+set_user_flag "Saxiis_allow_in" = 0
+talk_to me.funcs.talk "doorbell"
+
+get_user_flag i = "Saxiis_allow_in"
+if i = 1
+	# Open the door
+	let current = me.target
+	call current.funcs.use
+endif
+
+# Reset activity schedule
+set_flag me NO_SCHEDULE = 0 # Resume our normal program
+stop_action me
+resume_action me
+
+end
+
+
+##
+##
+##
+
+function saxiis_move_to_base
+
+object src
+object dest
+
+fade_out
+
+find_tag src = "dragon_naked" 6
+if_exists src
+	find_tag dest = "target" 82
+	if_exists dest
+		stop_action src
+		set_flag src NO_SCHEDULE = 1
+		transfer_object src to dest.x dest.y
+		force_direction src faces NORTH
+	endif
+endif
+
+find_tag src = "man_generic" 84
+if_exists src
+	find_tag dest = "target" 83
+	if_exists dest
+		stop_action src
+		set_flag src NO_SCHEDULE = 1
+		transfer_object src to dest.x dest.y
+		force_direction src faces SOUTH
+	endif
+endif
+
+# And skip an hour
+let game_minute = 0
+add game_hour + 1
+resync_everything
+
+# Make sure she shut the front door
+find_tag src = "lever" 5
+if_exists src
+	let dest = me
+	let me = null	# Silence the error messages if already closed
+	let current = src
+	call ClosePortculli
+	let me = dest
+endif
+
+fade_in
+
+end

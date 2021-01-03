@@ -541,6 +541,7 @@ You see Commander Gurd, of the Dra'kaan research team.
 
 
 [page="saxiis"]
+[set gurd_saxiis]
 [image="saxiis1.pcx"]
 "No-one knows as much about Xy'lan as she does.  Saxiis
  was our chief software engineer, and she was the one who
