@@ -687,7 +687,7 @@ end
 
 
 
-function OpenPortculli
+function ClosePortculli
 private
 object_array port[32]
 integer ctr
@@ -722,7 +722,7 @@ endif
 end
 
 
-function ClosePortculli
+function OpenPortculli
 private
 object_array port[32]
 integer ctr
@@ -763,11 +763,11 @@ function UsePortculli
 if current.curdir = UP
 	set_direction current = LEFT
 	object_sound "portcullis_clunk" current
-	call OpenPortculli
+	call ClosePortculli
 else
 	set_direction current = UP
 	object_sound "portcullis_clunk" current
-	call ClosePortculli
+	call OpenPortculli
 endif
 
 end
