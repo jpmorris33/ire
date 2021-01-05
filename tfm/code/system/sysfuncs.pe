@@ -157,6 +157,9 @@ if light_magic > 0
 	if darkness > 32
 		set_darkness 16
 	endif
+	let lightspell = 128
+else
+	let lightspell = 0
 endif
 
 # And reset light magic level
@@ -544,6 +547,7 @@ end
 function sys_changemap
 
 call airtravel_callback
+call plotevent_callback
 
 # Workaround for party disassociation
 set_leader player player_action follower_action

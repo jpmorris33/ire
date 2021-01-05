@@ -93,6 +93,7 @@ if p is called "potion_white"
 
 	call potion_overdose
 	let current.user.potion1 = 50
+	let lightspell = 128
 	if darkness > 32
 		let darkness = 16
 	endif

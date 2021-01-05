@@ -12,6 +12,7 @@
 
 char *solid_map;
 VMINT dark_mix=0;
+VMINT light_spell=0;
 VMINT show_invisible=1;	// If it is used, we want 1 'cause we're in the editor
 
 void VRM_RegisterExvar(char *name, void *ptr)

@@ -99,6 +99,7 @@ endif
 
 add player.user.potion1 + 100
 # Do the light thing immediately
+let lightspell = 128
 if darkness > 32
 	set_darkness 16
 endif
@@ -889,6 +890,7 @@ endif
 
 add player.user.potion1 + 1000
 # Do the light thing immediately
+let lightspell = 128
 if darkness > 32
 	set_darkness 16
 endif

@@ -59,6 +59,7 @@ static IREBITMAP *tsbscreen;
 static IREBITMAP *scalebmp;
 static int darklevel=128;
 VMINT dark_mix=0;
+VMINT light_spell=0;
 VMINT show_invisible=0;	// This is expose to the script engine now
 extern int torch_bonus;
 static int masterclock=0;
@@ -959,6 +960,8 @@ if(override_darklevel) {
 darkness += dark_mix;
 darkness -= scale_torches(got_light);
 darkness += scale_torches(got_dark);
+
+darkness -= light_spell;
 
 if(darkness>255) {
 	darkness=255;

@@ -35,6 +35,7 @@ extern char *compilename;
 extern VMINT map_W,map_H;	       // Default map size
 int PE_FastBuild=0;
 extern VMINT dark_mix;              // Additional darkness (caves etc)
+extern VMINT light_spell;           // Additional light (light spells)
 extern VMINT show_invisible;
 
 
@@ -3772,6 +3773,7 @@ add_symbol_ptr("window_bottom",'i',&mapy2);
 add_symbol_ptr("mapw",'i',&map_W);
 add_symbol_ptr("maph",'i',&map_H);
 add_symbol_ptr("darkmix",'i',&dark_mix);
+add_symbol_ptr("lightspell",'i',&light_spell);
 
 add_symbol_ptr("key",'i',&irekey);
 add_symbol_ptr("new_x",'i',&new_x);
