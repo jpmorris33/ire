@@ -106,3 +106,23 @@
 
 [nextpage="exit"]
 [endpage]
+
+
+[page="5"]
+[if_not keycard_tower][journal jrn_KeycardTower]
+[set keycard_tower]
+[backing="paper2.pcx"]
+[font 2]
+ Edward, our enemies have now succeeded in
+ breaching the security of the ship.
+
+ Access to the bridge cannot be permitted at any
+ cost, therefore, see to it that the crystal key
+ is moved to the Tower.
+
+ This seems the perfect place, since any who may
+ actually succeed in breaching the horrors within
+ will be an ideal subject for our special project.
+
+[nextpage="exit"]
+[endpage]

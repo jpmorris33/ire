@@ -15019,7 +15019,6 @@ iMZ1r01
 		type PRINTOUT01
 		at 148 400
 		curdir 3
-		name Notes from Xy'Lan
 
 	object PIPEc45ef9d0-93c8-499e-b439-a3ed78ad6a0c
 		type PIPES_01
@@ -15512,10 +15511,25 @@ iMZ1r01
 		at 146 404
 		curdir 1
 
+	object PRINa1c6e973-b521-4fa9-9bad-dac8fb336ded
+		type PRINTOUT00
+		at 147 404
+		curdir 3
+		name Orders from Xy'Lan
+		tag 2000
+		funcs->talk books/church/lord.txt
+		funcs->user1 5
+
 	object TABLb74835e4-0b28-4aac-9b8a-6d8ff44af254
 		type TABLE1-EDGES
 		at 147 404
 		curdir 1
+
+	object TARGa0e9e20b-993b-4e98-af6d-1b5c696e1412
+		type TARGET
+		at 147 404
+		curdir 3
+		tag 2000
 
 	object BOOK94316aba-5c7f-4645-9a0d-7f2db0fc6a2d
 		type BOOK_OPEN

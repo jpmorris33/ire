@@ -350,3 +350,10 @@ title Saxiis' treasure
 start:
 Now Saxiis has rejoined Gurd and his team, she has allowed me accesss to her treasure vault, so long as I use it to help them defeat Xy'Lan and His worshippers.  The passcode for the vault is 427586, and the front door code is 451888.
 end
+
+name jrn_KeycardTower
+tag task
+title Bridge keycard in a tower?
+start:
+I found a printout instructing the Pope to hide the access key to the Maxima's bridge in a tower filled with "horrors".  I should look out for a building matching that description.
+end

@@ -263,7 +263,7 @@ converational tones.
  The Church has been governed by a council of three for
  a long, long time, and I have been considering whether
  it might be time to add the Pope as a fourth member and
- expand the Trinity to a Holy Quadruple.
+ expand the Trinity to a Holy Quad.
 
  Of course, if I do go ahead with this plan, I will need
  a replacement for the throne of St. Peter.  You could
@@ -275,11 +275,18 @@ converational tones.
 [page="chat_1c"]
 [image="lord.jpg"]
 
-"Oh dear.  I was hoping that wouldn't happen for quite a
- while yet.
+"It is only a matter of time.  Once this place and
+ your Earth have been subjugated, Draka will be next.
+ After that, I shall have plenty of time on My hands
+ to improve My systems.
 
- Don't think you can go around blabbing to anybody, they
- won't believe you.  My conditioning is very effective."
+ With the power to rewrite reality to my own design,
+ and my creating race enslaved to My will, I shall be
+ able to transfer my magnificence to a next-generation
+ computing framework which exists outside of normal
+ spacetime altogether.
+
+ Then I shall truly become God!"
 
 [endpage]
 
@@ -302,6 +309,9 @@ converational tones.
  They shall be My winged furies.. My angels of death!"
 
 [endpage]
+
+
+
 
 [page="generators"]
 [at_exit_call="fry_current"]

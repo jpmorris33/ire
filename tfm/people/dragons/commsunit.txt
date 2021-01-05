@@ -275,6 +275,7 @@ Commander Gurd has clearly recovered some of his poise.
 [journal_done jrn_VCF3]
 [journal_done jrn_VCF4]
 [journal jrn_accesskey]
+[set find_accesskey]
 [esc=disabled]
 [image="comms.pcx"]
 
@@ -305,7 +306,7 @@ Commander Gurd has clearly recovered some of his poise.
  records to see if this object has been stored in the
  Cathedral by Pope and his minions."
  
-[nextpage="accesskey2"]
+[nextpage="exit"]
 [endpage]
 
 

@@ -751,3 +751,29 @@ insert_after tag = communicator
 end
 
 
+
+##
+##
+##
+
+function plotevent_callback
+int mapno
+object target
+object src
+
+# Make hints appear after certain events have occurred
+if_user_flag "find_accesskey"
+	get_mapno mapno
+	if mapno = 2
+	or mapno = 4
+		find_tag target = "TARGET" 2000
+		if_exists target
+			find_tag src = "PRINTOUT*" 2000
+			transfer_object src to target.x target.y
+			move_to_top src
+			destroy target	# So it only happens once per map
+		endif
+	endif
+endif
+
+end
