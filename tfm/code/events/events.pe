@@ -764,7 +764,7 @@ object src
 # Make hints appear after certain events have occurred
 if_user_flag "find_accesskey"
 	get_mapno mapno
-	if mapno = 2
+	if mapno = 1
 	or mapno = 4
 		find_tag target = "TARGET" 2000
 		if_exists target
