@@ -934,10 +934,10 @@ for(cy=starty;cy<ey;cy++) {
 						light[lights].y=cy-y;
 						lights++;
 						if(temp->light > 0) {
-							got_light++;
+							got_light+= temp->light;
 						}
 						if(temp->light < 0) {
-							got_dark++;
+							got_dark-= temp->light;
 						}
 					}
 				}
