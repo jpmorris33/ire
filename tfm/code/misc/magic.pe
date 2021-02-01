@@ -10,6 +10,7 @@
 
 
 string spellname
+string spellmsg
 object spelltarget
 object spellbook
 int spell_level
@@ -17,6 +18,7 @@ int spell_failed
 
 transient spellbook
 transient spelltarget
+transient spellmsg
 
 ##
 ##  Get target
@@ -92,24 +94,30 @@ let spell_failed = 0
 # Is the magic system enabled?
 get_user_flag md = "magic_disabled"
 if md <> 0
-	if me = player
-		print "Error: magicserver not responding"
-		printcr
-	endif
-	play_sound "spellfailed"
-	let spell_failed = 1
+	let spellmsg = "Error: magicserver not responding"
+	call spellfailed
 	return
 endif
 
+# If an NPC, stop checking here
+if me <> player
+	if_not_flag me IN_PARTY
+		return
+	endif
+endif
+
+# No spells in Hell (for player, anyway)
+get_mapno md
+if md = 6
+	let spellmsg = "Error: connection failed"
+	call spellfailed
+	return
+endif
 
 # Check we are high enough to do this
 if me.stats.level < spell_level
-	if me = player
-		print "You don't have that level of ability yet."
-		printcr
-	endif
-	play_sound "spellfailed"
-	let spell_failed = 1
+	let spellmsg = "Error: spell requires higher privilige level"
+	call spellfailed
 	return
 endif
 
@@ -130,12 +138,6 @@ endif
 #add player.user.magic - spell_level
 */
 
-# If an NPC, stop checking here
-
-if me <> player
-	return
-endif
-
 # Take a todestone
 
 take 1 "toadstone" from me
@@ -149,6 +151,21 @@ if err <> 0
 endif
 
 end
+
+##
+##  Common failure code
+##
+
+local
+function spellfailed
+if me = player
+	print spellmsg
+	printcr
+endif
+let spell_failed = 1
+play_sound "spellfailed"
+end
+endlocal
 
 
 ##

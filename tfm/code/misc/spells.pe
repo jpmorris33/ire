@@ -50,7 +50,6 @@ end
 ##
 
 function spell_help
-integer map
 
 # Check spell can be cast
 let spell_level = 1
@@ -63,14 +62,6 @@ if me != player
 	call spell_failed
 	return
 endif
-
-get_mapno map
-if map = 6
-	# Not so fast
-	call spell_failed
-	return
-endif
-
 
 print "ioctl.."
 printcr
