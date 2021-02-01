@@ -234,8 +234,32 @@ You see a large, grey wolf-like creature.
 
 
 
+[page="lproof"]
 
+"On occasion I have heard the human guards speak of
+ an Adversary, one whom they believe the Betrayer
+ protects them against.
 
+ Find this adversary and bring a token from them...
+ an artifact so blasphemous that the Betrayer's
+ minions would not be caught dead with it in
+ their possession.  A book of forbidden magic,
+ for instance!
+
+ If you do this, then I shall accept your word
+ that you are not one of Aa'Ruuff's lackeys."
+
+[link="Tell me how God forget something."]
+[linkto="1name3"]
+[endpage]
+
+The Devil suggests the Necronomicon which he's lent to two satanic monks, Brother Karloff and Brother Lugosi.
+If you fetch it, he'll sign it for you, but warns that it's dangerous to read it.  The Waarg should be immune, though,
+since Xy'Lan had taught them magic anyway.
+
+Satan signs it "To King Grey, lots of love, Satan"
+
+!!! Waarg in the cushy parts of Hell?
 
 
 
@@ -453,8 +477,8 @@ You see a regal-looking wolf-creature.
  I frequently had communion with the great God Aa'Ruuff
  Himself, and He told me many useful things.
  
- One interesting thing I learned was a code number that
- gives access to the source of Aa'Ruuff's power.
+ One interesting thing I learned was a code that gives
+ access to the source of Aa'Ruuff's power.
 
  One day, Aa'Ruuff announced that we were no longer His
  favourite race, and that our city would be invaded by
@@ -484,7 +508,7 @@ You see a regal-looking wolf-creature.
  began to say things we could understand again.  We may
  never know what happened to Him that night, but while
  He was insane, He had lost a number of important facts
- from his memory."
+ from His memory."
 
 [nextpage="code3"]
 [endpage]
@@ -515,7 +539,7 @@ You see a regal-looking wolf-creature.
  His power so that I could be questioned.
 
  Aa'Ruuff's lackeys have been questioning me ever since.
- He wants to know just one thing.. the access code that
+ He wants to know just one thing... the access code that
  He revealed to me all those years ago!
 
  But I shall never tell Him!"

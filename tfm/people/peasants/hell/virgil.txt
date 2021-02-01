@@ -1,0 +1,31 @@
+[page="start"]
+
+"Urgh, another Damned.  What do you want now?"
+
+[endpage]
+
+[page="escape"]
+
+"I used to guide people out of Hell.
+ But did I get a thimbleful of thanks for it?  NO!
+
+ So I'm on strike."
+
+[link="I really need to get out of Hell."]
+[linkto="escape2"]
+[endpage]
+
+
+[page="escape2"]
+
+"You and everyone else, pal."
+
+[link="Is there something I can do?"]
+[linkto="escape3"]
+[endpage]
+
+[page="escape3"]
+
+(Wants ash)
+
+[endpage]

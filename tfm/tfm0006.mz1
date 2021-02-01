@@ -478,6 +478,65 @@ iMZ1r01
 		at 276 73
 		curdir 1
 
+	decorative HUT00 at 450 153
+
+	decorative HUT01 at 451 153
+
+	decorative HUT01 at 452 153
+
+	decorative HUT01 at 453 153
+
+	decorative HUT01 at 454 153
+
+	decorative HUT01 at 455 153
+
+	decorative HUT02 at 456 153
+
+	decorative HUT03 at 450 154
+
+	decorative HUT03 at 456 154
+
+	decorative HUT03 at 450 155
+
+	object WAAR822c0425-6332-4374-8df5-0cba79b47b94
+		type WAARG_FEMALE
+		at 452 155
+		curdir 1
+
+	object BED29709635a-d788-478f-bad0-cc7976f7a8cb
+		type BED2
+		at 454 155
+		curdir 1
+
+	decorative HUT03 at 456 155
+
+	decorative HUT03 at 450 156
+
+	decorative HUT03 at 456 156
+
+	decorative HUT03 at 450 157
+
+	decorative HUT03 at 456 157
+
+	decorative HUT03 at 450 158
+
+	object HUT_531003f4-e7e6-4a16-b09b-0ce2e1cd7666
+		type HUT_DOOR_SHUT
+		at 452 158
+		curdir 0
+
+	decorative HUT03 at 456 158
+
+	decorative HUT04 at 450 159
+
+	decorative HUT01 at 451 159
+
+	decorative HUT01 at 454 159
+
+	decorative HUT01 at 455 159
+
+	decorative HUT06 at 456 159
+
 	object STAId14a5edd-9445-478f-8afa-e9bef630e4d3
 		type STAIRS_DOWN
 		at 391 161
@@ -531,6 +590,16 @@ iMZ1r01
 		at 396 165
 		curdir 0
 
+	object WAAR818363ee-1575-41c5-a7de-37666a8af7c0
+		type WAARG_FEMALE
+		at 446 165
+		curdir 1
+
+	object WAAR5e0cc1f2-281b-492d-94cd-2176783cadd5
+		type WAARG_MALE
+		at 448 165
+		curdir 1
+
 	object FENC21c3a26a-2f78-48a3-9de9-ce3af6245117
 		type FENCE2
 		at 390 166
@@ -545,6 +614,40 @@ iMZ1r01
 		type FENCE2
 		at 394 166
 		curdir 2
+
+	object WARG98ee00f3-426c-458e-858c-b3bc55e604e0
+		type WARG_XBOW_BOLTS
+		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+		curdir 1
+		stats->owner WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+
+	object WARG48acd6ca-cbdb-4026-bb31-00e6129aad0a
+		type WARG_XBOW
+		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+		curdir 1
+		stats->owner WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+
+	object WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+		type WAARG_SOLDIER
+		at 447 166
+		curdir 1
+
+	object WARGd5b903ab-64c3-4a9b-8b2e-cc30b0d4b80b
+		type WARG_XBOW_BOLTS
+		inside WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+		curdir 1
+		stats->owner WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+
+	object WARGafc492ed-7cf2-41d1-8a5f-6b97161c9d15
+		type WARG_XBOW
+		inside WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+		curdir 1
+		stats->owner WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+
+	object WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+		type WAARG_SOLDIER
+		at 449 166
+		curdir 1
 
 	object FENCffb6d8ba-47b7-42b0-8e20-0ed743995817
 		type FENCE2
@@ -1952,6 +2055,9 @@ iMZ1r01
 		type MAN_GENERIC
 		at 244 209
 		curdir 1
+		name Virgil
+		stats->hp 100000
+		funcs->talk /people/peasants/hell/virgil.txt
 
 	decorative HUT03 at 246 209
 
@@ -2739,6 +2845,21 @@ iMZ1r01
 		at 291 215
 		curdir 1
 
+	object LIGH8de82f3b-5b17-447f-9a6a-a3320b124b9e
+		type LIGHTSOURCE_ULTRA
+		at 294 215
+		curdir 0
+
+	object LIGH8d6214bc-c1b0-4674-b5eb-f4cb4cdcfd18
+		type LIGHTSOURCE_ULTRA
+		at 298 215
+		curdir 0
+
+	object LIGHa9064e4d-63ba-44b1-b44f-ecc2506a1c9c
+		type LIGHTSOURCE_ULTRA
+		at 301 215
+		curdir 0
+
 	object STONb15be201-91c7-4f02-bb77-ccdb2d3c1c97
 		type STONEFLOOR10
 		at 322 215
@@ -2977,10 +3098,20 @@ iMZ1r01
 		at 289 217
 		curdir 3
 
+	object LIGH64704cca-267c-4502-b792-877d5db46aa8
+		type LIGHTSOURCE_ULTRA
+		at 292 217
+		curdir 0
+
 	object DRAWa3d124f6-d6f1-4335-aec2-3c714ff6b562
 		type DRAWERS
 		at 293 217
 		curdir 2
+
+	object LIGH1fb1a49d-4153-41af-8c19-9fa8c3763021
+		type LIGHTSOURCE_ULTRA
+		at 303 217
+		curdir 0
 
 	object BUNN83170e99-50f2-465a-83ed-a26030e174b1
 		type BUNNY
@@ -3461,11 +3592,17 @@ iMZ1r01
 		at 288 220
 		curdir 3
 
+	object LIGH0a2e4cb8-1b0b-4416-a747-6dafad11cd0c
+		type LIGHTSOURCE_ULTRA
+		at 292 220
+		curdir 0
+
 	object MAN_047a329a-3ddd-48bd-ad84-4bebe4a68dff
 		type MAN_GENERIC
 		at 297 220
 		curdir 1
 		name Giotto Francini
+		stats->hp 100000
 		funcs->talk /people/peasants/hell/giotto.txt
 
 	object STON3f977beb-aad1-4157-a65d-3dc617f37143
@@ -3552,6 +3689,11 @@ iMZ1r01
 		type BED
 		at 294 221
 		curdir 2
+
+	object LIGH5300a3a9-7d2e-4478-9528-560674404d21
+		type LIGHTSOURCE_ULTRA
+		at 303 221
+		curdir 0
 
 	object STON753ec915-baac-461a-90ed-a495d2316b82
 		type STONEFLOOR18
@@ -3875,6 +4017,21 @@ iMZ1r01
 		type STONEFLOOR10
 		at 287 223
 		curdir 1
+
+	object LIGHe480cdf9-99e0-4055-90e3-320251b36794
+		type LIGHTSOURCE_ULTRA
+		at 295 223
+		curdir 0
+
+	object LIGHda578364-4149-41d5-8ae0-c4d5869763d9
+		type LIGHTSOURCE_ULTRA
+		at 299 223
+		curdir 0
+
+	object LIGH5ca345f8-caa7-4f9b-b049-2484cef88d0f
+		type LIGHTSOURCE_ULTRA
+		at 302 223
+		curdir 0
 
 	object CASH73cd9100-93d2-4f0f-9f15-05bd048f80d7
 		type CASH_MACHINE

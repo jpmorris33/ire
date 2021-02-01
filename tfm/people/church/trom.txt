@@ -414,6 +414,8 @@ will be similarly damned.
 
 
 [page="devil"]
+[am_carrying indulgence_plenary]
+[if true][goto="indulgence2"]
 
 [colour="#808080"]
  Cardinal Trom claps his hands delightedly.
@@ -431,6 +433,25 @@ will be similarly damned.
  GUARDS!  Execute this heretic immediately!"
 
 [at_exit_call="justice_heresy"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="indulgence2"]
+[colour="#808080"]
+The Cardinal looks at you with abject loathing as he
+realises you hold a plenary indulgence.
+[colour="#ffffff"]
+
+"You are known to have fornicated with the DEVIL!
+
+ Were it not for that indulgence you would be executed
+ immediately.
+
+ Hold tight to that precious slip of parchment, for if
+ you come here without it I shall mount your head to
+ the wall of my church!"
+
 [nextpage="exit"]
 [endpage]
 
