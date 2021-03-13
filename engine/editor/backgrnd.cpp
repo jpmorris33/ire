@@ -150,8 +150,12 @@ IG_BlackPanel(400,192,32,32);
 DrawScreenText(400,182," L");
 if(L == RANDOM_TILE)
 	eyesore->Draw(swapscreen,400,192);
-else
+else	{
 	TIlist[L].form->seq[0]->image->Draw(swapscreen,400,192);
+	if(TIlist[L].form->overlay) {
+		TIlist[L].form->overlay->image->Draw(swapscreen,400,192);
+	}
+}
 
 itoa(L,string,10);
 DrawScreenText(400,232,string);
@@ -159,9 +163,13 @@ DrawScreenText(400,232,string);
 IG_BlackPanel(448,192,32,32);
 DrawScreenText(448,182," R");
 if(R == RANDOM_TILE)
-     eyesore->Draw(swapscreen,448,192);
-else
-     TIlist[R].form->seq[0]->image->Draw(swapscreen,448,192);
+	eyesore->Draw(swapscreen,448,192);
+else {
+	TIlist[R].form->seq[0]->image->Draw(swapscreen,448,192);
+	if(TIlist[R].form->overlay) {
+		TIlist[R].form->overlay->image->Draw(swapscreen,448,192);
+	}
+}
 
 itoa(R,string,10);
 DrawScreenText(450,232,string);
