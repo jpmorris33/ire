@@ -371,22 +371,40 @@ section: sprites
 	leprechaun11		sprites/people/lep11.cel
 	leprechaun12		sprites/people/lep12.cel
 
-	pope00			sprites/people/pope00.cel
-	pope01			sprites/people/pope01.cel
-	pope02			sprites/people/pope02.cel
-	pope03			sprites/people/pope03.cel
-	pope04			sprites/people/pope04.cel
-	pope05			sprites/people/pope05.cel
-	pope06			sprites/people/pope06.cel
-	pope07			sprites/people/pope07.cel
-	pope08			sprites/people/pope08.cel
-	pope09			sprites/people/pope09.cel
-	pope10			sprites/people/pope10.cel
-	pope11			sprites/people/pope11.cel
-	popesit_u		sprites/people/posit_0.cel
-	popesit_r		sprites/people/posit_1.cel
-	popesit_d		sprites/people/posit_2.cel
-	popesit_l		sprites/people/posit_3.cel
+	pope00			sprites/people/pope00.png
+	pope01			sprites/people/pope01.png
+	pope02			sprites/people/pope02.png
+	pope03			sprites/people/pope03.png
+	pope04			sprites/people/pope04.png
+	pope05			sprites/people/pope05.png
+	pope06			sprites/people/pope06.png
+	pope07			sprites/people/pope07.png
+	pope08			sprites/people/pope08.png
+	pope09			sprites/people/pope09.png
+	pope10			sprites/people/pope10.png
+	pope11			sprites/people/pope11.png
+	popesit_u		sprites/people/posit_0.png
+	popesit_r		sprites/people/posit_1.png
+	popesit_d		sprites/people/posit_2.png
+	popesit_l		sprites/people/posit_3.png
+
+	cardinal00		sprites/people/cardinal00.png
+	cardinal01		sprites/people/cardinal01.png
+	cardinal02		sprites/people/cardinal02.png
+	cardinal03		sprites/people/cardinal03.png
+	cardinal04		sprites/people/cardinal04.png
+	cardinal05		sprites/people/cardinal05.png
+	cardinal06		sprites/people/cardinal06.png
+	cardinal07		sprites/people/cardinal07.png
+	cardinal08		sprites/people/cardinal08.png
+	cardinal09		sprites/people/cardinal09.png
+	cardinal10		sprites/people/cardinal10.png
+	cardinal11		sprites/people/cardinal11.png
+	cardinal12		sprites/people/cardinal12.png
+	cardinalsit_u		sprites/people/cardsit_0.png
+	cardinalsit_r		sprites/people/cardsit_1.png
+	cardinalsit_d		sprites/people/cardsit_2.png
+	cardinalsit_l		sprites/people/cardsit_3.png
 
 	monk00			sprites/people/monk00.png
 	monk01			sprites/people/monk01.png
@@ -475,7 +493,7 @@ section: sprites
 	body_woman1		sprites/people/wom01_hl.png
 	body_woman2		sprites/people/wom02_hl.png
 	body_oldman		sprites/people/oldman17.png
-	body_cardinal		sprites/people/av21.png
+	body_cardinal		sprites/people/cardinal13.png
 	body_follower		sprites/people/fo13.png
 	body_pope		sprites/people/pope13.png
 	body_king		sprites/people/king13.png
@@ -6423,6 +6441,71 @@ section: sequences
 
 	# FIXME!
 	quickname POPE_SLEEPING POPESIT_R
+
+	name CARDINAL_DOWN
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CARDINAL00
+		CARDINAL01
+		CARDINAL02
+	end
+
+	name CARDINAL_RIGHT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CARDINAL03
+		CARDINAL04
+		CARDINAL05
+	end
+
+	name CARDINAL_UP
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CARDINAL06
+		CARDINAL07
+		CARDINAL08
+	end
+
+	name CARDINAL_LEFT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		CARDINAL09
+		CARDINAL10
+		CARDINAL11
+	end
+
+	quickname CARDINALSIT_L CARDINALSIT_L
+	quickname CARDINALSIT_R CARDINALSIT_R
+	quickname CARDINALSIT_U CARDINALSIT_U
+	quickname CARDINALSIT_D CARDINALSIT_D
+
+
+	name CARDINAL_DEAD
+	speed 1
+	overlay BLOOD_OVERLAY
+	framelist:
+	#1 frames
+		CARDINAL12
+	end
+
+	# FIXME!
+	quickname CARDINAL_SLEEPING CARDINALSIT_R
 
 
 	name MONK_UP
@@ -14196,7 +14279,7 @@ section: tables
 		prince kingsit_u
 		man_pope popesit_u
 		man_priest flsit_u
-		man_cardinal avsit_u
+		man_cardinal cardinalsit_u
 		man_monk monksit_u
 		man_monk_sfrancis monksit_u
 		man_pilgrim monksit_u
@@ -14223,7 +14306,7 @@ section: tables
 		prince kingsit_d
 		man_pope popesit_d
 		man_priest flsit_d
-		man_cardinal avsit_d 
+		man_cardinal cardinalsit_d 
 		man_monk monksit_d
 		man_monk_sfrancis monksit_d
 		man_pilgrim monksit_d
@@ -14250,7 +14333,7 @@ section: tables
 		prince kingsit_l
 		man_pope popesit_l
 		man_priest flsit_l
-		man_cardinal avsit_l
+		man_cardinal cardinalsit_l
 		man_monk monksit_l
 		man_monk_sfrancis monksit_l
 		man_pilgrim monksit_l
@@ -14277,7 +14360,7 @@ section: tables
 		prince kingsit_r
 		man_pope popesit_r
 		man_priest flsit_r
-		man_cardinal avsit_r
+		man_cardinal cardinalsit_r
 		man_monk monksit_r
 		man_monk_sfrancis monksit_r
 		man_pilgrim monksit_r

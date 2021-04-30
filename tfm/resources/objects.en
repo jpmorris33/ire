@@ -748,10 +748,10 @@ section: characters
 	faction		medieval
 
 	name MAN_CARDINAL
-	left		P_LEFT
-	right		P_RIGHT
-	up		P_UP
-	down		P_DOWN
+	left		CARDINAL_LEFT
+	right		CARDINAL_RIGHT
+	up		CARDINAL_UP
+	down		CARDINAL_DOWN
 	hp		200
 	dexterity	10
 	strength	20000
@@ -773,31 +773,7 @@ section: characters
 	rank		priest
 	faction		medieval
 
-	name MAN_FAKECARDINAL
-	left		P_LEFT
-	right		P_RIGHT
-	up		P_UP
-	down		P_DOWN
-	hp		200
-	dexterity	10
-	strength	20000
-	intelligence	140
-	weight		60000
-	damage		6
-	description	"You see a Cardinal."
-	short		"man"
-	attack		close_attack
-	IfKilled	Bishop_Dies
-	IfHurt		Bishop_Hurt
-	ifhorrified	Follower_Horror
-	biological
-	solid
-	person
-	male
-	fragile
-	race		human
-	rank		priest
-	faction		medieval
+	alias MAN_FAKECARDINAL = MAN_CARDINAL
 
 	name MAN_POPE
 	left		POPE_LEFT
@@ -1181,10 +1157,10 @@ section: characters
 	horrific
 
 	name DEADCARDINAL
-	left		P_DEAD
-	right		P_DEAD
-	up		P_DEAD
-	down		P_DEAD
+	left		CARDINAL_DEAD
+	right		CARDINAL_DEAD
+	up		CARDINAL_DEAD
+	down		CARDINAL_DEAD
 	hp		100
 	weight		60000
 	description	"You see a dead cardinal."
@@ -15555,7 +15531,7 @@ section: characters
 	up		toaster_u
 	down		toaster_d
 	hp		30000
-	weight		5000
+	weight		1000
 	description	"You see a toaster."
 	short		"toaster"
 	solid
