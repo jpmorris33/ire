@@ -1,0 +1,134 @@
+function test_forloop
+private
+
+call test_for1
+call test_for2
+call test_for3
+call test_for4
+call test_for5
+call test_for6
+call test_for7
+
+end
+
+local
+
+#Normal loop
+
+function test_for1
+
+int result = 0
+int a
+
+for a = 1 to 10
+	add result + 1
+next a
+
+assert result = 10
+end
+
+
+# Altering the control variable mid-loop (fewer steps)
+
+function test_for2
+
+int result = 0
+int a
+
+for a = 1 to 10
+	add result + 1
+	add a + 1
+next a
+
+assert result = 5
+end
+
+
+# Altering the control variable mid-loop (extra step)
+
+function test_for3
+
+int result = 0
+int a
+
+for a = 1 to 10
+	add result + 1
+	if result = 3
+		add a - 1
+	endif
+next a
+
+assert result = 11
+end
+
+
+# Backwards loop
+
+function test_for4
+
+int result = 0
+int a
+
+for a = 10 to 1
+	add result + 1
+next a
+
+assert result = 10
+end
+
+
+# matching
+
+function test_for5
+
+int result = 0
+int a
+
+for a = 1 to 1
+	add result + 1
+next a
+
+assert result = 1
+end
+
+
+# nested
+
+function test_for6
+
+int result = 0
+int a
+int b
+
+for a = 1 to 10
+	for b = 1 to 10
+		add result + 1
+	next b
+next a
+
+assert result = 100
+end
+
+
+# wrongly-nested
+
+function test_for7
+
+int result = 0
+int a
+int b
+
+for a = 1 to 10
+	for b = 1 to 10
+		add result + 1
+	next a
+next b
+
+# Technically this is the wrong answer, but the parser works by
+# popping the last FOR loop off the stack so it will actually
+# compile to FOR A, FOR B, NEXT B, NEXT A
+
+assert result = 100
+end
+
+endlocal
