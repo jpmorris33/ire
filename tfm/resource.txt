@@ -468,9 +468,10 @@ section: sprites
 	head_noble		sprites/people/head04.png
 	head_woman		sprites/people/head05.png
 	head_oldman		sprites/people/head06.png
-	head_cardinal		sprites/people/head07.png
+	head_outlaw		sprites/people/head07.png
 	head_pope		sprites/people/head08.png
 	head_king		sprites/people/head09.png
+	head_cardinal		sprites/people/head20.png
 
 	pikedhead_player	sprites/people/head10.png
 	pikedhead_peasant	sprites/people/head11.png
@@ -479,9 +480,10 @@ section: sprites
 	pikedhead_noble		sprites/people/head14.png
 	pikedhead_woman		sprites/people/head15.png
 	pikedhead_oldman	sprites/people/head16.png
-	pikedhead_cardinal	sprites/people/head17.png
+	pikedhead_outlaw	sprites/people/head17.png
 	pikedhead_pope		sprites/people/head18.png
 	pikedhead_king		sprites/people/head19.png
+	pikedhead_cardinal	sprites/people/head20.png
 
 	body_player		sprites/people/man02_hl.png
 	body_playerf		sprites/people/womp_hl.png
@@ -13805,6 +13807,7 @@ section: sequences
 	quickname	head_woman
 	quickname	head_oldman
 	quickname	head_cardinal
+	quickname	head_outlaw
 	quickname	head_pope
 	quickname	head_king
 
@@ -13816,6 +13819,7 @@ section: sequences
 	quickname	pikedhead_woman
 	quickname	pikedhead_oldman
 	quickname	pikedhead_cardinal
+	quickname	pikedhead_outlaw
 	quickname	pikedhead_pope
 	quickname	pikedhead_king
 
@@ -14253,6 +14257,7 @@ section: scripts
 	code/test/intarray.pe
 	code/test/strarray.pe
 	code/test/checktime.pe
+	code/test/forloop.pe
 
 section: tables
 

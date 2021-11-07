@@ -14,6 +14,7 @@ White   - Light, or X-ray vision, or something else
 
 
 [page="start"]
+[iftime 0800-0900][goto="inchurch"]
 
 "Well met, $SIR.  I am Jon the apothecar.
  Are you interested in buying potions?"
@@ -30,6 +31,7 @@ White   - Light, or X-ray vision, or something else
 
 
 [page="startname"]
+[iftime 0800-0900][goto="inchurch"]
 [colour="#808080"]
 You see Jon the apothecar.
 [colour="#ffffff"]
@@ -45,6 +47,10 @@ You see Jon the apothecar.
 [linkto="bye"]
 [endpage]
 
+[page="inchurch"]
+"Not now!  I am listening to the words of the LORD!"
+[nextpage="exit"]
+[endpage]
 
 [page="gossip"]
 [set mawdor_disappearances]

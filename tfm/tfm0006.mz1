@@ -478,6 +478,471 @@ iMZ1r01
 		at 276 73
 		curdir 1
 
+	object STON9f945f8e-04d2-4480-a0f6-dff5d88b8e97
+		type STONEFLOOR10
+		at 444 143
+		curdir 0
+
+	object STON67937d4d-da67-4a09-b9da-21ae2f5acd3a
+		type STONEFLOOR10
+		at 447 143
+		curdir 3
+
+	object STON496a9973-c591-41ef-8b1b-d3d66d1d110e
+		type STONEFLOOR10
+		at 449 143
+		curdir 0
+
+	object STON70046dba-4c91-47c4-a909-a0bf01e502ad
+		type STONEFLOOR10
+		at 450 143
+		curdir 3
+
+	object STON3d0d8f0a-de7f-4435-b1b4-c0efb746a041
+		type STONEFLOOR10
+		at 452 143
+		curdir 0
+
+	object STON92f3d31f-4f3e-4c5d-8b8a-27192e53d0f8
+		type STONEFLOOR10
+		at 455 143
+		curdir 3
+
+	object STON692ecaff-4102-4469-a9c6-ee894c9af865
+		type STONEFLOOR10
+		at 441 144
+		curdir 0
+
+	object STONd4b4b840-5893-4372-a609-8bb8c3126594
+		type STONEFLOOR14
+		at 444 144
+		curdir 1
+
+	object STON01392955-8508-4964-a205-16387f57d757
+		type STONEFLOOR14
+		at 447 144
+		curdir 2
+
+	object STON40487c4e-b371-4578-8ccd-c377fc1d5da0
+		type STONEFLOOR14
+		at 449 144
+		curdir 1
+
+	object STON689a5b48-cede-49ca-99cb-2b08fdc24195
+		type STONEFLOOR14
+		at 450 144
+		curdir 2
+
+	object STON536d25d3-1a25-4386-bd89-99f252efbe83
+		type STONEFLOOR14
+		at 452 144
+		curdir 1
+
+	object STONfa071194-8e37-4dce-a32e-bdd129879a62
+		type STONEFLOOR14
+		at 455 144
+		curdir 2
+
+	object STON4db86b77-4e20-437e-9a9a-8fb0272b9837
+		type STONEFLOOR10
+		at 457 144
+		curdir 3
+
+	object STONeaf53971-e6ed-458a-b8a8-d0b87220d087
+		type STONEFLOOR10
+		at 436 145
+		curdir 0
+
+	object STON973c5851-65f9-4589-8d40-e102690d8cbe
+		type STONEFLOOR10
+		at 437 145
+		curdir 3
+
+	object STONf0643a7c-55f8-4eda-8561-e207183b156d
+		type STONEFLOOR10
+		at 439 145
+		curdir 0
+
+	object STON217057a4-ec86-410f-ba8e-b00d0ca4b92c
+		type STONEFLOOR14
+		at 441 145
+		curdir 1
+
+	object STON640d90b7-4b25-423a-b32f-512da5c326fa
+		type STONEFLOOR14
+		at 457 145
+		curdir 2
+
+	object STONab8ec53c-d7cb-404b-b02d-59a66b8bd790
+		type STONEFLOOR10
+		at 459 145
+		curdir 3
+
+	object STONba8c7ec3-09af-46d2-a6c4-d6c0b4f4952a
+		type STONEFLOOR10
+		at 435 146
+		curdir 0
+
+	object STONd78afd62-2da3-486e-b324-9097de355726
+		type STONEFLOOR14
+		at 436 146
+		curdir 1
+
+	object STON6782d82e-f6cb-4070-8085-afdf44e4b9c5
+		type STONEFLOOR14
+		at 437 146
+		curdir 2
+
+	object STON37e93f56-d9ce-4d96-909e-5cf76c3c32d5
+		type STONEFLOOR14
+		at 439 146
+		curdir 1
+
+	object STON9fa61bc9-5edf-4b29-8d38-dcc2194a2211
+		type STONEFLOOR14
+		at 459 146
+		curdir 2
+
+	object STONa28e9be9-4861-46d1-bd9c-b9aeb12a5e33
+		type STONEFLOOR10
+		at 460 146
+		curdir 3
+
+	object STON1c543015-dafc-417a-be27-c4272bdfe613
+		type STONEFLOOR10
+		at 433 147
+		curdir 0
+
+	object STON386f59b7-df90-47c2-a663-fe700b483c71
+		type STONEFLOOR14
+		at 435 147
+		curdir 1
+
+	object STON4b28992f-2f9e-4fb3-8c45-ef5c578753be
+		type STONEFLOOR14
+		at 445 147
+		curdir 0
+
+	object STONa2b4b0ae-c162-4cb7-ab04-bf8a74db1244
+		type STONEFLOOR14
+		at 446 147
+		curdir 3
+
+	object STONdaa683d3-cf7c-4b97-9152-4aedd1d2880e
+		type STONEFLOOR14
+		at 460 147
+		curdir 2
+
+	object STONa1ed377d-fc25-45b2-b2f9-851ad63931b5
+		type STONEFLOOR10
+		at 462 147
+		curdir 3
+
+	object STONf26410ea-98f0-4b4c-9e2d-2597aab2ade5
+		type STONEFLOOR10
+		at 431 148
+		curdir 0
+
+	object STONa305a421-7026-4ef8-b66e-b8f843b8cd05
+		type STONEFLOOR14
+		at 433 148
+		curdir 1
+
+	object STON3c0a52ef-1216-41ff-a8d8-ee02bf444f0f
+		type STONEFLOOR14
+		at 443 148
+		curdir 0
+
+	object STON3d9a097e-33aa-42c4-994f-99b98724e154
+		type STONEFLOOR18
+		at 444 148
+		curdir 1
+
+	object STON22a6f209-c3ad-4be9-9470-23db6aa1d4db
+		type STONEFLOOR10
+		at 445 148
+		curdir 1
+
+	object STON1d033990-16d6-4e63-8a16-d42a1744bbd0
+		type STONEFLOOR10
+		at 446 148
+		curdir 2
+
+	object STONf550f2b3-e924-4c74-bf9a-058f68235036
+		type STONEFLOOR18
+		at 447 148
+		curdir 1
+
+	object STON8de93f31-310e-495f-a8a1-a8f498ab061e
+		type STONEFLOOR14
+		at 448 148
+		curdir 3
+
+	object STONd5d7a67c-5f1a-46f3-846a-7a5c72bd6109
+		type STONEFLOOR14
+		at 454 148
+		curdir 0
+
+	object STON7b7b31a0-d5ef-4489-830f-ab177b0d6222
+		type STONEFLOOR18
+		at 455 148
+		curdir 1
+
+	object STONdcda2d43-16b0-46ce-b80d-f6af4e9b02fe
+		type STONEFLOOR14
+		at 456 148
+		curdir 3
+
+	object STON046b21ea-4fef-4535-b720-912d0bd73fa4
+		type STONEFLOOR14
+		at 462 148
+		curdir 2
+
+	object STON3310b932-f8c5-46ff-a1fd-de75e3455090
+		type STONEFLOOR10
+		at 463 148
+		curdir 3
+
+	object STON54bd9ed1-c88e-4f80-bbd9-c1edf9d5348c
+		type STONEFLOOR10
+		at 429 149
+		curdir 0
+
+	object STONbd396641-841e-4e1d-945f-e494a42717c1
+		type STONEFLOOR14
+		at 431 149
+		curdir 1
+
+	object STON1619454f-bf30-4880-9334-aad102b30b85
+		type STONEFLOOR14
+		at 441 149
+		curdir 0
+
+	object STON7f136c92-c9ef-417c-bf29-75d72c864fda
+		type STONEFLOOR18
+		at 442 149
+		curdir 1
+
+	object STON4315c0ea-12a5-43c3-83dd-fe52450520e4
+		type STONEFLOOR10
+		at 443 149
+		curdir 1
+
+	object STON7ff1a6b2-ba7d-4728-a1e7-9948743dcc71
+		type STONEFLOOR10
+		at 448 149
+		curdir 2
+
+	object STON1251a896-4614-4220-9315-d9dabe3fdfff
+		type STONEFLOOR18
+		at 449 149
+		curdir 1
+
+	object STON01df7e34-0f43-4205-9bff-db9397d699f3
+		type STONEFLOOR14
+		at 450 149
+		curdir 3
+
+	object STON6344e752-ba0a-4b5a-b1cb-3225590cc177
+		type STONEFLOOR14
+		at 453 149
+		curdir 0
+
+	object STON2c42a89c-9b80-4b6e-86d4-67311b008967
+		type STONEFLOOR10
+		at 454 149
+		curdir 1
+
+	object STON8bfcd97e-62d1-4c7b-9fef-3efc4a75cd83
+		type STONEFLOOR10
+		at 456 149
+		curdir 2
+
+	object STONe6033223-3b62-4a7d-a823-15e0d777e887
+		type STONEFLOOR14
+		at 457 149
+		curdir 3
+
+	object STON7d9dcb16-e410-427f-92d1-67407f8402cd
+		type STONEFLOOR14
+		at 463 149
+		curdir 2
+
+	object STON0fb4307e-ee1d-422a-9c5a-56628cc24664
+		type STONEFLOOR10
+		at 465 149
+		curdir 3
+
+	object STONb01b292a-dfe1-4cab-a425-cbc76abdf267
+		type STONEFLOOR10
+		at 428 150
+		curdir 0
+
+	object STON8e14ea3e-60ee-4ccc-aefd-2bfb11e77e46
+		type STONEFLOOR14
+		at 429 150
+		curdir 1
+
+	object STONc02f09a8-8533-4089-88c1-8941f17c666a
+		type STONEFLOOR14
+		at 437 150
+		curdir 0
+
+	object STONf5392542-542f-4dbd-a340-cf7bc512f173
+		type STONEFLOOR14
+		at 438 150
+		curdir 3
+
+	object STONe3b8c955-4d57-4786-a59e-fb535d866495
+		type STONEFLOOR14
+		at 440 150
+		curdir 0
+
+	object STON5ce95c27-47fa-44c1-97e7-a023433421b2
+		type STONEFLOOR10
+		at 441 150
+		curdir 1
+
+	object STONc2bd86e8-ef8e-42e4-bca7-832753087910
+		type STONEFLOOR10
+		at 450 150
+		curdir 2
+
+	object STONf9c194e8-9bd2-4c31-b8e9-c2949021c950
+		type STONEFLOOR18
+		at 451 150
+		curdir 1
+
+	object STONfc0da722-72e8-4ea9-8524-ff12ef6b7b6b
+		type STONEFLOOR18
+		at 452 150
+		curdir 1
+
+	object STON4e551511-82b3-43bb-bae6-89b541b9a4c9
+		type STONEFLOOR10
+		at 453 150
+		curdir 1
+
+	object STONb801b1c0-7876-46b2-bdc4-ddb4755ca4c0
+		type STONEFLOOR10
+		at 457 150
+		curdir 2
+
+	object STON897e2834-8137-417b-9d2d-d2db3440d225
+		type STONEFLOOR18
+		at 458 150
+		curdir 1
+
+	object STON61a4b786-23b5-47c2-b33d-2f5dc4a8e9b0
+		type STONEFLOOR14
+		at 459 150
+		curdir 3
+
+	object STONf82a8729-807b-4c64-aaf1-791277444565
+		type STONEFLOOR14
+		at 435 151
+		curdir 0
+
+	object STON72ac4630-335b-471b-a7e2-b740f9b6e6ee
+		type STONEFLOOR18
+		at 436 151
+		curdir 1
+
+	object STONa11f5dc6-4923-49e5-b8bc-4b604fe41865
+		type STONEFLOOR10
+		at 437 151
+		curdir 1
+
+	object STONa80c675e-4bef-478a-9c8d-0143a4bca71e
+		type STONEFLOOR10
+		at 438 151
+		curdir 2
+
+	object STON70932780-586a-4bf6-8a68-93d20fe0e77f
+		type STONEFLOOR18
+		at 439 151
+		curdir 1
+
+	object STONd2b6a525-69c9-4787-b682-5f67bd41ea16
+		type STONEFLOOR10
+		at 440 151
+		curdir 1
+
+	object STON77eef6a1-0b2d-4d26-ad3e-b5a56fcf369e
+		type STONEFLOOR10
+		at 459 151
+		curdir 2
+
+	object STON905434f5-a866-45aa-aa7d-f2103de978f3
+		type STONEFLOOR18
+		at 460 151
+		curdir 1
+
+	object STON00103dc1-cf9e-4dcc-b6b0-b2d0d4a5db4c
+		type STONEFLOOR14
+		at 461 151
+		curdir 3
+
+	object STON840f2251-3466-4b02-8289-f39080f9d80f
+		type STONEFLOOR14
+		at 465 151
+		curdir 2
+
+	object STON495ab5a9-22b1-40ba-b301-95ea7c0221c7
+		type STONEFLOOR10
+		at 467 151
+		curdir 3
+
+	object STON225f9a8b-519d-4e8b-9e51-2e30d0ef11c1
+		type STONEFLOOR10
+		at 427 152
+		curdir 0
+
+	object STON215c02f8-db5a-45c3-9058-1ab2c3265cc1
+		type STONEFLOOR14
+		at 428 152
+		curdir 1
+
+	object STON6ab50cf3-37c8-4ba6-8917-ed3fd54605d4
+		type STONEFLOOR14
+		at 433 152
+		curdir 0
+
+	object STON5358617a-bfe2-43ce-b10b-b99ef673e604
+		type STONEFLOOR18
+		at 434 152
+		curdir 1
+
+	object STON1d28ec0e-4bf4-4934-b599-2c37a97406a4
+		type STONEFLOOR10
+		at 435 152
+		curdir 1
+
+	object STONb1c0fe6f-bc95-483c-8daa-0d0f398f9f7e
+		type STONEFLOOR10
+		at 461 152
+		curdir 2
+
+	object STON7df4d883-0bc6-413c-bf46-eec30ed6bb88
+		type STONEFLOOR18
+		at 462 152
+		curdir 1
+
+	object STON7c5451d6-27de-499e-8fee-e22c7498fc64
+		type STONEFLOOR14
+		at 463 152
+		curdir 3
+
+	object STONbb95985d-3a44-438d-92fa-1fb8f5c33956
+		type STONEFLOOR14
+		at 432 153
+		curdir 0
+
+	object STON076fba87-4964-414b-9939-d08296866fd5
+		type STONEFLOOR10
+		at 433 153
+		curdir 1
+
 	decorative HUT00 at 450 153
 
 	decorative HUT01 at 451 153
@@ -492,9 +957,59 @@ iMZ1r01
 
 	decorative HUT02 at 456 153
 
+	object STON2d775926-112f-4052-8dd3-309be36764e4
+		type STONEFLOOR18
+		at 463 153
+		curdir 2
+
+	object STON55641bc8-3f14-494b-8d48-86a5650d156d
+		type STONEFLOOR14
+		at 467 153
+		curdir 2
+
+	object STON4d2fd312-e12d-4135-9102-a984fcf1e379
+		type STONEFLOOR10
+		at 468 153
+		curdir 3
+
+	object STON8d887d49-bcd0-46bc-b424-f9bf33442f0f
+		type STONEFLOOR10
+		at 426 154
+		curdir 0
+
+	object STON2d1be27a-86dd-404d-84d1-ca1290478a5a
+		type STONEFLOOR14
+		at 427 154
+		curdir 1
+
+	object STONb31e1084-ff05-475d-b91a-a1bdd7751944
+		type STONEFLOOR14
+		at 431 154
+		curdir 0
+
+	object STON71c7edff-34de-41bf-8b97-8e3185c472c5
+		type STONEFLOOR10
+		at 432 154
+		curdir 1
+
 	decorative HUT03 at 450 154
 
 	decorative HUT03 at 456 154
+
+	object STON75148c59-630a-4165-96b8-ad45162c8ddd
+		type STONEFLOOR10
+		at 463 154
+		curdir 2
+
+	object STON8c75765c-f26e-4932-9351-419b143195cb
+		type STONEFLOOR14
+		at 464 154
+		curdir 3
+
+	object STON7dc909e0-7f44-4d23-8fca-cf1411cdedcf
+		type STONEFLOOR18
+		at 431 155
+		curdir 3
 
 	decorative HUT03 at 450 155
 
@@ -510,13 +1025,78 @@ iMZ1r01
 
 	decorative HUT03 at 456 155
 
+	object STON686814e3-f479-4056-97d1-94cb71e05ce4
+		type STONEFLOOR18
+		at 464 155
+		curdir 2
+
+	object STON7f2a5ba1-803b-468c-90f5-35a5b89cf7ff
+		type STONEFLOOR10
+		at 425 156
+		curdir 0
+
+	object STON222c370a-f5d0-418a-ad76-96c6f3e9338b
+		type STONEFLOOR14
+		at 426 156
+		curdir 1
+
+	object STONc4259e4c-41c4-4939-8d9f-ea7be5dc89c6
+		type STONEFLOOR14
+		at 430 156
+		curdir 0
+
+	object STON5f1816dd-cdb1-469d-82f2-12ae27fdc709
+		type STONEFLOOR10
+		at 431 156
+		curdir 1
+
 	decorative HUT03 at 450 156
 
 	decorative HUT03 at 456 156
 
+	object STON3da30534-31f7-4684-b9d2-505d2eba1f4c
+		type STONEFLOOR10
+		at 464 156
+		curdir 2
+
+	object STONa44dc6c7-833e-437b-8578-dd294d4c4f36
+		type STONEFLOOR14
+		at 465 156
+		curdir 3
+
+	object STON22a56f6e-2e55-4d1e-b5ab-060ffbd288c3
+		type STONEFLOOR14
+		at 468 156
+		curdir 2
+
+	object STON6e0701a8-dc2a-40fb-bb84-5630ad2777b5
+		type STONEFLOOR10
+		at 469 156
+		curdir 3
+
+	object STON64b8e288-ad0e-490c-9c22-351edf0cbdc3
+		type STONEFLOOR14
+		at 430 157
+		curdir 2
+
+	object STON27e88147-1c94-4df0-b243-15b73f9039ba
+		type STONEFLOOR10
+		at 431 157
+		curdir 3
+
 	decorative HUT03 at 450 157
 
 	decorative HUT03 at 456 157
+
+	object STON594b1aae-2237-426d-a96f-572a54a989d3
+		type STONEFLOOR18
+		at 465 157
+		curdir 2
+
+	object STONf50f8016-547a-43a5-a1d0-531e34d377fa
+		type STONEFLOOR18
+		at 431 158
+		curdir 3
 
 	decorative HUT03 at 450 158
 
@@ -526,6 +1106,36 @@ iMZ1r01
 		curdir 0
 
 	decorative HUT03 at 456 158
+
+	object STONf6bb1427-af09-4d80-8aa1-fd70400e3a60
+		type STONEFLOOR10
+		at 464 158
+		curdir 0
+
+	object STON08cae77d-9e21-41fa-b48d-34e5d0b5746d
+		type STONEFLOOR14
+		at 465 158
+		curdir 1
+
+	object STON70de2e25-870e-495e-bd1e-467f01cf5975
+		type STONEFLOOR10
+		at 425 159
+		curdir 2
+
+	object STONe854425c-6799-4d87-a426-70e8b855023f
+		type STONEFLOOR14
+		at 426 159
+		curdir 3
+
+	object STONb8a92e7c-29c5-4dbe-91f7-94415c2f3d8d
+		type STONEFLOOR14
+		at 430 159
+		curdir 0
+
+	object STONcd6ca56b-0c27-42b3-a96d-a6012e3a059b
+		type STONEFLOOR10
+		at 431 159
+		curdir 1
 
 	decorative HUT04 at 450 159
 
@@ -537,11 +1147,178 @@ iMZ1r01
 
 	decorative HUT06 at 456 159
 
+	object STON4d0226cf-b369-4e28-b684-2de1594a04ee
+		type STONEFLOOR18
+		at 464 159
+		curdir 2
+
+	object STONa97cdd4a-2a51-493b-962c-9cc819974861
+		type STONEFLOOR14
+		at 468 159
+		curdir 0
+
+	object STONe9af0aa3-547b-409c-97c8-e6dfa11a3315
+		type STONEFLOOR10
+		at 469 159
+		curdir 1
+
+	object STON7acc182c-66a2-4abc-92af-8603a4c67254
+		type STONEFLOOR14
+		at 430 160
+		curdir 2
+
+	object STONa4ce86d3-af6f-46f5-88b0-6507bf335979
+		type STONEFLOOR10
+		at 431 160
+		curdir 3
+
+	object STONfd5a6764-e89c-42dc-b441-d98c3314ffac
+		type STONEFLOOR10
+		at 463 160
+		curdir 0
+
+	object STON50a9e3d1-4b49-4cc1-8207-f96460d35b99
+		type STONEFLOOR14
+		at 464 160
+		curdir 1
+
 	object STAId14a5edd-9445-478f-8afa-e9bef630e4d3
 		type STAIRS_DOWN
 		at 391 161
 		curdir 1
 		tag 5
+
+	object STONdef12277-9365-4181-9674-66a8f63c4dcc
+		type STONEFLOOR10
+		at 426 161
+		curdir 2
+
+	object STON3381f208-f2c9-4405-adfb-fbabdf738b56
+		type STONEFLOOR14
+		at 427 161
+		curdir 3
+
+	object STON2ae02c8e-f529-46cd-85b6-cdfd903596a8
+		type STONEFLOOR18
+		at 431 161
+		curdir 3
+
+	object STON0fa66383-221f-4771-9204-b34b09aa625a
+		type STONEFLOOR18
+		at 463 161
+		curdir 2
+
+	object STON335b12e8-ce74-40e1-a63e-ccb182be6a25
+		type STONEFLOOR14
+		at 467 161
+		curdir 0
+
+	object STON5653238f-b4ce-4428-be36-c8c123b0787f
+		type STONEFLOOR10
+		at 468 161
+		curdir 1
+
+	object STON4815bb53-b926-4b5a-b0fb-af647b9a0bb0
+		type STONEFLOOR14
+		at 431 162
+		curdir 2
+
+	object STON453ffed6-d928-4047-9211-fd0f0c58d13b
+		type STONEFLOOR10
+		at 432 162
+		curdir 3
+
+	object STON4001a7cf-1052-4d29-a864-68a083fa673a
+		type STONEFLOOR10
+		at 462 162
+		curdir 0
+
+	object STON259143e7-cbcf-4e5f-ba0f-440d41724611
+		type STONEFLOOR14
+		at 463 162
+		curdir 1
+
+	object STON5bccaeb5-627d-42f2-9afc-8db0dcb91f6a
+		type STONEFLOOR18
+		at 432 163
+		curdir 3
+
+	object WAAR818363ee-1575-41c5-a7de-37666a8af7c0
+		type WAARG_FEMALE
+		at 447 163
+		curdir 1
+
+	object STON12f57a2d-f30d-4364-8137-4431afd74d9b
+		type STONEFLOOR10
+		at 462 163
+		curdir 2
+
+	object STON46d7906b-a52e-461e-a2b1-fe427973d155
+		type STONEFLOOR14
+		at 463 163
+		curdir 3
+
+	object STON72a0cc34-b6eb-4a88-b850-6358bec7a389
+		type STONEFLOOR14
+		at 467 163
+		curdir 2
+
+	object STON6525b281-30c3-4297-89ad-471e5ec21fba
+		type STONEFLOOR10
+		at 468 163
+		curdir 3
+
+	object STON3f139346-e151-4def-afad-a88779af3b06
+		type STONEFLOOR10
+		at 426 164
+		curdir 0
+
+	object STON21057437-1f62-4893-b229-2b23d07b0248
+		type STONEFLOOR14
+		at 427 164
+		curdir 1
+
+	object STONae748fc0-fd6b-43e8-9c48-19b955565d65
+		type STONEFLOOR14
+		at 431 164
+		curdir 0
+
+	object STON6297be42-f58d-4631-b125-c0e152cb2c5b
+		type STONEFLOOR10
+		at 432 164
+		curdir 1
+
+	object WAAR5e0cc1f2-281b-492d-94cd-2176783cadd5
+		type WAARG_MALE
+		at 448 164
+		curdir 1
+
+	object WARGd5b903ab-64c3-4a9b-8b2e-cc30b0d4b80b
+		type WARG_XBOW_BOLTS
+		inside WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+		curdir 1
+		stats->owner WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+
+	object WARGafc492ed-7cf2-41d1-8a5f-6b97161c9d15
+		type WARG_XBOW
+		inside WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+		curdir 1
+		stats->owner WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+
+	object WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+		type WAARG_SOLDIER
+		at 450 164
+		curdir 1
+
+	object STON0b5b1eac-39f4-49a7-936d-112351fbf397
+		type STONEFLOOR10
+		at 463 164
+		curdir 2
+
+	object STON1ff3e099-c01b-45c7-a7ba-531ffb2793e8
+		type STONEFLOOR14
+		at 464 164
+		curdir 3
 
 	object SHEE0dc0ec51-e80a-4ceb-b27b-6dc5a319c78d
 		type SHEEP
@@ -590,15 +1367,42 @@ iMZ1r01
 		at 396 165
 		curdir 0
 
-	object WAAR818363ee-1575-41c5-a7de-37666a8af7c0
-		type WAARG_FEMALE
-		at 446 165
+	object STON7d16eb0a-be59-4ed7-bec3-9911c391ba2a
+		type STONEFLOOR18
+		at 431 165
+		curdir 3
+
+	object WARG98ee00f3-426c-458e-858c-b3bc55e604e0
+		type WARG_XBOW_BOLTS
+		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+		curdir 1
+		stats->owner WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+
+	object WARG48acd6ca-cbdb-4026-bb31-00e6129aad0a
+		type WARG_XBOW
+		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+		curdir 1
+		stats->owner WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+
+	object WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+		type WAARG_SOLDIER
+		at 449 165
 		curdir 1
 
-	object WAAR5e0cc1f2-281b-492d-94cd-2176783cadd5
-		type WAARG_MALE
-		at 448 165
-		curdir 1
+	object STON07e6760a-c787-4815-9b61-a1d7c7d17313
+		type STONEFLOOR18
+		at 464 165
+		curdir 2
+
+	object STONe8b1509f-deb5-47fa-80aa-979ab4d506b9
+		type STONEFLOOR14
+		at 468 165
+		curdir 2
+
+	object STON0f952bf7-f0d9-4fd4-bd24-419d0a4c741b
+		type STONEFLOOR10
+		at 469 165
+		curdir 3
 
 	object FENC21c3a26a-2f78-48a3-9de9-ce3af6245117
 		type FENCE2
@@ -615,39 +1419,30 @@ iMZ1r01
 		at 394 166
 		curdir 2
 
-	object WARG98ee00f3-426c-458e-858c-b3bc55e604e0
-		type WARG_XBOW_BOLTS
-		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
-		curdir 1
-		stats->owner WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
+	object STON9e4aa051-fa0b-4e71-a61b-42c291da24aa
+		type STONEFLOOR10
+		at 425 166
+		curdir 0
 
-	object WARG48acd6ca-cbdb-4026-bb31-00e6129aad0a
-		type WARG_XBOW
-		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
-		curdir 1
-		stats->owner WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
-
-	object WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
-		type WAARG_SOLDIER
-		at 447 166
+	object STON6b3b253e-e55f-4ad5-9eed-361fe8752dd4
+		type STONEFLOOR14
+		at 426 166
 		curdir 1
 
-	object WARGd5b903ab-64c3-4a9b-8b2e-cc30b0d4b80b
-		type WARG_XBOW_BOLTS
-		inside WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
-		curdir 1
-		stats->owner WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+	object STON02cfc692-4abe-44b6-9eab-09f3226d8192
+		type STONEFLOOR14
+		at 430 166
+		curdir 0
 
-	object WARGafc492ed-7cf2-41d1-8a5f-6b97161c9d15
-		type WARG_XBOW
-		inside WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
+	object STON9ed4b6f3-b618-43e8-87b5-e0ea79c045c8
+		type STONEFLOOR10
+		at 431 166
 		curdir 1
-		stats->owner WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
 
-	object WAAR873a1fbb-a322-41aa-83c1-3f3199d71946
-		type WAARG_SOLDIER
-		at 449 166
-		curdir 1
+	object STONf5b275ac-ce36-4d2f-9980-ccfcb450c10f
+		type STONEFLOOR18
+		at 464 166
+		curdir 2
 
 	object FENCffb6d8ba-47b7-42b0-8e20-0ed743995817
 		type FENCE2
@@ -657,6 +1452,26 @@ iMZ1r01
 	object FENC044d2c45-314c-4192-9ee3-1ff691cbe35d
 		type FENCE2
 		at 394 167
+		curdir 3
+
+	object STONed1d4c7e-f2cc-4954-80fa-c6e11d10295b
+		type STONEFLOOR14
+		at 430 167
+		curdir 2
+
+	object STONfb25dd34-926e-42bf-9e24-363806ba5023
+		type STONEFLOOR10
+		at 431 167
+		curdir 3
+
+	object STONdeaeadf1-7a22-416a-8643-c474073eb2a8
+		type STONEFLOOR10
+		at 464 167
+		curdir 2
+
+	object STONc2820526-66cc-4600-b5a7-45f028aecfb7
+		type STONEFLOOR14
+		at 465 167
 		curdir 3
 
 	object FENC08f41c33-9998-4664-8818-911896a11ad0
@@ -674,6 +1489,41 @@ iMZ1r01
 		at 394 168
 		curdir 2
 
+	object STON503a53b5-6cb3-466c-9104-f2644890116f
+		type STONEFLOOR10
+		at 425 168
+		curdir 2
+
+	object STON3cfd8ec5-e048-4f78-a091-268ba6d6dd2c
+		type STONEFLOOR14
+		at 426 168
+		curdir 3
+
+	object STONaec68779-66bf-4438-815c-6b8beb3db282
+		type STONEFLOOR14
+		at 431 168
+		curdir 2
+
+	object STONea521630-7cc2-417d-ba15-a3c4a324024c
+		type STONEFLOOR10
+		at 432 168
+		curdir 3
+
+	object STONec1365d1-99a2-4956-a847-5ab2cd514b80
+		type STONEFLOOR18
+		at 465 168
+		curdir 2
+
+	object STON9550ef74-743f-42b9-a6bd-4c9330f6631c
+		type STONEFLOOR14
+		at 469 168
+		curdir 2
+
+	object STONfe0b2e6a-f544-4081-b682-4783a2556c42
+		type STONEFLOOR10
+		at 470 168
+		curdir 3
+
 	object FENC9632cb28-91fe-4262-94a5-d8a373e425bc
 		type FENCE2_CORNER
 		at 390 169
@@ -689,6 +1539,26 @@ iMZ1r01
 		at 394 169
 		curdir 1
 
+	object STON1763a389-8253-47fd-b3ec-154e9df7cb85
+		type STONEFLOOR10
+		at 426 169
+		curdir 2
+
+	object STON262545f4-9fdf-4db3-ab0a-8edc15fd243f
+		type STONEFLOOR14
+		at 427 169
+		curdir 3
+
+	object STONb8e02233-5cc2-49c9-b14a-075bd6e94bf0
+		type STONEFLOOR18
+		at 432 169
+		curdir 3
+
+	object STONb1de4557-6b65-4385-8355-4dc3724fcfae
+		type STONEFLOOR18
+		at 465 169
+		curdir 2
+
 	object SHEE40845ee9-6144-4d15-8875-e7d2fdcf27aa
 		type SHEEP
 		inside EGG_b04005f5-d667-45b6-b776-5b956128a780
@@ -699,6 +1569,36 @@ iMZ1r01
 		type EGG_OBJECT(SHEEP)
 		at 395 170
 		curdir 0
+
+	object STONb1b48fbb-4d24-4411-8ad5-35086863305e
+		type STONEFLOOR10
+		at 427 170
+		curdir 2
+
+	object STON256777e3-6442-4e45-837c-e975346fb58e
+		type STONEFLOOR14
+		at 428 170
+		curdir 3
+
+	object STONb81ce395-27e2-4d66-874b-16205720554e
+		type STONEFLOOR14
+		at 432 170
+		curdir 2
+
+	object STONd65322c6-1b8a-442f-bd6f-895c074a8aa2
+		type STONEFLOOR18
+		at 433 170
+		curdir 0
+
+	object STON44200588-5dda-4b7c-81a1-e2f90182801c
+		type STONEFLOOR10
+		at 434 170
+		curdir 3
+
+	object STON7b860623-fda4-49ad-9f49-8318489e7fd1
+		type STONEFLOOR18
+		at 465 170
+		curdir 2
 
 	object BUNNf06008a4-5c23-46ec-9cd2-3d32fa859823
 		type BUNNY
@@ -711,11 +1611,731 @@ iMZ1r01
 		at 389 171
 		curdir 0
 
+	object STON2727eaee-828d-4f96-ab0f-d6526ff82618
+		type STONEFLOOR18
+		at 434 171
+		curdir 3
+
+	object STON21a20ee8-beae-429e-a04f-027d052b7946
+		type STONEFLOOR10
+		at 464 171
+		curdir 0
+
+	object STON68c7be2e-69ae-4165-873f-821e46a34074
+		type STONEFLOOR14
+		at 465 171
+		curdir 1
+
+	object STONd574e288-3c8e-4375-8b83-53fc714e05ec
+		type STONEFLOOR14
+		at 469 171
+		curdir 0
+
+	object STONdcdde8de-711f-44c9-b0f1-8501364fdfae
+		type STONEFLOOR10
+		at 470 171
+		curdir 1
+
 	object TARGd6122956-29fb-4864-922f-4bd25c78e0a5
 		type TARGET
 		at 393 172
 		curdir 1
 		tag 4
+
+	object STONd88045e8-4a60-49ca-9aa3-14b00cb2f85b
+		type STONEFLOOR10
+		at 428 172
+		curdir 2
+
+	object STON8ccf2114-c902-4201-9148-bf57bd92194d
+		type STONEFLOOR14
+		at 429 172
+		curdir 3
+
+	object STONe594558e-415a-479d-9fda-bc6dd803168e
+		type STONEFLOOR14
+		at 434 172
+		curdir 2
+
+	object STONaa5d3149-e659-4b35-ab79-d93c287a8258
+		type STONEFLOOR10
+		at 435 172
+		curdir 3
+
+	object STON2505a2e4-fede-445c-9edd-81abe8cdba2c
+		type STONEFLOOR18
+		at 464 172
+		curdir 2
+
+	object STON39fdd208-5d11-47ea-b9ce-632fccd288f1
+		type STONEFLOOR18
+		at 435 173
+		curdir 3
+
+	object STON9d7e22d9-1ff6-451a-929b-852fbd520335
+		type STONEFLOOR10
+		at 463 173
+		curdir 0
+
+	object STON689a646e-e14e-4aa9-a236-5febed4644a2
+		type STONEFLOOR14
+		at 464 173
+		curdir 1
+
+	object STON526bebf1-fd23-4867-abdb-b19da636c223
+		type STONEFLOOR14
+		at 468 173
+		curdir 0
+
+	object STON971c808c-911c-4005-9edc-12b7c159776e
+		type STONEFLOOR10
+		at 469 173
+		curdir 1
+
+	object STON9d42e105-ac0c-4c46-8f79-46b78dea607c
+		type STONEFLOOR10
+		at 428 174
+		curdir 0
+
+	object STONfbd8fec4-1adc-4144-bba1-f8b51b9cbf54
+		type STONEFLOOR14
+		at 429 174
+		curdir 1
+
+	object STON3f460628-b5f4-43a2-a045-62c5230bb0b3
+		type STONEFLOOR14
+		at 434 174
+		curdir 0
+
+	object STON4fafc761-6328-4228-a8f3-08613b5b711d
+		type STONEFLOOR10
+		at 435 174
+		curdir 1
+
+	object STON39e2bf7a-06c6-49d4-b8dc-554e910fe4a0
+		type STONEFLOOR18
+		at 463 174
+		curdir 2
+
+	object STON83ca52a3-56a2-4622-85c8-5a5450e276d8
+		type STONEFLOOR10
+		at 426 175
+		curdir 0
+
+	object STONe149c2c0-4dbd-4b60-857f-f6fa72dca94a
+		type STONEFLOOR14
+		at 428 175
+		curdir 1
+
+	object STONb55bba69-79e5-42df-b90c-03193c04d6ac
+		type STONEFLOOR18
+		at 434 175
+		curdir 3
+
+	object STON05fc1a81-4b04-4c01-91e1-7d486b233a86
+		type STONEFLOOR10
+		at 463 175
+		curdir 2
+
+	object STONef032bfa-2c46-4246-acac-cd904c18c7a6
+		type STONEFLOOR14
+		at 464 175
+		curdir 3
+
+	object STONd500449a-ad01-4672-b98b-bc7a1a268ca6
+		type STONEFLOOR14
+		at 468 175
+		curdir 2
+
+	object STONfdd5999a-4bb5-4164-9d87-c57812ad8b0d
+		type STONEFLOOR10
+		at 469 175
+		curdir 3
+
+	object STONecf7a398-50ff-4293-8666-ee154f16c398
+		type STONEFLOOR10
+		at 425 176
+		curdir 0
+
+	object STON288fdf28-6062-4fd9-9f0d-dc463e4f2c7d
+		type STONEFLOOR14
+		at 426 176
+		curdir 1
+
+	object STONb68621c6-5cf4-46fb-b8a3-b558fe984ff1
+		type STONEFLOOR14
+		at 433 176
+		curdir 0
+
+	object STONdd06a96b-4d8a-45cc-828e-0cc717694761
+		type STONEFLOOR10
+		at 434 176
+		curdir 1
+
+	object STONaea46804-e81a-4cdf-b665-e8f8f0d6d43f
+		type STONEFLOOR18
+		at 464 176
+		curdir 2
+
+	object STON4e69380d-4247-4733-83ee-206a0dd86a3c
+		type STONEFLOOR14
+		at 469 176
+		curdir 2
+
+	object STONca8e6bd0-ccfd-4420-b314-e0a7a6d994fe
+		type STONEFLOOR10
+		at 470 176
+		curdir 3
+
+	object STONf35a4489-7eb1-4cbd-8a9e-670ca89af453
+		type STONEFLOOR14
+		at 432 177
+		curdir 0
+
+	object STONfb5bfdbc-be1d-4abe-ac4d-e533bf8fe648
+		type STONEFLOOR10
+		at 433 177
+		curdir 1
+
+	object STONba2d98e2-d5ea-4a52-8a8a-65b20d5fe6ed
+		type STONEFLOOR18
+		at 464 177
+		curdir 2
+
+	object STON0f4feb2d-f798-4a11-8735-58c22ec23d0a
+		type STONEFLOOR18
+		at 432 178
+		curdir 3
+
+	object STON4c60990f-3e88-4c38-885b-988800a69d08
+		type STONEFLOOR10
+		at 463 178
+		curdir 0
+
+	object STON875713ee-f668-4b8c-a7de-772a63103829
+		type STONEFLOOR14
+		at 464 178
+		curdir 1
+
+	object STONff4b9715-1a05-48e7-a178-40c98e4c44e6
+		type STONEFLOOR14
+		at 469 178
+		curdir 0
+
+	object STON721c3ef4-ae89-4125-8e85-9c553a62391d
+		type STONEFLOOR10
+		at 470 178
+		curdir 1
+
+	object STON1673df2f-0e43-4a3e-a634-52ab4051e30e
+		type STONEFLOOR10
+		at 425 179
+		curdir 2
+
+	object STONd03e70dd-0d0b-457f-9390-68c50a0d293a
+		type STONEFLOOR14
+		at 426 179
+		curdir 3
+
+	object STON13170786-2826-4620-8e3d-b96df5699d9f
+		type STONEFLOOR14
+		at 431 179
+		curdir 0
+
+	object STONd136f048-99f1-4611-b99f-f975f5114f55
+		type STONEFLOOR10
+		at 432 179
+		curdir 1
+
+	object STONe80c8fe6-835b-47b1-8a58-2ac1594b5494
+		type STONEFLOOR10
+		at 458 179
+		curdir 0
+
+	object STON7bfc8e57-107b-4daf-ace8-e88928f12e5d
+		type STONEFLOOR18
+		at 459 179
+		curdir 0
+
+	object STONe671792b-cc55-4c5c-8ca5-e6646b3b2fc6
+		type STONEFLOOR10
+		at 460 179
+		curdir 3
+
+	object STONfd9b871a-81d6-4c8a-963e-252ea77c45b7
+		type STONEFLOOR10
+		at 461 179
+		curdir 0
+
+	object STON03a8905d-3c28-414b-8318-24784a0cead7
+		type STONEFLOOR18
+		at 462 179
+		curdir 0
+
+	object STON240c7ae7-189c-444c-9d0d-8b530f2814db
+		type STONEFLOOR14
+		at 463 179
+		curdir 1
+
+	object STON6af7f9bb-2297-4e06-8993-b4a7413517fd
+		type STONEFLOOR18
+		at 431 180
+		curdir 3
+
+	object STONfdd6134c-b47f-4127-ab8e-fe684e82aaea
+		type STONEFLOOR10
+		at 439 180
+		curdir 0
+
+	object STONda551a98-83f0-45e5-b5d3-52855faa662d
+		type STONEFLOOR18
+		at 440 180
+		curdir 0
+
+	object STONb6eaa840-d8c7-454d-a80b-c50ed22078db
+		type STONEFLOOR10
+		at 441 180
+		curdir 3
+
+	object STONec4ef215-5b4e-4ddd-841a-50d2af40577c
+		type STONEFLOOR10
+		at 457 180
+		curdir 0
+
+	object STONb333b593-9f2f-43d1-b5bf-ca37e03ec337
+		type STONEFLOOR14
+		at 458 180
+		curdir 1
+
+	object STONf1c27769-c159-42c3-bd5b-72b8f6de5db0
+		type STONEFLOOR14
+		at 460 180
+		curdir 2
+
+	object STON5aaecf35-72db-4cda-b61a-727153515ebc
+		type STONEFLOOR14
+		at 461 180
+		curdir 1
+
+	object STONb7f77290-bbf9-4a59-95c6-089de58b2ae8
+		type STONEFLOOR14
+		at 468 180
+		curdir 0
+
+	object STON4d0aeeec-50b5-4a70-8716-346ad847084b
+		type STONEFLOOR10
+		at 469 180
+		curdir 1
+
+	object STON33ca1a0c-8180-44f7-abfc-c8d31d0a10d8
+		type STONEFLOOR14
+		at 431 181
+		curdir 2
+
+	object STONc7e017d4-cbb1-4345-8600-adcf4e6954a3
+		type STONEFLOOR10
+		at 432 181
+		curdir 3
+
+	object STON7058c208-c37d-40b2-a7d4-af89685695c5
+		type STONEFLOOR10
+		at 437 181
+		curdir 0
+
+	object STONeb0557f9-15d3-4557-bab8-215c456c19d5
+		type STONEFLOOR18
+		at 438 181
+		curdir 0
+
+	object STON8c927a58-5b39-4f1e-b6f1-5706e4d1054a
+		type STONEFLOOR14
+		at 439 181
+		curdir 1
+
+	object STONa236a9a2-3552-4994-9e4b-ea40d92ec0b8
+		type STONEFLOOR14
+		at 441 181
+		curdir 2
+
+	object STON0604c329-7768-4535-948c-8e868f407fc4
+		type STONEFLOOR18
+		at 442 181
+		curdir 0
+
+	object STONd1c8c0b0-87f4-4ca1-b409-367c7ef63a16
+		type STONEFLOOR10
+		at 443 181
+		curdir 3
+
+	object STONf8b46878-6661-470e-b0e9-7757c2989f91
+		type STONEFLOOR10
+		at 455 181
+		curdir 0
+
+	object STONb21f4776-4a9c-434e-afa3-9cb82a0a473b
+		type STONEFLOOR18
+		at 456 181
+		curdir 0
+
+	object STONa92144b7-d306-4743-b115-423f89a53553
+		type STONEFLOOR14
+		at 457 181
+		curdir 1
+
+	object STONc0d34575-0a5f-4230-b399-d9b8d6f4248e
+		type STONEFLOOR14
+		at 467 181
+		curdir 0
+
+	object STON21aff8d6-dd31-43cd-a27c-acf7a7cfc78b
+		type STONEFLOOR10
+		at 468 181
+		curdir 1
+
+	object STON46e2bb02-812a-47de-bc82-c58ee27bc56b
+		type STONEFLOOR10
+		at 426 182
+		curdir 2
+
+	object STONcf71de1e-e0fc-41c0-806c-8cb49aa1c97f
+		type STONEFLOOR14
+		at 427 182
+		curdir 3
+
+	object STON455135ab-db85-4a2a-9fd7-d8838fb3d93e
+		type STONEFLOOR14
+		at 432 182
+		curdir 2
+
+	object STONff8fe3c2-5bc9-4f61-8e8f-285053e8e12d
+		type STONEFLOOR10
+		at 433 182
+		curdir 3
+
+	object STON8ac6d37d-714d-493b-a881-94f96b95eb4e
+		type STONEFLOOR10
+		at 436 182
+		curdir 0
+
+	object STON215c4480-160e-4451-b625-eba15f6fd237
+		type STONEFLOOR14
+		at 437 182
+		curdir 1
+
+	object STON8bd56a14-49bc-4df5-85d0-0bf9d52dc954
+		type STONEFLOOR14
+		at 443 182
+		curdir 2
+
+	object STON59b0cd1f-73e9-495c-a925-fd9c46d67de0
+		type STONEFLOOR18
+		at 444 182
+		curdir 0
+
+	object STONaa4e7472-a355-4570-a4fd-9f10928c8c5a
+		type STONEFLOOR10
+		at 445 182
+		curdir 3
+
+	object STON792837dc-2a9b-4f64-8a3a-184e9c342004
+		type STONEFLOOR10
+		at 453 182
+		curdir 0
+
+	object STONe3963f71-1b42-4c91-a082-d3cdaf9e82ed
+		type STONEFLOOR18
+		at 454 182
+		curdir 0
+
+	object STON1ba1e393-1bb8-409e-a757-7ed3f428aaed
+		type STONEFLOOR14
+		at 455 182
+		curdir 1
+
+	object STON1df3a323-a847-4e28-adc8-4301da538650
+		type STONEFLOOR14
+		at 465 182
+		curdir 0
+
+	object STON88164e1d-1c2c-40cb-9ae4-8148f9465c71
+		type STONEFLOOR10
+		at 467 182
+		curdir 1
+
+	object STON95c5c911-abb2-466b-8137-92340f28f9b3
+		type STONEFLOOR18
+		at 433 183
+		curdir 3
+
+	object STONcc40f517-10ba-4447-99d0-ffac4abd0d59
+		type STONEFLOOR10
+		at 434 183
+		curdir 0
+
+	object STON2158c43d-0519-4c6e-aea3-20e4a5b4d277
+		type STONEFLOOR18
+		at 435 183
+		curdir 0
+
+	object STON275b0db8-edd7-421b-a719-895f6c9a57d9
+		type STONEFLOOR14
+		at 436 183
+		curdir 1
+
+	object STON4d41f0a3-e768-446f-97fd-1be2bae5e2c3
+		type STONEFLOOR14
+		at 445 183
+		curdir 2
+
+	object STONbbd6cf44-1bdc-4f52-8a91-02da4b3d53e6
+		type STONEFLOOR18
+		at 446 183
+		curdir 0
+
+	object STON979bdb97-2126-44d4-9366-45685aee9f7f
+		type STONEFLOOR10
+		at 447 183
+		curdir 3
+
+	object STON5416aeb2-11f0-45b5-8bda-f15f8d641b5b
+		type STONEFLOOR10
+		at 451 183
+		curdir 0
+
+	object STON1fb89e8f-c54b-476d-8d57-5ff67b23c6de
+		type STONEFLOOR18
+		at 452 183
+		curdir 0
+
+	object STON9cd51d5b-9e0e-4919-af07-e0276b340e67
+		type STONEFLOOR14
+		at 453 183
+		curdir 1
+
+	object STON3ac0069d-5098-4b28-86a7-9a34202ec2f2
+		type STONEFLOOR14
+		at 464 183
+		curdir 0
+
+	object STONc943f262-693a-4e36-9963-3ad26373a9bd
+		type STONEFLOOR10
+		at 465 183
+		curdir 1
+
+	object STON7af35cd1-dc19-4560-973e-880845ea1670
+		type STONEFLOOR10
+		at 427 184
+		curdir 2
+
+	object STON90f06ce6-c594-4f90-acd4-d320c643e169
+		type STONEFLOOR14
+		at 428 184
+		curdir 3
+
+	object STON6b648eb5-0951-4528-813b-1c739d132fe3
+		type STONEFLOOR14
+		at 433 184
+		curdir 2
+
+	object STON87b2bf00-b218-480c-b153-ece94432b962
+		type STONEFLOOR14
+		at 434 184
+		curdir 1
+
+	object STONcd5638f5-23af-4133-a62e-d53fc3dd592c
+		type STONEFLOOR14
+		at 447 184
+		curdir 2
+
+	object STONe904f10a-3556-482e-ad44-4d3d4bd8f7e0
+		type STONEFLOOR18
+		at 448 184
+		curdir 0
+
+	object STONd2fb6d30-674e-40b0-8c6b-09a00cd1e05a
+		type STONEFLOOR18
+		at 449 184
+		curdir 0
+
+	object STON3ad47f40-ca89-414b-89f9-d311183cc832
+		type STONEFLOOR18
+		at 450 184
+		curdir 0
+
+	object STONda2ef2bc-854c-4613-80e0-f3c589996245
+		type STONEFLOOR14
+		at 451 184
+		curdir 1
+
+	object STONb7e140d5-de29-49c7-a3c3-e06616a94bfb
+		type STONEFLOOR14
+		at 461 184
+		curdir 0
+
+	object STONa68eddbb-5a80-4a44-a806-09811f0947d2
+		type STONEFLOOR10
+		at 464 184
+		curdir 1
+
+	object STONdae5d711-a13f-410b-9dbc-ae3697c10c51
+		type STONEFLOOR10
+		at 428 185
+		curdir 2
+
+	object STONb239a6c1-5263-4e7b-b262-e5a2fd5558ec
+		type STONEFLOOR14
+		at 429 185
+		curdir 3
+
+	object STON693cf079-6382-4ab4-9ff8-ebad8acc2dba
+		type STONEFLOOR14
+		at 440 185
+		curdir 0
+
+	object STON4ba33f25-1d56-4cbd-bf97-392c7d95b62b
+		type STONEFLOOR14
+		at 441 185
+		curdir 3
+
+	object STON7ee422bb-0fd7-495a-8dc5-52d21ff68fbd
+		type STONEFLOOR14
+		at 458 185
+		curdir 0
+
+	object STONab51a65d-d54e-47a8-8402-9d08ca9feeb1
+		type STONEFLOOR10
+		at 461 185
+		curdir 1
+
+	object STON3776539a-222b-44da-9ced-11d07a22f3a4
+		type STONEFLOOR14
+		at 439 186
+		curdir 0
+
+	object STON80b10e07-3b14-4eec-b456-02733c17116c
+		type STONEFLOOR10
+		at 440 186
+		curdir 1
+
+	object STON2d688ec6-2b56-467a-800b-08c55c54242f
+		type STONEFLOOR10
+		at 441 186
+		curdir 2
+
+	object STONc5acf8e2-5ee9-4c38-b5a1-2dc0c44c1ea4
+		type STONEFLOOR14
+		at 443 186
+		curdir 3
+
+	object STON83f22570-2545-4a27-8179-3c664f984223
+		type STONEFLOOR14
+		at 455 186
+		curdir 0
+
+	object STON46553f51-9bcf-49f7-9c8b-086b718ad410
+		type STONEFLOOR10
+		at 458 186
+		curdir 1
+
+	object STON56dc02cf-128c-40e8-b8d6-8d5863c9f47e
+		type STONEFLOOR10
+		at 429 187
+		curdir 2
+
+	object STONa153369d-f797-4fa7-ab64-15aca96cf84a
+		type STONEFLOOR14
+		at 430 187
+		curdir 3
+
+	object STONca4aa7ae-4d04-4980-8b0b-adf6c117ae09
+		type STONEFLOOR14
+		at 436 187
+		curdir 0
+
+	object STON12d80362-376e-41cf-a728-7519a870d062
+		type STONEFLOOR10
+		at 439 187
+		curdir 1
+
+	object STON855089d1-4c94-4a68-9644-f6a42c45728c
+		type STONEFLOOR10
+		at 443 187
+		curdir 2
+
+	object STON2c7bce1d-9eab-46ad-9f33-25a65909c4c2
+		type STONEFLOOR14
+		at 446 187
+		curdir 3
+
+	object STON671d1e1d-4668-4362-ae4e-053764262191
+		type STONEFLOOR14
+		at 454 187
+		curdir 0
+
+	object STONc2a7a285-d518-496d-86d8-f780cd045f0e
+		type STONEFLOOR10
+		at 455 187
+		curdir 1
+
+	object STON38f90d95-c5e7-4b3c-80ef-90404926c481
+		type STONEFLOOR10
+		at 430 188
+		curdir 2
+
+	object STONc02228e5-e012-45be-a768-4aa8339c5e2c
+		type STONEFLOOR14
+		at 431 188
+		curdir 3
+
+	object STON69e2ea58-248a-40dc-951d-596b66b93a7a
+		type STONEFLOOR14
+		at 434 188
+		curdir 0
+
+	object STONd88bea18-887a-4da0-93b4-7e9264615780
+		type STONEFLOOR10
+		at 436 188
+		curdir 1
+
+	object STONa36b0d7d-c1ee-42e5-8e0e-9be2426d3425
+		type STONEFLOOR10
+		at 446 188
+		curdir 2
+
+	object STON09bc7c4f-7ec3-4bed-a5ba-c25a9e2ca005
+		type STONEFLOOR14
+		at 448 188
+		curdir 3
+
+	object STON75965e4e-ea02-44df-a568-220683db1bc3
+		type STONEFLOOR14
+		at 451 188
+		curdir 0
+
+	object STON3cc9ea18-8e3b-4a4c-a148-961b822a8187
+		type STONEFLOOR10
+		at 454 188
+		curdir 1
+
+	object STONe329801f-8bf6-46ae-8ebc-8486411ddcbb
+		type STONEFLOOR10
+		at 431 189
+		curdir 2
+
+	object STON5887e5b5-3d58-4df2-bec5-5379eb447f55
+		type STONEFLOOR10
+		at 434 189
+		curdir 1
+
+	object STON0c4120c0-d5b8-4c87-960e-683b5ef3a486
+		type STONEFLOOR10
+		at 448 189
+		curdir 2
+
+	object STONf9b5c42c-b542-4a70-803b-3f49484d8ba0
+		type STONEFLOOR10
+		at 451 189
+		curdir 1
 
 	object STON5fa2da69-4d3a-4c45-8327-672c5a89ff72
 		type STONEFLOOR10

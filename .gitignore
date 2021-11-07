@@ -1,6 +1,7 @@
 *.o
 *.a
 *.bak
+tfm.jug
 tools/
 ire-ed
 ire-engine

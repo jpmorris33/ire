@@ -16362,8 +16362,8 @@ section: characters
 	alias		PRINCE_HEAD = KING_HEAD
 
 	name		OUTLAW_HEAD
-	frame		head_cardinal
-	down		pikedhead_cardinal
+	frame		head_outlaw
+	down		pikedhead_outlaw
 	hp		-1
 	weight		1500
 	description	"You see a severed head."

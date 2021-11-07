@@ -2275,6 +2275,8 @@ iMZ1r01
 
 	decorative TREE01 at 363 94
 
+	decorative TREE03 at 371 94
+
 	decorative TREE03 at 378 94
 
 	decorative TREE02 at 383 94
@@ -2410,8 +2412,6 @@ iMZ1r01
 	decorative TREE01 at 358 95
 
 	decorative TREE01 at 363 95
-
-	decorative TREE03 at 371 95
 
 	decorative TREE03 at 381 95
 
@@ -2593,7 +2593,7 @@ iMZ1r01
 
 	decorative TREE03 at 366 96
 
-	decorative TREE03 at 369 96
+	decorative TREE04 at 369 96
 
 	decorative TREE02 at 374 96
 
@@ -2803,7 +2803,7 @@ iMZ1r01
 
 	decorative TREE01 at 364 97
 
-	decorative TREE01 at 371 97
+	decorative TREE05 at 371 97
 
 	decorative TREE03 at 376 97
 
@@ -2940,6 +2940,8 @@ iMZ1r01
 
 	decorative TREE01 at 367 98
 
+	decorative TREE04 at 373 98
+
 	decorative TREE02 at 375 98
 
 	decorative TREE01 at 381 98
@@ -3070,8 +3072,6 @@ iMZ1r01
 	decorative TREE01 at 361 99
 
 	decorative TREE01 at 364 99
-
-	decorative TREE03 at 372 99
 
 	decorative TREE01 at 380 99
 
@@ -3812,9 +3812,7 @@ iMZ1r01
 
 	decorative TREE01 at 366 103
 
-	decorative TREE01 at 373 103
-
-	decorative TREE03 at 375 103
+	decorative TREE05 at 375 103
 
 	decorative TREE02 at 387 103
 
@@ -3859,7 +3857,7 @@ iMZ1r01
 
 	decorative TREE01 at 368 104
 
-	decorative TREE02 at 370 104
+	decorative TREE05 at 370 104
 
 	decorative TREE00 at 378 104
 
@@ -3938,8 +3936,6 @@ iMZ1r01
 
 	decorative TREE02 at 355 105
 
-	decorative TREE03 at 360 105
-
 	decorative TREE00 at 366 105
 
 	decorative TREE02 at 367 105
@@ -4007,7 +4003,7 @@ iMZ1r01
 
 	decorative TREE01 at 356 106
 
-	decorative TREE03 at 358 106
+	decorative TREE05 at 360 106
 
 	decorative TREE00 at 366 106
 
@@ -4141,6 +4137,8 @@ iMZ1r01
 	decorative TREE03 at 337 109
 
 	decorative TREE01 at 341 109
+
+	decorative TREE04 at 354 109
 
 	decorative TREE03 at 357 109
 
