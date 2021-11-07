@@ -181,7 +181,6 @@ and cx >= 0			# Only scroll in the Pockets
 	if listposition > listobjects2	# Clip if we scrolled too far
 		let listposition = listobjects2
 	endif
-	
 endif
 
 if cy < 0
@@ -409,8 +408,12 @@ button_push INV_ARROW_D = 0
 # Move through the list until we find the object on the top line
 
 if listposition > 0
-	for a = 0 to listposition
+	for a = 1 to listposition
 		if_exist temp			# Make sure we don't overrun
+			if_flag temp IS_WIELDED
+				# Do not count wielded objects in the total
+				add a - 1
+			endif
 			let temp = temp.next	# Move along
 		endif
 	next a
@@ -444,16 +447,20 @@ let cur_pos = 0
 for a = 0 to 3
 	for b = 0 to 3
 		if_exists temp
-
 			if cur_pos = sel_pos
 				let current = temp	# grab selected object
 
-				# Bypass visibility checks
+				# Bypass visibility checks for cursor
 				let new_x = current_bag.x
 				let new_y = current_bag.y
 			endif
 			draw_object temp at ox oy	# Draw selected object
 			let temp = temp.next		# Get next object
+
+#			Inventory debugging, show listposition
+#			let tx = listposition + cur_pos
+#			gotoxy ox oy
+#			printxy tx
 		endif
 		call find_next_object			# Find next good obj
 
@@ -474,13 +481,16 @@ end
 function count_objects
 
 object t
+integer remainder
 
 # How many are there?
 let listobjects = 0
 let t = current_bag.pocket
 do
 	if_exist t
-		add listobjects + 1
+		if_not_flag temp IS_WIELDED
+			add listobjects + 1
+		endif
 		let t = t.next
 	endif
 while t <> null
@@ -489,6 +499,13 @@ while t <> null
 let listobjects2 = listobjects - 16
 if listobjects2 < 0
 	let listobjects2 = 0
+else
+	# If it's not a whole row, pad the ending to be divisible by 4
+	let remainder = listobjects2 MOD 4
+	if remainder > 0
+		add listobjects2 - remainder
+		add listobjects2 + 4
+	endif	
 endif
 
 end
