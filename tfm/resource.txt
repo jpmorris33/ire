@@ -741,6 +741,8 @@ section: sprites
 	plant1_ok		sprites/plant1a.cel
 	plant1_broke		sprites/plant1b.cel
 	plant1_pulp		sprites/plant1c.cel
+	plant1_dead		sprites/plant1d.png
+	plant1_dead2		sprites/plant1e.png
 	coins_01		sprites/coin_01.pcx
 	coins_02		sprites/coin_02.pcx
 	coins_03		sprites/coin_03.pcx
@@ -7240,6 +7242,8 @@ section: sequences
 	quickname PLANT1_OK PLANT1_OK
 	quickname PLANT1_BROKEN PLANT1_BROKE
 	quickname PLANT1_PULPED PLANT1_PULP
+	quickname PLANT1_DEAD PLANT1_DEAD
+	quickname PLANT1_DEAD2 PLANT1_DEAD2
 	quickname GOLD_COINS COINS_10A
 	quickname COINS_01 COINS_01
 	quickname COINS_02 COINS_02

@@ -711,6 +711,14 @@ for ctr = 1 to 32
 	endif
 next
 
+find_tags port[1] = "StoneDoor4_Open" current.tag
+for ctr = 1 to 32
+	if_exists port[ctr]
+		change port[ctr] = "StoneDoor4_Shut"
+		let done = port[ctr]
+	endif
+next
+
 if_exists done
 	object_sound "portcullis_close" done
 else
@@ -742,6 +750,14 @@ find_tags port[1] = "STONE_ARCHWAY2_P" current.tag
 for ctr = 1 to 32
 	if_exists port[ctr]
 		change port[ctr] = "STONE_ARCHWAY2"
+		let done = port[ctr]
+	endif
+next
+
+find_tags port[1] = "StoneDoor4_Shut" current.tag
+for ctr = 1 to 32
+	if_exists port[ctr]
+		change port[ctr] = "StoneDoor4_Open"
 		let done = port[ctr]
 	endif
 next

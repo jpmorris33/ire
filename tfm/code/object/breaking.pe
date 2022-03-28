@@ -15,10 +15,15 @@ object_sound "smash_plant" current
 
 if current is called "plant1"
 	replace current = "plant1_damaged"
-else
-	if current is called "plant1_damaged"
-		replace current = "plant1_smashed"
-	endif
+	return
+endif
+if current is called "plant1_damaged"
+	replace current = "plant1_smashed"
+	return
+endif
+if current is called "plant1_dead"
+	replace current = "plant1_smashed2"
+	return
 endif
 end
 

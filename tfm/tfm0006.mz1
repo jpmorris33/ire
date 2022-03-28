@@ -2517,6 +2517,21 @@ iMZ1r01
 		at 197 194
 		curdir 1
 
+	object STON7b668f2f-f74d-46df-9a06-13e71e03c4b5
+		type STONE_ARCHWAY_P
+		at 204 194
+		curdir 2
+
+	object STON81aad07c-c737-4d34-9f4f-003644db2212
+		type STONE_ARCHWAY_P
+		at 205 194
+		curdir 3
+
+	object WALL4f543f55-d110-42aa-875d-2a4718a8e52c
+		type WALL_EDGE
+		at 206 194
+		curdir 0
+
 	object STONbec0726b-a40c-4cc2-8f92-c927be0a5446
 		type STONEFLOOR10
 		at 234 194
@@ -2590,6 +2605,27 @@ iMZ1r01
 	object WARGa577155e-c3be-4773-b7aa-526db99ec4a0
 		type WARG_BRIDGE00
 		at 265 194
+		curdir 0
+
+	object STON8a98ba3f-4365-4a61-99f2-e7aa6b29a024
+		type STONE_ARCHWAY_P
+		at 203 195
+		curdir 0
+
+	object UNDEe6e8e58a-29e8-4940-ab74-90a078ef575e
+		type UNDEAD_SKELETON
+		inside EGG_f36f5cf6-ef43-4953-9b6d-763c1e481bd9
+		curdir 1
+		activity ATTACK_PEOPLE
+
+	object EGG_f36f5cf6-ef43-4953-9b6d-763c1e481bd9
+		type EGG_OBJECT(SKELETON)
+		at 204 195
+		curdir 0
+
+	object STONd1890137-4e0c-48b7-9136-4c8b9b55b28d
+		type STONE_ARCHWAY_P
+		at 206 195
 		curdir 0
 
 	object STON4f84666d-6b7a-434f-a3a3-0554252958a7
@@ -2687,6 +2723,16 @@ iMZ1r01
 		at 199 196
 		curdir 3
 
+	object STON8d9b43e2-cad3-4d8b-9e61-59c16f6fdea6
+		type STONE_ARCHWAY2_P
+		at 203 196
+		curdir 2
+
+	object STON36272ff3-1238-4608-96bf-7325dec25c8b
+		type STONE_ARCHWAY2_P
+		at 206 196
+		curdir 2
+
 	object STON94fd49f9-66b0-463d-97d1-d2b1207243d6
 		type STONEFLOOR14
 		at 209 196
@@ -2742,6 +2788,27 @@ iMZ1r01
 		at 200 197
 		curdir 1
 
+	object STON1114fbb2-67c8-4ef1-b0d2-31c2d4d58359
+		type STONE_ARCHWAY2_P
+		at 203 197
+		curdir 2
+
+	object UNDE14872f95-8722-4829-8b19-5438368d91e5
+		type UNDEAD_SKELETON
+		inside EGG_fa6551dd-2603-4a31-bbe3-c6ebfa6ad551
+		curdir 1
+		activity ATTACK_PEOPLE
+
+	object EGG_fa6551dd-2603-4a31-bbe3-c6ebfa6ad551
+		type EGG_OBJECT(SKELETON)
+		at 205 197
+		curdir 0
+
+	object STON97994b75-1611-4d4e-9048-d9a3221757ab
+		type STONE_ARCHWAY2_P
+		at 206 197
+		curdir 2
+
 	object STON20005ca6-4bd9-450d-9bd3-def005121c1f
 		type STONEFLOOR14
 		at 210 197
@@ -2787,6 +2854,27 @@ iMZ1r01
 		at 199 198
 		curdir 3
 
+	object STONa36ceebb-f4ee-48a0-aabd-179169ad9990
+		type STONE_ARCHWAY_P
+		at 203 198
+		curdir 1
+
+	object UNDEfd3d1231-ff1b-42c3-9185-ba93f4c300ff
+		type UNDEAD_SKELETON
+		inside EGG_f450efd1-8302-4555-9abe-6297fb240a35
+		curdir 1
+		activity ATTACK_PEOPLE
+
+	object EGG_f450efd1-8302-4555-9abe-6297fb240a35
+		type EGG_OBJECT(SKELETON)
+		at 204 198
+		curdir 0
+
+	object STONcc699c5e-7ef8-48b3-8d1c-bfd9da721d43
+		type STONE_ARCHWAY_P
+		at 206 198
+		curdir 1
+
 	object WARGfb63c699-8001-433a-a5e3-aeb6d87f6b1d
 		type WARG_BRIDGE00
 		at 265 198
@@ -2825,6 +2913,21 @@ iMZ1r01
 	object BRIDd27f2cc5-381d-4299-b05e-3448b3c683bf
 		type BRIDGE_STEPS_S
 		at 199 199
+		curdir 3
+
+	object WALLd71970a5-cab4-4e42-949a-b15489d2cdcc
+		type WALL_EDGE
+		at 203 199
+		curdir 2
+
+	object STONbf0447ea-ad6b-45bc-b4bf-3be93f8dfd09
+		type STONE_ARCHWAY_P
+		at 204 199
+		curdir 2
+
+	object STON70e46b09-3e53-4d65-8e4e-8cba99009fba
+		type STONE_ARCHWAY_P
+		at 205 199
 		curdir 3
 
 	object STONb9ca6a73-9bd8-45a9-971c-9cd01e3bad98

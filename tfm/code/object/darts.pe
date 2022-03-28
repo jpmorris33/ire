@@ -16,7 +16,7 @@ endlocal
 
 function dart_trap
 
-print "IN DART TRAP|"
+#print "IN DART TRAP|"
 
 # Work out direction and do it
 
@@ -73,23 +73,26 @@ let y = current.y + dartdy
 
 # See what we can find
 
+/*
 print "IN DART TRAP CORE|"
 print "dx = "
 print dartdx
 print " dy = "
 print dartdy
 printcr
-
+*/
 
 do
 	# Stop when we hit a wall
 	get_tile temptile from x y
 	if_flag temptile IS_SOLID
+/*
 		print "HIT WALL at "
 		print x
 		print ","
 		print y
 		printcr
+*/
 		return
 	endif
 
@@ -101,7 +104,7 @@ do
 		# Something else is in the way
 		let current.target = temp
 
-		print "HIT OBJECT|"
+#		print "HIT OBJECT|"
 
 		let current = temp
 		call trap.funcs.acache
@@ -116,18 +119,18 @@ do
 
 while timeout < mapw # Timeout
 
-print "TIMED OUT|"
+#print "TIMED OUT|"
 
 end
 
 
 function dart_attack
 
-print "IN DART ATTACK|"
+#print "IN DART ATTACK|"
 
 if_not_exists current
 	# Oops
-	print "FAILED|"
+	print "DART ATTACK FAILED|"
 	return
 endif
 

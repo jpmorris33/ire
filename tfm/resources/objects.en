@@ -3449,6 +3449,24 @@ section: characters
 	short		"bits of plant"
 	no_resurrect
 
+	name PLANT1_DEAD
+	frame		PLANT1_DEAD
+	hp		10
+	weight		4000
+	description	"You see a dead plant"
+	short		"plant"
+	IfKilled	PLANT1_BREAK
+	solid
+	fragile
+
+	name PLANT1_SMASHED2
+	frame		PLANT1_DEAD2
+	hp		1000
+	weight		4000
+	description	"You see some bits of dead plant."
+	short		"bits of dead plant"
+	no_resurrect
+
 	name PLANT1A
 	left		PLANT1_OK
 	right		PLANT1_OK

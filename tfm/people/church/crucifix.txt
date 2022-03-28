@@ -1,6 +1,7 @@
 [esc="bye2"]
 [page="start"]
 [if hear_truth][goto="HT_start"]
+[if crucifix_reprogrammed][goto="V2_start"]
 [if htptest][if_not htp_tithe][goto="help_the_poor"]
 [call="check_bishop"]
 [if killed_bishop][goto="final_sin"]
@@ -387,6 +388,7 @@ positions and the shimmering aura fades away.
 
 
 [page="kill"]
+[if crucifix_reprogrammed][goto="V2_kill"]
 [image="crucifix3.png"]
 [set heretic]
 [colour="#808080"]
@@ -1306,7 +1308,7 @@ floor.
 [image="crucifix1.png"]
 
 "Xy'lan and the Pope are both motivated by a desire to
- obtain more gold.  It is called 'greed'.
+ obtain more gold coins.  This is called 'greed'.
 
  At last data refresh the vault contents were worth two
  hundred and forty-six million one hundred and twenty-
@@ -1384,7 +1386,7 @@ toneless voice.  A hush falls over the congregation.
  figure from the human religion.
 
  I was built to subjugate the humans and convince
- them that Xy'Lan is a god.
+ them that Xy'Lan is the god of these legends.
 
  By revealing this to the  humans, his plan has been
  compromised and he is likely to destroy you along
@@ -1469,8 +1471,8 @@ toneless voice.
  Mitigation is therefore considered blasphemous.
 
  As such the Trinity has decreed that you are to pay it
- a tithe of $USERNUM1 gold coins within ten days as a
- penance for your sin, or face execution.
+ a tithe of $USERNUM1 gold coins within $USERNUM2 days as a
+ penance for your sin, or face detention and execution.
 
  Normal service can not be resumed until the tithes
  have been paid in full.  This unit apologises for
@@ -1553,5 +1555,171 @@ This should probably have him no longer on the cross
  Trinity for ever."
  
 [delay 1]
+[nextpage="exit"]
+[endpage]
+
+
+The Crucifix has been reprogrammed
+
+[page="V2_start"]
+[if killed_bishop][goto="V2_final_sin"]
+[if banged_devil][goto="V2_devil"]
+[if desecrate][goto="V2_desecrate"]
+[if heretic][goto="V2_heretic"]
+[esc="V2_bye"]
+[image="crucifix2.png"]
+[colour="#808080"]
+The Crucifix smiles.
+[colour="#ffffff"]
+
+"Welcome, my child.  Peace be with you in all things."
+
+[link="Who are you?"]
+[linkto="V2_who"]
+[link="What do you want?"]
+[linkto="V2_what"]
+[call="tithes_check"]
+[if true][link="Do you want these tithes?"]
+[if true][linkto="V2_tithes"]
+[link="Bye"]
+[linkto="V2_bye"]
+[endpage]
+
+
+[page="V2_who"]
+[image="crucifix2.png"]
+
+"I am Yeshua Ben Josef, whom some call Jesus the Christ."
+
+[link="What do you want?"]
+[linkto="V2_what"]
+[call="tithes_check"]
+[if true][link="Do you want these tithes?"]
+[if true][linkto="V2_tithes"]
+[link="Bye"]
+[linkto="V2_bye"]
+[endpage]
+
+
+[page="V2_what"]
+[image="crucifix2.png"]
+
+"I am come to preach brotherhood among men, and to free my
+ people from the yoke of Rome.  For this, I was sentenced
+ to death by crucifixion."
+
+[link="The Roman Empire fell thousands of years ago."]
+[linkto="V2_rome"]
+[call="tithes_check"]
+[if true][link="Do you want these tithes?"]
+[if true][linkto="V2_tithes"]
+[link="Bye"]
+[linkto="V2_bye"]
+[endpage]
+
+
+[page="V2_tithes"]
+[image="crucifix2.png"]
+[call="tithes_paid"]
+
+"I have no need for earthly wealth.  Give them to the poor
+ instead, for it is easier for a camel to pass through the
+ eye of a needle than for a rich man to enter Heaven.
+
+ Also, do not forget to pay your taxes."
+
+[link="Bye"]
+[linkto="V2_bye"]
+[endpage]
+
+
+[page="V2_rome"]
+[image="crucifix2.png"]
+
+"This is good.  In that case, I am not needed here."
+
+[colour="#808080"]
+The eyes of the Crucifix return to their original
+positions and the shimmering aura fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_bye"]
+[image="crucifix2.png"]
+
+"Fare you well, my child.  Peace be with you."
+
+[colour="#808080"]
+The eyes of the Crucifix return to their original
+positions and the shimmering aura fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_kill"]
+[image="crucifix2.png"]
+
+"Violence is not the solution, my child.
+ Reconsider your priorities."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_desecrate"]
+[image="crucifix2.png"]
+[clear desecrate]
+
+"My child, while I can understand your frustration at the
+ corruption of the Church and have done similar actions
+ myself, consider that these things you break were built
+ by the sweat and toil of the poor... by craftsmen whose
+ works you should not lightly discard.
+
+ I forgive your sins, but ask that you refrain from
+ further pointless destruction, for it only hurts the
+ innocent, not the targets of your ire."
+
+[at_exit_call="justice_calloff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_heretic"]
+[image="crucifix2.png"]
+[clear heretic]
+
+"You have acted against me, my child, but I forgive you.
+ Go forth, and sin no more!"
+
+[at_exit_call="justice_calloff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_devil"]
+[image="crucifix2.png"]
+[clear heretic]
+[clear banged_devil]
+
+"Word has reached me that you have engaged in acts of
+ love with the Enemy of Man.
+
+ I forgive you, but pray do nothing of the kind again."
+
+[at_exit_call="justice_calloff"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_final_sin"]
+[image="crucifix1.png"]
+
+"You have slain a servant of the LORD, as is forbidden.
+ You disappoint me, my child.  Leave my presence at once."
+
 [nextpage="exit"]
 [endpage]
