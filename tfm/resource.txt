@@ -596,8 +596,10 @@ section: sprites
 	chair_d			sprites/chair2.cel
 	chair_l			sprites/chair3.cel
 	chair_dead		sprites/chair_d.cel
-	throne			sprites/throne00.cel
-	throne_ovl		sprites/throne01.cel
+	throned			sprites/throne00.cel
+	throned_ovl		sprites/throne01.cel
+	throner			sprites/throne02.cel
+	throner_ovl		sprites/throne03.cel
 	avsit_u			sprites/avsit00.cel
 	avsit_r			sprites/avsit01.cel
 	avsit_d			sprites/avsit02.cel
@@ -1616,6 +1618,9 @@ section: sprites
 	pew04			sprites/bench4.cel
 	pew05			sprites/bench5.cel
 	lectern			sprites/lecturn.cel
+	lectern2		sprites/lecturn2.cel
+	lectern3		sprites/lecturn3.cel
+	lectern4		sprites/lecturn4.cel
 	organ_keyboard		sprites/organ_k.cel
 	organ_waarg		sprites/warg/organ.cel
 	piano_d			sprites/piano1.cel
@@ -1754,6 +1759,7 @@ section: sprites
 	tablecloth7		sprites/tablclt7.cel
 	tablecloth8		sprites/tablclt8.cel
 	tablecloth9		sprites/tablclt9.cel
+	tablecloth10		sprites/tablcl10.cel
 	stainglass00		sprites/church/stglas00.cel
 	stainglass01		sprites/church/stglas01.cel
 	stainglass02		sprites/church/stglas02.cel
@@ -2273,6 +2279,7 @@ section: sprites
 	sword05a		sprites/sword05a.cel
 	halberd			sprites/halberd.cel
 	pickaxe			sprites/pickaxe.cel
+	axe00			sprites/axe00.cel
 	staff00			sprites/staff00.cel
 	cowprints00		backings/cow00.cel
 	cowprints01		backings/cow01.cel
@@ -2812,6 +2819,8 @@ section: sprites
 	tools09			sprites/tools09.cel
 	tools10			sprites/tools10.cel
 	tools11			sprites/tools11.cel
+	tools12			sprites/tools12.png
+	tools13			sprites/tools13.png
 	forge00			sprites/forge00.cel
 	forge01			sprites/forge01.cel
 	forge02			sprites/forge02.cel
@@ -7098,14 +7107,23 @@ section: sequences
 	quickname STOOL_H STOOL_H
 	quickname STOOL_V STOOL_V
 
-	name THRONE
+	name THRONE_D
 	post_overlay
 	speed 1
-	overlay THRONE_OVL
+	overlay THRONED_OVL
 	framelist:
 	#1 frames
-		THRONE
+		THRONED
 	end
+	name THRONE_R
+	post_overlay
+	speed 1
+	overlay THRONER_OVL
+	framelist:
+	#1 frames
+		THRONER
+	end
+
 	quickname CHAIR_BITS CHAIR_DEAD
 	quickname BED_H BED_H
 	quickname BED_V BED_V
@@ -7957,7 +7975,10 @@ section: sequences
 	quickname PEW3 PEW03
 	quickname PEW4 PEW04
 	quickname PEW5 PEW05
-	quickname LECTERN LECTERN
+	quickname LECTERN
+	quickname LECTERN2
+	quickname LECTERN3
+	quickname LECTERN4
 	quickname GRAVE3 GRAVE3
 	quickname GRAVE4 GRAVE4
 	quickname GRAVE5 GRAVE5
@@ -8395,15 +8416,16 @@ section: sequences
 	quickname CRUCIFIX-TABLE2 CRUCIFIX-TABLE2
 	quickname CRUCIFIX-TABLE3 CRUCIFIX-TABLE3
 	quickname FLOWERS0 FLOWERS0
-	quickname TABLECLOTH1 TABLECLOTH1
-	quickname TABLECLOTH2 TABLECLOTH2
-	quickname TABLECLOTH3 TABLECLOTH3
-	quickname TABLECLOTH4 TABLECLOTH4
-	quickname TABLECLOTH5 TABLECLOTH5
-	quickname TABLECLOTH6 TABLECLOTH6
-	quickname TABLECLOTH7 TABLECLOTH7
-	quickname TABLECLOTH8 TABLECLOTH8
-	quickname TABLECLOTH9 TABLECLOTH9
+	quickname TABLECLOTH1
+	quickname TABLECLOTH2
+	quickname TABLECLOTH3
+	quickname TABLECLOTH4
+	quickname TABLECLOTH5
+	quickname TABLECLOTH6
+	quickname TABLECLOTH7
+	quickname TABLECLOTH8
+	quickname TABLECLOTH9
+	quickname TABLECLOTH10
 	quickname STAINGLASS00 STAINGLASS00
 	quickname STAINGLASS01 STAINGLASS01
 	quickname STAINGLASS02 STAINGLASS02
@@ -9715,9 +9737,9 @@ section: sequences
 	quickname CLOTHING00 CLOTHING00
 	quickname CLOTHING01 CLOTHING01
 	quickname CLOTHING02 CLOTHING02
-	quickname SWORD00 SWORD00
-	quickname SWORD01 SWORD01
-	quickname SWORD02 SWORD02
+	quickname SWORD00
+	quickname SWORD01
+	quickname SWORD02
 
 	name SWORD03
 	loop
@@ -9729,12 +9751,13 @@ section: sequences
 		SWORD03C
 		SWORD03D
 	end
-	quickname SWORD04 SWORD04
-	quickname SWORD05 SWORD05
-	quickname SWORD05A SWORD05A
-	quickname PICKAXE PICKAXE
-	quickname HALBERD HALBERD
-	quickname STAFF00 STAFF00
+	quickname SWORD04
+	quickname SWORD05
+	quickname SWORD05A
+	quickname PICKAXE
+	quickname HALBERD
+	quickname AXE00
+	quickname STAFF00
 	quickname COW_PRINTS_1 COWPRINTS00
 	quickname COW_PRINTS_2 COWPRINTS01
 	quickname COW_PRINTS_3 COWPRINTS02
@@ -11343,18 +11366,20 @@ section: sequences
 	quickname SPIKES01 SPIKES01
 	quickname LADDER00 LADDER00
 	quickname LADDER01 LADDER01
-	quickname TOOLS00 TOOLS00
-	quickname TOOLS01 TOOLS01
-	quickname TOOLS02 TOOLS02
-	quickname TOOLS03 TOOLS03
-	quickname TOOLS04 TOOLS04
-	quickname TOOLS05 TOOLS05
-	quickname TOOLS06 TOOLS06
-	quickname TOOLS07 TOOLS07
-	quickname TOOLS08 TOOLS08
-	quickname TOOLS09 TOOLS09
-	quickname TOOLS10 TOOLS10
-	quickname TOOLS11 TOOLS11
+	quickname TOOLS00
+	quickname TOOLS01
+	quickname TOOLS02
+	quickname TOOLS03
+	quickname TOOLS04
+	quickname TOOLS05
+	quickname TOOLS06
+	quickname TOOLS07
+	quickname TOOLS08
+	quickname TOOLS09
+	quickname TOOLS10
+	quickname TOOLS11
+	quickname TOOLS12
+	quickname TOOLS13
 	quickname FORGE0 FORGE00
 
 	name FORGE1

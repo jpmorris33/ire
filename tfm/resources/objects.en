@@ -1960,10 +1960,7 @@ section: characters
 	wielded
 
 	name STAFF00
-	left		STAFF00
-	right		STAFF00
-	up		STAFF00
-	down		STAFF00
+	frame		STAFF00
 	hp		200
 	weight		350
 	damage		15
@@ -1974,12 +1971,21 @@ section: characters
 	wielded
 
 	name AXE00
-	left		SWORD02
-	right		SWORD02
-	up		SWORD02
-	down		SWORD02
+	frame		AXE00
 	hp		200
-	weight		1200
+	weight		2400
+	damage		50
+	description	"You see a hefty axe."
+	short		"axe"
+	IfWielded	wield_weapon
+	Attack		close_attack
+	user2		decap_attack
+	wielded
+
+	name AXE00_RD
+	frame		AXE00
+	hp		200
+	weight		2400
 	damage		50
 	description	"You see a +20 axe of Raise Dead."
 	short		"magic axe"
@@ -1989,10 +1995,7 @@ section: characters
 	wielded
 
 	name PICKAXE
-	left		PICKAXE
-	right		PICKAXE
-	up		PICKAXE
-	down		PICKAXE
+	frame		PICKAXE
 	hp		20000
 	weight		4000
 	damage		20
@@ -2004,10 +2007,7 @@ section: characters
 	wielded
 
 	name HALBERD
-	left		HALBERD
-	right		HALBERD
-	up		HALBERD
-	down		HALBERD
+	frame		HALBERD
 	hp		200
 	weight		2000
 	damage		30
@@ -2428,20 +2428,16 @@ section: characters
 	wielded
 
 	name THRONE
-	left		THRONE
-	right		THRONE
-	up		THRONE
-	down		THRONE
+	left		THRONE_R
+	right		THRONE_R
+	up		THRONE_D
+	down		THRONE_D
 	hp		300000
 	weight		-1
 	description	"You see a throne."
 	short		"throne"
 	IfUsed		use_chair
 	IfTriggered	sit_down_human
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name BED
 	left		BED_H
@@ -4499,6 +4495,10 @@ section: characters
 	personalname	"Farwell's Book of Potions"
 	conversation	books/misc/potions.txt
 
+	alias BOOK_justice = BOOK_protect
+	personalname	"The Book of Justice"
+	conversation	books/misc/justice.txt
+
 	name KARMOMETER
 	frame		HALO10
 	hp		0
@@ -6173,10 +6173,10 @@ section: characters
 
 
 	name LECTERN
-	left		LECTERN
-	right		LECTERN
+	left		LECTERN2
+	right		LECTERN3
 	up		LECTERN
-	down		LECTERN
+	down		LECTERN4
 	hp		2000000000
 	weight		10000
 	description	"You see a lectern"
@@ -6764,10 +6764,6 @@ section: characters
 	short		"tablecloth"
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name TABLECLOTH2
 	left		TABLECLOTH7
@@ -6780,10 +6776,6 @@ section: characters
 	short		"tablecloth"
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name TABLECLOTH3
 	left		TABLECLOTH9
@@ -6796,10 +6788,18 @@ section: characters
 	short		"tablecloth"
 	fixed
 	spikeproof
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	name TABLECLOTH4
+	left		TABLECLOTH10
+	right		TABLECLOTH10
+	up		TABLECLOTH10
+	down		TABLECLOTH10
+	hp		2000
+	weight		-1
+	description	"You see a table-cloth"
+	short		"tablecloth"
+	fixed
+	spikeproof
 
 	name FLOWERS_BUNCH
 	left		FLOWERS0
@@ -9765,10 +9765,7 @@ section: characters
 	ifused		use_cutters
 
 	name TOOLS09
-	left		TOOLS09
-	right		TOOLS09
-	up		TOOLS09
-	down		TOOLS09
+	frame		TOOLS09
 	hp		400
 	weight		1000
 	description	"You see a spade."
@@ -9776,10 +9773,7 @@ section: characters
 	ifused		use_spade
 
 	name TOOLS10
-	left		TOOLS10
-	right		TOOLS10
-	up		TOOLS10
-	down		TOOLS10
+	frame		TOOLS10
 	hp		400
 	weight		20
 	description	"You see a needle."
@@ -9790,15 +9784,34 @@ section: characters
 	wielded
 
 	name TOOLS11
-	left		TOOLS11
-	right		TOOLS11
-	up		TOOLS11
-	down		TOOLS11
+	frame		TOOLS11
 	hp		400
 	weight		20
 	description	"You see some crude scissors."
 	short		"scissors"
 	damage		4
+	IfWielded	wield_weapon
+	Attack		close_attack
+	wielded
+
+	name TOOLS12
+	frame		TOOLS12
+	hp		400
+	weight		1000
+	description	"You see a modern-looking broom."
+	short		"broom"
+	damage		2
+	IfWielded	wield_weapon
+	Attack		close_attack
+	wielded
+
+	name TOOLS13
+	frame		TOOLS13
+	hp		400
+	weight		1000
+	description	"You see a traditional broom."
+	short		"broom"
+	damage		2
 	IfWielded	wield_weapon
 	Attack		close_attack
 	wielded
