@@ -45,6 +45,17 @@ function sys_splash
 if_exists curtile
 	if curtile.name = "WATER*"
 		object_sound "plop" current
+
+		if current is called "candle*"
+			call submerge_candle
+			return
+		endif
+
+		if current is called "bucket*"
+			call submerge_bucket
+			return
+		endif
+
 		return
 	endif
 

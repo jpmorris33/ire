@@ -466,3 +466,10 @@ if me = player
 endif
 
 end
+
+
+function submerge_bucket
+	# Whatever was in it before, it's water now
+	replace current = "bucket_water"
+	set_flag current IS_SHADOW = 1
+end

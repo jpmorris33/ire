@@ -6,6 +6,11 @@ function usetorch
 
 integer wield
 
+# If it's underwater, do nothing (should probably check for water tile)
+if_flag current IS_SHADOW
+	return
+endif
+
 # Objects being wielded have their WIELD flag set.  When we do replace
 # it will reset this flag to default, so we need to store it
 
@@ -60,3 +65,26 @@ set_flag current IS_WIELDED = wield
 
 end
 
+##
+##  Douse the candle if it's thrown in water
+##
+
+function submerge_candle
+	if current is called "candle"
+		replace current = "candleunlit"
+		set_flag current IS_SHADOW = 1
+		return
+	endif
+
+	if current is called "candle1"
+		replace current = "candle1unlit"
+		set_flag current IS_SHADOW = 1
+		return
+	endif
+
+	if current is called "candlestk"
+		replace current = "candlestkunlit"
+		set_flag current IS_SHADOW = 1
+		return
+	endif
+end
