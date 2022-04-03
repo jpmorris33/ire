@@ -388,9 +388,6 @@ end
 ##
 
 function smash_countertop
-object_array glass[16]
-object tmp
-int ctr
 
 # Call the cops
 
@@ -398,19 +395,63 @@ let suspect = current.enemy
 let victim = current
 call justice_theft
 
-# Now smash the entire countertop
+# Now recursively smash the entire countertop
+
+call smash_countertop_core
+end
+
+
+##
+## Glass countertop recursive search
+##
+
+local
+function smash_countertop_core
+int x
+int y
+object tmp
+object newct
+
+let tmp = current
+let x = tmp.x
+let y = tmp.y
 
 object_sound "smash_big1" current
+destroy current
 
-find_tags glass[1] = "glass*" current.tag
-for ctr = 1 to 16
-	let tmp = glass[ctr]
-	if_exists tmp
-		destroy tmp
-	endif
-next ctr
+add y - 1
+get_object newct = x y
+if newct is called "glass_counte*"
+	let current = newct
+	call smash_countertop_core
+endif
 
+add y + 2
+get_object newct = x y
+if newct is called "glass_counte*"
+	let current = newct
+	call smash_countertop_core
+endif
+
+add y - 1
+add x - 1
+get_object newct = x y
+if newct is called "glass_counte*"
+	let current = newct
+	call smash_countertop_core
+endif
+
+add x + 2
+get_object newct = x y
+if newct is called "glass_counte*"
+	let current = newct
+	call smash_countertop_core
+endif
 end
+
+endlocal
+
+
 
 # Break the pie
 

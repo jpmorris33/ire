@@ -1,0 +1,32 @@
+##
+##  Internal diagnostics
+##
+
+function DoorLockCheck
+if me.tag = 0
+	BUG START
+	print "Door at "
+	print me.x
+	print ","
+	print me.y
+	print " has no lock ID!"
+	printcr
+	BUG END
+else
+	let me.user.user0 = 1	# Was locked
+endif
+end
+
+
+function CountertopCheck
+if me.tag <> 0
+	BUG START
+	print "Countertop at "
+	print me.x
+	print ","
+	print me.y
+	print " no longer needs a tag"
+	printcr
+	BUG END
+endif
+end

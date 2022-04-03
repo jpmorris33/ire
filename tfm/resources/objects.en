@@ -12732,6 +12732,7 @@ section: characters
 	fragile
 	translucent
 	IfKilled	smash_countertop
+	OnInit		CountertopCheck
 	fixed
 	tabletop
 
