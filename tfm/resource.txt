@@ -14248,6 +14248,7 @@ section: scripts
 	code/object/bucket.pe
 	code/object/c_sword.pe
 	code/object/chair.pe
+	code/object/checks.pe
 	code/object/count.pe
 	code/object/bombs.pe
 	code/object/breaking.pe

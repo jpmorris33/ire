@@ -122,6 +122,11 @@ if i <> 0
 	return
 endif
 
+# If the LORD did or will destroy the player, abort so the game ends
+if_not_flag player IS_BIOLOGICAL
+	return
+endif
+
 # Stop the player escaping
 set_leader player player_automatic follower_action
 # Skip keyboard input for first cycle

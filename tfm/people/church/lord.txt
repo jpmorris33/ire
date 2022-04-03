@@ -556,6 +556,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 [linkto="sacrfice4"]
 [if_female][link="But I'm a woman!"]
 [if_female][linkto="sacrfice4b"]
+[if_robot][link="But I'm synthetic!"]
+[if_robot][linkto="sacrfice4d"]
 [link="Oh my God."]
 [linkto="sacrfice5"]
 [link="Cool.  Can we start now?"]
@@ -573,6 +575,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 
 [if_female][link="But I'm a woman!"]
 [if_female][linkto="sacrfice4b"]
+[if_robot][link="But I'm synthetic!"]
+[if_robot][linkto="sacrfice4d"]
 [link="Oh my God."]
 [linkto="sacrfice5"]
 [link="Cool.  Can we start now?"]
@@ -592,6 +596,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 
 [if_female][link="But I'm a woman!"]
 [if_female][linkto="sacrfice4c"]
+[if_robot][link="But I'm synthetic!"]
+[if_robot][linkto="sacrfice4d"]
 [link="It is an honour to serve you in this way."]
 [linkto="sacrfice8"]
 [link="Cool.  Can we start now?"]
@@ -621,6 +627,18 @@ Suddenly the LORD appears in a Holy Vision before you.
 [linkto="sacrfice8"]
 [link="Cool.  Can we start now?"]
 [linkto="sacrfice9"]
+[endpage]
+
+[page="sacrfice4d"]
+[image="lord.jpg"]
+
+"Then you are unsuitable for My plan and shall be
+ disposed of accordingly."
+
+[delay 2]
+[set false]
+[at_exit_call="fry_player"]
+[nextpage="exit"]
 [endpage]
 
 
@@ -657,6 +675,7 @@ TODO: If the player has been doing a lot of pro-church stuff,
 
 
 [page="sacrfice8"]
+[if_robot][goto="sacrfice10"]
 [image="priest4.pcx"]
 
 "Have faith, my $Son."
@@ -668,11 +687,26 @@ TODO: If the player has been doing a lot of pro-church stuff,
 
 
 [page="sacrfice9"]
+[if_robot][goto="sacrfice10"]
 [image="lord.jpg"]
 
 "Certainly."
 
 [if saxiis_onside][nextpage="sacrfice6"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="sacrfice10"]
+[if saxiis_onside][goto="sacrfice6"]
+[image="lord.jpg"]
+
+"Hold.  You are not an organic lifeform!
+ This makes you unsuitable for My plan, and you
+ shall be disposed of accordingly."
+
+[delay 2]
+[at_exit_call="fry_player"]
 [nextpage="exit"]
 [endpage]
 

@@ -19,7 +19,8 @@ end
 
 
 function CountertopCheck
-if me.tag <> 0
+# Allow negative tags for plot stuff
+if me.tag > 0
 	BUG START
 	print "Countertop at "
 	print me.x

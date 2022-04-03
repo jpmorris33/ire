@@ -271,6 +271,7 @@ if bx = 0
 	endif
 
 	if splayername = "R-ALF"
+	or BE_A_DOG = 1
 		replace player = "playeracw"
 		let splayername = "R-ALF"
 		let PlayerMF = 1

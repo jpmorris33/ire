@@ -174,6 +174,34 @@ endif
 end
 
 
+##
+##  Necromancer's Tower boobytrap
+##
+
+function necromancer_tower_trap
+
+	object countertop
+
+	# Activate the monsters
+	call callwield_tags
+
+	# Now break the countertops
+
+	# left row
+	find_tag countertop = "glass_counter*" -36
+	if_exists countertop
+		let countertop.stats.hp = -1
+		check_hurt countertop
+	endif
+
+	# right row
+	find_tag countertop = "glass_counter*" -34
+	if_exists countertop
+		let countertop.stats.hp = -1
+		check_hurt countertop
+	endif
+
+end
 
 ##
 ##  Confronting Darett

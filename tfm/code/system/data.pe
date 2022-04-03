@@ -90,3 +90,4 @@ userstring baal 20
 # Config settings
 const FUN_BUGS = 0	# Disable some amusing glitches by default
 const BE_A_CAT = 0
+const BE_A_DOG = 0

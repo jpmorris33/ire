@@ -12,22 +12,26 @@
 constant BOOTS_THRESHOLD = 20
 
 function spikes
+int dmg
 
 if_not_flag victim IS_PERSON
 	return
 endif
 
+let dmg = current.stats.damage
+
 # If wearing shoes, negate a certain amount of damage
 
 if_exists victim.wield.feet
-	if current.stats.damage < BOOTS_THRESHOLD
+	add dmg - BOOTS_THRESHOLD
+	if dmg <= 0
 		return
 	endif
 endif
 
 # Damage the victim
 	
-add victim.stats.hp - current.stats.damage
+add victim.stats.hp - dmg
 let splatvictim = victim
 check_hurt victim
 
