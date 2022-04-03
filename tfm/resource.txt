@@ -1738,6 +1738,7 @@ section: sprites
 	carpet24		backings/carpet24.cel
 	carpet25		backings/carpet25.cel
 	carpet26		sprites/carpet26.cel
+	carpet27		backings/carpet27.cel
 	steps00			sprites/steps00.cel
 	steps01			sprites/steps01.cel
 	steps02			sprites/steps02.cel
@@ -3066,6 +3067,7 @@ section: sprites
 	trough_v		sprites/trough2.cel
 	sceptre			sprites/sceptre.cel
 	lute			sprites/lute.cel
+	flute			sprites/flute.cel
 
 	cow1_d0			sprites/wildlife/cow1_00.cel
 	cow1_d1			sprites/wildlife/cow1_01.cel
@@ -8405,6 +8407,8 @@ section: sequences
 		CARPET01
 	end
 
+	quickname CARPET29 CARPET27
+
 	name CRUCIFIX
 	hotx 24
 	hoty 6
@@ -12192,6 +12196,7 @@ section: sequences
 	quickname trough_h trough_h
 	quickname sceptre sceptre
 	quickname lute lute
+	quickname flute flute
 
 	name COW_NORMAL_U
 	pingpong

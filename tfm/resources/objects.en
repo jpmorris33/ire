@@ -13735,14 +13735,18 @@ section: characters
 	ifused		use_tapereel
 
 	name LUTE
-	left		LUTE
-	right		LUTE
-	up		LUTE
-	down		LUTE
+	frame		LUTE
 	hp		200
 	weight		1600
 	description	"You see a lute."
 	short		"lute"
+
+	name FLUTE
+	frame		FLUTE
+	hp		200
+	weight		600
+	description	"You see a flute."
+	short		"flute"
 
 	name PERCH
 	left		PERCH_BAD
@@ -19010,3 +19014,6 @@ section: tiles
 	sequence	CARPET28
 	description	"You see a rich carpet with marks on it."
 
+	name CARPET29
+	sequence	CARPET29
+	description	"You see the symbol of the Holy Cross."
