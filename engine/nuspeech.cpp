@@ -1659,6 +1659,27 @@ if(!istricmp(line2,"ifnplayerhero") || !istricmp(line2,"if_not_player_hero")
     return 29;
     }
 
+if(!istricmp(line2,"ifplayerrobot") || !istricmp(line2,"if_player_robot")
+|| !istricmp(line2,"if_robot"))
+    {
+    if(!GetNPCFlag(player,IS_BIOLOGICAL))
+        {
+        pos=strchr(line,']');
+        if(!pos)
+            {
+            Bug("Missing ] in %s:%d\n",curfile,curline);
+            return 28;
+            }
+        pos++;
+
+        if(pos[0]=='[')
+            return(NPC_ParseCode(pos,reader));
+        else
+            irecon_printxy(0,y+=fh,pos);
+        }
+    return 28;
+    }
+
 if(!istricmp(line2,"escpage") || !istricmp(line2,"escpage=")
 || !istricmp(line2,"esc") || !istricmp(line2,"esc="))
     {
