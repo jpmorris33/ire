@@ -421,6 +421,7 @@ LoadMap(mapnumber);
 cutbag = &limbo;
 cutbag->name="Cut and Paste buffer";
 cutbag->flags |= IS_ON;
+cutbag->schedule = (SCHEDULE *)M_get(24,sizeof(SCHEDULE));
 
 ilog_printf("Init Random Number Generator\n");
 srand(time(0));                 // Initialise rng

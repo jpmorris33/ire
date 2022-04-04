@@ -57,6 +57,7 @@ extern char debcurfunc[];
 
 extern void CallVM(char *function);
 extern void wipe_refs();
+extern void editor_refhook();
 extern void ResumeSchedule(OBJECT *o);
 extern int getYN(char *q);
 
@@ -2882,8 +2883,11 @@ for(t=MasterList;t;t=t->next)
 
 // All globally-defined objects
 
-if(!in_editor)
+if(!in_editor) {
 	wipe_refs();
+} else {
+	editor_refhook();
+}
 
 // If a party member was boiled to vapour kick 'em out of the party
 
@@ -3788,4 +3792,9 @@ if(obj->parent.objptr->stats && obj->parent.objptr->stats->owner.objptr)
 	}
 
 // Not sure what to do now
+}
+
+
+void editor_refhook(){
+	CheckRefs(&limbo);
 }

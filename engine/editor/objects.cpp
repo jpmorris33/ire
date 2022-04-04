@@ -172,6 +172,8 @@ static void SetSObject();
 static void SC_MakeTarget();
 static void SC_NoTarget();
 static void OB_SortSchedule();
+static void OB_CopySchedule();
+static void OB_PasteSchedule();
 
 static void ResetObject();
 
@@ -1994,8 +1996,10 @@ DrawScreenBox3D(96,64,544,432);
 setschedule=-1;
 inSchedule(POCKET_X,POCKET_Y,24);
 IG_Region(POCKET_X,POCKET_Y,192,288,OB_SetSchedule,NULL,NULL);
-IG_TextButton(384,POCKET_Y+32,"Finish",OB_GoFocal,NULL,NULL);
-IG_TextButton(480,POCKET_Y+32,"Sort",OB_SortSchedule,NULL,NULL);
+IG_TextButton(464,POCKET_Y+308,"Finish",OB_GoFocal,NULL,NULL);
+IG_TextButton(376,POCKET_Y+16,"Copy",OB_CopySchedule,NULL,NULL);
+IG_TextButton(424,POCKET_Y+16,"Paste",OB_PasteSchedule,NULL,NULL);
+IG_TextButton(480,POCKET_Y+16,"Sort",OB_SortSchedule,NULL,NULL);
 
 DrawSunkBox3D(368,POCKET_Y+80,520,POCKET_Y+280);
 IG_TextButton(376,POCKET_Y+88,"Clear entry",SReset,NULL,NULL);
@@ -2177,6 +2181,22 @@ qsort(objsel->schedule,24, sizeof(SCHEDULE),CMPsched);
 inSchedule(POCKET_X,POCKET_Y,24);
 IG_WaitForRelease();
 }
+
+void OB_CopySchedule()
+{
+int ctr;
+
+memcpy(cutbag->schedule,objsel->schedule,sizeof(SCHEDULE)*24);
+IG_WaitForRelease();
+}
+
+void OB_PasteSchedule()
+{
+memcpy(objsel->schedule,cutbag->schedule,sizeof(SCHEDULE)*24);
+inSchedule(POCKET_X,POCKET_Y,24);
+IG_WaitForRelease();
+}
+
 
 
 /*
