@@ -2937,6 +2937,7 @@ section: sprites
 	glass11			sprites/glass11.cel
 	glass12			sprites/glass12.cel
 	glass13			sprites/glass13.cel
+	glass14			sprites/glass14.cel
 
 	data00			sprites/data00.cel
 	data01			sprites/data01.cel
@@ -11960,6 +11961,12 @@ section: sequences
 	translucency 128
 	framelist:
 		glass13
+	end
+
+	name glass14
+	translucency 128
+	framelist:
+		glass14
 	end
 
 	quickname data00 data00

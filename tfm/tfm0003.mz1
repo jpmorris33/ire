@@ -24215,6 +24215,11 @@ iMZ1r01
 		at 421 344
 		curdir 2
 
+	object SHIE350d3c77-51f3-4b2e-ba64-28f19c1a86f8
+		type SHIELD01
+		at 421 344
+		curdir 3
+
 	object TABL7c8cd694-e6e8-4521-90e8-514b3db078db
 		type TABLE6-H
 		at 422 344
@@ -26123,6 +26128,11 @@ iMZ1r01
 		at 478 353
 		curdir 0
 
+	object SHIE1217a238-617f-4252-9ee5-aba2a79c72d3
+		type SHIELD01
+		at 478 353
+		curdir 3
+
 	object TABL6bebc50b-f8b9-40ee-884c-0f0b91331e91
 		type TABLE-SHADOW2
 		at 479 353
@@ -26804,6 +26814,11 @@ iMZ1r01
 		type STONEDOOR1_SHUT
 		at 472 356
 		curdir 2
+
+	object ARMOee3a90cd-b3bd-4111-8a7c-192f8811ad00
+		type ARMOUR02
+		at 476 356
+		curdir 0
 
 	object TABL4fcb0707-0b4a-4878-b3ef-7c0f2901ee90
 		type TABLE6-V
@@ -30549,6 +30564,56 @@ iMZ1r01
 		at 470 371
 		curdir 2
 
+	object TABLf147e8e0-120c-4069-a8c1-c4795e569b17
+		type TABLE2-END
+		at 476 371
+		curdir 0
+
+	object FOODb84f6163-8bd4-41e2-8151-d675c2b46c3f
+		type FOODP02
+		at 476 371
+		curdir 0
+
+	object FOODc559126b-b760-4ab6-aded-3cff932271be
+		type FOODP02
+		at 476 371
+		curdir 3
+
+	object GLAS46a2e551-fcb2-465c-b6d9-e4dfd4e82794
+		type GLASS_COUNTER2
+		at 476 371
+		curdir 0
+
+	object TABL5e222ec6-f929-4253-9821-72fee64b4409
+		type TABLE-SHADOW2
+		at 477 371
+		curdir 3
+
+	object TABLe3e3cc08-f111-4678-95b9-2c13c6f350e2
+		type TABLE5-LEGS
+		at 477 371
+		curdir 2
+
+	object TABL5f5a3805-96cf-4995-8765-8a18b13d3e27
+		type TABLE2-END
+		at 481 371
+		curdir 0
+
+	object FOOD3917bcee-f6bd-4d2b-ac57-0fb003364dbd
+		type FOODP02
+		at 481 371
+		curdir 0
+
+	object FOODabe8223b-fa35-4388-990d-639f82316e07
+		type FOODP02
+		at 481 371
+		curdir 2
+
+	object GLAS00f82a0c-dc28-4122-9ef9-2067d501a787
+		type GLASS_COUNTER2
+		at 481 371
+		curdir 0
+
 	decorative RUBBLE_18 at 577 371
 
 	object PLAN27c699cf-2099-4c34-a3fe-d29f1531936f
@@ -30796,6 +30861,101 @@ iMZ1r01
 		at 470 372
 		curdir 0
 
+	object TABL4ad2ff2c-fd62-4ef3-9936-49d4f2687d49
+		type TABLE2-EDGES
+		at 476 372
+		curdir 2
+
+	object FOOD4a74a976-3ccb-44b8-8c44-88139a944993
+		type FOODP02
+		at 476 372
+		curdir 3
+
+	object FOOD48a00e0a-6ddb-4a9f-9b5b-32d59e8dd7fd
+		type FOODP02
+		at 476 372
+		curdir 1
+
+	object GLASc7d6b565-2a09-4ecc-ae64-2663c0c97ca4
+		type GLASS_COUNTER2
+		at 476 372
+		curdir 2
+
+	object TABL4721fc38-a967-4e68-9402-7dd7ec508b3f
+		type TABLE-SHADOW1
+		at 477 372
+		curdir 2
+
+	object TABLda0e054d-f5d8-45d3-a1fe-1cbcca70005d
+		type TABLE1-CORNERS
+		at 478 372
+		curdir 0
+
+	object FOOD94e9bbc2-0328-490c-a46a-c3ba472a6b2b
+		type FOODP02
+		at 478 372
+		curdir 0
+
+	object FOOD05fd9308-733e-4cdb-9210-e9181b05fd20
+		type FOODP02
+		at 478 372
+		curdir 2
+
+	object GLAS43910211-dbda-4807-8403-81bfe7dece39
+		type GLASS_COUNTER2
+		at 478 372
+		curdir 0
+
+	object TABLf5b104b1-b291-46f4-8d10-9e828383998e
+		type TABLE1-CORNERS
+		at 479 372
+		curdir 3
+
+	object FOOD1c49ca71-ee22-4d99-9b88-ae1054ef2d99
+		type FOODP02
+		at 479 372
+		curdir 0
+
+	object FOODb21750da-848b-4921-888c-bd4c8540e3d4
+		type FOODP02
+		at 479 372
+		curdir 3
+
+	object GLASb302f4eb-a18a-4259-b531-7bfffb1d93a4
+		type GLASS_COUNTER2
+		at 479 372
+		curdir 0
+
+	object TABL45a49ffe-1397-468d-9434-528a4ec6b134
+		type TABLE-SHADOW2
+		at 480 372
+		curdir 3
+
+	object TABL863c1dd1-e726-4658-8b40-2603f3f089fe
+		type TABLE5-LEGS
+		at 480 372
+		curdir 2
+
+	object TABLd8e73f3f-2187-4daf-ad43-75ee97de3ce3
+		type TABLE2-EDGES
+		at 481 372
+		curdir 2
+
+	object FOOD5abdb89d-c137-435c-95b3-afdfb3dc8e73
+		type FOODP02
+		at 481 372
+		curdir 2
+
+	object FOOD988bb9d2-6ae1-4324-a023-3c49785b2235
+		type FOODP02
+		at 481 372
+		curdir 1
+
+	object GLAS90d19c2a-c963-4d62-8d27-0296512c9cc6
+		type GLASS_COUNTER2
+		at 481 372
+		curdir 2
+
 	object STON98f40483-5b0e-4073-ab48-b7d839e5e65d
 		type STONEWINDOW1
 		at 485 372
@@ -30885,6 +31045,106 @@ iMZ1r01
 		type TORCHUNLIT
 		at 458 373
 		curdir 0
+
+	object TABL8d8ae4c5-dd04-49f9-894e-f5f1b6c0c514
+		type TABLE-SHADOW3
+		at 476 373
+		curdir 2
+
+	object TABL1d3a0009-b6fb-4e75-9995-a419fe2e4372
+		type TABLE2-END
+		at 476 373
+		curdir 1
+
+	object FOOD893f0587-24a4-4623-b193-38013d547399
+		type FOODP02
+		at 476 373
+		curdir 0
+
+	object FOODca3383b7-70ba-45ef-982b-71e505c06945
+		type FOODP02
+		at 476 373
+		curdir 3
+
+	object GLASdd9ff05d-8774-4b74-9fbc-1622c076a2dd
+		type GLASS_COUNTER2
+		at 476 373
+		curdir 1
+
+	object TABL61312170-126d-42aa-9461-aede78540aeb
+		type TABLE-SHADOW1
+		at 477 373
+		curdir 2
+
+	object TABLa5bbc7b6-be5c-4a49-a638-05d30e057270
+		type TABLE5-LEGS
+		at 477 373
+		curdir 2
+
+	object TABLea16efca-e2f2-47fb-b28c-55dc8a9b2a34
+		type TABLE1-EDGES
+		at 478 373
+		curdir 2
+
+	object FOOD4338716f-7f0f-4328-bece-124341fbc790
+		type FOODP02
+		at 478 373
+		curdir 2
+
+	object FOOD9a8f400e-42b5-4941-9df2-ef7eb2592544
+		type FOODP02
+		at 478 373
+		curdir 1
+
+	object GLASf092b6f7-e71c-4ed4-a855-a7c5f528b7fd
+		type GLASS_COUNTER2
+		at 478 373
+		curdir 2
+
+	object TABL41d3f66f-c3c7-40af-b596-c3cfc87f33fb
+		type TABLE1-EDGES
+		at 479 373
+		curdir 3
+
+	object FOOD15afb13a-88de-4177-8816-aa47cc27ed2f
+		type FOODP02
+		at 479 373
+		curdir 3
+
+	object FOODd13d2704-3ce5-4937-b340-97b0a79852a7
+		type FOODP02
+		at 479 373
+		curdir 1
+
+	object GLASaeeb0cac-6253-45ef-b128-10003ab62bc8
+		type GLASS_COUNTER2
+		at 479 373
+		curdir 2
+
+	object TABL37ba8ede-401c-466d-b183-1ef80c704197
+		type TABLE-SHADOW1
+		at 480 373
+		curdir 3
+
+	object TABL93e0ef39-f821-4b97-96f1-d33226fcb374
+		type TABLE2-EDGES
+		at 481 373
+		curdir 2
+
+	object FOOD649b1f96-fa91-4a2c-9cc8-3184412c4d14
+		type FOODP02
+		at 481 373
+		curdir 0
+
+	object FOODf1898027-762a-4cc7-b6e0-0a6445a2a31d
+		type FOODP02
+		at 481 373
+		curdir 2
+
+	object GLAS935e9df9-1262-4cc5-9c57-8be8f7515566
+		type GLASS_COUNTER2
+		at 481 373
+		curdir 2
 
 	decorative RUBBLE_15 at 577 373
 
@@ -30979,6 +31239,86 @@ iMZ1r01
 		at 475 374
 		curdir 2
 
+	object TABL8feef0e4-25eb-4293-9ad1-c97ab7853f11
+		type TABLE-SHADOW2
+		at 476 374
+		curdir 1
+
+	object TABL58f79ce8-81f9-453f-bad3-d1d72cfc06f9
+		type TABLE-SHADOW3
+		at 477 374
+		curdir 0
+
+	object TABLa77d2d4d-e0f0-47ca-b466-f6c5607dddb1
+		type TABLE1-EDGES
+		at 478 374
+		curdir 2
+
+	object FOODcf112bdf-4031-4718-a619-c32509ed32eb
+		type FOODP02
+		at 478 374
+		curdir 0
+
+	object FOOD048e17d1-f566-4ea8-92dc-65ef56593587
+		type FOODP02
+		at 478 374
+		curdir 2
+
+	object GLAS8442f7dd-544e-4362-94fa-50d03d0220b3
+		type GLASS_COUNTER2
+		at 478 374
+		curdir 2
+
+	object TABL6b51802b-4868-4977-9dd6-5f45ea131ea8
+		type TABLE1-EDGES
+		at 479 374
+		curdir 3
+
+	object FOOD15789a9e-2a5f-481c-9552-92c820c692d3
+		type FOODP02
+		at 479 374
+		curdir 0
+
+	object FOOD57ef1e9f-ca7f-4c2a-8807-dee81ae34501
+		type FOODP02
+		at 479 374
+		curdir 3
+
+	object GLAS90ace648-ea11-401c-ab3f-51ec7b1522bf
+		type GLASS_COUNTER2
+		at 479 374
+		curdir 2
+
+	object TABLe28d64a2-7534-4a46-90a1-b4ba2c8bc89d
+		type TABLE-SHADOW1
+		at 480 374
+		curdir 3
+
+	object TABLc50614ae-0a6f-4ae6-898c-9c4be19b0aab
+		type TABLE5-LEGS
+		at 480 374
+		curdir 2
+
+	object TABL5e10a219-f906-491e-b98d-491471048bd7
+		type TABLE2-EDGES
+		at 481 374
+		curdir 2
+
+	object FOOD3ceadd8f-e5d4-40b7-9ba6-dfac962fca48
+		type FOODP02
+		at 481 374
+		curdir 2
+
+	object FOOD99a4f296-ad83-4d14-8094-2aab6ac4b5fc
+		type FOODP02
+		at 481 374
+		curdir 1
+
+	object GLAS96876f7a-67e5-48a8-bafc-473965c5aa84
+		type GLASS_COUNTER2
+		at 481 374
+		curdir 2
+
 	decorative RUBBLE_16 at 577 374
 
 	object PLAN469aa47b-35d3-4f8a-b49c-b89b07c7ce35
@@ -31064,6 +31404,71 @@ iMZ1r01
 		type TORCHUNLIT
 		at 458 375
 		curdir 0
+
+	object TABL2b60ccb9-1760-4b45-ad24-12297e4e2ce3
+		type TABLE1-EDGES
+		at 478 375
+		curdir 2
+
+	object FOODe8f2011b-7aaa-4fed-88ac-c975fa91957b
+		type FOODP02
+		at 478 375
+		curdir 2
+
+	object FOOD3faef6c4-6409-445a-87cc-c1562eb90ca5
+		type FOODP02
+		at 478 375
+		curdir 1
+
+	object GLAS8a0c6d94-d734-4cf3-ba37-aa6cf92fd15c
+		type GLASS_COUNTER2
+		at 478 375
+		curdir 2
+
+	object TABL8b873c0d-58cf-4e91-9c9c-6f20b0c5e256
+		type TABLE1-EDGES
+		at 479 375
+		curdir 3
+
+	object FOOD490d7bc3-5a32-48d9-bb91-e5bd6a86b5c9
+		type FOODP02
+		at 479 375
+		curdir 3
+
+	object FOOD6eedf0eb-3eb3-4690-9d13-655373a7f168
+		type FOODP02
+		at 479 375
+		curdir 1
+
+	object GLAS4ee30e2a-320e-48a8-9b1c-e7ae825df393
+		type GLASS_COUNTER2
+		at 479 375
+		curdir 2
+
+	object TABL8423fb85-4025-42f2-9128-1ffa48d07221
+		type TABLE-SHADOW1
+		at 480 375
+		curdir 3
+
+	object TABL75a26690-542b-431f-8c74-650610d3adc9
+		type TABLE2-EDGES
+		at 481 375
+		curdir 2
+
+	object FOOD610f8164-0302-4532-bd9a-8a0c10dfcf27
+		type FOODP02
+		at 481 375
+		curdir 2
+
+	object FOOD1049766c-dc72-4519-a9c5-a2c37e48f0fc
+		type FOODP02
+		at 481 375
+		curdir 0
+
+	object GLASb4db0c16-e3ba-45f5-aa53-08a6566beb53
+		type GLASS_COUNTER2
+		at 481 375
+		curdir 2
 
 	object STONb2d4c898-b3e3-4214-a979-73064b6aa0e0
 		type STONEWINDOW1
@@ -31173,6 +31578,111 @@ iMZ1r01
 		at 472 376
 		curdir 0
 
+	object TABLea48c253-6a9b-4503-8eb2-d1ca4250a265
+		type TABLE2-END
+		at 476 376
+		curdir 0
+
+	object FOOD6d317a19-e4ea-4877-a8e9-c8757024fb71
+		type FOODP02
+		at 476 376
+		curdir 0
+
+	object FOODe4656d04-f255-4272-8dfa-c60642e95280
+		type FOODP02
+		at 476 376
+		curdir 3
+
+	object GLASf219e909-26f5-400e-98d1-69a1b2fafecb
+		type GLASS_COUNTER2
+		at 476 376
+		curdir 0
+
+	object TABL58580d03-5a8e-4eaf-be33-61ad9dad82bc
+		type TABLE-SHADOW2
+		at 477 376
+		curdir 3
+
+	object TABLb1ac7a20-203a-4f49-b08c-887b5801d7d1
+		type TABLE5-LEGS
+		at 477 376
+		curdir 2
+
+	object TABLbc8fb489-20bc-4941-83ee-8cac9b32526f
+		type TABLE1-CORNERS
+		at 478 376
+		curdir 2
+
+	object FOOD30d59643-f4d8-454f-97e1-d1f5a4bc93f0
+		type FOODP02
+		at 478 376
+		curdir 0
+
+	object FOODa7205fa4-7bde-4d76-b752-055ac3fabe8d
+		type FOODP02
+		at 478 376
+		curdir 2
+
+	object GLAS33e39d3d-fb64-464c-ab2b-bb84b53d70c7
+		type GLASS_COUNTER2
+		at 478 376
+		curdir 1
+
+	object TABLdbbca602-3269-421f-b79f-6a1ab85352e1
+		type TABLE-SHADOW3
+		at 479 376
+		curdir 2
+
+	object TABLdeacbec0-2159-4267-aec6-10be04e94858
+		type TABLE1-CORNERS
+		at 479 376
+		curdir 1
+
+	object FOOD8d8f8579-bcc4-4047-9773-de151102d918
+		type FOODP02
+		at 479 376
+		curdir 0
+
+	object FOOD974474bf-389a-4a9d-a68a-5f3f038a9f2d
+		type FOODP02
+		at 479 376
+		curdir 3
+
+	object GLAS6f91eac0-2598-4f11-ab6a-b13ba9a8c5c8
+		type GLASS_COUNTER2
+		at 479 376
+		curdir 1
+
+	object TABL556ff394-27e8-459f-b72e-a6c13cfa86b4
+		type TABLE-SHADOW1
+		at 480 376
+		curdir 3
+
+	object TABL5959c506-0546-4bcb-a39b-573f4eac2b87
+		type TABLE5-LEGS
+		at 480 376
+		curdir 2
+
+	object TABL6fccca38-2931-4f68-ace5-80a73379fae7
+		type TABLE2-EDGES
+		at 481 376
+		curdir 2
+
+	object FOOD59f2688b-054f-47c3-b1eb-12d2bc945843
+		type FOODP02
+		at 481 376
+		curdir 2
+
+	object FOOD54ce6076-b11d-4907-a4db-177f37f3bfee
+		type FOODP02
+		at 481 376
+		curdir 1
+
+	object GLAS38b417fa-82d3-4494-ab4c-c37eef3aa771
+		type GLASS_COUNTER2
+		at 481 376
+		curdir 2
+
 	object RUBBa7eb636e-4b05-4828-add1-3366f0e92f9c
 		type RUBBLE_05060717
 		at 577 376
@@ -31236,6 +31746,71 @@ iMZ1r01
 	object STONd79e2867-7d48-4441-9401-6384b8e6873c
 		type STONE_ARCHWAY2
 		at 472 377
+		curdir 2
+
+	object TABLd976aff7-8a8f-4115-96f7-7a2fa938f2af
+		type TABLE2-EDGES
+		at 476 377
+		curdir 2
+
+	object FOOD44ee32c8-2bc5-48f8-978a-16f9948a3851
+		type FOODP02
+		at 476 377
+		curdir 3
+
+	object FOOD410bc956-29d8-406e-b38c-b3d44d41be74
+		type FOODP02
+		at 476 377
+		curdir 1
+
+	object GLAS4f265c4e-4337-43bc-8dd6-ce2e5ff25ba3
+		type GLASS_COUNTER2
+		at 476 377
+		curdir 2
+
+	object TABL15b9bf2a-3d7e-44e4-bd31-65dc258d5041
+		type TABLE-SHADOW1
+		at 477 377
+		curdir 2
+
+	object TABL0eae803d-c5e8-4e6d-b0eb-a4765accc528
+		type TABLE5-LEGS
+		at 477 377
+		curdir 2
+
+	object TABLbf885c8b-a52d-45cf-9634-abbff7055516
+		type TABLE-SHADOW2
+		at 478 377
+		curdir 1
+
+	object TABL3842f6cc-d9d9-4ba9-be07-d0f78f0c2542
+		type TABLE-SHADOW1
+		at 479 377
+		curdir 0
+
+	object TABL4b9f718b-5dc4-45e0-8e02-a71a45c844d0
+		type TABLE-SHADOW3
+		at 480 377
+		curdir 0
+
+	object TABL3ab9986e-1779-4017-a189-e63ff91e6d17
+		type TABLE2-EDGES
+		at 481 377
+		curdir 2
+
+	object FOODaa8d0b41-f2ca-469e-8332-33e2da361c0c
+		type FOODP02
+		at 481 377
+		curdir 0
+
+	object FOOD5a648ead-549c-4c40-bfcc-44f1c4ffac7f
+		type FOODP02
+		at 481 377
+		curdir 2
+
+	object GLAS31f4cc94-b69d-40ff-9938-800504c775c1
+		type GLASS_COUNTER2
+		at 481 377
 		curdir 2
 
 	decorative TREE05 at 570 377
@@ -32264,6 +32839,11 @@ iMZ1r01
 		at 479 382
 		curdir 2
 
+	object TABLd182d572-e949-45d2-bb89-87a239672894
+		type TABLE-SHADOW1
+		at 480 382
+		curdir 3
+
 	object TABL93cf2316-4225-4f0f-9989-42c1d74c2a8c
 		type TABLE2-EDGES
 		at 481 382
@@ -32539,11 +33119,6 @@ iMZ1r01
 		type TABLE5-LEGS
 		at 480 383
 		curdir 2
-
-	object TABLd182d572-e949-45d2-bb89-87a239672894
-		type TABLE-SHADOW1
-		at 480 383
-		curdir 3
 
 	object TABLf4e6635d-20b9-4f92-8516-270b00ea964c
 		type TABLE-SHADOW3
@@ -33138,6 +33713,36 @@ iMZ1r01
 		at 458 386
 		curdir 0
 
+	object TABL85cf1444-8256-46cf-90a5-bf0ae919c081
+		type TABLE3
+		at 478 386
+		curdir 3
+
+	object TOWEfb516b8d-9542-4974-b763-f93db63e8b03
+		type TOWEL
+		at 478 386
+		curdir 0
+
+	object TABL85e830aa-458a-4e8e-830c-ad3c68e8207b
+		type TABLE3
+		at 479 386
+		curdir 3
+
+	object TOWE8a592517-355a-4ecc-959c-6ccca7c2ead6
+		type TOWEL
+		at 479 386
+		curdir 2
+
+	object TABL5740e22f-d5ff-45f3-b1cd-9cca221e37b0
+		type TABLE3
+		at 480 386
+		curdir 3
+
+	object TOWEa3fec742-071c-4f3f-9a83-01fe35853177
+		type TOWEL
+		at 480 386
+		curdir 3
+
 	decorative RUBBLE_14 at 577 386
 
 	decorative RUBBLE_16 at 583 386
@@ -33539,6 +34144,16 @@ iMZ1r01
 		at 470 388
 		curdir 3
 
+	object STONe85c7152-c7f8-406c-ae08-5edd0e82a2e1
+		type STONEDOOR1_SHUT
+		at 475 388
+		curdir 2
+
+	object WALL6e2fd613-196a-41ed-8ff1-21fbd04a4897
+		type WALL_EDGE
+		at 477 388
+		curdir 2
+
 	decorative MOUNT08 at 813 388
 
 	decorative MOUNT07 at 814 388
@@ -33788,11 +34403,6 @@ iMZ1r01
 		at 472 389
 		curdir 2
 
-	object STONe85c7152-c7f8-406c-ae08-5edd0e82a2e1
-		type STONEDOOR1_SHUT
-		at 475 389
-		curdir 2
-
 	object TODE0b9b859f-f2eb-4bef-9ccd-450f4bcea3f9
 		type TODE
 		inside EGG_08077c71-f5b3-432f-bb09-2c0777688908
@@ -33941,6 +34551,16 @@ iMZ1r01
 		type DECOR06
 		at 458 390
 		curdir 2
+
+	object CAND46433342-2591-48a4-954c-757e54ea7c8a
+		type CANDLESTKUNLIT
+		at 476 390
+		curdir 0
+
+	object CANDda4f3c18-0fbc-4e0c-be01-b869ec9f70d7
+		type CANDLESTKUNLIT
+		at 481 390
+		curdir 0
 
 	object STONd3ee574b-b8cc-4cce-b21f-7217e9aa80c3
 		type STONEWINDOW1
@@ -34875,6 +35495,16 @@ iMZ1r01
 
 	decorative MOUNT04 at 871 394
 
+	object CAND1538ddee-e706-4966-8bd7-56425e0cc98f
+		type CANDLESTKUNLIT
+		at 476 395
+		curdir 0
+
+	object CAND7cb0fecf-de6d-4cb2-b9a6-ab1e40518d93
+		type CANDLESTKUNLIT
+		at 481 395
+		curdir 0
+
 	decorative RUBBLE_14 at 599 395
 
 	object BUCKe74195a3-85f5-446c-ad84-e05b98758e4e
@@ -35754,6 +36384,11 @@ iMZ1r01
 		at 422 402
 		curdir 0
 
+	object SHIE788a5ad6-dc50-41dc-8e4f-af62a340e274
+		type SHIELD00
+		at 422 402
+		curdir 3
+
 	object TABLf8c92953-1b48-4b17-b19d-95e2aac964aa
 		type TABLE6-H
 		at 483 402
@@ -35788,6 +36423,11 @@ iMZ1r01
 		type TABLE6-H
 		at 488 402
 		curdir 1
+
+	object SHIE90514980-c522-4e93-934b-3120d5e7b06d
+		type SHIELD01
+		at 488 402
+		curdir 3
 
 	decorative RUBBLE_16 at 582 402
 

@@ -9836,59 +9836,23 @@ section: characters
 	weight		250
 	description	"You see some cloth."
 	short		"cloth"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name CLOTH01
-	left		CLOTH03
-	right		CLOTH03
-	up		CLOTH03
-	down		CLOTH03
-	hp		100
-	weight		250
-	description	"You see some cloth."
-	short		"cloth"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias CLOTH01 = CLOTH00
+	frame		CLOTH03
 
-	name CLOTH02
-	left		CLOTH04
-	right		CLOTH04
-	up		CLOTH04
-	down		CLOTH04
-	hp		100
-	weight		250
+	alias CLOTH02 = CLOTH00
+	frame		CLOTH04
 	description	"You see some tough, coarse cloth."
-	short		"cloth"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name CLOTH03
-	left		CLOTH01
-	right		CLOTH01
-	up		CLOTH01
-	down		CLOTH01
-	hp		100
-	weight		250
-	description	"You see some cloth."
-	short		"cloth"
+	alias CLOTH03 = CLOTH00
+	frame		CLOTH01
 
-	name CLOTH04
-	left		CLOTH00
-	right		CLOTH00
-	up		CLOTH00
-	down		CLOTH00
-	hp		100
-	weight		250
-	description	"You see some cloth."
-	short		"cloth"
+	alias CLOTH04 = CLOTH00
+	frame		CLOTH00
 
+	alias TOWEL = CLOTH00
+	description	"You see a towel."
+	short		"towel"
 
 	name CLOTH_BROKEN
 	left		CLOTH05
@@ -9899,24 +9863,9 @@ section: characters
 	weight		200
 	description	"You see some torn cloth."
 	short		"ruined cloth"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name CLOTH_BROKEN2
-	left		CLOTH09
-	right		CLOTH09
-	up		CLOTH09
-	down		CLOTH09
-	hp		100
-	weight		200
-	description	"You see some torn cloth."
-	short		"ruined cloth"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	alias CLOTH_BROKEN2 = CLOTH_BROKEN
+	frame		CLOTH09
 
 	name THREAD00
 	left		THREAD00
@@ -9927,10 +9876,6 @@ section: characters
 	weight		250
 	description	"You see a reel of thread."
 	short		"thread"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name THREAD01
 	left		THREAD04
@@ -9941,10 +9886,6 @@ section: characters
 	weight		250
 	description	"You see a reel of coarse thread."
 	short		"thread"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name ROPE00
 	left		ROPE00
@@ -9957,10 +9898,7 @@ section: characters
 	short		"rope"
 
 	name CLOTHING00
-	left		CLOTHING00
-	right		CLOTHING00
-	up		CLOTHING00
-	down		CLOTHING00
+	frame		CLOTHING00
 	hp		100
 	weight		100
 	armour		4
@@ -9969,31 +9907,15 @@ section: characters
 	IfWielded	wield_armour
 	wielded
 
-	name CLOTHING01
-	left		CLOTHING01
-	right		CLOTHING01
-	up		CLOTHING01
-	down		CLOTHING01
-	hp		100
-	weight		100
+	alias CLOTHING01 = CLOTHING00
+	frame		CLOTHING01
 	armour		5
 	description	"You see a cloak."
 	short		"cloak"
-	IfWielded	wield_armour
-	wielded
 
-	name CLOTHING02
-	left		CLOTHING02
-	right		CLOTHING02
-	up		CLOTHING02
-	down		CLOTHING02
-	hp		100
-	weight		100
-	armour		4
+	alias CLOTHING02 = CLOTHING00
+	frame		CLOTHING02
 	description	"You see a violet jacket."
-	short		"jacket"
-	IfWielded	wield_armour
-	wielded
 
 	name PANTHERSUIT
 	left		PANTHERSUIT
@@ -10009,10 +9931,7 @@ section: characters
 	wielded
 
 	name ARMOUR00
-	left		ARMOUR00
-	right		ARMOUR00
-	up		ARMOUR00
-	down		ARMOUR00
+	frame		ARMOUR00
 	hp		100
 	weight		30
 	armour		4
@@ -10022,10 +9941,7 @@ section: characters
 	wielded
 
 	name ARMOUR01
-	left		ARMOUR01
-	right		ARMOUR01
-	up		ARMOUR01
-	down		ARMOUR01
+	frame		ARMOUR01
 	hp		100
 	weight		900
 	armour		8
@@ -10035,10 +9951,7 @@ section: characters
 	wielded
 
 	name ARMOUR02
-	left		ARMOUR02
-	right		ARMOUR02
-	up		ARMOUR02
-	down		ARMOUR02
+	frame		ARMOUR02
 	hp		100
 	weight		2000
 	armour		15
@@ -10048,10 +9961,7 @@ section: characters
 	wielded
 
 	name ARMOUR03
-	left		ARMOUR03
-	right		ARMOUR03
-	up		ARMOUR03
-	down		ARMOUR03
+	frame		ARMOUR03
 	hp		100
 	weight		9000
 	armour		25
@@ -10061,10 +9971,7 @@ section: characters
 	wielded
 
 	name ARMOUR04
-	left		ARMOUR04
-	right		ARMOUR04
-	up		ARMOUR04
-	down		ARMOUR04
+	frame		ARMOUR04
 	hp		100
 	weight		5000
 	armour		18
@@ -10074,10 +9981,7 @@ section: characters
 	wielded
 
 	name ARMOUR05
-	left		?UNKNOWN
-	right		?UNKNOWN
-	up		?UNKNOWN
-	down		?UNKNOWN
+	frame		?UNKNOWN
 	hp		100
 	weight		1000
 	armour		50
@@ -10087,10 +9991,7 @@ section: characters
 	wielded
 
 	name ARMOUR06
-	left		?UNKNOWN
-	right		?UNKNOWN
-	up		?UNKNOWN
-	down		?UNKNOWN
+	frame		?UNKNOWN
 	hp		100
 	weight		2000
 	armour		30
@@ -10100,10 +10001,7 @@ section: characters
 	wielded
 
 	name ARMOUR07
-	left		ARMOUR02
-	right		ARMOUR02
-	up		ARMOUR02
-	down		ARMOUR02
+	frame		ARMOUR02
 	hp		100
 	weight		9000
 	armour		25
@@ -10123,10 +10021,7 @@ section: characters
 	wielded
 
 	name SHIELD00
-	left		SHIELD00
-	right		SHIELD00
-	up		SHIELD00
-	down		SHIELD00
+	frame		SHIELD00
 	hp		100
 	weight		2000
 	armour		2
@@ -10136,10 +10031,7 @@ section: characters
 	wielded
 
 	name SHIELD01
-	left		SHIELD01
-	right		SHIELD01
-	up		SHIELD01
-	down		SHIELD01
+	frame		SHIELD01
 	hp		100
 	weight		4000
 	armour		5
@@ -10149,10 +10041,7 @@ section: characters
 	wielded
 
 	name SHIELD02
-	left		SHIELD02
-	right		SHIELD02
-	up		SHIELD02
-	down		SHIELD02
+	frame		SHIELD02
 	hp		100
 	weight		4000
 	armour		10
@@ -10162,10 +10051,7 @@ section: characters
 	wielded
 
 	name COW_PRINT
-	left		COW_PRINTS_3
-	right		COW_PRINTS_3
-	up		COW_PRINTS_3
-	down		COW_PRINTS_3
+	frame		COW_PRINTS_3
 	hp		2000000000
 	weight		-1
 	description	"You see a gigantic hoofprint"
@@ -10264,26 +10150,16 @@ section: characters
 	no_resurrect
 
 	name MEMO
-	left		PRINTOUT
-	right		PRINTOUT
-	up		PRINTOUT
-	down		PRINTOUT
+	frame		PRINTOUT
 	hp		0
 	weight		170
 	description	"You see a memo left by the builders of this world"
 	short		"memo"
 	IfUsed		BOOK_USE
 	IfLookedAt	BOOK_COVER
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name POSTIT
-	left		POSTIT
-	right		POSTIT
-	up		POSTIT
-	down		POSTIT
+	frame		POSTIT
 	hp		0
 	weight		170
 	description	"You see a memo."
@@ -10303,10 +10179,6 @@ section: characters
 	behaviour	 laser_tripwire_source
 	invisible
 	fixed
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name LASER_TARGET
 	left		LASER2
@@ -12747,6 +12619,12 @@ section: characters
 	right		GLASS05
 	up		GLASS12
 	down		GLASS05
+
+	alias GLASS_COUNTER4 = GLASS_COUNTER
+	left		GLASS14
+	right		GLASS14
+	up		GLASS14
+	down		GLASS14
 
 	name DATAPANEL
 	up		data00
