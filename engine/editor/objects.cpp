@@ -61,6 +61,9 @@ extern int l_proj;      // Flag, are layers being displayed?
 extern int sx_proj;     // Flag, are other sprites being excluded? 1 = OFF
 extern int ow_proj;     // Flag, are Owned Objects being highlighted?
 extern long mapx,mapy;   // Current map position
+extern int showdeletemask;
+extern char deletemask[8][8];  // Move VS_H and VS_W to centralised location so we don't have to do this crap
+
 
 extern OBJECT *objsel;  // Object that is currently selected.  Can be NULL
 extern OBJECT *schsel;  // Object to be highlighted in Schedule editor, NULL
@@ -175,6 +178,12 @@ static void OB_SortSchedule();
 static void OB_CopySchedule();
 static void OB_PasteSchedule();
 
+static void OB_DelMask();
+static void OB_SetDelMask();
+static void OB_ResetDelMask();
+static void OB_ClearDelMask();
+static void OB_FillDelMask();
+
 static void ResetObject();
 
 static void OB_Pocket();
@@ -274,10 +283,14 @@ IG_SetInText(temp,"Rooftops ON ");
 temp = IG_ToggleButton(486,128,"OwnedObj OFF",Nothing,NULL,NULL,&ow_proj);
 IG_SetInText(temp,"OwnedObj ON ");
 
+temp = IG_ToggleButton(486,156,"Del Mask OFF",Nothing,NULL,NULL,&showdeletemask);
+IG_SetInText(temp,"Del Mask ON ");
+
 // Set up the X and Y map position counter at the top
 
 MapXpos_Id = IG_InputButton(24,40,mapxstr,GetMapX,NULL,NULL);
 MapYpos_Id = IG_InputButton(112,40,mapystr,GetMapY,NULL,NULL);
+IG_TextButton(224,40,"Delete Mask",OB_DelMask,NULL,NULL);
 
 DrawMap(mapx,mapy,1,l_proj,0);                       // Draw the map
 
@@ -1510,7 +1523,7 @@ Notify(-1,-1,string1,NULL);
 
 void OB_Wipe1()
 {
-Notify(-1,-1,"To wipe the current screen of objects,","click this control with the RIGHT mouse button.");
+Notify(-1,-1,"To wipe the current screen of objects (can be masked),","click this control with the RIGHT mouse button.");
 }
 
 void OB_Wipe()
@@ -1522,18 +1535,19 @@ DrawScreenBox3D(VIEWX+64,VIEWY+64,VIEWX+192,VIEWY+128);
 IG_Text(VIEWX+72,VIEWY+72,"Processing..",ITG_WHITE);
 Show();
 
-for(cy=0;cy<VSH;cy++)
-	{
+for(cy=0;cy<VSH;cy++) {
 	DrawScreenMeter(VIEWX+66,VIEWY+96,VIEWX+190,VIEWY+112,(float)cy/(float)VSH);
-	for(cx=0;cx<VSW;cx++)
-		{
-		do	{
-			temp=GetRawObjectBase(cx+mapx,cy+mapy);
-			if(temp)
-				DestroyObject(temp);
+	for(cx=0;cx<VSW;cx++) {
+		if((!showdeletemask) || deletemask[cy][cx]) {
+			do {
+				temp=GetRawObjectBase(cx+mapx,cy+mapy);
+				if(temp) {
+					DestroyObject(temp);
+				}
 			} while(temp);
 		}
 	}
+}
 
 objsel=NULL;
 DrawMap(mapx,mapy,1,l_proj,0);
@@ -3201,6 +3215,108 @@ while (y<curmap->h)
 
 Notify(-1,-1,"Nothing found.",NULL);
 }
+
+/*
+ * OB_DelMask - Enter a special mode to edit the deletion mask
+ */
+
+void OB_DelMask()
+{
+focus=0;                // This is now the focus
+IG_KillAll();
+IG_Panel(0,32,640,480-32);
+
+showdeletemask=1; // Force that on
+
+IG_BlackPanel(VIEWX-1,VIEWY-1,258,258);
+IG_Region(VIEWX,VIEWY,256,256,OB_SetDelMask,NULL,OB_ResetDelMask);
+
+IG_Text(300,64,"Edit the deletion mask with left/right mouse buttons",ITG_WHITE);
+
+// Set up the X and Y map position counter at the top
+
+MapXpos_Id = IG_InputButton(24,40,mapxstr,GetMapX,NULL,NULL);
+MapYpos_Id = IG_InputButton(112,40,mapystr,GetMapY,NULL,NULL);
+
+DrawMap(mapx,mapy,1,l_proj,0);                       // Draw the map
+
+IG_TextButton(416,104,__up,OB_up,NULL,NULL);         // Pan up button
+IG_TextButton(400,128,__left,OB_left,NULL,NULL);     // Pan left button
+IG_TextButton(432,128,__right,OB_right,NULL,NULL);   // Pan right button
+IG_TextButton(416,150,__down,OB_down,NULL,NULL);     // Pan down button
+
+IG_AddKey(IREKEY_UP,OB_up);                             // Pan up key binding
+IG_AddKey(IREKEY_DOWN,OB_down);                         // Pan down key binding
+IG_AddKey(IREKEY_LEFT,OB_left);                         // Pan left key binding
+IG_AddKey(IREKEY_RIGHT,OB_right);                       // Pan right key binding
+
+IG_TextButton(300,300,"Clear",OB_ClearDelMask,NULL,NULL);
+IG_TextButton(364,300,"Fill",OB_FillDelMask,NULL,NULL);
+IG_TextButton(300,332,"Finished",OB_GoFocal,NULL,NULL);
+IG_AddKey(IREKEY_ESC,OB_GoFocal);
+
+IG_WaitForRelease();
+}
+
+/*
+ *   OB_SetDelMask - Set deletion mask tile, based on OB_Pick
+ */
+
+void OB_SetDelMask()
+{
+int click_x,click_y;
+
+click_x = (x-VIEWX)>>5;
+click_y = (y-VIEWY)>>5;
+
+if(click_x>=0 && click_x<VSW) {
+	if(click_y>=0 && click_y<VSH) {
+		deletemask[click_y][click_x]=1;
+		DrawMap(mapx,mapy,1,l_proj,0);
+	}
+}
+}
+
+/*
+ *   OB_ResetDelMask - Clear deletion mask tile, based on OB_Pick
+ */
+
+void OB_ResetDelMask()
+{
+int click_x,click_y;
+
+click_x = (x-VIEWX)>>5;
+click_y = (y-VIEWY)>>5;
+
+if(click_x>=0 && click_x<VSW) {
+	if(click_y>=0 && click_y<VSH) {
+		deletemask[click_y][click_x]=0;
+		DrawMap(mapx,mapy,1,l_proj,0);
+	}
+}
+}
+
+/*
+ *   OB_ClearDelMask - Clear whole deletion mask, based on OB_Pick
+ */
+
+void OB_ClearDelMask()
+{
+memset(deletemask,0,VSW*VSH);
+DrawMap(mapx,mapy,1,l_proj,0);
+}
+
+/*
+ *   OB_FillDelMask - Clear whole deletion mask, based on OB_Pick
+ */
+
+void OB_FillDelMask()
+{
+memset(deletemask,1,VSW*VSH);
+DrawMap(mapx,mapy,1,l_proj,0);
+}
+
+
 
 
 int CMPTAG(const void *a,const void *b)

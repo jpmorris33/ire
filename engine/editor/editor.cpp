@@ -88,6 +88,9 @@ int _crt0_startup_flags =_CRT0_FLAG_FILL_SBRK_MEMORY | _CRT0_FLAG_FILL_DEADBEEF;
 #define MAX_P_OVERLAY 255       // Maximum number of overlayed objects
                                 // Per screen.  Somewhat unlikely..
 
+#define VS_W 8
+#define VS_H 8
+
 // Variables
 
 void (*EdUpdateFunc)(void);
@@ -106,6 +109,8 @@ IREBITMAP *lighticon;
 int lightdepth=128,preview_light=0;
 unsigned char editor_tip[65535];        // Tile Animation Pointer
 char imgcachedir[1024];
+char deletemask[VS_H][VS_W];
+int showdeletemask=0;
 
 //short bgp_size=0;
 //SPRITE *bgpool;
@@ -195,6 +200,7 @@ int ctr,ret;
 char fname[1024];
 char homepath[1024];
 
+memset(deletemask,0,VS_W*VS_H);
 strcpy(editarea,""); // Don't go into edit_area mode by default
 
 backend=IRE_InitBackend();      // We need this ASAP
@@ -274,8 +280,8 @@ if(!ret)
 	ret=INI_file("gamedata.ini");
 
 // Fix editor window size to 8,8
-VSW=8;
-VSH=8;
+VSW=VS_W;
+VSH=VS_H;
 
 /*
 if(!ret)
@@ -824,6 +830,18 @@ if(showown && objsel && objsel->stats->owner.objptr) {
 
 if(showsch && schsel) {
 	ClipBox(schx,schy,schsel->w-1,schsel->h-1,ITG_BLUE,gamewin);
+}
+
+if(showdeletemask) {
+	for(vy=0;vy<VSH;vy++) {
+		for(vx=0;vx<VSW;vx++) {
+			if(deletemask[vy][vx]) {
+				xpos=vx<<5;
+				ypos=vy<<5;
+				ClipBox(xpos+8,ypos+8,16,16,ITG_RED,gamewin);
+			}
+		}
+	}
 }
 
 }
