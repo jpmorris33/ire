@@ -2296,6 +2296,16 @@ for(ctr=start;ctr<=finish;ctr++)
 	}
 
 ilog_printf("\n");
+
+// Now check for moveable decoratives as that upsets the pathfinder
+for(int ctr=0;ctr<CHtot;ctr++) {
+	if((CHlist[ctr].flags & IS_DECOR) && (!(CHlist[ctr].flags & IS_FIXED))) {
+		char msg[1024];
+		sprintf(msg,"Obj '%s' is decorative but not fixed",CHlist[ctr].name);
+		Dump(finish,msg,CHlist[ctr].name);
+	}
+}
+
 }
 
 /*
@@ -3563,9 +3573,13 @@ for(ctr=start;ctr<=finish;ctr++)
 void tilelink(long start,long finish)
 {
 long ctr,pos,tilno;
-int c,d,ok,problems,tlnum;
+int c,d,ok,tlnum;
 char *line,*p;
 const char *Rptr;
+
+#ifdef TILELINK_OUTPUT
+int problems=0;
+#endif
 
 // Tables are optional
 
@@ -3874,7 +3888,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].s[TLlist[tlnum].st++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -3894,7 +3910,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].n[TLlist[tlnum].nt++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -3914,7 +3932,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].w[TLlist[tlnum].wt++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -3934,7 +3954,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].e[TLlist[tlnum].et++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -3954,7 +3976,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].sw[TLlist[tlnum].swt++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -3974,7 +3998,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].se[TLlist[tlnum].set++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -3994,7 +4020,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].nw[TLlist[tlnum].nwt++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -4014,7 +4042,9 @@ for(ctr=1;ctr<TLtot;ctr++)
 
 			// Patch in memory
 			TLlist[tlnum].ne[TLlist[tlnum].net++].tile=ctr;
+#ifdef TILELINK_OUTPUT
 			problems=1;
+#endif
 			}
 		}
 
@@ -4125,7 +4155,7 @@ for(ctr=0;ctr<STtot;ctr++)
 void Dump(long lineno,const char *error,const char *help)
 {
 char errbuf[1024];
-char errstr[1024];
+char errstr[2048];
 short ctr,sl,c2,c2m8;
 long l2,Lctr;
 
