@@ -180,7 +180,7 @@ end
 
 function eat_at_location
 activity
-
+let me.user.user1 = 0	# Reset hunger counter
 queue_action me does go_to_location to me.target
 queue_action me does eat_infront
 run_queue me
@@ -270,6 +270,7 @@ end
 function eat_at_home
 activity
 
+let me.user.user1 = 0	# Reset hunger counter
 queue_action me does go_to_location to me.target
 queue_action me does eat_own_food
 run_queue me
