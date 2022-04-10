@@ -311,6 +311,7 @@ endif
 # Is it an empty plate?
 if o is called "plate"
 or o is called "bowl"
+or o is called "table*"
 	# Are we hungry yet?
 	if me.user.user1 > 0
 		add me.user.user1 - 1
