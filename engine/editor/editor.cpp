@@ -232,7 +232,7 @@ ihome(homepath);
 
 ilog_start(newbootlog,oldbootlog);
 
-ilog_printf("IRE Editor, Copyright (C) 2020 IT-HE Software\n");
+ilog_printf("IRE Editor, Copyright (C) 2022 IT-HE Software\n");
 ilog_printf("=============================================\n");
 ilog_printf("\n");
 ilog_printf("IRE engine version %s%s\n",IKV,SVNREVISION);
