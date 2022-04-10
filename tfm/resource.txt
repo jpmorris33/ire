@@ -442,6 +442,24 @@ section: sprites
 	woman1sit_l		sprites/people/wom01_ws.png
 	woman1sit_r		sprites/people/wom01_es.png
 
+	woman200		sprites/people/wom02_n0.png
+	woman201		sprites/people/wom02_n1.png
+	woman202		sprites/people/wom02_n2.png
+	woman203		sprites/people/wom02_s0.png
+	woman204		sprites/people/wom02_s1.png
+	woman205		sprites/people/wom02_s2.png
+	woman206		sprites/people/wom02_w0.png
+	woman207		sprites/people/wom02_w1.png
+	woman208		sprites/people/wom02_w2.png
+	woman209		sprites/people/wom02_e0.png
+	woman210		sprites/people/wom02_e1.png
+	woman211		sprites/people/wom02_e2.png
+	woman212		sprites/people/wom02___.png
+	woman2sit_u		sprites/people/wom02_ns.png
+	woman2sit_d		sprites/people/wom02_ss.png
+	woman2sit_l		sprites/people/wom02_ws.png
+	woman2sit_r		sprites/people/wom02_es.png
+
 	mage00			sprites/people/mage00.cel
 	mage01			sprites/people/mage01.cel
 	mage02			sprites/people/mage02.cel
@@ -5910,6 +5928,68 @@ section: sequences
 	quickname WOMAN1SIT_U WOMAN1SIT_U
 	quickname WOMAN1SIT_D WOMAN1SIT_D
 
+	name WOMAN2_UP
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		WOMAN201
+		WOMAN200
+		WOMAN202
+	end
+
+	name WOMAN2_DOWN
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		WOMAN204
+		WOMAN203
+		WOMAN205
+	end
+
+	name WOMAN2_LEFT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		WOMAN207
+		WOMAN206
+		WOMAN208
+	end
+
+	name WOMAN2_RIGHT
+	pingpong
+	loop
+	stepped
+	speed 1
+	framelist:
+	#3 frames
+		WOMAN210
+		WOMAN209
+		WOMAN211
+	end
+
+	name WOMAN2_DEAD
+	speed 1
+	overlay BLOOD_OVERLAY
+	framelist:
+	#1 frames
+		WOMAN212
+	end
+
+	quickname WOMAN2_SLEEPING WOMAN212
+
+	quickname WOMAN2SIT_L WOMAN2SIT_L
+	quickname WOMAN2SIT_R WOMAN2SIT_R
+	quickname WOMAN2SIT_U WOMAN2SIT_U
+	quickname WOMAN2SIT_D WOMAN2SIT_D
 
 	name SATAN_UP
 	pingpong
@@ -14322,6 +14402,8 @@ section: tables
 		player redmansit_u 
 		playerf redwomansit_u 
 		woman_generic WOMAN1SIT_U
+		woman_noble WOMAN2SIT_U
+		woman_girl WOMAN1SIT_U
 		king kingsit_u
 		prince kingsit_u
 		man_pope popesit_u
@@ -14349,6 +14431,8 @@ section: tables
 		player redmansit_d
 		playerf redwomansit_d
 		woman_generic WOMAN1SIT_D
+		woman_noble WOMAN2SIT_D
+		woman_girl WOMAN1SIT_D
 		king kingsit_d
 		prince kingsit_d
 		man_pope popesit_d
@@ -14376,6 +14460,8 @@ section: tables
 		player redmansit_l 
 		playerf redwomansit_l
 		woman_generic WOMAN1SIT_L
+		woman_noble WOMAN2SIT_L
+		woman_girl WOMAN1SIT_L
 		king kingsit_l
 		prince kingsit_l
 		man_pope popesit_l
@@ -14403,6 +14489,8 @@ section: tables
 		player redmansit_r
 		playerf redwomansit_r
 		woman_generic WOMAN1SIT_R
+		woman_noble WOMAN2SIT_R
+		woman_girl WOMAN1SIT_R
 		king kingsit_r
 		prince kingsit_r
 		man_pope popesit_r
@@ -14755,6 +14843,7 @@ section: tables
 		MAN_POPE		POPE_HEAD
 		DEADFOLLOWER		CARDINAL_HEAD
 		DEADPEASANT		PEASANT_HEAD
+		DEADBOY			BOY_HEAD
 		DEADNOBLEMAN		NOBLE_HEAD
 		DEADGUARD		GUARD_HEAD
 		DEADGUARD_MODERN	MODERNGUARD_HEAD
@@ -14763,6 +14852,7 @@ section: tables
 		DEADPILGRIM		PILGRIM_HEAD
 		DEADCARDINAL		CARDINAL_HEAD
 		DEADWOMAN		WOMAN_HEAD
+		DEADGIRL		GIRL_HEAD
 		DEADNOBLEWOMAN		NOBLEWOMAN_HEAD
 		DEADOUTLAW		OUTLAW_HEAD
 		DEADMAGE		MAGE_HEAD
@@ -14782,6 +14872,7 @@ section: tables
 		MAN_POPE		POPE_BODY
 		DEADFOLLOWER		FOLLOWER_BODY
 		DEADPEASANT		PEASANT_BODY
+		DEADBOY			BOY_BODY
 		DEADNOBLEMAN		NOBLEMAN_BODY
 		DEADGUARD		GUARD_BODY
 		DEADGUARD_MODERN	MODERNGUARD_BODY
@@ -14790,6 +14881,7 @@ section: tables
 		DEADPILGRIM		PILGRIM_BODY
 		DEADCARDINAL		CARDINAL_BODY
 		DEADWOMAN		WOMAN1_BODY
+		DEADGIRL		GIRL_BODY
 		DEADNOBLEWOMAN		WOMAN2_BODY
 		DEADOUTLAW		OUTLAW_BODY
 		DEADOUTLAW2		OUTLAW2_BODY
@@ -14826,6 +14918,8 @@ section: tables
 		player			REDMAN_SLEEPING
 		playerf			REDWOMMAN_SLEEPING
 		woman_generic		WOMAN1_SLEEPING
+		woman_girl		WOMAN1_SLEEPING
+		woman_noble		WOMAN2_SLEEPING
 		king			KING_SLEEPING
 		prince			KING_SLEEPING
 		man_pope		POPE_SLEEPING
@@ -14847,6 +14941,7 @@ section: tables
 		PRINCE_HEAD		PRINCE
 		POPE_HEAD		MAN_POPE
 		CARDINAL_HEAD		MAN_CARDINAL
+		BOY_HEAD		MAN_BOY
 		PEASANT_HEAD		MAN_GENERIC
 		NOBLE_HEAD		MAN_NOBLE
 		GUARD_HEAD		GUARD
@@ -14855,6 +14950,7 @@ section: tables
 		MONK_HEAD		MAN_MONK
 		PILGRIM_HEAD		MAN_PILGRIM
 		WOMAN_HEAD		WOMAN_GENERIC
+		GIRL_HEAD		WOMMAN_GIRL
 		NOBLEWOMAN_HEAD		WOMAN_NOBLE
 		MAGE_HEAD		MAN_MAGE
 		OUTLAW_HEAD		MAN_OUTLAW

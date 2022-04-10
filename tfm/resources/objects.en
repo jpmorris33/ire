@@ -1062,6 +1062,11 @@ section: characters
 	container
 	horrific
 
+	alias DEADBOY = DEADPEASANT
+	frame		F_DEAD
+	weight		40000
+	description	"You see a dead youth."
+
 	name DEADNOBLEMAN
 	left		NOBLEMAN_DEAD
 	right		NOBLEMAN_DEAD
@@ -1171,10 +1176,7 @@ section: characters
 	horrific
 
 	name DEADWOMAN
-	left		WOMAN1_DEAD
-	right		WOMAN1_DEAD
-	up		WOMAN1_DEAD
-	down		WOMAN1_DEAD
+	frame		WOMAN1_DEAD
 	hp		100
 	weight		60000
 	description	"You see a dead woman."
@@ -1182,27 +1184,14 @@ section: characters
 	IfLookedAt	SearchContainer
 	container
 	horrific
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name DEADNOBLEWOMAN
-	left		WOMAN1_DEAD
-	right		WOMAN1_DEAD
-	up		WOMAN1_DEAD
-	down		WOMAN1_DEAD
-	hp		100
-	weight		60000
+	alias DEADGIRL = DEADWOMAN
+	weight		40000
+	description	"You see a dead youth."
+
+	alias DEADNOBLEWOMAN = DEADWOMAN
+	frame		WOMAN2_DEAD
 	description	"You see a dead noblewoman."
-	short		"body"
-	IfLookedAt	SearchContainer
-	container
-	horrific
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name WHAWK_DEAD
 	left		F_DEAD
@@ -4226,6 +4215,31 @@ section: characters
 	race		human
 	rank		peasant
 	faction		medieval
+
+	name WOMAN_GIRL
+	left		WOMAN1_LEFT
+	right		WOMAN1_RIGHT
+	up		WOMAN1_UP
+	down		WOMAN1_DOWN
+	hp		80
+	dexterity	5
+	strength	6000
+	intelligence	120
+	weight		40000
+	damage		6
+	description	"You see a youth."
+	short		"girl"
+	attack		close_attack
+	IfKilled	Follower_Dies
+	IfHurt		Follower_Hurt
+	ifhorrified	Rick_Horror
+	biological
+	solid
+	person
+	female
+	fragile
+	race		human
+	rank		peasant
 
 	name WOMAN_NOBLE
 	left		WOMAN1_LEFT
@@ -11681,10 +11695,6 @@ section: characters
 	short		"crops"
 	solid
 #	decorative
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name CROP-1-1
 	left		CROP1-06
@@ -11698,10 +11708,6 @@ section: characters
 	solid
 	fixed
 #	decorative
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name CROP-1-2
 	left		CROP1-04
@@ -11714,10 +11720,7 @@ section: characters
 	short		"crops"
 	solid
 	decorative
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	fixed
 
 	name CROP-2-0
 	left		CROP2-02
@@ -11729,6 +11732,7 @@ section: characters
 	description	"You see a plantation of some kind of corn."
 	short		"crops"
 	solid
+	fixed
 
 	name CROP-2-1
 	left		CROP2-01
@@ -11741,6 +11745,7 @@ section: characters
 	short		"crops"
 	solid
 	decorative
+	fixed
 
 	name CROP-2-2
 	left		CROP2-03
@@ -11753,6 +11758,7 @@ section: characters
 	short		"crops"
 	solid
 	decorative
+	fixed
 
 	name swamp
 	left		swamp04
@@ -16230,6 +16236,10 @@ section: characters
 	frame		head_peasant
 	down		pikedhead_peasant
 
+	alias		BOY_HEAD = PLAYER_HEAD
+	frame		head_outlaw
+	down		pikedhead_outlaw
+
 	alias		PILGRIM_HEAD = PEASANT_HEAD
 
 	alias		MONK_HEAD = PEASANT_HEAD
@@ -16251,6 +16261,8 @@ section: characters
 	alias		WOMAN_HEAD = PLAYER_HEAD
 	frame		head_woman
 	down		pikedhead_woman
+
+	alias		GIRL_HEAD = WOMAN_HEAD
 
 	alias		NOBLEWOMAN_HEAD = WOMAN_HEAD
 	
@@ -16348,6 +16360,10 @@ section: characters
 	alias PEASANT_BODY = PLAYER_BODY
 	frame		body_peasant
 
+	alias BOY_BODY = PLAYER_BODY
+	weight		40000
+	frame		body_follower
+
 	alias NOBLEMAN_BODY = PLAYER_BODY
 	frame		body_noble
 
@@ -16383,6 +16399,9 @@ section: characters
 
 	alias WOMAN2_BODY = PLAYER_BODY
 	frame		body_woman2
+
+	alias GIRL_BODY = WOMAN1_BODY
+	weight		40000
 
 	alias POPE_BODY = CARDINAL_BODY
 	frame		body_pope
