@@ -54,7 +54,6 @@ endif
 # if we can't find an object with that tag, guess again until we have something
 # worth doing
 
-#do
 label do_again
 
 	random num between 1 10 # 0 is the water-source
@@ -74,7 +73,6 @@ label do_again
 if_not_exist o
 	goto do_again
 endif
-#while o = null
 
 # Chain to the next stage
 
@@ -190,3 +188,163 @@ endif
 
 end
 
+
+
+
+##
+##  Strip farming crops
+##
+
+
+function tend_strip_farm
+activity
+int num
+object o
+
+##
+##  Start farming
+##
+
+let me.user.user1 = 0
+let me.user.user2 = 0
+let me.user.user3 = 0
+
+# Now pick a row of the strip and go there
+
+if_not_exist me.target
+	print "Error in strip farm code|"
+	print "Character must point to a target for the first tag|"
+	return
+endif
+
+# Find upper boundary
+let num = me.target.tag + 2
+find_tag o = "target" num
+if_not_exists o
+	print "Error in strip farm - did not find upper boundary object, tag="	
+	print num
+	printcr
+	goto slap_farmer
+endif
+
+# Store lower and upper boundaries
+let me.user.user1 = me.target.y
+let me.user.user3 = o.y
+if o.y >= me.target.y
+	print "Error in strip farm - upper boundary object below lower boundary!"	
+	printcr
+	goto slap_farmer
+endif
+
+# Pick which of the two strips to patrol this time
+random num between 0 1
+add num + me.target.tag
+find_tag o = "target" num
+if_exists o
+	start_action me does "find_strip" to o
+	return
+endif
+
+label slap_farmer
+print "Error: strip farming needs three consecutive tags from the start object!"
+printcr
+print "The farmer hits themselves in their confusion"
+printcr
+
+add me.stats.hp - 10
+check_hurt me
+return
+end
+
+
+##
+##  Move to start of strip and begin patrolling
+##
+
+function find_strip
+private
+
+if_exists me.target
+	# Try to move there
+	move_towards me me.target
+
+	# code 1 means not ready
+	if err <> PATH_WAITING
+		# Face the same direction as the target object
+		force_direction me faces me.target.curdir
+
+		# Now wander
+		start_action me does "wander_strip"
+		return
+	endif
+endif
+
+end
+
+##
+##  Move around the strip
+##
+
+function wander_strip
+private
+int r
+
+# Has the counter run out?
+
+if me.user.user2 < 1
+	# Pick a random direction
+	random r between 0 3
+	force_direction me faces r
+
+	# stop them wandering off through a gap
+	call crops_checkdir
+
+	# Now pick a random amount to wander, or stare at something
+	random r between 3 15
+	let me.user.user2 = r
+	return
+endif
+
+add me.user.user2 - 1
+
+# Move forward.  If they're in front of some crops they won't be able to, but it simulates them examining the crop
+
+# Also, bounce them if they try to leave via the top or bottom of the strip
+if me.y >= me.user.user1
+	force_direction me faces NORTH
+endif
+if me.y <= me.user.user3
+	force_direction me faces SOUTH
+endif
+
+let current = me
+call move_forward
+
+end
+
+##
+##  Sanity-check the direction change to make sure they're not going to escape
+##
+
+function crops_checkdir
+int x
+
+if me.curdir = WEST
+	let x = me.x - 1
+endif
+if me.curdir = EAST
+	let x = me.x + 1
+endif
+
+
+if_solid x me.y
+	# Looks good
+	return
+endif
+
+# Stop them running out through a gap in the hedge
+
+random x between NORTH SOUTH	# Fortunately these two are consecutive.
+force_direction me faces x
+
+end
