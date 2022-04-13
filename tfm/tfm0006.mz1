@@ -994,6 +994,16 @@ iMZ1r01
 
 	decorative HUT03 at 450 154
 
+	object W_BE3e282810-22fe-4ba9-8b1d-c02b0080dfc0
+		type W_BED
+		at 451 154
+		curdir 1
+
+	object W_BEcb8b6c47-e35a-460a-9b3d-498d2494a1a5
+		type W_BED
+		at 455 154
+		curdir 1
+
 	decorative HUT03 at 456 154
 
 	object STON75148c59-630a-4165-96b8-ad45162c8ddd
@@ -1011,16 +1021,33 @@ iMZ1r01
 		at 431 155
 		curdir 3
 
+	object BUNN20245d45-c64f-46b3-8bee-f6bc93d075b4
+		type BUNNY
+		inside EGG_5f205cc5-c83a-437d-94f3-28caa65dc9e4
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_5f205cc5-c83a-437d-94f3-28caa65dc9e4
+		type EGG_OBJECT(BUNNY)
+		at 442 155
+		curdir 1
+
+	object BUNN6a4850a0-6fb6-4258-921a-a230231be43a
+		type BUNNY
+		inside EGG_2ce407ae-1c23-4fb9-964c-8b394bee15d5
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_2ce407ae-1c23-4fb9-964c-8b394bee15d5
+		type EGG_OBJECT(BUNNY)
+		at 446 155
+		curdir 1
+
 	decorative HUT03 at 450 155
 
 	object WAAR822c0425-6332-4374-8df5-0cba79b47b94
 		type WAARG_FEMALE
-		at 452 155
-		curdir 1
-
-	object BED29709635a-d788-478f-bad0-cc7976f7a8cb
-		type BED2
-		at 454 155
+		at 453 155
 		curdir 1
 
 	decorative HUT03 at 456 155
@@ -1050,7 +1077,28 @@ iMZ1r01
 		at 431 156
 		curdir 1
 
+	object BUNN4e294fe2-ae69-4baf-ac7a-a42b128f8262
+		type BUNNY
+		inside EGG_25bb820d-f85f-4faf-a13e-b53444073565
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_25bb820d-f85f-4faf-a13e-b53444073565
+		type EGG_OBJECT(BUNNY)
+		at 437 156
+		curdir 1
+
 	decorative HUT03 at 450 156
+
+	object W_BEb7b9b942-e341-4020-bdf2-718d755cd7bf
+		type W_BED
+		at 451 156
+		curdir 1
+
+	object W_BE2857d722-7265-42b9-855b-c9b381524a02
+		type W_BED
+		at 455 156
+		curdir 1
 
 	decorative HUT03 at 456 156
 
@@ -1084,6 +1132,17 @@ iMZ1r01
 		at 431 157
 		curdir 3
 
+	object BUNN94ea52b9-0244-4371-903c-9499d41ddec7
+		type BUNNY
+		inside EGG_e358d53a-2b05-4ed3-b750-c8f6cb24a374
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_e358d53a-2b05-4ed3-b750-c8f6cb24a374
+		type EGG_OBJECT(BUNNY)
+		at 439 157
+		curdir 1
+
 	decorative HUT03 at 450 157
 
 	decorative HUT03 at 456 157
@@ -1098,12 +1157,55 @@ iMZ1r01
 		at 431 158
 		curdir 3
 
+	object BUNNf3ad77a0-946e-4411-8652-1e4990fb1756
+		type BUNNY
+		inside EGG_f94315f9-ea93-44a7-bf8c-9eb1e9729dff
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_f94315f9-ea93-44a7-bf8c-9eb1e9729dff
+		type EGG_OBJECT(BUNNY)
+		at 434 158
+		curdir 1
+
+	object BUNN2676d555-8bd2-4932-95be-c84ccfc7ce07
+		type BUNNY
+		inside EGG_0dbe8545-6e97-4b2c-b703-a17c3cdf17ee
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_0dbe8545-6e97-4b2c-b703-a17c3cdf17ee
+		type EGG_OBJECT(BUNNY)
+		at 441 158
+		curdir 1
+
+	object BUNN9882ee2f-2713-407c-8a60-57cf00ad2974
+		type BUNNY
+		inside EGG_96b355de-b2ff-4392-8b71-2a53a69006a3
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_96b355de-b2ff-4392-8b71-2a53a69006a3
+		type EGG_OBJECT(BUNNY)
+		at 445 158
+		curdir 1
+
 	decorative HUT03 at 450 158
+
+	object W_BE6cf1882a-8a04-44a5-b1ce-42a6bb93d9c3
+		type W_BED
+		at 451 158
+		curdir 1
 
 	object HUT_531003f4-e7e6-4a16-b09b-0ce2e1cd7666
 		type HUT_DOOR_SHUT
 		at 452 158
 		curdir 0
+
+	object W_BEfb0a79fd-1720-48bb-bf64-1a3407d0c4f3
+		type W_BED
+		at 455 158
+		curdir 1
 
 	decorative HUT03 at 456 158
 
@@ -1135,6 +1237,17 @@ iMZ1r01
 	object STONcd6ca56b-0c27-42b3-a96d-a6012e3a059b
 		type STONEFLOOR10
 		at 431 159
+		curdir 1
+
+	object BUNN2948495f-e228-46cb-951a-d75a9a21a9f5
+		type BUNNY
+		inside EGG_c397080c-1c94-4d21-ad68-a5c116e1b4c9
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_c397080c-1c94-4d21-ad68-a5c116e1b4c9
+		type EGG_OBJECT(BUNNY)
+		at 444 159
 		curdir 1
 
 	decorative HUT04 at 450 159
@@ -1172,6 +1285,17 @@ iMZ1r01
 		at 431 160
 		curdir 3
 
+	object BUNNdd683d90-3113-4143-a5a4-760e2b0b8ca0
+		type BUNNY
+		inside EGG_bb8dfb02-cdb9-4a23-b858-06ed1ea2a044
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_bb8dfb02-cdb9-4a23-b858-06ed1ea2a044
+		type EGG_OBJECT(BUNNY)
+		at 437 160
+		curdir 1
+
 	object STONfd5a6764-e89c-42dc-b441-d98c3314ffac
 		type STONEFLOOR10
 		at 463 160
@@ -1203,6 +1327,17 @@ iMZ1r01
 		at 431 161
 		curdir 3
 
+	object BUNN887f58e2-6cd0-447a-9525-7bd10d4852c4
+		type BUNNY
+		inside EGG_26764601-76ba-4a14-86a7-5e09e92eefa2
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_26764601-76ba-4a14-86a7-5e09e92eefa2
+		type EGG_OBJECT(BUNNY)
+		at 443 161
+		curdir 1
+
 	object STON0fa66383-221f-4771-9204-b34b09aa625a
 		type STONEFLOOR18
 		at 463 161
@@ -1228,6 +1363,8 @@ iMZ1r01
 		at 432 162
 		curdir 3
 
+	decorative TREE01 at 460 162
+
 	object STON4001a7cf-1052-4d29-a864-68a083fa673a
 		type STONEFLOOR10
 		at 462 162
@@ -1246,6 +1383,11 @@ iMZ1r01
 	object WAAR818363ee-1575-41c5-a7de-37666a8af7c0
 		type WAARG_FEMALE
 		at 447 163
+		curdir 1
+
+	object WAARd179cb5b-2c81-4da9-9c3e-c7fb1e073b9c
+		type WAARG_MALE
+		at 451 163
 		curdir 1
 
 	object STON12f57a2d-f30d-4364-8137-4431afd74d9b
@@ -1310,6 +1452,14 @@ iMZ1r01
 		at 450 164
 		curdir 1
 
+	decorative TREE01 at 451 164
+
+	decorative TREE01 at 453 164
+
+	decorative TREE03 at 457 164
+
+	decorative TREE02 at 459 164
+
 	object STON0b5b1eac-39f4-49a7-936d-112351fbf397
 		type STONEFLOOR10
 		at 463 164
@@ -1372,6 +1522,17 @@ iMZ1r01
 		at 431 165
 		curdir 3
 
+	object BUNN10719ce5-17c8-4c53-8101-532d06c3c350
+		type BUNNY
+		inside EGG_e28a7627-ef62-4dda-bdce-193f72f0a4af
+		curdir 1
+		activity BUNNY_WANDER
+
+	object EGG_e28a7627-ef62-4dda-bdce-193f72f0a4af
+		type EGG_OBJECT(BUNNY)
+		at 435 165
+		curdir 1
+
 	object WARG98ee00f3-426c-458e-858c-b3bc55e604e0
 		type WARG_XBOW_BOLTS
 		inside WAAR73a68393-ba63-4c84-80fe-4f557b18bf99
@@ -1388,6 +1549,12 @@ iMZ1r01
 		type WAARG_SOLDIER
 		at 449 165
 		curdir 1
+
+	decorative TREE01 at 453 165
+
+	decorative TREE03 at 455 165
+
+	decorative TREE02 at 457 165
 
 	object STON07e6760a-c787-4815-9b61-a1d7c7d17313
 		type STONEFLOOR18
@@ -1439,6 +1606,12 @@ iMZ1r01
 		at 431 166
 		curdir 1
 
+	decorative TREE01 at 451 166
+
+	decorative TREE02 at 455 166
+
+	decorative TREE03 at 458 166
+
 	object STONf5b275ac-ce36-4d2f-9980-ccfcb450c10f
 		type STONEFLOOR18
 		at 464 166
@@ -1463,6 +1636,15 @@ iMZ1r01
 		type STONEFLOOR10
 		at 431 167
 		curdir 3
+
+	object BUCK61646ad8-ad69-4227-b183-e97a81ed08ff
+		type BUCKET
+		at 448 167
+		curdir 1
+
+	decorative TREE03 at 453 167
+
+	decorative TREE03 at 456 167
 
 	object STONdeaeadf1-7a22-416a-8643-c474073eb2a8
 		type STONEFLOOR10
@@ -1509,6 +1691,10 @@ iMZ1r01
 		at 432 168
 		curdir 3
 
+	decorative TREE02 at 450 168
+
+	decorative TREE03 at 461 168
+
 	object STONec1365d1-99a2-4956-a847-5ab2cd514b80
 		type STONEFLOOR18
 		at 465 168
@@ -1554,6 +1740,12 @@ iMZ1r01
 		at 432 169
 		curdir 3
 
+	decorative TREE03 at 454 169
+
+	decorative TREE02 at 456 169
+
+	decorative TREE03 at 459 169
+
 	object STONb1de4557-6b65-4385-8355-4dc3724fcfae
 		type STONEFLOOR18
 		at 465 169
@@ -1595,6 +1787,8 @@ iMZ1r01
 		at 434 170
 		curdir 3
 
+	decorative TREE02 at 451 170
+
 	object STON7b860623-fda4-49ad-9f49-8318489e7fd1
 		type STONEFLOOR18
 		at 465 170
@@ -1615,6 +1809,12 @@ iMZ1r01
 		type STONEFLOOR18
 		at 434 171
 		curdir 3
+
+	decorative TREE03 at 453 171
+
+	decorative TREE01 at 458 171
+
+	decorative TREE01 at 461 171
 
 	object STON21a20ee8-beae-429e-a04f-027d052b7946
 		type STONEFLOOR10
@@ -1662,6 +1862,8 @@ iMZ1r01
 		at 435 172
 		curdir 3
 
+	decorative TREE01 at 459 172
+
 	object STON2505a2e4-fede-445c-9edd-81abe8cdba2c
 		type STONEFLOOR18
 		at 464 172
@@ -1671,6 +1873,12 @@ iMZ1r01
 		type STONEFLOOR18
 		at 435 173
 		curdir 3
+
+	decorative TREE03 at 450 173
+
+	decorative TREE01 at 454 173
+
+	decorative TREE03 at 455 173
 
 	object STON9d7e22d9-1ff6-451a-929b-852fbd520335
 		type STONEFLOOR10
@@ -1712,6 +1920,12 @@ iMZ1r01
 		at 435 174
 		curdir 1
 
+	decorative TREE02 at 452 174
+
+	decorative TREE02 at 454 174
+
+	decorative TREE01 at 458 174
+
 	object STON39e2bf7a-06c6-49d4-b8dc-554e910fe4a0
 		type STONEFLOOR18
 		at 463 174
@@ -1731,6 +1945,16 @@ iMZ1r01
 		type STONEFLOOR18
 		at 434 175
 		curdir 3
+
+	decorative TREE02 at 450 175
+
+	decorative TREE02 at 451 175
+
+	decorative TREE01 at 453 175
+
+	decorative TREE03 at 457 175
+
+	decorative TREE03 at 459 175
 
 	object STON05fc1a81-4b04-4c01-91e1-7d486b233a86
 		type STONEFLOOR10
@@ -1806,6 +2030,8 @@ iMZ1r01
 		type STONEFLOOR18
 		at 432 178
 		curdir 3
+
+	decorative TREE01 at 456 178
 
 	object STON4c60990f-3e88-4c38-885b-988800a69d08
 		type STONEFLOOR10
@@ -4826,10 +5052,30 @@ iMZ1r01
 		at 292 217
 		curdir 0
 
+	object CLOT90488911-0725-4456-8648-12d8f69c38a8
+		type CLOTHING01
+		inside DRAWa3d124f6-d6f1-4335-aec2-3c714ff6b562
+		curdir 0
+
+	object PAIN24a795d9-5570-479c-8934-5035cd2eed66
+		type PAINTS
+		inside DRAWa3d124f6-d6f1-4335-aec2-3c714ff6b562
+		curdir 0
+
+	object PAIN9560e9b2-5eb4-49ad-86e0-8a8333b051fd
+		type PAINTS
+		inside DRAWa3d124f6-d6f1-4335-aec2-3c714ff6b562
+		curdir 0
+
 	object DRAWa3d124f6-d6f1-4335-aec2-3c714ff6b562
 		type DRAWERS
 		at 293 217
 		curdir 2
+
+	object CANV7c60c687-61bf-4843-953a-9866990a2bfd
+		type CANVAS01
+		at 300 217
+		curdir 0
 
 	object LIGH1fb1a49d-4153-41af-8c19-9fa8c3763021
 		type LIGHTSOURCE_ULTRA
@@ -4927,6 +5173,11 @@ iMZ1r01
 		at 289 218
 		curdir 3
 
+	object CANV87e7640f-0578-42ed-bb2e-cfcf1012ffc6
+		type CANVAS01
+		at 294 218
+		curdir 3
+
 	object TABL4886bd8e-f553-4ddb-8e70-31a945f2eec2
 		type TABLE6-H
 		at 295 218
@@ -4937,11 +5188,10 @@ iMZ1r01
 		at 296 218
 		curdir 0
 
-	object MEMO9ba5dfa0-d63e-4166-8cb6-0c5caf15ccb8
-		type MEMO
+	object PAIN19c954e3-0d76-43fb-961d-0a35ab7449a4
+		type PAINTS
 		at 296 218
 		curdir 0
-		name Painting implements
 
 	object TABL8a9218e3-47a3-4948-ae0b-25baa4def87c
 		type TABLE6-H
@@ -4958,11 +5208,10 @@ iMZ1r01
 		at 299 218
 		curdir 3
 
-	object MEMOed0f64fc-d78a-4b9c-a3e3-53916067b0d9
-		type MEMO
-		at 300 218
+	object CANVe949e0e1-ddbc-4d86-a594-3fb80abccdde
+		type CANVAS00
+		at 299 218
 		curdir 0
-		name Paintings on easels
 
 	object STONa2b134d1-221c-4ecc-9269-727d05a57589
 		type STONEFLOOR18
@@ -5157,7 +5406,7 @@ iMZ1r01
 	object TABL0da2bc99-6484-4192-97aa-1562197ab88d
 		type TABLE-SHADOW3
 		at 299 219
-		curdir 1
+		curdir 3
 
 	object STONd40c6387-2206-4b3c-b225-04225812e0a2
 		type STONEWINDOW1
@@ -5327,6 +5576,11 @@ iMZ1r01
 		name Giotto Francini
 		stats->hp 100000
 		funcs->talk /people/peasants/hell/giotto.txt
+
+	object CANVdf39fa7f-2080-4a7f-8a6e-199f10d83de3
+		type CANVAS00
+		at 299 220
+		curdir 0
 
 	object STON3f977beb-aad1-4157-a65d-3dc617f37143
 		type STONEFLOOR18

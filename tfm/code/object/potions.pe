@@ -115,6 +115,9 @@ endif
 if p is called "potion_green"
 	call potion_overdose
 	add current.user.poison + 50
+	let victim = current
+	let victim.enemy = me
+	let suspect = me
 	check_hurt current
 endif
 
@@ -160,6 +163,8 @@ if p is called "ded_bull_energy_drink"
 	object_sound "gulp" current
 	add current.stats.str + p.stats.str	# Give Energy
 	add current.stats.hp - 10		# Give you wings (if you take too much)
+	let victim = current
+	let suspect = me
 	check_hurt current
 	replace p = "ded_bull_empty"
 	return
@@ -186,7 +191,10 @@ endif
 if p is called "happy_drink"
 	object_sound "gulp" current
 	add current.stats.hp - 1000	# This will make you very happy
+	let victim = current
+	let suspect = me
 	check_hurt current
+	let current.enemy = me
 	replace p = "happy_drink_empty"
 	return
 endif
@@ -294,6 +302,9 @@ if score > 1
 
 		# And kill them
 		add current.stats.hp = -1
+		let victim = current
+		let suspect = me
+		check_hurt current
 	endif
 
 endif

@@ -2695,6 +2695,12 @@ section: sprites
 	painting13		sprites/church/lastsup3.cel
 	painting14		sprites/church/lastsup4.cel
 
+	painting15		sprites/painting1.png
+	painting16		sprites/painting2.png
+	painting17		sprites/painting3.png
+	painting18		sprites/painting4.png
+	paints			sprites/paints.png
+
 	crop1-00		sprites/crop1-00.cel
 	crop1-01		sprites/crop1-01.cel
 	crop1-02		sprites/crop1-02.cel
@@ -11381,21 +11387,26 @@ section: sequences
 	end
 
 
-	quickname PAINTING00 PAINTING00
-	quickname PAINTING01 PAINTING01
-	quickname PAINTING02 PAINTING02
-	quickname PAINTING03 PAINTING03
-	quickname PAINTING04 PAINTING04
-	quickname PAINTING05 PAINTING05
-	quickname PAINTING06 PAINTING06
-	quickname PAINTING07 PAINTING07
-	quickname PAINTING08 PAINTING08
-	quickname PAINTING09 PAINTING09
-	quickname PAINTING10 PAINTING10
-	quickname PAINTING11 PAINTING11
-	quickname PAINTING12 PAINTING12
-	quickname PAINTING13 PAINTING13
-	quickname PAINTING14 PAINTING14
+	quickname PAINTING00
+	quickname PAINTING01
+	quickname PAINTING02
+	quickname PAINTING03
+	quickname PAINTING04
+	quickname PAINTING05
+	quickname PAINTING06
+	quickname PAINTING07
+	quickname PAINTING08
+	quickname PAINTING09
+	quickname PAINTING10
+	quickname PAINTING11
+	quickname PAINTING12
+	quickname PAINTING13
+	quickname PAINTING14
+	quickname PAINTING15
+	quickname PAINTING16
+	quickname PAINTING17
+	quickname PAINTING18
+	quickname PAINTS
 
 
 	name CRYSTAL_RED

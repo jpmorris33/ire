@@ -60,7 +60,7 @@ He snarls at you and his hackles rise.
 
 "YOU KILLED THE KING!  NOW YOU MUST DIE!"
 
-[at_exit_call="justice_regicide"]
+[at_exit_call="justice_regicide_bootstrap"]
 [nextpage="exit"]
 [endpage]
 
@@ -75,7 +75,7 @@ Steeljaw looks at you, hackles risen in fury.
 
 "YOU KILLED THE KING!  NOW YOU MUST DIE!"
 
-[at_exit_call="justice_regicide"]
+[at_exit_call="justice_regicide_bootstrap"]
 [nextpage="exit"]
 [endpage]
 

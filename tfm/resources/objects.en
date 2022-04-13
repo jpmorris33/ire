@@ -6275,6 +6275,7 @@ section: characters
 	race		wolf
 	rank		follower
 	party		SFRANCIS
+	faction		animal
 
 	name WOLF_F
 	left		WOLFB_LEFT
@@ -6305,6 +6306,7 @@ section: characters
 	race		wolf
 	rank		follower
 	party		SFRANCIS
+	faction		animal
 
 	name WOLF_TAME
 	left		WOLFB_LEFT
@@ -6333,6 +6335,7 @@ section: characters
 	race		wolf
 	rank		follower
 	party		SFRANCIS
+	faction		animal
 
 	name WOLF_DEAD
 	left		WOLFB_DEAD
@@ -6372,6 +6375,7 @@ section: characters
 	biological
 	race		wolf
 	rank		peasant
+	faction		animal
 
 	name WHITEWOLF_F
 	left		WHITEWOLF_LEFT
@@ -6399,6 +6403,7 @@ section: characters
 	biological
 	race		wolf
 	rank		peasant
+	faction		animal
 
 
 
@@ -6439,6 +6444,7 @@ section: characters
 	biological
 	race		waarg
 	rank		peasant
+	faction		waarg
 
 	name WAARG_FEMALE
 	left		WOLFA_LEFT
@@ -6467,6 +6473,7 @@ section: characters
 	biological
 	race		waarg
 	rank		peasant
+	faction		waarg
 
 	name WAARG_MALE_DEAD
 	left		WOLFA_DEAD
@@ -6479,6 +6486,7 @@ section: characters
 	description	"You see a dead wolf-like creature."
 	short		"dead wolf"
 	IfLookedAt	SearchContainer
+	horrific
 
 	name WAARG_FEMALE_DEAD
 	left		WOLFA_DEAD
@@ -6491,6 +6499,7 @@ section: characters
 	description	"You see a dead wolf-like creature."
 	short		"dead she-wolf"
 	IfLookedAt	SearchContainer
+	horrific
 
 	name WAARG_KING_DEAD
 	left		WOLFA_DEAD
@@ -6531,6 +6540,7 @@ section: characters
 	biological
 	race		waarg
 	rank		king
+	faction		waarg
 
 	name WAARG_SOLDIER
 	left		WOLFA_SOLDIER_LEFT
@@ -6547,7 +6557,7 @@ section: characters
 	max_intelligence	400
 	weight		20000
 	damage		20
-	description	"You see a wolf-like creature with a crossbow on its back."
+	description	"You see a wolf-like creature with a crossbow on their back."
 	short		"wolf soldier"
 	IfKilled	waarg_dies
 	IfHurt		waarg_hurt
@@ -6560,6 +6570,7 @@ section: characters
 	biological
 	race		waarg
 	rank		guard
+	faction		waarg
 
 	name WAARG_GUARD
 	left		WOLFA_SOLDIER_LEFT
@@ -6576,7 +6587,7 @@ section: characters
 	max_intelligence	400
 	weight		20000
 	damage		20
-	description	"You see a wolf-like creature with a crossbow on its back."
+	description	"You see a wolf-like creature with a crossbow on their back."
 	short		"wolf guard"
 	IfKilled	waarg_dies
 	IfHurt		waarg_hurt
@@ -6619,6 +6630,7 @@ section: characters
 	range		11
 	fragile
 	person
+	faction		animal
 
 	name FIRESNAIL_DEAD
 	left		FIRESNAIL_DEAD
@@ -6656,6 +6668,7 @@ section: characters
 	horrific
 	biological
 	person
+	faction		animal
 
 	name SPIDER_DEAD
 	left		SPIDER_DEAD
@@ -8393,6 +8406,7 @@ section: characters
 	IfHurt		hurt_thecow
 	wont_shut_doors
 	wont_open_doors
+	faction		animal
 #	setsolid	H 1 1 3 2
 #	setsolid	V 1 1 2 3
 #	setActiveArea	H 0 1 5 2
@@ -8433,8 +8447,9 @@ section: characters
 	person
 	female
 	biological
-	race cow
-	rank prey
+	race		cow
+	rank		prey
+	faction		animal
 	wont_shut_doors
 	wont_open_doors
 	contains	food05
@@ -8479,7 +8494,8 @@ section: characters
 	person
 	female
 	biological
-	race cow
+	race		cow
+	faction		animal
 	wont_shut_doors
 	wont_open_doors
 	contains	food05
@@ -8505,12 +8521,14 @@ section: characters
 	IfKilled	sheep_dies
 	IfHurt		hurt_prey
 	ifhorrified	cow_horror
+	faction		animal
 	solid
 	person
 	female
 	biological
-	race sheep
-	rank prey
+	race		sheep
+	rank		prey
+	faction		animal
 	wont_shut_doors
 	wont_open_doors
 	contains	food05_sheep
@@ -8554,7 +8572,8 @@ section: characters
 	person
 	female
 	biological
-	race sheep
+	race		sheep
+	faction		animal
 	wont_shut_doors
 	wont_open_doors
 	contains	food05_sheep
@@ -10775,10 +10794,7 @@ section: characters
 	wont_open_doors
 	biological
 	person
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	faction		animal
 
 	name SNAKE_DEAD
 	left		SNAKE_DEAD
@@ -10823,10 +10839,7 @@ section: characters
 	horrific
 	person
 	race		pig
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	faction		animal
 
 	name PIG_DEAD
 	left		PIG_DEAD
@@ -10841,10 +10854,6 @@ section: characters
 	description	"You see a dead pig."
 	short		"dead pig"
 	IfLookedAt	SearchContainer
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name PIG_TAME
 	left		PIG_L
@@ -10870,6 +10879,7 @@ section: characters
 	person
 	race		pig
 	rank		prey
+	faction		animal
 
 	name GOLEM
 	left		GOLEM_L
@@ -10892,10 +10902,6 @@ section: characters
 	wont_shut_doors
 	wont_open_doors
 	Conversation	PEOPLE/CREATURE/GOLEM.TXT
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name GOLEM_DEAD
 	left		GOLEM_DEAD
@@ -11069,6 +11075,7 @@ section: characters
 	biological
 	person
 	race		bird
+	faction		devil
 
 	name BLACKCOCK_DEAD
 	left		BLACKCOCK_DEAD
@@ -11105,6 +11112,7 @@ section: characters
 	person
 	race		bird
 	rank		peasant
+	faction		animal
 	Conversation	PEOPLE/CREATURE/HAWKS.TXT
 
 
@@ -11131,6 +11139,7 @@ section: characters
 #	person
 	race		bird
 	rank		peasant
+	faction		animal
 	Conversation	PEOPLE/CREATURE/HAWKS.TXT
 
 
@@ -11158,6 +11167,7 @@ section: characters
 	race		bird
 	rank		follower
 	party		SFRANCIS
+	faction		medieval
 	Conversation	PEOPLE/CREATURE/HAWKS.TXT
 
 
@@ -11184,6 +11194,7 @@ section: characters
 	person
 	race		bird
 	rank		peasant
+	faction		medieval
 	Conversation	PEOPLE/CREATURE/HAWKS.TXT
 
 	name HAWK_FLYING
@@ -11207,6 +11218,7 @@ section: characters
 	person
 	race		bird
 	rank		peasant
+	faction		animal
 
 	name WHAWK_FLYING
 	left		HAWKF_L
@@ -11229,6 +11241,7 @@ section: characters
 	person
 	race		bird
 	rank		peasant
+	faction		medieval
 
 	name HAWK_DEAD
 	left		HAWK_DEAD
@@ -11267,6 +11280,7 @@ section: characters
 	person
 	race		bird
 	rank		peasant
+	faction		ospreys
 	Conversation	people/osprey/misc.txt
 
 	name OSPREY_FLYING
@@ -11293,6 +11307,7 @@ section: characters
 	person
 	race		bird
 	rank		peasant
+	faction		ospreys
 
 
 	name TODE
@@ -11322,6 +11337,7 @@ section: characters
 	range		8
 	alignment	-10
 	fragile
+	faction		animal
 #	person
 	# Stop carrying them from confusing the egg
 	ifTaken		grabbed_spawn
@@ -11359,6 +11375,7 @@ section: characters
 	biological
 	person
 	race		drakaan
+	faction		modern
 
 	name DRAGON_CLOTHED
 	left		DRAGON2_R
@@ -11379,6 +11396,7 @@ section: characters
 	person
 	male
 	race		drakaan
+	faction		modern
 	setsolid	V 1 2 2 1
 	setsolid	H 2 1 1 2
 	setActiveArea	V 0 0 3 3
@@ -11410,6 +11428,7 @@ section: characters
 	horrific
 	race		rabbit
 	rank		prey
+	faction		animal
 	# Stop carrying them from confusing the egg
 	ifTaken		grabbed_spawn
 
@@ -11483,6 +11502,7 @@ section: characters
 	biological
 	person
 	rank		prey
+	faction		animal
 
 	name RAT_DEAD
 	left		RAT_DEAD
@@ -11644,22 +11664,15 @@ section: characters
 	down		PAINTING03
 	hp		100000
 	weight		-1
+	fixed
 	description	"You see 'The Creation' by Giotto Franccini."
 	short		"painting"
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name PAINTING01
+	alias PAINTING01 = PAINTING00
 	left		PAINTING04
 	right		PAINTING05
 	up		PAINTING06
 	down		PAINTING06
-	hp		100000
-	weight		-1
-	description	"You see 'The Creation' by Giotto Franccini."
-	short		"painting"
 
 	name PAINTING02
 	left		PAINTING08
@@ -11668,6 +11681,7 @@ section: characters
 	down		PAINTING09
 	hp		100000
 	weight		-1
+	fixed
 	description	"You see Franccini's painting of Jesus casting the first stone."
 	short		"painting"
 
@@ -11678,11 +11692,41 @@ section: characters
 	down		PAINTING13
 	hp		100000
 	weight		-1
+	fixed
 	description	"You see 'The Last Supper' by Giotto Franccini."
 	short		"painting"
 
 	alias PAINTING04 = PAINTING03
 	frame		PAINTING14
+
+	name CANVAS00
+	left		PAINTING16
+	right		PAINTING16
+	up		PAINTING15
+	down		PAINTING15
+	hp		100
+	weight		6000
+	solid
+	description	"You see an unfinished painting."
+	short		"painting"
+	setsolid	V 1 0 1 1
+	setsolid	H 0 1 1 1
+	setActiveArea	V 1 0 1 1
+	setActiveArea	H 0 1 1 1
+
+	alias CANVAS01 = CANVAS00
+	left		PAINTING18
+	right		PAINTING18
+	up		PAINTING17
+	down		PAINTING17
+	description	"You see a blank canvas on an easel."
+
+	name PAINTS
+	frame		PAINTS
+	hp		100
+	weight		2000
+	description	"You see some paint and brushes."
+	short		"paints"
 
 	name CROP-1-0
 	left		CROP1-03
