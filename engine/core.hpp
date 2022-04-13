@@ -165,6 +165,7 @@ VMINT alignment;
 #define USEDATA_SLOTS 20
 #define USEDATA_POTIONS 10
 #define USEDATA_ACTSTACK ACT_STACK
+#define USEDATA_OBJS 10
 
 typedef struct USEDATA
 {
@@ -182,6 +183,9 @@ VMINT archive;    // Used when switching worlds
 VMINT oldhp;      // Previous hp, used internally
 OBJECTID arcpocket; // Used when switching worlds
 OBJECTID pathgoal;  // For the long-range pathfinder
+
+// USEOBJS - write this to new savegame chunk for bw compatibility
+OBJECT *obj[USEDATA_OBJS];
 
 // Sub-Activities
 VMINT actlist[USEDATA_ACTSTACK];

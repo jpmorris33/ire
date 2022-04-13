@@ -3486,8 +3486,7 @@ STRUCTURE objspec[] =
 					{"next",		'o',"R",&obj_template.next,NULL},
 					{"next",		'i',"R",&obj_template.next,NULL},
 					{"next",		'>',"R",&obj_template.next,&objspec},
-					{"label",		'i',"RW",&obj_template.labels,&labelspec},
-					{"label",		'>',"R",&obj_template.labels,&labelspec},
+					{"label",		'>',"R",&obj_template.labels,&labelspec},	// Don't need to overload this, I don't think
 					{NULL,			0,NULL,NULL,NULL},
 					};
 
@@ -3677,6 +3676,26 @@ STRUCTURE userspec[] =
 					{"timeout",	'i',"RW",&usedata_template.counter,NULL},
 					{"fx_func",	'i',"R",&usedata_template.fx_func,NULL},
 					{"originmap",	'i',"R",&usedata_template.originmap,NULL},
+					{"obj0",	'o',"RW",&usedata_template.obj[0],NULL},
+					{"obj0",	'>',"",&usedata_template.obj[0],&objspec},
+					{"obj1",	'o',"RW",&usedata_template.obj[1],NULL},
+					{"obj1",	'>',"",&usedata_template.obj[1],&objspec},
+					{"obj2",	'o',"RW",&usedata_template.obj[2],NULL},
+					{"obj2",	'>',"",&usedata_template.obj[2],&objspec},
+					{"obj3",	'o',"RW",&usedata_template.obj[3],NULL},
+					{"obj3",	'>',"",&usedata_template.obj[3],&objspec},
+					{"obj4",	'o',"RW",&usedata_template.obj[4],NULL},
+					{"obj4",	'>',"",&usedata_template.obj[4],&objspec},
+					{"obj5",	'o',"RW",&usedata_template.obj[5],NULL},
+					{"obj5",	'>',"",&usedata_template.obj[5],&objspec},
+					{"obj6",	'o',"RW",&usedata_template.obj[6],NULL},
+					{"obj6",	'>',"",&usedata_template.obj[6],&objspec},
+					{"obj7",	'o',"RW",&usedata_template.obj[7],NULL},
+					{"obj7",	'>',"",&usedata_template.obj[7],&objspec},
+					{"obj8",	'o',"RW",&usedata_template.obj[8],NULL},
+					{"obj8",	'>',"",&usedata_template.obj[8],&objspec},
+					{"obj9",	'o',"RW",&usedata_template.obj[9],NULL},
+					{"obj9",	'>',"",&usedata_template.obj[9],&objspec},
 					{NULL,			0,NULL,NULL,NULL},
 					};
 
@@ -4221,6 +4240,8 @@ if(PE_FastBuild)
 	return;
 
 add_opcode(vmp->opcode);
+
+// printf(">> add opcode '%s' with parms %s\n",vmp->mnemonic,pe_parm);
 
 len = strlen(pe_parm);
 for(ctr=0;ctr<len;ctr++)

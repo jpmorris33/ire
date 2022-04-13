@@ -908,27 +908,28 @@ if(!src)
 
 // Is there already a decor at the destination?
 decor=0;
-if(dest)
-	{
+if(dest) {
 	for(temp=dest;temp->next;temp=temp->next); // decor WILL BE last object
-	if(temp->flags & IS_DECOR)
+	if(temp->flags & IS_DECOR) {
 		decor=1;
 	}
+}
 
-// Find the decor in the source (temp will point to it)
-
+// Find the decor in the source (temp will point to it as it's always the last object)
 for(temp=src;temp->next;temp=temp->next);
-	if(!(temp->flags & IS_DECOR))
-		return; // no decor to move
+if(!(temp->flags & IS_DECOR)) {
+	return; // no decor to move
+}
 
 // Remove the object from the source list
 LL_Remove(&curmap->objmap[MAP_POS(x1,y1)],temp);
 
 // Add it to the target list
-if(decor)
+if(decor) {
 	LL_Add2(&curmap->objmap[MAP_POS(x2,y2)],temp);
-else
+} else {
 	LL_Add(&curmap->objmap[MAP_POS(x2,y2)],temp);
+}
 
 // Rebuild Large Objects table
 gen_largemap();
@@ -983,7 +984,7 @@ return(MoveTurnObject_Core(objsel,objdst,dx,dy)); // Use the old way
 int MoveTurnObject_Core(OBJECT *objsel,OBJECT *objdst,int dx, int dy)
 {
 static int looplock=0;
-int ow,oh,osx,osy,ret,dir,odx,ody;
+int ow,oh,osx,osy,ret,dir;
 int olddir;
 //char *dirn[]={"Up","Down","Left","Right"};
 
@@ -994,8 +995,6 @@ looplock++;
 olddir=objsel->curdir;  // In case we need to revert
 ow = objsel->mw;
 oh = objsel->mh;
-odx=dx;
-ody=dy;
 
 // Work out core direction
 dir = CHAR_U;
@@ -2771,8 +2770,6 @@ return NULL;
 
 OBJECT *GetFirstObjectNR(OBJECT *cont, char *name)
 {
-OBJECT *search;
-
 for(OBJECT *temp = cont;temp;temp=temp->next) {
 	if(temp->flags & IS_ON) {
 		if(!istricmp(temp->name,name)) {
@@ -2820,8 +2817,6 @@ return NULL;
 
 OBJECT *GetFirstObjectFuzzyNR(OBJECT *cont, char *name)
 {
-OBJECT *search;
-
 for(OBJECT *temp = cont;temp;temp=temp->next) {
 	if(temp->flags & IS_ON) {
 		if(!istricmp_fuzzy(temp->name,name)) {
@@ -2986,19 +2981,35 @@ if(o->schedule) {
 }
 
 // Check sub-task stack
-if(o->user)
-	for(ctr=0;ctr<ACT_STACK;ctr++)
-		if(o->user->acttarget[ctr])
-			if((o->user->acttarget[ctr]->flags & IS_ON) == 0)
+if(o->user) {
+	for(ctr=0;ctr<ACT_STACK;ctr++) {
+		if(o->user->acttarget[ctr]) {
+			if((o->user->acttarget[ctr]->flags & IS_ON) == 0) {
 				o->user->acttarget[ctr] = NULL;
-
-if(o->user)
-	{
-	// Is the path goal it?
-	if(o->user->pathgoal.objptr)
-		if((o->user->pathgoal.objptr->flags & IS_ON) == 0)
-			o->user->pathgoal.objptr=NULL;
+			}
+		}
 	}
+}
+
+// Check the user object ref array
+if(o->user) {
+	for(ctr=0;ctr<USEDATA_OBJS;ctr++) {
+		if(o->user->obj[ctr]) {
+			if((o->user->obj[ctr]->flags & IS_ON) == 0) {
+				o->user->obj[ctr] = NULL;
+			}
+		}
+	}
+}
+
+if(o->user) {
+	// Is the path goal it?
+	if(o->user->pathgoal.objptr) {
+		if((o->user->pathgoal.objptr->flags & IS_ON) == 0) {
+			o->user->pathgoal.objptr=NULL;
+		}
+	}
+}
 
 return;
 }
@@ -3271,7 +3282,6 @@ while(t->pocket.objptr)
 
 void movecontents(OBJECT *src,OBJECT *dest)
 {
-OBJECT *temp;
 if(!src || !dest)
 	return;
 

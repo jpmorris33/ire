@@ -226,7 +226,7 @@ extern long filelength(int fhandle);
 #include <string.h>
 #endif
 
-#define SAFE_STRCPY(a,b) {strncpy((a),(b),sizeof((a)));a[sizeof((a))-1]=0;}
+#define SAFE_STRCPY(a,b) {strncpy((a),(b),sizeof((a))-1);a[sizeof((a))-1]=0;}
 
 
 // Beos is not well

@@ -137,7 +137,7 @@ return true;
 FILE *JUG5getFileInfo(JUGFILE_ENTRY *fileentry)
 {
 unsigned char datebuffer[6];
-int readBytes=0;
+int readBytes;
 
 if(!fileentry) {
 	return NULL;

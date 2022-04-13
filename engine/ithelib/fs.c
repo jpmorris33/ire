@@ -593,8 +593,6 @@ int count=0;
 char **out;
 DIR *d;
 struct dirent *e;
-struct stat sb;
-char path[1024];
 
 if(!dir || !items)
 	return NULL;

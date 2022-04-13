@@ -1900,7 +1900,7 @@ TF_term(&z2);
 void save_z2(int mapnum)
 {
 char *fname;
-int vx,vy,r,yrun,do_run,got_any,ret;
+int vx,vy,yrun,do_run,got_any,ret;
 unsigned char *roofptr,*blockptr,tile=0;
 unsigned char block8[64];
 unsigned short block16[32];  // For base64 conversion
@@ -2198,7 +2198,7 @@ TF_term(&z3);
 void save_z3(int mapnum)
 {
 char *fname;
-int vx,vy,r,yrun,do_run,got_any,ret;
+int vx,vy,yrun,do_run,got_any,ret;
 unsigned char *lightptr,*blockptr,tile=0;
 unsigned char block8[64];
 unsigned short block16[32];  // For base64 conversion
@@ -2326,10 +2326,9 @@ void load_ms2(char *filename)
 IFILE *ifp;
 char buf[256];
 char name48[48];
-int num,ctr,maxnum,slot,ok;
+int num,ctr,slot,ok;
 unsigned int ut,ctr2,ctr3,ctr4,newpos,dark;
 char uuid[UUID_SIZEOF];
-char uuid2[UUID_SIZEOF];
 OBJECT *o,*o2;
 USEDATA usedata;
 GLOBALINT *globalint;
@@ -2567,12 +2566,13 @@ for(ctr=0;ctr<num;ctr++) {
 		// Delete activity lists too
 		memset(o->user->actlist,0,sizeof(o->user->actlist));
 		memset(o->user->acttarget,0,sizeof(o->user->acttarget)); // Delete list
+		memset(o->user->obj,0,sizeof(o->user->obj)); // Delete user object refs
 	}
 }
 
 // Load secondary goal data (sub-tasks or subactions)
 
-if(!GetWadEntry(ifp,"SUBTASKS")) {
+if(GetWadEntry(ifp,"SUBTASKS")) {
 	num = igetl_i(ifp);
 	for(ctr=0;ctr<num;ctr++) {
 		get_uuid(uuid, ifp);
@@ -2604,6 +2604,28 @@ if(!GetWadEntry(ifp,"SUBTASKS")) {
 				}
 			} else {
 				Bug("Subtask: did not find function '%s'\n", buf);
+			}
+		}
+	}
+}
+
+// Load user object pointers (e.g. persisting a crime victim in the criminal)
+
+if(GetWadEntry(ifp,"USE_OBJS")) {
+	num = igetl_i(ifp);
+	for(ctr=0;ctr<num;ctr++) {
+		get_uuid(uuid, ifp);
+		o = find_uuid(uuid);
+		if(!o) {
+			Bug("UseObj: Cannot find object '%s'\n",uuid);
+		}
+
+		ctr3 = igetl_i(ifp);
+		for(ctr2=0;ctr2<ctr3;ctr2++) {
+			get_uuid(uuid, ifp);
+			// Make sure we don't cause an overrun in older builds if the array size increases in future
+			if(ctr2 < USEDATA_OBJS) {
+				o->user->obj[ctr2] = find_uuid(uuid);
 			}
 		}
 	}
@@ -3048,6 +3070,55 @@ for(o=ActiveList;o;o=o->next) {
 		}
 	}
 
+}
+
+
+// Write user object pointers
+entry[Entry].name="USE_OBJS";
+entry[Entry++].start = itell(ofp);
+
+// First count how many objects have user objects
+i=0;
+for(o=MasterList;o;o=o->next) {
+	if(o->ptr->user) {
+		// Does it have any tasks?
+		ok=0;
+		for(ctr=0;ctr<USEDATA_OBJS;ctr++) {
+			if(o->ptr->user->obj[ctr]) {
+				ok=1;
+			}
+		}
+		// Yes
+		if(ok) {
+			i++;
+		}
+	}
+}
+
+iputl_i(i,ofp);
+for(o=MasterList;o;o=o->next) {
+	if(o->ptr->user) {
+		ok=0;
+		for(ctr=0;ctr<USEDATA_OBJS;ctr++) {
+			if(o->ptr->user->obj[ctr]) {
+				ok=1;
+			}
+		}
+		if(ok) {
+			// Write the object ID
+			put_uuid(o->ptr,ofp);
+
+			// Write the objects
+			iputl_i(USEDATA_OBJS,ofp);	// Store size (we could do this dynamically for RLE later, without affecting the on-disk format)
+			for(ctr=0;ctr<USEDATA_OBJS;ctr++) {
+				if(o->ptr->user->obj[ctr]) {
+					put_uuid(o->ptr->user->obj[ctr],ofp);
+				} else {
+					put_uuid(NULL,ofp);
+				}
+			}
+		}
+	}
 }
 
 
@@ -3686,7 +3757,8 @@ if(!id)
 if(!fastfind_id_list)
 	ithe_panic("FastFind_ID called before FastFind_ID_start",NULL);
 
-xx=(OBJECT **)bsearch((const void *)id,fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_search_id);
+long idx=id;
+xx=(OBJECT **)bsearch((const void *)idx,fastfind_id_list,fastfind_id_num,sizeof(OBJECT *),CMP_search_id);
 if(xx)
 	return *xx;
 return NULL;
