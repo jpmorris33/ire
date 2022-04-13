@@ -6513,6 +6513,7 @@ section: characters
 	short		"dead wolf King"
 	IfLookedAt	SearchContainer
 	horrific
+	faction		waarg
 
 	name WAARG_KING
 	left		WOLFA_KING_LEFT

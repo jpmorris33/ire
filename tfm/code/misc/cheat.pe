@@ -75,6 +75,14 @@ if_exists current.enemy
 else
 	printxy "<none>"
 endif
+
+printxy "  Victim: "
+if_exists current.user.obj0
+	printxy current.user.obj0.name
+else
+	printxy "<none>"
+endif
+
 printxy "  Owner: "
 if_exists current.stats.owner
 	printxy current.stats.owner.name

@@ -78,6 +78,7 @@ endif
 
 # Thieving scoundrel!
 let suspect.user.user19 = CRIME_THEFT
+let suspect.user.obj0 = victim
 
 # And were there any witnesses?
 
@@ -114,6 +115,7 @@ endif
 
 # Thieving scoundrel!
 let suspect.user.user19 = CRIME_THEFT
+let suspect.user.obj0 = victim
 
 # And were there any witnesses?
 
@@ -164,6 +166,7 @@ if victim.stats.hp < 1
 else
 	let suspect.user.user19 = CRIME_ASSAULT
 endif
+let suspect.user.obj0 = victim
 
 # Were there any witnesses?
 
@@ -223,6 +226,7 @@ if_not_exists suspect
 endif
 
 let suspect.user.user19 = CRIME_BLASPHEMY
+let suspect.user.obj0 = victim
 
 let witnesses = 0
 all_around suspect radius 32 does justice_attack_party
@@ -262,6 +266,7 @@ if_not_onscreen victim
 endif
 
 let suspect.user.user19 = CRIME_ASSAULT
+let suspect.user.obj0 = victim
 
 let witnesses = 0
 all_around suspect radius 32 does justice_attack_party
@@ -294,6 +299,7 @@ if_not_flag suspect IS_PERSON
 endif
 
 let suspect.user.user19 = CRIME_BLASPHEMY
+let suspect.user.obj0 = null
 
 let witnesses = 0
 all_around suspect radius 32 does justice_attack_party
@@ -324,6 +330,7 @@ if_not_flag suspect IS_PERSON
 endif
 
 let suspect.user.user19 = CRIME_HERESY
+let suspect.user.obj0 = null
 
 let witnesses = 0
 all_around suspect radius 32 does justice_attack_party
@@ -358,6 +365,7 @@ endif
 set_user_flag "desecrate" = 1
 
 let suspect.user.user19 = CRIME_DESECRATION
+let suspect.user.obj0 = victim
 
 # Were there any witnesses?
 
@@ -424,6 +432,7 @@ if suspect.user.potion0 > 0
 endif
 
 let suspect.user.user19 = CRIME_VANDALISM
+let suspect.user.obj0 = victim
 
 # Were there any witnesses?
 
@@ -469,6 +478,8 @@ if_not_exists victim
 	return
 endif
 
+let suspect.user.obj0 = victim
+
 # Assume it's High treason unless told otherwise
 if suspect.user.user19 <> CRIME_TREASON
 	let suspect.user.user19 = CRIME_HIGHTREASON
@@ -481,8 +492,8 @@ endif
 # If the king is dead, it becomes regicide
 if victim.stats.hp < 1
 	let suspect.user.user19 = CRIME_REGICIDE
-	print "~AAGHH!~"
-	printcr
+#	print "~AAGHH!~"	# Stop the dead king screaming when seen
+#	printcr
 endif
 
 # Summon guards to the King
@@ -530,6 +541,7 @@ function justice_Treason
 let suspect = me
 let victim = current
 let suspect.user.user19 = CRIME_TREASON
+let suspect.user.obj0 = victim
 call justice_HTreason
 end
 
@@ -566,6 +578,14 @@ if witnesses > 0
 endif
 end
 
+function justice_Regicide_bootstrap
+let suspect = me
+let suspect.user.user19 = CRIME_REGICIDE
+# Need to find victim (king) and set obj0
+call justice_Regicide
+end
+
+
 
 ##
 ##  Justice_Blackcock - you don't want to know
@@ -585,6 +605,8 @@ endif
 if_not_exists victim
 	return
 endif
+
+let suspect.user.obj0 = victim
 
 # If they die, it becomes murder
 if victim.stats.hp < 1
@@ -607,7 +629,6 @@ if witnesses > 0
 endif
 
 end
-
 
 
 
@@ -749,6 +770,8 @@ if_not_exists suspect
 	return
 endif
 
+let suspect.user.obj0 = null
+
 # No double jeopardy
 if suspect.user.user19 = CRIME_TRESPASSING
 	let alreadyguilty = 1
@@ -783,6 +806,8 @@ int alreadyguilty = 0
 if_not_exists suspect
 	return
 endif
+
+let suspect.user.obj0 = null
 
 # No double jeopardy
 if suspect.user.user19 = CRIME_TRESPASSING
@@ -895,6 +920,19 @@ if current = suspect
 	return
 endif
 
+if current.label.faction = "animal"
+	return
+endif
+
+let victim = suspect.user.obj0
+
+# Make sure the faction cares about the crime
+if_exists victim
+	if current.label.faction <> victim.label.faction
+		return
+	endif
+endif
+
 # Check for indulgences
 call check_indulgences
 if_not_exists suspect
@@ -935,6 +973,7 @@ if current.enemy = me
 	resume_activity current
 	let current.user.vigilante = 0
 	let current.user.user19 = CRIME_NONE
+	let suspect.user.obj0 = null
 endif
 
 end
@@ -949,6 +988,11 @@ function justice_arrest
 
 # Prevent anyone from trying to wreak justice upon themselves
 if current = suspect
+	return
+endif
+
+# Stop sheep arresting you
+if current.label.faction = "animal"
 	return
 endif
 
@@ -1017,6 +1061,7 @@ if suspect.user.user19 = CRIME_BEAST
 endif
 
 let suspect.user.user19 = CRIME_BEAST
+let suspect.user.obj0 = victim
 
 # Were there any witnesses?
 
@@ -1049,6 +1094,7 @@ if suspect.user.user19 = CRIME_BEAST
 endif
 
 let suspect.user.user19 = CRIME_BEAST
+let suspect.user.obj0 = victim
 
 # Were there any witnesses?
 all_around me radius 20 does justice_attack_party
@@ -1128,6 +1174,7 @@ endif
 
 find indulgence = needs inside suspect
 if_exists indulgence
+	let suspect.user.obj0 = null
 	let suspect = null
 	return
 endif

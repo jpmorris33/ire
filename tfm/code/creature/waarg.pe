@@ -114,9 +114,18 @@ integer regicide
 
 # Seen a dead body
 if current is called "WAARG_KING_DEAD"
+
+	# Make them only see the king every so often
+	if current.user.user3 > 0
+		add current.user.user3 - 1
+		return
+	endif
+	let current.user.user3 = 60
+
 	let victim = current
 #	set_flag victim IS_HORRIBLE = 0  # NO Double-jeopardy for the King
 	let suspect = victim.enemy
+	let suspect.user.obj0 = current
 	call justice_htreason
 endif
 
