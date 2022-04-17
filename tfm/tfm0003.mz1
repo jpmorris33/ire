@@ -56042,28 +56042,33 @@ iMZ1r01
 
 	object WINE2fe145bb-7773-4f60-9341-8286b33122fe
 		type WINECASK0
-		at 986 617
-		curdir 2
-
-	object WINE65604007-6f81-4905-8cdd-81f5e30b1615
-		type WINECASK0
-		at 988 617
-		curdir 2
-
-	object WINE59553faf-833f-4d2c-8718-4c928bde4f0b
-		type WINECASK0
-		at 990 617
-		curdir 2
-
-	object WINE8cb255e9-967e-433f-ad57-c32d769a8f76
-		type WINECASK0
-		at 992 617
+		at 982 617
 		curdir 2
 
 	object WINE10432e86-ac0d-4974-a94f-89cdb415e23c
 		type WINECASK0
-		at 994 617
+		at 985 617
 		curdir 0
+
+	object WINE65604007-6f81-4905-8cdd-81f5e30b1615
+		type WINECASK0
+		at 987 617
+		curdir 2
+
+	object WINE59553faf-833f-4d2c-8718-4c928bde4f0b
+		type WINECASK0
+		at 989 617
+		curdir 2
+
+	object WINE8cb255e9-967e-433f-ad57-c32d769a8f76
+		type WINECASK0
+		at 991 617
+		curdir 2
+
+	object WINEd9d61a1e-f3fe-471c-8c0d-0170bfa93fe2
+		type WINECASK0
+		at 993 617
+		curdir 2
 
 	decorative TREE00 at 499 618
 
@@ -56381,6 +56386,16 @@ iMZ1r01
 
 	decorative MOUNT09 at 962 618
 
+	object WELLa49da98c-5f66-490a-bb76-39f55bb5c0dc
+		type WELL2
+		at 980 618
+		curdir 2
+
+	object BUCK9a4206dd-a074-4cd7-ba65-bbe42fa41538
+		type BUCKET
+		at 981 618
+		curdir 2
+
 	object STAI429a41a2-5f9e-433b-a8f3-1ddc923026a6
 		type STAIRS_UP
 		at 984 618
@@ -56389,12 +56404,17 @@ iMZ1r01
 
 	object BUCK3b499ffd-2aa3-4b27-96cf-6dcfc03ed435
 		type BUCKET
-		at 985 618
+		at 986 618
 		curdir 2
 
 	object BUCK6840fecc-8f55-40dc-9880-a3723201f84b
 		type BUCKET
-		at 989 618
+		at 988 618
+		curdir 2
+
+	object BUCKab807024-d748-496d-8987-c1c96be84b03
+		type BUCKET
+		at 992 618
 		curdir 2
 
 	object TABL69486128-a3a2-49bd-bcfc-ae16bca54417
@@ -56522,14 +56542,34 @@ iMZ1r01
 		at 1003 618
 		curdir 3
 
-	object WELLa49da98c-5f66-490a-bb76-39f55bb5c0dc
-		type WELL2
+	object FLOU2c392ad1-0eaf-416e-904a-09ab64723e94
+		type FLOUR_SACK
 		at 1004 618
 		curdir 2
 
-	object BUCK04fe4c2f-0f16-4bbe-a8a1-02af97daf660
-		type BUCKET
-		at 1004 618
+	object GRAIae384bd3-ffb9-4b9a-8ac3-f583b7eeee31
+		type GRAIN_SACK
+		at 1005 618
+		curdir 2
+
+	object FLOUf066e192-98cf-4797-8c6e-6bd40bb242f0
+		type FLOUR_SACK
+		at 1006 618
+		curdir 2
+
+	object GRAI5c19d9e9-29be-46b5-8f36-114ddf72b352
+		type GRAIN_SACK
+		at 1007 618
+		curdir 2
+
+	object FLOUd03c5d23-0c2d-44d8-bec2-01dad9ac6e58
+		type FLOUR_SACK
+		at 1008 618
+		curdir 2
+
+	object GRAI81537504-66aa-490e-be0f-d50b8f3c848f
+		type GRAIN_SACK
+		at 1009 618
 		curdir 2
 
 	decorative TREE01 at 500 619
@@ -56868,11 +56908,6 @@ iMZ1r01
 		curdir 0
 		tag 89
 
-	object BUCKab807024-d748-496d-8987-c1c96be84b03
-		type BUCKET
-		at 995 619
-		curdir 2
-
 	object TABLdb081eb5-6e82-45b5-97c8-dda4e4eaa1e8
 		type TABLE-SHADOW2
 		at 996 619
@@ -56932,6 +56967,21 @@ iMZ1r01
 		type TABLE-SHADOW3
 		at 1003 619
 		curdir 3
+
+	object FLOUc4b7145b-44ab-4c48-b552-b08fdc39d838
+		type FLOUR_SACK
+		at 1007 619
+		curdir 2
+
+	object GRAI3d9e71cc-cc90-4d5c-8bc0-9d4397ae2053
+		type GRAIN_SACK
+		at 1008 619
+		curdir 2
+
+	object FLOUe433e521-9af5-4ed3-9bfe-61fc37d943e7
+		type FLOUR_SACK
+		at 1009 619
+		curdir 2
 
 	decorative TREE03 at 497 620
 
@@ -57570,9 +57620,34 @@ iMZ1r01
 		at 1003 620
 		curdir 3
 
-	object BUCK404e568a-b128-4379-b165-056fe0c53589
-		type BUCKET
+	object FLOU55c69325-162d-4ede-a02f-849046e73436
+		type FLOUR_SACK
+		at 1004 620
+		curdir 2
+
+	object GRAIcd48a0d2-5a70-499f-93eb-ddab56ca8828
+		type GRAIN_SACK
 		at 1005 620
+		curdir 2
+
+	object FLOU581cf454-4742-433f-8a44-dc9dfb6f49e9
+		type FLOUR_SACK
+		at 1006 620
+		curdir 2
+
+	object GRAIae4d47e2-01c7-4d5f-bb87-0b77b13872ec
+		type GRAIN_SACK
+		at 1007 620
+		curdir 2
+
+	object FLOU83be7049-9b1d-403b-bce3-2782da42789f
+		type FLOUR_SACK
+		at 1008 620
+		curdir 2
+
+	object GRAI8a5bfa71-3390-4713-b46a-a0f8ac4dfdb7
+		type GRAIN_SACK
+		at 1009 620
 		curdir 2
 
 	decorative TREE02 at 503 621
@@ -57905,6 +57980,11 @@ iMZ1r01
 
 	decorative MOUNT09 at 968 621
 
+	object BUCK7b36ac57-5e08-43dd-9077-20cd892bab64
+		type BUCKET
+		at 980 621
+		curdir 2
+
 	object TABL4ec8e611-c046-4c6c-81fe-62bac9647ff6
 		type TABLE-SHADOW2
 		at 987 621
@@ -58025,9 +58105,19 @@ iMZ1r01
 		at 1003 621
 		curdir 3
 
-	object BUCK7b36ac57-5e08-43dd-9077-20cd892bab64
-		type BUCKET
-		at 1005 621
+	object FLOUf5563fa1-d472-4c02-b68d-b41f7c1528aa
+		type FLOUR_SACK
+		at 1007 621
+		curdir 2
+
+	object GRAIb3d2b381-dcc5-4aaf-a157-d259b38bd19b
+		type GRAIN_SACK
+		at 1008 621
+		curdir 2
+
+	object FLOUe0c10aea-2370-4669-9c56-4a9cfff525ab
+		type FLOUR_SACK
+		at 1009 621
 		curdir 2
 
 	decorative TREE00 at 566 622
@@ -58279,6 +58369,16 @@ iMZ1r01
 		curdir 1
 
 	decorative MOUNT03 at 968 622
+
+	object WELLb726997f-5ad6-4eef-863b-7a979000e8b7
+		type WELL2
+		at 980 622
+		curdir 2
+
+	object BUCK404e568a-b128-4379-b165-056fe0c53589
+		type BUCKET
+		at 980 622
+		curdir 2
 
 	object TABL7d8d254c-0550-47c0-98b7-9ef836800c07
 		type TABLE6-H
@@ -58655,14 +58755,34 @@ iMZ1r01
 		at 1003 622
 		curdir 3
 
-	object WELLb726997f-5ad6-4eef-863b-7a979000e8b7
-		type WELL2
+	object FLOUb3052ec2-c58d-4494-86fb-e87c182c5b83
+		type FLOUR_SACK
 		at 1004 622
 		curdir 2
 
-	object BUCK9a4206dd-a074-4cd7-ba65-bbe42fa41538
-		type BUCKET
-		at 1004 622
+	object GRAI368094a6-6347-49ac-ac09-eeaa76be5661
+		type GRAIN_SACK
+		at 1005 622
+		curdir 2
+
+	object FLOUa0177acc-3089-4682-8c9a-ac552d69a192
+		type FLOUR_SACK
+		at 1006 622
+		curdir 2
+
+	object GRAI0b735cb0-9910-4eb0-8f20-af95f13742a4
+		type GRAIN_SACK
+		at 1007 622
+		curdir 2
+
+	object FLOU1601f94f-ad28-40ab-afec-c04981420b6b
+		type FLOUR_SACK
+		at 1008 622
+		curdir 2
+
+	object GRAI722ee256-0d09-4e77-8349-a40a5a503837
+		type GRAIN_SACK
+		at 1009 622
 		curdir 2
 
 	decorative TREE02 at 565 623
@@ -58844,6 +58964,11 @@ iMZ1r01
 
 	decorative MOUNT03 at 968 623
 
+	object BUCK04fe4c2f-0f16-4bbe-a8a1-02af97daf660
+		type BUCKET
+		at 982 623
+		curdir 2
+
 	object TABL1aee0bbd-7a2a-429c-901a-a742ab7c8008
 		type TABLE-SHADOW2
 		at 985 623
@@ -58978,6 +59103,36 @@ iMZ1r01
 		type TABLE-SHADOW3
 		at 1003 623
 		curdir 3
+
+	object GRAI13f6c848-295c-46b8-a4d6-f7e3cb2cdc09
+		type GRAIN_SACK
+		at 1004 623
+		curdir 2
+
+	object FLOU7cad391a-6072-46fb-adbd-634733f350db
+		type FLOUR_SACK
+		at 1005 623
+		curdir 2
+
+	object GRAI07168ff2-8c63-47f6-a936-890424a4c3d2
+		type GRAIN_SACK
+		at 1006 623
+		curdir 2
+
+	object FLOUf3251e58-e29b-41b5-aa88-3b22740a572d
+		type FLOUR_SACK
+		at 1007 623
+		curdir 2
+
+	object GRAI1f2576c4-2f82-4326-b95b-f4bb6c9ddc86
+		type GRAIN_SACK
+		at 1008 623
+		curdir 2
+
+	object FLOUf26de3d6-035d-4e55-bb12-bce6d24a6721
+		type FLOUR_SACK
+		at 1009 623
+		curdir 2
 
 	decorative TREE01 at 509 624
 
