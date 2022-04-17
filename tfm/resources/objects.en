@@ -5052,6 +5052,12 @@ section: characters
 	setsolid	V 2 0 1 2
 	setsolid	H 2 0 1 2
 
+	alias GUILLOTINE_BLOODY2 = GUILLOTINE_BLOODY
+	frame		GUILLOTINE_S_UP_BLOODY2
+	up		GUILLOTINE_S_UP_BLOODY2
+	down		GUILLOTINE_S_DOWN_BLOODY2
+	left		GUILLOTINE_S_DOWN_BLOODY2
+
 	name GUILLOTINE_VICTIM
 	frame		GUILLOTINE_S_VICTIM1
 	hp		1000000
@@ -5088,6 +5094,15 @@ section: characters
 	IfKilled	respawn
 	fixed
 
+	name GUILLOTINE_PLAYERP_BLOODY
+	frame		GUILLOTINE_VICTIM_PLAYERP2
+	hp		1000000
+	weight		-1
+	description	"You see a very dead cyberjag."
+	short		"victim"
+	IfKilled	respawn
+	fixed
+
 	name GUILLOTINE_WAARG
 	frame		GUILLOTINE_W_UP
 	up		GUILLOTINE_W_UP
@@ -5119,6 +5134,12 @@ section: characters
 	ifUsed		use_guillotine
 	setsolid	V 2 1 1 1
 	setsolid	H 2 1 1 1
+
+	alias GUILLOTINE_WAARG_BLOODY2 = GUILLOTINE_WAARG_BLOODY
+	frame		GUILLOTINE_W_UP_BLOODY2
+	up		GUILLOTINE_W_UP_BLOODY2
+	down		GUILLOTINE_W_DOWN_BLOODY2
+	left		GUILLOTINE_W_DOWN_BLOODY2
 
 	name PIKE
 	up		pike
@@ -7092,6 +7113,8 @@ section: characters
 
 	alias GUARD = GUARD_BASE
 	behaviour	guard_patrol
+
+	alias GUARD_CAPTAIN = GUARD_BASE
 
 	alias GUARD_WANDERING = GUARD_BASE
 	behaviour	guard_wander

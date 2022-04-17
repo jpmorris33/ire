@@ -845,10 +845,24 @@ int x
 int y
 object guillotine_victim
 string victimtype
+string guillotinetype
 
 let x = current.x + 2
 let y = current.y + 1
 get_object guillotine_victim at x y
+
+# Bleed blood or coolant?
+if current is called "guillotine_w*" 
+	let guillotinetype = "guillotine_waarg_bloody"
+	if_not_flag guillotine_victim IS_BIOLOGICAL
+		let guillotinetype = "guillotine_waarg_bloody2"
+	endif
+else
+	let guillotinetype = "guillotine_bloody"
+	if_not_flag guillotine_victim IS_BIOLOGICAL
+		let guillotinetype = "guillotine_bloody2"
+	endif
+endif
 
 
 # Prevent the guillotine guillotining itself
@@ -860,7 +874,8 @@ endif
 
 if_exists guillotine_victim
 	if current.curdir <> DOWN
-		change current = "guillotine_bloody"
+
+		change current = guillotinetype
 		force_direction current faces DOWN
 
 		get_data victimtype WHERE player_guillotined = guillotine_victim.name

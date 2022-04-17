@@ -2365,6 +2365,8 @@ section: sprites
 	guillotine_s_dn		sprites/guiltn01.png
 	guillotine_s_up_b	sprites/guiltn02.png
 	guillotine_s_dn_b	sprites/guiltn03.png
+	guillotine_s_up_b2	sprites/guiltn02a.png
+	guillotine_s_dn_b2	sprites/guiltn03a.png
 	guillotine_s_up_ovl	sprites/guiltn04.png
 	guillotine_s_dn_ovl	sprites/guiltn05.png
 	guillotine_s_victim1	sprites/guiltnv1.png
@@ -2373,10 +2375,14 @@ section: sprites
 	guillotine_s_victim4	sprites/guiltnv4.png
 	guillotine_s_victim5	sprites/guiltnv5.png
 	guillotine_s_victim6	sprites/guiltnv6.png
+	guillotine_s_victim7	sprites/guiltnv7.png
+	guillotine_s_victim8	sprites/guiltnv8.png
 	guillotine_w_up		sprites/guiltn06.png
 	guillotine_w_dn		sprites/guiltn07.png
 	guillotine_w_up_b	sprites/guiltn08.png
 	guillotine_w_dn_b	sprites/guiltn09.png
+	guillotine_w_up_b2	sprites/guiltn08a.png
+	guillotine_w_dn_b2	sprites/guiltn09a.png
 	guillotine_w_up_ovl	sprites/guiltn10.png
 	guillotine_w_dn_ovl	sprites/guiltn11.png
 	pike			sprites/pike1.png
@@ -10019,6 +10025,14 @@ section: sequences
 		GUILLOTINE_S_UP_B
 	end
 
+	name GUILLOTINE_S_UP_BLOODY2
+	post_overlay
+	overlay GUILLOTINE_S_UP_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_S_UP_B2
+	end
+
 	name GUILLOTINE_S_DOWN
 	post_overlay
 	overlay GUILLOTINE_S_DN_OVL
@@ -10035,6 +10049,14 @@ section: sequences
 		GUILLOTINE_S_DN_B
 	end
 
+	name GUILLOTINE_S_DOWN_BLOODY2
+	post_overlay
+	overlay GUILLOTINE_S_DN_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_S_DN_B2
+	end
+
 	quickname GUILLOTINE_S_VICTIM1 GUILLOTINE_S_VICTIM1
 	quickname GUILLOTINE_S_VICTIM2 GUILLOTINE_S_VICTIM2
 
@@ -10043,6 +10065,9 @@ section: sequences
 
 	quickname GUILLOTINE_VICTIM_PLAYERF GUILLOTINE_S_VICTIM5
 	quickname GUILLOTINE_VICTIM_PLAYERF2 GUILLOTINE_S_VICTIM6
+
+	quickname GUILLOTINE_VICTIM_PLAYERP GUILLOTINE_S_VICTIM7
+	quickname GUILLOTINE_VICTIM_PLAYERP2 GUILLOTINE_S_VICTIM8
 
 	name GUILLOTINE_W_UP
 	post_overlay
@@ -10060,6 +10085,14 @@ section: sequences
 		GUILLOTINE_W_UP_B
 	end
 
+	name GUILLOTINE_W_UP_BLOODY2
+	post_overlay
+	overlay GUILLOTINE_W_UP_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_W_UP_B2
+	end
+
 	name GUILLOTINE_W_DOWN
 	post_overlay
 	overlay GUILLOTINE_W_DN_OVL
@@ -10074,6 +10107,14 @@ section: sequences
 	framelist:
 	#1 frames
 		GUILLOTINE_W_DN_B
+	end
+
+	name GUILLOTINE_W_DOWN_BLOODY2
+	post_overlay
+	overlay GUILLOTINE_W_DN_OVL
+	framelist:
+	#1 frames
+		GUILLOTINE_W_DN_B2
 	end
 
 	quickname pike
@@ -14406,9 +14447,11 @@ section: tables
 		man_noble noblemansit_u 
 		man_old oldmansit_u 
 		man_boy flsit_u 
+		man_mage magesit_u 
 		guard guardsit_u 
 		guard_disposable guardsit_u 
 		guard_wandering guardsit_u 
+		guard_captain guardsit_u 
 		guard_modern modernguardsit_u 
 		player redmansit_u 
 		playerf redwomansit_u 
@@ -14435,9 +14478,11 @@ section: tables
 		man_noble noblemansit_d
 		man_old oldmansit_d 
 		man_boy flsit_d
+		man_mage magesit_d
 		guard guardsit_d
 		guard_disposable guardsit_d
 		guard_wandering guardsit_d
+		guard_captain guardsit_d
 		guard_modern modernguardsit_d
 		player redmansit_d
 		playerf redwomansit_d
@@ -14464,9 +14509,11 @@ section: tables
 		man_noble noblemansit_l
 		man_old oldmansit_l 
 		man_boy flsit_l 
+		man_mage magesit_l
 		guard guardsit_l
 		guard_disposable guardsit_l 
 		guard_wandering guardsit_l 
+		guard_captain guardsit_l
 		guard_modern modernguardsit_l 
 		player redmansit_l 
 		playerf redwomansit_l
@@ -14493,9 +14540,11 @@ section: tables
 		man_noble noblemansit_r
 		man_old oldmansit_r 
 		man_boy flsit_r 
+		man_mage magesit_r
 		guard guardsit_r 
 		guard_disposable guardsit_r 
 		guard_wandering guardsit_r 
+		guard_captain guardsit_r
 		guard_modern modernguardsit_r 
 		player redmansit_r
 		playerf redwomansit_r
@@ -14777,7 +14826,7 @@ section: tables
 	list:
 		player GUILLOTINE_VICTIM_PLAYER
 		playerf GUILLOTINE_VICTIM_PLAYERF
-		playerp PANTHER_D
+		playerp GUILLOTINE_VICTIM_PLAYERP
 	end
 
 	# These are objects for the beheaded player
@@ -14787,7 +14836,26 @@ section: tables
 	list:
 		player GUILLOTINE_PLAYER_BLOODY
 		playerf GUILLOTINE_PLAYERF_BLOODY
-		playerp DEADPANTHER
+		playerp GUILLOTINE_PLAYERP_BLOODY
+	end
+
+	# Guillotine type
+	name guillotine_type_human
+	key=string
+	data=string
+	list:
+		player GUILLOTINE_BLOODY
+		playerf GUILLOTINE_BLOODY
+		playerp GUILLOTINE_BLOODY2
+	end
+
+	name guillotine_type_waarg
+	key=string
+	data=string
+	list:
+		player GUILLOTINE_WAARG_BLOODY
+		playerf GUILLOTINE_WAARG_BLOODY
+		playerp GUILLOTINE_WAARG_BLOODY2
 	end
 
 	name jail_tag_lookup
@@ -14925,6 +14993,7 @@ section: tables
 		man_boy			F_LIEDOWN 
 		guard			GUARD_SLEEPING 
 		guard_wandering		GUARD_SLEEPING 
+		guard_captain		GUARD_SLEEPING 
 		GUARD_MODERN		MODERNGUARD_SLEEPING 
 		player			REDMAN_SLEEPING
 		playerf			REDWOMMAN_SLEEPING
