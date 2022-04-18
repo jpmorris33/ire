@@ -1301,6 +1301,9 @@ for(ptr=MasterList;ptr;ptr=ptr->next) {
 
 irecon_printf("Reset..\n");
 
+// Reset journal
+J_Free();
+
 // Find player
 
 player = NULL;
@@ -2031,6 +2034,8 @@ if(savegame_no > 0) {
 		}
 
 		fullrestore = 1;
+
+		J_Free(); // Make sure the journal is cleared
 
 		mapnumber=mapno;
 		// Read in the physical map
