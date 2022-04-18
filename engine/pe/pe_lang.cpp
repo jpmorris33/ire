@@ -1076,6 +1076,7 @@ OPCODE vmspec[] =
                     {"force_direction",PEVM_ForceDir,"c?I",PE_generic,NULL,2},
                     {"redraw_text",PEVM_RedrawText,"",PE_generic,NULL,0},
                     {"redraw_map",PEVM_RedrawMap,"",PE_generic,NULL,0},
+                    {"reset_light",PEVM_ResetLight,"",PE_generic,NULL,0},
                     {"move_from_pocket",PEVM_MoveFromPocket,"o?o?nn",PE_generic,NULL,4},
                     {"move_from_pocket",PEVM_MoveFromPocket,"o?o?ni",PE_generic,NULL,4},
                     {"move_from_pocket",PEVM_MoveFromPocket,"o?o?in",PE_generic,NULL,4},

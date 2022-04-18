@@ -103,6 +103,7 @@ enum {
 	PEVM_SetDir,
 	PEVM_ForceDir,
 	PEVM_RedrawMap,
+	PEVM_ResetLight,
 	PEVM_RedrawText,
 	PEVM_MoveToPocket,
 	PEVM_XferToPocket,

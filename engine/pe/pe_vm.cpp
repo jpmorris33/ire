@@ -59,6 +59,7 @@ extern void spillcontents(OBJECT *bag,int x,int y);
 extern void movecontents(OBJECT *src, OBJECT *dest);
 extern void gen_largemap(void);
 extern void RedrawMap(void);
+extern void ResetLight(void);
 extern int isSolid(int x,int y);
 extern void CheckHurt(OBJECT *list);
 extern int GetBulk(OBJECT *obj);
@@ -231,6 +232,7 @@ static void PV_SetDir();
 static void PV_ForceDir();
 static void PV_RedrawText();
 static void PV_RedrawMap();
+static void PV_ResetLight();
 static void PV_MoveToPocket();
 static void PV_XferToPocket();
 static void PV_MoveFromPocket();
@@ -1294,6 +1296,7 @@ VMOP(ReplaceObjectS);
 VMOP(SetDir);
 VMOP(ForceDir);
 VMOP(RedrawMap);
+VMOP(ResetLight);
 VMOP(RedrawText);
 VMOP(MoveToPocket);
 VMOP(XferToPocket);
@@ -3834,6 +3837,11 @@ void PV_RedrawMap()
 RedrawMap();
 Show();                     // And blit the screen again
 IRE_WaitFor(0);	// Yield to OS
+}
+
+void PV_ResetLight()
+{
+ResetLight();
 }
 
 // Forcibly move <object> <to> <pocket>

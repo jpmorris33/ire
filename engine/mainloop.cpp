@@ -1208,6 +1208,17 @@ Show();
 IRE_WaitFor(0); // Yield timeslice
 }
 
+void ResetLight()
+{
+CentreMap(player);
+DrawMap(mapx,mapy);
+CheckRoof();
+dark_mix=0;
+DarkRoof();
+DrawMap(mapx,mapy);
+Show();
+}
+
 
 /*
  *      Restart - Restart the game totally
