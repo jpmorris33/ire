@@ -71,6 +71,8 @@ if_flag victim IN_PARTY
 			spill target
 			set_leader player player_action follower_action
 		endif
+		# Make sure the light is in step after teleporting
+		reset_light
 		fade_in
 	else
 #		print "No target: cannot arrest"

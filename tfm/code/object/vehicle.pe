@@ -212,7 +212,7 @@ endif
 # Otherwise, do the deed and return success
 move_party_from current to x y
 set_user_flag "true" = 1
-
+reset_light
 end
 
 
@@ -280,5 +280,6 @@ endif
 set_user_flag "true" = 1
 
 move_party_from current to current.x current.y
+reset_light
 
 end

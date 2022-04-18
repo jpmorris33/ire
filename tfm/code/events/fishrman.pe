@@ -115,6 +115,7 @@ fade_out
 
 transfer_object current to dest.x dest.y
 force_direction current = dest.curdir
+reset_light
 
 fade_in
 

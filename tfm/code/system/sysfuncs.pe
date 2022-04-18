@@ -479,7 +479,7 @@ move_party_from temp to rx ry
 destroy temp
 
 # Finish up and return
-
+reset_light
 fade_in
 return
 

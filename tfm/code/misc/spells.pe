@@ -2398,12 +2398,14 @@ if_exists stone.parent
 	# Teleport them all into the chest
 	centre around stonebag
 	move_party_to stonebag
+	reset_light
 	return
 
 endif
 
 move_party_to stone
 move_party_from stone to stone.x stone.y
+reset_light
 
 end
 

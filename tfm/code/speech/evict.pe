@@ -18,6 +18,7 @@ if party_mode
 	move_party_to temp
 	move_party_from temp to temp.x temp.y
 endif
+reset_light
 fade_in
 
 end

@@ -18,6 +18,7 @@ endif
 find_tag temp = "target" current.tag
 if_exist temp
 	transfer_object victim to temp.x temp.y
+	reset_light
 endif
 end
 
@@ -49,6 +50,8 @@ if victim = player
 	endif
 endif
 
+reset_light
+
 end
 
 
@@ -70,7 +73,9 @@ endif
 find_tag temp = "target" current.tag
 if_exist temp
 	transfer_object me to temp.x temp.y
+	reset_light
 endif
+
 end
 
 
@@ -101,6 +106,7 @@ if me = player
 	if party_mode
 		move_party_to temp
 		move_party_from temp to temp.x temp.y
+		reset_light
 #	else
 #		transfer_object(person,temp->x,temp->y);
 	endif
@@ -135,6 +141,7 @@ if me = player
 	if party_mode
 		move_party_to temp
 		move_party_from temp to temp.x temp.y
+		reset_light
 #	else
 #		transfer_object(person,temp->x,temp->y);
 	endif
