@@ -117,18 +117,26 @@ end
 
 function bishop_dies
 
+# Bind the event to the crucifix in case they destroy the body
+object eventrunner
+find_tag eventrunner = "CRUCIFIX" 0
+if_not_exists eventrunner
+	let eventrunner = current
+endif
+
 change current = "deadcardinal"
+let current.stats.hp = -1	# We can't have them running around after
 object_sound "man_dying" current
-let current.user.user0 = 3   # A delay of three ticks
+let eventrunner.user.user0 = 3   # A delay of three ticks
 if_exists current.enemy
-	start_action current does "justice_bishop_delayed" to current.enemy
+	start_action eventrunner does "justice_bishop_delayed" to current.enemy
 
 	# The player's really going to cop it for this
 	if current.enemy = player
 		set_user_flag "killed_bishop" = 1
 	endif
 else
-	start_action current does "justice_bishop_delayed"
+	start_action eventrunner does "justice_bishop_delayed"
 	set_user_flag "killed_bishop" = 1
 endif
 

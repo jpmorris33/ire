@@ -164,8 +164,11 @@ if atk.enemy.stats.hp < 2
 and atk.enemy.stats.hp > -1
 	# Yes.  Make them alive
 	let victim = atk.enemy
-	let victim.stats.hp = 10
+	let victim.stats.hp = 2
+	add victim.user.unconscious + 10
 	check_hurt victim
+
+	start_action victim does sleeping
 
 	# Sling them in pokey
 	let me = atk

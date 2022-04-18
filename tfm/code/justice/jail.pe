@@ -13,19 +13,24 @@ object target
 # Mark the victim of the arrest, so everyone else stops trying to arrest them
 let arrested = victim
 
+# 'me' should be set to the arresting party or null if it's a scripted arrest
+if_exists me
+	if_not_flag me IS_GUARD
+		# You're not entitled to do this
+		if victim.user.unconscious > 1
+			# But someone else probably arreseted them in the meantime
+		else
+			# Otherwise, no can do
+			return
+		endif
+	endif
+endif
+
 if_exists victim
 	# Reset the crime flag
 	let victim.user.user19 = CRIME_NONE
 else
 	return
-endif
-
-# 'me' should be set to the arresting party or null if it's a scripted arrest
-if_exists me
-	if_not_flag me IS_GUARD
-		# You're not entitled to do this
-		return
-	endif
 endif
 
 
@@ -59,6 +64,7 @@ if_flag victim IN_PARTY
 		printcr
 		redraw_text
 		fade_out
+		let victim.user.unconscious = 0
 		push_object victim to target.x target.y
 		if party_mode = 1
 			move_party_to target

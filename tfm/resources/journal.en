@@ -357,3 +357,16 @@ title Bridge keycard in a tower?
 start:
 I found a printout instructing the Pope to hide the access key to the Maxima's bridge in a tower filled with "horrors".  I should look out for a building matching that description.
 end
+
+name jrn_breakoutbedevere
+tag task
+title Free the glassmaker?
+start:
+At New Highworth, I found a glassmaker sentenced to death for making a telescope.  I wonder if I might be able to help him escape?
+end
+
+name jrn_brokeoutbedevere
+title I freed the glassmaker
+start:
+I managed to free the glassmaker from the prison at New Highworth, and he has fled to Scotia.  I may be able to get useful items from him as a result.
+end

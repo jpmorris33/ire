@@ -284,6 +284,10 @@ fx_getxy fx_destx fx_desty = current.target
 add fx_destx + 7
 add fx_desty + 7
 
+# Tweak source to match crucifix face
+add fx_srcx + 6
+add fx_srcy + 8
+
 
 # Draw the red core (twice)
 let fx_brush = 1

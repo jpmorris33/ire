@@ -44,7 +44,7 @@ function check_bishop
 private
 object o
 
-set_user_flag "killed_bishop" = 0
+#set_user_flag "killed_bishop" = 0  # Do not reset in case body is destroyed
 find_tag o = "deadcardinal" 36
 if_exists o
 	set_user_flag "killed_bishop" = 1
@@ -53,6 +53,13 @@ endif
 
 find_tag o = "CARDINAL_HEAD" 36
 if_exists o
+	set_user_flag "killed_bishop" = 1
+	return
+endif
+
+# The player has quietly disappeared the cardinal somehow
+find_tag o = "MAN_CARDINAL" 36
+if_not_exists o
 	set_user_flag "killed_bishop" = 1
 	return
 endif

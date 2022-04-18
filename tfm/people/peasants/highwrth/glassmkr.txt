@@ -65,6 +65,7 @@ He notices you and turns to look.
 
 
 [page="why"]
+[journal jrn_breakoutbedevere]
 
 "I found a heathen text.  It explained some of the
  miracles of the Ancients.  Using it, I made a device
@@ -172,6 +173,10 @@ The old man stares at the wall again.
 [page="breakout"]
 [at_exit_call="plot_breakoutbedevere2"]
 [set bedevere_breakout]
+[journal_done jrn_breakoutbedevere]
+[journal jrn_brokeoutbedevere]
+[call="give_250_xp"]
+[call="give_10_karma"]
 [colour="#808080"]
 The old man looks in amazement.
 [colour="#ffffff"]
