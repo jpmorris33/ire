@@ -33632,41 +33632,49 @@ iMZ1r01
 		type TABLE2-END
 		at 858 385
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI714cc832-4b0a-42b7-8617-af713a327d22
 		type POTION_YELLOW
 		at 858 385
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI50cf92e3-6d1a-4797-9872-efb135ad127d
 		type POTION_WHITE
 		at 858 385
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI36074f74-4ff2-44b0-8b48-8bfc674eed35
 		type POTION_PURPLE
 		at 858 385
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLebe2b118-a27c-49b3-836c-72fcf4473855
 		type TABLE-SHADOW2
 		at 859 385
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL75714bae-bdc5-465c-b6c7-ed5dd13762b7
 		type TABLE5-LEGS
 		at 859 385
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CAND1bd83df3-9c07-416d-b1ff-dde5bd1d1d04
 		type CANDLESTK
 		at 859 385
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object BED_df2d5eaf-d7c5-4b75-adf6-1e199435979e
 		type BED
 		at 860 385
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object BED_7dd0f8cd-5037-478b-afb1-334fc6aab88d
 		type BED
@@ -33784,19 +33792,28 @@ iMZ1r01
 		type TABLE2-EDGES
 		at 858 386
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI2c139ef4-0630-4422-aa9c-c03caf8847c1
 		type POTION_RED
 		at 858 386
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI20e06155-f8ef-439c-8c6d-a039b692e27d
 		type POTION_MAGENTA
 		at 858 386
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLb0d5a40d-40e7-4f75-bfe5-c5882197acc7
 		type TABLE-SHADOW1
+		at 859 386
+		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object TARG06a137fc-8f74-4091-907e-866815f9ec24
+		type TARGET
 		at 859 386
 		curdir 2
 
@@ -33935,76 +33952,91 @@ iMZ1r01
 		type TABLE2-END
 		at 856 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI9b7a5be5-23e7-4496-a1ee-2c3e59010dcc
 		type POTION_GREEN
 		at 856 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI4234e14d-335f-4076-80b8-18d25410fa80
 		type POTION_BLACK
 		at 856 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTId0173f4e-d6c5-4f17-a62f-df75a8011686
 		type POTION_MAGENTA
 		at 856 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI858fc4f9-b478-438e-b0f8-6a521d4364c3
 		type POTION_PURPLE
 		at 856 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLc4c0d601-cc7b-4573-bf53-7524e9fcb3af
 		type TABLE2-EDGES
 		at 857 387
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI9ea06245-43fd-468e-8b84-84c8df8f5c8a
 		type POTION_RED
 		at 857 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTIe9fceb9a-571b-4e77-97ef-dc74eb72fe88
 		type POTION_WHITE
 		at 857 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI355c2335-46fb-4b64-918d-5da463ff77ba
 		type POTION_BLACK
 		at 857 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL803ddb0d-134e-442d-9d53-a8249ad70a27
 		type TABLE2-CORNERS
 		at 858 387
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI1855d0a5-93ff-414f-86b2-a58b15f4b614
 		type POTION_YELLOW
 		at 858 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI03d1a771-f48f-4f31-9b09-9c1f2c63e61b
 		type POTION_BLUE
 		at 858 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI6823266b-44ae-4061-8796-cee0ce5f5ee8
 		type POTION_EMPTY
 		at 858 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL3c09bc32-f994-4161-a42f-3e4a29a422ea
 		type TABLE-SHADOW1
 		at 859 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL8d77a423-c5a6-4393-b850-dd9eaf14a3ae
 		type TABLE5-LEGS
 		at 859 387
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	decorative MOUNT05 at 863 387
 
@@ -34166,41 +34198,61 @@ iMZ1r01
 		type BOOKSHELF00
 		at 854 388
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI6106b6e2-c5d1-49e1-a158-f5762637a0bf
 		type POTION_EMPTY
 		at 854 388
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL4a2a7cbf-bbf0-4600-a711-64014040200d
 		type TABLE-SHADOW2
 		at 856 388
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL8f928c5d-2410-49e9-b060-5585c41b4901
 		type TABLE5-LEGS
 		at 856 388
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object TARG7be1cf3c-af66-4b6e-aa3d-309fdc2382ad
+		type TARGET
+		at 856 388
+		curdir 0
+		tag 80125
 
 	object TABL486276b8-611a-439d-9f7a-53cddaf4e758
 		type TABLE-SHADOW1
 		at 857 388
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object TARG72fd4c96-bc47-46d4-a59a-fb9cd4693a22
+		type TARGET
+		at 857 388
+		curdir 0
+		tag 80124
 
 	object TABL6c15d603-382a-4631-bb96-aa7d5378de95
 		type TABLE-SHADOW1
 		at 858 388
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLd2b4e9a2-4990-46fb-8d4d-bc0f4f9ffea7
 		type TABLE5-LEGS
 		at 858 388
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL6dfb0810-341c-43ca-8375-4f3536e997b8
 		type TABLE-SHADOW3
 		at 859 388
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 		type WOMAN_GENERIC
@@ -34208,6 +34260,17 @@ iMZ1r01
 		curdir 1
 		name Myrtle
 		funcs->talk people/peasants/mawdor/witch.txt
+		schedule 9 0 LOITER_ATWORK TARG50aa1060-2eb2-4a26-a416-79fda5dc7fd1
+		schedule 12 0 EAT_AT_HOME TARG72d81d6c-c456-4d73-9db2-6f9fd835cd9c
+		schedule 13 0 LOITER_ATWORK TARG50aa1060-2eb2-4a26-a416-79fda5dc7fd1
+		schedule 17 0 EAT_AT_HOME TARG72d81d6c-c456-4d73-9db2-6f9fd835cd9c
+		schedule 23 0 GO_TO_SLEEP BED_df2d5eaf-d7c5-4b75-adf6-1e199435979e
+
+	object TARG35e5a11b-80ac-4d71-8e5a-a50fc20cad15
+		type TARGET
+		at 861 388
+		curdir 2
+		tag 80128
 
 	object TABL2ffc3d72-ce2c-4200-8f63-72a87929783d
 		type TABLE2-END
@@ -34227,39 +34290,49 @@ iMZ1r01
 		name Minutes
 		funcs->talk books/misc/witches.txt
 
-	object INKW8a70c946-e8d1-4c44-b326-88fabec1d4f5
-		type INKWELL
+	object BOOK8124c267-f854-4d63-bddc-ea2bf2d0dfac
+		type BOOK_WITCHES
 		at 863 388
-		curdir 2
+		curdir 3
+		name The Discovery of Witchcraft
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object BOOKbf75028c-63bd-40d1-8fb4-c443e616c20c
+		type BOOK
+		at 863 388
+		curdir 0
+		name 101 Practical Satanic Rituals
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLb8bb19b7-980d-4eeb-b2d6-f0bcf2a8afd2
 		type TABLE2-END
 		at 864 388
 		curdir 3
 
-	object BOOKbf75028c-63bd-40d1-8fb4-c443e616c20c
-		type BOOK
+	object INKW8a70c946-e8d1-4c44-b326-88fabec1d4f5
+		type INKWELL
 		at 864 388
-		curdir 0
-		name 101 Practical Satanic Rituals
-
-	object BOOK8124c267-f854-4d63-bddc-ea2bf2d0dfac
-		type BOOK_WITCHES
-		at 864 388
-		curdir 3
-		name The Discovery of Witchcraft
+		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object BOOK6d800629-b8bb-466e-ae11-839b7e94df97
 		type BOOK_OPEN
 		at 864 388
 		curdir 2
 		name Works of Astrologer Belelele
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 		funcs->talk books/church/heretica/belelele.txt
 
 	object TABLaab60444-e495-4769-8e4f-5790cb41253c
 		type TABLE-SHADOW2
 		at 865 388
 		curdir 2
+
+	object TARG75a1f215-add4-427a-bc73-43abba1e89a1
+		type TARGET
+		at 865 388
+		curdir 2
+		tag 80127
 
 	object CHAI4b4c7385-a787-4eab-8c35-2f82a924f0fd
 		type CHAIR
@@ -34455,41 +34528,67 @@ iMZ1r01
 		type POTION_EMPTY
 		at 854 389
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object FIREb5dac4e0-b304-4f71-9267-c29e9ccdfbb8
 		type FIRESTONES_LIT
 		at 856 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CAUL85abb650-ac05-403a-a34b-517643eff397
 		type CAULDRON_BROTH
 		at 856 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object TARG4d4e1463-0ad8-4bb2-8ea9-b057955d8151
+		type TARGET
+		at 857 389
+		curdir 2
+		tag 80123
+
+	object TARG50aa1060-2eb2-4a26-a416-79fda5dc7fd1
+		type TARGET
+		at 860 389
+		curdir 2
+		tag 80120
+
+	object TARG071f306b-d1c6-4b47-b054-eace734d4fee
+		type TARGET
+		at 861 389
+		curdir 3
+		tag 80121
 
 	object TABLbc86bd6c-c2f5-4d87-aadf-b50c95d922d2
 		type TABLE-SHADOW2
 		at 863 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL63b09999-bc48-4073-9389-e568b8c21f51
 		type TABLE5-LEGS
 		at 863 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLcf15b71e-fda8-4944-aaa5-29d2b7cd4368
 		type TABLE-SHADOW1
 		at 864 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLa216d757-8e66-49da-aa8e-f7b485201c80
 		type TABLE5-LEGS
 		at 864 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CAND0b991cc2-bdde-4b63-8fdf-34064db9aed2
 		type CANDLESTK
 		at 864 389
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL33baef23-d73e-4074-9bcc-6fa1c5cf5a02
 		type TABLE-SHADOW3
@@ -34599,6 +34698,18 @@ iMZ1r01
 		curdir 1
 
 	decorative MOUNT03 at 839 390
+
+	object TARGbdaf24f4-0fc0-4b8e-813c-3e969369987a
+		type TARGET
+		at 855 390
+		curdir 2
+		tag 80126
+
+	object TARGe85cb6e3-af81-4d86-8cf1-e3571a1778b0
+		type TARGET
+		at 859 390
+		curdir 1
+		tag 80129
 
 	object CAND6a16a7e3-d5f7-45cf-b30c-f5dad3046fc1
 		type CANDLESTK
@@ -34889,21 +35000,31 @@ iMZ1r01
 		type POTION_EMPTY
 		inside CHES31967d54-7a11-4500-a3a5-90d3127dc597
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTI746984fc-c505-45f2-8009-ecb4b804a287
 		type POTION_EMPTY
 		inside CHES31967d54-7a11-4500-a3a5-90d3127dc597
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object POTIdb9a61a3-666d-4fe9-90e2-6d21283f40bd
 		type POTION_EMPTY
 		inside CHES31967d54-7a11-4500-a3a5-90d3127dc597
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CHES31967d54-7a11-4500-a3a5-90d3127dc597
 		type CHEST
 		at 856 391
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object TARG03203412-eb39-47f5-aeb5-69b045c09f6a
+		type TARGET
+		at 861 391
+		curdir 1
+		tag 80122
 
 	object TABL3ef4080b-c206-4e26-82b6-1d32c0d5de1f
 		type TABLE6-V
@@ -35093,31 +35214,37 @@ iMZ1r01
 		type TABLE8-L
 		at 860 392
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLe992b323-429d-4238-97b4-9b7f1c5e455a
 		type TABLE8-M
 		at 861 392
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CANDc7d7abc3-21df-4cd6-b59e-a68c2cf03d68
 		type CANDLE
 		at 861 392
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLe20b8517-96a8-4922-b671-3df3b4f0a683
 		type TABLE8-R
 		at 862 392
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object WINEafefd882-c14d-42b1-983b-ded4a5113b6a
 		type WINEGLASS
 		at 862 392
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL94aa90ca-02af-451a-bfe6-7714a1926e19
 		type TABLE-SHADOW2
 		at 863 392
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object STON41d75dec-2315-45d8-897c-d956a397ae49
 		type STONEWINDOW1
@@ -35243,41 +35370,54 @@ iMZ1r01
 		type TOOLS13
 		at 857 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object TARG72d81d6c-c456-4d73-9db2-6f9fd835cd9c
+		type TARGET
+		at 859 393
+		curdir 3
 
 	object CHAI4c48dca4-3555-4c4a-9f12-57311afe9e2b
 		type CHAIR
 		at 859 393
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL066624ad-971a-4910-9b58-82640b8cfb30
 		type TABLE8-L
 		at 860 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object FORK9f427858-b230-42ba-afc5-b5497b112f12
 		type FORK_1
 		at 860 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object KNIF706d199a-9399-476a-ac26-05c7f5c632d9
 		type KNIFE_1
 		at 860 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object PLAT52f3ec7f-091c-47e4-a700-b9dd4ee85cb0
 		type PLATE
 		at 860 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL4acde0eb-9644-427e-8199-b3d1d67529e8
 		type TABLE8-M
 		at 861 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object JAR_12192bd5-0445-4c8c-ace4-409d9377ae57
 		type JAR_FISH
 		at 861 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 		funcs->use DO_NOTHING
 		funcs->init START_ROTATE
 
@@ -35285,31 +35425,37 @@ iMZ1r01
 		type TABLE8-R
 		at 862 393
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object FORK8e55a784-516a-47ad-bc9d-ea94d1166470
 		type FORK_1
 		at 862 393
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object KNIFfc9b0071-e19f-4ec0-be4d-6d6ebf1da339
 		type KNIFE_1
 		at 862 393
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object PLATf402a0e3-93fc-47cb-92c5-c9651c1893e9
 		type PLATE
 		at 862 393
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL0c666ff4-6fa1-4ae2-bb1d-ee838fdf28e7
 		type TABLE-SHADOW1
 		at 863 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CHAI85c08790-4f3e-4fc0-8909-fed797113a99
 		type CHAIR
 		at 863 393
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	decorative MOUNT00 at 864 393
 
@@ -35441,51 +35587,61 @@ iMZ1r01
 		type CANDLESTK
 		at 858 394
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL3b02039e-ed2b-449f-8e65-b115808bee8a
 		type TABLE8-L
 		at 860 394
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object WINE49669ae7-4347-4878-9850-5ff3a86ac406
 		type WINEGLASS
 		at 860 394
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLe914da36-fb01-44c1-9a38-83733b574c85
 		type TABLE8-M
 		at 861 394
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object FORK785059d7-e202-49c9-b1bf-a46d08a1e0df
 		type FORK_1
 		at 861 394
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object KNIF7eb9ab89-874c-419c-b5d1-98634c1cdf79
 		type KNIFE_1
 		at 861 394
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object PLAT8e3c3bad-1d50-47cf-872b-6a6e0f500d0b
 		type PLATE
 		at 861 394
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLb1b2a8e8-301c-4d72-b66d-1743c9fdd324
 		type TABLE8-R
 		at 862 394
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object WINE61f47bd4-f0b6-4ddf-abce-19c8a0ff45b5
 		type WINEGLASS
 		at 862 394
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLede35c83-fe3c-4519-bafb-0b37825dd926
 		type TABLE-SHADOW1
 		at 863 394
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	decorative MOUNT03 at 864 394
 
@@ -35579,36 +35735,43 @@ iMZ1r01
 		type TABLE-SHADOW2
 		at 860 395
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL68b32193-0195-425c-bf29-3ce9a8fac1db
 		type TABLE5-LEGS
 		at 860 395
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLe28e0584-7b99-4ab6-99f0-68143c5d4d22
 		type TABLE-SHADOW1
 		at 861 395
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CHAI708648bd-8b56-4354-a09d-15fea7e88e18
 		type CHAIR
 		at 861 395
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABLa73513b3-1f9d-46e5-ad7d-a6414223ba58
 		type TABLE-SHADOW1
 		at 862 395
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL09bba4fd-3c52-48ee-bcdf-ee6b4146a822
 		type TABLE5-LEGS
 		at 862 395
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TABL1d3e9b16-bf26-4ce0-980f-2eaa10240037
 		type TABLE-SHADOW3
 		at 863 395
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	decorative MOUNT05 at 864 395
 
@@ -35725,31 +35888,37 @@ iMZ1r01
 		type GOLD_BAR
 		at 863 396
 		curdir 2
-
-	object GOLD5cb5db3d-9997-4b81-add7-5cefabfa65f5
-		type GOLD_BAR
-		at 863 396
-		curdir 2
-
-	object GOLD7c03685e-4569-4518-87ab-9ab6d01e811a
-		type GOLD_BAR
-		at 863 396
-		curdir 2
-
-	object GOLD1f4d99df-ea0b-4bcb-a40d-f864ce3723e0
-		type GOLD_BAR
-		at 863 396
-		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object GOLD89daf8d6-4056-4954-a2c3-1c5393abc4e4
 		type GOLD_BAR
 		at 863 396
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object GOLD1f4d99df-ea0b-4bcb-a40d-f864ce3723e0
+		type GOLD_BAR
+		at 863 396
+		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object GOLD7d8fe341-0b70-4a6a-84f4-be827bbdbb2f
 		type GOLD_BAR
 		at 863 396
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object GOLD7c03685e-4569-4518-87ab-9ab6d01e811a
+		type GOLD_BAR
+		at 863 396
+		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
+
+	object GOLD5cb5db3d-9997-4b81-add7-5cefabfa65f5
+		type GOLD_BAR
+		at 863 396
+		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	decorative MOUNT00 at 864 396
 
@@ -35860,62 +36029,74 @@ iMZ1r01
 		type CRYSTAL_BLUE
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CRYS084e8406-32a7-4eb4-b7fe-b24b437da2aa
 		type CRYSTAL_RED
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CRYS0b9d6918-56c3-41b4-a8b3-378425701709
 		type CRYSTAL_WHITE
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREA377bda37-d9c3-4048-a5b7-a16dcfac7f45
 		type TREASURE_02
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREA7e23765b-85ca-42e0-b174-2df6f3f67faf
 		type TREASURE_02
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREA9648d597-7dea-4ee3-bb6d-5e244bfdb973
 		type TREASURE_02
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREAe46a9a1a-203c-45e9-b529-12d67635d1b2
 		type TREASURE_03
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 3
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREAd6bbcde5-3552-40f6-a98f-38ba4aaaa314
 		type TREASURE_03
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 0
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREA251ae38c-112a-415f-b087-77171e77147b
 		type TREASURE_03
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object TREA0fe1b0ef-4d47-450d-8e7d-b24d5634643e
 		type TREASURE_03
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 1
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object GOLD9d3356dc-f24c-4de8-99bd-8341989d669a
 		type GOLD_COINS
 		inside CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		curdir 2
 		stats->quantity 983
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	object CHESba38f6d5-ad2f-481f-8ae1-78975e492237
 		type CHEST
 		at 862 397
 		curdir 2
+		stats->owner WOMAd41656a7-ce15-4555-9aac-7f62c1c86e3f
 
 	decorative MOUNT00 at 863 397
 
@@ -38866,8 +39047,6 @@ iMZ1r01
 
 	decorative TREE01 at 764 473
 
-	decorative TREE00 at 765 473
-
 	decorative TREE03 at 597 474
 
 	decorative TREE01 at 599 474
@@ -38934,10 +39113,6 @@ iMZ1r01
 
 	decorative TREE01 at 759 474
 
-	decorative TREE00 at 764 474
-
-	decorative TREE00 at 765 474
-
 	decorative TREE02 at 589 475
 
 	decorative TREE02 at 591 475
@@ -38983,6 +39158,8 @@ iMZ1r01
 	decorative TREE01 at 760 475
 
 	decorative TREE00 at 762 475
+
+	decorative TREE00 at 765 475
 
 	decorative TREE02 at 593 476
 
@@ -45725,8 +45902,6 @@ iMZ1r01
 
 	decorative TREE00 at 630 525
 
-	decorative TREE01 at 635 525
-
 	decorative TREE00 at 655 525
 
 	decorative TREE00 at 658 525
@@ -45993,8 +46168,6 @@ iMZ1r01
 
 	decorative TREE00 at 632 527
 
-	decorative TREE00 at 636 527
-
 	decorative TREE03 at 647 527
 
 	decorative TREE00 at 649 527
@@ -46145,7 +46318,7 @@ iMZ1r01
 
 	decorative TREE02 at 623 528
 
-	decorative TREE02 at 634 528
+	decorative TREE02 at 633 528
 
 	decorative TREE00 at 640 528
 
@@ -46279,8 +46452,6 @@ iMZ1r01
 	decorative TREE00 at 624 529
 
 	decorative TREE02 at 628 529
-
-	decorative TREE00 at 636 529
 
 	decorative TREE02 at 642 529
 
@@ -46621,8 +46792,6 @@ iMZ1r01
 	decorative TREE03 at 620 533
 
 	decorative TREE00 at 625 533
-
-	decorative TREE01 at 635 533
 
 	decorative TREE00 at 647 533
 
@@ -47596,10 +47765,6 @@ iMZ1r01
 
 	decorative TREE00 at 630 537
 
-	decorative TREE00 at 633 537
-
-	decorative TREE00 at 634 537
-
 	decorative TREE01 at 641 537
 
 	decorative TREE02 at 642 537
@@ -47672,8 +47837,6 @@ iMZ1r01
 	decorative MOUNT03 at 955 537
 
 	decorative TREE01 at 631 538
-
-	decorative TREE01 at 632 538
 
 	object FENCa70b66ad-e44f-44e8-ba39-10b4f8d919dc
 		type FENCE
@@ -47770,6 +47933,8 @@ iMZ1r01
 	decorative TREE03 at 863 539
 
 	decorative MOUNT03 at 956 539
+
+	decorative TREE01 at 633 540
 
 	object FENC82bd5828-fc55-4712-911f-f3aacd47371f
 		type FENCE
@@ -47884,8 +48049,6 @@ iMZ1r01
 	decorative TREE03 at 849 541
 
 	decorative TREE03 at 853 541
-
-	decorative TREE03 at 866 541
 
 	decorative TREE02 at 867 541
 
@@ -48648,8 +48811,6 @@ iMZ1r01
 	decorative TREE01 at 847 552
 
 	decorative TREE02 at 851 552
-
-	decorative TREE03 at 853 552
 
 	decorative TREE00 at 870 552
 
@@ -49611,8 +49772,6 @@ iMZ1r01
 
 	decorative TREE02 at 845 562
 
-	decorative TREE02 at 846 562
-
 	decorative TREE02 at 860 562
 
 	decorative TREE00 at 861 562
@@ -50016,8 +50175,6 @@ iMZ1r01
 	decorative TREE01 at 832 566
 
 	decorative TREE00 at 839 566
-
-	decorative TREE03 at 845 566
 
 	decorative TREE00 at 857 566
 
@@ -50424,8 +50581,6 @@ iMZ1r01
 
 	decorative TREE01 at 840 570
 
-	decorative TREE03 at 842 570
-
 	decorative TREE01 at 848 570
 
 	decorative TREE00 at 853 570
@@ -50528,8 +50683,6 @@ iMZ1r01
 	decorative TREE00 at 832 571
 
 	decorative TREE03 at 833 571
-
-	decorative TREE02 at 842 571
 
 	decorative TREE02 at 852 571
 
@@ -50973,8 +51126,6 @@ iMZ1r01
 
 	decorative TREE00 at 828 576
 
-	decorative TREE02 at 842 576
-
 	decorative TREE01 at 864 576
 
 	decorative TREE00 at 866 576
@@ -51237,10 +51388,6 @@ iMZ1r01
 
 	decorative TREE02 at 832 579
 
-	decorative TREE03 at 839 579
-
-	decorative TREE01 at 841 579
-
 	decorative TREE02 at 850 579
 
 	decorative TREE03 at 853 579
@@ -51317,9 +51464,7 @@ iMZ1r01
 
 	decorative TREE02 at 832 580
 
-	decorative TREE00 at 839 580
-
-	decorative TREE03 at 840 580
+	decorative TREE03 at 839 580
 
 	decorative TREE01 at 854 580
 
@@ -51410,8 +51555,6 @@ iMZ1r01
 	decorative TREE00 at 833 581
 
 	decorative TREE02 at 834 581
-
-	decorative TREE00 at 840 581
 
 	decorative TREE00 at 849 581
 
@@ -52166,8 +52309,6 @@ iMZ1r01
 
 	decorative TREE01 at 835 590
 
-	decorative TREE02 at 839 590
-
 	decorative TREE00 at 846 590
 
 	decorative TREE01 at 847 590
@@ -52573,8 +52714,6 @@ iMZ1r01
 
 	decorative TREE03 at 823 595
 
-	decorative TREE02 at 838 595
-
 	decorative TREE01 at 846 595
 
 	decorative TREE00 at 851 595
@@ -52663,8 +52802,6 @@ iMZ1r01
 
 	decorative TREE02 at 837 596
 
-	decorative TREE01 at 839 596
-
 	decorative TREE03 at 850 596
 
 	decorative TREE01 at 852 596
@@ -52738,8 +52875,6 @@ iMZ1r01
 	decorative TREE01 at 833 597
 
 	decorative TREE02 at 835 597
-
-	decorative TREE00 at 838 597
 
 	decorative TREE03 at 848 597
 
@@ -52824,8 +52959,6 @@ iMZ1r01
 	decorative TREE01 at 836 598
 
 	decorative TREE02 at 837 598
-
-	decorative TREE00 at 839 598
 
 	decorative TREE02 at 852 598
 
@@ -53800,8 +53933,6 @@ iMZ1r01
 
 	decorative TREE03 at 840 606
 
-	decorative TREE02 at 841 606
-
 	decorative TREE03 at 859 606
 
 	decorative TREE01 at 860 606
@@ -54114,8 +54245,6 @@ iMZ1r01
 
 	decorative TREE01 at 825 607
 
-	decorative TREE02 at 840 607
-
 	decorative TREE03 at 856 607
 
 	decorative TREE00 at 860 607
@@ -54425,8 +54554,6 @@ iMZ1r01
 
 	decorative TREE00 at 833 608
 
-	decorative TREE03 at 840 608
-
 	decorative TREE03 at 855 608
 
 	decorative TREE00 at 856 608
@@ -54657,8 +54784,6 @@ iMZ1r01
 
 	decorative TREE03 at 829 609
 
-	decorative TREE03 at 840 609
-
 	decorative TREE00 at 854 609
 
 	decorative TREE03 at 856 609
@@ -54884,9 +55009,7 @@ iMZ1r01
 
 	decorative TREE01 at 837 610
 
-	decorative TREE02 at 838 610
-
-	decorative TREE00 at 839 610
+	decorative TREE03 at 839 610
 
 	decorative TREE02 at 849 610
 
@@ -55024,7 +55147,7 @@ iMZ1r01
 
 	decorative TREE00 at 835 611
 
-	decorative TREE00 at 839 611
+	decorative TREE02 at 838 611
 
 	decorative TREE00 at 850 611
 
@@ -55191,8 +55314,6 @@ iMZ1r01
 	decorative TREE03 at 833 612
 
 	decorative TREE03 at 835 612
-
-	decorative TREE00 at 839 612
 
 	decorative TREE01 at 849 612
 
@@ -56321,8 +56442,6 @@ iMZ1r01
 	decorative TREE02 at 839 618
 
 	decorative TREE01 at 840 618
-
-	decorative TREE03 at 842 618
 
 	decorative TREE03 at 849 618
 
@@ -59652,6 +59771,8 @@ iMZ1r01
 
 	decorative TREE00 at 835 626
 
+	decorative TREE02 at 838 626
+
 	decorative TREE01 at 856 626
 
 	decorative TREE00 at 857 626
@@ -59950,8 +60071,6 @@ iMZ1r01
 
 	decorative TREE02 at 836 627
 
-	decorative TREE02 at 837 627
-
 	decorative TREE01 at 851 627
 
 	decorative TREE00 at 853 627
@@ -60190,10 +60309,6 @@ iMZ1r01
 	decorative TREE03 at 823 628
 
 	decorative TREE00 at 835 628
-
-	decorative TREE03 at 837 628
-
-	decorative TREE00 at 838 628
 
 	decorative TREE01 at 848 628
 
@@ -61594,8 +61709,6 @@ iMZ1r01
 
 	decorative TREE01 at 829 636
 
-	decorative TREE03 at 836 636
-
 	decorative TREE02 at 850 636
 
 	decorative TREE00 at 853 636
@@ -62985,8 +63098,6 @@ iMZ1r01
 	decorative TREE00 at 824 643
 
 	decorative TREE01 at 828 643
-
-	decorative TREE02 at 830 643
 
 	decorative TREE00 at 843 643
 
@@ -65211,8 +65322,6 @@ iMZ1r01
 
 	decorative TREE00 at 822 659
 
-	decorative TREE02 at 823 659
-
 	decorative TREE02 at 829 659
 
 	decorative TREE03 at 832 659
@@ -65393,8 +65502,6 @@ iMZ1r01
 	decorative TREE02 at 814 660
 
 	decorative TREE03 at 818 660
-
-	decorative TREE03 at 823 660
 
 	decorative TREE02 at 835 660
 
@@ -67400,6 +67507,8 @@ iMZ1r01
 
 	decorative TREE03 at 855 673
 
+	decorative TREE01 at 884 673
+
 	decorative TREE03 at 890 673
 
 	decorative TREE03 at 892 673
@@ -67517,8 +67626,6 @@ iMZ1r01
 	decorative TREE03 at 832 674
 
 	decorative TREE01 at 836 674
-
-	decorative TREE01 at 883 674
 
 	decorative TREE02 at 890 674
 
@@ -67663,8 +67770,6 @@ iMZ1r01
 	decorative TREE01 at 834 675
 
 	decorative TREE01 at 839 675
-
-	decorative TREE01 at 883 675
 
 	decorative TREE00 at 888 675
 
@@ -70195,8 +70300,6 @@ iMZ1r01
 
 	decorative TREE01 at 900 694
 
-	decorative TREE00 at 904 694
-
 	decorative TREE02 at 913 694
 
 	decorative TREE02 at 917 694
@@ -70372,8 +70475,6 @@ iMZ1r01
 	decorative TREE02 at 894 695
 
 	decorative TREE00 at 902 695
-
-	decorative TREE00 at 905 695
 
 	decorative TREE02 at 914 695
 
