@@ -117,6 +117,54 @@ end
 
 
 ##
+##	Move towards the object until you reach it, then stand there
+##	But keep doing it in case the player pushes them away
+##	This is for guards on sentry duty
+##
+
+
+function seek_target_stand
+activity
+
+if_not_exist me
+	bug START
+	print "Null ME in seek_target_stand"
+	printcr
+	bug END
+	
+	return
+endif
+
+if_not_exist me.target
+	return
+endif
+
+# Do the movement, sets ERR to be the result
+
+move_towards me me.target
+
+# Got there, face the appropriate direction
+if err = PATH_FINISHED
+	force_direction me facing me.target.curdir
+	return
+endif
+
+# It's impossible, so we teleport, if no-one will see it
+if err = PATH_BLOCKED
+	if_not_onscreen me
+		if_not_onscreen me.target
+			transfer_object me to me.target.x me.target.y
+			force_direction me facing me.target.curdir
+			return
+		endif
+	endif
+endif
+
+end
+
+
+
+##
 ##	Move towards the object until you reach it, then sit in nearby chair
 ##	then goal is achieved
 ##

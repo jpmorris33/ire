@@ -111,6 +111,32 @@ move_object me to x y
 
 end
 
+#############
+#           #
+# Standing  #
+#           #
+#############
+
+function guard_standing
+activity
+
+# The guard in the egg must not move
+
+if_in_pocket me
+	return
+endif
+
+if_exists me.stats.owner
+	# Make sure they stand on the egg
+	start_action me does seek_target_stand to me.stats.owner
+else
+	# Aw crap
+	print "Error: guard_standing - no parent egg"
+	stop_action me
+endif
+
+end
+
 #
 # Dies (medieval)
 #

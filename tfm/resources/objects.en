@@ -3824,6 +3824,13 @@ section: characters
 	strength	100
 	contains	GUARD_WANDERING
 
+	alias EGG_GUARD_STAND = EGG_GUARD_PATROL
+	karma		1
+	description	"Guard spawn spot"
+	ifused		egg_spawn_always
+	strength	100
+	contains	GUARD_STAND
+
 	alias EGG_OBJECT(BEE) = EGG_OBJECT
 	karma		3
 	description	"Bee spawn spot"
@@ -7118,6 +7125,9 @@ section: characters
 
 	alias GUARD_WANDERING = GUARD_BASE
 	behaviour	guard_wander
+
+	alias GUARD_STAND = GUARD_BASE
+	behaviour	guard_standing
 
 	alias GUARD_DISPOSABLE = GUARD_BASE
 	strength	40000
