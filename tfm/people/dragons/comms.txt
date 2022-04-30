@@ -413,3 +413,126 @@ The commander does not look at all pleased.
 [delay 2]
 [nextpage="exit"]
 [endpage]
+
+
+
+[page="mainframe-j"]
+[esc=disabled]
+[if crucifix_reprogrammed][goto="mainframe-j3"]
+[image="comms05a.pcx"]
+
+"Interesting!  This computing unit contains the entity
+ projected onto the wooden torture devices in churches.
+ Jesus, I believe I they are called??"
+
+[link="Are you saying we could destroy Jesus?!"]
+[linkto="mainframe-j2"]
+[endpage]
+
+
+[page="mainframe-j2"]
+[image="comms05a.pcx"]
+[set crucifix_reprogrammed]
+
+"That would be... distasteful.  Even if it is not fully
+ sentient, it has the potential to become so.
+ No... I think we should 'improve' it."
+
+[colour="#808080"]
+One of the Drakaan engineers performs a few alterations,
+linking to the mainframe via the medallion.
+[colour="#ffffff"]
+
+"There!  The entity has been reprogrammed.
+ It should now be much more consistent with your people's
+ sacred texts, and considerably less dangerous."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="mainframe-j3"]
+[image="comms05a.pcx"]
+
+"This computing unit contains the entity projected onto
+ the wooden torture devices in churches.  We have altered
+ its programming to make it more like the entity described
+ in your people's sacred texts."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="mainframe-s"]
+[esc=disabled]
+[image="comms05a.pcx"]
+
+"This computing unit contains the entity known as Zyrxal.
+ He was originally the backup intelligence for the ship,
+ in the event that Xy'Lan was incapacitated.
+
+"Now he has been crippled and forced to act out the role
+ of Satan, the personification evil one from some of
+ your people's religions."
+
+[link="Are you saying we could destroy Satan?!"]
+[linkto="mainframe-s2"]
+[endpage]
+
+
+[page="mainframe-s2"]
+[image="comms05a.pcx"]
+
+"Absolutely not!  Zyrxal has done nothing wrong...
+ He has simply had his mind addled by Xy'Lan.
+ In due course we will have to look at freeing him,
+ but there are more urgent tasks at present."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="mainframe-h"]
+[esc=disabled]
+[image="comms05a.pcx"]
+
+"This computing unit contains the entity known as the
+ Holy Ghost.  It is a fairly simple program that Xy'Lan
+ has been using to act as his deputy.  However it has
+ only limited decision making capabilities of its own.
+
+ I do not think we can easily disable it without
+ attracting undue attention from Xy'Lan."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="mainframe-e"]
+[esc=disabled]
+[image="comms05a.pcx"]
+
+"This computing unit is a hot spare.
+ It is currently blank, though I see evidence that
+ Xy'Lan may be intending to upload some other entity
+ into it."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="mainframe-gone"]
+[esc=disabled]
+[image="comms05a.pcx"]
+
+"Okay... This is not good.  Xy'Lan's mainframe should
+ be right here, where this hole is.
+ It would seem Xy'Lan has left the building."
+
+[nextpage="exit"]
+[endpage]
+
+

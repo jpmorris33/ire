@@ -42,6 +42,11 @@ section: sprites
 	drak6			sprites/tech/drak6.cel
 	drak7			sprites/tech/drak7.cel
 
+	draknum1		sprites/tech/draknum1.png
+	draknum2		sprites/tech/draknum2.png
+	draknum3		sprites/tech/draknum3.png
+	draknum4		sprites/tech/draknum4.png
+
 	arrow_up		sprites/arrowu.cel
 	arrow_down		sprites/arrowd.cel
 	arrow_left		sprites/arrowl.cel
@@ -13642,6 +13647,11 @@ section: sequences
 	quickname drak_keypad5	drak5
 	quickname drak_keypad6	drak6
 	quickname drak_keypad7	drak7
+
+	quickname draknum1
+	quickname draknum2
+	quickname draknum3
+	quickname draknum4
 
 	quickname popering popering
 	quickname ringstone ringstone

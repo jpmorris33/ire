@@ -602,7 +602,6 @@ end
 ##
 
 function use_codecterminal
-int x
 
 if current.user.user10 = 666
 	talk_to "books/tech/codec.txt" "login"
@@ -618,8 +617,7 @@ if player is called "waarg_*"
 endif
 
 call got_medallion
-get_user_flag x = "true"
-if x = 1
+if_user_flag "true"
 	talk_to "people/dragons/comms.txt" "codecterminal"
 	return
 endif
@@ -629,6 +627,9 @@ print "You cannot work out how to log into the terminal."
 printcr
 
 end
+
+
+
 
 function use_datacrystal
 object cube
@@ -676,6 +677,24 @@ else
 endif
 
 end
+
+
+
+function use_mainframescreen
+
+call got_medallion
+if_user_flag "true"
+	talk_to "people/dragons/comms.txt" current.funcs.user1
+	return
+endif
+
+# Don't know what to do
+print "You cannot read the display."
+printcr
+
+end
+
+
 
 ##
 ##  Non-usable ladder, door etc

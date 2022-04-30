@@ -5371,6 +5371,8 @@ section: characters
 	alias LIGHT_CONTROL_UNDERGROUND = LOGIC
 	schedule 04:15 LIGHT01
 
+	alias LIGHT_CONTROL_FULLBRIGHT = LOGIC
+	schedule 04:15 LIGHT12
 	alias CORPSE_CONTROL = LOGIC
 	description	"I eat dead people.. they're everywhere.."
 	short		"GET LOST!"
@@ -8793,6 +8795,27 @@ section: characters
 	weight 10
 	description	"You see a vinyl sticker."
 	short		"sticker"
+
+	name draknum1
+	frame		draknum1
+	hp		10000
+	weight -1
+	description	"You see the number 1 in Drakaan technical script."
+	short		"sign"
+	fixed
+	
+	alias draknum2 = draknum1
+	frame		draknum2
+	description	"You see the number 2 in Drakaan technical script."
+
+	alias draknum3 = draknum1
+	frame		draknum3
+	description	"You see the number 3 in Drakaan technical script."
+
+	alias draknum4 = draknum1
+	frame		draknum4
+	description	"You see the number 4 in Drakaan technical script."
+
 
 	name RUBBLE_00
 	frame		RUBBLE00
