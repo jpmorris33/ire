@@ -4182,15 +4182,27 @@ iMZ1r01
 
 	object MEMO3ac52785-7def-4b03-9194-b54be92ebab4
 		type MEMO
-		at 244 211
+		at 241 211
 		curdir 0
 		name Have a puzzle that needs ash
 
 	object MEMO3571dd53-e3dc-494d-afa3-f813f0f674f0
 		type MEMO
-		at 245 211
+		at 242 211
 		curdir 0
 		name From the noblemen/peasants
+
+	object MEMO39cc137d-5770-426c-8997-bd87604231ff
+		type MEMO
+		at 244 211
+		curdir 0
+		name Puzzle involving holy water
+
+	object MEMO9ee12e17-ec9b-42a8-9d7f-e07b2382272f
+		type MEMO
+		at 245 211
+		curdir 0
+		name and unholy water
 
 	decorative HUT03 at 246 211
 
@@ -4370,6 +4382,18 @@ iMZ1r01
 		type HUT_DOOR_SHUT
 		at 242 212
 		curdir 0
+
+	object MEMOa207c59d-687d-4587-af57-0ba25cc8b717
+		type MEMO
+		at 244 212
+		curdir 0
+		name mixing them is catastrophic
+
+	object MEMOa57c65b0-2945-4b52-b533-69a0a69e985f
+		type MEMO
+		at 245 212
+		curdir 0
+		name HW in God zone, UHW in Satan zo
 
 	decorative HUT03 at 246 212
 
@@ -6224,6 +6248,20 @@ iMZ1r01
 		at 286 224
 		curdir 3
 
+	object LEVE552aee27-3e8b-431d-8c95-4938eb4d916e
+		type LEVER
+		inside PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		curdir 0
+		tag 666
+		stats->owner PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		funcs->use TELEPORT_PRESSPARTY
+
+	object PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		type PLAYER
+		at 297 224
+		curdir 0
+		activity PLAYER_ACTION
+
 	object STON113cceae-ca5e-4ad5-b827-28fc36598d5a
 		type STONEFLOOR10
 		at 330 224
@@ -6325,12 +6363,6 @@ iMZ1r01
 		type STONEFLOOR18
 		at 286 225
 		curdir 3
-
-	object PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
-		type PLAYER
-		at 298 225
-		curdir 0
-		activity PLAYER_ACTION
 
 	object STON87b4e287-e15d-4905-9d4f-6401a13e53b2
 		type STONEFLOOR10
@@ -8175,6 +8207,7 @@ iMZ1r01
 		inside EGG_ece937f3-a2b1-4321-b1ed-da29f434091f
 		curdir 0
 		activity ATTACK_PARTY
+		schedule 0 1 SINGLE_ATTACKPLAYER -
 
 	object TOAD929f1670-14a4-493e-8da5-22ace7ac80db
 		type TOADSTONE
@@ -8982,6 +9015,7 @@ iMZ1r01
 		inside EGG_8b062d2d-dbdd-43bd-b009-2e020e788cdb
 		curdir 0
 		activity ATTACK_PARTY
+		schedule 0 1 SINGLE_ATTACKPLAYER -
 
 	object TOADe8d287b5-d167-46f3-b092-1354a128a1fc
 		type TOADSTONE

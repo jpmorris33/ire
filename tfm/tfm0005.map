@@ -1,0 +1,2057 @@
+iMAPr02
+
+	map 256 256
+	connection N 0
+	connection S 0
+	connection E 0
+	connection W 0
+
+Mapdata:
+	tileblock at 0 0 = 0
+
+	tileblock at 8 0 = 0
+
+	tileblock at 16 0 = 0
+
+	tileblock at 24 0 = 0
+
+	tileblock at 32 0 = 0
+
+	tileblock at 40 0 = 0
+
+	tileblock at 48 0 = 0
+
+	tileblock at 56 0 = 0
+
+	tileblock at 64 0 = 0
+
+	tileblock at 72 0 = 0
+
+	tileblock at 80 0 = 0
+
+	tileblock at 88 0 = 0
+
+	tileblock at 96 0 = 0
+
+	tileblock at 104 0 = 0
+
+	tileblock at 112 0 = 0
+
+	tileblock at 120 0 = 0
+
+	tileblock at 128 0 = 0
+
+	tileblock at 136 0 = 0
+
+	tileblock at 144 0 = 0
+
+	tileblock at 152 0 = 0
+
+	tileblock at 160 0 = 0
+
+	tileblock at 168 0 = 0
+
+	tileblock at 176 0 = 0
+
+	tileblock at 184 0 = 0
+
+	tileblock at 192 0 = 0
+
+	tileblock at 200 0 = 0
+
+	tileblock at 208 0 = 0
+
+	tileblock at 216 0 = 0
+
+	tileblock at 224 0 = 0
+
+	tileblock at 232 0 = 0
+
+	tileblock at 240 0 = 0
+
+	tileblock at 248 0 = 0
+
+	tileblock at 0 8 = 0
+
+	tileblock at 8 8 = 0
+
+	tileblock at 16 8 = 0
+
+	tileblock at 24 8 = 0
+
+	tileblock at 32 8 = 0
+
+	tileblock at 40 8 = 0
+
+	tileblock at 48 8 = 0
+
+	tileblock at 56 8 = 0
+
+	tileblock at 64 8 = 0
+
+	tileblock at 72 8 = 0
+
+	tileblock at 80 8 = 0
+
+	tileblock at 88 8 = 0
+
+	tileblock at 96 8 = 0
+
+	tileblock at 104 8 = 0
+
+	tileblock at 112 8 = 0
+
+	tileblock at 120 8 = 0
+
+	tileblock at 128 8 = 0
+
+	tileblock at 136 8 = 0
+
+	tileblock at 144 8 = 0
+
+	tileblock at 152 8 = 0
+
+	tileblock at 160 8 = 0
+
+	tileblock at 168 8 = 0
+
+	tileblock at 176 8 = 0
+
+	tileblock at 184 8 = 0
+
+	tileblock at 192 8 = 0
+
+	tileblock at 200 8 = 0
+
+	tileblock at 208 8 = 0
+
+	tileblock at 216 8 = 0
+
+	tileblock at 224 8 = 0
+
+	tileblock at 232 8 = 0
+
+	tileblock at 240 8 = 0
+
+	tileblock at 248 8 = 0
+
+	tileblock at 0 16 = 0
+
+	tileblock at 8 16 = 0
+
+	block at 16 16 = ^50^50^50^50^50^50^50^50^50[50[50[50[50[50[50[50^50[50[50[50[50[50[50[50^50[50[50[50[50[50[50[50^50[50[50[50[50[50[50[50^50[50[50[50[50[50[50[50^50[50[50[50[50[50[50[50^50[50[50[50[50[50[50[50
+
+	tileblock at 24 16 = 0
+
+	tileblock at 32 16 = 0
+
+	tileblock at 40 16 = 0
+
+	tileblock at 48 16 = 0
+
+	tileblock at 56 16 = 0
+
+	tileblock at 64 16 = 0
+
+	tileblock at 72 16 = 0
+
+	tileblock at 80 16 = 0
+
+	tileblock at 88 16 = 0
+
+	tileblock at 96 16 = 0
+
+	tileblock at 104 16 = 0
+
+	tileblock at 112 16 = 0
+
+	tileblock at 120 16 = 0
+
+	tileblock at 128 16 = 0
+
+	tileblock at 136 16 = 0
+
+	tileblock at 144 16 = 0
+
+	tileblock at 152 16 = 0
+
+	tileblock at 160 16 = 0
+
+	tileblock at 168 16 = 0
+
+	tileblock at 176 16 = 0
+
+	tileblock at 184 16 = 0
+
+	tileblock at 192 16 = 0
+
+	tileblock at 200 16 = 0
+
+	tileblock at 208 16 = 0
+
+	tileblock at 216 16 = 0
+
+	tileblock at 224 16 = 0
+
+	tileblock at 232 16 = 0
+
+	tileblock at 240 16 = 0
+
+	tileblock at 248 16 = 0
+
+	tileblock at 0 24 = 0
+
+	tileblock at 8 24 = 0
+
+	tileblock at 16 24 = 0
+
+	tileblock at 24 24 = 0
+
+	tileblock at 32 24 = 0
+
+	tileblock at 40 24 = 0
+
+	tileblock at 48 24 = 0
+
+	tileblock at 56 24 = 0
+
+	tileblock at 64 24 = 0
+
+	tileblock at 72 24 = 0
+
+	tileblock at 80 24 = 0
+
+	tileblock at 88 24 = 0
+
+	tileblock at 96 24 = 0
+
+	tileblock at 104 24 = 0
+
+	tileblock at 112 24 = 0
+
+	tileblock at 120 24 = 0
+
+	tileblock at 128 24 = 0
+
+	tileblock at 136 24 = 0
+
+	tileblock at 144 24 = 0
+
+	tileblock at 152 24 = 0
+
+	tileblock at 160 24 = 0
+
+	tileblock at 168 24 = 0
+
+	tileblock at 176 24 = 0
+
+	tileblock at 184 24 = 0
+
+	tileblock at 192 24 = 0
+
+	tileblock at 200 24 = 0
+
+	tileblock at 208 24 = 0
+
+	tileblock at 216 24 = 0
+
+	tileblock at 224 24 = 0
+
+	tileblock at 232 24 = 0
+
+	tileblock at 240 24 = 0
+
+	tileblock at 248 24 = 0
+
+	tileblock at 0 32 = 0
+
+	tileblock at 8 32 = 0
+
+	tileblock at 16 32 = 0
+
+	tileblock at 24 32 = 0
+
+	tileblock at 32 32 = 0
+
+	tileblock at 40 32 = 0
+
+	tileblock at 48 32 = 0
+
+	tileblock at 56 32 = 0
+
+	tileblock at 64 32 = 0
+
+	tileblock at 72 32 = 0
+
+	tileblock at 80 32 = 0
+
+	tileblock at 88 32 = 0
+
+	tileblock at 96 32 = 0
+
+	tileblock at 104 32 = 0
+
+	tileblock at 112 32 = 0
+
+	tileblock at 120 32 = 0
+
+	tileblock at 128 32 = 0
+
+	tileblock at 136 32 = 0
+
+	tileblock at 144 32 = 0
+
+	tileblock at 152 32 = 0
+
+	tileblock at 160 32 = 0
+
+	tileblock at 168 32 = 0
+
+	tileblock at 176 32 = 0
+
+	tileblock at 184 32 = 0
+
+	tileblock at 192 32 = 0
+
+	tileblock at 200 32 = 0
+
+	tileblock at 208 32 = 0
+
+	tileblock at 216 32 = 0
+
+	tileblock at 224 32 = 0
+
+	tileblock at 232 32 = 0
+
+	tileblock at 240 32 = 0
+
+	tileblock at 248 32 = 0
+
+	tileblock at 0 40 = 0
+
+	tileblock at 8 40 = 0
+
+	tileblock at 16 40 = 0
+
+	tileblock at 24 40 = 0
+
+	tileblock at 32 40 = 0
+
+	tileblock at 40 40 = 0
+
+	tileblock at 48 40 = 0
+
+	tileblock at 56 40 = 0
+
+	tileblock at 64 40 = 0
+
+	tileblock at 72 40 = 0
+
+	tileblock at 80 40 = 0
+
+	tileblock at 88 40 = 0
+
+	tileblock at 96 40 = 0
+
+	tileblock at 104 40 = 0
+
+	tileblock at 112 40 = 0
+
+	tileblock at 120 40 = 0
+
+	tileblock at 128 40 = 0
+
+	tileblock at 136 40 = 0
+
+	tileblock at 144 40 = 0
+
+	tileblock at 152 40 = 0
+
+	tileblock at 160 40 = 0
+
+	tileblock at 168 40 = 0
+
+	tileblock at 176 40 = 0
+
+	tileblock at 184 40 = 0
+
+	tileblock at 192 40 = 0
+
+	tileblock at 200 40 = 0
+
+	tileblock at 208 40 = 0
+
+	tileblock at 216 40 = 0
+
+	tileblock at 224 40 = 0
+
+	tileblock at 232 40 = 0
+
+	tileblock at 240 40 = 0
+
+	tileblock at 248 40 = 0
+
+	tileblock at 0 48 = 0
+
+	tileblock at 8 48 = 0
+
+	tileblock at 16 48 = 0
+
+	tileblock at 24 48 = 0
+
+	tileblock at 32 48 = 0
+
+	tileblock at 40 48 = 0
+
+	tileblock at 48 48 = 0
+
+	tileblock at 56 48 = 0
+
+	tileblock at 64 48 = 0
+
+	tileblock at 72 48 = 0
+
+	tileblock at 80 48 = 0
+
+	tileblock at 88 48 = 0
+
+	tileblock at 96 48 = 0
+
+	tileblock at 104 48 = 0
+
+	tileblock at 112 48 = 0
+
+	tileblock at 120 48 = 0
+
+	tileblock at 128 48 = 0
+
+	tileblock at 136 48 = 0
+
+	tileblock at 144 48 = 0
+
+	tileblock at 152 48 = 0
+
+	tileblock at 160 48 = 0
+
+	tileblock at 168 48 = 0
+
+	tileblock at 176 48 = 0
+
+	tileblock at 184 48 = 0
+
+	tileblock at 192 48 = 0
+
+	tileblock at 200 48 = 0
+
+	tileblock at 208 48 = 0
+
+	tileblock at 216 48 = 0
+
+	tileblock at 224 48 = 0
+
+	tileblock at 232 48 = 0
+
+	tileblock at 240 48 = 0
+
+	tileblock at 248 48 = 0
+
+	tileblock at 0 56 = 0
+
+	tileblock at 8 56 = 0
+
+	tileblock at 16 56 = 0
+
+	tileblock at 24 56 = 0
+
+	tileblock at 32 56 = 0
+
+	tileblock at 40 56 = 0
+
+	tileblock at 48 56 = 0
+
+	tileblock at 56 56 = 0
+
+	tileblock at 64 56 = 0
+
+	tileblock at 72 56 = 0
+
+	tileblock at 80 56 = 0
+
+	tileblock at 88 56 = 0
+
+	tileblock at 96 56 = 0
+
+	tileblock at 104 56 = 0
+
+	tileblock at 112 56 = 0
+
+	tileblock at 120 56 = 0
+
+	tileblock at 128 56 = 0
+
+	tileblock at 136 56 = 0
+
+	tileblock at 144 56 = 0
+
+	tileblock at 152 56 = 0
+
+	tileblock at 160 56 = 0
+
+	tileblock at 168 56 = 0
+
+	tileblock at 176 56 = 0
+
+	tileblock at 184 56 = 0
+
+	tileblock at 192 56 = 0
+
+	tileblock at 200 56 = 0
+
+	tileblock at 208 56 = 0
+
+	tileblock at 216 56 = 0
+
+	tileblock at 224 56 = 0
+
+	tileblock at 232 56 = 0
+
+	tileblock at 240 56 = 0
+
+	tileblock at 248 56 = 0
+
+	tileblock at 0 64 = 0
+
+	tileblock at 8 64 = 0
+
+	tileblock at 16 64 = 0
+
+	tileblock at 24 64 = 0
+
+	tileblock at 32 64 = 0
+
+	tileblock at 40 64 = 0
+
+	tileblock at 48 64 = 0
+
+	tileblock at 56 64 = 0
+
+	tileblock at 64 64 = 0
+
+	tileblock at 72 64 = 0
+
+	tileblock at 80 64 = 0
+
+	tileblock at 88 64 = 0
+
+	tileblock at 96 64 = 0
+
+	tileblock at 104 64 = 0
+
+	tileblock at 112 64 = 0
+
+	tileblock at 120 64 = 0
+
+	tileblock at 128 64 = 0
+
+	tileblock at 136 64 = 0
+
+	tileblock at 144 64 = 0
+
+	tileblock at 152 64 = 0
+
+	tileblock at 160 64 = 0
+
+	tileblock at 168 64 = 0
+
+	tileblock at 176 64 = 0
+
+	tileblock at 184 64 = 0
+
+	tileblock at 192 64 = 0
+
+	tileblock at 200 64 = 0
+
+	tileblock at 208 64 = 0
+
+	tileblock at 216 64 = 0
+
+	tileblock at 224 64 = 0
+
+	tileblock at 232 64 = 0
+
+	tileblock at 240 64 = 0
+
+	tileblock at 248 64 = 0
+
+	tileblock at 0 72 = 0
+
+	tileblock at 8 72 = 0
+
+	tileblock at 16 72 = 0
+
+	tileblock at 24 72 = 0
+
+	tileblock at 32 72 = 0
+
+	tileblock at 40 72 = 0
+
+	tileblock at 48 72 = 0
+
+	tileblock at 56 72 = 0
+
+	tileblock at 64 72 = 0
+
+	tileblock at 72 72 = 0
+
+	tileblock at 80 72 = 0
+
+	tileblock at 88 72 = 0
+
+	tileblock at 96 72 = 0
+
+	tileblock at 104 72 = 0
+
+	tileblock at 112 72 = 0
+
+	tileblock at 120 72 = 0
+
+	tileblock at 128 72 = 0
+
+	tileblock at 136 72 = 0
+
+	tileblock at 144 72 = 0
+
+	tileblock at 152 72 = 0
+
+	tileblock at 160 72 = 0
+
+	tileblock at 168 72 = 0
+
+	tileblock at 176 72 = 0
+
+	tileblock at 184 72 = 0
+
+	tileblock at 192 72 = 0
+
+	tileblock at 200 72 = 0
+
+	tileblock at 208 72 = 0
+
+	tileblock at 216 72 = 0
+
+	tileblock at 224 72 = 0
+
+	tileblock at 232 72 = 0
+
+	tileblock at 240 72 = 0
+
+	tileblock at 248 72 = 0
+
+	tileblock at 0 80 = 0
+
+	tileblock at 8 80 = 0
+
+	tileblock at 16 80 = 0
+
+	tileblock at 24 80 = 0
+
+	tileblock at 32 80 = 0
+
+	tileblock at 40 80 = 0
+
+	tileblock at 48 80 = 0
+
+	tileblock at 56 80 = 0
+
+	tileblock at 64 80 = 0
+
+	tileblock at 72 80 = 0
+
+	tileblock at 80 80 = 0
+
+	tileblock at 88 80 = 0
+
+	tileblock at 96 80 = 0
+
+	tileblock at 104 80 = 0
+
+	tileblock at 112 80 = 0
+
+	tileblock at 120 80 = 0
+
+	tileblock at 128 80 = 0
+
+	tileblock at 136 80 = 0
+
+	tileblock at 144 80 = 0
+
+	tileblock at 152 80 = 0
+
+	tileblock at 160 80 = 0
+
+	tileblock at 168 80 = 0
+
+	tileblock at 176 80 = 0
+
+	tileblock at 184 80 = 0
+
+	tileblock at 192 80 = 0
+
+	tileblock at 200 80 = 0
+
+	tileblock at 208 80 = 0
+
+	tileblock at 216 80 = 0
+
+	tileblock at 224 80 = 0
+
+	tileblock at 232 80 = 0
+
+	tileblock at 240 80 = 0
+
+	tileblock at 248 80 = 0
+
+	tileblock at 0 88 = 0
+
+	tileblock at 8 88 = 0
+
+	tileblock at 16 88 = 0
+
+	tileblock at 24 88 = 0
+
+	tileblock at 32 88 = 0
+
+	tileblock at 40 88 = 0
+
+	tileblock at 48 88 = 0
+
+	tileblock at 56 88 = 0
+
+	tileblock at 64 88 = 0
+
+	tileblock at 72 88 = 0
+
+	tileblock at 80 88 = 0
+
+	tileblock at 88 88 = 0
+
+	tileblock at 96 88 = 0
+
+	tileblock at 104 88 = 0
+
+	tileblock at 112 88 = 0
+
+	tileblock at 120 88 = 0
+
+	tileblock at 128 88 = 0
+
+	tileblock at 136 88 = 0
+
+	tileblock at 144 88 = 0
+
+	tileblock at 152 88 = 0
+
+	tileblock at 160 88 = 0
+
+	tileblock at 168 88 = 0
+
+	tileblock at 176 88 = 0
+
+	tileblock at 184 88 = 0
+
+	tileblock at 192 88 = 0
+
+	tileblock at 200 88 = 0
+
+	tileblock at 208 88 = 0
+
+	tileblock at 216 88 = 0
+
+	tileblock at 224 88 = 0
+
+	tileblock at 232 88 = 0
+
+	tileblock at 240 88 = 0
+
+	tileblock at 248 88 = 0
+
+	tileblock at 0 96 = 0
+
+	tileblock at 8 96 = 0
+
+	tileblock at 16 96 = 0
+
+	tileblock at 24 96 = 0
+
+	tileblock at 32 96 = 0
+
+	tileblock at 40 96 = 0
+
+	tileblock at 48 96 = 0
+
+	tileblock at 56 96 = 0
+
+	tileblock at 64 96 = 0
+
+	tileblock at 72 96 = 0
+
+	tileblock at 80 96 = 0
+
+	tileblock at 88 96 = 0
+
+	tileblock at 96 96 = 0
+
+	tileblock at 104 96 = 0
+
+	tileblock at 112 96 = 0
+
+	tileblock at 120 96 = 0
+
+	tileblock at 128 96 = 0
+
+	tileblock at 136 96 = 0
+
+	tileblock at 144 96 = 0
+
+	tileblock at 152 96 = 0
+
+	tileblock at 160 96 = 0
+
+	tileblock at 168 96 = 0
+
+	tileblock at 176 96 = 0
+
+	tileblock at 184 96 = 0
+
+	tileblock at 192 96 = 0
+
+	tileblock at 200 96 = 0
+
+	tileblock at 208 96 = 0
+
+	tileblock at 216 96 = 0
+
+	tileblock at 224 96 = 0
+
+	tileblock at 232 96 = 0
+
+	tileblock at 240 96 = 0
+
+	tileblock at 248 96 = 0
+
+	tileblock at 0 104 = 0
+
+	tileblock at 8 104 = 0
+
+	tileblock at 16 104 = 0
+
+	tileblock at 24 104 = 0
+
+	tileblock at 32 104 = 0
+
+	tileblock at 40 104 = 0
+
+	tileblock at 48 104 = 0
+
+	tileblock at 56 104 = 0
+
+	tileblock at 64 104 = 0
+
+	tileblock at 72 104 = 0
+
+	tileblock at 80 104 = 0
+
+	tileblock at 88 104 = 0
+
+	tileblock at 96 104 = 0
+
+	tileblock at 104 104 = 0
+
+	tileblock at 112 104 = 0
+
+	tileblock at 120 104 = 0
+
+	tileblock at 128 104 = 0
+
+	tileblock at 136 104 = 0
+
+	tileblock at 144 104 = 0
+
+	tileblock at 152 104 = 0
+
+	tileblock at 160 104 = 0
+
+	tileblock at 168 104 = 0
+
+	tileblock at 176 104 = 0
+
+	tileblock at 184 104 = 0
+
+	tileblock at 192 104 = 0
+
+	tileblock at 200 104 = 0
+
+	tileblock at 208 104 = 0
+
+	tileblock at 216 104 = 0
+
+	tileblock at 224 104 = 0
+
+	tileblock at 232 104 = 0
+
+	tileblock at 240 104 = 0
+
+	tileblock at 248 104 = 0
+
+	tileblock at 0 112 = 0
+
+	tileblock at 8 112 = 0
+
+	tileblock at 16 112 = 0
+
+	tileblock at 24 112 = 0
+
+	tileblock at 32 112 = 0
+
+	tileblock at 40 112 = 0
+
+	tileblock at 48 112 = 0
+
+	tileblock at 56 112 = 0
+
+	tileblock at 64 112 = 0
+
+	tileblock at 72 112 = 0
+
+	tileblock at 80 112 = 0
+
+	tileblock at 88 112 = 0
+
+	tileblock at 96 112 = 0
+
+	tileblock at 104 112 = 0
+
+	tileblock at 112 112 = 0
+
+	tileblock at 120 112 = 0
+
+	tileblock at 128 112 = 0
+
+	tileblock at 136 112 = 0
+
+	tileblock at 144 112 = 0
+
+	tileblock at 152 112 = 0
+
+	tileblock at 160 112 = 0
+
+	tileblock at 168 112 = 0
+
+	tileblock at 176 112 = 0
+
+	tileblock at 184 112 = 0
+
+	tileblock at 192 112 = 0
+
+	tileblock at 200 112 = 0
+
+	tileblock at 208 112 = 0
+
+	tileblock at 216 112 = 0
+
+	tileblock at 224 112 = 0
+
+	tileblock at 232 112 = 0
+
+	tileblock at 240 112 = 0
+
+	tileblock at 248 112 = 0
+
+	tileblock at 0 120 = 0
+
+	tileblock at 8 120 = 0
+
+	tileblock at 16 120 = 0
+
+	tileblock at 24 120 = 0
+
+	tileblock at 32 120 = 0
+
+	tileblock at 40 120 = 0
+
+	tileblock at 48 120 = 0
+
+	tileblock at 56 120 = 0
+
+	tileblock at 64 120 = 0
+
+	tileblock at 72 120 = 0
+
+	tileblock at 80 120 = 0
+
+	tileblock at 88 120 = 0
+
+	tileblock at 96 120 = 0
+
+	tileblock at 104 120 = 0
+
+	tileblock at 112 120 = 0
+
+	tileblock at 120 120 = 0
+
+	tileblock at 128 120 = 0
+
+	tileblock at 136 120 = 0
+
+	tileblock at 144 120 = 0
+
+	tileblock at 152 120 = 0
+
+	tileblock at 160 120 = 0
+
+	tileblock at 168 120 = 0
+
+	tileblock at 176 120 = 0
+
+	tileblock at 184 120 = 0
+
+	tileblock at 192 120 = 0
+
+	tileblock at 200 120 = 0
+
+	tileblock at 208 120 = 0
+
+	tileblock at 216 120 = 0
+
+	tileblock at 224 120 = 0
+
+	tileblock at 232 120 = 0
+
+	tileblock at 240 120 = 0
+
+	tileblock at 248 120 = 0
+
+	tileblock at 0 128 = 0
+
+	tileblock at 8 128 = 0
+
+	tileblock at 16 128 = 0
+
+	tileblock at 24 128 = 0
+
+	tileblock at 32 128 = 0
+
+	tileblock at 40 128 = 0
+
+	tileblock at 48 128 = 0
+
+	tileblock at 56 128 = 0
+
+	tileblock at 64 128 = 0
+
+	tileblock at 72 128 = 0
+
+	tileblock at 80 128 = 0
+
+	tileblock at 88 128 = 0
+
+	tileblock at 96 128 = 0
+
+	tileblock at 104 128 = 0
+
+	tileblock at 112 128 = 0
+
+	tileblock at 120 128 = 0
+
+	tileblock at 128 128 = 0
+
+	tileblock at 136 128 = 0
+
+	tileblock at 144 128 = 0
+
+	tileblock at 152 128 = 0
+
+	tileblock at 160 128 = 0
+
+	tileblock at 168 128 = 0
+
+	tileblock at 176 128 = 0
+
+	tileblock at 184 128 = 0
+
+	tileblock at 192 128 = 0
+
+	tileblock at 200 128 = 0
+
+	tileblock at 208 128 = 0
+
+	tileblock at 216 128 = 0
+
+	tileblock at 224 128 = 0
+
+	tileblock at 232 128 = 0
+
+	tileblock at 240 128 = 0
+
+	tileblock at 248 128 = 0
+
+	tileblock at 0 136 = 0
+
+	tileblock at 8 136 = 0
+
+	tileblock at 16 136 = 0
+
+	tileblock at 24 136 = 0
+
+	tileblock at 32 136 = 0
+
+	tileblock at 40 136 = 0
+
+	tileblock at 48 136 = 0
+
+	tileblock at 56 136 = 0
+
+	tileblock at 64 136 = 0
+
+	tileblock at 72 136 = 0
+
+	tileblock at 80 136 = 0
+
+	tileblock at 88 136 = 0
+
+	tileblock at 96 136 = 0
+
+	tileblock at 104 136 = 0
+
+	tileblock at 112 136 = 0
+
+	tileblock at 120 136 = 0
+
+	tileblock at 128 136 = 0
+
+	tileblock at 136 136 = 0
+
+	tileblock at 144 136 = 0
+
+	tileblock at 152 136 = 0
+
+	tileblock at 160 136 = 0
+
+	tileblock at 168 136 = 0
+
+	tileblock at 176 136 = 0
+
+	tileblock at 184 136 = 0
+
+	tileblock at 192 136 = 0
+
+	tileblock at 200 136 = 0
+
+	tileblock at 208 136 = 0
+
+	tileblock at 216 136 = 0
+
+	tileblock at 224 136 = 0
+
+	tileblock at 232 136 = 0
+
+	tileblock at 240 136 = 0
+
+	tileblock at 248 136 = 0
+
+	tileblock at 0 144 = 0
+
+	tileblock at 8 144 = 0
+
+	tileblock at 16 144 = 0
+
+	tileblock at 24 144 = 0
+
+	tileblock at 32 144 = 0
+
+	tileblock at 40 144 = 0
+
+	tileblock at 48 144 = 0
+
+	tileblock at 56 144 = 0
+
+	tileblock at 64 144 = 0
+
+	tileblock at 72 144 = 0
+
+	tileblock at 80 144 = 0
+
+	tileblock at 88 144 = 0
+
+	tileblock at 96 144 = 0
+
+	tileblock at 104 144 = 0
+
+	tileblock at 112 144 = 0
+
+	tileblock at 120 144 = 0
+
+	tileblock at 128 144 = 0
+
+	tileblock at 136 144 = 0
+
+	tileblock at 144 144 = 0
+
+	tileblock at 152 144 = 0
+
+	tileblock at 160 144 = 0
+
+	tileblock at 168 144 = 0
+
+	tileblock at 176 144 = 0
+
+	tileblock at 184 144 = 0
+
+	tileblock at 192 144 = 0
+
+	tileblock at 200 144 = 0
+
+	tileblock at 208 144 = 0
+
+	tileblock at 216 144 = 0
+
+	tileblock at 224 144 = 0
+
+	tileblock at 232 144 = 0
+
+	tileblock at 240 144 = 0
+
+	tileblock at 248 144 = 0
+
+	tileblock at 0 152 = 0
+
+	tileblock at 8 152 = 0
+
+	tileblock at 16 152 = 0
+
+	tileblock at 24 152 = 0
+
+	tileblock at 32 152 = 0
+
+	tileblock at 40 152 = 0
+
+	tileblock at 48 152 = 0
+
+	tileblock at 56 152 = 0
+
+	tileblock at 64 152 = 0
+
+	tileblock at 72 152 = 0
+
+	tileblock at 80 152 = 0
+
+	tileblock at 88 152 = 0
+
+	tileblock at 96 152 = 0
+
+	tileblock at 104 152 = 0
+
+	tileblock at 112 152 = 0
+
+	tileblock at 120 152 = 0
+
+	tileblock at 128 152 = 0
+
+	tileblock at 136 152 = 0
+
+	tileblock at 144 152 = 0
+
+	tileblock at 152 152 = 0
+
+	tileblock at 160 152 = 0
+
+	tileblock at 168 152 = 0
+
+	tileblock at 176 152 = 0
+
+	tileblock at 184 152 = 0
+
+	tileblock at 192 152 = 0
+
+	tileblock at 200 152 = 0
+
+	tileblock at 208 152 = 0
+
+	tileblock at 216 152 = 0
+
+	tileblock at 224 152 = 0
+
+	tileblock at 232 152 = 0
+
+	tileblock at 240 152 = 0
+
+	tileblock at 248 152 = 0
+
+	tileblock at 0 160 = 0
+
+	tileblock at 8 160 = 0
+
+	tileblock at 16 160 = 0
+
+	tileblock at 24 160 = 0
+
+	tileblock at 32 160 = 0
+
+	tileblock at 40 160 = 0
+
+	tileblock at 48 160 = 0
+
+	tileblock at 56 160 = 0
+
+	tileblock at 64 160 = 0
+
+	tileblock at 72 160 = 0
+
+	tileblock at 80 160 = 0
+
+	tileblock at 88 160 = 0
+
+	tileblock at 96 160 = 0
+
+	tileblock at 104 160 = 0
+
+	tileblock at 112 160 = 0
+
+	tileblock at 120 160 = 0
+
+	tileblock at 128 160 = 0
+
+	tileblock at 136 160 = 0
+
+	tileblock at 144 160 = 0
+
+	tileblock at 152 160 = 0
+
+	tileblock at 160 160 = 0
+
+	tileblock at 168 160 = 0
+
+	tileblock at 176 160 = 0
+
+	tileblock at 184 160 = 0
+
+	tileblock at 192 160 = 0
+
+	tileblock at 200 160 = 0
+
+	tileblock at 208 160 = 0
+
+	tileblock at 216 160 = 0
+
+	tileblock at 224 160 = 0
+
+	tileblock at 232 160 = 0
+
+	tileblock at 240 160 = 0
+
+	tileblock at 248 160 = 0
+
+	tileblock at 0 168 = 0
+
+	tileblock at 8 168 = 0
+
+	tileblock at 16 168 = 0
+
+	tileblock at 24 168 = 0
+
+	tileblock at 32 168 = 0
+
+	tileblock at 40 168 = 0
+
+	tileblock at 48 168 = 0
+
+	tileblock at 56 168 = 0
+
+	tileblock at 64 168 = 0
+
+	tileblock at 72 168 = 0
+
+	tileblock at 80 168 = 0
+
+	tileblock at 88 168 = 0
+
+	tileblock at 96 168 = 0
+
+	tileblock at 104 168 = 0
+
+	tileblock at 112 168 = 0
+
+	tileblock at 120 168 = 0
+
+	tileblock at 128 168 = 0
+
+	tileblock at 136 168 = 0
+
+	tileblock at 144 168 = 0
+
+	tileblock at 152 168 = 0
+
+	tileblock at 160 168 = 0
+
+	tileblock at 168 168 = 0
+
+	tileblock at 176 168 = 0
+
+	tileblock at 184 168 = 0
+
+	tileblock at 192 168 = 0
+
+	tileblock at 200 168 = 0
+
+	tileblock at 208 168 = 0
+
+	tileblock at 216 168 = 0
+
+	tileblock at 224 168 = 0
+
+	tileblock at 232 168 = 0
+
+	tileblock at 240 168 = 0
+
+	tileblock at 248 168 = 0
+
+	tileblock at 0 176 = 0
+
+	tileblock at 8 176 = 0
+
+	tileblock at 16 176 = 0
+
+	tileblock at 24 176 = 0
+
+	tileblock at 32 176 = 0
+
+	tileblock at 40 176 = 0
+
+	tileblock at 48 176 = 0
+
+	tileblock at 56 176 = 0
+
+	tileblock at 64 176 = 0
+
+	tileblock at 72 176 = 0
+
+	tileblock at 80 176 = 0
+
+	tileblock at 88 176 = 0
+
+	tileblock at 96 176 = 0
+
+	tileblock at 104 176 = 0
+
+	tileblock at 112 176 = 0
+
+	tileblock at 120 176 = 0
+
+	tileblock at 128 176 = 0
+
+	tileblock at 136 176 = 0
+
+	tileblock at 144 176 = 0
+
+	tileblock at 152 176 = 0
+
+	tileblock at 160 176 = 0
+
+	tileblock at 168 176 = 0
+
+	tileblock at 176 176 = 0
+
+	tileblock at 184 176 = 0
+
+	tileblock at 192 176 = 0
+
+	tileblock at 200 176 = 0
+
+	tileblock at 208 176 = 0
+
+	tileblock at 216 176 = 0
+
+	tileblock at 224 176 = 0
+
+	tileblock at 232 176 = 0
+
+	tileblock at 240 176 = 0
+
+	tileblock at 248 176 = 0
+
+	tileblock at 0 184 = 0
+
+	tileblock at 8 184 = 0
+
+	tileblock at 16 184 = 0
+
+	tileblock at 24 184 = 0
+
+	tileblock at 32 184 = 0
+
+	tileblock at 40 184 = 0
+
+	tileblock at 48 184 = 0
+
+	tileblock at 56 184 = 0
+
+	tileblock at 64 184 = 0
+
+	tileblock at 72 184 = 0
+
+	tileblock at 80 184 = 0
+
+	tileblock at 88 184 = 0
+
+	tileblock at 96 184 = 0
+
+	tileblock at 104 184 = 0
+
+	tileblock at 112 184 = 0
+
+	tileblock at 120 184 = 0
+
+	tileblock at 128 184 = 0
+
+	tileblock at 136 184 = 0
+
+	tileblock at 144 184 = 0
+
+	tileblock at 152 184 = 0
+
+	tileblock at 160 184 = 0
+
+	tileblock at 168 184 = 0
+
+	tileblock at 176 184 = 0
+
+	tileblock at 184 184 = 0
+
+	tileblock at 192 184 = 0
+
+	tileblock at 200 184 = 0
+
+	tileblock at 208 184 = 0
+
+	tileblock at 216 184 = 0
+
+	tileblock at 224 184 = 0
+
+	tileblock at 232 184 = 0
+
+	tileblock at 240 184 = 0
+
+	tileblock at 248 184 = 0
+
+	tileblock at 0 192 = 0
+
+	tileblock at 8 192 = 0
+
+	tileblock at 16 192 = 0
+
+	tileblock at 24 192 = 0
+
+	tileblock at 32 192 = 0
+
+	tileblock at 40 192 = 0
+
+	tileblock at 48 192 = 0
+
+	tileblock at 56 192 = 0
+
+	tileblock at 64 192 = 0
+
+	tileblock at 72 192 = 0
+
+	tileblock at 80 192 = 0
+
+	tileblock at 88 192 = 0
+
+	tileblock at 96 192 = 0
+
+	tileblock at 104 192 = 0
+
+	tileblock at 112 192 = 0
+
+	tileblock at 120 192 = 0
+
+	tileblock at 128 192 = 0
+
+	tileblock at 136 192 = 0
+
+	tileblock at 144 192 = 0
+
+	tileblock at 152 192 = 0
+
+	tileblock at 160 192 = 0
+
+	tileblock at 168 192 = 0
+
+	tileblock at 176 192 = 0
+
+	tileblock at 184 192 = 0
+
+	tileblock at 192 192 = 0
+
+	tileblock at 200 192 = 0
+
+	tileblock at 208 192 = 0
+
+	tileblock at 216 192 = 0
+
+	tileblock at 224 192 = 0
+
+	tileblock at 232 192 = 0
+
+	tileblock at 240 192 = 0
+
+	tileblock at 248 192 = 0
+
+	tileblock at 0 200 = 0
+
+	tileblock at 8 200 = 0
+
+	tileblock at 16 200 = 0
+
+	tileblock at 24 200 = 0
+
+	tileblock at 32 200 = 0
+
+	tileblock at 40 200 = 0
+
+	tileblock at 48 200 = 0
+
+	tileblock at 56 200 = 0
+
+	tileblock at 64 200 = 0
+
+	tileblock at 72 200 = 0
+
+	tileblock at 80 200 = 0
+
+	tileblock at 88 200 = 0
+
+	tileblock at 96 200 = 0
+
+	tileblock at 104 200 = 0
+
+	tileblock at 112 200 = 0
+
+	tileblock at 120 200 = 0
+
+	tileblock at 128 200 = 0
+
+	tileblock at 136 200 = 0
+
+	tileblock at 144 200 = 0
+
+	tileblock at 152 200 = 0
+
+	tileblock at 160 200 = 0
+
+	tileblock at 168 200 = 0
+
+	tileblock at 176 200 = 0
+
+	tileblock at 184 200 = 0
+
+	tileblock at 192 200 = 0
+
+	tileblock at 200 200 = 0
+
+	tileblock at 208 200 = 0
+
+	tileblock at 216 200 = 0
+
+	tileblock at 224 200 = 0
+
+	tileblock at 232 200 = 0
+
+	tileblock at 240 200 = 0
+
+	tileblock at 248 200 = 0
+
+	tileblock at 0 208 = 0
+
+	tileblock at 8 208 = 0
+
+	tileblock at 16 208 = 0
+
+	tileblock at 24 208 = 0
+
+	tileblock at 32 208 = 0
+
+	tileblock at 40 208 = 0
+
+	tileblock at 48 208 = 0
+
+	tileblock at 56 208 = 0
+
+	tileblock at 64 208 = 0
+
+	tileblock at 72 208 = 0
+
+	tileblock at 80 208 = 0
+
+	tileblock at 88 208 = 0
+
+	tileblock at 96 208 = 0
+
+	tileblock at 104 208 = 0
+
+	tileblock at 112 208 = 0
+
+	tileblock at 120 208 = 0
+
+	tileblock at 128 208 = 0
+
+	tileblock at 136 208 = 0
+
+	tileblock at 144 208 = 0
+
+	tileblock at 152 208 = 0
+
+	tileblock at 160 208 = 0
+
+	tileblock at 168 208 = 0
+
+	tileblock at 176 208 = 0
+
+	tileblock at 184 208 = 0
+
+	tileblock at 192 208 = 0
+
+	tileblock at 200 208 = 0
+
+	tileblock at 208 208 = 0
+
+	tileblock at 216 208 = 0
+
+	tileblock at 224 208 = 0
+
+	tileblock at 232 208 = 0
+
+	tileblock at 240 208 = 0
+
+	tileblock at 248 208 = 0
+
+	tileblock at 0 216 = 0
+
+	tileblock at 8 216 = 0
+
+	tileblock at 16 216 = 0
+
+	tileblock at 24 216 = 0
+
+	tileblock at 32 216 = 0
+
+	tileblock at 40 216 = 0
+
+	tileblock at 48 216 = 0
+
+	tileblock at 56 216 = 0
+
+	tileblock at 64 216 = 0
+
+	tileblock at 72 216 = 0
+
+	tileblock at 80 216 = 0
+
+	tileblock at 88 216 = 0
+
+	tileblock at 96 216 = 0
+
+	tileblock at 104 216 = 0
+
+	tileblock at 112 216 = 0
+
+	tileblock at 120 216 = 0
+
+	tileblock at 128 216 = 0
+
+	tileblock at 136 216 = 0
+
+	tileblock at 144 216 = 0
+
+	tileblock at 152 216 = 0
+
+	tileblock at 160 216 = 0
+
+	tileblock at 168 216 = 0
+
+	tileblock at 176 216 = 0
+
+	tileblock at 184 216 = 0
+
+	tileblock at 192 216 = 0
+
+	tileblock at 200 216 = 0
+
+	tileblock at 208 216 = 0
+
+	tileblock at 216 216 = 0
+
+	tileblock at 224 216 = 0
+
+	tileblock at 232 216 = 0
+
+	tileblock at 240 216 = 0
+
+	tileblock at 248 216 = 0
+
+	tileblock at 0 224 = 0
+
+	tileblock at 8 224 = 0
+
+	tileblock at 16 224 = 0
+
+	tileblock at 24 224 = 0
+
+	tileblock at 32 224 = 0
+
+	tileblock at 40 224 = 0
+
+	tileblock at 48 224 = 0
+
+	tileblock at 56 224 = 0
+
+	tileblock at 64 224 = 0
+
+	tileblock at 72 224 = 0
+
+	tileblock at 80 224 = 0
+
+	tileblock at 88 224 = 0
+
+	tileblock at 96 224 = 0
+
+	tileblock at 104 224 = 0
+
+	tileblock at 112 224 = 0
+
+	tileblock at 120 224 = 0
+
+	tileblock at 128 224 = 0
+
+	tileblock at 136 224 = 0
+
+	tileblock at 144 224 = 0
+
+	tileblock at 152 224 = 0
+
+	tileblock at 160 224 = 0
+
+	tileblock at 168 224 = 0
+
+	tileblock at 176 224 = 0
+
+	tileblock at 184 224 = 0
+
+	tileblock at 192 224 = 0
+
+	tileblock at 200 224 = 0
+
+	tileblock at 208 224 = 0
+
+	tileblock at 216 224 = 0
+
+	tileblock at 224 224 = 0
+
+	tileblock at 232 224 = 0
+
+	tileblock at 240 224 = 0
+
+	tileblock at 248 224 = 0
+
+	tileblock at 0 232 = 0
+
+	tileblock at 8 232 = 0
+
+	tileblock at 16 232 = 0
+
+	tileblock at 24 232 = 0
+
+	tileblock at 32 232 = 0
+
+	tileblock at 40 232 = 0
+
+	tileblock at 48 232 = 0
+
+	tileblock at 56 232 = 0
+
+	tileblock at 64 232 = 0
+
+	tileblock at 72 232 = 0
+
+	tileblock at 80 232 = 0
+
+	tileblock at 88 232 = 0
+
+	tileblock at 96 232 = 0
+
+	tileblock at 104 232 = 0
+
+	tileblock at 112 232 = 0
+
+	tileblock at 120 232 = 0
+
+	tileblock at 128 232 = 0
+
+	tileblock at 136 232 = 0
+
+	tileblock at 144 232 = 0
+
+	tileblock at 152 232 = 0
+
+	tileblock at 160 232 = 0
+
+	tileblock at 168 232 = 0
+
+	tileblock at 176 232 = 0
+
+	tileblock at 184 232 = 0
+
+	tileblock at 192 232 = 0
+
+	tileblock at 200 232 = 0
+
+	tileblock at 208 232 = 0
+
+	tileblock at 216 232 = 0
+
+	tileblock at 224 232 = 0
+
+	tileblock at 232 232 = 0
+
+	tileblock at 240 232 = 0
+
+	tileblock at 248 232 = 0
+
+	tileblock at 0 240 = 0
+
+	tileblock at 8 240 = 0
+
+	tileblock at 16 240 = 0
+
+	tileblock at 24 240 = 0
+
+	tileblock at 32 240 = 0
+
+	tileblock at 40 240 = 0
+
+	tileblock at 48 240 = 0
+
+	tileblock at 56 240 = 0
+
+	tileblock at 64 240 = 0
+
+	tileblock at 72 240 = 0
+
+	tileblock at 80 240 = 0
+
+	tileblock at 88 240 = 0
+
+	tileblock at 96 240 = 0
+
+	tileblock at 104 240 = 0
+
+	tileblock at 112 240 = 0
+
+	tileblock at 120 240 = 0
+
+	tileblock at 128 240 = 0
+
+	tileblock at 136 240 = 0
+
+	tileblock at 144 240 = 0
+
+	tileblock at 152 240 = 0
+
+	tileblock at 160 240 = 0
+
+	tileblock at 168 240 = 0
+
+	tileblock at 176 240 = 0
+
+	tileblock at 184 240 = 0
+
+	tileblock at 192 240 = 0
+
+	tileblock at 200 240 = 0
+
+	tileblock at 208 240 = 0
+
+	tileblock at 216 240 = 0
+
+	tileblock at 224 240 = 0
+
+	tileblock at 232 240 = 0
+
+	tileblock at 240 240 = 0
+
+	tileblock at 248 240 = 0
+
+	tileblock at 0 248 = 0
+
+	tileblock at 8 248 = 0
+
+	tileblock at 16 248 = 0
+
+	tileblock at 24 248 = 0
+
+	tileblock at 32 248 = 0
+
+	tileblock at 40 248 = 0
+
+	tileblock at 48 248 = 0
+
+	tileblock at 56 248 = 0
+
+	tileblock at 64 248 = 0
+
+	tileblock at 72 248 = 0
+
+	tileblock at 80 248 = 0
+
+	tileblock at 88 248 = 0
+
+	tileblock at 96 248 = 0
+
+	tileblock at 104 248 = 0
+
+	tileblock at 112 248 = 0
+
+	tileblock at 120 248 = 0
+
+	tileblock at 128 248 = 0
+
+	tileblock at 136 248 = 0
+
+	tileblock at 144 248 = 0
+
+	tileblock at 152 248 = 0
+
+	tileblock at 160 248 = 0
+
+	tileblock at 168 248 = 0
+
+	tileblock at 176 248 = 0
+
+	tileblock at 184 248 = 0
+
+	tileblock at 192 248 = 0
+
+	tileblock at 200 248 = 0
+
+	tileblock at 208 248 = 0
+
+	tileblock at 216 248 = 0
+
+	tileblock at 224 248 = 0
+
+	tileblock at 232 248 = 0
+
+	tileblock at 240 248 = 0
+
+	tileblock at 248 248 = 0
+

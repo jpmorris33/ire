@@ -524,6 +524,17 @@ linking to the mainframe via the medallion.
 [endpage]
 
 
+[page="mainframe-mt"]
+[esc=disabled]
+[image="comms05a.pcx"]
+
+"This is an auxiliary display for Xylan's mainframe.
+ However, the readings do not make sense."
+
+[nextpage="exit"]
+[endpage]
+
+
 [page="mainframe-gone"]
 [esc=disabled]
 [image="comms05a.pcx"]

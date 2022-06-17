@@ -67,6 +67,43 @@ if p is called "potion_red"
 	endif
 endif
 
+if p is called "potion_holywater"
+	# Don't cross the streams
+	if current is called "potion_unholywater"
+	or current is called "font2"
+		let victim = p
+		call holywater_explosion
+		return
+	endif
+
+	if current.label.race = "undead"
+	or current.label.race = "devil"
+		add current.stats.hp - 500
+		check_hurt current
+		replace p = "potion_empty"
+		return
+	endif
+endif
+
+if p is called "potion_unholywater"
+	if current is called "potion_holywater"
+	or current is called "font1"
+		let victim = p
+		call holywater_explosion
+		return
+	endif
+
+	if current is called "MAN_CARDINAL"
+	or current is called "MAN_PRIEST"
+	or current is called "MAN_POPE"
+		add current.stats.hp - 500
+		check_hurt current
+		replace p = "potion_empty"
+		return
+	endif
+
+endif
+
 
 # Make sure the destination is a person
 if_not_flag current IS_PERSON
@@ -481,4 +518,42 @@ replace bottle = newpotion
 # Empty the alembic
 force_direction current faces UP
 
+end
+
+
+##
+##  Provide holy water
+##
+
+function give_holywater
+	object hw
+	create hw = "potion_holywater"
+	let hw.stats.owner = me
+	transfer_to_pocket hw to me
+end
+
+function give_unholywater
+	object hw
+	create hw = "potion_unholywater"
+	let hw.stats.owner = me
+	transfer_to_pocket hw to me
+end
+
+##
+##  Player tries to mix the holy water
+##
+
+function holywater_explosion
+        lightning 50
+        play_sound "boom"
+        let player.stats.hp = -1000
+        check_hurt player
+#        set_flag current IS_INVISIBLE = 1
+        let me = current
+        let me.stats.damage = 1000
+        call explode_quiet
+
+        let current.user.user18 = 48
+        let current.user.user17 = 2
+        startfx current does fx_whitecorona
 end

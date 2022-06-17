@@ -2910,10 +2910,7 @@ section: characters
 	setActiveArea	H 0 0 1 1
 
 	name BOTTLE_FULL
-	left		BOTTLE
-	right		BOTTLE
-	up		BOTTLE
-	down		BOTTLE
+	frame		BOTTLE
 	hp		1
 	weight		800
 	damage		20
@@ -2931,10 +2928,7 @@ section: characters
 	contains	puddle_beer
 
 	name BOTTLE_WINE
-	left		BOTTLE
-	right		BOTTLE
-	up		BOTTLE
-	down		BOTTLE
+	frame		BOTTLE
 	hp		1
 	weight		800
 	damage		20
@@ -2952,10 +2946,7 @@ section: characters
 	contains	puddle_wine
 
 	name BOTTLE_EMPTY
-	left		BOTTLE
-	right		BOTTLE
-	up		BOTTLE
-	down		BOTTLE
+	frame		BOTTLE
 	hp		1
 	weight		800
 	damage		20
@@ -2972,10 +2963,7 @@ section: characters
 	contains	glass_shards
 
 	name BOTTLE_BROKEN
-	left		BOTTLE_BROKE
-	right		BOTTLE_BROKE
-	up		BOTTLE_BROKE
-	down		BOTTLE_BROKE
+	frame		BOTTLE_BROKE
 	hp		1
 	weight		100
 	damage		15
@@ -3015,10 +3003,7 @@ section: characters
 	IfTriggered	spikes
 
 	name PUDDLE_WATER
-	left		PUDDLE_WATER
-	right		PUDDLE_WATER
-	up		PUDDLE_WATER
-	down		PUDDLE_WATER
+	frame		PUDDLE_WATER
 	hp		10000
 	weight		700
 	description	"You see a puddle of water"
@@ -4003,22 +3988,6 @@ section: characters
 	alias STDONALDSCOUNTER_FULL = STDONALDSCOUNTER
 	behaviour	stdonalds_counter_check
 
-
-	name POTION_BLACK
-	frame		POTION_BLACK
-	hp		1
-	strength	2500
-	weight		350
-	description	"You see a black potion"
-	short		"black potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
-
 	name POTION_EMPTY
 	frame		POTION_EMPTY
 	hp		1
@@ -4028,115 +3997,74 @@ section: characters
 	IfUsed		drink_POTION
 	IfKilled	SMASH
 	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_GREEN
+	alias POTION_BLACK = POTION_EMPTY
+	frame		POTION_BLACK
+	strength	2500
+	weight		350
+	description	"You see a black potion"
+	short		"black potion"
+
+	alias POTION_GREEN = POTION_EMPTY
 	frame		POTION_GREEN
-	hp		1
 	strength	50
 	weight		350
 	description	"You see a green potion"
 	short		"green potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_RED
+	alias POTION_RED = POTION_EMPTY
 	frame		POTION_RED
-	hp		1
 	strength	100
 	weight		350
 	description	"You see a red potion"
 	short		"red potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_YELLOW
+	alias POTION_YELLOW = POTION_EMPTY
 	frame		POTION_YELLOW
-	hp		1
-	strength	25
-	weight		350
+	strength	100
+	weight		25
 	description	"You see a yellow potion"
 	short		"yellow potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_BLUE
+	alias POTION_BLUE = POTION_EMPTY
 	frame		POTION_BLUE
-	hp		1
 	strength	100
 	weight		350
 	description	"You see a blue potion"
 	short		"blue potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_MAGENTA
+	alias POTION_MAGENTA = POTION_EMPTY
 	frame		POTION_MAGENTA
-	hp		1
 	strength	100
 	weight		350
 	description	"You see a pink potion"
 	short		"pink potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_WHITE
+	alias POTION_WHITE = POTION_EMPTY
 	frame		POTION_WHITE
-	hp		1
 	strength	100
 	weight		350
 	description	"You see a white potion"
 	short		"white potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name POTION_PURPLE
+	alias POTION_PURPLE = POTION_EMPTY
 	frame		POTION_PURPLE
-	hp		1
 	strength	100
 	weight		350
 	description	"You see a purple potion"
 	short		"purple potion"
-	IfUsed		drink_POTION
-	IfKilled	SMASH
-	fragile
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	alias POTION_HOLYWATER = POTION_EMPTY
+	frame		POTION_BLUE
+	strength	100
+	weight		350
+	description	"You see a flask of holy water"
+	short		"holy water"
+
+	alias POTION_UNHOLYWATER = POTION_HOLYWATER
+	description	"You see a bottle of unholy water."
+	short		"unholy water"
+
 
 	name MUSIC
 	frame		music
@@ -5231,6 +5159,37 @@ section: characters
 	solid
 	fixed
 	boat
+
+	name FLOOR_TEAR0
+	left		FLOORTEAR_L0
+	right		FLOORTEAR_R0
+	up		FLOORTEAR_T0
+	down		FLOORTEAR_B0
+	hp		100000
+	weight		-1
+	description	"You see a hole in the floor."
+	short		"hole"
+	IfKilled	respawn
+	solid
+	fixed
+	
+	alias FLOOR_TEAR1 = FLOOR_TEAR0
+	left		FLOORTEAR_L1
+	right		FLOORTEAR_R1
+	up		FLOORTEAR_T1
+	down		FLOORTEAR_B1
+
+	alias FLOOR_TEAR2 = FLOOR_TEAR0
+	left		FLOORTEAR_L2
+	right		FLOORTEAR_R2
+	up		FLOORTEAR_T2
+	down		FLOORTEAR_B2
+
+	alias FLOOR_TEAR3 = FLOOR_TEAR0
+	left		FLOORTEAR_BL
+	right		FLOORTEAR_TR
+	up		FLOORTEAR_TL
+	down		FLOORTEAR_BR
 
 	name PHONE
 	left		PHONE_L
@@ -7015,10 +6974,7 @@ section: characters
 	IfKilled	respawn
 
 	name FONT1
-	left		FONT1
-	right		FONT1
-	up		FONT1
-	down		FONT1
+	frame		FONT1
 	hp		1000
 	weight		-1
 	description	"You see an ornate font."
@@ -7027,10 +6983,11 @@ section: characters
 	fixed
 	spikeproof
 	race		water
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+	ifused		give_holywater
+
+	alias FONT2 = FONT1
+	description	"You see an ominous-looking font."
+	ifused		give_unholywater
 
 	name POORBOX
 	left		POORBOX1
@@ -10959,6 +10916,7 @@ section: characters
 	wont_shut_doors
 	wont_open_doors
 	Conversation	PEOPLE/CREATURE/GOLEM.TXT
+	race		undead
 
 	name GOLEM_DEAD
 	left		GOLEM_DEAD

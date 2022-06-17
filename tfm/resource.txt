@@ -3546,6 +3546,23 @@ section: sprites
 	bridgekeyslot		sprites/starship/keyslot.png
 	bridgekeycard		sprites/starship/keycard.png
 
+	floortear_r0		sprites/tech/tear00.png
+	floortear_r1		sprites/tech/tear01.png
+	floortear_r2		sprites/tech/tear02.png
+	floortear_l0		sprites/tech/tear03.png
+	floortear_l1		sprites/tech/tear04.png
+	floortear_l2		sprites/tech/tear05.png
+	floortear_t0		sprites/tech/tear06.png
+	floortear_t1		sprites/tech/tear07.png
+	floortear_t2		sprites/tech/tear08.png
+	floortear_b0		sprites/tech/tear09.png
+	floortear_b1		sprites/tech/tear10.png
+	floortear_b2		sprites/tech/tear11.png
+	floortear_bl		sprites/tech/tear12.png
+	floortear_br		sprites/tech/tear13.png
+	floortear_tl		sprites/tech/tear14.png
+	floortear_tr		sprites/tech/tear15.png
+
 	drives_l0		backings/drive_l0.cel
 	drives_l1		backings/drive_l1.cel
 	drives_l2		backings/drive_l2.cel
@@ -12737,6 +12754,24 @@ section: sequences
 	quickname techtile00 techtile00
 	quickname techtile01 techtile01
 	quickname techtile02 techtile02
+
+	quickname floortear_r0
+	quickname floortear_r1
+	quickname floortear_r2
+	quickname floortear_l0
+	quickname floortear_l1
+	quickname floortear_l2
+	quickname floortear_t0
+	quickname floortear_t1
+	quickname floortear_t2
+	quickname floortear_b0
+	quickname floortear_b1
+	quickname floortear_b2
+	quickname floortear_tl
+	quickname floortear_tr
+	quickname floortear_bl
+	quickname floortear_br
+
 
 	quickname cardslot_v_normal cardslot1
 	quickname cardslot_h_normal cardslot3

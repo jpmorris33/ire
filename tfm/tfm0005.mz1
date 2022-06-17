@@ -1,0 +1,18 @@
+iMZ1r01
+
+	object LIGHebf21109-ae8b-4297-84dc-470335cd62f8
+		type LIGHT_CONTROL_FULLBRIGHT
+		at 1 0
+		curdir 1
+
+	object CORP8eabd657-e22d-4495-86f9-e49fdab4668b
+		type CORPSE_CONTROL
+		at 2 0
+		curdir 1
+
+	object PLAY76c55663-7cf0-4942-956c-580408cebb53
+		type PLAYER
+		at 12 20
+		curdir 1
+		activity PLAYER_ACTION
+

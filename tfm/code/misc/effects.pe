@@ -1513,3 +1513,44 @@ fx_blackcorona TINT_WHITE
 
 end
 
+
+##
+## White corona
+##  Set user18 to 0, user17 to +1 (or higher)
+
+function fx_whitecorona
+
+fx_getxy fx_srcx fx_srcy = current
+add fx_srcy - 32
+fx_alpha 255
+fx_alphamode ALPHA_SOLID
+
+# Increment the control count
+let rtmp = current.user.user18
+add rtmp + current.user.user17
+
+# Bounce if we reach maximum
+if rtmp > 128
+	let rtmp = 128
+	let current.user.user17 = 0 - current.user.user17
+endif
+
+# Stop if we've contracted to nothing
+if rtmp < 0
+	stopfx current
+	return
+endif
+
+# Store the result
+let current.user.user18 = rtmp
+
+# Draw the corona
+add fx_srcx + 16
+add fx_srcy + 16
+let fx_intensity = rtmp
+let fx_radius = 64
+let fx_falloff = 200 # 2.0 falloff
+fx_corona TINT_WHITE
+
+end
+

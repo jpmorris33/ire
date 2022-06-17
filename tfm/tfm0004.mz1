@@ -3824,17 +3824,6 @@ iMZ1r01
 		funcs->use medal_trigger_once
 		funcs->talk people/dragons/comms.txt
 
-	object DATAc568572e-29db-4108-bdfc-0c1eee946b4a
-		type DATACRYSTAL
-		at 314 127
-		curdir 3
-
-	object MEMO80849213-d12d-47f0-9876-2424aa9b4d02
-		type MEMO
-		at 315 127
-		curdir 0
-		name Remove data xtal before release
-
 	object WALL5d7bb8ea-d7fb-40da-8f92-d8fd32a62ec8
 		type WALL_METAL_D02
 		at 375 127
@@ -3885,6 +3874,16 @@ iMZ1r01
 		type VENT_SHUT
 		at 452 127
 		curdir 0
+
+	object PIPE5badc768-c159-4c53-8aff-5b7da268e4f1
+		type PIPES_01
+		at 438 128
+		curdir 2
+
+	object PIPEbb720ef1-add1-4523-a1b7-b763edbd1565
+		type PIPES_01
+		at 450 128
+		curdir 2
 
 	object WALLca01536a-2ae5-415a-8476-2fafba80e1bf
 		type WALL_METAL_D02
@@ -3997,6 +3996,16 @@ iMZ1r01
 		at 329 129
 		curdir 3
 
+	object PIPE2c63a1fe-6a6a-49b8-840a-20e310a12748
+		type PIPES_01
+		at 438 129
+		curdir 2
+
+	object PIPE869ec77e-8a86-4301-8503-3984299fbf16
+		type PIPES_01
+		at 450 129
+		curdir 2
+
 	object WALL538411c6-ec4f-46f5-a379-7914ed3b8f54
 		type WALL_METAL_D00
 		at 224 130
@@ -4026,6 +4035,16 @@ iMZ1r01
 		type WALL_METAL_D00
 		at 375 130
 		curdir 1
+
+	object PIPEf017b90a-17c1-43ef-abf0-8f77dd8402ba
+		type PIPES_01
+		at 438 130
+		curdir 2
+
+	object PIPEf3a11db1-c075-4c10-be78-6446b2dac65c
+		type PIPES_01
+		at 450 130
+		curdir 2
 
 	object WALLd09a8ee2-2c88-4bda-b5eb-d5909eb4f73e
 		type WALL_METAL_D00
@@ -4057,11 +4076,21 @@ iMZ1r01
 		at 436 131
 		curdir 0
 
+	object PIPE42167927-df9a-40a3-bbb8-5d4510362533
+		type PIPES_01
+		at 438 131
+		curdir 2
+
 	object MEMOc64a8105-abb4-4803-b576-47cc89712fd1
 		type MEMO
 		at 444 131
 		curdir 0
 		name Xylan's Mainframe shold be here
+
+	object PIPE12e0602d-9c5b-404f-91c4-3ddcd26b327d
+		type PIPES_01
+		at 450 131
+		curdir 2
 
 	object DRAKabaa7f0e-33f0-4a1e-87dd-1fdc9483d587
 		type DRAKNUM3
@@ -4329,11 +4358,21 @@ iMZ1r01
 		funcs->use USE_MAINFRAMESCREEN
 		funcs->user1 mainframe-h
 
+	object PIPE35c6d585-cc38-4ea0-b93b-6a661228215f
+		type PIPES_01
+		at 438 132
+		curdir 2
+
 	object MEMO77c435f6-db06-4aa4-9425-b9112ef52f45
 		type MEMO
 		at 444 132
 		curdir 0
 		name But it has gone AWOL
+
+	object PIPE539096e0-1380-43d1-8ac2-549cb7505af8
+		type PIPES_01
+		at 450 132
+		curdir 2
 
 	object WALLe6db93f6-82a3-4e1f-ae8a-5a53b1243ebe
 		type WALL_METAL_D01
@@ -4379,6 +4418,21 @@ iMZ1r01
 		type WALL_METAL_D02
 		at 436 133
 		curdir 1
+
+	object PIPE95b0ab73-8113-4c11-8d9b-048e64f54768
+		type PIPES_01
+		at 438 133
+		curdir 2
+
+	object VENTa4d77d9d-4565-479b-b359-31e1de284343
+		type VENT_SHUT
+		at 444 133
+		curdir 0
+
+	object PIPEab08fedf-9f0a-4dfa-bbe9-987e937a6353
+		type PIPES_01
+		at 450 133
+		curdir 2
 
 	object WALL832fba08-24bd-4776-a544-ce224d0c9166
 		type WALL_METAL_D02
@@ -4478,6 +4532,16 @@ iMZ1r01
 		at 396 134
 		curdir 3
 
+	object PIPE785df7db-d696-4fe4-b695-d6ac7a82712a
+		type PIPES_02
+		at 425 134
+		curdir 2
+
+	object PIPEb6f4a84c-328d-40a6-b6ae-47c74d3a60f2
+		type PIPES_03
+		at 425 134
+		curdir 0
+
 	object WALL85d05043-d625-4962-a717-ed7b217ebdc2
 		type WALL_METAL_D02
 		at 430 134
@@ -4486,6 +4550,16 @@ iMZ1r01
 	object WALLdc68a2d9-f13b-4907-98c3-de9129d0f34b
 		type WALL_METAL_D02
 		at 436 134
+		curdir 2
+
+	object PIPE1a3e7c25-3452-4fc1-8a96-fafe555fb090
+		type PIPES_01
+		at 438 134
+		curdir 2
+
+	object PIPE695d6563-a4c9-4076-b49f-6e8f22460934
+		type PIPES_01
+		at 450 134
 		curdir 2
 
 	object WALL08144800-f949-4f16-9722-e540c526cb4e
@@ -4638,6 +4712,11 @@ iMZ1r01
 		at 394 135
 		curdir 2
 
+	object PIPE54811aba-ce41-4710-a389-819a544a5877
+		type PIPES_01
+		at 425 135
+		curdir 2
+
 	object WALL6438483b-13c1-42f3-a43e-548a506a5cbb
 		type WALL_METAL_D02
 		at 430 135
@@ -4647,6 +4726,16 @@ iMZ1r01
 		type WALL_METAL_D02
 		at 436 135
 		curdir 0
+
+	object PIPE6f844276-cf6c-4959-bbc9-9f4666ab7023
+		type PIPES_01
+		at 438 135
+		curdir 2
+
+	object PIPE0158edee-d543-43ec-8d37-520c5e965cf5
+		type PIPES_01
+		at 450 135
+		curdir 2
 
 	object WALL36104f08-0289-4d0e-8482-042a79aa60f0
 		type WALL_METAL_D02
@@ -4898,6 +4987,11 @@ iMZ1r01
 		at 394 136
 		curdir 1
 
+	object PIPEbcf1204d-30ee-48e9-8e07-61481adc6956
+		type PIPES_01
+		at 425 136
+		curdir 2
+
 	object WALL777a03ea-54f5-4268-b3fe-38f45c420c03
 		type WALL_METAL_D03
 		at 430 136
@@ -4907,6 +5001,26 @@ iMZ1r01
 		type WALL_METAL_D03
 		at 436 136
 		curdir 0
+
+	object PIPE88a57e7a-18fc-48bb-86e8-8210fdf426be
+		type PIPES_01
+		at 438 136
+		curdir 2
+
+	object PLAS648a6471-9add-4641-a6fa-771ad0bef59a
+		type PLASMATUBE
+		at 443 136
+		curdir 1
+
+	object PLASb0faf6f9-d5f3-4b31-9fca-e8ce7770f996
+		type PLASMATUBE
+		at 446 136
+		curdir 1
+
+	object PIPEcf204c7a-ab5c-4f44-9fe8-c26a003d9a43
+		type PIPES_01
+		at 450 136
+		curdir 2
 
 	object WALLa3010029-27f9-46b3-8b94-85f1e4b27984
 		type WALL_METAL_D03
@@ -4956,6 +5070,28 @@ iMZ1r01
 	object PIPE699a3f00-cfe0-4314-b6fc-aeec686ece04
 		type PIPES_01
 		at 388 137
+		curdir 2
+
+	object PIPE45253d0b-854f-4472-9195-6f2acf987ddc
+		type PIPES_01
+		at 425 137
+		curdir 2
+
+	object PIPE2aeab1bd-23d3-4615-8324-b795189f147a
+		type PIPES_01
+		at 438 137
+		curdir 2
+
+	object WALLd2606b82-405f-4162-b530-d66608e5cd8e
+		type WALL_METAL_D05
+		at 444 137
+		curdir 1
+		tag 66
+		funcs->use USE_AIRLOCK
+
+	object PIPEb43ba4ce-ca9e-42d7-8268-ddf5acfe3183
+		type PIPES_01
+		at 450 137
 		curdir 2
 
 	object WALL4dc510ae-7e21-41cd-9b1e-3837299f6e67
@@ -5078,6 +5214,16 @@ iMZ1r01
 		at 388 138
 		curdir 2
 
+	object PIPE31b4da48-a7f2-408e-9481-4c79d1707517
+		type PIPES_03
+		at 425 138
+		curdir 1
+
+	object PIPE9a2d8201-4569-4cb1-898e-8cb36faab4ba
+		type PIPES_02
+		at 425 138
+		curdir 3
+
 	object WALLdf97da66-21b6-4cf6-94a8-b115098b6874
 		type WALL_METAL_D02
 		at 430 138
@@ -5087,6 +5233,16 @@ iMZ1r01
 		type WALL_METAL_D02
 		at 436 138
 		curdir 3
+
+	object PIPEd438a4c1-bc76-4ae5-9756-c9f5edb62f08
+		type PIPES_01
+		at 438 138
+		curdir 2
+
+	object PIPE72447fc8-e522-4924-88ae-d3a9157909cb
+		type PIPES_01
+		at 450 138
+		curdir 2
 
 	object WALL2878c9d7-aba4-4d81-a0a4-b04a83007de0
 		type WALL_METAL_D02
@@ -5168,6 +5324,26 @@ iMZ1r01
 		at 436 139
 		curdir 2
 
+	object PIPE38f4bf6a-a075-45f2-8ce9-092c1af65e7d
+		type PIPES_01
+		at 438 139
+		curdir 2
+
+	object PLAS063766d8-1584-4785-86ff-a2dde984cea0
+		type PLASMATUBE
+		at 443 139
+		curdir 1
+
+	object PLASb9cfd302-d369-4874-99c5-8efb7947207a
+		type PLASMATUBE
+		at 446 139
+		curdir 1
+
+	object PIPE48f74ece-3276-4f9f-b5ea-dcdea95b5690
+		type PIPES_01
+		at 450 139
+		curdir 2
+
 	object WALL9b184234-6e23-48cf-aec0-7247f4171c86
 		type WALL_METAL_D02
 		at 455 139
@@ -5208,6 +5384,16 @@ iMZ1r01
 		at 388 140
 		curdir 2
 
+	object PIPE1375d80a-7143-401e-b5d7-d991afb5f75d
+		type PIPES_01
+		at 438 140
+		curdir 2
+
+	object PIPE297422c4-2674-4949-a636-8210a0df40bd
+		type PIPES_01
+		at 450 140
+		curdir 2
+
 	object PIPE41f64a2a-137e-4a7c-8bcc-1e1cbddbc8e0
 		type PIPES_01
 		at 234 141
@@ -5243,6 +5429,16 @@ iMZ1r01
 		type WALL_METAL_D06
 		at 434 141
 		curdir 1
+
+	object PIPE8d8ba190-e271-4435-a90e-81d7b1dc78d6
+		type PIPES_01
+		at 438 141
+		curdir 2
+
+	object PIPE56f4daf3-c04a-48a4-91b0-ca23892b1898
+		type PIPES_01
+		at 450 141
+		curdir 2
 
 	object WALLa91fe419-e0f1-4cfb-9cdc-174ecae4004d
 		type WALL_METAL_D06
@@ -5280,6 +5476,16 @@ iMZ1r01
 		at 388 142
 		curdir 2
 
+	object PIPEea6f1d47-7045-400e-915c-4b1a8ee04ffe
+		type PIPES_01
+		at 438 142
+		curdir 2
+
+	object PIPE123ec6b6-8d7d-401b-bc09-7246d8dc46ee
+		type PIPES_01
+		at 450 142
+		curdir 2
+
 	object PIPEe0357ea8-6ad7-427c-a610-ff9d782b839b
 		type PIPES_01
 		at 234 143
@@ -5305,6 +5511,16 @@ iMZ1r01
 	object PIPE93e84216-2ea9-4584-a37e-521cb423ea93
 		type PIPES_01
 		at 388 143
+		curdir 2
+
+	object PIPEdbbe433c-6025-4663-9c69-8a38b837dc04
+		type PIPES_01
+		at 438 143
+		curdir 2
+
+	object PIPE4cd7b90b-c13a-419b-9a02-b161fc659294
+		type PIPES_01
+		at 450 143
 		curdir 2
 
 	object PIPEb341da6b-5405-460d-8819-94502f0aa50a
@@ -5387,6 +5603,72 @@ iMZ1r01
 		at 388 144
 		curdir 2
 
+	object AIRL45f048dd-a02c-4720-a188-1aa7ed6de12a
+		type AIRLOCK_DOOR
+		at 442 144
+		curdir 2
+		tag 66
+
+	object AIRLf1ffada4-dbfa-4181-b7f4-275a0be391b2
+		type AIRLOCK_TOP
+		at 442 144
+		curdir 2
+
+	object AIRL212b6be9-9fff-4766-b56a-3c6b47a9cb40
+		type AIRLOCK_DOOR
+		at 443 144
+		curdir 2
+		tag 66
+
+	object AIRLf377c0b9-593b-436b-bd45-422241f0e1bb
+		type AIRLOCK_TOP
+		at 443 144
+		curdir 0
+
+	object AIRL64f2a47f-cd90-4319-8df4-0c5087fc3e9b
+		type AIRLOCK_DOOR
+		at 444 144
+		curdir 2
+		tag 66
+
+	object AIRL3b777e28-98bf-437d-bf74-bfe3fd3b8fbd
+		type AIRLOCK_TOP
+		at 444 144
+		curdir 0
+
+	object AIRL0b6e6425-e8a2-46bd-be5d-a0872222b4d1
+		type AIRLOCK_DOOR
+		at 445 144
+		curdir 2
+		tag 66
+
+	object AIRL92902be6-5740-4d5f-84f6-e6350035c23e
+		type AIRLOCK_TOP
+		at 445 144
+		curdir 0
+
+	object AIRLa0061b77-fd39-43d3-8eba-f389025b84e2
+		type AIRLOCK_DOOR
+		at 446 144
+		curdir 2
+		tag 66
+
+	object AIRL057784a1-ad3b-4e84-bbd8-d430ecbcfb2f
+		type AIRLOCK_TOP
+		at 446 144
+		curdir 0
+
+	object AIRLeb276b54-7e78-4ada-b792-a141f2543e71
+		type AIRLOCK_DOOR
+		at 447 144
+		curdir 2
+		tag 66
+
+	object AIRL10a85b97-9a80-4220-8e77-7ee2b7bf4c56
+		type AIRLOCK_TOP
+		at 447 144
+		curdir 3
+
 	object PIPE37c2a8e5-dde8-4069-b5f2-0a5a6ece10b4
 		type PIPES_01
 		at 234 145
@@ -5413,6 +5695,13 @@ iMZ1r01
 		type PIPES_01
 		at 388 145
 		curdir 2
+
+	object WALL0b784708-1e60-4846-974e-839766aec451
+		type WALL_METAL_D05
+		at 441 145
+		curdir 0
+		tag 66
+		funcs->use USE_AIRLOCK
 
 	object PIPE0f431840-0205-4961-af89-696c723acb52
 		type PIPES_01
@@ -5469,6 +5758,14 @@ iMZ1r01
 		type PIPES_01
 		at 388 146
 		curdir 2
+
+	object WALLe3a15e48-1fab-49fd-8dcc-b43bd0db1d0d
+		type WALL_METAL_D01
+		at 441 146
+		curdir 0
+		name xylan mainframe
+		funcs->use USE_MAINFRAMESCREEN
+		funcs->user1 mainframe-mt
 
 	object VENTd66a30df-d86b-4265-9bc1-9ef11e7a4609
 		type VENT_SHUT
@@ -5689,6 +5986,11 @@ iMZ1r01
 		at 388 149
 		curdir 2
 
+	object PIPEdf258689-a90e-4726-a4d3-a5cf828989ff
+		type PIPES_02
+		at 436 149
+		curdir 2
+
 	object PIPEcd388d96-9a6e-44a5-88ed-c7cf01f81ed4
 		type PIPES_01
 		at 234 150
@@ -5756,6 +6058,11 @@ iMZ1r01
 		at 388 150
 		curdir 2
 
+	object PIPEa8279c61-2ffd-4993-880e-01dc76dfcf4c
+		type PIPES_01
+		at 436 150
+		curdir 0
+
 	object PIPE440564f3-8174-4930-8095-a315df013f28
 		type PIPES_01
 		at 234 151
@@ -5784,6 +6091,76 @@ iMZ1r01
 		at 388 151
 		curdir 2
 
+	object PIPE5052f251-75f6-40dc-86ee-b0a8d8a39ed4
+		type PIPES_03
+		at 436 151
+		curdir 0
+
+	object PIPE8b783a8c-6071-4c7c-8f71-5c3a225b37d6
+		type PIPES_02
+		at 436 151
+		curdir 3
+
+	object FLOOc1996dd9-6b99-4659-ab7a-d52564ef73ff
+		type FLOOR_TEAR3
+		at 439 151
+		curdir 0
+
+	object FLOOa4369960-3c1e-4673-bf85-1618524a745b
+		type FLOOR_TEAR0
+		at 440 151
+		curdir 0
+
+	object FLOO66c89b75-8fbe-4c50-bbdd-bcbbb6407b36
+		type FLOOR_TEAR1
+		at 441 151
+		curdir 0
+
+	object FLOO183a7dd8-3565-4e72-922f-922c8a8ef7b1
+		type FLOOR_TEAR2
+		at 442 151
+		curdir 0
+
+	object FLOO8bee8ff6-35ee-4837-87c0-43b5920b63cd
+		type FLOOR_TEAR1
+		at 443 151
+		curdir 0
+
+	object FLOOc2725b82-f67a-4cfd-9bc3-936a14edb102
+		type FLOOR_TEAR0
+		at 444 151
+		curdir 0
+
+	object FLOO2464f987-51b7-47fe-b828-9ab5b456fc71
+		type FLOOR_TEAR1
+		at 445 151
+		curdir 0
+
+	object FLOO331477e8-6d20-4a84-9508-fc328cd950d0
+		type FLOOR_TEAR2
+		at 446 151
+		curdir 0
+
+	object FLOO3d587a44-dd0a-4e5b-8cee-d84c5b26ff38
+		type FLOOR_TEAR0
+		at 447 151
+		curdir 0
+
+	object FLOObe51bb90-0b87-4007-a7a5-9cae2589bf2a
+		type FLOOR_TEAR1
+		at 448 151
+		curdir 0
+
+	object FLOO3a517ce2-98bb-4667-bfcf-9c322defcbca
+		type FLOOR_TEAR2
+		at 449 151
+		curdir 0
+
+	object FLOO6274d2ff-e032-4908-a97c-01576ad68ab9
+		type FLOOR_TEAR3
+		at 450 151
+		curdir 3
+
 	object PIPEf21db70f-ee4e-400b-ba26-a1e0befc5a9e
 		type PIPES_01
 		at 234 152
@@ -5804,11 +6181,78 @@ iMZ1r01
 		at 388 152
 		curdir 2
 
-	object LIGHab0fdaab-48af-4bf1-958e-7da79b8806c1
-		type LIGHT_END
-		at 465 152
+	object PIPEf65e70a1-a11f-4e4c-9ee0-355994fa1c38
+		type PIPES_01
+		at 436 152
+		curdir 3
+
+	object FLOOf8fe9ba7-2a7a-4e22-b51e-ee9c53d145ca
+		type FLOOR_TEAR1
+		at 439 152
+		curdir 2
+
+	object FLOOb0aac98d-e37d-44fe-a6f5-0a27aff442d8
+		type FLOOR_TEAR0
+		at 440 152
 		curdir 0
-		stats->owner LIGH83d8b3e0-77b5-45ce-86b5-ff416c1c41a1
+
+	object FLOOd834a0f7-bcb0-4ec7-9766-451cbaf09633
+		type FLOOR_TEAR0
+		at 441 152
+		curdir 0
+
+	object FLOO7a88b51f-2a0f-4079-add7-b834b7672cd5
+		type FLOOR_TEAR0
+		at 442 152
+		curdir 0
+
+	object FLOO88714f4d-9da4-4b2a-a4c3-62d99dfad9a3
+		type FLOOR_TEAR0
+		at 443 152
+		curdir 0
+
+	object FLOO762e8aad-9550-4a6e-a0c5-8997422dabf4
+		type FLOOR_TEAR0
+		at 444 152
+		curdir 0
+
+	object TRAP4bdeca24-4456-4513-bb96-35b9a753ca95
+		type TRAP_PHONE
+		at 445 152
+		curdir 0
+		name mainframe-gone
+		funcs->use medal_trigger_once
+		funcs->talk people/dragons/comms.txt
+
+	object FLOO85e2f96a-f2c2-4542-b233-5c78d3e3edb7
+		type FLOOR_TEAR0
+		at 446 152
+		curdir 0
+
+	object FLOO4a475f38-b8b2-40c3-b717-c628ab948d00
+		type FLOOR_TEAR0
+		at 446 152
+		curdir 0
+
+	object FLOO82c11bfa-2006-47d4-8095-732fd02c40cf
+		type FLOOR_TEAR0
+		at 447 152
+		curdir 0
+
+	object FLOOa8170e23-1931-4b65-882d-18be0f843292
+		type FLOOR_TEAR0
+		at 448 152
+		curdir 0
+
+	object FLOOb6934bcf-6a62-49b5-9602-5f81475047de
+		type FLOOR_TEAR0
+		at 449 152
+		curdir 0
+
+	object FLOOc07ce063-90df-4ac6-995c-b373324925a6
+		type FLOOR_TEAR1
+		at 450 152
+		curdir 3
 
 	object PIPE4e692da8-4349-4fba-afd8-2a94c255dcda
 		type PIPES_01
@@ -5956,6 +6400,71 @@ iMZ1r01
 		at 388 153
 		curdir 2
 
+	object PIPE8bbf9d3b-c605-42e2-b9ac-9b95679503a7
+		type PIPES_01
+		at 436 153
+		curdir 1
+
+	object FLOO5b993c4e-0e1c-4d1b-94f4-28ee9b3c0edf
+		type FLOOR_TEAR0
+		at 439 153
+		curdir 2
+
+	object FLOO33e2c8b0-f126-4c78-a6ce-523df654c771
+		type FLOOR_TEAR0
+		at 440 153
+		curdir 0
+
+	object FLOOfff5291c-6b41-43ed-9ee1-b5f15606440a
+		type FLOOR_TEAR0
+		at 441 153
+		curdir 0
+
+	object FLOO544489e7-5570-470e-9df3-b76d79bb00be
+		type FLOOR_TEAR0
+		at 442 153
+		curdir 0
+
+	object FLOOe8a2ab04-f4a7-4050-bc71-e6f4acd06e6c
+		type FLOOR_TEAR0
+		at 443 153
+		curdir 0
+
+	object FLOO5e755b82-a5d1-4736-89b8-3ad9cef2a16e
+		type FLOOR_TEAR0
+		at 444 153
+		curdir 0
+
+	object FLOOa2d63ea6-0f0a-4c52-a81e-bb8b74cb8fe1
+		type FLOOR_TEAR0
+		at 445 153
+		curdir 0
+
+	object FLOOb62f759e-fb9b-40c3-add6-f335be11eeba
+		type FLOOR_TEAR0
+		at 446 153
+		curdir 0
+
+	object FLOOaeba9879-6a22-494d-a72c-fec959f10faf
+		type FLOOR_TEAR0
+		at 447 153
+		curdir 0
+
+	object FLOO00a8233a-4173-4752-aebf-4de4c6f8952b
+		type FLOOR_TEAR0
+		at 448 153
+		curdir 0
+
+	object FLOO2ab13538-cd90-46b5-9950-47a679a5a0a4
+		type FLOOR_TEAR0
+		at 449 153
+		curdir 0
+
+	object FLOO2b2cd333-e6d7-455f-bb04-cc14504262bd
+		type FLOOR_TEAR2
+		at 450 153
+		curdir 3
+
 	object PIPE92f64324-cb3c-4fa9-978d-b024f90722a7
 		type PIPES_01
 		at 234 154
@@ -5975,6 +6484,71 @@ iMZ1r01
 		type PIPES_01
 		at 388 154
 		curdir 2
+
+	object PIPEcaac6de8-1219-4165-803b-977c31319fdd
+		type PIPES_00
+		at 436 154
+		curdir 0
+
+	object FLOO7a697c97-a119-4afc-83f4-24f19630f628
+		type FLOOR_TEAR3
+		at 439 154
+		curdir 2
+
+	object FLOOc47102a4-b520-44c7-b281-8d81a78b75ce
+		type FLOOR_TEAR0
+		at 440 154
+		curdir 1
+
+	object FLOO7e6456b3-4012-4995-9385-ccfb6b616919
+		type FLOOR_TEAR1
+		at 441 154
+		curdir 1
+
+	object FLOO7f9865ad-dff8-4c4e-8ba4-b6ef8377cde8
+		type FLOOR_TEAR2
+		at 442 154
+		curdir 1
+
+	object FLOO26c68a05-7729-485a-b4b2-fb2224ba1f2d
+		type FLOOR_TEAR1
+		at 443 154
+		curdir 1
+
+	object FLOO652edb9a-476f-455e-b35c-3161637b1a81
+		type FLOOR_TEAR2
+		at 444 154
+		curdir 1
+
+	object FLOO98d6ee52-f46b-4d76-9f2a-c5dae5b20942
+		type FLOOR_TEAR0
+		at 445 154
+		curdir 1
+
+	object FLOO48a14166-b8a1-4ad6-9153-031e828af482
+		type FLOOR_TEAR1
+		at 446 154
+		curdir 1
+
+	object FLOO5238f2b0-c889-46d5-b7c6-fa76f83c9221
+		type FLOOR_TEAR2
+		at 447 154
+		curdir 1
+
+	object FLOO2ff7ee75-d0ac-4d60-a6c8-975476d6038b
+		type FLOOR_TEAR0
+		at 448 154
+		curdir 1
+
+	object FLOOe0a02e8f-8777-4469-b467-dec71fb5a571
+		type FLOOR_TEAR1
+		at 449 154
+		curdir 1
+
+	object FLOOaa392de8-dbc5-4af2-b13e-7463e2056f54
+		type FLOOR_TEAR3
+		at 450 154
+		curdir 1
 
 	object PIPE62a8670f-1088-4eb6-89eb-b3421b9e7391
 		type PIPES_01
@@ -6005,6 +6579,11 @@ iMZ1r01
 		type PIPES_01
 		at 388 155
 		curdir 2
+
+	object PIPE94140a4d-a3d2-498b-a2c9-2cde8843bc2c
+		type PIPES_03
+		at 436 155
+		curdir 1
 
 	object PIPE2e188839-5fd3-44d6-ab4b-12aa2f39807f
 		type PIPES_01
@@ -6300,6 +6879,12 @@ iMZ1r01
 		type PIPES_01
 		at 388 159
 		curdir 2
+
+	object LIGHab0fdaab-48af-4bf1-958e-7da79b8806c1
+		type LIGHT_END
+		at 465 159
+		curdir 0
+		stats->owner LIGH83d8b3e0-77b5-45ce-86b5-ff416c1c41a1
 
 	object PIPEf8fc2fbc-6bea-465e-aaa1-8507c5fc8d9d
 		type PIPES_01
@@ -6935,6 +7520,18 @@ iMZ1r01
 		at 237 176
 		curdir 2
 
+	object FISHcacb146f-68d2-4b48-a077-cb0514ee9f83
+		type FISH_O_POWER
+		at 358 176
+		curdir 2
+		stats->owner PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
+
+	object DATAc568572e-29db-4108-bdfc-0c1eee946b4a
+		type DATACRYSTAL
+		inside PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
+		curdir 3
+		stats->owner PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
+
 	object SPELd353d629-22b5-4753-873f-e8ca920ed2f6
 		type SPELLBOOK
 		inside PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
@@ -6953,18 +7550,13 @@ iMZ1r01
 		stats->quantity 100
 		stats->owner PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
 
-	object FISHcacb146f-68d2-4b48-a077-cb0514ee9f83
-		type FISH_O_POWER
-		inside PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
-		curdir 2
-		stats->owner PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
-
 	object PLAY1892aee9-3fd6-4808-a6ea-1a77cc760ed5
 		type PLAYER
-		at 359 176
+		at 360 176
 		curdir 1
 		tag 666
 		activity PLAYER_ACTION
+		stats->level 8
 
 	object PIPE95567271-24b5-40e3-ab06-4d5eaa163f94
 		type PIPES_01
