@@ -171,3 +171,11 @@ endif
 function teleport_newmap
 change_map current.stats.karma at current.tag
 end
+
+##
+##  Leave hell from conversations with Jesus
+##
+
+function teleport_fromhell
+change_map 2 tag 616
+end

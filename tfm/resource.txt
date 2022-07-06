@@ -803,6 +803,8 @@ section: sprites
 	potion_empty		sprites/potion_e.cel
 	potion_black		sprites/potion_k.cel
 	potion_purple		sprites/potion_p.cel
+	potion_holy		sprites/potion_h.png
+	potion_unholy		sprites/potion_u.png
 
 	stone_arch_broken_h	sprites/stbrokeh.cel
 	stone_arch_broken_v	sprites/stbrokev.cel
@@ -1806,7 +1808,8 @@ section: sprites
 	secretdoor09		sprites/secret09.cel
 	secretdoor10		sprites/secret10.cel
 	secretdoor11		sprites/secret11.cel
-	font1			sprites/font1.cel
+	font1			sprites/font1.png
+	font2			sprites/font2.png
 	poorbox1		sprites/poorbox1.cel
 	poorbox2		sprites/poorbox2.cel
 	pillar1			sprites/pillar1.cel
@@ -7416,6 +7419,8 @@ section: sequences
 	quickname POTION_MAGENTA POTION_MAGENTA
 	quickname POTION_WHITE POTION_WHITE
 	quickname POTION_BLUE POTION_BLUE
+	quickname POTION_HOLY
+	quickname POTION_UNHOLY
 
 	name STONEARCHH_BROKEN
 	post_overlay
@@ -8594,7 +8599,8 @@ section: sequences
 		SECRETDOOR10
 	end
 
-	quickname FONT1 FONT1
+	quickname FONT1
+	quickname FONT2
 	quickname POORBOX1 POORBOX1
 	quickname POORBOX2 POORBOX2
 	quickname PILLAR1 PILLAR1

@@ -612,3 +612,12 @@ while ctr < 16
 printcr
 let key = 0
 end
+
+
+# This is too long to go in the Personal Name
+function sign_temple
+print msg_ItReads
+printcr
+print sign_Temple
+printcr
+end

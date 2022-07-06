@@ -407,6 +407,31 @@ end
 
 
 ##
+##  Spawn quest-related object (e.g. empty potion bottles)
+##
+
+function spawn_questobject
+object o
+
+# Is the egg clear?
+if_exists me.next
+	# No, don't create the object
+	return
+endif
+
+if_not_exists me.pocket
+	print "error: spawn object is empty|"
+	return
+endif
+
+# Create the pepper
+create o = me.pocket.name
+transfer_object o to me.x me.y
+
+end
+
+
+##
 ##  Decide whether the egg should be hatched
 ##
 

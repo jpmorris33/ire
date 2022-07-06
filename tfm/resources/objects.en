@@ -3946,6 +3946,11 @@ section: characters
 	contains	sheep
 	radius		16
 
+	alias EGG_QUESTOBJECT = EGG_OBJECT
+	description	"Item spawn spot"
+	ifused		spawn_questobject
+	strength	100
+
 
 	name TABLEPLATE
 	frame		TARGET
@@ -4055,13 +4060,14 @@ section: characters
 	short		"purple potion"
 
 	alias POTION_HOLYWATER = POTION_EMPTY
-	frame		POTION_BLUE
+	frame		POTION_HOLY
 	strength	100
 	weight		350
 	description	"You see a flask of holy water"
 	short		"holy water"
 
 	alias POTION_UNHOLYWATER = POTION_HOLYWATER
+	frame		POTION_UNHOLY
 	description	"You see a bottle of unholy water."
 	short		"unholy water"
 
@@ -6986,6 +6992,7 @@ section: characters
 	ifused		give_holywater
 
 	alias FONT2 = FONT1
+	frame		FONT2
 	description	"You see an ominous-looking font."
 	ifused		give_unholywater
 

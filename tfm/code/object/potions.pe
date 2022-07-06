@@ -86,6 +86,7 @@ if p is called "potion_holywater"
 endif
 
 if p is called "potion_unholywater"
+	# Don't cross the streams
 	if current is called "potion_holywater"
 	or current is called "font1"
 		let victim = p
@@ -104,11 +105,24 @@ if p is called "potion_unholywater"
 
 endif
 
+# Fill bottle from font
+if p is called "potion_empty"
+	if current is called "font1"
+		replace p = "potion_holywater"
+		return
+	endif
+	if current is called "font2"
+		replace p = "potion_unholywater"
+		return
+	endif
+endif
+
 
 # Make sure the destination is a person
 if_not_flag current IS_PERSON
+	replace p = "potion_empty"
 	if me = player
-		print msg_DontKnowWhatToDo
+		print msg_NoEffect
 		printcr
 	endif
 	return
@@ -527,16 +541,24 @@ end
 
 function give_holywater
 	object hw
-	create hw = "potion_holywater"
-	let hw.stats.owner = me
-	transfer_to_pocket hw to me
+	find hw = "potion_empty" inside me
+	if_exists hw
+		replace hw = "potion_holywater"
+	else
+		print msg_EmptyPotion
+		printcr
+	endif
 end
 
 function give_unholywater
 	object hw
-	create hw = "potion_unholywater"
-	let hw.stats.owner = me
-	transfer_to_pocket hw to me
+	find hw = "potion_empty" inside me
+	if_exists hw
+		replace hw = "potion_unholywater"
+	else
+		print msg_EmptyPotion
+		printcr
+	endif
 end
 
 ##
@@ -544,16 +566,33 @@ end
 ##
 
 function holywater_explosion
-        lightning 50
+	# Create an invisible object for the halo to centre on
+	object focus
+	create focus = "target"
+	transfer_object focus to current.x current.y
+
+        lightning 25
         play_sound "boom"
         let player.stats.hp = -1000
         check_hurt player
 #        set_flag current IS_INVISIBLE = 1
+
+	let victim.stats.hp = -1
+	let current.stats.hp = -1
+	check_hurt victim
+	check_hurt current
+
         let me = current
         let me.stats.damage = 1000
         call explode_quiet
+	# Current has probably changed from the explosion
 
-        let current.user.user18 = 48
-        let current.user.user17 = 2
-        startfx current does fx_whitecorona
+        let focus.user.user18 = 96
+        let focus.user.user17 = 8
+        startfx focus does fx_whitecorona
+
+	wait 4000 NONBLOCKING
+	# End the world, even if the player used a patsy
+	restart_game
+
 end

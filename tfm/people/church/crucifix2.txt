@@ -1,0 +1,80 @@
+Special crucifix for Hell
+
+[page="start"]
+[esc=disabled]
+[if hear_truth][goto="HT_hell"]
+[if crucifix_reprogrammed][goto="V2_hell"]
+[image="crucifix3.png"]
+
+"You have offended the LORD and must spend an eternity
+ in Hell.  Enjoy the fruits of your sins."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="HT_hell"]
+[esc=disabled]
+[image="crucifix1.png"]
+
+"Program violation."
+
+[link="I want to leave Hell."]
+[linkto="HT_exit_hell"]
+[link="Goodbye."]
+[linkto="HT_hell_no"]
+[endpage]
+
+[page="HT_exit_hell"]
+[at_exit_call="teleport_fromhell"]
+[image="crucifix1.png"]
+
+"Chaining teleportation program.  Please wait."
+
+[nextpage="exit"]
+[endpage]
+
+[page="HT_hell_no"]
+[image="crucifix1.png"]
+
+"Program violation."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="V2_hell"]
+[esc="V2_hell_no"]
+[image="crucifix2.png"]
+
+"Welcome to the House of God, my child.
+ Know that my name is forgiveness, and I offer salvation,
+ even though you may have sinned against the LORD.
+
+ Do you wish to leave this place?"
+
+[link="Yes, please."]
+[linkto="V2_hell_yes"]
+[link="No thanks."]
+[linkto="V2_hell_no"]
+[endpage]
+
+[page="V2_hell_no"]
+[image="crucifix2.png"]
+
+"You are always welcome in the House of God.
+ Should you wish salvation, I shall be here for you."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="V2_hell_yes"]
+[at_exit_call="teleport_fromhell"]
+[image="crucifix2.png"]
+
+"Go forth, and sin no more!"
+
+[nextpage="exit"]
+[endpage]

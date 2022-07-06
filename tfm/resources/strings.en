@@ -17,9 +17,12 @@ quickname msg_Cancelled			cancelled
 quickname msg_ItReads			It reads:
 quickname msg_CannotUseThat		You can't use that.
 quickname msg_CannotCarryThem		You can't carry them.
-quickname msg_CannotCarryIt		You can't carry it.
+quickname msg_CannotCarryIt		You can't carry that.
 quickname msg_WontFit			It won't go in!
+quickname msg_EmptyPotion		You need an empty potion bottle.
+quickname msg_NoEffect			Nothing happens.
 
 quickname sign_WelcomeToHell		Welcome to Hell!|Population: lots
 quickname sign_Dirk			Dirk Barron and the terror of the reanimated jelly babies
 quickname sign_DeadlyForce		USE OF DEADLY FORCE IS AUTHORISED IN THIS AREA
+quickname sign_Temple			Temple of Sin - Please give generously
