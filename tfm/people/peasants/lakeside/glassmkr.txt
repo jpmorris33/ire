@@ -118,6 +118,7 @@ You see $NAME, the glassmaker.
 [page="buy_wineglass"]
 [take 3 gold_coins]
 [if false][goto="no_money"]
+[call="money_sound"]
 [create 1 wineglass]
 
 "Thankyou, friend.  Here is your glassware.
@@ -146,6 +147,7 @@ You see $NAME, the glassmaker.
 [page="buy_jar"]
 [take 2 gold_coins]
 [if false][goto="no_money"]
+[call="money_sound"]
 [create 1 jar_empty]
 
 "Thankyou, friend.  Here is your item.
@@ -174,6 +176,7 @@ You see $NAME, the glassmaker.
 [page="buy_potion"]
 [take 10 gold_coins]
 [if false][goto="no_money"]
+[call="money_sound"]
 [create 1 potion_empty]
 
 "Thankyou, friend.  Here is your item.
@@ -202,6 +205,7 @@ You see $NAME, the glassmaker.
 [page="buy_orb"]
 [take 250 gold_coins]
 [if false][goto="no_money"]
+[call="money_sound"]
 [create 1 orb]
 
 "Thankyou, friend.  Here is your item.
@@ -265,6 +269,7 @@ You see $NAME, the glassmaker.
 
 [page="buy_sword3"]
 [create 1 crystal_sword]
+[call="money_sound"]
 
 "Here is the weapon.  I entreat that you endeavour to
  remember two important things:

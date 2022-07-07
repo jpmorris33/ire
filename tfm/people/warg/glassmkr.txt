@@ -1,0 +1,180 @@
+[page="start"]
+[call="check_collar"]
+[if true][goto="start1"]
+[goto="no_collar"]
+[endpage]
+
+
+[page="no_collar"]
+[colour="#808080"]
+You see a female wolf-like creature.  She tenses up and
+then bounds away screaming.
+[colour="#ffffff"]
+
+"Aaaahhh!  Invaders!"
+
+[on_exit_call="flee_home"]
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
+[page="start1"]
+[colour="#808080"]
+You see a female wolf-like creature.  She tenses for a
+moment but relaxes upon seeing your collar.
+[colour="#ffffff"]
+
+"Good morrow, human.  Do you seek glassware?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="I would like to buy glassware."]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+[page="who"]
+[learn_name]
+
+"I am SnowTail, the glass-blower.
+ If you have need of my services, you have only to ask."
+
+[link="What services do you offer?"]
+[linkto="buy"]
+[link="Goodbye."]
+[linkto="exit"]
+[endpage]
+
+
+[page="buy"]
+[learn_name]
+
+"I am a glass-blower.  I make bowls for eating from,
+ and potion bottles for the apothecar and court mage.
+ I can also make other items such as jars which we
+ trade with the human folk on occasion.
+
+ I have heard one of their main glassmakers has
+ been arrested, so trade has been more brisk than
+ usual.
+
+ Potion bottles are 5 gold coins, jars are 6, and
+ bowls are 3 gold coins each."
+
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy a bowl."]
+[linkto="buy_bowl"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_jar"]
+[take 6 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 jar_empty]
+
+"Thank you.  Here is your item.
+ Do you require anything else?"
+
+[link="I would like to buy another jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy a bowl."]
+[linkto="buy_bowl"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_potion"]
+[take 5 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 potion_empty]
+
+"Thank you.  Here is your item.
+ Do you require anything else?"
+
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy another potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy a bowl."]
+[linkto="buy_bowl"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="buy_bowl"]
+[take 3 gold_coins]
+[if false][goto="no_money"]
+[call="money_sound"]
+[create 1 bowl]
+
+"Thank you.  Here is your item.
+ Do you require anything else?"
+
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy another bowl."]
+[linkto="buy_bowl"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="no_money"]
+
+"I fear you have not the coin for that.
+
+ Is there anything else you would like?"
+
+[link="I would like to buy a jar."]
+[linkto="buy_jar"]
+[always]
+[link="I would like to buy a potion bottle."]
+[linkto="buy_potion"]
+[always]
+[link="I would like to buy a bowl."]
+[linkto="buy_bowl"]
+[always]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
+
+[page="bye"]
+
+"Fare well, traveller."
+
+[nextpage="exit"]
+[endpage]

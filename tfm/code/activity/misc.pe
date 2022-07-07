@@ -51,3 +51,23 @@ endif
 let current = me
 call me.funcs.user2
 end
+
+
+##
+##	If the NPC (typically a Waarg) is scared, make them run home
+##
+
+function flee_home
+object p
+
+pathmarker p = current.label.location near current
+if_exists p
+	start_action current does seek_target_sit to p
+else
+	print ">>> did not find location for "
+	print current.label.location
+	print "."
+	printcr
+endif
+
+end

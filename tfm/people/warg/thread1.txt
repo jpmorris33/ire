@@ -16,7 +16,7 @@ paw.  He looks at you nervously, but relaxes somewhat
 upon seeing your collar.
 [colour="#ffffff"]
 
-"Good day, sir.  We do not get many humans in these
+"Good day, $sir.  We do not get many humans in these
  parts.  Do you require something?"
 
 [link="Who are you?"]
@@ -172,6 +172,7 @@ upon seeing your collar.
 [take 12 gold_coins]
 [if false][goto="buyrope3"]
 [create 1 rope00]
+[call="money_sound"]
 [colour="#808080"]
 He deftly takes out a small pouch from his backpack,
 and opens it out for you, watching intently as each coin
@@ -237,6 +238,7 @@ You stoop to pick it up.
 [take 4 gold_coins]
 [if false][goto="buythread3"]
 [create 1 thread00]
+[call="money_sound"]
 [colour="#808080"]
 He deftly takes out a small pouch from his backpack,
 and opens it out for you, watching intently as each coin

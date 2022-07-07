@@ -137,6 +137,7 @@
  He disppears into the store room, and comes back,
  rolling the barrel across the ground.
 [colour="#ffffff"]
+[call="money_sound"]
 [create 1 gunpowder]
 
 [link="I'd like to buy some more dust."]
