@@ -14377,6 +14377,7 @@ section: scripts
 	code/activity/stdonald.pe
 	code/activity/dryfish.pe
 #	code/activity/market/dairy.pe
+	code/activity/market/glassmaker.pe
 	code/combat/attack.pe
 	code/combat/loadweap.pe
 	code/combat/misc.pe

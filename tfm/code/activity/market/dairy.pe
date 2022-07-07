@@ -16,16 +16,14 @@ activity
 
 # Check we've got something to do, otherwise think of something
 if_not_exist me.target
-	print "Error in milkmarket code|"
-	print "Character must point to a target for the first tag|"
-	call milkmarket_panic
+	let me.user.user2 = 0
+	start_action me does npc_error
 	return
 endif
 
 if me.target.tag = 0
-	print "Error in milkmarket code|"
-	print "Character's target has no tag!!|"
-	call milkmarket_panic
+	let me.user.user2 = 0
+	start_action me does npc_error
 	return
 endif
 
@@ -52,12 +50,8 @@ let num = me.target.tag + 1
 fast_tag milkpoint1 = num near me
 
 if_not_exist milkpoint1
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint1 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -66,12 +60,8 @@ let num = me.target.tag + 4
 fast_tag milkpoint2 = num near me
 
 if_not_exist milkpoint2
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint2 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -106,12 +96,8 @@ let num = me.target.tag + 5
 fast_tag cheesepoint1 = num near me
 
 if_not_exist cheesepoint1
-	print "Error in milkmarket code|"
-	print "Cannot find cheesepoint1 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -119,12 +105,8 @@ let num = me.target.tag + 7
 fast_tag cheesepoint2 = num near me
 
 if_not_exist cheesepoint2
-	print "Error in milkmarket code|"
-	print "Cannot find cheesepoint2 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -132,12 +114,8 @@ let num = me.target.tag + 8
 fast_tag cheesepoint3 = num near me
 
 if_not_exist cheesepoint3
-	print "Error in milkmarket code|"
-	print "Cannot find cheesepoint2 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -175,12 +153,8 @@ let num = me.target.tag + 6
 fast_tag cheesepoint = num near me
 
 if_not_exist cheesepoint
-	print "Error in milkmarket code|"
-	print "Cannot find cheese slices point [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -209,12 +183,8 @@ let num = me.target.tag + 2
 fast_tag butterpoint1 = num near me
 
 if_not_exist butterpoint1
-	print "Error in milkmarket code|"
-	print "Cannot find butterpoint1 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -223,12 +193,8 @@ let num = me.target.tag + 3
 fast_tag butterpoint2 = num near me
 
 if_not_exist butterpoint2
-	print "Error in milkmarket code|"
-	print "Cannot find butterpoint2 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -425,16 +391,14 @@ activity
 
 # Check we've got something to do, otherwise think of something
 if_not_exist me.target
-	print "Error in milkmarket_cleanup code|"
-	print "Character must point to a target for the first tag|"
-	call milkmarket_panic
+	let me.user.user2 = 0
+	start_action me does npc_error
 	return
 endif
 
 if me.target.tag = 0
-	print "Error in milkmarket_cleanup code|"
-	print "Character's target has no tag!!|"
-	call milkmarket_panic
+	let me.user.user2 = 0
+	start_action me does npc_error
 	return
 endif
 
@@ -460,12 +424,8 @@ let num = me.target.tag + 1
 fast_tag point1 = num near me
 
 if_not_exist point1
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint1 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -474,12 +434,8 @@ let num = me.target.tag + 2
 fast_tag point2 = num near me
 
 if_not_exist point2
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint2 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -488,11 +444,8 @@ let num = me.target.tag + 3
 fast_tag point3 = num near me
 
 if_not_exist point3
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint2 [tag "
-	print num
-	print "]"
-	printcr
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -532,12 +485,8 @@ let num = me.target.tag + 4
 fast_tag point1 = num near me
 
 if_not_exist point1
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint4 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -546,12 +495,8 @@ let num = me.target.tag + 5
 fast_tag point2 = num near me
 
 if_not_exist point2
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint5 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -560,12 +505,8 @@ let num = me.target.tag + 6
 fast_tag point3 = num near me
 
 if_not_exist point3
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint6 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -603,12 +544,8 @@ let num = me.target.tag + 7
 fast_tag point1 = num near me
 
 if_not_exist point1
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint7 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -617,12 +554,8 @@ let num = me.target.tag + 8
 fast_tag point2 = num near me
 
 if_not_exist point2
-	print "Error in milkmarket code|"
-	print "Cannot find milkpoint8 [tag "
-	print num
-	print "]"
-	printcr
-	call milkmarket_panic
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -651,14 +584,3 @@ call milkmarket_KillAllMilkProducts
 resume_action me
 end
 
-
-##
-##  Panic - go to bed
-##
-
-function milkmarket_panic
-stop_action me
-#queue_action me does go_to_location to me.target
-#queue_action me does go_to_sleep to me.target
-#resume_action me
-end

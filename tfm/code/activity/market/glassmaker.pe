@@ -1,0 +1,231 @@
+########################
+#                      #
+#  Glassmaker working  #
+#                      #
+########################
+
+##
+##  Public entry point
+##
+
+function glassmaker
+activity
+
+queue_action me does go_to_location to me.target
+queue_action me does glassmaker_core to me.target
+run_queue me
+
+end
+
+
+##
+##	Startup code
+##
+
+function glassmaker_core
+private
+
+integer num
+object BellowsPoint
+object ForgePoint
+object TroughPoint
+object TablePoint
+object SandPoint
+
+# Check we've got something to do, otherwise think of something to do
+
+if me.user.user2 = 0	# Are we running or waiting to be primed?
+
+	if_not_exist me.target
+		let me.user.user2 = 0
+		start_action me does npc_error
+		return
+	endif
+
+	# Get the object to find
+	let me.user.user2 = me.target.tag
+
+endif
+
+# Find bellows point
+let num = me.target.tag + 1
+fast_tag BellowsPoint = num near me
+
+if_not_exist BellowsPoint
+	let me.user.user2 = num
+	start_action me does npc_error
+	return
+endif
+
+
+# Find forge point
+let num = me.target.tag + 2
+fast_tag ForgePoint = num near me
+
+if_not_exist ForgePoint
+	let me.user.user2 = num
+	start_action me does npc_error
+	return
+endif
+
+# Find trough point
+let num = me.target.tag + 3
+fast_tag TroughPoint = num near me
+
+if_not_exist TroughPoint
+	let me.user.user2 = num
+	start_action me does npc_error
+	return
+endif
+
+# Find table point
+let num = me.target.tag + 4
+fast_tag TablePoint = num near me
+
+if_not_exist TablePoint
+	let me.user.user2 = num
+	start_action me does npc_error
+	return
+endif
+
+# Find sand point
+let num = me.target.tag + 5
+fast_tag SandPoint = num near me
+
+if_not_exist SandPoint
+	let me.user.user2 = num
+	start_action me does npc_error
+	return
+endif
+
+
+# Now we have a base target number, start the procedure
+# The relative object tags are:
+#
+# +0 - base (overlooking work area)
+# +1 - Bellows point (facing bellows)
+# +2 - Forge point (facing forge)
+# +3 - Trough point (facing trough)
+# +4 - Table point (facing table to add/remove glassware)
+# +5 - Sand point (facing sand store)
+
+queue_action me does glassmaker_DoSomething to SandPoint
+queue_action me does glassmaker_UseBellows to BellowsPoint
+queue_action me does glassmaker_DoSomething to ForgePoint
+queue_action me does glassmaker_DoSomething to TroughPoint
+queue_action me does glassmaker_AddRemove to TablePoint
+queue_action me does glassmaker_core to me.target # Round again
+run_queue me
+
+end
+
+
+
+##
+##  Use the bellows
+##
+
+function glassmaker_UseBellows
+private
+object bellowspoint
+object bellows
+int newx
+
+let bellowspoint = me.target
+
+# Keep going until we find it
+move_towards me bellowspoint
+if err <> PATH_FINISHED
+	return
+endif
+
+# If we're here, we found it
+set_direction me facing bellowspoint.curdir
+
+# Bellows should always be to the right of the spot
+let newx = me.x + 1
+
+get_object bellows = newx me.y
+if_exists bellows
+	let current = bellows
+	call bellows.funcs.use
+endif
+
+# Finish and go to next step
+resume_action me
+
+end
+
+
+
+##
+##  Go to a point, and stand there for a bit as if doing something
+##
+
+function glassmaker_DoSomething
+private
+object dest
+int wait
+
+let dest = me.target
+
+# Keep going until we find it
+move_towards me dest
+if err <> PATH_FINISHED
+	return
+endif
+
+
+# Face it
+force_direction me faces dest.curdir
+
+# Wait for a bit
+random wait between 0 9
+if wait <> 1
+	return
+endif
+
+# OK, done
+resume_action me
+end
+
+
+##
+##  Go to a point, and add/remove an empty potion bottle
+##
+
+function glassmaker_AddRemove
+private
+object dest
+
+let dest = me.target
+
+# Keep going until we find it
+move_towards me dest
+if err <> PATH_FINISHED
+	return
+endif
+
+force_direction me faces dest.curdir
+
+let current = me
+call get_ahead
+get_object dest at new_x new_y
+
+if dest is called "potion_*"
+	destroy dest
+	resume_action me
+	return
+endif
+
+if dest is called "table*"
+	create dest = "potion_empty"
+	transfer_object dest to new_x new_y
+	move_to_top dest
+	let dest.stats.owner = me	# Mine!
+endif
+
+
+# OK, done
+resume_action me
+end

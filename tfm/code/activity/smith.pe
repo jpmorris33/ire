@@ -55,13 +55,8 @@ let num = me.target.tag + 1
 fast_tag IronPoint = num near me
 
 if_not_exist IronPoint
-/*
-	print "Error in blacksmith code|"
-	print "Cannot find iron drop-off point [tag "
-	print num
-	print "]"
-	printcr
-*/
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -70,13 +65,8 @@ let num = me.target.tag + 2
 fast_tag HammerPoint = num near me
 
 if_not_exist HammerPoint
-/*
-	print "Error in blacksmith code|"
-	print "Cannot find hammer drop-off point [tag "
-	print num
-	print "]"
-	printcr
-*/
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -85,13 +75,8 @@ let num = me.target.tag + 3
 fast_tag AnvilPoint = num near me
 
 if_not_exist AnvilPoint
-/*
-	print "Error in blacksmith code|"
-	print "Cannot find anvil point (player faces anvil) [tag "
-	print num
-	print "]"
-	printcr
-*/
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -100,13 +85,8 @@ let num = me.target.tag + 4
 fast_tag BellowsPoint = num near me
 
 if_not_exist BellowsPoint
-/*
-	print "Error in blacksmith code|"
-	print "Cannot find bellows point (player uses bellows) [tag "
-	print num
-	print "]"
-	printcr
-*/
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -501,13 +481,8 @@ let num = me.target.tag + 1
 fast_tag IronPoint = num near me
 
 if_not_exist IronPoint
-/*
-	print "Error in waargsmith code|"
-	print "Cannot find iron drop-off point [tag "
-	print num
-	print "]"
-	printcr
-*/
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 
@@ -516,13 +491,8 @@ let num = me.target.tag + 2
 fast_tag AnvilPoint = num near me
 
 if_not_exist AnvilPoint
-/*
-	print "Error in waargsmith code|"
-	print "Cannot find anvil point (player faces anvil) [tag "
-	print num
-	print "]"
-	printcr
-*/
+	let me.user.user2 = num
+	start_action me does npc_error
 	return
 endif
 

@@ -71,3 +71,13 @@ else
 endif
 
 end
+
+##
+##	Error state for failed NPC activities.  user2 will be the tag we failed to find.gg
+##
+
+function npc_error
+private
+activity
+	return
+end
