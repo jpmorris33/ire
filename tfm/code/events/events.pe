@@ -142,6 +142,7 @@ end
 function plot_newbedevere
 
 integer i
+object obj
 
 get_user_flag i = "broke_out_bedevere"
 if i = 0
@@ -152,6 +153,14 @@ endif
 # Transfer Bedevere and all his personal effects to the workshop
 #move_tag -24 to -30 490 (Mawdor)
 move_tag -24 to -339 -164
+
+# Reboot his brain
+find_tag obj = "MAN_OLD_GLASSMAKER" 24
+if_exists obj
+	set_flag obj NO_SCHEDULE = 0
+	stop_action obj
+	resume_action obj
+endif
 
 # And destroy the trigger so it doesn't happen twice and throw him into the sea
 destroy current

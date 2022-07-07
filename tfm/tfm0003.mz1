@@ -10323,7 +10323,7 @@ iMZ1r01
 
 	object STAIabda5113-1cba-4619-b6b1-2aa56131c96e
 		type STAIRS_DOWN
-		at 482 175
+		at 481 175
 		curdir 0
 		tag 74
 
@@ -10481,7 +10481,7 @@ iMZ1r01
 
 	object TARG226649ff-df23-497b-afcb-3f65ee565ec0
 		type TARGET
-		at 482 176
+		at 481 176
 		curdir 1
 		tag 75
 
@@ -10489,6 +10489,12 @@ iMZ1r01
 		type FORGE_COLD
 		at 484 176
 		curdir 3
+
+	object TARG130f3661-1542-43ed-9998-d767ae31950c
+		type TARGET
+		at 486 176
+		curdir 0
+		tag 80133
 
 	object STONbea3620c-44e9-432b-b1be-acd9adb34f49
 		type STONE_ARCHWAY2
@@ -10574,6 +10580,38 @@ iMZ1r01
 
 	decorative MOUNT03 at 986 176
 
+	object TABL5f19e4a4-cc18-4f21-8f6d-96df2306b5e5
+		type TABLE6-V
+		at 481 177
+		curdir 0
+
+	object ORB_f68e52b1-4220-4ea9-98e3-6b72c01b6a7b
+		type ORB
+		at 481 177
+		curdir 1
+
+	object TABL5631a91e-a8b4-4a39-8ac5-f8acf5c46ba6
+		type TABLE-SHADOW2
+		at 482 177
+		curdir 3
+
+	object TABLff7896c4-14c9-4c88-ba71-c0bc64f8e6c1
+		type TABLE5-LEGS
+		at 482 177
+		curdir 3
+
+	object TARGa3793edb-81ef-484a-b26f-1af2072f6638
+		type TARGET
+		at 482 177
+		curdir 3
+		tag 80131
+
+	object TARG03723ac1-128a-4325-8c89-6b1a2ab8d2c2
+		type TARGET
+		at 487 177
+		curdir 2
+		tag 80130
+
 	object STONff3e6960-6055-42c7-8ec3-327161507c85
 		type STONE_ARCHWAY2
 		at 488 177
@@ -10648,6 +10686,33 @@ iMZ1r01
 	decorative MOUNT11 at 986 177
 
 	decorative TREE02 at 468 178
+
+	object TABL7fff9c6c-334b-41c6-8ed5-43f7c44f28ea
+		type TABLE6-V
+		at 481 178
+		curdir 2
+
+	object TABL16445941-38e4-4193-95f4-d0a62c37af44
+		type TABLE-SHADOW1
+		at 482 178
+		curdir 2
+
+	object TABLf9dc8462-d8a6-430d-81b0-5e5b93246182
+		type TABLE5-LEGS
+		at 482 178
+		curdir 3
+
+	object TARG3ba02b66-b92b-4059-b7bf-ee5dbc673662
+		type TARGET
+		at 482 178
+		curdir 2
+		tag 80134
+
+	object TARGa6b308e8-8a66-4851-b155-66d6ce76bba1
+		type TARGET
+		at 484 178
+		curdir 0
+		tag 80132
 
 	object STON22db4c3e-6c17-466a-a0e2-05ec301d0fe1
 		type STONE_ARCHWAY
@@ -10815,6 +10880,17 @@ iMZ1r01
 		at 470 182
 		curdir 0
 		tag 43
+
+	object TARG5c16a097-0ddd-4ba8-ab6a-cb65ac378bc4
+		type TARGET
+		at 486 182
+		curdir 2
+		tag 80135
+
+	object STON877bfe2b-de47-4f23-9783-f84cec3e3972
+		type STONEDOOR1_SHUT
+		at 487 182
+		curdir 2
 
 	decorative MOUNT08 at 796 182
 
@@ -23054,6 +23130,13 @@ iMZ1r01
 		at 630 329
 		curdir 3
 
+	object MIRR7bfa2cc7-9dc1-4e5d-8cea-6666556ff61c
+		type MIRROR2
+		at 823 329
+		curdir 0
+		tag 24
+		activity MIRROR2
+
 	decorative MOUNT10 at 905 329
 
 	decorative MOUNT02 at 906 329
@@ -23149,6 +23232,7 @@ iMZ1r01
 		at 825 330
 		curdir 0
 		tag 24
+		labels->location Glassmaker
 		stats->owner MAN_96d1c998-9ebf-497e-b023-8ce5056becb6
 
 	decorative MOUNT10 at 906 330
@@ -23297,6 +23381,12 @@ iMZ1r01
 		name Beldevere
 		tag 24
 		funcs->talk people/peasants/lakeside/glassmkr.txt
+		schedule 8 0 GLASSMAKER TARG03723ac1-128a-4325-8c89-6b1a2ab8d2c2
+		schedule 12 0 EAT_AT_HOME TARG05e24a2b-b6f1-4bb0-a32a-4db7aa851c33
+		schedule 13 0 GLASSMAKER TARG03723ac1-128a-4325-8c89-6b1a2ab8d2c2
+		schedule 17 0 EAT_AT_HOME TARG05e24a2b-b6f1-4bb0-a32a-4db7aa851c33
+		schedule 18 0 SIT_AT_LOCATION TARGd630898b-9af0-4d44-b1a1-333cbd518ffa
+		schedule 22 0 GO_TO_SLEEP BED_dd4ba25a-9b4a-435f-ae89-c1e28c2de4b9
 
 	decorative MOUNT10 at 907 332
 
@@ -23359,6 +23449,17 @@ iMZ1r01
 		at 656 333
 		curdir 3
 
+	object TARGd630898b-9af0-4d44-b1a1-333cbd518ffa
+		type TARGET
+		at 822 333
+		curdir 2
+		labels->location Glassmaker
+
+	object CHAI04f08e4d-4ccc-4a97-b6d2-3a7a523d503f
+		type CHAIR
+		at 822 333
+		curdir 3
+
 	decorative MOUNT04 at 909 333
 
 	decorative MOUNT05 at 914 333
@@ -23412,6 +23513,13 @@ iMZ1r01
 	decorative TREE01 at 612 334
 
 	decorative TREE01 at 620 334
+
+	object TARG05e24a2b-b6f1-4bb0-a32a-4db7aa851c33
+		type TARGET
+		at 824 334
+		curdir 1
+		tag 24
+		labels->location Glassmaker
 
 	object CHAIc50e9728-ba5b-43b9-813e-50e5b87181a7
 		type CHAIR
@@ -23860,6 +23968,12 @@ iMZ1r01
 
 	decorative TREE00 at 642 339
 
+	object TROU8a1433b2-2fd3-4ec6-93bb-8fb19ba0b757
+		type TROUGH
+		at 825 339
+		curdir 1
+		tag 24
+
 	decorative MOUNT04 at 913 339
 
 	object CAND67a3ec7c-b68e-4a03-855b-eb619c681411
@@ -23926,6 +24040,12 @@ iMZ1r01
 		type EGG_OBJECT(TODE)
 		at 661 340
 		curdir 3
+
+	object FORG1e706cca-6490-4331-8798-82bf893273df
+		type FORGE
+		at 823 340
+		curdir 0
+		tag 24
 
 	object TODEfce34da0-a76c-48f5-81ea-2832fab30b73
 		type TODE
@@ -24049,15 +24169,9 @@ iMZ1r01
 
 	decorative TREE01 at 639 342
 
-	object ORB_652da7bb-cbda-4536-96b9-bead124db207
-		type ORB
-		at 821 342
-		curdir 0
-		tag 24
-
-	object ORB_d0a486d9-4ff1-4632-b992-905587dbd865
-		type ORB
-		at 822 342
+	object POTIf916b9be-41b8-4ae8-8e6b-ef1647e9b91f
+		type POTION_EMPTY
+		at 820 342
 		curdir 0
 		tag 24
 
@@ -64708,6 +64822,12 @@ iMZ1r01
 		curdir 0
 		funcs->use ENABLE_AIRTRAVEL
 
+	object PLAQ456e8f75-1eaf-4015-90e9-ad1888d8ce0a
+		type PLAQUE_STONE2
+		at 988 655
+		curdir 0
+		name Air travel
+
 	decorative TREE01 at 615 656
 
 	decorative TREE03 at 618 656
@@ -65029,6 +65149,18 @@ iMZ1r01
 	decorative TREE03 at 935 657
 
 	decorative TREE00 at 937 657
+
+	object LEVE5a8f478e-75dd-485d-ba60-8ad25158a0d1
+		type LEVER2
+		at 987 657
+		curdir 0
+		funcs->use PLOT_BREAKOUTBEDEVERE2
+
+	object PLAQ3dc546cb-992f-48ca-9a23-5a5521e682f5
+		type PLAQUE_STONE2
+		at 988 657
+		curdir 0
+		name Glassmaker
 
 	object MOBI892fd626-d932-4ba4-a3ef-50dcc3884ef1
 		type MOBILE
