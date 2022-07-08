@@ -2164,6 +2164,23 @@ for(ctr=start;ctr<=finish;ctr++)
 			continue;
 			}
 
+		if(!istricmp(Rptr,"sanctuary")) {
+			// This object is a barrier impassible by 'unclean' creatures
+			character->engineflags |= ENGINE_SANCTUARY;
+			continue;
+		}
+
+		if(!istricmp(Rptr,"unclean")) {
+			// This object is unclean and cannot pass a 'sanctuary' object
+			character->engineflags |= ENGINE_UNCLEAN;
+			continue;
+		}
+		if(!istricmp(Rptr,"cant_enter_sanctuary")) {
+			// This object is unclean and cannot pass a 'sanctuary' object
+			character->engineflags |= ENGINE_UNCLEAN;
+			continue;
+		}
+
 		// Get the character's speech file
 
 		if(!istricmp(Rptr,"Conversation"))

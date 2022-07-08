@@ -366,6 +366,8 @@ typedef struct ST_ITEM
 #define ENGINE_ISLARGE		0x00000040	// Bigger than one tile?
 #define ENGINE_FORCESMALL	0x00000080	// Manual override to force a large object to be a single tile
 #define ENGINE_ISABSTRACT	0x00000100	// Can the object be instantiated?
+#define ENGINE_SANCTUARY	0x00000200	// Does it block 'evil' things?
+#define ENGINE_UNCLEAN		0x00000400	// Blocked by the Sanctuary tile
 
 typedef struct FUNCS            // This is called when you...
 {

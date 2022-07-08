@@ -94,6 +94,7 @@ enum {
 	PEVM_GetFirstObject,
 	PEVM_GetTile,
 	PEVM_GetTileCost,
+	PEVM_GetTileCostFor,
 	PEVM_GetObjectBelow,
 	PEVM_GetBridge,
 	PEVM_ChangeObject,

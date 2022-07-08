@@ -317,7 +317,7 @@ for(cx=MAPSIZE-1;cx>0;cx--) {
 		ty = cy+vsy;
 
 		// Get an initial opinion of the cost (and whether it's solid)
-		pfmap[cx][cy] = (double)GetTileCost(tx,ty);
+		pfmap[cx][cy] = (double)GetTileCost(tx,ty,start);
 
 		if(GetBridge(tx,ty)) {
 			pfmap[cx][cy] = PF_BRIDGE;

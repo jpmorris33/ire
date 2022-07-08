@@ -51,7 +51,7 @@ extern void SetDarkness(int d);
 extern char *BestName(OBJECT *o);
 extern OBJECT *GameGetObject(int x,int y);
 extern TILE *GetTile(int x,int y);
-extern int GetTileCost(int x,int y);
+extern int GetTileCost(int x,int y,OBJECT *npc);
 extern void MoveToTop(OBJECT *o);
 extern void MoveToFloor(OBJECT *o);
 extern void InsertAfter(OBJECT *dest, OBJECT *o);
@@ -222,6 +222,7 @@ static void PV_GetSolidObject();
 static void PV_GetFirstObject();
 static void PV_GetTile();
 static void PV_GetTileCost();
+static void PV_GetTileCostFor();
 static void PV_GetObjectBelow();
 static void PV_GetBridge();
 static void PV_ChangeObject();
@@ -1287,6 +1288,7 @@ VMOP(GetSolidObject);
 VMOP(GetFirstObject);
 VMOP(GetTile);
 VMOP(GetTileCost);
+VMOP(GetTileCostFor);
 VMOP(GetObjectBelow);
 VMOP(GetBridge);
 VMOP(ChangeObject);
@@ -3618,7 +3620,23 @@ CHECK_POINTER(x);
 y = GET_INT();
 CHECK_POINTER(y);
 
-*cost = GetTileCost(*x,*y);
+*cost = GetTileCost(*x,*y,NULL);
+}
+
+void PV_GetTileCostFor()
+{
+VMINT *x,*y, *cost;
+OBJECT **obj;
+cost = GET_INT();
+CHECK_POINTER(cost);
+x = GET_INT();
+CHECK_POINTER(x);
+y = GET_INT();
+CHECK_POINTER(y);
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+
+*cost = GetTileCost(*x,*y,*obj);
 }
 
 void PV_GetObjectBelow()

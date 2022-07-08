@@ -10922,6 +10922,7 @@ section: characters
 	solid
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 	Conversation	PEOPLE/CREATURE/GOLEM.TXT
 	race		undead
 
@@ -10960,6 +10961,7 @@ section: characters
 	translucent
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 	race		undead
 
 	name JUICYJELLYMONSTER
@@ -10980,6 +10982,7 @@ section: characters
 	translucent
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 
 	name UNDEAD_SKELETON
 	left		SKELETON_L
@@ -11002,6 +11005,7 @@ section: characters
 	solid
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 	race		undead
 
 	name UNDEAD_SKELETON_DEAD
@@ -11038,6 +11042,7 @@ section: characters
 	solid
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 	race		undead
 
 	name HEADLESS_DEAD
@@ -11071,6 +11076,7 @@ section: characters
 	Attack		close_attack
 	solid
 	wont_shut_doors
+	cant_enter_sanctuary
 	biological
 	person
 	race		devil
@@ -11354,6 +11360,7 @@ section: characters
 	contains	toadstone
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 	biological
 	horrific
 	range		8
@@ -11476,6 +11483,7 @@ section: characters
 	contains	FOODP00
 	wont_shut_doors
 	wont_open_doors
+	cant_enter_sanctuary
 	biological
 	person
 	horrific
@@ -13341,6 +13349,10 @@ section: characters
 	hidden
 	cost		-1
 	fixed
+
+	alias BARRIER_SANCTUARY = BARRIER_NOENTRY
+	cost		0
+	sanctuary
 
 	name kfs_sign
 	left		kfs_sign

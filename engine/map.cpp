@@ -241,7 +241,7 @@ return 0;
  *      GetTileCost - return movement cost for the tile at x,y
  */
 
-int GetTileCost(int x,int y)
+int GetTileCost(int x,int y, OBJECT *npc)
 {
 TILE *t;
 OBJECT *temp;
@@ -265,6 +265,13 @@ for(temp=GetObject(x,y);temp;temp=temp->next) {
 	// Negative costs are impassable
 	if(temp->cost < 0) {
 		return -1;
+	}
+	// Check for conditional barrier
+	// Barriers can be conditional
+	if(npc && (temp->engineflags & ENGINE_SANCTUARY)) {
+		if(npc->engineflags & ENGINE_UNCLEAN) {
+			return -1;
+		}
 	}
 }
 
