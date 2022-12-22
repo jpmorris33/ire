@@ -154,7 +154,7 @@ endif
 label do_move
 
 centre around current
-get_cost cost = x y
+get_cost cost = x y for current
 if cost < 100
 and cost >= 0
 	move_object current to x y
@@ -211,7 +211,7 @@ if y > ey
 endif
 
 centre around current
-get_cost cost = x y
+get_cost cost = x y for current
 if cost < 100
 	move_object current to x y
 endif

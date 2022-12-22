@@ -483,6 +483,326 @@ iMZ1r01
 		at 276 73
 		curdir 1
 
+	object WALL2605a16d-18aa-401d-badd-cdc69bab520e
+		type WALL_EDGE
+		at 325 128
+		curdir 0
+
+	object TOASebbb90ea-8776-4332-a0b3-6d86565a5228
+		type TOASTER
+		at 303 129
+		curdir 1
+
+	object TOASf704a433-2c10-436f-a958-1f6af5e2cacd
+		type TOASTER
+		at 303 129
+		curdir 0
+
+	object TOASd916ffa1-12e3-483d-b0fa-12e4095b02e4
+		type TOASTER
+		at 304 129
+		curdir 1
+
+	object TOAS5156e4d3-6c99-4b03-908b-28435fe24333
+		type TOASTER
+		at 305 129
+		curdir 3
+
+	object TOAS4911bac3-22cd-42fe-8b29-f025bbfe5af3
+		type TOASTER
+		at 308 129
+		curdir 1
+
+	object STAI2df861f5-1a81-45b1-b6ef-34677647cc68
+		type STAIRS_DOWN_NOTSOLID
+		at 309 129
+		curdir 0
+		tag 4
+
+	object ORGAf5c00671-2873-42ed-9e64-7c0b54eb2e78
+		type ORGAN_KEYBOARD
+		at 319 129
+		curdir 3
+
+	object SALT265fc6ba-b6f5-4d3f-9be0-d9e3f978e9c8
+		type SALT_SHAKER
+		at 320 129
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object BED_f34e1a15-30f8-4b24-9dcd-d13c781311f7
+		type BED_COVERED
+		at 323 129
+		curdir 3
+
+	object STUF7996ef37-b2ba-40bc-842d-6cb60f8b6085
+		type STUFF
+		at 303 130
+		curdir 1
+
+	object SALTa6a9d5d8-c23c-44fb-96ad-360a0a65a052
+		type SALT_SHAKER
+		at 303 130
+		curdir 1
+
+	object TOAS1fbaeb85-5880-4d5d-aa5d-bcc41069e332
+		type TOASTER
+		at 307 130
+		curdir 0
+
+	object TARG4a4212ff-b7f0-42d0-96cd-2f681125630f
+		type TARGET
+		at 309 130
+		curdir 0
+		tag 5
+
+	object CHAI8e71c7d6-8321-41fd-9828-d67f6853fae3
+		type CHAIR
+		at 319 130
+		curdir 0
+
+	object SALT2791a8d7-e0a7-49ab-a1d2-6f57ca292244
+		type SALT_SHAKER
+		at 303 131
+		curdir 0
+
+	object TABL6ca24d0f-bd9d-413a-a748-e50c52ee6ff8
+		type TABLE2-END
+		at 319 131
+		curdir 0
+
+	object SNAC2d5b700a-9d54-47ef-a242-25872137b2c6
+		type SNACK00
+		at 319 131
+		curdir 1
+
+	object SNAC77b3b381-3a7d-46d5-ab79-18a7d339449d
+		type SNACK02
+		at 319 131
+		curdir 2
+
+	object TABLc5df6302-4096-40df-815c-12b3178c58f0
+		type TABLE-SHADOW2
+		at 320 131
+		curdir 2
+
+	object CHAIeba62448-08f1-4214-9138-92653074c015
+		type CHAIR
+		at 323 131
+		curdir 1
+
+	object STUFc52ba395-a90d-4b9d-881c-b3d450a94368
+		type STUFF
+		at 303 132
+		curdir 1
+
+	object TABL684fc486-fd5e-4b6e-9adf-55baac5cc9f1
+		type TABLE2-EDGES
+		at 319 132
+		curdir 2
+
+	object LP_D266a1680-30f4-456a-8b6d-d86ef9833fbd
+		type LP_DECK
+		at 319 132
+		curdir 3
+
+	object TABL8441d4d8-d762-4600-bc33-75faaf1b9ef1
+		type TABLE-SHADOW1
+		at 320 132
+		curdir 2
+
+	object CHAI61ce8219-dbe3-4ac6-991b-23b47e321584
+		type CHAIR
+		at 320 132
+		curdir 2
+
+	object TABLafed436f-1a04-40b0-a900-987f3af2710b
+		type TABLE7
+		at 323 132
+		curdir 0
+
+	object WINEf75799ae-05e6-437f-a1e6-388dc4b8d615
+		type WINEGLASS
+		at 323 132
+		curdir 0
+
+	object COCA349fd06e-3c68-43da-8359-94ed73831c16
+		type COCAINE_COLA
+		at 323 132
+		curdir 1
+
+	object STONc2d2047c-93f7-44cf-b53b-8b0e417f31f8
+		type STONEDOOR2_SHUT
+		at 306 133
+		curdir 1
+		name Store room - No Entry
+
+	object TABL89315483-88c5-4312-b41c-10c77c6faaa1
+		type TABLE2-EDGES
+		at 319 133
+		curdir 2
+
+	object ALBUa91e3f09-686a-4184-a509-8c2eef0d6d8f
+		type ALBUM_13TH
+		at 319 133
+		curdir 3
+
+	object ALBUa7c1a908-48a7-4ca4-af0d-b4a0b20d984c
+		type ALBUM_FLOYD
+		at 319 133
+		curdir 3
+
+	object TABLd2a518a1-73a3-412d-a934-803619abc1ce
+		type TABLE-SHADOW1
+		at 320 133
+		curdir 2
+
+	object STON526d9b48-4438-4272-b78e-5319610040b2
+		type STONEDOOR1_SHUT
+		at 321 134
+		curdir 0
+
+	object SNAC31de5cef-b1dc-4653-8a30-e45694f7f501
+		type SNACKMACHINE
+		at 304 135
+		curdir 0
+
+	object BOOKab96b390-e424-479e-9925-62e1d05943e3
+		type BOOKSHELF00
+		at 318 135
+		curdir 2
+
+	object PIAN2a72bebd-18cb-4157-b08b-f67953a4dab3
+		type PIANO
+		at 323 135
+		curdir 0
+
+	object DECO2efd2dd4-fb38-4d62-9819-4044f16664aa
+		type DECOR07
+		at 313 136
+		curdir 0
+
+	object DECO54dd30aa-05b9-4f5d-94fa-7ab073a73983
+		type DECOR07
+		at 310 137
+		curdir 2
+
+	object STEP1deee57e-603b-476d-ac37-b429ed120f2a
+		type STEPS01
+		at 312 137
+		curdir 0
+
+	object CAND3c888ac1-56f1-4595-b538-3ec2df7a34af
+		type CANDLESTK
+		at 313 137
+		curdir 2
+
+	object THRO4654d2bc-0e68-474d-95c4-4103a6e72f54
+		type THRONE
+		at 314 137
+		curdir 1
+
+	object SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+		type SATAN
+		at 314 137
+		curdir 1
+		name Satan
+
+	object CARP3c2fa96e-5ae1-4af2-af57-737f076b9e80
+		type CARPET
+		at 315 137
+		curdir 0
+
+	object CAND70701641-4b4e-4d10-b0ee-98610e066df5
+		type CANDLESTK
+		at 315 137
+		curdir 2
+
+	object STEPaa31b174-dda3-4f98-97c2-ab78837745e2
+		type STEPS02
+		at 316 137
+		curdir 0
+
+	object CHAI53213d30-2b73-467e-8edf-fb6e18311f84
+		type CHAIR
+		at 323 137
+		curdir 0
+
+	object STEP5ee96048-b965-4725-8d13-ec871476d811
+		type STEPS01
+		at 312 138
+		curdir 1
+
+	object CARP0bfe34d3-dbba-477d-b1e0-b9064256211f
+		type CARPET2
+		at 315 138
+		curdir 0
+
+	object STEP975ee827-33f4-4a34-97d1-80737ac78b50
+		type STEPS02
+		at 316 138
+		curdir 2
+
+	object BOOKe9158df6-20cb-4001-95b6-93341596a68e
+		type BOOKSHELF00
+		at 318 138
+		curdir 3
+
+	object STEPab350527-c2ae-4430-9ba1-32cea5fb4e4e
+		type STEPS01
+		at 312 139
+		curdir 2
+
+	object STEP05821dda-c6b9-4e91-82d4-d4addc3d34c8
+		type STEPS01
+		at 313 139
+		curdir 3
+
+	object CARP1ca91142-ca66-48e4-ba3a-1fffab2e7307
+		type CARPET
+		at 313 139
+		curdir 1
+
+	object STEPd4da3ea6-bd76-4476-bf54-b696d2c5c62f
+		type STEPS01
+		at 315 139
+		curdir 3
+
+	object CARP44253438-b9c0-4406-a4a7-c1982303cee1
+		type CARPET
+		at 315 139
+		curdir 2
+
+	object STEP31804c22-7e59-473a-8720-f22a5d8c5165
+		type STEPS02
+		at 316 139
+		curdir 1
+
+	object CARP3de5ec3c-b7b7-4f42-bd8a-738fac11ac65
+		type CARPET
+		at 313 140
+		curdir 3
+
+	object DECOfbbbf961-e2ef-499c-a67d-ced073f7b4ca
+		type DECOR07
+		at 310 141
+		curdir 2
+
+	object CARPa13e5284-4758-406a-b14c-4f2064742236
+		type CARPET
+		at 313 141
+		curdir 3
+
+	object CARPbb905bdf-3f6b-4128-8992-274f73ed0d6e
+		type CARPET
+		at 313 142
+		curdir 3
+
+	object CARPec5d8d1a-4700-496d-bb6e-596062e69a4a
+		type CARPET2
+		at 313 143
+		curdir 2
+
 	object STON9f945f8e-04d2-4480-a0f6-dff5d88b8e97
 		type STONEFLOOR10
 		at 444 143
@@ -553,6 +873,31 @@ iMZ1r01
 		at 457 144
 		curdir 3
 
+	object DECO3c34ae48-ab51-4691-b47f-161fd8d551bb
+		type DECOR07
+		at 311 145
+		curdir 0
+
+	object STON190d8e63-691e-4cb2-893e-9dd4cb383de7
+		type STONE_ARCHWAY
+		at 313 145
+		curdir 2
+
+	object STON640035ed-3fc5-4277-8d2f-fa507a4dc53b
+		type STONE_ARCHWAY2
+		at 314 145
+		curdir 0
+
+	object STON4b5c8593-f645-4df8-aab2-f339b56a98b4
+		type STONE_ARCHWAY
+		at 315 145
+		curdir 3
+
+	object DECOd22a7a06-34b9-4ead-925b-de5d658b004c
+		type DECOR07
+		at 316 145
+		curdir 0
+
 	object STONeaf53971-e6ed-458a-b8a8-d0b87220d087
 		type STONEFLOOR10
 		at 436 145
@@ -582,6 +927,12 @@ iMZ1r01
 		type STONEFLOOR10
 		at 459 145
 		curdir 3
+
+	object POOR9c7fe1c2-e1b1-4be5-8b9e-bd5cf93fb403
+		type POORBOX
+		at 311 146
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
 
 	object STONba8c7ec3-09af-46d2-a6c4-d6c0b4f4952a
 		type STONEFLOOR10
@@ -642,6 +993,21 @@ iMZ1r01
 		type STONEFLOOR10
 		at 462 147
 		curdir 3
+
+	object STONc6937cdb-46c5-4171-9822-cd077c2511b9
+		type STONEDOOR1_SHUT
+		at 310 148
+		curdir 2
+
+	object FONT6fa37994-2088-4891-97b4-4720b1c5b638
+		type FONT2
+		at 314 148
+		curdir 1
+
+	object STON42e9993d-3e14-4603-81fc-3fd94cb84f0e
+		type STONEDOOR1_SHUT
+		at 318 148
+		curdir 2
 
 	object STONf26410ea-98f0-4b4c-9e2d-2597aab2ade5
 		type STONEFLOOR10
@@ -843,6 +1209,46 @@ iMZ1r01
 		at 459 150
 		curdir 3
 
+	object WALL1fb79b47-e51f-4bdc-be07-7f089b211ab1
+		type WALL_EDGE
+		at 302 151
+		curdir 2
+
+	object DECOdeeb49ec-2d62-45b9-a455-61eb43056d24
+		type DECOR07
+		at 310 151
+		curdir 0
+
+	object STONccb8f245-a7e0-4d6a-a6ca-04ef67291e2f
+		type STONE_ARCHWAY
+		at 312 151
+		curdir 2
+
+	object STON392c0645-1e33-4b3d-ad56-0d2cd8b13b3b
+		type STONE_ARCHWAY2
+		at 313 151
+		curdir 0
+
+	object STON02dc7014-b8bf-4ff3-8fab-22bace15cc2f
+		type STONE_ARCHWAY2
+		at 314 151
+		curdir 0
+
+	object STONd838acf1-41e5-4ef3-b3f9-0924ffeebf4a
+		type STONE_ARCHWAY2
+		at 315 151
+		curdir 0
+
+	object STONc3d41f3e-ba2d-44cd-9311-9e2ff4a8cbbf
+		type STONE_ARCHWAY
+		at 316 151
+		curdir 3
+
+	object DECO01670edc-f5b2-4ee0-9687-b70906c7014e
+		type DECOR07
+		at 317 151
+		curdir 0
+
 	object STONf82a8729-807b-4c64-aaf1-791277444565
 		type STONEFLOOR14
 		at 435 151
@@ -898,6 +1304,28 @@ iMZ1r01
 		at 467 151
 		curdir 3
 
+	object FENCc85fef66-dc04-4cc8-8324-d19b4d3b7a5e
+		type FENCE_END
+		at 312 152
+		curdir 0
+
+	object SIGN45b9a11d-172c-4764-bba0-2943c6637248
+		type SIGN02
+		at 313 152
+		curdir 1
+		name Palace of Evil - Wipe your feet
+
+	object SIGN67f06ab1-005b-4039-bb04-5ae37a1398b7
+		type SIGN02
+		at 316 152
+		curdir 1
+		name Palace of Evil - Wipe your feet
+
+	object FENC77540502-c37e-43d4-9a79-31a2f5799e69
+		type FENCE_END
+		at 317 152
+		curdir 0
+
 	object STON225f9a8b-519d-4e8b-9e51-2e30d0ef11c1
 		type STONEFLOOR10
 		at 427 152
@@ -938,6 +1366,16 @@ iMZ1r01
 		at 463 152
 		curdir 3
 
+	object FENC7da0b46c-324a-4f37-905e-ab929ea900d0
+		type FENCE
+		at 312 153
+		curdir 2
+
+	object FENC625d7e5d-d22b-46d7-a82e-ff171659c682
+		type FENCE
+		at 317 153
+		curdir 2
+
 	object STONbb95985d-3a44-438d-92fa-1fb8f5c33956
 		type STONEFLOOR14
 		at 432 153
@@ -976,6 +1414,16 @@ iMZ1r01
 		type STONEFLOOR10
 		at 468 153
 		curdir 3
+
+	object FENC4c216508-275a-4876-b255-fe13c42bf397
+		type FENCE
+		at 312 154
+		curdir 2
+
+	object FENC507d67ea-046f-4217-873d-ea651c52be74
+		type FENCE
+		at 317 154
+		curdir 2
 
 	object STON8d887d49-bcd0-46bc-b424-f9bf33442f0f
 		type STONEFLOOR10
@@ -1021,6 +1469,16 @@ iMZ1r01
 		at 464 154
 		curdir 3
 
+	object FENC63dcc26e-8dae-4dfc-acfa-748bb600d444
+		type FENCE
+		at 312 155
+		curdir 2
+
+	object FENC85fa80da-559a-43d6-86d1-b4715fa2e4e0
+		type FENCE
+		at 317 155
+		curdir 2
+
 	object STON7dc909e0-7f44-4d23-8fca-cf1411cdedcf
 		type STONEFLOOR18
 		at 431 155
@@ -1060,6 +1518,16 @@ iMZ1r01
 	object STON686814e3-f479-4056-97d1-94cb71e05ce4
 		type STONEFLOOR18
 		at 464 155
+		curdir 2
+
+	object FENC70076379-ede6-477a-9525-b8e50741d1d5
+		type FENCE
+		at 312 156
+		curdir 2
+
+	object FENC25d0b7f1-a7d2-4e58-b98b-b611a9d91076
+		type FENCE
+		at 317 156
 		curdir 2
 
 	object STON3c5cee88-c5b6-4a42-a865-d6d7596a0a2a
@@ -1137,6 +1605,16 @@ iMZ1r01
 		at 469 156
 		curdir 3
 
+	object FENC6787d9ca-bbd2-4560-8a41-85b89c885a17
+		type FENCE
+		at 312 157
+		curdir 2
+
+	object FENCe567eefd-906e-4ff2-a80e-1f1b21d48537
+		type FENCE
+		at 317 157
+		curdir 2
+
 	object STONc87b826d-d883-4878-bbab-d0aebc666fe6
 		type STONEFLOOR10
 		at 387 157
@@ -1185,6 +1663,29 @@ iMZ1r01
 	object STON594b1aae-2237-426d-a96f-572a54a989d3
 		type STONEFLOOR18
 		at 465 157
+		curdir 2
+
+	object FENC4578981b-105c-4e2d-b401-8dfd99c15637
+		type FENCE
+		at 312 158
+		curdir 2
+
+	object DECO8491e007-2ae5-4d08-a39a-890b13d88751
+		type DECOR08
+		at 314 158
+		curdir 0
+		tag 7
+		funcs->use TELEPORT_PRESSPARTY
+
+	object TARGc32fe934-f1da-4944-9b48-1059e194858a
+		type TARGET
+		at 314 158
+		curdir 0
+		tag 6
+
+	object FENCb0f770f1-718b-4fac-a9e4-acbe9b1a481a
+		type FENCE
+		at 317 158
 		curdir 2
 
 	object STON57c4c3cc-0ef1-44ac-a32c-47838abe1092
@@ -1263,6 +1764,16 @@ iMZ1r01
 		type STONEFLOOR14
 		at 465 158
 		curdir 1
+
+	object FENC2f542dbd-c00b-4a4f-8239-4a7f56ca8c33
+		type FENCE
+		at 312 159
+		curdir 2
+
+	object FENC51c03cd3-53f8-4d9f-812d-be03bd99dcce
+		type FENCE
+		at 317 159
+		curdir 2
 
 	object STON597c2815-31ce-4448-971e-35d0627444b9
 		type STONEFLOOR10
@@ -1355,6 +1866,16 @@ iMZ1r01
 		at 469 159
 		curdir 1
 
+	object FENCc1ec6609-3a88-4ca0-8993-425a6eef4ed5
+		type FENCE
+		at 312 160
+		curdir 2
+
+	object FENC1f20dbf6-fb06-40cb-adf4-a1f92e1beba8
+		type FENCE
+		at 317 160
+		curdir 2
+
 	object STON8d611b1f-b36b-4c45-b8ab-520f9beceb1a
 		type STONEFLOOR14
 		at 388 160
@@ -1424,6 +1945,36 @@ iMZ1r01
 	object STON50a9e3d1-4b49-4cc1-8207-f96460d35b99
 		type STONEFLOOR14
 		at 464 160
+		curdir 1
+
+	object FENCd868f80a-b671-41e4-8d32-ae8c9139eef1
+		type FENCE_CORNER
+		at 312 161
+		curdir 0
+
+	object FENCc75a29ff-5b98-4796-9b63-29055e2aeebe
+		type FENCE
+		at 313 161
+		curdir 0
+
+	object FENCffc50151-5318-4645-bcd8-932a85ff3325
+		type FENCE
+		at 314 161
+		curdir 0
+
+	object FENC95d0d05a-cf7b-4fd2-9b73-67bd251301fa
+		type FENCE
+		at 315 161
+		curdir 0
+
+	object FENC7414c4d0-bad8-45d5-891b-697c839da04d
+		type FENCE
+		at 316 161
+		curdir 0
+
+	object FENCb1f659f2-0ffd-4db7-a476-59d95e109d93
+		type FENCE_CORNER
+		at 317 161
 		curdir 1
 
 	object STONb334f7e4-f6f6-4fe9-8565-fae57291b133
@@ -4914,18 +5465,18 @@ iMZ1r01
 		at 206 209
 		curdir 1
 
-	object BARR9037e4c0-5a9e-4c40-b58a-93fe6efaa5b6
-		type BARRIER_NOENTRY
+	object BARR7e764fd4-7279-4dba-81f0-398e76063207
+		type BARRIER_SANCTUARY
 		at 242 209
 		curdir 0
 
-	object BARR877a63ac-582d-4090-84b4-3faf16e45494
-		type BARRIER_NOENTRY
+	object BARR9447dc29-6194-47eb-a899-1af993148720
+		type BARRIER_SANCTUARY
 		at 243 209
 		curdir 0
 
-	object BARRea335816-b95a-4ef0-99d2-d24af82ba959
-		type BARRIER_NOENTRY
+	object BARRff61f6f3-14dc-4108-a1a5-df034948acce
+		type BARRIER_SANCTUARY
 		at 244 209
 		curdir 0
 
@@ -7666,6 +8217,19 @@ iMZ1r01
 		at 428 222
 		curdir 2
 
+	object TARG404603a2-3f85-46a2-8176-a9f0b0cf0304
+		type TARGET
+		at 431 222
+		curdir 0
+		tag 7
+
+	object DECO11dfaece-690b-4efb-bd6a-55fbbfd15f89
+		type DECOR08
+		at 432 222
+		curdir 0
+		tag 6
+		funcs->use TELEPORT_PRESSPARTY
+
 	object STON5d5bbacf-041a-4ffc-909c-6310391bf683
 		type STONEFLOOR10
 		at 435 222
@@ -8513,33 +9077,33 @@ iMZ1r01
 		at 224 227
 		curdir 3
 
-	object BARR354aa231-c2b4-416d-9734-2e35964f17d5
-		type BARRIER_NOENTRY
+	object BARR9a27fcfc-32e1-4164-bf20-7890f86106fa
+		type BARRIER_SANCTUARY
 		at 237 227
 		curdir 0
 
-	object BARR4bf030d0-58a7-40a1-ad45-d04ea6584bf9
-		type BARRIER_NOENTRY
+	object BARR3fb415ab-3973-47ec-8f27-7b6dcfad71ca
+		type BARRIER_SANCTUARY
 		at 238 227
 		curdir 0
 
-	object BARRae4960cc-24a9-40d1-860a-dc07471de1cc
-		type BARRIER_NOENTRY
+	object BARR99200daf-80e7-4113-aabd-8de0fabcc861
+		type BARRIER_SANCTUARY
 		at 239 227
 		curdir 0
 
-	object BARR044d4da7-8f0b-41b5-a4cc-002a28dee1cd
-		type BARRIER_NOENTRY
+	object BARRdc136008-5f82-4fb4-bdbc-36a3932be033
+		type BARRIER_SANCTUARY
 		at 240 227
 		curdir 0
 
-	object BARR87d6a32c-923e-47a0-a377-99c11359a3e0
-		type BARRIER_NOENTRY
+	object BARR1d0a6c00-1ae5-42b7-856a-505402bcfe04
+		type BARRIER_SANCTUARY
 		at 241 227
 		curdir 0
 
-	object BARRa9e048db-d3de-46f1-af0f-5e6a01bb638d
-		type BARRIER_NOENTRY
+	object BARRbd412c3c-283b-4d22-b8fc-0cc684e431f6
+		type BARRIER_SANCTUARY
 		at 242 227
 		curdir 0
 
@@ -12521,29 +13085,34 @@ iMZ1r01
 		at 400 248
 		curdir 0
 
-	object BARR8b7e7065-11d1-41a6-8d21-5aa1fc1b3e38
-		type BARRIER_NOENTRY
+	object BARR0182c4f5-45a1-4171-9168-2a49e767489f
+		type BARRIER_SANCTUARY
 		at 401 248
 		curdir 0
 
-	object BARR12a622b1-c704-47d6-b2d7-97f4fd36fe78
-		type BARRIER_NOENTRY
+	object BARR0352c145-3ae7-4519-bc9f-38382b60a216
+		type BARRIER_SANCTUARY
 		at 402 248
 		curdir 0
 
-	object BARRd7f201d4-04d2-49ca-bdf2-6c6863c0795b
-		type BARRIER_NOENTRY
+	object BARRf06be956-fad8-4c34-96a5-f7abd5c09377
+		type BARRIER_SANCTUARY
 		at 403 248
 		curdir 0
 
-	object BARR03eec673-570d-4008-8570-16ecbef6bd90
-		type BARRIER_NOENTRY
+	object BARR6288e8c0-a8d1-4f59-8480-6479a191f743
+		type BARRIER_SANCTUARY
 		at 404 248
 		curdir 0
 
-	object BARR1078eb27-e846-469e-baf4-a970400e93bf
-		type BARRIER_NOENTRY
+	object BARR70d607f5-a357-4ba9-9425-8ccbc153a329
+		type BARRIER_SANCTUARY
 		at 405 248
+		curdir 0
+
+	object BARR4546b7d3-6631-434c-b445-992269f6543b
+		type BARRIER_SANCTUARY
+		at 406 248
 		curdir 0
 
 	object LIGH1e595647-94c8-45b2-a886-37b509f2600b
@@ -14281,6 +14850,18 @@ iMZ1r01
 		at 346 273
 		curdir 3
 
+	object MEMOd6cceca1-81e6-46b8-ab3f-1ca06c4932aa
+		type MEMO
+		at 383 273
+		curdir 0
+		name New Leuchars victims
+
+	object MEMO4ccc308c-11a2-4657-992b-17d7479af91b
+		type MEMO
+		at 384 273
+		curdir 0
+		name Rebuild the New Leuchars villag
+
 	object STONa6060412-e1c8-4ad2-9c20-9a81ec41ddca
 		type STONEFLOOR18
 		at 432 273
@@ -14325,6 +14906,11 @@ iMZ1r01
 		type STONEFLOOR10
 		at 347 274
 		curdir 3
+
+	object CHIMe2b1f045-2921-4672-b7a4-cfd1d3460375
+		type CHIMNEY1
+		at 400 274
+		curdir 0
 
 	object STON76aae6d7-32ac-4601-a259-a0b8a73c9a3a
 		type STONEFLOOR10
@@ -14411,6 +14997,41 @@ iMZ1r01
 		at 347 276
 		curdir 3
 
+	object FIRE9f4a9700-567c-413f-87df-db0da2dd1e8d
+		type FIRE-A
+		at 400 276
+		curdir 2
+
+	object STON6673faa3-6dae-4708-adeb-b42b18450918
+		type STONE_ARCHWAY
+		at 400 276
+		curdir 2
+
+	object FIREa4d129ca-877c-44b2-b17a-66240365f30d
+		type FIRE-A
+		at 401 276
+		curdir 2
+
+	object STON7ee1a459-a5ef-4b88-baad-a8c517540307
+		type STONE_ARCHWAY2
+		at 401 276
+		curdir 0
+
+	object CAUL8be6c982-da60-4941-a5a3-cf197de60dda
+		type CAULDRON_BROTH
+		at 401 276
+		curdir 3
+
+	object FIRE8a020c18-16a7-4b75-adb9-419a07a91db3
+		type FIRE-A
+		at 402 276
+		curdir 2
+
+	object STON5f35eab8-3ca4-49aa-b9d4-ccf5523fb15f
+		type STONE_ARCHWAY
+		at 402 276
+		curdir 3
+
 	object STONc80de6de-c235-4203-812d-346e087a305c
 		type STONEFLOOR10
 		at 433 276
@@ -14461,6 +15082,51 @@ iMZ1r01
 		at 348 277
 		curdir 3
 
+	object TABL3cc56e3e-b05b-4ab5-b0c7-9a69d38686ac
+		type TABLE6-V
+		at 400 277
+		curdir 0
+
+	object FOOD087b175a-0f81-48a7-ac31-2ce47857c397
+		type FOODP05
+		at 400 277
+		curdir 2
+
+	object TABL6b1f894a-47e4-4d41-ab75-ce7c3615ca40
+		type TABLE-SHADOW2
+		at 401 277
+		curdir 3
+
+	object TABLad601189-e784-4178-99e4-58652ec5066f
+		type TABLE5-LEGS
+		at 401 277
+		curdir 3
+
+	object TABL8ecd00f1-a74d-4391-bac7-47b3e6aa802e
+		type TABLE6-V
+		at 403 277
+		curdir 0
+
+	object PLATf9db2e91-4dda-4438-9f2e-10b7a66242dc
+		type PLATE
+		at 403 277
+		curdir 2
+
+	object FOOD0f99d241-26bb-455d-bb0a-2f4aa9de79b7
+		type FOODP03
+		at 403 277
+		curdir 2
+
+	object TABL4eccaf6e-59cd-4a1c-903e-fa0fd3f6cee4
+		type TABLE1-CORNERS
+		at 406 277
+		curdir 0
+
+	object TABL85d558c5-43ed-4747-adbf-dda26df70859
+		type TABLE1-CORNERS
+		at 407 277
+		curdir 3
+
 	object STON386a45a9-21c4-4749-a5a2-ed904bb0c640
 		type STONEFLOOR18
 		at 434 277
@@ -14490,6 +15156,66 @@ iMZ1r01
 		type STONEFLOOR18
 		at 348 278
 		curdir 3
+
+	object TABLa6cac648-b0c4-4ead-ab23-711b87b929ec
+		type TABLE6-V
+		at 400 278
+		curdir 2
+
+	object TABL2407ff0b-b567-4c82-a874-1d164f945b18
+		type TABLE-SHADOW1
+		at 401 278
+		curdir 3
+
+	object TABL0cb20f64-f8eb-4b1a-905c-4fcdb3da8437
+		type TABLE6-V
+		at 403 278
+		curdir 1
+
+	object TRAY59667b32-0b97-43e9-9a2b-a6fb8d677aee
+		type TRAY_FOOD
+		at 403 278
+		curdir 2
+
+	object FOODaf4c69dd-7777-4c6b-9c91-27c5c16d6918
+		type FOOD12
+		inside FOODc2027269-9205-43ca-884f-c855fec6d39b
+		curdir 0
+
+	object FOODc2027269-9205-43ca-884f-c855fec6d39b
+		type FOOD15
+		at 403 278
+		curdir 2
+
+	object TABLf7e32fa7-3332-4f69-9c69-d173d4d393a6
+		type TABLE1-CORNERS
+		at 406 278
+		curdir 2
+
+	object TABLdd58163e-d161-43f1-9deb-952fe9ea999f
+		type TABLE1-CORNERS
+		at 407 278
+		curdir 1
+
+	object TABLa0bf589f-e7cb-4023-b149-90ce6ed52732
+		type TABLE6-H
+		at 410 278
+		curdir 2
+
+	object TABL8d0fbe31-86f5-4293-8e0a-275cd609c3e2
+		type TABLE6-H
+		at 411 278
+		curdir 0
+
+	object TABLdcb95d4a-9481-408e-9167-12e0a9fe2944
+		type TABLE6-H
+		at 412 278
+		curdir 1
+
+	object TABL8344cdaf-5b3d-4730-8f55-4b3caa9d31b6
+		type TABLE6-H
+		at 413 278
+		curdir 0
 
 	object STONf79455bb-dcf9-41fb-81c7-f3a0afffcbdb
 		type STONEFLOOR10
@@ -14536,6 +15262,76 @@ iMZ1r01
 		at 348 279
 		curdir 1
 
+	object WELL7d30974c-56e1-4953-a73c-2312c7bb78a8
+		type WELL
+		at 375 279
+		curdir 0
+
+	object TABL3ad19ebb-04b2-48e0-90b7-f7002f5ef989
+		type TABLE6-V
+		at 400 279
+		curdir 3
+
+	object SPAT287d4b38-56df-448d-9ab5-da5fad6c03ad
+		type SPATULA
+		at 400 279
+		curdir 2
+
+	object TABL8d5f9410-0602-44e9-98fe-6bee6aa6bcb3
+		type TABLE-SHADOW1
+		at 401 279
+		curdir 3
+
+	object TABL842d46c8-8438-447f-88f5-bcfd08c6d200
+		type TABLE5-LEGS
+		at 401 279
+		curdir 3
+
+	object TABL9ae9654f-cb4a-4e22-bf1e-c6264848aa5f
+		type TABLE-SHADOW2
+		at 403 279
+		curdir 1
+
+	object TABL13cebab7-5bbd-4a8a-866a-871e5dcf9d0b
+		type TABLE5-LEGS
+		at 406 279
+		curdir 0
+
+	object TABL4f324055-5760-4e9f-aae7-0cd929ba4917
+		type TABLE5-LEGS
+		at 407 279
+		curdir 0
+
+	object TABL66db107f-49ab-4439-a2bd-9decfcd2e3e9
+		type TABLE-SHADOW2
+		at 410 279
+		curdir 1
+
+	object TABL207d6bd9-1665-4504-9ab5-848294d7a807
+		type TABLE5-LEGS
+		at 410 279
+		curdir 1
+
+	object TABL05ee39a6-a015-4207-bae6-5998ec7cffe7
+		type TABLE-SHADOW1
+		at 411 279
+		curdir 0
+
+	object TABLc2e531b6-f049-42cf-a371-149dca0e0826
+		type TABLE-SHADOW1
+		at 412 279
+		curdir 0
+
+	object TABLbd21a677-6b79-490a-ba6b-53444dbbcdd6
+		type TABLE-SHADOW1
+		at 413 279
+		curdir 0
+
+	object TABLffbeae55-35f6-41d5-9910-d687f5064b92
+		type TABLE5-LEGS
+		at 413 279
+		curdir 1
+
 	object STON9dd65f43-b59f-4859-ab34-a72e23115304
 		type STONEFLOOR18
 		at 435 279
@@ -14564,6 +15360,31 @@ iMZ1r01
 	object STON61f40126-c9dc-457d-be8c-31f996c5e6d2
 		type STONEFLOOR18
 		at 347 280
+		curdir 3
+
+	object STON4cfaf7bd-812b-4dd6-b401-342ff6d3047e
+		type STONEDOOR1_SHUT
+		at 402 280
+		curdir 0
+
+	object TABL4bbf450a-055c-4ff8-adc0-4fe405d9106a
+		type TABLE1-CORNERS
+		at 409 280
+		curdir 0
+
+	object TABL99a43ed4-a135-43e5-b89f-fc90d782171a
+		type TABLE1-CORNERS
+		at 410 280
+		curdir 3
+
+	object TABL63c2adbf-b311-4f7a-bbe4-c57015dbbdaa
+		type TABLE1-CORNERS
+		at 412 280
+		curdir 0
+
+	object TABL35369a4b-9432-4bd1-aa13-b59b3bf8af27
+		type TABLE1-CORNERS
+		at 413 280
 		curdir 3
 
 	object STON440c4f56-1605-452b-8075-45d6391df06d
@@ -14616,6 +15437,26 @@ iMZ1r01
 		at 347 281
 		curdir 3
 
+	object TABLe7a28243-269e-41a9-b815-355d0d6de3cc
+		type TABLE1-CORNERS
+		at 409 281
+		curdir 2
+
+	object TABL932e3ee5-c8d7-495a-9a6d-1048319e3d5c
+		type TABLE1-CORNERS
+		at 410 281
+		curdir 1
+
+	object TABL1af898b4-1808-49fe-b1f1-392866da6db6
+		type TABLE1-CORNERS
+		at 412 281
+		curdir 2
+
+	object TABL7d1b08e0-e799-432d-88a6-4793bd832413
+		type TABLE1-CORNERS
+		at 413 281
+		curdir 1
+
 	object STONa7c608f7-8031-4ce5-90b7-0588769f10d9
 		type STONEFLOOR18
 		at 435 281
@@ -14650,6 +15491,26 @@ iMZ1r01
 		type STONEFLOOR10
 		at 348 282
 		curdir 3
+
+	object TABL650985aa-9cef-4efa-80c4-c09a4df9df12
+		type TABLE5-LEGS
+		at 409 282
+		curdir 0
+
+	object TABL337ba6f0-6362-4bf4-8751-f2323ecac39e
+		type TABLE5-LEGS
+		at 410 282
+		curdir 0
+
+	object TABL8d14caf0-6bc5-4091-8907-0b59a3c86ff8
+		type TABLE5-LEGS
+		at 412 282
+		curdir 0
+
+	object TABLfb3c4317-29d8-49e9-9e20-523368b9f2e1
+		type TABLE5-LEGS
+		at 413 282
+		curdir 0
 
 	object STONa8c35aba-307c-4566-a876-a4b19ce101e7
 		type STONEFLOOR10
@@ -14686,6 +15547,16 @@ iMZ1r01
 		at 348 283
 		curdir 3
 
+	object SIGNf7390b8e-7d82-4a40-aa07-d128dc667e05
+		type SIGN07
+		at 405 283
+		curdir 0
+
+	object STONcbf62b6f-c0d6-4a67-9dbe-60e5ff54da0f
+		type STONEDOOR1_SHUT
+		at 406 283
+		curdir 0
+
 	object STON15c75775-304b-479e-8e27-d675da3d6388
 		type STONEFLOOR18
 		at 436 283
@@ -14721,12 +15592,6 @@ iMZ1r01
 		at 349 284
 		curdir 3
 
-	object STAI2df861f5-1a81-45b1-b6ef-34677647cc68
-		type STAIRS_DOWN_NOTSOLID
-		at 434 284
-		curdir 0
-		tag 4
-
 	object STONf38822ec-da6e-4607-91e9-f158691cc1e3
 		type STONEFLOOR18
 		at 436 284
@@ -14746,12 +15611,6 @@ iMZ1r01
 		type STONEFLOOR18
 		at 349 285
 		curdir 3
-
-	object TARG4a4212ff-b7f0-42d0-96cd-2f681125630f
-		type TARGET
-		at 434 285
-		curdir 0
-		tag 5
 
 	object STONbf44756c-62d6-4a2d-b74b-8684eee4503f
 		type STONEFLOOR10
@@ -15063,6 +15922,21 @@ iMZ1r01
 		at 356 291
 		curdir 3
 
+	object STOVa805137f-1b30-4f06-9eaa-34ff0dd3f8f4
+		type STOVE
+		at 407 291
+		curdir 1
+
+	object STON98eb5654-34ab-431a-8266-6958cab7e4f4
+		type STONEWINDOW1
+		at 409 291
+		curdir 0
+
+	object STONd07377ad-88af-4c45-b288-fb25a91219b9
+		type STONEWINDOW1
+		at 414 291
+		curdir 0
+
 	object STON8270caf0-01f0-4498-a2d1-987c5fa6bc6a
 		type STONEFLOOR10
 		at 424 291
@@ -15127,6 +16001,22 @@ iMZ1r01
 		type STONEFLOOR10
 		at 357 292
 		curdir 3
+
+	object TABL9fd9e390-f562-4b56-b43d-ce229a930d12
+		type TABLE7
+		at 413 292
+		curdir 1
+
+	object BOOK14315b68-f217-4e83-b047-1fa786e67f46
+		type BOOK_OPEN
+		at 413 292
+		curdir 0
+		funcs->talk /books/church/other/lotr.txt
+
+	object BED_ca270eb5-1b4c-436b-a694-d9730748774d
+		type BED
+		at 416 292
+		curdir 1
 
 	object STON221a2ee6-daa7-4a38-b6c0-bbaa92a0ec3a
 		type STONEFLOOR10
@@ -15197,6 +16087,11 @@ iMZ1r01
 		type STONEFLOOR10
 		at 360 293
 		curdir 3
+
+	object STON6a7d2cf4-dcf0-448b-88e4-64c123e70a70
+		type STONEDOOR1_SHUT
+		at 388 293
+		curdir 2
 
 	object STON309825dc-61cd-44cd-9b0a-a034cd63f054
 		type STONEFLOOR10
@@ -15278,6 +16173,16 @@ iMZ1r01
 		at 363 294
 		curdir 3
 
+	object STON50edf3f9-78b9-42ec-9039-c71dce0d979b
+		type STONEDOOR1_SHUT
+		at 406 294
+		curdir 2
+
+	object STON1f69ffff-cd59-46b3-be84-8ee6c273ef74
+		type STONEDOOR1_SHUT
+		at 412 294
+		curdir 2
+
 	object STONea646b5b-d6ea-4cb6-89bd-5854632e7eac
 		type STONEFLOOR10
 		at 420 294
@@ -15316,6 +16221,21 @@ iMZ1r01
 	object STON8019cfc4-7062-477e-a728-2d1127ac9003
 		type STONEFLOOR10
 		at 366 295
+		curdir 3
+
+	object STON37934b09-5297-46d3-bd02-734e0d1215df
+		type STONEDOOR1_SHUT
+		at 386 295
+		curdir 0
+
+	object SIGNd81c98f6-6c14-410f-b84e-d6746851ca56
+		type SIGN17
+		at 388 295
+		curdir 2
+
+	object STON918574f7-43ff-4d18-ab9c-d999a08dfcea
+		type STONEWINDOW1
+		at 417 295
 		curdir 3
 
 	object STON5d396e13-5a09-4599-b353-ea75912eec0e
@@ -15362,6 +16282,21 @@ iMZ1r01
 		type STONEFLOOR10
 		at 367 296
 		curdir 3
+
+	object CHAIc9fed3b8-3f82-493f-9d3d-305d7e31b3ad
+		type CHAIR
+		at 409 296
+		curdir 1
+
+	object CHAI3c2160f8-3eb5-4c40-be72-9c864b21b902
+		type CHAIR
+		at 411 296
+		curdir 1
+
+	object CHAI9f3c6197-8559-46c0-883b-fb80906170bd
+		type CHAIR
+		at 415 296
+		curdir 1
 
 	object STONb4d2120f-63a1-4d1e-b1c1-94e5c586588c
 		type STONEFLOOR18
@@ -15433,6 +16368,56 @@ iMZ1r01
 		at 367 297
 		curdir 3
 
+	object TABL79002b8d-e4a1-4462-a4f7-b489aa6595f4
+		type TABLE6-H
+		at 407 297
+		curdir 2
+
+	object TABLbea83f0e-ad3c-45f5-a408-fe4b6fb5feae
+		type TABLE6-H
+		at 408 297
+		curdir 0
+
+	object TABL7cf34e7a-6c1e-47ab-8860-cd2575e5714c
+		type TABLE6-H
+		at 409 297
+		curdir 1
+
+	object TABL01a0d2f2-292f-4a23-969f-612df36b3fbf
+		type TABLE6-H
+		at 410 297
+		curdir 0
+
+	object TABL2b70e9ec-58ca-465e-9d78-746e1e217758
+		type TABLE6-H
+		at 411 297
+		curdir 1
+
+	object TABLf3a6ded7-3182-49d1-8885-b986d1e98222
+		type TABLE6-H
+		at 413 297
+		curdir 2
+
+	object TABLbece15e1-b963-4239-a368-c21945cdcd7b
+		type TABLE6-H
+		at 414 297
+		curdir 0
+
+	object TABL92404798-e6d0-4ce8-95e8-1ebd3390b93c
+		type TABLE6-H
+		at 415 297
+		curdir 1
+
+	object PLAT03685e2a-b4a6-46fa-a168-c702ba9efde7
+		type PLATE
+		at 415 297
+		curdir 0
+
+	object TABL7bd3b066-a1f9-4a8e-819b-e88cf00f703d
+		type TABLE6-H
+		at 416 297
+		curdir 0
+
 	object STONfcd6a321-069f-42e9-afbf-80dae32e1c34
 		type STONEFLOOR10
 		at 419 297
@@ -15472,6 +16457,21 @@ iMZ1r01
 		type STONEFLOOR10
 		at 369 298
 		curdir 3
+
+	object STON7b49a353-8067-4d45-a033-1ff5c901a889
+		type STONEDOOR1_SHUT
+		at 399 298
+		curdir 0
+
+	object STONdc26cab8-94a8-43e4-890e-36018e18cb34
+		type STONEWINDOW1
+		at 409 298
+		curdir 0
+
+	object STON2af6636a-4606-4f68-962b-84510511d053
+		type STONEWINDOW1
+		at 414 298
+		curdir 0
 
 	object STONdc7b04b3-315d-497c-8db8-819dd4496f02
 		type STONEFLOOR18

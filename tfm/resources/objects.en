@@ -4454,6 +4454,14 @@ section: characters
 	personalname	"The Book of Justice"
 	conversation	books/misc/justice.txt
 
+	alias BOOK_dvm = BIBLE_OPEN
+	personalname	"De Vermis Mysteriis"
+	conversation	books/church/heretica/dvm.txt
+
+	alias BOOK_necron = BIBLE_OPEN
+	personalname	"The Necronomicon"
+	conversation	books/church/heretica/necron.txt
+
 	name KARMOMETER
 	frame		HALO10
 	hp		0
@@ -6920,6 +6928,7 @@ section: characters
 	weight		-1
 	description	"You see a secret door."
 	short		"wall"
+	IfTriggered	door_close_trigger
 	IfUsed		CLOSEDOORSECRET
 	IfKilled	DoorwaySec
 	fixed

@@ -38,7 +38,7 @@ if me.curdir = UP
 	add y - 1
 endif
 
-get_cost cost = x y
+get_cost cost = x y for me
 if cost < 0
 	let current = me
 	call flip_direction
@@ -102,7 +102,7 @@ if rnd = 4
 	let y = y + 1
 endif
 
-get_cost cost = x y
+get_cost cost = x y for me
 if cost < 0
 	return
 endif

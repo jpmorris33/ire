@@ -10,6 +10,18 @@ iMZ1r01
 		at 2 0
 		curdir 1
 
+	object MEMOf8a477f9-52e1-4509-96f8-793c9c344e94
+		type MEMO
+		at 18 19
+		curdir 0
+		name radioactive place only panthers
+
+	object MEMO1746b969-d1b5-459f-8d30-5dc6fe72b9a0
+		type MEMO
+		at 19 19
+		curdir 0
+		name Can safely pass through
+
 	object PLAY76c55663-7cf0-4942-956c-580408cebb53
 		type PLAYER
 		at 12 20

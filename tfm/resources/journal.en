@@ -370,3 +370,10 @@ title I freed the glassmaker
 start:
 I managed to free the glassmaker from the prison at New Highworth, and he has fled to Scotia.  I may be able to get useful items from him as a result.
 end
+
+
+name jrn_grey_needs_proof
+title King Grey needs proof
+start:
+I found a grey wolf-creature in the dungeons beneath the Holy Land.  He claims to have a decryption key he is withholding from the Trinity, but will not aid me unless I can prove I'm opposed to the Trinity.  He suggested getting a book of black magic from the Evil One as proof, since the Church would not dare to possess such a thing.
+end

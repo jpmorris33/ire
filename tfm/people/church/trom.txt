@@ -47,6 +47,8 @@ Cardinal Trom
 
  What brings you before my presence?"
 
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
 [link="Do you believe all this crap about the Trinity?"]
 [linkto="trinity_cack"]
 [if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
@@ -76,6 +78,8 @@ of intense disappointment.
  For should the LORD tire of His amusements with you,
  I shall be there waiting to end your evil forever!"
 
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
 [if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
 [if obethplot][linkto="obeth"]
 [if know_aaruuff][link="Tell me about Aa'Ruuff."]
@@ -96,6 +100,8 @@ Cardinal Trom scowls at you angrily.
 "Not again!  What do you want now?!
  Why can't you just die like a normal man?!"
  
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
 [if obethplot][link="Lord O'Beth has consulted witches! Is that heresy?"]
 [if obethplot][linkto="obeth"]
 [if know_aaruuff][link="Tell me about Aa'Ruuff."]
@@ -121,6 +127,8 @@ Cardinal Trom scowls at you angrily.
  He must have great need of this Lord O'Beth to grant
  him immortality."
 
+[link="Tell me about the Trinity."]
+[linkto="trinity"]
 [link="Do you believe all this crap about the Trinity?"]
 [linkto="trinity_cack"]
 [if know_aaruuff][link="Tell me about Aa'Ruuff."]
@@ -133,15 +141,57 @@ Cardinal Trom scowls at you angrily.
 
 
 [page="trinity"]
+[if trom_modalism2][goto="modalism3"]
 
 "The Trinity is the Father, the Son and the Holy Ghost..
  everyone knows this."
 
+[link="Are they all parts of God?"]
+[linkto="modalism"]
+[altlinkto="modalism2"]
 [if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]
 [if know_aaruuff][linkto="aaruuff"]
-
 [link="Goodbye."]
 [linkto="bye"]
+[endpage]
+
+
+[page="modalism"]
+[if trom_modalism][goto="modalism2"]
+[set trom_modalism]
+
+"NO!  That is heresy... the sin of modalism!
+ The Father, Son and Holy Ghost are all separate
+ individuals.  The trinity is the sum of them...
+ A ruling council of divine beings.
+
+ Speak not of this again, for you intrude on the LORD's
+ private life, and He does not welcome such impudence.
+ Remember also, the penalty for heresy is... harsh."
+
+[if know_aaruuff][link="Is Aa'Ruuff part of the Trinity?"]
+[if know_aaruuff][linkto="aaruuff"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="modalism2"]
+[esc="disabled"]
+[set trom_modalism2]
+
+"I warned you not to speak such heresies again!
+ Now you shall pay the price!"
+
+[nextpage="heresy"]
+[endpage]
+
+
+[page="modalism3"]
+
+"OUT!  I shall not debate theology with a heretic!"
+
+[nextpage="exit"]
 [endpage]
 
 
@@ -214,6 +264,7 @@ Cardinal Trom scowls at you angrily.
 
 
 [page="trinity_cack"]
+[if trom_modalism2][goto="modalism3"]
 [am_carrying indulgence_plenary]
 [if true][goto="indulgence"]
 [if trom_killed_player][goto="trinity_cack2"]
@@ -238,6 +289,39 @@ fingers once.
 [colour="#808080"]
 The Cardinal looks mildly annoyed, and snaps his
 fingers once.
+[colour="#ffffff"]
+
+[if_player_male]"Guards: Hang this man... again."
+[if_player_female]"Guards: Hang this woman... again."
+
+[call_at_exit="hang_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="heresy"]
+[am_carrying indulgence_plenary]
+[if true][goto="indulgence"]
+[if trom_killed_player][goto="heresy2"]
+[set trom_kills_player]
+
+[colour="#808080"]
+The Cardinal snaps his fingers once.
+[colour="#ffffff"]
+
+[if_player_male]"Guards: Hang this man."
+[if_player_female]"Guards: Hang this woman."
+
+[call_at_exit="hang_player"]
+[nextpage="exit"]
+[endpage]
+
+
+[page="heresy2"]
+[set trom_kills_player]
+
+[colour="#808080"]
+The Cardinal snaps his fingers irritably.
 [colour="#ffffff"]
 
 [if_player_male]"Guards: Hang this man... again."

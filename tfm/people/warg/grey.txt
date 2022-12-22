@@ -8,8 +8,9 @@ give him suitable proof.  But what?
 [page="start"]
 [if freed_grey][goto="main"]
 [if_pflag promisedone][goto="3start"]
+[if_pflag get_proof][goto="1proof2"]
 [call="got_waarg"]
-[if true][goto="3start"]
+[if true][goto="2start"]
 [colour="#808080"]
 You see a large, grey wolf-like creature.
 [colour="#ffffff"]
@@ -212,6 +213,8 @@ You see a large, grey wolf-like creature.
 
 [link="What proof do you need?"]
 [linkto="1proof"]
+[link="I must go now."]
+[linkto="1bye"]
 [endpage]
 
 [page="1notrin"]
@@ -221,6 +224,10 @@ You see a large, grey wolf-like creature.
 
 [link="Tell me how God forget something."]
 [linkto="1name3"]
+[link="I am the Promised One."]
+[linkto="1promised"]
+[link="I must go now."]
+[linkto="1bye"]
 [endpage]
 
 
@@ -234,7 +241,9 @@ You see a large, grey wolf-like creature.
 
 
 
-[page="lproof"]
+[page="1proof"]
+[set grey_needs_proof]
+[journal jrn_grey_needs_proof]
 
 "On occasion I have heard the human guards speak of
  an Adversary, one whom they believe the Betrayer
@@ -249,9 +258,58 @@ You see a large, grey wolf-like creature.
  If you do this, then I shall accept your word
  that you are not one of Aa'Ruuff's lackeys."
 
+[link="Where can I find this Adversary?"]
+[linkto="1proof1a"]
 [link="Tell me how God forget something."]
 [linkto="1name3"]
+[link="I must go now."]
+[linkto="1bye"]
 [endpage]
+
+[page="1proof1a"]
+
+"I have heard that he is worshipped by black
+ grouse in the forest near New Highworth.
+ Perhaps you could find him there.
+
+ Otherwise, it may be that if you sufficiently
+ annoy Aa'Ruuff, he shall send you to the Dark One's
+ domain as punishment.  Though I know now if you
+ would be able to return from there."
+
+[link="Tell me how God forget something."]
+[linkto="1name3"]
+[link="I must go now."]
+[linkto="1bye"]
+[endpage]
+
+If you bring the book unsigned, Grey has his doubts
+unless you have high karma.
+
+It may be that he needs the book to unlock the cell
+so you have to fetch it even if you have a Waarg
+with you in order to free him.
+
+
+[page="1proof2"]
+
+"You have returned.
+ Do you bring proof of your noble intentions?
+ A book of dark magic?"
+
+[link="I haven't found anything yet."]
+[linkto="1name3"]
+[am_carrying "book_necron*"][link="I have the Necronomicon."]
+[am_carrying "book_necron*"][linkto="1proof3"]
+[am_carrying "book_dvm"][link="I have a copy of De Vermis Mysteriis."]
+[am_carrying "book_dvm"][linkto="1proof3"]
+
+[link="Tell me how God forget something."]
+[linkto="1name3"]
+[link="I must go now."]
+[linkto="1bye"]
+[endpage]
+
 
 The Devil suggests the Necronomicon which he's lent to two satanic monks, Brother Karloff and Brother Lugosi.
 If you fetch it, he'll sign it for you, but warns that it's dangerous to read it.  The Waarg should be immune, though,
