@@ -441,8 +441,8 @@ do {
 
 	// Now move all other objects
 	active=ActiveList;
-	aptr=active->ptr;
 	if(active)	{
+		aptr=active->ptr;
 		do {
 			if(profile_actions) {
 				profend = clock();
