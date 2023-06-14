@@ -667,6 +667,29 @@ move_to_top current
 end
 
 
+function faketile2_open
+
+# Open it
+change current = "faketile2_open"
+set_sequence current = "faketile2_opening"
+wait 250 NONBLOCKING
+move_to_bottom current
+
+end
+
+##
+##  Fake tile trapdoor - close it
+##
+
+function faketile2_close
+
+change current = "faketile2"
+set_sequence current = "faketile2_closing"
+move_to_top current
+
+end
+
+
 
 
 

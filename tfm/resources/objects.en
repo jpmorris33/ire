@@ -14254,6 +14254,14 @@ section: characters
 	setactivearea 	H 1 0 1 1
 	setactivearea 	V 1 0 1 1
 
+	alias FAKETILE2 = FAKETILE
+	frame		faketile2_closed
+	ifwielded	faketile2_open
+
+	alias FAKETILE2_OPEN = FAKETILE_OPEN
+	frame		faketile2_open
+	ifwielded	faketile2_close
+
 	name PIPES_00
 	left		pipe10
 	right		pipe10

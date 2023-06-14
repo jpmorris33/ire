@@ -177,7 +177,7 @@ fseek(fileentry->_fp,fileentry->len,SEEK_CUR);
 //
 
 typedef struct {
-const char jugfile[256];
+char jugfile[256];
 char filename[JUG_MAXPATH+1];
 long dataStart;
 long length;

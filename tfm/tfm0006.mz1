@@ -508,6 +508,16 @@ iMZ1r01
 		at 305 129
 		curdir 3
 
+	object POTI9296ffbe-2044-4191-9556-ae156eef5499
+		type POTION_EMPTY
+		at 306 129
+		curdir 2
+
+	object POTI6008fd75-db1f-4617-b8cb-4a43f4549d7b
+		type POTION_EMPTY
+		at 307 129
+		curdir 1
+
 	object TOAS4911bac3-22cd-42fe-8b29-f025bbfe5af3
 		type TOASTER
 		at 308 129
@@ -545,10 +555,21 @@ iMZ1r01
 		at 303 130
 		curdir 1
 
+	object GOLDc6431384-b0cb-4826-97c2-adf18c165f6b
+		type GOLD_COINS
+		at 305 130
+		curdir 0
+		stats->quantity -10000
+
 	object TOAS1fbaeb85-5880-4d5d-aa5d-bcc41069e332
 		type TOASTER
 		at 307 130
 		curdir 0
+
+	object POTIf57fdb14-9863-46ac-8c67-1264be58d766
+		type POTION_EMPTY
+		at 308 130
+		curdir 1
 
 	object TARG4a4212ff-b7f0-42d0-96cd-2f681125630f
 		type TARGET
@@ -595,6 +616,21 @@ iMZ1r01
 		type STUFF
 		at 303 132
 		curdir 1
+
+	object POTIecea8162-64fb-46fe-97b0-b0fc985f7ee9
+		type POTION_UNHOLYWATER
+		at 304 132
+		curdir 2
+
+	object POTI6a4136a5-cb5f-4200-b395-b419ff6187fd
+		type POTION_EMPTY
+		at 308 132
+		curdir 1
+
+	object POTI10b51a38-0d01-4f5f-8262-4fcca1e09e11
+		type POTION_UNHOLYWATER
+		at 309 132
+		curdir 2
 
 	object TABL684fc486-fd5e-4b6e-9adf-55baac5cc9f1
 		type TABLE2-EDGES
@@ -1657,6 +1693,12 @@ iMZ1r01
 		curdir 1
 
 	decorative HUT03 at 450 157
+
+	object MEMO2cafee0a-fe24-4c5c-afad-52a520d08e5e
+		type MEMO
+		at 452 157
+		curdir 0
+		name Sheep herding quest for the wrg
 
 	decorative HUT03 at 456 157
 
@@ -8217,19 +8259,6 @@ iMZ1r01
 		at 428 222
 		curdir 2
 
-	object TARG404603a2-3f85-46a2-8176-a9f0b0cf0304
-		type TARGET
-		at 431 222
-		curdir 0
-		tag 7
-
-	object DECO11dfaece-690b-4efb-bd6a-55fbbfd15f89
-		type DECOR08
-		at 432 222
-		curdir 0
-		tag 6
-		funcs->use TELEPORT_PRESSPARTY
-
 	object STON5d5bbacf-041a-4ffc-909c-6310391bf683
 		type STONEFLOOR10
 		at 435 222
@@ -11660,6 +11689,13 @@ iMZ1r01
 		at 383 241
 		curdir 1
 
+	object TORCacaf336b-a485-40c0-a419-e4ad0df84001
+		type TORCHUNLIT
+		at 402 241
+		curdir 1
+		stats->owner FAKE8a0da681-5984-43b1-b4e9-81da5318000b
+		funcs->use CALLWIELD_OWNER
+
 	object STONc5b91667-8021-4103-baf7-35bed1bc33de
 		type STONEFLOOR18
 		at 441 241
@@ -11845,10 +11881,27 @@ iMZ1r01
 		at 399 242
 		curdir 0
 
+	object PLAQfc888765-e447-4bfc-b3b6-fb9d6b6d6a17
+		type PLAQUE_BRASS
+		at 400 242
+		curdir 2
+		funcs->look SIGN_TEMPLE
+
 	object CARP71d4daf0-d88c-48be-901e-749d3bba3191
 		type CARPET2
 		at 401 242
 		curdir 3
+
+	object GOLDd1e3ae68-09df-41a2-8298-7921a4b1afdb
+		type GOLD_COINS
+		inside POOR00f90f56-0f97-4654-a895-2bf6737e11ea
+		curdir 1
+		stats->quantity 50
+
+	object POOR00f90f56-0f97-4654-a895-2bf6737e11ea
+		type POORBOX
+		at 401 242
+		curdir 1
 
 	object STEPbe7f0304-6b6f-4111-9b3c-a6612af61a75
 		type STEPS01
@@ -11869,6 +11922,21 @@ iMZ1r01
 		type CARPET
 		at 405 242
 		curdir 0
+
+	object LECT625c5698-62b6-4ab4-bf46-fb75359ea7d7
+		type LECTERN
+		at 405 242
+		curdir 1
+
+	object POTI646de0ad-5f64-4a4d-bb75-a4f77fc6bccf
+		type POTION_EMPTY
+		inside EGG_b869cb79-b7af-458b-844b-b11f4114e317
+		curdir 0
+
+	object EGG_b869cb79-b7af-458b-844b-b11f4114e317
+		type EGG_QUESTOBJECT
+		at 405 242
+		curdir 2
 
 	object LIGH5569fbc9-0786-4118-9ea1-bdcfdf6b2df0
 		type LIGHTSOURCE_ULTRA
@@ -12538,15 +12606,15 @@ iMZ1r01
 		at 371 245
 		curdir 1
 
-	object CARP53eb1c62-9c47-4580-943b-a5b273615c94
-		type CARPET
-		at 401 245
-		curdir 3
-
-	object CARP1c7fd034-fa93-4e79-a523-fad28cfe778d
+	object CARP8abbb6ca-094f-46c0-aa66-c770b8f7eabb
 		type CARPET2
+		at 401 245
+		curdir 2
+
+	object CARP91130416-02f8-4251-a0eb-d48c32e7c15c
+		type CARPET3
 		at 405 245
-		curdir 0
+		curdir 1
 
 	object STON490738b5-88d0-44fa-8bd7-da47da7bdf6c
 		type STONEFLOOR10
@@ -12723,47 +12791,22 @@ iMZ1r01
 		at 399 246
 		curdir 0
 
-	object PLAQfc888765-e447-4bfc-b3b6-fb9d6b6d6a17
-		type PLAQUE_BRASS
-		at 400 246
-		curdir 2
-		funcs->look SIGN_TEMPLE
-
-	object CARP8abbb6ca-094f-46c0-aa66-c770b8f7eabb
-		type CARPET2
+	object STAI77f555b2-6de1-417f-8557-1524e897ab4e
+		type STAIRS_DOWN_NOTSOLID
 		at 401 246
 		curdir 2
+		tag 8
 
-	object GOLDd1e3ae68-09df-41a2-8298-7921a4b1afdb
-		type GOLD_COINS
-		inside POOR00f90f56-0f97-4654-a895-2bf6737e11ea
-		curdir 1
-		stats->quantity 50
-
-	object POOR00f90f56-0f97-4654-a895-2bf6737e11ea
-		type POORBOX
+	object FAKE8a0da681-5984-43b1-b4e9-81da5318000b
+		type FAKETILE2
 		at 401 246
-		curdir 1
+		curdir 3
 
-	object CARP91130416-02f8-4251-a0eb-d48c32e7c15c
-		type CARPET3
-		at 405 246
-		curdir 1
-
-	object LECT625c5698-62b6-4ab4-bf46-fb75359ea7d7
-		type LECTERN
-		at 405 246
-		curdir 1
-
-	object POTI646de0ad-5f64-4a4d-bb75-a4f77fc6bccf
-		type POTION_EMPTY
-		inside EGG_b869cb79-b7af-458b-844b-b11f4114e317
-		curdir 0
-
-	object EGG_b869cb79-b7af-458b-844b-b11f4114e317
-		type EGG_QUESTOBJECT
-		at 405 246
+	object TARGc6270911-7dd7-414f-9741-4eb6d124c87c
+		type TARGET
+		at 402 246
 		curdir 2
+		tag 9
 
 	object LIGH16e552d5-af00-484f-b26c-ed333eff546c
 		type LIGHTSOURCE_ULTRA
@@ -18745,4 +18788,47 @@ iMZ1r01
 		at 479 355
 		curdir 0
 		stats->owner LIGHc5fb663e-bb7b-4e8c-857b-276126f011e6
+
+	object LIGH7b9e2ceb-eaa1-4473-b3ef-c394a6c9c5f1
+		type LIGHT_ALWAYS
+		at 451 434
+		curdir 0
+		stats->owner LIGH4bce274c-15ba-49f1-87f8-3e4f9c4e3596
+
+	object STAI7c234b27-cb5d-4fb4-9f7c-04b8b0dcc54e
+		type STAIRS_UP
+		at 452 435
+		curdir 2
+		tag 9
+
+	object STAI6c40260b-9820-4f58-b5e3-e83cd9194317
+		type STAIRS_UP
+		at 452 436
+		curdir 1
+		tag 9
+
+	object TARG68638190-45a6-463c-aa51-da924d175ba2
+		type TARGET
+		at 452 437
+		curdir 0
+		tag 8
+
+	object DECO11dfaece-690b-4efb-bd6a-55fbbfd15f89
+		type DECOR08
+		at 454 437
+		curdir 0
+		tag 6
+		funcs->use TELEPORT_PRESSPARTY
+
+	object TARG404603a2-3f85-46a2-8176-a9f0b0cf0304
+		type TARGET
+		at 454 439
+		curdir 0
+		tag 7
+
+	object LIGH4bce274c-15ba-49f1-87f8-3e4f9c4e3596
+		type LIGHT_END
+		at 458 441
+		curdir 0
+		stats->owner LIGH7b9e2ceb-eaa1-4473-b3ef-c394a6c9c5f1
 

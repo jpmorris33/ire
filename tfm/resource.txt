@@ -191,6 +191,10 @@ section: sprites
 	faketile2		sprites/faketil2.png
 	faketile3		sprites/faketil3.png
 	faketile4		sprites/faketil4.png
+	faketile5		sprites/faketil5.png
+	faketile6		sprites/faketil6.png
+	faketile7		sprites/faketil7.png
+	faketile8		sprites/faketil8.png
 	wallhole1		backings/wallhol1.cel
 	av00			sprites/av00.cel
 	av01			sprites/av01.cel
@@ -5643,6 +5647,30 @@ section: sequences
 	end
 
 	quickname faketile_closed stonefloor
+
+	name faketile2_opening
+	speed 2
+	framelist:
+		tile02
+		faketile5
+		faketile6
+		faketile7
+		faketile8
+	end
+
+	quickname faketile2_open faketile5
+
+	name faketile2_closing
+	speed 2
+	framelist:
+		faketile8
+		faketile7
+		faketile6
+		faketile5
+		tile02
+	end
+
+	quickname faketile2_closed tile02
 
 	name REDMAN_UP
 	pingpong

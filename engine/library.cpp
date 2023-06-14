@@ -35,6 +35,9 @@
 #define SOUND_DROP 8 // 8 volume points every square
 #define MAXCONSOLES 16
 
+#define CLIPMIN(a) {if(a<0) a=0;}
+#define CLIPMAX(a,b) {if(a>b) a=b;}
+
 // Variables
 
 extern long COtot;
@@ -1698,21 +1701,14 @@ CHECK_OBJECT(o);
 
 mix = o->x - 16;
 miy = o->y - 16;
-if(mix<0) {
-	mix=0;
-}
-if(miy<0) {
-	miy=0;
-}
+CLIPMIN(mix);
+CLIPMIN(miy);
+
 max=mix+32;
 may=miy+32;
 
-if(max>curmap->w) {
-	max=curmap->w;
-}
-if(may>curmap->h) {
-	may=curmap->h;
-}
+CLIPMAX(max,curmap->w);
+CLIPMAX(may,curmap->h);
 
 // Ok, start searching
 
@@ -1793,17 +1789,13 @@ CHECK_OBJECT(o);
 
 mix = o->x - 16;
 miy = o->y - 16;
-if(mix<0)
-    mix=0;
-if(miy<0)
-    miy=0;
+CLIPMIN(mix);
+CLIPMIN(miy);
+
 max=mix+32;
 may=miy+32;
-
-if(max>curmap->w)
-    max=curmap->w;
-if(may>curmap->h)
-    may=curmap->h;
+CLIPMAX(max,curmap->w);
+CLIPMAX(may,curmap->h);
 
 // Ok, start searching, and keep adding to the list if we can get there
 
@@ -1824,7 +1816,6 @@ return;
 
 void find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize)
 {
-char *s1,*s2;
 OBJECT *temp;
 int x,y,mix,miy,max,may,ctr,dist;
 OBJECT_PREF steps[256];
@@ -1854,21 +1845,13 @@ CHECK_OBJECT(o);
 
 mix = o->x - 16;
 miy = o->y - 16;
-if(mix<0) {
-    mix=0;
-}
-if(miy<0) {
-    miy=0;
-}
+CLIPMIN(mix);
+CLIPMIN(miy);
+
 max=mix+32;
 may=miy+32;
-
-if(max>curmap->w) {
-    max=curmap->w;
-}
-if(may>curmap->h) {
-    may=curmap->h;
-}
+CLIPMAX(max,curmap->w);
+CLIPMAX(may,curmap->h);
 
 // Ok, start searching, and keep adding to the list if we can get there
 
@@ -1902,6 +1885,77 @@ for(y=0;y<ctr;y++) {
 
 return;
 }
+
+
+// Find objects in a rectangle marked by two objects
+
+void find_between(OBJECT *o1, OBJECT *o2, char *type, OBJECT **list, int listsize)
+{
+const char *s1,*s2,*s3;
+OBJECT *temp;
+int x,y,mix,miy,max,may,ptr;
+
+if(!o1 || !o2 || !type || !list) {
+	s1="Null";
+	s2="Null";
+	s3="Null";
+
+	if(o1)
+		s1=o1->name;
+	if(o2)
+		s2=o2->name;
+	if(type)
+		s3=type;
+	Bug("find_between(%s,%s,%s,%x,%d)\n",s1,s2,s3,list,listsize);
+	return;
+}
+
+// Blank the list
+memset(list,0,listsize*sizeof(OBJECT *));
+
+CHECK_OBJECT(o);
+
+// Now build the search area and make sure it is within the bounds of the map
+
+mix = o1->x;
+miy = o1->y;
+max = o2->x;
+may = o2->y;
+
+if(mix > max) {
+	max=mix;
+	mix=o2->x;
+}
+if(miy > may) {
+	may=miy;
+	miy=o2->y;
+}
+
+CLIPMIN(mix);
+CLIPMIN(miy);
+CLIPMIN(max);
+CLIPMIN(may);
+
+CLIPMAX(mix,(curmap->w-1));
+CLIPMAX(miy,(curmap->h-1));
+CLIPMAX(max,(curmap->w-1));
+CLIPMAX(may,(curmap->h-1));
+
+// Ok, start searching, and keep adding to the list.  Doesn't matter if we can route there or not
+
+ptr=0;
+for(y=miy;y<=may;y++)
+	for(x=mix;x<=max;x++)
+		for(temp=GetRawObjectBase(x,y);temp;temp=temp->next)
+			if(temp->flags & IS_ON)
+				if(!istricmp_fuzzy(temp->name,type))
+					if(ptr<listsize)
+						list[ptr++]=temp;
+
+return;
+}
+
+
 
 
 static int CMP_sort_objpref(const void *a,const void *b)
@@ -1965,7 +2019,7 @@ OBJECT *find_pathmarker(OBJECT *o, char *name)
 {
 char *s1,*s2;
 OBJECT *temp;
-int x,y,mix,miy,max,may,ptr;
+int x,y,mix,miy,max,may;
 
 if(!o || !name)
 	{
@@ -1999,7 +2053,6 @@ if(may>curmap->h)
 
 // Ok, start searching.
 
-ptr=0;
 for(y=miy;y<may;y++)
 	for(x=mix;x<max;x++)
 		for(temp=GetRawObjectBase(x,y);temp;temp=temp->next)

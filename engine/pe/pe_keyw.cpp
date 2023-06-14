@@ -71,7 +71,7 @@ KEYWORD *add_keyword(const char *name, char type, const char *func)
 KEYWORD *k;
 KEYWORD **newlist;
 //int idno=0,kl,ctr;
-static int idno=0;
+static long idno=0;
 int kl,ctr;
 
 if(strlen(name) > 31) {
@@ -100,7 +100,7 @@ if(klist[kl]) {
 		if(k->local == func) {
 			if(type == k->type || type == '?' || k->type == '?') {
 				if(!istricmp(k->name,name)) {
-					if(k->type == 'f' && k->localfile || k->localfile != pe_localfile) {
+					if((k->type == 'f' && k->localfile) || k->localfile != pe_localfile) {
 						continue;
 					}
 					return NULL; // Duplicate entry!

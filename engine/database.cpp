@@ -146,6 +146,7 @@ SQLROWSET *GetSQL(const char *sql, int *error)	{
 				case SQLITE_NULL:
 					type=SQLTYPE_NULL;
 					dataptr=NULL;
+					len=0;
 					break;
 /*				
 				//Treat these as text instead
