@@ -126,7 +126,7 @@ if_exists me.target
 			if alembic is called "table*"
 				find potion = "potion_*" inside me
 				if_exists potion
-					transfer_object potion to alembic.x alembic.y
+					transfer_object potion to alembic
 					move_to_top potion
 				endif
 			endif

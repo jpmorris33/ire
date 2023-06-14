@@ -13,6 +13,8 @@ harness around his back.  He speaks in a strange, snarling voice.
 
 [link="Join my party."]
 [linkto="join"]
+[link="Tell me about the sheep."]
+[linkto="sheep"]
 [link="I am lost."]
 [linkto="lost"]
 [link="What do YOU want?"]
@@ -220,4 +222,15 @@ The creature sniffs and returns to duty.
 [callvrm="join_party"]
 [nextpage="exit"]
 
+[endpage]
+
+
+[page="sheep"]
+[call="warg_check_sheep"]
+[if true]"The sheep do seem to be in their pen."
+[if false]"Not all the sheep are in their pen."
+
+
+[link="Bye"]
+[linkto="bye"]
 [endpage]

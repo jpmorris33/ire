@@ -396,7 +396,7 @@ else
 	find_tag o = "TARGET" 666005
 	if_exists o
 		create newobj = "CANDLESTKUNLIT"
-		transfer_object newobj to o.x o.y
+		transfer_object newobj to o
 		let newobj.tag = 666002
 	endif
 endif
@@ -411,7 +411,7 @@ else
 	find_tag o = "TARGET" 666006
 	if_exists o
 		create newobj = "CANDLESTK"
-		transfer_object newobj to o.x o.y
+		transfer_object newobj to o
 		let newobj.tag = 666003
 	endif
 endif
@@ -426,7 +426,7 @@ else
 	find_tag o = "TARGET" 666007
 	if_exists o
 		create newobj = "PLATE"
-		transfer_object newobj to o.x o.y
+		transfer_object newobj to o
 		let newobj.tag = 666004
 	endif
 endif
@@ -571,7 +571,7 @@ if_exists synth
 	find_tag dest = "TARGET" 133
 	if_exists dest
 		change synth = "SYNTH_OPEN"
-		transfer_object synth to dest.x dest.y
+		transfer_object synth to dest
 		set_user_flag "true" = 1
 		set_user_flag "false" = 0
 		return
@@ -601,7 +601,7 @@ if_exists synth
 	find_tag dest = "TARGET" 78
 	if_exists dest
 		add me.stats.karma + 25
-		transfer_object synth to dest.x dest.y
+		transfer_object synth to dest
 
 		# Stop player giving it twice
 		let synth.stats.weight = -1
@@ -655,6 +655,62 @@ function behead_hero
 call find_hero
 let current = me
 call behead_current
+end
+
+##
+##
+##
+
+function warg_check_sheep
+object_array sheep[16]
+object penstart
+object penend
+object egg
+int ctr
+int sheeptotal = 0
+
+find_tag penstart = "target" 11
+if_not_exists penstart
+	print "warg_check_sheep: Sheep pen TL corner not found!"
+	printcr
+	return
+endif
+
+let penend = penstart.stats.owner
+if_not_exists penend
+	print "warg_check_sheep: Sheep pen BR corner not found!"
+	printcr
+	return
+endif
+
+find_between sheep[1] = "sheep" between penstart penend
+for ctr = 1 to 16
+	if_exists sheep[ctr]
+		add sheeptotal + 1
+	endif
+next ctr
+
+if sheeptotal >= 10
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+
+	# Move the sheep eggs to the pen for permanence
+
+	for ctr = 1 to 16
+		if_exists sheep[ctr]
+			let egg = sheep[ctr].stats.owner
+			if_exists egg
+				transfer_object egg to sheep[ctr]
+				move_to_floor egg
+			endif
+		endif
+	next ctr
+
+else
+	set_user_flag "true" = 0
+	set_user_flag "false" = 1
+endif
+
 end
 
 

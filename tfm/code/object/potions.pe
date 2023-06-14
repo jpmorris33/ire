@@ -569,7 +569,7 @@ function holywater_explosion
 	# Create an invisible object for the halo to centre on
 	object focus
 	create focus = "target"
-	transfer_object focus to current.x current.y
+	transfer_object focus to current
 
         lightning 25
         play_sound "boom"

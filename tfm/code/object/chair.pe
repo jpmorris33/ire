@@ -32,7 +32,7 @@ if me.label.race = "bird"
 	call hawk_stopflying
 
 	# Move the bird onto the perch
-	transfer_object me to current.x current.y
+	transfer_object me to current
 	set_direction me facing current.curdir
 	return
 endif
@@ -98,7 +98,7 @@ if_exists current
 		endif
 		
 		if_exists dest
-			transfer_object current to dest.x dest.y
+			transfer_object current to dest
 		endif
 		
 		if current = player

@@ -17,7 +17,7 @@ endif
 
 find_tag temp = "target" current.tag
 if_exist temp
-	transfer_object victim to temp.x temp.y
+	transfer_object victim to temp
 	reset_light
 endif
 end
@@ -72,11 +72,12 @@ endif
 
 find_tag temp = "target" current.tag
 if_exist temp
-	transfer_object me to temp.x temp.y
+	transfer_object me to temp
 	reset_light
 endif
 
-end
+
+end
 
 
 ##
@@ -100,7 +101,7 @@ if_not_exist temp
 	return
 endif
 
-transfer_object me to temp.x temp.y
+transfer_object me to temp
 
 if me = player
 	if party_mode
@@ -112,7 +113,8 @@ if me = player
 	endif
 endif
 
-end
+
+end
 
 ##
 ##  Open Fakemud trapdoor
@@ -135,7 +137,7 @@ if_not_exist temp
 	return
 endif
 
-transfer_object me to temp.x temp.y
+transfer_object me to temp
 
 if me = player
 	if party_mode
@@ -161,7 +163,8 @@ if_exists temp
 	let me = oldme
 endif
 
-end
+
+end
 
 
 ##
@@ -170,7 +173,8 @@ endif
 
 function teleport_newmap
 change_map current.stats.karma at current.tag
-end
+
+end
 
 ##
 ##  Leave hell from conversations with Jesus

@@ -282,7 +282,7 @@ endif
 
 find o = "stdonalds_burger*" inside me
 if_exists o
-	transfer_object o to counter.x counter.y
+	transfer_object o to counter
 endif
 
 # Do the whole thing again

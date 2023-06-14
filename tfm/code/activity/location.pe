@@ -136,7 +136,7 @@ if err = PATH_FINISHED
 
 	transfer_object me to 0 0
 	force_direction me faces target.curdir
-	transfer_object me to target.x target.y
+	transfer_object me to target
 
 	# Is there another step?
 	if_exists target.stats.owner

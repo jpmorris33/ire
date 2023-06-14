@@ -226,7 +226,7 @@ call milkmarket_KillAllMilkProducts
 # Recreate it
 create food = "bucket_milk"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 
 resume_action me
 end
@@ -247,7 +247,7 @@ call milkmarket_KillAllMilkProducts
 # Recreate it
 create food = "food07"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 
 resume_action me
 end
@@ -268,22 +268,22 @@ call milkmarket_KillAllMilkProducts
 # Recreate it
 create food = "foodp03"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 set_direction food faces NORTH
 
 create food = "foodp03"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 set_direction food faces SOUTH
 
 create food = "foodp03"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 set_direction food faces EAST
 
 create food = "foodp03"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 set_direction food faces WEST
 
 resume_action me
@@ -305,13 +305,13 @@ call milkmarket_KillAllMilkProducts
 # Recreate it
 create food = "food04"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 set_direction food faces NORTH
 
 # Recreate it
 create food = "food04"
 let food.stats.owner = me
-transfer_object food to me.target.x me.target.y
+transfer_object food to me.target
 set_direction food faces SOUTH
 
 resume_action me

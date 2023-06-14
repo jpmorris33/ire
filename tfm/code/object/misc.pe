@@ -792,7 +792,7 @@ if_exists printer
 	let y = printer.y + 1
 	object_sound "printer" printer
 	create printout = "DRROB_DIARY"
-	transfer_object printout to printer.x y
+	transfer_object printout to printer
 endif
 end
 

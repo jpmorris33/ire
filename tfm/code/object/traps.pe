@@ -259,7 +259,7 @@ for ctr = 1 to 16
 	if_exists objpos
 		if_not_exists objpos.next
 			create temp = plant_type
-			transfer_object temp to objpos.x objpos.y
+			transfer_object temp to objpos
 			random tag = 0 3
 			set_direction temp facing tag
 		endif

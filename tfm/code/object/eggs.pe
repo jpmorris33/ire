@@ -312,7 +312,7 @@ function clone_object
 private
 
 create current = me.pocket.name
-transfer_object current to me.x me.y
+transfer_object current to me
 let current.stats.owner = me # I was made by this egg
 set_flag current IS_SPAWNED = 1 # I am a clone
 
@@ -389,7 +389,7 @@ endif
 
 # Create the pepper
 create pepper = "foodp09"
-transfer_object pepper to me.x me.y
+transfer_object pepper to me
 
 # If the pepper is onscreen, make it fade in
 if_onscreen pepper
@@ -426,7 +426,7 @@ endif
 
 # Create the pepper
 create o = me.pocket.name
-transfer_object o to me.x me.y
+transfer_object o to me
 
 end
 
@@ -589,7 +589,7 @@ else
 	create guard = "guard_disposable"
 	set_personalname guard = "Gerard"
 	let suspector = suspect
-	transfer_object guard to current.x current.y	# Bring him hence
+	transfer_object guard to current	# Bring him hence
 	# Refer to the creating egg
 	let guard.stats.owner = current
 	set_flag guard IS_SPAWNED = 1
@@ -631,7 +631,7 @@ if_onscreen current
 else
 	create guard = "guard_disposable"
 	set_personalname guard = "Geoffrey"
-	transfer_object guard to current.x current.y	# Bring him hence
+	transfer_object guard to current	# Bring him hence
 	# Refer to the creating egg
 	let guard.stats.owner = current
 	set_flag guard IS_SPAWNED = 1
@@ -673,7 +673,7 @@ else
 	create guard = "guard_panther"
 
 	set_personalname guard = "Geoffrey"
-	transfer_object guard to current.x current.y	# Bring him hence
+	transfer_object guard to current	# Bring him hence
 	let current = guard
 	call name_robot
 	# Refer to the creating egg
@@ -726,7 +726,7 @@ else
 	create guard = "WAARG_GUARD"
 
 	set_personalname guard = "Wolf Guard"
-	transfer_object guard to current.x current.y	# Bring him hence
+	transfer_object guard to current	# Bring him hence
 	# Refer to the creating egg
 	let guard.stats.owner = current
 	set_flag guard IS_SPAWNED = 1
