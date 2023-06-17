@@ -1603,7 +1603,7 @@ set_flag focus IS_INVISIBLE = 1
 let oldplayer = player
 
 # Move the focus into reality
-transfer_object focus to player.x player.y
+transfer_object focus to player
 
 # Make the camera follow the focus instead of the player
 let player = focus

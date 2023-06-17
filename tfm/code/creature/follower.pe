@@ -20,7 +20,7 @@ endif
 if err = PATH_BLOCKED
 	if_not_onscreen me
 		if_not_onscreen me.target
-			transfer_object me to me.target.x me.target.y
+			transfer_object me to me.target
 		endif
 	endif
 endif

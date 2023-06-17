@@ -18,7 +18,7 @@ fade_out
 wait 1000 NONBLOCKING
 
 find_tag o = "target" 100
-transfer_object player to o.x o.y
+transfer_object player to o
 set_flag player IS_INVISIBLE = 1
 let show_roof = -1
 fade_in

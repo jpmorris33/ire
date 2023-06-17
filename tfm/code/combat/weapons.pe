@@ -171,7 +171,7 @@ object ammo
 
 create ammo = "poisonbolt"
 set_direction ammo = attacker.curdir
-transfer_object ammo to attacker.x attacker.y
+transfer_object ammo to attacker
 let ammo.enemy = attacker.enemy
 let ammo.stats.owner = attacker
 
@@ -215,7 +215,7 @@ object ammo
 
 create ammo = "firebolt"
 set_direction ammo = attacker.curdir
-transfer_object ammo to attacker.x attacker.y
+transfer_object ammo to attacker
 let ammo.enemy = attacker.enemy
 let ammo.stats.owner = attacker
 
@@ -466,7 +466,7 @@ function decap_attack_corpse_core
 		endif
 
 		create body = bodyobject
-		transfer_object body to head.x head.y
+		transfer_object body to head
 		move_to_top head
 
 		# Subtract the weight of the head

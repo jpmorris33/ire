@@ -40,7 +40,6 @@ let mytile = null
 call hide_dircursor
 call show_cursor
 transfer_object cursor to x1 y1
-#transfer_object cursor to player.x player.y
 
 redraw_map
 
@@ -236,7 +235,7 @@ do
 
 		# Finish up		
 		call show_cursor
-		transfer_object cursor to player.x player.y
+		transfer_object cursor to player
 	endif
 
 while 1

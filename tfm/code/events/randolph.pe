@@ -35,7 +35,7 @@ find_tag conversation_area = "trap_radius" 101
 play_sound "flyover"
 fade_out
 
-transfer_object harrier to dest.x dest.y
+transfer_object harrier to dest
 force_direction harrier facing dest.curdir
 
 # Remove barrier to Randolph
@@ -65,7 +65,7 @@ add bottomRange + 30
 if_exists dest
   if player.y < bottomRange
     if player.y > topRange
-	transfer_object player to dest.x dest.y
+	transfer_object player to dest
 	set_direction player facing dest.curdir
     endif
   endif
@@ -155,7 +155,7 @@ transfer_to_pocket player to harrier
 play_sound "flyover"
 fade_out
 
-transfer_object harrier to dest.x dest.y
+transfer_object harrier to dest
 force_direction harrier facing dest.curdir
 
 add game_hour + 1
@@ -166,7 +166,7 @@ force_from_pocket player in harrier to dest.x dest.y
 # Move player to other tag so it looks good
 find_tag dest = "target" 74
 if_exist dest
-	transfer_object player to dest.x dest.y
+	transfer_object player to dest
 	force_direction player facing dest.curdir
 endif
 
@@ -203,7 +203,7 @@ transfer_to_pocket player to harrier
 play_sound "flyover"
 fade_out
 
-transfer_object harrier to dest.x dest.y
+transfer_object harrier to dest
 force_direction harrier facing dest.curdir
 
 add game_hour + 1
@@ -214,7 +214,7 @@ force_from_pocket player in harrier to dest.x dest.y
 # Move player to other tag so it looks good
 find_tag dest = "target" 73
 if_exist dest
-	transfer_object player to dest.x dest.y
+	transfer_object player to dest
 	force_direction player facing dest.curdir
 endif
 

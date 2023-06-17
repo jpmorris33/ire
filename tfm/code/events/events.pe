@@ -89,7 +89,7 @@ endif
 # Bring On The Cow
 if_not_onscreen cow
 	if_exists current.stats.owner
-		transfer_object cow to current.stats.owner.x current.stats.owner.y
+		transfer_object cow to current.stats.owner
 		# Wabbit coming!
 	endif
 endif
@@ -455,7 +455,7 @@ find_tag steeljaw = "waarg_male" 49
 find_tag steeljaw = "target" 50
 if_exists steeljaw
 	# Steeljaw is dragged before the throne and executed
-	transfer_object steeljaw to spot.x spot.y
+	transfer_object steeljaw to spot
 	let steeljaw.stats.hp = -1
 	check_hurt steeljaw
 endif
@@ -572,7 +572,7 @@ if_exists head
 	check_hurt temp
 
 	# Move them into position
-	transfer_object temp to dest.x dest.y
+	transfer_object temp to dest
 	stop_action temp
 	resume_action temp
 endif
@@ -655,7 +655,7 @@ if_exists pike
 		force_direction pike faces LEFT
 		force_direction farmer faces DOWN
 		# Now stick them together
-		transfer_object farmer to pike.x pike.y
+		transfer_object farmer to pike
 		move_to_top farmer
 	endif
 else
@@ -806,7 +806,7 @@ if_user_flag "find_accesskey"
 		find_tag target = "TARGET" 2000
 		if_exists target
 			find_tag src = "PRINTOUT*" 2000
-			transfer_object src to target.x target.y
+			transfer_object src to target
 			move_to_top src
 			destroy target	# So it only happens once per map
 		endif

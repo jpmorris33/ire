@@ -1427,7 +1427,7 @@ fx_alphamode ALPHA_TRANS
 add rtmp - 6
 if rtmp <= 0
 	stopfx current
-	transfer_object current to current.target.x current.target.y
+	transfer_object current to current.target
 	set_flag current IS_INVISIBLE = 0
 	return
 endif

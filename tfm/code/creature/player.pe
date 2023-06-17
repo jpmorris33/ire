@@ -736,7 +736,7 @@ let current = n
 
 # Finally, move the pile to the player so it can be thrown.
 
-transfer_object current to player.x player.y
+transfer_object current to player
 
 end
 

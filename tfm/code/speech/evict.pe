@@ -13,7 +13,7 @@ object temp
 
 fade_out
 find_tag temp = "target" 24
-transfer_object player to temp.x temp.y
+transfer_object player to temp
 if party_mode
 	move_party_to temp
 	move_party_from temp to temp.x temp.y

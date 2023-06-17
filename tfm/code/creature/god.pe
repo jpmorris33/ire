@@ -256,7 +256,7 @@ if i = 0
 	return
 endif
 
-transfer_object me to me.target.x me.target.y
+transfer_object me to me.target
 if_onscreen me
 	set_flag me IS_INVISIBLE = 1
 	let me.user.user18 = 0
@@ -281,7 +281,7 @@ if_onscreen me
 	let me.user.user18 = 255
 	overfx me does fx_FadeSatanOut
 else
-	transfer_object me to me.target.x me.target.y
+	transfer_object me to me.target
 endif
 
 end

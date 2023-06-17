@@ -81,7 +81,7 @@ endif
 # Now we can begin
 fade_out
 
-transfer_object player to me.x me.y
+transfer_object player to me
 move_to_top player
 
 # Player might be female (or NB or a jaguar or something)
@@ -143,7 +143,7 @@ find_tag brain = "jar_brain" -60
 find_tag braintarget = "target" 60
 if_exists brain
 	if_exists braintarget
-		transfer_object brain to braintarget.x braintarget.y
+		transfer_object brain to braintarget
 	endif
 endif
 

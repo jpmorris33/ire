@@ -165,7 +165,7 @@ if food_dest is called "FOOD15"
 
 				spill food_dest to current.x current.y
 				replace food_dest = "food15_dead"
-#				transfer_object food_dest to current.x current.y
+#				transfer_object food_dest to current
 				let food_dest = NULL
 				return
 			endif

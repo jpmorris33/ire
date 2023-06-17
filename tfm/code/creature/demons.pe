@@ -38,7 +38,7 @@ function servitor_dies
 object bits
 replace current = "servitor_dead"
 create bits = "servitor_dead2"
-transfer_object bits to current.x current.y
+transfer_object bits to current
 object_sound "metal_breaking" current
 end
 
@@ -134,7 +134,7 @@ function panther_dies
 object body
 
 create body = "deadpanther"
-transfer_object body to current.x current.y
+transfer_object body to current
 change current = "deadpanther_head"
 let current.stats.weight = 1000		# The head is 1kg, not 25
 move_to_top current
@@ -223,7 +223,7 @@ if_exists head
 	set_user_flag "false" = 0
 	set_user_flag "true" = 1
 
-	transfer_object head to me.x me.y
+	transfer_object head to me
 
 	change head = head.funcs.resurrect
 	let head.stats.hp = head.maxstats.hp
@@ -270,7 +270,7 @@ function cyberwolf_dies
 object body
 
 create body = "deadcyberwolf"
-transfer_object body to current.x current.y
+transfer_object body to current
 change current = "deadcyberwolf_head"
 let current.stats.weight = 1000		# The head is 1kg, not 50
 move_to_top current
@@ -365,7 +365,7 @@ if rnd = 4
 endif
 
 if_exists o
-	transfer_object o to current.x current.y
+	transfer_object o to current
 	let o.stats.owner = current
 	move_to_floor o
 	set_flag o IS_SPAWNED = 1	# Blood is temporary

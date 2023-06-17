@@ -417,13 +417,13 @@ or current.curdir = DOWN
 	find_tag bridge = "warg_bridge00" 44
 	if_exists bridge
 		start_action bridge does seek_target_force to target
-#		transfer_object bridge to target.x target.y
+#		transfer_object bridge to target
 	endif
 
 	find_tag bridge = "warg_bridge00" 45
 	if_exists bridge
 		start_action bridge does seek_target_force to target
-#		transfer_object bridge to target.x target.y
+#		transfer_object bridge to target
 	endif
 else
 	# Move the bridge into position
@@ -436,7 +436,7 @@ else
 		find_tag bridge = "warg_bridge00" 44
 		if_exists bridge
 			start_action bridge does seek_target_force to target
-#			transfer_object bridge to target.x target.y
+#			transfer_object bridge to target
 		endif
 	endif
 
@@ -445,7 +445,7 @@ else
 		find_tag bridge = "warg_bridge00" 45
 		if_exists bridge
 			start_action bridge does seek_target_force to target
-#			transfer_object bridge to target.x target.y
+#			transfer_object bridge to target
 		endif
 	endif
 

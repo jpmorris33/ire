@@ -102,7 +102,7 @@ if_exists src
 	if_exists dest
 		stop_action src
 		set_flag src NO_SCHEDULE = 1
-		transfer_object src to dest.x dest.y
+		transfer_object src to dest
 		force_direction src faces NORTH
 	endif
 endif
@@ -113,7 +113,7 @@ if_exists src
 	if_exists dest
 		stop_action src
 		set_flag src NO_SCHEDULE = 1
-		transfer_object src to dest.x dest.y
+		transfer_object src to dest
 		force_direction src faces SOUTH
 	endif
 endif

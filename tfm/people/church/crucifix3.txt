@@ -1,0 +1,127 @@
+Special crucifix for New Leuchars
+
+[page="start"]
+[esc=disabled]
+[if hear_truth][goto="HT_leuchars"]
+[if crucifix_reprogrammed][goto="V2_leuchars"]
+[image="crucifix3.png"]
+
+"See now the justice that awaits those who defy the
+ divine will of the Trinity!"
+
+[link="Did you do this?"]
+[linkto="dydt"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="dydt"]
+[image="crucifix3.png"]
+
+"It was necessary.  They were enemies of the Trinity
+ and had to be destroyed.  An example had to be made.
+ It felt... good."
+
+[link="Aren't you supposed to be the nice guy?"]
+[linkto="dydt2"]
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+[page="dydt2"]
+[image="crucifix3.png"]
+
+"I need not explain My decisions to mortals.  Your
+ purpose is to obey.  Question not the orders of
+ your divine overlords, or you shall get the same!"
+
+[link="Goodbye"]
+[linkto="bye"]
+[endpage]
+
+
+[page="bye"]
+[image="crucifix3.png"]
+
+"Repent, sinners!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="HT_leuchars"]
+[esc=disabled]
+[image="crucifix1.png"]
+
+"Command me, Master."
+
+[link="Did you do this?"]
+[linkto="HT_dydt"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_dydt"]
+[esc=disabled]
+[image="crucifix1.png"]
+
+"I am a computer program and cannot directly affect
+ the material world, save for my energy weapon.
+ 
+ This village was destroyed by Xy'Lan and the
+ subservient software known as the Holy Ghost.
+
+ However I was programmed to take credit for the
+ deaths to deter rebellion against Xy'Lan.."
+
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_bye"]
+[image="crucifix1.png"]
+
+"Session disconnected."
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="V2_leuchars"]
+[esc="disabled"]
+[image="crucifix2.png"]
+
+"Alas, alas for the people of New Leuchars!"
+
+[link="Did you do this?"]
+[linkto="V2_dydt"]
+[link="Goodbye"]
+[linkto="V2_bye"]
+[endpage]
+
+
+
+[page="V2_dydt"]
+[image="crucifix2.png"]
+
+"It was the will of the LORD.
+ His wrath was upon them."
+
+[link="Goodbye"]
+[linkto="V2_bye"]
+[endpage]
+
+
+[page="V2_bye"]
+[image="crucifix2.png"]
+
+"Yes!  Leave this forsaken place!"
+
+[nextpage="exit"]
+[endpage]
+

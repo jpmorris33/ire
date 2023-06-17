@@ -113,7 +113,7 @@ transfer_to_pocket current.stats.owner to current
 
 fade_out
 
-transfer_object current to dest.x dest.y
+transfer_object current to dest
 force_direction current = dest.curdir
 reset_light
 

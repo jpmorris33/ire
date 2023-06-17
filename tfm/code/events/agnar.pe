@@ -48,10 +48,10 @@ find_tag ptrap4 = "target" 16
 find_tag ptrap5 = "target" 17
 
 # Move them into place
-transfer_object prince2 to ptrap2.x ptrap2.y
-transfer_object prince3 to ptrap3.x ptrap3.y
-transfer_object prince4 to ptrap4.x ptrap4.y
-transfer_object prince5 to ptrap5.x ptrap5.y
+transfer_object prince2 to ptrap2
+transfer_object prince3 to ptrap3
+transfer_object prince4 to ptrap4
+transfer_object prince5 to ptrap5
 
 # Give them their orders
 queue_action prince2 does enemy_attack to prince1

@@ -569,7 +569,7 @@ if rnd = 4
 endif
 
 if_exists o
-	transfer_object o to current.x current.y
+	transfer_object o to current
 	let o.stats.owner = current
 	move_to_floor o
 	set_flag o IS_SPAWNED = 1	# Blood is temporary
@@ -614,7 +614,7 @@ if rnd = 3
 endif
 
 if_exists o
-	transfer_object o to current.x current.y
+	transfer_object o to current
 	let o.stats.owner = current
 	move_to_floor o
 	set_flag o IS_SPAWNED = 1	# Blood is temporary

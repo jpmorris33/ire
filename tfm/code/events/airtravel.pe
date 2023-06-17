@@ -50,7 +50,7 @@ and me.y = target.y
 	return
 endif
 
-transfer_object me to target.x target.y
+transfer_object me to target
 force_direction me faces target.curdir
 end
 
@@ -98,7 +98,7 @@ endif
 
 play_sound "flyover"
 
-transfer_object me to target.x target.y
+transfer_object me to target
 
 end
 
@@ -199,7 +199,7 @@ if_not_exists jet
 	return
 endif
 
-transfer_object jet to target.x target.y
+transfer_object jet to target
 force_direction jet faces target.curdir
 fade_in
 
