@@ -19036,3 +19036,83 @@ section: tiles
 	name CARPET29
 	sequence	CARPET29
 	description	"You see the symbol of the Holy Cross."
+
+	name ONYX00
+	sequence	ONYX00
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX01
+	sequence	ONYX01
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX02
+	sequence	ONYX02
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX03
+	sequence	ONYX03
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX04
+	sequence	ONYX04
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX05
+	sequence	ONYX05
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX06
+	sequence	ONYX06
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX07
+	sequence	ONYX07
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX08
+	sequence	ONYX08
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX09
+	sequence	ONYX09
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX10
+	sequence	ONYX10
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX11
+	sequence	ONYX11
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX12
+	sequence	ONYX12
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX13
+	sequence	ONYX13
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX14
+	sequence	ONYX14
+	description	"You see a pyramid made from black onyx."
+	solid
+
+	name ONYX15
+	sequence	ONYX15
+	description	"You see a pyramid made from black onyx."
+	solid

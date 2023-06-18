@@ -3912,6 +3912,23 @@ section: sprites
 	dart_trap_v		sprites/dart_trap1.png
 	dart_trap_h		sprites/dart_trap2.png
 
+	onyx00			backings/onyx00.png
+	onyx01			backings/onyx01.png
+	onyx02			backings/onyx02.png
+	onyx03			backings/onyx03.png
+	onyx04			backings/onyx04.png
+	onyx05			backings/onyx05.png
+	onyx06			backings/onyx06.png
+	onyx07			backings/onyx07.png
+	onyx08			backings/onyx08.png
+	onyx09			backings/onyx09.png
+	onyx10			backings/onyx10.png
+	onyx11			backings/onyx11.png
+	onyx12			backings/onyx12.png
+	onyx13			backings/onyx13.png
+	onyx14			backings/onyx14.png
+	onyx15			backings/onyx15.png
+
 section: sequences
 
 	quickname ?UNKNOWN ?UNKNOWN
@@ -14108,6 +14125,23 @@ section: sequences
 
 	quickname	dart_trap_v
 	quickname	dart_trap_h
+
+	quickname	onyx00
+	quickname	onyx01
+	quickname	onyx02
+	quickname	onyx03
+	quickname	onyx04
+	quickname	onyx05
+	quickname	onyx06
+	quickname	onyx07
+	quickname	onyx08
+	quickname	onyx09
+	quickname	onyx10
+	quickname	onyx11
+	quickname	onyx12
+	quickname	onyx13
+	quickname	onyx14
+	quickname	onyx15
 
 !include resources/objects.txt
 

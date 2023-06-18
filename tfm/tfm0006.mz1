@@ -76,6 +76,12 @@ iMZ1r01
 		at 294 41
 		curdir 3
 
+	object TELEc435a32f-b1e8-4e20-baee-01349e85ed76
+		type TELEPORTER0
+		at 493 41
+		curdir 0
+		tag 3
+
 	object TELEdb1b4f62-96d1-418e-bf8b-a72319293c31
 		type TELEPORTER0
 		at 495 41
@@ -97,6 +103,12 @@ iMZ1r01
 		type STONEFLOOR18
 		at 294 42
 		curdir 3
+
+	object TARG8879dc96-bb10-4394-98c1-ab60f26220f9
+		type TARGET
+		at 495 42
+		curdir 0
+		tag 16
 
 	object STON2e27bfaa-3601-4542-87f9-0f8681727d49
 		type STONEFLOOR10
@@ -123,23 +135,17 @@ iMZ1r01
 		at 294 43
 		curdir 3
 
+	object TELE2e6ea01a-3f42-4605-9eb0-fa896deea6df
+		type TELEPORTER0
+		at 493 43
+		curdir 0
+		tag 17
+
 	object MEMO85d727b5-dc00-4a58-b976-1e68ff71e913
 		type MEMO
 		at 494 43
 		curdir 3
 		name jug curr. dumps you in forest
-
-	object MEMO9f4a4076-1bab-41ba-9bb0-fa58130e374f
-		type MEMO
-		at 495 43
-		curdir 3
-		name about a jug of salvation
-
-	object MEMO2fa90400-64a8-4cd3-839b-caf395deb8d8
-		type MEMO
-		at 496 43
-		curdir 3
-		name maybe have npcs or book hints
 
 	object STONc110d903-8594-45b2-a7f4-8d8098673b17
 		type STONEFLOOR18
@@ -489,6 +495,56 @@ iMZ1r01
 		at 276 73
 		curdir 1
 
+	object WOMA24d2ccfb-4bae-4e23-b0c4-ee04021192d1
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_d910f0b0-e2f5-4fb6-b1b2-9a6094793f92
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_d910f0b0-e2f5-4fb6-b1b2-9a6094793f92
+		type EGG_WOMAN_WANDER
+		at 50 100
+		curdir 2
+
+	object MAN_356fce14-62cb-4197-9dc4-68db4e5e827d
+		type MAN_GENERIC_WANDERING
+		inside EGG_640daf49-c853-4e52-a159-db55b70a28e1
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_640daf49-c853-4e52-a159-db55b70a28e1
+		type EGG_MAN_WANDER
+		at 86 100
+		curdir 2
+
+	object MAN_e42eb835-2b02-47a7-be78-adde86c0016a
+		type MAN_GENERIC_WANDERING
+		inside EGG_337c1f8f-5292-4931-ae95-ab8b3e7d6724
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_337c1f8f-5292-4931-ae95-ab8b3e7d6724
+		type EGG_MAN_WANDER
+		at 106 100
+		curdir 2
+
+	object TARG3302213a-746b-4293-b2d5-b3f28fb66b16
+		type TARGET
+		at 218 100
+		curdir 0
+		tag 17
+
+	object MAN_b446a67b-9dd1-4681-b7d1-33801e2d67fc
+		type MAN_GENERIC_WANDERING
+		inside EGG_5806cc54-4230-4302-90dd-97ca30eaecfd
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_5806cc54-4230-4302-90dd-97ca30eaecfd
+		type EGG_MAN_WANDER
+		at 71 102
+		curdir 2
+
 	object STON3687b4d6-70e9-46f2-a32f-bdf9fef84f81
 		type STONEFLOOR14
 		at 76 103
@@ -518,6 +574,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 80 104
 		curdir 3
+
+	object MAN_4efca0b5-c27b-4a70-996c-c4b842988548
+		type MAN_GENERIC_WANDERING
+		inside EGG_fe4d92cb-6e20-4c69-a720-fe89107a604a
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_fe4d92cb-6e20-4c69-a720-fe89107a604a
+		type EGG_MAN_WANDER
+		at 127 104
+		curdir 2
 
 	object LIGH45216006-0e16-4b89-a54c-bd215962ad08
 		type LIGHTSOURCE
@@ -558,6 +625,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 80 106
 		curdir 1
+
+	object WOMAa4e829b4-e2e6-43ad-a2ac-19bdefe9f904
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_62fcda99-2e5b-4bf1-94b4-f8ad9a5cf2ae
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_62fcda99-2e5b-4bf1-94b4-f8ad9a5cf2ae
+		type EGG_WOMAN_WANDER
+		at 88 106
+		curdir 2
 
 	object STONd9e7b5a6-3b09-40af-9bca-abc228ad3ac1
 		type STONEFLOOR14
@@ -619,6 +697,17 @@ iMZ1r01
 		at 107 108
 		curdir 1
 
+	object MAN_5c193b6e-00aa-497e-b340-e6de38bd3242
+		type MAN_GENERIC_WANDERING
+		inside EGG_fc005f6a-d444-41c7-9f9e-3809ff5154ea
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_fc005f6a-d444-41c7-9f9e-3809ff5154ea
+		type EGG_MAN_WANDER
+		at 38 109
+		curdir 2
+
 	object STON751f5d28-c560-496a-bdbd-42a52a6867bf
 		type STONEFLOOR14
 		at 103 109
@@ -628,6 +717,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 106 109
 		curdir 1
+
+	object MAN_134be99d-f78b-4de8-8349-97ab98f7b3c7
+		type MAN_GENERIC_WANDERING
+		inside EGG_ee3c133a-3f11-44a9-ad77-f6ff9fc141ed
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_ee3c133a-3f11-44a9-ad77-f6ff9fc141ed
+		type EGG_MAN_WANDER
+		at 61 110
+		curdir 2
 
 	object STON42332977-5ad4-45c9-84e9-b46d35f82d9a
 		type STONEFLOOR14
@@ -698,6 +798,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 58 115
 		curdir 1
+
+	object MAN_3f443fa9-91a9-45a6-a22f-b18fe4ea7b26
+		type MAN_GENERIC_WANDERING
+		inside EGG_c63e6bc5-34b3-4dc9-9ddc-d6519c33ae34
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_c63e6bc5-34b3-4dc9-9ddc-d6519c33ae34
+		type EGG_MAN_WANDER
+		at 106 115
+		curdir 2
 
 	object STONcaef227b-3023-40af-bc78-b262e5d79ef3
 		type STONEFLOOR14
@@ -778,6 +889,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 125 119
 		curdir 1
+
+	object MAN_015dee0d-6433-4b41-b400-372d4ebd9f5b
+		type MAN_OLD_WANDERING
+		inside EGG_cbb507d0-87b1-4a6a-bc6b-f07341a3ada6
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_cbb507d0-87b1-4a6a-bc6b-f07341a3ada6
+		type EGG_OLDMAN_WANDER
+		at 53 120
+		curdir 2
 
 	object STONc35749bb-2a6e-4b57-96e2-72d376d927fe
 		type STONEFLOOR14
@@ -914,6 +1036,17 @@ iMZ1r01
 		at 93 123
 		curdir 1
 
+	object WOMAdbcbbc35-34d6-48a8-9261-a5b97983bedc
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_b6b8ad03-c6fd-45d2-938e-c76675cfb1a0
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_b6b8ad03-c6fd-45d2-938e-c76675cfb1a0
+		type EGG_WOMAN_WANDER
+		at 133 123
+		curdir 2
+
 	object STON6c578cfe-bbb2-412e-835b-bd3af15ef1a6
 		type STONEFLOOR10
 		at 438 123
@@ -953,6 +1086,17 @@ iMZ1r01
 		type STONEFLOOR10
 		at 459 123
 		curdir 3
+
+	object MAN_a33f3c29-5aa9-4124-96cf-0ddda771d008
+		type MAN_OLD_WANDERING
+		inside EGG_2b248569-a4d3-4964-8a2c-b2a56ae22284
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_2b248569-a4d3-4964-8a2c-b2a56ae22284
+		type EGG_OLDMAN_WANDER
+		at 81 124
+		curdir 2
 
 	object STON7db2dce9-4469-4858-9c67-69ecb3b448a8
 		type STONEFLOOR10
@@ -1183,6 +1327,17 @@ iMZ1r01
 		type STONEFLOOR10
 		at 63 129
 		curdir 3
+
+	object MAN_198c2063-e37e-4e64-8eaf-e061dbfc57fc
+		type MAN_GENERIC_WANDERING
+		inside EGG_fcbad479-12e3-4141-8529-c80360c1e880
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_fcbad479-12e3-4141-8529-c80360c1e880
+		type EGG_MAN_WANDER
+		at 64 129
+		curdir 2
 
 	object STONcffe9caf-31c2-4164-a135-03d496d509a8
 		type STONEFLOOR10
@@ -1491,6 +1646,17 @@ iMZ1r01
 		at 464 131
 		curdir 3
 
+	object MAN_eb0c8503-8477-4aa1-919e-0919d1e997b6
+		type MAN_GENERIC_WANDERING
+		inside EGG_ae2f98f1-1255-4d25-b8d8-df66fd59d9b6
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_ae2f98f1-1255-4d25-b8d8-df66fd59d9b6
+		type EGG_MAN_WANDER
+		at 54 132
+		curdir 2
+
 	object STON0a7ba208-80f4-440c-b026-e7b6f64d5c90
 		type STONEFLOOR14
 		at 107 132
@@ -1697,6 +1863,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 46 134
 		curdir 3
+
+	object MAN_3f7bce88-de68-487c-8b42-36c6e2f59a75
+		type MAN_OLD_WANDERING
+		inside EGG_24d44f3c-e069-4c52-8c61-18315adaf052
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_24d44f3c-e069-4c52-8c61-18315adaf052
+		type EGG_OLDMAN_WANDER
+		at 66 134
+		curdir 2
 
 	object STON4525ee67-7df5-4109-b6a7-5f655ff77878
 		type STONEFLOOR14
@@ -1906,6 +2083,17 @@ iMZ1r01
 		type LIGHTSOURCE
 		at 81 136
 		curdir 1
+
+	object WOMA1be45fc9-1ad9-4b6d-b987-faee6becb16b
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_32875890-c1fe-4917-8369-4158139e9cd7
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_32875890-c1fe-4917-8369-4158139e9cd7
+		type EGG_WOMAN_WANDER
+		at 103 136
+		curdir 2
 
 	object DECO2efd2dd4-fb38-4d62-9819-4044f16664aa
 		type DECOR07
@@ -2175,6 +2363,17 @@ iMZ1r01
 		at 458 138
 		curdir 2
 
+	object MAN_0f889f6c-59ec-4d8d-a790-0709260eb6b5
+		type MAN_OLD_WANDERING
+		inside EGG_54d7be86-8c3c-4666-827d-33ca52b7d8cf
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_54d7be86-8c3c-4666-827d-33ca52b7d8cf
+		type EGG_OLDMAN_WANDER
+		at 85 139
+		curdir 2
+
 	object LIGHc4fc0cf4-22b0-435d-84fd-486bfe252448
 		type LIGHTSOURCE
 		at 135 139
@@ -2305,27 +2504,15 @@ iMZ1r01
 		at 464 139
 		curdir 3
 
-	object MAN_157f1a32-6ef3-477e-80b3-271a0ae9adf6
-		type MAN_OLD_WANDERING
-		inside EGG_09a46a3f-8ebf-45c2-85fa-33e20354c0aa
-		curdir 1
-		activity GUARD_WANDER
-
-	object MAN_ea45b67e-fefc-4521-845b-8694ba16fbbf
+	object MAN_5cc33977-d934-4478-85b7-1b6f7a67773b
 		type MAN_GENERIC_WANDERING
-		inside EGG_09a46a3f-8ebf-45c2-85fa-33e20354c0aa
+		inside EGG_206c1a3c-c80a-49de-982e-8dd79758bf95
 		curdir 1
 		activity GUARD_WANDER
 
-	object GUAR6af03db6-1168-40fc-9218-7807669acab2
-		type GUARD
-		inside EGG_09a46a3f-8ebf-45c2-85fa-33e20354c0aa
-		curdir 1
-		activity GUARD_PATROL
-
-	object EGG_09a46a3f-8ebf-45c2-85fa-33e20354c0aa
-		type EGG_OLDMAN_WANDER
-		at 84 140
+	object EGG_206c1a3c-c80a-49de-982e-8dd79758bf95
+		type EGG_MAN_WANDER
+		at 49 140
 		curdir 2
 
 	object STONc7b4910c-4df1-4e28-b9ec-25901326fdcb
@@ -2389,6 +2576,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 458 140
 		curdir 3
+
+	object WOMA302c0299-ed41-490d-a3b1-ad8e43b16cd3
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_015f0e19-85ec-4a92-bad3-da6b2db87658
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_015f0e19-85ec-4a92-bad3-da6b2db87658
+		type EGG_WOMAN_WANDER
+		at 123 141
+		curdir 2
 
 	object STON56fd2e43-7d59-48e6-83c4-87092180ea80
 		type STONEFLOOR14
@@ -2479,6 +2677,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 458 142
 		curdir 1
+
+	object MAN_9b256887-cbb0-475d-a8fb-1143517e0ad5
+		type MAN_OLD_WANDERING
+		inside EGG_dbb11b0c-25d6-4315-be65-f059eeabb5e6
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_dbb11b0c-25d6-4315-be65-f059eeabb5e6
+		type EGG_OLDMAN_WANDER
+		at 91 143
+		curdir 2
 
 	object CARPec5d8d1a-4700-496d-bb6e-596062e69a4a
 		type CARPET2
@@ -2856,6 +3065,17 @@ iMZ1r01
 		at 460 150
 		curdir 2
 
+	object MAN_dbaba931-6aac-4f10-b0d2-c7e11ebfc96e
+		type MAN_GENERIC_WANDERING
+		inside EGG_2bdf98c1-23cd-40a2-9997-5a26f31831c8
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_2bdf98c1-23cd-40a2-9997-5a26f31831c8
+		type EGG_MAN_WANDER
+		at 47 151
+		curdir 2
+
 	object LIGHa6e30ba5-7fa2-427c-80fa-2481cd6b0fd0
 		type LIGHTSOURCE
 		at 59 151
@@ -2865,6 +3085,17 @@ iMZ1r01
 		type LIGHTSOURCE
 		at 60 151
 		curdir 1
+
+	object WOMAf1614392-ffdd-4d5a-8c46-3237b0da7289
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_e50fa82c-0fc3-483e-85d7-211a6351fdcd
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_e50fa82c-0fc3-483e-85d7-211a6351fdcd
+		type EGG_WOMAN_WANDER
+		at 74 151
+		curdir 2
 
 	object STON136447ce-31b8-4c61-9527-30c5dd253606
 		type STONEFLOOR14
@@ -3823,6 +4054,17 @@ iMZ1r01
 		at 78 161
 		curdir 3
 
+	object WOMAe6044fcf-6fab-4f1a-a1eb-88da6de38b41
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_796a6735-6480-4e8a-846e-9276bc7e7391
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_796a6735-6480-4e8a-846e-9276bc7e7391
+		type EGG_WOMAN_WANDER
+		at 107 161
+		curdir 2
+
 	object FENCd868f80a-b671-41e4-8d32-ae8c9139eef1
 		type FENCE_CORNER
 		at 312 161
@@ -3958,6 +4200,17 @@ iMZ1r01
 		type STONEFLOOR14
 		at 79 162
 		curdir 3
+
+	object MAN_94b0e6d4-f37d-446b-85d8-8e43e79f0751
+		type MAN_OLD_WANDERING
+		inside EGG_a47476b2-8b61-41b8-b044-8c010e1507f6
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_a47476b2-8b61-41b8-b044-8c010e1507f6
+		type EGG_OLDMAN_WANDER
+		at 92 162
+		curdir 2
 
 	object STONffa9c9cf-75fe-45b4-9f2b-cd358acbbe1e
 		type STONEFLOOR14
@@ -4210,6 +4463,17 @@ iMZ1r01
 		at 464 164
 		curdir 3
 
+	object MAN_ade0a311-658d-4a08-90d5-fc5258271082
+		type MAN_OLD_WANDERING
+		inside EGG_fadd53d5-2ff2-4bec-8c21-23ae400ef023
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_fadd53d5-2ff2-4bec-8c21-23ae400ef023
+		type EGG_OLDMAN_WANDER
+		at 50 165
+		curdir 2
+
 	object STON3108bad8-6f99-4c41-a6cb-5b50d412e94f
 		type STONEFLOOR14
 		at 75 165
@@ -4336,6 +4600,17 @@ iMZ1r01
 		at 469 165
 		curdir 3
 
+	object WOMA94141c09-7b11-4a55-a055-781944ba6011
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_928caac1-5a76-45ee-9703-150e58684979
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_928caac1-5a76-45ee-9703-150e58684979
+		type EGG_WOMAN_WANDER
+		at 139 166
+		curdir 2
+
 	object STONa1d21a5b-d146-42c6-879d-a6f72e9d2523
 		type STONEFLOOR10
 		at 382 166
@@ -4415,6 +4690,17 @@ iMZ1r01
 	object STONf5b275ac-ce36-4d2f-9980-ccfcb450c10f
 		type STONEFLOOR18
 		at 464 166
+		curdir 2
+
+	object MAN_e72c1c36-8603-4e19-8934-539663ee7412
+		type MAN_GENERIC_WANDERING
+		inside EGG_234fe78a-2aa4-4907-9e74-29ed6bda016a
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_234fe78a-2aa4-4907-9e74-29ed6bda016a
+		type EGG_MAN_WANDER
+		at 61 167
 		curdir 2
 
 	object STON85b311b0-ac01-460a-8000-51726253a5e0
@@ -4846,6 +5132,17 @@ iMZ1r01
 		at 470 171
 		curdir 1
 
+	object MAN_8a692b87-3530-467a-80db-0fb8874fddb7
+		type MAN_GENERIC_WANDERING
+		inside EGG_f4944893-51e9-4e10-9be6-f043b109ea69
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_f4944893-51e9-4e10-9be6-f043b109ea69
+		type EGG_MAN_WANDER
+		at 123 172
+		curdir 2
+
 	object STONe5364023-605f-414c-9345-74ead48b29d8
 		type STONEFLOOR10
 		at 385 172
@@ -5200,6 +5497,17 @@ iMZ1r01
 		at 55 176
 		curdir 1
 
+	object WOMAa1705bce-c91e-48c2-8c99-0557075ef1c6
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_7511968e-e0f1-46b6-b78e-89c83e880b52
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_7511968e-e0f1-46b6-b78e-89c83e880b52
+		type EGG_WOMAN_WANDER
+		at 72 176
+		curdir 2
+
 	object STONaa428f2d-3b9f-42a0-a0e7-a0679e7adea1
 		type STONEFLOOR14
 		at 91 176
@@ -5357,6 +5665,17 @@ iMZ1r01
 		at 470 178
 		curdir 1
 
+	object WOMA4ae73e5d-058c-4409-8d70-e3c2942b50aa
+		type WOMAN_GENERIC_WANDERING
+		inside EGG_99bd77c8-63d1-4ef2-866e-8e3c641f3dd6
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_99bd77c8-63d1-4ef2-866e-8e3c641f3dd6
+		type EGG_WOMAN_WANDER
+		at 37 179
+		curdir 2
+
 	object STON05b7ffca-361c-4fad-9ed6-529fb1ad5f03
 		type STONEFLOOR14
 		at 92 179
@@ -5486,6 +5805,12 @@ iMZ1r01
 		type STONEFLOOR10
 		at 469 180
 		curdir 1
+
+	object TARG42544cdc-a513-4ff0-8633-63d11fe3018c
+		type TARGET
+		at 120 181
+		curdir 0
+		tag 3
 
 	object STON0e46be26-e9cb-414c-ad2a-39e8c00f8921
 		type STONEFLOOR14
@@ -5817,6 +6142,28 @@ iMZ1r01
 		type STONEFLOOR10
 		at 464 184
 		curdir 1
+
+	object MAN_1491e42d-fed1-4109-93f2-f8a01b572cb3
+		type MAN_GENERIC_WANDERING
+		inside EGG_e324bc0c-5652-435e-b831-397419e03d2c
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_e324bc0c-5652-435e-b831-397419e03d2c
+		type EGG_MAN_WANDER
+		at 48 185
+		curdir 2
+
+	object MAN_ff7afe43-4192-4fd3-b72b-591c8bea192d
+		type MAN_GENERIC_WANDERING
+		inside EGG_9eae6b0e-9529-4f6d-875c-d662efe64b69
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_9eae6b0e-9529-4f6d-875c-d662efe64b69
+		type EGG_MAN_WANDER
+		at 114 185
+		curdir 2
 
 	object STON89abe6ec-9250-4bc7-bbef-cfafd109530a
 		type STONEFLOOR14
@@ -6153,6 +6500,17 @@ iMZ1r01
 		at 239 191
 		curdir 0
 		name The Onyx Pyramid
+
+	object MAN_0024c275-1e65-4cf7-a5a5-60038ba66166
+		type MAN_GENERIC_WANDERING
+		inside EGG_6740aa00-42dd-4bba-9b17-b4b66c44446b
+		curdir 1
+		activity GUARD_WANDER
+
+	object EGG_6740aa00-42dd-4bba-9b17-b4b66c44446b
+		type EGG_MAN_WANDER
+		at 81 192
+		curdir 2
 
 	object STON1f6d9ab3-6c97-4921-b36c-91fa92679ab6
 		type STONEFLOOR14
@@ -11015,20 +11373,6 @@ iMZ1r01
 		at 285 224
 		curdir 3
 
-	object LEVE552aee27-3e8b-431d-8c95-4938eb4d916e
-		type LEVER
-		inside PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
-		curdir 0
-		tag 666
-		stats->owner PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
-		funcs->use TELEPORT_PRESSPARTY
-
-	object PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
-		type PLAYER
-		at 297 224
-		curdir 0
-		activity PLAYER_ACTION
-
 	object STON113cceae-ca5e-4ad5-b827-28fc36598d5a
 		type STONEFLOOR10
 		at 330 224
@@ -11191,6 +11535,28 @@ iMZ1r01
 		type STONEFLOOR18
 		at 285 225
 		curdir 3
+
+	object LEVE552aee27-3e8b-431d-8c95-4938eb4d916e
+		type LEVER
+		inside PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		curdir 0
+		tag 666
+		stats->owner PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		funcs->use TELEPORT_PRESSPARTY
+
+	object LEVE1a7d047c-a6c5-4371-9ad2-0eafdc253cef
+		type LEVER3
+		inside PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		curdir 0
+		tag 16
+		stats->owner PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		funcs->use TELEPORT_PRESSPARTY
+
+	object PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
+		type PLAYER
+		at 297 225
+		curdir 0
+		activity PLAYER_ACTION
 
 	object STON87b4e287-e15d-4905-9d4f-6401a13e53b2
 		type STONEFLOOR10
