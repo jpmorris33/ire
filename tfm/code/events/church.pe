@@ -25,6 +25,34 @@ endif
 end
 
 ##
+##  Fence off the crucfix if it starts acting funny
+##
+
+function plot_jesus_fence_scotia
+integer i
+get_user_flag i = "crucifix_reprogrammed"
+if i <> 0
+	# Move the fence into place
+	move_tag -105 to +268 +35
+	# Destroy trigger to prevent repeats
+	destroy current
+endif
+end
+
+function plot_jesus_fence_holyland
+integer i
+get_user_flag i = "crucifix_reprogrammed"
+if i <> 0
+	# Move the fence into place
+	move_tag -78 to 0 +136
+	# Destroy trigger to prevent repeats
+	destroy current
+endif
+end
+
+
+
+##
 ##  If you start it by talking to the cardinal
 ##
 

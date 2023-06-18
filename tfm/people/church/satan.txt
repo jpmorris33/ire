@@ -1,6 +1,8 @@
 
 [page="start"]
 [if hear_truth][goto="HT_start"]
+[call="check_for_hell"]
+[if true][goto="hell_st"]
 [colour="#808080"]
 You see a man with a pointed beard, dressed in an
 immaculate black suit.  He is holding a cane.
@@ -23,6 +25,8 @@ immaculate black suit.  He is holding a cane.
 
 [page="startname"]
 [if hear_truth][goto="HT_startname"]
+[call="check_for_hell"]
+[if true][goto="hell"]
 [colour="#808080"]
 You see a the devil in an immaculate black suit.
 [colour="#ffffff"]
@@ -42,6 +46,112 @@ You see a the devil in an immaculate black suit.
 [endpage]
 
 
+[page="hell_st"]
+[colour="#808080"]
+You see a man with a pointed beard, dressed in an
+immaculate black suit.  He is holding a cane.
+[colour="#ffffff"]
+
+"Hello there, $PLAYER.  Welcome to Hell!"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="How do you know my name?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="hell"]
+[colour="#808080"]
+You see a the devil in an immaculate black suit.
+[colour="#ffffff"]
+
+"Hello again, $PLAYER.  Fancy meeting you here!
+ Welcome to my Palace of Evil."
+
+[link="Tell me about Hell."]
+[linkto="hell_about"]
+[if_not_pflag sold_soul][link="I'm interested in selling my soul."]
+[if_not_pflag sold_soul][linkto="sell2"]
+[link="Can you teach me any magic?"]
+[linkto="magic"]
+[if toad_spoke][link="I don't think much of your toads."]
+[if toad_spoke][linkto="toads"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="hell_about"]
+"Ah, well.  It's where people go if they fall out with
+ the LORD.
+
+ Everyone says that it's where I torture them with pools
+ of lava and stuff like that.  But frankly, why would
+ I want to do that?
+
+ I figure, if I treat people nicely they'll serve me.
+ And that will come in handy for the Final Battle of
+ Good and Evil if I have an army of willing volunteers!
+
+ So!  If you see green and pretty bits, those parts are
+ under my control.  The nasty eternal torment bits?
+ Outside my jursidiction, I'm afraid."
+
+[link="So it's divided into factions?"]
+[linkto="hell_factions"]
+[link="I want to leave Hell."]
+[linkto="hell_leave"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="hell_factions"]
+"Exactly!  Some of it's under my control.  The green and
+ pleasant parts.
+
+ The rest is run by the Church to torment their victims."
+
+[link="I want to leave Hell."]
+[linkto="hell_leave"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="hell_leave"]
+"Can't blame you.  I'd love to help, but the exit is
+ outside of my little corner of Hell.
+
+ You'll need the Jug of Insanity.  Be careful, it's very
+ fragile.  Kept in the north, in the Church-controlled
+ sector.
+
+ Getting there won't be easy.  You'll need the Six Keys
+ to the Onyx Pyramid.  I don't know where they are, but
+ you will definitely know them when you see them."
+
+[link="Can't you just snap your fingers and send me back?"]
+[linkto="hell_leave2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="hell_leave2"]
+
+"Sorry, can't do that.  The LORD prevents me.
+ So you'll have to find that jug."
+
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+
 [page="HT_start"]
 [colour="#808080"]
 You see a man with a pointed beard, dressed in an
@@ -56,6 +166,9 @@ immaculate black suit.  He is holding a cane.
 [linkto="HT_who"]
 [if enter_pp][link="I need a way to enter the power plant in the east."]
 [if enter_pp][linkto="HT_powerplant"]
+[call="check_for_hell"]
+[if true][link="I need a way to enter the power plant in the east."]
+[if true][linkto="HT_hell"]
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]
@@ -75,6 +188,9 @@ You see a the devil in an immaculate black suit.
 [if enter_pp][linkto="HT_powerplant"]
 [if toad_spoke][link="I don't think much of your toads."]
 [if toad_spoke][linkto="HT_toads"]
+[call="check_for_hell"]
+[if true][link="I need a way to enter the power plant in the east."]
+[if true][linkto="HT_hell"]
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]
@@ -90,12 +206,43 @@ You see a the devil in an immaculate black suit.
  I can no longer prevent them from attacking innocents.
 
  Of course, the toads still claim to be under my control,
- so I take the blame for their actions."
+ so I will take the blame for their actions."
 
 [link="Who are you really?"]
 [linkto="HT_who"]
 [if enter_pp][link="I need a way to enter the power plant in the east."]
 [if enter_pp][linkto="HT_powerplant"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+
+[page="HT_hell"]
+
+"The dimensional construct known as 'Hell' is not
+ wholly under my jurisdiction.  Parts of it are run
+ by Xy'Lan to torture those who oppose his will.
+
+"Because of this, I do not have the power to send you
+ back to base-level reality.  However there is a device
+ capable of performing this feat.  It is in the form
+ of a jug and is held in the northern parts of the realm.
+
+ You will need six keys to access it.  Take care not to
+ damage this item as it is unique and irreplaceable."
+
+[link="Can't you just snap your fingers and send me back?"]
+[linkto="HT_hell2"]
+[link="Goodbye."]
+[linkto="HT_bye"]
+[endpage]
+
+[page="HT_hell2"]
+
+"I am prevented by Xy'Lan from doing so.  Seek the device
+ known as the Jug of Insanity.  It is the only known way
+ to leave this place without Xy'Lan's blessing."
+
 [link="Goodbye."]
 [linkto="HT_bye"]
 [endpage]

@@ -4,6 +4,7 @@ Cardinal Trom
 [esc="bye"]
 [page="start"]
 [if banged_devil][goto="devil"]
+[if crucifix_reprogrammed][if_not trom_crucifix_done][goto="reprogrammed"]
 [iftime 0800-0900][goto="inchurch"]
 [learn_name]
 
@@ -540,6 +541,90 @@ realises you hold a plenary indulgence.
 [endpage]
 
 
+[page="reprogrammed"]
+[set trom_crucifix_done]
+[esc="disabled"]
+[colour="#808080"]
+ Cardinal Trom fixes you with a piercing gaze.
+[colour="#ffffff"]
+
+"A singular thing has happened prior to your arrival.
+ Our Saviour Crucified has forsaken his destiny and
+ speaks only of peace and love.
+
+"It appears that someone has addled the mind of the
+ Lord Jesus. And I think I know who."
+
+[link="It's a miracle!"]
+[linkto="reprogrammed2"]
+[link="A dragon did it!"]
+[linkto="reprogrammed3"]
+[endpage]
+
+
+[page="reprogrammed2"]
+[am_carrying indulgence_plenary]
+[if true][goto="reprogrammed2a"]
+[at_exit_call="justice_heresy"]
+
+"Yes!  It is a miracle of SATAN!
+ Burn him!"
+
+[nextpage="exit"]
+[endpage]
+
+[page="reprogrammed2a"]
+
+"Yes!  It is a miracle of SATAN!
+ Burn him!"
+
+[nextpage="indulgence3"]
+[endpage]
+
+
+[page="reprogrammed3"]
+[esc="disabled"]
+[colour="#808080"]
+ Cardinal Trom stares at you for a while before replying.
+[colour="#ffffff"]
+
+"...This does seem more plausible.  After all, how could
+ a mere human corrupt the thoughts of a living god?"
+
+"But remember always that these dragons are enemies of
+ the Holy Trinity, and if you are found to have aided
+ them in this misdeed, your punishment shall be one of
+ eternal torment.
+
+ Now go.  I have much to do."
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="indulgence3"]
+[colour="#808080"]
+The Cardinal looks at you with abject loathing as he
+realises you hold a plenary indulgence.
+[colour="#ffffff"]
+
+"You have committed a vile act of heresy against the
+ Trinity!
+
+ Were it not for that indulgence you would be executed
+ immediately.
+
+ Hold tight to that precious slip of parchment, for if
+ you come here without it I shall mount your head to
+ the wall of my church!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+
+
 [page="devil_old"]
 
 [colour="#808080"]
@@ -580,9 +665,6 @@ realises you hold a plenary indulgence.
 [endpage]
 
 
-"It is a miracle of Satan!  Burn him!"
-
-
 [page="xx"]
 [image="lord.jpg"]
 
@@ -590,3 +672,5 @@ realises you hold a plenary indulgence.
 
 [nextpage="exit"]
 [endpage]
+
+

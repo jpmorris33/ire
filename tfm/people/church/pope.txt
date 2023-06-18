@@ -3,6 +3,7 @@
 [page="start"]
 [if pope_2m][goto="devil4"]
 [if banged_devil][goto="devil"]
+[if crucifix_reprogrammed][if_not pope_crucifix_done][goto="reprogrammed"]
 [iftime 0800-0900][goto="inchurch"]
 [iftime 1600-1700][goto="inchurch"]
 [learn_name]
@@ -106,6 +107,7 @@ and penetrating, hawk-like eyes.
 [page="startname"]
 [if pope_2m][goto="devil4"]
 [if banged_devil][goto="devil"]
+[if crucifix_reprogrammed][if_not pope_crucifix_done][goto="reprogrammed"]
 [iftime 0800-0900][goto="inchurch"]
 [iftime 1600-1700][goto="inchurch"]
 [image="pope.pcx"]
@@ -949,4 +951,36 @@ The Holy Father eyes you with a look of amusement.
 [at_exit_call="guillotine_player"]
 [nextpage="exit"]
 [endpage]
+
+
+[page="reprogrammed"]
+[set pope_crucifix_done]
+[image="pope.pcx"]
+
+[colour="#808080"]
+ The Holy Father pays no attention to your presence as he
+ is preoccupied with higher matters.
+[colour="#ffffff"]
+
+"LORD!  What ails your son?!
+
+ He speaks of peace to our enemies and goodwill toward
+ sinners!  What is the meaning of this?!"
+[nextpage="reprogrammed2"]
+[endpage]
+
+[page="reprogrammed2"]
+[image="lord.jpg"]
+
+"HE IS MERELY GOING THROUGH REBELLIOUS PHASE AND WILL
+ GROW OUT OF IT SOON.
+
+ IGNORE HIM FOR NOW AND FOCUS ON THE SECOND COMING,
+ FOR IT IS NEAR."
+
+[nextpage="exit"]
+[endpage]
+
+
+
 

@@ -713,7 +713,22 @@ endif
 
 end
 
+##
+##
+##
 
+function check_for_hell
+int map
+get_mapno map
+
+set_user_flag "true" = 0
+set_user_flag "false" = 1
+
+if map = 6
+	set_user_flag "true" = 1
+	set_user_flag "false" = 0
+endif
+end
 
 
 
@@ -785,3 +800,4 @@ let game_minute = 0
 add game_hour + 1
 resync_everything
 end
+

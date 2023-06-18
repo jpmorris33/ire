@@ -73607,6 +73607,18 @@ iMZ1r01
 
 	decorative MOUNT02 at 1003 713
 
+	object FENC52f584fe-2ec4-422d-bf92-a9ef70d7e71f
+		type FENCE2_END
+		at 561 714
+		curdir 0
+		tag 105
+
+	object FENC7a50f518-a3e7-4d27-8825-f99bd50d8ed5
+		type FENCE2_END
+		at 564 714
+		curdir 0
+		tag 105
+
 	decorative TREE03 at 608 714
 
 	decorative TREE02 at 609 714
@@ -73734,6 +73746,30 @@ iMZ1r01
 	decorative MOUNT08 at 1002 714
 
 	decorative MOUNT07 at 1003 714
+
+	object FENC3d47c8ef-f9e9-4491-8671-6c1d8a3a0685
+		type FENCE2_CORNER
+		at 561 715
+		curdir 2
+		tag 105
+
+	object FENC51c561a7-e3fc-4e7b-b849-cfcfecb6a33a
+		type FENCE2
+		at 562 715
+		curdir 0
+		tag 105
+
+	object FENC80ba0118-c7b4-457d-b81b-d6338c83d7e6
+		type FENCE2
+		at 563 715
+		curdir 0
+		tag 105
+
+	object FENC4686b996-89d7-4f15-8b3f-0dfed9400868
+		type FENCE2_CORNER
+		at 564 715
+		curdir 1
+		tag 105
 
 	decorative TREE02 at 606 715
 
@@ -79213,6 +79249,13 @@ iMZ1r01
 		type CARPET2
 		at 829 751
 		curdir 3
+
+	object TRAPacc596c5-fb7e-4062-b619-2a80244df162
+		type TRAP_RADIUS
+		at 830 751
+		curdir 0
+		stats->radius 10
+		funcs->use PLOT_JESUS_FENCE_SCOTIA
 
 	object CARPeca69b95-b0fa-4c92-b5d4-0d8cabb8c5c8
 		type CARPET
