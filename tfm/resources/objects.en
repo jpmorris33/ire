@@ -557,6 +557,9 @@ section: characters
 	rank		peasant
 	faction		medieval
 
+	alias MAN_GENERIC_WANDERING = MAN_GENERIC
+	behaviour	guard_wander
+
 	name MAN_NOBLE
 	left		NOBLEMAN_L
 	right		NOBLEMAN_R
@@ -902,6 +905,9 @@ section: characters
 
 	alias MAN_OLD_GLASSMAKER = MAN_OLD
 	no_schedule
+
+	alias MAN_OLD_WANDERING = MAN_OLD
+	behaviour	guard_wander
 
 	name MAN_FENCE
 	left		P_LEFT
@@ -3807,7 +3813,24 @@ section: characters
 	description	"Guard spawn spot"
 	ifused		egg_spawn_always
 	strength	100
+	empty
 	contains	GUARD_WANDERING
+
+	alias EGG_MAN_WANDER = EGG_GUARD_PATROL
+	karma		2
+	description	"Victim spawn spot"
+	ifused		egg_spawn_always
+	strength	100
+	empty
+	contains	MAN_GENERIC_WANDERING
+
+	alias EGG_WOMAN_WANDER = EGG_MAN_WANDER
+	empty
+	contains	WOMAN_GENERIC_WANDERING
+
+	alias EGG_OLDMAN_WANDER = EGG_MAN_WANDER
+	empty
+	contains	MAN_OLD_WANDERING
 
 	alias EGG_GUARD_STAND = EGG_GUARD_PATROL
 	karma		1
@@ -4156,6 +4179,9 @@ section: characters
 	race		human
 	rank		peasant
 	faction		medieval
+
+	alias WOMAN_GENERIC_WANDERING = WOMAN_GENERIC
+	behaviour	guard_wander
 
 	name WOMAN_GIRL
 	left		WOMAN1_LEFT

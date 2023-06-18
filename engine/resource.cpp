@@ -869,7 +869,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // The 'xoff' clause.
 
 		if(!istricmp(Rptr,"xoff")) {       // X offset
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			SQlist[pos].xoff=strgetnumber(Rbuffer);
 			if(!(strisnumber(Rbuffer))) {
 			Dump(ctr,"The X offset should be a number.",NULL);
@@ -879,7 +879,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // The 'yoff' clause.
 
 		if(!istricmp(Rptr,"yoff")) {       // Y offset
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			SQlist[pos].yoff=strgetnumber(Rbuffer);
 			if(!(strisnumber(Rbuffer))) {
 				Dump(ctr,"The Y offset should be a number.",NULL);
@@ -889,7 +889,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // The 'hotx' clause.
 
 		if(!istricmp(Rptr,"hotx")) {       // hotspot X offset
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			SQlist[pos].hotx=strgetnumber(Rbuffer);
 			if(!(strisnumber(Rbuffer))) {
 				Dump(ctr,"The hotspot X offset should be a number.",NULL);
@@ -899,7 +899,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // The 'yoff' clause.
 
 		if(!istricmp(Rptr,"hoty")) {       // Y offset
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			SQlist[pos].hoty=strgetnumber(Rbuffer);
 			if(!(strisnumber(Rbuffer))) {
 				Dump(ctr,"The hotspot Y offset should be a number.",NULL);
@@ -909,7 +909,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // The 'OX' clause.
 
 		if(!istricmp(Rptr,"ox")) {       // Overlay X offset
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			SQlist[pos].ox=strgetnumber(Rbuffer);
 			if(!(strisnumber(Rbuffer))) {
 				Dump(ctr,"The X offset should be a number.",NULL);
@@ -919,7 +919,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // The 'OY' clause.
 
 		if(!istricmp(Rptr,"oy")) {       // Overlay Y offset
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			SQlist[pos].oy=strgetnumber(Rbuffer);
 			if(!(strisnumber(Rbuffer))) {
 				Dump(ctr,"The Y offset should be a number.",NULL);
@@ -930,7 +930,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
                 if(!istricmp(Rptr,"speed"))       // Animation rate
                     {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
+                    SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
                     SQlist[pos].speed=strgetnumber(Rbuffer);
                     if(!(strisnumber(Rbuffer)))
 			Dump(ctr,"The speed should be a number.",NULL);
@@ -940,7 +940,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
                 if(!istricmp(Rptr,"overlay"))       // Overlaid frame
                     {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
+                    SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
                     SQlist[pos].overlay = find_spr(Rbuffer);
                     // Did it work?
                     if(!SQlist[pos].overlay)
@@ -951,7 +951,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
                 if(!istricmp(Rptr,"jump_to"))       // Sequence to switch to
                     {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
+                    SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			// Mark that we have a jump
                     SQlist[pos].flags|=SEQFLAG_JUMPTO;
                     // Store the line no we're going to use for post-process
@@ -962,28 +962,28 @@ for(ctr=start;ctr<=finish;ctr++)
 
         // The 'call' clause, a script to call when the sequence ends
 
-				if(!istricmp(Rptr,"call"))       // Sequence to switch to
-					{
-					strcpy(Rbuffer,strfirst(strrest(line)));
-					SQlist[pos].hookfunc = getnum4PE(Rbuffer);
-					if(SQlist[pos].hookfunc < 1 && !editarea[0]) // Don't care for shape editor
-						Dump(ctr,"call: Could not find this function",Rbuffer);
-					}
+		if(!istricmp(Rptr,"call"))       // Sequence to switch to
+			{
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].hookfunc = getnum4PE(Rbuffer);
+			if(SQlist[pos].hookfunc < 1 && !editarea[0]) // Don't care for shape editor
+				Dump(ctr,"call: Could not find this function",Rbuffer);
+			}
 
         // The 'Translucency' clause.
 
-                if(!istricmp(Rptr,"translucency"))
-                    {
-                    strcpy(Rbuffer,strfirst(strrest(line)));
-                    SQlist[pos].translucency=strgetnumber(Rbuffer);
-					if(SQlist[pos].translucency < 0 || SQlist[pos].translucency > 255)
-						Dump(ctr,"The translucency should be a number between 0 and 255",NULL);
-                    if(!(strisnumber(Rbuffer)))
-						Dump(ctr,"The translucency should be a number between 0 and 255",NULL);
-                    }
-
-                }
-        }
+		if(!istricmp(Rptr,"translucency")) {
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
+			SQlist[pos].translucency=strgetnumber(Rbuffer);
+		    if(SQlist[pos].translucency < 0 || SQlist[pos].translucency > 255) {
+				Dump(ctr,"The translucency should be a number between 0 and 255",NULL);
+			}
+			if(!(strisnumber(Rbuffer))) {
+				Dump(ctr,"The translucency should be a number between 0 and 255",NULL);
+			}
+		}
+	}
+}
 
 ilog_printf("\n");
 ilog_printf("      Aftertouches...\n");
@@ -991,7 +991,7 @@ ilog_printf("      Aftertouches...\n");
 for(ctr=0;ctr<pos;ctr++)
     if(SQlist[ctr].flags&SEQFLAG_JUMPTO)
         {
-        strcpy(Rbuffer,strfirst(strrest(script.line[SQlist[ctr].jumpaddr])));
+        SAFE_STRCPY(Rbuffer,strfirst(strrest(script.line[SQlist[ctr].jumpaddr])));
         tmp=getnum4sequence(Rbuffer);
             if(tmp==-1)
                 Dump(SQlist[ctr].jumpaddr,"SQJT: Could not find sequence:",Rbuffer);
@@ -1255,7 +1255,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"hp"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's health must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1266,7 +1266,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_hp"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum health must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1276,7 +1276,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"dexterity"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's dexterity must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1286,7 +1286,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_dexterity"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum dexterity must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1296,7 +1296,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"strength"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's strength must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1306,7 +1306,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_strength"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum strength must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1316,7 +1316,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"intelligence"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's intelligence must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1326,7 +1326,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_intelligence"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum intelligence must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1338,7 +1338,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(character->flags & IS_QUANTITY) {
 				Dump(ctr,"Object must have the quantity flag to have a unit weight.",NULL);
 			}
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer)) {
 				Dump(ctr,"The character's weight must be a number.",NULL);
 			}
@@ -1351,7 +1351,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!(character->flags & IS_QUANTITY)) {
 				Dump(ctr,"Object must have the quantity flag to have a unit weight.",NULL);
 			}
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer)) {
 				Dump(ctr,"The character's unit weight must be a number.",NULL);
 			}
@@ -1362,7 +1362,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_weight"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's maximum weight must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1372,7 +1372,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"damage"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The damage it causes must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1382,7 +1382,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"armour") || !istricmp(Rptr,"armor"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The armour value must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1392,7 +1392,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_damage")) // is this needed?
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The maximum damage it causes must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1403,7 +1403,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		// is this needed
 		if(!istricmp(Rptr,"max_armour") || !istricmp(Rptr,"max_armor"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The maximum damage it causes must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1413,7 +1413,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"karma"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The karma it adds/subtracts must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1423,7 +1423,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"bulk"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's bulk must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1433,7 +1433,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_bulk"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's bulk capacity must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1443,7 +1443,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"range"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The weapon's range must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1453,7 +1453,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"max_range"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The weapon's range must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1463,7 +1463,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"speed"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's speed must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1473,7 +1473,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"level"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's level must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1490,7 +1490,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"radius"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The object's radius must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1500,7 +1500,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"alignment"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The character's alignment should be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1509,7 +1509,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			}
 
 		if(!istricmp(Rptr,"cost")) {
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The movement cost must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -1519,7 +1519,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"frame"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
@@ -1532,7 +1532,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"left"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
@@ -1542,7 +1542,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"right"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
@@ -1552,7 +1552,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"up"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
@@ -1562,7 +1562,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"down"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
@@ -1574,7 +1574,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"description"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 
 			if(Rbuffer[0] == '\"')  // Quoted text is direct
 				{
@@ -1593,7 +1593,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"short"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text is direct
 				{
 				character->shortdesc = strchr(line,'\"'); // start
@@ -1610,7 +1610,7 @@ for(ctr=start;ctr<=finish;ctr++)
         // Get default personalname
 
 		if(!istricmp(Rptr,"personalname")) {
-			strcpy(Rbuffer,strrest(line));
+			SAFE_STRCPY(Rbuffer,strrest(line));
 
 			if(Rbuffer[0] == '\"') {  // Quoted text is direct
 				ptr = strrchr(Rbuffer,'\"');     // Find last quote
@@ -1627,7 +1627,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"race"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
 				character->labels->race = strchr(line,'\"'); // start
@@ -1643,7 +1643,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"rank"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
 				character->labels->rank = strchr(line,'\"'); // start
@@ -1659,7 +1659,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"party"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
 				character->labels->party = strchr(line,'\"'); // start
@@ -1675,7 +1675,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"location"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text
 				{
 				character->labels->location = strchr(line,'\"'); // start
@@ -1690,7 +1690,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			}
 
 		if(!istricmp(Rptr,"faction")) {
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"') {  // Quoted text
 				character->labels->faction = strchr(line,'\"'); // start
 				character->labels->faction++;       // skip the quote
@@ -1709,7 +1709,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfUsed"))
 			{
-			strcpy(character->funcs->use,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->use,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1732,7 +1732,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfTriggered"))
 			{
-			strcpy(character->funcs->stand,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->stand,strfirst(strrest(line)));
 			character->flags |= IS_TRIGGER;
 			continue;
 			}
@@ -1741,7 +1741,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfKilled") || !istricmp(Rptr,"IfDead"))
 			{
-			strcpy(character->funcs->kill,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->kill,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1758,7 +1758,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfHurt") || !istricmp(Rptr,"IfDamaged"))
 			{
-			strcpy(character->funcs->hurt,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->hurt,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1766,7 +1766,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"Init") || !istricmp(Rptr,"OnInit"))
 			{
-			strcpy(character->funcs->init,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->init,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1774,7 +1774,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfWield") || !istricmp(Rptr,"IfWielded"))
 			{
-			strcpy(character->funcs->wield,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->wield,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1782,7 +1782,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"IfHorrified"))
 			{
-			strcpy(character->funcs->horror,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->horror,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1799,7 +1799,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"qchange") || !istricmp(Rptr,"QuantityChange"))
 			{
-			strcpy(character->funcs->quantity,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->quantity,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1808,7 +1808,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"IfGet") || !istricmp(Rptr,"IfGot")
 		||!istricmp(Rptr,"IfTaken"))
 			{
-			strcpy(character->funcs->get,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->get,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1817,7 +1817,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"resurrect") || !istricmp(Rptr,"resurrect_to")
 		|| !istricmp(Rptr,"resurrect_as"))
 			{
-			strcpy(character->funcs->resurrect,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->resurrect,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1831,19 +1831,19 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"Attack"))
 			{
-			strcpy(character->funcs->attack,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->attack,strfirst(strrest(line)));
 			continue;
 			}
 
 		if(!istricmp(Rptr,"user1"))
 			{
-			strcpy(character->funcs->user1,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->user1,strfirst(strrest(line)));
 			continue;
 			}
 
 		if(!istricmp(Rptr,"user2"))
 			{
-			strcpy(character->funcs->user2,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->user2,strfirst(strrest(line)));
 			continue;
 			}
 
@@ -1864,7 +1864,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			{
 //                        character->flags.solid = 1;  // Make sure it's solid
 			polarity=0;
-			strcpy(Rbuffer,strgetword(line,2));
+			SAFE_STRCPY(Rbuffer,strgetword(line,2));
 			if(!istricmp(Rbuffer,"H"))
 				polarity=1;
 			if(!istricmp(Rbuffer,"V"))
@@ -1916,7 +1916,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		||!istricmp(Rptr,"setactivearea"))
 			{
 			polarity=0;
-			strcpy(Rbuffer,strgetword(line,2));
+			SAFE_STRCPY(Rbuffer,strgetword(line,2));
 			if(!istricmp(Rbuffer,"H"))
 				polarity=1;
 			if(!istricmp(Rbuffer,"V"))
@@ -1924,22 +1924,22 @@ for(ctr=start;ctr<=finish;ctr++)
 			if(!polarity)
 				Dump(ctr,"\r\nObjects with Active Areas must be declared with a polarity and four numbers:\r\nSetActiveArea [H or V] <x offset> <y offset> <width> <height>",Rbuffer);
 
-			strcpy(Rbuffer,strgetword(line,3));
+			SAFE_STRCPY(Rbuffer,strgetword(line,3));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"\r\nObjects with Active Areas must be declared with a polarity and four numbers:\r\nSetActiveArea [H or V] <x offset> <y offset> <width> <height>",Rbuffer);
 			blockx= strgetnumber(Rbuffer);
 
-			strcpy(Rbuffer,strgetword(line,4));
+			SAFE_STRCPY(Rbuffer,strgetword(line,4));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"\r\nObjects with Active Areas must be declared with a polarity and four numbers:\r\nSetActiveArea [H or V] <x offset> <y offset> <width> <height>",Rbuffer);
 			blocky= strgetnumber(Rbuffer);
 
-			strcpy(Rbuffer,strgetword(line,5));
+			SAFE_STRCPY(Rbuffer,strgetword(line,5));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"\r\nObjects with Active Areas must be declared with a polarity and four numbers:\r\nSetActiveArea [H or V] <x offset> <y offset> <width> <height>",Rbuffer);
 			blockw= strgetnumber(Rbuffer);
 
-			strcpy(Rbuffer,strgetword(line,6));
+			SAFE_STRCPY(Rbuffer,strgetword(line,6));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"\r\nObjects with Active Areas must be declared with a polarity and four numbers:\r\nSetActiveArea [H or V] <x offset> <y offset> <width> <height>",Rbuffer);
 			blockh= strgetnumber(Rbuffer);
@@ -1978,7 +1978,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			sched = character->schedule;
 
 			// Get time
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			Rbuffer[5]=0; // Should be NN:NN\0 - this will make sure
 			if(Rbuffer[2] != ':')
 				Dump(ctr,"Schedule syntax:  schedule <hh:mm> <script function>",NULL);
@@ -2110,7 +2110,7 @@ for(ctr=start;ctr<=finish;ctr++)
 		if(!istricmp(Rptr,"quantity"))        // Can it be a pile?
 			{
 			character->flags |= IS_QUANTITY;
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=strgetnumber(Rbuffer);
 			if(strisnumber(Rbuffer))
 				character->stats->quantity=tmp;
@@ -2185,7 +2185,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"Conversation"))
 			{
-			strcpy(character->funcs->talk,strfirst(strrest(line)));
+			SAFE_STRCPY(character->funcs->talk,strfirst(strrest(line)));
 			character->funcs->tcache=1;
 			continue;
 			}
@@ -2194,12 +2194,24 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"contains"))
 			{
-			if(character->funcs->contents<8)
-				strcpy(character->funcs->contains[character->funcs->contents++],strfirst(strrest(line)));
-			else
+			if(character->funcs->contents<8) {
+				SAFE_STRCPY(character->funcs->contains[character->funcs->contents],strfirst(strrest(line)));
+				character->funcs->contents++;
+			} else {
 				Dump(ctr,"This character has more than 8 initial items",Rbuffer);
-			continue;
 			}
+			continue;
+		}
+
+		// Erase the characters default contents (e.g. for object inheritance)
+		if(!istricmp(Rptr,"empty")) {
+			character->funcs->contents=0;
+			for(int tctr=0;tctr<8;tctr++) {
+				character->funcs->contains[tctr][0]=0;
+			}
+			continue;
+		}
+
 
 		if(!istricmp(Rptr,"fragile"))             // Is it fragile?
 			{
@@ -2302,7 +2314,6 @@ for(ctr=start;ctr<=finish;ctr++)
 			SetNPCFlag(character, IS_SPAWNED);
 			continue;
 			}
-
 
 		// If we get this far, there was no recognised keyword
 
@@ -2408,7 +2419,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"sequence"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			tmp=getnum4sequence(Rbuffer);
 			if(tmp==-1)
 				Dump(ctr,"Could not find sequence:",Rbuffer);
@@ -2416,7 +2427,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			// Get seq. directly
 			TIlist[pos].form=&SQlist[tmp];
 			// Get name of sequence too
-			strcpy(TIlist[pos].seqname,strfirst(strrest(line)));
+			SAFE_STRCPY(TIlist[pos].seqname,strfirst(strrest(line)));
 			TIlist[pos].sdir = 1;
 			TIlist[pos].sptr = 0;
 
@@ -2427,7 +2438,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"description"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(Rbuffer[0] == '\"')  // Quoted text is direct
 				{
 				TIlist[pos].desc = strchr(line,'\"'); // start
@@ -2464,7 +2475,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"cost"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The movement cost must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -2474,7 +2485,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		if(!istricmp(Rptr,"scroll"))
 			{
-			strcpy(Rbuffer,strfirst(strrest(line)));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(line)));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The scrolling X coordinate must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -2484,7 +2495,7 @@ for(ctr=start;ctr<=finish;ctr++)
 			TIlist[pos].sdx=tmp;
 			TIlist[pos].odx=tmp;
 
-			strcpy(Rbuffer,strfirst(strrest(strrest(line))));
+			SAFE_STRCPY(Rbuffer,strfirst(strrest(strrest(line))));
 			if(!strisnumber(Rbuffer))
 				Dump(ctr,"The scrolling Y coordinate must be a number.",NULL);
 			tmp=strgetnumber(Rbuffer);
@@ -2972,7 +2983,7 @@ for(ctr=start;ctr<=finish;ctr++) {
 		RTlist[pos].darkness=64;	// Default to 64
 
 		// Try and get a parameter
-		strcpy(Rbuffer,strgetword(Rptr,dp+1));
+		SAFE_STRCPY(Rbuffer,strgetword(Rptr,dp+1));
 		if(strisnumber(Rbuffer)) {
 			RTlist[pos].darkness=strgetnumber(Rbuffer);
 		}
@@ -2985,7 +2996,7 @@ for(ctr=start;ctr<=finish;ctr++) {
 		RTlist[pos].darkness=64;	// Default to 64
 
 		// Try and get a parameter
-		strcpy(Rbuffer,strgetword(Rptr,dp+1));
+		SAFE_STRCPY(Rbuffer,strgetword(Rptr,dp+1));
 		if(strisnumber(Rbuffer)) {
 			RTlist[pos].darkness=strgetnumber(Rbuffer);
 		}
@@ -4281,8 +4292,8 @@ for(ctr=0;ctr<script.lines;ctr++)
 //	ilog_quiet("line %d: %x\n",ctr,script.line[ctr]);
 //	ilog_quiet("line %d='%s'\n",ctr,script.line[ctr]);
 //	strupr(script.line[ctr]);               // Convert to uppercase
-	strcpy(Rbuffer,script.line[ctr]);       // Get line
-	strcpy(buf,strfirst(Rbuffer));          // Get first word from line
+	SAFE_STRCPY(Rbuffer,script.line[ctr]);       // Get line
+	SAFE_STRCPY(buf,strfirst(Rbuffer));          // Get first word from line
 	if(buf[0])
 		if(!istricmp(buf,"SECTION:"))
 			{
