@@ -24,6 +24,7 @@ object arrested
 
 local
 int witnesses
+int silentwitness
 endlocal
 
 
@@ -83,18 +84,18 @@ let suspect.user.obj0 = victim
 # And were there any witnesses?
 
 let witnesses = 0
+let silentwitness = 0
 for_all_onscreen justice_stopthief
 
-# No
 
 if witnesses = 0
-#	print suspect.personalname
-#	print " was "
 	print "Stealing!"
 	printcr
+
+	if silentwitness > 0
+		call summon_guards
+	endif
 else
-#	print suspect.personalname
-#	print " must be arrested! "
 	print "~STOP THIEF!~"
 	printcr
 	call call_guards
@@ -848,6 +849,12 @@ function justice_stopthief
 
 # Prevent anyone from trying to wreak justice upon themselves
 if current = suspect
+	return
+endif
+
+# Is it a security camera?  If so, summon guards with no fanfare
+if current.label.race = "camera"
+	add silentwitness + 1
 	return
 endif
 

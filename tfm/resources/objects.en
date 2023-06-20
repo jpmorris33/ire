@@ -14940,6 +14940,67 @@ section: characters
 	setActiveArea	V 0 0 2 1
 	setActiveArea	H 0 0 2 1
 
+	name LOCKER_H
+	left		LOCKERH0
+	right		LOCKERH2
+	up		LOCKERH1
+	down		LOCKERH1
+	hp		90000
+	weight		-1
+	description	"You see someone's locker."
+	short		"lockers"
+	IfUsed		OpenContainer
+	IfKilled	spill
+	solid
+	fixed
+	container
+	tabletop
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 2
+	setActiveArea	H 0 0 1 2
+
+	name LOCKER_H_OPEN
+	left		LOCKERH3
+	right		LOCKERH5
+	up		LOCKERH4
+	down		LOCKERH4
+	hp		90000
+	weight		-1
+	description	"You see an open locker."
+	short		"lockers"
+	IfUsed		CloseContainer
+	IfLookedAt	SearchContainer
+	IfKilled	spill
+	solid
+	fixed
+	container
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 2
+	setActiveArea	H 0 0 1 2
+
+	name LOCKER_H_LOCKED
+	left		LOCKERH0
+	right		LOCKERH2
+	up		LOCKERH1
+	down		LOCKERH1
+	hp		90000
+	weight		-1
+	description	"You see someone's locker.  It's locked."
+	short		"lockers"
+	OnInit		DoorLockCheck
+	IfUsed		DoorLocked
+	IfKilled	spill
+	solid
+	fixed
+	container
+	tabletop
+	setsolid	V 0 0 1 1
+	setsolid	H 0 0 1 1
+	setActiveArea	V 0 0 1 2
+	setActiveArea	H 0 0 1 2
+
 	name PLASMATUBE
 	left		plasmatube_l
 	right		plasmatube_r
@@ -16591,6 +16652,20 @@ section: characters
 	fixed
 	ifwielded	dart_trap
 	attack		dart_attack
+
+	name SECURITY_CAMERA
+	up		security_camera_d2
+	down		security_camera_d1
+	left		security_camera_l
+	right		security_camera_r
+	hp		100
+	weight		100
+	intelligence	10
+	damage		6
+	description	"You see a video camera."
+	short		"camera"
+	fixed
+	race		camera
 
 section: tiles
 

@@ -2005,6 +2005,10 @@ section: sprites
 	hitech_door_38		sprites/tech/htdoor38.png
 	hitech_door_39		sprites/tech/htdoor39.png
 
+	security_camera_d1	sprites/tech/vidcam0.png
+	security_camera_d2	sprites/tech/vidcam1.png
+	security_camera_l	sprites/tech/vidcam2.png
+	security_camera_r	sprites/tech/vidcam3.png
 	security_lightv		sprites/tech/s_light1.cel
 	security_lighth		sprites/tech/s_light2.cel
 	fence2_h		sprites/fence2h.cel
@@ -3608,6 +3612,12 @@ section: sprites
 	lockerv3		sprites/tech/locker03.cel
 	lockerv4		sprites/tech/locker04.cel
 	lockerv5		sprites/tech/locker05.cel
+	lockerh0		sprites/tech/locker06.png
+	lockerh1		sprites/tech/locker07.png
+	lockerh2		sprites/tech/locker08.png
+	lockerh3		sprites/tech/locker09.png
+	lockerh4		sprites/tech/locker10.png
+	lockerh5		sprites/tech/locker11.png
 
 	bunny00			sprites/wildlife/rabbit00.cel
 	bunny01			sprites/wildlife/rabbit01.cel
@@ -9261,6 +9271,11 @@ section: sequences
 	oversprite htdoor2h_open hitech_door_39
 
 
+	quickname security_camera_d1
+	quickname security_camera_d2
+	quickname security_camera_l
+	quickname security_camera_r
+
 	quickname security_light_h security_lighth
 	quickname security_light_v security_lightv
 
@@ -13269,12 +13284,18 @@ section: sequences
 	end
 
 
-	quickname lockerv0 lockerv0
-	quickname lockerv1 lockerv1
-	quickname lockerv2 lockerv2
-	quickname lockerv3 lockerv3
-	quickname lockerv4 lockerv4
-	quickname lockerv5 lockerv5
+	quickname lockerv0
+	quickname lockerv1
+	quickname lockerv2
+	quickname lockerv3
+	quickname lockerv4
+	quickname lockerv5
+	quickname lockerh0
+	quickname lockerh1
+	quickname lockerh2
+	quickname lockerh3
+	quickname lockerh4
+	quickname lockerh5
 
 	quickname rope00 rope00
 
@@ -14779,6 +14800,7 @@ section: tables
 	list:
 		chest chestopen 
 		locker_v locker_v_open
+		locker_h locker_h_open
 	end
 
 	name closebag
@@ -14787,6 +14809,7 @@ section: tables
 	list:
 		chestopen chest 
 		locker_v_open locker_v
+		locker_h_open locker_h
 	end
 
 	name smashed_china

@@ -615,20 +615,19 @@ if_not_exist suspect
 	return
 endif
 
-# Are we allowed any more?
-if current.user.user1 > 0
-	# No
-	return
-else
-	add current.user.user1 + 1
-endif
-
-
 # Okay, are we exposed to the vulgar gaze of the public?
 if_onscreen current
 	# Yes.
 	return
 else
+
+	# Are we allowed any more?
+	if current.user.user1 > 0
+		# No
+		return
+	endif
+	add current.user.user1 + 1
+
 	create guard = "guard_disposable"
 	set_personalname guard = "Geoffrey"
 	transfer_object guard to current	# Bring him hence
@@ -657,19 +656,19 @@ if_not_exist suspect
 	return
 endif
 
-# Are we allowed any more?
-if current.user.user1 > 0
-	# No
-	return
-else
-	add current.user.user1 + 1
-endif
-
 # Okay, are we exposed to the vulgar gaze of the public?
 if_onscreen current
 	# Yes.
 	return
 else
+
+	# Are we allowed any more?
+	if current.user.user1 > 0
+		# No
+		return
+	endif
+	add current.user.user1 + 1
+
 	create guard = "guard_panther"
 
 	set_personalname guard = "Geoffrey"
@@ -710,19 +709,18 @@ if_not_exist suspect
 	return
 endif
 
-# Are we allowed any more?
-if current.user.user1 > 0
-	# No
-	return
-else
-	add current.user.user1 + 1
-endif
-
 # Okay, are we exposed to the vulgar gaze of the public?
 if_onscreen current
 	# Yes.
 	return
 else
+	# Are we allowed any more?
+	if current.user.user1 > 0
+		# No
+		return
+	endif
+	add current.user.user1 + 1
+
 	create guard = "WAARG_GUARD"
 
 	set_personalname guard = "Wolf Guard"

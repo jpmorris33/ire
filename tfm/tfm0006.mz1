@@ -1359,6 +1359,12 @@ iMZ1r01
 		at 304 129
 		curdir 1
 
+	object KEY_cc840a55-2369-4c01-b5c3-b685e6f6bbe6
+		type KEY
+		at 305 129
+		curdir 0
+		tag 6023
+
 	object TOAS5156e4d3-6c99-4b03-908b-28435fe24333
 		type TOASTER
 		at 305 129
@@ -22181,12 +22187,147 @@ iMZ1r01
 		tag 19
 		stats->owner LIGHaed36b90-3fa3-4136-ac47-a202a66e90fd
 
-	object LIGH5b109a3b-bdcf-489a-8b3e-cf6ca2f47c27
+	object LIGH064f4b87-3081-4922-a613-134caf622c54
 		type LIGHT_START
 		at 192 437
 		curdir 1
-		tag 20
-		stats->owner LIGHa466f112-d51e-4cb7-bb71-1cf5117d45e2
+		tag 25
+		stats->owner LIGHe179fca9-e6f5-42c5-bbf6-64d85ac66ed2
+
+	object PRIN5afd3591-aa48-440e-981c-d35367f9cce5
+		type PRINTOUT00
+		inside LOCK85bd8deb-3d9a-4962-bdb5-881d76ee0e70
+		curdir 1
+
+	object LOCK85bd8deb-3d9a-4962-bdb5-881d76ee0e70
+		type LOCKER_H
+		at 193 437
+		curdir 2
+
+	object SALT34e781c8-2fbb-4b5b-adba-4d8b3bf92962
+		type SALT_SHAKER
+		at 193 437
+		curdir 1
+
+	object PRINda5dd9e2-a45e-4d3b-b064-e3108bcbf4b1
+		type PRINTOUT00
+		inside LOCK35068f4c-064c-4db9-8162-7cd2f32ed3ee
+		curdir 2
+
+	object PRIN3d5422d8-501b-42ca-80f8-bc9dda31ec19
+		type PRINTOUT01
+		inside LOCK35068f4c-064c-4db9-8162-7cd2f32ed3ee
+		curdir 0
+
+	object PRINd3176612-1e8e-47e1-8d14-b5556b11a0af
+		type PRINTOUT00
+		inside LOCK35068f4c-064c-4db9-8162-7cd2f32ed3ee
+		curdir 3
+
+	object LOCK35068f4c-064c-4db9-8162-7cd2f32ed3ee
+		type LOCKER_H
+		at 194 437
+		curdir 0
+
+	object PRINa163b254-3442-43e4-a17d-30fbbdba9307
+		type PRINTOUT00
+		inside LOCK1f1cc8db-fd9a-4780-9d66-7b3737d07310
+		curdir 0
+
+	object PRIN204f5af7-36c1-4efe-9f3b-8b9d5655ad5c
+		type PRINTOUT00
+		inside LOCK1f1cc8db-fd9a-4780-9d66-7b3737d07310
+		curdir 2
+
+	object PRIN2747239f-2bf6-4811-92db-84a01c914ed8
+		type PRINTOUT00
+		inside LOCK1f1cc8db-fd9a-4780-9d66-7b3737d07310
+		curdir 3
+
+	object PRIN95755f79-4548-4438-870f-af6ef5e884ae
+		type PRINTOUT01
+		inside LOCK1f1cc8db-fd9a-4780-9d66-7b3737d07310
+		curdir 3
+
+	object LOCK1f1cc8db-fd9a-4780-9d66-7b3737d07310
+		type LOCKER_H
+		at 195 437
+		curdir 0
+
+	object PRINb1f0d221-ceec-440f-b7ac-47545dbf8bc2
+		type PRINTOUT00
+		inside LOCK275115cc-cb95-4596-9e9b-1f84c319d386
+		curdir 1
+
+	object PRINc5895a87-40c4-4c7f-b1a2-553f594d6cbe
+		type PRINTOUT01
+		inside LOCK275115cc-cb95-4596-9e9b-1f84c319d386
+		curdir 3
+
+	object PRINf8e0abe7-a796-46d9-a0fd-3bfc271a99de
+		type PRINTOUT00
+		inside LOCK275115cc-cb95-4596-9e9b-1f84c319d386
+		curdir 0
+
+	object LOCK275115cc-cb95-4596-9e9b-1f84c319d386
+		type LOCKER_H
+		at 196 437
+		curdir 1
+
+	object SPID72b3aaff-e629-4744-8335-dd1385e2846f
+		type SPIDER_DEAD
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 0
+
+	object TOAS342c3f60-a27b-4b0a-ae40-d2551473cc96
+		type TOASTER
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 0
+
+	object TOAS4b635f0f-5aa8-401d-b2c4-fb0ca2a8e282
+		type TOASTER
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 0
+
+	object TOAS8978bcce-fa45-48be-8090-bb75b8d247b3
+		type TOASTER
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 0
+
+	object PISTd8f89b77-6636-4bf3-915b-3e8651e7a2c6
+		type PISTOL
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 2
+
+	object ROUN0af03bd9-1fcc-47cd-a20c-01fe5afe6292
+		type ROUNDS-E
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 2
+
+	object ROUN6961b84d-ac38-4248-9c7d-7978a5739ccd
+		type ROUNDS-S
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 3
+
+	object ROUN5dfb389a-ab9c-4c43-b2d2-afdb27716762
+		type ROUNDS-E
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 3
+
+	object ROUN727b2f44-f229-4248-9796-013f650f3d4b
+		type ROUNDS-S
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 3
+
+	object ROUNbee40ed2-3d91-43ba-97c9-1a3f8f0a9f15
+		type ROUNDS-E
+		inside LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		curdir 2
+
+	object LOCKa34a6719-0570-48b7-8ac9-89ab15d192fc
+		type LOCKER_H
+		at 197 437
+		curdir 1
 
 	decorative MOUNT08 at 384 437
 
@@ -22233,6 +22374,11 @@ iMZ1r01
 		type TOASTER
 		at 134 439
 		curdir 0
+
+	object CHAI82752234-cea2-4645-993c-e7e5932664c9
+		type CHAIR
+		at 196 439
+		curdir 1
 
 	decorative MOUNT04 at 384 439
 
@@ -22353,6 +22499,34 @@ iMZ1r01
 		at 190 440
 		curdir 3
 
+	object LIGHff6bf14f-cc7d-4ec9-8a9a-f0845f4be717
+		type LIGHT_SWITCH
+		at 192 440
+		curdir 2
+		tag 25
+
+	object TABLceaebbd5-39b3-42ee-a308-ac7be8e29762
+		type TABLE2-END
+		at 196 440
+		curdir 2
+
+	object PAPE60c5f045-83b1-417e-bc87-3d857a561825
+		type PAPER
+		at 196 440
+		curdir 2
+
+	object TABLee221e31-e9a0-4113-bb87-c93d44a754ff
+		type TABLE2-EDGES
+		at 197 440
+		curdir 0
+
+	object LIGHe179fca9-e6f5-42c5-bbf6-64d85ac66ed2
+		type LIGHT_END
+		at 197 440
+		curdir 1
+		tag 25
+		stats->owner LIGH064f4b87-3081-4922-a613-134caf622c54
+
 	decorative MOUNT10 at 384 440
 
 	decorative MOUNT01 at 385 440
@@ -22376,6 +22550,12 @@ iMZ1r01
 		at 109 441
 		curdir 0
 		tag 22
+
+	object LIGHc89e0149-11ed-4e01-93e4-af2979699284
+		type LIGHT_SWITCH
+		at 112 441
+		curdir 3
+		tag 19
 
 	object TANK6ac101cc-ed7c-4491-9362-5cc926893e74
 		type TANK04
@@ -22456,6 +22636,19 @@ iMZ1r01
 		type TANK04
 		at 139 441
 		curdir 1
+
+	object LIGH5b109a3b-bdcf-489a-8b3e-cf6ca2f47c27
+		type LIGHT_START
+		at 192 441
+		curdir 1
+		tag 20
+		stats->owner LIGHa466f112-d51e-4cb7-bb71-1cf5117d45e2
+
+	object STONad89b6d6-faad-48bf-b4d8-3a742034154a
+		type STONEDOOR2_SHUT
+		at 194 441
+		curdir 1
+		name Administration
 
 	decorative MOUNT04 at 386 441
 
@@ -22589,12 +22782,6 @@ iMZ1r01
 
 	decorative MOUNT11 at 390 443
 
-	object LIGHc89e0149-11ed-4e01-93e4-af2979699284
-		type LIGHT_SWITCH
-		at 106 444
-		curdir 3
-		tag 19
-
 	object STONa87fdb76-fb53-47bb-abfa-3613ef587eb6
 		type STONE_ARCHWAY2
 		at 112 444
@@ -22655,11 +22842,16 @@ iMZ1r01
 		at 190 446
 		curdir 3
 
-	object LIGH73a271bf-9a6a-45e8-bdcf-4644b50ae249
+	object LIGHddb91cc5-e9ae-4010-90f4-3573583ed762
 		type LIGHT_SWITCH
-		at 192 447
+		at 112 447
 		curdir 3
 		tag 19
+
+	object STON7b296b6d-7029-4196-89f9-c61f101506d7
+		type STONE_ARCHWAY
+		at 112 448
+		curdir 0
 
 	object CRATc8bb40f5-ad28-4571-be6e-62bb4955a083
 		type CRATE_EDGES
@@ -22741,6 +22933,41 @@ iMZ1r01
 		at 186 448
 		curdir 3
 
+	object STONeaa0e560-76ea-4f99-93cc-0d1546ae1cf5
+		type STONE_ARCHWAY
+		at 192 448
+		curdir 0
+
+	object STON4b20d25f-18c5-4521-86b6-b68e82cfe12d
+		type STONE_ARCHWAY2
+		at 112 449
+		curdir 2
+
+	object STONafd72583-cd7c-4eb7-8a61-fde121d2be44
+		type STONE_ARCHWAY2
+		at 192 449
+		curdir 2
+
+	object STON4a627346-a141-4e79-91ea-26c9ac3567e6
+		type STONE_ARCHWAY2
+		at 112 450
+		curdir 2
+
+	object STONe83b1bff-c81a-4ee7-a0a4-9cba00ebf870
+		type STONE_ARCHWAY2
+		at 192 450
+		curdir 2
+
+	object STONe4ce40ff-f83a-4fd6-b466-5464c379f394
+		type STONE_ARCHWAY
+		at 112 451
+		curdir 1
+
+	object STON603f3beb-bf00-4411-9155-55151bc7c6f2
+		type STONE_ARCHWAY
+		at 192 451
+		curdir 1
+
 	object CRATcc9c61f4-a45a-48b5-a513-9743c76bd90a
 		type CRATE_EDGES
 		at 120 452
@@ -22780,6 +23007,17 @@ iMZ1r01
 		type CRATE_EDGES
 		at 190 452
 		curdir 3
+
+	object LIGHce1d8d95-eaff-4711-9636-ae2b2d066bfc
+		type LIGHT_SWITCH
+		at 112 453
+		curdir 3
+		tag 19
+
+	object STONfa79d379-994c-457d-96b4-e5cd8e3d8858
+		type STONE_ARCHWAY
+		at 112 454
+		curdir 0
 
 	object CRATbbe9278e-49fc-4b8a-bc5b-d9703380695d
 		type CRATE_EDGES
@@ -22861,6 +23099,41 @@ iMZ1r01
 		at 185 454
 		curdir 3
 
+	object STON799ce100-fa24-44c7-8a7f-5b8f101d3b7f
+		type STONE_ARCHWAY
+		at 192 454
+		curdir 0
+
+	object STON9c334128-e035-4c06-b85b-154cc68cc3f6
+		type STONE_ARCHWAY2
+		at 112 455
+		curdir 2
+
+	object STONf75db0b3-158e-4b03-ac5b-49c6f75b07c3
+		type STONE_ARCHWAY2
+		at 192 455
+		curdir 2
+
+	object STON567cc910-cc4b-4aba-8cbd-e809188cdfe2
+		type STONE_ARCHWAY2
+		at 112 456
+		curdir 2
+
+	object STONe91a282e-694f-4dda-bfe6-ee7bac7e88e0
+		type STONE_ARCHWAY2
+		at 192 456
+		curdir 2
+
+	object STON06bd5b1c-195d-4621-9057-105def142864
+		type STONE_ARCHWAY
+		at 112 457
+		curdir 1
+
+	object STONe77f09ed-3f7d-4a05-bfe1-ae040c40c96e
+		type STONE_ARCHWAY
+		at 192 457
+		curdir 1
+
 	object CRAT27d5a47d-3c61-461b-af25-85f9102c2b28
 		type CRATE_EDGES
 		at 120 458
@@ -22920,6 +23193,12 @@ iMZ1r01
 		type CRATE_EDGES
 		at 190 458
 		curdir 3
+
+	object LIGH4a241e6f-9a69-4687-a9ec-238d3cbe1bf4
+		type LIGHT_SWITCH
+		at 112 459
+		curdir 3
+		tag 19
 
 	object TANKb7804b7d-80f9-4fc5-a10b-db0cb44bdc81
 		type TANK05
@@ -22995,6 +23274,11 @@ iMZ1r01
 		type TREASURE_02
 		at 159 459
 		curdir 1
+
+	object STON86b9fbff-02e5-4df9-afc4-0d091f962cb2
+		type STONE_ARCHWAY
+		at 112 460
+		curdir 0
 
 	object CRAT2aa08551-72ef-4d6c-89a6-d1f4f5192291
 		type CRATE_EDGES
@@ -23076,6 +23360,41 @@ iMZ1r01
 		at 188 460
 		curdir 3
 
+	object STONb6ed493b-6705-49fd-aff5-ccceed12cc43
+		type STONE_ARCHWAY
+		at 192 460
+		curdir 0
+
+	object STON0271a7f3-126f-4d38-867f-bb84521f360a
+		type STONE_ARCHWAY2
+		at 112 461
+		curdir 2
+
+	object STON665d7003-90cc-4023-a7e5-2adeb1e73acc
+		type STONE_ARCHWAY2
+		at 192 461
+		curdir 2
+
+	object STONa9b63744-8d1e-4add-bbcd-6b6c22a4f898
+		type STONE_ARCHWAY2
+		at 112 462
+		curdir 2
+
+	object STONe143cacf-b58a-47a5-b01f-73ed2a291690
+		type STONE_ARCHWAY2
+		at 192 462
+		curdir 2
+
+	object STON20c16bff-a482-47cc-8edd-04869ff02162
+		type STONE_ARCHWAY
+		at 112 463
+		curdir 1
+
+	object STON77485714-5ad1-400c-8e89-b23d0c469fec
+		type STONE_ARCHWAY
+		at 192 463
+		curdir 1
+
 	object CRAT5ecbc57b-2c50-4725-82a1-4d39f2389809
 		type CRATE_EDGES
 		at 120 464
@@ -23135,6 +23454,12 @@ iMZ1r01
 		type CRATE_EDGES
 		at 190 464
 		curdir 3
+
+	object LIGH3bdecf94-f8de-4a67-befd-71877571616a
+		type LIGHT_SWITCH
+		at 112 465
+		curdir 3
+		tag 19
 
 	object TANKcc4a7e45-dfb4-4921-bc42-9b1d918d57c2
 		type TANK05
@@ -23266,6 +23591,11 @@ iMZ1r01
 		at 189 465
 		curdir 1
 
+	object STON3760cb37-99b5-4da5-ade5-e560bc53261a
+		type STONE_ARCHWAY
+		at 112 466
+		curdir 0
+
 	object CRATd5106a1e-2630-4a87-b843-873f6a289302
 		type CRATE_EDGES
 		at 114 466
@@ -23346,6 +23676,41 @@ iMZ1r01
 		at 186 466
 		curdir 3
 
+	object STON233cadfd-130a-437e-8a45-cad5ca70b553
+		type STONE_ARCHWAY
+		at 192 466
+		curdir 0
+
+	object STON33c90406-28c3-45c0-a058-3cd80e4cb0e3
+		type STONE_ARCHWAY2
+		at 112 467
+		curdir 2
+
+	object STONb16f3bb4-4c7a-4c63-96fc-bc2cecc16c96
+		type STONE_ARCHWAY2
+		at 192 467
+		curdir 2
+
+	object STONf219afc5-d1ab-488a-ac5c-da921e1a32cb
+		type STONE_ARCHWAY2
+		at 112 468
+		curdir 2
+
+	object STON7efd913b-8b79-4a18-9954-ef12fc416bab
+		type STONE_ARCHWAY2
+		at 192 468
+		curdir 2
+
+	object STON0782ff76-f922-4aba-9811-59c04676c793
+		type STONE_ARCHWAY
+		at 112 469
+		curdir 1
+
+	object STON6e800856-20be-4c86-89d5-38d79ff5a8e4
+		type STONE_ARCHWAY
+		at 192 469
+		curdir 1
+
 	object CRATdd04e669-b50b-4d69-b827-c30703d64abb
 		type CRATE_EDGES
 		at 120 470
@@ -23396,10 +23761,27 @@ iMZ1r01
 		at 190 470
 		curdir 3
 
+	object LIGH6b250bc7-57cd-4ef0-83d7-daa951716eff
+		type LIGHT_SWITCH
+		at 112 471
+		curdir 3
+		tag 19
+
 	object TOAS92eaf9c5-f0f9-40c5-b4f3-cada7200a68f
 		type TOASTER
 		at 166 471
 		curdir 1
+
+	object LIGH0c3bf6dd-950d-418a-9190-3e518efb6f29
+		type LIGHT_SWITCH
+		at 192 471
+		curdir 3
+		tag 20
+
+	object STONc7ca4248-5f5e-4977-a215-db134c1317c1
+		type STONE_ARCHWAY
+		at 112 472
+		curdir 0
 
 	object CRATc651823a-6a7c-4eba-ae94-4ca809682e97
 		type CRATE_EDGES
@@ -23491,11 +23873,15 @@ iMZ1r01
 		at 185 472
 		curdir 3
 
-	object LIGH0c3bf6dd-950d-418a-9190-3e518efb6f29
-		type LIGHT_SWITCH
+	object STONfa281990-a224-4d91-a98a-e8d03ae29f1a
+		type STONE_ARCHWAY
 		at 192 472
-		curdir 3
-		tag 20
+		curdir 0
+
+	object SPAW3b8d40ae-075b-4889-9d2a-26b49951f629
+		type SPAWN_GUARDS_DEADLY
+		at 194 472
+		curdir 1
 
 	object STAI5837ce35-2496-4681-8c32-43b7354f17e7
 		type STAIRS_UP
@@ -23503,17 +23889,78 @@ iMZ1r01
 		curdir 2
 		tag 21
 
+	object SPAWc9890449-a1e5-4b10-859e-1250a61bb74a
+		type SPAWN_GUARDS_DEADLY
+		at 196 472
+		curdir 1
+
+	object STON8b6fcb7c-864e-4d91-b515-4ec14fd48ae6
+		type STONE_ARCHWAY2
+		at 112 473
+		curdir 2
+
+	object STON90d60045-2a34-4298-934b-c51251d0e43a
+		type STONE_ARCHWAY2
+		at 192 473
+		curdir 2
+
 	object STAI33a44515-575a-49f0-932a-0fd269d0b9ef
 		type STAIRS_UP
 		at 195 473
 		curdir 1
 		tag 21
 
+	object STON5c4d3d4f-81a4-4f37-8644-97b6c6c8d572
+		type STONE_ARCHWAY2
+		at 112 474
+		curdir 2
+
+	object STON605b3866-1f5f-44b8-8b11-055ad5200f80
+		type STONE_ARCHWAY2
+		at 192 474
+		curdir 2
+
 	object TARG34229880-8b6d-49fe-a1bd-9342e306002d
 		type TARGET
 		at 195 474
 		curdir 2
 		tag 5
+
+	object PLAQ12c60b73-96e1-43ec-b427-572a0b26b22c
+		type PLAQUE_BRASS
+		at 339 474
+		curdir 0
+		name Repent, Sinner!
+
+	object STON523ba03a-840a-43e9-a90d-f90fb7025a89
+		type STONE_ARCHWAY
+		at 112 475
+		curdir 1
+
+	object STON617b08f1-d4d2-4fd9-a9d3-eb502c1f58c2
+		type STONE_ARCHWAY
+		at 192 475
+		curdir 1
+
+	object SPAWdbb4a140-8cb3-45ed-8006-d9b2393b6130
+		type SPAWN_GUARDS_DEADLY
+		at 193 475
+		curdir 1
+
+	object SPAW599c3de9-7698-4f5e-9e51-dd6c94aa2b87
+		type SPAWN_GUARDS_DEADLY
+		at 197 475
+		curdir 1
+
+	object LIGH5316d8d0-23c7-482e-aaf6-5a8a688ef961
+		type LIGHTSOURCE_ULTRA
+		at 338 475
+		curdir 0
+
+	object LIGH3bc29653-d554-4ec3-870e-251b67b13288
+		type LIGHTSOURCE_ULTRA
+		at 340 475
+		curdir 0
 
 	object CRATc8eb7acd-4053-463d-aebf-7b4726e683a2
 		type CRATE_EDGES
@@ -23555,6 +24002,33 @@ iMZ1r01
 		at 190 476
 		curdir 3
 
+	object TARGbbc1f050-2939-4b50-a295-f9c85130413f
+		type TARGET
+		at 339 476
+		curdir 0
+		tag -10000
+
+	object LIGHcd393fd3-ab51-407a-8c64-47afbb9ebe6a
+		type LIGHT_SWITCH
+		at 112 477
+		curdir 3
+		tag 19
+
+	object TEST2afcc5bd-19e6-4c4f-b455-b88aef8a3ee7
+		type TEST
+		at 237 477
+		curdir 3
+
+	object LIGH8ddf6c72-e167-44af-a4ec-3a6aef3daf09
+		type LIGHTSOURCE_ULTRA
+		at 338 477
+		curdir 0
+
+	object LIGHb4937de1-25ea-4e4c-9d12-aa4eae2795c7
+		type LIGHTSOURCE_ULTRA
+		at 340 477
+		curdir 0
+
 	object POTI9238c507-a853-4b35-bd97-c9608fbeab48
 		type POTION_UNHOLYWATER
 		at 107 478
@@ -23564,6 +24038,13 @@ iMZ1r01
 		type POTION_UNHOLYWATER
 		at 111 478
 		curdir 2
+
+	object LIGH91eeb31d-2718-4457-87e8-51e8f1f7a006
+		type LIGHT_END
+		at 111 478
+		curdir 1
+		tag 18
+		stats->owner LIGHc83c4dcc-1b18-43d6-8eb3-518ec2fc202f
 
 	object CRATf2dee315-cbcf-4050-aa40-0265e8a8543b
 		type CRATE_EDGES
@@ -23645,32 +24126,805 @@ iMZ1r01
 		at 187 478
 		curdir 3
 
-	object POTIbbd445b7-5e31-40ec-8982-d4274246d9e9
-		type POTION_UNHOLYWATER
-		at 107 480
-		curdir 2
+	object KEY_2d6f5bf4-b81f-40c7-908e-685348dacf74
+		type KEY
+		at 195 478
+		curdir 0
+		tag 6028
+
+	object LIGHa466f112-d51e-4cb7-bb71-1cf5117d45e2
+		type LIGHT_END
+		at 197 478
+		curdir 1
+		tag 20
+
+	object LIGHdbef19ba-19df-4ced-85bf-08a14f9ad898
+		type LIGHT_START
+		at 106 479
+		curdir 1
+		tag 23
+		stats->owner LIGH70ca1625-5eca-40cb-a09f-99730457179f
+
+	object STON850d559e-4369-4a86-88a0-de7935f7fefb
+		type STONEDOOR1_SHUT
+		at 108 479
+		curdir 0
+
+	object LIGH711111f3-0e99-48c4-b997-cd80539ec6da
+		type LIGHT_SWITCH
+		at 110 479
+		curdir 0
+		tag 23
+
+	object LIGH657a461b-658b-4cff-9995-087ec2f65d0d
+		type LIGHT_START
+		at 192 479
+		curdir 1
+		tag 24
+		stats->owner LIGH02e95efe-9fcd-468e-967b-8abdc4aa5276
+
+	object SECU5dfe7919-f0b6-4770-b383-0232b0534cf0
+		type SECURITY_CAMERA
+		at 193 479
+		curdir 1
+
+	object STON5f213877-08c4-4858-b66a-4b052dc5542a
+		type STONEDOOR5_LOCK
+		at 194 479
+		curdir 0
+		tag 6028
+
+	object LIGHd4cb92c0-2249-4de1-93f7-8a12c79c6e78
+		type LIGHT_SWITCH
+		at 196 479
+		curdir 0
+		tag 24
 
 	object POTIf4866b1f-ce8c-4694-b0c9-e8d281ef5f10
 		type POTION_UNHOLYWATER
 		at 111 480
 		curdir 2
 
-	object POTI3044ceb1-bffc-4384-9f07-9af911ebcd08
-		type POTION_UNHOLYWATER
-		at 107 482
-		curdir 2
+	object SPAWfa406cb9-d364-41cf-b210-28f7973c234f
+		type SPAWN_GUARDS_DEADLY
+		at 190 480
+		curdir 1
+
+	object GOLD35d49d88-3e63-4d60-91a3-04b7efa817e3
+		type GOLD_BAR
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDbc20ffb6-d198-46b3-b70a-2b51725e7dcd
+		type GOLD_BAR
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD985b9bbc-1a82-4c72-a838-e0fe2cde3855
+		type GOLD_BAR
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD15a930bc-b685-4396-bdab-695504f0ba19
+		type GOLD_BAR
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDd9080ea1-b6c4-44da-93c8-9c05425b8108
+		type GOLD_BAR
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD75e12500-a39d-4a8f-b619-1fe30cff0ebd
+		type GOLD_BAR
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLASddfd15f7-0824-4e67-8aca-1e4324373ac4
+		type GLASS_COUNTER2
+		at 193 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD73b6219f-ccbd-4313-93bb-357ae7515cc0
+		type GOLD_BAR
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD02cc01df-c0fc-4f15-b06b-c6522ba6fff8
+		type GOLD_BAR
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD8c5e49db-0a38-48d3-b993-ff59808cb58f
+		type GOLD_BAR
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD4a6c750d-da90-4c3c-9816-1d56ee6af50b
+		type GOLD_BAR
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD1b8a38af-d10b-4ea9-b584-26c4fb4a4f0f
+		type GOLD_BAR
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDa47f724e-a0b8-4704-b06a-9e0d9d04f377
+		type GOLD_BAR
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLASb0938c32-1f6c-4810-98fb-ed786b6169bd
+		type GLASS_COUNTER2
+		at 197 480
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object MEMOcbf61d24-646e-46f2-bd11-b995cedb586a
+		type MEMO
+		at 239 480
+		curdir 3
+		name Satan's race track
 
 	object POTI58450b3c-56a7-406e-808a-4623948137af
 		type POTION_UNHOLYWATER
-		at 111 482
+		at 115 481
 		curdir 2
 
-	object LIGH91eeb31d-2718-4457-87e8-51e8f1f7a006
+	object CRATe0d10282-0aa8-4297-a987-817345590d8d
+		type CRATE2_CORNERS
+		at 116 481
+		curdir 3
+
+	object CRAT7895c21a-6b89-4516-bd4c-0c4cf3480464
+		type CRATE2_CORNERS
+		at 124 481
+		curdir 3
+
+	object CRAT29cd644b-26af-45a4-a287-2534d6e747cd
+		type CRATE2_CORNERS
+		at 141 481
+		curdir 3
+
+	object CRAT0629e236-9cc0-4304-b7c2-5aee1cf948a3
+		type CRATE2_CORNERS
+		at 145 481
+		curdir 3
+
+	object CRAT25980a63-60c9-415d-9c14-0fc594cdd3f7
+		type CRATE2_CORNERS
+		at 152 481
+		curdir 3
+
+	object CRAT8da6a033-d964-4269-9035-7bb6ccbdf97b
+		type CRATE2_CORNERS
+		at 156 481
+		curdir 3
+
+	object CRAT689e18e6-9ab3-4d5b-a29b-9f79e7def82d
+		type CRATE2_CORNERS
+		at 163 481
+		curdir 3
+
+	object CRATc654736a-7b2f-46d1-8e94-50c574a8366c
+		type CRATE2_CORNERS
+		at 176 481
+		curdir 3
+
+	object CRAT05a7fbe8-5739-45f7-8892-077e53f2f894
+		type CRATE2_CORNERS
+		at 180 481
+		curdir 3
+
+	object CRAT227826fa-cc97-4cc8-a06f-776326604591
+		type CRATE2_CORNERS
+		at 186 481
+		curdir 3
+
+	object GOLDe78afde3-6f7b-4e87-8be8-9efe853ee504
+		type GOLD_BAR
+		at 193 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD1eb592fe-5822-4247-a60e-b72567754225
+		type GOLD_BAR
+		at 193 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD578fca38-7d01-4b2a-9e07-1fa67a056e02
+		type GOLD_BAR
+		at 193 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD1a50ee6c-ed88-49a9-8da6-22a7c60f09cf
+		type GOLD_BAR
+		at 193 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD8875da52-c875-4b94-afa6-d8b1538895d0
+		type GOLD_BAR
+		at 193 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD5ba33b40-8c23-4dec-89a4-8936a68df5d7
+		type GOLD_BAR
+		at 193 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLAS485ef7b5-7be4-4a68-b395-cfde20637e7c
+		type GLASS_COUNTER2
+		at 193 481
+		curdir 2
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDb4225335-9282-41de-8f8c-50d1dae7b480
+		type GOLD_BAR
+		at 197 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD0df03d84-21f6-4f84-821e-6ff3460e97f3
+		type GOLD_BAR
+		at 197 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD48c0638f-0f38-42f0-b3a0-8a8985081a4a
+		type GOLD_BAR
+		at 197 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDd8ae60cb-9301-4bca-b0d1-39060ecb44bc
+		type GOLD_BAR
+		at 197 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDfc30d775-2f5c-45cd-b14d-58dafe33cdf9
+		type GOLD_BAR
+		at 197 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDec8c4047-fa5c-46eb-98ad-e777371eab99
+		type GOLD_BAR
+		at 197 481
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLAS102b57f4-d1f3-4629-8d81-9d4d768441cd
+		type GLASS_COUNTER2
+		at 197 481
+		curdir 3
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object POTIbbd445b7-5e31-40ec-8982-d4274246d9e9
+		type POTION_UNHOLYWATER
+		at 110 482
+		curdir 2
+
+	object CRATeed88e18-34f7-4b15-88fd-c34ceecbbe33
+		type CRATE2_EDGES
+		at 116 482
+		curdir 3
+
+	object POTI3044ceb1-bffc-4384-9f07-9af911ebcd08
+		type POTION_UNHOLYWATER
+		at 119 482
+		curdir 2
+
+	object CRAT195976fe-4ad9-4880-9095-9c6cc7e89fba
+		type CRATE2_CORNERS
+		at 120 482
+		curdir 3
+
+	object CRAT398ab910-aa2d-488e-bcb2-c0950f3eb67b
+		type CRATE2_EDGES
+		at 124 482
+		curdir 3
+
+	object CRAT20714df1-eab8-4281-b664-50b4c6660bc6
+		type CRATE2_CORNERS
+		at 128 482
+		curdir 3
+
+	object CRAT00f8d806-75f9-4fb5-8d39-e3d9f3eacaff
+		type CRATE2_CORNERS
+		at 131 482
+		curdir 3
+
+	object CRAT329acffd-faf1-4209-8e1f-afd3472afbac
+		type CRATE2_CORNERS
+		at 134 482
+		curdir 3
+
+	object CRAT85238846-4717-45b8-9c45-fbab8a36fefa
+		type CRATE2_CORNERS
+		at 138 482
+		curdir 3
+
+	object CRATbb260eff-f72c-4f12-b8b0-f6bda1e5832b
+		type CRATE2_EDGES
+		at 141 482
+		curdir 3
+
+	object CRATa51b0bcf-8a36-49ef-a5f1-79646b56e524
+		type CRATE2_EDGES
+		at 145 482
+		curdir 3
+
+	object CRAT5fb46380-5b57-4553-9daf-f1e9887baf7c
+		type CRATE2_CORNERS
+		at 149 482
+		curdir 3
+
+	object CRATaef3dcb3-3709-4206-a272-e6757abf8b24
+		type CRATE2_EDGES
+		at 152 482
+		curdir 3
+
+	object CRATb9f3b0a1-31e1-4ef6-9d7d-c9580ce49790
+		type CRATE2_EDGES
+		at 156 482
+		curdir 3
+
+	object CRATd024f05c-7340-49a0-a4f4-4dcc008dc4e8
+		type CRATE2_CORNERS
+		at 160 482
+		curdir 3
+
+	object CRAT16dc8f6a-2219-414c-a91e-1130df277d01
+		type CRATE2_EDGES
+		at 163 482
+		curdir 3
+
+	object CRAT5d4544ab-92a5-41da-9977-9e03da4a0720
+		type CRATE2_CORNERS
+		at 166 482
+		curdir 3
+
+	object CRAT2223387a-ee85-491a-a260-f825ef750a1c
+		type CRATE2_CORNERS
+		at 169 482
+		curdir 3
+
+	object CRATb306e7d7-97f5-420d-9cf6-2704790f8536
+		type CRATE2_CORNERS
+		at 173 482
+		curdir 3
+
+	object CRAT169cd2e0-7193-4bb7-9bcc-c678e01c51be
+		type CRATE2_EDGES
+		at 176 482
+		curdir 3
+
+	object CRATf5a3cc64-e1d1-4af6-b54a-1539fbb8deba
+		type CRATE2_EDGES
+		at 180 482
+		curdir 3
+
+	object CRAT11d118d5-4a82-4409-a171-55c2effae5a8
+		type CRATE2_CORNERS
+		at 183 482
+		curdir 3
+
+	object CRATcd69302d-486e-4e35-9df7-f307d1f00b06
+		type CRATE2_EDGES
+		at 186 482
+		curdir 3
+
+	object CRAT14c88a19-ba9c-4076-8aaa-599aeb752464
+		type CRATE2_CORNERS
+		at 190 482
+		curdir 3
+
+	object GOLD20811d6d-586c-4a76-b2e5-eae7f10284a6
+		type GOLD_BAR
+		at 193 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD420edfd5-afb6-4c0c-9f0e-b65fd4b1290c
+		type GOLD_BAR
+		at 193 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDd61efff5-24c8-40a3-826a-1b06e41a989e
+		type GOLD_BAR
+		at 193 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDc7242373-bcaa-4bf8-8514-4954ae0bd167
+		type GOLD_BAR
+		at 193 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD6c71adbb-2cd6-4346-9486-c6f49094d986
+		type GOLD_BAR
+		at 193 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD6d047153-2b7b-4838-8869-65157969b871
+		type GOLD_BAR
+		at 193 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLAS7b6244fd-d8dd-40a4-ab4e-d5658032d79f
+		type GLASS_COUNTER2
+		at 193 482
+		curdir 2
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object STAI9acb7a01-d046-4dc5-b22e-ca1366de85d2
+		type STAIRS_DOWN
+		at 195 482
+		curdir 0
+		tag 27
+
+	object GOLD2c81cde8-0c0c-4404-ba6b-32b5a40a3f13
+		type GOLD_BAR
+		at 197 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD22a9d9a5-67b6-4a8b-b6f8-94357e0ad7d1
+		type GOLD_BAR
+		at 197 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD260cd037-cf99-4ecb-878c-dd061ef187ee
+		type GOLD_BAR
+		at 197 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDceded2dc-ec18-4759-a800-ef0932761d4c
+		type GOLD_BAR
+		at 197 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDa56fd7dd-f067-4cb2-8e16-f9b6ebcfe3f7
+		type GOLD_BAR
+		at 197 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD914e83cb-7138-4558-b340-1a129188c2f7
+		type GOLD_BAR
+		at 197 482
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLAS483279d1-16cd-488d-b919-5ab06f371331
+		type GLASS_COUNTER2
+		at 197 482
+		curdir 3
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object POTIdf3741ef-5405-47de-9e16-5dbb2e4f6afd
+		type POTION_HOLYWATER
+		inside CHESeafe6a4f-e112-4214-902b-c7f350ac1bf1
+		curdir 2
+
+	object CHESeafe6a4f-e112-4214-902b-c7f350ac1bf1
+		type CHESTLOCKED
+		at 107 483
+		curdir 0
+		tag 6023
+
+	object LIGH70ca1625-5eca-40cb-a09f-99730457179f
 		type LIGHT_END
 		at 111 483
 		curdir 1
-		tag 18
-		stats->owner LIGHc83c4dcc-1b18-43d6-8eb3-518ec2fc202f
+		tag 23
+
+	object CRAT9ac0febc-7123-49f4-9b18-c06ac1ec11cf
+		type CRATE2_CORNERS
+		at 114 483
+		curdir 2
+
+	object CRATd29133e3-79cf-4bd8-8cc9-8e4147183cc7
+		type CRATE2_EDGES
+		at 115 483
+		curdir 1
+
+	object CRAT965bb88f-c9d7-4189-9f66-cbe4e085c39a
+		type CRATE2_CORNERS
+		at 116 483
+		curdir 1
+
+	object CRAT75908528-7774-444a-a73b-83b4d65e8d91
+		type CRATE2_CORNERS
+		at 118 483
+		curdir 2
+
+	object CRAT73af3e02-5a02-48f2-9480-0a5bf3e7f663
+		type CRATE2_EDGES
+		at 119 483
+		curdir 1
+
+	object CRATff003438-18ea-46a7-b1f2-139f3f4dd559
+		type CRATE2_CORNERS
+		at 120 483
+		curdir 1
+
+	object CRAT98597822-52cc-43e6-9211-560639e7d423
+		type CRATE2_CORNERS
+		at 122 483
+		curdir 2
+
+	object CRAT1916f404-25dc-485b-9898-160aa9c43316
+		type CRATE2_EDGES
+		at 123 483
+		curdir 1
+
+	object CRAT280a3eb7-4a64-48a0-b668-17e820765a84
+		type CRATE2_CORNERS
+		at 124 483
+		curdir 1
+
+	object CRAT40d824a7-171f-4efa-8bde-755a9c8b51bf
+		type CRATE2_CORNERS
+		at 126 483
+		curdir 2
+
+	object CRAT0c5992e5-8930-4676-b8d2-8e07f677ad3d
+		type CRATE2_EDGES
+		at 127 483
+		curdir 1
+
+	object CRAT4ee1e416-da46-4336-a491-ab11bf4c27f9
+		type CRATE2_CORNERS
+		at 128 483
+		curdir 1
+
+	object CRATfde7b15b-a191-49c0-878a-4ad56941fac0
+		type CRATE2_CORNERS
+		at 130 483
+		curdir 2
+
+	object CRAT7c6b94c3-b1e9-4064-b077-12c1576e4728
+		type CRATE2_CORNERS
+		at 131 483
+		curdir 1
+
+	object CRAT0f672f38-3481-4f41-ac8b-f2f5fc941147
+		type CRATE2_CORNERS
+		at 133 483
+		curdir 2
+
+	object CRATa4963aaa-c7b1-4e94-9e59-ca50c89a70e8
+		type CRATE2_CORNERS
+		at 134 483
+		curdir 1
+
+	object CRATcd4d37a7-ac2d-418e-892a-cac3a9eead5b
+		type CRATE2_CORNERS
+		at 136 483
+		curdir 2
+
+	object CRAT967f0ec9-d48a-4026-a87d-47760f14f266
+		type CRATE2_EDGES
+		at 137 483
+		curdir 1
+
+	object CRATe510f194-949e-4f51-9612-d6153d9784e6
+		type CRATE2_CORNERS
+		at 138 483
+		curdir 1
+
+	object CRAT13791342-7f69-4756-95af-0641dc042912
+		type CRATE2_CORNERS
+		at 140 483
+		curdir 2
+
+	object CRAT2b7f587a-88a4-4142-b8a4-70d028bd1125
+		type CRATE2_CORNERS
+		at 141 483
+		curdir 1
+
+	object CRATaaab946f-f3b2-408a-b855-971d08868de8
+		type CRATE2_CORNERS
+		at 143 483
+		curdir 2
+
+	object CRAT108082c7-2429-42fd-ac84-1811850b181c
+		type CRATE2_EDGES
+		at 144 483
+		curdir 1
+
+	object CRAT7a326ed9-3f9f-4aa7-a5b1-af74a320e4c1
+		type CRATE2_CORNERS
+		at 145 483
+		curdir 1
+
+	object CRAT3ee5665b-039e-4c96-bc5f-149feecc0dd6
+		type CRATE2_CORNERS
+		at 147 483
+		curdir 2
+
+	object CRAT21c6c670-2715-49cd-8dc1-fa0541b696cd
+		type CRATE2_EDGES
+		at 148 483
+		curdir 1
+
+	object CRATe9fd313e-701c-4987-add9-d19fcb4503e7
+		type CRATE2_CORNERS
+		at 149 483
+		curdir 1
+
+	object CRAT4bd3aca3-a345-4fd8-9ecb-60a093a8dce8
+		type CRATE2_CORNERS
+		at 151 483
+		curdir 2
+
+	object CRAT61278ad8-6dc5-4246-8bf4-07cc119f6ab4
+		type CRATE2_CORNERS
+		at 152 483
+		curdir 1
+
+	object CRATcb368664-c0da-476e-aaae-c11be18b3b7e
+		type CRATE2_CORNERS
+		at 154 483
+		curdir 2
+
+	object CRATc343a77e-07fe-4db3-9148-6732e09b8ac3
+		type CRATE2_EDGES
+		at 155 483
+		curdir 1
+
+	object CRATdbb3c8d4-bb23-48c4-8830-0fbcba158fae
+		type CRATE2_CORNERS
+		at 156 483
+		curdir 1
+
+	object CRAT248d7540-1f05-47cc-9ee3-1e8075cdaa42
+		type CRATE2_CORNERS
+		at 158 483
+		curdir 2
+
+	object CRATf512d36e-96ea-447e-bf88-0942af5e5531
+		type CRATE2_EDGES
+		at 159 483
+		curdir 1
+
+	object CRATb5202599-b1f1-440e-9c97-ea7e007e4bcb
+		type CRATE2_CORNERS
+		at 160 483
+		curdir 1
+
+	object CRATd189c1b3-8c4e-4403-a309-3886689ae5bd
+		type CRATE2_CORNERS
+		at 162 483
+		curdir 2
+
+	object CRATa52267c4-1b96-4360-b2a4-c31ef505da6a
+		type CRATE2_CORNERS
+		at 163 483
+		curdir 1
+
+	object CRATa3fd6f79-b0a4-476a-8e47-62cc8a2ec658
+		type CRATE2_CORNERS
+		at 165 483
+		curdir 2
+
+	object CRATbb092a2d-1c48-49eb-bbf7-fb5114e787a2
+		type CRATE2_CORNERS
+		at 166 483
+		curdir 1
+
+	object CRAT5d889412-a500-4e69-87f5-195848627cf7
+		type CRATE2_CORNERS
+		at 168 483
+		curdir 2
+
+	object CRATf98de099-21cb-4608-943f-87343ee19ada
+		type CRATE2_CORNERS
+		at 169 483
+		curdir 1
+
+	object CRATd4a8bf0b-f8ce-4f48-8ef9-492bb702e167
+		type CRATE2_CORNERS
+		at 171 483
+		curdir 2
+
+	object CRAT7fc9a35c-2a69-41b9-9492-147e18318b80
+		type CRATE2_EDGES
+		at 172 483
+		curdir 1
+
+	object CRAT299b228b-c413-4c25-8757-3d5c98839e83
+		type CRATE2_CORNERS
+		at 173 483
+		curdir 1
+
+	object CRATc2174417-5d82-46f3-9eea-dcec8bb4fe86
+		type CRATE2_CORNERS
+		at 175 483
+		curdir 2
+
+	object CRAT04c61426-dadf-4efc-869d-41cbd3d3cf0c
+		type CRATE2_CORNERS
+		at 176 483
+		curdir 1
+
+	object CRATc97cbd92-4dae-4d89-a02f-17ca6372d5b0
+		type CRATE2_CORNERS
+		at 178 483
+		curdir 2
+
+	object CRATb2103a19-47bc-42f1-8eaf-bf00200e81b1
+		type CRATE2_EDGES
+		at 179 483
+		curdir 1
+
+	object CRAT29e64547-2d8a-46d2-8aa2-96e330160acf
+		type CRATE2_CORNERS
+		at 180 483
+		curdir 1
+
+	object CRATfb610961-e3cb-4168-9d28-303805cbd796
+		type CRATE2_CORNERS
+		at 182 483
+		curdir 2
+
+	object CRATe7f8f330-3579-4d4e-9d81-584ad0739ee8
+		type CRATE2_CORNERS
+		at 183 483
+		curdir 1
+
+	object CRATd168673c-bdb4-4aaa-a16e-4189427ef3f9
+		type CRATE2_CORNERS
+		at 185 483
+		curdir 2
+
+	object CRATa6fc84da-51d5-4b83-b469-e2292a4b01bf
+		type CRATE2_CORNERS
+		at 186 483
+		curdir 1
+
+	object CRAT1580389e-cec2-4966-b50f-ee1e1d2e8cc7
+		type CRATE2_CORNERS
+		at 188 483
+		curdir 2
+
+	object CRAT2fb5cc5d-24d4-48f0-b7ae-1f53b31191f4
+		type CRATE2_EDGES
+		at 189 483
+		curdir 1
+
+	object CRAT14a75bd8-f462-4f0a-94a1-aaec13448764
+		type CRATE2_CORNERS
+		at 190 483
+		curdir 1
 
 	object LIGHaed36b90-3fa3-4136-ac47-a202a66e90fd
 		type LIGHT_END
@@ -23679,9 +24933,163 @@ iMZ1r01
 		tag 19
 		stats->owner LIGH2369f0b1-c34f-4ddc-9ad3-f87bc2fe4c9c
 
-	object LIGHa466f112-d51e-4cb7-bb71-1cf5117d45e2
-		type LIGHT_END
-		at 198 483
+	object GOLD30222ee6-0c53-4120-bc57-fe06a8bd310f
+		type GOLD_BAR
+		at 193 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD9aeea85d-36cf-46a8-9b27-b3eb077f6b1c
+		type GOLD_BAR
+		at 193 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD3f37a40d-bec8-4501-96f6-2cd970123f03
+		type GOLD_BAR
+		at 193 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD91c273ae-4e3e-4b5c-b5cf-73ba7babd555
+		type GOLD_BAR
+		at 193 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD0ff3e98d-4de2-4ef2-b744-5584d1ab37a3
+		type GOLD_BAR
+		at 193 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDc92dede3-4819-4307-bdbb-b40730be1573
+		type GOLD_BAR
+		at 193 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLASe1ac8d88-71e6-4f2c-a146-4996ce477f25
+		type GLASS_COUNTER2
+		at 193 483
+		curdir 3
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object TARGde2bbc7b-500d-445f-b467-e92dd0afc8b5
+		type TARGET
+		at 195 483
 		curdir 1
-		tag 20
+		tag 26
+
+	object LIGH02e95efe-9fcd-468e-967b-8abdc4aa5276
+		type LIGHT_END
+		at 197 483
+		curdir 1
+		tag 24
+		stats->owner LIGH657a461b-658b-4cff-9995-087ec2f65d0d
+
+	object GOLDe5ff6277-e778-43a4-9560-8cd7eb244cee
+		type GOLD_BAR
+		at 197 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD8e473047-90f6-42ef-adee-52eac4d49d11
+		type GOLD_BAR
+		at 197 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDd8a0c3dc-37d4-45a4-8c8e-26e66c3a5c78
+		type GOLD_BAR
+		at 197 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLDbb796ae6-0a85-4bf4-a45a-e27d11246374
+		type GOLD_BAR
+		at 197 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD21229295-a038-41d6-b48f-12e6e3d02368
+		type GOLD_BAR
+		at 197 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GOLD7165c4bc-a4bb-4863-a4db-d5c1d27a33e0
+		type GOLD_BAR
+		at 197 483
+		curdir 0
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object GLASbd74c64f-940b-4814-8722-f9ab022da465
+		type GLASS_COUNTER2
+		at 197 483
+		curdir 3
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object TREAede9478e-abdb-4ecc-bebe-b0d088155329
+		type TREASURE_06
+		at 114 487
+		curdir 0
+
+	object TREA50093aae-0911-4ec7-9ec3-40d27ec5e1a5
+		type TREASURE_06
+		at 118 487
+		curdir 0
+
+	object TREA7c57aee4-e342-4c47-babf-9e40ba126526
+		type TREASURE_06
+		at 114 489
+		curdir 0
+
+	object TREA556e40da-84a1-4f86-bcb5-5c529ddd1204
+		type TREASURE_06
+		at 117 490
+		curdir 0
+
+	object TREA06b01ab8-9d19-45f5-a2f5-3bf112b398f5
+		type TREASURE_06
+		at 114 491
+		curdir 0
+
+	object TREA29f6caec-ce52-406d-be4e-6b67c3133b68
+		type TREASURE_06
+		at 118 491
+		curdir 0
+
+	object STON782b179f-17b9-422f-bb65-25a70ab25def
+		type STONE_ARCHWAY_P
+		at 125 491
+		curdir 0
+
+	object STAI977ab0a5-9e40-4098-8894-6e2506d44aff
+		type STAIRS_UP
+		at 127 491
+		curdir 3
+		tag 26
+
+	object STON12127098-8091-4211-b1a4-d5b6f47a43de
+		type STONE_ARCHWAY2_P
+		at 125 492
+		curdir 2
+
+	object STAI1c118d46-4318-4280-91ec-22f3a71889c9
+		type STAIRS_UP
+		at 127 492
+		curdir 0
+		tag 26
+
+	object STON75784b7a-be0b-4758-99d7-3901ab7c494f
+		type STONE_ARCHWAY_P
+		at 125 493
+		curdir 1
+
+	object TARGa4087c9b-df71-4494-8621-d6d2d64a87fe
+		type TARGET
+		at 127 493
+		curdir 3
+		tag 27
 
