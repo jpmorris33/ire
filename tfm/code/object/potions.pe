@@ -33,7 +33,7 @@ else
 endif
 
 if_not_exist current
-	print "nothing"
+	print msg_Nothing
 	printcr
 endif
 
@@ -48,7 +48,7 @@ if p is called "potion_green"
 	if current.funcs.use = "EAT_FOOD"
 		add current.user.poison + 100
 		if me = player
-			print "Done."
+			print msg_DoneDot
 			printcr
 		endif
 		return
@@ -60,7 +60,7 @@ if p is called "potion_red"
 	if current.funcs.use = "EAT_FOOD"
 		add current.user.poison - 100
 		if me = player
-			print "Done."
+			print msg_DoneDot
 			printcr
 		endif
 		return
@@ -120,9 +120,8 @@ endif
 
 # Make sure the destination is a person
 if_not_flag current IS_PERSON
-	replace p = "potion_empty"
 	if me = player
-		print msg_NoEffect
+		print msg_DoesntWork
 		printcr
 	endif
 	return
@@ -221,7 +220,7 @@ if p is called "ded_bull_energy_drink"
 	return
 endif
 
-# Cocaine Cola (no effect)
+# Cocaine Cola
 if p is called "cocaine_cola"
 	object_sound "gulp" current
 	replace p = "cocaine_cola_empty"
@@ -250,7 +249,7 @@ if p is called "happy_drink"
 	return
 endif
 
-# Pepsee
+# Can of Whup-ass
 if p is called "snack02"
 	object_sound "gulp" current
 	replace p = "snack02_empty"

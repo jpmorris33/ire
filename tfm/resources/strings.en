@@ -14,6 +14,8 @@ quickname msg_CarryingTooMuch		You're carrying too much already.
 quickname msg_CannotMoveThat		You cannot move that.
 quickname msg_CannotPickThat		You cannot pick that up.
 quickname msg_Cancelled			cancelled
+quickname msg_Done			Done
+quickname msg_DoneDot			Done.
 quickname msg_ItReads			It reads:
 quickname msg_CannotUseThat		You can't use that.
 quickname msg_CannotCarryThem		You can't carry them.
@@ -21,6 +23,8 @@ quickname msg_CannotCarryIt		You can't carry that.
 quickname msg_WontFit			It won't go in!
 quickname msg_EmptyPotion		You need an empty potion bottle.
 quickname msg_NoEffect			Nothing happens.
+quickname msg_Nothing			nothing
+quickname msg_NothingDot		nothing.
 
 quickname sign_WelcomeToHell		Welcome to Hell!|Population: lots
 quickname sign_Dirk			Dirk Barron and the terror of the reanimated jelly babies

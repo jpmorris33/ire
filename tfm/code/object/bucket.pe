@@ -18,11 +18,11 @@ if me = player
 			if_flag curtile IS_WATER
 				print "water"
 			else
-				print "nothing."
+				print msg_NothingDot
 				let curtile = null
 			endif
 		else
-			print "nothing."
+			print msg_NothingDot
 		endif
 	endif
 	printcr
