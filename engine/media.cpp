@@ -40,9 +40,8 @@ static char media_on=0,media_clock=0;
 extern void RFS_getescape();
 extern void CheckSpecialKeys(int k);
 
-static int rmbuf();
 static void BMPshot(IREBITMAP *savescreen);
-static void PNGshot(IREBITMAP *savescreen);
+//static void PNGshot(IREBITMAP *savescreen);
 
 
 
@@ -347,7 +346,7 @@ return bmp->GetW()*bmp->GetH()*cd;
 
 int GetKey()
 {
-int z,shift;
+int z;
 IRE_GetMouse(NULL,NULL,&z,NULL);
 if(z) {
 	if(z<0) {

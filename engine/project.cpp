@@ -397,7 +397,7 @@ for(ctr=0;ctr<TItot;ctr++) {
 	if(TIlist[ctr].form->frames) {
 		TIlist[ctr].tick++;
 		if(TIlist[ctr].tick>=TIlist[ctr].form->speed) {
-			tip[ctr]+=TIlist[ctr].sdir;
+			tip[ctr]+=(char)TIlist[ctr].sdir;
 			if(tip[ctr]>=TIlist[ctr].form->frames)
 				tip[ctr]=0;
 			TIlist[ctr].tick=0;

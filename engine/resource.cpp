@@ -2334,7 +2334,7 @@ for(ctr=start;ctr<=finish;ctr++)
 ilog_printf("\n");
 
 // Now check for moveable decoratives as that upsets the pathfinder
-for(int ctr=0;ctr<CHtot;ctr++) {
+for(ctr=0;ctr<CHtot;ctr++) {
 	if((CHlist[ctr].flags & IS_DECOR) && (!(CHlist[ctr].flags & IS_FIXED))) {
 		char msg[1024];
 		sprintf(msg,"Obj '%s' is decorative but not fixed",CHlist[ctr].name);
