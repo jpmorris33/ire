@@ -1716,17 +1716,25 @@ for(ctr=start;ctr<=finish;ctr++)
         // Get the character's behaviour function
 
 		if(!istricmp(Rptr,"behave") || !istricmp(Rptr,"behaviour")
-		|| !istricmp(Rptr,"behavior"))
-			{
+		|| !istricmp(Rptr,"behavior")) {
 			// If we have a behaviour already, reject the second one
 			// unless it is the dummy one to make ifTriggered work
-			if(character->activity >= 0)
+			if(character->activity >= 0) {
 				Dump(ctr,"Multiple initial behaviours not supported",NULL);
-			character->activity = getnum4PE(strfirst(strrest(line)));
-			if(character->activity < 0)
-				Dump(ctr,"Cannot find script function",strfirst(strrest(line)));
-			continue;
 			}
+			character->activity = getnum4PE(strfirst(strrest(line)));
+			if(character->activity < 0) {
+				Dump(ctr,"Cannot find script function",strfirst(strrest(line)));
+			}
+			continue;
+		}
+
+	// Reset behaviour (for inheritance)
+
+		if(!istricmp(Rptr,"clear_behaviour") || !istricmp(Rptr,"clear_behavior")) {
+			character->activity = -1;
+			continue;
+		}
 
         // Get the character's STAND function
 
