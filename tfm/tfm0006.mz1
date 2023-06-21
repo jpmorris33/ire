@@ -2189,6 +2189,11 @@ iMZ1r01
 		at 310 137
 		curdir 2
 
+	object BRAZ992f014a-62aa-4d32-a9d2-5c9ba5cb8c2d
+		type BRAZIER
+		at 311 137
+		curdir 2
+
 	object STEP1deee57e-603b-476d-ac37-b429ed120f2a
 		type STEPS01
 		at 312 137
@@ -2198,6 +2203,7 @@ iMZ1r01
 		type CANDLESTK
 		at 313 137
 		curdir 2
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
 
 	object THRO4654d2bc-0e68-474d-95c4-4103a6e72f54
 		type THRONE
@@ -2219,11 +2225,17 @@ iMZ1r01
 		type CANDLESTK
 		at 315 137
 		curdir 2
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
 
 	object STEPaa31b174-dda3-4f98-97c2-ab78837745e2
 		type STEPS02
 		at 316 137
 		curdir 0
+
+	object BRAZ6f226310-11d4-4a6a-8ffd-6d6ead68942b
+		type BRAZIER
+		at 317 137
+		curdir 2
 
 	object CHAI53213d30-2b73-467e-8edf-fb6e18311f84
 		type CHAIR
@@ -2604,10 +2616,20 @@ iMZ1r01
 		at 310 141
 		curdir 2
 
+	object STON0b0a99c6-ad05-4340-a487-8661e4b86943
+		type STONE_MASK
+		at 311 141
+		curdir 3
+
 	object CARPa13e5284-4758-406a-b14c-4f2064742236
 		type CARPET
 		at 313 141
 		curdir 3
+
+	object STONc0416823-9df3-47e1-82a7-04cb709d8c4f
+		type STONE_MASK
+		at 317 141
+		curdir 2
 
 	object STONafc53212-d78b-4945-a98b-14e956babb12
 		type STONEFLOOR10
@@ -2649,10 +2671,20 @@ iMZ1r01
 		at 465 141
 		curdir 3
 
+	object STONb7c32d9e-cc5e-4b2c-87a2-c0f7014bb0ac
+		type STONE_MASK2
+		at 311 142
+		curdir 3
+
 	object CARPbb905bdf-3f6b-4128-8992-274f73ed0d6e
 		type CARPET
 		at 313 142
 		curdir 3
+
+	object STONb695da0c-f637-4c6c-9155-c0cbbe9aa00e
+		type STONE_MASK2
+		at 317 142
+		curdir 2
 
 	object STON36410e93-8436-4919-9a92-8edcb5631982
 		type STONEFLOOR14
@@ -2690,9 +2722,19 @@ iMZ1r01
 		at 91 143
 		curdir 2
 
+	object STON8a3da39e-87dd-4efb-bb23-c43e709853e7
+		type STONE_MASK3
+		at 311 143
+		curdir 3
+
 	object CARPec5d8d1a-4700-496d-bb6e-596062e69a4a
 		type CARPET2
 		at 313 143
+		curdir 2
+
+	object STON66b37c65-6f32-4474-89f2-25cb592848ff
+		type STONE_MASK3
+		at 317 143
 		curdir 2
 
 	object STONf17a132f-f7a7-4284-89e4-f07b0304bdc6
@@ -11538,6 +11580,11 @@ iMZ1r01
 		at 285 225
 		curdir 3
 
+	object SPAW105a1c8f-c923-431b-a92e-e051e15064d3
+		type SPAWN_GUARDS_DEVIL
+		at 295 225
+		curdir 1
+
 	object LEVE552aee27-3e8b-431d-8c95-4938eb4d916e
 		type LEVER
 		inside PLAYa1e21f81-2daa-4f64-8a37-de384790acb0
@@ -11559,6 +11606,11 @@ iMZ1r01
 		at 297 225
 		curdir 0
 		activity PLAYER_ACTION
+
+	object SPAW2a147047-ccc3-4f53-bac2-dfa8c0d3e110
+		type SPAWN_GUARDS_DEVIL
+		at 300 225
+		curdir 1
 
 	object STON87b4e287-e15d-4905-9d4f-6401a13e53b2
 		type STONEFLOOR10
@@ -11945,6 +11997,11 @@ iMZ1r01
 		type STONEFLOOR18
 		at 285 227
 		curdir 3
+
+	object SPAW302723e3-5abd-421c-aca7-2afe05cc9414
+		type SPAWN_GUARDS_DEVIL
+		at 298 227
+		curdir 1
 
 	object STONdf82da63-982d-46b5-a97e-c120a3d945de
 		type STONEFLOOR10
@@ -23114,6 +23171,12 @@ iMZ1r01
 		at 192 455
 		curdir 2
 
+	object LIGHca3e2585-df3e-4561-b443-0e18b4664a42
+		type LIGHT_ALWAYS
+		at 226 455
+		curdir 0
+		stats->owner LIGHc3615b52-59af-4264-ac78-7cc7a764a72f
+
 	object STON567cc910-cc4b-4aba-8cbd-e809188cdfe2
 		type STONE_ARCHWAY2
 		at 112 456
@@ -23385,6 +23448,361 @@ iMZ1r01
 		at 192 462
 		curdir 2
 
+	object FENC9570d066-24d2-4a5b-8e57-b49db63297b5
+		type FENCE_CORNER
+		at 233 462
+		curdir 2
+
+	object FENCd582f76a-cf0d-4ed9-9171-47f064d2a264
+		type FENCE
+		at 234 462
+		curdir 0
+
+	object FENCfc8f20b9-980d-4738-889a-f5dabe161ef3
+		type FENCE
+		at 235 462
+		curdir 0
+
+	object FENC775dfefd-a53f-4ae0-b055-4a69afd2f0d9
+		type FENCE
+		at 236 462
+		curdir 0
+
+	object FENC8474b208-8335-4f1b-bdf0-ec86b5649edf
+		type FENCE
+		at 237 462
+		curdir 0
+
+	object FENC8b25ac4b-2085-4d20-bd13-42d6f0570b08
+		type FENCE
+		at 238 462
+		curdir 0
+
+	object FENC8ae5986c-dc49-4ddf-9eee-1c768e9fbdb1
+		type FENCE
+		at 239 462
+		curdir 0
+
+	object FENC52112573-9aca-4345-972c-e4abfe721940
+		type FENCE
+		at 240 462
+		curdir 0
+
+	object FENC7421e7a2-576e-4e8b-a421-1d8c5908d686
+		type FENCE
+		at 241 462
+		curdir 0
+
+	object FENC37e6d750-3d10-4d35-ba4a-6525bb16731f
+		type FENCE
+		at 242 462
+		curdir 0
+
+	object FENC586970fe-4078-442a-890d-a0b3903a00ec
+		type FENCE
+		at 243 462
+		curdir 0
+
+	object FENC2669aad8-1dfe-4487-8865-2612d2eedace
+		type FENCE
+		at 244 462
+		curdir 0
+
+	object FENC256b379d-16b3-487e-b0c6-3461bd5aebee
+		type FENCE
+		at 245 462
+		curdir 0
+
+	object FENCfd3c8b4c-088d-4d62-b944-b6c31b0273c7
+		type FENCE
+		at 246 462
+		curdir 0
+
+	object FENC5f94ce64-8c00-4334-a2af-968a886da6ef
+		type FENCE
+		at 247 462
+		curdir 0
+
+	object FENC5addacb7-9674-4f6b-b89b-3c08c45b7377
+		type FENCE
+		at 248 462
+		curdir 0
+
+	object FENC8fd7732b-c7f7-4570-ab94-ddb7018ed808
+		type FENCE
+		at 249 462
+		curdir 0
+
+	object FENC40aa1cdf-390f-41b1-8996-434a004c85c2
+		type FENCE
+		at 250 462
+		curdir 0
+
+	object FENCbd58f1fb-bc7a-4aa2-af91-e3d1ba55317e
+		type FENCE
+		at 251 462
+		curdir 0
+
+	object FENCa114e9e6-6f4a-4822-9986-774b7b71459b
+		type FENCE
+		at 252 462
+		curdir 0
+
+	object FENC323030ff-25b8-492f-92ea-b2e9a6a86dac
+		type FENCE
+		at 253 462
+		curdir 0
+
+	object FENC3a712645-ddd7-417d-8b81-0801c3277abe
+		type FENCE
+		at 254 462
+		curdir 0
+
+	object FENCc24d4193-f73d-4750-aa8d-dc3e64a4b6fa
+		type FENCE
+		at 255 462
+		curdir 0
+
+	object FENCf5332713-7295-4c25-b9f8-e16737e89154
+		type FENCE
+		at 256 462
+		curdir 0
+
+	object FENCbace2020-7698-4a9d-a820-fd5cdfd4249f
+		type FENCE
+		at 257 462
+		curdir 0
+
+	object FENCf66245e7-0c34-499b-8992-bdd1d3ef61fe
+		type FENCE
+		at 258 462
+		curdir 0
+
+	object FENC996c7f0f-a6d7-432f-8ab7-ee9bb09488e4
+		type FENCE
+		at 259 462
+		curdir 0
+
+	object FENC459e39e0-c671-4690-b013-00897157b22d
+		type FENCE
+		at 260 462
+		curdir 0
+
+	object FENCe084a075-a30b-406e-82cd-1cdccb202227
+		type FENCE
+		at 261 462
+		curdir 0
+
+	object FENCc8e7986c-3910-4a39-90ad-c9bbfdf92a19
+		type FENCE
+		at 262 462
+		curdir 0
+
+	object FENCcc902784-6576-4108-b487-2e2f32ffb4ea
+		type FENCE
+		at 263 462
+		curdir 0
+
+	object FENC15a2a5c2-8788-41f3-b23e-0e335e813fc1
+		type FENCE
+		at 264 462
+		curdir 0
+
+	object FENC2f1fa288-0c86-435b-b08e-58f78d67890a
+		type FENCE
+		at 265 462
+		curdir 0
+
+	object FENC88f013a2-5bba-4760-ad65-b00d0af2c4ce
+		type FENCE
+		at 266 462
+		curdir 0
+
+	object FENC989c438c-004c-4d30-b3bb-2aad616a776d
+		type FENCE
+		at 267 462
+		curdir 0
+
+	object FENC14e3df05-59b6-466b-b98f-e6bc1c68ce18
+		type FENCE
+		at 268 462
+		curdir 0
+
+	object FENCd8c32f15-a3db-411b-95de-2e2873729437
+		type FENCE
+		at 269 462
+		curdir 0
+
+	object FENCfa884178-d7d7-4642-97b4-f79b718e38a6
+		type FENCE
+		at 270 462
+		curdir 0
+
+	object FENCbc4338b8-0ff1-42fe-9cef-a22ae40e25a6
+		type FENCE
+		at 271 462
+		curdir 0
+
+	object FENC04abebbb-daa0-4631-8185-9dbe2afea8ad
+		type FENCE
+		at 272 462
+		curdir 0
+
+	object FENC429d5736-9d62-45fc-ac82-95b732c0e326
+		type FENCE
+		at 273 462
+		curdir 0
+
+	object FENC2ba788de-0e06-4faa-aec3-4224a5b2ca9b
+		type FENCE
+		at 274 462
+		curdir 0
+
+	object FENC10c9cadd-c606-4610-a6e4-04ce85be73ef
+		type FENCE
+		at 275 462
+		curdir 0
+
+	object FENC27dbde4a-fb1b-473e-9148-21e4ac86b719
+		type FENCE
+		at 276 462
+		curdir 0
+
+	object FENC924d92e2-e740-4195-b6d6-1e842962092b
+		type FENCE
+		at 277 462
+		curdir 0
+
+	object FENCf07d5503-f4ab-41b1-969b-7b4dd238d7d5
+		type FENCE
+		at 278 462
+		curdir 0
+
+	object FENC85127ce0-43a3-41ab-b3fe-b8411d1eec00
+		type FENCE
+		at 279 462
+		curdir 0
+
+	object FENC32bf1a1e-5ded-462c-b838-8dfe081cbbd3
+		type FENCE
+		at 280 462
+		curdir 0
+
+	object FENCdeea8233-9fab-450c-94cf-75205b292429
+		type FENCE
+		at 281 462
+		curdir 0
+
+	object FENCa2d5f648-0874-4f7c-aeed-92e7e8269149
+		type FENCE
+		at 282 462
+		curdir 0
+
+	object FENCfada79a1-1953-4662-b3c6-0b9101c537f6
+		type FENCE
+		at 283 462
+		curdir 0
+
+	object FENC59189e62-e326-43f6-8707-9019a1a53510
+		type FENCE
+		at 284 462
+		curdir 0
+
+	object FENC7ca98650-7e8d-417d-976f-5acabbfd0b8d
+		type FENCE
+		at 285 462
+		curdir 0
+
+	object FENC3972bcae-f2cf-42db-ab87-4c942114e080
+		type FENCE
+		at 286 462
+		curdir 0
+
+	object FENCce447384-8051-447a-adf4-a3c28b09e809
+		type FENCE
+		at 287 462
+		curdir 0
+
+	object FENCf0a64f62-b9c7-4aa8-b53a-674945ce5252
+		type FENCE
+		at 288 462
+		curdir 0
+
+	object FENC681175f2-978f-4172-ae07-bfee8b1547cc
+		type FENCE
+		at 289 462
+		curdir 0
+
+	object FENCa3d693ae-9511-402b-bfc0-a9d0768aeef5
+		type FENCE
+		at 290 462
+		curdir 0
+
+	object FENC49e02238-b6d7-437a-9f10-18f28281235c
+		type FENCE
+		at 291 462
+		curdir 0
+
+	object FENCe184fca9-1cf6-4d6a-b4a5-cf192b3c2a84
+		type FENCE
+		at 292 462
+		curdir 0
+
+	object FENC7c59e384-fe59-465a-a28f-f5cc742ce591
+		type FENCE
+		at 293 462
+		curdir 0
+
+	object FENC4811a0eb-b17c-4434-b650-0aeceb810554
+		type FENCE
+		at 294 462
+		curdir 0
+
+	object FENCede9f2e3-8f59-4ee3-9455-7f4a165eb953
+		type FENCE
+		at 295 462
+		curdir 0
+
+	object FENCa74c1e18-e90a-4ce4-9284-8c640eb47930
+		type FENCE
+		at 296 462
+		curdir 0
+
+	object FENC392d79b0-2ce9-4c4e-9aae-49ab3111c612
+		type FENCE
+		at 297 462
+		curdir 0
+
+	object FENC46df3898-ff22-4b90-abee-5648949965fe
+		type FENCE
+		at 298 462
+		curdir 0
+
+	object FENC6787214e-cb65-4144-a5df-42abc0fd9da6
+		type FENCE
+		at 299 462
+		curdir 0
+
+	object FENC46671491-6ac4-41d0-b686-489601d24305
+		type FENCE
+		at 300 462
+		curdir 0
+
+	object FENC6e848e59-c107-4801-8523-f38071d10544
+		type FENCE
+		at 301 462
+		curdir 0
+
+	object FENC47b26aa5-3457-4a3f-9c0f-78811f318e93
+		type FENCE
+		at 302 462
+		curdir 0
+
+	object FENC5d37dffa-bdc1-4fb1-a294-0faf35d0eaf9
+		type FENCE_CORNER
+		at 303 462
+		curdir 3
+
 	object STON20c16bff-a482-47cc-8edd-04869ff02162
 		type STONE_ARCHWAY
 		at 112 463
@@ -23394,6 +23812,16 @@ iMZ1r01
 		type STONE_ARCHWAY
 		at 192 463
 		curdir 1
+
+	object FENCe65053cc-32ae-4aa5-b3ec-4b5f8478117f
+		type FENCE
+		at 233 463
+		curdir 2
+
+	object FENC33aa4c8e-00e8-46bc-bf8a-e0db17141cb5
+		type FENCE
+		at 303 463
+		curdir 2
 
 	object CRAT5ecbc57b-2c50-4725-82a1-4d39f2389809
 		type CRATE_EDGES
@@ -23454,6 +23882,16 @@ iMZ1r01
 		type CRATE_EDGES
 		at 190 464
 		curdir 3
+
+	object FENC33fa1ee9-bebc-40c6-8668-a29e86880f21
+		type FENCE
+		at 233 464
+		curdir 2
+
+	object FENCd005bca8-6d23-47d5-951a-6b2f43059366
+		type FENCE
+		at 303 464
+		curdir 2
 
 	object LIGH3bdecf94-f8de-4a67-befd-71877571616a
 		type LIGHT_SWITCH
@@ -23591,6 +24029,16 @@ iMZ1r01
 		at 189 465
 		curdir 1
 
+	object FENC723928c6-8dd2-4b97-8e18-285c0eb24cb8
+		type FENCE
+		at 233 465
+		curdir 2
+
+	object FENC24f0ab4a-8f30-402b-9afe-38b29219fad0
+		type FENCE
+		at 303 465
+		curdir 2
+
 	object STON3760cb37-99b5-4da5-ade5-e560bc53261a
 		type STONE_ARCHWAY
 		at 112 466
@@ -23681,6 +24129,16 @@ iMZ1r01
 		at 192 466
 		curdir 0
 
+	object FENC115c3278-0a84-423b-a10f-76dac46f045f
+		type FENCE
+		at 233 466
+		curdir 2
+
+	object FENC2e493b0f-30e2-46c2-bf7f-5505043a1f90
+		type FENCE
+		at 303 466
+		curdir 2
+
 	object STON33c90406-28c3-45c0-a058-3cd80e4cb0e3
 		type STONE_ARCHWAY2
 		at 112 467
@@ -23689,6 +24147,16 @@ iMZ1r01
 	object STONb16f3bb4-4c7a-4c63-96fc-bc2cecc16c96
 		type STONE_ARCHWAY2
 		at 192 467
+		curdir 2
+
+	object FENC0444de1f-a4d9-497c-b72b-808ddcde9ac0
+		type FENCE
+		at 233 467
+		curdir 2
+
+	object FENCb6a946cc-9354-4a98-92e6-91e08c454035
+		type FENCE
+		at 303 467
 		curdir 2
 
 	object STONf219afc5-d1ab-488a-ac5c-da921e1a32cb
@@ -23701,6 +24169,21 @@ iMZ1r01
 		at 192 468
 		curdir 2
 
+	object FENC4cdee206-e041-40eb-88d5-19c196584e25
+		type FENCE
+		at 233 468
+		curdir 2
+
+	object TEST2afcc5bd-19e6-4c4f-b455-b88aef8a3ee7
+		type TEST
+		at 243 468
+		curdir 3
+
+	object FENCf873ea61-f2ca-4f36-99d8-7ec7b93612ea
+		type FENCE
+		at 303 468
+		curdir 2
+
 	object STON0782ff76-f922-4aba-9811-59c04676c793
 		type STONE_ARCHWAY
 		at 112 469
@@ -23710,6 +24193,16 @@ iMZ1r01
 		type STONE_ARCHWAY
 		at 192 469
 		curdir 1
+
+	object FENC34f059b7-9b32-45a6-8948-bba8a2a5bb82
+		type FENCE
+		at 233 469
+		curdir 2
+
+	object FENC9c365d9a-e452-49c7-9a12-fa0eb9970a78
+		type FENCE
+		at 303 469
+		curdir 2
 
 	object CRATdd04e669-b50b-4d69-b827-c30703d64abb
 		type CRATE_EDGES
@@ -23761,6 +24254,16 @@ iMZ1r01
 		at 190 470
 		curdir 3
 
+	object FENCc59306a3-d937-44e9-b2da-eda24aa18b87
+		type FENCE
+		at 233 470
+		curdir 2
+
+	object FENC5cf1a9b2-aa50-48b2-b4a2-7778ca1723ab
+		type FENCE
+		at 303 470
+		curdir 2
+
 	object LIGH6b250bc7-57cd-4ef0-83d7-daa951716eff
 		type LIGHT_SWITCH
 		at 112 471
@@ -23777,6 +24280,26 @@ iMZ1r01
 		at 192 471
 		curdir 3
 		tag 20
+
+	object SPAW2e52005e-f181-4a7b-b811-451abecffa2e
+		type SPAWN_GUARDS_DEVIL
+		at 194 471
+		curdir 1
+
+	object SPAW2d246bac-0480-4437-8566-a124496e35fb
+		type SPAWN_GUARDS_DEVIL
+		at 196 471
+		curdir 1
+
+	object FENC0a3cc52d-b0cd-42e1-a86c-089a0c83402e
+		type FENCE
+		at 233 471
+		curdir 2
+
+	object FENC824b34cc-b937-4fe9-b949-46ffabb24690
+		type FENCE
+		at 303 471
+		curdir 2
 
 	object STONc7ca4248-5f5e-4977-a215-db134c1317c1
 		type STONE_ARCHWAY
@@ -23878,21 +24401,21 @@ iMZ1r01
 		at 192 472
 		curdir 0
 
-	object SPAW3b8d40ae-075b-4889-9d2a-26b49951f629
-		type SPAWN_GUARDS_DEADLY
-		at 194 472
-		curdir 1
-
 	object STAI5837ce35-2496-4681-8c32-43b7354f17e7
 		type STAIRS_UP
 		at 195 472
 		curdir 2
 		tag 21
 
-	object SPAWc9890449-a1e5-4b10-859e-1250a61bb74a
-		type SPAWN_GUARDS_DEADLY
-		at 196 472
-		curdir 1
+	object FENC9e42b79d-f2c1-4787-9575-074d24484d03
+		type FENCE
+		at 233 472
+		curdir 2
+
+	object FENC184e400d-7e85-416f-ab89-0d3591c9db91
+		type FENCE
+		at 303 472
+		curdir 2
 
 	object STON8b6fcb7c-864e-4d91-b515-4ec14fd48ae6
 		type STONE_ARCHWAY2
@@ -23910,6 +24433,16 @@ iMZ1r01
 		curdir 1
 		tag 21
 
+	object FENC92283b94-722c-48eb-8d59-000daa34db25
+		type FENCE
+		at 233 473
+		curdir 2
+
+	object FENC0da0107e-59cb-4229-b9c4-e8ede26ec363
+		type FENCE
+		at 303 473
+		curdir 2
+
 	object STON5c4d3d4f-81a4-4f37-8644-97b6c6c8d572
 		type STONE_ARCHWAY2
 		at 112 474
@@ -23925,6 +24458,16 @@ iMZ1r01
 		at 195 474
 		curdir 2
 		tag 5
+
+	object FENC5acd45af-3126-4481-8e01-54ff8ae09bef
+		type FENCE
+		at 233 474
+		curdir 2
+
+	object FENC55dfb472-a7ca-4f6c-add2-b6a8c5f6c304
+		type FENCE
+		at 303 474
+		curdir 2
 
 	object PLAQ12c60b73-96e1-43ec-b427-572a0b26b22c
 		type PLAQUE_BRASS
@@ -23942,15 +24485,25 @@ iMZ1r01
 		at 192 475
 		curdir 1
 
-	object SPAWdbb4a140-8cb3-45ed-8006-d9b2393b6130
-		type SPAWN_GUARDS_DEADLY
+	object SPAW49bd10b9-4ede-4d44-ac77-d3b4e170e8b3
+		type SPAWN_GUARDS_DEVIL
 		at 193 475
 		curdir 1
 
-	object SPAW599c3de9-7698-4f5e-9e51-dd6c94aa2b87
-		type SPAWN_GUARDS_DEADLY
+	object SPAW6093c35b-7e3f-4ec7-a248-230f68fa9452
+		type SPAWN_GUARDS_DEVIL
 		at 197 475
 		curdir 1
+
+	object FENCa6a155e5-406b-4fe2-bfab-2369710f505c
+		type FENCE
+		at 233 475
+		curdir 2
+
+	object FENC4e348dd1-5647-4729-893d-92a0991e0f30
+		type FENCE
+		at 303 475
+		curdir 2
 
 	object LIGH5316d8d0-23c7-482e-aaf6-5a8a688ef961
 		type LIGHTSOURCE_ULTRA
@@ -24002,6 +24555,16 @@ iMZ1r01
 		at 190 476
 		curdir 3
 
+	object FENC8780abf9-4a27-453d-a6f1-6e5b1f292b88
+		type FENCE
+		at 233 476
+		curdir 2
+
+	object FENC8f60130a-4f83-4a72-8dba-14472b31ac04
+		type FENCE
+		at 303 476
+		curdir 2
+
 	object TARGbbc1f050-2939-4b50-a295-f9c85130413f
 		type TARGET
 		at 339 476
@@ -24014,10 +24577,15 @@ iMZ1r01
 		curdir 3
 		tag 19
 
-	object TEST2afcc5bd-19e6-4c4f-b455-b88aef8a3ee7
-		type TEST
-		at 237 477
-		curdir 3
+	object FENCff8a6009-6271-47e5-8c54-44fcfc6f75f6
+		type FENCE
+		at 233 477
+		curdir 2
+
+	object FENCdff954f3-683b-409c-8d80-822f1e149e82
+		type FENCE
+		at 303 477
+		curdir 2
 
 	object LIGH8ddf6c72-e167-44af-a4ec-3a6aef3daf09
 		type LIGHTSOURCE_ULTRA
@@ -24138,6 +24706,16 @@ iMZ1r01
 		curdir 1
 		tag 20
 
+	object FENCe00aacb8-1877-4d9c-ac5f-8cb4eff8c85c
+		type FENCE
+		at 233 478
+		curdir 2
+
+	object FENCec8d3cd2-f917-4a9d-aaa2-7b7a669183fd
+		type FENCE
+		at 303 478
+		curdir 2
+
 	object LIGHdbef19ba-19df-4ced-85bf-08a14f9ad898
 		type LIGHT_START
 		at 106 479
@@ -24180,13 +24758,23 @@ iMZ1r01
 		curdir 0
 		tag 24
 
+	object FENC50aca9ca-ba42-4a55-980f-0da4002f909e
+		type FENCE
+		at 233 479
+		curdir 2
+
+	object FENC252d2833-f81d-428f-9732-956bc0c70875
+		type FENCE
+		at 303 479
+		curdir 2
+
 	object POTIf4866b1f-ce8c-4694-b0c9-e8d281ef5f10
 		type POTION_UNHOLYWATER
 		at 111 480
 		curdir 2
 
-	object SPAWfa406cb9-d364-41cf-b210-28f7973c234f
-		type SPAWN_GUARDS_DEADLY
+	object SPAWff0fbb2b-6275-46aa-b96e-6c560b24660f
+		type SPAWN_GUARDS_DEVIL
 		at 190 480
 		curdir 1
 
@@ -24274,11 +24862,15 @@ iMZ1r01
 		curdir 0
 		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
 
-	object MEMOcbf61d24-646e-46f2-bd11-b995cedb586a
-		type MEMO
-		at 239 480
-		curdir 3
-		name Satan's race track
+	object FENC4d803f52-3f82-4604-93bb-c907653f8450
+		type FENCE
+		at 233 480
+		curdir 2
+
+	object FENC8efee149-f00c-4654-ae54-afdc2030ec9f
+		type FENCE
+		at 303 480
+		curdir 2
 
 	object POTI58450b3c-56a7-406e-808a-4623948137af
 		type POTION_UNHOLYWATER
@@ -24418,6 +25010,16 @@ iMZ1r01
 		at 197 481
 		curdir 3
 		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object FENCef2aa8a3-9a06-4560-ba19-5550cfd945b2
+		type FENCE
+		at 233 481
+		curdir 2
+
+	object FENCfabde012-1312-4e9c-8717-4a462ff844d9
+		type FENCE
+		at 303 481
+		curdir 2
 
 	object POTIbbd445b7-5e31-40ec-8982-d4274246d9e9
 		type POTION_UNHOLYWATER
@@ -24628,6 +25230,16 @@ iMZ1r01
 		at 197 482
 		curdir 3
 		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
+	object FENCd841134f-70ce-4396-9faf-76a4618fc8f0
+		type FENCE
+		at 233 482
+		curdir 2
+
+	object FENC4733ac36-1c6b-4b4e-8237-3e25b6064907
+		type FENCE
+		at 303 482
+		curdir 2
 
 	object POTIdf3741ef-5405-47de-9e16-5dbb2e4f6afd
 		type POTION_HOLYWATER
@@ -25030,6 +25642,46 @@ iMZ1r01
 		curdir 3
 		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
 
+	object FENC2133de5b-f14b-4bd5-a770-830127668fee
+		type FENCE
+		at 233 483
+		curdir 2
+
+	object FENCa0e6b639-34ba-480d-86ea-d6f306901891
+		type FENCE
+		at 303 483
+		curdir 2
+
+	object FENC4af547f2-5e21-4d80-8b27-2bff7c2b3ad6
+		type FENCE
+		at 233 484
+		curdir 2
+
+	object FENC48a26184-56d6-45bf-80ff-621fc8eff7f4
+		type FENCE
+		at 303 484
+		curdir 2
+
+	object FENC9902361f-9449-4c3a-993d-39da37c58941
+		type FENCE
+		at 233 485
+		curdir 2
+
+	object FENCe1e32852-b395-4e2a-8643-c88b34861453
+		type FENCE
+		at 303 485
+		curdir 2
+
+	object FENCcec87848-d69e-4d33-87c1-b30fcbaa1b61
+		type FENCE
+		at 233 486
+		curdir 2
+
+	object FENCf6504b60-f3b9-42ae-9b6c-de03f877af1c
+		type FENCE
+		at 303 486
+		curdir 2
+
 	object TREAede9478e-abdb-4ecc-bebe-b0d088155329
 		type TREASURE_06
 		at 114 487
@@ -25040,15 +25692,55 @@ iMZ1r01
 		at 118 487
 		curdir 0
 
+	object FENC75ed0a38-c932-4c95-8e62-376aa0a5152a
+		type FENCE
+		at 233 487
+		curdir 2
+
+	object FENCd30abc98-6695-4e1d-90d6-d3bef952af6d
+		type FENCE
+		at 303 487
+		curdir 2
+
+	object FENCc1431994-3458-4eaa-803e-a6e5fe746559
+		type FENCE
+		at 233 488
+		curdir 2
+
+	object FENC838ffeea-5437-4454-b821-e84b5a3401aa
+		type FENCE
+		at 303 488
+		curdir 2
+
 	object TREA7c57aee4-e342-4c47-babf-9e40ba126526
 		type TREASURE_06
 		at 114 489
 		curdir 0
 
+	object FENC14abb348-ea77-42a6-b0ac-1f9a7567f09f
+		type FENCE
+		at 233 489
+		curdir 2
+
+	object FENC5832db0b-d7f4-43ee-90ae-95166bda967b
+		type FENCE
+		at 303 489
+		curdir 2
+
 	object TREA556e40da-84a1-4f86-bcb5-5c529ddd1204
 		type TREASURE_06
 		at 117 490
 		curdir 0
+
+	object FENCabe8833d-43dc-4231-89d8-fe67d1f826c3
+		type FENCE
+		at 233 490
+		curdir 2
+
+	object FENCce724b0d-6adc-4b4a-aa4a-c3931a1dd057
+		type FENCE
+		at 303 490
+		curdir 2
 
 	object TREA06b01ab8-9d19-45f5-a2f5-3bf112b398f5
 		type TREASURE_06
@@ -25071,6 +25763,16 @@ iMZ1r01
 		curdir 3
 		tag 26
 
+	object FENC93672307-b3e2-48ef-b522-484ad36142cc
+		type FENCE
+		at 233 491
+		curdir 2
+
+	object FENCb6ca9053-d790-44c0-9699-b00d59662329
+		type FENCE
+		at 303 491
+		curdir 2
+
 	object STON12127098-8091-4211-b1a4-d5b6f47a43de
 		type STONE_ARCHWAY2_P
 		at 125 492
@@ -25082,6 +25784,16 @@ iMZ1r01
 		curdir 0
 		tag 26
 
+	object FENC21895c7f-8fbe-4431-a8f8-c3f9d2b57d7b
+		type FENCE
+		at 233 492
+		curdir 2
+
+	object FENC1861e309-2375-429e-a1d1-4c1586e94e5e
+		type FENCE
+		at 303 492
+		curdir 2
+
 	object STON75784b7a-be0b-4758-99d7-3901ab7c494f
 		type STONE_ARCHWAY_P
 		at 125 493
@@ -25092,4 +25804,454 @@ iMZ1r01
 		at 127 493
 		curdir 3
 		tag 27
+
+	object FENCc57572f7-92b2-438c-90ad-6dbc3ed138c9
+		type FENCE
+		at 233 493
+		curdir 2
+
+	object FENC1292a3e8-c7d1-46ac-b6a1-0c353393473d
+		type FENCE
+		at 303 493
+		curdir 2
+
+	object FENC4203b0bd-3050-42e6-975e-4adcd37c1dec
+		type FENCE
+		at 233 494
+		curdir 2
+
+	object FENCc5d04844-0993-4fb1-8c66-4e225fde68fe
+		type FENCE
+		at 303 494
+		curdir 2
+
+	object FENC11b67358-94dc-414d-a1b5-217b768c6a11
+		type FENCE
+		at 233 495
+		curdir 2
+
+	object FENC3d3c81e3-974d-405e-9024-5a94e486e9c8
+		type FENCE
+		at 303 495
+		curdir 2
+
+	object FENCffe62ecb-17e3-424d-bab8-6641135b58be
+		type FENCE
+		at 233 496
+		curdir 2
+
+	object FENCd4e6ca18-1ee2-4c45-8f80-b8e342615eae
+		type FENCE
+		at 303 496
+		curdir 2
+
+	object FENC4f70c1ec-55e4-48cb-b8a9-774beb151d29
+		type FENCE
+		at 233 497
+		curdir 2
+
+	object FENC30bbcc7c-17d6-4d6c-a424-f44ddb511180
+		type FENCE
+		at 303 497
+		curdir 2
+
+	object FENC4ee6e3e4-afa3-4867-9a52-81e9a9c1ebde
+		type FENCE
+		at 233 498
+		curdir 2
+
+	object FENCa31036f3-dd06-4ae7-9902-7783c472eacb
+		type FENCE
+		at 303 498
+		curdir 2
+
+	object FENCd2023d93-c6fc-42f1-8218-ec2fa82acbe5
+		type FENCE
+		at 233 499
+		curdir 2
+
+	object FENCfa67dbd7-52cd-4bf7-bf60-0d0a830817ba
+		type FENCE
+		at 303 499
+		curdir 2
+
+	object FENCb41846c5-965e-4dcf-829c-9ffbe7f8374c
+		type FENCE
+		at 233 500
+		curdir 2
+
+	object FENC8c813724-f961-418e-8847-29e8e2b6b168
+		type FENCE
+		at 303 500
+		curdir 2
+
+	object FENC443c1660-2791-465e-ae44-56916e07b676
+		type FENCE
+		at 233 501
+		curdir 2
+
+	object FENC0a074bc1-50f5-4980-b6b1-a3fa5bea7dfd
+		type FENCE
+		at 303 501
+		curdir 2
+
+	object FENC082da13f-aae7-4533-b98d-d68baeb0e969
+		type FENCE_CORNER
+		at 233 502
+		curdir 0
+
+	object FENC65becb7a-63b8-49eb-b47f-bb4459eee97b
+		type FENCE
+		at 234 502
+		curdir 0
+
+	object FENC2a1a8190-37d9-40b7-ae1a-ea4bafef54ca
+		type FENCE
+		at 235 502
+		curdir 0
+
+	object FENC362c0bff-d713-48f3-84d1-f2ae0241e26a
+		type FENCE
+		at 236 502
+		curdir 0
+
+	object FENC9d38653e-b32f-4d01-b0d5-0901506e6ee9
+		type FENCE
+		at 237 502
+		curdir 0
+
+	object FENC11b23bd8-d855-4657-9b45-1508e24e9a69
+		type FENCE
+		at 238 502
+		curdir 0
+
+	object FENCcbc4e063-6746-48f7-8e2a-ae5136c466be
+		type FENCE
+		at 239 502
+		curdir 0
+
+	object FENCb1a89f79-1745-4343-afba-9948e2c8e2ac
+		type FENCE
+		at 240 502
+		curdir 0
+
+	object FENC013fde9e-d101-46bc-8c4c-4ceaa6d44bda
+		type FENCE
+		at 241 502
+		curdir 0
+
+	object FENCe0a51c1a-67ff-4dbf-9d8a-0ffb8cbdf5ac
+		type FENCE
+		at 242 502
+		curdir 0
+
+	object FENC8fa6d7d0-1983-46d8-a8c0-bab6cc669f98
+		type FENCE
+		at 243 502
+		curdir 0
+
+	object FENCccfd0f15-057c-4cbf-8233-59d1aacca7c2
+		type FENCE
+		at 244 502
+		curdir 0
+
+	object FENC527a6596-90ff-4733-87cb-f8311d71bb4d
+		type FENCE
+		at 245 502
+		curdir 0
+
+	object FENC0a86bbb7-54f3-488f-b332-4630b4c60bc5
+		type FENCE
+		at 246 502
+		curdir 0
+
+	object FENCd1ce4fb1-02c6-4412-85cf-64ce30658734
+		type FENCE
+		at 247 502
+		curdir 0
+
+	object FENCe9fe53c8-9eba-4047-be9d-bb86c4df36d5
+		type FENCE
+		at 248 502
+		curdir 0
+
+	object FENCea3beb59-0947-4cd9-af29-c8de9b0b98ae
+		type FENCE
+		at 249 502
+		curdir 0
+
+	object FENC68c51008-9a9f-4662-80b8-9321b19b4bb5
+		type FENCE
+		at 250 502
+		curdir 0
+
+	object FENCbf52ed5c-b54d-457f-8e9a-31ea08616b89
+		type FENCE
+		at 251 502
+		curdir 0
+
+	object FENC51a08810-94d2-4077-b960-c18d28999d2a
+		type FENCE
+		at 252 502
+		curdir 0
+
+	object FENC0a94f53d-a587-4991-990b-8f42e5f206c6
+		type FENCE
+		at 253 502
+		curdir 0
+
+	object FENCc1a7bf1e-3b40-46db-9504-1750c2c70f08
+		type FENCE
+		at 254 502
+		curdir 0
+
+	object FENCa1ea6865-906a-4eaa-a8af-c770496983dd
+		type FENCE
+		at 255 502
+		curdir 0
+
+	object FENCc849f17b-bbcd-49d8-bc88-3cb7d9dcbc75
+		type FENCE
+		at 256 502
+		curdir 0
+
+	object FENCd2b459ff-7f33-4fc2-a518-0c61368f6041
+		type FENCE
+		at 257 502
+		curdir 0
+
+	object FENC3040aaee-78a7-4928-ba41-1834aedea4ae
+		type FENCE
+		at 258 502
+		curdir 0
+
+	object FENC134a14e2-d507-45c9-9712-acb373562fb8
+		type FENCE
+		at 259 502
+		curdir 0
+
+	object FENCa97c213b-b6bd-4912-bf48-e74102f800d8
+		type FENCE
+		at 260 502
+		curdir 0
+
+	object FENCd3269478-528b-4e13-83da-8697ad182503
+		type FENCE
+		at 261 502
+		curdir 0
+
+	object FENC8de28447-72d6-45b5-8654-19053199e172
+		type FENCE
+		at 262 502
+		curdir 0
+
+	object FENC8f5c122e-be8d-4d3d-a90d-6b086da13a1c
+		type FENCE
+		at 263 502
+		curdir 0
+
+	object FENC96688d43-77ab-4c94-8961-5d732dbabb97
+		type FENCE
+		at 264 502
+		curdir 0
+
+	object FENC493d4da4-120b-4d45-bfd3-bcc40dc4b2ac
+		type FENCE
+		at 265 502
+		curdir 0
+
+	object FENC8b98e11b-1aa8-4ad2-9d12-f114908ac755
+		type FENCE
+		at 266 502
+		curdir 0
+
+	object FENCaefa458e-10b1-477e-851c-1500c5e1734a
+		type FENCE
+		at 267 502
+		curdir 0
+
+	object FENC34666821-18f9-4d17-86e9-3dd674f6a4d1
+		type FENCE
+		at 268 502
+		curdir 0
+
+	object FENC7ab9c27c-3c32-48d8-b23c-f3cd86e68247
+		type FENCE
+		at 269 502
+		curdir 0
+
+	object FENC9a9d1fe9-939c-4645-8a63-ce68bdd2be7e
+		type FENCE
+		at 270 502
+		curdir 0
+
+	object FENC5e81cc0d-09cc-40df-b4ef-63cfca35b054
+		type FENCE
+		at 271 502
+		curdir 0
+
+	object FENC961743cb-ffbf-4e1b-9c97-84c4290c80b2
+		type FENCE
+		at 272 502
+		curdir 0
+
+	object FENCaaf63247-da15-4b38-a1e4-286b3fef005b
+		type FENCE
+		at 273 502
+		curdir 0
+
+	object FENC3bea1d24-ce68-462b-9ce7-332eeede17fc
+		type FENCE
+		at 274 502
+		curdir 0
+
+	object FENCc43e4c02-5b4f-426d-896a-8c10304c7aac
+		type FENCE
+		at 275 502
+		curdir 0
+
+	object FENC08e2767d-01f1-4e32-b52b-beb81a200871
+		type FENCE
+		at 276 502
+		curdir 0
+
+	object FENCc7ce5a31-cdd1-425c-adc5-eeb17fbdb0db
+		type FENCE
+		at 277 502
+		curdir 0
+
+	object FENC3023b659-77e7-4b79-9224-112734a9a957
+		type FENCE
+		at 278 502
+		curdir 0
+
+	object FENCbf04ea51-f0eb-439c-a066-6ac3c6481fa8
+		type FENCE
+		at 279 502
+		curdir 0
+
+	object FENCee73f0f7-dfd6-4901-9a2c-ce7a13dc70a0
+		type FENCE
+		at 280 502
+		curdir 0
+
+	object FENC40bb0172-c564-44cb-aed7-926afde53618
+		type FENCE
+		at 281 502
+		curdir 0
+
+	object FENCab4b5957-0916-409d-9cdf-3db38c0d798a
+		type FENCE
+		at 282 502
+		curdir 0
+
+	object FENC81579968-2a48-44f8-805d-ea65b433fc0a
+		type FENCE
+		at 283 502
+		curdir 0
+
+	object FENCf7832648-d594-4622-a9d2-724dd092031a
+		type FENCE
+		at 284 502
+		curdir 0
+
+	object FENC761926ca-1e36-4044-8ee9-4e67bbca2bc6
+		type FENCE
+		at 285 502
+		curdir 0
+
+	object FENC37b541c3-0188-4753-8fc9-b85e088bb74b
+		type FENCE
+		at 286 502
+		curdir 0
+
+	object FENC48bf4dfe-f80a-4518-9796-21e3fca1616c
+		type FENCE
+		at 287 502
+		curdir 0
+
+	object FENCc1043acf-cfba-4b46-8158-5339a30d608a
+		type FENCE
+		at 288 502
+		curdir 0
+
+	object FENC0a7030a2-a642-4b61-a119-7bea66048052
+		type FENCE
+		at 289 502
+		curdir 0
+
+	object FENCdcb09000-ca9f-4d1e-b55f-4b2b0a049b52
+		type FENCE
+		at 290 502
+		curdir 0
+
+	object FENC9d9a4683-f414-4c69-9b70-85a258c753fa
+		type FENCE
+		at 291 502
+		curdir 0
+
+	object FENC309f8fdc-b116-47dd-b1ab-5fa25a60793c
+		type FENCE
+		at 292 502
+		curdir 0
+
+	object FENCa82e0de3-bdac-49b3-b7a1-d44e4caa9d35
+		type FENCE
+		at 293 502
+		curdir 0
+
+	object FENCdad36801-40fa-4b78-b830-7f1c763f0f8c
+		type FENCE
+		at 294 502
+		curdir 0
+
+	object FENC5460cf06-750c-4f7d-a688-df66fd3d1f55
+		type FENCE
+		at 295 502
+		curdir 0
+
+	object FENC0fbc20fc-26f1-4f3a-acd8-5b96f6aba4f7
+		type FENCE
+		at 296 502
+		curdir 0
+
+	object FENCb9040699-9607-44f9-957b-d2e4fd8ca08d
+		type FENCE
+		at 297 502
+		curdir 0
+
+	object FENCf5d12567-d393-4956-a1fe-43cb8c54f666
+		type FENCE
+		at 298 502
+		curdir 0
+
+	object FENC334abebb-205a-461d-8770-914f1804f7a8
+		type FENCE
+		at 299 502
+		curdir 0
+
+	object FENCfdec073a-d82b-4a4d-9b55-6f8f685b3d48
+		type FENCE
+		at 300 502
+		curdir 0
+
+	object FENC1b80f534-13fa-4527-9ede-7cd8bd4113da
+		type FENCE
+		at 301 502
+		curdir 0
+
+	object FENCcd5d28d8-94f5-4638-95c4-34c801dd83bd
+		type FENCE
+		at 302 502
+		curdir 0
+
+	object FENC3439750a-298c-4845-b42e-7ef0858782a3
+		type FENCE_CORNER
+		at 303 502
+		curdir 1
+
+	object LIGHc3615b52-59af-4264-ac78-7cc7a764a72f
+		type LIGHT_END
+		at 308 507
+		curdir 0
 

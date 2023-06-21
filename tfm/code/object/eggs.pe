@@ -737,6 +737,48 @@ endif
 
 end
 
+
+##
+##  Spawn Devil Guard
+##
+
+function spawn_devilguard
+object guard
+
+# Check there is a target
+if_not_exist suspect
+	return
+endif
+
+# Okay, are we exposed to the vulgar gaze of the public?
+if_onscreen current
+	# Yes.
+	return
+else
+	# Are we allowed any more?
+	if current.user.user1 > 0
+		# No
+		return
+	endif
+	add current.user.user1 + 1
+
+	create guard = "GUARD_DEVIL_DISPOSABLE"
+
+	set_personalname guard = "Devil Guard"
+	transfer_object guard to current	# Bring him hence
+	# Refer to the creating egg
+	let guard.stats.owner = current
+	set_flag guard IS_SPAWNED = 1
+
+	# Purify the earth of crime
+	let guard.enemy = suspect
+	start_activity guard does "enemy_attack" to suspect
+	let guard.user.vigilante = 1
+endif
+
+end
+
+
 ##
 ##  Create a name for a robot
 ##

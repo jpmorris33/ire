@@ -3801,6 +3801,11 @@ section: characters
 	short		"guard spawn spot"
 	IfUsed		spawn_wolfguard
 
+	alias SPAWN_GUARDS_DEVIL = SPAWN_GUARDS
+	description	"Devil guard spawn spot"
+	short		"guard spawn spot"
+	IfUsed		spawn_devilguard
+
 	alias EGG_GUARD_PATROL = EGG_ALWAYS
 	karma		2
 	description	"Guard spawn spot"
@@ -11115,6 +11120,36 @@ section: characters
 	biological
 	person
 	race		devil
+
+	name GUARD_DEVIL
+	left		DEVIL_LEFT
+	right		DEVIL_RIGHT
+	up		DEVIL_UP
+	down		DEVIL_DOWN
+	hp		250
+	intelligence	90
+	weight		-1
+	damage		50
+	description	"You see a demon."
+	short		"devil"
+	IfKilled	devil_dies
+	IfHurt		undead_hurt
+	behaviour	attack_party
+	Attack		close_attack
+	ifhorrified	ModernGuard_Horror
+	guard
+	biological
+	person
+	race		devil
+	rank		guard
+	solid
+
+	alias GUARD_DEVIL_DISPOSABLE = GUARD_DEVIL
+	strength	40000
+	weight		60000
+	clear_behaviour
+	behaviour	guard_vanishes
+	spawned
 
 	name BLACKCOCK
 	left		BLACKCOCK_L
