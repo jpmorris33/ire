@@ -388,6 +388,7 @@ if(temp->sdir == 512)
 void Project_Map(int x,int y) {
 int xctr=0,altcode;
 int yctr=0,ptr,bit,t,ctr,ctr2;
+SEQ_POOL *altseq;
 
 // Tile animation controller
 
@@ -432,27 +433,32 @@ for(ctr=0;ctr<VSH;ctr++) {
 		if(t == RANDOM_TILE) {
 			warning->Draw(gamewin,xctr,yctr);
 		} else {
-			if(TIlist[t].sdx || TIlist[t].sdy) {
-				tsb[t]->Draw(gamewin,xctr,yctr);
-			} else {
-				// Transform a tile into another shape if it is on the edge
-				// of the blackness, and there is a rule to handle it.
+			// Transform a tile into another shape if it is on the edge
+			// of the blackness, and there is a rule to handle it.
+			altseq = NULL;
+			if(TIlist[t].alternate) {
+				altcode = vismap.getAltCode(ctr2,ctr);
+				vismap.checkSprites(ctr2,ctr);
+				lightingmap.checkSprites(ctr2,ctr);
+				altseq = TIlist[t].alternate[altcode];
+			}
 
-				if(TIlist[t].alternate) {
-					altcode = vismap.getAltCode(ctr2,ctr);
-					vismap.checkSprites(ctr2,ctr);
-					lightingmap.checkSprites(ctr2,ctr);
-					TIlist[t].alternate[altcode]->seq[0]->image->Draw(gamewin,xctr,yctr);
+			if(altseq) {
+				altseq->seq[0]->image->Draw(gamewin,xctr,yctr);
+			} else {
+				if(TIlist[t].sdx || TIlist[t].sdy) {
+					tsb[t]->Draw(gamewin,xctr,yctr);
 				} else {
 					TIlist[t].form->seq[tip[t]]->image->Draw(gamewin,xctr,yctr);
 				}
+			}
 #ifdef SHOW_BLOCKLIGHTMAP
-				if(vismap.getBlMap(ctr2,ctr)) {
-					IRECOLOUR xcol(128,255,127);
-					gamewin->FillRect(xctr,yctr,32,16,&xcol);
-				}
+			if(vismap.getBlMap(ctr2,ctr)) {
+				IRECOLOUR xcol(128,255,127);
+				gamewin->FillRect(xctr,yctr,32,16,&xcol);
+			}
 #endif
-                        }
+
 #ifdef SHOW_VISLIGHTMAP
 			int lll;
 			IRECOLOUR xcol;

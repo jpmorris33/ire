@@ -2410,8 +2410,16 @@ for(ctr=start;ctr<=finish;ctr++)
 				TIlist[pos].standfunc = -1;				// No stand function
 
 				strstrip(TIlist[pos].name);				// Kill whitespace
-				if(strlen(TIlist[pos].name) > 31)		// Check name length
+				if(strlen(TIlist[pos].name) > 31) {		// Check name length
 					Dump(ctr,"This name exceeds 31 letters",TIlist[pos].name);
+				}
+
+				for(int ctr2=0;ctr2<pos;ctr2++) {
+					if(!stricmp(TIlist[ctr2].name,TIlist[pos].name)) {
+						Dump(ctr,"Duplicate tile name",TIlist[pos].name);
+					}
+				}
+
 				continue;
 				}
 			else
@@ -2530,12 +2538,9 @@ for(ctr=start;ctr<=finish;ctr++)
 			{
 			if(!fixwalls)
 				continue;
-			if(!TIlist[pos].alternate)
-				{
+			if(!TIlist[pos].alternate) {
 				TIlist[pos].alternate=(SEQ_POOL **)M_get(16,sizeof(SEQ_POOL *)); // Alloc space
-				for(tmp=0;tmp<16;tmp++)
-					TIlist[pos].alternate[tmp]=TIlist[pos].form;
-				}
+			}
 
 			// Error checking
 			if(strfirst(strrest(line)) == NOTHING)
@@ -2591,6 +2596,7 @@ for(ctr=start;ctr<=finish;ctr++)
 
 		}
 	}
+
 ilog_printf("\n");
 }
 
