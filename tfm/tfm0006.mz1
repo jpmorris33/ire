@@ -197,6 +197,12 @@ iMZ1r01
 		at 295 45
 		curdir 3
 
+	object TELE04ae8977-330f-43fa-8cb7-29d0cd485e95
+		type TELEPORTER0
+		at 493 45
+		curdir 0
+		tag 28
+
 	object POTIb3f2e1a0-e859-4fbc-8319-fcbedf3fa1e4
 		type POTION_YELLOW
 		at 495 45
@@ -247,6 +253,24 @@ iMZ1r01
 		at 295 47
 		curdir 3
 
+	object MEMOcada3484-3d79-44b6-8542-b9d08674fdc4
+		type MEMO
+		at 493 47
+		curdir 3
+		name first key:
+
+	object MEMObee4bb78-f76f-4bc8-b5ef-c3d498aa80e0
+		type MEMO
+		at 494 47
+		curdir 3
+		name second key:
+
+	object MEMO0379331f-77fb-4103-ad57-4d225f6e3fdd
+		type MEMO
+		at 495 47
+		curdir 3
+		name third key:
+
 	object STONe129023f-9220-4d9e-adb3-b269c978f4e4
 		type STONEFLOOR18
 		at 285 48
@@ -273,6 +297,24 @@ iMZ1r01
 		type STONEFLOOR10
 		at 295 48
 		curdir 1
+
+	object MEMO642a499e-43cd-4fda-8e12-489242ede091
+		type MEMO
+		at 493 48
+		curdir 3
+		name fourth key: satan
+
+	object MEMO04c80f6c-5f66-439a-88bf-90bf976de20a
+		type MEMO
+		at 494 48
+		curdir 3
+		name fifth key: waarg
+
+	object MEMO006231f6-a6d6-46a0-8d7a-5fb3290679c7
+		type MEMO
+		at 495 48
+		curdir 3
+		name sixth key:
 
 	object STON3da44ced-37fb-4459-b65d-494fa8feffec
 		type STONEFLOOR18
@@ -319,71 +361,6 @@ iMZ1r01
 		type STONEFLOOR10
 		at 294 50
 		curdir 1
-
-	object STON7c3d1ec2-cb72-45e0-a158-1b5bf6aef02b
-		type STONEFLOOR18
-		at 286 51
-		curdir 2
-
-	object STONfad570b1-1317-4239-94a0-309ea8542907
-		type STONEFLOOR18
-		at 291 51
-		curdir 3
-
-	object DRAW13f2eed1-176c-4ba5-b836-b0b0e6da698b
-		type DRAWBRIDGE_UP
-		at 285 52
-		curdir 0
-		tag 2
-
-	object STONe85c7085-4bb3-40e0-9946-62a932c7d85a
-		type STONEFLOOR18
-		at 286 52
-		curdir 2
-
-	object STON75eb5883-b807-411a-835a-87a47e015595
-		type STONEFLOOR18
-		at 291 52
-		curdir 3
-
-	object STONc7da0ffb-93fe-43c5-bad9-48f998c1039e
-		type STONEFLOOR18
-		at 286 53
-		curdir 2
-
-	object STON394ee20d-b261-48ab-aba1-55e3870b523d
-		type STONEFLOOR18
-		at 291 53
-		curdir 3
-
-	object STONf817966a-dc50-4309-86a8-0ecb344abbbf
-		type STONEFLOOR10
-		at 286 54
-		curdir 2
-
-	object STON7e1bdedc-5800-404e-8e8e-7ce7b1a5a36c
-		type STONEFLOOR10
-		at 291 54
-		curdir 1
-
-	object STONc60ab9da-8b4d-4027-a8f5-e946e859dea6
-		type STONEFLOOR10
-		at 291 58
-		curdir 3
-
-	object LEVEddab2c4a-c20e-4576-b0cd-c104b1a5ee04
-		type LEVER
-		at 283 59
-		curdir 0
-		tag 2
-		funcs->use LEVER_DRAWBRIDGE
-
-	object TARG36ce001f-7286-4c7e-b0a7-5d099d265d2d
-		type TARGET
-		at 283 61
-		curdir 0
-		name Test teleport
-		tag 2
 
 	object STON3c89909e-e919-4daa-bb76-4ef6cb2ba774
 		type STONEFLOOR14
@@ -455,6 +432,16 @@ iMZ1r01
 		at 282 69
 		curdir 1
 
+	object STON7c3d1ec2-cb72-45e0-a158-1b5bf6aef02b
+		type STONEFLOOR18
+		at 211 70
+		curdir 2
+
+	object STONfad570b1-1317-4239-94a0-309ea8542907
+		type STONEFLOOR18
+		at 216 70
+		curdir 3
+
 	object STONbb1293cc-52ac-4f36-9d78-e39963a5e738
 		type STONEFLOOR14
 		at 278 70
@@ -464,6 +451,22 @@ iMZ1r01
 		type STONEFLOOR10
 		at 281 70
 		curdir 1
+
+	object DRAW13f2eed1-176c-4ba5-b836-b0b0e6da698b
+		type DRAWBRIDGE_UP
+		at 210 71
+		curdir 0
+		tag 2
+
+	object STONe85c7085-4bb3-40e0-9946-62a932c7d85a
+		type STONEFLOOR18
+		at 211 71
+		curdir 2
+
+	object STON75eb5883-b807-411a-835a-87a47e015595
+		type STONEFLOOR18
+		at 216 71
+		curdir 3
 
 	object STON7d319b97-878d-4876-a321-0a81d39f5567
 		type STONEFLOOR14
@@ -475,6 +478,16 @@ iMZ1r01
 		at 278 71
 		curdir 1
 
+	object STONc7da0ffb-93fe-43c5-bad9-48f998c1039e
+		type STONEFLOOR18
+		at 211 72
+		curdir 2
+
+	object STON394ee20d-b261-48ab-aba1-55e3870b523d
+		type STONEFLOOR18
+		at 216 72
+		curdir 3
+
 	object STON702c2cea-8b82-4201-ba05-f7a3b3fabf4b
 		type STONEFLOOR14
 		at 276 72
@@ -483,6 +496,16 @@ iMZ1r01
 	object STON85bd4db4-77b1-4157-a762-6c628a802b63
 		type STONEFLOOR10
 		at 277 72
+		curdir 1
+
+	object STONf817966a-dc50-4309-86a8-0ecb344abbbf
+		type STONEFLOOR10
+		at 211 73
+		curdir 2
+
+	object STON7e1bdedc-5800-404e-8e8e-7ce7b1a5a36c
+		type STONEFLOOR10
+		at 216 73
 		curdir 1
 
 	object STONffd4b6f0-52eb-4e26-9cd1-c6458937ef59
@@ -494,6 +517,25 @@ iMZ1r01
 		type STONEFLOOR10
 		at 276 73
 		curdir 1
+
+	object STONc60ab9da-8b4d-4027-a8f5-e946e859dea6
+		type STONEFLOOR10
+		at 216 77
+		curdir 3
+
+	object LEVEddab2c4a-c20e-4576-b0cd-c104b1a5ee04
+		type LEVER
+		at 214 81
+		curdir 0
+		tag 2
+		funcs->use LEVER_DRAWBRIDGE
+
+	object TARG36ce001f-7286-4c7e-b0a7-5d099d265d2d
+		type TARGET
+		at 213 82
+		curdir 0
+		name Test teleport
+		tag 2
 
 	object WOMA24d2ccfb-4bae-4e23-b0c4-ee04021192d1
 		type WOMAN_GENERIC_WANDERING
@@ -2210,6 +2252,13 @@ iMZ1r01
 		at 314 137
 		curdir 1
 
+	object KEY_2d6f5bf4-b81f-40c7-908e-685348dacf74
+		type KEY
+		inside SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+		curdir 0
+		tag 6028
+		stats->owner SATA47a15e59-7497-43d7-b86e-a5b29590d0be
+
 	object SATA47a15e59-7497-43d7-b86e-a5b29590d0be
 		type SATAN
 		at 314 137
@@ -3534,6 +3583,12 @@ iMZ1r01
 
 	decorative HUT03 at 450 155
 
+	object KEY_fb55f43e-7fb6-47d5-a546-b6db1be4c57d
+		type KEY_65
+		inside WAAR822c0425-6332-4374-8df5-0cba79b47b94
+		curdir 1
+		stats->owner WAAR822c0425-6332-4374-8df5-0cba79b47b94
+
 	object WAAR822c0425-6332-4374-8df5-0cba79b47b94
 		type WAARG_FEMALE
 		at 453 155
@@ -3719,6 +3774,12 @@ iMZ1r01
 		at 452 157
 		curdir 0
 		name Sheep herding quest for the wrg
+
+	object MEMObc029b83-99d6-4c1e-9c18-0b64ce5ee565
+		type MEMO
+		at 453 157
+		curdir 0
+		name To earn fifth key
 
 	decorative HUT03 at 456 157
 
@@ -22567,10 +22628,15 @@ iMZ1r01
 		at 196 440
 		curdir 2
 
+	object KEY_d58b29f0-808f-4d45-9d0f-6325c2a862fe
+		type KEY
+		at 196 440
+		curdir 0
+
 	object PAPE60c5f045-83b1-417e-bc87-3d857a561825
 		type PAPER
 		at 196 440
-		curdir 2
+		curdir 3
 
 	object TABLee221e31-e9a0-4113-bb87-c93d44a754ff
 		type TABLE2-EDGES
@@ -24174,6 +24240,12 @@ iMZ1r01
 		at 233 468
 		curdir 2
 
+	object TARG4985ca78-b996-4ba7-9f61-2cb2a1f972a8
+		type TARGET
+		at 240 468
+		curdir 3
+		tag 28
+
 	object TEST2afcc5bd-19e6-4c4f-b455-b88aef8a3ee7
 		type TEST
 		at 243 468
@@ -24693,12 +24765,6 @@ iMZ1r01
 		type CRATE_LABEL
 		at 187 478
 		curdir 3
-
-	object KEY_2d6f5bf4-b81f-40c7-908e-685348dacf74
-		type KEY
-		at 195 478
-		curdir 0
-		tag 6028
 
 	object LIGHa466f112-d51e-4cb7-bb71-1cf5117d45e2
 		type LIGHT_END
@@ -25755,6 +25821,16 @@ iMZ1r01
 	object STON782b179f-17b9-422f-bb65-25a70ab25def
 		type STONE_ARCHWAY_P
 		at 125 491
+		curdir 0
+
+	object KEY_009934c8-c9ac-4d3c-81e8-18a310dd3f42
+		type KEY_66
+		inside CHES11469272-c87c-4adc-80b7-d4e57fcd9d62
+		curdir 0
+
+	object CHES11469272-c87c-4adc-80b7-d4e57fcd9d62
+		type CHESTLOCKED
+		at 126 491
 		curdir 0
 
 	object STAI977ab0a5-9e40-4098-8894-6e2506d44aff

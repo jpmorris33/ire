@@ -3939,6 +3939,13 @@ section: sprites
 	onyx14			backings/onyx14.png
 	onyx15			backings/onyx15.png
 
+	6keys_1			sprites/6keys_1.png
+	6keys_2			sprites/6keys_2.png
+	6keys_3			sprites/6keys_3.png
+	6keys_4			sprites/6keys_4.png
+	6keys_5			sprites/6keys_5.png
+	6keys_6			sprites/6keys_6.png
+
 section: sequences
 
 	quickname ?UNKNOWN ?UNKNOWN
@@ -5622,6 +5629,18 @@ section: sequences
 
 	name lava02_westshore
 	overlay STONEFLOOR20
+	framelist:
+		lava02
+	end
+
+	name lava02_STONE_BL
+	overlay wall_edge_bl
+	framelist:
+		lava02
+	end
+
+	name lava02_STONE_TR
+	overlay wall_edge_tr
 	framelist:
 		lava02
 	end
@@ -14163,6 +14182,13 @@ section: sequences
 	quickname	onyx13
 	quickname	onyx14
 	quickname	onyx15
+
+	quickname	6keys_1
+	quickname	6keys_2
+	quickname	6keys_3
+	quickname	6keys_4
+	quickname	6keys_5
+	quickname	6keys_6
 
 !include resources/objects.txt
 

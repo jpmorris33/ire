@@ -2014,45 +2014,22 @@ section: characters
 	wielded
 
 	name KEY
-	left		KEY_0
-	right		KEY_0
-	up		KEY_0
-	down		KEY_0
+	frame		KEY_0
 	hp		40
 	weight		10
 	description	"You see a small iron key"
 	short		"key"
 	IfUsed		Use_Key
 
-	name KEY_1
-	left		KEY_1
-	right		KEY_1
-	up		KEY_1
-	down		KEY_1
-	hp		40
+	alias KEY_1 = KEY
+	frame		KEY_1
 	weight		12
 	description	"You see a small brass key"
-	short		"key"
-	IfUsed		Use_Key
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
-	name KEY_2
-	left		KEY_2
-	right		KEY_2
-	up		KEY_2
-	down		KEY_2
-	hp		40
+	alias KEY_2 = KEY
+	frame		KEY_2
 	weight		14
 	description	"You see a small silver key"
-	short		"key"
-	IfUsed		Use_Key
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
 
 	name CLOSEROOF
 	left		CLOSE_ROOF
@@ -16702,6 +16679,31 @@ section: characters
 	fixed
 	race		camera
 
+	alias KEY_61 = KEY
+	frame		6keys_1
+	weight		100
+	description	"You see an ornate key with a violet gemstone."
+
+	alias KEY_62 = KEY_61
+	frame		6keys_2
+	description	"You see an ornate key with a green gemstone."
+
+	alias KEY_63 = KEY_61
+	frame		6keys_3
+	description	"You see an ornate key with a purple gemstone."
+
+	alias KEY_64 = KEY_61
+	frame		6keys_4
+	description	"You see an ornate key with a red gemstone."
+
+	alias KEY_65 = KEY_61
+	frame		6keys_5
+	description	"You see an ornate key with an orange gemstone."
+
+	alias KEY_66 = KEY_61
+	frame		6keys_6
+	description	"You see an ornate key with a black gemstone."
+
 section: tiles
 
 	name GRASS00
@@ -18443,7 +18445,7 @@ section: tiles
 	sequence	TECHTILE02
 	description	"You see a tiled floor."
 
-	name WALL_METAL_V
+	name WALL_METAL_V2
 	sequence	WALL_METAL_V
 	description	"You see a metal wall."
 	solid
@@ -18453,7 +18455,7 @@ section: tiles
 	blank LD BLACK_WALL_BL3
 	blank RD WALL_METAL_BR
 
-	name WALL_METAL_H
+	name WALL_METAL_H2
 	sequence	WALL_METAL_H
 	description	"You see a metal wall."
 	solid
@@ -19041,61 +19043,61 @@ section: tiles
 
 # Evil death sand
 
-	name SAND22
+	name SAND26
 	sequence	SAND00
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND23
+	name SAND27
 	sequence	SAND01
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND24
+	name SAND28
 	sequence	SAND02
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND25
+	name SAND29
 	sequence	SAND03
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND26
+	name SAND30
 	sequence	SAND04
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND27
+	name SAND31
 	sequence	SAND05
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND28
+	name SAND32
 	sequence	SAND06
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND29
+	name SAND33
 	sequence	SAND07
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND30
+	name SAND34
 	sequence	SAND08
 	description	"You see some sand."
 	cost 128
 	function desert_sand
 
-	name SAND31
+	name SAND35
 	sequence	SAND09
 	description	"You see some sand."
 	cost 128
@@ -19226,3 +19228,23 @@ section: tiles
 	sequence	ONYX15
 	description	"You see a pyramid made from black onyx."
 	solid
+
+	name LAVA_STONE_BL
+	sequence	lava02_STONE_BL
+	description	"You see a thick stone wall."
+	scroll 0 -1
+	solid
+	blockslight
+	blank D BLACK_WALL_BL
+	blank LD BLACK_WALL_BL
+
+	name LAVA_STONE_TR
+	sequence	lava02_STONE_TR
+	description	"You see a thick stone wall."
+	scroll 0 -1
+	solid
+	blockslight
+	blank R BLACK_WALL_TR
+	blank U BLACK_WALL_TR
+	blank RU BLACK_WALL_TR
+	blank LD BLACK_WALL_TR
