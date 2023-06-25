@@ -795,6 +795,21 @@ endif
 end
 
 
+function keyhole_UsePortculli
+
+if current is called "KEYHOLE_OPEN"
+	change current = "KEYHOLE"
+	object_sound "portcullis_clunk" current
+	call ClosePortculli
+else
+	change current = "KEYHOLE_OPEN"
+	object_sound "portcullis_clunk" current
+	call OpenPortculli
+endif
+
+end
+
+
 
 function CloseDoorM1
 

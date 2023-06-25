@@ -182,16 +182,6 @@ iMZ1r01
 		at 284 45
 		curdir 2
 
-	object TABL252bb880-d477-4e52-b2a5-1cb419b5407d
-		type TABLE7
-		at 289 45
-		curdir 0
-
-	object JUG_9dd6a92c-e24e-4c4e-bcd7-0c69ccd93b20
-		type JUG_INSANITY
-		at 289 45
-		curdir 0
-
 	object STONd73df34b-6dd6-4636-8d75-7694810a9ea5
 		type STONEFLOOR18
 		at 295 45
@@ -392,6 +382,18 @@ iMZ1r01
 		at 286 64
 		curdir 1
 
+	object TELE3bff6084-81cc-4218-93a5-1ecbec448043
+		type TELEPORTER0
+		at 207 65
+		curdir 0
+		tag 29
+
+	object TELEde9e9130-c2ca-4008-8546-5c33d4d038d6
+		type TELEPORTER0
+		at 208 65
+		curdir 0
+		tag 29
+
 	object STON77265f67-5a97-423a-894f-b10349271ecc
 		type STONEFLOOR14
 		at 284 65
@@ -401,6 +403,12 @@ iMZ1r01
 		type STONEFLOOR10
 		at 285 65
 		curdir 1
+
+	object TARGa9dcc035-a981-4393-91b0-37066ee1dd9e
+		type TARGET
+		at 207 66
+		curdir 1
+		tag 30
 
 	object STONf7b97c67-8fe5-4aea-b0cf-e2ac49272b9e
 		type STONEFLOOR14
@@ -523,19 +531,19 @@ iMZ1r01
 		at 216 77
 		curdir 3
 
+	object TARG36ce001f-7286-4c7e-b0a7-5d099d265d2d
+		type TARGET
+		at 213 81
+		curdir 0
+		name Test teleport
+		tag 2
+
 	object LEVEddab2c4a-c20e-4576-b0cd-c104b1a5ee04
 		type LEVER
 		at 214 81
 		curdir 0
 		tag 2
 		funcs->use LEVER_DRAWBRIDGE
-
-	object TARG36ce001f-7286-4c7e-b0a7-5d099d265d2d
-		type TARGET
-		at 213 82
-		curdir 0
-		name Test teleport
-		tag 2
 
 	object WOMA24d2ccfb-4bae-4e23-b0c4-ee04021192d1
 		type WOMAN_GENERIC_WANDERING
@@ -569,12 +577,6 @@ iMZ1r01
 		type EGG_MAN_WANDER
 		at 106 100
 		curdir 2
-
-	object TARG3302213a-746b-4293-b2d5-b3f28fb66b16
-		type TARGET
-		at 218 100
-		curdir 0
-		tag 17
 
 	object MAN_b446a67b-9dd1-4681-b7d1-33801e2d67fc
 		type MAN_GENERIC_WANDERING
@@ -22014,6 +22016,16 @@ iMZ1r01
 
 	decorative MOUNT11 at 418 413
 
+	object LIGH2e7db9aa-eef3-4d86-a074-e2bc3b9ee9a6
+		type LIGHTSOURCE_ULTRA
+		at 271 414
+		curdir 0
+
+	object LIGH0720cf08-9a3c-45fd-8649-493fcf7b73e9
+		type LIGHTSOURCE_ULTRA
+		at 275 414
+		curdir 0
+
 	decorative MOUNT04 at 411 414
 
 	decorative MOUNT03 at 417 414
@@ -22025,6 +22037,16 @@ iMZ1r01
 	decorative MOUNT00 at 416 415
 
 	decorative MOUNT11 at 417 415
+
+	object TABL252bb880-d477-4e52-b2a5-1cb419b5407d
+		type TABLE7
+		at 273 416
+		curdir 0
+
+	object JUG_9dd6a92c-e24e-4c4e-bcd7-0c69ccd93b20
+		type JUG_INSANITY
+		at 273 416
+		curdir 0
 
 	decorative MOUNT04 at 410 416
 
@@ -22048,6 +22070,16 @@ iMZ1r01
 	decorative MOUNT00 at 415 417
 
 	decorative MOUNT11 at 416 417
+
+	object LIGH9b1b5554-b355-40cd-bd5b-bebb32dbca0a
+		type LIGHTSOURCE_ULTRA
+		at 271 418
+		curdir 0
+
+	object LIGH1aeae970-be2e-46cc-8183-d16d4a2c7b92
+		type LIGHTSOURCE_ULTRA
+		at 275 418
+		curdir 0
 
 	decorative MOUNT08 at 410 418
 
@@ -22099,6 +22131,24 @@ iMZ1r01
 
 	decorative MOUNT03 at 415 422
 
+	object STON33695ce0-48aa-4245-9c4b-0daf2223c65b
+		type STONE_ARCHWAY_P
+		at 272 423
+		curdir 2
+		tag 36
+
+	object STONbb307718-f124-49f5-828a-4e07865923e2
+		type STONE_ARCHWAY2_P
+		at 273 423
+		curdir 0
+		tag 36
+
+	object STON0cf62000-aa48-428e-bad6-6806cf24b5b1
+		type STONE_ARCHWAY_P
+		at 274 423
+		curdir 3
+		tag 36
+
 	decorative MOUNT08 at 399 423
 
 	decorative MOUNT07 at 400 423
@@ -22106,6 +22156,13 @@ iMZ1r01
 	decorative MOUNT00 at 414 423
 
 	decorative MOUNT11 at 415 423
+
+	object KEYHa65aa277-63d2-4e94-8dae-01447429f30e
+		type KEYHOLE
+		at 271 424
+		curdir 2
+		tag 36
+		funcs->user1 key_66
 
 	decorative MOUNT08 at 397 424
 
@@ -22115,11 +22172,36 @@ iMZ1r01
 
 	decorative MOUNT03 at 414 424
 
+	object STONc2e054df-fc6a-49c5-98e9-fa2cb36d7e6d
+		type STONE_ARCHWAY_P
+		at 272 425
+		curdir 2
+		tag 35
+
+	object STON84f58d39-2cbb-4427-b917-9feaa3fe95cc
+		type STONE_ARCHWAY2_P
+		at 273 425
+		curdir 0
+		tag 35
+
+	object STON077954c2-4026-4af4-bd5c-75f0a682f77f
+		type STONE_ARCHWAY_P
+		at 274 425
+		curdir 3
+		tag 35
+
 	decorative MOUNT04 at 397 425
 
 	decorative MOUNT00 at 413 425
 
 	decorative MOUNT11 at 414 425
+
+	object KEYH1f123846-b70b-4ff0-aa55-af5e35134427
+		type KEYHOLE
+		at 271 426
+		curdir 2
+		tag 35
+		funcs->user1 key_65
 
 	decorative MOUNT08 at 395 426
 
@@ -22140,6 +22222,24 @@ iMZ1r01
 	decorative MOUNT01 at 412 426
 
 	decorative MOUNT11 at 413 426
+
+	object STON035152a4-4f16-490c-a3be-c76ab9c2431a
+		type STONE_ARCHWAY_P
+		at 272 427
+		curdir 2
+		tag 34
+
+	object STON24856dff-fc91-4514-83a3-eb26625c380c
+		type STONE_ARCHWAY2_P
+		at 273 427
+		curdir 0
+		tag 34
+
+	object STON1e3c2454-9b90-4549-aa64-3dbd90248db6
+		type STONE_ARCHWAY_P
+		at 274 427
+		curdir 3
+		tag 34
 
 	decorative MOUNT08 at 392 427
 
@@ -22170,6 +22270,13 @@ iMZ1r01
 
 	decorative MOUNT03 at 411 427
 
+	object KEYH0d64b797-d731-48f0-a4b3-9b34cbcd92e0
+		type KEYHOLE
+		at 271 428
+		curdir 2
+		tag 34
+		funcs->user1 key_64
+
 	decorative MOUNT08 at 391 428
 
 	decorative MOUNT07 at 392 428
@@ -22184,6 +22291,24 @@ iMZ1r01
 
 	decorative MOUNT11 at 411 428
 
+	object STONb5dc84e8-7970-4a7d-9698-c59f3d81a0d2
+		type STONE_ARCHWAY_P
+		at 272 429
+		curdir 2
+		tag 33
+
+	object STON2ded5369-281c-4934-9ee4-ac5de5fdc7e8
+		type STONE_ARCHWAY2_P
+		at 273 429
+		curdir 0
+		tag 33
+
+	object STON534b1b34-82c5-460e-9b52-d7dec1255912
+		type STONE_ARCHWAY_P
+		at 274 429
+		curdir 3
+		tag 33
+
 	decorative MOUNT08 at 389 429
 
 	decorative MOUNT06 at 390 429
@@ -22191,6 +22316,13 @@ iMZ1r01
 	decorative MOUNT07 at 391 429
 
 	decorative MOUNT03 at 403 429
+
+	object KEYH5ec20f3c-d99a-4c04-aef6-f5c3c76ba6ca
+		type KEYHOLE
+		at 271 430
+		curdir 2
+		tag 33
+		funcs->user1 key_63
 
 	decorative MOUNT08 at 387 430
 
@@ -22202,9 +22334,34 @@ iMZ1r01
 
 	decorative MOUNT11 at 403 430
 
+	object STONa8240dda-d1de-4960-9aaf-778d4c99d545
+		type STONE_ARCHWAY_P
+		at 272 431
+		curdir 2
+		tag 32
+
+	object STONc06eb9a4-08b5-48e9-b894-f1375bf49c8e
+		type STONE_ARCHWAY2_P
+		at 273 431
+		curdir 0
+		tag 32
+
+	object STON94d2bc49-71a6-4e94-8527-58fd9b0efbc1
+		type STONE_ARCHWAY_P
+		at 274 431
+		curdir 3
+		tag 32
+
 	decorative MOUNT04 at 387 431
 
 	decorative MOUNT03 at 402 431
+
+	object KEYHd41b4b4d-96ff-4eed-89da-df121a714716
+		type KEYHOLE
+		at 271 432
+		curdir 2
+		tag 32
+		funcs->user1 key_62
 
 	decorative MOUNT08 at 386 432
 
@@ -22223,6 +22380,24 @@ iMZ1r01
 	decorative MOUNT05 at 402 432
 
 	decorative MOUNT09 at 403 432
+
+	object STON64455bd0-b989-4836-8b18-4019216a7731
+		type STONE_ARCHWAY_P
+		at 272 433
+		curdir 2
+		tag 31
+
+	object STON257e606c-93e7-4971-8ea0-e0a340286d1b
+		type STONE_ARCHWAY2_P
+		at 273 433
+		curdir 0
+		tag 31
+
+	object STON4c4fb966-ddfa-47dc-ac96-3efecb2301f4
+		type STONE_ARCHWAY_P
+		at 274 433
+		curdir 3
+		tag 31
 
 	decorative MOUNT04 at 386 433
 
@@ -22246,6 +22421,29 @@ iMZ1r01
 	decorative MOUNT00 at 402 433
 
 	decorative MOUNT11 at 403 433
+
+	object KEYH331839b1-8d97-4276-b740-c28e59dd8e6b
+		type KEYHOLE
+		at 271 434
+		curdir 2
+		tag 31
+		funcs->user1 key_61
+
+	object TARG3302213a-746b-4293-b2d5-b3f28fb66b16
+		type TARGET
+		at 272 434
+		curdir 0
+		tag 17
+
+	object KEY_5dae2563-5dbe-4967-8883-c2359e49a1a5
+		type KEY_61
+		at 273 434
+		curdir 0
+
+	object KEY_44011396-91c2-4dd9-924b-dc95eea36134
+		type KEY_62
+		at 273 434
+		curdir 0
 
 	decorative MOUNT04 at 386 434
 
@@ -22446,6 +22644,12 @@ iMZ1r01
 		type LOCKER_H
 		at 197 437
 		curdir 1
+
+	object TARG760d0c3d-d211-449e-8965-832a00106421
+		type TARGET
+		at 273 437
+		curdir 0
+		tag 29
 
 	decorative MOUNT08 at 384 437
 
@@ -22880,6 +23084,14 @@ iMZ1r01
 		type STONE_ARCHWAY
 		at 192 442
 		curdir 0
+
+	object TRAPb45fda76-dcc4-410a-a8e7-3edfb2cb6127
+		type TRAP_RADIUS
+		at 273 442
+		curdir 0
+		tag 30
+		stats->radius 4
+		funcs->use TELEPORT_PARTY_STAND
 
 	decorative MOUNT10 at 386 442
 

@@ -207,6 +207,15 @@ if_exists door
 			return
 		endif
 
+# Keyhole - needs special key
+		if door is called "keyhole"
+			object_sound "key_doesn't_fit" door
+			if me = player
+				print "The key doesn't fit!"
+				printcr
+			endif
+			return
+		endif
 
 # Oh dear, it didn't fit
 	else
@@ -300,6 +309,67 @@ endif
 
 end
 
+# Special keys
+
+function use_specialkey
+object door
+object thekey
+
+let thekey = current
+
+# Find out what to use the key on
+
+if me = player
+	print "Use key on "
+	redraw_text
+
+	let current = player
+	call get_near
+	let door = current
+else
+	let door = me.target
+endif
+
+# Now do the stuff
+
+if_exists door
+	# Say what we're using the key on
+	if me = player
+		print door.shortdesc
+		printcr
+	endif
+
+	# If it matches, run the wield function
+	if door is called "keyhole"
+	or door is called "keyhole_open"
+		if thekey.name = door.funcs.user1
+			object_sound "key_fits" door
+			let current = door
+			# Run wield function
+			call current.funcs.wield
+			return
+		endif
+	endif
+
+	object_sound "key_doesn't_fit" door
+
+	if me = player
+		print "The key won't fit!"
+		printcr
+		return
+	endif
+
+else
+	# Using the key on Nothing
+	if me = player
+		print "nothing"
+		printcr
+	endif
+endif
+
+end
+
+
 
 integer doortag = 0
 
@@ -337,7 +407,8 @@ if_exists door
 	
 	# Is it a key?
 	if door is called "key"
-	or door is called "key_*"
+	or door is called "key_1"
+	or door is called "key_2"
 		if me = player
 			print "You put the key on the keyring."
 			printcr

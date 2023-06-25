@@ -236,6 +236,11 @@ print "~Something has to be inserted here.~"
 printcr
 end
 
+function use_keyhole
+print "~A key has to be inserted here.~"
+printcr
+end
+
 
 function airbase_sign
 print msg_ItReads

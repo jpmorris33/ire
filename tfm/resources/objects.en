@@ -8747,6 +8747,21 @@ section: characters
 	up		PLAQUE_BRASS2_V
 	down		PLAQUE_BRASS2_V
 
+	name KEYHOLE
+	left		KEYHOLE_H
+	right		KEYHOLE_H
+	up		KEYHOLE_V
+	down		KEYHOLE_V
+	hp		10000
+	weight		-1
+	description	"You see a brass keyhole."
+	short		"plaque"
+	fixed
+	ifused		use_keyhole
+	ifwielded	keyhole_UsePortculli
+
+	alias KEYHOLE_OPEN = KEYHOLE
+
 	name lever_sign_low
 	left		leversign1
 	right		leversign2
@@ -13130,6 +13145,7 @@ section: characters
 	short		"drawbridge"
 	fixed
 	boat
+	IfKilled	respawn
 
 	name DRAWBRIDGE_UP
 	left		DRAWBRIDGE_UP
@@ -13142,6 +13158,7 @@ section: characters
 	short		"drawbridge"
 	solid
 	fixed
+	IfKilled	respawn
 	setsolid	H 2 2 4 1
 	setactivearea	H 1 1 5 2
 	setsolid	V 2 2 4 1
@@ -16683,6 +16700,7 @@ section: characters
 	frame		6keys_1
 	weight		100
 	description	"You see an ornate key with a violet gemstone."
+	ifused		use_specialkey
 
 	alias KEY_62 = KEY_61
 	frame		6keys_2

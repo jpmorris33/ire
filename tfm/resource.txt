@@ -2129,6 +2129,8 @@ section: sprites
 	plaque_stone2_h		sprites/plaque5.png
 	plaque_brass2_v		sprites/plaque6.png
 	plaque_brass2_h		sprites/plaque7.png
+	keyhole_v		sprites/keyhole_v.png
+	keyhole_h		sprites/keyhole_h.png
 	rubble00		sprites/rubble00.cel
 	rubble01		sprites/rubble01.cel
 	rubble02		sprites/rubble02.cel
@@ -9776,6 +9778,8 @@ section: sequences
 	quickname PLAQUE_STONE2_H
 	quickname PLAQUE_BRASS2_V
 	quickname PLAQUE_BRASS2_H
+	quickname keyhole_v
+	quickname keyhole_h
 	quickname RUBBLE00 RUBBLE00
 	quickname RUBBLE01 RUBBLE01
 	quickname RUBBLE02 RUBBLE02
