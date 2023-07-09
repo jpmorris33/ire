@@ -179,3 +179,46 @@ queue_action me does do_alchemy to me.target
 run_queue me
 
 end
+
+
+##
+##  Bad alchemy
+##
+
+function alchemy_bad
+object alembic
+
+find_nearest alembic = "alembic" near current
+
+queue_action current does find_alembic to alembic
+queue_action current does holywater_explosion2 to alembic
+run_queue current
+
+end
+
+function find_alembic
+private
+object alembic
+
+if_exists me.target
+	# Try to move there
+	move_towards4 me me.target
+
+	let current = me
+	call face_target
+
+	# Get object in front
+	let current = me
+	call get_ahead
+
+	get_object alembic at new_x new_y
+	if_exists alembic
+		if alembic is called "ALEMBIC"
+			let current = alembic
+			call alembic.funcs.ucache
+			resume_action me
+		endif
+	endif
+endif
+
+end

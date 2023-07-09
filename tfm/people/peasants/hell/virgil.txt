@@ -2,17 +2,49 @@
 
 "Urgh, another Damned.  What do you want now?"
 
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
 [endpage]
 
-[page="escape"]
 
-"I used to guide people out of Hell.
+
+[page="startname"]
+[if virgil_potion][goto="startpotion"]
+
+"You again.  What do you want now?"
+
+[link="Who are you?"]
+[linkto="who"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+[page="startpotion"]
+[if virgil_potion_done][goto="endpotion"]
+
+"Have you got the ingredients?"
+
+[link="Yes, I have."]
+[linkto="potion"]
+[link="I'm still looking for them."]
+[linkto="fetch"]
+[endpage]
+
+
+[page="who"]
+[learn_name]
+
+"I'm Virgil.  I used to guide people out of Hell.
  But did I get a thimbleful of thanks for it?  NO!
 
  So I'm on strike."
 
 [link="I really need to get out of Hell."]
 [linkto="escape2"]
+[link="Goodbye."]
+[linkto="bye"]
 [endpage]
 
 
@@ -22,10 +54,92 @@
 
 [link="Is there something I can do?"]
 [linkto="escape3"]
+[link="Goodbye."]
+[linkto="bye"]
 [endpage]
 
+
 [page="escape3"]
+[journal jrn_Virgil1]
+[set virgil_potion]
 
-(Wants ash)
+"Okay, okay.  Look, I ain't guiding you out of Hell.
+ You'll have to make your own way.  But I do have
+ a set of keys for the exit.
 
+ If you help me make a potion, I'll give you a key.
+
+ I need a flask of holy water, a flask of unholy water
+ and two portions of ash."
+
+[link="I'll fetch those."]
+[linkto="fetch"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="fetch"]
+
+"Good!  Off you go, then!"
+
+[nextpage="exit"]
+[endpage]
+
+
+[page="potion"]
+[if virgil_potion_done]
+[am_carrying "potion_holywater"]
+[if false][goto="potion_missing"]
+[am_carrying "potion_unholywater"]
+[if false][goto="potion_missing"]
+[are_there 2 "ash"]
+[if false][goto="potion_missing"]
+
+[take 1 "potion_holywater"]
+[take 1 "potion_unholywater"]
+[take 2 "ash"]
+[give 1 "key"]
+[set virgil_potion_done]
+
+"Great!  Now I finally have the ingredients I need to
+ create the fabled Alkahest of lore!
+
+ With the eternal life it promises, I shall no longer
+ be dead - and thus no longer in Hell!"
+
+[at_exit_call="alchemy_bad"]
+[nextpage="exit"]
+[endpage]
+
+[page="potion_missing"]
+
+"No you don't!
+ I told you: one flask of holy water, one of unholy
+ water, and two portions of ash!
+
+ Now go get them!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="endpotion"]
+
+"I've already given you the key.
+ I can't give you any more help than that.
+
+ Now leave me be - I need to make the Alkahest!"
+
+[nextpage="exit"]
+[endpage]
+
+
+
+[page="bye"]
+
+"Fine.  Go away."
+
+[nextpage="exit"]
 [endpage]

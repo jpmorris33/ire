@@ -223,3 +223,59 @@ activity
 let current = me
 call move_forward
 end
+
+
+##
+##	Face your target
+##
+
+function face_target
+integer xdx
+integer ydy
+integer abx
+integer aby
+
+if_not_exists current
+	return
+endif
+if_not_exists current.target
+	return
+endif
+
+let xdx = current.target.x - current.x
+let ydy = current.target.y - current.y
+
+# Get absolute X value
+if xdx < 0
+	let abx = 0 - xdx
+else
+	let abx = xdx
+endif
+
+# Get absolute Y value
+if ydy < 0
+	let aby = 0 - ydy
+else
+	let aby = ydy
+endif
+
+
+# Now, which is bigger, absolute X or absolute Y?
+
+if abx > aby
+	# absolute X is bigger, but face L or R?
+	if xdx > 0
+		set_direction current faces RIGHT
+	else
+		set_direction current faces LEFT
+	endif
+else
+	# absolute Y is bigger, but face U or D?
+	if ydy > 0
+		set_direction current faces DOWN
+	else
+		set_direction current faces UP
+	endif
+endif
+
+end

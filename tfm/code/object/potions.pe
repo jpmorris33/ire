@@ -595,3 +595,49 @@ function holywater_explosion
 	restart_game
 
 end
+
+
+##
+##  NPC tries to mix the holy water
+##
+
+function holywater_explosion2
+	object alchemist
+	object alembic
+	let alchemist = me
+	let alembic = me
+
+	# If there's an alembic, fill it before we do the deed
+	if me.target is called "alembic"
+		let alembic = me.target
+		set_direction me.target = LEFT
+	endif
+
+	# Create an invisible object for the halo to centre on
+	object focus
+	create focus = "target"
+	transfer_object focus to alembic
+
+        lightning 25
+        play_sound "boom"
+        let alchemist.stats.hp = -1000
+        check_hurt alchemist
+
+	# Make the alembic explode, or else the alchemist
+        let alembic.stats.damage = 1000
+        let alembic.stats.hp = -1000
+	let current = alembic
+        call explode_quiet
+	# Current has probably changed from the explosion
+
+        let focus.user.user18 = 96
+        let focus.user.user17 = 8
+        startfx focus does fx_whitecorona
+
+	wait 1000 NONBLOCKING
+
+	spill alchemist
+	replace alchemist = "dirt0"
+	set_direction alchemist = RIGHT
+
+end

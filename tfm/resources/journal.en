@@ -377,3 +377,9 @@ title King Grey needs proof
 start:
 I found a grey wolf-creature in the dungeons beneath the Holy Land.  He claims to have a decryption key he is withholding from the Trinity, but will not aid me unless I can prove I'm opposed to the Trinity.  He suggested getting a book of black magic from the Evil One as proof, since the Church would not dare to possess such a thing.
 end
+
+name jrn_Virgil1
+title Virgil wants to make a potion
+start: 
+I found Virgil in Hell.  He has offered me a key if I can find some potion ingredients for him.  He needs some holy water, some unholy water, and two portions of ash.
+end
