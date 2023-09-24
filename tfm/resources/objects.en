@@ -9692,20 +9692,18 @@ section: characters
 
 
 	name FISHROD
-	left		FISHROD
-	right		FISHROD
-	up		FISHROD
-	down		FISHROD
+	frame		FISHROD
 	hp		25
 	weight		10
 	description	"You see a fishing rod."
 	short		"fishing rod"
 	IfUsed		FISH4U
 	no_resurrect
-	setsolid	V 0 0 1 1
-	setsolid	H 0 0 1 1
-	setActiveArea	V 0 0 1 1
-	setActiveArea	H 0 0 1 1
+
+	alias FISHROD2 = FOOD08
+	hp		250
+	IfUsed		FISH4U
+	karma		10	# 100% chance
 
 	name TOOLS00
 	left		TOOLS00

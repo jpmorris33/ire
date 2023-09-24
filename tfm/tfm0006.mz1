@@ -110,6 +110,11 @@ iMZ1r01
 		curdir 0
 		tag 16
 
+	object FISH84b87a5d-bcda-410b-b712-339c6f44e16c
+		type FISHROD
+		at 497 42
+		curdir 1
+
 	object STON2e27bfaa-3601-4542-87f9-0f8681727d49
 		type STONEFLOOR10
 		at 284 43
@@ -146,6 +151,12 @@ iMZ1r01
 		at 494 43
 		curdir 3
 		name jug curr. dumps you in forest
+
+	object MEMO77b1e792-c8ec-4ff2-bbbd-e19b982bc987
+		type MEMO
+		at 497 43
+		curdir 3
+		name You can fish in the lava
 
 	object STONc110d903-8594-45b2-a7f4-8d8098673b17
 		type STONEFLOOR18
@@ -2827,6 +2838,17 @@ iMZ1r01
 		type STONEFLOOR10
 		at 465 143
 		curdir 1
+
+	object FISH2ffdd3cd-4c19-462b-a37c-1ac4ad53d605
+		type FISHROD2
+		at 305 144
+		curdir 2
+
+	object PLAQ829c9fdc-53e0-427d-8e5f-64c612e0dca3
+		type PLAQUE_BRASS2
+		at 306 144
+		curdir 1
+		name The Judas Fish
 
 	object STON22f41303-2cbd-432b-b521-91378008a998
 		type STONEFLOOR14
@@ -7764,12 +7786,6 @@ iMZ1r01
 
 	decorative HUT03 at 240 205
 
-	object MEMO3ac52785-7def-4b03-9194-b54be92ebab4
-		type MEMO
-		at 242 205
-		curdir 0
-		name Have a puzzle that needs ash
-
 	object FIREc61c0eb1-2827-45bf-97bc-d566c142893c
 		type FIRESTONES_LIT
 		at 243 205
@@ -7893,24 +7909,6 @@ iMZ1r01
 		curdir 0
 
 	decorative HUT03 at 240 206
-
-	object MEMO3571dd53-e3dc-494d-afa3-f813f0f674f0
-		type MEMO
-		at 242 206
-		curdir 0
-		name From the noblemen/peasants
-
-	object MEMO39cc137d-5770-426c-8997-bd87604231ff
-		type MEMO
-		at 244 206
-		curdir 0
-		name Puzzle involving holy water
-
-	object MEMO9ee12e17-ec9b-42a8-9d7f-e07b2382272f
-		type MEMO
-		at 245 206
-		curdir 0
-		name and unholy water
 
 	decorative HUT03 at 246 206
 
@@ -8045,18 +8043,6 @@ iMZ1r01
 		type HUT_DOOR_SHUT
 		at 242 207
 		curdir 0
-
-	object MEMOa207c59d-687d-4587-af57-0ba25cc8b717
-		type MEMO
-		at 244 207
-		curdir 0
-		name mixing them is catastrophic
-
-	object MEMOa57c65b0-2945-4b52-b533-69a0a69e985f
-		type MEMO
-		at 245 207
-		curdir 0
-		name Guy needs to make a potion
 
 	decorative HUT03 at 246 207
 
@@ -22434,16 +22420,6 @@ iMZ1r01
 		at 272 434
 		curdir 0
 		tag 17
-
-	object KEY_5dae2563-5dbe-4967-8883-c2359e49a1a5
-		type KEY_61
-		at 273 434
-		curdir 0
-
-	object KEY_44011396-91c2-4dd9-924b-dc95eea36134
-		type KEY_62
-		at 273 434
-		curdir 0
 
 	decorative MOUNT04 at 386 434
 

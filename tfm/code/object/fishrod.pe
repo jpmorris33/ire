@@ -11,12 +11,15 @@
 function fish4u
 object fish
 int rnd
+int chance
 
 if me = player
 
 	print "Use where.."
 	printcr
 	redraw_text
+
+	let chance = current.stats.karma
 
 	let current = player
 	call get_near
@@ -39,7 +42,8 @@ if me = player
 		return
 	endif
 
-	random rnd between 0 10
+	random rnd between chance 10
+
 	if rnd > 7
 		print "Got something!"
 		printcr
