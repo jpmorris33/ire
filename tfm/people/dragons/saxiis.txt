@@ -35,6 +35,8 @@ Saxiis, a Drakaan who has gone native.
 [if dragonquest_wip][linkto="ransome"]
 [if gurd_saxiis][link="Gurd could use your help."]
 [if gurd_saxiis][linkto="join_gurd"]
+[link="Join my party?"]
+[linkto="join"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -101,6 +103,8 @@ Saxiis, a Drakaan who has gone native.
 [linkto="maid2a"]
 [link="What are you?"]
 [linkto="what"]
+[link="Join my party?"]
+[linkto="join"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -119,6 +123,26 @@ Saxiis, a Drakaan who has gone native.
 [linkto="gold-after"]
 [link="What are you?"]
 [linkto="what2"]
+[link="Goodbye."]
+[linkto="bye"]
+[endpage]
+
+
+[page="join"]
+[image="saxiis1.pcx"]
+
+"Are you forgetting about the fact that everybody
+ runs screaming from me, or the fact that'd I'd
+ probably step on you by accident?"
+
+[link="What's your job?"]
+[linkto="job"]
+[link="What are you?"]
+[linkto="what"]
+[if dragonquest_wip][link="Ransome proposes an alliance."]
+[if dragonquest_wip][linkto="ransome"]
+[if gurd_saxiis][link="Gurd could use your help."]
+[if gurd_saxiis][linkto="join_gurd"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]
@@ -203,6 +227,8 @@ Saxiis, a Drakaan who has gone native.
 [linkto="fire"]
 [link="What's your job?"]
 [linkto="job"]
+[link="Join my party?"]
+[linkto="join"]
 [link="Goodbye."]
 [linkto="bye"]
 [endpage]

@@ -154,6 +154,7 @@ struct OBJECT_PREF {
 
 void set_light(int x, int y, int x2, int y2, int light);
 static int CMP_sort_objpref(const void *a,const void *b);
+static OBJECT *find_hostile_default(OBJECT *partymember, VMINT flags);
 
 
 ///////////////////////////////////
@@ -1760,7 +1761,7 @@ if(public_ob.ptr) {
 return private_ob.ptr;
 }
 
-// Find up to 16 of the nearest objects of the type requested
+// Find up to n of the nearest objects of the type requested
 
 void find_nearby(OBJECT *o, char *type, OBJECT **list, int listsize)
 {
@@ -1885,6 +1886,96 @@ for(y=0;y<ctr;y++) {
 
 return;
 }
+
+OBJECT *find_hostile(OBJECT *partymember, VMINT flags) {
+
+	if(!partymember) {
+		partymember = player;
+	}
+	if(!partymember) {
+		return NULL;
+	}
+
+	int algorithm = flags & HOSTILE_ALGO_MASK;
+	switch(algorithm) {
+/*
+		case HOSTILE_NEAREST:
+			return find_hostile_nearest(partymember, flags);
+		case HOSTILE_FURTHEST:
+			return find_hostile_furthest(partymember, flags);
+		case HOSTILE_STRONGEST:
+			return find_hostile_strongest(partymember, flags);
+		case HOSTILE_WEAKEST:
+			return find_hostile_strongest(partymember, flags);
+*/
+		default:
+			return find_hostile_default(partymember, flags);
+	}
+}
+
+OBJECT *find_hostile_default(OBJECT *partymember, VMINT flags) {
+	OBJECT *temp;
+	int x,y,mix,miy,max,may;
+
+	// Now build the search area and make sure it is within the bounds of the map
+
+	mix = partymember->x - 16;
+	miy = partymember->y - 16;
+	CLIPMIN(mix);
+	CLIPMIN(miy);
+
+	max=mix+32;
+	may=miy+32;
+	CLIPMAX(max,curmap->w);
+	CLIPMAX(may,curmap->h);
+
+	// Just grab the first matching object, if any
+
+	for(y=miy;y<may;y++) {
+		for(x=mix;x<max;x++) {
+			for(temp=GetRawObjectBase(x,y);temp;temp=temp->next) {
+				if((temp->flags & IS_ON) && (temp->engineflags & ENGINE_HOSTILE)) {
+					if(flags & HOSTILE_UNIQUE) {
+						if(temp->engineflags & ENGINE_HOSTILEMARK) {
+							continue; // Someone's already claimed it
+						}
+						temp->engineflags |= ENGINE_HOSTILEMARK; // Claim it
+					}
+					return temp;
+				}
+			}
+		}
+	}
+
+	return NULL;
+}
+
+void find_hostiles(OBJECT *partymember, OBJECT **list, int listsize, VMINT flags){
+
+	OBJECT *obj;
+
+	if(!list) {
+		Bug("find_hostiles() called without list\n");
+		return;
+	}
+	if(listsize<1) {
+		return;
+	}
+
+	// Blank the list
+	memset(list,0,listsize*sizeof(OBJECT *));
+
+	for(int ctr=0;ctr<listsize;ctr++) {
+		obj = find_hostile(partymember, flags | HOSTILE_UNIQUE);	// Doesn't make sense without unique enemy tracking
+		if(!obj) {
+			// Ran out of hostiles
+			return;
+		}
+
+		list[ctr]=obj;
+	}
+}
+
 
 
 // Find objects in a rectangle marked by two objects

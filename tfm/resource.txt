@@ -14495,6 +14495,7 @@ section: scripts
 	code/combat/loadweap.pe
 	code/combat/misc.pe
 	code/combat/npc.pe
+	code/combat/party.pe
 	code/combat/splat.pe
 	code/combat/weapons.pe
 	code/creature/beasts.pe

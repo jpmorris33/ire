@@ -76,7 +76,7 @@ extern IRECURSOR *DefaultCursor;
 extern long Sysfunc_scheduler, Sysfunc_status, Sysfunc_follower;
 extern long Sysfunc_splash, Sysfunc_trackstop, Sysfunc_updatelife;
 extern long Sysfunc_erase, Sysfunc_wakeup, Sysfunc_updaterobot;
-extern long Sysfunc_levelup;
+extern long Sysfunc_levelup, Sysfunc_playerbroken, Sysfunc_combat;
 extern long mapnumber,fx_func;
 
 // Resource Data

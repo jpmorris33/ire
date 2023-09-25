@@ -522,8 +522,19 @@ end
 ################################
 
 function sys_PlayerBroken
-# Call function to parse function keys, restart game etc
+# Call function to parse function keys, restart game etc in case the player object zones out
 call input
+end
+
+################################
+#                              #
+#  Combat Mode hook            #
+#                              #
+################################
+
+function sys_combat
+# This is in combat/party.pe and is called when the party is in automatic combat mode
+call run_combatmode
 end
 
 

@@ -56,52 +56,30 @@
 // NPC Flags
 
 #define STRIPNPC	0x7fffffff
-#define IS_FEMALE       0x80000001
-#define KNOW_NAME       0x80000002
-#define IS_HERO         0x80000004
-#define CANT_EAT        0x80000008
+#define IS_FEMALE       0x80000001      // Male or Female (should be overridden by NONBINARY)
+#define KNOW_NAME       0x80000002      // Do I know you?
+#define IS_HERO         0x80000004      // Is this the hero?
+#define CANT_EAT        0x80000008      // Can they eat and drink? (Robots can't)
 #define CANT_DRINK      0x80000008      // Synonymous with CANT_EAT
-#define IS_CRITICAL     0x80000010
-#define NOT_CLOSE_DOOR  0x80000020
+#define IS_CRITICAL     0x80000010      // Has gone critical
+#define NOT_CLOSE_DOOR  0x80000020      // Won't shut doors after themselves (dogs etc)
 #define NOT_CLOSE_DOORS 0x80000020
-#define IS_SYMLINK      0x80000040
-#define IS_BIOLOGICAL   0x80000080
-#define IS_GUARD        0x80000100
-#define IS_SPAWNED      0x80000200
-#define NOT_OPEN_DOOR   0x80000400
+#define IS_SYMLINK      0x80000040      // Owner is the NPC, not object (phones etc)
+#define IS_BIOLOGICAL   0x80000080      // Affected by poison, has special update function per turn
+#define IS_GUARD        0x80000100      // Policeman
+#define IS_SPAWNED      0x80000200      // Dynamically created (and destroyed)
+#define NOT_OPEN_DOOR   0x80000400      // Can't open doors (livestock etc)
 #define NOT_OPEN_DOORS  0x80000400
-#define IN_BED          0x80000800
+#define IN_BED          0x80000800      // In bed
 #define NO_SCHEDULE     0x80001000
-#define IS_OVERDUE      0x80002000
-#define IS_WIELDED      0x80004000
-#define IS_ROBOT        0x80008000
+#define IS_NONBINARY    0x80002000      // Neither male nor female
+#define IS_WIELDED      0x80004000      // Object is currently wielded (we were running out of main flags at the time)
+#define IS_ROBOT        0x80008000      // Is robotic - has special update function per turn
 #define IN_PARTY        0x80010000	// Party members aren't always considered solid
-
-/*
-typedef struct NPC_FLAGS
-{
-unsigned int female		:1; // Male or Female
-unsigned int know_name		:1; // Do I know you?
-unsigned int is_hero		:1; // Is this the hero?
-unsigned int cant_eat		:1; // Can it eat and drink? (Robots can't)
-unsigned int critical		:1; // Has gone critical
-unsigned int no_shutdoor	:1; // Won't shut doors after themselves
-unsigned int symlink		:1; // Owner is the NPC, not object (phones etc)
-unsigned int biological		:1; // Affected by poison etc
-unsigned int guard			:1; // Policeman
-unsigned int spawned		:1; // Dynamically created (and destroyed ;-)
-unsigned int no_opendoor	:1; // Can't open doors
-unsigned int in_bed		:1; // In bed
-unsigned int ignoreschedule	:1; // temporary monomania (e.g. for a plot event)
-unsigned int scheduleoverdue	:1; // overdue, go right to bed NOW
-unsigned int spare		:17;
-} NPC_FLAGS;
-*/
 
 typedef struct NPC_RECORDING
 {
 char *page;
-//struct OBJECT *player;
 char *readername;		// Text, not a pointer or SaveID since since a book/npc may not exist from map to map
 				// And SaveIDs may not exist at this point.
 struct NPC_RECORDING *next;
@@ -193,10 +171,12 @@ struct OBJECT *acttarget[USEDATA_ACTSTACK];
 
 VMINT fx_func; // Special effects function number or 0
 
-VMINT originmap;	// ID of the map they were created on
+VMINT originmap;	// ID of the map they were created on - we may no longer need this
 
 NPC_RECORDING *npctalk;     // Used to record what you've said for continuity
 NPC_RECORDING *lFlags;      // Local Flags
+
+VMINT combatmode;	// Strategy to use for combat
 } USEDATA;
 
 // Archive states for objects as they move between worlds
@@ -209,6 +189,16 @@ enum
 	UARC_INPOCKET,
 	UARC_SYSLIST,
 	};
+
+// Since these are exposed via the script language, we want to be explicit about the values
+
+#define COMBATMODE_DEFAULT	0	// Any old
+#define COMBATMODE_NEAREST	1	// Pick nearest enemy
+#define COMBATMODE_FURTHEST	2	// Pick furthest enemy
+#define COMBATMODE_STRONGEST	3	// Pick strongest enemy
+#define COMBATMODE_WEAKEST	4	// Pick weakest enemy
+#define COMBATMODE_BERSERK	5	// Go berserk
+#define COMBATMODE_FLEE		6	// Run away!
 
 // A single sprite or roof
 
@@ -368,6 +358,24 @@ typedef struct ST_ITEM
 #define ENGINE_ISABSTRACT	0x00000100	// Can the object be instantiated?
 #define ENGINE_SANCTUARY	0x00000200	// Does it block 'evil' things?
 #define ENGINE_UNCLEAN		0x00000400	// Blocked by the Sanctuary tile
+#define ENGINE_HOSTILE		0x00000800	// Valid targets for the combat AI in fight mode
+#define ENGINE_HOSTILEMARK	0x00001000	// Marked as a target for someone else
+
+//
+//  Selection flags for finding hostiles
+//
+
+// Attack algorithms - lower nybble.  Don't try to combine these!
+#define HOSTILE_DEFAULT		0x00000000	// No special strategy - first come, first served
+#define HOSTILE_NEAREST		0x00000001	// Find nearest *
+#define HOSTILE_FURTHEST	0x00000002	// Find furthest *
+#define HOSTILE_STRONGEST	0x00000003	// Find strongest *
+#define HOSTILE_WEAKEST		0x00000004	// Find weakest *
+#define HOSTILE_BERSERK		0x00000005	// Find anything *
+						// * - mutually exclusive, pick one only
+// Hostile bitfields (lower nybble is algorithm)
+#define HOSTILE_ALGO_MASK	0x0000000f	// Bitfield mask for the attack algorithms
+#define HOSTILE_UNIQUE		0x00000010	// Don't select it if someone else has got it first
 
 typedef struct FUNCS            // This is called when you...
 {

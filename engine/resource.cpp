@@ -2221,29 +2221,34 @@ for(ctr=start;ctr<=finish;ctr++)
 		}
 
 
-		if(!istricmp(Rptr,"fragile"))             // Is it fragile?
-			{
+		if(!istricmp(Rptr,"fragile")) {             // Is it fragile?
 			character->flags |= IS_FRAGILE;
 			continue;
-			}
+		}
 
-		if(!istricmp(Rptr,"onroof")||!istricmp(Rptr,"on_roof")||
-		!istricmp(Rptr,"chimney"))             // On the roof?
+		if(!istricmp(Rptr,"onroof")||!istricmp(Rptr,"on_roof")||!istricmp(Rptr,"chimney")) {             // On the roof?
 			Dump(ctr,"OnRoof/Chimney is moved to Section: Sequences",Rptr);
+		}
 
 		// NPC flags
 
-		if(!istricmp(Rptr,"male"))           // Is it male? (default)
-			{
+		if(!istricmp(Rptr,"male")) {          // Is it male? (default)
+			ClearNPCFlag(character, IS_FEMALE);
+			ClearNPCFlag(character, IS_NONBINARY);
+			continue;
+		}
+
+		if(!istricmp(Rptr,"female")) {        // Is it female?
+			SetNPCFlag(character, IS_FEMALE);
+			ClearNPCFlag(character, IS_NONBINARY);
+			continue;
+		}
+
+		if(!istricmp(Rptr,"nonbinary")) {        // Is it nonbinary?
+			SetNPCFlag(character, IS_NONBINARY);
 			ClearNPCFlag(character, IS_FEMALE);
 			continue;
-			}
-
-		if(!istricmp(Rptr,"female"))           // Is it female?
-			{
-			SetNPCFlag(character, IS_FEMALE);
-			continue;
-			}
+		}
 
 		if(!istricmp(Rptr,"know_name"))      // Player know their name
 			{

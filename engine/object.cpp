@@ -3808,3 +3808,36 @@ if(obj->parent.objptr->stats && obj->parent.objptr->stats->owner.objptr)
 void editor_refhook(){
 	CheckRefs(&limbo);
 }
+
+int is_male(OBJECT *obj) {
+	if(!obj || !obj->stats) {
+		return 0;
+	}
+
+	if(GetNPCFlag(obj,IS_NONBINARY)) {
+		return 0;
+	}
+	return !GetNPCFlag(obj,IS_FEMALE);
+}
+
+int is_female(OBJECT *obj) {
+	if(!obj || !obj->stats) {
+		return 0;
+	}
+
+	if(GetNPCFlag(obj,IS_NONBINARY)) {
+		return 0;
+	}
+	return GetNPCFlag(obj,IS_FEMALE);
+}
+
+int is_nonbinary(OBJECT *obj) {
+	if(!obj || !obj->stats) {
+		return 0;
+	}
+
+	if(GetNPCFlag(obj,IS_NONBINARY)) {
+		return 1;
+	}
+	return 0;
+}

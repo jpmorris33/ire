@@ -2376,6 +2376,16 @@ OPCODE vmspec[] =
                     {"find_next",PEVM_FindNext,"c=P?O",PE_checkaccess,NULL,3},
                     {"find_next",PEVM_FindNext,"c=P?c",PE_checkaccess,NULL,3},
 
+                    {"find_hostile",PEVM_FindHostile,"o=n",PE_checkaccess,NULL,2},
+                    {"find_hostile",PEVM_FindHostile,"o=i",PE_checkaccess,NULL,2},
+                    {"find_hostile",PEVM_FindHostile,"o=I",PE_checkaccess,NULL,2},
+                    {"find_hostile",PEVM_FindHostile,"O=n",PE_checkaccess,NULL,2},
+                    {"find_hostile",PEVM_FindHostile,"O=i",PE_checkaccess,NULL,2},
+                    {"find_hostile",PEVM_FindHostile,"O=I",PE_checkaccess,NULL,2},
+                    {"find_hostiles",PEVM_FindHostiles,"c=n",PE_checkaccess,NULL,2},
+                    {"find_hostiles",PEVM_FindHostiles,"c=i",PE_checkaccess,NULL,2},
+                    {"find_hostiles",PEVM_FindHostiles,"c=I",PE_checkaccess,NULL,2},
+
                     {"light_tag",PEVM_SetLight,"n=n",PE_generic,NULL,2},
                     {"light_tag",PEVM_SetLight,"n=i",PE_generic,NULL,2},
                     {"light_tag",PEVM_SetLight,"n=I",PE_generic,NULL,2},
@@ -2853,6 +2863,28 @@ OPCODE vmspec[] =
                     {"update_quantity",PEVM_QUpdate,"o",PE_generic,NULL,1},
                     {"update_quantity",PEVM_QUpdate,"O",PE_generic,NULL,1},
                     {"update_quantity",PEVM_QUpdate,"c",PE_generic,NULL,1},
+
+                    {"set_hostile",PEVM_SetHostile,"o=n",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"o=i",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"o=I",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"o=a",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"O=n",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"O=i",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"O=I",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"O=a",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"c=n",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"c=i",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"c=I",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostile,"c=a",PE_generic,NULL,2},
+                    {"set_hostile",PEVM_SetHostileAuto,"o",PE_generic,NULL,1},
+                    {"set_hostile",PEVM_SetHostileAuto,"O",PE_generic,NULL,1},
+                    {"set_hostile",PEVM_SetHostileAuto,"c",PE_generic,NULL,1},
+                    {"get_hostile",PEVM_GetHostile,"i=o",PE_checkaccess,NULL,2},
+                    {"get_hostile",PEVM_GetHostile,"i=O",PE_checkaccess,NULL,2},
+                    {"get_hostile",PEVM_GetHostile,"i=c",PE_checkaccess,NULL,2},
+                    {"get_hostile",PEVM_GetHostile,"I=o",PE_checkaccess,NULL,2},
+                    {"get_hostile",PEVM_GetHostile,"I=O",PE_checkaccess,NULL,2},
+                    {"get_hostile",PEVM_GetHostile,"I=c",PE_checkaccess,NULL,2},
 
                     {"mouse_range",PEVM_AddRange,"n=nnnn",PE_generic,NULL,5},
                     {"mouse_range",PEVM_AddRange,"n=nnni",PE_generic,NULL,5},
@@ -3824,6 +3856,7 @@ STRUCTURE userspec[] =
 					{"obj8",	'>',"",&usedata_template.obj[8],&objspec},
 					{"obj9",	'o',"RW",&usedata_template.obj[9],NULL},
 					{"obj9",	'>',"",&usedata_template.obj[9],&objspec},
+					{"combatmode",	'i',"RW",&usedata_template.combatmode,NULL},
 					{NULL,			0,NULL,NULL,NULL},
 					};
 
@@ -4057,14 +4090,12 @@ ADD_CONST(NOT_OPEN_DOOR);
 ADD_CONST(NOT_OPEN_DOORS);
 ADD_CONST(IN_BED);
 ADD_CONST(NO_SCHEDULE);
-ADD_CONST(IS_OVERDUE);
+ADD_CONST(IS_NONBINARY);
 ADD_CONST(IS_WIELDED);
 ADD_CONST(IS_ROBOT);
 ADD_CONST(IN_PARTY);
 
-// Engine flags, you shouldn't need to do this
-
-ADD_CONST(ENGINE_ISLARGE);
+// Engine flags shouldn't be exposed to the script language directly
 
 // Keys
 
@@ -4257,6 +4288,25 @@ ADD_CONST(JOURNAL_TODO_ONLY);
 ADD_CONST(JOURNAL_TODO_HEADER_ONLY);
 ADD_CONST(JOURNAL_DONE_ONLY);
 ADD_CONST(JOURNAL_DONE_HEADER_ONLY);
+
+// These are algorithms - pick one
+ADD_CONST(HOSTILE_DEFAULT);
+ADD_CONST(HOSTILE_NEAREST);
+ADD_CONST(HOSTILE_FURTHEST);
+ADD_CONST(HOSTILE_STRONGEST);
+ADD_CONST(HOSTILE_WEAKEST);
+ADD_CONST(HOSTILE_BERSERK);
+// These are flags and can be combined with ONE algorithm
+ADD_CONST(HOSTILE_UNIQUE);
+
+// Combat strategies
+ADD_CONST(COMBATMODE_DEFAULT);
+ADD_CONST(COMBATMODE_NEAREST);
+ADD_CONST(COMBATMODE_FURTHEST);
+ADD_CONST(COMBATMODE_STRONGEST);
+ADD_CONST(COMBATMODE_WEAKEST);
+ADD_CONST(COMBATMODE_BERSERK);
+ADD_CONST(COMBATMODE_FLEE);
 
 add_symbol_ptr("fx_srcx",'i',&tfx_sx);
 add_symbol_ptr("fx_srcy",'i',&tfx_sy);

@@ -1509,6 +1509,8 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		continue;
 		}
 
+	// User data (typically in-game state)
+
 	// Original map
 	if(!istricmp(first,"user->originmap")) {
 		temp->user->originmap = atoi(strfirst(strrest(l)));
@@ -1527,7 +1529,13 @@ for(ctr=1;ctr<z1.lines;ctr++)
 		continue;
 	}
 
+	// special effects overlay function (negative index)
+	if(!istricmp(first,"user->combatmode")) {
+		temp->user->combatmode = atoi(strfirst(strrest(l)));
+		continue;
 	}
+
+}
 
 // Don't need text file open anymore
 TF_term(&z1);

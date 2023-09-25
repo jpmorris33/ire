@@ -18,6 +18,7 @@
 #include "media.hpp"
 #include "init.hpp"
 #include "oscli.hpp"
+#include "object.hpp"
 #include "sound.h" // need to poll the sound system
 #include "mouse.hpp"
 #include "library.hpp"
@@ -1576,46 +1577,63 @@ if(!istricmp(line2,"ifnknowname") || !istricmp(line2,"if_not_know_name")
     }
 
 if(!istricmp(line2,"ifplayermale") || !istricmp(line2,"if_player_male")
-|| !istricmp(line2,"if_male"))
-    {
-    if(!GetNPCFlag(player,IS_FEMALE))
-        {
+|| !istricmp(line2,"if_male")) {
+    if(is_male(player)) {
         pos=strchr(line,']');
-        if(!pos)
-            {
+        if(!pos) {
             Bug("Missing ] in %s:%d\n",curfile,curline);
             return 28;
-            }
+        }
         pos++;
 
-        if(pos[0]=='[')
+        if(pos[0]=='[') {
             return(NPC_ParseCode(pos,reader));
-        else
+        } else {
             irecon_printxy(0,y+=fh,pos);
         }
-    return 28;
     }
+
+    return 28;
+}
 
 if(!istricmp(line2,"ifplayerfemale") || !istricmp(line2,"if_player_female")
-|| !istricmp(line2,"if_female"))
-    {
-    if(GetNPCFlag(player,IS_FEMALE))
-        {
+|| !istricmp(line2,"if_female")) {
+    if(is_female(player)) {
         pos=strchr(line,']');
-        if(!pos)
-            {
+        if(!pos) {
             Bug("Missing ] in %s:%d\n",curfile,curline);
             return 28;
-            }
+        }
         pos++;
 
-        if(pos[0]=='[')
+        if(pos[0]=='[') {
             return(NPC_ParseCode(pos,reader));
-        else
+        } else {
             irecon_printxy(0,y+=fh,pos);
         }
-    return 28;
     }
+    return 28;
+}
+
+if(!istricmp(line2,"ifplayernonbinary") || !istricmp(line2,"if_player_nonbinary")
+|| !istricmp(line2,"if_nonbinary")) {
+    if(is_nonbinary(player)) {
+        pos=strchr(line,']');
+        if(!pos) {
+            Bug("Missing ] in %s:%d\n",curfile,curline);
+            return 28;
+        }
+        pos++;
+
+        if(pos[0]=='[') {
+            return(NPC_ParseCode(pos,reader));
+        } else {
+            irecon_printxy(0,y+=fh,pos);
+        }
+    }
+
+    return 28;
+}
 
 if(!istricmp(line2,"ifplayerhero") || !istricmp(line2,"if_player_hero")
 || !istricmp(line2,"if_hero"))
@@ -2328,10 +2346,15 @@ if(!strcmp(token,"USERSTR5"))
 // Look for gender-sensitive tokens in the data tables
 
 replacement=NULL;
-if(GetNPCFlag(player,IS_FEMALE))
+if(is_female(player)) {
 	replacement=GetTableCase("FemaleWords",token);
-else
+}
+if(is_male(player)) {
 	replacement=GetTableCase("MaleWords",token);
+}
+if(is_nonbinary(player)) {
+	replacement=GetTableCase("EnbyWords",token);
+}
 
 // If we got one, change it
 if(replacement)
@@ -3149,3 +3172,4 @@ for(ctr=0;ctr<len;ctr++) {
 	*out++=*in++;
 }
 }
+

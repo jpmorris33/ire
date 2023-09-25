@@ -252,10 +252,13 @@ if bx = 0
 		# No, they didn't
 		if PlayerMF < 0
 			setstr playername = "Carla Villani"
-		else
+		endif
+		if PlayerMF > 0
 			setstr playername = "Carlos Villani"
 		endif
-#		let PlayerMF = 1
+		if PlayerMF = 0
+			setstr playername = "C. Villani"
+		endif
 	endif
 
 	let splayername = playername
@@ -279,13 +282,17 @@ if bx = 0
 		set_leader player player_action follower_action
 	endif
 
-	# Set the player's sex (we don't currently support NB, but nor did the medieval church)
-	if PlayerMF < 0
-		replace player = "playerf"
-		set_flag player IS_FEMALE = 1
-	endif
-	if PlayerMF > 0
-		set_flag player IS_FEMALE = 0
+	# Set the player's sex (we partly support NB, but I'm not sure if the medieval church does)
+	if PlayerMF = 0
+		set_flag player IS_NONBINARY = 1
+	else
+		if PlayerMF < 0
+			replace player = "playerf"
+			set_flag player IS_FEMALE = 1
+		endif
+		if PlayerMF > 0
+			set_flag player IS_FEMALE = 0
+		endif
 	endif
 	set_user_flag "first_time" = 1
 
@@ -510,7 +517,7 @@ while ascii <> KEY_ENTER
 
 	printxycr
 	printxycr
-	printxy "Are you Male or Female?"
+	printxy "Are you Male, Female or Other?"
 	printxycr
 	printxycr
 
@@ -528,13 +535,22 @@ do
 		break
 	endif
 
+	if key = KEY_O
+		let PlayerMF = 0
+		break
+	endif
+
 while 1
 
 
 	if key = KEY_F
 		printxy "Female"
-	else
+	endif
+	if key = KEY_M
 		printxy "Male"
+	endif
+	if key = KEY_O
+		printxy "Other"
 	endif
 
 wait 250 BLOCKING

@@ -514,10 +514,14 @@ if witnesses > 0
 	endif
 
 	if suspect.user.user19 = CRIME_HIGHTREASON
-		if_flag suspect IS_FEMALE
-			print "~GUARDS!  OFF WITH HER HEAD!~"
+		if_flag suspect IS_NONBINARY
+			print "~GUARDS!  OFF WITH THEIR HEAD!~"
 		else
-			print "~GUARDS!  OFF WITH HIS HEAD!~"
+			if_flag suspect IS_FEMALE
+				print "~GUARDS!  OFF WITH HER HEAD!~"
+			else
+				print "~GUARDS!  OFF WITH HIS HEAD!~"
+			endif
 		endif
 		printcr
 		redraw_text

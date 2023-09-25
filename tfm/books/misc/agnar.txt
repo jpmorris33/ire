@@ -5,6 +5,7 @@
 
 [if_male]            YOU'VE BEEN A NAUGHTY LITTLE BOY!
 [if_female]            YOU'VE BEEN A NAUGHTY LITTLE GIRL!
+[if_nonbinary]            YOU'VE BEEN VERY NAUGHTY!
              SANTA'S GOING TO DESTROY YOU!
 
 [nextpage="exit"]

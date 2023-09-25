@@ -193,6 +193,8 @@ enum {
 	PEVM_FastTag,
 	PEVM_MakeTagList,
 	PEVM_FindNext,
+	PEVM_FindHostile,
+	PEVM_FindHostiles,
 	PEVM_SetLight,
 	PEVM_SetLight_single,
 	PEVM_MoveTag,
@@ -222,6 +224,9 @@ enum {
 	PEVM_SetPName,
 	PEVM_DelProp,
 	PEVM_QUpdate,
+	PEVM_SetHostile,
+	PEVM_SetHostileAuto,
+	PEVM_GetHostile,
 
 	PEVM_AddRange,
 	PEVM_GridRange,

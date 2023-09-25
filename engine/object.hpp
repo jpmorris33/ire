@@ -80,4 +80,8 @@ extern OBJECT *GetWielded(OBJECT *container, int handle);
 extern int SetWielded(OBJECT *container, int handle, OBJECT *item);
 extern OBJECT **FindWieldPoint(OBJECT *object, int *handle);
 
+extern int is_male(OBJECT *obj);
+extern int is_female(OBJECT *obj);
+extern int is_nonbinary(OBJECT *obj);
+
 //extern char CheckDepend_on;

@@ -146,11 +146,9 @@ else	{
 IRESPRITE *LoadCachedImage(char *fname, VMINT *avcol)
 {
 char filename[1024];
-char cachename[1024];
 char query[2048];
 IREBITMAP *img;
 time_t ftime,itime;
-struct stat sb;
 int avg,err=0,len;
 IRESPRITE *dest;
 SQLROWSET *record=NULL;
@@ -188,7 +186,6 @@ if(!record)	{
 	if(avcol)
 		*avcol=avg;
 	// Write cache entry
-	///ave_rle_sprite(dest,cachename,avg);
 	imgbuffer=dest->SaveBuffer(&len);
 	//printf("Savebuffer = %p, len = %d\n",imgbuffer,len);
 	
@@ -365,32 +362,40 @@ return NULL;
  *    Submit a function, register it with the game if it is a System Function
  */
 
+static struct {
+	const char *funcname;
+	long *ptr;
+	char mandatory;
+} _sysfunctab[] = {
+	{"sys_status", &Sysfunc_status, 0},
+	{"sys_erase", &Sysfunc_erase, 1},
+	{"sys_splash", &Sysfunc_splash, 0},
+	{"sys_follower", &Sysfunc_follower, 0},
+	{"sys_scheduler", &Sysfunc_scheduler, 0},
+	{"sys_update_life", &Sysfunc_updatelife, 1},
+	{"sys_trackstop", &Sysfunc_trackstop, 1},
+	{"sys_wakeup", &Sysfunc_wakeup, 1},
+	{"sys_update_robot", &Sysfunc_updaterobot, 0},
+	{"sys_restarted", &Sysfunc_restarted, 0},
+	{"sys_alldead", &Sysfunc_alldead, 1},
+	{"sys_levelup", &Sysfunc_levelup, 0},
+	{"sys_playerbroken", &Sysfunc_playerbroken, 1},
+	{"sys_combat", &Sysfunc_combat, 0},
+	{NULL,NULL, 0} // Remove this and you die
+};
+
+
 void Init_PE(int pos)
 {
-if(!istricmp(PElist[pos].name,"sys_status"))
-	Sysfunc_status = pos;
-if(!istricmp(PElist[pos].name,"sys_erase"))
-	Sysfunc_erase = pos;
-if(!istricmp(PElist[pos].name,"sys_splash"))
-	Sysfunc_splash = pos;
-if(!istricmp(PElist[pos].name,"sys_follower"))
-	Sysfunc_follower = pos;
-if(!istricmp(PElist[pos].name,"sys_scheduler"))
-	Sysfunc_scheduler = pos;
-if(!istricmp(PElist[pos].name,"sys_update_life"))
-	Sysfunc_updatelife = pos;
-if(!istricmp(PElist[pos].name,"sys_trackstop"))
-	Sysfunc_trackstop = pos;
-if(!istricmp(PElist[pos].name,"sys_wakeup"))
-	Sysfunc_wakeup = pos;
-if(!istricmp(PElist[pos].name,"sys_update_robot"))
-	Sysfunc_updaterobot = pos;
-if(!istricmp(PElist[pos].name,"sys_restarted"))
-	Sysfunc_restarted = pos;
-if(!istricmp(PElist[pos].name,"sys_alldead"))
-	Sysfunc_alldead = pos;
-if(!istricmp(PElist[pos].name,"sys_levelup"))
-	Sysfunc_levelup = pos;
+const char *name = PElist[pos].name;
+
+for(int ctr=0;_sysfunctab[ctr].funcname;ctr++) {
+	if(!istricmp(name,_sysfunctab[ctr].funcname)) {
+		*_sysfunctab[ctr].ptr = pos;
+		return;  // Only one possible match
+	}
+}
+
 }
 
 
@@ -402,40 +407,24 @@ if(!istricmp(PElist[pos].name,"sys_levelup"))
 void Init_Funcs()
 {
 int ctr;
+char error[1024];
 
-// Critical VRMs
+// First, check whether all the system functions we need are present
+// Throw a strop if any mandatory ones are missing, or whine in the log if they're optional
 
-if(Sysfunc_trackstop == UNDEFINED)
-	ithe_panic("Could not find system function 'sys_trackstop' in the VRM list!",NULL);
+for(int ctr=0;_sysfunctab[ctr].funcname;ctr++) {
+	if(UNDEFINED == *_sysfunctab[ctr].ptr) {
+		if(_sysfunctab[ctr].mandatory) {
+			snprintf(error,1023,"Could not find system function '%s' in any PEscript file!", _sysfunctab[ctr].funcname);
+			ithe_panic(error,NULL);
+		} else {
+			snprintf(error,1023,"Could not find system function '%s' in any PEscript file, continuing anyway\n", _sysfunctab[ctr].funcname);
+			ilog_quiet(error);
+		}
+	}
+}
 
-if(Sysfunc_updatelife == UNDEFINED)
-	ithe_panic("Could not find system function 'sys_update_life'!",NULL);
-
-if(Sysfunc_erase == UNDEFINED)
-	ithe_panic("Could not find system function 'sys_erase'!",NULL);
-
-if(Sysfunc_wakeup == UNDEFINED)
-	ithe_panic("Could not find system function 'sys_wakeup'!",NULL);
-
-if(Sysfunc_alldead == UNDEFINED)
-	ithe_panic("Could not find system function 'sys_alldead'!",NULL);
-
-// Non-critical VRMs
-
-if(Sysfunc_scheduler == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_scheduler', continuing anyway\n");
-if(Sysfunc_status == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_status', continuing anyway\n");
-if(Sysfunc_follower == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_follower', continuing anyway\n");
-if(Sysfunc_splash == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_splash', continuing anyway\n");
-if(Sysfunc_updaterobot == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_update_robot', continuing anyway\n");
-if(Sysfunc_restarted == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_restarted', continuing anyway\n");
-if(Sysfunc_levelup == UNDEFINED)
-	ilog_quiet("Did not find system function 'sys_levelup', continuing anyway\n");
+// Set up the function indices
 
 for(ctr=0;ctr<CHtot;ctr++) {
 	InitFuncsFor(&CHlist[ctr]);
@@ -1031,7 +1020,7 @@ return -1;
 
 int getnum4rooftop(const char *name)
 {
-register int ctr;
+int ctr;
 S_POOL *ptr;
 if(!name)
 	return 0;
@@ -1051,7 +1040,7 @@ return 0;
 
 int getnum4light(const char *name)
 {
-register int ctr;
+int ctr;
 L_POOL *ptr;
 if(!name)
 	return 0;

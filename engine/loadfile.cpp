@@ -199,7 +199,7 @@ return 0;
 
 char *getsavegamedir(int savegame)
 {
-char temp[256];
+char temp[2048];
 char home[1024];
 char *out;
 out=strLocalBuf(); // Get local string (with garbage collection)
@@ -208,7 +208,7 @@ out=strLocalBuf(); // Get local string (with garbage collection)
 
 ihome(home);
 #ifdef __SOMEUNIX__
-	sprintf(temp,"%s/saves/%s/slot%02d/",home,projectname,savegame);
+	snprintf(temp,2047,"%s/saves/%s/slot%02d/",home,projectname,savegame);
 #else
 	sprintf(temp,"%s/iresaves\\%s\\slot%02d\\",home,projectname,savegame);
 	#ifndef _WIN32

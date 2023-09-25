@@ -182,16 +182,20 @@ InitOrbit();
 
 ilog_quiet("Seeking player\n");
 
-if(!player)
-	for(active=MasterList;active;active=active->next)
-		if(active->ptr)
+if(!player) {
+	for(active=MasterList;active;active=active->next) {
+		if(active->ptr) {
 			if(!istricmp_fuzzy(active->ptr->name,"player*"))	{
 				player = active->ptr;
 				break;
 			}
+		}
+	}
+}
 
-if(!player)
+if(!player) {
 	ithe_panic("Could not find any players at all!","(in startgame)");
+}
 
 if(!party[0])	{
 	party[0] = player;      // Init party
@@ -201,22 +205,23 @@ if(!party[0])	{
 
 ilog_quiet("Player =%x\n",player);
 ilog_quiet("Player action =%d\n",player->activity);
-if(player->activity > 0)
+if(player->activity > 0) {
 	ilog_quiet("Player action: %s\n",PElist[player->activity].name);
-else
+} else {
 	ilog_quiet("No player action\n");
+}
 
 // If an alternate starting point is specified, move the player there
 if(StartingTag)	{
-	for(active=MasterList;active;active=active->next)
-		if(active->ptr)
-			if(active->ptr->tag == StartingTag)	{
+	for(active=MasterList;active;active=active->next) {
+		if(active->ptr) {
+			if(active->ptr->tag == StartingTag) {
 				TransferObject(player,active->ptr->x,active->ptr->y);
 				break;
 			}
+		}
+	}
 }
-
-
 
 ClearMouseRanges();
 // Create mouse range for game window
@@ -229,8 +234,9 @@ ilog_printf("Starting main game engine\n");
 
 CentreMap(player);      // Centre on the player
 
-if(IsTileWater(0,0))
+if(IsTileWater(0,0)) {
 	Bug("Tile at 0,0 is water.. may cause problems\n");
+}
 
 ilog_quiet("Activating NPC logic\n");
 ResyncEverything();
@@ -282,8 +288,9 @@ do {
 	}
 
 	// Wait, taking everything into account.
-	while(GetIREClock()<FRAMERATE)
+	while(GetIREClock()<FRAMERATE) {
 		DrawMap(mapx,mapy);
+	}
 //	ilog_printf("then %d: now=%d\n",ctr,GetIREClock());
 	ResetIREClock(); // Reset clock
 
@@ -292,15 +299,16 @@ do {
 
 // Move all things
 
-	if(show_vrm_calls)
+	if(show_vrm_calls) {
 		ilog_quiet(">> Moving Player..\n");
+	}
 
 // Move the player first
 	pevm_context="player movement";
 
 	if(combat_mode)	{
 		oplayer=player;
-		for(ctr=0;ctr<MAX_MEMBERS;ctr++)
+		for(ctr=0;ctr<MAX_MEMBERS;ctr++) {
 			if(party[ctr])	{
 				player=party[ctr];
 				current_object = NULL;//player;   // Set up parameters for the VRM
@@ -316,9 +324,13 @@ do {
 					CallVMnum(Sysfunc_updaterobot);		// Only for robots
 				}
 
-				if(player->activity != -1)
-					CallVMnum(player->activity);
+				if(Sysfunc_combat != -1) {
+					CallVMnum(Sysfunc_combat);		// Only for robots
+				} else {
+					CallVMnum(Sysfunc_playerbroken);
+				}
 			}
+		}
 		player=oplayer;
 	} else	{
 		current_object = NULL;//player;   // Set up parameters for the VRM
@@ -337,25 +349,19 @@ do {
 		}
 
 		// Call player's core function
-		if(player->activity != -1)
+		if(player->activity != -1) {
 			CallVMnum(player->activity);
-		else	{
+		} else {
 			// Right, we've got a serious problem.  The player has lost control
 			// Find an emergency function to maintain control of the engine
 			// and allow cheat keys, restart game etc to keep working
-			ctr=getnum4PE("PlayerBroken");
-			if(ctr<0)
-				Bug("Player doesn't know what to do\n"); // Oh shit
-			else
-				CallVMnum(ctr);
+			CallVMnum(Sysfunc_playerbroken);
 		}
 	}
-
 		
-//	show_roof = 1; // Assume we need to show the roof
-
-	if(show_vrm_calls)
+	if(show_vrm_calls) {
 		ilog_quiet(">> Check for mapmove..\n");
+	}
 
 // Move to another map?  If so, set up the variables
 
@@ -396,6 +402,7 @@ do {
 		}
 		active->ptr->engineflags &= ~ENGINE_DIDUPDATE;
 		active->ptr->engineflags &= ~ENGINE_DIDSPIKE;
+		active->ptr->engineflags &= ~ENGINE_HOSTILEMARK;
 
 		// While we're at it, check level/experience
 		if(active->ptr->flags & IS_PERSON) {
@@ -416,10 +423,13 @@ do {
 	}
 
 	player->engineflags |= ENGINE_DIDUPDATE; // Player can't move twice in one go, nor can the rest of the party if we're in combat mode
-	if(combat_mode)
-		for(ctr=0;ctr<MAX_MEMBERS;ctr++)
-			if(party[ctr])
+	if(combat_mode) {
+		for(ctr=0;ctr<MAX_MEMBERS;ctr++) {
+			if(party[ctr]) {
 				party[ctr]->engineflags |= ENGINE_DIDUPDATE;
+			}
+		}
+	}
   
 
 	if(!ire_running)	// If the player quit

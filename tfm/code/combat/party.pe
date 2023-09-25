@@ -1,0 +1,42 @@
+##
+##  The game is in Combat Mode, the party do an automatic fight thing like Ultima VI and VII.
+##
+
+# This is called once per party member in a loop.  PLAYER will be set to the current party member
+
+function run_combatmode
+
+	object hostile
+
+	# Look for hostiles - this does depend on the enemy combat AI setting the appropriate flag
+
+	# FIXME: Check attack code to make sure hostile flags are set (currently they aren't)
+	# FIXME: Make sure switching into combat mode wipes down party enemy fields to avoid them going psycho
+
+	# TODO: Use player.user.combatmode to look for enemies and determine attack strategy
+
+	if_not_exists player.enemy
+		# Find an enemy with the find_hostile routines
+		# TODO: support multiple strategies for this
+
+		# TODO: want to merge flags, but no bitfield combining
+		find_hostile hostile = HOSTILE_UNIQUE
+		if_exists hostile
+			let player.enemy = hostile
+		endif
+	endif
+
+	if_exists player.enemy
+		let me = player
+		let current = player
+		call attack
+		return
+	endif
+
+	print player.name
+	print " has no target"
+	printcr
+
+	# Call main input routine as fallback
+	call input
+end

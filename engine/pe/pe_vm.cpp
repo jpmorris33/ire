@@ -86,6 +86,8 @@ extern OBJECT *find_nearest(OBJECT *o, char *type);
 extern void find_nearby(OBJECT *o, char *type, OBJECT **list, int listsize);
 extern void find_nearby_flag(OBJECT *o, VMINT flag, OBJECT **list, int listsize);
 extern void find_between(OBJECT *o1, OBJECT *o2, char *type, OBJECT **list, int listsize);
+extern OBJECT *find_hostile(OBJECT *partymember, VMINT flags);
+extern void find_hostiles(OBJECT *partymember, OBJECT **list, int listsize, VMINT flags);
 extern void set_light(int x, int y, int x2, int y2, int light);
 extern void ForceUpdateTag(int tag);
 extern OBJECT *GetFirstObject(OBJECT *cont, char *name);
@@ -329,6 +331,8 @@ static void PV_FindTag();
 static void PV_FastTag();
 static void PV_MakeTagList();
 static void PV_FindNext();
+static void PV_FindHostile();
+static void PV_FindHostiles();
 static void PV_SetLight();
 static void PV_SetLight_single();
 static void PV_LastOp();
@@ -361,6 +365,9 @@ static void PV_ReSolid();
 static void PV_SetPName();
 static void PV_DelProp();
 static void PV_QUpdate();
+static void PV_SetHostile();
+static void PV_SetHostileAuto();
+static void PV_GetHostile();
 
 static void PV_AddRange();
 static void PV_GridRange();
@@ -1399,6 +1406,8 @@ VMOP(FindTag);
 VMOP(FastTag);
 VMOP(MakeTagList);
 VMOP(FindNext);
+VMOP(FindHostile);
+VMOP(FindHostiles);
 VMOP(SetLight);
 VMOP(SetLight_single);
 VMOP(Printaddr);
@@ -1432,6 +1441,9 @@ VMOP(ReSolid);
 VMOP(SetPName);
 VMOP(DelProp);
 VMOP(QUpdate);
+VMOP(SetHostile);
+VMOP(SetHostileAuto);
+VMOP(GetHostile);
 
 VMOP(AddRange);
 VMOP(GridRange);
@@ -2501,7 +2513,7 @@ for(ctr=0;ctr<size_s;ctr++) {
 void PV_SetArrayO(OBJECT **array, VMINT size_d)
 {
 OBJECT **val;
-VMINT size_s,idx,ctr;
+VMINT size_s,ctr;
 
 size_s = GET_DWORD();
 
@@ -3023,8 +3035,9 @@ if(*obj == player)
 
 if(*obj)
 	{
-	if((*obj)->flags & IS_DECOR)	// Mustn't remove a decor, that's bad
+	if((*obj)->flags & IS_DECOR) {	// Mustn't remove a decor, that's bad
 		return;
+	}
 
 //	ilog_printf("pevm: destroy %s\n",(*obj)->name);
 //	ilog_printf("pevm: destroy %p (%s)\n",(*obj),(*obj)->name);
@@ -3103,10 +3116,12 @@ CHECK_POINTER(flag);
 var = GET_INT();
 CHECK_POINTER(var);
 
-if(!obj || *obj == NULL)
+if(!obj || *obj == NULL) {
 	return;
-if((*obj)->flags & IS_DECOR)	// Mustn't change a decor, that's bad
+}
+if((*obj)->flags & IS_DECOR) {	// Mustn't change a decor, that's bad
 	return;
+}
 set_flag(*obj,*flag,(*var) != 0);
 }
 
@@ -3139,8 +3154,9 @@ CHECK_POINTER(obj);
 flag = GET_INT();
 CHECK_POINTER(flag);
 
-if((*obj)->flags & IS_DECOR)	// Mustn't change a decor, that's bad
+if((*obj)->flags & IS_DECOR) {	// Mustn't change a decor, that's bad
 	return;
+}
 
 default_flag(*obj,*flag);
 }
@@ -4696,8 +4712,9 @@ if(!*obj)
 //ilog_quiet("actnum %p %d NULL\n",*obj,*act);
 //ilog_quiet("%s %s\n",(*obj)->name,PElist[*act].name);
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 SubAction_Wipe(*obj); // Delete any sub-actions
 ActivityNum(*obj,*act,NULL);
@@ -4724,8 +4741,9 @@ if(!*obj)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 //ilog_quiet("actstr %p %d NULL\n",*obj,getnum4PE(act));
 
@@ -4769,8 +4787,9 @@ if(!*target)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 //ilog_quiet("actnum %p %d %s\n",*obj,*act,(*target)->name);
 
@@ -4809,8 +4828,9 @@ if(!*target)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 //ilog_quiet("actstr %p %d %s\n",*obj,getnum4PE(act),(*target)->name);
 
@@ -4847,8 +4867,9 @@ if(!*obj)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 ActivityNum(*obj,*act,NULL);
 }
@@ -4874,8 +4895,9 @@ if(!*obj)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 pe = getnum4PE(act);
 if(pe == -1)
@@ -4917,8 +4939,9 @@ if(!*target)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 ActivityNum(*obj,*act,*target);
 }
@@ -4954,8 +4977,9 @@ if(!*target)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 pe = getnum4PE(act);
 if(pe == -1)
@@ -5034,8 +5058,9 @@ if(!*obj)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 SubAction_Push(*obj,*act,NULL);
 }
@@ -5061,8 +5086,9 @@ if(!*obj)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 //ilog_quiet("actstr %p %d NULL\n",*obj,getnum4PE(act));
 
@@ -5105,8 +5131,9 @@ if(!*target)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 //ilog_quiet("actnum %p %d %s\n",*obj,*act,(*target)->name);
 
@@ -5144,8 +5171,9 @@ if(!*target)
 	return; // Leave quickly
 	}
 
-if((*obj)->flags & IS_DECOR)
+if((*obj)->flags & IS_DECOR) {
 	return;
+}
 
 //ilog_quiet("actstr %p %d %s\n",*obj,getnum4PE(act),(*target)->name);
 
@@ -5957,6 +5985,34 @@ for(ptr = *list;ptr;ptr=ptr->next) {
 *obj = NULL;
 }
 
+void PV_FindHostile()
+{
+OBJECT **obj;
+VMINT *flags;
+
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+
+flags = GET_INT();
+CHECK_POINTER(flags);
+
+*obj = find_hostile(player, *flags);  // Default to player for now
+}
+
+void PV_FindHostiles()
+{
+VMINT *flags;
+OBJECT *array;
+VMINT size,idx;
+
+GET_ARRAY_INFO((void **)&array,&size,&idx); // Get size of array at IP
+
+flags = GET_INT();
+CHECK_POINTER(flags);
+
+find_hostiles(player, (OBJECT **)array,size, *flags);  // Default to player for now
+}
+
 // Set light state for a region between two control objects.
 
 #define MAX_LIGHTS 128
@@ -6676,6 +6732,68 @@ if((*obj)->funcs->qcache >= 0)
 	current_object = oldcur;
 	}
 }
+
+void PV_SetHostile()
+{
+OBJECT **obj;
+VMINT *val;
+
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+
+val = GET_INT();
+CHECK_POINTER(val);
+
+if((*obj)->flags & IS_DECOR) {	// Mustn't change a decor, that's bad
+	return;
+}
+
+(*obj)->engineflags &= (~ENGINE_HOSTILE);
+if(val) {
+	(*obj)->engineflags |= ENGINE_HOSTILE;
+}
+}
+
+
+void PV_SetHostileAuto()
+{
+OBJECT **obj,*objptr;
+
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+objptr = *obj;
+
+if((*obj)->flags & IS_DECOR) {	// Mustn't change a decor, that's bad
+	return;
+}
+
+// Set the hostile flag only if the actor is an Enemy of the Party
+
+objptr->engineflags &= (~ENGINE_HOSTILE);
+if(objptr->enemy.objptr) {
+	if(objptr->enemy.objptr->stats) {
+		if(GetNPCFlag(objptr->enemy.objptr,IN_PARTY)) {
+			objptr->engineflags |= ENGINE_HOSTILE;
+		}
+	}
+}
+}
+
+// get object's hostile flag into a variable
+
+void PV_GetHostile()
+{
+VMINT *var;
+OBJECT **obj;
+
+var = GET_INT();
+CHECK_POINTER(var);
+obj = GET_OBJECT();
+CHECK_POINTER(obj);
+
+*var = ((*obj)->engineflags & ENGINE_HOSTILE)?1:0;
+}
+
 
 //
 //  Graphics, Effects, Interface etc

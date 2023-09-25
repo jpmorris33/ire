@@ -641,7 +641,7 @@ u->magic = igetl_i(f);
 u->archive = igetl_i(f);
 u->oldhp = igetl_i(f);
 
-ctr = igetl_i(f);	// Junk - arcpocket
+u->combatmode = igetl_i(f);	// was 0, or possibly arcpocket in very old saves
 ctr = igetl_i(f);	// Junk - pathgoal
 
 for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
@@ -694,7 +694,7 @@ iputl_i(u->magic,f);
 iputl_i(u->archive,f);
 iputl_i(u->oldhp,f);
 
-iputl_i(0,f);	// ArcPocket ptr
+iputl_i(u->combatmode,f);
 iputl_i(0,f);	// Pathgoal ptr
 
 for(ctr=0;ctr<USEDATA_ACTSTACK;ctr++) {
