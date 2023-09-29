@@ -101,6 +101,10 @@ if victim.stats.hp < 1
 	return
 endif
 
+if victim.label.faction = "animal_swamp"
+	return
+endif
+
 fx_random r = 4
 
 if r > 1

@@ -872,6 +872,11 @@ if current.user.unconscious > 0
 	return
 endif
 
+# Seriously, stop the wolves arresting you
+if current.label.faction = "animal*"
+	return
+endif
+
 # Check for indulgences
 call check_indulgences
 if_not_exists suspect
@@ -931,7 +936,7 @@ if current = suspect
 	return
 endif
 
-if current.label.faction = "animal"
+if current.label.faction = "animal*"
 	return
 endif
 
@@ -1003,7 +1008,7 @@ if current = suspect
 endif
 
 # Stop sheep arresting you
-if current.label.faction = "animal"
+if current.label.faction = "animal*"
 	return
 endif
 

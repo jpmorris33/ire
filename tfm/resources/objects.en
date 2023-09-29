@@ -10845,7 +10845,7 @@ section: characters
 	wont_open_doors
 	biological
 	person
-	faction		animal
+	faction		animal_swamp
 
 	name SNAKE_DEAD
 	left		SNAKE_DEAD
@@ -11426,7 +11426,7 @@ section: characters
 	range		8
 	alignment	-10
 	fragile
-	faction		animal
+	faction		animal_swamp
 #	person
 	# Stop carrying them from confusing the egg
 	ifTaken		grabbed_spawn
