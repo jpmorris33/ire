@@ -6,7 +6,14 @@
 
 function run_combatmode
 
+	integer flag
 	object hostile
+
+	# Check keyboard input first to allow us to -leave- combat mode
+	call input
+	if combat_mode = 0
+		return	# Abort, abort
+	endif
 
 	# Look for hostiles - this does depend on the enemy combat AI setting the appropriate flag
 
@@ -14,6 +21,20 @@ function run_combatmode
 	# FIXME: Make sure switching into combat mode wipes down party enemy fields to avoid them going psycho
 
 	# TODO: Use player.user.combatmode to look for enemies and determine attack strategy
+	# TODO: Figure out an exit condition - stop the party beating a dead guard etc
+	# TODO: Might want to refine the UNIQUE logic since we may want to have two party members attacking each enemy etc if there are fewer enemies than party members
+
+	# First filter out stupid targets in case the player punched a tree etc
+	if_exists player.enemy
+		let hostile = player.enemy
+		get_hostile flag = hostile
+		if flag = 0
+			let player.enemy = null
+		endif
+		if_not_flag hostile IS_PERSON
+			let player.enemy = null
+		endif
+	endif
 
 	if_not_exists player.enemy
 		# Find an enemy with the find_hostile routines
@@ -36,7 +57,4 @@ function run_combatmode
 	print player.name
 	print " has no target"
 	printcr
-
-	# Call main input routine as fallback
-	call input
 end

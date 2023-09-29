@@ -3359,33 +3359,36 @@ for(temp=start;temp;temp=next)
             }
             
 
-// "They're all dead.  They just don't know it yet." - Eric Draven, The Crow
+	// "They're all dead.  They just don't know it yet." - Eric Draven, The Crow
 
-        if(temp->stats->hp < 1)
-            {
-			UnWield(temp,NULL);	// Unwield all wielded stuff
-            if(temp->funcs->kcache >= 0)      // If it can be killed..
-                {
-                current_object = temp;
-                CallVMnum(temp->funcs->kcache); // ..then kill it.
-                if(current_object)
-                    temp->user->oldhp=temp->stats->hp;
-                current_object = oldcurrent;
-                }
-            else                                  // If it cannot be killed
-            if(temp->stats->hp < destroyhp)       // and it is very dead..
-                {                                 // ..it shall be Made Not
-                current_object = temp;
-                CallVMnum(Sysfunc_erase);       // wipe it out
-                if(oldcurrent == temp)
-                    oldcurrent = NULL;
-                if(victim == temp)
-                    victim = NULL;
-                current_object = oldcurrent;
-                }
-            }
-        }
+	if(temp->stats->hp < 1) {
+		temp->engineflags &= ENGINE_HOSTILE;
+		UnWield(temp,NULL);	// Unwield all wielded stuff
+		if(temp->funcs->kcache >= 0) {      // If it can be killed..
+			current_object = temp;
+			CallVMnum(temp->funcs->kcache); // ..then kill it.
+			if(current_object) {
+				temp->user->oldhp=temp->stats->hp;
+			}
+			current_object = oldcurrent;
+                } else {
+			// If it cannot be killed
+			if(temp->stats->hp < destroyhp) {       // and it is very dead..
+				// ..it shall be Made Not
+				current_object = temp;
+				CallVMnum(Sysfunc_erase);       // wipe it out
+				if(oldcurrent == temp) {
+					oldcurrent = NULL;
+				}
+				if(victim == temp) {
+					victim = NULL;
+				}
+				current_object = oldcurrent;
+			}
+		}
+	}
     }
+}
 }
 
 /*

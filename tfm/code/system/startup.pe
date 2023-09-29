@@ -517,8 +517,9 @@ while ascii <> KEY_ENTER
 
 	printxycr
 	printxycr
-	printxy "Are you Male, Female or Other?"
+	printxy "Are you Male, Female"
 	printxycr
+	printxy "or Other?"
 	printxycr
 
 do
@@ -557,7 +558,5 @@ wait 250 BLOCKING
 
 textfont 0
 load_screen
-
-#destroy book
 
 end

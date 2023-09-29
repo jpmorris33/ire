@@ -31,6 +31,8 @@ integer throw_missed
 integer arrest_only = 0
 integer attack_user2 = 0
 
+integer use_autoattack
+
 ##
 ##	Attack:  Top-level attack function
 ##
@@ -49,11 +51,11 @@ if_exists me.parent
 endif
 
 # Computer-controlled attackers need decisions made for them
-if attacker <> player
-
+call check_auto
+if use_autoattack = 1
 	# Do we really have an enemy?
 	if_not_flag attacker.enemy IS_ON
-		resume_activity attacker
+		call stop_attacker
 		print "atk: noenemy"
 		printcr
 		return			# Don't waste my time
@@ -63,16 +65,14 @@ if attacker <> player
 	# Are they alive?
 
 	if attacker.enemy.stats.hp < 1
-		stop_action attacker
-		resume_activity attacker
+		call stop_attacker
 		return			# Don't waste time pounding the corpse
 	endif
 
 	# Are we totally and utterly unable to reach the enemy?
 	if attacker.user.counter > 40
 		# We've lost them.  Forget about it
-		stop_action attacker
-		resume_activity attacker
+		call stop_attacker
 		# Reset the counter (in case attack is the only activity)
 		let attacker.user.counter = 0
 		return
@@ -92,29 +92,6 @@ endif
 if attacker.stats.hp < 1
 	return
 endif
-
-# Are we critical?
-/*
-if attacker.stats.hp < 15
-
-	set_flag attacker IS_CRITICAL = 1
-	set_flag attacker NOT_CLOSE_DOORS = 1
-
-	if attacker <> player
-		if attacker.enemy <> player
-			stop_action attacker.enemy	# Stop killing
-			reset_flag attacker.enemy NOT_CLOSE_DOORS
-			if attacker.enemy.activity < 1
-				resume_activity attacker.enemy
-			endif
-		endif
-		stop_activity attacker
-		start_activity attacker does enemy_flee
-		return
-	endif
-
-endif
-*/
 
 # If the attacker has no weapon, we must sort something out for them.
 if_not_exists attacker.wield.l_hand
@@ -494,10 +471,10 @@ if_not_exists attacker
 	return
 endif
 
-# If the attacker is the player, we need to find the target of their ire
+# If the attacker is under manual control, we need to find the target of their ire
 
-if attacker = player
-
+call check_auto
+if use_autoattack = 0
 	if attackweapon = player
 		if player.label.race = "human"
 			print "Attack with bare hands "
@@ -608,10 +585,10 @@ if attackweapon.stats.range < 2
 	let attackweapon.stats.range = 8
 endif
 
-# If the attacker is the player, we need to find the target of their ire
+# If the attacker is manually-controlled, we need to find the target of their ire
 
-if attacker = player
-
+call check_auto
+if use_autoattack = 0
 	if attackweapon <> attacker
 		# Describe the weapon so the player knows what they're doing
 		print "Attack with "
@@ -746,10 +723,10 @@ if_not_exists attacker
 	return
 endif
 
-# If the attacker is the player, we need to find the target of their ire
+# If the attacker is under manual control, we need to find the target of their ire
 
-if attacker = player
-
+call check_auto
+if use_autoattack = 0
 	if attackweapon <> attacker
 		# Describe the weapon so the player knows what they're doing
 		print "Attack with "
@@ -989,3 +966,48 @@ printcr
 return
 
 end
+
+
+local
+
+##
+##  Allow automatic attacks?
+##
+
+function check_auto
+
+let use_autoattack = 0
+if attacker <> player
+	let use_autoattack = 1
+	return
+endif
+
+# We are the player, but are we in combat mode?
+if combat_mode = 1
+	let use_autoattack = 1
+	return
+endif
+end
+
+##
+##  Reset attacker behaviour to break off combat
+##  This must be done carefully for party members in combat mode
+##
+
+function stop_attacker
+
+if_flag attacker IN_PARTY
+	print "Pick new target for party member"
+	printcr
+	# Make them pick a new target
+	let attacker.enemy = null
+	return
+endif
+
+# If they're not a party member, reset their activity
+
+stop_action attacker
+resume_activity attacker
+end
+
+endlocal 

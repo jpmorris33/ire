@@ -9,6 +9,7 @@
 
 extern int IRE_ReadKeyBuffer();
 extern void IRE_FlushKeyBuffer();
+extern "C" void ithe_panic(const char *a, const char *b);
 static inline int IsModifier(int keycode);
 
 static char keymap[SDLK_LAST];
@@ -44,9 +45,14 @@ void IRE_GetKeys()	{
 		m=sdlEvent.key.keysym.mod;
 		if(sdlEvent.type == SDL_KEYDOWN)	{
 			keymap[k]=1;
-			if(!IsModifier(k))
+			if(!IsModifier(k)) {
 				lastkey=k;
+			}
 			lastascii = sdlEvent.key.keysym.unicode&0x7f;
+
+			if(keymap[IREKEY_LCONTROL] && keymap[IREKEY_PAUSE]) {
+				ithe_panic("User Break","User requested emergency quit");
+			}
 		}
 		if(sdlEvent.type == SDL_KEYUP)	{
 			keymap[k]=0;
@@ -61,8 +67,9 @@ void IRE_GetKeys()	{
 int IRE_TestKey(int keycode)
 {
 IRE_GetKeys();
-if(keycode > 0 && keycode < IREKEY_MAX)
+if(keycode > 0 && keycode < IREKEY_MAX) {
 	return keymap[keycode];
+}
 return 0;
 }
 
@@ -74,16 +81,20 @@ int m = SDL_GetModState();
 // Translate modifiers to IRE's internal format
 int im=0;
 
-if(m&KMOD_SHIFT)
+if(m&KMOD_SHIFT) {
 	im |= IRESHIFT_SHIFT;
-if(m&KMOD_CTRL)
+}
+if(m&KMOD_CTRL) {
 	im |= IRESHIFT_CONTROL;
-if(m&KMOD_ALT)
+}
+if(m&KMOD_ALT) {
 	im |= IRESHIFT_ALT;
+}
 
 // Is it the one(s) we want?
-if(im & shift)
+if(im & shift) {
 	return 1;
+}
 
 // No
 return 0;
@@ -136,14 +147,17 @@ static int overrun=0;
 int a;
 
 a=IRE_KeyPressed();
-if(!a)
+if(!a) {
 	return 0;
+}
 
 // We're bypassing the internal keybuffer so add the shift modifiers ourselves
-if(IRE_TestShift(IRESHIFT_SHIFT))
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
 	a|=IREKEY_SHIFTMOD;
-if(IRE_TestShift(IRESHIFT_CONTROL))
+}
+if(IRE_TestShift(IRESHIFT_CONTROL)) {
 	a|=IREKEY_CTRLMOD;
+}
 
 for(int ctr=0;ctr<REPEATMAX;ctr++)	{
 	if(!IRE_KeyPressed())	{
@@ -159,11 +173,13 @@ for(int ctr=0;ctr<REPEATMAX;ctr++)	{
 	
 overrun++;
 
-if(overrun > 1)
+if(overrun > 1) {
 	overrun=0;
+}
 
-if(overrun)
+if(overrun) {
 	return 0;
+}
 
 return a;
 }

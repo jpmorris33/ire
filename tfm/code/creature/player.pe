@@ -288,24 +288,6 @@ if key = KEY_A
 	button_push KEY_A = 0 # Clear button
 endif
 
-# Begin Combat
-
-if key = KEY_B
-	printcr
-
-	if combat_mode
-		print "End combat!"
-		printcr
-		let combat_mode = 0
-	else
-		print "Begin combat!"
-		printcr
-		let combat_mode = 1
-	endif
-
-#	button_push KEY_B = 0 # Clear button
-endif
-
 # Cast
 
 if key = KEY_C

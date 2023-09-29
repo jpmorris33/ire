@@ -21,6 +21,10 @@
 		son son
 		Son Son
 		his his
+		man man
+		Man Man
+		lad lad
+		Lad Lad
 	end
 
 	name FemaleWords
@@ -46,6 +50,10 @@
 		son child
 		Son Child
 		his her
+		man woman
+		Man Woman
+		lad lass
+		Lad Lass
 	end
 
 	name EnbyWords
@@ -71,5 +79,9 @@
 		son child
 		Son Child
 		his their
+		man person
+		Man Person
+		lad friend
+		Lad friend
 	end
 

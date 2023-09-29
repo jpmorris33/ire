@@ -4095,7 +4095,13 @@ ADD_CONST(IS_WIELDED);
 ADD_CONST(IS_ROBOT);
 ADD_CONST(IN_PARTY);
 
-// Engine flags shouldn't be exposed to the script language directly
+// Engine flags - use with get_engineflag - this should be a rare occurrence
+
+ADD_CONST(ENGINE_ISLARGE);
+ADD_CONST(ENGINE_SANCTUARY);
+ADD_CONST(ENGINE_UNCLEAN);
+ADD_CONST(ENGINE_HOSTILE);
+ADD_CONST(ENGINE_HOSTILEMARK);
 
 // Keys
 

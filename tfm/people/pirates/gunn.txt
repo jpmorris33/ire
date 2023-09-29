@@ -129,8 +129,7 @@ mouth and speaks in a slow voice.
 
 [page="treasure_twig"]
 
-[if_male]"Twiggleybars be sweetmeats, lad.  A secret recipe
-[if_female]"Twiggleybars be sweetmeats, lass.  A secret recipe
+"Twiggleybars be sweetmeats, $lad.  A secret recipe
  known to include:
 
   * Speed
@@ -156,8 +155,7 @@ mouth and speaks in a slow voice.
 
 [page="treasure_gold"]
 
-[if_male]"Nay, lad!
-[if_female]"Nay, lass!
+"Nay, $lad!
 
  Cap'n Skint spend all his wealth upon drugs, for they be
  more difficult for t' Holy Trinity to trace.
@@ -214,8 +212,7 @@ mouth and speaks in a slow voice.
 
 [page="treasure_where"]
 
-[if_male]"Nay, lad!  This treasure's not for thoo!
-[if_female]"Nay, lass!  This treasure's not for thoo!
+"Nay, $lad!  This treasure's not for thoo!
  I'll not tell where it be hidden."
 
 [link="Tell me where the treasure is or I'll kill you."]
@@ -279,8 +276,7 @@ mouth and speaks in a slow voice.
 
 [page="problems"]
 
-[if_male]"Thoo'll needs try harder than that, lad!
-[if_female]"Thoo'll needs try harder than that, lass!
+"Thoo'll needs try harder than that, $lad!
  A King has advisors, 'll tell him right answers.
  Them'll solve problems!"
 
@@ -353,8 +349,7 @@ mouth and speaks in a slow voice.
  hidden from the Church, for is said that curry be an
  abomination in t' eyes of the LORD.
 
-[if_male] Fetch me a curry, lad, and I'll give thoo some Stuff."
-[if_female] Fetch me a curry, lass, and I'll give thoo some Stuff."
+Fetch me a curry, $lad, and I'll give thoo some Stuff."
 
 [link="I will fetch you a curry."]
 [linkto="getcurry"]

@@ -420,6 +420,13 @@ do {
 		}
 #endif
 		active->ptr->engineflags &= ~ENGINE_DIDACTIVETILE;
+
+		// If you're dead, you're no longer hostile
+		if(active->ptr->engineflags & ENGINE_HOSTILE) {
+			if(active->ptr->stats && active->ptr->stats->hp < 1) {
+				active->ptr->engineflags &= ~ENGINE_HOSTILE;
+			}
+		}
 	}
 
 	player->engineflags |= ENGINE_DIDUPDATE; // Player can't move twice in one go, nor can the rest of the party if we're in combat mode
@@ -2284,13 +2291,9 @@ void Cheat_setflag()	{
 void CheckSpecialKeys(int k)	{
 if(k == IREKEY_F10)
 	Screenshot(swapscreen);
-//if(k == IREKEY_F10 | IREKEY_CTRLMOD)
-//	CRASH();
 if(k == (IREKEY_F10 | IREKEY_CTRLMOD))
 	ithe_panic("User Break","User requested emergency quit");
-if(IRE_TestKey(IREKEY_PAUSE))
-	if(IRE_TestShift(IRESHIFT_CONTROL))
-		ithe_panic("User Break","User requested emergency quit");
+// CTRL-BREAK now handled by keyboard backend
 }
 
 

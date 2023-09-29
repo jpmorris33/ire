@@ -25,6 +25,7 @@ int dist
 
 let atk = me
 
+set_hostile me = 0
 
 # Sanity checks
 if_not_exist atk
@@ -72,6 +73,7 @@ endif
 
 # Set up for attack, if successful
 let splatvictim = atk.enemy
+set_hostile me
 
 call attack
 
@@ -117,6 +119,7 @@ if me.label.race = "cyber"
 	return
 endif
 
+set_hostile me = 0
 
 # Have we got someone to attack?
 if_not_exist atk.enemy
@@ -154,6 +157,8 @@ endif
 
 # Set up for attack, if successful
 let splatvictim = atk.enemy
+
+set_hostile me
 
 let arrest_only = 1
 call attack
@@ -495,6 +500,8 @@ if us <> player
 	do_action us does enemy_attack to us.enemy
 endif
 
+set_hostile us
+
 end
 
 
@@ -547,6 +554,8 @@ for ctr = 1 to 16
 	endif
 next ctr
 
+set_hostile us
+
 end
 
 
@@ -578,6 +587,8 @@ endif
 if us <> player
 	do_action us does enemy_attack_eat to us.enemy
 endif
+
+set_hostile us
 
 end
 
@@ -693,6 +704,9 @@ let splatvictim = me.enemy
 
 call attack
 let me = oldme
+
+set_hostile me
+
 end
 
 ##

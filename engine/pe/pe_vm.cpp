@@ -6763,17 +6763,36 @@ obj = GET_OBJECT();
 CHECK_POINTER(obj);
 objptr = *obj;
 
-if((*obj)->flags & IS_DECOR) {	// Mustn't change a decor, that's bad
+if(objptr->flags & IS_DECOR) {	// Mustn't change a decor, that's bad
 	return;
 }
 
-// Set the hostile flag only if the actor is an Enemy of the Party
+if(!objptr->stats) {
+	return;	// Is this some kind of joke?
+}
 
+// Default to off
 objptr->engineflags &= (~ENGINE_HOSTILE);
+
+// Stop party members beating themselves up too
+if(objptr->flags & IN_PARTY) {
+	return;
+}
+
+if(!(objptr->flags & IS_PERSON)) {
+	return; // That's a very strange hostile
+}
+
+if(objptr->stats->hp < 1) {
+	return; // No.  Just no.
+}
+
+// Set the hostile flag only if the actor is an Enemy of the Party
 if(objptr->enemy.objptr) {
 	if(objptr->enemy.objptr->stats) {
 		if(GetNPCFlag(objptr->enemy.objptr,IN_PARTY)) {
 			objptr->engineflags |= ENGINE_HOSTILE;
+//			printf("Set object '%s' as hostile\n", objptr->name);
 		}
 	}
 }

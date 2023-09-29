@@ -276,8 +276,7 @@ The Cardinal looks mildly surprised, and snaps his
 fingers once.
 [colour="#ffffff"]
 
-[if_player_male]"Guards: Hang this man."
-[if_player_female]"Guards: Hang this woman."
+"Guards: Hang this $man."
 
 [call_at_exit="hang_player"]
 [nextpage="exit"]
@@ -292,8 +291,7 @@ The Cardinal looks mildly annoyed, and snaps his
 fingers once.
 [colour="#ffffff"]
 
-[if_player_male]"Guards: Hang this man... again."
-[if_player_female]"Guards: Hang this woman... again."
+"Guards: Hang this $man... again."
 
 [call_at_exit="hang_player"]
 [nextpage="exit"]
@@ -310,8 +308,7 @@ fingers once.
 The Cardinal snaps his fingers once.
 [colour="#ffffff"]
 
-[if_player_male]"Guards: Hang this man."
-[if_player_female]"Guards: Hang this woman."
+"Guards: Hang this $man."
 
 [call_at_exit="hang_player"]
 [nextpage="exit"]
@@ -325,8 +322,7 @@ The Cardinal snaps his fingers once.
 The Cardinal snaps his fingers irritably.
 [colour="#ffffff"]
 
-[if_player_male]"Guards: Hang this man... again."
-[if_player_female]"Guards: Hang this woman... again."
+"Guards: Hang this $man... again."
 
 [call_at_exit="hang_player"]
 [nextpage="exit"]

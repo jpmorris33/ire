@@ -641,6 +641,7 @@ A glowing ball of plasma forms in the air above you..
 [set_pflag godwarning]
 [if_player_male][nextpage="godwarningM"]
 [if_player_female][nextpage="godwarningF"]
+[if_player_nonbinary][nextpage="godwarningN"]
 [endpage]
 
 [page="godwarningM"]
@@ -671,6 +672,20 @@ A glowing ball of plasma forms in the air above you..
 [always]
 [endpage]
 
+[page="godwarningN"]
+[image="lord.jpg"]
+
+"THE PROMISED ONE DIDN'T REALLY MEAN WHAT THEY JUST
+ SAID NOW, DID THEY?"
+
+[link="No, they didn't."]
+[linkto="godwarning2N"]
+[always]
+[link="Yes they did!"]
+[linkto="godwarning3"]
+[always]
+[endpage]
+
 
 [page="godwarning2M"]
 [image="lord.jpg"]
@@ -687,6 +702,17 @@ The ball fades away.
 [image="lord.jpg"]
 
 "GOOD.  'CAUSE I'D PAN HER HEAD IN IF SHE DID."
+
+[colour="#808080"]
+The ball fades away.
+[colour="#ffffff"]
+[nextpage="exit"]
+[endpage]
+
+[page="godwarning2N"]
+[image="lord.jpg"]
+
+"GOOD.  'CAUSE I'D PAN THEIR HEAD IN IF THEY DID."
 
 [colour="#808080"]
 The ball fades away.

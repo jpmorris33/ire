@@ -556,6 +556,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 [linkto="sacrfice4"]
 [if_female][link="But I'm a woman!"]
 [if_female][linkto="sacrfice4b"]
+[if_nonbinary][link="But I'm not a man!"]
+[if_nonbinary][linkto="sacrfice4b"]
 [if_robot][link="But I'm synthetic!"]
 [if_robot][linkto="sacrfice4d"]
 [link="Oh my God."]
@@ -575,6 +577,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 
 [if_female][link="But I'm a woman!"]
 [if_female][linkto="sacrfice4b"]
+[if_nonbinary][link="But I'm not a man!"]
+[if_nonbinary][linkto="sacrfice4b"]
 [if_robot][link="But I'm synthetic!"]
 [if_robot][linkto="sacrfice4d"]
 [link="Oh my God."]
@@ -596,6 +600,8 @@ Suddenly the LORD appears in a Holy Vision before you.
 
 [if_female][link="But I'm a woman!"]
 [if_female][linkto="sacrfice4c"]
+[if_nonbinary][link="But I'm not a man!"]
+[if_nonbinary][linkto="sacrfice4c"]
 [if_robot][link="But I'm synthetic!"]
 [if_robot][linkto="sacrfice4d"]
 [link="It is an honour to serve you in this way."]
@@ -632,7 +638,7 @@ Suddenly the LORD appears in a Holy Vision before you.
 [page="sacrfice4d"]
 [image="lord.jpg"]
 
-"Then you are unsuitable for My plan and shall be
+"Then you are unsuitable for My Plan and shall be
  disposed of accordingly."
 
 [delay 2]
@@ -702,7 +708,7 @@ TODO: If the player has been doing a lot of pro-church stuff,
 [image="lord.jpg"]
 
 "Hold.  You are not an organic lifeform!
- This makes you unsuitable for My plan, and you
+ This makes you unsuitable for My Plan, and you
  shall be disposed of accordingly."
 
 [delay 2]
@@ -738,9 +744,8 @@ A glowing ball of fire appears before you.
 [colour="#ffffff"]
 
 [if hell_proofed]"Not so high and mighty now, are we?
-[if hell_proofed] Back to hell with you!"
 [if_not hell_proofed]"I didn't say you could leave.
-[if_not hell_proofed] Back you go!"
+ Back you go!"
 
 
 [delay 3]

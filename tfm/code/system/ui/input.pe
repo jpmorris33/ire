@@ -17,10 +17,6 @@ integer y
 if key = KEY_ESC
 	centre on player
 	call quit_game_ui
-#	if_confirm "Quit Game "
-#		status 7
-#	endif
-
 endif
 
 #	Press F1 for help
@@ -67,6 +63,33 @@ if key = KEY_F5
 endif
 
 call check_cheats
+
+#
+# Begin Combat - and critically, ending combat
+#
+
+if key = KEY_B
+	printcr
+
+	if combat_mode
+		print "End combat!"
+		printcr
+		let combat_mode = 0
+	else
+		print "Begin combat!"
+		printcr
+		let combat_mode = 1
+	endif
+
+#	button_push KEY_B = 0 # Clear button
+	return
+endif
+
+
+if combat_mode = 1
+	# Disable most controls for combat mode
+	return
+endif
 
 
 #

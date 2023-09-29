@@ -10,6 +10,7 @@
 
 extern int IRE_ReadKeyBuffer();
 extern void IRE_FlushKeyBuffer();
+extern "C" void ithe_panic(const char *a, const char *b);
 static inline int IsModifier(int keycode);
 static int getAsciiForKey(int k, int m);
 static int XlateMousebuttons(int input);
@@ -54,9 +55,15 @@ void IRE_GetKeys()	{
 
 		if(sdlEvent.type == SDL_KEYDOWN)	{
 			keymap[k]=1;
-			if(!IsModifier(k))
+			if(!IsModifier(k)) {
 				lastkey=k;
+			}
 			lastascii = getAsciiForKey(k,m);
+
+			if(keymap[IREKEY_LCONTROL] && keymap[IREKEY_PAUSE]) {
+				ithe_panic("User Break","User requested emergency quit");
+			}
+
 //			printf("Keydown %d\n", k);
 		}
 		if(sdlEvent.type == SDL_KEYUP)	{
@@ -86,8 +93,9 @@ void IRE_GetKeys()	{
 int IRE_TestKey(int keycode)
 {
 IRE_GetKeys();
-if(keycode > 0 && keycode < IREKEY_MAX)
+if(keycode > 0 && keycode < IREKEY_MAX) {
 	return keymap[keycode];
+}
 return 0;
 }
 
@@ -99,12 +107,15 @@ int m = SDL_GetModState();
 // Translate modifiers to IRE's internal format
 int im=0;
 
-if(m&KMOD_SHIFT)
+if(m&KMOD_SHIFT) {
 	im |= IRESHIFT_SHIFT;
-if(m&KMOD_CTRL)
+}
+if(m&KMOD_CTRL) {
 	im |= IRESHIFT_CONTROL;
-if(m&KMOD_ALT)
+}
+if(m&KMOD_ALT) {
 	im |= IRESHIFT_ALT;
+}
 
 // Is it the one(s) we want?
 if(im & shift)
@@ -126,8 +137,9 @@ while(!lastkey)	{
 //	usleep(500);
 }
 
-if(ascii)
+if(ascii) {
 	*ascii = lastascii;
+}
 a=lastkey;
 
 for(int ctr=0;ctr<REPEATMAX;ctr++)	{
@@ -170,10 +182,12 @@ if(!a) {
 }
 
 // We're bypassing the internal keybuffer so add the shift modifiers ourselves
-if(IRE_TestShift(IRESHIFT_SHIFT))
+if(IRE_TestShift(IRESHIFT_SHIFT)) {
 	a|=IREKEY_SHIFTMOD;
-if(IRE_TestShift(IRESHIFT_CONTROL))
+}
+if(IRE_TestShift(IRESHIFT_CONTROL)) {
 	a|=IREKEY_CTRLMOD;
+}
 
 for(int ctr=0;ctr<BUFFERREPEAT;ctr++)	{
 	if(!IRE_KeyPressed())	{
@@ -191,11 +205,13 @@ for(int ctr=0;ctr<BUFFERREPEAT;ctr++)	{
 	
 overrun++;
 
-if(overrun > 2)
+if(overrun > 2) {
 	overrun=0;
+}
 
-if(overrun)
+if(overrun) {
 	return 0;
+}
 
 return a;
 }
@@ -330,8 +346,9 @@ int IRE_GetMouse(int *b)
 {
 SDL_PumpEvents();
 int mousestate = SDL_GetMouseState(NULL,NULL);
-if(b)
+if(b) {
 	*b=XlateMousebuttons(mousestate);
+}
 return 1;
 }
 
@@ -341,28 +358,21 @@ int IRE_GetMouse(int *x, int *y, int *z, int *b)
 SDL_PumpEvents();
 IRE_GetKeys();
 int mousestate = SDL_GetMouseState(NULL,NULL);
-if(x)
+if(x) {
 	*x=mousex;
-if(y)
+}
+if(y) {
 	*y=mousey;
-if(z)	{
+}
+if(z) {
 	*z=mousez;
 	if(mousez) {
 		mousez=0;
 	}
 }
-/*
-if(z)
-	{
-	*z=0;
-	if(mousestate == 4)
-		*z=-1;
-	if(mousestate == 5)
-		*z=1;
-	}
-*/
-if(b)
+if(b) {
 	*b=XlateMousebuttons(mousestate);
+}
 return 1;
 }
 
@@ -383,12 +393,15 @@ int XlateMousebuttons(int input)
 int output=0;
 //if(input != 0)
 //	printf("mousebutton = %d\n",input);
-if(input & 1)
+if(input & 1) {
 	output |= IREMOUSE_LEFT;
-if(input & 2)
+}
+if(input & 2) {
 	output |= IREMOUSE_LEFT|IREMOUSE_RIGHT;
-if(input & 4)
+}
+if(input & 4) {
 	output |= IREMOUSE_RIGHT;
+}
 //if(output != 0)
 //	printf("mousebutton now = %d\n",output);
 return output;
